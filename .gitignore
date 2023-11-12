@@ -1,0 +1,10 @@
+.DS_Store
+.local/
+*.log
+*.tsbuildinfo
+coverage/
+dist/
+lib/
+node_modules/
+src/resources.generated/
+test-report.xml

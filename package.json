@@ -1,0 +1,62 @@
+{
+  "name": "@awboost/cfn-resource-schemas",
+  "version": "0.1.0",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Fetch and validate the latest CloudFormation Resource Schemas from AWS",
+  "type": "module",
+  "author": {
+    "email": "gordonmleigh@gmail.com",
+    "name": "Gordon Leigh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awboost/cfn-resource-schemas"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./lib/fetchResourceSchemas.d.ts",
+      "default": "./lib/fetchResourceSchemas.js"
+    },
+    "./meta": {
+      "types": "./lib/meta.d.ts",
+      "default": "./lib/meta.js"
+    },
+    "./types": {
+      "types": "./lib/types.d.ts",
+      "default": "./lib/types.js"
+    }
+  },
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.d.ts",
+    "lib/**/*.map",
+    "!lib/**/*.test.*",
+    "src/"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run compile && npm run lint",
+    "clean": "rm -rf lib/",
+    "compile": "tsc",
+    "lint": "eslint src/ --ext=ts"
+  },
+  "dependencies": {
+    "@types/json-schema": "^7.0.13",
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.18.9",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  }
+}
