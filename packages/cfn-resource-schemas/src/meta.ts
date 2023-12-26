@@ -1,7 +1,7 @@
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
-import { JSONSchema7 } from "json-schema";
-import { ResourceTypeSchema } from "./types.js";
+import type { JSONSchema7 } from "json-schema";
+import type { ResourceTypeSchema } from "./types.js";
 
 /**
  * JSON Schemas to validate the Resource Schema.

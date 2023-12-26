@@ -1,4 +1,4 @@
-import { IncomingHttpHeaders } from "http";
+import type { IncomingHttpHeaders } from "http";
 import { request } from "https";
 import { Readable } from "stream";
 import { createGunzip, createInflate } from "zlib";

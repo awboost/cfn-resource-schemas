@@ -1,7 +1,7 @@
 import JSZip from "jszip";
 import { readUrl } from "./internal/readUrl.js";
 import { validateResourceTypeSchema } from "./meta.js";
-import { ResourceTypeSchema } from "./types.js";
+import type { ResourceTypeSchema } from "./types.js";
 
 const DefaultUrl =
   "https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip";

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    // correctness
+    "allowJs": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "skipLibCheck": true,
+    "strict": true,
+    // modules
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    // language
+    "target": "ES2022",
+    // output
+    "declarationMap": true,
+    "declaration": true,
+    "isolatedModules": true,
+    "sourceMap": true,
+    "verbatimModuleSyntax": true,
+    // other
+    "noErrorTruncation": true,
+    "pretty": true
+  }
+}
