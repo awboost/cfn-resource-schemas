@@ -4,17 +4,26 @@
     "packages/*"
   ],
   "scripts": {
-    "compile": "node scripts/tsbuild.mjs scripts"
+    "clean": "rimraf --glob 'packages/*/lib' '**/tsconfig.tsbuildinfo'",
+    "compile": "node scripts/tsbuild.mjs scripts",
+    "generate:cached": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js generate .local/schemas --output-dir packages/cfn-resource-types/src --resource",
+    "test": "node --enable-source-maps --test",
+    "watch:compile": "node scripts/tsbuild.mjs scripts -- -w",
+    "watch:test": "node --enable-source-maps --test --watch"
   },
   "devDependencies": {
+    "@swc-node/register": "^1.6.8",
     "@types/glob": "^8.1.0",
+    "@types/json-pointer": "^1.0.34",
     "@types/node": "^20.10.5",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
+    "chalk": "^5.3.0",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
     "typescript": "^5.2.2"
   }
 }

@@ -1,0 +1,35 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "node --enable-source-maps node_modules/.bin/cfn-codegen generate .local/schemas --output-dir .local/code",
+      "name": "Run cfn-codegen generate",
+      "request": "launch",
+      "type": "node-terminal",
+      "skipFiles": ["<node_internals>/**"],
+      "outFiles": ["${workspaceFolder}/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Test",
+      "program": "${file}",
+      "runtimeArgs": ["--test"],
+      "skipFiles": ["<node_internals>/**"],
+      "outFiles": ["${workspaceFolder}/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "cfn-codegen download",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/packages/cfn-codegen/lib/main.js",
+      "args": ["download", "schemas"],
+      "cwd": "${workspaceFolder}/packages/cfn-resource-schemas-db",
+      "outFiles": ["${workspaceFolder}/**/*.js"]
+    }
+  ]
+}

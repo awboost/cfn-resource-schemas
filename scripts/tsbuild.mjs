@@ -1,7 +1,7 @@
 // @ts-check
 import { spawnSync } from "child_process";
 import { readFile, writeFile } from "fs/promises";
-import glob from "glob";
+import { glob } from "glob";
 import { dirname, join, relative, resolve } from "path";
 import Prettier from "prettier";
 

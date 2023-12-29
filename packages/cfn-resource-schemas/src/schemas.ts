@@ -6,10 +6,17 @@ import type { ResourceTypeSchema } from "./types.js";
 const DefaultUrl =
   "https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip";
 
-export async function* fetchResourceSchemas(
+export type DownloadAwsResourceSchemasOptions = {
+  skipValidate?: boolean;
+  url?: string;
+};
+
+export async function* downloadAwsResourceSchemas({
+  skipValidate = false,
   url = DefaultUrl,
-  validate = true,
-): AsyncGenerator<ResourceTypeSchema> {
+}: DownloadAwsResourceSchemasOptions): AsyncGenerator<
+  ResourceTypeSchema & { $id: string }
+> {
   const reader = await readUrl(url);
   const chunks: Buffer[] = [];
 
@@ -23,9 +30,10 @@ export async function* fetchResourceSchemas(
   for (const [path, file] of Object.entries(zip.files)) {
     try {
       const schema = JSON.parse(await file.async("text"));
-      if (validate) {
+      if (!skipValidate) {
         validateResourceTypeSchema(schema);
       }
+      schema.$id = path;
       yield schema;
     } catch (cause) {
       throw new Error(`processing error: ${path}`, { cause });
