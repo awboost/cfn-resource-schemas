@@ -289,6 +289,7 @@ export function generateDefinitionTypes(
 ): ts.Statement[] {
   return [...resource.definitions]
     .filter((def) => !shouldInlineType(def))
+    .sort((a, b) => a.typeName.localeCompare(b.typeName))
     .map((def) =>
       generateDefinitionType(def, {
         readOnlyProperties: type === "resource" ? "exclude" : undefined,
