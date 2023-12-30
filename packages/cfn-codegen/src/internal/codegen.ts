@@ -18,7 +18,7 @@ import ts from "typescript";
 
 const ResourceAttribsTypeSuffix = "Attributes";
 const ResourceAttribsTypeSuffixAlt = "Attribs";
-const ResourceBuilderLocalClass = "$ResourceBuilder";
+const ResourceBuilderLocalClass = "$Resource";
 const ResourceClassTypeProp = "Type";
 const ResourceClassSuffix = "";
 const ResourceModelTypeSuffix = "Model";
