@@ -37,6 +37,7 @@ export type ImportGenerationOptions = {
 
 export type TypeGenerationOptions = {
   readOnlyProperties?: "exclude" | "inline";
+  requiredProperties?: boolean;
 };
 
 type DocumentationProps = TypeDocumentation & {
@@ -80,33 +81,33 @@ function attachComment<T extends ts.Node>(
   }
 
   // number validation
-  if (props.minimum) {
+  if (props.minimum !== undefined) {
     lines.push(`@min \`${props.minimum}\``);
   }
-  if (props.maximum) {
+  if (props.maximum !== undefined) {
     lines.push(`@max \`${props.maximum}\``);
   }
 
   // string validation
-  if (props.minLength) {
+  if (props.minLength !== undefined) {
     lines.push(`@minLength \`${props.minLength}\``);
   }
-  if (props.maxLength) {
+  if (props.maxLength !== undefined) {
     lines.push(`@maxLength \`${props.maxLength}\``);
   }
-  if (props.pattern) {
+  if (props.pattern !== undefined) {
     lines.push(`@pattern \`${props.pattern}\``);
   }
 
   // array validation
-  if (props.minItems) {
-    lines.push(`@minLength \`${props.minLength}\``);
+  if (props.minItems !== undefined) {
+    lines.push(`@minLength \`${props.minItems}\``);
   }
-  if (props.maxItems) {
-    lines.push(`@maxLength \`${props.maxLength}\``);
+  if (props.maxItems !== undefined) {
+    lines.push(`@maxLength \`${props.maxItems}\``);
   }
 
-  if (props.documentationUrl) {
+  if (props.documentationUrl !== undefined) {
     lines.push(`@see {@link ${props.documentationUrl}}`);
   }
 
@@ -147,11 +148,22 @@ function makeDocumentationUrl(
   return url;
 }
 
-function shouldInlineType(type: TypeNode): boolean {
-  return !(
-    type instanceof ObjectTypeNode ||
-    (type instanceof PrimitiveTypeNodeBase && !type.enum && !type.const)
-  );
+function shouldInlineType(type: TypeNode, inlineAllObjects?: boolean): boolean {
+  if (type instanceof TypeDefinitionNode) {
+    return shouldInlineType(type.type, inlineAllObjects);
+  }
+  if (type instanceof ArrayTypeNode) {
+    // always inline arrays because the indirection isn't necessary
+    return true;
+  }
+  if (type instanceof PrimitiveTypeNodeBase) {
+    // only inline primitives if they aren't enums/consts
+    return !type.enum && !type.const;
+  }
+  if (type instanceof ObjectTypeNode && inlineAllObjects) {
+    return true;
+  }
+  return type instanceof BooleanTypeNode || type instanceof NullTypeNode;
 }
 
 function quoteName(name: string): ts.Identifier | ts.StringLiteral {
@@ -165,7 +177,7 @@ export function createObjectType(
   node: ObjectTypeNode,
   opts?: TypeGenerationOptions,
 ): ts.TypeNode {
-  if (node.additionalProperties) {
+  if (node.additionalProperties || node.properties.length === 0) {
     return ts.factory.createTypeReferenceNode("Record", [
       ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
       createType(node.additionalProperties, opts),
@@ -187,7 +199,8 @@ export function createObjectType(
         ts.factory.createPropertySignature(
           undefined,
           quoteName(prop.name),
-          prop.required
+          (prop.required || opts?.requiredProperties === true) &&
+            opts?.requiredProperties !== false
             ? undefined
             : ts.factory.createToken(ts.SyntaxKind.QuestionToken),
           createType(prop.type, opts),
@@ -247,8 +260,8 @@ export function createType(
     return ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword);
   } else if (node instanceof TypeDefinitionNode) {
     if (
-      opts?.readOnlyProperties === "inline" ||
-      (!node.isCircularRef && shouldInlineType(node))
+      !node.isCircularRef &&
+      shouldInlineType(node, opts?.readOnlyProperties === "inline")
     ) {
       return createType(node.type, opts);
     }
@@ -278,7 +291,7 @@ function generateDefinitionType(
       [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
       def.typeName,
       undefined,
-      createType(def, opts),
+      createType(def.type, opts),
     ),
   );
 }
@@ -288,7 +301,7 @@ export function generateDefinitionTypes(
   type: "model" | "resource",
 ): ts.Statement[] {
   return [...resource.definitions]
-    .filter((def) => !shouldInlineType(def))
+    .filter((def) => !shouldInlineType(def) && !def.isReadOnly())
     .sort((a, b) => a.typeName.localeCompare(b.typeName))
     .map((def) =>
       generateDefinitionType(def, {
@@ -372,7 +385,6 @@ export function generateResourceAttributesType(
       documentationUrl:
         resource.documentationUrl ??
         makeDocumentationUrl(resource.typeName, "attributes"),
-      description: resource.description,
       awsTypeName: resource.typeName,
       awsTypeKind: "attributes",
     },
@@ -380,7 +392,10 @@ export function generateResourceAttributesType(
       [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
       attributeTypeName,
       undefined,
-      createType(resource.model, { readOnlyProperties: "inline" }),
+      createType(resource.model, {
+        readOnlyProperties: "inline",
+        requiredProperties: true,
+      }),
     ),
   );
 }
