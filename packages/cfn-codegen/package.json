@@ -22,7 +22,11 @@
     "src/"
   ],
   "scripts": {
-    "lint": "eslint src/ --ext=ts"
+    "lint": "eslint src/ --ext=ts",
+    "postpublish": "npm run tag-version && git push --follow-tags",
+    "preversion": "git diff-index --quiet HEAD -- || echo 'Uncommitted changes present' && exit 1",
+    "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}",
+    "version": "git add package.json && git commit -m ${npm_package_name}@${npm_package_version}"
   },
   "dependencies": {
     "@awboost/cfn-resource-schemas": "^0.1.0",
