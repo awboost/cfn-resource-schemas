@@ -1,0 +1,15 @@
+{
+  "$hash": "f60cdad7dc1a8f9603566a1af30ff40d1036ba9d",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/PolicyName", "/properties/Principal"],
+  "description": "Resource Type definition for AWS::IoT::PolicyPrincipalAttachment",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "Id": { "type": "string" },
+    "PolicyName": { "type": "string" },
+    "Principal": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["Principal", "PolicyName"],
+  "typeName": "AWS::IoT::PolicyPrincipalAttachment"
+}

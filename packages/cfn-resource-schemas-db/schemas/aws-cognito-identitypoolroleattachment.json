@@ -1,0 +1,16 @@
+{
+  "$hash": "03d0ca7c72e8a6310162e0b4a85416af75bb8e0c",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/IdentityPoolId"],
+  "description": "Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "Id": { "type": "string" },
+    "IdentityPoolId": { "type": "string" },
+    "RoleMappings": { "type": "object" },
+    "Roles": { "type": "object" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["IdentityPoolId"],
+  "typeName": "AWS::Cognito::IdentityPoolRoleAttachment"
+}

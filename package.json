@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rimraf --glob 'packages/*/lib' '**/tsconfig.tsbuildinfo'",
     "compile": "node scripts/tsbuild.mjs scripts",
-    "generate:cached": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js generate .local/schemas --output-dir packages/cfn-resource-types/src --resource",
+    "download": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js download packages/cfn-resource-schemas-db/schemas",
+    "generate:cached": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js generate packages/cfn-resource-schemas-db/schemas --output-dir packages/cfn-resource-types/src --resource",
     "test": "node --enable-source-maps --test",
     "watch:compile": "node scripts/tsbuild.mjs scripts -- -w",
     "watch:test": "node --enable-source-maps --test --watch"

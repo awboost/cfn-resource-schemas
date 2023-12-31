@@ -1,0 +1,13 @@
+{
+  "$hash": "ea9a7f506a9317447c3c890080dc0fc5e2ca94de",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/RuleSetName"],
+  "description": "Resource Type definition for AWS::SES::ReceiptRuleSet",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "Id": { "type": "string" },
+    "RuleSetName": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "typeName": "AWS::SES::ReceiptRuleSet"
+}

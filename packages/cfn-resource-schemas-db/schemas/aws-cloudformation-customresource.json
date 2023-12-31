@@ -1,0 +1,14 @@
+{
+  "$hash": "89cf6df2822e9839f10594e611a49800039eeb80",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/ServiceToken"],
+  "description": "Resource Type definition for AWS::CloudFormation::CustomResource",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "Id": { "type": "string" },
+    "ServiceToken": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["ServiceToken"],
+  "typeName": "AWS::CloudFormation::CustomResource"
+}

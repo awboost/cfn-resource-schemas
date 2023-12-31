@@ -1,0 +1,19 @@
+{
+  "$hash": "7962a140bab251b7eb8db2dac75de8b58ce7babf",
+  "additionalProperties": false,
+  "createOnlyProperties": [
+    "/properties/CertificateIdentifier",
+    "/properties/CertificatePem",
+    "/properties/CertificateWallet"
+  ],
+  "description": "Resource Type definition for AWS::DMS::Certificate",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "CertificateIdentifier": { "type": "string" },
+    "CertificatePem": { "type": "string" },
+    "CertificateWallet": { "type": "string" },
+    "Id": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "typeName": "AWS::DMS::Certificate"
+}

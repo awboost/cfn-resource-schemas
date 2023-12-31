@@ -1,0 +1,53 @@
+{
+  "$hash": "022e8d6826e0f6635fd8b8b932c4f08bd1a5240f",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/Name"],
+  "definitions": {
+    "ExclusionByResourceTypes": {
+      "additionalProperties": false,
+      "properties": {
+        "ResourceTypes": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": ["ResourceTypes"],
+      "type": "object"
+    },
+    "RecordingGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "AllSupported": { "type": "boolean" },
+        "ExclusionByResourceTypes": {
+          "$ref": "#/definitions/ExclusionByResourceTypes"
+        },
+        "IncludeGlobalResourceTypes": { "type": "boolean" },
+        "RecordingStrategy": { "$ref": "#/definitions/RecordingStrategy" },
+        "ResourceTypes": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
+    "RecordingStrategy": {
+      "additionalProperties": false,
+      "properties": { "UseOnly": { "type": "string" } },
+      "required": ["UseOnly"],
+      "type": "object"
+    }
+  },
+  "description": "Resource Type definition for AWS::Config::ConfigurationRecorder",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "Id": { "type": "string" },
+    "Name": { "type": "string" },
+    "RecordingGroup": { "$ref": "#/definitions/RecordingGroup" },
+    "RoleARN": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["RoleARN"],
+  "typeName": "AWS::Config::ConfigurationRecorder"
+}

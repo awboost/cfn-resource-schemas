@@ -1,0 +1,19 @@
+{
+  "$hash": "e2549c5296a75da134b83a487a95742977b7eab2",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/ApplicationId"],
+  "description": "Resource Type definition for AWS::Pinpoint::EmailChannel",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "ApplicationId": { "type": "string" },
+    "ConfigurationSet": { "type": "string" },
+    "Enabled": { "type": "boolean" },
+    "FromAddress": { "type": "string" },
+    "Id": { "type": "string" },
+    "Identity": { "type": "string" },
+    "RoleArn": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["FromAddress", "ApplicationId", "Identity"],
+  "typeName": "AWS::Pinpoint::EmailChannel"
+}

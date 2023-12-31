@@ -1,0 +1,15 @@
+{
+  "$hash": "872ddc5fb8bb0be0c5f8026070410251e00177ab",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/ParameterGroupName"],
+  "description": "Resource Type definition for AWS::DAX::ParameterGroup",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "Description": { "type": "string" },
+    "Id": { "type": "string" },
+    "ParameterGroupName": { "type": "string" },
+    "ParameterNameValues": { "type": "object" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "typeName": "AWS::DAX::ParameterGroup"
+}

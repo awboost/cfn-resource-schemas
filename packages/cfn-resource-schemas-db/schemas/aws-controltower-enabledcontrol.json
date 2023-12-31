@@ -1,0 +1,102 @@
+{
+  "$hash": "e390c015a6ea0af36445ace4d7dcf0653b0bef12",
+  "additionalProperties": false,
+  "createOnlyProperties": [
+    "/properties/TargetIdentifier",
+    "/properties/ControlIdentifier"
+  ],
+  "definitions": {},
+  "description": "Enables a control on a specified target.",
+  "handlers": {
+    "create": {
+      "permissions": [
+        "controltower:ListEnabledControls",
+        "controltower:GetEnabledControl",
+        "controltower:GetControlOperation",
+        "controltower:EnableControl",
+        "organizations:UpdatePolicy",
+        "organizations:CreatePolicy",
+        "organizations:AttachPolicy",
+        "organizations:DetachPolicy",
+        "organizations:ListPoliciesForTarget",
+        "organizations:ListTargetsForPolicy",
+        "organizations:DescribePolicy"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "controltower:GetControlOperation",
+        "controltower:DisableControl",
+        "organizations:UpdatePolicy",
+        "organizations:DeletePolicy",
+        "organizations:CreatePolicy",
+        "organizations:AttachPolicy",
+        "organizations:DetachPolicy",
+        "organizations:ListPoliciesForTarget",
+        "organizations:ListTargetsForPolicy",
+        "organizations:DescribePolicy"
+      ]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "TargetIdentifier": {
+            "$ref": "resource-schema.json#/properties/TargetIdentifier"
+          }
+        },
+        "required": ["TargetIdentifier"]
+      },
+      "permissions": ["controltower:ListEnabledControls"]
+    },
+    "read": {
+      "permissions": [
+        "controltower:ListEnabledControls",
+        "controltower:GetEnabledControl"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "controltower:ListEnabledControls",
+        "controltower:GetEnabledControl",
+        "controltower:GetControlOperation",
+        "controltower:UpdateEnabledControl",
+        "organizations:UpdatePolicy",
+        "organizations:CreatePolicy",
+        "organizations:AttachPolicy",
+        "organizations:DetachPolicy",
+        "organizations:ListPoliciesForTarget",
+        "organizations:ListTargetsForPolicy",
+        "organizations:DescribePolicy"
+      ]
+    }
+  },
+  "primaryIdentifier": [
+    "/properties/TargetIdentifier",
+    "/properties/ControlIdentifier"
+  ],
+  "properties": {
+    "ControlIdentifier": {
+      "description": "Arn of the control.",
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "^arn:aws[0-9a-zA-Z_\\-:\\/]+$",
+      "type": "string"
+    },
+    "TargetIdentifier": {
+      "description": "Arn for Organizational unit to which the control needs to be applied",
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "^arn:aws[0-9a-zA-Z_\\-:\\/]+$",
+      "type": "string"
+    }
+  },
+  "required": ["TargetIdentifier", "ControlIdentifier"],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-controltower",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
+  "typeName": "AWS::ControlTower::EnabledControl"
+}

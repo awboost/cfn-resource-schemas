@@ -1,0 +1,15 @@
+{
+  "$hash": "bd1d2bb62b33e857d85100391ada3962159ab2a4",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/TagOptionId", "/properties/ResourceId"],
+  "description": "Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "Id": { "type": "string" },
+    "ResourceId": { "type": "string" },
+    "TagOptionId": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["TagOptionId", "ResourceId"],
+  "typeName": "AWS::ServiceCatalog::TagOptionAssociation"
+}
