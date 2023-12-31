@@ -51,6 +51,19 @@ export type IoTWirelessMulticastGroupAttributes = {
    */
   Id: string;
   /**
+   * Multicast group LoRaWAN
+   */
+  LoRaWAN: {
+    /**
+     * Multicast group number of devices in group. Returned after successful read.
+     */
+    NumberOfDevicesInGroup: number;
+    /**
+     * Multicast group number of devices requested. Returned after successful read.
+     */
+    NumberOfDevicesRequested: number;
+  };
+  /**
    * Multicast group status. Returned after successful read.
    */
   Status: string;

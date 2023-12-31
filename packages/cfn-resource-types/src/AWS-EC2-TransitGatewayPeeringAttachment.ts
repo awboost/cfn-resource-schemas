@@ -42,7 +42,16 @@ export type EC2TransitGatewayPeeringAttachmentAttributes = {
   /**
    * The status of the transit gateway peering attachment.
    */
-  Status: {};
+  Status: {
+    /**
+     * The status code.
+     */
+    Code: string;
+    /**
+     * The status message, if applicable.
+     */
+    Message: string;
+  };
   /**
    * The ID of the transit gateway peering attachment.
    */

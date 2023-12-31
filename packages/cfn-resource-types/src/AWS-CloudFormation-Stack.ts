@@ -50,7 +50,12 @@ export type CloudFormationStackAttributes = {
   ChangeSetId: string;
   CreationTime: string;
   LastUpdateTime: string;
-  Outputs: {}[];
+  Outputs: {
+    Description: string;
+    ExportName: string;
+    OutputKey: string;
+    OutputValue: string;
+  }[];
   ParentId: string;
   RootId: string;
   StackId: string;

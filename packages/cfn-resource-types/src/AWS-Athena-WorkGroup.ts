@@ -46,6 +46,34 @@ export type AthenaWorkGroupAttributes = {
    * The date and time the workgroup was created.
    */
   CreationTime: string;
+  /**
+   * The workgroup configuration
+   */
+  WorkGroupConfiguration: {
+    /**
+     * The Athena engine version for running queries.
+     */
+    EngineVersion: {
+      /**
+       * Read only. The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a CreateWorkGroup or UpdateWorkGroup operation, the EffectiveEngineVersion field is ignored.
+       */
+      EffectiveEngineVersion: string;
+    };
+  };
+  /**
+   * The workgroup configuration update object
+   */
+  WorkGroupConfigurationUpdates: {
+    /**
+     * The Athena engine version for running queries.
+     */
+    EngineVersion: {
+      /**
+       * Read only. The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a CreateWorkGroup or UpdateWorkGroup operation, the EffectiveEngineVersion field is ignored.
+       */
+      EffectiveEngineVersion: string;
+    };
+  };
 };
 /**
  * Type definition for `AWS::Athena::WorkGroup.AclConfiguration`.

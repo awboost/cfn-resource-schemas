@@ -35,6 +35,27 @@ export type IoTWirelessServiceProfileAttributes = {
    * @maxLength `256`
    */
   Id: string;
+  /**
+   * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
+   */
+  LoRaWAN: {
+    ChannelMask: string;
+    DevStatusReqFreq: number;
+    DlBucketSize: number;
+    DlRate: number;
+    DlRatePolicy: string;
+    DrMax: number;
+    DrMin: number;
+    HrAllowed: boolean;
+    MinGwDiversity: number;
+    NwkGeoLoc: boolean;
+    ReportDevStatusBattery: boolean;
+    ReportDevStatusMargin: boolean;
+    TargetPer: number;
+    UlBucketSize: number;
+    UlRate: number;
+    UlRatePolicy: string;
+  };
 };
 /**
  * Type definition for `AWS::IoTWireless::ServiceProfile.LoRaWANServiceProfile`.

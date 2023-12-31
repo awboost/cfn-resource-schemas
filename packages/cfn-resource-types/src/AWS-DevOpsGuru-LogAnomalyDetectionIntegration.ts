@@ -5,7 +5,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-loganomalydetectionintegration.html}
  */
-export type DevOpsGuruLogAnomalyDetectionIntegrationProperties = {};
+export type DevOpsGuruLogAnomalyDetectionIntegrationProperties = Record<
+  string,
+  never
+>;
 /**
  * Attribute type definition for `AWS::DevOpsGuru::LogAnomalyDetectionIntegration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-loganomalydetectionintegration.html#aws-resource-devopsguru-loganomalydetectionintegration-return-values}

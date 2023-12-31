@@ -24,7 +24,26 @@ export type VerifiedPermissionsIdentitySourceProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#aws-resource-verifiedpermissions-identitysource-return-values}
  */
 export type VerifiedPermissionsIdentitySourceAttributes = {
-  Details: {};
+  Details: {
+    /**
+     * @minLength `0`
+     * @maxLength `1000`
+     */
+    ClientIds: string[];
+    /**
+     * @minLength `1`
+     * @maxLength `2048`
+     * @pattern `^https://.*$`
+     */
+    DiscoveryUrl: string;
+    OpenIdIssuer: OpenIdIssuer;
+    /**
+     * @minLength `1`
+     * @maxLength `255`
+     * @pattern `^arn:[a-zA-Z0-9-]+:cognito-idp:(([a-zA-Z0-9-]+:\d{12}:userpool/[\w-]+_[0-9a-zA-Z]+))$`
+     */
+    UserPoolArn: string;
+  };
   /**
    * @minLength `1`
    * @maxLength `200`

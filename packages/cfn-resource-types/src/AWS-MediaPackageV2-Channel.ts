@@ -31,7 +31,10 @@ export type MediaPackageV2ChannelProperties = {
 export type MediaPackageV2ChannelAttributes = {
   Arn: string;
   CreatedAt: string;
-  IngestEndpoints: {}[];
+  IngestEndpoints: {
+    Id: string;
+    Url: string;
+  }[];
   ModifiedAt: string;
 };
 /**

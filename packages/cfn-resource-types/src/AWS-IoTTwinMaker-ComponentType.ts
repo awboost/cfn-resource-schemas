@@ -83,7 +83,19 @@ export type IoTTwinMakerComponentTypeAttributes = {
   /**
    * The current status of the component type.
    */
-  Status: {};
+  Status: {
+    Error:
+      | Record<string, any>
+      | {
+          Code: "VALIDATION_ERROR" | "INTERNAL_FAILURE";
+          /**
+           * @minLength `0`
+           * @maxLength `2048`
+           */
+          Message: string;
+        };
+    State: "CREATING" | "UPDATING" | "DELETING" | "ACTIVE" | "ERROR";
+  };
   /**
    * The last date and time when the component type was updated.
    */

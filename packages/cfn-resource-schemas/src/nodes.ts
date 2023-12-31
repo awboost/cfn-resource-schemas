@@ -165,7 +165,7 @@ export class PropertyListNode extends NodeBase<string[]> {
   }
 
   public includes(path: string): boolean {
-    return this.schema.includes(path);
+    return !!this.schema.find((x) => x === path || path.startsWith(x + "/"));
   }
 
   private convertChildPath(
@@ -301,7 +301,11 @@ export class TypeNode extends SchemaNodeBase {
     return new InvalidTypeNode(schema, file, path);
   }
 
-  public isReadOnly(): boolean {
+  public allChildrenReadOnly(): boolean {
+    return false;
+  }
+
+  public anyChildrenReadOnly(): boolean {
     return false;
   }
 }
@@ -351,8 +355,12 @@ export class ArrayTypeNode extends TypeNode {
     }
   }
 
-  public override isReadOnly(): boolean {
-    return !!this.items?.isReadOnly();
+  public override allChildrenReadOnly(): boolean {
+    return !!this.items?.allChildrenReadOnly();
+  }
+
+  public override anyChildrenReadOnly(): boolean {
+    return !!this.items?.anyChildrenReadOnly();
   }
 }
 
@@ -519,7 +527,7 @@ export class PropertyNode extends SchemaNodeBase {
 
     // set the prop to readonly if the property type is readonly.
     // this means that all of the properties of the type are readonly, or similar.
-    if (this.type?.isReadOnly()) {
+    if (this.type?.allChildrenReadOnly()) {
       this.readOnly = true;
     }
 
@@ -589,10 +597,15 @@ export class ObjectTypeNode extends TypeNode {
     }
   }
 
-  public override isReadOnly(): boolean {
+  public override allChildrenReadOnly(): boolean {
     return (
-      this.properties.length > 0 &&
-      this.properties.every((x) => x.readOnly || x.type?.isReadOnly())
+      this.properties.length > 0 && this.properties.every((x) => x.readOnly)
+    );
+  }
+
+  public override anyChildrenReadOnly(): boolean {
+    return this.properties.some(
+      (x) => x.readOnly || x.type?.anyChildrenReadOnly(),
     );
   }
 }
@@ -632,11 +645,18 @@ export class TypeDefinitionNode extends TypeNode {
     this.description = this.type.description;
   }
 
-  public override isReadOnly(): boolean {
+  public override allChildrenReadOnly(): boolean {
     if (this.isCircularRef) {
       return false;
     }
-    return this.type.isReadOnly();
+    return this.type.allChildrenReadOnly();
+  }
+
+  public override anyChildrenReadOnly(): boolean {
+    if (this.isCircularRef) {
+      return false;
+    }
+    return this.type.anyChildrenReadOnly();
   }
 }
 
@@ -734,7 +754,9 @@ export class UnionTypeNode extends TypeNode {
     this.types = types;
   }
 
-  public override isReadOnly(): boolean {
-    return !!this.types?.length && this.types?.every((x) => x.isReadOnly());
+  public override allChildrenReadOnly(): boolean {
+    return (
+      !!this.types?.length && this.types?.every((x) => x.allChildrenReadOnly())
+    );
   }
 }

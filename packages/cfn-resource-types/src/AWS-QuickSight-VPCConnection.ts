@@ -52,7 +52,32 @@ export type QuickSightVPCConnectionAttributes = {
   /**
    * @maxLength `15`
    */
-  NetworkInterfaces: {}[];
+  NetworkInterfaces: {
+    AvailabilityZone: string;
+    ErrorMessage: string;
+    /**
+     * @maxLength `255`
+     * @pattern `^eni-[0-9a-z]*$`
+     */
+    NetworkInterfaceId: string;
+    Status:
+      | "CREATING"
+      | "AVAILABLE"
+      | "CREATION_FAILED"
+      | "UPDATING"
+      | "UPDATE_FAILED"
+      | "DELETING"
+      | "DELETED"
+      | "DELETION_FAILED"
+      | "DELETION_SCHEDULED"
+      | "ATTACHMENT_FAILED_ROLLBACK_FAILED";
+    /**
+     * @minLength `1`
+     * @maxLength `255`
+     * @pattern `^subnet-[0-9a-z]*$`
+     */
+    SubnetId: string;
+  }[];
   Status: VPCConnectionResourceStatus;
   VPCId: string;
 };

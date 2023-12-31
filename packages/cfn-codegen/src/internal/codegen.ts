@@ -36,8 +36,8 @@ export type ImportGenerationOptions = {
 };
 
 export type TypeGenerationOptions = {
-  readOnlyProperties?: "exclude" | "inline";
-  requiredProperties?: boolean;
+  inline?: boolean;
+  mode?: "attributes" | "properties";
 };
 
 type DocumentationProps = TypeDocumentation & {
@@ -176,38 +176,68 @@ function quoteName(name: string): ts.Identifier | ts.StringLiteral {
 export function createObjectType(
   node: ObjectTypeNode,
   opts?: TypeGenerationOptions,
+  emptyTypeIsEmpty = false,
 ): ts.TypeNode {
-  if (node.additionalProperties || node.properties.length === 0) {
-    return ts.factory.createTypeReferenceNode("Record", [
-      ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
-      createType(node.additionalProperties, opts),
-    ]);
-  }
-
   let props: PropertyNode[];
-  if (opts?.readOnlyProperties === "inline") {
-    props = node.properties.filter((x) => x.readOnly);
-  } else if (opts?.readOnlyProperties === "exclude") {
+  if (opts?.mode === "attributes" && !opts?.inline) {
+    props = node.properties.filter(
+      (x) => x.readOnly || x.type?.anyChildrenReadOnly(),
+    );
+  } else if (opts?.mode === "properties") {
     props = node.properties.filter((x) => !x.readOnly);
   } else {
     props = node.properties;
   }
-  return ts.factory.createTypeLiteralNode(
-    props.map((prop) =>
-      attachComment(
-        prop.documentation,
-        ts.factory.createPropertySignature(
-          undefined,
-          quoteName(prop.name),
-          (prop.required || opts?.requiredProperties === true) &&
-            opts?.requiredProperties !== false
-            ? undefined
-            : ts.factory.createToken(ts.SyntaxKind.QuestionToken),
-          createType(prop.type, opts),
+
+  let recordType: ts.TypeNode | undefined;
+
+  if (node.additionalProperties || props.length === 0) {
+    let valueType: ts.TypeNode;
+    if (node.additionalProperties) {
+      valueType = createType(node.additionalProperties, opts);
+    } else if (emptyTypeIsEmpty) {
+      valueType = ts.factory.createToken(ts.SyntaxKind.NeverKeyword);
+    } else {
+      valueType = ts.factory.createToken(ts.SyntaxKind.AnyKeyword);
+    }
+    recordType = ts.factory.createTypeReferenceNode("Record", [
+      ts.factory.createKeywordTypeNode(ts.SyntaxKind.StringKeyword),
+      valueType,
+    ]);
+  }
+
+  let objectType: ts.TypeNode | undefined;
+  if (props.length) {
+    objectType = ts.factory.createTypeLiteralNode(
+      props.map((prop) =>
+        attachComment(
+          prop.documentation,
+          ts.factory.createPropertySignature(
+            undefined,
+            quoteName(prop.name),
+            prop.required || opts?.mode === "attributes"
+              ? undefined
+              : ts.factory.createToken(ts.SyntaxKind.QuestionToken),
+            createType(prop.type, {
+              ...opts,
+              inline:
+                opts?.inline || (prop.readOnly && opts?.mode === "attributes"),
+            }),
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
+
+  if (recordType && objectType) {
+    return ts.factory.createIntersectionTypeNode([recordType, objectType]);
+  } else if (recordType) {
+    return recordType;
+  } else if (objectType) {
+    return objectType;
+  }
+  // we shouldn't get here due to the logic above
+  throw new Error(`expected to have either record type or object type`);
 }
 
 export function createType(
@@ -261,7 +291,7 @@ export function createType(
   } else if (node instanceof TypeDefinitionNode) {
     if (
       !node.isCircularRef &&
-      shouldInlineType(node, opts?.readOnlyProperties === "inline")
+      shouldInlineType(node, opts?.mode === "attributes")
     ) {
       return createType(node.type, opts);
     }
@@ -301,11 +331,11 @@ export function generateDefinitionTypes(
   type: "model" | "resource",
 ): ts.Statement[] {
   return [...resource.definitions]
-    .filter((def) => !shouldInlineType(def) && !def.isReadOnly())
+    .filter((def) => !shouldInlineType(def) && !def.allChildrenReadOnly())
     .sort((a, b) => a.typeName.localeCompare(b.typeName))
     .map((def) =>
       generateDefinitionType(def, {
-        readOnlyProperties: type === "resource" ? "exclude" : undefined,
+        mode: type === "resource" ? "properties" : undefined,
       }),
     );
 }
@@ -352,7 +382,7 @@ export function generateResourcePropsType(
       [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
       propertyTypeName,
       undefined,
-      createType(resource.model, { readOnlyProperties: "exclude" }),
+      createObjectType(resource.model, { mode: "properties" }, true),
     ),
   );
 }
@@ -392,10 +422,7 @@ export function generateResourceAttributesType(
       [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
       attributeTypeName,
       undefined,
-      createType(resource.model, {
-        readOnlyProperties: "inline",
-        requiredProperties: true,
-      }),
+      createType(resource.model, { mode: "attributes" }),
     ),
   );
 }

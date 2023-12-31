@@ -76,6 +76,16 @@ export type IoTWirelessFuotaTaskAttributes = {
    * @maxLength `256`
    */
   Id: string;
+  /**
+   * FUOTA task LoRaWAN
+   */
+  LoRaWAN: {
+    /**
+     * FUOTA task LoRaWAN start time
+     * @maxLength `64`
+     */
+    StartTime: string;
+  };
 };
 /**
  * Type definition for `AWS::IoTWireless::FuotaTask.LoRaWAN`.

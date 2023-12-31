@@ -94,7 +94,33 @@ export type SageMakerInferenceExperimentAttributes = {
   /**
    * The metadata of the endpoint on which the inference experiment ran.
    */
-  EndpointMetadata: {};
+  EndpointMetadata: {
+    /**
+     * The name of the endpoint configuration.
+     * @maxLength `63`
+     * @pattern `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`
+     */
+    EndpointConfigName: string;
+    /**
+     * The name of the endpoint used to run the inference experiment.
+     * @maxLength `63`
+     * @pattern `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`
+     */
+    EndpointName: string;
+    /**
+     * The status of the endpoint. For possible values of the status of an endpoint.
+     * @pattern `^[a-zA-Z0-9](-*[a-zA-Z0-9])*`
+     */
+    EndpointStatus:
+      | "Creating"
+      | "Updating"
+      | "SystemUpdating"
+      | "RollingBack"
+      | "InService"
+      | "OutOfService"
+      | "Deleting"
+      | "Failed";
+  };
   /**
    * The timestamp at which you last modified the inference experiment.
    */

@@ -37,7 +37,18 @@ export type NimbleStudioStreamingImageAttributes = {
   /**
    * <p>TODO</p>
    */
-  EncryptionConfiguration: {};
+  EncryptionConfiguration: {
+    /**
+     * <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+     * @minLength `4`
+     * @pattern `^arn:.*`
+     */
+    KeyArn: string;
+    /**
+     * <p/>
+     */
+    KeyType: StreamingImageEncryptionConfigurationKeyType;
+  };
   /**
    * <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
    */

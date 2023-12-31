@@ -54,6 +54,20 @@ export type LightsailContainerAttributes = {
    */
   PrincipalArn: string;
   /**
+   * A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+   */
+  PrivateRegistryAccess: {
+    /**
+     * An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
+     */
+    EcrImagePullerRole: {
+      /**
+       * The Amazon Resource Name (ARN) of the role, if it is activated.
+       */
+      PrincipalArn: string;
+    };
+  };
+  /**
    * The publicly accessible URL of the container service.
    */
   Url: string;

@@ -26,14 +26,14 @@
       "name": "Debug Test",
       "program": "${file}",
       "runtimeArgs": ["--test"],
-      "skipFiles": ["<node_internals>/**"],
+      "skipFiles": ["<node_internals>/**", "**/node_modules/typescript/**"],
       "outFiles": ["${workspaceFolder}/**/*.js"]
     },
     {
       "type": "node",
       "request": "launch",
       "name": "cfn-codegen download",
-      "skipFiles": ["<node_internals>/**"],
+      "skipFiles": ["<node_internals>/**", "**/node_modules/typescript/**"],
       "program": "${workspaceFolder}/packages/cfn-codegen/lib/main.js",
       "args": ["download", "schemas"],
       "cwd": "${workspaceFolder}/packages/cfn-resource-schemas-db",

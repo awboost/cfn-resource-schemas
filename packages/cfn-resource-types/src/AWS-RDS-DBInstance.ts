@@ -376,6 +376,15 @@ export type RDSDBInstanceAttributes = {
      */
     Port: string;
   };
+  /**
+   * Contains the secret managed by RDS in AWS Secrets Manager for the master user password.
+   */
+  MasterUserSecret: {
+    /**
+     * The Amazon Resource Name (ARN) of the secret.
+     */
+    SecretArn: string;
+  };
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.DBInstanceRole`.

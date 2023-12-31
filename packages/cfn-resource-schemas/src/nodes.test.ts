@@ -942,6 +942,36 @@ describe("PropertyListNode", () => {
     ]);
   });
 
+  it("considers a property included if its parent is included", () => {
+    const file = new SchemaFileNode(
+      {
+        typeName: "Acme::Service::Resource",
+        description: "a resource",
+        primaryIdentifier: [],
+        properties: {
+          one: {
+            type: "object",
+            properties: {
+              child1: {
+                type: "string",
+              },
+            },
+          },
+        },
+      },
+      "file.json",
+    );
+
+    const node = new PropertyListNode(
+      ["/properties/one"],
+      file,
+      "/readOnlyProperties",
+    );
+
+    assert.deepStrictEqual(node.schema, ["/properties/one"]);
+    assert.ok(node.includes("/properties/one/properties/child1"));
+  });
+
   it("converts dot-delimited paths for properties in inline object types", () => {
     const file = new SchemaFileNode(
       {

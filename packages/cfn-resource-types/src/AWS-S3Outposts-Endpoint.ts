@@ -71,7 +71,13 @@ export type S3OutpostsEndpointAttributes = {
   /**
    * The network interfaces of the endpoint.
    */
-  NetworkInterfaces: {}[];
+  NetworkInterfaces: {
+    /**
+     * @minLength `1`
+     * @maxLength `100`
+     */
+    NetworkInterfaceId: string;
+  }[];
   Status:
     | "Available"
     | "Pending"

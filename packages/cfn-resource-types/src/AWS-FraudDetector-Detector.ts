@@ -63,9 +63,97 @@ export type FraudDetectorDetectorAttributes = {
    */
   DetectorVersionId: string;
   /**
+   * The event type to associate this detector with.
+   */
+  EventType: {
+    /**
+     * The ARN of the event type.
+     */
+    Arn: string;
+    /**
+     * The time when the event type was created.
+     */
+    CreatedTime: string;
+    /**
+     * @minLength `1`
+     */
+    EntityTypes: {
+      Arn: string;
+      /**
+       * The time when the entity type was created.
+       */
+      CreatedTime: string;
+      /**
+       * The time when the entity type was last updated.
+       */
+      LastUpdatedTime: string;
+    }[];
+    /**
+     * @minLength `1`
+     */
+    EventVariables: {
+      Arn: string;
+      /**
+       * The time when the event variable was created.
+       */
+      CreatedTime: string;
+      /**
+       * The time when the event variable was last updated.
+       */
+      LastUpdatedTime: string;
+    }[];
+    /**
+     * @minLength `2`
+     */
+    Labels: {
+      Arn: string;
+      /**
+       * The time when the label was created.
+       */
+      CreatedTime: string;
+      /**
+       * The time when the label was last updated.
+       */
+      LastUpdatedTime: string;
+    }[];
+    /**
+     * The time when the event type was last updated.
+     */
+    LastUpdatedTime: string;
+  };
+  /**
    * The time when the detector was last updated.
    */
   LastUpdatedTime: string;
+  /**
+   * @minLength `1`
+   */
+  Rules: {
+    Arn: string;
+    /**
+     * The time when the event type was created.
+     */
+    CreatedTime: string;
+    /**
+     * The time when the event type was last updated.
+     */
+    LastUpdatedTime: string;
+    /**
+     * @minLength `1`
+     */
+    Outcomes: {
+      Arn: string;
+      /**
+       * The time when the outcome was created.
+       */
+      CreatedTime: string;
+      /**
+       * The time when the outcome was last updated.
+       */
+      LastUpdatedTime: string;
+    }[];
+    RuleVersion: string;
+  }[];
 };
 /**
  * Type definition for `AWS::FraudDetector::Detector.EntityType`.

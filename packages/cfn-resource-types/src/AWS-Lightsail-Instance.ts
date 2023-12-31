@@ -60,6 +60,19 @@ export type LightsailInstanceProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html#aws-resource-lightsail-instance-return-values}
  */
 export type LightsailInstanceAttributes = {
+  /**
+   * Hardware of the Instance.
+   */
+  Hardware: {
+    /**
+     * CPU count of the Instance.
+     */
+    CpuCount: number;
+    /**
+     * RAM Size of the Instance.
+     */
+    RamSizeInGb: number;
+  };
   InstanceArn: string;
   /**
    * Is the IP Address of the Instance is the static IP
@@ -77,6 +90,20 @@ export type LightsailInstanceAttributes = {
      * The Region Name in which to create your instance.
      */
     RegionName: string;
+  };
+  /**
+   * Networking of the Instance.
+   */
+  Networking: {
+    /**
+     * Monthly Transfer of the Instance.
+     */
+    MonthlyTransfer: {
+      /**
+       * GbPerMonthAllocated of the Instance.
+       */
+      GbPerMonthAllocated: string;
+    };
   };
   /**
    * Private IP Address of the Instance

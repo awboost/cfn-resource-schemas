@@ -15,13 +15,814 @@ export type EC2NetworkInsightsAnalysisProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#aws-resource-ec2-networkinsightsanalysis-return-values}
  */
 export type EC2NetworkInsightsAnalysisAttributes = {
-  AlternatePathHints: {}[];
-  Explanations: {}[];
-  ForwardPathComponents: {}[];
+  AlternatePathHints: {
+    ComponentArn: string;
+    ComponentId: string;
+  }[];
+  Explanations: {
+    Acl: {
+      Arn: string;
+      Id: string;
+    };
+    AclRule: {
+      Cidr: string;
+      Egress: boolean;
+      PortRange: {
+        From: number;
+        To: number;
+      };
+      Protocol: string;
+      RuleAction: string;
+      RuleNumber: number;
+    };
+    Address: string;
+    Addresses: string[];
+    AttachedTo: {
+      Arn: string;
+      Id: string;
+    };
+    AvailabilityZones: string[];
+    Cidrs: string[];
+    ClassicLoadBalancerListener: {
+      InstancePort: number;
+      LoadBalancerPort: number;
+    };
+    Component: {
+      Arn: string;
+      Id: string;
+    };
+    ComponentAccount: string;
+    ComponentRegion: string;
+    CustomerGateway: {
+      Arn: string;
+      Id: string;
+    };
+    Destination: {
+      Arn: string;
+      Id: string;
+    };
+    DestinationVpc: {
+      Arn: string;
+      Id: string;
+    };
+    Direction: string;
+    ElasticLoadBalancerListener: {
+      Arn: string;
+      Id: string;
+    };
+    ExplanationCode: string;
+    IngressRouteTable: {
+      Arn: string;
+      Id: string;
+    };
+    InternetGateway: {
+      Arn: string;
+      Id: string;
+    };
+    LoadBalancerArn: string;
+    LoadBalancerListenerPort: number;
+    LoadBalancerTarget: {
+      Address: string;
+      AvailabilityZone: string;
+      Instance: {
+        Arn: string;
+        Id: string;
+      };
+      Port: number;
+    };
+    LoadBalancerTargetGroup: {
+      Arn: string;
+      Id: string;
+    };
+    LoadBalancerTargetGroups: {
+      Arn: string;
+      Id: string;
+    }[];
+    LoadBalancerTargetPort: number;
+    MissingComponent: string;
+    NatGateway: {
+      Arn: string;
+      Id: string;
+    };
+    NetworkInterface: {
+      Arn: string;
+      Id: string;
+    };
+    PacketField: string;
+    Port: number;
+    PortRanges: {
+      From: number;
+      To: number;
+    }[];
+    PrefixList: {
+      Arn: string;
+      Id: string;
+    };
+    Protocols: string[];
+    RouteTable: {
+      Arn: string;
+      Id: string;
+    };
+    RouteTableRoute: {
+      NatGatewayId: string;
+      NetworkInterfaceId: string;
+      Origin: string;
+      State: string;
+      TransitGatewayId: string;
+      VpcPeeringConnectionId: string;
+      destinationCidr: string;
+      destinationPrefixListId: string;
+      egressOnlyInternetGatewayId: string;
+      gatewayId: string;
+      instanceId: string;
+    };
+    SecurityGroup: {
+      Arn: string;
+      Id: string;
+    };
+    SecurityGroupRule: {
+      Cidr: string;
+      Direction: string;
+      PortRange: {
+        From: number;
+        To: number;
+      };
+      PrefixListId: string;
+      Protocol: string;
+      SecurityGroupId: string;
+    };
+    SecurityGroups: {
+      Arn: string;
+      Id: string;
+    }[];
+    SourceVpc: {
+      Arn: string;
+      Id: string;
+    };
+    State: string;
+    Subnet: {
+      Arn: string;
+      Id: string;
+    };
+    SubnetRouteTable: {
+      Arn: string;
+      Id: string;
+    };
+    TransitGateway: {
+      Arn: string;
+      Id: string;
+    };
+    TransitGatewayAttachment: {
+      Arn: string;
+      Id: string;
+    };
+    TransitGatewayRouteTable: {
+      Arn: string;
+      Id: string;
+    };
+    TransitGatewayRouteTableRoute: {
+      AttachmentId: string;
+      DestinationCidr: string;
+      PrefixListId: string;
+      ResourceId: string;
+      ResourceType: string;
+      RouteOrigin: string;
+      State: string;
+    };
+    Vpc: {
+      Arn: string;
+      Id: string;
+    };
+    VpcPeeringConnection: {
+      Arn: string;
+      Id: string;
+    };
+    VpnConnection: {
+      Arn: string;
+      Id: string;
+    };
+    VpnGateway: {
+      Arn: string;
+      Id: string;
+    };
+    vpcEndpoint: {
+      Arn: string;
+      Id: string;
+    };
+  }[];
+  ForwardPathComponents: {
+    AclRule: {
+      Cidr: string;
+      Egress: boolean;
+      PortRange: {
+        From: number;
+        To: number;
+      };
+      Protocol: string;
+      RuleAction: string;
+      RuleNumber: number;
+    };
+    AdditionalDetails: {
+      AdditionalDetailType: string;
+      Component: {
+        Arn: string;
+        Id: string;
+      };
+      LoadBalancers: {
+        Arn: string;
+        Id: string;
+      }[];
+      ServiceName: string;
+    }[];
+    Component: {
+      Arn: string;
+      Id: string;
+    };
+    DestinationVpc: {
+      Arn: string;
+      Id: string;
+    };
+    ElasticLoadBalancerListener: {
+      Arn: string;
+      Id: string;
+    };
+    Explanations: {
+      Acl: {
+        Arn: string;
+        Id: string;
+      };
+      AclRule: {
+        Cidr: string;
+        Egress: boolean;
+        PortRange: {
+          From: number;
+          To: number;
+        };
+        Protocol: string;
+        RuleAction: string;
+        RuleNumber: number;
+      };
+      Address: string;
+      Addresses: string[];
+      AttachedTo: {
+        Arn: string;
+        Id: string;
+      };
+      AvailabilityZones: string[];
+      Cidrs: string[];
+      ClassicLoadBalancerListener: {
+        InstancePort: number;
+        LoadBalancerPort: number;
+      };
+      Component: {
+        Arn: string;
+        Id: string;
+      };
+      ComponentAccount: string;
+      ComponentRegion: string;
+      CustomerGateway: {
+        Arn: string;
+        Id: string;
+      };
+      Destination: {
+        Arn: string;
+        Id: string;
+      };
+      DestinationVpc: {
+        Arn: string;
+        Id: string;
+      };
+      Direction: string;
+      ElasticLoadBalancerListener: {
+        Arn: string;
+        Id: string;
+      };
+      ExplanationCode: string;
+      IngressRouteTable: {
+        Arn: string;
+        Id: string;
+      };
+      InternetGateway: {
+        Arn: string;
+        Id: string;
+      };
+      LoadBalancerArn: string;
+      LoadBalancerListenerPort: number;
+      LoadBalancerTarget: {
+        Address: string;
+        AvailabilityZone: string;
+        Instance: {
+          Arn: string;
+          Id: string;
+        };
+        Port: number;
+      };
+      LoadBalancerTargetGroup: {
+        Arn: string;
+        Id: string;
+      };
+      LoadBalancerTargetGroups: {
+        Arn: string;
+        Id: string;
+      }[];
+      LoadBalancerTargetPort: number;
+      MissingComponent: string;
+      NatGateway: {
+        Arn: string;
+        Id: string;
+      };
+      NetworkInterface: {
+        Arn: string;
+        Id: string;
+      };
+      PacketField: string;
+      Port: number;
+      PortRanges: {
+        From: number;
+        To: number;
+      }[];
+      PrefixList: {
+        Arn: string;
+        Id: string;
+      };
+      Protocols: string[];
+      RouteTable: {
+        Arn: string;
+        Id: string;
+      };
+      RouteTableRoute: {
+        NatGatewayId: string;
+        NetworkInterfaceId: string;
+        Origin: string;
+        State: string;
+        TransitGatewayId: string;
+        VpcPeeringConnectionId: string;
+        destinationCidr: string;
+        destinationPrefixListId: string;
+        egressOnlyInternetGatewayId: string;
+        gatewayId: string;
+        instanceId: string;
+      };
+      SecurityGroup: {
+        Arn: string;
+        Id: string;
+      };
+      SecurityGroupRule: {
+        Cidr: string;
+        Direction: string;
+        PortRange: {
+          From: number;
+          To: number;
+        };
+        PrefixListId: string;
+        Protocol: string;
+        SecurityGroupId: string;
+      };
+      SecurityGroups: {
+        Arn: string;
+        Id: string;
+      }[];
+      SourceVpc: {
+        Arn: string;
+        Id: string;
+      };
+      State: string;
+      Subnet: {
+        Arn: string;
+        Id: string;
+      };
+      SubnetRouteTable: {
+        Arn: string;
+        Id: string;
+      };
+      TransitGateway: {
+        Arn: string;
+        Id: string;
+      };
+      TransitGatewayAttachment: {
+        Arn: string;
+        Id: string;
+      };
+      TransitGatewayRouteTable: {
+        Arn: string;
+        Id: string;
+      };
+      TransitGatewayRouteTableRoute: {
+        AttachmentId: string;
+        DestinationCidr: string;
+        PrefixListId: string;
+        ResourceId: string;
+        ResourceType: string;
+        RouteOrigin: string;
+        State: string;
+      };
+      Vpc: {
+        Arn: string;
+        Id: string;
+      };
+      VpcPeeringConnection: {
+        Arn: string;
+        Id: string;
+      };
+      VpnConnection: {
+        Arn: string;
+        Id: string;
+      };
+      VpnGateway: {
+        Arn: string;
+        Id: string;
+      };
+      vpcEndpoint: {
+        Arn: string;
+        Id: string;
+      };
+    }[];
+    InboundHeader: {
+      DestinationAddresses: string[];
+      DestinationPortRanges: {
+        From: number;
+        To: number;
+      }[];
+      Protocol: string;
+      SourceAddresses: string[];
+      SourcePortRanges: {
+        From: number;
+        To: number;
+      }[];
+    };
+    OutboundHeader: {
+      DestinationAddresses: string[];
+      DestinationPortRanges: {
+        From: number;
+        To: number;
+      }[];
+      Protocol: string;
+      SourceAddresses: string[];
+      SourcePortRanges: {
+        From: number;
+        To: number;
+      }[];
+    };
+    RouteTableRoute: {
+      NatGatewayId: string;
+      NetworkInterfaceId: string;
+      Origin: string;
+      State: string;
+      TransitGatewayId: string;
+      VpcPeeringConnectionId: string;
+      destinationCidr: string;
+      destinationPrefixListId: string;
+      egressOnlyInternetGatewayId: string;
+      gatewayId: string;
+      instanceId: string;
+    };
+    SecurityGroupRule: {
+      Cidr: string;
+      Direction: string;
+      PortRange: {
+        From: number;
+        To: number;
+      };
+      PrefixListId: string;
+      Protocol: string;
+      SecurityGroupId: string;
+    };
+    SequenceNumber: number;
+    ServiceName: string;
+    SourceVpc: {
+      Arn: string;
+      Id: string;
+    };
+    Subnet: {
+      Arn: string;
+      Id: string;
+    };
+    TransitGateway: {
+      Arn: string;
+      Id: string;
+    };
+    TransitGatewayRouteTableRoute: {
+      AttachmentId: string;
+      DestinationCidr: string;
+      PrefixListId: string;
+      ResourceId: string;
+      ResourceType: string;
+      RouteOrigin: string;
+      State: string;
+    };
+    Vpc: {
+      Arn: string;
+      Id: string;
+    };
+  }[];
   NetworkInsightsAnalysisArn: string;
   NetworkInsightsAnalysisId: string;
   NetworkPathFound: boolean;
-  ReturnPathComponents: {}[];
+  ReturnPathComponents: {
+    AclRule: {
+      Cidr: string;
+      Egress: boolean;
+      PortRange: {
+        From: number;
+        To: number;
+      };
+      Protocol: string;
+      RuleAction: string;
+      RuleNumber: number;
+    };
+    AdditionalDetails: {
+      AdditionalDetailType: string;
+      Component: {
+        Arn: string;
+        Id: string;
+      };
+      LoadBalancers: {
+        Arn: string;
+        Id: string;
+      }[];
+      ServiceName: string;
+    }[];
+    Component: {
+      Arn: string;
+      Id: string;
+    };
+    DestinationVpc: {
+      Arn: string;
+      Id: string;
+    };
+    ElasticLoadBalancerListener: {
+      Arn: string;
+      Id: string;
+    };
+    Explanations: {
+      Acl: {
+        Arn: string;
+        Id: string;
+      };
+      AclRule: {
+        Cidr: string;
+        Egress: boolean;
+        PortRange: {
+          From: number;
+          To: number;
+        };
+        Protocol: string;
+        RuleAction: string;
+        RuleNumber: number;
+      };
+      Address: string;
+      Addresses: string[];
+      AttachedTo: {
+        Arn: string;
+        Id: string;
+      };
+      AvailabilityZones: string[];
+      Cidrs: string[];
+      ClassicLoadBalancerListener: {
+        InstancePort: number;
+        LoadBalancerPort: number;
+      };
+      Component: {
+        Arn: string;
+        Id: string;
+      };
+      ComponentAccount: string;
+      ComponentRegion: string;
+      CustomerGateway: {
+        Arn: string;
+        Id: string;
+      };
+      Destination: {
+        Arn: string;
+        Id: string;
+      };
+      DestinationVpc: {
+        Arn: string;
+        Id: string;
+      };
+      Direction: string;
+      ElasticLoadBalancerListener: {
+        Arn: string;
+        Id: string;
+      };
+      ExplanationCode: string;
+      IngressRouteTable: {
+        Arn: string;
+        Id: string;
+      };
+      InternetGateway: {
+        Arn: string;
+        Id: string;
+      };
+      LoadBalancerArn: string;
+      LoadBalancerListenerPort: number;
+      LoadBalancerTarget: {
+        Address: string;
+        AvailabilityZone: string;
+        Instance: {
+          Arn: string;
+          Id: string;
+        };
+        Port: number;
+      };
+      LoadBalancerTargetGroup: {
+        Arn: string;
+        Id: string;
+      };
+      LoadBalancerTargetGroups: {
+        Arn: string;
+        Id: string;
+      }[];
+      LoadBalancerTargetPort: number;
+      MissingComponent: string;
+      NatGateway: {
+        Arn: string;
+        Id: string;
+      };
+      NetworkInterface: {
+        Arn: string;
+        Id: string;
+      };
+      PacketField: string;
+      Port: number;
+      PortRanges: {
+        From: number;
+        To: number;
+      }[];
+      PrefixList: {
+        Arn: string;
+        Id: string;
+      };
+      Protocols: string[];
+      RouteTable: {
+        Arn: string;
+        Id: string;
+      };
+      RouteTableRoute: {
+        NatGatewayId: string;
+        NetworkInterfaceId: string;
+        Origin: string;
+        State: string;
+        TransitGatewayId: string;
+        VpcPeeringConnectionId: string;
+        destinationCidr: string;
+        destinationPrefixListId: string;
+        egressOnlyInternetGatewayId: string;
+        gatewayId: string;
+        instanceId: string;
+      };
+      SecurityGroup: {
+        Arn: string;
+        Id: string;
+      };
+      SecurityGroupRule: {
+        Cidr: string;
+        Direction: string;
+        PortRange: {
+          From: number;
+          To: number;
+        };
+        PrefixListId: string;
+        Protocol: string;
+        SecurityGroupId: string;
+      };
+      SecurityGroups: {
+        Arn: string;
+        Id: string;
+      }[];
+      SourceVpc: {
+        Arn: string;
+        Id: string;
+      };
+      State: string;
+      Subnet: {
+        Arn: string;
+        Id: string;
+      };
+      SubnetRouteTable: {
+        Arn: string;
+        Id: string;
+      };
+      TransitGateway: {
+        Arn: string;
+        Id: string;
+      };
+      TransitGatewayAttachment: {
+        Arn: string;
+        Id: string;
+      };
+      TransitGatewayRouteTable: {
+        Arn: string;
+        Id: string;
+      };
+      TransitGatewayRouteTableRoute: {
+        AttachmentId: string;
+        DestinationCidr: string;
+        PrefixListId: string;
+        ResourceId: string;
+        ResourceType: string;
+        RouteOrigin: string;
+        State: string;
+      };
+      Vpc: {
+        Arn: string;
+        Id: string;
+      };
+      VpcPeeringConnection: {
+        Arn: string;
+        Id: string;
+      };
+      VpnConnection: {
+        Arn: string;
+        Id: string;
+      };
+      VpnGateway: {
+        Arn: string;
+        Id: string;
+      };
+      vpcEndpoint: {
+        Arn: string;
+        Id: string;
+      };
+    }[];
+    InboundHeader: {
+      DestinationAddresses: string[];
+      DestinationPortRanges: {
+        From: number;
+        To: number;
+      }[];
+      Protocol: string;
+      SourceAddresses: string[];
+      SourcePortRanges: {
+        From: number;
+        To: number;
+      }[];
+    };
+    OutboundHeader: {
+      DestinationAddresses: string[];
+      DestinationPortRanges: {
+        From: number;
+        To: number;
+      }[];
+      Protocol: string;
+      SourceAddresses: string[];
+      SourcePortRanges: {
+        From: number;
+        To: number;
+      }[];
+    };
+    RouteTableRoute: {
+      NatGatewayId: string;
+      NetworkInterfaceId: string;
+      Origin: string;
+      State: string;
+      TransitGatewayId: string;
+      VpcPeeringConnectionId: string;
+      destinationCidr: string;
+      destinationPrefixListId: string;
+      egressOnlyInternetGatewayId: string;
+      gatewayId: string;
+      instanceId: string;
+    };
+    SecurityGroupRule: {
+      Cidr: string;
+      Direction: string;
+      PortRange: {
+        From: number;
+        To: number;
+      };
+      PrefixListId: string;
+      Protocol: string;
+      SecurityGroupId: string;
+    };
+    SequenceNumber: number;
+    ServiceName: string;
+    SourceVpc: {
+      Arn: string;
+      Id: string;
+    };
+    Subnet: {
+      Arn: string;
+      Id: string;
+    };
+    TransitGateway: {
+      Arn: string;
+      Id: string;
+    };
+    TransitGatewayRouteTableRoute: {
+      AttachmentId: string;
+      DestinationCidr: string;
+      PrefixListId: string;
+      ResourceId: string;
+      ResourceType: string;
+      RouteOrigin: string;
+      State: string;
+    };
+    Vpc: {
+      Arn: string;
+      Id: string;
+    };
+  }[];
   StartDate: string;
   Status: "running" | "failed" | "succeeded";
   StatusMessage: string;

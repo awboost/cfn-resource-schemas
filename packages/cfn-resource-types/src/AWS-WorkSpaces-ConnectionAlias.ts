@@ -24,7 +24,27 @@ export type WorkSpacesConnectionAliasAttributes = {
    * @pattern `^wsca-[0-9a-z]{8,63}$`
    */
   AliasId: string;
-  Associations: {}[];
+  Associations: {
+    AssociatedAccountId: string;
+    AssociationStatus:
+      | "NOT_ASSOCIATED"
+      | "PENDING_ASSOCIATION"
+      | "ASSOCIATED_WITH_OWNER_ACCOUNT"
+      | "ASSOCIATED_WITH_SHARED_ACCOUNT"
+      | "PENDING_DISASSOCIATION";
+    /**
+     * @minLength `1`
+     * @maxLength `20`
+     * @pattern `^[a-zA-Z0-9]+$`
+     */
+    ConnectionIdentifier: string;
+    /**
+     * @minLength `1`
+     * @maxLength `1000`
+     * @pattern `.+`
+     */
+    ResourceId: string;
+  }[];
   ConnectionAliasState: "CREATING" | "CREATED" | "DELETING";
 };
 /**

@@ -13,7 +13,7 @@ import {
 import assert from "node:assert";
 import { describe, it } from "node:test";
 import ts from "typescript";
-import { createType } from "./codegen.js";
+import { createType, generateResourcePropsType } from "./codegen.js";
 
 describe("createType", () => {
   describe("when node is AnyTypeNode", () => {
@@ -359,14 +359,20 @@ describe("createType", () => {
       });
     });
 
-    describe('when readOnlyProperties is set to "inline"', () => {
+    describe('when mode is set to "attributes"', () => {
       it("outputs only the readOnly properties", () => {
         const file = new SchemaFileNode(
           {
             description: "",
             primaryIdentifier: [],
             properties: {
-              one: { type: "string" },
+              one: {
+                type: "object",
+                properties: {
+                  a: { type: "string" },
+                  b: { type: "string" },
+                },
+              },
               two: {
                 type: "array",
                 items: {
@@ -379,11 +385,7 @@ describe("createType", () => {
               },
               three: { type: "string" },
             },
-            readOnlyProperties: [
-              "/properties/one",
-              "/properties/two",
-              "/properties/two/*/a",
-            ],
+            readOnlyProperties: ["/properties/one", "/properties/two/*/a"],
             typeName: "Acme::Service::Resource",
           },
           "file.json",
@@ -391,7 +393,7 @@ describe("createType", () => {
 
         const input = new ObjectTypeNode(file.schema, file, "");
 
-        const output = createType(input, { readOnlyProperties: "inline" });
+        const output = createType(input, { mode: "attributes" });
 
         assert.ok(ts.isTypeLiteralNode(output));
         assert.strictEqual(output.members.length, 2);
@@ -399,10 +401,18 @@ describe("createType", () => {
         assert.ok(ts.isPropertySignature(output.members[0]));
         assert.ok(ts.isIdentifier(output.members[0].name));
         assert.strictEqual(output.members[0].name.text, "one");
-        assert.strictEqual(
-          output.members[0].type?.kind,
-          ts.SyntaxKind.StringKeyword,
-        );
+
+        const member0Type = output.members[0].type;
+        assert.ok(member0Type);
+        assert.ok(ts.isTypeLiteralNode(member0Type));
+        assert.strictEqual(member0Type.members.length, 2);
+        assert.ok(ts.isPropertySignature(member0Type.members[0]));
+        assert.ok(ts.isIdentifier(member0Type.members[0].name));
+        assert.strictEqual(member0Type.members[0].name.text, "a");
+
+        assert.ok(ts.isPropertySignature(member0Type.members[1]));
+        assert.ok(ts.isIdentifier(member0Type.members[1].name));
+        assert.strictEqual(member0Type.members[1].name.text, "b");
 
         assert.ok(ts.isPropertySignature(output.members[1]));
         assert.ok(ts.isIdentifier(output.members[1].name));
@@ -420,7 +430,7 @@ describe("createType", () => {
         assert.strictEqual(member1ElementType.members[0].name.text, "a");
       });
 
-      it("inlines definitions", () => {
+      it("inlins definitions", () => {
         const file = new SchemaFileNode(
           {
             description: "",
@@ -430,7 +440,6 @@ describe("createType", () => {
                 type: "object",
                 properties: {
                   a: { type: "string" },
-                  b: { type: "string" },
                 },
               },
             },
@@ -454,7 +463,7 @@ describe("createType", () => {
 
         const input = new ObjectTypeNode(file.schema, file, "");
 
-        const output = createType(input, { readOnlyProperties: "inline" });
+        const output = createType(input, { mode: "attributes" });
 
         assert.ok(ts.isTypeLiteralNode(output));
         assert.strictEqual(output.members.length, 2);
@@ -482,9 +491,107 @@ describe("createType", () => {
         assert.ok(ts.isIdentifier(member1ElementType.members[0].name));
         assert.strictEqual(member1ElementType.members[0].name.text, "a");
       });
+
+      it("outputs inline properties when parent is set to readonly", () => {
+        const file = new SchemaFileNode(
+          {
+            description: "",
+            primaryIdentifier: [],
+            definitions: {
+              One: {
+                type: "object",
+                properties: {
+                  a: { type: "string" },
+                },
+              },
+            },
+            properties: {
+              one: { $ref: "#/definitions/One" },
+            },
+            readOnlyProperties: ["/properties/one"],
+            typeName: "Acme::Service::Resource",
+          },
+          "file.json",
+        );
+
+        const input = new ObjectTypeNode(file.schema, file, "");
+
+        const output = createType(input, { mode: "attributes" });
+
+        assert.ok(ts.isTypeLiteralNode(output));
+        assert.strictEqual(output.members.length, 1);
+
+        assert.ok(ts.isPropertySignature(output.members[0]));
+        assert.ok(ts.isIdentifier(output.members[0].name));
+        assert.strictEqual(output.members[0].name.text, "one");
+
+        const member0Type = output.members[0].type;
+        assert.ok(member0Type);
+        assert.ok(ts.isTypeLiteralNode(member0Type));
+        assert.strictEqual(member0Type.members.length, 1);
+        assert.ok(ts.isPropertySignature(member0Type.members[0]));
+        assert.ok(ts.isIdentifier(member0Type.members[0].name));
+        assert.strictEqual(member0Type.members[0].name.text, "a");
+      });
+
+      it("outputs inline properties when parent's parent is set to readonly", () => {
+        const file = new SchemaFileNode(
+          {
+            description: "",
+            primaryIdentifier: [],
+            definitions: {
+              One: {
+                type: "object",
+                properties: {
+                  a: { $ref: "#/definitions/Two" },
+                },
+              },
+              Two: {
+                type: "object",
+                properties: {
+                  a: { type: "string" },
+                },
+              },
+            },
+            properties: {
+              one: { $ref: "#/definitions/One" },
+            },
+            readOnlyProperties: ["/properties/one"],
+            typeName: "Acme::Service::Resource",
+          },
+          "file.json",
+        );
+
+        const input = new ObjectTypeNode(file.schema, file, "");
+
+        const output = createType(input, { mode: "attributes" });
+
+        assert.ok(ts.isTypeLiteralNode(output));
+        assert.strictEqual(output.members.length, 1);
+
+        assert.ok(ts.isPropertySignature(output.members[0]));
+        assert.ok(ts.isIdentifier(output.members[0].name));
+        assert.strictEqual(output.members[0].name.text, "one");
+
+        const member0Type = output.members[0].type;
+        assert.ok(member0Type);
+        assert.ok(ts.isTypeLiteralNode(member0Type));
+        assert.strictEqual(member0Type.members.length, 1);
+        assert.ok(ts.isPropertySignature(member0Type.members[0]));
+        assert.ok(ts.isIdentifier(member0Type.members[0].name));
+        assert.strictEqual(member0Type.members[0].name.text, "a");
+
+        const member0childType = member0Type.members[0].type;
+        assert.ok(member0childType);
+        assert.ok(ts.isTypeLiteralNode(member0childType));
+        assert.strictEqual(member0childType.members.length, 1);
+        assert.ok(ts.isPropertySignature(member0childType.members[0]));
+        assert.ok(ts.isIdentifier(member0childType.members[0].name));
+        assert.strictEqual(member0childType.members[0].name.text, "a");
+      });
     });
 
-    describe('when readOnlyProperties is set to "exclude"', () => {
+    describe('when mode is set to "properties"', () => {
       it("outputs only the non-readOnly properties", () => {
         const file = new SchemaFileNode(
           {
@@ -512,7 +619,7 @@ describe("createType", () => {
 
         const input = new ObjectTypeNode(file.schema, file, "");
 
-        const output = createType(input, { readOnlyProperties: "exclude" });
+        const output = createType(input, { mode: "properties" });
 
         assert.ok(ts.isTypeLiteralNode(output));
         assert.strictEqual(output.members.length, 2);
@@ -611,6 +718,69 @@ describe("createType", () => {
 
       assert.strictEqual(output.types[0].kind, ts.SyntaxKind.StringKeyword);
       assert.strictEqual(output.types[1].kind, ts.SyntaxKind.NumberKeyword);
+    });
+  });
+});
+
+describe("generateResourcePropsType", () => {
+  describe('when "properties" is empty', () => {
+    it("returns Record<string,never>", () => {
+      const file = new SchemaFileNode(
+        {
+          description: "",
+          primaryIdentifier: [],
+          properties: {},
+          typeName: "Acme::Service::Resource",
+        },
+        "file.json",
+      );
+
+      const output = generateResourcePropsType(file);
+
+      assert.ok(ts.isTypeReferenceNode(output.type));
+      assert.ok(ts.isIdentifier(output.type.typeName));
+      assert.strictEqual(output.type.typeName.text, "Record");
+      assert.strictEqual(output.type.typeArguments?.length, 2);
+      assert.strictEqual(
+        output.type.typeArguments[0].kind,
+        ts.SyntaxKind.StringKeyword,
+      );
+      assert.strictEqual(
+        output.type.typeArguments[1].kind,
+        ts.SyntaxKind.NeverKeyword,
+      );
+    });
+  });
+
+  describe('when "properties" is all readonly', () => {
+    it("returns Record<string,never>", () => {
+      const file = new SchemaFileNode(
+        {
+          description: "",
+          primaryIdentifier: [],
+          properties: {
+            one: { type: "string" },
+          },
+          readOnlyProperties: ["/properties/one"],
+          typeName: "Acme::Service::Resource",
+        },
+        "file.json",
+      );
+
+      const output = generateResourcePropsType(file);
+
+      assert.ok(ts.isTypeReferenceNode(output.type));
+      assert.ok(ts.isIdentifier(output.type.typeName));
+      assert.strictEqual(output.type.typeName.text, "Record");
+      assert.strictEqual(output.type.typeArguments?.length, 2);
+      assert.strictEqual(
+        output.type.typeArguments[0].kind,
+        ts.SyntaxKind.StringKeyword,
+      );
+      assert.strictEqual(
+        output.type.typeArguments[1].kind,
+        ts.SyntaxKind.NeverKeyword,
+      );
     });
   });
 });

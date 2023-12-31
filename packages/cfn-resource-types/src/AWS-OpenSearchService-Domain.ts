@@ -32,12 +32,24 @@ export type OpenSearchServiceDomainProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain-return-values}
  */
 export type OpenSearchServiceDomainAttributes = {
+  AdvancedSecurityOptions: {
+    AnonymousAuthDisableDate: string;
+  };
   Arn: string;
   DomainArn: string;
   DomainEndpoint: string;
   DomainEndpoints: Record<string, string>;
   Id: string;
-  ServiceSoftwareOptions: {};
+  ServiceSoftwareOptions: {
+    AutomatedUpdateDate: string;
+    Cancellable: boolean;
+    CurrentVersion: string;
+    Description: string;
+    NewVersion: string;
+    OptionalDeployment: boolean;
+    UpdateAvailable: boolean;
+    UpdateStatus: string;
+  };
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.AdvancedSecurityOptionsInput`.

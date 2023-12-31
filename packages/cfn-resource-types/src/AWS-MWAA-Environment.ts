@@ -171,6 +171,61 @@ export type MWAAEnvironmentAttributes = {
    */
   DatabaseVpcEndpointService: string;
   /**
+   * Logging configuration for the environment.
+   */
+  LoggingConfiguration: {
+    /**
+     * Logging configuration for a specific airflow component.
+     */
+    DagProcessingLogs: {
+      /**
+       * @maxLength `1224`
+       * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b)(-[a-z]+)?:logs:[a-z0-9\-]+:\d{12}:log-group:\w+`
+       */
+      CloudWatchLogGroupArn: string;
+    };
+    /**
+     * Logging configuration for a specific airflow component.
+     */
+    SchedulerLogs: {
+      /**
+       * @maxLength `1224`
+       * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b)(-[a-z]+)?:logs:[a-z0-9\-]+:\d{12}:log-group:\w+`
+       */
+      CloudWatchLogGroupArn: string;
+    };
+    /**
+     * Logging configuration for a specific airflow component.
+     */
+    TaskLogs: {
+      /**
+       * @maxLength `1224`
+       * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b)(-[a-z]+)?:logs:[a-z0-9\-]+:\d{12}:log-group:\w+`
+       */
+      CloudWatchLogGroupArn: string;
+    };
+    /**
+     * Logging configuration for a specific airflow component.
+     */
+    WebserverLogs: {
+      /**
+       * @maxLength `1224`
+       * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b)(-[a-z]+)?:logs:[a-z0-9\-]+:\d{12}:log-group:\w+`
+       */
+      CloudWatchLogGroupArn: string;
+    };
+    /**
+     * Logging configuration for a specific airflow component.
+     */
+    WorkerLogs: {
+      /**
+       * @maxLength `1224`
+       * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b)(-[a-z]+)?:logs:[a-z0-9\-]+:\d{12}:log-group:\w+`
+       */
+      CloudWatchLogGroupArn: string;
+    };
+  };
+  /**
    * Url endpoint for the environment's Airflow UI.
    * @minLength `1`
    * @maxLength `256`

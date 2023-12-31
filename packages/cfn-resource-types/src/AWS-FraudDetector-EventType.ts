@@ -51,6 +51,48 @@ export type FraudDetectorEventTypeAttributes = {
    */
   CreatedTime: string;
   /**
+   * @minLength `1`
+   */
+  EntityTypes: {
+    Arn: string;
+    /**
+     * The time when the event type was created.
+     */
+    CreatedTime: string;
+    /**
+     * The time when the event type was last updated.
+     */
+    LastUpdatedTime: string;
+  }[];
+  /**
+   * @minLength `1`
+   */
+  EventVariables: {
+    Arn: string;
+    /**
+     * The time when the event type was created.
+     */
+    CreatedTime: string;
+    /**
+     * The time when the event type was last updated.
+     */
+    LastUpdatedTime: string;
+  }[];
+  /**
+   * @minLength `2`
+   */
+  Labels: {
+    Arn: string;
+    /**
+     * The time when the event type was created.
+     */
+    CreatedTime: string;
+    /**
+     * The time when the event type was last updated.
+     */
+    LastUpdatedTime: string;
+  }[];
+  /**
    * The time when the event type was last updated.
    */
   LastUpdatedTime: string;

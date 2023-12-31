@@ -42,7 +42,42 @@ export type NetworkManagerConnectPeerAttributes = {
   /**
    * Configuration of the connect peer.
    */
-  Configuration: {};
+  Configuration: {
+    BgpConfigurations: {
+      /**
+       * The address of a core network.
+       */
+      CoreNetworkAddress: string;
+      /**
+       * The ASN of the Coret Network.
+       */
+      CoreNetworkAsn: number;
+      /**
+       * The address of a core network Connect peer.
+       */
+      PeerAddress: string;
+      /**
+       * The ASN of the Connect peer.
+       */
+      PeerAsn: number;
+    }[];
+    /**
+     * The IP address of a core network.
+     */
+    CoreNetworkAddress: string;
+    /**
+     * The inside IP addresses used for a Connect peer configuration.
+     */
+    InsideCidrBlocks: string[];
+    /**
+     * The IP address of the Connect peer.
+     */
+    PeerAddress: string;
+    /**
+     * The protocol used for a Connect peer configuration.
+     */
+    Protocol: string;
+  };
   /**
    * The ID of the Connect peer.
    */

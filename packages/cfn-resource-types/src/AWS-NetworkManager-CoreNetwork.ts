@@ -42,7 +42,17 @@ export type NetworkManagerCoreNetworkAttributes = {
   /**
    * The edges within a core network.
    */
-  Edges: {}[];
+  Edges: {
+    /**
+     * The ASN of a core network edge.
+     */
+    Asn: number;
+    /**
+     * The Region where a core network edge is located.
+     */
+    EdgeLocation: string;
+    InsideCidrBlocks: string[];
+  }[];
   /**
    * Owner of the core network
    */
@@ -50,7 +60,14 @@ export type NetworkManagerCoreNetworkAttributes = {
   /**
    * The segments within a core network.
    */
-  Segments: {}[];
+  Segments: {
+    EdgeLocations: string[];
+    /**
+     * Name of segment
+     */
+    Name: string;
+    SharedSegments: string[];
+  }[];
   /**
    * The state of core network
    */

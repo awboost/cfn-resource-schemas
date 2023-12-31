@@ -64,7 +64,12 @@ export type CleanRoomsAnalysisTemplateAttributes = {
    * @maxLength `100`
    */
   MembershipArn: string;
-  Schema: {};
+  Schema: {
+    /**
+     * @minLength `0`
+     */
+    ReferencedTables: string[];
+  };
 };
 /**
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.AnalysisParameter`.

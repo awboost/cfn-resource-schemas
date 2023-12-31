@@ -53,6 +53,12 @@ export type CEAnomalySubscriptionAttributes = {
    */
   AccountId: string;
   /**
+   * A list of subscriber
+   */
+  Subscribers: {
+    Status: "CONFIRMED" | "DECLINED";
+  }[];
+  /**
    * Subscription ARN
    * @pattern `^arn:aws[-a-z0-9]*:[a-z0-9]+:[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+$`
    */

@@ -54,7 +54,64 @@ export type QuickSightDashboardAttributes = {
   CreatedTime: string;
   LastPublishedTime: string;
   LastUpdatedTime: string;
-  Version: {};
+  Version: {
+    Arn: string;
+    CreatedTime: string;
+    /**
+     * @minLength `0`
+     * @maxLength `100`
+     */
+    DataSetArns: string[];
+    /**
+     * @minLength `1`
+     * @maxLength `512`
+     */
+    Description: string;
+    /**
+     * @minLength `1`
+     */
+    Errors: {
+      /**
+       * @pattern `.*\S.*`
+       */
+      Message: string;
+      Type: DashboardErrorType;
+      /**
+       * @minLength `0`
+       * @maxLength `200`
+       */
+      ViolatedEntities: {
+        /**
+         * @pattern `.*\S.*`
+         */
+        Path: string;
+      }[];
+    }[];
+    /**
+     * @minLength `0`
+     * @maxLength `20`
+     */
+    Sheets: {
+      /**
+       * @minLength `1`
+       * @maxLength `2048`
+       */
+      Name: string;
+      /**
+       * @minLength `1`
+       * @maxLength `512`
+       * @pattern `[\w\-]+`
+       */
+      SheetId: string;
+    }[];
+    SourceEntityArn: string;
+    Status: ResourceStatus;
+    ThemeArn: string;
+    /**
+     * @min `1`
+     */
+    VersionNumber: number;
+  };
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.AdHocFilteringOption`.

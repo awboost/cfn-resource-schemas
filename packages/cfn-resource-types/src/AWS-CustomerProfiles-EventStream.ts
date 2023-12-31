@@ -45,7 +45,18 @@ export type CustomerProfilesEventStreamAttributes = {
   /**
    * Details regarding the Kinesis stream.
    */
-  DestinationDetails: {};
+  DestinationDetails: {
+    /**
+     * The status of enabling the Kinesis stream as a destination for export.
+     */
+    Status: Status;
+    /**
+     * The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name
+     * @minLength `1`
+     * @maxLength `255`
+     */
+    Uri: string;
+  };
   /**
    * A unique identifier for the event stream.
    * @minLength `1`

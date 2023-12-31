@@ -49,7 +49,90 @@ export type QuickSightTemplateAttributes = {
   Arn: string;
   CreatedTime: string;
   LastUpdatedTime: string;
-  Version: {};
+  Version: {
+    CreatedTime: string;
+    /**
+     * @minLength `0`
+     * @maxLength `30`
+     */
+    DataSetConfigurations: {
+      /**
+       * @minLength `0`
+       * @maxLength `500`
+       */
+      ColumnGroupSchemaList: {
+        /**
+         * @minLength `0`
+         * @maxLength `500`
+         */
+        ColumnGroupColumnSchemaList: {
+          Name: string;
+        }[];
+        Name: string;
+      }[];
+      DataSetSchema: {
+        /**
+         * @minLength `0`
+         * @maxLength `500`
+         */
+        ColumnSchemaList: {
+          DataType: string;
+          GeographicRole: string;
+          Name: string;
+        }[];
+      };
+      Placeholder: string;
+    }[];
+    /**
+     * @minLength `1`
+     * @maxLength `512`
+     */
+    Description: string;
+    /**
+     * @minLength `1`
+     */
+    Errors: {
+      /**
+       * @pattern `.*\S.*`
+       */
+      Message: string;
+      Type: TemplateErrorType;
+      /**
+       * @minLength `0`
+       * @maxLength `200`
+       */
+      ViolatedEntities: {
+        /**
+         * @pattern `.*\S.*`
+         */
+        Path: string;
+      }[];
+    }[];
+    /**
+     * @minLength `0`
+     * @maxLength `20`
+     */
+    Sheets: {
+      /**
+       * @minLength `1`
+       * @maxLength `2048`
+       */
+      Name: string;
+      /**
+       * @minLength `1`
+       * @maxLength `512`
+       * @pattern `[\w\-]+`
+       */
+      SheetId: string;
+    }[];
+    SourceEntityArn: string;
+    Status: ResourceStatus;
+    ThemeArn: string;
+    /**
+     * @min `1`
+     */
+    VersionNumber: number;
+  };
 };
 /**
  * Type definition for `AWS::QuickSight::Template.AggregationFunction`.

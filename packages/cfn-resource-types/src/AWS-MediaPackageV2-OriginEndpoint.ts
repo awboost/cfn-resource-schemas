@@ -65,6 +65,24 @@ export type MediaPackageV2OriginEndpointAttributes = {
    */
   CreatedAt: string;
   /**
+   * <p>An HTTP live streaming (HLS) manifest configuration.</p>
+   */
+  HlsManifests: {
+    /**
+     * <p>The egress domain URL for stream delivery from MediaPackage.</p>
+     */
+    Url: string;
+  }[];
+  /**
+   * <p>A low-latency HLS manifest configuration.</p>
+   */
+  LowLatencyHlsManifests: {
+    /**
+     * <p>The egress domain URL for stream delivery from MediaPackage.</p>
+     */
+    Url: string;
+  }[];
+  /**
    * <p>The date and time the origin endpoint was modified.</p>
    */
   ModifiedAt: string;

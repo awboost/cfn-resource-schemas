@@ -63,7 +63,29 @@ export type OSISPipelineAttributes = {
   /**
    * The VPC interface endpoints that have access to the pipeline.
    */
-  VpcEndpoints: {}[];
+  VpcEndpoints: {
+    /**
+     * The unique identifier of the endpoint.
+     */
+    VpcEndpointId: string;
+    /**
+     * The ID for your VPC. AWS Privatelink generates this value when you create a VPC.
+     */
+    VpcId: string;
+    /**
+     * Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
+     */
+    VpcOptions: {
+      /**
+       * A list of security groups associated with the VPC endpoint.
+       */
+      SecurityGroupIds: string[];
+      /**
+       * A list of subnet IDs associated with the VPC endpoint.
+       */
+      SubnetIds: string[];
+    };
+  }[];
 };
 /**
  * Type definition for `AWS::OSIS::Pipeline.LogPublishingOptions`.

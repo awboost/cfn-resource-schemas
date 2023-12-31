@@ -31,7 +31,18 @@ export type Route53RecoveryControlClusterAttributes = {
   /**
    * Endpoints for the cluster.
    */
-  ClusterEndpoints: {}[];
+  ClusterEndpoints: {
+    /**
+     * @minLength `1`
+     * @maxLength `128`
+     */
+    Endpoint: string;
+    /**
+     * @minLength `1`
+     * @maxLength `32`
+     */
+    Region: string;
+  }[];
   /**
    * Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
    */

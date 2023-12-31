@@ -75,7 +75,19 @@ export type IoTTwinMakerEntityAttributes = {
   /**
    * The current status of the entity.
    */
-  Status: {};
+  Status: {
+    Error:
+      | Record<string, any>
+      | {
+          Code: "VALIDATION_ERROR" | "INTERNAL_FAILURE";
+          /**
+           * @minLength `0`
+           * @maxLength `2048`
+           */
+          Message: string;
+        };
+    State: "CREATING" | "UPDATING" | "DELETING" | "ACTIVE" | "ERROR";
+  };
   /**
    * The last date and time when the entity was updated.
    */

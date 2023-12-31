@@ -71,6 +71,15 @@ export type IoTWirelessWirelessDeviceImportTaskAttributes = {
    */
   PendingImportedDevicesCount: number;
   /**
+   * sidewalk contain file for created device and role
+   */
+  Sidewalk: {
+    /**
+     * sidewalk create device's file path
+     */
+    DeviceCreationFileList: string[];
+  };
+  /**
    * Status for import task
    */
   Status:

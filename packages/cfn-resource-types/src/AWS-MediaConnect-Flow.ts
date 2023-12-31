@@ -35,6 +35,23 @@ export type MediaConnectFlowAttributes = {
    * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
    */
   FlowAvailabilityZone: string;
+  /**
+   * The source of the flow.
+   */
+  Source: {
+    /**
+     * The IP address that the flow will be listening on for incoming content.
+     */
+    IngestIp: string;
+    /**
+     * The ARN of the source.
+     */
+    SourceArn: string;
+    /**
+     * The port that the flow will be listening on for incoming content.(ReadOnly)
+     */
+    SourceIngestPort: string;
+  };
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.Encryption`.

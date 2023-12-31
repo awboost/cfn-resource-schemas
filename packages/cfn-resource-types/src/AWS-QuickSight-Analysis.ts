@@ -54,13 +54,41 @@ export type QuickSightAnalysisAttributes = {
   /**
    * @minLength `1`
    */
-  Errors: {}[];
+  Errors: {
+    /**
+     * @pattern `.*\S.*`
+     */
+    Message: string;
+    Type: AnalysisErrorType;
+    /**
+     * @minLength `0`
+     * @maxLength `200`
+     */
+    ViolatedEntities: {
+      /**
+       * @pattern `.*\S.*`
+       */
+      Path: string;
+    }[];
+  }[];
   LastUpdatedTime: string;
   /**
    * @minLength `0`
    * @maxLength `20`
    */
-  Sheets: {}[];
+  Sheets: {
+    /**
+     * @minLength `1`
+     * @maxLength `2048`
+     */
+    Name: string;
+    /**
+     * @minLength `1`
+     * @maxLength `512`
+     * @pattern `[\w\-]+`
+     */
+    SheetId: string;
+  }[];
 };
 /**
  * Type definition for `AWS::QuickSight::Analysis.AggregationFunction`.

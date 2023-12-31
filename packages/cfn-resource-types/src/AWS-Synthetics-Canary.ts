@@ -71,6 +71,12 @@ export type SyntheticsCanaryProperties = {
  */
 export type SyntheticsCanaryAttributes = {
   /**
+   * Provide the canary script source
+   */
+  Code: {
+    SourceLocationArn: string;
+  };
+  /**
    * Id of the canary
    */
   Id: string;

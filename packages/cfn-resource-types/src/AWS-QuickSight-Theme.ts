@@ -54,7 +54,144 @@ export type QuickSightThemeAttributes = {
   CreatedTime: string;
   LastUpdatedTime: string;
   Type: ThemeType;
-  Version: {};
+  Version: {
+    Arn: string;
+    /**
+     * @minLength `1`
+     * @maxLength `512`
+     * @pattern `[\w\-]+`
+     */
+    BaseThemeId: string;
+    Configuration: {
+      DataColorPalette: {
+        /**
+         * @minLength `0`
+         * @maxLength `100`
+         */
+        Colors: string[];
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        EmptyFillColor: string;
+        /**
+         * @minLength `0`
+         * @maxLength `100`
+         */
+        MinMaxGradient: string[];
+      };
+      Sheet: {
+        Tile: {
+          Border: {
+            Show: boolean;
+          };
+        };
+        TileLayout: {
+          Gutter: {
+            Show: boolean;
+          };
+          Margin: {
+            Show: boolean;
+          };
+        };
+      };
+      Typography: {
+        /**
+         * @minLength `0`
+         * @maxLength `5`
+         */
+        FontFamilies: {
+          FontFamily: string;
+        }[];
+      };
+      UIColorPalette: {
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        Accent: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        AccentForeground: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        Danger: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        DangerForeground: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        Dimension: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        DimensionForeground: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        Measure: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        MeasureForeground: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        PrimaryBackground: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        PrimaryForeground: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        SecondaryBackground: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        SecondaryForeground: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        Success: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        SuccessForeground: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        Warning: string;
+        /**
+         * @pattern `^#[A-F0-9]{6}$`
+         */
+        WarningForeground: string;
+      };
+    };
+    CreatedTime: string;
+    /**
+     * @minLength `1`
+     * @maxLength `512`
+     */
+    Description: string;
+    /**
+     * @minLength `1`
+     */
+    Errors: {
+      /**
+       * @pattern `.*\S.*`
+       */
+      Message: string;
+      Type: ThemeErrorType;
+    }[];
+    Status: ResourceStatus;
+    /**
+     * @min `1`
+     */
+    VersionNumber: number;
+  };
 };
 /**
  * Type definition for `AWS::QuickSight::Theme.BorderStyle`.

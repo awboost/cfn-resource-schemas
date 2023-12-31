@@ -97,7 +97,22 @@ export type QuickSightDataSetAttributes = {
      * <p>The list of columns after all transforms. These columns are available in templates,
                 analyses, and dashboards.</p>
      */
-  OutputColumns: {}[];
+  OutputColumns: {
+    /**
+     * <p>A description for a column.</p>
+     * @minLength `0`
+     * @maxLength `500`
+     */
+    Description: string;
+    /**
+     * <p>A display name for the dataset.</p>
+     * @minLength `1`
+     * @maxLength `128`
+     */
+    Name: string;
+    SubType: ColumnSubDataType;
+    Type: ColumnDataType;
+  }[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.CalculatedColumn`.

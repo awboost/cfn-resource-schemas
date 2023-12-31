@@ -38,7 +38,16 @@ export type HealthLakeFHIRDatastoreAttributes = {
   /**
    * The time that a Data Store was created.
    */
-  CreatedAt: {};
+  CreatedAt: {
+    /**
+     * Nanoseconds.
+     */
+    Nanos: number;
+    /**
+     * Seconds since epoch.
+     */
+    Seconds: string;
+  };
   /**
    * The Amazon Resource Name used in the creation of the Data Store.
    * @pattern `^arn:aws((-us-gov)|(-iso)|(-iso-b)|(-cn))?:healthlake:[a-zA-Z0-9-]+:[0-9]{12}:datastore/.+?`

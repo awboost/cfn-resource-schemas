@@ -60,9 +60,32 @@ export type CustomerProfilesDomainAttributes = {
    */
   LastUpdatedAt: string;
   /**
+   * The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
+   */
+  RuleBasedMatching: {
+    Status: "PENDING" | "IN_PROGRESS" | "ACTIVE";
+  };
+  /**
    * Usage-specific statistics about the domain.
    */
-  Stats: {};
+  Stats: {
+    /**
+     * The number of profiles that you are currently paying for in the domain. If you have more than 100 objects associated with a single profile, that profile counts as two profiles. If you have more than 200 objects, that profile counts as three, and so on.
+     */
+    MeteringProfileCount: number;
+    /**
+     * The total number of objects in domain.
+     */
+    ObjectCount: number;
+    /**
+     * The total number of profiles currently in the domain.
+     */
+    ProfileCount: number;
+    /**
+     * The total size, in bytes, of all objects in the domain.
+     */
+    TotalSize: number;
+  };
 };
 /**
  * Type definition for `AWS::CustomerProfiles::Domain.AttributeTypesSelector`.
