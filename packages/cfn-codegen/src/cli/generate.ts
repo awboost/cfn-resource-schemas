@@ -112,7 +112,8 @@ export function addGenerateCommand(program: Command): void {
                 );
               }
             }
-          } else {
+          }
+          if (errorCount === 0) {
             const statements: ts.Statement[] = [];
 
             if (generateResource) {
