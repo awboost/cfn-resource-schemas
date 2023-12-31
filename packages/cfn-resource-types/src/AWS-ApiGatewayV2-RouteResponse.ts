@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html}
@@ -63,18 +63,11 @@ export class ApiGatewayV2RouteResponse extends $Resource<
   ApiGatewayV2RouteResponseAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::RouteResponse";
-  public static readonly AttributeNames = ["RouteResponseId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2RouteResponseProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2RouteResponse.Type,
-      properties,
-      ApiGatewayV2RouteResponse.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2RouteResponse.Type, properties, options);
   }
 }

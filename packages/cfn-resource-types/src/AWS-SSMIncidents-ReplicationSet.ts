@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for AWS::SSMIncidents::ReplicationSet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html}
@@ -90,18 +90,11 @@ export class SSMIncidentsReplicationSet extends $Resource<
   SSMIncidentsReplicationSetAttributes
 > {
   public static readonly Type = "AWS::SSMIncidents::ReplicationSet";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: SSMIncidentsReplicationSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SSMIncidentsReplicationSet.Type,
-      properties,
-      SSMIncidentsReplicationSet.AttributeNames,
-      options,
-    );
+    super(logicalId, SSMIncidentsReplicationSet.Type, properties, options);
   }
 }

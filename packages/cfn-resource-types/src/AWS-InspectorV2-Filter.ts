@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::InspectorV2::Filter`.
  * Inspector Filter resource schema
@@ -230,6 +230,7 @@ export type MapFilter = {
    */
   Key?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -260,10 +261,12 @@ export type PackageFilter = {
  */
 export type PortRangeFilter = {
   /**
+   * @min `0`
    * @max `65535`
    */
   BeginInclusive?: number;
   /**
+   * @min `0`
    * @max `65535`
    */
   EndInclusive?: number;
@@ -296,18 +299,11 @@ export class InspectorV2Filter extends $Resource<
   InspectorV2FilterAttributes
 > {
   public static readonly Type = "AWS::InspectorV2::Filter";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: InspectorV2FilterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      InspectorV2Filter.Type,
-      properties,
-      InspectorV2Filter.AttributeNames,
-      options,
-    );
+    super(logicalId, InspectorV2Filter.Type, properties, options);
   }
 }

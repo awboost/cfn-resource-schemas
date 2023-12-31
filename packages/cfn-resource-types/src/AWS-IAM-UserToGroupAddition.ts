@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IAM::UserToGroupAddition
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-usertogroupaddition.html}
@@ -25,18 +25,11 @@ export class IAMUserToGroupAddition extends $Resource<
   IAMUserToGroupAdditionAttributes
 > {
   public static readonly Type = "AWS::IAM::UserToGroupAddition";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: IAMUserToGroupAdditionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IAMUserToGroupAddition.Type,
-      properties,
-      IAMUserToGroupAddition.AttributeNames,
-      options,
-    );
+    super(logicalId, IAMUserToGroupAddition.Type, properties, options);
   }
 }

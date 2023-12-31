@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Proton::EnvironmentAccountConnection`.
  * Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
@@ -89,6 +89,7 @@ export type Tag = {
   Key: string;
   /**
    * <p>The value of the resource tag.</p>
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -104,11 +105,6 @@ export class ProtonEnvironmentAccountConnection extends $Resource<
   ProtonEnvironmentAccountConnectionAttributes
 > {
   public static readonly Type = "AWS::Proton::EnvironmentAccountConnection";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ProtonEnvironmentAccountConnectionProperties,
@@ -118,7 +114,6 @@ export class ProtonEnvironmentAccountConnection extends $Resource<
       logicalId,
       ProtonEnvironmentAccountConnection.Type,
       properties,
-      ProtonEnvironmentAccountConnection.AttributeNames,
       options,
     );
   }

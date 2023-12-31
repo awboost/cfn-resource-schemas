@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::Volume
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html}
@@ -85,18 +85,11 @@ export class EC2Volume extends $Resource<
   EC2VolumeAttributes
 > {
   public static readonly Type = "AWS::EC2::Volume";
-  public static readonly AttributeNames = ["VolumeId" as const];
   constructor(
     logicalId: string,
     properties: EC2VolumeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2Volume.Type,
-      properties,
-      EC2Volume.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2Volume.Type, properties, options);
   }
 }

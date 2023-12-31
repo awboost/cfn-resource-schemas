@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ECS::TaskDefinition`.
  * Resource Schema describing various properties for ECS TaskDefinition
@@ -391,18 +391,11 @@ export class ECSTaskDefinition extends $Resource<
   ECSTaskDefinitionAttributes
 > {
   public static readonly Type = "AWS::ECS::TaskDefinition";
-  public static readonly AttributeNames = ["TaskDefinitionArn" as const];
   constructor(
     logicalId: string,
     properties: ECSTaskDefinitionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ECSTaskDefinition.Type,
-      properties,
-      ECSTaskDefinition.AttributeNames,
-      options,
-    );
+    super(logicalId, ECSTaskDefinition.Type, properties, options);
   }
 }

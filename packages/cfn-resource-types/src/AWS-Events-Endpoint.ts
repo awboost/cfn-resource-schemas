@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Events::Endpoint.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html}
@@ -140,24 +140,11 @@ export class EventsEndpoint extends $Resource<
   EventsEndpointAttributes
 > {
   public static readonly Type = "AWS::Events::Endpoint";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "EndpointId" as const,
-    "EndpointUrl" as const,
-    "State" as const,
-    "StateReason" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EventsEndpointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EventsEndpoint.Type,
-      properties,
-      EventsEndpoint.AttributeNames,
-      options,
-    );
+    super(logicalId, EventsEndpoint.Type, properties, options);
   }
 }

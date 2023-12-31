@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::DocDB::DBInstance
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html}
@@ -41,22 +41,11 @@ export class DocDBDBInstance extends $Resource<
   DocDBDBInstanceAttributes
 > {
   public static readonly Type = "AWS::DocDB::DBInstance";
-  public static readonly AttributeNames = [
-    "Endpoint" as const,
-    "Id" as const,
-    "Port" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DocDBDBInstanceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DocDBDBInstance.Type,
-      properties,
-      DocDBDBInstance.AttributeNames,
-      options,
-    );
+    super(logicalId, DocDBDBInstance.Type, properties, options);
   }
 }

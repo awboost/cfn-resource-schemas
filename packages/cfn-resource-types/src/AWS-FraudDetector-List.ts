@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FraudDetector::List`.
  * A resource schema for a List in Amazon Fraud Detector.
@@ -14,6 +14,7 @@ export type FraudDetectorListProperties = {
   Description?: string;
   /**
    * The elements in this list.
+   * @minLength `0`
    * @maxLength `100000`
    */
   Elements?: string[];
@@ -69,6 +70,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -84,22 +86,11 @@ export class FraudDetectorList extends $Resource<
   FraudDetectorListAttributes
 > {
   public static readonly Type = "AWS::FraudDetector::List";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "LastUpdatedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: FraudDetectorListProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FraudDetectorList.Type,
-      properties,
-      FraudDetectorList.AttributeNames,
-      options,
-    );
+    super(logicalId, FraudDetectorList.Type, properties, options);
   }
 }

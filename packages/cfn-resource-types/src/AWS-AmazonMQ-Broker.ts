@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AmazonMQ::Broker
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html}
@@ -120,29 +120,11 @@ export class AmazonMQBroker extends $Resource<
   AmazonMQBrokerAttributes
 > {
   public static readonly Type = "AWS::AmazonMQ::Broker";
-  public static readonly AttributeNames = [
-    "AmqpEndpoints" as const,
-    "Arn" as const,
-    "ConfigurationId" as const,
-    "ConfigurationRevision" as const,
-    "Id" as const,
-    "IpAddresses" as const,
-    "MqttEndpoints" as const,
-    "OpenWireEndpoints" as const,
-    "StompEndpoints" as const,
-    "WssEndpoints" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AmazonMQBrokerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AmazonMQBroker.Type,
-      properties,
-      AmazonMQBroker.AttributeNames,
-      options,
-    );
+    super(logicalId, AmazonMQBroker.Type, properties, options);
   }
 }

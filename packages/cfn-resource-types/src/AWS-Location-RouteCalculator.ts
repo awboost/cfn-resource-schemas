@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Location::RouteCalculator Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html}
@@ -13,6 +13,7 @@ export type LocationRouteCalculatorProperties = {
   CalculatorName: string;
   DataSource: string;
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   Description?: string;
@@ -59,23 +60,11 @@ export class LocationRouteCalculator extends $Resource<
   LocationRouteCalculatorAttributes
 > {
   public static readonly Type = "AWS::Location::RouteCalculator";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CalculatorArn" as const,
-    "CreateTime" as const,
-    "UpdateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LocationRouteCalculatorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LocationRouteCalculator.Type,
-      properties,
-      LocationRouteCalculator.AttributeNames,
-      options,
-    );
+    super(logicalId, LocationRouteCalculator.Type, properties, options);
   }
 }

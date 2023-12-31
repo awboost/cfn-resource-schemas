@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsaccessscopeanalysis.html}
@@ -40,16 +40,6 @@ export class EC2NetworkInsightsAccessScopeAnalysis extends $Resource<
   EC2NetworkInsightsAccessScopeAnalysisAttributes
 > {
   public static readonly Type = "AWS::EC2::NetworkInsightsAccessScopeAnalysis";
-  public static readonly AttributeNames = [
-    "AnalyzedEniCount" as const,
-    "EndDate" as const,
-    "FindingsFound" as const,
-    "NetworkInsightsAccessScopeAnalysisArn" as const,
-    "NetworkInsightsAccessScopeAnalysisId" as const,
-    "StartDate" as const,
-    "Status" as const,
-    "StatusMessage" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2NetworkInsightsAccessScopeAnalysisProperties,
@@ -59,7 +49,6 @@ export class EC2NetworkInsightsAccessScopeAnalysis extends $Resource<
       logicalId,
       EC2NetworkInsightsAccessScopeAnalysis.Type,
       properties,
-      EC2NetworkInsightsAccessScopeAnalysis.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::ServiceNetwork`.
  * A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
@@ -14,6 +14,7 @@ export type VpcLatticeServiceNetworkProperties = {
    */
   Name?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -65,23 +66,11 @@ export class VpcLatticeServiceNetwork extends $Resource<
   VpcLatticeServiceNetworkAttributes
 > {
   public static readonly Type = "AWS::VpcLattice::ServiceNetwork";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedAt" as const,
-    "Id" as const,
-    "LastUpdatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: VpcLatticeServiceNetworkProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VpcLatticeServiceNetwork.Type,
-      properties,
-      VpcLatticeServiceNetwork.AttributeNames,
-      options,
-    );
+    super(logicalId, VpcLatticeServiceNetwork.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-script.html}
@@ -92,6 +92,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -106,23 +107,11 @@ export class GameLiftScript extends $Resource<
   GameLiftScriptAttributes
 > {
   public static readonly Type = "AWS::GameLift::Script";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "Id" as const,
-    "SizeOnDisk" as const,
-  ];
   constructor(
     logicalId: string,
     properties: GameLiftScriptProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GameLiftScript.Type,
-      properties,
-      GameLiftScript.AttributeNames,
-      options,
-    );
+    super(logicalId, GameLiftScript.Type, properties, options);
   }
 }

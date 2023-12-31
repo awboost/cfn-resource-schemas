@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::MediaPackageV2::ChannelPolicy Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelpolicy.html}
@@ -29,18 +29,11 @@ export class MediaPackageV2ChannelPolicy extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::MediaPackageV2::ChannelPolicy";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: MediaPackageV2ChannelPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaPackageV2ChannelPolicy.Type,
-      properties,
-      MediaPackageV2ChannelPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaPackageV2ChannelPolicy.Type, properties, options);
   }
 }

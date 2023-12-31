@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html}
@@ -16,10 +16,6 @@ export type MemoryDBClusterProperties = {
     You cannot modify the value of AutoMinorVersionUpgrade after the cluster is created. To enable AutoMinorVersionUpgrade on a cluster you must set AutoMinorVersionUpgrade to true when you create a cluster.
      */
   AutoMinorVersionUpgrade?: boolean;
-  /**
-   * The cluster endpoint.
-   */
-  ClusterEndpoint?: Endpoint;
   /**
    * The name of the cluster. This value must be unique as it also serves as the cluster identifier.
    * @pattern `[a-z][a-z0-9\-]*`
@@ -123,6 +119,19 @@ export type MemoryDBClusterAttributes = {
    */
   ARN: string;
   /**
+   * The cluster endpoint.
+   */
+  ClusterEndpoint: {
+    /**
+     * The DNS address of the primary read-write node.
+     */
+    Address: string;
+    /**
+     * The port number that the engine is listening on.
+     */
+    Port: number;
+  };
+  /**
    * The status of the parameter group used by the cluster.
    */
   ParameterGroupStatus: string;
@@ -136,20 +145,6 @@ export type MemoryDBClusterAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-datatieringstatus.html}
  */
 export type DataTieringStatus = "true" | "false";
-/**
- * Type definition for `AWS::MemoryDB::Cluster.Endpoint`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html}
- */
-export type Endpoint = {
-  /**
-   * The DNS address of the primary read-write node.
-   */
-  Address?: string;
-  /**
-   * The port number that the engine is listening on.
-   */
-  Port?: number;
-};
 /**
  * Type definition for `AWS::MemoryDB::Cluster.Tag`.
  * A key-value pair to associate with a resource.
@@ -181,22 +176,11 @@ export class MemoryDBCluster extends $Resource<
   MemoryDBClusterAttributes
 > {
   public static readonly Type = "AWS::MemoryDB::Cluster";
-  public static readonly AttributeNames = [
-    "ARN" as const,
-    "ParameterGroupStatus" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MemoryDBClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MemoryDBCluster.Type,
-      properties,
-      MemoryDBCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, MemoryDBCluster.Type, properties, options);
   }
 }

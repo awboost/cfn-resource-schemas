@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::WAFv2::RegexPatternSet`.
  * Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
@@ -52,6 +52,7 @@ export type Tag = {
    */
   Key?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -67,18 +68,11 @@ export class WAFv2RegexPatternSet extends $Resource<
   WAFv2RegexPatternSetAttributes
 > {
   public static readonly Type = "AWS::WAFv2::RegexPatternSet";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: WAFv2RegexPatternSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFv2RegexPatternSet.Type,
-      properties,
-      WAFv2RegexPatternSet.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFv2RegexPatternSet.Type, properties, options);
   }
 }

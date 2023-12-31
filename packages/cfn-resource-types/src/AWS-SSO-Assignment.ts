@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::SSO::Assignment`.
  * Resource Type definition for SSO assignmet
@@ -52,18 +52,11 @@ export class SSOAssignment extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::SSO::Assignment";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: SSOAssignmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SSOAssignment.Type,
-      properties,
-      SSOAssignment.AttributeNames,
-      options,
-    );
+    super(logicalId, SSOAssignment.Type, properties, options);
   }
 }

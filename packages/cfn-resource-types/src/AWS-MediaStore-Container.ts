@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::MediaStore::Container
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediastore-container.html}
@@ -66,18 +66,11 @@ export class MediaStoreContainer extends $Resource<
   MediaStoreContainerAttributes
 > {
   public static readonly Type = "AWS::MediaStore::Container";
-  public static readonly AttributeNames = ["Endpoint" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: MediaStoreContainerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaStoreContainer.Type,
-      properties,
-      MediaStoreContainer.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaStoreContainer.Type, properties, options);
   }
 }

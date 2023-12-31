@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EntityResolution::SchemaMapping`.
  * SchemaMapping defined in AWS Entity Resolution service
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type EntityResolutionSchemaMappingProperties = {
   /**
    * The description of the SchemaMapping
+   * @minLength `0`
    * @maxLength `255`
    */
   Description?: string;
@@ -19,11 +20,13 @@ export type EntityResolutionSchemaMappingProperties = {
   MappedInputFields: SchemaInputAttribute[];
   /**
    * The name of the SchemaMapping
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^[a-zA-Z_0-9-]*$`
    */
   SchemaName: string;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -82,16 +85,19 @@ export type SchemaAttributeType =
  */
 export type SchemaInputAttribute = {
   /**
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^[a-zA-Z_0-9- \t]*$`
    */
   FieldName: string;
   /**
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^[a-zA-Z_0-9- \t]*$`
    */
   GroupName?: string;
   /**
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^[a-zA-Z_0-9- \t]*$`
    */
@@ -116,6 +122,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -131,23 +138,11 @@ export class EntityResolutionSchemaMapping extends $Resource<
   EntityResolutionSchemaMappingAttributes
 > {
   public static readonly Type = "AWS::EntityResolution::SchemaMapping";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "HasWorkflows" as const,
-    "SchemaArn" as const,
-    "UpdatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EntityResolutionSchemaMappingProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EntityResolutionSchemaMapping.Type,
-      properties,
-      EntityResolutionSchemaMapping.AttributeNames,
-      options,
-    );
+    super(logicalId, EntityResolutionSchemaMapping.Type, properties, options);
   }
 }

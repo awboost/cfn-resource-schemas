@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html}
@@ -8,11 +8,13 @@ export type RolesAnywhereTrustAnchorProperties = {
   Enabled?: boolean;
   Name: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   NotificationSettings?: NotificationSetting[];
   Source: Source;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -62,15 +64,20 @@ export type NotificationSetting = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html}
  */
 export type Source = {
-  SourceData?:
-    | {
-        X509CertificateData: string;
-      }
-    | {
-        AcmPcaArn: string;
-      };
+  SourceData?: SourceData;
   SourceType?: TrustAnchorType;
 };
+/**
+ * Type definition for `AWS::RolesAnywhere::TrustAnchor.SourceData`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-sourcedata.html}
+ */
+export type SourceData =
+  | {
+      X509CertificateData: string;
+    }
+  | {
+      AcmPcaArn: string;
+    };
 /**
  * Type definition for `AWS::RolesAnywhere::TrustAnchor.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-tag.html}
@@ -82,6 +89,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -104,21 +112,11 @@ export class RolesAnywhereTrustAnchor extends $Resource<
   RolesAnywhereTrustAnchorAttributes
 > {
   public static readonly Type = "AWS::RolesAnywhere::TrustAnchor";
-  public static readonly AttributeNames = [
-    "TrustAnchorArn" as const,
-    "TrustAnchorId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RolesAnywhereTrustAnchorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RolesAnywhereTrustAnchor.Type,
-      properties,
-      RolesAnywhereTrustAnchor.AttributeNames,
-      options,
-    );
+    super(logicalId, RolesAnywhereTrustAnchor.Type, properties, options);
   }
 }

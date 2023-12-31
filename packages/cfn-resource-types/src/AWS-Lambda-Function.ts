@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lambda::Function in region
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html}
@@ -83,6 +83,7 @@ export type LambdaFunctionProperties = {
   Policy?: Record<string, any>;
   /**
    * The number of simultaneous executions to reserve for the function.
+   * @min `0`
    */
   ReservedConcurrentExecutions?: number;
   /**
@@ -132,7 +133,16 @@ export type LambdaFunctionAttributes = {
   /**
    * The SnapStart response of your function
    */
-  SnapStartResponse: SnapStartResponse;
+  SnapStartResponse: {
+    /**
+     * Applying SnapStart setting on function resource type.
+     */
+    ApplyOn: "PublishedVersions" | "None";
+    /**
+     * Indicates whether SnapStart is activated for the specified function version.
+     */
+    OptimizationStatus: "On" | "Off";
+  };
 };
 /**
  * Type definition for `AWS::Lambda::Function.Code`.
@@ -293,21 +303,6 @@ export type SnapStart = {
   ApplyOn: "PublishedVersions" | "None";
 };
 /**
- * Type definition for `AWS::Lambda::Function.SnapStartResponse`.
- * The function's SnapStart Response. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstartresponse.html}
- */
-export type SnapStartResponse = {
-  /**
-   * Applying SnapStart setting on function resource type.
-   */
-  ApplyOn?: "PublishedVersions" | "None";
-  /**
-   * Indicates whether SnapStart is activated for the specified function version.
-   */
-  OptimizationStatus?: "On" | "Off";
-};
-/**
  * Type definition for `AWS::Lambda::Function.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tag.html}
  */
@@ -320,6 +315,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -366,21 +362,11 @@ export class LambdaFunction extends $Resource<
   LambdaFunctionAttributes
 > {
   public static readonly Type = "AWS::Lambda::Function";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "SnapStartResponse" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LambdaFunctionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LambdaFunction.Type,
-      properties,
-      LambdaFunction.AttributeNames,
-      options,
-    );
+    super(logicalId, LambdaFunction.Type, properties, options);
   }
 }

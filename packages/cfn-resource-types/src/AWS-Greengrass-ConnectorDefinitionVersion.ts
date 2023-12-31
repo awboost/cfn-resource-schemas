@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Greengrass::ConnectorDefinitionVersion
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-connectordefinitionversion.html}
@@ -34,7 +34,6 @@ export class GreengrassConnectorDefinitionVersion extends $Resource<
   GreengrassConnectorDefinitionVersionAttributes
 > {
   public static readonly Type = "AWS::Greengrass::ConnectorDefinitionVersion";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GreengrassConnectorDefinitionVersionProperties,
@@ -44,7 +43,6 @@ export class GreengrassConnectorDefinitionVersion extends $Resource<
       logicalId,
       GreengrassConnectorDefinitionVersion.Type,
       properties,
-      GreengrassConnectorDefinitionVersion.AttributeNames,
       options,
     );
   }

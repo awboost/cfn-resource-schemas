@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::Logging`.
  * Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
@@ -35,18 +35,11 @@ export class IoTLogging extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::IoT::Logging";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: IoTLoggingProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTLogging.Type,
-      properties,
-      IoTLogging.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTLogging.Type, properties, options);
   }
 }

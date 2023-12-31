@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudTrail::Trail`.
  * Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
@@ -215,21 +215,11 @@ export class CloudTrailTrail extends $Resource<
   CloudTrailTrailAttributes
 > {
   public static readonly Type = "AWS::CloudTrail::Trail";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "SnsTopicArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudTrailTrailProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudTrailTrail.Type,
-      properties,
-      CloudTrailTrail.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudTrailTrail.Type, properties, options);
   }
 }

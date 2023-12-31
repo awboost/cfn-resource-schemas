@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::M2::Environment`.
  * Represents a runtime environment that can run migrated mainframe applications.
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type M2EnvironmentProperties = {
   /**
    * The description of the environment.
+   * @minLength `0`
    * @maxLength `500`
    */
   Description?: string;
@@ -55,20 +56,7 @@ export type M2EnvironmentProperties = {
   /**
    * The storage configurations defined for the runtime environment.
    */
-  StorageConfigurations?: (
-    | {
-        /**
-         * Defines the storage configuration for an Amazon EFS file system.
-         */
-        Efs: EfsStorageConfiguration;
-      }
-    | {
-        /**
-         * Defines the storage configuration for an Amazon FSx file system.
-         */
-        Fsx: FsxStorageConfiguration;
-      }
-  )[];
+  StorageConfigurations?: StorageConfiguration[];
   /**
    * The unique identifiers of the subnets assigned to this runtime environment.
    */
@@ -147,6 +135,24 @@ export type HighAvailabilityConfig = {
   DesiredCapacity: number;
 };
 /**
+ * Type definition for `AWS::M2::Environment.StorageConfiguration`.
+ * Defines the storage configuration for an environment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-storageconfiguration.html}
+ */
+export type StorageConfiguration =
+  | {
+      /**
+       * Defines the storage configuration for an Amazon EFS file system.
+       */
+      Efs: EfsStorageConfiguration;
+    }
+  | {
+      /**
+       * Defines the storage configuration for an Amazon FSx file system.
+       */
+      Fsx: FsxStorageConfiguration;
+    };
+/**
  * Type definition for `AWS::M2::Environment.TagMap`.
  * Defines tags associated to an environment.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-tagmap.html}
@@ -163,21 +169,11 @@ export class M2Environment extends $Resource<
   M2EnvironmentAttributes
 > {
   public static readonly Type = "AWS::M2::Environment";
-  public static readonly AttributeNames = [
-    "EnvironmentArn" as const,
-    "EnvironmentId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: M2EnvironmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      M2Environment.Type,
-      properties,
-      M2Environment.AttributeNames,
-      options,
-    );
+    super(logicalId, M2Environment.Type, properties, options);
   }
 }

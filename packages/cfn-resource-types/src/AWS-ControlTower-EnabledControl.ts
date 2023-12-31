@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ControlTower::EnabledControl`.
  * Enables a control on a specified target.
@@ -32,18 +32,11 @@ export class ControlTowerEnabledControl extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::ControlTower::EnabledControl";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: ControlTowerEnabledControlProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ControlTowerEnabledControl.Type,
-      properties,
-      ControlTowerEnabledControl.AttributeNames,
-      options,
-    );
+    super(logicalId, ControlTowerEnabledControl.Type, properties, options);
   }
 }

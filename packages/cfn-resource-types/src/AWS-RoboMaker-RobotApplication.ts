@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::RoboMaker::RobotApplication`.
  * This schema is for testing purpose only.
@@ -97,18 +97,11 @@ export class RoboMakerRobotApplication extends $Resource<
   RoboMakerRobotApplicationAttributes
 > {
   public static readonly Type = "AWS::RoboMaker::RobotApplication";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: RoboMakerRobotApplicationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RoboMakerRobotApplication.Type,
-      properties,
-      RoboMakerRobotApplication.AttributeNames,
-      options,
-    );
+    super(logicalId, RoboMakerRobotApplication.Type, properties, options);
   }
 }

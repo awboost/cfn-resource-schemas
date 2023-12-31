@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EMR::StudioSessionMapping`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -38,18 +38,11 @@ export class EMRStudioSessionMapping extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::EMR::StudioSessionMapping";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: EMRStudioSessionMappingProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EMRStudioSessionMapping.Type,
-      properties,
-      EMRStudioSessionMapping.AttributeNames,
-      options,
-    );
+    super(logicalId, EMRStudioSessionMapping.Type, properties, options);
   }
 }

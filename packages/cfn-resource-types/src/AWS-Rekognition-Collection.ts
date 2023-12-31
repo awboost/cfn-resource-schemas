@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-collection.html}
@@ -13,6 +13,7 @@ export type RekognitionCollectionProperties = {
   CollectionId: string;
   /**
    * An array of key-value pairs to apply to this resource.
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -56,18 +57,11 @@ export class RekognitionCollection extends $Resource<
   RekognitionCollectionAttributes
 > {
   public static readonly Type = "AWS::Rekognition::Collection";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: RekognitionCollectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RekognitionCollection.Type,
-      properties,
-      RekognitionCollection.AttributeNames,
-      options,
-    );
+    super(logicalId, RekognitionCollection.Type, properties, options);
   }
 }

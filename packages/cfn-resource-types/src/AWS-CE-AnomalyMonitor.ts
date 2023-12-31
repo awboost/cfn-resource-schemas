@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CE::AnomalyMonitor`.
  * AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
@@ -12,6 +12,7 @@ export type CEAnomalyMonitorProperties = {
   MonitorDimension?: "SERVICE";
   /**
    * The name of the monitor.
+   * @minLength `0`
    * @maxLength `1024`
    * @pattern `[\S\s]*`
    */
@@ -20,6 +21,7 @@ export type CEAnomalyMonitorProperties = {
   MonitorType: "DIMENSIONAL" | "CUSTOM";
   /**
    * Tags to assign to monitor.
+   * @minLength `0`
    * @maxLength `200`
    */
   ResourceTags?: ResourceTag[];
@@ -31,22 +33,26 @@ export type CEAnomalyMonitorProperties = {
 export type CEAnomalyMonitorAttributes = {
   /**
    * The date when the monitor was created.
+   * @minLength `0`
    * @maxLength `40`
    * @pattern `(\d{4}-\d{2}-\d{2})(T\d{2}:\d{2}:\d{2}Z)?`
    */
   CreationDate: string;
   /**
    * The value for evaluated dimensions.
+   * @min `0`
    */
   DimensionalValueCount: number;
   /**
    * The date when the monitor last evaluated for anomalies.
+   * @minLength `0`
    * @maxLength `40`
    * @pattern `(\d{4}-\d{2}-\d{2})(T\d{2}:\d{2}:\d{2}Z)?|(NOT_EVALUATED_YET)`
    */
   LastEvaluatedDate: string;
   /**
    * The date when the monitor was last updated.
+   * @minLength `0`
    * @maxLength `40`
    * @pattern `(\d{4}-\d{2}-\d{2})(T\d{2}:\d{2}:\d{2}Z)?`
    */
@@ -72,6 +78,7 @@ export type ResourceTag = {
   Key: string;
   /**
    * The value for the tag.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -87,24 +94,11 @@ export class CEAnomalyMonitor extends $Resource<
   CEAnomalyMonitorAttributes
 > {
   public static readonly Type = "AWS::CE::AnomalyMonitor";
-  public static readonly AttributeNames = [
-    "CreationDate" as const,
-    "DimensionalValueCount" as const,
-    "LastEvaluatedDate" as const,
-    "LastUpdatedDate" as const,
-    "MonitorArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CEAnomalyMonitorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CEAnomalyMonitor.Type,
-      properties,
-      CEAnomalyMonitor.AttributeNames,
-      options,
-    );
+    super(logicalId, CEAnomalyMonitor.Type, properties, options);
   }
 }

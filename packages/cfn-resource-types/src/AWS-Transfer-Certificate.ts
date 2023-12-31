@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Transfer::Certificate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-certificate.html}
@@ -86,6 +86,7 @@ export type TransferCertificateAttributes = {
   NotBeforeDate: string;
   /**
    * Specifies Certificate's serial.
+   * @minLength `0`
    * @maxLength `48`
    * @pattern `^[\p{XDigit}{2}:?]*`
    */
@@ -113,6 +114,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -127,26 +129,11 @@ export class TransferCertificate extends $Resource<
   TransferCertificateAttributes
 > {
   public static readonly Type = "AWS::Transfer::Certificate";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CertificateId" as const,
-    "NotAfterDate" as const,
-    "NotBeforeDate" as const,
-    "Serial" as const,
-    "Status" as const,
-    "Type" as const,
-  ];
   constructor(
     logicalId: string,
     properties: TransferCertificateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      TransferCertificate.Type,
-      properties,
-      TransferCertificate.AttributeNames,
-      options,
-    );
+    super(logicalId, TransferCertificate.Type, properties, options);
   }
 }

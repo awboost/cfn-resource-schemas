@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-appregistry-attributegroupassociation.html}
@@ -22,7 +22,7 @@ export type ServiceCatalogAppRegistryAttributeGroupAssociationProperties = {
 };
 /**
  * Attribute type definition for `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#aws-resource-servicecatalogappregistry-attributegroupassociation-return-values}
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-appregistry-attributegroupassociation.html}
  */
 export type ServiceCatalogAppRegistryAttributeGroupAssociationAttributes = {
   /**
@@ -45,10 +45,6 @@ export class ServiceCatalogAppRegistryAttributeGroupAssociation extends $Resourc
 > {
   public static readonly Type =
     "AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation";
-  public static readonly AttributeNames = [
-    "ApplicationArn" as const,
-    "AttributeGroupArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ServiceCatalogAppRegistryAttributeGroupAssociationProperties,
@@ -58,7 +54,6 @@ export class ServiceCatalogAppRegistryAttributeGroupAssociation extends $Resourc
       logicalId,
       ServiceCatalogAppRegistryAttributeGroupAssociation.Type,
       properties,
-      ServiceCatalogAppRegistryAttributeGroupAssociation.AttributeNames,
       options,
     );
   }

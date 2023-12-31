@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Route53::DNSSEC`.
  * Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
@@ -23,18 +23,11 @@ export class Route53DNSSEC extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Route53::DNSSEC";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: Route53DNSSECProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      Route53DNSSEC.Type,
-      properties,
-      Route53DNSSEC.AttributeNames,
-      options,
-    );
+    super(logicalId, Route53DNSSEC.Type, properties, options);
   }
 }

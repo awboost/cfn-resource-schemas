@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudFormation::HookTypeConfig`.
  * Specifies the configuration data for a registered hook in CloudFormation Registry.
@@ -51,18 +51,11 @@ export class CloudFormationHookTypeConfig extends $Resource<
   CloudFormationHookTypeConfigAttributes
 > {
   public static readonly Type = "AWS::CloudFormation::HookTypeConfig";
-  public static readonly AttributeNames = ["ConfigurationArn" as const];
   constructor(
     logicalId: string,
     properties: CloudFormationHookTypeConfigProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFormationHookTypeConfig.Type,
-      properties,
-      CloudFormationHookTypeConfig.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFormationHookTypeConfig.Type, properties, options);
   }
 }

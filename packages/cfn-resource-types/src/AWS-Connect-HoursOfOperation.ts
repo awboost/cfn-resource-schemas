@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::HoursOfOperation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html}
@@ -82,11 +82,13 @@ export type HoursOfOperationConfig = {
 export type HoursOfOperationTimeSlice = {
   /**
    * The hours.
+   * @min `0`
    * @max `23`
    */
   Hours: number;
   /**
    * The minutes.
+   * @min `0`
    * @max `59`
    */
   Minutes: number;
@@ -120,18 +122,11 @@ export class ConnectHoursOfOperation extends $Resource<
   ConnectHoursOfOperationAttributes
 > {
   public static readonly Type = "AWS::Connect::HoursOfOperation";
-  public static readonly AttributeNames = ["HoursOfOperationArn" as const];
   constructor(
     logicalId: string,
     properties: ConnectHoursOfOperationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectHoursOfOperation.Type,
-      properties,
-      ConnectHoursOfOperation.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectHoursOfOperation.Type, properties, options);
   }
 }

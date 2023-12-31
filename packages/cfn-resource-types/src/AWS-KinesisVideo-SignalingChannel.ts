@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type Definition for AWS::KinesisVideo::SignalingChannel
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-signalingchannel.html}
@@ -53,6 +53,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.  The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -67,18 +68,11 @@ export class KinesisVideoSignalingChannel extends $Resource<
   KinesisVideoSignalingChannelAttributes
 > {
   public static readonly Type = "AWS::KinesisVideo::SignalingChannel";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: KinesisVideoSignalingChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KinesisVideoSignalingChannel.Type,
-      properties,
-      KinesisVideoSignalingChannel.AttributeNames,
-      options,
-    );
+    super(logicalId, KinesisVideoSignalingChannel.Type, properties, options);
   }
 }

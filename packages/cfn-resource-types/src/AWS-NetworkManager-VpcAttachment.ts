@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::NetworkManager::VpcAttachment Resoruce Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html}
@@ -139,30 +139,11 @@ export class NetworkManagerVpcAttachment extends $Resource<
   NetworkManagerVpcAttachmentAttributes
 > {
   public static readonly Type = "AWS::NetworkManager::VpcAttachment";
-  public static readonly AttributeNames = [
-    "AttachmentId" as const,
-    "AttachmentPolicyRuleNumber" as const,
-    "AttachmentType" as const,
-    "CoreNetworkArn" as const,
-    "CreatedAt" as const,
-    "EdgeLocation" as const,
-    "OwnerAccountId" as const,
-    "ResourceArn" as const,
-    "SegmentName" as const,
-    "State" as const,
-    "UpdatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkManagerVpcAttachmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NetworkManagerVpcAttachment.Type,
-      properties,
-      NetworkManagerVpcAttachment.AttributeNames,
-      options,
-    );
+    super(logicalId, NetworkManagerVpcAttachment.Type, properties, options);
   }
 }

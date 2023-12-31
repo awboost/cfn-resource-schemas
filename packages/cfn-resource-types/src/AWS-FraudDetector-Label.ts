@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FraudDetector::Label`.
  * An label for fraud detector.
@@ -54,6 +54,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -69,22 +70,11 @@ export class FraudDetectorLabel extends $Resource<
   FraudDetectorLabelAttributes
 > {
   public static readonly Type = "AWS::FraudDetector::Label";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "LastUpdatedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: FraudDetectorLabelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FraudDetectorLabel.Type,
-      properties,
-      FraudDetectorLabel.AttributeNames,
-      options,
-    );
+    super(logicalId, FraudDetectorLabel.Type, properties, options);
   }
 }

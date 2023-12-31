@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CustomerProfiles::Integration`.
  * The resource schema for creating an Amazon Connect Customer Profiles Integration.
@@ -27,6 +27,7 @@ export type CustomerProfilesIntegrationProperties = {
   ObjectTypeNames?: ObjectTypeMapping[];
   /**
    * The tags (keys and values) associated with the integration
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -157,32 +158,6 @@ export type ObjectTypeMapping = {
   Value: string;
 };
 /**
- * Type definition for `AWS::CustomerProfiles::Integration.Operator`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-operator.html}
- */
-export type Operator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "GREATER_THAN"
-  | "CONTAINS"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
-/**
  * Type definition for `AWS::CustomerProfiles::Integration.OperatorPropertiesKeys`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-operatorpropertieskeys.html}
  */
@@ -296,6 +271,7 @@ export type ScheduledTriggerProperties = {
    */
   ScheduleExpression: string;
   /**
+   * @min `0`
    * @max `36000`
    */
   ScheduleOffset?: number;
@@ -380,6 +356,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -484,21 +461,11 @@ export class CustomerProfilesIntegration extends $Resource<
   CustomerProfilesIntegrationAttributes
 > {
   public static readonly Type = "AWS::CustomerProfiles::Integration";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "LastUpdatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CustomerProfilesIntegrationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CustomerProfilesIntegration.Type,
-      properties,
-      CustomerProfilesIntegration.AttributeNames,
-      options,
-    );
+    super(logicalId, CustomerProfilesIntegration.Type, properties, options);
   }
 }

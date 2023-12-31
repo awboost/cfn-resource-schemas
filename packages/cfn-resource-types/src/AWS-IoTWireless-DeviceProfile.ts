@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoTWireless::DeviceProfile`.
  * Device Profile's resource schema demonstrating some basic constructs and validation rules.
@@ -42,10 +42,12 @@ export type IoTWirelessDeviceProfileAttributes = {
  */
 export type LoRaWANDeviceProfile = {
   /**
+   * @min `0`
    * @max `1000`
    */
   ClassBTimeout?: number;
   /**
+   * @min `0`
    * @max `1000`
    */
   ClassCTimeout?: number;
@@ -58,14 +60,17 @@ export type LoRaWANDeviceProfile = {
    */
   MacVersion?: string;
   /**
+   * @min `0`
    * @max `100`
    */
   MaxDutyCycle?: number;
   /**
+   * @min `0`
    * @max `15`
    */
   MaxEirp?: number;
   /**
+   * @min `0`
    * @max `15`
    */
   PingSlotDr?: number;
@@ -88,14 +93,17 @@ export type LoRaWANDeviceProfile = {
    */
   RfRegion?: string;
   /**
+   * @min `0`
    * @max `15`
    */
   RxDataRate2?: number;
   /**
+   * @min `0`
    * @max `15`
    */
   RxDelay1?: number;
   /**
+   * @min `0`
    * @max `7`
    */
   RxDrOffset1?: number;
@@ -136,18 +144,11 @@ export class IoTWirelessDeviceProfile extends $Resource<
   IoTWirelessDeviceProfileAttributes
 > {
   public static readonly Type = "AWS::IoTWireless::DeviceProfile";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: IoTWirelessDeviceProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTWirelessDeviceProfile.Type,
-      properties,
-      IoTWirelessDeviceProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTWirelessDeviceProfile.Type, properties, options);
   }
 }

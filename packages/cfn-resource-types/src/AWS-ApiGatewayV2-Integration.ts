@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Integration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html}
@@ -48,18 +48,11 @@ export class ApiGatewayV2Integration extends $Resource<
   ApiGatewayV2IntegrationAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::Integration";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2IntegrationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2Integration.Type,
-      properties,
-      ApiGatewayV2Integration.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2Integration.Type, properties, options);
   }
 }

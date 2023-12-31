@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::NetworkManager::CoreNetwork Resource Type Definition.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html}
@@ -42,7 +42,7 @@ export type NetworkManagerCoreNetworkAttributes = {
   /**
    * The edges within a core network.
    */
-  Edges: CoreNetworkEdge[];
+  Edges: {}[];
   /**
    * Owner of the core network
    */
@@ -50,7 +50,7 @@ export type NetworkManagerCoreNetworkAttributes = {
   /**
    * The segments within a core network.
    */
-  Segments: CoreNetworkSegment[];
+  Segments: {}[];
   /**
    * The state of core network
    */
@@ -108,26 +108,11 @@ export class NetworkManagerCoreNetwork extends $Resource<
   NetworkManagerCoreNetworkAttributes
 > {
   public static readonly Type = "AWS::NetworkManager::CoreNetwork";
-  public static readonly AttributeNames = [
-    "CoreNetworkArn" as const,
-    "CoreNetworkId" as const,
-    "CreatedAt" as const,
-    "Edges" as const,
-    "OwnerAccount" as const,
-    "Segments" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkManagerCoreNetworkProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NetworkManagerCoreNetwork.Type,
-      properties,
-      NetworkManagerCoreNetwork.AttributeNames,
-      options,
-    );
+    super(logicalId, NetworkManagerCoreNetwork.Type, properties, options);
   }
 }

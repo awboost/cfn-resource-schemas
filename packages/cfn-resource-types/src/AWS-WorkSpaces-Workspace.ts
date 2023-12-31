@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::WorkSpaces::Workspace
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html}
@@ -50,18 +50,11 @@ export class WorkSpacesWorkspace extends $Resource<
   WorkSpacesWorkspaceAttributes
 > {
   public static readonly Type = "AWS::WorkSpaces::Workspace";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: WorkSpacesWorkspaceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WorkSpacesWorkspace.Type,
-      properties,
-      WorkSpacesWorkspace.AttributeNames,
-      options,
-    );
+    super(logicalId, WorkSpacesWorkspace.Type, properties, options);
   }
 }

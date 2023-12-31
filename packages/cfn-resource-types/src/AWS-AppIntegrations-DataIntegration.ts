@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppIntegrations::DataIntegration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html}
@@ -46,6 +46,7 @@ export type AppIntegrationsDataIntegrationProperties = {
   SourceURI: string;
   /**
    * The tags (keys and values) associated with the data integration.
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -135,6 +136,7 @@ export type Tag = {
   Key: string;
   /**
    * Corresponding tag value for the key.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -149,21 +151,11 @@ export class AppIntegrationsDataIntegration extends $Resource<
   AppIntegrationsDataIntegrationAttributes
 > {
   public static readonly Type = "AWS::AppIntegrations::DataIntegration";
-  public static readonly AttributeNames = [
-    "DataIntegrationArn" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppIntegrationsDataIntegrationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppIntegrationsDataIntegration.Type,
-      properties,
-      AppIntegrationsDataIntegration.AttributeNames,
-      options,
-    );
+    super(logicalId, AppIntegrationsDataIntegration.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::PinpointEmail::Identity
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-identity.html}
@@ -50,26 +50,11 @@ export class PinpointEmailIdentity extends $Resource<
   PinpointEmailIdentityAttributes
 > {
   public static readonly Type = "AWS::PinpointEmail::Identity";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "IdentityDNSRecordName1" as const,
-    "IdentityDNSRecordName2" as const,
-    "IdentityDNSRecordName3" as const,
-    "IdentityDNSRecordValue1" as const,
-    "IdentityDNSRecordValue2" as const,
-    "IdentityDNSRecordValue3" as const,
-  ];
   constructor(
     logicalId: string,
     properties: PinpointEmailIdentityProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PinpointEmailIdentity.Type,
-      properties,
-      PinpointEmailIdentity.AttributeNames,
-      options,
-    );
+    super(logicalId, PinpointEmailIdentity.Type, properties, options);
   }
 }

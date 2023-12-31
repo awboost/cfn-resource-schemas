@@ -1,11 +1,12 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Omics::VariantStore Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-variantstore.html}
  */
 export type OmicsVariantStoreProperties = {
   /**
+   * @minLength `0`
    * @maxLength `500`
    */
   Description?: string;
@@ -29,6 +30,7 @@ export type OmicsVariantStoreAttributes = {
   Id: string;
   Status: StoreStatus;
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   StatusMessage: string;
@@ -104,26 +106,11 @@ export class OmicsVariantStore extends $Resource<
   OmicsVariantStoreAttributes
 > {
   public static readonly Type = "AWS::Omics::VariantStore";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "Id" as const,
-    "Status" as const,
-    "StatusMessage" as const,
-    "StoreArn" as const,
-    "StoreSizeBytes" as const,
-    "UpdateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OmicsVariantStoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OmicsVariantStore.Type,
-      properties,
-      OmicsVariantStore.AttributeNames,
-      options,
-    );
+    super(logicalId, OmicsVariantStore.Type, properties, options);
   }
 }

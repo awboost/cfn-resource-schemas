@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppConfig::Environment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-environment.html}
@@ -44,18 +44,11 @@ export class AppConfigEnvironment extends $Resource<
   AppConfigEnvironmentAttributes
 > {
   public static readonly Type = "AWS::AppConfig::Environment";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: AppConfigEnvironmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppConfigEnvironment.Type,
-      properties,
-      AppConfigEnvironment.AttributeNames,
-      options,
-    );
+    super(logicalId, AppConfigEnvironment.Type, properties, options);
   }
 }

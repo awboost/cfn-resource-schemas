@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Glue::SchemaVersion`.
  * This resource represents an individual schema version of a schema defined in Glue Schema Registry.
@@ -63,18 +63,11 @@ export class GlueSchemaVersion extends $Resource<
   GlueSchemaVersionAttributes
 > {
   public static readonly Type = "AWS::Glue::SchemaVersion";
-  public static readonly AttributeNames = ["VersionId" as const];
   constructor(
     logicalId: string,
     properties: GlueSchemaVersionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueSchemaVersion.Type,
-      properties,
-      GlueSchemaVersion.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueSchemaVersion.Type, properties, options);
   }
 }

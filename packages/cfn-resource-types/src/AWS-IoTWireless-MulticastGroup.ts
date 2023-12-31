@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoTWireless::MulticastGroup`.
  * Create and manage Multicast groups.
@@ -67,14 +67,6 @@ export type LoRaWAN = {
    */
   DlClass: string;
   /**
-   * Multicast group number of devices in group. Returned after successful read.
-   */
-  NumberOfDevicesInGroup?: number;
-  /**
-   * Multicast group number of devices requested. Returned after successful read.
-   */
-  NumberOfDevicesRequested?: number;
-  /**
    * Multicast group LoRaWAN RF region
    * @minLength `1`
    * @maxLength `64`
@@ -92,6 +84,7 @@ export type Tag = {
    */
   Key?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -107,22 +100,11 @@ export class IoTWirelessMulticastGroup extends $Resource<
   IoTWirelessMulticastGroupAttributes
 > {
   public static readonly Type = "AWS::IoTWireless::MulticastGroup";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTWirelessMulticastGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTWirelessMulticastGroup.Type,
-      properties,
-      IoTWirelessMulticastGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTWirelessMulticastGroup.Type, properties, options);
   }
 }

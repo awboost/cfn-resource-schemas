@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::RefactorSpaces::Route Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-route.html}
@@ -94,6 +94,7 @@ export type Tag = {
   Key: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -124,22 +125,11 @@ export class RefactorSpacesRoute extends $Resource<
   RefactorSpacesRouteAttributes
 > {
   public static readonly Type = "AWS::RefactorSpaces::Route";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "PathResourceToId" as const,
-    "RouteIdentifier" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RefactorSpacesRouteProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RefactorSpacesRoute.Type,
-      properties,
-      RefactorSpacesRoute.AttributeNames,
-      options,
-    );
+    super(logicalId, RefactorSpacesRoute.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::AuthPolicy`.
  * Creates or updates the auth policy.
@@ -32,18 +32,11 @@ export class VpcLatticeAuthPolicy extends $Resource<
   VpcLatticeAuthPolicyAttributes
 > {
   public static readonly Type = "AWS::VpcLattice::AuthPolicy";
-  public static readonly AttributeNames = ["State" as const];
   constructor(
     logicalId: string,
     properties: VpcLatticeAuthPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VpcLatticeAuthPolicy.Type,
-      properties,
-      VpcLatticeAuthPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, VpcLatticeAuthPolicy.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html}
@@ -215,21 +215,11 @@ export class AutoScalingScalingPolicy extends $Resource<
   AutoScalingScalingPolicyAttributes
 > {
   public static readonly Type = "AWS::AutoScaling::ScalingPolicy";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "PolicyName" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AutoScalingScalingPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AutoScalingScalingPolicy.Type,
-      properties,
-      AutoScalingScalingPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, AutoScalingScalingPolicy.Type, properties, options);
   }
 }

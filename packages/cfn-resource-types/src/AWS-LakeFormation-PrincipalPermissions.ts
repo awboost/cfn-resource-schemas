@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::LakeFormation::PrincipalPermissions`.
  * A resource schema representing a Lake Formation Permission.
@@ -35,6 +35,22 @@ export type CatalogResource = Record<string, any>;
  */
 export type ColumnWildcard = {
   ExcludedColumnNames?: string[];
+};
+/**
+ * Type definition for `AWS::LakeFormation::PrincipalPermissions.DatabaseResource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-databaseresource.html}
+ */
+export type DatabaseResource = {
+  /**
+   * @minLength `12`
+   * @maxLength `12`
+   */
+  CatalogId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  Name: string;
 };
 /**
  * Type definition for `AWS::LakeFormation::PrincipalPermissions.DataCellsFilterResource`.
@@ -86,22 +102,6 @@ export type DataLocationResource = {
   ResourceArn: string;
 };
 /**
- * Type definition for `AWS::LakeFormation::PrincipalPermissions.DatabaseResource`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-databaseresource.html}
- */
-export type DatabaseResource = {
-  /**
-   * @minLength `12`
-   * @maxLength `12`
-   */
-  CatalogId: string;
-  /**
-   * @minLength `1`
-   * @maxLength `255`
-   */
-  Name: string;
-};
-/**
  * Type definition for `AWS::LakeFormation::PrincipalPermissions.LFTag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html}
  */
@@ -130,27 +130,6 @@ export type LFTagKeyResource = {
   /**
    * @minLength `1`
    * @maxLength `255`
-   */
-  TagKey: string;
-  /**
-   * @minLength `1`
-   * @maxLength `50`
-   */
-  TagValues: string[];
-};
-/**
- * Type definition for `AWS::LakeFormation::PrincipalPermissions.LFTagPair`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpair.html}
- */
-export type LFTagPair = {
-  /**
-   * @minLength `12`
-   * @maxLength `12`
-   */
-  CatalogId?: string;
-  /**
-   * @minLength `1`
-   * @maxLength `128`
    */
   TagKey: string;
   /**
@@ -193,22 +172,6 @@ export type Permission =
   | "DATA_LOCATION_ACCESS"
   | "CREATE_TAG"
   | "ASSOCIATE";
-/**
- * Type definition for `AWS::LakeFormation::PrincipalPermissions.PrincipalPermissions`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-principalpermissions.html}
- */
-export type PrincipalPermissions = {
-  DataLakePrincipal?: DataLakePrincipal;
-  PermissionList?: Permission[];
-};
-/**
- * Type definition for `AWS::LakeFormation::PrincipalPermissions.PrincipalResourcePair`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-principalresourcepair.html}
- */
-export type PrincipalResourcePair = {
-  Principal: DataLakePrincipal;
-  Resource: Resource;
-};
 /**
  * Type definition for `AWS::LakeFormation::PrincipalPermissions.Resource`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html}
@@ -289,10 +252,6 @@ export class LakeFormationPrincipalPermissions extends $Resource<
   LakeFormationPrincipalPermissionsAttributes
 > {
   public static readonly Type = "AWS::LakeFormation::PrincipalPermissions";
-  public static readonly AttributeNames = [
-    "PrincipalIdentifier" as const,
-    "ResourceIdentifier" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LakeFormationPrincipalPermissionsProperties,
@@ -302,7 +261,6 @@ export class LakeFormationPrincipalPermissions extends $Resource<
       logicalId,
       LakeFormationPrincipalPermissions.Type,
       properties,
-      LakeFormationPrincipalPermissions.AttributeNames,
       options,
     );
   }

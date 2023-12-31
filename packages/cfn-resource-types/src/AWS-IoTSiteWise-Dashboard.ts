@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::IoTSiteWise::Dashboard
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html}
@@ -59,21 +59,11 @@ export class IoTSiteWiseDashboard extends $Resource<
   IoTSiteWiseDashboardAttributes
 > {
   public static readonly Type = "AWS::IoTSiteWise::Dashboard";
-  public static readonly AttributeNames = [
-    "DashboardArn" as const,
-    "DashboardId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTSiteWiseDashboardProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTSiteWiseDashboard.Type,
-      properties,
-      IoTSiteWiseDashboard.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTSiteWiseDashboard.Type, properties, options);
   }
 }

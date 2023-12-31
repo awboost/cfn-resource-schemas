@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ElastiCache::SubnetGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html}
@@ -38,18 +38,11 @@ export class ElastiCacheSubnetGroup extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::ElastiCache::SubnetGroup";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: ElastiCacheSubnetGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ElastiCacheSubnetGroup.Type,
-      properties,
-      ElastiCacheSubnetGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, ElastiCacheSubnetGroup.Type, properties, options);
   }
 }

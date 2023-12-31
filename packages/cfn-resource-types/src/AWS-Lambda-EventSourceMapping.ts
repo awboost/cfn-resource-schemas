@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lambda::EventSourceMapping
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html}
@@ -55,6 +55,7 @@ export type LambdaEventSourceMappingProperties = {
   FunctionResponseTypes?: "ReportBatchItemFailures"[];
   /**
    * (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+   * @min `0`
    * @max `300`
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -119,6 +120,7 @@ export type LambdaEventSourceMappingProperties = {
   Topics?: string[];
   /**
    * (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
+   * @min `0`
    * @max `900`
    */
   TumblingWindowInSeconds?: number;
@@ -205,6 +207,7 @@ export type Endpoints = {
 export type Filter = {
   /**
    * The filter pattern that defines which events should be passed for invocations.
+   * @minLength `0`
    * @maxLength `4096`
    * @pattern `.*`
    */
@@ -311,18 +314,11 @@ export class LambdaEventSourceMapping extends $Resource<
   LambdaEventSourceMappingAttributes
 > {
   public static readonly Type = "AWS::Lambda::EventSourceMapping";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: LambdaEventSourceMappingProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LambdaEventSourceMapping.Type,
-      properties,
-      LambdaEventSourceMapping.AttributeNames,
-      options,
-    );
+    super(logicalId, LambdaEventSourceMapping.Type, properties, options);
   }
 }

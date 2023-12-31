@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Synthetics::Group
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-group.html}
@@ -14,6 +14,9 @@ export type SyntheticsGroupProperties = {
    * @maxLength `10`
    */
   ResourceArns?: string[];
+  /**
+   * @minLength `0`
+   */
   Tags?: Tag[];
 };
 /**
@@ -41,6 +44,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^([a-zA-Z\d\s_.:/=+\-@]*)$`
    */
@@ -56,18 +60,11 @@ export class SyntheticsGroup extends $Resource<
   SyntheticsGroupAttributes
 > {
   public static readonly Type = "AWS::Synthetics::Group";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: SyntheticsGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SyntheticsGroup.Type,
-      properties,
-      SyntheticsGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, SyntheticsGroup.Type, properties, options);
   }
 }

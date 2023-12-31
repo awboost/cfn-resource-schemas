@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::EC2Fleet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html}
@@ -339,18 +339,11 @@ export class EC2EC2Fleet extends $Resource<
   EC2EC2FleetAttributes
 > {
   public static readonly Type = "AWS::EC2::EC2Fleet";
-  public static readonly AttributeNames = ["FleetId" as const];
   constructor(
     logicalId: string,
     properties: EC2EC2FleetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2EC2Fleet.Type,
-      properties,
-      EC2EC2Fleet.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2EC2Fleet.Type, properties, options);
   }
 }

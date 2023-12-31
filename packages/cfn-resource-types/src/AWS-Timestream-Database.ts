@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Timestream::Database resource creates a Timestream database.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html}
@@ -41,6 +41,7 @@ export type Tag = {
    */
   Key?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -55,18 +56,11 @@ export class TimestreamDatabase extends $Resource<
   TimestreamDatabaseAttributes
 > {
   public static readonly Type = "AWS::Timestream::Database";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: TimestreamDatabaseProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      TimestreamDatabase.Type,
-      properties,
-      TimestreamDatabase.AttributeNames,
-      options,
-    );
+    super(logicalId, TimestreamDatabase.Type, properties, options);
   }
 }

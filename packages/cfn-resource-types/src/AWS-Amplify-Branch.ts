@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Amplify::Branch resource creates a new branch within an app.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html}
@@ -119,6 +119,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
@@ -134,18 +135,11 @@ export class AmplifyBranch extends $Resource<
   AmplifyBranchAttributes
 > {
   public static readonly Type = "AWS::Amplify::Branch";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: AmplifyBranchProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AmplifyBranch.Type,
-      properties,
-      AmplifyBranch.AttributeNames,
-      options,
-    );
+    super(logicalId, AmplifyBranch.Type, properties, options);
   }
 }

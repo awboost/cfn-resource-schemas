@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppMesh::Route
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html}
@@ -263,23 +263,11 @@ export class AppMeshRoute extends $Resource<
   AppMeshRouteAttributes
 > {
   public static readonly Type = "AWS::AppMesh::Route";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "ResourceOwner" as const,
-    "Uid" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppMeshRouteProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppMeshRoute.Type,
-      properties,
-      AppMeshRoute.AttributeNames,
-      options,
-    );
+    super(logicalId, AppMeshRoute.Type, properties, options);
   }
 }

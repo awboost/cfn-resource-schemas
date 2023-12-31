@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Lex::BotVersion`.
  * A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
@@ -76,18 +76,11 @@ export class LexBotVersion extends $Resource<
   LexBotVersionAttributes
 > {
   public static readonly Type = "AWS::Lex::BotVersion";
-  public static readonly AttributeNames = ["BotVersion" as const];
   constructor(
     logicalId: string,
     properties: LexBotVersionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LexBotVersion.Type,
-      properties,
-      LexBotVersion.AttributeNames,
-      options,
-    );
+    super(logicalId, LexBotVersion.Type, properties, options);
   }
 }

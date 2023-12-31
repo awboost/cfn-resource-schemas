@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::ResourcePolicy`.
  * Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.
@@ -25,18 +25,11 @@ export class VpcLatticeResourcePolicy extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::VpcLattice::ResourcePolicy";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: VpcLatticeResourcePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VpcLatticeResourcePolicy.Type,
-      properties,
-      VpcLatticeResourcePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, VpcLatticeResourcePolicy.Type, properties, options);
   }
 }

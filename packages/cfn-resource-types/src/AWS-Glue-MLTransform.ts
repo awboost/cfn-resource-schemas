@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Glue::MLTransform
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html}
@@ -87,18 +87,11 @@ export class GlueMLTransform extends $Resource<
   GlueMLTransformAttributes
 > {
   public static readonly Type = "AWS::Glue::MLTransform";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GlueMLTransformProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueMLTransform.Type,
-      properties,
-      GlueMLTransform.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueMLTransform.Type, properties, options);
   }
 }

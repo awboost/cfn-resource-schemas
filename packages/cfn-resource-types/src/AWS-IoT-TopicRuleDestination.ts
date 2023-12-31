@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IoT::TopicRuleDestination
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html}
@@ -64,21 +64,11 @@ export class IoTTopicRuleDestination extends $Resource<
   IoTTopicRuleDestinationAttributes
 > {
   public static readonly Type = "AWS::IoT::TopicRuleDestination";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "StatusReason" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTTopicRuleDestinationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTTopicRuleDestination.Type,
-      properties,
-      IoTTopicRuleDestination.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTTopicRuleDestination.Type, properties, options);
   }
 }

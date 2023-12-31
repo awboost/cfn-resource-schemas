@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::NimbleStudio::StreamingImage`.
  * Represents a streaming session machine image that can be used to launch a streaming session
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type NimbleStudioStreamingImageProperties = {
   /**
    * <p>A human-readable description of the streaming image.</p>
+   * @minLength `0`
    * @maxLength `256`
    */
   Description?: string;
@@ -18,6 +19,7 @@ export type NimbleStudioStreamingImageProperties = {
   Ec2ImageId: string;
   /**
    * <p>A friendly name for a streaming image resource.</p>
+   * @minLength `0`
    * @maxLength `64`
    */
   Name: string;
@@ -35,7 +37,7 @@ export type NimbleStudioStreamingImageAttributes = {
   /**
    * <p>TODO</p>
    */
-  EncryptionConfiguration: StreamingImageEncryptionConfiguration;
+  EncryptionConfiguration: {};
   /**
    * <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
    */
@@ -91,24 +93,11 @@ export class NimbleStudioStreamingImage extends $Resource<
   NimbleStudioStreamingImageAttributes
 > {
   public static readonly Type = "AWS::NimbleStudio::StreamingImage";
-  public static readonly AttributeNames = [
-    "EncryptionConfiguration" as const,
-    "EulaIds" as const,
-    "Owner" as const,
-    "Platform" as const,
-    "StreamingImageId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NimbleStudioStreamingImageProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NimbleStudioStreamingImage.Type,
-      properties,
-      NimbleStudioStreamingImage.AttributeNames,
-      options,
-    );
+    super(logicalId, NimbleStudioStreamingImage.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Cloud9::EnvironmentEC2
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html}
@@ -50,18 +50,11 @@ export class Cloud9EnvironmentEC2 extends $Resource<
   Cloud9EnvironmentEC2Attributes
 > {
   public static readonly Type = "AWS::Cloud9::EnvironmentEC2";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: Cloud9EnvironmentEC2Properties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      Cloud9EnvironmentEC2.Type,
-      properties,
-      Cloud9EnvironmentEC2.AttributeNames,
-      options,
-    );
+    super(logicalId, Cloud9EnvironmentEC2.Type, properties, options);
   }
 }

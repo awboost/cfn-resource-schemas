@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudFormation::Publisher`.
  * Register as a publisher in the CloudFormation Registry.
@@ -54,23 +54,11 @@ export class CloudFormationPublisher extends $Resource<
   CloudFormationPublisherAttributes
 > {
   public static readonly Type = "AWS::CloudFormation::Publisher";
-  public static readonly AttributeNames = [
-    "IdentityProvider" as const,
-    "PublisherId" as const,
-    "PublisherProfile" as const,
-    "PublisherStatus" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudFormationPublisherProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFormationPublisher.Type,
-      properties,
-      CloudFormationPublisher.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFormationPublisher.Type, properties, options);
   }
 }

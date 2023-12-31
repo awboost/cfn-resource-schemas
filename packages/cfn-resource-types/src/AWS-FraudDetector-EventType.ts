@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FraudDetector::EventType`.
  * A resource schema for an EventType in Amazon Fraud Detector.
@@ -60,11 +60,6 @@ export type FraudDetectorEventTypeAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html}
  */
 export type EntityType = {
-  Arn?: string;
-  /**
-   * The time when the event type was created.
-   */
-  CreatedTime?: string;
   /**
    * The description.
    * @minLength `1`
@@ -72,10 +67,6 @@ export type EntityType = {
    */
   Description?: string;
   Inline?: boolean;
-  /**
-   * The time when the event type was last updated.
-   */
-  LastUpdatedTime?: string;
   Name?: string;
   /**
    * Tags associated with this event type.
@@ -88,11 +79,6 @@ export type EntityType = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html}
  */
 export type EventVariable = {
-  Arn?: string;
-  /**
-   * The time when the event type was created.
-   */
-  CreatedTime?: string;
   DataSource?: "EVENT";
   DataType?: "STRING" | "INTEGER" | "FLOAT" | "BOOLEAN";
   DefaultValue?: string;
@@ -103,10 +89,6 @@ export type EventVariable = {
    */
   Description?: string;
   Inline?: boolean;
-  /**
-   * The time when the event type was last updated.
-   */
-  LastUpdatedTime?: string;
   Name?: string;
   /**
    * Tags associated with this event type.
@@ -153,11 +135,6 @@ export type EventVariable = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html}
  */
 export type Label = {
-  Arn?: string;
-  /**
-   * The time when the event type was created.
-   */
-  CreatedTime?: string;
   /**
    * The description.
    * @minLength `1`
@@ -165,10 +142,6 @@ export type Label = {
    */
   Description?: string;
   Inline?: boolean;
-  /**
-   * The time when the event type was last updated.
-   */
-  LastUpdatedTime?: string;
   Name?: string;
   /**
    * Tags associated with this event type.
@@ -187,6 +160,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -202,22 +176,11 @@ export class FraudDetectorEventType extends $Resource<
   FraudDetectorEventTypeAttributes
 > {
   public static readonly Type = "AWS::FraudDetector::EventType";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "LastUpdatedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: FraudDetectorEventTypeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FraudDetectorEventType.Type,
-      properties,
-      FraudDetectorEventType.AttributeNames,
-      options,
-    );
+    super(logicalId, FraudDetectorEventType.Type, properties, options);
   }
 }

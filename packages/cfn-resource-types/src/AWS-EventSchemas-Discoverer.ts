@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EventSchemas::Discoverer
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-discoverer.html}
@@ -36,21 +36,11 @@ export class EventSchemasDiscoverer extends $Resource<
   EventSchemasDiscovererAttributes
 > {
   public static readonly Type = "AWS::EventSchemas::Discoverer";
-  public static readonly AttributeNames = [
-    "DiscovererArn" as const,
-    "DiscovererId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EventSchemasDiscovererProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EventSchemasDiscoverer.Type,
-      properties,
-      EventSchemasDiscoverer.AttributeNames,
-      options,
-    );
+    super(logicalId, EventSchemasDiscoverer.Type, properties, options);
   }
 }

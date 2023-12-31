@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataBrew::Project.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html}
@@ -60,6 +60,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -74,18 +75,11 @@ export class DataBrewProject extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::DataBrew::Project";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: DataBrewProjectProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataBrewProject.Type,
-      properties,
-      DataBrewProject.AttributeNames,
-      options,
-    );
+    super(logicalId, DataBrewProject.Type, properties, options);
   }
 }

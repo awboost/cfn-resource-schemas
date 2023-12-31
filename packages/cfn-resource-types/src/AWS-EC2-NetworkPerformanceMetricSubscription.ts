@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::NetworkPerformanceMetricSubscription
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html}
@@ -33,7 +33,6 @@ export class EC2NetworkPerformanceMetricSubscription extends $Resource<
 > {
   public static readonly Type =
     "AWS::EC2::NetworkPerformanceMetricSubscription";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: EC2NetworkPerformanceMetricSubscriptionProperties,
@@ -43,7 +42,6 @@ export class EC2NetworkPerformanceMetricSubscription extends $Resource<
       logicalId,
       EC2NetworkPerformanceMetricSubscription.Type,
       properties,
-      EC2NetworkPerformanceMetricSubscription.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingconfiguration.html}
@@ -17,6 +17,7 @@ export type GameLiftMatchmakingConfigurationProperties = {
   AcceptanceTimeoutSeconds?: number;
   /**
    * The number of player slots in a match to keep open for future players.
+   * @min `0`
    */
   AdditionalPlayerCount?: number;
   /**
@@ -29,6 +30,7 @@ export type GameLiftMatchmakingConfigurationProperties = {
   CreationTime?: string;
   /**
    * Information to attach to all events related to the matchmaking configuration.
+   * @minLength `0`
    * @maxLength `256`
    */
   CustomEventData?: string;
@@ -65,6 +67,7 @@ export type GameLiftMatchmakingConfigurationProperties = {
   Name: string;
   /**
    * An SNS topic ARN that is set up to receive matchmaking notifications.
+   * @minLength `0`
    * @maxLength `300`
    * @pattern `[a-zA-Z0-9:_/-]*(.fifo)?`
    */
@@ -134,6 +137,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -148,7 +152,6 @@ export class GameLiftMatchmakingConfiguration extends $Resource<
   GameLiftMatchmakingConfigurationAttributes
 > {
   public static readonly Type = "AWS::GameLift::MatchmakingConfiguration";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: GameLiftMatchmakingConfigurationProperties,
@@ -158,7 +161,6 @@ export class GameLiftMatchmakingConfiguration extends $Resource<
       logicalId,
       GameLiftMatchmakingConfiguration.Type,
       properties,
-      GameLiftMatchmakingConfiguration.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Organizations::Policy`.
  * Policies in AWS Organizations enable you to manage different features of the AWS accounts in your organization.  You can use policies when all features are enabled in your organization.
@@ -76,6 +76,7 @@ export type Tag = {
   Key: string;
   /**
    * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `[\s\S]*`
    */
@@ -92,22 +93,11 @@ export class OrganizationsPolicy extends $Resource<
   OrganizationsPolicyAttributes
 > {
   public static readonly Type = "AWS::Organizations::Policy";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "AwsManaged" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OrganizationsPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OrganizationsPolicy.Type,
-      properties,
-      OrganizationsPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, OrganizationsPolicy.Type, properties, options);
   }
 }

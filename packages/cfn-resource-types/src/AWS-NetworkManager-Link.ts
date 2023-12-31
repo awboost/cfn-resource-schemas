@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::NetworkManager::Link type describes a link.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html}
@@ -96,23 +96,11 @@ export class NetworkManagerLink extends $Resource<
   NetworkManagerLinkAttributes
 > {
   public static readonly Type = "AWS::NetworkManager::Link";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "LinkArn" as const,
-    "LinkId" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkManagerLinkProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NetworkManagerLink.Type,
-      properties,
-      NetworkManagerLink.AttributeNames,
-      options,
-    );
+    super(logicalId, NetworkManagerLink.Type, properties, options);
   }
 }

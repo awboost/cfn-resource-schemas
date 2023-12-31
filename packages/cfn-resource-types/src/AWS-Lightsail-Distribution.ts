@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lightsail::Distribution
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html}
@@ -205,6 +205,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -219,22 +220,11 @@ export class LightsailDistribution extends $Resource<
   LightsailDistributionAttributes
 > {
   public static readonly Type = "AWS::Lightsail::Distribution";
-  public static readonly AttributeNames = [
-    "AbleToUpdateBundle" as const,
-    "DistributionArn" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LightsailDistributionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LightsailDistribution.Type,
-      properties,
-      LightsailDistribution.AttributeNames,
-      options,
-    );
+    super(logicalId, LightsailDistribution.Type, properties, options);
   }
 }

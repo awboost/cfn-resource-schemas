@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Evidently::Feature.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-feature.html}
@@ -12,10 +12,12 @@ export type EvidentlyFeatureProperties = {
    */
   DefaultVariation?: string;
   /**
+   * @minLength `0`
    * @maxLength `160`
    */
   Description?: string;
   /**
+   * @minLength `0`
    * @maxLength `2500`
    */
   EntityOverrides?: EntityOverride[];
@@ -27,6 +29,7 @@ export type EvidentlyFeatureProperties = {
    */
   Name: string;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    * @pattern `([-a-zA-Z0-9._]*)|(arn:[^:]*:[^:]*:[^:]*:[^:]*:project/[-a-zA-Z0-9._]*)`
    */
@@ -47,6 +50,7 @@ export type EvidentlyFeatureProperties = {
  */
 export type EvidentlyFeatureAttributes = {
   /**
+   * @minLength `0`
    * @maxLength `2048`
    * @pattern `arn:[^:]*:[^:]*:[^:]*:[^:]*:project/[-a-zA-Z0-9._]/‍*feature/[-a-zA-Z0-9._]*`
    */
@@ -80,6 +84,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -93,6 +98,7 @@ export type VariationObject = {
   DoubleValue?: number;
   LongValue?: number;
   /**
+   * @minLength `0`
    * @maxLength `512`
    */
   StringValue?: string;
@@ -113,18 +119,11 @@ export class EvidentlyFeature extends $Resource<
   EvidentlyFeatureAttributes
 > {
   public static readonly Type = "AWS::Evidently::Feature";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: EvidentlyFeatureProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EvidentlyFeature.Type,
-      properties,
-      EvidentlyFeature.AttributeNames,
-      options,
-    );
+    super(logicalId, EvidentlyFeature.Type, properties, options);
   }
 }

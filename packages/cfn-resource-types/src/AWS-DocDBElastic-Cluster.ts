@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::DocDBElastic::Cluster Amazon DocumentDB (with MongoDB compatibility) Elastic Scale resource describes a Cluster
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdbelastic-cluster.html}
@@ -20,6 +20,7 @@ export type DocDBElasticClusterProperties = {
   ShardCount: number;
   SubnetIds?: string[];
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -45,6 +46,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -59,21 +61,11 @@ export class DocDBElasticCluster extends $Resource<
   DocDBElasticClusterAttributes
 > {
   public static readonly Type = "AWS::DocDBElastic::Cluster";
-  public static readonly AttributeNames = [
-    "ClusterArn" as const,
-    "ClusterEndpoint" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DocDBElasticClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DocDBElasticCluster.Type,
-      properties,
-      DocDBElasticCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, DocDBElasticCluster.Type, properties, options);
   }
 }

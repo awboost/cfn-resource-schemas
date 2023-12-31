@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Glue::Database
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html}
@@ -14,13 +14,6 @@ export type GlueDatabaseProperties = {
  */
 export type GlueDatabaseAttributes = {
   Id: string;
-};
-/**
- * Type definition for `AWS::Glue::Database.DataLakePrincipal`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html}
- */
-export type DataLakePrincipal = {
-  DataLakePrincipalIdentifier?: string;
 };
 /**
  * Type definition for `AWS::Glue::Database.DatabaseIdentifier`.
@@ -43,6 +36,13 @@ export type DatabaseInput = {
   Name?: string;
   Parameters?: Record<string, any>;
   TargetDatabase?: DatabaseIdentifier;
+};
+/**
+ * Type definition for `AWS::Glue::Database.DataLakePrincipal`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html}
+ */
+export type DataLakePrincipal = {
+  DataLakePrincipalIdentifier?: string;
 };
 /**
  * Type definition for `AWS::Glue::Database.FederatedDatabase`.
@@ -70,18 +70,11 @@ export class GlueDatabase extends $Resource<
   GlueDatabaseAttributes
 > {
   public static readonly Type = "AWS::Glue::Database";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GlueDatabaseProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueDatabase.Type,
-      properties,
-      GlueDatabase.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueDatabase.Type, properties, options);
   }
 }

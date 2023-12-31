@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Backup::Framework`.
  * Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
@@ -12,6 +12,7 @@ export type BackupFrameworkProperties = {
   FrameworkControls: FrameworkControl[];
   /**
    * An optional description of the framework with a maximum 1,024 characters.
+   * @minLength `0`
    * @maxLength `1024`
    */
   FrameworkDescription?: string;
@@ -110,6 +111,7 @@ export type Tag = {
   Key?: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -125,23 +127,11 @@ export class BackupFramework extends $Resource<
   BackupFrameworkAttributes
 > {
   public static readonly Type = "AWS::Backup::Framework";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "DeploymentStatus" as const,
-    "FrameworkArn" as const,
-    "FrameworkStatus" as const,
-  ];
   constructor(
     logicalId: string,
     properties: BackupFrameworkProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BackupFramework.Type,
-      properties,
-      BackupFramework.AttributeNames,
-      options,
-    );
+    super(logicalId, BackupFramework.Type, properties, options);
   }
 }

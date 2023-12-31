@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FraudDetector::Variable`.
  * A resource schema for a Variable in Amazon Fraud Detector.
@@ -101,6 +101,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -116,22 +117,11 @@ export class FraudDetectorVariable extends $Resource<
   FraudDetectorVariableAttributes
 > {
   public static readonly Type = "AWS::FraudDetector::Variable";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "LastUpdatedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: FraudDetectorVariableProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FraudDetectorVariable.Type,
-      properties,
-      FraudDetectorVariable.AttributeNames,
-      options,
-    );
+    super(logicalId, FraudDetectorVariable.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Synthetics::Canary
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html}
@@ -113,7 +113,6 @@ export type Code = {
   S3Key?: string;
   S3ObjectVersion?: string;
   Script?: string;
-  SourceLocationArn?: string;
 };
 /**
  * Type definition for `AWS::Synthetics::Canary.RunConfig`.
@@ -173,18 +172,10 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
-};
-/**
- * Type definition for `AWS::Synthetics::Canary.VPCConfig`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html}
- */
-export type VPCConfig = {
-  SecurityGroupIds: string[];
-  SubnetIds: string[];
-  VpcId?: string;
 };
 /**
  * Type definition for `AWS::Synthetics::Canary.VisualReference`.
@@ -201,6 +192,15 @@ export type VisualReference = {
   BaseScreenshots?: BaseScreenshot[];
 };
 /**
+ * Type definition for `AWS::Synthetics::Canary.VPCConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html}
+ */
+export type VPCConfig = {
+  SecurityGroupIds: string[];
+  SubnetIds: string[];
+  VpcId?: string;
+};
+/**
  * Resource Type definition for AWS::Synthetics::Canary
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html}
  */
@@ -210,18 +210,11 @@ export class SyntheticsCanary extends $Resource<
   SyntheticsCanaryAttributes
 > {
   public static readonly Type = "AWS::Synthetics::Canary";
-  public static readonly AttributeNames = ["Id" as const, "State" as const];
   constructor(
     logicalId: string,
     properties: SyntheticsCanaryProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SyntheticsCanary.Type,
-      properties,
-      SyntheticsCanary.AttributeNames,
-      options,
-    );
+    super(logicalId, SyntheticsCanary.Type, properties, options);
   }
 }

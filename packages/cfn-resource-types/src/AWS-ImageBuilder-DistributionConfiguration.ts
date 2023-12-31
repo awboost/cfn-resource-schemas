@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::ImageBuilder::DistributionConfiguration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html}
@@ -237,7 +237,6 @@ export class ImageBuilderDistributionConfiguration extends $Resource<
   ImageBuilderDistributionConfigurationAttributes
 > {
   public static readonly Type = "AWS::ImageBuilder::DistributionConfiguration";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ImageBuilderDistributionConfigurationProperties,
@@ -247,7 +246,6 @@ export class ImageBuilderDistributionConfiguration extends $Resource<
       logicalId,
       ImageBuilderDistributionConfiguration.Type,
       properties,
-      ImageBuilderDistributionConfiguration.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::UserHierarchyGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html}
@@ -67,18 +67,11 @@ export class ConnectUserHierarchyGroup extends $Resource<
   ConnectUserHierarchyGroupAttributes
 > {
   public static readonly Type = "AWS::Connect::UserHierarchyGroup";
-  public static readonly AttributeNames = ["UserHierarchyGroupArn" as const];
   constructor(
     logicalId: string,
     properties: ConnectUserHierarchyGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectUserHierarchyGroup.Type,
-      properties,
-      ConnectUserHierarchyGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectUserHierarchyGroup.Type, properties, options);
   }
 }

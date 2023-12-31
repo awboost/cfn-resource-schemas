@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CustomerProfiles::Domain`.
  * A domain defined for 3rd party data source in Profile Service
@@ -8,11 +8,13 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type CustomerProfilesDomainProperties = {
   /**
    * The URL of the SQS dead letter queue
+   * @minLength `0`
    * @maxLength `255`
    */
   DeadLetterQueueUrl?: string;
   /**
    * The default encryption key
+   * @minLength `0`
    * @maxLength `255`
    */
   DefaultEncryptionKey?: string;
@@ -39,6 +41,7 @@ export type CustomerProfilesDomainProperties = {
   RuleBasedMatching?: RuleBasedMatching;
   /**
    * The tags (keys and values) associated with the domain
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -59,7 +62,7 @@ export type CustomerProfilesDomainAttributes = {
   /**
    * Usage-specific statistics about the domain.
    */
-  Stats: DomainStats;
+  Stats: {};
 };
 /**
  * Type definition for `AWS::CustomerProfiles::Domain.AttributeTypesSelector`.
@@ -110,6 +113,7 @@ export type AutoMerging = {
   Enabled: boolean;
   /**
    * A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
+   * @min `0`
    * @max `1`
    */
   MinAllowedConfidenceScoreForMerging?: number;
@@ -279,7 +283,6 @@ export type RuleBasedMatching = {
    * @max `15`
    */
   MaxAllowedRuleLevelForMerging?: number;
-  Status?: "PENDING" | "IN_PROGRESS" | "ACTIVE";
 };
 /**
  * Type definition for `AWS::CustomerProfiles::Domain.S3ExportingConfig`.
@@ -314,6 +317,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -329,22 +333,11 @@ export class CustomerProfilesDomain extends $Resource<
   CustomerProfilesDomainAttributes
 > {
   public static readonly Type = "AWS::CustomerProfiles::Domain";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "LastUpdatedAt" as const,
-    "Stats" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CustomerProfilesDomainProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CustomerProfilesDomain.Type,
-      properties,
-      CustomerProfilesDomain.AttributeNames,
-      options,
-    );
+    super(logicalId, CustomerProfilesDomain.Type, properties, options);
   }
 }

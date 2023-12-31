@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html}
@@ -58,18 +58,11 @@ export class RoboMakerRobot extends $Resource<
   RoboMakerRobotAttributes
 > {
   public static readonly Type = "AWS::RoboMaker::Robot";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: RoboMakerRobotProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RoboMakerRobot.Type,
-      properties,
-      RoboMakerRobot.AttributeNames,
-      options,
-    );
+    super(logicalId, RoboMakerRobot.Type, properties, options);
   }
 }

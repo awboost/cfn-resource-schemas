@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema of AWS::EC2::PrefixList Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html}
@@ -62,6 +62,7 @@ export type Entry = {
    */
   Cidr: string;
   /**
+   * @minLength `0`
    * @maxLength `255`
    */
   Description?: string;
@@ -91,23 +92,11 @@ export class EC2PrefixList extends $Resource<
   EC2PrefixListAttributes
 > {
   public static readonly Type = "AWS::EC2::PrefixList";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "OwnerId" as const,
-    "PrefixListId" as const,
-    "Version" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2PrefixListProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2PrefixList.Type,
-      properties,
-      EC2PrefixList.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2PrefixList.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::LakeFormation::TagAssociation`.
  * A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
@@ -34,17 +34,6 @@ export type LakeFormationTagAssociationAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-catalogresource.html}
  */
 export type CatalogResource = Record<string, any>;
-/**
- * Type definition for `AWS::LakeFormation::TagAssociation.DataLakePrincipal`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-datalakeprincipal.html}
- */
-export type DataLakePrincipal = {
-  /**
-   * @minLength `1`
-   * @maxLength `255`
-   */
-  DataLakePrincipalIdentifier?: string;
-};
 /**
  * Type definition for `AWS::LakeFormation::TagAssociation.DatabaseResource`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-databaseresource.html}
@@ -92,11 +81,6 @@ export type Resource = {
   Table?: TableResource;
   TableWithColumns?: TableWithColumnsResource;
 };
-/**
- * Type definition for `AWS::LakeFormation::TagAssociation.ResourceType`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resourcetype.html}
- */
-export type ResourceType = "DATABASE" | "TABLE";
 /**
  * Type definition for `AWS::LakeFormation::TagAssociation.TableResource`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tableresource.html}
@@ -157,21 +141,11 @@ export class LakeFormationTagAssociation extends $Resource<
   LakeFormationTagAssociationAttributes
 > {
   public static readonly Type = "AWS::LakeFormation::TagAssociation";
-  public static readonly AttributeNames = [
-    "ResourceIdentifier" as const,
-    "TagsIdentifier" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LakeFormationTagAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LakeFormationTagAssociation.Type,
-      properties,
-      LakeFormationTagAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, LakeFormationTagAssociation.Type, properties, options);
   }
 }

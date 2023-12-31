@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-subnetgroup.html}
@@ -65,18 +65,11 @@ export class MemoryDBSubnetGroup extends $Resource<
   MemoryDBSubnetGroupAttributes
 > {
   public static readonly Type = "AWS::MemoryDB::SubnetGroup";
-  public static readonly AttributeNames = ["ARN" as const];
   constructor(
     logicalId: string,
     properties: MemoryDBSubnetGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MemoryDBSubnetGroup.Type,
-      properties,
-      MemoryDBSubnetGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, MemoryDBSubnetGroup.Type, properties, options);
   }
 }

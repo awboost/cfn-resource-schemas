@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Transfer::Connector
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html}
@@ -18,6 +18,7 @@ export type TransferConnectorProperties = {
   As2Config?: {
     /**
      * ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
+     * @minLength `0`
      * @maxLength `2048`
      */
     BasicAuthSecretId?: string;
@@ -137,6 +138,7 @@ export type Tag = {
   Key: string;
   /**
    * Contains one or more values that you assigned to the key name you create.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -151,21 +153,11 @@ export class TransferConnector extends $Resource<
   TransferConnectorAttributes
 > {
   public static readonly Type = "AWS::Transfer::Connector";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "ConnectorId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: TransferConnectorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      TransferConnector.Type,
-      properties,
-      TransferConnector.AttributeNames,
-      options,
-    );
+    super(logicalId, TransferConnector.Type, properties, options);
   }
 }

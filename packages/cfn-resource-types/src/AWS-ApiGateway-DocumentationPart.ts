@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html}
@@ -75,18 +75,11 @@ export class ApiGatewayDocumentationPart extends $Resource<
   ApiGatewayDocumentationPartAttributes
 > {
   public static readonly Type = "AWS::ApiGateway::DocumentationPart";
-  public static readonly AttributeNames = ["DocumentationPartId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayDocumentationPartProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayDocumentationPart.Type,
-      properties,
-      ApiGatewayDocumentationPart.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayDocumentationPart.Type, properties, options);
   }
 }

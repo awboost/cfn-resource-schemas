@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::Workteam
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html}
@@ -68,18 +68,11 @@ export class SageMakerWorkteam extends $Resource<
   SageMakerWorkteamAttributes
 > {
   public static readonly Type = "AWS::SageMaker::Workteam";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: SageMakerWorkteamProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerWorkteam.Type,
-      properties,
-      SageMakerWorkteam.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerWorkteam.Type, properties, options);
   }
 }

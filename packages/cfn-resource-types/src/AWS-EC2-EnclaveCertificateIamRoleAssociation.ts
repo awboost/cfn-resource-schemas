@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::EnclaveCertificateIamRoleAssociation`.
  * Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
@@ -51,11 +51,6 @@ export class EC2EnclaveCertificateIamRoleAssociation extends $Resource<
 > {
   public static readonly Type =
     "AWS::EC2::EnclaveCertificateIamRoleAssociation";
-  public static readonly AttributeNames = [
-    "CertificateS3BucketName" as const,
-    "CertificateS3ObjectKey" as const,
-    "EncryptionKmsKeyId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2EnclaveCertificateIamRoleAssociationProperties,
@@ -65,7 +60,6 @@ export class EC2EnclaveCertificateIamRoleAssociation extends $Resource<
       logicalId,
       EC2EnclaveCertificateIamRoleAssociation.Type,
       properties,
-      EC2EnclaveCertificateIamRoleAssociation.AttributeNames,
       options,
     );
   }

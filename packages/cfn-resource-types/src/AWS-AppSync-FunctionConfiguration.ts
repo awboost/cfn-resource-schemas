@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::AppSync::FunctionConfiguration`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -133,21 +133,11 @@ export class AppSyncFunctionConfiguration extends $Resource<
   AppSyncFunctionConfigurationAttributes
 > {
   public static readonly Type = "AWS::AppSync::FunctionConfiguration";
-  public static readonly AttributeNames = [
-    "FunctionArn" as const,
-    "FunctionId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppSyncFunctionConfigurationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppSyncFunctionConfiguration.Type,
-      properties,
-      AppSyncFunctionConfiguration.AttributeNames,
-      options,
-    );
+    super(logicalId, AppSyncFunctionConfiguration.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::Image
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html}
@@ -80,18 +80,11 @@ export class SageMakerImage extends $Resource<
   SageMakerImageAttributes
 > {
   public static readonly Type = "AWS::SageMaker::Image";
-  public static readonly AttributeNames = ["ImageArn" as const];
   constructor(
     logicalId: string,
     properties: SageMakerImageProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerImage.Type,
-      properties,
-      SageMakerImage.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerImage.Type, properties, options);
   }
 }

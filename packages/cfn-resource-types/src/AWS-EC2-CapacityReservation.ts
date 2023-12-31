@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::CapacityReservation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html}
@@ -54,22 +54,11 @@ export class EC2CapacityReservation extends $Resource<
   EC2CapacityReservationAttributes
 > {
   public static readonly Type = "AWS::EC2::CapacityReservation";
-  public static readonly AttributeNames = [
-    "AvailableInstanceCount" as const,
-    "Id" as const,
-    "TotalInstanceCount" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2CapacityReservationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2CapacityReservation.Type,
-      properties,
-      EC2CapacityReservation.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2CapacityReservation.Type, properties, options);
   }
 }

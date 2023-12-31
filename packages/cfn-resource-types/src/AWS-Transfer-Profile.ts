@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Transfer::Profile
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-profile.html}
@@ -59,6 +59,7 @@ export type Tag = {
   Key: string;
   /**
    * Contains one or more values that you assigned to the key name you create.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -73,21 +74,11 @@ export class TransferProfile extends $Resource<
   TransferProfileAttributes
 > {
   public static readonly Type = "AWS::Transfer::Profile";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "ProfileId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: TransferProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      TransferProfile.Type,
-      properties,
-      TransferProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, TransferProfile.Type, properties, options);
   }
 }

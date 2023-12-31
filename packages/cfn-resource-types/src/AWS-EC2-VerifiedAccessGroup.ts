@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessgroup.html}
@@ -85,6 +85,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -99,24 +100,11 @@ export class EC2VerifiedAccessGroup extends $Resource<
   EC2VerifiedAccessGroupAttributes
 > {
   public static readonly Type = "AWS::EC2::VerifiedAccessGroup";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "LastUpdatedTime" as const,
-    "Owner" as const,
-    "VerifiedAccessGroupArn" as const,
-    "VerifiedAccessGroupId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2VerifiedAccessGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2VerifiedAccessGroup.Type,
-      properties,
-      EC2VerifiedAccessGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2VerifiedAccessGroup.Type, properties, options);
   }
 }

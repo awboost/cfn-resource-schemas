@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scheduledaction.html}
@@ -58,18 +58,11 @@ export class AutoScalingScheduledAction extends $Resource<
   AutoScalingScheduledActionAttributes
 > {
   public static readonly Type = "AWS::AutoScaling::ScheduledAction";
-  public static readonly AttributeNames = ["ScheduledActionName" as const];
   constructor(
     logicalId: string,
     properties: AutoScalingScheduledActionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AutoScalingScheduledAction.Type,
-      properties,
-      AutoScalingScheduledAction.AttributeNames,
-      options,
-    );
+    super(logicalId, AutoScalingScheduledAction.Type, properties, options);
   }
 }

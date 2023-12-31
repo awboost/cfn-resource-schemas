@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IoT::TopicRule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html}
@@ -304,22 +304,27 @@ export type RepublishAction = {
  */
 export type RepublishActionHeaders = {
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   ContentType?: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   CorrelationData?: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   MessageExpiry?: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   PayloadFormatIndicator?: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   ResponseTopic?: string;
@@ -440,10 +445,12 @@ export type TopicRulePayload = {
  */
 export type UserProperty = {
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Value: string;
@@ -458,18 +465,11 @@ export class IoTTopicRule extends $Resource<
   IoTTopicRuleAttributes
 > {
   public static readonly Type = "AWS::IoT::TopicRule";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: IoTTopicRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTTopicRule.Type,
-      properties,
-      IoTTopicRule.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTTopicRule.Type, properties, options);
   }
 }

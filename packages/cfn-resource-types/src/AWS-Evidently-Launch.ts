@@ -1,11 +1,12 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Evidently::Launch.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-launch.html}
  */
 export type EvidentlyLaunchProperties = {
   /**
+   * @minLength `0`
    * @maxLength `160`
    */
   Description?: string;
@@ -19,6 +20,7 @@ export type EvidentlyLaunchProperties = {
    */
   Groups: LaunchGroupObject[];
   /**
+   * @minLength `0`
    * @maxLength `3`
    */
   MetricMonitors?: MetricDefinitionObject[];
@@ -29,11 +31,13 @@ export type EvidentlyLaunchProperties = {
    */
   Name: string;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    * @pattern `([-a-zA-Z0-9._]*)|(arn:[^:]*:[^:]*:[^:]*:[^:]*:project/[-a-zA-Z0-9._]*)`
    */
   Project: string;
   /**
+   * @minLength `0`
    * @maxLength `127`
    * @pattern `.*`
    */
@@ -95,6 +99,7 @@ export type GroupToWeight = {
  */
 export type LaunchGroupObject = {
   /**
+   * @minLength `0`
    * @maxLength `160`
    */
   Description?: string;
@@ -175,6 +180,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -189,18 +195,11 @@ export class EvidentlyLaunch extends $Resource<
   EvidentlyLaunchAttributes
 > {
   public static readonly Type = "AWS::Evidently::Launch";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: EvidentlyLaunchProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EvidentlyLaunch.Type,
-      properties,
-      EvidentlyLaunch.AttributeNames,
-      options,
-    );
+    super(logicalId, EvidentlyLaunch.Type, properties, options);
   }
 }

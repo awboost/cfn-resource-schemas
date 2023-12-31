@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-vpclink.html}
@@ -39,18 +39,11 @@ export class ApiGatewayV2VpcLink extends $Resource<
   ApiGatewayV2VpcLinkAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::VpcLink";
-  public static readonly AttributeNames = ["VpcLinkId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2VpcLinkProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2VpcLink.Type,
-      properties,
-      ApiGatewayV2VpcLink.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2VpcLink.Type, properties, options);
   }
 }

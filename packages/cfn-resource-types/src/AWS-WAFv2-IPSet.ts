@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::WAFv2::IPSet`.
  * Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
@@ -71,6 +71,7 @@ export type Tag = {
    */
   Key?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -86,18 +87,11 @@ export class WAFv2IPSet extends $Resource<
   WAFv2IPSetAttributes
 > {
   public static readonly Type = "AWS::WAFv2::IPSet";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: WAFv2IPSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFv2IPSet.Type,
-      properties,
-      WAFv2IPSet.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFv2IPSet.Type, properties, options);
   }
 }

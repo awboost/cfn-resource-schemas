@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IVS::PlaybackKeyPair
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type IVSPlaybackKeyPairProperties = {
   /**
    * An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
+   * @minLength `0`
    * @maxLength `128`
    * @pattern `^[a-zA-Z0-9-_]*$`
    */
@@ -64,21 +65,11 @@ export class IVSPlaybackKeyPair extends $Resource<
   IVSPlaybackKeyPairAttributes
 > {
   public static readonly Type = "AWS::IVS::PlaybackKeyPair";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Fingerprint" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IVSPlaybackKeyPairProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IVSPlaybackKeyPair.Type,
-      properties,
-      IVSPlaybackKeyPair.AttributeNames,
-      options,
-    );
+    super(logicalId, IVSPlaybackKeyPair.Type, properties, options);
   }
 }

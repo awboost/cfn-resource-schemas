@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppFlow::ConnectorProfile
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html}
@@ -463,6 +463,7 @@ export type OAuth2GrantType =
 export type OAuth2Properties = {
   OAuth2GrantType?: OAuth2GrantType;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^(https?)://[-a-zA-Z0-9+&amp;@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&amp;@#/%=~_|]`
    */
@@ -622,6 +623,64 @@ export type RedshiftConnectorProfileProperties = {
   WorkgroupName?: string;
 };
 /**
+ * Type definition for `AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileCredentials`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html}
+ */
+export type SalesforceConnectorProfileCredentials = {
+  /**
+   * The credentials used to access protected resources.
+   * @maxLength `4096`
+   * @pattern `\S+`
+   */
+  AccessToken?: string;
+  /**
+   * The client credentials to fetch access token and refresh token.
+   * @maxLength `2048`
+   * @pattern `arn:aws:secretsmanager:.*:[0-9]+:.*`
+   */
+  ClientCredentialsArn?: string;
+  /**
+   * The oauth needed to request security tokens from the connector endpoint.
+   */
+  ConnectorOAuthRequest?: ConnectorOAuthRequest;
+  /**
+   * The credentials used to access your Salesforce records
+   * @maxLength `8000`
+   * @pattern `^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.[A-Za-z0-9-_.+/=]*$`
+   */
+  JwtToken?: string;
+  /**
+   * The grant types to fetch an access token
+   */
+  OAuth2GrantType?: OAuth2GrantType;
+  /**
+   * The credentials used to acquire new access tokens.
+   * @maxLength `4096`
+   * @pattern `\S+`
+   */
+  RefreshToken?: string;
+};
+/**
+ * Type definition for `AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html}
+ */
+export type SalesforceConnectorProfileProperties = {
+  /**
+   * The location of the Salesforce resource
+   * @maxLength `256`
+   * @pattern `\S+`
+   */
+  InstanceUrl?: string;
+  /**
+   * Indicates whether the connector profile applies to a sandbox or production environment
+   */
+  isSandboxEnvironment?: boolean;
+  /**
+   * Indicates whether to make Metadata And Authorization calls over Pivate Network
+   */
+  usePrivateLinkForMetadataAndAuthorization?: boolean;
+};
+/**
  * Type definition for `AWS::AppFlow::ConnectorProfile.SAPODataConnectorProfileCredentials`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html}
  */
@@ -692,64 +751,6 @@ export type SAPODataConnectorProfileProperties = {
    * @pattern `\S+`
    */
   PrivateLinkServiceName?: string;
-};
-/**
- * Type definition for `AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileCredentials`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html}
- */
-export type SalesforceConnectorProfileCredentials = {
-  /**
-   * The credentials used to access protected resources.
-   * @maxLength `4096`
-   * @pattern `\S+`
-   */
-  AccessToken?: string;
-  /**
-   * The client credentials to fetch access token and refresh token.
-   * @maxLength `2048`
-   * @pattern `arn:aws:secretsmanager:.*:[0-9]+:.*`
-   */
-  ClientCredentialsArn?: string;
-  /**
-   * The oauth needed to request security tokens from the connector endpoint.
-   */
-  ConnectorOAuthRequest?: ConnectorOAuthRequest;
-  /**
-   * The credentials used to access your Salesforce records
-   * @maxLength `8000`
-   * @pattern `^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.[A-Za-z0-9-_.+/=]*$`
-   */
-  JwtToken?: string;
-  /**
-   * The grant types to fetch an access token
-   */
-  OAuth2GrantType?: OAuth2GrantType;
-  /**
-   * The credentials used to acquire new access tokens.
-   * @maxLength `4096`
-   * @pattern `\S+`
-   */
-  RefreshToken?: string;
-};
-/**
- * Type definition for `AWS::AppFlow::ConnectorProfile.SalesforceConnectorProfileProperties`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html}
- */
-export type SalesforceConnectorProfileProperties = {
-  /**
-   * The location of the Salesforce resource
-   * @maxLength `256`
-   * @pattern `\S+`
-   */
-  InstanceUrl?: string;
-  /**
-   * Indicates whether the connector profile applies to a sandbox or production environment
-   */
-  isSandboxEnvironment?: boolean;
-  /**
-   * Indicates whether to make Metadata And Authorization calls over Pivate Network
-   */
-  usePrivateLinkForMetadataAndAuthorization?: boolean;
 };
 /**
  * Type definition for `AWS::AppFlow::ConnectorProfile.ServiceNowConnectorProfileCredentials`.
@@ -1002,21 +1003,11 @@ export class AppFlowConnectorProfile extends $Resource<
   AppFlowConnectorProfileAttributes
 > {
   public static readonly Type = "AWS::AppFlow::ConnectorProfile";
-  public static readonly AttributeNames = [
-    "ConnectorProfileArn" as const,
-    "CredentialsArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppFlowConnectorProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppFlowConnectorProfile.Type,
-      properties,
-      AppFlowConnectorProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, AppFlowConnectorProfile.Type, properties, options);
   }
 }

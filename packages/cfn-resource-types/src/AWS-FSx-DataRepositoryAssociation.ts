@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FSx::DataRepositoryAssociation`.
  * Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.
@@ -120,6 +120,7 @@ export type Tag = {
   Key: string;
   /**
    * A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -136,21 +137,11 @@ export class FSxDataRepositoryAssociation extends $Resource<
   FSxDataRepositoryAssociationAttributes
 > {
   public static readonly Type = "AWS::FSx::DataRepositoryAssociation";
-  public static readonly AttributeNames = [
-    "AssociationId" as const,
-    "ResourceARN" as const,
-  ];
   constructor(
     logicalId: string,
     properties: FSxDataRepositoryAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FSxDataRepositoryAssociation.Type,
-      properties,
-      FSxDataRepositoryAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, FSxDataRepositoryAssociation.Type, properties, options);
   }
 }

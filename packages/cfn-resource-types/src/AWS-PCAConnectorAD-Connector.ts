@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::PCAConnectorAD::Connector Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-connector.html}
@@ -56,18 +56,11 @@ export class PCAConnectorADConnector extends $Resource<
   PCAConnectorADConnectorAttributes
 > {
   public static readonly Type = "AWS::PCAConnectorAD::Connector";
-  public static readonly AttributeNames = ["ConnectorArn" as const];
   constructor(
     logicalId: string,
     properties: PCAConnectorADConnectorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PCAConnectorADConnector.Type,
-      properties,
-      PCAConnectorADConnector.AttributeNames,
-      options,
-    );
+    super(logicalId, PCAConnectorADConnector.Type, properties, options);
   }
 }

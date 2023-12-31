@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataSync::LocationObjectStorage.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html}
@@ -114,21 +114,11 @@ export class DataSyncLocationObjectStorage extends $Resource<
   DataSyncLocationObjectStorageAttributes
 > {
   public static readonly Type = "AWS::DataSync::LocationObjectStorage";
-  public static readonly AttributeNames = [
-    "LocationArn" as const,
-    "LocationUri" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DataSyncLocationObjectStorageProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataSyncLocationObjectStorage.Type,
-      properties,
-      DataSyncLocationObjectStorage.AttributeNames,
-      options,
-    );
+    super(logicalId, DataSyncLocationObjectStorage.Type, properties, options);
   }
 }

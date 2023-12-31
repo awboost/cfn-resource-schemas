@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::ViewVersion
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html}
@@ -54,21 +54,11 @@ export class ConnectViewVersion extends $Resource<
   ConnectViewVersionAttributes
 > {
   public static readonly Type = "AWS::Connect::ViewVersion";
-  public static readonly AttributeNames = [
-    "Version" as const,
-    "ViewVersionArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ConnectViewVersionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectViewVersion.Type,
-      properties,
-      ConnectViewVersion.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectViewVersion.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudFormation::HookDefaultVersion`.
  * Set a version as default version for a hook in CloudFormation Registry.
@@ -46,7 +46,6 @@ export class CloudFormationHookDefaultVersion extends $Resource<
   CloudFormationHookDefaultVersionAttributes
 > {
   public static readonly Type = "AWS::CloudFormation::HookDefaultVersion";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: CloudFormationHookDefaultVersionProperties,
@@ -56,7 +55,6 @@ export class CloudFormationHookDefaultVersion extends $Resource<
       logicalId,
       CloudFormationHookDefaultVersion.Type,
       properties,
-      CloudFormationHookDefaultVersion.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Route53RecoveryReadiness::ReadinessCheck`.
  * Aws Route53 Recovery Readiness Check Schema and API specification.
@@ -55,7 +55,6 @@ export class Route53RecoveryReadinessReadinessCheck extends $Resource<
   Route53RecoveryReadinessReadinessCheckAttributes
 > {
   public static readonly Type = "AWS::Route53RecoveryReadiness::ReadinessCheck";
-  public static readonly AttributeNames = ["ReadinessCheckArn" as const];
   constructor(
     logicalId: string,
     properties: Route53RecoveryReadinessReadinessCheckProperties,
@@ -65,7 +64,6 @@ export class Route53RecoveryReadinessReadinessCheck extends $Resource<
       logicalId,
       Route53RecoveryReadinessReadinessCheck.Type,
       properties,
-      Route53RecoveryReadinessReadinessCheck.AttributeNames,
       options,
     );
   }

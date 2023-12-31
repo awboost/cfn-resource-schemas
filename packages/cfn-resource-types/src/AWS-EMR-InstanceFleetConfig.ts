@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EMR::InstanceFleetConfig
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancefleetconfig.html}
@@ -103,18 +103,11 @@ export class EMRInstanceFleetConfig extends $Resource<
   EMRInstanceFleetConfigAttributes
 > {
   public static readonly Type = "AWS::EMR::InstanceFleetConfig";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EMRInstanceFleetConfigProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EMRInstanceFleetConfig.Type,
-      properties,
-      EMRInstanceFleetConfig.AttributeNames,
-      options,
-    );
+    super(logicalId, EMRInstanceFleetConfig.Type, properties, options);
   }
 }

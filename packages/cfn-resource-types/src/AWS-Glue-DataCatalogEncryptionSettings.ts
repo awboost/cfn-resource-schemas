@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-datacatalogencryptionsettings.html}
@@ -49,7 +49,6 @@ export class GlueDataCatalogEncryptionSettings extends $Resource<
   GlueDataCatalogEncryptionSettingsAttributes
 > {
   public static readonly Type = "AWS::Glue::DataCatalogEncryptionSettings";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GlueDataCatalogEncryptionSettingsProperties,
@@ -59,7 +58,6 @@ export class GlueDataCatalogEncryptionSettings extends $Resource<
       logicalId,
       GlueDataCatalogEncryptionSettings.Type,
       properties,
-      GlueDataCatalogEncryptionSettings.AttributeNames,
       options,
     );
   }

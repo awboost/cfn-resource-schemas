@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IoT1Click::Placement
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html}
@@ -27,18 +27,11 @@ export class IoT1ClickPlacement extends $Resource<
   IoT1ClickPlacementAttributes
 > {
   public static readonly Type = "AWS::IoT1Click::Placement";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: IoT1ClickPlacementProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoT1ClickPlacement.Type,
-      properties,
-      IoT1ClickPlacement.AttributeNames,
-      options,
-    );
+    super(logicalId, IoT1ClickPlacement.Type, properties, options);
   }
 }

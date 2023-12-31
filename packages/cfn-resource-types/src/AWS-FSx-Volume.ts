@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::FSx::Volume
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-volume.html}
@@ -149,22 +149,11 @@ export class FSxVolume extends $Resource<
   FSxVolumeAttributes
 > {
   public static readonly Type = "AWS::FSx::Volume";
-  public static readonly AttributeNames = [
-    "ResourceARN" as const,
-    "UUID" as const,
-    "VolumeId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: FSxVolumeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FSxVolume.Type,
-      properties,
-      FSxVolume.AttributeNames,
-      options,
-    );
+    super(logicalId, FSxVolume.Type, properties, options);
   }
 }

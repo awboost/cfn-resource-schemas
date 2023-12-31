@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FMS::Policy`.
  * Creates an AWS Firewall Manager policy.
@@ -201,18 +201,11 @@ export class FMSPolicy extends $Resource<
   FMSPolicyAttributes
 > {
   public static readonly Type = "AWS::FMS::Policy";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: FMSPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FMSPolicy.Type,
-      properties,
-      FMSPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, FMSPolicy.Type, properties, options);
   }
 }

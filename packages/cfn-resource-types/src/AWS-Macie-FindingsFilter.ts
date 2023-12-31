@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Macie::FindingsFilter`.
  * Macie FindingsFilter resource schema.
@@ -79,15 +79,6 @@ export type FindingCriteria = {
  */
 export type FindingFilterAction = "ARCHIVE" | "NOOP";
 /**
- * Type definition for `AWS::Macie::FindingsFilter.FindingsFilterListItem`.
- * Returned by ListHandler representing filter name and ID.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html}
- */
-export type FindingsFilterListItem = {
-  Id?: string;
-  Name?: string;
-};
-/**
  * Type definition for `AWS::Macie::FindingsFilter.Tag`.
  * A key-value pair to associate with a resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-tag.html}
@@ -113,18 +104,11 @@ export class MacieFindingsFilter extends $Resource<
   MacieFindingsFilterAttributes
 > {
   public static readonly Type = "AWS::Macie::FindingsFilter";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: MacieFindingsFilterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MacieFindingsFilter.Type,
-      properties,
-      MacieFindingsFilter.AttributeNames,
-      options,
-    );
+    super(logicalId, MacieFindingsFilter.Type, properties, options);
   }
 }

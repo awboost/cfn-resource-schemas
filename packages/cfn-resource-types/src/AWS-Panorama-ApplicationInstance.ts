@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Panorama::ApplicationInstance`.
  * Schema for ApplicationInstance CloudFormation Resource
@@ -19,6 +19,7 @@ export type PanoramaApplicationInstanceProperties = {
    */
   DefaultRuntimeContextDevice: string;
   /**
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^.*$`
    */
@@ -103,6 +104,7 @@ export type ApplicationInstanceStatus =
  */
 export type ManifestOverridesPayload = {
   /**
+   * @minLength `0`
    * @maxLength `51200`
    * @pattern `^.+$`
    */
@@ -121,17 +123,6 @@ export type ManifestPayload = {
   PayloadData?: string;
 };
 /**
- * Type definition for `AWS::Panorama::ApplicationInstance.StatusFilter`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-statusfilter.html}
- */
-export type StatusFilter =
-  | "DEPLOYMENT_SUCCEEDED"
-  | "DEPLOYMENT_ERROR"
-  | "REMOVAL_SUCCEEDED"
-  | "REMOVAL_FAILED"
-  | "PROCESSING_DEPLOYMENT"
-  | "PROCESSING_REMOVAL";
-/**
  * Type definition for `AWS::Panorama::ApplicationInstance.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-tag.html}
  */
@@ -145,6 +136,7 @@ export type Tag = {
   Key: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^.+$`
    */
@@ -161,27 +153,11 @@ export class PanoramaApplicationInstance extends $Resource<
   PanoramaApplicationInstanceAttributes
 > {
   public static readonly Type = "AWS::Panorama::ApplicationInstance";
-  public static readonly AttributeNames = [
-    "ApplicationInstanceId" as const,
-    "Arn" as const,
-    "CreatedTime" as const,
-    "DefaultRuntimeContextDeviceName" as const,
-    "HealthStatus" as const,
-    "LastUpdatedTime" as const,
-    "Status" as const,
-    "StatusDescription" as const,
-  ];
   constructor(
     logicalId: string,
     properties: PanoramaApplicationInstanceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PanoramaApplicationInstance.Type,
-      properties,
-      PanoramaApplicationInstance.AttributeNames,
-      options,
-    );
+    super(logicalId, PanoramaApplicationInstance.Type, properties, options);
   }
 }

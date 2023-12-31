@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html}
@@ -170,13 +170,6 @@ export type ReplicaGlobalSecondaryIndexSpecification = {
   ReadProvisionedThroughputSettings?: ReadProvisionedThroughputSettings;
 };
 /**
- * Type definition for `AWS::DynamoDB::GlobalTable.ReplicaSSESpecification`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html}
- */
-export type ReplicaSSESpecification = {
-  KMSMasterKeyId: string;
-};
-/**
  * Type definition for `AWS::DynamoDB::GlobalTable.ReplicaSpecification`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html}
  */
@@ -191,6 +184,13 @@ export type ReplicaSpecification = {
   SSESpecification?: ReplicaSSESpecification;
   TableClass?: string;
   Tags?: Tag[];
+};
+/**
+ * Type definition for `AWS::DynamoDB::GlobalTable.ReplicaSSESpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html}
+ */
+export type ReplicaSSESpecification = {
+  KMSMasterKeyId: string;
 };
 /**
  * Type definition for `AWS::DynamoDB::GlobalTable.SSESpecification`.
@@ -221,7 +221,13 @@ export type Tag = {
  */
 export type TargetTrackingScalingPolicyConfiguration = {
   DisableScaleIn?: boolean;
+  /**
+   * @min `0`
+   */
   ScaleInCooldown?: number;
+  /**
+   * @min `0`
+   */
   ScaleOutCooldown?: number;
   TargetValue: number;
 };
@@ -250,22 +256,11 @@ export class DynamoDBGlobalTable extends $Resource<
   DynamoDBGlobalTableAttributes
 > {
   public static readonly Type = "AWS::DynamoDB::GlobalTable";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "StreamArn" as const,
-    "TableId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DynamoDBGlobalTableProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DynamoDBGlobalTable.Type,
-      properties,
-      DynamoDBGlobalTable.AttributeNames,
-      options,
-    );
+    super(logicalId, DynamoDBGlobalTable.Type, properties, options);
   }
 }

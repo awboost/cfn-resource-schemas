@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::AuditManager::Assessment`.
  * An entity that defines the scope of audit evidence collected by AWS Audit Manager.
@@ -77,6 +77,33 @@ export type AuditManagerAssessmentAttributes = {
   CreationTime: number;
 };
 /**
+ * Type definition for `AWS::AuditManager::Assessment.AssessmentReportDestinationType`.
+ * The destination type, such as Amazon S3.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportdestinationtype.html}
+ */
+export type AssessmentReportDestinationType = "S3";
+/**
+ * Type definition for `AWS::AuditManager::Assessment.AssessmentReportsDestination`.
+ * The destination in which evidence reports are stored for the specified assessment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html}
+ */
+export type AssessmentReportsDestination = {
+  /**
+   * The URL of the specified Amazon S3 bucket.
+   */
+  Destination?: string;
+  /**
+   * The destination type, such as Amazon S3.
+   */
+  DestinationType?: AssessmentReportDestinationType;
+};
+/**
+ * Type definition for `AWS::AuditManager::Assessment.AssessmentStatus`.
+ * The status of the specified assessment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentstatus.html}
+ */
+export type AssessmentStatus = "ACTIVE" | "INACTIVE";
+/**
  * Type definition for `AWS::AuditManager::Assessment.AWSAccount`.
  * The AWS account associated with the assessment.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html}
@@ -115,33 +142,6 @@ export type AWSService = {
    */
   ServiceName?: string;
 };
-/**
- * Type definition for `AWS::AuditManager::Assessment.AssessmentReportDestinationType`.
- * The destination type, such as Amazon S3.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportdestinationtype.html}
- */
-export type AssessmentReportDestinationType = "S3";
-/**
- * Type definition for `AWS::AuditManager::Assessment.AssessmentReportsDestination`.
- * The destination in which evidence reports are stored for the specified assessment.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html}
- */
-export type AssessmentReportsDestination = {
-  /**
-   * The URL of the specified Amazon S3 bucket.
-   */
-  Destination?: string;
-  /**
-   * The destination type, such as Amazon S3.
-   */
-  DestinationType?: AssessmentReportDestinationType;
-};
-/**
- * Type definition for `AWS::AuditManager::Assessment.AssessmentStatus`.
- * The status of the specified assessment.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentstatus.html}
- */
-export type AssessmentStatus = "ACTIVE" | "INACTIVE";
 /**
  * Type definition for `AWS::AuditManager::Assessment.Delegation`.
  * The assignment of a control set to a delegate for review.
@@ -270,6 +270,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -285,22 +286,11 @@ export class AuditManagerAssessment extends $Resource<
   AuditManagerAssessmentAttributes
 > {
   public static readonly Type = "AWS::AuditManager::Assessment";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "AssessmentId" as const,
-    "CreationTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AuditManagerAssessmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AuditManagerAssessment.Type,
-      properties,
-      AuditManagerAssessment.AttributeNames,
-      options,
-    );
+    super(logicalId, AuditManagerAssessment.Type, properties, options);
   }
 }

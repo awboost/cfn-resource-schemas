@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppMesh::Mesh
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html}
@@ -60,24 +60,11 @@ export class AppMeshMesh extends $Resource<
   AppMeshMeshAttributes
 > {
   public static readonly Type = "AWS::AppMesh::Mesh";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "MeshOwner" as const,
-    "ResourceOwner" as const,
-    "Uid" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppMeshMeshProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppMeshMesh.Type,
-      properties,
-      AppMeshMesh.AttributeNames,
-      options,
-    );
+    super(logicalId, AppMeshMesh.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaPackage::OriginEndpoint
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html}
@@ -537,18 +537,11 @@ export class MediaPackageOriginEndpoint extends $Resource<
   MediaPackageOriginEndpointAttributes
 > {
   public static readonly Type = "AWS::MediaPackage::OriginEndpoint";
-  public static readonly AttributeNames = ["Arn" as const, "Url" as const];
   constructor(
     logicalId: string,
     properties: MediaPackageOriginEndpointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaPackageOriginEndpoint.Type,
-      properties,
-      MediaPackageOriginEndpoint.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaPackageOriginEndpoint.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoTWireless::TaskDefinition`.
  * Creates a gateway task definition.
@@ -136,18 +136,11 @@ export class IoTWirelessTaskDefinition extends $Resource<
   IoTWirelessTaskDefinitionAttributes
 > {
   public static readonly Type = "AWS::IoTWireless::TaskDefinition";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: IoTWirelessTaskDefinitionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTWirelessTaskDefinition.Type,
-      properties,
-      IoTWirelessTaskDefinition.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTWirelessTaskDefinition.Type, properties, options);
   }
 }

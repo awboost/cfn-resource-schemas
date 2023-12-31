@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CustomerProfiles::ObjectType`.
  * An ObjectType resource of Amazon Connect Customer Profiles
@@ -25,6 +25,7 @@ export type CustomerProfilesObjectTypeProperties = {
   DomainName: string;
   /**
    * The default encryption key
+   * @minLength `0`
    * @maxLength `255`
    */
   EncryptionKey?: string;
@@ -57,6 +58,7 @@ export type CustomerProfilesObjectTypeProperties = {
   SourceLastUpdatedTimestampFormat?: string;
   /**
    * The tags (keys and values) associated with the integration.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -170,6 +172,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -185,21 +188,11 @@ export class CustomerProfilesObjectType extends $Resource<
   CustomerProfilesObjectTypeAttributes
 > {
   public static readonly Type = "AWS::CustomerProfiles::ObjectType";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "LastUpdatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CustomerProfilesObjectTypeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CustomerProfilesObjectType.Type,
-      properties,
-      CustomerProfilesObjectType.AttributeNames,
-      options,
-    );
+    super(logicalId, CustomerProfilesObjectType.Type, properties, options);
   }
 }

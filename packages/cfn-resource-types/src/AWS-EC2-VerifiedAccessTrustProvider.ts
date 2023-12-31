@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html}
@@ -129,6 +129,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -143,22 +144,11 @@ export class EC2VerifiedAccessTrustProvider extends $Resource<
   EC2VerifiedAccessTrustProviderAttributes
 > {
   public static readonly Type = "AWS::EC2::VerifiedAccessTrustProvider";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "LastUpdatedTime" as const,
-    "VerifiedAccessTrustProviderId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2VerifiedAccessTrustProviderProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2VerifiedAccessTrustProvider.Type,
-      properties,
-      EC2VerifiedAccessTrustProvider.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2VerifiedAccessTrustProvider.Type, properties, options);
   }
 }

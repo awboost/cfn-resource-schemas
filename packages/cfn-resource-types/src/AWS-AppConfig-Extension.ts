@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppConfig::Extension
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-extension.html}
@@ -38,6 +38,7 @@ export type AppConfigExtensionAttributes = {
 export type Action = {
   /**
    * The description of the extension Action.
+   * @minLength `0`
    * @maxLength `1024`
    */
   Description?: string;
@@ -68,6 +69,7 @@ export type Action = {
 export type Parameter = {
   /**
    * The description of the extension Parameter.
+   * @minLength `0`
    * @maxLength `1024`
    */
   Description?: string;
@@ -87,6 +89,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -101,22 +104,11 @@ export class AppConfigExtension extends $Resource<
   AppConfigExtensionAttributes
 > {
   public static readonly Type = "AWS::AppConfig::Extension";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "VersionNumber" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppConfigExtensionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppConfigExtension.Type,
-      properties,
-      AppConfigExtension.AttributeNames,
-      options,
-    );
+    super(logicalId, AppConfigExtension.Type, properties, options);
   }
 }

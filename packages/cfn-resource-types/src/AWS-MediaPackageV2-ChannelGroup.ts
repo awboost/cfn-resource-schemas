@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::MediaPackageV2::ChannelGroup Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channelgroup.html}
@@ -12,6 +12,7 @@ export type MediaPackageV2ChannelGroupProperties = {
    */
   ChannelGroupName?: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Description?: string;
@@ -45,23 +46,11 @@ export class MediaPackageV2ChannelGroup extends $Resource<
   MediaPackageV2ChannelGroupAttributes
 > {
   public static readonly Type = "AWS::MediaPackageV2::ChannelGroup";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedAt" as const,
-    "EgressDomain" as const,
-    "ModifiedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MediaPackageV2ChannelGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaPackageV2ChannelGroup.Type,
-      properties,
-      MediaPackageV2ChannelGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaPackageV2ChannelGroup.Type, properties, options);
   }
 }

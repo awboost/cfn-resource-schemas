@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-defaultviewassociation.html}
@@ -29,7 +29,6 @@ export class ResourceExplorer2DefaultViewAssociation extends $Resource<
 > {
   public static readonly Type =
     "AWS::ResourceExplorer2::DefaultViewAssociation";
-  public static readonly AttributeNames = ["AssociatedAwsPrincipal" as const];
   constructor(
     logicalId: string,
     properties: ResourceExplorer2DefaultViewAssociationProperties,
@@ -39,7 +38,6 @@ export class ResourceExplorer2DefaultViewAssociation extends $Resource<
       logicalId,
       ResourceExplorer2DefaultViewAssociation.Type,
       properties,
-      ResourceExplorer2DefaultViewAssociation.AttributeNames,
       options,
     );
   }

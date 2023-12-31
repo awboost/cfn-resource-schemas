@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::GroundStation::DataflowEndpointGroup`.
  * AWS Ground Station DataflowEndpointGroup schema for CloudFormation
@@ -190,7 +190,6 @@ export class GroundStationDataflowEndpointGroup extends $Resource<
   GroundStationDataflowEndpointGroupAttributes
 > {
   public static readonly Type = "AWS::GroundStation::DataflowEndpointGroup";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: GroundStationDataflowEndpointGroupProperties,
@@ -200,7 +199,6 @@ export class GroundStationDataflowEndpointGroup extends $Resource<
       logicalId,
       GroundStationDataflowEndpointGroup.Type,
       properties,
-      GroundStationDataflowEndpointGroup.AttributeNames,
       options,
     );
   }

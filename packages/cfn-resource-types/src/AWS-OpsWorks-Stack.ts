@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::OpsWorks::Stack
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html}
@@ -101,18 +101,11 @@ export class OpsWorksStack extends $Resource<
   OpsWorksStackAttributes
 > {
   public static readonly Type = "AWS::OpsWorks::Stack";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: OpsWorksStackProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OpsWorksStack.Type,
-      properties,
-      OpsWorksStack.AttributeNames,
-      options,
-    );
+    super(logicalId, OpsWorksStack.Type, properties, options);
   }
 }

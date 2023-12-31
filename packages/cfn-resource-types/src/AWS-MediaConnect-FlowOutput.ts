@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaConnect::FlowOutput
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html}
@@ -124,18 +124,11 @@ export class MediaConnectFlowOutput extends $Resource<
   MediaConnectFlowOutputAttributes
 > {
   public static readonly Type = "AWS::MediaConnect::FlowOutput";
-  public static readonly AttributeNames = ["OutputArn" as const];
   constructor(
     logicalId: string,
     properties: MediaConnectFlowOutputProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaConnectFlowOutput.Type,
-      properties,
-      MediaConnectFlowOutput.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaConnectFlowOutput.Type, properties, options);
   }
 }

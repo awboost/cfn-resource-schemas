@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Schema of AWS::EC2::IPAMAllocation Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamallocation.html}
@@ -39,18 +39,11 @@ export class EC2IPAMAllocation extends $Resource<
   EC2IPAMAllocationAttributes
 > {
   public static readonly Type = "AWS::EC2::IPAMAllocation";
-  public static readonly AttributeNames = ["IpamPoolAllocationId" as const];
   constructor(
     logicalId: string,
     properties: EC2IPAMAllocationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2IPAMAllocation.Type,
-      properties,
-      EC2IPAMAllocation.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2IPAMAllocation.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ACMPCA::Permission`.
  * Permission set on private certificate authority
@@ -34,18 +34,11 @@ export class ACMPCAPermission extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::ACMPCA::Permission";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: ACMPCAPermissionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ACMPCAPermission.Type,
-      properties,
-      ACMPCAPermission.AttributeNames,
-      options,
-    );
+    super(logicalId, ACMPCAPermission.Type, properties, options);
   }
 }

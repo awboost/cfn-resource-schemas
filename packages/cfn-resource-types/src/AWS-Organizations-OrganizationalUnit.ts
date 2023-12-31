@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Organizations::OrganizationalUnit`.
  * You can use organizational units (OUs) to group accounts together to administer as a single unit. This greatly simplifies the management of your accounts. For example, you can attach a policy-based control to an OU, and all accounts within the OU automatically inherit the policy. You can create multiple OUs within a single organization, and you can create OUs within other OUs. Each OU can contain multiple accounts, and you can move accounts from one OU to another. However, OU names must be unique within a parent OU or root.
@@ -55,6 +55,7 @@ export type Tag = {
   Key: string;
   /**
    * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -70,18 +71,11 @@ export class OrganizationsOrganizationalUnit extends $Resource<
   OrganizationsOrganizationalUnitAttributes
 > {
   public static readonly Type = "AWS::Organizations::OrganizationalUnit";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: OrganizationsOrganizationalUnitProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OrganizationsOrganizationalUnit.Type,
-      properties,
-      OrganizationsOrganizationalUnit.AttributeNames,
-      options,
-    );
+    super(logicalId, OrganizationsOrganizationalUnit.Type, properties, options);
   }
 }

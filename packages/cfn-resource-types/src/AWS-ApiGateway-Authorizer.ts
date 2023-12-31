@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html}
@@ -63,18 +63,11 @@ export class ApiGatewayAuthorizer extends $Resource<
   ApiGatewayAuthorizerAttributes
 > {
   public static readonly Type = "AWS::ApiGateway::Authorizer";
-  public static readonly AttributeNames = ["AuthorizerId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayAuthorizerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayAuthorizer.Type,
-      properties,
-      ApiGatewayAuthorizer.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayAuthorizer.Type, properties, options);
   }
 }

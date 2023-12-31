@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CodeGuruProfiler::ProfilingGroup`.
  * This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
@@ -78,6 +78,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -93,18 +94,11 @@ export class CodeGuruProfilerProfilingGroup extends $Resource<
   CodeGuruProfilerProfilingGroupAttributes
 > {
   public static readonly Type = "AWS::CodeGuruProfiler::ProfilingGroup";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: CodeGuruProfilerProfilingGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CodeGuruProfilerProfilingGroup.Type,
-      properties,
-      CodeGuruProfilerProfilingGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, CodeGuruProfilerProfilingGroup.Type, properties, options);
   }
 }

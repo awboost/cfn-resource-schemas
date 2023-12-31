@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::SubnetRouteTableAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetroutetableassociation.html}
@@ -25,18 +25,11 @@ export class EC2SubnetRouteTableAssociation extends $Resource<
   EC2SubnetRouteTableAssociationAttributes
 > {
   public static readonly Type = "AWS::EC2::SubnetRouteTableAssociation";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EC2SubnetRouteTableAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2SubnetRouteTableAssociation.Type,
-      properties,
-      EC2SubnetRouteTableAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2SubnetRouteTableAssociation.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::S3::MultiRegionAccessPointPolicy`.
  * The policy to be attached to a Multi Region Access Point
@@ -44,18 +44,11 @@ export class S3MultiRegionAccessPointPolicy extends $Resource<
   S3MultiRegionAccessPointPolicyAttributes
 > {
   public static readonly Type = "AWS::S3::MultiRegionAccessPointPolicy";
-  public static readonly AttributeNames = ["PolicyStatus" as const];
   constructor(
     logicalId: string,
     properties: S3MultiRegionAccessPointPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3MultiRegionAccessPointPolicy.Type,
-      properties,
-      S3MultiRegionAccessPointPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, S3MultiRegionAccessPointPolicy.Type, properties, options);
   }
 }

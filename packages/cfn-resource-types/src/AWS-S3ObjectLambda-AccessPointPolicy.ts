@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html}
@@ -27,18 +27,11 @@ export class S3ObjectLambdaAccessPointPolicy extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::S3ObjectLambda::AccessPointPolicy";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: S3ObjectLambdaAccessPointPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3ObjectLambdaAccessPointPolicy.Type,
-      properties,
-      S3ObjectLambdaAccessPointPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, S3ObjectLambdaAccessPointPolicy.Type, properties, options);
   }
 }

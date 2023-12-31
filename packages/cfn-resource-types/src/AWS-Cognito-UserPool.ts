@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Cognito::UserPool
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html}
@@ -212,18 +212,18 @@ export type UserAttributeUpdateSettings = {
   AttributesRequireVerificationBeforeUpdate: string[];
 };
 /**
- * Type definition for `AWS::Cognito::UserPool.UserPoolAddOns`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html}
- */
-export type UserPoolAddOns = {
-  AdvancedSecurityMode?: string;
-};
-/**
  * Type definition for `AWS::Cognito::UserPool.UsernameConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-usernameconfiguration.html}
  */
 export type UsernameConfiguration = {
   CaseSensitive?: boolean;
+};
+/**
+ * Type definition for `AWS::Cognito::UserPool.UserPoolAddOns`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html}
+ */
+export type UserPoolAddOns = {
+  AdvancedSecurityMode?: string;
 };
 /**
  * Type definition for `AWS::Cognito::UserPool.VerificationMessageTemplate`.
@@ -247,23 +247,11 @@ export class CognitoUserPool extends $Resource<
   CognitoUserPoolAttributes
 > {
   public static readonly Type = "AWS::Cognito::UserPool";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "ProviderName" as const,
-    "ProviderURL" as const,
-    "UserPoolId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CognitoUserPoolProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CognitoUserPool.Type,
-      properties,
-      CognitoUserPool.AttributeNames,
-      options,
-    );
+    super(logicalId, CognitoUserPool.Type, properties, options);
   }
 }

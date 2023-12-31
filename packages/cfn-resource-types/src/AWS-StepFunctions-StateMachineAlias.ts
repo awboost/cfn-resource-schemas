@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::StepFunctions::StateMachineAlias`.
  * Resource schema for StateMachineAlias
@@ -88,6 +88,7 @@ export type RoutingConfigurationVersion = {
   StateMachineVersionArn: string;
   /**
    * The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
+   * @min `0`
    * @max `100`
    */
   Weight: number;
@@ -103,18 +104,11 @@ export class StepFunctionsStateMachineAlias extends $Resource<
   StepFunctionsStateMachineAliasAttributes
 > {
   public static readonly Type = "AWS::StepFunctions::StateMachineAlias";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: StepFunctionsStateMachineAliasProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      StepFunctionsStateMachineAlias.Type,
-      properties,
-      StepFunctionsStateMachineAlias.AttributeNames,
-      options,
-    );
+    super(logicalId, StepFunctionsStateMachineAlias.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stack.html}
@@ -50,7 +50,7 @@ export type CloudFormationStackAttributes = {
   ChangeSetId: string;
   CreationTime: string;
   LastUpdateTime: string;
-  Outputs: Output[];
+  Outputs: {}[];
   ParentId: string;
   RootId: string;
   StackId: string;
@@ -107,27 +107,11 @@ export class CloudFormationStack extends $Resource<
   CloudFormationStackAttributes
 > {
   public static readonly Type = "AWS::CloudFormation::Stack";
-  public static readonly AttributeNames = [
-    "ChangeSetId" as const,
-    "CreationTime" as const,
-    "LastUpdateTime" as const,
-    "Outputs" as const,
-    "ParentId" as const,
-    "RootId" as const,
-    "StackId" as const,
-    "StackStatus" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudFormationStackProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFormationStack.Type,
-      properties,
-      CloudFormationStack.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFormationStack.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::DMS::Endpoint
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html}
@@ -391,21 +391,11 @@ export class DMSEndpoint extends $Resource<
   DMSEndpointAttributes
 > {
   public static readonly Type = "AWS::DMS::Endpoint";
-  public static readonly AttributeNames = [
-    "ExternalId" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DMSEndpointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DMSEndpoint.Type,
-      properties,
-      DMSEndpoint.AttributeNames,
-      options,
-    );
+    super(logicalId, DMSEndpoint.Type, properties, options);
   }
 }

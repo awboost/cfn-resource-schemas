@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::WAFRegional::IPSet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html}
@@ -33,18 +33,11 @@ export class WAFRegionalIPSet extends $Resource<
   WAFRegionalIPSetAttributes
 > {
   public static readonly Type = "AWS::WAFRegional::IPSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: WAFRegionalIPSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFRegionalIPSet.Type,
-      properties,
-      WAFRegionalIPSet.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFRegionalIPSet.Type, properties, options);
   }
 }

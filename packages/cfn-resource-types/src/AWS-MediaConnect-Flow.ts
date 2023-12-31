@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaConnect::Flow
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html}
@@ -142,10 +142,6 @@ export type Source = {
    */
   GatewayBridgeSource?: GatewayBridgeSource;
   /**
-   * The IP address that the flow will be listening on for incoming content.
-   */
-  IngestIp?: string;
-  /**
    * The port that the flow will be listening on for incoming content.
    */
   IngestPort?: number;
@@ -184,14 +180,6 @@ export type Source = {
    * The IP address that the flow communicates with to initiate connection with the sender for fujitsu-qos protocol.
    */
   SenderIpAddress?: string;
-  /**
-   * The ARN of the source.
-   */
-  SourceArn?: string;
-  /**
-   * The port that the flow will be listening on for incoming content.(ReadOnly)
-   */
-  SourceIngestPort?: string;
   /**
    * Source IP or domain name for SRT-caller protocol.
    */
@@ -234,21 +222,11 @@ export class MediaConnectFlow extends $Resource<
   MediaConnectFlowAttributes
 > {
   public static readonly Type = "AWS::MediaConnect::Flow";
-  public static readonly AttributeNames = [
-    "FlowArn" as const,
-    "FlowAvailabilityZone" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MediaConnectFlowProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaConnectFlow.Type,
-      properties,
-      MediaConnectFlow.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaConnectFlow.Type, properties, options);
   }
 }

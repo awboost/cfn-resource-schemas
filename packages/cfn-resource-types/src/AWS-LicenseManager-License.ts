@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::LicenseManager::License
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html}
@@ -125,21 +125,11 @@ export class LicenseManagerLicense extends $Resource<
   LicenseManagerLicenseAttributes
 > {
   public static readonly Type = "AWS::LicenseManager::License";
-  public static readonly AttributeNames = [
-    "LicenseArn" as const,
-    "Version" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LicenseManagerLicenseProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LicenseManagerLicense.Type,
-      properties,
-      LicenseManagerLicense.AttributeNames,
-      options,
-    );
+    super(logicalId, LicenseManagerLicense.Type, properties, options);
   }
 }

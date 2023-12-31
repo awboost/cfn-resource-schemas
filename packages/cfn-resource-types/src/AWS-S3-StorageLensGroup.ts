@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelensgroup.html}
@@ -165,6 +165,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -179,18 +180,11 @@ export class S3StorageLensGroup extends $Resource<
   S3StorageLensGroupAttributes
 > {
   public static readonly Type = "AWS::S3::StorageLensGroup";
-  public static readonly AttributeNames = ["StorageLensGroupArn" as const];
   constructor(
     logicalId: string,
     properties: S3StorageLensGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3StorageLensGroup.Type,
-      properties,
-      S3StorageLensGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, S3StorageLensGroup.Type, properties, options);
   }
 }

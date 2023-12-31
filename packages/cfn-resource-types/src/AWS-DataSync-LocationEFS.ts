@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataSync::LocationEFS.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html}
@@ -111,21 +111,11 @@ export class DataSyncLocationEFS extends $Resource<
   DataSyncLocationEFSAttributes
 > {
   public static readonly Type = "AWS::DataSync::LocationEFS";
-  public static readonly AttributeNames = [
-    "LocationArn" as const,
-    "LocationUri" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DataSyncLocationEFSProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataSyncLocationEFS.Type,
-      properties,
-      DataSyncLocationEFS.AttributeNames,
-      options,
-    );
+    super(logicalId, DataSyncLocationEFS.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ResourceGroups::Group`.
  * Schema for ResourceGroups::Group
@@ -94,18 +94,11 @@ export class ResourceGroupsGroup extends $Resource<
   ResourceGroupsGroupAttributes
 > {
   public static readonly Type = "AWS::ResourceGroups::Group";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ResourceGroupsGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ResourceGroupsGroup.Type,
-      properties,
-      ResourceGroupsGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, ResourceGroupsGroup.Type, properties, options);
   }
 }

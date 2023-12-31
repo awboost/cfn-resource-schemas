@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Redshift::EndpointAccess`.
  * Resource schema for a Redshift-managed VPC endpoint.
@@ -58,58 +58,46 @@ export type RedshiftEndpointAccessAttributes = {
     /**
      * One or more network interfaces of the endpoint. Also known as an interface endpoint.
      */
-    NetworkInterfaces?: NetworkInterface[];
+    NetworkInterfaces: {
+      /**
+       * The Availability Zone.
+       */
+      AvailabilityZone: string;
+      /**
+       * The network interface identifier.
+       */
+      NetworkInterfaceId: string;
+      /**
+       * The IPv4 address of the network interface within the subnet.
+       */
+      PrivateIpAddress: string;
+      /**
+       * The subnet identifier.
+       */
+      SubnetId: string;
+    }[];
     /**
      * The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
      */
-    VpcEndpointId?: string;
+    VpcEndpointId: string;
     /**
      * The VPC identifier that the endpoint is associated.
      */
-    VpcId?: string;
+    VpcId: string;
   };
   /**
    * A list of Virtual Private Cloud (VPC) security groups to be associated with the endpoint.
    */
-  VpcSecurityGroups: VpcSecurityGroup[];
-};
-/**
- * Type definition for `AWS::Redshift::EndpointAccess.NetworkInterface`.
- * Describes a network interface.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-networkinterface.html}
- */
-export type NetworkInterface = {
-  /**
-   * The Availability Zone.
-   */
-  AvailabilityZone?: string;
-  /**
-   * The network interface identifier.
-   */
-  NetworkInterfaceId?: string;
-  /**
-   * The IPv4 address of the network interface within the subnet.
-   */
-  PrivateIpAddress?: string;
-  /**
-   * The subnet identifier.
-   */
-  SubnetId?: string;
-};
-/**
- * Type definition for `AWS::Redshift::EndpointAccess.VpcSecurityGroup`.
- * Describes the members of a VPC security group.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html}
- */
-export type VpcSecurityGroup = {
-  /**
-   * The status of the VPC security group.
-   */
-  Status?: string;
-  /**
-   * The identifier of the VPC security group.
-   */
-  VpcSecurityGroupId?: string;
+  VpcSecurityGroups: {
+    /**
+     * The status of the VPC security group.
+     */
+    Status: string;
+    /**
+     * The identifier of the VPC security group.
+     */
+    VpcSecurityGroupId: string;
+  }[];
 };
 /**
  * Resource type definition for `AWS::Redshift::EndpointAccess`.
@@ -122,25 +110,11 @@ export class RedshiftEndpointAccess extends $Resource<
   RedshiftEndpointAccessAttributes
 > {
   public static readonly Type = "AWS::Redshift::EndpointAccess";
-  public static readonly AttributeNames = [
-    "Address" as const,
-    "EndpointCreateTime" as const,
-    "EndpointStatus" as const,
-    "Port" as const,
-    "VpcEndpoint" as const,
-    "VpcSecurityGroups" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RedshiftEndpointAccessProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RedshiftEndpointAccess.Type,
-      properties,
-      RedshiftEndpointAccess.AttributeNames,
-      options,
-    );
+    super(logicalId, RedshiftEndpointAccess.Type, properties, options);
   }
 }

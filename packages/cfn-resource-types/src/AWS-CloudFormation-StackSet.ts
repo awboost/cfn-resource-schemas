@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudFormation::StackSet`.
  * StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
@@ -151,8 +151,12 @@ export type DeploymentTargets = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html}
  */
 export type OperationPreferences = {
+  /**
+   * @min `0`
+   */
   FailureToleranceCount?: number;
   /**
+   * @min `0`
    * @max `100`
    */
   FailureTolerancePercentage?: number;
@@ -161,6 +165,7 @@ export type OperationPreferences = {
    */
   MaxConcurrentCount?: number;
   /**
+   * @min `0`
    * @max `100`
    */
   MaxConcurrentPercentage?: number;
@@ -241,18 +246,11 @@ export class CloudFormationStackSet extends $Resource<
   CloudFormationStackSetAttributes
 > {
   public static readonly Type = "AWS::CloudFormation::StackSet";
-  public static readonly AttributeNames = ["StackSetId" as const];
   constructor(
     logicalId: string,
     properties: CloudFormationStackSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFormationStackSet.Type,
-      properties,
-      CloudFormationStackSet.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFormationStackSet.Type, properties, options);
   }
 }

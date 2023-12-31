@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Batch::ComputeEnvironment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html}
@@ -97,18 +97,11 @@ export class BatchComputeEnvironment extends $Resource<
   BatchComputeEnvironmentAttributes
 > {
   public static readonly Type = "AWS::Batch::ComputeEnvironment";
-  public static readonly AttributeNames = ["ComputeEnvironmentArn" as const];
   constructor(
     logicalId: string,
     properties: BatchComputeEnvironmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BatchComputeEnvironment.Type,
-      properties,
-      BatchComputeEnvironment.AttributeNames,
-      options,
-    );
+    super(logicalId, BatchComputeEnvironment.Type, properties, options);
   }
 }

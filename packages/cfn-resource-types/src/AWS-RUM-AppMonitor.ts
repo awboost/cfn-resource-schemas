@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::RUM::AppMonitor
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html}
@@ -65,11 +65,13 @@ export type AppMonitorConfiguration = {
   EnableXRay?: boolean;
   /**
    * A list of URLs in your website or application to exclude from RUM data collection. You can't include both ExcludedPages and IncludedPages in the same operation.
+   * @minLength `0`
    * @maxLength `50`
    */
   ExcludedPages?: string[];
   /**
    * A list of pages in the RUM console that are to be displayed with a favorite icon.
+   * @minLength `0`
    * @maxLength `50`
    */
   FavoritePages?: string[];
@@ -87,16 +89,19 @@ export type AppMonitorConfiguration = {
   IdentityPoolId?: string;
   /**
    * If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. You can't include both ExcludedPages and IncludedPages in the same operation.
+   * @minLength `0`
    * @maxLength `50`
    */
   IncludedPages?: string[];
   /**
    * An array of structures which define the destinations and the metrics that you want to send.
+   * @minLength `0`
    * @maxLength `20`
    */
   MetricDestinations?: MetricDestination[];
   /**
    * Specifies the percentage of user sessions to use for RUM data collection. Choosing a higher percentage gives you more data but also incurs more costs. The number you specify is the percentage of user sessions that will be used. If you omit this parameter, the default of 10 is used.
+   * @min `0`
    * @max `1`
    */
   SessionSampleRate?: number;
@@ -242,6 +247,7 @@ export type MetricDestination = {
   IamRoleArn?: string;
   /**
    * An array of structures which define the metrics that you want to send.
+   * @minLength `0`
    * @maxLength `2000`
    */
   MetricDefinitions?: MetricDefinition[];
@@ -261,6 +267,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -280,18 +287,11 @@ export class RUMAppMonitor extends $Resource<
   RUMAppMonitorAttributes
 > {
   public static readonly Type = "AWS::RUM::AppMonitor";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: RUMAppMonitorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RUMAppMonitor.Type,
-      properties,
-      RUMAppMonitor.AttributeNames,
-      options,
-    );
+    super(logicalId, RUMAppMonitor.Type, properties, options);
   }
 }

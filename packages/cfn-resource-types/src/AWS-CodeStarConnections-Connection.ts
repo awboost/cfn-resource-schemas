@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html}
@@ -13,6 +13,7 @@ export type CodeStarConnectionsConnectionProperties = {
   ConnectionName: string;
   /**
    * The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `arn:aws(-[\w]+)*:.+:.+:[0-9]{12}:.+`
    */
@@ -33,6 +34,7 @@ export type CodeStarConnectionsConnectionProperties = {
 export type CodeStarConnectionsConnectionAttributes = {
   /**
    * The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `arn:aws(-[\w]+)*:.+:.+:[0-9]{12}:.+`
    */
@@ -63,6 +65,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -77,22 +80,11 @@ export class CodeStarConnectionsConnection extends $Resource<
   CodeStarConnectionsConnectionAttributes
 > {
   public static readonly Type = "AWS::CodeStarConnections::Connection";
-  public static readonly AttributeNames = [
-    "ConnectionArn" as const,
-    "ConnectionStatus" as const,
-    "OwnerAccountId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CodeStarConnectionsConnectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CodeStarConnectionsConnection.Type,
-      properties,
-      CodeStarConnectionsConnection.AttributeNames,
-      options,
-    );
+    super(logicalId, CodeStarConnectionsConnection.Type, properties, options);
   }
 }

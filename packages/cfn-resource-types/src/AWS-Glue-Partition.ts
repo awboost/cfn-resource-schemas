@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Glue::Partition
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html}
@@ -108,18 +108,11 @@ export class GluePartition extends $Resource<
   GluePartitionAttributes
 > {
   public static readonly Type = "AWS::Glue::Partition";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GluePartitionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GluePartition.Type,
-      properties,
-      GluePartition.AttributeNames,
-      options,
-    );
+    super(logicalId, GluePartition.Type, properties, options);
   }
 }

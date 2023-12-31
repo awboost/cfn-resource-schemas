@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IoT::Policy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html}
@@ -35,18 +35,11 @@ export class IoTPolicy extends $Resource<
   IoTPolicyAttributes
 > {
   public static readonly Type = "AWS::IoT::Policy";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: IoTPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTPolicy.Type,
-      properties,
-      IoTPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTPolicy.Type, properties, options);
   }
 }

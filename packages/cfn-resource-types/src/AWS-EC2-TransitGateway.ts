@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::TransitGateway
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html}
@@ -45,21 +45,11 @@ export class EC2TransitGateway extends $Resource<
   EC2TransitGatewayAttributes
 > {
   public static readonly Type = "AWS::EC2::TransitGateway";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "TransitGatewayArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2TransitGatewayProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2TransitGateway.Type,
-      properties,
-      EC2TransitGateway.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2TransitGateway.Type, properties, options);
   }
 }

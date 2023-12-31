@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataSync::LocationFSxLustre.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html}
@@ -25,6 +25,7 @@ export type DataSyncLocationFSxLustreProperties = {
   Subdirectory?: string;
   /**
    * An array of key-value pairs to apply to this resource.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -78,21 +79,11 @@ export class DataSyncLocationFSxLustre extends $Resource<
   DataSyncLocationFSxLustreAttributes
 > {
   public static readonly Type = "AWS::DataSync::LocationFSxLustre";
-  public static readonly AttributeNames = [
-    "LocationArn" as const,
-    "LocationUri" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DataSyncLocationFSxLustreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataSyncLocationFSxLustre.Type,
-      properties,
-      DataSyncLocationFSxLustre.AttributeNames,
-      options,
-    );
+    super(logicalId, DataSyncLocationFSxLustre.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MWAA::Environment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html}
@@ -190,37 +190,6 @@ export type MWAAEnvironmentAttributes = {
  */
 export type EndpointManagement = "CUSTOMER" | "SERVICE";
 /**
- * Type definition for `AWS::MWAA::Environment.EnvironmentStatus`.
- * The status of the environment.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-environmentstatus.html}
- */
-export type EnvironmentStatus =
-  | "CREATING"
-  | "CREATE_FAILED"
-  | "AVAILABLE"
-  | "UPDATING"
-  | "DELETING"
-  | "DELETED"
-  | "UPDATE_FAILED"
-  | "UNAVAILABLE"
-  | "PENDING";
-/**
- * Type definition for `AWS::MWAA::Environment.LastUpdate`.
- * Details about the last update performed on the environment.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-lastupdate.html}
- */
-export type LastUpdate = {
-  /**
-   * When the update request was created.
-   */
-  CreatedAt?: string;
-  /**
-   * The error associated with an update request.
-   */
-  Error?: UpdateError;
-  Status?: UpdateStatus;
-};
-/**
  * Type definition for `AWS::MWAA::Environment.LoggingConfiguration`.
  * Logging configuration for the environment.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html}
@@ -248,33 +217,6 @@ export type LoggingConfiguration = {
   WorkerLogs?: ModuleLoggingConfiguration;
 };
 /**
- * Type definition for `AWS::MWAA::Environment.LoggingConfigurationInput`.
- * Configures logging for the environment.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfigurationinput.html}
- */
-export type LoggingConfigurationInput = {
-  /**
-   * Configures airflow component logging for the environment.
-   */
-  DagProcessingLogs?: ModuleLoggingConfigurationInput;
-  /**
-   * Configures airflow component logging for the environment.
-   */
-  SchedulerLogs?: ModuleLoggingConfigurationInput;
-  /**
-   * Configures airflow component logging for the environment.
-   */
-  TaskLogs?: ModuleLoggingConfigurationInput;
-  /**
-   * Configures airflow component logging for the environment.
-   */
-  WebserverLogs?: ModuleLoggingConfigurationInput;
-  /**
-   * Configures airflow component logging for the environment.
-   */
-  WorkerLogs?: ModuleLoggingConfigurationInput;
-};
-/**
  * Type definition for `AWS::MWAA::Environment.LoggingLevel`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-logginglevel.html}
  */
@@ -285,20 +227,6 @@ export type LoggingLevel = "CRITICAL" | "ERROR" | "WARNING" | "INFO" | "DEBUG";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html}
  */
 export type ModuleLoggingConfiguration = {
-  /**
-   * @maxLength `1224`
-   * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b)(-[a-z]+)?:logs:[a-z0-9\-]+:\d{12}:log-group:\w+`
-   */
-  CloudWatchLogGroupArn?: string;
-  Enabled?: boolean;
-  LogLevel?: LoggingLevel;
-};
-/**
- * Type definition for `AWS::MWAA::Environment.ModuleLoggingConfigurationInput`.
- * Configures airflow component logging for the environment.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfigurationinput.html}
- */
-export type ModuleLoggingConfigurationInput = {
   Enabled?: boolean;
   LogLevel?: LoggingLevel;
 };
@@ -322,29 +250,6 @@ export type NetworkConfiguration = {
   SubnetIds?: string[];
 };
 /**
- * Type definition for `AWS::MWAA::Environment.UpdateError`.
- * The error associated with an update request.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updateerror.html}
- */
-export type UpdateError = {
-  /**
-   * The error code associated with an error.
-   */
-  ErrorCode?: string;
-  /**
-   * Error message describing a failed operation.
-   * @minLength `1`
-   * @maxLength `1024`
-   * @pattern `^.+$`
-   */
-  ErrorMessage?: string;
-};
-/**
- * Type definition for `AWS::MWAA::Environment.UpdateStatus`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-updatestatus.html}
- */
-export type UpdateStatus = "SUCCESS" | "PENDING" | "FAILED";
-/**
  * Type definition for `AWS::MWAA::Environment.WebserverAccessMode`.
  * Choice for mode of webserver access including over public internet or via private VPC endpoint.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-webserveraccessmode.html}
@@ -360,24 +265,11 @@ export class MWAAEnvironment extends $Resource<
   MWAAEnvironmentAttributes
 > {
   public static readonly Type = "AWS::MWAA::Environment";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CeleryExecutorQueue" as const,
-    "DatabaseVpcEndpointService" as const,
-    "WebserverUrl" as const,
-    "WebserverVpcEndpointService" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MWAAEnvironmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MWAAEnvironment.Type,
-      properties,
-      MWAAEnvironment.AttributeNames,
-      options,
-    );
+    super(logicalId, MWAAEnvironment.Type, properties, options);
   }
 }

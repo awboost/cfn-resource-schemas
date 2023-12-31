@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::InstanceConnectEndpoint
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instanceconnectendpoint.html}
@@ -55,18 +55,11 @@ export class EC2InstanceConnectEndpoint extends $Resource<
   EC2InstanceConnectEndpointAttributes
 > {
   public static readonly Type = "AWS::EC2::InstanceConnectEndpoint";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EC2InstanceConnectEndpointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2InstanceConnectEndpoint.Type,
-      properties,
-      EC2InstanceConnectEndpoint.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2InstanceConnectEndpoint.Type, properties, options);
   }
 }

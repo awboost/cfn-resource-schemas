@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::OpenSearchService::Domain`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -37,14 +37,13 @@ export type OpenSearchServiceDomainAttributes = {
   DomainEndpoint: string;
   DomainEndpoints: Record<string, string>;
   Id: string;
-  ServiceSoftwareOptions: ServiceSoftwareOptions;
+  ServiceSoftwareOptions: {};
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.AdvancedSecurityOptionsInput`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html}
  */
 export type AdvancedSecurityOptionsInput = {
-  AnonymousAuthDisableDate?: string;
   AnonymousAuthEnabled?: boolean;
   Enabled?: boolean;
   InternalUserDatabaseEnabled?: boolean;
@@ -207,11 +206,13 @@ export type SoftwareUpdateOptions = {
 export type Tag = {
   /**
    * The value of the tag.
+   * @minLength `0`
    * @maxLength `128`
    */
   Key: string;
   /**
    * The key of the tag.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -230,10 +231,12 @@ export type VPCOptions = {
  */
 export type WindowStartTime = {
   /**
+   * @min `0`
    * @max `23`
    */
   Hours: number;
   /**
+   * @min `0`
    * @max `59`
    */
   Minutes: number;
@@ -256,25 +259,11 @@ export class OpenSearchServiceDomain extends $Resource<
   OpenSearchServiceDomainAttributes
 > {
   public static readonly Type = "AWS::OpenSearchService::Domain";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "DomainArn" as const,
-    "DomainEndpoint" as const,
-    "DomainEndpoints" as const,
-    "Id" as const,
-    "ServiceSoftwareOptions" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OpenSearchServiceDomainProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OpenSearchServiceDomain.Type,
-      properties,
-      OpenSearchServiceDomain.AttributeNames,
-      options,
-    );
+    super(logicalId, OpenSearchServiceDomain.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::Listener`.
  * Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
@@ -26,6 +26,7 @@ export type VpcLatticeListenerProperties = {
    */
   ServiceIdentifier?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -134,23 +135,11 @@ export class VpcLatticeListener extends $Resource<
   VpcLatticeListenerAttributes
 > {
   public static readonly Type = "AWS::VpcLattice::Listener";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "ServiceArn" as const,
-    "ServiceId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: VpcLatticeListenerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VpcLatticeListener.Type,
-      properties,
-      VpcLatticeListener.AttributeNames,
-      options,
-    );
+    super(logicalId, VpcLatticeListener.Type, properties, options);
   }
 }

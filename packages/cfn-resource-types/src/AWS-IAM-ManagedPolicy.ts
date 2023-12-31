@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IAM::ManagedPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html}
@@ -82,27 +82,11 @@ export class IAMManagedPolicy extends $Resource<
   IAMManagedPolicyAttributes
 > {
   public static readonly Type = "AWS::IAM::ManagedPolicy";
-  public static readonly AttributeNames = [
-    "AttachmentCount" as const,
-    "CreateDate" as const,
-    "DefaultVersionId" as const,
-    "IsAttachable" as const,
-    "PermissionsBoundaryUsageCount" as const,
-    "PolicyArn" as const,
-    "PolicyId" as const,
-    "UpdateDate" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IAMManagedPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IAMManagedPolicy.Type,
-      properties,
-      IAMManagedPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, IAMManagedPolicy.Type, properties, options);
   }
 }

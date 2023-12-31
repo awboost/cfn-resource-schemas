@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::RDS::EventSubscription resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see Using Amazon RDS Event Notification in the Amazon RDS User Guide.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html}
@@ -50,6 +50,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -64,18 +65,11 @@ export class RDSEventSubscription extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::RDS::EventSubscription";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: RDSEventSubscriptionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RDSEventSubscription.Type,
-      properties,
-      RDSEventSubscription.AttributeNames,
-      options,
-    );
+    super(logicalId, RDSEventSubscription.Type, properties, options);
   }
 }

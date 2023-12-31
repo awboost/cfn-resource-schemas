@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::GuardDuty::IPSet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html}
@@ -42,6 +42,7 @@ export type TagItem = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -56,18 +57,11 @@ export class GuardDutyIPSet extends $Resource<
   GuardDutyIPSetAttributes
 > {
   public static readonly Type = "AWS::GuardDuty::IPSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GuardDutyIPSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GuardDutyIPSet.Type,
-      properties,
-      GuardDutyIPSet.AttributeNames,
-      options,
-    );
+    super(logicalId, GuardDutyIPSet.Type, properties, options);
   }
 }

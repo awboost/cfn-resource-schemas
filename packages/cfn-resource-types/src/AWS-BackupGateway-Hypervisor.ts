@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::BackupGateway::Hypervisor Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backupgateway-hypervisor.html}
@@ -18,6 +18,7 @@ export type BackupGatewayHypervisorProperties = {
    */
   KmsKeyArn?: string;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    * @pattern `^$|^arn:(aws|aws-cn|aws-us-gov):logs:([a-zA-Z0-9-]+):([0-9]+):log-group:[a-zA-Z0-9_\-\/\.]+:\*$`
    */
@@ -55,20 +56,6 @@ export type BackupGatewayHypervisorAttributes = {
   HypervisorArn: string;
 };
 /**
- * Type definition for `AWS::BackupGateway::Hypervisor.HypervisorState`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backupgateway-hypervisor-hypervisorstate.html}
- */
-export type HypervisorState = "PENDING" | "ONLINE" | "OFFLINE" | "ERROR";
-/**
- * Type definition for `AWS::BackupGateway::Hypervisor.SyncMetadataStatus`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backupgateway-hypervisor-syncmetadatastatus.html}
- */
-export type SyncMetadataStatus =
-  | "PENDING"
-  | "IN_PROGRESS"
-  | "FAILED"
-  | "SUCCEEDED";
-/**
  * Type definition for `AWS::BackupGateway::Hypervisor.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backupgateway-hypervisor-tag.html}
  */
@@ -80,6 +67,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^[^\x00]*$`
    */
@@ -95,18 +83,11 @@ export class BackupGatewayHypervisor extends $Resource<
   BackupGatewayHypervisorAttributes
 > {
   public static readonly Type = "AWS::BackupGateway::Hypervisor";
-  public static readonly AttributeNames = ["HypervisorArn" as const];
   constructor(
     logicalId: string,
     properties: BackupGatewayHypervisorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BackupGatewayHypervisor.Type,
-      properties,
-      BackupGatewayHypervisor.AttributeNames,
-      options,
-    );
+    super(logicalId, BackupGatewayHypervisor.Type, properties, options);
   }
 }

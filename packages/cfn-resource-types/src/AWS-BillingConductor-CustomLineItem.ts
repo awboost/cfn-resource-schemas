@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::BillingConductor::CustomLineItem`.
  * A custom line item is an one time charge that is applied to a specific billing group's bill.
@@ -84,6 +84,7 @@ export type CustomLineItemChargeDetails = {
  */
 export type CustomLineItemFlatChargeDetails = {
   /**
+   * @min `0`
    * @max `1000000`
    */
   ChargeValue: number;
@@ -95,6 +96,7 @@ export type CustomLineItemFlatChargeDetails = {
 export type CustomLineItemPercentageChargeDetails = {
   ChildAssociatedResources?: string[];
   /**
+   * @min `0`
    * @max `10000`
    */
   PercentageValue: number;
@@ -145,25 +147,11 @@ export class BillingConductorCustomLineItem extends $Resource<
   BillingConductorCustomLineItemAttributes
 > {
   public static readonly Type = "AWS::BillingConductor::CustomLineItem";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "AssociationSize" as const,
-    "CreationTime" as const,
-    "CurrencyCode" as const,
-    "LastModifiedTime" as const,
-    "ProductCode" as const,
-  ];
   constructor(
     logicalId: string,
     properties: BillingConductorCustomLineItemProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BillingConductorCustomLineItem.Type,
-      properties,
-      BillingConductorCustomLineItem.AttributeNames,
-      options,
-    );
+    super(logicalId, BillingConductorCustomLineItem.Type, properties, options);
   }
 }

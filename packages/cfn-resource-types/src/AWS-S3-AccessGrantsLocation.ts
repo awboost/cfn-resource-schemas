@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantslocation.html}
@@ -47,21 +47,11 @@ export class S3AccessGrantsLocation extends $Resource<
   S3AccessGrantsLocationAttributes
 > {
   public static readonly Type = "AWS::S3::AccessGrantsLocation";
-  public static readonly AttributeNames = [
-    "AccessGrantsLocationArn" as const,
-    "AccessGrantsLocationId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: S3AccessGrantsLocationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3AccessGrantsLocation.Type,
-      properties,
-      S3AccessGrantsLocation.AttributeNames,
-      options,
-    );
+    super(logicalId, S3AccessGrantsLocation.Type, properties, options);
   }
 }

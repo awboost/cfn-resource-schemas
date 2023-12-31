@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html}
@@ -33,7 +33,6 @@ export class KinesisAnalyticsV2ApplicationCloudWatchLoggingOption extends $Resou
 > {
   public static readonly Type =
     "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionProperties,
@@ -43,7 +42,6 @@ export class KinesisAnalyticsV2ApplicationCloudWatchLoggingOption extends $Resou
       logicalId,
       KinesisAnalyticsV2ApplicationCloudWatchLoggingOption.Type,
       properties,
-      KinesisAnalyticsV2ApplicationCloudWatchLoggingOption.AttributeNames,
       options,
     );
   }

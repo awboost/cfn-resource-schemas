@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::CertificateManager::Account.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html}
@@ -35,18 +35,11 @@ export class CertificateManagerAccount extends $Resource<
   CertificateManagerAccountAttributes
 > {
   public static readonly Type = "AWS::CertificateManager::Account";
-  public static readonly AttributeNames = ["AccountId" as const];
   constructor(
     logicalId: string,
     properties: CertificateManagerAccountProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CertificateManagerAccount.Type,
-      properties,
-      CertificateManagerAccount.AttributeNames,
-      options,
-    );
+    super(logicalId, CertificateManagerAccount.Type, properties, options);
   }
 }

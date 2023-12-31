@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::DAX::Cluster
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html}
@@ -47,23 +47,11 @@ export class DAXCluster extends $Resource<
   DAXClusterAttributes
 > {
   public static readonly Type = "AWS::DAX::Cluster";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "ClusterDiscoveryEndpoint" as const,
-    "ClusterDiscoveryEndpointURL" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DAXClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DAXCluster.Type,
-      properties,
-      DAXCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, DAXCluster.Type, properties, options);
   }
 }

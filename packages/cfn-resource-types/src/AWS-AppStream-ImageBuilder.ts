@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppStream::ImageBuilder
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html}
@@ -68,18 +68,11 @@ export class AppStreamImageBuilder extends $Resource<
   AppStreamImageBuilderAttributes
 > {
   public static readonly Type = "AWS::AppStream::ImageBuilder";
-  public static readonly AttributeNames = ["StreamingUrl" as const];
   constructor(
     logicalId: string,
     properties: AppStreamImageBuilderProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppStreamImageBuilder.Type,
-      properties,
-      AppStreamImageBuilder.AttributeNames,
-      options,
-    );
+    super(logicalId, AppStreamImageBuilder.Type, properties, options);
   }
 }

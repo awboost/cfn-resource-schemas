@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::SecurityProfile
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html}
@@ -12,6 +12,7 @@ export type ConnectSecurityProfileProperties = {
   AllowedAccessControlTags?: Tag[];
   /**
    * The description of the security profile.
+   * @minLength `0`
    * @maxLength `250`
    */
   Description?: string;
@@ -69,6 +70,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -83,18 +85,11 @@ export class ConnectSecurityProfile extends $Resource<
   ConnectSecurityProfileAttributes
 > {
   public static readonly Type = "AWS::Connect::SecurityProfile";
-  public static readonly AttributeNames = ["SecurityProfileArn" as const];
   constructor(
     logicalId: string,
     properties: ConnectSecurityProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectSecurityProfile.Type,
-      properties,
-      ConnectSecurityProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectSecurityProfile.Type, properties, options);
   }
 }

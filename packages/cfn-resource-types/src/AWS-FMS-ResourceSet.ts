@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FMS::ResourceSet`.
  * Creates an AWS Firewall Manager resource set.
@@ -63,18 +63,11 @@ export class FMSResourceSet extends $Resource<
   FMSResourceSetAttributes
 > {
   public static readonly Type = "AWS::FMS::ResourceSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: FMSResourceSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FMSResourceSet.Type,
-      properties,
-      FMSResourceSet.AttributeNames,
-      options,
-    );
+    super(logicalId, FMSResourceSet.Type, properties, options);
   }
 }

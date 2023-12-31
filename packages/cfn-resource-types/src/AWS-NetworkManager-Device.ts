@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::NetworkManager::Device type describes a device.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-device.html}
@@ -127,23 +127,11 @@ export class NetworkManagerDevice extends $Resource<
   NetworkManagerDeviceAttributes
 > {
   public static readonly Type = "AWS::NetworkManager::Device";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "DeviceArn" as const,
-    "DeviceId" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkManagerDeviceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NetworkManagerDevice.Type,
-      properties,
-      NetworkManagerDevice.AttributeNames,
-      options,
-    );
+    super(logicalId, NetworkManagerDevice.Type, properties, options);
   }
 }

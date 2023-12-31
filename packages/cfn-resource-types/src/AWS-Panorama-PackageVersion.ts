@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Panorama::PackageVersion`.
  * Schema for PackageVersion Resource Type
@@ -83,25 +83,11 @@ export class PanoramaPackageVersion extends $Resource<
   PanoramaPackageVersionAttributes
 > {
   public static readonly Type = "AWS::Panorama::PackageVersion";
-  public static readonly AttributeNames = [
-    "IsLatestPatch" as const,
-    "PackageArn" as const,
-    "PackageName" as const,
-    "RegisteredTime" as const,
-    "Status" as const,
-    "StatusDescription" as const,
-  ];
   constructor(
     logicalId: string,
     properties: PanoramaPackageVersionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PanoramaPackageVersion.Type,
-      properties,
-      PanoramaPackageVersion.AttributeNames,
-      options,
-    );
+    super(logicalId, PanoramaPackageVersion.Type, properties, options);
   }
 }

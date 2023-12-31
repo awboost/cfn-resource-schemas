@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::HealthLake::FHIRDatastore`.
  * HealthLake FHIR Datastore
@@ -32,13 +32,13 @@ export type HealthLakeFHIRDatastoreProperties = {
 };
 /**
  * Attribute type definition for `AWS::HealthLake::FHIRDatastore`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthlake-fhirdatastore.html#aws-resource-healthlake-fhirdatastore-return-values}
+ * @see {@link https://docs.aws.amazon.com/healthlake/latest/devguide/working-with-FHIR-healthlake.html}
  */
 export type HealthLakeFHIRDatastoreAttributes = {
   /**
    * The time that a Data Store was created.
    */
-  CreatedAt: CreatedAt;
+  CreatedAt: {};
   /**
    * The Amazon Resource Name used in the creation of the Data Store.
    * @pattern `^arn:aws((-us-gov)|(-iso)|(-iso-b)|(-cn))?:healthlake:[a-zA-Z0-9-]+:[0-9]{12}:datastore/.+?`
@@ -167,6 +167,7 @@ export type Tag = {
   Key: string;
   /**
    * The value of the tag.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -182,24 +183,11 @@ export class HealthLakeFHIRDatastore extends $Resource<
   HealthLakeFHIRDatastoreAttributes
 > {
   public static readonly Type = "AWS::HealthLake::FHIRDatastore";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "DatastoreArn" as const,
-    "DatastoreEndpoint" as const,
-    "DatastoreId" as const,
-    "DatastoreStatus" as const,
-  ];
   constructor(
     logicalId: string,
     properties: HealthLakeFHIRDatastoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      HealthLakeFHIRDatastore.Type,
-      properties,
-      HealthLakeFHIRDatastore.AttributeNames,
-      options,
-    );
+    super(logicalId, HealthLakeFHIRDatastore.Type, properties, options);
   }
 }

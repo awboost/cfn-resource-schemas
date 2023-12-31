@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppStream::Application
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-application.html}
@@ -15,16 +15,7 @@ export type AppStreamApplicationProperties = {
   LaunchPath: string;
   Name: string;
   Platforms: string[];
-  Tags?: (
-    | {
-        Key: string;
-        Value: string;
-      }
-    | {
-        TagKey: string;
-        TagValue: string;
-      }
-  )[];
+  Tags?: Tag[];
   WorkingDirectory?: string;
 };
 /**
@@ -44,6 +35,19 @@ export type S3Location = {
   S3Key: string;
 };
 /**
+ * Type definition for `AWS::AppStream::Application.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-application-tag.html}
+ */
+export type Tag =
+  | {
+      Key: string;
+      Value: string;
+    }
+  | {
+      TagKey: string;
+      TagValue: string;
+    };
+/**
  * Resource Type definition for AWS::AppStream::Application
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-application.html}
  */
@@ -53,21 +57,11 @@ export class AppStreamApplication extends $Resource<
   AppStreamApplicationAttributes
 > {
   public static readonly Type = "AWS::AppStream::Application";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppStreamApplicationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppStreamApplication.Type,
-      properties,
-      AppStreamApplication.AttributeNames,
-      options,
-    );
+    super(logicalId, AppStreamApplication.Type, properties, options);
   }
 }

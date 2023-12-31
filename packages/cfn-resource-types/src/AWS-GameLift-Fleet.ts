@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html}
@@ -30,6 +30,7 @@ export type GameLiftFleetProperties = {
   Description?: string;
   /**
    * [DEPRECATED] The number of EC2 instances that you want this fleet to host. When creating a new fleet, GameLift automatically sets this value to "1" and initiates a single instance. Once the fleet is active, update this value to trigger GameLift to add or remove instances from the fleet.
+   * @min `0`
    */
   DesiredEC2Instances?: number;
   /**
@@ -67,6 +68,7 @@ export type GameLiftFleetProperties = {
   LogPaths?: string[];
   /**
    * [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
+   * @min `0`
    */
   MaxSize?: number;
   /**
@@ -76,6 +78,7 @@ export type GameLiftFleetProperties = {
   MetricGroups?: string[];
   /**
    * [DEPRECATED] The minimum value allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
+   * @min `0`
    */
   MinSize?: number;
   /**
@@ -206,14 +209,17 @@ export type IpPermission = {
 export type LocationCapacity = {
   /**
    * The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+   * @min `0`
    */
   DesiredEC2Instances: number;
   /**
    * The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
+   * @min `0`
    */
   MaxSize: number;
   /**
    * The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
+   * @min `0`
    */
   MinSize: number;
 };
@@ -244,10 +250,12 @@ The policy is evaluated when a player tries to create a new game session. For ex
 export type ResourceCreationLimitPolicy = {
   /**
    * The maximum number of game sessions that an individual can create during the policy period.
+   * @min `0`
    */
   NewGameSessionsPerCreator?: number;
   /**
    * The time span used in evaluating the resource creation limit policy.
+   * @min `0`
    */
   PolicyPeriodInMinutes?: number;
 };
@@ -415,18 +423,11 @@ export class GameLiftFleet extends $Resource<
   GameLiftFleetAttributes
 > {
   public static readonly Type = "AWS::GameLift::Fleet";
-  public static readonly AttributeNames = ["FleetId" as const];
   constructor(
     logicalId: string,
     properties: GameLiftFleetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GameLiftFleet.Type,
-      properties,
-      GameLiftFleet.AttributeNames,
-      options,
-    );
+    super(logicalId, GameLiftFleet.Type, properties, options);
   }
 }

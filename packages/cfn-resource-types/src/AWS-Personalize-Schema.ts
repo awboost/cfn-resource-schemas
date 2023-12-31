@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Personalize::Schema.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-schema.html}
@@ -44,18 +44,11 @@ export class PersonalizeSchema extends $Resource<
   PersonalizeSchemaAttributes
 > {
   public static readonly Type = "AWS::Personalize::Schema";
-  public static readonly AttributeNames = ["SchemaArn" as const];
   constructor(
     logicalId: string,
     properties: PersonalizeSchemaProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PersonalizeSchema.Type,
-      properties,
-      PersonalizeSchema.AttributeNames,
-      options,
-    );
+    super(logicalId, PersonalizeSchema.Type, properties, options);
   }
 }

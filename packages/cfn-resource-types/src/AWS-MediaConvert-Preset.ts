@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::MediaConvert::Preset
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-preset.html}
@@ -29,18 +29,11 @@ export class MediaConvertPreset extends $Resource<
   MediaConvertPresetAttributes
 > {
   public static readonly Type = "AWS::MediaConvert::Preset";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: MediaConvertPresetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaConvertPreset.Type,
-      properties,
-      MediaConvertPreset.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaConvertPreset.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EFS::FileSystem
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html}
@@ -83,21 +83,11 @@ export class EFSFileSystem extends $Resource<
   EFSFileSystemAttributes
 > {
   public static readonly Type = "AWS::EFS::FileSystem";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "FileSystemId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EFSFileSystemProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EFSFileSystem.Type,
-      properties,
-      EFSFileSystem.AttributeNames,
-      options,
-    );
+    super(logicalId, EFSFileSystem.Type, properties, options);
   }
 }

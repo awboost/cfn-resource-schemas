@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::IoTFleetWise::SignalCatalog Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-signalcatalog.html}
@@ -17,26 +17,13 @@ export type IoTFleetWiseSignalCatalogProperties = {
    * @pattern `^[a-zA-Z\d\-_:]+$`
    */
   Name?: string;
-  NodeCounts?: NodeCounts;
   /**
    * @minLength `1`
    * @maxLength `500`
    */
-  Nodes?: (
-    | {
-        Branch?: Branch;
-      }
-    | {
-        Sensor?: Sensor;
-      }
-    | {
-        Actuator?: Actuator;
-      }
-    | {
-        Attribute?: Attribute;
-      }
-  )[];
+  Nodes?: Node[];
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -49,6 +36,13 @@ export type IoTFleetWiseSignalCatalogAttributes = {
   Arn: string;
   CreationTime: string;
   LastModificationTime: string;
+  NodeCounts: {
+    TotalActuators: number;
+    TotalAttributes: number;
+    TotalBranches: number;
+    TotalNodes: number;
+    TotalSensors: number;
+  };
 };
 /**
  * Type definition for `AWS::IoTFleetWise::SignalCatalog.Actuator`.
@@ -109,16 +103,22 @@ export type Branch = {
   FullyQualifiedName: string;
 };
 /**
- * Type definition for `AWS::IoTFleetWise::SignalCatalog.NodeCounts`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-nodecounts.html}
+ * Type definition for `AWS::IoTFleetWise::SignalCatalog.Node`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-node.html}
  */
-export type NodeCounts = {
-  TotalActuators?: number;
-  TotalAttributes?: number;
-  TotalBranches?: number;
-  TotalNodes?: number;
-  TotalSensors?: number;
-};
+export type Node =
+  | {
+      Branch?: Branch;
+    }
+  | {
+      Sensor?: Sensor;
+    }
+  | {
+      Actuator?: Actuator;
+    }
+  | {
+      Attribute?: Attribute;
+    };
 /**
  * Type definition for `AWS::IoTFleetWise::SignalCatalog.NodeDataType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-signalcatalog-nodedatatype.html}
@@ -183,6 +183,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -197,22 +198,11 @@ export class IoTFleetWiseSignalCatalog extends $Resource<
   IoTFleetWiseSignalCatalogAttributes
 > {
   public static readonly Type = "AWS::IoTFleetWise::SignalCatalog";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "LastModificationTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTFleetWiseSignalCatalogProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTFleetWiseSignalCatalog.Type,
-      properties,
-      IoTFleetWiseSignalCatalog.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTFleetWiseSignalCatalog.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apigatewaymanagedoverrides.html}
@@ -79,7 +79,6 @@ export class ApiGatewayV2ApiGatewayManagedOverrides extends $Resource<
   ApiGatewayV2ApiGatewayManagedOverridesAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::ApiGatewayManagedOverrides";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2ApiGatewayManagedOverridesProperties,
@@ -89,7 +88,6 @@ export class ApiGatewayV2ApiGatewayManagedOverrides extends $Resource<
       logicalId,
       ApiGatewayV2ApiGatewayManagedOverrides.Type,
       properties,
-      ApiGatewayV2ApiGatewayManagedOverrides.AttributeNames,
       options,
     );
   }

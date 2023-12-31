@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
  * Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
@@ -62,7 +62,6 @@ export class SSOInstanceAccessControlAttributeConfiguration extends $Resource<
 > {
   public static readonly Type =
     "AWS::SSO::InstanceAccessControlAttributeConfiguration";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: SSOInstanceAccessControlAttributeConfigurationProperties,
@@ -72,7 +71,6 @@ export class SSOInstanceAccessControlAttributeConfiguration extends $Resource<
       logicalId,
       SSOInstanceAccessControlAttributeConfiguration.Type,
       properties,
-      SSOInstanceAccessControlAttributeConfiguration.AttributeNames,
       options,
     );
   }

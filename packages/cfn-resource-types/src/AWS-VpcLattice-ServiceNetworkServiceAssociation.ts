@@ -1,12 +1,11 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::ServiceNetworkServiceAssociation`.
  * Associates a service with a service network.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkserviceassociation.html}
  */
 export type VpcLatticeServiceNetworkServiceAssociationProperties = {
-  DnsEntry?: DnsEntry;
   /**
    * @minLength `20`
    * @maxLength `2048`
@@ -20,6 +19,7 @@ export type VpcLatticeServiceNetworkServiceAssociationProperties = {
    */
   ServiceNetworkIdentifier?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -36,6 +36,10 @@ export type VpcLatticeServiceNetworkServiceAssociationAttributes = {
    */
   Arn: string;
   CreatedAt: string;
+  DnsEntry: {
+    DomainName: string;
+    HostedZoneId: string;
+  };
   /**
    * @minLength `17`
    * @maxLength `2048`
@@ -86,14 +90,6 @@ export type VpcLatticeServiceNetworkServiceAssociationAttributes = {
     | "DELETE_FAILED";
 };
 /**
- * Type definition for `AWS::VpcLattice::ServiceNetworkServiceAssociation.DnsEntry`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetworkserviceassociation-dnsentry.html}
- */
-export type DnsEntry = {
-  DomainName?: string;
-  HostedZoneId?: string;
-};
-/**
  * Type definition for `AWS::VpcLattice::ServiceNetworkServiceAssociation.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetworkserviceassociation-tag.html}
  */
@@ -121,18 +117,6 @@ export class VpcLatticeServiceNetworkServiceAssociation extends $Resource<
 > {
   public static readonly Type =
     "AWS::VpcLattice::ServiceNetworkServiceAssociation";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedAt" as const,
-    "Id" as const,
-    "ServiceArn" as const,
-    "ServiceId" as const,
-    "ServiceName" as const,
-    "ServiceNetworkArn" as const,
-    "ServiceNetworkId" as const,
-    "ServiceNetworkName" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: VpcLatticeServiceNetworkServiceAssociationProperties,
@@ -142,7 +126,6 @@ export class VpcLatticeServiceNetworkServiceAssociation extends $Resource<
       logicalId,
       VpcLatticeServiceNetworkServiceAssociation.Type,
       properties,
-      VpcLatticeServiceNetworkServiceAssociation.AttributeNames,
       options,
     );
   }

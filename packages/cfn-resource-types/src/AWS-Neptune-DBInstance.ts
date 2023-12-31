@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Neptune::DBInstance
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html}
@@ -44,22 +44,11 @@ export class NeptuneDBInstance extends $Resource<
   NeptuneDBInstanceAttributes
 > {
   public static readonly Type = "AWS::Neptune::DBInstance";
-  public static readonly AttributeNames = [
-    "Endpoint" as const,
-    "Id" as const,
-    "Port" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NeptuneDBInstanceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NeptuneDBInstance.Type,
-      properties,
-      NeptuneDBInstance.AttributeNames,
-      options,
-    );
+    super(logicalId, NeptuneDBInstance.Type, properties, options);
   }
 }

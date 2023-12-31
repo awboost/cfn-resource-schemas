@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CE::CostCategory`.
  * Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
@@ -56,21 +56,11 @@ export class CECostCategory extends $Resource<
   CECostCategoryAttributes
 > {
   public static readonly Type = "AWS::CE::CostCategory";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "EffectiveStart" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CECostCategoryProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CECostCategory.Type,
-      properties,
-      CECostCategory.AttributeNames,
-      options,
-    );
+    super(logicalId, CECostCategory.Type, properties, options);
   }
 }

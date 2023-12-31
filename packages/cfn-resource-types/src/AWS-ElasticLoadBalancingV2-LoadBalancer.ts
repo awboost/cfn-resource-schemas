@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html}
@@ -44,7 +44,7 @@ export type ElasticLoadBalancingV2LoadBalancerProperties = {
 };
 /**
  * Attribute type definition for `AWS::ElasticLoadBalancingV2::LoadBalancer`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#aws-resource-elasticloadbalancingv2-loadbalancer-return-values}
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html}
  */
 export type ElasticLoadBalancingV2LoadBalancerAttributes = {
   /**
@@ -104,13 +104,6 @@ export class ElasticLoadBalancingV2LoadBalancer extends $Resource<
   ElasticLoadBalancingV2LoadBalancerAttributes
 > {
   public static readonly Type = "AWS::ElasticLoadBalancingV2::LoadBalancer";
-  public static readonly AttributeNames = [
-    "CanonicalHostedZoneID" as const,
-    "DNSName" as const,
-    "LoadBalancerArn" as const,
-    "LoadBalancerFullName" as const,
-    "LoadBalancerName" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ElasticLoadBalancingV2LoadBalancerProperties,
@@ -120,7 +113,6 @@ export class ElasticLoadBalancingV2LoadBalancer extends $Resource<
       logicalId,
       ElasticLoadBalancingV2LoadBalancer.Type,
       properties,
-      ElasticLoadBalancingV2LoadBalancer.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::ScheduledAudit`.
  * Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
@@ -86,18 +86,11 @@ export class IoTScheduledAudit extends $Resource<
   IoTScheduledAuditAttributes
 > {
   public static readonly Type = "AWS::IoT::ScheduledAudit";
-  public static readonly AttributeNames = ["ScheduledAuditArn" as const];
   constructor(
     logicalId: string,
     properties: IoTScheduledAuditProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTScheduledAudit.Type,
-      properties,
-      IoTScheduledAudit.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTScheduledAudit.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Route53RecoveryControl::RoutingControl`.
  * AWS Route53 Recovery Control Routing Control resource schema .
@@ -46,10 +46,6 @@ export class Route53RecoveryControlRoutingControl extends $Resource<
   Route53RecoveryControlRoutingControlAttributes
 > {
   public static readonly Type = "AWS::Route53RecoveryControl::RoutingControl";
-  public static readonly AttributeNames = [
-    "RoutingControlArn" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: Route53RecoveryControlRoutingControlProperties,
@@ -59,7 +55,6 @@ export class Route53RecoveryControlRoutingControl extends $Resource<
       logicalId,
       Route53RecoveryControlRoutingControl.Type,
       properties,
-      Route53RecoveryControlRoutingControl.AttributeNames,
       options,
     );
   }

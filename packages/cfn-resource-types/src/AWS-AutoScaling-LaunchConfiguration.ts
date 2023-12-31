@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html}
@@ -172,18 +172,11 @@ export class AutoScalingLaunchConfiguration extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::AutoScaling::LaunchConfiguration";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: AutoScalingLaunchConfigurationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AutoScalingLaunchConfiguration.Type,
-      properties,
-      AutoScalingLaunchConfiguration.AttributeNames,
-      options,
-    );
+    super(logicalId, AutoScalingLaunchConfiguration.Type, properties, options);
   }
 }

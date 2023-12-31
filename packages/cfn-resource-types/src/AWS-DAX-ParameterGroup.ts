@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::DAX::ParameterGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-parametergroup.html}
@@ -26,18 +26,11 @@ export class DAXParameterGroup extends $Resource<
   DAXParameterGroupAttributes
 > {
   public static readonly Type = "AWS::DAX::ParameterGroup";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: DAXParameterGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DAXParameterGroup.Type,
-      properties,
-      DAXParameterGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, DAXParameterGroup.Type, properties, options);
   }
 }

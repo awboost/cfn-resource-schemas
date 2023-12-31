@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::RDS::DBProxyTargetGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html}
@@ -44,11 +44,13 @@ export type ConnectionPoolConfigurationInfoFormat = {
   InitQuery?: string;
   /**
    * The maximum size of the connection pool for each target in a target group.
+   * @min `0`
    * @max `100`
    */
   MaxConnectionsPercent?: number;
   /**
    * Controls how actively the proxy closes idle database connections in the connection pool.
+   * @min `0`
    * @max `100`
    */
   MaxIdleConnectionsPercent?: number;
@@ -67,18 +69,11 @@ export class RDSDBProxyTargetGroup extends $Resource<
   RDSDBProxyTargetGroupAttributes
 > {
   public static readonly Type = "AWS::RDS::DBProxyTargetGroup";
-  public static readonly AttributeNames = ["TargetGroupArn" as const];
   constructor(
     logicalId: string,
     properties: RDSDBProxyTargetGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RDSDBProxyTargetGroup.Type,
-      properties,
-      RDSDBProxyTargetGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, RDSDBProxyTargetGroup.Type, properties, options);
   }
 }

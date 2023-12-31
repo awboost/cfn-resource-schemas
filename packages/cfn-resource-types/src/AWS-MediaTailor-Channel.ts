@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::MediaTailor::Channel Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html}
@@ -160,18 +160,11 @@ export class MediaTailorChannel extends $Resource<
   MediaTailorChannelAttributes
 > {
   public static readonly Type = "AWS::MediaTailor::Channel";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: MediaTailorChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaTailorChannel.Type,
-      properties,
-      MediaTailorChannel.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaTailorChannel.Type, properties, options);
   }
 }

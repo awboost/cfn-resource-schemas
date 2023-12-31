@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Schema of AWS::EC2::IPAM Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html}
@@ -83,6 +83,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -97,21 +98,11 @@ export class EC2IPAM extends $Resource<
   EC2IPAMAttributes
 > {
   public static readonly Type = "AWS::EC2::IPAM";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "DefaultResourceDiscoveryAssociationId" as const,
-    "DefaultResourceDiscoveryId" as const,
-    "IpamId" as const,
-    "PrivateDefaultScopeId" as const,
-    "PublicDefaultScopeId" as const,
-    "ResourceDiscoveryAssociationCount" as const,
-    "ScopeCount" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2IPAMProperties,
     options?: $ResourceOptions,
   ) {
-    super(logicalId, EC2IPAM.Type, properties, EC2IPAM.AttributeNames, options);
+    super(logicalId, EC2IPAM.Type, properties, options);
   }
 }

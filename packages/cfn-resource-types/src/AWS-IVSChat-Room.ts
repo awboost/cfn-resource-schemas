@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for AWS::IVSChat::Room.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivschat-room.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type IVSChatRoomProperties = {
   /**
    * Array of logging configuration identifiers attached to the room.
+   * @minLength `0`
    * @maxLength `50`
    */
   LoggingConfigurationIdentifiers?: string[];
@@ -28,6 +29,7 @@ export type IVSChatRoomProperties = {
   MessageReviewHandler?: MessageReviewHandler;
   /**
    * The name of the room. The value does not need to be unique.
+   * @minLength `0`
    * @maxLength `128`
    * @pattern `^[a-zA-Z0-9-_]*$`
    */
@@ -69,6 +71,7 @@ export type MessageReviewHandler = {
   FallbackResult?: "ALLOW" | "DENY";
   /**
    * Identifier of the message review handler.
+   * @minLength `0`
    * @maxLength `170`
    * @pattern `^$|^arn:aws:lambda:[a-z0-9-]+:[0-9]{12}:function:.+`
    */
@@ -103,18 +106,11 @@ export class IVSChatRoom extends $Resource<
   IVSChatRoomAttributes
 > {
   public static readonly Type = "AWS::IVSChat::Room";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: IVSChatRoomProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IVSChatRoom.Type,
-      properties,
-      IVSChatRoom.AttributeNames,
-      options,
-    );
+    super(logicalId, IVSChatRoom.Type, properties, options);
   }
 }

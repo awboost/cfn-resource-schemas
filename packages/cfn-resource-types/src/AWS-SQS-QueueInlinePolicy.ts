@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::SQS::QueueInlinePolicy`.
  * Schema for SQS QueueInlinePolicy
@@ -26,18 +26,11 @@ export class SQSQueueInlinePolicy extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::SQS::QueueInlinePolicy";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: SQSQueueInlinePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SQSQueueInlinePolicy.Type,
-      properties,
-      SQSQueueInlinePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, SQSQueueInlinePolicy.Type, properties, options);
   }
 }

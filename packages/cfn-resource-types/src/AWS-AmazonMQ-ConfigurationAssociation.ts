@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AmazonMQ::ConfigurationAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html}
@@ -33,7 +33,6 @@ export class AmazonMQConfigurationAssociation extends $Resource<
   AmazonMQConfigurationAssociationAttributes
 > {
   public static readonly Type = "AWS::AmazonMQ::ConfigurationAssociation";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: AmazonMQConfigurationAssociationProperties,
@@ -43,7 +42,6 @@ export class AmazonMQConfigurationAssociation extends $Resource<
       logicalId,
       AmazonMQConfigurationAssociation.Type,
       properties,
-      AmazonMQConfigurationAssociation.AttributeNames,
       options,
     );
   }

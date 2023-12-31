@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html}
@@ -171,6 +171,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -185,26 +186,11 @@ export class EC2VerifiedAccessEndpoint extends $Resource<
   EC2VerifiedAccessEndpointAttributes
 > {
   public static readonly Type = "AWS::EC2::VerifiedAccessEndpoint";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "DeviceValidationDomain" as const,
-    "EndpointDomain" as const,
-    "LastUpdatedTime" as const,
-    "Status" as const,
-    "VerifiedAccessEndpointId" as const,
-    "VerifiedAccessInstanceId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2VerifiedAccessEndpointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2VerifiedAccessEndpoint.Type,
-      properties,
-      EC2VerifiedAccessEndpoint.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2VerifiedAccessEndpoint.Type, properties, options);
   }
 }

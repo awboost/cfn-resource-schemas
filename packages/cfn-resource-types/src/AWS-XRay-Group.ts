@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::XRay::Group`.
  * This schema provides construct and validation rules for AWS-XRay Group resource parameters.
@@ -73,18 +73,11 @@ export class XRayGroup extends $Resource<
   XRayGroupAttributes
 > {
   public static readonly Type = "AWS::XRay::Group";
-  public static readonly AttributeNames = ["GroupARN" as const];
   constructor(
     logicalId: string,
     properties: XRayGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      XRayGroup.Type,
-      properties,
-      XRayGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, XRayGroup.Type, properties, options);
   }
 }

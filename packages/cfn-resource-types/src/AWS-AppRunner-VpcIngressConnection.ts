@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::AppRunner::VpcIngressConnection resource is an App Runner resource that specifies an App Runner VpcIngressConnection.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcingressconnection.html}
@@ -90,22 +90,11 @@ export class AppRunnerVpcIngressConnection extends $Resource<
   AppRunnerVpcIngressConnectionAttributes
 > {
   public static readonly Type = "AWS::AppRunner::VpcIngressConnection";
-  public static readonly AttributeNames = [
-    "DomainName" as const,
-    "Status" as const,
-    "VpcIngressConnectionArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppRunnerVpcIngressConnectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppRunnerVpcIngressConnection.Type,
-      properties,
-      AppRunnerVpcIngressConnection.AttributeNames,
-      options,
-    );
+    super(logicalId, AppRunnerVpcIngressConnection.Type, properties, options);
   }
 }

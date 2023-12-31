@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::KinesisAnalytics::ApplicationOutput
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationoutput.html}
@@ -67,7 +67,6 @@ export class KinesisAnalyticsApplicationOutput extends $Resource<
   KinesisAnalyticsApplicationOutputAttributes
 > {
   public static readonly Type = "AWS::KinesisAnalytics::ApplicationOutput";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: KinesisAnalyticsApplicationOutputProperties,
@@ -77,7 +76,6 @@ export class KinesisAnalyticsApplicationOutput extends $Resource<
       logicalId,
       KinesisAnalyticsApplicationOutput.Type,
       properties,
-      KinesisAnalyticsApplicationOutput.AttributeNames,
       options,
     );
   }

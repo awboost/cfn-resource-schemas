@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::Service`.
  * A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
@@ -17,7 +17,6 @@ export type VpcLatticeServiceProperties = {
    * @maxLength `255`
    */
   CustomDomainName?: string;
-  DnsEntry?: DnsEntry;
   /**
    * @minLength `3`
    * @maxLength `40`
@@ -25,6 +24,7 @@ export type VpcLatticeServiceProperties = {
    */
   Name?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -41,6 +41,10 @@ export type VpcLatticeServiceAttributes = {
    */
   Arn: string;
   CreatedAt: string;
+  DnsEntry: {
+    DomainName: string;
+    HostedZoneId: string;
+  };
   /**
    * @minLength `21`
    * @maxLength `21`
@@ -54,14 +58,6 @@ export type VpcLatticeServiceAttributes = {
     | "DELETE_IN_PROGRESS"
     | "CREATE_FAILED"
     | "DELETE_FAILED";
-};
-/**
- * Type definition for `AWS::VpcLattice::Service.DnsEntry`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-service-dnsentry.html}
- */
-export type DnsEntry = {
-  DomainName?: string;
-  HostedZoneId?: string;
 };
 /**
  * Type definition for `AWS::VpcLattice::Service.Tag`.
@@ -90,24 +86,11 @@ export class VpcLatticeService extends $Resource<
   VpcLatticeServiceAttributes
 > {
   public static readonly Type = "AWS::VpcLattice::Service";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedAt" as const,
-    "Id" as const,
-    "LastUpdatedAt" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: VpcLatticeServiceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VpcLatticeService.Type,
-      properties,
-      VpcLatticeService.AttributeNames,
-      options,
-    );
+    super(logicalId, VpcLatticeService.Type, properties, options);
   }
 }

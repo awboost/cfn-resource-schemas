@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EntityResolution::MatchingWorkflow`.
  * MatchingWorkflow defined in AWS Entity Resolution service
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type EntityResolutionMatchingWorkflowProperties = {
   /**
    * The description of the MatchingWorkflow
+   * @minLength `0`
    * @maxLength `255`
    */
   Description?: string;
@@ -27,11 +28,13 @@ export type EntityResolutionMatchingWorkflowProperties = {
    */
   RoleArn: string;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
   /**
    * The name of the MatchingWorkflow
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^[a-zA-Z_0-9-]*$`
    */
@@ -90,6 +93,7 @@ export type IntermediateSourceConfiguration = {
 export type OutputAttribute = {
   Hashed?: boolean;
   /**
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^[a-zA-Z_0-9- \t]*$`
    */
@@ -106,6 +110,7 @@ export type OutputSource = {
    */
   KMSArn?: string;
   /**
+   * @minLength `0`
    * @maxLength `750`
    */
   Output: OutputAttribute[];
@@ -150,6 +155,7 @@ export type Rule = {
    */
   MatchingKeys: string[];
   /**
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^[a-zA-Z_0-9- \t]*$`
    */
@@ -181,6 +187,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -196,11 +203,6 @@ export class EntityResolutionMatchingWorkflow extends $Resource<
   EntityResolutionMatchingWorkflowAttributes
 > {
   public static readonly Type = "AWS::EntityResolution::MatchingWorkflow";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "UpdatedAt" as const,
-    "WorkflowArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EntityResolutionMatchingWorkflowProperties,
@@ -210,7 +212,6 @@ export class EntityResolutionMatchingWorkflow extends $Resource<
       logicalId,
       EntityResolutionMatchingWorkflow.Type,
       properties,
-      EntityResolutionMatchingWorkflow.AttributeNames,
       options,
     );
   }

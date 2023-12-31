@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudFormation::PublicTypeVersion`.
  * Test and Publish a resource that has been registered in the CloudFormation Registry.
@@ -68,22 +68,11 @@ export class CloudFormationPublicTypeVersion extends $Resource<
   CloudFormationPublicTypeVersionAttributes
 > {
   public static readonly Type = "AWS::CloudFormation::PublicTypeVersion";
-  public static readonly AttributeNames = [
-    "PublicTypeArn" as const,
-    "PublisherId" as const,
-    "TypeVersionArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudFormationPublicTypeVersionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFormationPublicTypeVersion.Type,
-      properties,
-      CloudFormationPublicTypeVersion.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFormationPublicTypeVersion.Type, properties, options);
   }
 }

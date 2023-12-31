@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::FSx::StorageVirtualMachine
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-storagevirtualmachine.html}
@@ -59,22 +59,11 @@ export class FSxStorageVirtualMachine extends $Resource<
   FSxStorageVirtualMachineAttributes
 > {
   public static readonly Type = "AWS::FSx::StorageVirtualMachine";
-  public static readonly AttributeNames = [
-    "ResourceARN" as const,
-    "StorageVirtualMachineId" as const,
-    "UUID" as const,
-  ];
   constructor(
     logicalId: string,
     properties: FSxStorageVirtualMachineProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FSxStorageVirtualMachine.Type,
-      properties,
-      FSxStorageVirtualMachine.AttributeNames,
-      options,
-    );
+    super(logicalId, FSxStorageVirtualMachine.Type, properties, options);
   }
 }

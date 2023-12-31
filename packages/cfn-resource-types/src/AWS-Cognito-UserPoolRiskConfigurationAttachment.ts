@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html}
@@ -19,14 +19,6 @@ export type CognitoUserPoolRiskConfigurationAttachmentAttributes = {
   Id: string;
 };
 /**
- * Type definition for `AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html}
- */
-export type AccountTakeoverActionType = {
-  EventAction: string;
-  Notify: boolean;
-};
-/**
  * Type definition for `AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionsType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html}
  */
@@ -34,6 +26,14 @@ export type AccountTakeoverActionsType = {
   HighAction?: AccountTakeoverActionType;
   LowAction?: AccountTakeoverActionType;
   MediumAction?: AccountTakeoverActionType;
+};
+/**
+ * Type definition for `AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractiontype.html}
+ */
+export type AccountTakeoverActionType = {
+  EventAction: string;
+  Notify: boolean;
 };
 /**
  * Type definition for `AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationType`.
@@ -98,7 +98,6 @@ export class CognitoUserPoolRiskConfigurationAttachment extends $Resource<
 > {
   public static readonly Type =
     "AWS::Cognito::UserPoolRiskConfigurationAttachment";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: CognitoUserPoolRiskConfigurationAttachmentProperties,
@@ -108,7 +107,6 @@ export class CognitoUserPoolRiskConfigurationAttachment extends $Resource<
       logicalId,
       CognitoUserPoolRiskConfigurationAttachment.Type,
       properties,
-      CognitoUserPoolRiskConfigurationAttachment.AttributeNames,
       options,
     );
   }

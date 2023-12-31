@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudFormation::ModuleVersion`.
  * A module that has been registered in the CloudFormation registry.
@@ -78,27 +78,11 @@ export class CloudFormationModuleVersion extends $Resource<
   CloudFormationModuleVersionAttributes
 > {
   public static readonly Type = "AWS::CloudFormation::ModuleVersion";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Description" as const,
-    "DocumentationUrl" as const,
-    "IsDefaultVersion" as const,
-    "Schema" as const,
-    "TimeCreated" as const,
-    "VersionId" as const,
-    "Visibility" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudFormationModuleVersionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFormationModuleVersion.Type,
-      properties,
-      CloudFormationModuleVersion.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFormationModuleVersion.Type, properties, options);
   }
 }

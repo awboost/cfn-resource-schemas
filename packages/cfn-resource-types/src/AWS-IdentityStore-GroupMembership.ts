@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IdentityStore::GroupMembership`.
  * Resource Type Definition for AWS:IdentityStore::GroupMembership
@@ -63,18 +63,11 @@ export class IdentityStoreGroupMembership extends $Resource<
   IdentityStoreGroupMembershipAttributes
 > {
   public static readonly Type = "AWS::IdentityStore::GroupMembership";
-  public static readonly AttributeNames = ["MembershipId" as const];
   constructor(
     logicalId: string,
     properties: IdentityStoreGroupMembershipProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IdentityStoreGroupMembership.Type,
-      properties,
-      IdentityStoreGroupMembership.AttributeNames,
-      options,
-    );
+    super(logicalId, IdentityStoreGroupMembership.Type, properties, options);
   }
 }

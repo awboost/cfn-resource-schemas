@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ElasticBeanstalk::Environment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-environment.html}
@@ -125,18 +125,11 @@ export class ElasticBeanstalkEnvironment extends $Resource<
   ElasticBeanstalkEnvironmentAttributes
 > {
   public static readonly Type = "AWS::ElasticBeanstalk::Environment";
-  public static readonly AttributeNames = ["EndpointURL" as const];
   constructor(
     logicalId: string,
     properties: ElasticBeanstalkEnvironmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ElasticBeanstalkEnvironment.Type,
-      properties,
-      ElasticBeanstalkEnvironment.AttributeNames,
-      options,
-    );
+    super(logicalId, ElasticBeanstalkEnvironment.Type, properties, options);
   }
 }

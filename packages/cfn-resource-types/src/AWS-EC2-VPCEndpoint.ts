@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::VPCEndpoint
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html}
@@ -55,23 +55,11 @@ export class EC2VPCEndpoint extends $Resource<
   EC2VPCEndpointAttributes
 > {
   public static readonly Type = "AWS::EC2::VPCEndpoint";
-  public static readonly AttributeNames = [
-    "CreationTimestamp" as const,
-    "DnsEntries" as const,
-    "Id" as const,
-    "NetworkInterfaceIds" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2VPCEndpointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2VPCEndpoint.Type,
-      properties,
-      EC2VPCEndpoint.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2VPCEndpoint.Type, properties, options);
   }
 }

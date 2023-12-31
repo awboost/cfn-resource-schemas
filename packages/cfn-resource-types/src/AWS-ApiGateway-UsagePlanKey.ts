@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html}
@@ -35,18 +35,11 @@ export class ApiGatewayUsagePlanKey extends $Resource<
   ApiGatewayUsagePlanKeyAttributes
 > {
   public static readonly Type = "AWS::ApiGateway::UsagePlanKey";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayUsagePlanKeyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayUsagePlanKey.Type,
-      properties,
-      ApiGatewayUsagePlanKey.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayUsagePlanKey.Type, properties, options);
   }
 }

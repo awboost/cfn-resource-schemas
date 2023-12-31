@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html}
@@ -71,11 +71,6 @@ export class AppRunnerObservabilityConfiguration extends $Resource<
   AppRunnerObservabilityConfigurationAttributes
 > {
   public static readonly Type = "AWS::AppRunner::ObservabilityConfiguration";
-  public static readonly AttributeNames = [
-    "Latest" as const,
-    "ObservabilityConfigurationArn" as const,
-    "ObservabilityConfigurationRevision" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppRunnerObservabilityConfigurationProperties,
@@ -85,7 +80,6 @@ export class AppRunnerObservabilityConfiguration extends $Resource<
       logicalId,
       AppRunnerObservabilityConfiguration.Type,
       properties,
-      AppRunnerObservabilityConfiguration.AttributeNames,
       options,
     );
   }

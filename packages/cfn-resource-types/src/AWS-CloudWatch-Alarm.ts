@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudWatch::Alarm
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html}
@@ -202,18 +202,11 @@ export class CloudWatchAlarm extends $Resource<
   CloudWatchAlarmAttributes
 > {
   public static readonly Type = "AWS::CloudWatch::Alarm";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: CloudWatchAlarmProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudWatchAlarm.Type,
-      properties,
-      CloudWatchAlarm.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudWatchAlarm.Type, properties, options);
   }
 }

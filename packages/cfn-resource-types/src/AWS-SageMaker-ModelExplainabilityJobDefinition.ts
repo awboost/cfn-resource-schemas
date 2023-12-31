@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html}
@@ -258,7 +258,7 @@ export type ModelExplainabilityAppSpecification = {
   /**
    * Sets the environment variables in the Docker container
    */
-  Environment?: Record<string, string | string>;
+  Environment?: Record<string, string>;
   /**
    * The container image to be run by the monitoring job.
    * @maxLength `255`
@@ -443,10 +443,6 @@ export class SageMakerModelExplainabilityJobDefinition extends $Resource<
 > {
   public static readonly Type =
     "AWS::SageMaker::ModelExplainabilityJobDefinition";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "JobDefinitionArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerModelExplainabilityJobDefinitionProperties,
@@ -456,7 +452,6 @@ export class SageMakerModelExplainabilityJobDefinition extends $Resource<
       logicalId,
       SageMakerModelExplainabilityJobDefinition.Type,
       properties,
-      SageMakerModelExplainabilityJobDefinition.AttributeNames,
       options,
     );
   }

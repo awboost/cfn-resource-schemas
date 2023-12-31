@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::ConnectCampaigns::Campaign Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connectcampaigns-campaign.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type ConnectCampaignsCampaignProperties = {
   /**
    * Amazon Connect Instance Arn
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*$`
    */
@@ -38,6 +39,7 @@ export type ConnectCampaignsCampaignProperties = {
 export type ConnectCampaignsCampaignAttributes = {
   /**
    * Amazon Connect Campaign Arn
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^arn:aws[-a-z0-9]*:connect-campaigns:[-a-z0-9]*:[0-9]{12}:campaign/[-a-zA-Z0-9]*$`
    */
@@ -122,6 +124,7 @@ export type OutboundCallConfig = {
 export type PredictiveDialerConfig = {
   /**
    * The bandwidth allocation of a queue resource.
+   * @min `0`
    * @max `1`
    */
   BandwidthAllocation: number;
@@ -140,6 +143,7 @@ export type PredictiveDialerConfig = {
 export type ProgressiveDialerConfig = {
   /**
    * The bandwidth allocation of a queue resource.
+   * @min `0`
    * @max `1`
    */
   BandwidthAllocation: number;
@@ -180,18 +184,11 @@ export class ConnectCampaignsCampaign extends $Resource<
   ConnectCampaignsCampaignAttributes
 > {
   public static readonly Type = "AWS::ConnectCampaigns::Campaign";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ConnectCampaignsCampaignProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectCampaignsCampaign.Type,
-      properties,
-      ConnectCampaignsCampaign.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectCampaignsCampaign.Type, properties, options);
   }
 }

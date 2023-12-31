@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-input.html}
@@ -83,18 +83,11 @@ export class IoTEventsInput extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::IoTEvents::Input";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: IoTEventsInputProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTEventsInput.Type,
-      properties,
-      IoTEventsInput.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTEventsInput.Type, properties, options);
   }
 }

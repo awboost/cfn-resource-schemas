@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::ContactFlow
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html}
@@ -94,18 +94,11 @@ export class ConnectContactFlow extends $Resource<
   ConnectContactFlowAttributes
 > {
   public static readonly Type = "AWS::Connect::ContactFlow";
-  public static readonly AttributeNames = ["ContactFlowArn" as const];
   constructor(
     logicalId: string,
     properties: ConnectContactFlowProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectContactFlow.Type,
-      properties,
-      ConnectContactFlow.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectContactFlow.Type, properties, options);
   }
 }

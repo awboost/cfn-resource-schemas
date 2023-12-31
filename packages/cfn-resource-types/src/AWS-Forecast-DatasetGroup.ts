@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Forecast::DatasetGroup`.
  * Represents a dataset group that holds a collection of related datasets
@@ -30,6 +30,7 @@ export type ForecastDatasetGroupProperties = {
     | "METRICS";
   /**
    * The tags of Application Insights application.
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -60,6 +61,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -75,18 +77,11 @@ export class ForecastDatasetGroup extends $Resource<
   ForecastDatasetGroupAttributes
 > {
   public static readonly Type = "AWS::Forecast::DatasetGroup";
-  public static readonly AttributeNames = ["DatasetGroupArn" as const];
   constructor(
     logicalId: string,
     properties: ForecastDatasetGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ForecastDatasetGroup.Type,
-      properties,
-      ForecastDatasetGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, ForecastDatasetGroup.Type, properties, options);
   }
 }

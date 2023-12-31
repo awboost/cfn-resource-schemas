@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::WAFRegional::SizeConstraintSet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html}
@@ -43,18 +43,11 @@ export class WAFRegionalSizeConstraintSet extends $Resource<
   WAFRegionalSizeConstraintSetAttributes
 > {
   public static readonly Type = "AWS::WAFRegional::SizeConstraintSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: WAFRegionalSizeConstraintSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFRegionalSizeConstraintSet.Type,
-      properties,
-      WAFRegionalSizeConstraintSet.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFRegionalSizeConstraintSet.Type, properties, options);
   }
 }

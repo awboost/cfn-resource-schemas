@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::DevOpsGuru::LogAnomalyDetectionIntegration`.
  * This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
@@ -29,7 +29,6 @@ export class DevOpsGuruLogAnomalyDetectionIntegration extends $Resource<
 > {
   public static readonly Type =
     "AWS::DevOpsGuru::LogAnomalyDetectionIntegration";
-  public static readonly AttributeNames = ["AccountId" as const];
   constructor(
     logicalId: string,
     properties: DevOpsGuruLogAnomalyDetectionIntegrationProperties,
@@ -39,7 +38,6 @@ export class DevOpsGuruLogAnomalyDetectionIntegration extends $Resource<
       logicalId,
       DevOpsGuruLogAnomalyDetectionIntegration.Type,
       properties,
-      DevOpsGuruLogAnomalyDetectionIntegration.AttributeNames,
       options,
     );
   }

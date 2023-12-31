@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::LocalGatewayRoute`.
  * Describes a route for a local gateway route table.
@@ -48,18 +48,11 @@ export class EC2LocalGatewayRoute extends $Resource<
   EC2LocalGatewayRouteAttributes
 > {
   public static readonly Type = "AWS::EC2::LocalGatewayRoute";
-  public static readonly AttributeNames = ["State" as const, "Type" as const];
   constructor(
     logicalId: string,
     properties: EC2LocalGatewayRouteProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2LocalGatewayRoute.Type,
-      properties,
-      EC2LocalGatewayRoute.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2LocalGatewayRoute.Type, properties, options);
   }
 }

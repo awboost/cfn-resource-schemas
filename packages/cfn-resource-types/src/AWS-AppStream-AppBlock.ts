@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppStream::AppBlock
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html}
@@ -12,16 +12,7 @@ export type AppStreamAppBlockProperties = {
   PostSetupScriptDetails?: ScriptDetails;
   SetupScriptDetails?: ScriptDetails;
   SourceS3Location: S3Location;
-  Tags?: (
-    | {
-        Key: string;
-        Value: string;
-      }
-    | {
-        TagKey: string;
-        TagValue: string;
-      }
-  )[];
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::AppStream::AppBlock`.
@@ -50,6 +41,19 @@ export type ScriptDetails = {
   TimeoutInSeconds: number;
 };
 /**
+ * Type definition for `AWS::AppStream::AppBlock.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-appblock-tag.html}
+ */
+export type Tag =
+  | {
+      Key: string;
+      Value: string;
+    }
+  | {
+      TagKey: string;
+      TagValue: string;
+    };
+/**
  * Resource Type definition for AWS::AppStream::AppBlock
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-appblock.html}
  */
@@ -59,21 +63,11 @@ export class AppStreamAppBlock extends $Resource<
   AppStreamAppBlockAttributes
 > {
   public static readonly Type = "AWS::AppStream::AppBlock";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppStreamAppBlockProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppStreamAppBlock.Type,
-      properties,
-      AppStreamAppBlock.AttributeNames,
-      options,
-    );
+    super(logicalId, AppStreamAppBlock.Type, properties, options);
   }
 }

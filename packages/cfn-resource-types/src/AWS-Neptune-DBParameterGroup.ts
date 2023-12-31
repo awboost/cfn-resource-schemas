@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Neptune::DBParameterGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html}
@@ -36,18 +36,11 @@ export class NeptuneDBParameterGroup extends $Resource<
   NeptuneDBParameterGroupAttributes
 > {
   public static readonly Type = "AWS::Neptune::DBParameterGroup";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: NeptuneDBParameterGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NeptuneDBParameterGroup.Type,
-      properties,
-      NeptuneDBParameterGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, NeptuneDBParameterGroup.Type, properties, options);
   }
 }

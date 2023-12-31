@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Batch::JobQueue
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html}
@@ -12,6 +12,7 @@ export type BatchJobQueueProperties = {
    */
   JobQueueName?: string;
   /**
+   * @min `0`
    * @max `1000`
    */
   Priority: number;
@@ -53,18 +54,11 @@ export class BatchJobQueue extends $Resource<
   BatchJobQueueAttributes
 > {
   public static readonly Type = "AWS::Batch::JobQueue";
-  public static readonly AttributeNames = ["JobQueueArn" as const];
   constructor(
     logicalId: string,
     properties: BatchJobQueueProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BatchJobQueue.Type,
-      properties,
-      BatchJobQueue.AttributeNames,
-      options,
-    );
+    super(logicalId, BatchJobQueue.Type, properties, options);
   }
 }

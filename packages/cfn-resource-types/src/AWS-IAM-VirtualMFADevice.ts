@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IAM::VirtualMFADevice
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html}
@@ -61,18 +61,11 @@ export class IAMVirtualMFADevice extends $Resource<
   IAMVirtualMFADeviceAttributes
 > {
   public static readonly Type = "AWS::IAM::VirtualMFADevice";
-  public static readonly AttributeNames = ["SerialNumber" as const];
   constructor(
     logicalId: string,
     properties: IAMVirtualMFADeviceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IAMVirtualMFADevice.Type,
-      properties,
-      IAMVirtualMFADevice.AttributeNames,
-      options,
-    );
+    super(logicalId, IAMVirtualMFADevice.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::Space
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html}
@@ -23,6 +23,7 @@ export type SageMakerSpaceProperties = {
   SpaceSettings?: SpaceSettings;
   /**
    * A list of tags to apply to the space.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -59,6 +60,7 @@ export type CustomImage = {
   ImageName: string;
   /**
    * The version number of the CustomImage.
+   * @min `0`
    */
   ImageVersionNumber?: number;
 };
@@ -78,6 +80,7 @@ export type JupyterServerAppSettings = {
 export type KernelGatewayAppSettings = {
   /**
    * A list of custom SageMaker images that are configured to run as a KernelGateway app.
+   * @minLength `0`
    * @maxLength `30`
    */
   CustomImages?: CustomImage[];
@@ -209,18 +212,11 @@ export class SageMakerSpace extends $Resource<
   SageMakerSpaceAttributes
 > {
   public static readonly Type = "AWS::SageMaker::Space";
-  public static readonly AttributeNames = ["SpaceArn" as const];
   constructor(
     logicalId: string,
     properties: SageMakerSpaceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerSpace.Type,
-      properties,
-      SageMakerSpace.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerSpace.Type, properties, options);
   }
 }

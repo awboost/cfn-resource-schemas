@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elasticloadbalancerattachment.html}
@@ -25,7 +25,6 @@ export class OpsWorksElasticLoadBalancerAttachment extends $Resource<
   OpsWorksElasticLoadBalancerAttachmentAttributes
 > {
   public static readonly Type = "AWS::OpsWorks::ElasticLoadBalancerAttachment";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: OpsWorksElasticLoadBalancerAttachmentProperties,
@@ -35,7 +34,6 @@ export class OpsWorksElasticLoadBalancerAttachment extends $Resource<
       logicalId,
       OpsWorksElasticLoadBalancerAttachment.Type,
       properties,
-      OpsWorksElasticLoadBalancerAttachment.AttributeNames,
       options,
     );
   }

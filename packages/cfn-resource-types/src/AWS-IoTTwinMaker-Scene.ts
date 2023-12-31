@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::IoTTwinMaker::Scene
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-scene.html}
@@ -7,17 +7,20 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type IoTTwinMakerSceneProperties = {
   /**
    * A list of capabilities that the scene uses to render.
+   * @minLength `0`
    * @maxLength `50`
    */
   Capabilities?: string[];
   /**
    * The relative path that specifies the location of the content definition file.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `[sS]3://[A-Za-z0-9._/-]+`
    */
   ContentLocation: string;
   /**
    * The description of the scene.
+   * @minLength `0`
    * @maxLength `512`
    */
   Description?: string;
@@ -79,23 +82,11 @@ export class IoTTwinMakerScene extends $Resource<
   IoTTwinMakerSceneAttributes
 > {
   public static readonly Type = "AWS::IoTTwinMaker::Scene";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationDateTime" as const,
-    "GeneratedSceneMetadata" as const,
-    "UpdateDateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTTwinMakerSceneProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTTwinMakerScene.Type,
-      properties,
-      IoTTwinMakerScene.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTTwinMakerScene.Type, properties, options);
   }
 }

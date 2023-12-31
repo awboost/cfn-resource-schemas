@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html}
@@ -38,10 +38,6 @@ export class RoboMakerSimulationApplicationVersion extends $Resource<
   RoboMakerSimulationApplicationVersionAttributes
 > {
   public static readonly Type = "AWS::RoboMaker::SimulationApplicationVersion";
-  public static readonly AttributeNames = [
-    "ApplicationVersion" as const,
-    "Arn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RoboMakerSimulationApplicationVersionProperties,
@@ -51,7 +47,6 @@ export class RoboMakerSimulationApplicationVersion extends $Resource<
       logicalId,
       RoboMakerSimulationApplicationVersion.Type,
       properties,
-      RoboMakerSimulationApplicationVersion.AttributeNames,
       options,
     );
   }

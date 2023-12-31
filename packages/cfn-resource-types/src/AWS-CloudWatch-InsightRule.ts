@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudWatch::InsightRule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html}
@@ -33,18 +33,11 @@ export class CloudWatchInsightRule extends $Resource<
   CloudWatchInsightRuleAttributes
 > {
   public static readonly Type = "AWS::CloudWatch::InsightRule";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: CloudWatchInsightRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudWatchInsightRule.Type,
-      properties,
-      CloudWatchInsightRule.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudWatchInsightRule.Type, properties, options);
   }
 }

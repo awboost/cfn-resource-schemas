@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html}
@@ -61,18 +61,11 @@ export class NetworkManagerGlobalNetwork extends $Resource<
   NetworkManagerGlobalNetworkAttributes
 > {
   public static readonly Type = "AWS::NetworkManager::GlobalNetwork";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: NetworkManagerGlobalNetworkProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NetworkManagerGlobalNetwork.Type,
-      properties,
-      NetworkManagerGlobalNetwork.AttributeNames,
-      options,
-    );
+    super(logicalId, NetworkManagerGlobalNetwork.Type, properties, options);
   }
 }

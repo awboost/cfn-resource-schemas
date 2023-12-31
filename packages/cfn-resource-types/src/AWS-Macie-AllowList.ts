@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Macie::AllowList`.
  * Macie AllowList resource schema
@@ -9,19 +9,7 @@ export type MacieAllowListProperties = {
   /**
    * AllowList criteria.
    */
-  Criteria:
-    | {
-        /**
-         * The S3 object key for the AllowList.
-         */
-        Regex: string;
-      }
-    | {
-        /**
-         * The S3 location for the AllowList.
-         */
-        S3WordsList: S3WordsList;
-      };
+  Criteria: Criteria;
   /**
    * Description of AllowList.
    */
@@ -53,6 +41,24 @@ export type MacieAllowListAttributes = {
    */
   Status: Status;
 };
+/**
+ * Type definition for `AWS::Macie::AllowList.Criteria`.
+ * The regex or s3 object to use for the AllowList.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-criteria.html}
+ */
+export type Criteria =
+  | {
+      /**
+       * The S3 object key for the AllowList.
+       */
+      Regex: string;
+    }
+  | {
+      /**
+       * The S3 location for the AllowList.
+       */
+      S3WordsList: S3WordsList;
+    };
 /**
  * Type definition for `AWS::Macie::AllowList.S3WordsList`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-allowlist-s3wordslist.html}
@@ -101,22 +107,11 @@ export class MacieAllowList extends $Resource<
   MacieAllowListAttributes
 > {
   public static readonly Type = "AWS::Macie::AllowList";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MacieAllowListProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MacieAllowList.Type,
-      properties,
-      MacieAllowList.AttributeNames,
-      options,
-    );
+    super(logicalId, MacieAllowList.Type, properties, options);
   }
 }

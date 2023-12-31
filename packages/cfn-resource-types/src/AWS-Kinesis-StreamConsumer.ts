@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Kinesis::StreamConsumer
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html}
@@ -28,23 +28,11 @@ export class KinesisStreamConsumer extends $Resource<
   KinesisStreamConsumerAttributes
 > {
   public static readonly Type = "AWS::Kinesis::StreamConsumer";
-  public static readonly AttributeNames = [
-    "ConsumerARN" as const,
-    "ConsumerCreationTimestamp" as const,
-    "ConsumerStatus" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: KinesisStreamConsumerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KinesisStreamConsumer.Type,
-      properties,
-      KinesisStreamConsumer.AttributeNames,
-      options,
-    );
+    super(logicalId, KinesisStreamConsumer.Type, properties, options);
   }
 }

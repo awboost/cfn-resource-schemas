@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Greengrass::CoreDefinitionVersion
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinitionversion.html}
@@ -35,18 +35,11 @@ export class GreengrassCoreDefinitionVersion extends $Resource<
   GreengrassCoreDefinitionVersionAttributes
 > {
   public static readonly Type = "AWS::Greengrass::CoreDefinitionVersion";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GreengrassCoreDefinitionVersionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GreengrassCoreDefinitionVersion.Type,
-      properties,
-      GreengrassCoreDefinitionVersion.AttributeNames,
-      options,
-    );
+    super(logicalId, GreengrassCoreDefinitionVersion.Type, properties, options);
   }
 }

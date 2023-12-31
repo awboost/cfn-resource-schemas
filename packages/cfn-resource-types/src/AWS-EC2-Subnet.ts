@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::Subnet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html}
@@ -57,22 +57,11 @@ export class EC2Subnet extends $Resource<
   EC2SubnetAttributes
 > {
   public static readonly Type = "AWS::EC2::Subnet";
-  public static readonly AttributeNames = [
-    "Ipv6CidrBlocks" as const,
-    "NetworkAclAssociationId" as const,
-    "SubnetId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2SubnetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2Subnet.Type,
-      properties,
-      EC2Subnet.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2Subnet.Type, properties, options);
   }
 }

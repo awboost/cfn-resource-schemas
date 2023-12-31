@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-location.html}
@@ -41,6 +41,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -55,18 +56,11 @@ export class GameLiftLocation extends $Resource<
   GameLiftLocationAttributes
 > {
   public static readonly Type = "AWS::GameLift::Location";
-  public static readonly AttributeNames = ["LocationArn" as const];
   constructor(
     logicalId: string,
     properties: GameLiftLocationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GameLiftLocation.Type,
-      properties,
-      GameLiftLocation.AttributeNames,
-      options,
-    );
+    super(logicalId, GameLiftLocation.Type, properties, options);
   }
 }

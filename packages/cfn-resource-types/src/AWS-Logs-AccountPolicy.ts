@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html}
@@ -54,18 +54,11 @@ export class LogsAccountPolicy extends $Resource<
   LogsAccountPolicyAttributes
 > {
   public static readonly Type = "AWS::Logs::AccountPolicy";
-  public static readonly AttributeNames = ["AccountId" as const];
   constructor(
     logicalId: string,
     properties: LogsAccountPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LogsAccountPolicy.Type,
-      properties,
-      LogsAccountPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, LogsAccountPolicy.Type, properties, options);
   }
 }

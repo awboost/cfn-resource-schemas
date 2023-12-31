@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of the AWS::QuickSight::DataSet Resource Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html}
@@ -97,7 +97,7 @@ export type QuickSightDataSetAttributes = {
      * <p>The list of columns after all transforms. These columns are available in templates,
                 analyses, and dashboards.</p>
      */
-  OutputColumns: OutputColumn[];
+  OutputColumns: {}[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.CalculatedColumn`.
@@ -141,6 +141,7 @@ export type CastColumnTypeOperation = {
   /**
      * <p>When casting a column from string to datetime type, you can supply a string in a
                 format supported by Amazon QuickSight to denote the source data format.</p>
+     * @minLength `0`
      * @maxLength `32`
      */
   Format?: string;
@@ -160,6 +161,7 @@ export type ColumnDataType = "STRING" | "INTEGER" | "DECIMAL" | "DATETIME";
 export type ColumnDescription = {
   /**
    * <p>The text of a description for a column.</p>
+   * @minLength `0`
    * @maxLength `500`
    */
   Text?: string;
@@ -260,26 +262,6 @@ export type CustomSql = {
  */
 export type DataSetImportMode = "SPICE" | "DIRECT_QUERY";
 /**
- * Type definition for `AWS::QuickSight::DataSet.DataSetRefreshProperties`.
- * <p>The dataset refresh properties for the dataset.</p>
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html}
- */
-export type DataSetRefreshProperties = {
-  /**
-   * <p> Refresh Configuration.</p>
-   */
-  RefreshConfiguration?: RefreshConfiguration;
-};
-/**
- * Type definition for `AWS::QuickSight::DataSet.DataSetUsageConfiguration`.
- * <p>The dataset usage configuration for the dataset.</p>
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html}
- */
-export type DataSetUsageConfiguration = {
-  DisableUseAsDirectQuerySource?: boolean;
-  DisableUseAsImportedSource?: boolean;
-};
-/**
  * Type definition for `AWS::QuickSight::DataSet.DatasetParameter`.
  * <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html}
@@ -308,6 +290,26 @@ export type DatasetParameter = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparametervaluetype.html}
  */
 export type DatasetParameterValueType = "MULTI_VALUED" | "SINGLE_VALUED";
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetRefreshProperties`.
+ * <p>The dataset refresh properties for the dataset.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html}
+ */
+export type DataSetRefreshProperties = {
+  /**
+   * <p> Refresh Configuration.</p>
+   */
+  RefreshConfiguration?: RefreshConfiguration;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetUsageConfiguration`.
+ * <p>The dataset usage configuration for the dataset.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html}
+ */
+export type DataSetUsageConfiguration = {
+  DisableUseAsDirectQuerySource?: boolean;
+  DisableUseAsImportedSource?: boolean;
+};
 /**
  * Type definition for `AWS::QuickSight::DataSet.DateTimeDatasetParameter`.
  * <p>A parameter created in the dataset of date time data type.</p>
@@ -399,10 +401,12 @@ export type DecimalDatasetParameterDefaultValues = {
  */
 export type FieldFolder = {
   /**
+   * @minLength `0`
    * @maxLength `5000`
    */
   Columns?: string[];
   /**
+   * @minLength `0`
    * @maxLength `500`
    */
   Description?: string;
@@ -712,6 +716,7 @@ export type NewDefaultValues = {
 export type OutputColumn = {
   /**
    * <p>A description for a column.</p>
+   * @minLength `0`
    * @maxLength `500`
    */
   Description?: string;
@@ -808,6 +813,7 @@ export type RefreshConfiguration = {
 export type RelationalTable = {
   /**
    * <p>The catalog associated with a table.</p>
+   * @minLength `0`
    * @maxLength `256`
    */
   Catalog?: string;
@@ -829,6 +835,7 @@ export type RelationalTable = {
   Name: string;
   /**
    * <p>The schema name. This name applies to certain relational database engines.</p>
+   * @minLength `0`
    * @maxLength `64`
    */
   Schema?: string;
@@ -898,6 +905,7 @@ export type RowLevelPermissionDataSet = {
   FormatVersion?: RowLevelPermissionFormatVersion;
   /**
    * <p>The namespace associated with the row-level permissions dataset.</p>
+   * @minLength `0`
    * @maxLength `64`
    * @pattern `^[a-zA-Z0-9._-]*$`
    */
@@ -1169,24 +1177,11 @@ export class QuickSightDataSet extends $Resource<
   QuickSightDataSetAttributes
 > {
   public static readonly Type = "AWS::QuickSight::DataSet";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "ConsumedSpiceCapacityInBytes" as const,
-    "CreatedTime" as const,
-    "LastUpdatedTime" as const,
-    "OutputColumns" as const,
-  ];
   constructor(
     logicalId: string,
     properties: QuickSightDataSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      QuickSightDataSet.Type,
-      properties,
-      QuickSightDataSet.AttributeNames,
-      options,
-    );
+    super(logicalId, QuickSightDataSet.Type, properties, options);
   }
 }

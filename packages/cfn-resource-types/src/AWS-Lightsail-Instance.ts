@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lightsail::Instance
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html}
@@ -43,17 +43,9 @@ export type LightsailInstanceProperties = {
    */
   KeyPairName?: string;
   /**
-   * Location of a resource.
-   */
-  Location?: Location;
-  /**
    * Networking of the Instance.
    */
   Networking?: Networking;
-  /**
-   * Current State of the Instance.
-   */
-  State?: State;
   /**
    * An array of key-value pairs to apply to this resource.
    */
@@ -74,6 +66,19 @@ export type LightsailInstanceAttributes = {
    */
   IsStaticIp: boolean;
   /**
+   * Location of a resource.
+   */
+  Location: {
+    /**
+     * The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+     */
+    AvailabilityZone: string;
+    /**
+     * The Region Name in which to create your instance.
+     */
+    RegionName: string;
+  };
+  /**
    * Private IP Address of the Instance
    */
   PrivateIpAddress: string;
@@ -89,6 +94,19 @@ export type LightsailInstanceAttributes = {
    * SSH Key Name of the  Lightsail instance.
    */
   SshKeyName: string;
+  /**
+   * Current State of the Instance.
+   */
+  State: {
+    /**
+     * Status code of the Instance.
+     */
+    Code: number;
+    /**
+     * Status code of the Instance.
+     */
+    Name: string;
+  };
   /**
    * Support code to help identify any issues
    */
@@ -183,43 +201,9 @@ export type Disk = {
  */
 export type Hardware = {
   /**
-   * CPU count of the Instance.
-   */
-  CpuCount?: number;
-  /**
    * Disks attached to the Instance.
    */
   Disks?: Disk[];
-  /**
-   * RAM Size of the Instance.
-   */
-  RamSizeInGb?: number;
-};
-/**
- * Type definition for `AWS::Lightsail::Instance.Location`.
- * Location of a resource.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html}
- */
-export type Location = {
-  /**
-   * The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
-   */
-  AvailabilityZone?: string;
-  /**
-   * The Region Name in which to create your instance.
-   */
-  RegionName?: string;
-};
-/**
- * Type definition for `AWS::Lightsail::Instance.MonthlyTransfer`.
- * Monthly Transfer of the Instance.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html}
- */
-export type MonthlyTransfer = {
-  /**
-   * GbPerMonthAllocated of the Instance.
-   */
-  GbPerMonthAllocated?: string;
 };
 /**
  * Type definition for `AWS::Lightsail::Instance.Networking`.
@@ -227,10 +211,6 @@ export type MonthlyTransfer = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html}
  */
 export type Networking = {
-  /**
-   * Monthly Transfer of the Instance.
-   */
-  MonthlyTransfer?: MonthlyTransfer;
   /**
    * Ports to the Instance.
    */
@@ -284,21 +264,6 @@ export type Port = {
   ToPort?: number;
 };
 /**
- * Type definition for `AWS::Lightsail::Instance.State`.
- * Current State of the Instance.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-state.html}
- */
-export type State = {
-  /**
-   * Status code of the Instance.
-   */
-  Code?: number;
-  /**
-   * Status code of the Instance.
-   */
-  Name?: string;
-};
-/**
  * Type definition for `AWS::Lightsail::Instance.Tag`.
  * A key-value pair to associate with a resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-tag.html}
@@ -312,6 +277,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -326,27 +292,11 @@ export class LightsailInstance extends $Resource<
   LightsailInstanceAttributes
 > {
   public static readonly Type = "AWS::Lightsail::Instance";
-  public static readonly AttributeNames = [
-    "InstanceArn" as const,
-    "IsStaticIp" as const,
-    "PrivateIpAddress" as const,
-    "PublicIpAddress" as const,
-    "ResourceType" as const,
-    "SshKeyName" as const,
-    "SupportCode" as const,
-    "UserName" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LightsailInstanceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LightsailInstance.Type,
-      properties,
-      LightsailInstance.AttributeNames,
-      options,
-    );
+    super(logicalId, LightsailInstance.Type, properties, options);
   }
 }

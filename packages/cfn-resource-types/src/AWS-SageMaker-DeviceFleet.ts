@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::SageMaker::DeviceFleet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type SageMakerDeviceFleetProperties = {
   /**
    * Description for the edge device fleet
+   * @minLength `0`
    * @maxLength `800`
    * @pattern `[\S\s]+`
    */
@@ -68,6 +69,7 @@ export type Tag = {
   Key: string;
   /**
    * The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
@@ -83,18 +85,11 @@ export class SageMakerDeviceFleet extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::SageMaker::DeviceFleet";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: SageMakerDeviceFleetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerDeviceFleet.Type,
-      properties,
-      SageMakerDeviceFleet.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerDeviceFleet.Type, properties, options);
   }
 }

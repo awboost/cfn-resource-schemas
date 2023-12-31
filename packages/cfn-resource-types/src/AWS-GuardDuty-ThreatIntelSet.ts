@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::GuardDuty::ThreatIntelSet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html}
@@ -42,6 +42,7 @@ export type TagItem = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -56,18 +57,11 @@ export class GuardDutyThreatIntelSet extends $Resource<
   GuardDutyThreatIntelSetAttributes
 > {
   public static readonly Type = "AWS::GuardDuty::ThreatIntelSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GuardDutyThreatIntelSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GuardDutyThreatIntelSet.Type,
-      properties,
-      GuardDutyThreatIntelSet.AttributeNames,
-      options,
-    );
+    super(logicalId, GuardDutyThreatIntelSet.Type, properties, options);
   }
 }

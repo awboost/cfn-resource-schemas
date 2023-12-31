@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CustomerProfiles::EventStream`.
  * An Event Stream resource of Amazon Connect Customer Profiles
@@ -22,6 +22,7 @@ export type CustomerProfilesEventStreamProperties = {
   EventStreamName: string;
   /**
    * The tags used to organize, track, or control access for this resource.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -44,18 +45,7 @@ export type CustomerProfilesEventStreamAttributes = {
   /**
    * Details regarding the Kinesis stream.
    */
-  DestinationDetails: {
-    /**
-     * The status of enabling the Kinesis stream as a destination for export.
-     */
-    Status: Status;
-    /**
-     * The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name
-     * @minLength `1`
-     * @maxLength `255`
-     */
-    Uri: string;
-  };
+  DestinationDetails: {};
   /**
    * A unique identifier for the event stream.
    * @minLength `1`
@@ -88,6 +78,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -103,23 +94,11 @@ export class CustomerProfilesEventStream extends $Resource<
   CustomerProfilesEventStreamAttributes
 > {
   public static readonly Type = "AWS::CustomerProfiles::EventStream";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "DestinationDetails" as const,
-    "EventStreamArn" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CustomerProfilesEventStreamProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CustomerProfilesEventStream.Type,
-      properties,
-      CustomerProfilesEventStream.AttributeNames,
-      options,
-    );
+    super(logicalId, CustomerProfilesEventStream.Type, properties, options);
   }
 }

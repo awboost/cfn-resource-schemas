@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::APS::Workspace
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-workspace.html}
@@ -11,6 +11,7 @@ export type APSWorkspaceProperties = {
   AlertManagerDefinition?: string;
   /**
    * AMP Workspace alias.
+   * @minLength `0`
    * @maxLength `100`
    */
   Alias?: string;
@@ -55,6 +56,7 @@ export type APSWorkspaceAttributes = {
 export type LoggingConfiguration = {
   /**
    * CloudWatch log group ARN
+   * @minLength `0`
    * @maxLength `512`
    */
   LogGroupArn?: string;
@@ -73,6 +75,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -87,22 +90,11 @@ export class APSWorkspace extends $Resource<
   APSWorkspaceAttributes
 > {
   public static readonly Type = "AWS::APS::Workspace";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "PrometheusEndpoint" as const,
-    "WorkspaceId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: APSWorkspaceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      APSWorkspace.Type,
-      properties,
-      APSWorkspace.AttributeNames,
-      options,
-    );
+    super(logicalId, APSWorkspace.Type, properties, options);
   }
 }

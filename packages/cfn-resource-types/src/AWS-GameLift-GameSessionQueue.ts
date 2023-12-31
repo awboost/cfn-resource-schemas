@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gamesessionqueue.html}
@@ -49,6 +49,7 @@ export type GameLiftGameSessionQueueProperties = {
   Tags?: Tag[];
   /**
    * The maximum time, in seconds, that a new game session placement request remains in the queue.
+   * @min `0`
    */
   TimeoutInSeconds?: number;
 };
@@ -98,10 +99,12 @@ export type GameSessionQueueDestination = {
 export type PlayerLatencyPolicy = {
   /**
    * The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+   * @min `0`
    */
   MaximumIndividualPlayerLatencyMilliseconds?: number;
   /**
    * The length of time, in seconds, that the policy is enforced while placing a new game session.
+   * @min `0`
    */
   PolicyDurationSeconds?: number;
 };
@@ -152,18 +155,11 @@ export class GameLiftGameSessionQueue extends $Resource<
   GameLiftGameSessionQueueAttributes
 > {
   public static readonly Type = "AWS::GameLift::GameSessionQueue";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: GameLiftGameSessionQueueProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GameLiftGameSessionQueue.Type,
-      properties,
-      GameLiftGameSessionQueue.AttributeNames,
-      options,
-    );
+    super(logicalId, GameLiftGameSessionQueue.Type, properties, options);
   }
 }

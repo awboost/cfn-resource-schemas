@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Glue::Table
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html}
@@ -146,18 +146,11 @@ export class GlueTable extends $Resource<
   GlueTableAttributes
 > {
   public static readonly Type = "AWS::Glue::Table";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GlueTableProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueTable.Type,
-      properties,
-      GlueTable.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueTable.Type, properties, options);
   }
 }

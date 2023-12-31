@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type Definition for AWS::S3Outposts::Bucket
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html}
@@ -47,6 +47,7 @@ export type S3OutpostsBucketAttributes = {
 export type AbortIncompleteMultipartUpload = {
   /**
    * Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
+   * @min `0`
    */
   DaysAfterInitiation: number;
 };
@@ -166,18 +167,11 @@ export class S3OutpostsBucket extends $Resource<
   S3OutpostsBucketAttributes
 > {
   public static readonly Type = "AWS::S3Outposts::Bucket";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: S3OutpostsBucketProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3OutpostsBucket.Type,
-      properties,
-      S3OutpostsBucket.AttributeNames,
-      options,
-    );
+    super(logicalId, S3OutpostsBucket.Type, properties, options);
   }
 }

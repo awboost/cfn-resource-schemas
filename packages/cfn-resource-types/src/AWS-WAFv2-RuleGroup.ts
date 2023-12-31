@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::WAFv2::RuleGroup`.
  * Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
@@ -7,14 +7,9 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
  */
 export type WAFv2RuleGroupProperties = {
   /**
-   * Collection of Available Labels.
+   * @min `0`
    */
-  AvailableLabels?: LabelSummary[];
   Capacity: number;
-  /**
-   * Collection of Consumed Labels.
-   */
-  ConsumedLabels?: LabelSummary[];
   /**
    * Custom response key and body map.
    */
@@ -57,6 +52,26 @@ export type WAFv2RuleGroupAttributes = {
    * @maxLength `2048`
    */
   Arn: string;
+  /**
+   * Collection of Available Labels.
+   */
+  AvailableLabels: {
+    /**
+     * Name of the Label.
+     * @pattern `^[0-9A-Za-z_:-]{1,1024}$`
+     */
+    Name: string;
+  }[];
+  /**
+   * Collection of Consumed Labels.
+   */
+  ConsumedLabels: {
+    /**
+     * Name of the Label.
+     * @pattern `^[0-9A-Za-z_:-]{1,1024}$`
+     */
+    Name: string;
+  }[];
   /**
    * Id of the RuleGroup
    * @pattern `^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$`
@@ -413,6 +428,17 @@ export type Headers = {
   OversizeHandling: OversizeHandling;
 };
 /**
+ * Type definition for `AWS::WAFv2::RuleGroup.ImmunityTimeProperty`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-immunitytimeproperty.html}
+ */
+export type ImmunityTimeProperty = {
+  /**
+   * @min `60`
+   * @max `259200`
+   */
+  ImmunityTime: number;
+};
+/**
  * Type definition for `AWS::WAFv2::RuleGroup.IPSetForwardedIPConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html}
  */
@@ -436,17 +462,6 @@ export type IPSetReferenceStatement = {
    */
   Arn: string;
   IPSetForwardedIPConfig?: IPSetForwardedIPConfiguration;
-};
-/**
- * Type definition for `AWS::WAFv2::RuleGroup.ImmunityTimeProperty`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-immunitytimeproperty.html}
- */
-export type ImmunityTimeProperty = {
-  /**
-   * @min `60`
-   * @max `259200`
-   */
-  ImmunityTime: number;
 };
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.JsonBody`.
@@ -515,17 +530,6 @@ export type LabelMatchStatement = {
    */
   Key: string;
   Scope: LabelMatchScope;
-};
-/**
- * Type definition for `AWS::WAFv2::RuleGroup.LabelSummary`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html}
- */
-export type LabelSummary = {
-  /**
-   * Name of the Label.
-   * @pattern `^[0-9A-Za-z_:-]{1,1024}$`
-   */
-  Name?: string;
 };
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.MapMatchScope`.
@@ -654,12 +658,6 @@ export type RateLimitCookie = {
  */
 export type RateLimitForwardedIP = Record<string, any>;
 /**
- * Type definition for `AWS::WAFv2::RuleGroup.RateLimitHTTPMethod`.
- * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimithttpmethod.html}
- */
-export type RateLimitHTTPMethod = Record<string, any>;
-/**
  * Type definition for `AWS::WAFv2::RuleGroup.RateLimitHeader`.
  * Specifies a header as an aggregate key for a rate-based rule.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitheader.html}
@@ -674,6 +672,12 @@ export type RateLimitHeader = {
   Name: string;
   TextTransformations: TextTransformation[];
 };
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.RateLimitHTTPMethod`.
+ * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimithttpmethod.html}
+ */
+export type RateLimitHTTPMethod = Record<string, any>;
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.RateLimitIP`.
  * Specifies the IP address in the web request as an aggregate key for a rate-based rule.
@@ -784,6 +788,7 @@ export type Rule = {
   Name: string;
   /**
    * Priority of the Rule, Rules get evaluated from lower to higher priority.
+   * @min `0`
    */
   Priority: number;
   /**
@@ -827,42 +832,6 @@ export type RuleAction = {
   Count?: CountAction;
 };
 /**
- * Type definition for `AWS::WAFv2::RuleGroup.RuleGroup`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rulegroup.html}
- */
-export type RuleGroup = {
-  /**
-   * ARN of the WAF entity.
-   * @minLength `20`
-   * @maxLength `2048`
-   */
-  Arn?: string;
-  Capacity?: number;
-  /**
-   * Description of the entity.
-   * @pattern `^[a-zA-Z0-9=:#@/\-,.][a-zA-Z0-9+=:#@/\-,.\s]+[a-zA-Z0-9+=:#@/\-,.]{1,256}$`
-   */
-  Description?: string;
-  /**
-   * Id of the RuleGroup
-   * @pattern `^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$`
-   */
-  Id?: string;
-  /**
-   * Name of the RuleGroup.
-   * @pattern `^[0-9A-Za-z_-]{1,128}$`
-   */
-  Name?: string;
-  /**
-   * Collection of Rules.
-   */
-  Rules?: Rule[];
-  /**
-   * Visibility Metric of the RuleGroup.
-   */
-  VisibilityConfig?: VisibilityConfig;
-};
-/**
  * Type definition for `AWS::WAFv2::RuleGroup.Scope`.
  * Use CLOUDFRONT for CloudFront RuleGroup, use REGIONAL for Application Load Balancer and API Gateway.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-scope.html}
@@ -886,6 +855,7 @@ export type SizeConstraintStatement = {
    */
   FieldToMatch: FieldToMatch;
   /**
+   * @min `0`
    * @max `21474836480`
    */
   Size: number;
@@ -950,6 +920,7 @@ export type Tag = {
    */
   Key?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -962,6 +933,7 @@ export type Tag = {
 export type TextTransformation = {
   /**
    * Priority of Rule being evaluated.
+   * @min `0`
    */
   Priority: number;
   /**
@@ -1033,22 +1005,11 @@ export class WAFv2RuleGroup extends $Resource<
   WAFv2RuleGroupAttributes
 > {
   public static readonly Type = "AWS::WAFv2::RuleGroup";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "LabelNamespace" as const,
-  ];
   constructor(
     logicalId: string,
     properties: WAFv2RuleGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFv2RuleGroup.Type,
-      properties,
-      WAFv2RuleGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFv2RuleGroup.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for AWS::NetworkFirewall::RuleGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html}
@@ -179,10 +179,12 @@ export type MatchAttributes = {
  */
 export type PortRange = {
   /**
+   * @min `0`
    * @max `65535`
    */
   FromPort: number;
   /**
+   * @min `0`
    * @max `65535`
    */
   ToPort: number;
@@ -245,20 +247,13 @@ export type RuleOption = {
  */
 export type RuleOrder = "DEFAULT_ACTION_ORDER" | "STRICT_ORDER";
 /**
- * Type definition for `AWS::NetworkFirewall::RuleGroup.RuleVariables`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html}
- */
-export type RuleVariables = {
-  IPSets?: Record<string, IPSet>;
-  PortSets?: Record<string, PortSet>;
-};
-/**
  * Type definition for `AWS::NetworkFirewall::RuleGroup.RulesSource`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html}
  */
 export type RulesSource = {
   RulesSourceList?: RulesSourceList;
   /**
+   * @minLength `0`
    * @maxLength `1000000`
    */
   RulesString?: string;
@@ -273,6 +268,14 @@ export type RulesSourceList = {
   GeneratedRulesType: GeneratedRulesType;
   TargetTypes: TargetType[];
   Targets: string[];
+};
+/**
+ * Type definition for `AWS::NetworkFirewall::RuleGroup.RuleVariables`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html}
+ */
+export type RuleVariables = {
+  IPSets?: Record<string, IPSet>;
+  PortSets?: Record<string, PortSet>;
 };
 /**
  * Type definition for `AWS::NetworkFirewall::RuleGroup.StatefulRule`.
@@ -311,6 +314,29 @@ export type StatelessRulesAndCustomActions = {
   StatelessRules: StatelessRule[];
 };
 /**
+ * Type definition for `AWS::NetworkFirewall::RuleGroup.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^.*$`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `255`
+   * @pattern `^.*$`
+   */
+  Value: string;
+};
+/**
+ * Type definition for `AWS::NetworkFirewall::RuleGroup.TargetType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettype.html}
+ */
+export type TargetType = "TLS_SNI" | "HTTP_HOST";
+/**
  * Type definition for `AWS::NetworkFirewall::RuleGroup.TCPFlag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflag.html}
  */
@@ -332,28 +358,6 @@ export type TCPFlagField = {
   Masks?: TCPFlag[];
 };
 /**
- * Type definition for `AWS::NetworkFirewall::RuleGroup.Tag`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tag.html}
- */
-export type Tag = {
-  /**
-   * @minLength `1`
-   * @maxLength `128`
-   * @pattern `^.*$`
-   */
-  Key: string;
-  /**
-   * @maxLength `255`
-   * @pattern `^.*$`
-   */
-  Value: string;
-};
-/**
- * Type definition for `AWS::NetworkFirewall::RuleGroup.TargetType`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-targettype.html}
- */
-export type TargetType = "TLS_SNI" | "HTTP_HOST";
-/**
  * Resource type definition for AWS::NetworkFirewall::RuleGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html}
  */
@@ -363,21 +367,11 @@ export class NetworkFirewallRuleGroup extends $Resource<
   NetworkFirewallRuleGroupAttributes
 > {
   public static readonly Type = "AWS::NetworkFirewall::RuleGroup";
-  public static readonly AttributeNames = [
-    "RuleGroupArn" as const,
-    "RuleGroupId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkFirewallRuleGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NetworkFirewallRuleGroup.Type,
-      properties,
-      NetworkFirewallRuleGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, NetworkFirewallRuleGroup.Type, properties, options);
   }
 }

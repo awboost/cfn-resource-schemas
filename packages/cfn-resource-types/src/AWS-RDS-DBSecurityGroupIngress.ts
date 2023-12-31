@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::RDS::DBSecurityGroupIngress
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsecuritygroupingress.html}
@@ -28,18 +28,11 @@ export class RDSDBSecurityGroupIngress extends $Resource<
   RDSDBSecurityGroupIngressAttributes
 > {
   public static readonly Type = "AWS::RDS::DBSecurityGroupIngress";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: RDSDBSecurityGroupIngressProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RDSDBSecurityGroupIngress.Type,
-      properties,
-      RDSDBSecurityGroupIngress.AttributeNames,
-      options,
-    );
+    super(logicalId, RDSDBSecurityGroupIngress.Type, properties, options);
   }
 }

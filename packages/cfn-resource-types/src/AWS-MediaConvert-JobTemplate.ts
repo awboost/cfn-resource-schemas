@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::MediaConvert::JobTemplate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html}
@@ -50,18 +50,11 @@ export class MediaConvertJobTemplate extends $Resource<
   MediaConvertJobTemplateAttributes
 > {
   public static readonly Type = "AWS::MediaConvert::JobTemplate";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: MediaConvertJobTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaConvertJobTemplate.Type,
-      properties,
-      MediaConvertJobTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaConvertJobTemplate.Type, properties, options);
   }
 }

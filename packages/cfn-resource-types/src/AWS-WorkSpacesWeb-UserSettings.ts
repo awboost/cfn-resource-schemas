@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html}
@@ -21,12 +21,14 @@ export type WorkSpacesWebUserSettingsProperties = {
   DisconnectTimeoutInMinutes?: number;
   DownloadAllowed: EnabledType;
   /**
+   * @min `0`
    * @max `60`
    */
   IdleDisconnectTimeoutInMinutes?: number;
   PasteAllowed: EnabledType;
   PrintAllowed: EnabledType;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -51,15 +53,18 @@ export type WorkSpacesWebUserSettingsAttributes = {
  */
 export type CookieSpecification = {
   /**
+   * @minLength `0`
    * @maxLength `253`
    * @pattern `^(\.?)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$`
    */
   Domain: string;
   /**
+   * @minLength `0`
    * @maxLength `4096`
    */
   Name?: string;
   /**
+   * @minLength `0`
    * @maxLength `2000`
    * @pattern `^/(\S)*$`
    */
@@ -71,10 +76,12 @@ export type CookieSpecification = {
  */
 export type CookieSynchronizationConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Allowlist: CookieSpecification[];
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Blocklist?: CookieSpecification[];
@@ -101,6 +108,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
@@ -116,21 +124,11 @@ export class WorkSpacesWebUserSettings extends $Resource<
   WorkSpacesWebUserSettingsAttributes
 > {
   public static readonly Type = "AWS::WorkSpacesWeb::UserSettings";
-  public static readonly AttributeNames = [
-    "AssociatedPortalArns" as const,
-    "UserSettingsArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: WorkSpacesWebUserSettingsProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WorkSpacesWebUserSettings.Type,
-      properties,
-      WorkSpacesWebUserSettings.AttributeNames,
-      options,
-    );
+    super(logicalId, WorkSpacesWebUserSettings.Type, properties, options);
   }
 }

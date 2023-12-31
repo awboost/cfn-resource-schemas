@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CodeArtifact::Domain`.
  * The resource schema to create a CodeArtifact domain.
@@ -64,6 +64,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -79,23 +80,11 @@ export class CodeArtifactDomain extends $Resource<
   CodeArtifactDomainAttributes
 > {
   public static readonly Type = "AWS::CodeArtifact::Domain";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "EncryptionKey" as const,
-    "Name" as const,
-    "Owner" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CodeArtifactDomainProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CodeArtifactDomain.Type,
-      properties,
-      CodeArtifactDomain.AttributeNames,
-      options,
-    );
+    super(logicalId, CodeArtifactDomain.Type, properties, options);
   }
 }

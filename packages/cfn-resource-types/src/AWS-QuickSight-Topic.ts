@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of the AWS::QuickSight::Topic Resource Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html}
@@ -13,6 +13,7 @@ export type QuickSightTopicProperties = {
   AwsAccountId?: string;
   DataSets?: DatasetMetadata[];
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Description?: string;
@@ -22,6 +23,7 @@ export type QuickSightTopicProperties = {
    */
   Name?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^[A-Za-z0-9-_.\\+]*$`
    */
@@ -75,6 +77,7 @@ export type CategoryFilterType =
  */
 export type CellValueSynonym = {
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   CellValue?: string;
@@ -121,6 +124,7 @@ export type ConstantType = "SINGULAR" | "RANGE" | "COLLECTIVE";
 export type DataAggregation = {
   DatasetRowDateGranularity?: TopicTimeGranularity;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   DefaultDateColumnName?: string;
@@ -135,10 +139,12 @@ export type DatasetMetadata = {
   DataAggregation?: DataAggregation;
   DatasetArn: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   DatasetDescription?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   DatasetName?: string;
@@ -186,29 +192,35 @@ export type DisplayFormat =
  */
 export type DisplayFormatOptions = {
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   BlankCellFormat?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   CurrencySymbol?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   DateFormat?: string;
   DecimalSeparator?: TopicNumericSeparatorSymbol;
   FractionDigits?: number;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   GroupingSeparator?: string;
   NegativeFormat?: NegativeFormat;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Prefix?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Suffix?: string;
@@ -248,11 +260,13 @@ export type NamedEntityAggType =
  */
 export type NamedEntityDefinition = {
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   FieldName?: string;
   Metric?: NamedEntityDefinitionMetric;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   PropertyName?: string;
@@ -300,10 +314,12 @@ export type NamedFilterType =
  */
 export type NegativeFormat = {
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Prefix?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Suffix?: string;
@@ -335,10 +351,12 @@ export type PropertyUsage = "INHERIT" | "DIMENSION" | "MEASURE";
  */
 export type RangeConstant = {
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Maximum?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Minimum?: string;
@@ -349,10 +367,12 @@ export type RangeConstant = {
  */
 export type SemanticEntityType = {
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   SubTypeName?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   TypeName?: string;
@@ -366,12 +386,14 @@ export type SemanticType = {
   FalseyCellValue?: string;
   FalseyCellValueSynonyms?: string[];
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   SubTypeName?: string;
   TruthyCellValue?: string;
   TruthyCellValueSynonyms?: string[];
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   TypeName?: string;
@@ -385,10 +407,12 @@ export type TopicCalculatedField = {
   Aggregation?: DefaultAggregation;
   AllowedAggregations?: AuthorSpecifiedAggregation[];
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   CalculatedFieldDescription?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   CalculatedFieldName: string;
@@ -427,6 +451,7 @@ export type TopicCategoryFilterConstant = {
   CollectiveConstant?: CollectiveConstant;
   ConstantType?: ConstantType;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   SingularConstant?: string;
@@ -441,14 +466,17 @@ export type TopicColumn = {
   CellValueSynonyms?: CellValueSynonym[];
   ColumnDataRole?: ColumnDataRole;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   ColumnDescription?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   ColumnFriendlyName?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   ColumnName: string;
@@ -471,22 +499,6 @@ export type TopicDateRangeFilter = {
   Inclusive?: boolean;
 };
 /**
- * Type definition for `AWS::QuickSight::Topic.TopicDetails`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicdetails.html}
- */
-export type TopicDetails = {
-  DataSets?: DatasetMetadata[];
-  /**
-   * @maxLength `256`
-   */
-  Description?: string;
-  /**
-   * @minLength `1`
-   * @maxLength `128`
-   */
-  Name?: string;
-};
-/**
  * Type definition for `AWS::QuickSight::Topic.TopicFilter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html}
  */
@@ -495,10 +507,12 @@ export type TopicFilter = {
   DateRangeFilter?: TopicDateRangeFilter;
   FilterClass?: FilterClass;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   FilterDescription?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   FilterName: string;
@@ -507,6 +521,7 @@ export type TopicFilter = {
   NumericEqualityFilter?: TopicNumericEqualityFilter;
   NumericRangeFilter?: TopicNumericRangeFilter;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   OperandFieldName: string;
@@ -519,10 +534,12 @@ export type TopicFilter = {
 export type TopicNamedEntity = {
   Definition?: NamedEntityDefinition[];
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   EntityDescription?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   EntityName: string;
@@ -585,6 +602,7 @@ export type TopicRelativeDateFilterFunction =
 export type TopicSingularFilterConstant = {
   ConstantType?: ConstantType;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   SingularConstant?: string;
@@ -622,18 +640,11 @@ export class QuickSightTopic extends $Resource<
   QuickSightTopicAttributes
 > {
   public static readonly Type = "AWS::QuickSight::Topic";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: QuickSightTopicProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      QuickSightTopic.Type,
-      properties,
-      QuickSightTopic.AttributeNames,
-      options,
-    );
+    super(logicalId, QuickSightTopic.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppSync::Resolver
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html}
@@ -157,18 +157,11 @@ export class AppSyncResolver extends $Resource<
   AppSyncResolverAttributes
 > {
   public static readonly Type = "AWS::AppSync::Resolver";
-  public static readonly AttributeNames = ["ResolverArn" as const];
   constructor(
     logicalId: string,
     properties: AppSyncResolverProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppSyncResolver.Type,
-      properties,
-      AppSyncResolver.AttributeNames,
-      options,
-    );
+    super(logicalId, AppSyncResolver.Type, properties, options);
   }
 }

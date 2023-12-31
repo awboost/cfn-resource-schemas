@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::IoTFleetWise::DecoderManifest Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html}
@@ -30,6 +30,7 @@ export type IoTFleetWiseDecoderManifestProperties = {
   SignalDecoders?: (CanSignalDecoder | ObdSignalDecoder)[];
   Status?: ManifestStatus;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -196,6 +197,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -210,22 +212,11 @@ export class IoTFleetWiseDecoderManifest extends $Resource<
   IoTFleetWiseDecoderManifestAttributes
 > {
   public static readonly Type = "AWS::IoTFleetWise::DecoderManifest";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "LastModificationTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTFleetWiseDecoderManifestProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTFleetWiseDecoderManifest.Type,
-      properties,
-      IoTFleetWiseDecoderManifest.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTFleetWiseDecoderManifest.Type, properties, options);
   }
 }

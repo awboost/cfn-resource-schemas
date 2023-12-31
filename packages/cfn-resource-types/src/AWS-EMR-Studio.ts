@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::EMR::Studio
  * @see {@link https://docs.aws.amazon.com/emr/latest/APIReference/API_CreateStudio.html}
@@ -18,6 +18,7 @@ export type EMRStudioProperties = {
   DefaultS3Location: string;
   /**
    * A detailed description of the Studio.
+   * @minLength `0`
    * @maxLength `256`
    */
   Description?: string;
@@ -36,6 +37,7 @@ export type EMRStudioProperties = {
   IdpAuthUrl?: string;
   /**
    * The name of relay state parameter for external Identity Provider.
+   * @minLength `0`
    * @maxLength `256`
    */
   IdpRelayStateParameterName?: string;
@@ -78,7 +80,7 @@ export type EMRStudioProperties = {
 };
 /**
  * Attribute type definition for `AWS::EMR::Studio`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#aws-resource-emr-studio-return-values}
+ * @see {@link https://docs.aws.amazon.com/emr/latest/APIReference/API_CreateStudio.html}
  */
 export type EMRStudioAttributes = {
   /**
@@ -115,6 +117,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `[a-zA-Z+-=._:/]+$`
    */
@@ -130,22 +133,11 @@ export class EMRStudio extends $Resource<
   EMRStudioAttributes
 > {
   public static readonly Type = "AWS::EMR::Studio";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "StudioId" as const,
-    "Url" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EMRStudioProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EMRStudio.Type,
-      properties,
-      EMRStudio.AttributeNames,
-      options,
-    );
+    super(logicalId, EMRStudio.Type, properties, options);
   }
 }

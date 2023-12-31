@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ManagedBlockchain::Member
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-managedblockchain-member.html}
@@ -93,18 +93,11 @@ export class ManagedBlockchainMember extends $Resource<
   ManagedBlockchainMemberAttributes
 > {
   public static readonly Type = "AWS::ManagedBlockchain::Member";
-  public static readonly AttributeNames = ["MemberId" as const];
   constructor(
     logicalId: string,
     properties: ManagedBlockchainMemberProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ManagedBlockchainMember.Type,
-      properties,
-      ManagedBlockchainMember.AttributeNames,
-      options,
-    );
+    super(logicalId, ManagedBlockchainMember.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::RefactorSpaces::Application Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-refactorspaces-application.html}
@@ -122,6 +122,7 @@ export type Tag = {
   Key: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -136,27 +137,11 @@ export class RefactorSpacesApplication extends $Resource<
   RefactorSpacesApplicationAttributes
 > {
   public static readonly Type = "AWS::RefactorSpaces::Application";
-  public static readonly AttributeNames = [
-    "ApiGatewayId" as const,
-    "ApplicationIdentifier" as const,
-    "Arn" as const,
-    "NlbArn" as const,
-    "NlbName" as const,
-    "ProxyUrl" as const,
-    "StageName" as const,
-    "VpcLinkId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RefactorSpacesApplicationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RefactorSpacesApplication.Type,
-      properties,
-      RefactorSpacesApplication.AttributeNames,
-      options,
-    );
+    super(logicalId, RefactorSpacesApplication.Type, properties, options);
   }
 }

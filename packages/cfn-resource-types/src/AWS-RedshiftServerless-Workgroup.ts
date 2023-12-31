@@ -1,15 +1,11 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::RedshiftServerless::Workgroup Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html}
  */
 export type RedshiftServerlessWorkgroupProperties = {
   BaseCapacity?: number;
-  /**
-   * @minLength `1`
-   */
-  ConfigParameters?: ConfigParameter[];
   EnhancedVpcRouting?: boolean;
   /**
    * @minLength `3`
@@ -30,6 +26,7 @@ export type RedshiftServerlessWorkgroupProperties = {
    */
   SubnetIds?: string[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -45,40 +42,70 @@ export type RedshiftServerlessWorkgroupProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#aws-resource-redshiftserverless-workgroup-return-values}
  */
 export type RedshiftServerlessWorkgroupAttributes = {
-  Workgroup: Workgroup;
-};
-/**
- * Type definition for `AWS::RedshiftServerless::Workgroup.ConfigParameter`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-configparameter.html}
- */
-export type ConfigParameter = {
   /**
-   * @maxLength `255`
+   * @minLength `1`
    */
-  ParameterKey?: string;
-  /**
-   * @maxLength `15000`
-   */
-  ParameterValue?: string;
-};
-/**
- * Type definition for `AWS::RedshiftServerless::Workgroup.Endpoint`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-endpoint.html}
- */
-export type Endpoint = {
-  Address?: string;
-  Port?: number;
-  VpcEndpoints?: VpcEndpoint[];
-};
-/**
- * Type definition for `AWS::RedshiftServerless::Workgroup.NetworkInterface`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-networkinterface.html}
- */
-export type NetworkInterface = {
-  AvailabilityZone?: string;
-  NetworkInterfaceId?: string;
-  PrivateIpAddress?: string;
-  SubnetId?: string;
+  ConfigParameters: {
+    /**
+     * @minLength `0`
+     * @maxLength `255`
+     */
+    ParameterKey: string;
+    /**
+     * @minLength `0`
+     * @maxLength `15000`
+     */
+    ParameterValue: string;
+  }[];
+  Workgroup: {
+    BaseCapacity: number;
+    ConfigParameters: {
+      /**
+       * @minLength `0`
+       * @maxLength `255`
+       */
+      ParameterKey: string;
+      /**
+       * @minLength `0`
+       * @maxLength `15000`
+       */
+      ParameterValue: string;
+    }[];
+    CreationDate: string;
+    Endpoint: {
+      Address: string;
+      Port: number;
+      VpcEndpoints: {
+        NetworkInterfaces: {
+          AvailabilityZone: string;
+          NetworkInterfaceId: string;
+          PrivateIpAddress: string;
+          SubnetId: string;
+        }[];
+        VpcEndpointId: string;
+        VpcId: string;
+      }[];
+    };
+    EnhancedVpcRouting: boolean;
+    /**
+     * @minLength `3`
+     * @maxLength `64`
+     * @pattern `^[a-z0-9-]+$`
+     */
+    NamespaceName: string;
+    PubliclyAccessible: boolean;
+    SecurityGroupIds: string[];
+    Status: WorkgroupStatus;
+    SubnetIds: string[];
+    WorkgroupArn: string;
+    WorkgroupId: string;
+    /**
+     * @minLength `3`
+     * @maxLength `64`
+     * @pattern `^[a-z0-9-]*$`
+     */
+    WorkgroupName: string;
+  };
 };
 /**
  * Type definition for `AWS::RedshiftServerless::Workgroup.Tag`.
@@ -91,47 +118,10 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
-};
-/**
- * Type definition for `AWS::RedshiftServerless::Workgroup.VpcEndpoint`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-vpcendpoint.html}
- */
-export type VpcEndpoint = {
-  NetworkInterfaces?: NetworkInterface[];
-  VpcEndpointId?: string;
-  VpcId?: string;
-};
-/**
- * Type definition for `AWS::RedshiftServerless::Workgroup.Workgroup`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html}
- */
-export type Workgroup = {
-  BaseCapacity?: number;
-  ConfigParameters?: ConfigParameter[];
-  CreationDate?: string;
-  Endpoint?: Endpoint;
-  EnhancedVpcRouting?: boolean;
-  /**
-   * @minLength `3`
-   * @maxLength `64`
-   * @pattern `^[a-z0-9-]+$`
-   */
-  NamespaceName?: string;
-  PubliclyAccessible?: boolean;
-  SecurityGroupIds?: string[];
-  Status?: WorkgroupStatus;
-  SubnetIds?: string[];
-  WorkgroupArn?: string;
-  WorkgroupId?: string;
-  /**
-   * @minLength `3`
-   * @maxLength `64`
-   * @pattern `^[a-z0-9-]*$`
-   */
-  WorkgroupName?: string;
 };
 /**
  * Type definition for `AWS::RedshiftServerless::Workgroup.WorkgroupStatus`.
@@ -152,18 +142,11 @@ export class RedshiftServerlessWorkgroup extends $Resource<
   RedshiftServerlessWorkgroupAttributes
 > {
   public static readonly Type = "AWS::RedshiftServerless::Workgroup";
-  public static readonly AttributeNames = ["Workgroup" as const];
   constructor(
     logicalId: string,
     properties: RedshiftServerlessWorkgroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RedshiftServerlessWorkgroup.Type,
-      properties,
-      RedshiftServerlessWorkgroup.AttributeNames,
-      options,
-    );
+    super(logicalId, RedshiftServerlessWorkgroup.Type, properties, options);
   }
 }

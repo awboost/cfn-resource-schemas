@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::ModelPackage
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html}
@@ -208,7 +208,7 @@ export type Bias = {
  * The metadata properties associated with the model package versions.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-customermetadataproperties.html}
  */
-export type CustomerMetadataProperties = Record<string, string | string>;
+export type CustomerMetadataProperties = Record<string, string>;
 /**
  * Type definition for `AWS::SageMaker::ModelPackage.DataSource`.
  * Describes the input source of a transform job and the way the transform job consumes it.
@@ -312,7 +312,7 @@ export type DriftCheckModelQuality = {
  * Sets the environment variables in the Docker container
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-environment.html}
  */
-export type Environment = Record<string, string | string>;
+export type Environment = Record<string, string>;
 /**
  * Type definition for `AWS::SageMaker::ModelPackage.Explainability`.
  * Contains explainability metrics for a model.
@@ -715,10 +715,12 @@ export type TransformJobDefinition = {
   Environment?: Environment;
   /**
    * The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
+   * @min `0`
    */
   MaxConcurrentTransforms?: number;
   /**
    * The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
+   * @min `0`
    */
   MaxPayloadInMB?: number;
   /**
@@ -832,22 +834,11 @@ export class SageMakerModelPackage extends $Resource<
   SageMakerModelPackageAttributes
 > {
   public static readonly Type = "AWS::SageMaker::ModelPackage";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "ModelPackageArn" as const,
-    "ModelPackageStatus" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerModelPackageProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerModelPackage.Type,
-      properties,
-      SageMakerModelPackage.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerModelPackage.Type, properties, options);
   }
 }

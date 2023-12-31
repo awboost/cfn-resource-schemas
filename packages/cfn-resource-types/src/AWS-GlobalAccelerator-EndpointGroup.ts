@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html}
@@ -39,6 +39,7 @@ export type GlobalAcceleratorEndpointGroupProperties = {
   ThresholdCount?: number;
   /**
    * The percentage of traffic to sent to an AWS Region
+   * @min `0`
    * @max `100`
    */
   TrafficDialPercentage?: number;
@@ -69,6 +70,7 @@ export type EndpointConfiguration = {
   EndpointId: string;
   /**
    * The weight for the endpoint.
+   * @min `0`
    * @max `255`
    */
   Weight?: number;
@@ -81,11 +83,13 @@ export type EndpointConfiguration = {
 export type PortOverride = {
   /**
    * A network port number
+   * @min `0`
    * @max `65535`
    */
   EndpointPort: number;
   /**
    * A network port number
+   * @min `0`
    * @max `65535`
    */
   ListenerPort: number;
@@ -100,18 +104,11 @@ export class GlobalAcceleratorEndpointGroup extends $Resource<
   GlobalAcceleratorEndpointGroupAttributes
 > {
   public static readonly Type = "AWS::GlobalAccelerator::EndpointGroup";
-  public static readonly AttributeNames = ["EndpointGroupArn" as const];
   constructor(
     logicalId: string,
     properties: GlobalAcceleratorEndpointGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlobalAcceleratorEndpointGroup.Type,
-      properties,
-      GlobalAcceleratorEndpointGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, GlobalAcceleratorEndpointGroup.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::BillingConductor::PricingPlan`.
  * Pricing Plan enables you to customize your billing details consistent with the usage that accrues in each of your billing groups.
@@ -69,23 +69,11 @@ export class BillingConductorPricingPlan extends $Resource<
   BillingConductorPricingPlanAttributes
 > {
   public static readonly Type = "AWS::BillingConductor::PricingPlan";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "LastModifiedTime" as const,
-    "Size" as const,
-  ];
   constructor(
     logicalId: string,
     properties: BillingConductorPricingPlanProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BillingConductorPricingPlan.Type,
-      properties,
-      BillingConductorPricingPlan.AttributeNames,
-      options,
-    );
+    super(logicalId, BillingConductorPricingPlan.Type, properties, options);
   }
 }

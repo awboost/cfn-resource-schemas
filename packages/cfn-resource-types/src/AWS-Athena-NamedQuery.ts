@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Athena::NamedQuery
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html}
@@ -56,18 +56,11 @@ export class AthenaNamedQuery extends $Resource<
   AthenaNamedQueryAttributes
 > {
   public static readonly Type = "AWS::Athena::NamedQuery";
-  public static readonly AttributeNames = ["NamedQueryId" as const];
   constructor(
     logicalId: string,
     properties: AthenaNamedQueryProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AthenaNamedQuery.Type,
-      properties,
-      AthenaNamedQuery.AttributeNames,
-      options,
-    );
+    super(logicalId, AthenaNamedQuery.Type, properties, options);
   }
 }

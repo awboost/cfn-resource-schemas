@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html}
@@ -32,16 +32,13 @@ export type RDSDBInstanceProperties = {
   AvailabilityZone?: string;
   /**
    * The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.
+   * @min `0`
    */
   BackupRetentionPeriod?: number;
   /**
    * The identifier of the CA certificate for this DB instance.
    */
   CACertificateIdentifier?: string;
-  /**
-   * Returns the details of the DB instance's server certificate.
-   */
-  CertificateDetails?: CertificateDetails;
   /**
      * A value that indicates whether the DB instance is restarted when you rotate your SSL/TLS certificate.
     By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.
@@ -163,10 +160,6 @@ export type RDSDBInstanceProperties = {
    */
   EnablePerformanceInsights?: boolean;
   /**
-   * Specifies the connection endpoint.
-   */
-  Endpoint?: Endpoint;
-  /**
    * The name of the database engine that you want to use for this DB instance.
    */
   Engine?: string;
@@ -260,6 +253,7 @@ export type RDSDBInstanceProperties = {
   ProcessorFeatures?: ProcessorFeature[];
   /**
    * A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance.
+   * @min `0`
    */
   PromotionTier?: number;
   /**
@@ -341,6 +335,19 @@ export type RDSDBInstanceProperties = {
  */
 export type RDSDBInstanceAttributes = {
   /**
+   * Returns the details of the DB instance's server certificate.
+   */
+  CertificateDetails: {
+    /**
+     * The CA identifier of the CA certificate used for the DB instance's server certificate.
+     */
+    CAIdentifier: string;
+    /**
+     * The expiration date of the DB instance’s server certificate.
+     */
+    ValidTill: string;
+  };
+  /**
    * The Amazon Resource Name (ARN) for the DB instance.
    */
   DBInstanceArn: string;
@@ -352,20 +359,23 @@ export type RDSDBInstanceAttributes = {
    * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
    */
   DbiResourceId: string;
-};
-/**
- * Type definition for `AWS::RDS::DBInstance.CertificateDetails`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-certificatedetails.html}
- */
-export type CertificateDetails = {
   /**
-   * The CA identifier of the CA certificate used for the DB instance's server certificate.
+   * Specifies the connection endpoint.
    */
-  CAIdentifier?: string;
-  /**
-   * The expiration date of the DB instance’s server certificate.
-   */
-  ValidTill?: string;
+  Endpoint: {
+    /**
+     * Specifies the DNS address of the DB instance.
+     */
+    Address: string;
+    /**
+     * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+     */
+    HostedZoneId: string;
+    /**
+     * Specifies the port that the database engine is listening on.
+     */
+    Port: string;
+  };
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.DBInstanceRole`.
@@ -382,24 +392,6 @@ export type DBInstanceRole = {
   RoleArn: string;
 };
 /**
- * Type definition for `AWS::RDS::DBInstance.Endpoint`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html}
- */
-export type Endpoint = {
-  /**
-   * Specifies the DNS address of the DB instance.
-   */
-  Address?: string;
-  /**
-   * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-   */
-  HostedZoneId?: string;
-  /**
-   * Specifies the port that the database engine is listening on.
-   */
-  Port?: string;
-};
-/**
  * Type definition for `AWS::RDS::DBInstance.MasterUserSecret`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-masterusersecret.html}
  */
@@ -408,10 +400,6 @@ export type MasterUserSecret = {
    * The AWS KMS key identifier that is used to encrypt the secret.
    */
   KmsKeyId?: string;
-  /**
-   * The Amazon Resource Name (ARN) of the secret.
-   */
-  SecretArn?: string;
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.ProcessorFeature`.
@@ -441,6 +429,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -455,22 +444,11 @@ export class RDSDBInstance extends $Resource<
   RDSDBInstanceAttributes
 > {
   public static readonly Type = "AWS::RDS::DBInstance";
-  public static readonly AttributeNames = [
-    "DBInstanceArn" as const,
-    "DBSystemId" as const,
-    "DbiResourceId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RDSDBInstanceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RDSDBInstance.Type,
-      properties,
-      RDSDBInstance.AttributeNames,
-      options,
-    );
+    super(logicalId, RDSDBInstance.Type, properties, options);
   }
 }

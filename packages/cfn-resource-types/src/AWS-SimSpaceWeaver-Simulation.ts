@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-simspaceweaver-simulation.html}
@@ -64,18 +64,11 @@ export class SimSpaceWeaverSimulation extends $Resource<
   SimSpaceWeaverSimulationAttributes
 > {
   public static readonly Type = "AWS::SimSpaceWeaver::Simulation";
-  public static readonly AttributeNames = ["DescribePayload" as const];
   constructor(
     logicalId: string,
     properties: SimSpaceWeaverSimulationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SimSpaceWeaverSimulation.Type,
-      properties,
-      SimSpaceWeaverSimulation.AttributeNames,
-      options,
-    );
+    super(logicalId, SimSpaceWeaverSimulation.Type, properties, options);
   }
 }

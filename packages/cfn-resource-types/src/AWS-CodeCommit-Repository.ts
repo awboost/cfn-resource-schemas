@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CodeCommit::Repository
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html}
@@ -68,24 +68,11 @@ export class CodeCommitRepository extends $Resource<
   CodeCommitRepositoryAttributes
 > {
   public static readonly Type = "AWS::CodeCommit::Repository";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CloneUrlHttp" as const,
-    "CloneUrlSsh" as const,
-    "Id" as const,
-    "Name" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CodeCommitRepositoryProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CodeCommitRepository.Type,
-      properties,
-      CodeCommitRepository.AttributeNames,
-      options,
-    );
+    super(logicalId, CodeCommitRepository.Type, properties, options);
   }
 }

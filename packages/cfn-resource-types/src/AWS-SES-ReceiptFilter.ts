@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SES::ReceiptFilter
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptfilter.html}
@@ -40,18 +40,11 @@ export class SESReceiptFilter extends $Resource<
   SESReceiptFilterAttributes
 > {
   public static readonly Type = "AWS::SES::ReceiptFilter";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: SESReceiptFilterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SESReceiptFilter.Type,
-      properties,
-      SESReceiptFilter.AttributeNames,
-      options,
-    );
+    super(logicalId, SESReceiptFilter.Type, properties, options);
   }
 }

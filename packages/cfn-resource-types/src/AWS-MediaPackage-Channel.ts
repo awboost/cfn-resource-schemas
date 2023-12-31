@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaPackage::Channel
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html}
@@ -13,10 +13,6 @@ export type MediaPackageChannelProperties = {
    * The configuration parameters for egress access logging.
    */
   EgressAccessLogs?: LogConfiguration;
-  /**
-   * An HTTP Live Streaming (HLS) ingest resource configuration.
-   */
-  HlsIngest?: HlsIngest;
   /**
    * The ID of the Channel.
    * @minLength `1`
@@ -42,40 +38,32 @@ export type MediaPackageChannelAttributes = {
    * The Amazon Resource Name (ARN) assigned to the Channel.
    */
   Arn: string;
-};
-/**
- * Type definition for `AWS::MediaPackage::Channel.HlsIngest`.
- * An HTTP Live Streaming (HLS) ingest resource configuration.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html}
- */
-export type HlsIngest = {
   /**
-   * A list of endpoints to which the source stream should be sent.
+   * An HTTP Live Streaming (HLS) ingest resource configuration.
    */
-  ingestEndpoints?: IngestEndpoint[];
-};
-/**
- * Type definition for `AWS::MediaPackage::Channel.IngestEndpoint`.
- * An endpoint for ingesting source content for a Channel.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html}
- */
-export type IngestEndpoint = {
-  /**
-   * The system generated unique identifier for the IngestEndpoint
-   */
-  Id: string;
-  /**
-   * The system generated password for ingest authentication.
-   */
-  Password: string;
-  /**
-   * The ingest URL to which the source stream should be sent.
-   */
-  Url: string;
-  /**
-   * The system generated username for ingest authentication.
-   */
-  Username: string;
+  HlsIngest: {
+    /**
+     * A list of endpoints to which the source stream should be sent.
+     */
+    ingestEndpoints: {
+      /**
+       * The system generated unique identifier for the IngestEndpoint
+       */
+      Id: string;
+      /**
+       * The system generated password for ingest authentication.
+       */
+      Password: string;
+      /**
+       * The ingest URL to which the source stream should be sent.
+       */
+      Url: string;
+      /**
+       * The system generated username for ingest authentication.
+       */
+      Username: string;
+    }[];
+  };
 };
 /**
  * Type definition for `AWS::MediaPackage::Channel.LogConfiguration`.
@@ -108,18 +96,11 @@ export class MediaPackageChannel extends $Resource<
   MediaPackageChannelAttributes
 > {
   public static readonly Type = "AWS::MediaPackage::Channel";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: MediaPackageChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaPackageChannel.Type,
-      properties,
-      MediaPackageChannel.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaPackageChannel.Type, properties, options);
   }
 }

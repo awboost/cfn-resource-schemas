@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Backup::BackupPlan
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html}
@@ -76,22 +76,11 @@ export class BackupBackupPlan extends $Resource<
   BackupBackupPlanAttributes
 > {
   public static readonly Type = "AWS::Backup::BackupPlan";
-  public static readonly AttributeNames = [
-    "BackupPlanArn" as const,
-    "BackupPlanId" as const,
-    "VersionId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: BackupBackupPlanProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BackupBackupPlan.Type,
-      properties,
-      BackupBackupPlan.AttributeNames,
-      options,
-    );
+    super(logicalId, BackupBackupPlan.Type, properties, options);
   }
 }

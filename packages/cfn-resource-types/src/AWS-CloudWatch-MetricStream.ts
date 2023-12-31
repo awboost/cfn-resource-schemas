@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudWatch::MetricStream`.
  * Resource Type definition for Metric Stream
@@ -165,23 +165,11 @@ export class CloudWatchMetricStream extends $Resource<
   CloudWatchMetricStreamAttributes
 > {
   public static readonly Type = "AWS::CloudWatch::MetricStream";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationDate" as const,
-    "LastUpdateDate" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudWatchMetricStreamProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudWatchMetricStream.Type,
-      properties,
-      CloudWatchMetricStream.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudWatchMetricStream.Type, properties, options);
   }
 }

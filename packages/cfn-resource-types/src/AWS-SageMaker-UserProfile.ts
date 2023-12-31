@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::UserProfile
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html}
@@ -24,6 +24,7 @@ export type SageMakerUserProfileProperties = {
   SingleSignOnUserValue?: string;
   /**
    * A list of tags to apply to the user profile.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -70,6 +71,7 @@ export type CustomImage = {
   ImageName: string;
   /**
    * The version number of the CustomImage.
+   * @min `0`
    */
   ImageVersionNumber?: number;
 };
@@ -89,6 +91,7 @@ export type JupyterServerAppSettings = {
 export type KernelGatewayAppSettings = {
   /**
    * A list of custom SageMaker images that are configured to run as a KernelGateway app.
+   * @minLength `0`
    * @maxLength `30`
    */
   CustomImages?: CustomImage[];
@@ -96,21 +99,6 @@ export type KernelGatewayAppSettings = {
    * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
    */
   DefaultResourceSpec?: ResourceSpec;
-};
-/**
- * Type definition for `AWS::SageMaker::UserProfile.RStudioServerProAppSettings`.
- * A collection of settings that configure user interaction with the RStudioServerPro app.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-rstudioserverproappsettings.html}
- */
-export type RStudioServerProAppSettings = {
-  /**
-   * Indicates whether the current user has access to the RStudioServerPro app.
-   */
-  AccessStatus?: "ENABLED" | "DISABLED";
-  /**
-   * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
-   */
-  UserGroup?: "R_STUDIO_ADMIN" | "R_STUDIO_USER";
 };
 /**
  * Type definition for `AWS::SageMaker::UserProfile.ResourceSpec`.
@@ -195,6 +183,21 @@ export type ResourceSpec = {
   SageMakerImageVersionArn?: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::UserProfile.RStudioServerProAppSettings`.
+ * A collection of settings that configure user interaction with the RStudioServerPro app.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-rstudioserverproappsettings.html}
+ */
+export type RStudioServerProAppSettings = {
+  /**
+   * Indicates whether the current user has access to the RStudioServerPro app.
+   */
+  AccessStatus?: "ENABLED" | "DISABLED";
+  /**
+   * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+   */
+  UserGroup?: "R_STUDIO_ADMIN" | "R_STUDIO_USER";
+};
+/**
  * Type definition for `AWS::SageMaker::UserProfile.SharingSettings`.
  * Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html}
@@ -260,6 +263,7 @@ export type UserSettings = {
   RStudioServerProAppSettings?: RStudioServerProAppSettings;
   /**
    * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+   * @minLength `0`
    * @maxLength `5`
    */
   SecurityGroups?: string[];
@@ -278,18 +282,11 @@ export class SageMakerUserProfile extends $Resource<
   SageMakerUserProfileAttributes
 > {
   public static readonly Type = "AWS::SageMaker::UserProfile";
-  public static readonly AttributeNames = ["UserProfileArn" as const];
   constructor(
     logicalId: string,
     properties: SageMakerUserProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerUserProfile.Type,
-      properties,
-      SageMakerUserProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerUserProfile.Type, properties, options);
   }
 }

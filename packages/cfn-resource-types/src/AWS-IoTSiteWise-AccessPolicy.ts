@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::IoTSiteWise::AccessPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html}
@@ -131,21 +131,11 @@ export class IoTSiteWiseAccessPolicy extends $Resource<
   IoTSiteWiseAccessPolicyAttributes
 > {
   public static readonly Type = "AWS::IoTSiteWise::AccessPolicy";
-  public static readonly AttributeNames = [
-    "AccessPolicyArn" as const,
-    "AccessPolicyId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTSiteWiseAccessPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTSiteWiseAccessPolicy.Type,
-      properties,
-      IoTSiteWiseAccessPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTSiteWiseAccessPolicy.Type, properties, options);
   }
 }

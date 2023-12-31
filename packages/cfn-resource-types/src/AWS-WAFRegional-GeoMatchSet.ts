@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::WAFRegional::GeoMatchSet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-geomatchset.html}
@@ -33,18 +33,11 @@ export class WAFRegionalGeoMatchSet extends $Resource<
   WAFRegionalGeoMatchSetAttributes
 > {
   public static readonly Type = "AWS::WAFRegional::GeoMatchSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: WAFRegionalGeoMatchSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFRegionalGeoMatchSet.Type,
-      properties,
-      WAFRegionalGeoMatchSet.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFRegionalGeoMatchSet.Type, properties, options);
   }
 }

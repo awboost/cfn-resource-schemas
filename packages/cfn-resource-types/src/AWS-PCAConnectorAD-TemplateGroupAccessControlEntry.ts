@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::PCAConnectorAD::TemplateGroupAccessControlEntry Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-templategroupaccesscontrolentry.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type PCAConnectorADTemplateGroupAccessControlEntryProperties = {
   AccessRights: AccessRights;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^[\x20-\x7E]+$`
    */
@@ -48,7 +49,6 @@ export class PCAConnectorADTemplateGroupAccessControlEntry extends $Resource<
 > {
   public static readonly Type =
     "AWS::PCAConnectorAD::TemplateGroupAccessControlEntry";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: PCAConnectorADTemplateGroupAccessControlEntryProperties,
@@ -58,7 +58,6 @@ export class PCAConnectorADTemplateGroupAccessControlEntry extends $Resource<
       logicalId,
       PCAConnectorADTemplateGroupAccessControlEntry.Type,
       properties,
-      PCAConnectorADTemplateGroupAccessControlEntry.AttributeNames,
       options,
     );
   }

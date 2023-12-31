@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::MediaLive::Input
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html}
@@ -72,18 +72,11 @@ export class MediaLiveInput extends $Resource<
   MediaLiveInputAttributes
 > {
   public static readonly Type = "AWS::MediaLive::Input";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: MediaLiveInputProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaLiveInput.Type,
-      properties,
-      MediaLiveInput.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaLiveInput.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SecretsManager::RotationSchedule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html}
@@ -54,18 +54,11 @@ export class SecretsManagerRotationSchedule extends $Resource<
   SecretsManagerRotationScheduleAttributes
 > {
   public static readonly Type = "AWS::SecretsManager::RotationSchedule";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: SecretsManagerRotationScheduleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SecretsManagerRotationSchedule.Type,
-      properties,
-      SecretsManagerRotationSchedule.AttributeNames,
-      options,
-    );
+    super(logicalId, SecretsManagerRotationSchedule.Type, properties, options);
   }
 }

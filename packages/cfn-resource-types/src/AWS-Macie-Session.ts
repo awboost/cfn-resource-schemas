@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html}
@@ -38,21 +38,11 @@ export class MacieSession extends $Resource<
   MacieSessionAttributes
 > {
   public static readonly Type = "AWS::Macie::Session";
-  public static readonly AttributeNames = [
-    "AwsAccountId" as const,
-    "ServiceRole" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MacieSessionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MacieSession.Type,
-      properties,
-      MacieSession.AttributeNames,
-      options,
-    );
+    super(logicalId, MacieSession.Type, properties, options);
   }
 }

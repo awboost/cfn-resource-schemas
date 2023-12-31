@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html}
@@ -42,18 +42,11 @@ export class IoTCertificate extends $Resource<
   IoTCertificateAttributes
 > {
   public static readonly Type = "AWS::IoT::Certificate";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: IoTCertificateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTCertificate.Type,
-      properties,
-      IoTCertificate.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTCertificate.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGatewayV2::Api`` resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html}
@@ -146,21 +146,11 @@ export class ApiGatewayV2Api extends $Resource<
   ApiGatewayV2ApiAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::Api";
-  public static readonly AttributeNames = [
-    "ApiEndpoint" as const,
-    "ApiId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2ApiProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2Api.Type,
-      properties,
-      ApiGatewayV2Api.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2Api.Type, properties, options);
   }
 }

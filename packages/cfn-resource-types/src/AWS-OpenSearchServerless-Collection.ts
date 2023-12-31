@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::OpenSearchServerless::Collection`.
  * Amazon OpenSearchServerless collection resource
@@ -27,6 +27,7 @@ export type OpenSearchServerlessCollectionProperties = {
   Name: string;
   /**
    * List of tags to be added to the resource
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -79,6 +80,7 @@ export type Tag = {
   Key: string;
   /**
    * The value in the key-value pair
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -94,23 +96,11 @@ export class OpenSearchServerlessCollection extends $Resource<
   OpenSearchServerlessCollectionAttributes
 > {
   public static readonly Type = "AWS::OpenSearchServerless::Collection";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CollectionEndpoint" as const,
-    "DashboardEndpoint" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OpenSearchServerlessCollectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OpenSearchServerlessCollection.Type,
-      properties,
-      OpenSearchServerlessCollection.AttributeNames,
-      options,
-    );
+    super(logicalId, OpenSearchServerlessCollection.Type, properties, options);
   }
 }

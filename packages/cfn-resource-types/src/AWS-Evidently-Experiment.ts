@@ -1,11 +1,12 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Evidently::Experiment.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-experiment.html}
  */
 export type EvidentlyExperimentProperties = {
   /**
+   * @minLength `0`
    * @maxLength `160`
    */
   Description?: string;
@@ -22,11 +23,13 @@ export type EvidentlyExperimentProperties = {
   Name: string;
   OnlineAbConfig: OnlineAbConfigObject;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    * @pattern `([-a-zA-Z0-9._]*)|(arn:[^:]*:[^:]*:[^:]*:[^:]*:project/[-a-zA-Z0-9._]*)`
    */
   Project: string;
   /**
+   * @minLength `0`
    * @maxLength `127`
    * @pattern `.*`
    */
@@ -37,10 +40,12 @@ export type EvidentlyExperimentProperties = {
    */
   RunningStatus?: RunningStatusObject;
   /**
+   * @min `0`
    * @max `100000`
    */
   SamplingRate?: number;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    * @pattern `([-a-zA-Z0-9._]*)|(arn:[^:]*:[^:]*:[^:]*:[^:]*:segment/[-a-zA-Z0-9._]*)`
    */
@@ -147,6 +152,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -180,6 +186,7 @@ export type TreatmentObject = {
  */
 export type TreatmentToWeight = {
   /**
+   * @min `0`
    * @max `100000`
    */
   SplitWeight: number;
@@ -200,18 +207,11 @@ export class EvidentlyExperiment extends $Resource<
   EvidentlyExperimentAttributes
 > {
   public static readonly Type = "AWS::Evidently::Experiment";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: EvidentlyExperimentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EvidentlyExperiment.Type,
-      properties,
-      EvidentlyExperiment.AttributeNames,
-      options,
-    );
+    super(logicalId, EvidentlyExperiment.Type, properties, options);
   }
 }

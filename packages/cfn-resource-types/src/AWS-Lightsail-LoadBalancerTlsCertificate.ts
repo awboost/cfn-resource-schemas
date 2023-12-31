@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html}
@@ -52,10 +52,6 @@ export class LightsailLoadBalancerTlsCertificate extends $Resource<
   LightsailLoadBalancerTlsCertificateAttributes
 > {
   public static readonly Type = "AWS::Lightsail::LoadBalancerTlsCertificate";
-  public static readonly AttributeNames = [
-    "LoadBalancerTlsCertificateArn" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LightsailLoadBalancerTlsCertificateProperties,
@@ -65,7 +61,6 @@ export class LightsailLoadBalancerTlsCertificate extends $Resource<
       logicalId,
       LightsailLoadBalancerTlsCertificate.Type,
       properties,
-      LightsailLoadBalancerTlsCertificate.AttributeNames,
       options,
     );
   }

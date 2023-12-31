@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::EMRServerless::Application Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html}
@@ -284,6 +284,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^[A-Za-z0-9 /_.:=+@-]*$`
    */
@@ -345,21 +346,11 @@ export class EMRServerlessApplication extends $Resource<
   EMRServerlessApplicationAttributes
 > {
   public static readonly Type = "AWS::EMRServerless::Application";
-  public static readonly AttributeNames = [
-    "ApplicationId" as const,
-    "Arn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EMRServerlessApplicationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EMRServerlessApplication.Type,
-      properties,
-      EMRServerlessApplication.AttributeNames,
-      options,
-    );
+    super(logicalId, EMRServerlessApplication.Type, properties, options);
   }
 }

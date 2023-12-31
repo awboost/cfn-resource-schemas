@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataBrew::Ruleset.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-ruleset.html}
@@ -86,6 +86,7 @@ export type Rule = {
 export type SubstitutionValue = {
   /**
    * Value or column name
+   * @minLength `0`
    * @maxLength `1024`
    */
   Value: string;
@@ -109,6 +110,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -157,18 +159,11 @@ export class DataBrewRuleset extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::DataBrew::Ruleset";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: DataBrewRulesetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataBrewRuleset.Type,
-      properties,
-      DataBrewRuleset.AttributeNames,
-      options,
-    );
+    super(logicalId, DataBrewRuleset.Type, properties, options);
   }
 }

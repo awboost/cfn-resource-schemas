@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CleanRooms::Membership`.
  * Represents an AWS account that is a part of a collaboration
@@ -70,11 +70,6 @@ export type MembershipProtectedQueryResultConfiguration = {
  */
 export type MembershipQueryLogStatus = "ENABLED" | "DISABLED";
 /**
- * Type definition for `AWS::CleanRooms::Membership.MembershipStatus`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipstatus.html}
- */
-export type MembershipStatus = "ACTIVE" | "REMOVED" | "COLLABORATION_DELETED";
-/**
  * Type definition for `AWS::CleanRooms::Membership.ProtectedQueryS3OutputConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html}
  */
@@ -119,23 +114,11 @@ export class CleanRoomsMembership extends $Resource<
   CleanRoomsMembershipAttributes
 > {
   public static readonly Type = "AWS::CleanRooms::Membership";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CollaborationArn" as const,
-    "CollaborationCreatorAccountId" as const,
-    "MembershipIdentifier" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CleanRoomsMembershipProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CleanRoomsMembership.Type,
-      properties,
-      CleanRoomsMembership.AttributeNames,
-      options,
-    );
+    super(logicalId, CleanRoomsMembership.Type, properties, options);
   }
 }

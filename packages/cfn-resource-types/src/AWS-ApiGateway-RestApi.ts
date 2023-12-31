@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
  On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
@@ -139,21 +139,11 @@ export class ApiGatewayRestApi extends $Resource<
   ApiGatewayRestApiAttributes
 > {
   public static readonly Type = "AWS::ApiGateway::RestApi";
-  public static readonly AttributeNames = [
-    "RestApiId" as const,
-    "RootResourceId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ApiGatewayRestApiProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayRestApi.Type,
-      properties,
-      ApiGatewayRestApi.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayRestApi.Type, properties, options);
   }
 }

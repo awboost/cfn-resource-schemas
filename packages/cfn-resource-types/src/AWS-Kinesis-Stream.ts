@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Kinesis::Stream
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html}
@@ -88,6 +88,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `255`
    */
   Value: string;
@@ -102,18 +103,11 @@ export class KinesisStream extends $Resource<
   KinesisStreamAttributes
 > {
   public static readonly Type = "AWS::Kinesis::Stream";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: KinesisStreamProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KinesisStream.Type,
-      properties,
-      KinesisStream.AttributeNames,
-      options,
-    );
+    super(logicalId, KinesisStream.Type, properties, options);
   }
 }

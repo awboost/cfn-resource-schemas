@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Config::ConformancePack`.
  * A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type ConfigConformancePackProperties = {
   /**
    * A list of ConformancePackInputParameter objects.
+   * @minLength `0`
    * @maxLength `60`
    */
   ConformancePackInputParameters?: ConformancePackInputParameter[];
@@ -20,11 +21,13 @@ export type ConfigConformancePackProperties = {
   ConformancePackName: string;
   /**
    * AWS Config stores intermediate files while processing conformance pack template.
+   * @minLength `0`
    * @maxLength `63`
    */
   DeliveryS3Bucket?: string;
   /**
    * The prefix for delivery S3 bucket.
+   * @minLength `0`
    * @maxLength `1024`
    */
   DeliveryS3KeyPrefix?: string;
@@ -65,11 +68,13 @@ export type ConfigConformancePackProperties = {
 export type ConformancePackInputParameter = {
   /**
    * Key part of key-value pair with value being parameter value
+   * @minLength `0`
    * @maxLength `255`
    */
   ParameterName: string;
   /**
    * Value part of key-value pair with key being parameter Name
+   * @minLength `0`
    * @maxLength `4096`
    */
   ParameterValue: string;
@@ -85,18 +90,11 @@ export class ConfigConformancePack extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Config::ConformancePack";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: ConfigConformancePackProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConfigConformancePack.Type,
-      properties,
-      ConfigConformancePack.AttributeNames,
-      options,
-    );
+    super(logicalId, ConfigConformancePack.Type, properties, options);
   }
 }

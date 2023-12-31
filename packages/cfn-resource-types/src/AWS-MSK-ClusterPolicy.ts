@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::MSK::ClusterPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html}
@@ -36,18 +36,11 @@ export class MSKClusterPolicy extends $Resource<
   MSKClusterPolicyAttributes
 > {
   public static readonly Type = "AWS::MSK::ClusterPolicy";
-  public static readonly AttributeNames = ["CurrentVersion" as const];
   constructor(
     logicalId: string,
     properties: MSKClusterPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MSKClusterPolicy.Type,
-      properties,
-      MSKClusterPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, MSKClusterPolicy.Type, properties, options);
   }
 }

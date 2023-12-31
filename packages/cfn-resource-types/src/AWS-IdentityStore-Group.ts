@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IdentityStore::Group
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-identitystore-group.html}
@@ -50,18 +50,11 @@ export class IdentityStoreGroup extends $Resource<
   IdentityStoreGroupAttributes
 > {
   public static readonly Type = "AWS::IdentityStore::Group";
-  public static readonly AttributeNames = ["GroupId" as const];
   constructor(
     logicalId: string,
     properties: IdentityStoreGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IdentityStoreGroup.Type,
-      properties,
-      IdentityStoreGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, IdentityStoreGroup.Type, properties, options);
   }
 }

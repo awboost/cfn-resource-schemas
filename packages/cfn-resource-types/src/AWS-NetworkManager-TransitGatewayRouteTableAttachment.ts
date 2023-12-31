@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html}
@@ -121,20 +121,6 @@ export class NetworkManagerTransitGatewayRouteTableAttachment extends $Resource<
 > {
   public static readonly Type =
     "AWS::NetworkManager::TransitGatewayRouteTableAttachment";
-  public static readonly AttributeNames = [
-    "AttachmentId" as const,
-    "AttachmentPolicyRuleNumber" as const,
-    "AttachmentType" as const,
-    "CoreNetworkArn" as const,
-    "CoreNetworkId" as const,
-    "CreatedAt" as const,
-    "EdgeLocation" as const,
-    "OwnerAccountId" as const,
-    "ResourceArn" as const,
-    "SegmentName" as const,
-    "State" as const,
-    "UpdatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkManagerTransitGatewayRouteTableAttachmentProperties,
@@ -144,7 +130,6 @@ export class NetworkManagerTransitGatewayRouteTableAttachment extends $Resource<
       logicalId,
       NetworkManagerTransitGatewayRouteTableAttachment.Type,
       properties,
-      NetworkManagerTransitGatewayRouteTableAttachment.AttributeNames,
       options,
     );
   }

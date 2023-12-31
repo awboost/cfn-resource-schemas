@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EventSchemas::Schema
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-schema.html}
@@ -39,22 +39,11 @@ export class EventSchemasSchema extends $Resource<
   EventSchemasSchemaAttributes
 > {
   public static readonly Type = "AWS::EventSchemas::Schema";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "SchemaArn" as const,
-    "SchemaVersion" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EventSchemasSchemaProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EventSchemasSchema.Type,
-      properties,
-      EventSchemasSchema.AttributeNames,
-      options,
-    );
+    super(logicalId, EventSchemasSchema.Type, properties, options);
   }
 }

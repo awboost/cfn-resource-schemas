@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html}
@@ -88,18 +88,11 @@ export class ApiGatewayApiKey extends $Resource<
   ApiGatewayApiKeyAttributes
 > {
   public static readonly Type = "AWS::ApiGateway::ApiKey";
-  public static readonly AttributeNames = ["APIKeyId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayApiKeyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayApiKey.Type,
-      properties,
-      ApiGatewayApiKey.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayApiKey.Type, properties, options);
   }
 }

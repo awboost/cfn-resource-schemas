@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::IoTTwinMaker::Entity
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html}
@@ -15,6 +15,7 @@ export type IoTTwinMakerEntityProperties = {
   CompositeComponents?: Record<string, CompositeComponent>;
   /**
    * The description of the entity.
+   * @minLength `0`
    * @maxLength `512`
    */
   Description?: string;
@@ -74,7 +75,7 @@ export type IoTTwinMakerEntityAttributes = {
   /**
    * The current status of the entity.
    */
-  Status: Status;
+  Status: {};
   /**
    * The last date and time when the entity was updated.
    */
@@ -107,6 +108,7 @@ export type Component = {
   DefinedIn?: string;
   /**
    * The description of the component.
+   * @minLength `0`
    * @maxLength `512`
    */
   Description?: string;
@@ -151,6 +153,7 @@ export type CompositeComponent = {
   ComponentTypeId?: string;
   /**
    * The description of the component.
+   * @minLength `0`
    * @maxLength `512`
    */
   Description?: string;
@@ -175,6 +178,7 @@ export type CompositeComponent = {
 export type DataType = {
   /**
    * The allowed values for this data type.
+   * @minLength `0`
    * @maxLength `50`
    */
   AllowedValues?: DataValue[];
@@ -233,6 +237,7 @@ export type DataValue = {
   IntegerValue?: number;
   /**
    * A list of multiple values.
+   * @minLength `0`
    * @maxLength `50`
    */
   ListValue?: DataValue[];
@@ -378,6 +383,7 @@ export type Status = {
     | {
         Code?: "VALIDATION_ERROR" | "INTERNAL_FAILURE";
         /**
+         * @minLength `0`
          * @maxLength `2048`
          */
         Message?: string;
@@ -394,24 +400,11 @@ export class IoTTwinMakerEntity extends $Resource<
   IoTTwinMakerEntityAttributes
 > {
   public static readonly Type = "AWS::IoTTwinMaker::Entity";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationDateTime" as const,
-    "HasChildEntities" as const,
-    "Status" as const,
-    "UpdateDateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTTwinMakerEntityProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTTwinMakerEntity.Type,
-      properties,
-      IoTTwinMakerEntity.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTTwinMakerEntity.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pcaconnectorad-directoryregistration.html}
@@ -38,7 +38,6 @@ export class PCAConnectorADDirectoryRegistration extends $Resource<
   PCAConnectorADDirectoryRegistrationAttributes
 > {
   public static readonly Type = "AWS::PCAConnectorAD::DirectoryRegistration";
-  public static readonly AttributeNames = ["DirectoryRegistrationArn" as const];
   constructor(
     logicalId: string,
     properties: PCAConnectorADDirectoryRegistrationProperties,
@@ -48,7 +47,6 @@ export class PCAConnectorADDirectoryRegistration extends $Resource<
       logicalId,
       PCAConnectorADDirectoryRegistration.Type,
       properties,
-      PCAConnectorADDirectoryRegistration.AttributeNames,
       options,
     );
   }

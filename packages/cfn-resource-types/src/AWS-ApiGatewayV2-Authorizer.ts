@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGatewayV2::Authorizer`` resource creates an authorizer for a WebSocket API or an HTTP API. To learn more, see [Controlling and managing access to a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-control-access.html) and [Controlling and managing access to an HTTP API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-access-control.html) in the *API Gateway Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html}
@@ -84,18 +84,11 @@ export class ApiGatewayV2Authorizer extends $Resource<
   ApiGatewayV2AuthorizerAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::Authorizer";
-  public static readonly AttributeNames = ["AuthorizerId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2AuthorizerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2Authorizer.Type,
-      properties,
-      ApiGatewayV2Authorizer.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2Authorizer.Type, properties, options);
   }
 }

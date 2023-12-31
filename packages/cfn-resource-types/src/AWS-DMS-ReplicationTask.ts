@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::DMS::ReplicationTask
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html}
@@ -44,18 +44,11 @@ export class DMSReplicationTask extends $Resource<
   DMSReplicationTaskAttributes
 > {
   public static readonly Type = "AWS::DMS::ReplicationTask";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: DMSReplicationTaskProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DMSReplicationTask.Type,
-      properties,
-      DMSReplicationTask.AttributeNames,
-      options,
-    );
+    super(logicalId, DMSReplicationTask.Type, properties, options);
   }
 }

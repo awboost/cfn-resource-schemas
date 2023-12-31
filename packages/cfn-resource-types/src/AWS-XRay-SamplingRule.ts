@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::XRay::SamplingRule`.
  * This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
@@ -41,6 +41,7 @@ export type SamplingRule = {
   Attributes?: Record<string, string>;
   /**
    * The percentage of matching requests to instrument, after the reservoir is exhausted.
+   * @min `0`
    * @max `1`
    */
   FixedRate: number;
@@ -62,6 +63,7 @@ export type SamplingRule = {
   Priority: number;
   /**
    * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+   * @min `0`
    */
   ReservoirSize: number;
   /**
@@ -126,6 +128,7 @@ export type SamplingRuleUpdate = {
   Attributes?: Record<string, string>;
   /**
    * The percentage of matching requests to instrument, after the reservoir is exhausted.
+   * @min `0`
    * @max `1`
    */
   FixedRate?: number;
@@ -147,6 +150,7 @@ export type SamplingRuleUpdate = {
   Priority?: number;
   /**
    * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+   * @min `0`
    */
   ReservoirSize?: number;
   /**
@@ -205,18 +209,11 @@ export class XRaySamplingRule extends $Resource<
   XRaySamplingRuleAttributes
 > {
   public static readonly Type = "AWS::XRay::SamplingRule";
-  public static readonly AttributeNames = ["RuleARN" as const];
   constructor(
     logicalId: string,
     properties: XRaySamplingRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      XRaySamplingRule.Type,
-      properties,
-      XRaySamplingRule.AttributeNames,
-      options,
-    );
+    super(logicalId, XRaySamplingRule.Type, properties, options);
   }
 }

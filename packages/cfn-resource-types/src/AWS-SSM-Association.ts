@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html}
@@ -60,6 +60,7 @@ export type SSMAssociationProperties = {
   SyncCompliance?: "AUTO" | "MANUAL";
   /**
    * The targets that the SSM document sends commands to.
+   * @minLength `0`
    * @maxLength `5`
    */
   Targets?: Target[];
@@ -117,6 +118,7 @@ export type Target = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Values: string[];
@@ -131,18 +133,11 @@ export class SSMAssociation extends $Resource<
   SSMAssociationAttributes
 > {
   public static readonly Type = "AWS::SSM::Association";
-  public static readonly AttributeNames = ["AssociationId" as const];
   constructor(
     logicalId: string,
     properties: SSMAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SSMAssociation.Type,
-      properties,
-      SSMAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, SSMAssociation.Type, properties, options);
   }
 }

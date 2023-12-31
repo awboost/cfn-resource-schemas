@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of the AWS::QuickSight::Analysis Resource Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html}
@@ -47,18 +47,20 @@ export type QuickSightAnalysisAttributes = {
   Arn: string;
   CreatedTime: string;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   DataSetArns: string[];
   /**
    * @minLength `1`
    */
-  Errors: AnalysisError[];
+  Errors: {}[];
   LastUpdatedTime: string;
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
-  Sheets: Sheet[];
+  Sheets: {}[];
 };
 /**
  * Type definition for `AWS::QuickSight::Analysis.AggregationFunction`.
@@ -98,10 +100,12 @@ export type AnalysisDefaults = {
 export type AnalysisDefinition = {
   AnalysisDefaults?: AnalysisDefaults;
   /**
+   * @minLength `0`
    * @maxLength `500`
    */
   CalculatedFields?: CalculatedField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   ColumnConfigurations?: ColumnConfiguration[];
@@ -111,15 +115,18 @@ export type AnalysisDefinition = {
    */
   DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[];
   /**
+   * @minLength `0`
    * @maxLength `2000`
    */
   FilterGroups?: FilterGroup[];
   Options?: AssetOptions;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   ParameterDeclarations?: ParameterDeclaration[];
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   Sheets?: SheetDefinition[];
@@ -135,6 +142,7 @@ export type AnalysisError = {
   Message?: string;
   Type?: AnalysisErrorType;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   ViolatedEntities?: Entity[];
@@ -354,18 +362,22 @@ export type AxisTickLabelOptions = {
  */
 export type BarChartAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Category?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Colors?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   SmallMultiples?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Values?: MeasureField[];
@@ -389,6 +401,7 @@ export type BarChartConfiguration = {
   Legend?: LegendOptions;
   Orientation?: BarChartOrientation;
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   ReferenceLines?: ReferenceLine[];
@@ -418,16 +431,19 @@ export type BarChartOrientation = "HORIZONTAL" | "VERTICAL";
 export type BarChartSortConfiguration = {
   CategoryItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
   ColorItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   ColorSort?: FieldSortOptions[];
   SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   SmallMultiplesSort?: FieldSortOptions[];
@@ -438,11 +454,13 @@ export type BarChartSortConfiguration = {
  */
 export type BarChartVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: BarChartConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -474,6 +492,9 @@ export type BaseMapStyleType =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-bincountoptions.html}
  */
 export type BinCountOptions = {
+  /**
+   * @min `0`
+   */
   Value?: number;
 };
 /**
@@ -482,9 +503,13 @@ export type BinCountOptions = {
  */
 export type BinWidthOptions = {
   /**
+   * @min `0`
    * @max `1000`
    */
   BinCountLimit?: number;
+  /**
+   * @min `0`
+   */
   Value?: number;
 };
 /**
@@ -515,10 +540,12 @@ export type BodySectionContent = {
  */
 export type BoxPlotAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   GroupBy?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `5`
    */
   Values?: MeasureField[];
@@ -536,6 +563,7 @@ export type BoxPlotChartConfiguration = {
   PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
   PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   ReferenceLines?: ReferenceLine[];
@@ -570,6 +598,7 @@ export type BoxPlotOptions = {
  */
 export type BoxPlotSortConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
@@ -588,11 +617,13 @@ export type BoxPlotStyleOptions = {
  */
 export type BoxPlotVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: BoxPlotChartConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -648,6 +679,7 @@ export type CalculatedMeasureField = {
  */
 export type CascadingControlConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   SourceControls?: CascadingControlSource[];
@@ -703,6 +735,7 @@ export type CategoricalMeasureField = {
  */
 export type CategoryDrillDownFilter = {
   /**
+   * @minLength `0`
    * @maxLength `100000`
    */
   CategoryValues: string[];
@@ -753,6 +786,7 @@ export type CategoryFilterSelectAllOptions = "FILTER_ALL_VALUES";
  */
 export type ChartAxisLabelOptions = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   AxisLabelOptions?: AxisLabelOptions[];
@@ -797,6 +831,7 @@ export type ColorScale = {
  */
 export type ColorsConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   CustomColors?: CustomColor[];
@@ -866,18 +901,22 @@ export type ColumnTooltipItem = {
  */
 export type ComboChartAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   BarValues?: MeasureField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Category?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Colors?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   LineValues?: MeasureField[];
@@ -898,6 +937,7 @@ export type ComboChartConfiguration = {
   PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
   PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   ReferenceLines?: ReferenceLine[];
@@ -921,11 +961,13 @@ export type ComboChartFieldWells = {
 export type ComboChartSortConfiguration = {
   CategoryItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
   ColorItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   ColorSort?: FieldSortOptions[];
@@ -936,11 +978,13 @@ export type ComboChartSortConfiguration = {
  */
 export type ComboChartVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: ComboChartConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -1195,6 +1239,7 @@ export type CustomColor = {
    */
   Color: string;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    */
   FieldValue?: string;
@@ -1233,6 +1278,7 @@ export type CustomContentType = "IMAGE" | "OTHER_EMBEDDED_CONTENT";
  */
 export type CustomContentVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
@@ -1257,6 +1303,7 @@ export type CustomContentVisual = {
  */
 export type CustomFilterConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `512`
    */
   CategoryValue?: string;
@@ -1276,6 +1323,7 @@ export type CustomFilterConfiguration = {
  */
 export type CustomFilterListConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `100000`
    */
   CategoryValues?: string[];
@@ -1289,6 +1337,7 @@ export type CustomFilterListConfiguration = {
  */
 export type CustomNarrativeOptions = {
   /**
+   * @minLength `0`
    * @maxLength `150000`
    */
   Narrative: string;
@@ -1299,18 +1348,22 @@ export type CustomNarrativeOptions = {
  */
 export type CustomParameterValues = {
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   DateTimeValues?: string[];
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   DecimalValues?: number[];
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   IntegerValues?: number[];
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   StringValues?: string[];
@@ -1379,6 +1432,7 @@ export type DataLabelContent = "VALUE" | "PERCENT" | "VALUE_AND_PERCENT";
 export type DataLabelOptions = {
   CategoryLabelVisibility?: Visibility;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   DataLabelTypes?: DataLabelType[];
@@ -1444,6 +1498,7 @@ export type DataPathLabelType = {
    */
   FieldId?: string;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    */
   FieldValue?: string;
@@ -1456,6 +1511,7 @@ export type DataPathLabelType = {
 export type DataPathSort = {
   Direction: SortDirection;
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   SortPaths: DataPathValue[];
@@ -1479,6 +1535,7 @@ export type DataPathValue = {
    */
   FieldId?: string;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    */
   FieldValue?: string;
@@ -1563,6 +1620,7 @@ export type DateTimeDefaultValues = {
   DynamicValue?: DynamicDefaultValue;
   RollingDate?: RollingDateConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   StaticValues?: string[];
@@ -1586,6 +1644,7 @@ export type DateTimeFormatConfiguration = {
  */
 export type DateTimeHierarchy = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   DrillDownFilters?: DrillDownFilter[];
@@ -1613,6 +1672,7 @@ export type DateTimeParameter = {
 export type DateTimeParameterDeclaration = {
   DefaultValues?: DateTimeDefaultValues;
   /**
+   * @minLength `0`
    * @maxLength `150`
    */
   MappedDataSetParameters?: MappedDataSetParameter[];
@@ -1665,6 +1725,7 @@ export type DayOfTheWeek =
 export type DecimalDefaultValues = {
   DynamicValue?: DynamicDefaultValue;
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   StaticValues?: number[];
@@ -1687,6 +1748,7 @@ export type DecimalParameter = {
 export type DecimalParameterDeclaration = {
   DefaultValues?: DecimalDefaultValues;
   /**
+   * @minLength `0`
    * @maxLength `150`
    */
   MappedDataSetParameters?: MappedDataSetParameter[];
@@ -1705,6 +1767,7 @@ export type DecimalParameterDeclaration = {
  */
 export type DecimalPlacesConfiguration = {
   /**
+   * @min `0`
    * @max `20`
    */
   DecimalPlaces: number;
@@ -1834,6 +1897,7 @@ export type DynamicDefaultValue = {
  */
 export type EmptyVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
@@ -1879,6 +1943,7 @@ export type ExplicitHierarchy = {
    */
   Columns: ColumnIdentifier[];
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   DrillDownFilters?: DrillDownFilter[];
@@ -1895,6 +1960,7 @@ export type ExplicitHierarchy = {
 export type FieldBasedTooltip = {
   AggregationVisibility?: Visibility;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   TooltipFields?: TooltipItem[];
@@ -1964,10 +2030,12 @@ export type FieldTooltipItem = {
  */
 export type FilledMapAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Geospatial?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Values?: MeasureField[];
@@ -1978,6 +2046,7 @@ export type FilledMapAggregatedFieldWells = {
  */
 export type FilledMapConditionalFormatting = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   ConditionalFormattingOptions: FilledMapConditionalFormattingOption[];
@@ -2026,6 +2095,7 @@ export type FilledMapShapeConditionalFormatting = {
  */
 export type FilledMapSortConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
@@ -2036,11 +2106,13 @@ export type FilledMapSortConfiguration = {
  */
 export type FilledMapVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: FilledMapConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -2145,6 +2217,7 @@ export type FilterGroup = {
    */
   FilterGroupId: string;
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   Filters: Filter[];
@@ -2157,6 +2230,7 @@ export type FilterGroup = {
  */
 export type FilterListConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `100000`
    */
   CategoryValues?: string[];
@@ -2202,6 +2276,7 @@ export type FilterNullOption = "ALL_VALUES" | "NULLS_ONLY" | "NON_NULLS_ONLY";
  */
 export type FilterOperationSelectedFieldsConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   SelectedColumns?: ColumnIdentifier[];
@@ -2257,6 +2332,7 @@ export type FilterScopeConfiguration = {
  */
 export type FilterSelectableValues = {
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   Values?: string[];
@@ -2409,6 +2485,7 @@ export type ForecastComputation = {
   LowerBoundary?: number;
   Name?: string;
   /**
+   * @min `0`
    * @max `1000`
    */
   PeriodsBackward?: number;
@@ -2471,6 +2548,7 @@ export type FreeFormLayoutCanvasSizeOptions = {
 export type FreeFormLayoutConfiguration = {
   CanvasSizeOptions?: FreeFormLayoutCanvasSizeOptions;
   /**
+   * @minLength `0`
    * @maxLength `430`
    */
   Elements: FreeFormLayoutElement[];
@@ -2495,6 +2573,7 @@ export type FreeFormLayoutElement = {
   Height: string;
   LoadingAnimation?: LoadingAnimation;
   /**
+   * @minLength `0`
    * @maxLength `10000`
    */
   RenderingRules?: SheetElementRenderingRule[];
@@ -2551,6 +2630,7 @@ export type FreeFormLayoutScreenCanvasSizeOptions = {
  */
 export type FreeFormSectionLayoutConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `430`
    */
   Elements: FreeFormLayoutElement[];
@@ -2561,10 +2641,12 @@ export type FreeFormSectionLayoutConfiguration = {
  */
 export type FunnelChartAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Category?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Values?: MeasureField[];
@@ -2622,6 +2704,7 @@ export type FunnelChartMeasureDataLabelStyle =
 export type FunnelChartSortConfiguration = {
   CategoryItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
@@ -2632,11 +2715,13 @@ export type FunnelChartSortConfiguration = {
  */
 export type FunnelChartVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: FunnelChartConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -2662,6 +2747,7 @@ export type GaugeChartArcConditionalFormatting = {
  */
 export type GaugeChartConditionalFormatting = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   ConditionalFormattingOptions?: GaugeChartConditionalFormattingOption[];
@@ -2691,10 +2777,12 @@ export type GaugeChartConfiguration = {
  */
 export type GaugeChartFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   TargetValues?: MeasureField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Values?: MeasureField[];
@@ -2724,6 +2812,7 @@ export type GaugeChartPrimaryValueConditionalFormatting = {
  */
 export type GaugeChartVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
@@ -2798,14 +2887,17 @@ export type GeospatialHeatmapDataColor = {
  */
 export type GeospatialMapAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Colors?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Geospatial?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Values?: MeasureField[];
@@ -2843,11 +2935,13 @@ export type GeospatialMapStyleOptions = {
  */
 export type GeospatialMapVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: GeospatialMapConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -2896,6 +2990,7 @@ export type GlobalTableBorderOptions = {
  */
 export type GradientColor = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   Stops?: GradientStop[];
@@ -2926,6 +3021,7 @@ export type GridLayoutCanvasSizeOptions = {
 export type GridLayoutConfiguration = {
   CanvasSizeOptions?: GridLayoutCanvasSizeOptions;
   /**
+   * @minLength `0`
    * @maxLength `430`
    */
   Elements: GridLayoutElement[];
@@ -2936,6 +3032,7 @@ export type GridLayoutConfiguration = {
  */
 export type GridLayoutElement = {
   /**
+   * @min `0`
    * @max `35`
    */
   ColumnIndex?: number;
@@ -2952,6 +3049,7 @@ export type GridLayoutElement = {
   ElementId: string;
   ElementType: LayoutElementType;
   /**
+   * @min `0`
    * @max `9009`
    */
   RowIndex?: number;
@@ -3012,14 +3110,17 @@ export type HeaderFooterSectionConfiguration = {
  */
 export type HeatMapAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Columns?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Rows?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Values?: MeasureField[];
@@ -3052,11 +3153,13 @@ export type HeatMapFieldWells = {
 export type HeatMapSortConfiguration = {
   HeatMapColumnItemsLimitConfiguration?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   HeatMapColumnSort?: FieldSortOptions[];
   HeatMapRowItemsLimitConfiguration?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   HeatMapRowSort?: FieldSortOptions[];
@@ -3067,11 +3170,13 @@ export type HeatMapSortConfiguration = {
  */
 export type HeatMapVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: HeatMapConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -3090,6 +3195,7 @@ export type HeatMapVisual = {
  */
 export type HistogramAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Values?: MeasureField[];
@@ -3136,6 +3242,7 @@ export type HistogramFieldWells = {
  */
 export type HistogramVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
@@ -3191,6 +3298,7 @@ export type Icon =
  */
 export type InsightConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   Computations?: Computation[];
@@ -3202,6 +3310,7 @@ export type InsightConfiguration = {
  */
 export type InsightVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
@@ -3227,6 +3336,7 @@ export type InsightVisual = {
 export type IntegerDefaultValues = {
   DynamicValue?: DynamicDefaultValue;
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   StaticValues?: number[];
@@ -3249,6 +3359,7 @@ export type IntegerParameter = {
 export type IntegerParameterDeclaration = {
   DefaultValues?: IntegerDefaultValues;
   /**
+   * @minLength `0`
    * @maxLength `150`
    */
   MappedDataSetParameters?: MappedDataSetParameter[];
@@ -3299,6 +3410,7 @@ export type KPIComparisonValueConditionalFormatting = {
  */
 export type KPIConditionalFormatting = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   ConditionalFormattingOptions?: KPIConditionalFormattingOption[];
@@ -3328,14 +3440,17 @@ export type KPIConfiguration = {
  */
 export type KPIFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   TargetValues?: MeasureField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   TrendGroups?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Values?: MeasureField[];
@@ -3376,6 +3491,7 @@ export type KPIProgressBarConditionalFormatting = {
  */
 export type KPISortConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   TrendGroupSort?: FieldSortOptions[];
@@ -3404,11 +3520,13 @@ export type KPISparklineType = "LINE" | "AREA";
  */
 export type KPIVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: KPIConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -3503,18 +3621,22 @@ export type LegendPosition = "AUTO" | "RIGHT" | "BOTTOM" | "TOP";
  */
 export type LineChartAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Category?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Colors?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   SmallMultiples?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Values?: MeasureField[];
@@ -3533,6 +3655,7 @@ export type LineChartConfiguration = {
   DefaultSeriesSettings?: LineChartDefaultSeriesSettings;
   FieldWells?: LineChartFieldWells;
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   ForecastConfigurations?: ForecastConfiguration[];
@@ -3540,12 +3663,14 @@ export type LineChartConfiguration = {
   PrimaryYAxisDisplayOptions?: LineSeriesAxisDisplayOptions;
   PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   ReferenceLines?: ReferenceLine[];
   SecondaryYAxisDisplayOptions?: LineSeriesAxisDisplayOptions;
   SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Series?: SeriesItem[];
@@ -3632,12 +3757,14 @@ export type LineChartSeriesSettings = {
 export type LineChartSortConfiguration = {
   CategoryItemsLimitConfiguration?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
   ColorItemsLimitConfiguration?: ItemsLimitConfiguration;
   SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   SmallMultiplesSort?: FieldSortOptions[];
@@ -3653,11 +3780,13 @@ export type LineChartType = "LINE" | "AREA" | "STACKED_AREA";
  */
 export type LineChartVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: LineChartConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -3682,6 +3811,7 @@ export type LineInterpolation = "LINEAR" | "SMOOTH" | "STEPPED";
 export type LineSeriesAxisDisplayOptions = {
   AxisOptions?: AxisDisplayOptions;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   MissingDataConfigurations?: MissingDataConfiguration[];
@@ -3746,11 +3876,6 @@ export type LongFormatText = {
   RichText?: string;
 };
 /**
- * Type definition for `AWS::QuickSight::Analysis.MapZoomMode`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-mapzoommode.html}
- */
-export type MapZoomMode = "AUTO" | "MANUAL";
-/**
  * Type definition for `AWS::QuickSight::Analysis.MappedDataSetParameter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-mappeddatasetparameter.html}
  */
@@ -3767,6 +3892,11 @@ export type MappedDataSetParameter = {
    */
   DataSetParameterName: string;
 };
+/**
+ * Type definition for `AWS::QuickSight::Analysis.MapZoomMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-mapzoommode.html}
+ */
+export type MapZoomMode = "AUTO" | "MANUAL";
 /**
  * Type definition for `AWS::QuickSight::Analysis.MaximumLabelType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-maximumlabeltype.html}
@@ -3906,6 +4036,46 @@ export type NumberScale =
   | "BILLIONS"
   | "TRILLIONS";
 /**
+ * Type definition for `AWS::QuickSight::Analysis.NumericalAggregationFunction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericalaggregationfunction.html}
+ */
+export type NumericalAggregationFunction = {
+  PercentileAggregation?: PercentileAggregation;
+  SimpleNumericalAggregation?: SimpleNumericalAggregationFunction;
+};
+/**
+ * Type definition for `AWS::QuickSight::Analysis.NumericalDimensionField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericaldimensionfield.html}
+ */
+export type NumericalDimensionField = {
+  Column: ColumnIdentifier;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   */
+  FieldId: string;
+  FormatConfiguration?: NumberFormatConfiguration;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   */
+  HierarchyId?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Analysis.NumericalMeasureField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericalmeasurefield.html}
+ */
+export type NumericalMeasureField = {
+  AggregationFunction?: NumericalAggregationFunction;
+  Column: ColumnIdentifier;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   */
+  FieldId: string;
+  FormatConfiguration?: NumberFormatConfiguration;
+};
+/**
  * Type definition for `AWS::QuickSight::Analysis.NumericAxisOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericaxisoptions.html}
  */
@@ -4011,46 +4181,6 @@ export type NumericSeparatorConfiguration = {
  */
 export type NumericSeparatorSymbol = "COMMA" | "DOT" | "SPACE";
 /**
- * Type definition for `AWS::QuickSight::Analysis.NumericalAggregationFunction`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericalaggregationfunction.html}
- */
-export type NumericalAggregationFunction = {
-  PercentileAggregation?: PercentileAggregation;
-  SimpleNumericalAggregation?: SimpleNumericalAggregationFunction;
-};
-/**
- * Type definition for `AWS::QuickSight::Analysis.NumericalDimensionField`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericaldimensionfield.html}
- */
-export type NumericalDimensionField = {
-  Column: ColumnIdentifier;
-  /**
-   * @minLength `1`
-   * @maxLength `512`
-   */
-  FieldId: string;
-  FormatConfiguration?: NumberFormatConfiguration;
-  /**
-   * @minLength `1`
-   * @maxLength `512`
-   */
-  HierarchyId?: string;
-};
-/**
- * Type definition for `AWS::QuickSight::Analysis.NumericalMeasureField`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericalmeasurefield.html}
- */
-export type NumericalMeasureField = {
-  AggregationFunction?: NumericalAggregationFunction;
-  Column: ColumnIdentifier;
-  /**
-   * @minLength `1`
-   * @maxLength `512`
-   */
-  FieldId: string;
-  FormatConfiguration?: NumberFormatConfiguration;
-};
-/**
  * Type definition for `AWS::QuickSight::Analysis.OtherCategories`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-othercategories.html}
  */
@@ -4060,6 +4190,9 @@ export type OtherCategories = "INCLUDE" | "EXCLUDE";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-paginationconfiguration.html}
  */
 export type PaginationConfiguration = {
+  /**
+   * @min `0`
+   */
   PageNumber: number;
   PageSize: number;
 };
@@ -4226,12 +4359,39 @@ export type ParameterListControl = {
   Type?: SheetControlListType;
 };
 /**
+ * Type definition for `AWS::QuickSight::Analysis.Parameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html}
+ */
+export type Parameters = {
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  DateTimeParameters?: DateTimeParameter[];
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  DecimalParameters?: DecimalParameter[];
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  IntegerParameters?: IntegerParameter[];
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  StringParameters?: StringParameter[];
+};
+/**
  * Type definition for `AWS::QuickSight::Analysis.ParameterSelectableValues`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameterselectablevalues.html}
  */
 export type ParameterSelectableValues = {
   LinkToDataSetColumn?: ColumnIdentifier;
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   Values?: string[];
@@ -4322,42 +4482,6 @@ export type ParameterTextFieldControl = {
  */
 export type ParameterValueType = "MULTI_VALUED" | "SINGLE_VALUED";
 /**
- * Type definition for `AWS::QuickSight::Analysis.Parameters`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html}
- */
-export type Parameters = {
-  /**
-   * @maxLength `100`
-   */
-  DateTimeParameters?: DateTimeParameter[];
-  /**
-   * @maxLength `100`
-   */
-  DecimalParameters?: DecimalParameter[];
-  /**
-   * @maxLength `100`
-   */
-  IntegerParameters?: IntegerParameter[];
-  /**
-   * @maxLength `100`
-   */
-  StringParameters?: StringParameter[];
-};
-/**
- * Type definition for `AWS::QuickSight::Analysis.PercentVisibleRange`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-percentvisiblerange.html}
- */
-export type PercentVisibleRange = {
-  /**
-   * @max `100`
-   */
-  From?: number;
-  /**
-   * @max `100`
-   */
-  To?: number;
-};
-/**
  * Type definition for `AWS::QuickSight::Analysis.PercentageDisplayFormatConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-percentagedisplayformatconfiguration.html}
  */
@@ -4383,9 +4507,26 @@ export type PercentageDisplayFormatConfiguration = {
  */
 export type PercentileAggregation = {
   /**
+   * @min `0`
    * @max `100`
    */
   PercentileValue?: number;
+};
+/**
+ * Type definition for `AWS::QuickSight::Analysis.PercentVisibleRange`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-percentvisiblerange.html}
+ */
+export type PercentVisibleRange = {
+  /**
+   * @min `0`
+   * @max `100`
+   */
+  From?: number;
+  /**
+   * @min `0`
+   * @max `100`
+   */
+  To?: number;
 };
 /**
  * Type definition for `AWS::QuickSight::Analysis.PeriodOverPeriodComputation`.
@@ -4424,14 +4565,17 @@ export type PeriodToDateComputation = {
  */
 export type PieChartAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Category?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   SmallMultiples?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Values?: MeasureField[];
@@ -4471,11 +4615,13 @@ export type PieChartFieldWells = {
 export type PieChartSortConfiguration = {
   CategoryItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
   SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   SmallMultiplesSort?: FieldSortOptions[];
@@ -4486,11 +4632,13 @@ export type PieChartSortConfiguration = {
  */
 export type PieChartVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: PieChartConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -4521,14 +4669,17 @@ export type PivotFieldSortOptions = {
  */
 export type PivotTableAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `40`
    */
   Columns?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `40`
    */
   Rows?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `40`
    */
   Values?: MeasureField[];
@@ -4545,6 +4696,7 @@ export type PivotTableCellConditionalFormatting = {
   FieldId: string;
   Scope?: PivotTableConditionalFormattingScope;
   /**
+   * @minLength `0`
    * @maxLength `3`
    */
   Scopes?: PivotTableConditionalFormattingScope[];
@@ -4556,6 +4708,7 @@ export type PivotTableCellConditionalFormatting = {
  */
 export type PivotTableConditionalFormatting = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   ConditionalFormattingOptions?: PivotTableConditionalFormattingOption[];
@@ -4600,6 +4753,7 @@ export type PivotTableConfiguration = {
  */
 export type PivotTableDataPathOption = {
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   DataPathList: DataPathValue[];
@@ -4636,6 +4790,7 @@ export type PivotTableFieldCollapseStateOption = {
  */
 export type PivotTableFieldCollapseStateTarget = {
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   FieldDataPathValues?: DataPathValue[];
@@ -4665,10 +4820,12 @@ export type PivotTableFieldOption = {
 export type PivotTableFieldOptions = {
   CollapseStateOptions?: PivotTableFieldCollapseStateOption[];
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   DataPathOptions?: PivotTableDataPathOption[];
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   SelectedFieldOptions?: PivotTableFieldOption[];
@@ -4758,6 +4915,7 @@ export type PivotTableSortBy = {
  */
 export type PivotTableSortConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   FieldSortOptions?: PivotFieldSortOptions[];
@@ -4783,6 +4941,7 @@ export type PivotTableTotalOptions = {
  */
 export type PivotTableVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
@@ -4807,6 +4966,7 @@ export type PivotTotalOptions = {
   Placement?: TableTotalsPlacement;
   ScrollStatus?: TableTotalsScrollStatus;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   TotalAggregationOptions?: TotalAggregationOption[];
@@ -4825,6 +4985,7 @@ export type PredefinedHierarchy = {
    */
   Columns: ColumnIdentifier[];
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   DrillDownFilters?: DrillDownFilter[];
@@ -4852,14 +5013,17 @@ export type ProgressBarOptions = {
  */
 export type RadarChartAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Category?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Color?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   Values?: MeasureField[];
@@ -4933,11 +5097,13 @@ export type RadarChartShape = "CIRCLE" | "POLYGON";
 export type RadarChartSortConfiguration = {
   CategoryItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
   ColorItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   ColorSort?: FieldSortOptions[];
@@ -4948,11 +5114,13 @@ export type RadarChartSortConfiguration = {
  */
 export type RadarChartVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: RadarChartConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -5080,24 +5248,6 @@ export type ReferenceLineValueLabelRelativePosition =
   | "BEFORE_CUSTOM_LABEL"
   | "AFTER_CUSTOM_LABEL";
 /**
- * Type definition for `AWS::QuickSight::Analysis.RelativeDateTimeControlDisplayOptions`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-relativedatetimecontroldisplayoptions.html}
- */
-export type RelativeDateTimeControlDisplayOptions = {
-  /**
-   * @minLength `1`
-   * @maxLength `128`
-   */
-  DateTimeFormat?: string;
-  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
-  TitleOptions?: LabelOptions;
-};
-/**
- * Type definition for `AWS::QuickSight::Analysis.RelativeDateType`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-relativedatetype.html}
- */
-export type RelativeDateType = "PREVIOUS" | "THIS" | "LAST" | "NOW" | "NEXT";
-/**
  * Type definition for `AWS::QuickSight::Analysis.RelativeDatesFilter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-relativedatesfilter.html}
  */
@@ -5123,6 +5273,24 @@ export type RelativeDatesFilter = {
   RelativeDateValue?: number;
   TimeGranularity: TimeGranularity;
 };
+/**
+ * Type definition for `AWS::QuickSight::Analysis.RelativeDateTimeControlDisplayOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-relativedatetimecontroldisplayoptions.html}
+ */
+export type RelativeDateTimeControlDisplayOptions = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  DateTimeFormat?: string;
+  InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
+  TitleOptions?: LabelOptions;
+};
+/**
+ * Type definition for `AWS::QuickSight::Analysis.RelativeDateType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-relativedatetype.html}
+ */
+export type RelativeDateType = "PREVIOUS" | "THIS" | "LAST" | "NOW" | "NEXT";
 /**
  * Type definition for `AWS::QuickSight::Analysis.RelativeFontSize`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-relativefontsize.html}
@@ -5189,6 +5357,7 @@ export type RollingDateConfiguration = {
  */
 export type RowAlternateColorOptions = {
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   RowAlternateColors?: string[];
@@ -5213,14 +5382,17 @@ export type SameSheetTargetVisualConfiguration = {
  */
 export type SankeyDiagramAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Destination?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Source?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Weight?: MeasureField[];
@@ -5249,6 +5421,7 @@ export type SankeyDiagramSortConfiguration = {
   DestinationItemsLimit?: ItemsLimitConfiguration;
   SourceItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   WeightSort?: FieldSortOptions[];
@@ -5259,6 +5432,7 @@ export type SankeyDiagramSortConfiguration = {
  */
 export type SankeyDiagramVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
@@ -5278,22 +5452,27 @@ export type SankeyDiagramVisual = {
  */
 export type ScatterPlotCategoricallyAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Category?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Label?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Size?: MeasureField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   XAxis?: MeasureField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   YAxis?: MeasureField[];
@@ -5327,22 +5506,27 @@ export type ScatterPlotFieldWells = {
  */
 export type ScatterPlotUnaggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Category?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Label?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Size?: MeasureField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   XAxis?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   YAxis?: DimensionField[];
@@ -5353,11 +5537,13 @@ export type ScatterPlotUnaggregatedFieldWells = {
  */
 export type ScatterPlotVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: ScatterPlotConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -5405,15 +5591,18 @@ export type SectionBasedLayoutCanvasSizeOptions = {
  */
 export type SectionBasedLayoutConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `28`
    */
   BodySections: BodySectionConfiguration[];
   CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptions;
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   FooterSections: HeaderFooterSectionConfiguration[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   HeaderSections: HeaderFooterSectionConfiguration[];
@@ -5586,6 +5775,7 @@ export type SheetDefinition = {
    */
   Description?: string;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   FilterControls?: FilterControl[];
@@ -5600,10 +5790,12 @@ export type SheetDefinition = {
    */
   Name?: string;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   ParameterControls?: ParameterControl[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   SheetControlLayouts?: SheetControlLayout[];
@@ -5614,6 +5806,7 @@ export type SheetDefinition = {
    */
   SheetId: string;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   TextBoxes?: SheetTextBox[];
@@ -5623,6 +5816,7 @@ export type SheetDefinition = {
    */
   Title?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Visuals?: Visual[];
@@ -5652,6 +5846,7 @@ export type SheetElementRenderingRule = {
  */
 export type SheetTextBox = {
   /**
+   * @minLength `0`
    * @maxLength `150000`
    */
   Content?: string;
@@ -5675,6 +5870,7 @@ export type SheetVisualScopingConfiguration = {
    */
   SheetId: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   VisualIds?: string[];
@@ -5821,6 +6017,7 @@ export type SpecialValue = "EMPTY" | "NULL" | "OTHER";
 export type StringDefaultValues = {
   DynamicValue?: DynamicDefaultValue;
   /**
+   * @minLength `0`
    * @maxLength `50000`
    */
   StaticValues?: string[];
@@ -5851,6 +6048,7 @@ export type StringParameter = {
 export type StringParameterDeclaration = {
   DefaultValues?: StringDefaultValues;
   /**
+   * @minLength `0`
    * @maxLength `150`
    */
   MappedDataSetParameters?: MappedDataSetParameter[];
@@ -5884,11 +6082,13 @@ export type SubtotalOptions = {
   CustomLabel?: string;
   FieldLevel?: PivotTableSubtotalLevel;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   FieldLevelOptions?: PivotTableFieldSubtotalOptions[];
   MetricHeaderCellStyle?: TableCellStyle;
   /**
+   * @minLength `0`
    * @maxLength `3`
    */
   StyleTargets?: TableStyleTarget[];
@@ -5902,10 +6102,12 @@ export type SubtotalOptions = {
  */
 export type TableAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   GroupBy?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Values?: MeasureField[];
@@ -5985,6 +6187,7 @@ export type TableCellStyle = {
  */
 export type TableConditionalFormatting = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   ConditionalFormattingOptions?: TableConditionalFormattingOption[];
@@ -6007,6 +6210,7 @@ export type TableConfiguration = {
   PaginatedReportOptions?: TablePaginatedReportOptions;
   SortConfiguration?: TableSortConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   TableInlineVisualizations?: TableInlineVisualization[];
@@ -6084,11 +6288,13 @@ export type TableFieldOption = {
  */
 export type TableFieldOptions = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Order?: string[];
   PinnedFieldOptions?: TablePinnedFieldOptions;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   SelectedFieldOptions?: TableFieldOption[];
@@ -6145,6 +6351,7 @@ export type TablePaginatedReportOptions = {
  */
 export type TablePinnedFieldOptions = {
   /**
+   * @minLength `0`
    * @maxLength `201`
    */
   PinnedLeftFields?: string[];
@@ -6176,6 +6383,7 @@ export type TableSideBorderOptions = {
 export type TableSortConfiguration = {
   PaginationConfiguration?: PaginationConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   RowSort?: FieldSortOptions[];
@@ -6203,6 +6411,7 @@ export type TableTotalsScrollStatus = "PINNED" | "SCROLLED";
  */
 export type TableUnaggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Values?: UnaggregatedField[];
@@ -6213,6 +6422,7 @@ export type TableUnaggregatedFieldWells = {
  */
 export type TableVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
@@ -6302,6 +6512,7 @@ export type ThousandSeparatorOptions = {
 export type TimeBasedForecastProperties = {
   LowerBoundary?: number;
   /**
+   * @min `0`
    * @max `1000`
    */
   PeriodsBackward?: number;
@@ -6435,6 +6646,7 @@ export type TopBottomComputationType = "TOP" | "BOTTOM";
  */
 export type TopBottomFilter = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   AggregationSortConfigurations: AggregationSortConfiguration[];
@@ -6545,6 +6757,7 @@ export type TotalOptions = {
   Placement?: TableTotalsPlacement;
   ScrollStatus?: TableTotalsScrollStatus;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   TotalAggregationOptions?: TotalAggregationOption[];
@@ -6557,14 +6770,17 @@ export type TotalOptions = {
  */
 export type TreeMapAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Colors?: MeasureField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Groups?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Sizes?: MeasureField[];
@@ -6598,6 +6814,7 @@ export type TreeMapFieldWells = {
 export type TreeMapSortConfiguration = {
   TreeMapGroupItemsLimitConfiguration?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   TreeMapSort?: FieldSortOptions[];
@@ -6608,11 +6825,13 @@ export type TreeMapSortConfiguration = {
  */
 export type TreeMapVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: TreeMapConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -6632,11 +6851,6 @@ export type TreeMapVisual = {
 export type TrendArrowOptions = {
   Visibility?: Visibility;
 };
-/**
- * Type definition for `AWS::QuickSight::Analysis.URLTargetConfiguration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-urltargetconfiguration.html}
- */
-export type URLTargetConfiguration = "NEW_TAB" | "NEW_WINDOW" | "SAME_TAB";
 /**
  * Type definition for `AWS::QuickSight::Analysis.UnaggregatedField`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-unaggregatedfield.html}
@@ -6664,6 +6878,11 @@ export type UniqueValuesComputation = {
   ComputationId: string;
   Name?: string;
 };
+/**
+ * Type definition for `AWS::QuickSight::Analysis.URLTargetConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-urltargetconfiguration.html}
+ */
+export type URLTargetConfiguration = "NEW_TAB" | "NEW_WINDOW" | "SAME_TAB";
 /**
  * Type definition for `AWS::QuickSight::Analysis.ValidationStrategy`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-validationstrategy.html}
@@ -6776,6 +6995,7 @@ export type VisualPalette = {
    */
   ChartColor?: string;
   /**
+   * @minLength `0`
    * @maxLength `5000`
    */
   ColorMap?: DataPathColor[];
@@ -6802,14 +7022,17 @@ export type VisualTitleLabelOptions = {
  */
 export type WaterfallChartAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Breakdowns?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Categories?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Values?: MeasureField[];
@@ -6851,6 +7074,7 @@ export type WaterfallChartOptions = {
 export type WaterfallChartSortConfiguration = {
   BreakdownItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
@@ -6861,11 +7085,13 @@ export type WaterfallChartSortConfiguration = {
  */
 export type WaterfallVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: WaterfallChartConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -6906,10 +7132,12 @@ export type WidgetStatus = "ENABLED" | "DISABLED";
  */
 export type WordCloudAggregatedFieldWells = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   GroupBy?: DimensionField[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Size?: MeasureField[];
@@ -6959,6 +7187,7 @@ export type WordCloudOptions = {
 export type WordCloudSortConfiguration = {
   CategoryItemsLimit?: ItemsLimitConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   CategorySort?: FieldSortOptions[];
@@ -6969,11 +7198,13 @@ export type WordCloudSortConfiguration = {
  */
 export type WordCloudVisual = {
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Actions?: VisualCustomAction[];
   ChartConfiguration?: WordCloudChartConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   ColumnHierarchies?: ColumnHierarchy[];
@@ -7016,25 +7247,11 @@ export class QuickSightAnalysis extends $Resource<
   QuickSightAnalysisAttributes
 > {
   public static readonly Type = "AWS::QuickSight::Analysis";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "DataSetArns" as const,
-    "Errors" as const,
-    "LastUpdatedTime" as const,
-    "Sheets" as const,
-  ];
   constructor(
     logicalId: string,
     properties: QuickSightAnalysisProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      QuickSightAnalysis.Type,
-      properties,
-      QuickSightAnalysis.AttributeNames,
-      options,
-    );
+    super(logicalId, QuickSightAnalysis.Type, properties, options);
   }
 }

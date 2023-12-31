@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Logs::ResourcePolicy`.
  * The resource schema for AWSLogs ResourcePolicy
@@ -32,18 +32,11 @@ export class LogsResourcePolicy extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Logs::ResourcePolicy";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: LogsResourcePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LogsResourcePolicy.Type,
-      properties,
-      LogsResourcePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, LogsResourcePolicy.Type, properties, options);
   }
 }

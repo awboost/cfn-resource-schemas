@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CodeGuruReviewer::RepositoryAssociation`.
  * This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
@@ -15,6 +15,7 @@ export type CodeGuruReviewerRepositoryAssociationProperties = {
   BucketName?: string;
   /**
    * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `arn:aws(-[\w]+)*:.+:.+:[0-9]{12}:.+`
    */
@@ -50,6 +51,7 @@ export type CodeGuruReviewerRepositoryAssociationProperties = {
 export type CodeGuruReviewerRepositoryAssociationAttributes = {
   /**
    * The Amazon Resource Name (ARN) of the repository association.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `arn:aws(-[\w]+)*:.+:.+:[0-9]{12}:.+`
    */
@@ -69,6 +71,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -84,7 +87,6 @@ export class CodeGuruReviewerRepositoryAssociation extends $Resource<
   CodeGuruReviewerRepositoryAssociationAttributes
 > {
   public static readonly Type = "AWS::CodeGuruReviewer::RepositoryAssociation";
-  public static readonly AttributeNames = ["AssociationArn" as const];
   constructor(
     logicalId: string,
     properties: CodeGuruReviewerRepositoryAssociationProperties,
@@ -94,7 +96,6 @@ export class CodeGuruReviewerRepositoryAssociation extends $Resource<
       logicalId,
       CodeGuruReviewerRepositoryAssociation.Type,
       properties,
-      CodeGuruReviewerRepositoryAssociation.AttributeNames,
       options,
     );
   }

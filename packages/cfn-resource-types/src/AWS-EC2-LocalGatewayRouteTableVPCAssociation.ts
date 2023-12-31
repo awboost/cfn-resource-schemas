@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::LocalGatewayRouteTableVPCAssociation`.
  * Describes an association between a local gateway route table and a VPC.
@@ -67,11 +67,6 @@ export class EC2LocalGatewayRouteTableVPCAssociation extends $Resource<
 > {
   public static readonly Type =
     "AWS::EC2::LocalGatewayRouteTableVPCAssociation";
-  public static readonly AttributeNames = [
-    "LocalGatewayId" as const,
-    "LocalGatewayRouteTableVpcAssociationId" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2LocalGatewayRouteTableVPCAssociationProperties,
@@ -81,7 +76,6 @@ export class EC2LocalGatewayRouteTableVPCAssociation extends $Resource<
       logicalId,
       EC2LocalGatewayRouteTableVPCAssociation.Type,
       properties,
-      EC2LocalGatewayRouteTableVPCAssociation.AttributeNames,
       options,
     );
   }

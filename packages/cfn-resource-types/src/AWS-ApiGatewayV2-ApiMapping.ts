@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-apimapping.html}
@@ -42,18 +42,11 @@ export class ApiGatewayV2ApiMapping extends $Resource<
   ApiGatewayV2ApiMappingAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::ApiMapping";
-  public static readonly AttributeNames = ["ApiMappingId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2ApiMappingProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2ApiMapping.Type,
-      properties,
-      ApiGatewayV2ApiMapping.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2ApiMapping.Type, properties, options);
   }
 }

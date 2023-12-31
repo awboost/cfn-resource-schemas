@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::GreengrassV2::Deployment`.
  * Resource for Greengrass V2 deployment.
@@ -138,6 +138,7 @@ export type IoTJobAbortCriteria = {
    */
   MinNumberOfExecutedThings: number;
   /**
+   * @min `0`
    * @max `100`
    */
   ThresholdPercentage: number;
@@ -169,28 +170,34 @@ export type IoTJobExponentialRolloutRate = {
    * @max `5`
    */
   IncrementFactor: number;
-  RateIncreaseCriteria:
-    | {
-        /**
-         * @min `1`
-         * @max `2147483647`
-         */
-        NumberOfNotifiedThings?: number;
-      }
-    | {
-        /**
-         * @min `1`
-         * @max `2147483647`
-         */
-        NumberOfSucceededThings?: number;
-      };
+  RateIncreaseCriteria: IoTJobRateIncreaseCriteria;
 };
+/**
+ * Type definition for `AWS::GreengrassV2::Deployment.IoTJobRateIncreaseCriteria`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobrateincreasecriteria.html}
+ */
+export type IoTJobRateIncreaseCriteria =
+  | {
+      /**
+       * @min `1`
+       * @max `2147483647`
+       */
+      NumberOfNotifiedThings?: number;
+    }
+  | {
+      /**
+       * @min `1`
+       * @max `2147483647`
+       */
+      NumberOfSucceededThings?: number;
+    };
 /**
  * Type definition for `AWS::GreengrassV2::Deployment.IoTJobTimeoutConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobtimeoutconfig.html}
  */
 export type IoTJobTimeoutConfig = {
   /**
+   * @min `0`
    * @max `2147483647`
    */
   InProgressTimeoutInMinutes?: number;
@@ -200,8 +207,12 @@ export type IoTJobTimeoutConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-systemresourcelimits.html}
  */
 export type SystemResourceLimits = {
+  /**
+   * @min `0`
+   */
   Cpus?: number;
   /**
+   * @min `0`
    * @max `9223372036854772000`
    */
   Memory?: number;
@@ -217,18 +228,11 @@ export class GreengrassV2Deployment extends $Resource<
   GreengrassV2DeploymentAttributes
 > {
   public static readonly Type = "AWS::GreengrassV2::Deployment";
-  public static readonly AttributeNames = ["DeploymentId" as const];
   constructor(
     logicalId: string,
     properties: GreengrassV2DeploymentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GreengrassV2Deployment.Type,
-      properties,
-      GreengrassV2Deployment.AttributeNames,
-      options,
-    );
+    super(logicalId, GreengrassV2Deployment.Type, properties, options);
   }
 }

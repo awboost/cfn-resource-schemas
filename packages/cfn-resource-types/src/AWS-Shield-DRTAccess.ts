@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Shield::DRTAccess`.
  * Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type ShieldDRTAccessProperties = {
   /**
    * Authorizes the Shield Response Team (SRT) to access the specified Amazon S3 bucket containing log data such as Application Load Balancer access logs, CloudFront logs, or logs from third party sources. You can associate up to 10 Amazon S3 buckets with your subscription.
+   * @minLength `0`
    * @maxLength `10`
    */
   LogBucketList?: string[];
@@ -35,18 +36,11 @@ export class ShieldDRTAccess extends $Resource<
   ShieldDRTAccessAttributes
 > {
   public static readonly Type = "AWS::Shield::DRTAccess";
-  public static readonly AttributeNames = ["AccountId" as const];
   constructor(
     logicalId: string,
     properties: ShieldDRTAccessProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ShieldDRTAccess.Type,
-      properties,
-      ShieldDRTAccess.AttributeNames,
-      options,
-    );
+    super(logicalId, ShieldDRTAccess.Type, properties, options);
   }
 }

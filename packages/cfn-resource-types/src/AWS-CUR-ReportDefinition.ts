@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::CUR::ReportDefinition resource creates a Cost & Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cur-reportdefinition.html}
@@ -76,18 +76,11 @@ export class CURReportDefinition extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::CUR::ReportDefinition";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: CURReportDefinitionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CURReportDefinition.Type,
-      properties,
-      CURReportDefinition.AttributeNames,
-      options,
-    );
+    super(logicalId, CURReportDefinition.Type, properties, options);
   }
 }

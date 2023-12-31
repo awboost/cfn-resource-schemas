@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html}
@@ -22,7 +22,18 @@ export type S3ObjectLambdaAccessPointProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#aws-resource-s3objectlambda-accesspoint-return-values}
  */
 export type S3ObjectLambdaAccessPointAttributes = {
-  Alias: Alias;
+  Alias: {
+    /**
+     * The status of the Object Lambda alias.
+     * @pattern `^[A-Z]*$`
+     */
+    Status: string;
+    /**
+     * The value of the Object Lambda alias.
+     * @pattern `^[a-z0-9\-]*$`
+     */
+    Value: string;
+  };
   /**
    * @pattern `arn:[^:]+:s3-object-lambda:[^:]*:\d{12}:accesspoint/.*`
    */
@@ -31,27 +42,16 @@ export type S3ObjectLambdaAccessPointAttributes = {
    * The date and time when the Object lambda Access Point was created.
    */
   CreationDate: string;
-  PolicyStatus: PolicyStatus;
+  PolicyStatus: {
+    /**
+     * Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
+     */
+    IsPublic: boolean;
+  };
   /**
    * The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
    */
-  PublicAccessBlockConfiguration: PublicAccessBlockConfiguration;
-};
-/**
- * Type definition for `AWS::S3ObjectLambda::AccessPoint.Alias`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html}
- */
-export type Alias = {
-  /**
-   * The status of the Object Lambda alias.
-   * @pattern `^[A-Z]*$`
-   */
-  Status?: string;
-  /**
-   * The value of the Object Lambda alias.
-   * @pattern `^[a-z0-9\-]*$`
-   */
-  Value: string;
+  PublicAccessBlockConfiguration: {};
 };
 /**
  * Type definition for `AWS::S3ObjectLambda::AccessPoint.AwsLambda`.
@@ -79,16 +79,6 @@ export type ObjectLambdaConfiguration = {
    */
   SupportingAccessPoint: string;
   TransformationConfigurations: TransformationConfiguration[];
-};
-/**
- * Type definition for `AWS::S3ObjectLambda::AccessPoint.PolicyStatus`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-policystatus.html}
- */
-export type PolicyStatus = {
-  /**
-   * Specifies whether the Object lambda Access Point Policy is Public or not. Object lambda Access Points are private by default.
-   */
-  IsPublic?: boolean;
 };
 /**
  * Type definition for `AWS::S3ObjectLambda::AccessPoint.PublicAccessBlockConfiguration`.
@@ -139,24 +129,11 @@ export class S3ObjectLambdaAccessPoint extends $Resource<
   S3ObjectLambdaAccessPointAttributes
 > {
   public static readonly Type = "AWS::S3ObjectLambda::AccessPoint";
-  public static readonly AttributeNames = [
-    "Alias" as const,
-    "Arn" as const,
-    "CreationDate" as const,
-    "PolicyStatus" as const,
-    "PublicAccessBlockConfiguration" as const,
-  ];
   constructor(
     logicalId: string,
     properties: S3ObjectLambdaAccessPointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3ObjectLambdaAccessPoint.Type,
-      properties,
-      S3ObjectLambdaAccessPoint.AttributeNames,
-      options,
-    );
+    super(logicalId, S3ObjectLambdaAccessPoint.Type, properties, options);
   }
 }

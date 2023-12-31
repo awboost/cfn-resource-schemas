@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Athena::PreparedStatement
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html}
@@ -40,18 +40,11 @@ export class AthenaPreparedStatement extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Athena::PreparedStatement";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: AthenaPreparedStatementProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AthenaPreparedStatement.Type,
-      properties,
-      AthenaPreparedStatement.AttributeNames,
-      options,
-    );
+    super(logicalId, AthenaPreparedStatement.Type, properties, options);
   }
 }

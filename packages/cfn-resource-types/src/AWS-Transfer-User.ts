@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Transfer::User
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html}
@@ -64,18 +64,11 @@ export class TransferUser extends $Resource<
   TransferUserAttributes
 > {
   public static readonly Type = "AWS::Transfer::User";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: TransferUserProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      TransferUser.Type,
-      properties,
-      TransferUser.AttributeNames,
-      options,
-    );
+    super(logicalId, TransferUser.Type, properties, options);
   }
 }

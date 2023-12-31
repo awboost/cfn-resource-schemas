@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Shield::ProtectionGroup`.
  * A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
@@ -69,6 +69,7 @@ export type Tag = {
   Key: string;
   /**
    * Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -84,18 +85,11 @@ export class ShieldProtectionGroup extends $Resource<
   ShieldProtectionGroupAttributes
 > {
   public static readonly Type = "AWS::Shield::ProtectionGroup";
-  public static readonly AttributeNames = ["ProtectionGroupArn" as const];
   constructor(
     logicalId: string,
     properties: ShieldProtectionGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ShieldProtectionGroup.Type,
-      properties,
-      ShieldProtectionGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, ShieldProtectionGroup.Type, properties, options);
   }
 }

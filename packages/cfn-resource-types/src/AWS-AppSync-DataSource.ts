@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppSync::DataSource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html}
@@ -129,21 +129,11 @@ export class AppSyncDataSource extends $Resource<
   AppSyncDataSourceAttributes
 > {
   public static readonly Type = "AWS::AppSync::DataSource";
-  public static readonly AttributeNames = [
-    "DataSourceArn" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppSyncDataSourceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppSyncDataSource.Type,
-      properties,
-      AppSyncDataSource.AttributeNames,
-      options,
-    );
+    super(logicalId, AppSyncDataSource.Type, properties, options);
   }
 }

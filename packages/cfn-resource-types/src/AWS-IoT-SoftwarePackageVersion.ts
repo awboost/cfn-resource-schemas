@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::SoftwarePackageVersion`.
  * resource definition
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type IoTSoftwarePackageVersionProperties = {
   Attributes?: ResourceAttributes;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    * @pattern `^[^\p{C}]+$`
    */
@@ -80,22 +81,11 @@ export class IoTSoftwarePackageVersion extends $Resource<
   IoTSoftwarePackageVersionAttributes
 > {
   public static readonly Type = "AWS::IoT::SoftwarePackageVersion";
-  public static readonly AttributeNames = [
-    "ErrorReason" as const,
-    "PackageVersionArn" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTSoftwarePackageVersionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTSoftwarePackageVersion.Type,
-      properties,
-      IoTSoftwarePackageVersion.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTSoftwarePackageVersion.Type, properties, options);
   }
 }

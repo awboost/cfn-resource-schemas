@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppConfig::Application
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html}
@@ -43,6 +43,7 @@ export type Tags = {
   Key: string;
   /**
    * The tag value can be up to 256 characters.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -57,18 +58,11 @@ export class AppConfigApplication extends $Resource<
   AppConfigApplicationAttributes
 > {
   public static readonly Type = "AWS::AppConfig::Application";
-  public static readonly AttributeNames = ["ApplicationId" as const];
   constructor(
     logicalId: string,
     properties: AppConfigApplicationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppConfigApplication.Type,
-      properties,
-      AppConfigApplication.AttributeNames,
-      options,
-    );
+    super(logicalId, AppConfigApplication.Type, properties, options);
   }
 }

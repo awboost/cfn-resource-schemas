@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::Model
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html}
@@ -91,18 +91,11 @@ export class SageMakerModel extends $Resource<
   SageMakerModelAttributes
 > {
   public static readonly Type = "AWS::SageMaker::Model";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: SageMakerModelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerModel.Type,
-      properties,
-      SageMakerModel.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerModel.Type, properties, options);
   }
 }

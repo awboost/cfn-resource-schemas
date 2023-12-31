@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * You can use AWS::Organizations::ResourcePolicy to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-resourcepolicy.html}
@@ -45,6 +45,7 @@ export type Tag = {
   Key: string;
   /**
    * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -59,18 +60,11 @@ export class OrganizationsResourcePolicy extends $Resource<
   OrganizationsResourcePolicyAttributes
 > {
   public static readonly Type = "AWS::Organizations::ResourcePolicy";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: OrganizationsResourcePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OrganizationsResourcePolicy.Type,
-      properties,
-      OrganizationsResourcePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, OrganizationsResourcePolicy.Type, properties, options);
   }
 }

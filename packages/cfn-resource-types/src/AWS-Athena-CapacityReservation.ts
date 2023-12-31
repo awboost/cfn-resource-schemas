@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Athena::CapacityReservation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.html}
@@ -31,6 +31,7 @@ export type AthenaCapacityReservationProperties = {
 export type AthenaCapacityReservationAttributes = {
   /**
    * The number of DPUs Athena has provisioned and allocated for the reservation
+   * @min `0`
    */
   AllocatedDpus: number;
   /**
@@ -90,6 +91,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -104,24 +106,11 @@ export class AthenaCapacityReservation extends $Resource<
   AthenaCapacityReservationAttributes
 > {
   public static readonly Type = "AWS::Athena::CapacityReservation";
-  public static readonly AttributeNames = [
-    "AllocatedDpus" as const,
-    "Arn" as const,
-    "CreationTime" as const,
-    "LastSuccessfulAllocationTime" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AthenaCapacityReservationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AthenaCapacityReservation.Type,
-      properties,
-      AthenaCapacityReservation.AttributeNames,
-      options,
-    );
+    super(logicalId, AthenaCapacityReservation.Type, properties, options);
   }
 }

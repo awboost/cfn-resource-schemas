@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html}
@@ -66,16 +66,6 @@ export class EC2TransitGatewayMulticastGroupMember extends $Resource<
   EC2TransitGatewayMulticastGroupMemberAttributes
 > {
   public static readonly Type = "AWS::EC2::TransitGatewayMulticastGroupMember";
-  public static readonly AttributeNames = [
-    "GroupMember" as const,
-    "GroupSource" as const,
-    "MemberType" as const,
-    "ResourceId" as const,
-    "ResourceType" as const,
-    "SourceType" as const,
-    "SubnetId" as const,
-    "TransitGatewayAttachmentId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2TransitGatewayMulticastGroupMemberProperties,
@@ -85,7 +75,6 @@ export class EC2TransitGatewayMulticastGroupMember extends $Resource<
       logicalId,
       EC2TransitGatewayMulticastGroupMember.Type,
       properties,
-      EC2TransitGatewayMulticastGroupMember.AttributeNames,
       options,
     );
   }

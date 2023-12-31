@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html}
@@ -25,7 +25,6 @@ export class ServiceCatalogTagOptionAssociation extends $Resource<
   ServiceCatalogTagOptionAssociationAttributes
 > {
   public static readonly Type = "AWS::ServiceCatalog::TagOptionAssociation";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ServiceCatalogTagOptionAssociationProperties,
@@ -35,7 +34,6 @@ export class ServiceCatalogTagOptionAssociation extends $Resource<
       logicalId,
       ServiceCatalogTagOptionAssociation.Type,
       properties,
-      ServiceCatalogTagOptionAssociation.AttributeNames,
       options,
     );
   }

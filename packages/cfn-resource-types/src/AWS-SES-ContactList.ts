@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::SES::ContactList.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html}
@@ -17,11 +17,13 @@ export type SESContactListProperties = {
   Description?: string;
   /**
    * The tags (keys and values) associated with the contact list.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
   /**
    * The topics associated with the contact list.
+   * @minLength `0`
    * @maxLength `20`
    */
   Topics?: Topic[];
@@ -37,6 +39,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -49,11 +52,13 @@ export type Topic = {
   DefaultSubscriptionStatus: string;
   /**
    * The description of the topic.
+   * @minLength `0`
    * @maxLength `500`
    */
   Description?: string;
   /**
    * The display name of the topic.
+   * @minLength `0`
    * @maxLength `128`
    */
   DisplayName: string;
@@ -73,18 +78,11 @@ export class SESContactList extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::SES::ContactList";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: SESContactListProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SESContactList.Type,
-      properties,
-      SESContactList.AttributeNames,
-      options,
-    );
+    super(logicalId, SESContactList.Type, properties, options);
   }
 }

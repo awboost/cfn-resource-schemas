@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html}
@@ -282,7 +282,7 @@ export type ModelQualityAppSpecification = {
   /**
    * Sets the environment variables in the Docker container
    */
-  Environment?: Record<string, string | string>;
+  Environment?: Record<string, string>;
   /**
    * The container image to be run by the monitoring job.
    * @maxLength `255`
@@ -508,10 +508,6 @@ export class SageMakerModelQualityJobDefinition extends $Resource<
   SageMakerModelQualityJobDefinitionAttributes
 > {
   public static readonly Type = "AWS::SageMaker::ModelQualityJobDefinition";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "JobDefinitionArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerModelQualityJobDefinitionProperties,
@@ -521,7 +517,6 @@ export class SageMakerModelQualityJobDefinition extends $Resource<
       logicalId,
       SageMakerModelQualityJobDefinition.Type,
       properties,
-      SageMakerModelQualityJobDefinition.AttributeNames,
       options,
     );
   }

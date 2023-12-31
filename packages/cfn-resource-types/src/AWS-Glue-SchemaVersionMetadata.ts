@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Glue::SchemaVersionMetadata`.
  * This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
@@ -35,18 +35,11 @@ export class GlueSchemaVersionMetadata extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Glue::SchemaVersionMetadata";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: GlueSchemaVersionMetadataProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueSchemaVersionMetadata.Type,
-      properties,
-      GlueSchemaVersionMetadata.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueSchemaVersionMetadata.Type, properties, options);
   }
 }

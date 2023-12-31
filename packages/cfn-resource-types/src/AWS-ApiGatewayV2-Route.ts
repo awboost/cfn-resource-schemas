@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html}
@@ -62,13 +62,6 @@ export type ApiGatewayV2RouteAttributes = {
   RouteId: string;
 };
 /**
- * Type definition for `AWS::ApiGatewayV2::Route.ParameterConstraints`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-route-parameterconstraints.html}
- */
-export type ParameterConstraints = {
-  Required: boolean;
-};
-/**
  * The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html}
  */
@@ -78,18 +71,11 @@ export class ApiGatewayV2Route extends $Resource<
   ApiGatewayV2RouteAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::Route";
-  public static readonly AttributeNames = ["RouteId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2RouteProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2Route.Type,
-      properties,
-      ApiGatewayV2Route.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2Route.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Redshift::Cluster`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -97,7 +97,6 @@ export type RedshiftClusterProperties = {
    * If true, the data in the cluster is encrypted at rest.
    */
   Encrypted?: boolean;
-  Endpoint?: Endpoint;
   /**
      * An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
     
@@ -224,15 +223,11 @@ export type RedshiftClusterAttributes = {
    * A unique identifier for the deferred maintenance window.
    */
   DeferMaintenanceIdentifier: string;
+  Endpoint: {
+    Address: string;
+    Port: string;
+  };
   Id: string;
-};
-/**
- * Type definition for `AWS::Redshift::Cluster.Endpoint`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html}
- */
-export type Endpoint = {
-  Address?: string;
-  Port?: string;
 };
 /**
  * Type definition for `AWS::Redshift::Cluster.LoggingProperties`.
@@ -272,21 +267,11 @@ export class RedshiftCluster extends $Resource<
   RedshiftClusterAttributes
 > {
   public static readonly Type = "AWS::Redshift::Cluster";
-  public static readonly AttributeNames = [
-    "DeferMaintenanceIdentifier" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RedshiftClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RedshiftCluster.Type,
-      properties,
-      RedshiftCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, RedshiftCluster.Type, properties, options);
   }
 }

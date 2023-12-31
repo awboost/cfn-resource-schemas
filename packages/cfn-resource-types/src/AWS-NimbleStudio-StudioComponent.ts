@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::NimbleStudio::StudioComponent`.
  * Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
@@ -9,41 +9,16 @@ export type NimbleStudioStudioComponentProperties = {
   /**
    * <p>The configuration of the studio component, based on component type.</p>
    */
-  Configuration?:
-    | {
-        /**
-         * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
-                    resource.</p>
-         */
-        ActiveDirectoryConfiguration: ActiveDirectoryConfiguration;
-      }
-    | {
-        /**
-         * <p>The configuration for a render farm that is associated with a studio resource.</p>
-         */
-        ComputeFarmConfiguration: ComputeFarmConfiguration;
-      }
-    | {
-        /**
-         * <p>The configuration for a license service that is associated with a studio
-                    resource.</p>
-         */
-        LicenseServiceConfiguration: LicenseServiceConfiguration;
-      }
-    | {
-        /**
-         * <p>The configuration for a shared file storage system that is associated with a studio
-                    resource.</p>
-         */
-        SharedFileSystemConfiguration: SharedFileSystemConfiguration;
-      };
+  Configuration?: StudioComponentConfiguration;
   /**
    * <p>The description.</p>
+   * @minLength `0`
    * @maxLength `256`
    */
   Description?: string;
   /**
    * <p>The EC2 security groups that control access to the studio component.</p>
+   * @minLength `0`
    * @maxLength `30`
    */
   Ec2SecurityGroupIds?: string[];
@@ -53,19 +28,23 @@ export type NimbleStudioStudioComponentProperties = {
   InitializationScripts?: StudioComponentInitializationScript[];
   /**
    * <p>The name for the studio component.</p>
+   * @minLength `0`
    * @maxLength `64`
    */
   Name: string;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    */
   RuntimeRoleArn?: string;
   /**
    * <p>Parameters for the studio component scripts.</p>
+   * @minLength `0`
    * @maxLength `30`
    */
   ScriptParameters?: ScriptParameterKeyValue[];
   /**
+   * @minLength `0`
    * @maxLength `2048`
    */
   SecureInitializationRoleArn?: string;
@@ -113,6 +92,7 @@ export type ActiveDirectoryComputerAttribute = {
 export type ActiveDirectoryConfiguration = {
   /**
    * <p>A collection of custom attributes for an Active Directory computer.</p>
+   * @minLength `0`
    * @maxLength `50`
    */
   ComputerAttributes?: ActiveDirectoryComputerAttribute[];
@@ -202,6 +182,7 @@ export type SharedFileSystemConfiguration = {
   FileSystemId?: string;
   /**
    * <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+   * @minLength `0`
    * @maxLength `128`
    * @pattern `^(/?|(\$HOME)?(/[^/\n\s\\]+)*)$`
    */
@@ -217,6 +198,39 @@ export type SharedFileSystemConfiguration = {
   WindowsMountDrive?: string;
 };
 /**
+ * Type definition for `AWS::NimbleStudio::StudioComponent.StudioComponentConfiguration`.
+ * <p>The configuration of the studio component, based on component type.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html}
+ */
+export type StudioComponentConfiguration =
+  | {
+      /**
+     * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
+                resource.</p>
+     */
+      ActiveDirectoryConfiguration: ActiveDirectoryConfiguration;
+    }
+  | {
+      /**
+       * <p>The configuration for a render farm that is associated with a studio resource.</p>
+       */
+      ComputeFarmConfiguration: ComputeFarmConfiguration;
+    }
+  | {
+      /**
+     * <p>The configuration for a license service that is associated with a studio
+                resource.</p>
+     */
+      LicenseServiceConfiguration: LicenseServiceConfiguration;
+    }
+  | {
+      /**
+     * <p>The configuration for a shared file storage system that is associated with a studio
+                resource.</p>
+     */
+      SharedFileSystemConfiguration: SharedFileSystemConfiguration;
+    };
+/**
  * Type definition for `AWS::NimbleStudio::StudioComponent.StudioComponentInitializationScript`.
  * <p>Initialization scripts for studio components.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html}
@@ -225,6 +239,7 @@ export type StudioComponentInitializationScript = {
   /**
      * <p>The version number of the protocol that is used by the launch profile. The only valid
                 version is "2021-03-31".</p>
+     * @minLength `0`
      * @maxLength `10`
      * @pattern `^2021\-03\-31$`
      */
@@ -280,18 +295,11 @@ export class NimbleStudioStudioComponent extends $Resource<
   NimbleStudioStudioComponentAttributes
 > {
   public static readonly Type = "AWS::NimbleStudio::StudioComponent";
-  public static readonly AttributeNames = ["StudioComponentId" as const];
   constructor(
     logicalId: string,
     properties: NimbleStudioStudioComponentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NimbleStudioStudioComponent.Type,
-      properties,
-      NimbleStudioStudioComponent.AttributeNames,
-      options,
-    );
+    super(logicalId, NimbleStudioStudioComponent.Type, properties, options);
   }
 }

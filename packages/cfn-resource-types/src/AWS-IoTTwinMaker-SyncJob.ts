@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::IoTTwinMaker::SyncJob
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html}
@@ -68,23 +68,11 @@ export class IoTTwinMakerSyncJob extends $Resource<
   IoTTwinMakerSyncJobAttributes
 > {
   public static readonly Type = "AWS::IoTTwinMaker::SyncJob";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationDateTime" as const,
-    "State" as const,
-    "UpdateDateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTTwinMakerSyncJobProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTTwinMakerSyncJob.Type,
-      properties,
-      IoTTwinMakerSyncJob.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTTwinMakerSyncJob.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ServiceDiscovery::PrivateDnsNamespace
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html}
@@ -59,11 +59,6 @@ export class ServiceDiscoveryPrivateDnsNamespace extends $Resource<
   ServiceDiscoveryPrivateDnsNamespaceAttributes
 > {
   public static readonly Type = "AWS::ServiceDiscovery::PrivateDnsNamespace";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "HostedZoneId" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ServiceDiscoveryPrivateDnsNamespaceProperties,
@@ -73,7 +68,6 @@ export class ServiceDiscoveryPrivateDnsNamespace extends $Resource<
       logicalId,
       ServiceDiscoveryPrivateDnsNamespace.Type,
       properties,
-      ServiceDiscoveryPrivateDnsNamespace.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::AppConfig::ConfigurationProfile`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -13,6 +13,7 @@ export type AppConfigConfigurationProfileProperties = {
   ApplicationId: string;
   /**
    * A description of the configuration profile.
+   * @minLength `0`
    * @maxLength `1024`
    */
   Description?: string;
@@ -87,6 +88,7 @@ export type Tags = {
   Key?: string;
   /**
    * The tag value can be up to 256 characters.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -99,6 +101,7 @@ export type Tags = {
 export type Validators = {
   /**
    * Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
+   * @minLength `0`
    * @maxLength `32768`
    */
   Content?: string;
@@ -118,21 +121,11 @@ export class AppConfigConfigurationProfile extends $Resource<
   AppConfigConfigurationProfileAttributes
 > {
   public static readonly Type = "AWS::AppConfig::ConfigurationProfile";
-  public static readonly AttributeNames = [
-    "ConfigurationProfileId" as const,
-    "KmsKeyArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppConfigConfigurationProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppConfigConfigurationProfile.Type,
-      properties,
-      AppConfigConfigurationProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, AppConfigConfigurationProfile.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Config::OrganizationConformancePack.
  * @see {@link https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html}
@@ -7,21 +7,25 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type ConfigOrganizationConformancePackProperties = {
   /**
    * A list of ConformancePackInputParameter objects.
+   * @minLength `0`
    * @maxLength `60`
    */
   ConformancePackInputParameters?: ConformancePackInputParameter[];
   /**
    * AWS Config stores intermediate files while processing conformance pack template.
+   * @minLength `0`
    * @maxLength `63`
    */
   DeliveryS3Bucket?: string;
   /**
    * The prefix for the delivery S3 bucket.
+   * @minLength `0`
    * @maxLength `1024`
    */
   DeliveryS3KeyPrefix?: string;
   /**
    * A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
+   * @minLength `0`
    * @maxLength `1000`
    */
   ExcludedAccounts?: string[];
@@ -53,10 +57,12 @@ export type ConfigOrganizationConformancePackProperties = {
  */
 export type ConformancePackInputParameter = {
   /**
+   * @minLength `0`
    * @maxLength `255`
    */
   ParameterName: string;
   /**
+   * @minLength `0`
    * @maxLength `4096`
    */
   ParameterValue: string;
@@ -71,7 +77,6 @@ export class ConfigOrganizationConformancePack extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Config::OrganizationConformancePack";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: ConfigOrganizationConformancePackProperties,
@@ -81,7 +86,6 @@ export class ConfigOrganizationConformancePack extends $Resource<
       logicalId,
       ConfigOrganizationConformancePack.Type,
       properties,
-      ConfigOrganizationConformancePack.AttributeNames,
       options,
     );
   }

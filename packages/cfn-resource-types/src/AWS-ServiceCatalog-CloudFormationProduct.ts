@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html}
@@ -83,12 +83,6 @@ export class ServiceCatalogCloudFormationProduct extends $Resource<
   ServiceCatalogCloudFormationProductAttributes
 > {
   public static readonly Type = "AWS::ServiceCatalog::CloudFormationProduct";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "ProductName" as const,
-    "ProvisioningArtifactIds" as const,
-    "ProvisioningArtifactNames" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ServiceCatalogCloudFormationProductProperties,
@@ -98,7 +92,6 @@ export class ServiceCatalogCloudFormationProduct extends $Resource<
       logicalId,
       ServiceCatalogCloudFormationProduct.Type,
       properties,
-      ServiceCatalogCloudFormationProduct.AttributeNames,
       options,
     );
   }

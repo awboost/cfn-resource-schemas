@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::OpsWorks::Instance
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html}
@@ -82,24 +82,11 @@ export class OpsWorksInstance extends $Resource<
   OpsWorksInstanceAttributes
 > {
   public static readonly Type = "AWS::OpsWorks::Instance";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "PrivateDnsName" as const,
-    "PrivateIp" as const,
-    "PublicDnsName" as const,
-    "PublicIp" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OpsWorksInstanceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OpsWorksInstance.Type,
-      properties,
-      OpsWorksInstance.AttributeNames,
-      options,
-    );
+    super(logicalId, OpsWorksInstance.Type, properties, options);
   }
 }

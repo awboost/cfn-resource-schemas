@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::BillingConductor::BillingGroup`.
  * A billing group is a set of linked account which belong to the same end customer. It can be seen as a virtual consolidated billing family.
@@ -104,25 +104,11 @@ export class BillingConductorBillingGroup extends $Resource<
   BillingConductorBillingGroupAttributes
 > {
   public static readonly Type = "AWS::BillingConductor::BillingGroup";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "LastModifiedTime" as const,
-    "Size" as const,
-    "Status" as const,
-    "StatusReason" as const,
-  ];
   constructor(
     logicalId: string,
     properties: BillingConductorBillingGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BillingConductorBillingGroup.Type,
-      properties,
-      BillingConductorBillingGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, BillingConductorBillingGroup.Type, properties, options);
   }
 }

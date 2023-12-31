@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CleanRooms::ConfiguredTable`.
  * Represents a table that can be associated with collaborations
@@ -134,7 +134,13 @@ export type AnalysisRuleAggregation = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html}
  */
 export type AnalysisRuleCustom = {
+  /**
+   * @minLength `0`
+   */
   AllowedAnalyses: string[];
+  /**
+   * @minLength `0`
+   */
   AllowedAnalysisProviders?: string[];
 };
 /**
@@ -157,17 +163,22 @@ export type AnalysisRuleList = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html}
  */
 export type ConfiguredTableAnalysisRulePolicy = {
-  V1:
-    | {
-        List: AnalysisRuleList;
-      }
-    | {
-        Aggregation: AnalysisRuleAggregation;
-      }
-    | {
-        Custom: AnalysisRuleCustom;
-      };
+  V1: ConfiguredTableAnalysisRulePolicyV1;
 };
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTable.ConfiguredTableAnalysisRulePolicyV1`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicyv1.html}
+ */
+export type ConfiguredTableAnalysisRulePolicyV1 =
+  | {
+      List: AnalysisRuleList;
+    }
+  | {
+      Aggregation: AnalysisRuleAggregation;
+    }
+  | {
+      Custom: AnalysisRuleCustom;
+    };
 /**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.ConfiguredTableAnalysisRuleType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisruletype.html}
@@ -251,21 +262,11 @@ export class CleanRoomsConfiguredTable extends $Resource<
   CleanRoomsConfiguredTableAttributes
 > {
   public static readonly Type = "AWS::CleanRooms::ConfiguredTable";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "ConfiguredTableIdentifier" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CleanRoomsConfiguredTableProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CleanRoomsConfiguredTable.Type,
-      properties,
-      CleanRoomsConfiguredTable.AttributeNames,
-      options,
-    );
+    super(logicalId, CleanRoomsConfiguredTable.Type, properties, options);
   }
 }

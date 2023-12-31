@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::EKS::Nodegroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html}
@@ -122,11 +122,17 @@ export type RemoteAccess = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-scalingconfig.html}
  */
 export type ScalingConfig = {
+  /**
+   * @min `0`
+   */
   DesiredSize?: number;
   /**
    * @min `1`
    */
   MaxSize?: number;
+  /**
+   * @min `0`
+   */
   MinSize?: number;
 };
 /**
@@ -143,6 +149,9 @@ export type Taint = {
    * @minLength `1`
    */
   Key?: string;
+  /**
+   * @minLength `0`
+   */
   Value?: string;
 };
 /**
@@ -173,18 +182,11 @@ export class EKSNodegroup extends $Resource<
   EKSNodegroupAttributes
 > {
   public static readonly Type = "AWS::EKS::Nodegroup";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: EKSNodegroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EKSNodegroup.Type,
-      properties,
-      EKSNodegroup.AttributeNames,
-      options,
-    );
+    super(logicalId, EKSNodegroup.Type, properties, options);
   }
 }

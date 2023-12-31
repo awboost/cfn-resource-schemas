@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::CustomMetric`.
  * A custom metric published by your devices to Device Defender.
@@ -70,18 +70,11 @@ export class IoTCustomMetric extends $Resource<
   IoTCustomMetricAttributes
 > {
   public static readonly Type = "AWS::IoT::CustomMetric";
-  public static readonly AttributeNames = ["MetricArn" as const];
   constructor(
     logicalId: string,
     properties: IoTCustomMetricProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTCustomMetric.Type,
-      properties,
-      IoTCustomMetric.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTCustomMetric.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::EC2::TransitGatewayMulticastDomain type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html}
@@ -77,12 +77,6 @@ export class EC2TransitGatewayMulticastDomain extends $Resource<
   EC2TransitGatewayMulticastDomainAttributes
 > {
   public static readonly Type = "AWS::EC2::TransitGatewayMulticastDomain";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "State" as const,
-    "TransitGatewayMulticastDomainArn" as const,
-    "TransitGatewayMulticastDomainId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2TransitGatewayMulticastDomainProperties,
@@ -92,7 +86,6 @@ export class EC2TransitGatewayMulticastDomain extends $Resource<
       logicalId,
       EC2TransitGatewayMulticastDomain.Type,
       properties,
-      EC2TransitGatewayMulticastDomain.AttributeNames,
       options,
     );
   }

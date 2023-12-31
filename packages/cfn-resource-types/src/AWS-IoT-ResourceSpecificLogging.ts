@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::ResourceSpecificLogging`.
  * Resource-specific logging allows you to specify a logging level for a specific thing group.
@@ -29,7 +29,7 @@ export type IoTResourceSpecificLoggingProperties = {
 };
 /**
  * Attribute type definition for `AWS::IoT::ResourceSpecificLogging`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-resourcespecificlogging.html#aws-resource-iot-resourcespecificlogging-return-values}
+ * @see {@link https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html}
  */
 export type IoTResourceSpecificLoggingAttributes = {
   /**
@@ -51,18 +51,11 @@ export class IoTResourceSpecificLogging extends $Resource<
   IoTResourceSpecificLoggingAttributes
 > {
   public static readonly Type = "AWS::IoT::ResourceSpecificLogging";
-  public static readonly AttributeNames = ["TargetId" as const];
   constructor(
     logicalId: string,
     properties: IoTResourceSpecificLoggingProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTResourceSpecificLogging.Type,
-      properties,
-      IoTResourceSpecificLogging.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTResourceSpecificLogging.Type, properties, options);
   }
 }

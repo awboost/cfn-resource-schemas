@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SSM::Parameter
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html}
@@ -52,18 +52,11 @@ export class SSMParameter extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::SSM::Parameter";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: SSMParameterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SSMParameter.Type,
-      properties,
-      SSMParameter.AttributeNames,
-      options,
-    );
+    super(logicalId, SSMParameter.Type, properties, options);
   }
 }

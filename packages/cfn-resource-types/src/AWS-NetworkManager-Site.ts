@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::NetworkManager::Site type describes a site.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html}
@@ -88,23 +88,11 @@ export class NetworkManagerSite extends $Resource<
   NetworkManagerSiteAttributes
 > {
   public static readonly Type = "AWS::NetworkManager::Site";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "SiteArn" as const,
-    "SiteId" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkManagerSiteProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NetworkManagerSite.Type,
-      properties,
-      NetworkManagerSite.AttributeNames,
-      options,
-    );
+    super(logicalId, NetworkManagerSite.Type, properties, options);
   }
 }

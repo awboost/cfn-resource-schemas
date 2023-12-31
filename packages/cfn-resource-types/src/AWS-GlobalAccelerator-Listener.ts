@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::GlobalAccelerator::Listener
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html}
@@ -37,11 +37,13 @@ export type GlobalAcceleratorListenerAttributes = {
 export type PortRange = {
   /**
    * A network port number
+   * @min `0`
    * @max `65535`
    */
   FromPort: number;
   /**
    * A network port number
+   * @min `0`
    * @max `65535`
    */
   ToPort: number;
@@ -56,18 +58,11 @@ export class GlobalAcceleratorListener extends $Resource<
   GlobalAcceleratorListenerAttributes
 > {
   public static readonly Type = "AWS::GlobalAccelerator::Listener";
-  public static readonly AttributeNames = ["ListenerArn" as const];
   constructor(
     logicalId: string,
     properties: GlobalAcceleratorListenerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlobalAcceleratorListener.Type,
-      properties,
-      GlobalAcceleratorListener.AttributeNames,
-      options,
-    );
+    super(logicalId, GlobalAcceleratorListener.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Grafana::Workspace Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-grafana-workspace.html}
@@ -25,6 +25,7 @@ export type GrafanaWorkspaceProperties = {
   DataSources?: DataSourceType[];
   /**
    * Description of a workspace.
+   * @minLength `0`
    * @maxLength `2048`
    */
   Description?: string;
@@ -215,11 +216,13 @@ export type IdpMetadata = {
 export type NetworkAccessControl = {
   /**
    * The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
+   * @minLength `0`
    * @maxLength `5`
    */
   PrefixListIds?: string[];
   /**
    * The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
+   * @minLength `0`
    * @maxLength `5`
    */
   VpceIds?: string[];
@@ -332,26 +335,11 @@ export class GrafanaWorkspace extends $Resource<
   GrafanaWorkspaceAttributes
 > {
   public static readonly Type = "AWS::Grafana::Workspace";
-  public static readonly AttributeNames = [
-    "CreationTimestamp" as const,
-    "Endpoint" as const,
-    "Id" as const,
-    "ModificationTimestamp" as const,
-    "SamlConfigurationStatus" as const,
-    "SsoClientId" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: GrafanaWorkspaceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GrafanaWorkspace.Type,
-      properties,
-      GrafanaWorkspace.AttributeNames,
-      options,
-    );
+    super(logicalId, GrafanaWorkspace.Type, properties, options);
   }
 }

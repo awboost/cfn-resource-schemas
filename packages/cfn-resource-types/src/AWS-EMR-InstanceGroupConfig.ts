@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EMR::InstanceGroupConfig
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html}
@@ -142,18 +142,11 @@ export class EMRInstanceGroupConfig extends $Resource<
   EMRInstanceGroupConfigAttributes
 > {
   public static readonly Type = "AWS::EMR::InstanceGroupConfig";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EMRInstanceGroupConfigProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EMRInstanceGroupConfig.Type,
-      properties,
-      EMRInstanceGroupConfig.AttributeNames,
-      options,
-    );
+    super(logicalId, EMRInstanceGroupConfig.Type, properties, options);
   }
 }

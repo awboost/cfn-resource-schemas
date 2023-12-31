@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Lambda::LayerVersionPermission`.
  * Schema for Lambda LayerVersionPermission
@@ -44,18 +44,11 @@ export class LambdaLayerVersionPermission extends $Resource<
   LambdaLayerVersionPermissionAttributes
 > {
   public static readonly Type = "AWS::Lambda::LayerVersionPermission";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: LambdaLayerVersionPermissionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LambdaLayerVersionPermission.Type,
-      properties,
-      LambdaLayerVersionPermission.AttributeNames,
-      options,
-    );
+    super(logicalId, LambdaLayerVersionPermission.Type, properties, options);
   }
 }

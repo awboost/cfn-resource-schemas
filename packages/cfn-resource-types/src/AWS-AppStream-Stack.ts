@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppStream::Stack
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html}
@@ -86,18 +86,11 @@ export class AppStreamStack extends $Resource<
   AppStreamStackAttributes
 > {
   public static readonly Type = "AWS::AppStream::Stack";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: AppStreamStackProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppStreamStack.Type,
-      properties,
-      AppStreamStack.AttributeNames,
-      options,
-    );
+    super(logicalId, AppStreamStack.Type, properties, options);
   }
 }

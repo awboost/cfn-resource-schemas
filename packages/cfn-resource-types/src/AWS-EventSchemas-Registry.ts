@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EventSchemas::Registry
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html}
@@ -35,21 +35,11 @@ export class EventSchemasRegistry extends $Resource<
   EventSchemasRegistryAttributes
 > {
   public static readonly Type = "AWS::EventSchemas::Registry";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "RegistryArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EventSchemasRegistryProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EventSchemasRegistry.Type,
-      properties,
-      EventSchemasRegistry.AttributeNames,
-      options,
-    );
+    super(logicalId, EventSchemasRegistry.Type, properties, options);
   }
 }

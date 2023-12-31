@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IAM::AccessKey
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-accesskey.html}
@@ -27,21 +27,11 @@ export class IAMAccessKey extends $Resource<
   IAMAccessKeyAttributes
 > {
   public static readonly Type = "AWS::IAM::AccessKey";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "SecretAccessKey" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IAMAccessKeyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IAMAccessKey.Type,
-      properties,
-      IAMAccessKey.AttributeNames,
-      options,
-    );
+    super(logicalId, IAMAccessKey.Type, properties, options);
   }
 }

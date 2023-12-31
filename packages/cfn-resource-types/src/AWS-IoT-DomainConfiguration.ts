@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::DomainConfiguration`.
  * Create and manage a Domain Configuration
@@ -20,6 +20,7 @@ export type IoTDomainConfigurationProperties = {
    */
   DomainName?: string;
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   ServerCertificateArns?: string[];
@@ -38,7 +39,7 @@ export type IoTDomainConfigurationProperties = {
 export type IoTDomainConfigurationAttributes = {
   Arn: string;
   DomainType: "ENDPOINT" | "AWS_MANAGED" | "CUSTOMER_MANAGED";
-  ServerCertificates: ServerCertificateSummary[];
+  ServerCertificates: {}[];
 };
 /**
  * Type definition for `AWS::IoT::DomainConfiguration.AuthorizerConfig`.
@@ -96,22 +97,11 @@ export class IoTDomainConfiguration extends $Resource<
   IoTDomainConfigurationAttributes
 > {
   public static readonly Type = "AWS::IoT::DomainConfiguration";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "DomainType" as const,
-    "ServerCertificates" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTDomainConfigurationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTDomainConfiguration.Type,
-      properties,
-      IoTDomainConfiguration.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTDomainConfiguration.Type, properties, options);
   }
 }

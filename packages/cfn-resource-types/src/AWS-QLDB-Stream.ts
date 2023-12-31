@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::QLDB::Stream.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html}
@@ -71,18 +71,11 @@ export class QLDBStream extends $Resource<
   QLDBStreamAttributes
 > {
   public static readonly Type = "AWS::QLDB::Stream";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: QLDBStreamProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      QLDBStream.Type,
-      properties,
-      QLDBStream.AttributeNames,
-      options,
-    );
+    super(logicalId, QLDBStream.Type, properties, options);
   }
 }

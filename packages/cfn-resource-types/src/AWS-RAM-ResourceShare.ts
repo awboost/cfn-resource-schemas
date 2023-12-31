@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::RAM::ResourceShare
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html}
@@ -39,18 +39,11 @@ export class RAMResourceShare extends $Resource<
   RAMResourceShareAttributes
 > {
   public static readonly Type = "AWS::RAM::ResourceShare";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: RAMResourceShareProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RAMResourceShare.Type,
-      properties,
-      RAMResourceShare.AttributeNames,
-      options,
-    );
+    super(logicalId, RAMResourceShare.Type, properties, options);
   }
 }

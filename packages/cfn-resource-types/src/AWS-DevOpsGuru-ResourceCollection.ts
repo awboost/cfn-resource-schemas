@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::DevOpsGuru::ResourceCollection`.
  * This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
@@ -79,18 +79,11 @@ export class DevOpsGuruResourceCollection extends $Resource<
   DevOpsGuruResourceCollectionAttributes
 > {
   public static readonly Type = "AWS::DevOpsGuru::ResourceCollection";
-  public static readonly AttributeNames = ["ResourceCollectionType" as const];
   constructor(
     logicalId: string,
     properties: DevOpsGuruResourceCollectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DevOpsGuruResourceCollection.Type,
-      properties,
-      DevOpsGuruResourceCollection.AttributeNames,
-      options,
-    );
+    super(logicalId, DevOpsGuruResourceCollection.Type, properties, options);
   }
 }

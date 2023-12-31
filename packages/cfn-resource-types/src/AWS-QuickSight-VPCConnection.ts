@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of the AWS::QuickSight::VPCConnection Resource Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-vpcconnection.html}
@@ -52,7 +52,7 @@ export type QuickSightVPCConnectionAttributes = {
   /**
    * @maxLength `15`
    */
-  NetworkInterfaces: NetworkInterface[];
+  NetworkInterfaces: {}[];
   Status: VPCConnectionResourceStatus;
   VPCId: string;
 };
@@ -134,25 +134,11 @@ export class QuickSightVPCConnection extends $Resource<
   QuickSightVPCConnectionAttributes
 > {
   public static readonly Type = "AWS::QuickSight::VPCConnection";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "LastUpdatedTime" as const,
-    "NetworkInterfaces" as const,
-    "Status" as const,
-    "VPCId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: QuickSightVPCConnectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      QuickSightVPCConnection.Type,
-      properties,
-      QuickSightVPCConnection.AttributeNames,
-      options,
-    );
+    super(logicalId, QuickSightVPCConnection.Type, properties, options);
   }
 }

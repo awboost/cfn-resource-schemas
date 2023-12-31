@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::WAFv2::LoggingConfiguration`.
  * A WAFv2 Logging Configuration Resource Provider
@@ -158,18 +158,11 @@ export class WAFv2LoggingConfiguration extends $Resource<
   WAFv2LoggingConfigurationAttributes
 > {
   public static readonly Type = "AWS::WAFv2::LoggingConfiguration";
-  public static readonly AttributeNames = ["ManagedByFirewallManager" as const];
   constructor(
     logicalId: string,
     properties: WAFv2LoggingConfigurationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFv2LoggingConfiguration.Type,
-      properties,
-      WAFv2LoggingConfiguration.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFv2LoggingConfiguration.Type, properties, options);
   }
 }

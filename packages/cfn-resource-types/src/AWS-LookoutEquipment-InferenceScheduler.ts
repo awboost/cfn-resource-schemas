@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::LookoutEquipment::InferenceScheduler`.
  * Resource schema for LookoutEquipment InferenceScheduler.
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type LookoutEquipmentInferenceSchedulerProperties = {
   /**
    * A period of time (in minutes) by which inference on the data is delayed after the data starts.
+   * @min `0`
    * @max `60`
    */
   DataDelayOffsetInMinutes?: number;
@@ -104,6 +105,7 @@ export type LookoutEquipmentInferenceSchedulerAttributes = {
 export type InputNameConfiguration = {
   /**
    * Indicates the delimiter character used between items in the data.
+   * @minLength `0`
    * @maxLength `1`
    * @pattern `^(\-|\_|\s)?$`
    */
@@ -127,6 +129,7 @@ export type S3InputConfiguration = {
    */
   Bucket: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Prefix?: string;
@@ -144,6 +147,7 @@ export type S3OutputConfiguration = {
    */
   Bucket: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Prefix?: string;
@@ -163,6 +167,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the specified tag.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `[\s\w+-=\.:/@]*`
    */
@@ -179,7 +184,6 @@ export class LookoutEquipmentInferenceScheduler extends $Resource<
   LookoutEquipmentInferenceSchedulerAttributes
 > {
   public static readonly Type = "AWS::LookoutEquipment::InferenceScheduler";
-  public static readonly AttributeNames = ["InferenceSchedulerArn" as const];
   constructor(
     logicalId: string,
     properties: LookoutEquipmentInferenceSchedulerProperties,
@@ -189,7 +193,6 @@ export class LookoutEquipmentInferenceScheduler extends $Resource<
       logicalId,
       LookoutEquipmentInferenceScheduler.Type,
       properties,
-      LookoutEquipmentInferenceScheduler.AttributeNames,
       options,
     );
   }

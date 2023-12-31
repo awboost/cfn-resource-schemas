@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoTWireless::FuotaTask`.
  * Create and manage FUOTA tasks.
@@ -88,11 +88,6 @@ export type LoRaWAN = {
    * @maxLength `64`
    */
   RfRegion: string;
-  /**
-   * FUOTA task LoRaWAN start time
-   * @maxLength `64`
-   */
-  StartTime?: string;
 };
 /**
  * Type definition for `AWS::IoTWireless::FuotaTask.Tag`.
@@ -105,6 +100,7 @@ export type Tag = {
    */
   Key?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -120,22 +116,11 @@ export class IoTWirelessFuotaTask extends $Resource<
   IoTWirelessFuotaTaskAttributes
 > {
   public static readonly Type = "AWS::IoTWireless::FuotaTask";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "FuotaTaskStatus" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTWirelessFuotaTaskProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTWirelessFuotaTask.Type,
-      properties,
-      IoTWirelessFuotaTask.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTWirelessFuotaTask.Type, properties, options);
   }
 }

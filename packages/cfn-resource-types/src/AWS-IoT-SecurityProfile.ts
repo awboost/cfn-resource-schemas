@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::SecurityProfile`.
  * A security profile defines a set of expected behaviors for devices in your account.
@@ -306,18 +306,11 @@ export class IoTSecurityProfile extends $Resource<
   IoTSecurityProfileAttributes
 > {
   public static readonly Type = "AWS::IoT::SecurityProfile";
-  public static readonly AttributeNames = ["SecurityProfileArn" as const];
   constructor(
     logicalId: string,
     properties: IoTSecurityProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTSecurityProfile.Type,
-      properties,
-      IoTSecurityProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTSecurityProfile.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CE::AnomalySubscription`.
  * AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
@@ -16,6 +16,7 @@ export type CEAnomalySubscriptionProperties = {
   MonitorArnList: string[];
   /**
    * Tags to assign to subscription.
+   * @minLength `0`
    * @maxLength `200`
    */
   ResourceTags?: ResourceTag[];
@@ -25,12 +26,14 @@ export type CEAnomalySubscriptionProperties = {
   Subscribers: Subscriber[];
   /**
    * The name of the subscription.
+   * @minLength `0`
    * @maxLength `1024`
    * @pattern `[\S\s]*`
    */
   SubscriptionName: string;
   /**
    * The dollar value that triggers a notification if the threshold is exceeded.
+   * @min `0`
    */
   Threshold?: number;
   /**
@@ -45,6 +48,7 @@ export type CEAnomalySubscriptionProperties = {
 export type CEAnomalySubscriptionAttributes = {
   /**
    * The accountId
+   * @minLength `0`
    * @maxLength `1024`
    */
   AccountId: string;
@@ -69,6 +73,7 @@ export type ResourceTag = {
   Key: string;
   /**
    * The value for the tag.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -82,7 +87,6 @@ export type Subscriber = {
    * @pattern `(^[a-zA-Z0-9.!#$%&'*+=?^_‘{|}~-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$)|(^arn:(aws[a-zA-Z-]*):sns:[a-zA-Z0-9-]+:[0-9]{12}:[a-zA-Z0-9_-]+(\.fifo)?$)`
    */
   Address: string;
-  Status?: "CONFIRMED" | "DECLINED";
   Type: "EMAIL" | "SNS";
 };
 /**
@@ -96,21 +100,11 @@ export class CEAnomalySubscription extends $Resource<
   CEAnomalySubscriptionAttributes
 > {
   public static readonly Type = "AWS::CE::AnomalySubscription";
-  public static readonly AttributeNames = [
-    "AccountId" as const,
-    "SubscriptionArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CEAnomalySubscriptionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CEAnomalySubscription.Type,
-      properties,
-      CEAnomalySubscription.AttributeNames,
-      options,
-    );
+    super(logicalId, CEAnomalySubscription.Type, properties, options);
   }
 }

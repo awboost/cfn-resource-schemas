@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Proton::ServiceTemplate Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-proton-servicetemplate.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type ProtonServiceTemplateProperties = {
   /**
    * <p>A description of the service template.</p>
+   * @minLength `0`
    * @maxLength `500`
    */
   Description?: string;
@@ -34,6 +35,7 @@ export type ProtonServiceTemplateProperties = {
      * <p>An optional list of metadata items that you can associate with the Proton service template. A tag is a key-value pair.</p>
              <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
             <i>Proton User Guide</i>.</p>
+     * @minLength `0`
      * @maxLength `50`
      */
   Tags?: Tag[];
@@ -70,6 +72,7 @@ export type Tag = {
   Key: string;
   /**
    * <p>The value of the resource tag.</p>
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -84,18 +87,11 @@ export class ProtonServiceTemplate extends $Resource<
   ProtonServiceTemplateAttributes
 > {
   public static readonly Type = "AWS::Proton::ServiceTemplate";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ProtonServiceTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ProtonServiceTemplate.Type,
-      properties,
-      ProtonServiceTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, ProtonServiceTemplate.Type, properties, options);
   }
 }

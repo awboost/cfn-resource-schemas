@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Events::Rule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html}
@@ -266,18 +266,11 @@ export class EventsRule extends $Resource<
   EventsRuleAttributes
 > {
   public static readonly Type = "AWS::Events::Rule";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: EventsRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EventsRule.Type,
-      properties,
-      EventsRule.AttributeNames,
-      options,
-    );
+    super(logicalId, EventsRule.Type, properties, options);
   }
 }

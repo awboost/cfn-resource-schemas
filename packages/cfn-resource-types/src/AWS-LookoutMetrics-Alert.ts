@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::LookoutMetrics::Alert
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html}
@@ -24,6 +24,7 @@ export type LookoutMetricsAlertProperties = {
   AlertName?: string;
   /**
    * A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
+   * @min `0`
    * @max `100`
    */
   AlertSensitivityThreshold: number;
@@ -108,18 +109,11 @@ export class LookoutMetricsAlert extends $Resource<
   LookoutMetricsAlertAttributes
 > {
   public static readonly Type = "AWS::LookoutMetrics::Alert";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: LookoutMetricsAlertProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LookoutMetricsAlert.Type,
-      properties,
-      LookoutMetricsAlert.AttributeNames,
-      options,
-    );
+    super(logicalId, LookoutMetricsAlert.Type, properties, options);
   }
 }

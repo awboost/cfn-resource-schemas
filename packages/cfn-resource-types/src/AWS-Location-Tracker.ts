@@ -1,11 +1,12 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Location::Tracker Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html}
  */
 export type LocationTrackerProperties = {
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   Description?: string;
@@ -70,23 +71,11 @@ export class LocationTracker extends $Resource<
   LocationTrackerAttributes
 > {
   public static readonly Type = "AWS::Location::Tracker";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreateTime" as const,
-    "TrackerArn" as const,
-    "UpdateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LocationTrackerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LocationTracker.Type,
-      properties,
-      LocationTracker.AttributeNames,
-      options,
-    );
+    super(logicalId, LocationTracker.Type, properties, options);
   }
 }

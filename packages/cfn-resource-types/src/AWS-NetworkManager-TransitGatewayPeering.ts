@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::NetworkManager::TransitGatewayPeering Resoruce Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewaypeering.html}
@@ -74,6 +74,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -88,17 +89,6 @@ export class NetworkManagerTransitGatewayPeering extends $Resource<
   NetworkManagerTransitGatewayPeeringAttributes
 > {
   public static readonly Type = "AWS::NetworkManager::TransitGatewayPeering";
-  public static readonly AttributeNames = [
-    "CoreNetworkArn" as const,
-    "CreatedAt" as const,
-    "EdgeLocation" as const,
-    "OwnerAccountId" as const,
-    "PeeringId" as const,
-    "PeeringType" as const,
-    "ResourceArn" as const,
-    "State" as const,
-    "TransitGatewayPeeringAttachmentId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkManagerTransitGatewayPeeringProperties,
@@ -108,7 +98,6 @@ export class NetworkManagerTransitGatewayPeering extends $Resource<
       logicalId,
       NetworkManagerTransitGatewayPeering.Type,
       properties,
-      NetworkManagerTransitGatewayPeering.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Route53RecoveryControl::Cluster`.
  * AWS Route53 Recovery Control Cluster resource schema
@@ -31,7 +31,7 @@ export type Route53RecoveryControlClusterAttributes = {
   /**
    * Endpoints for the cluster.
    */
-  ClusterEndpoints: ClusterEndpoint[];
+  ClusterEndpoints: {}[];
   /**
    * Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
    */
@@ -79,22 +79,11 @@ export class Route53RecoveryControlCluster extends $Resource<
   Route53RecoveryControlClusterAttributes
 > {
   public static readonly Type = "AWS::Route53RecoveryControl::Cluster";
-  public static readonly AttributeNames = [
-    "ClusterArn" as const,
-    "ClusterEndpoints" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: Route53RecoveryControlClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      Route53RecoveryControlCluster.Type,
-      properties,
-      Route53RecoveryControlCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, Route53RecoveryControlCluster.Type, properties, options);
   }
 }

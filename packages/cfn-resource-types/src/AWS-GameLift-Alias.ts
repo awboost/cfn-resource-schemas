@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html}
@@ -62,18 +62,11 @@ export class GameLiftAlias extends $Resource<
   GameLiftAliasAttributes
 > {
   public static readonly Type = "AWS::GameLift::Alias";
-  public static readonly AttributeNames = ["AliasId" as const];
   constructor(
     logicalId: string,
     properties: GameLiftAliasProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GameLiftAlias.Type,
-      properties,
-      GameLiftAlias.AttributeNames,
-      options,
-    );
+    super(logicalId, GameLiftAlias.Type, properties, options);
   }
 }

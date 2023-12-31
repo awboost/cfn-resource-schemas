@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Config::ConfigurationAggregator
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html}
@@ -62,6 +62,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -76,20 +77,11 @@ export class ConfigConfigurationAggregator extends $Resource<
   ConfigConfigurationAggregatorAttributes
 > {
   public static readonly Type = "AWS::Config::ConfigurationAggregator";
-  public static readonly AttributeNames = [
-    "ConfigurationAggregatorArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ConfigConfigurationAggregatorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConfigConfigurationAggregator.Type,
-      properties,
-      ConfigConfigurationAggregator.AttributeNames,
-      options,
-    );
+    super(logicalId, ConfigConfigurationAggregator.Type, properties, options);
   }
 }

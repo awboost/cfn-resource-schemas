@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-browsersettings.html}
@@ -19,6 +19,7 @@ export type WorkSpacesWebBrowserSettingsProperties = {
    */
   CustomerManagedKey?: string;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -53,6 +54,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
@@ -68,21 +70,11 @@ export class WorkSpacesWebBrowserSettings extends $Resource<
   WorkSpacesWebBrowserSettingsAttributes
 > {
   public static readonly Type = "AWS::WorkSpacesWeb::BrowserSettings";
-  public static readonly AttributeNames = [
-    "AssociatedPortalArns" as const,
-    "BrowserSettingsArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: WorkSpacesWebBrowserSettingsProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WorkSpacesWebBrowserSettings.Type,
-      properties,
-      WorkSpacesWebBrowserSettings.AttributeNames,
-      options,
-    );
+    super(logicalId, WorkSpacesWebBrowserSettings.Type, properties, options);
   }
 }

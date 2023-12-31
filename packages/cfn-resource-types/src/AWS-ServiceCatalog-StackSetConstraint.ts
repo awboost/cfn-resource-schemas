@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ServiceCatalog::StackSetConstraint
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-stacksetconstraint.html}
@@ -32,7 +32,6 @@ export class ServiceCatalogStackSetConstraint extends $Resource<
   ServiceCatalogStackSetConstraintAttributes
 > {
   public static readonly Type = "AWS::ServiceCatalog::StackSetConstraint";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ServiceCatalogStackSetConstraintProperties,
@@ -42,7 +41,6 @@ export class ServiceCatalogStackSetConstraint extends $Resource<
       logicalId,
       ServiceCatalogStackSetConstraint.Type,
       properties,
-      ServiceCatalogStackSetConstraint.AttributeNames,
       options,
     );
   }

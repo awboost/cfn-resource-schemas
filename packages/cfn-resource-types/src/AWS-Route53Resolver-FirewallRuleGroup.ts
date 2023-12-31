@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html}
@@ -105,6 +105,7 @@ export type FirewallRule = {
   BlockOverrideDomain?: string;
   /**
    * BlockOverrideTtl
+   * @min `0`
    * @max `604800`
    */
   BlockOverrideTtl?: number;
@@ -137,6 +138,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `255`
    */
   Value: string;
@@ -151,18 +153,6 @@ export class Route53ResolverFirewallRuleGroup extends $Resource<
   Route53ResolverFirewallRuleGroupAttributes
 > {
   public static readonly Type = "AWS::Route53Resolver::FirewallRuleGroup";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "CreatorRequestId" as const,
-    "Id" as const,
-    "ModificationTime" as const,
-    "OwnerId" as const,
-    "RuleCount" as const,
-    "ShareStatus" as const,
-    "Status" as const,
-    "StatusMessage" as const,
-  ];
   constructor(
     logicalId: string,
     properties: Route53ResolverFirewallRuleGroupProperties,
@@ -172,7 +162,6 @@ export class Route53ResolverFirewallRuleGroup extends $Resource<
       logicalId,
       Route53ResolverFirewallRuleGroup.Type,
       properties,
-      Route53ResolverFirewallRuleGroup.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SQS::Queue
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html}
@@ -108,18 +108,11 @@ export class SQSQueue extends $Resource<
   SQSQueueAttributes
 > {
   public static readonly Type = "AWS::SQS::Queue";
-  public static readonly AttributeNames = ["Arn" as const, "QueueUrl" as const];
   constructor(
     logicalId: string,
     properties: SQSQueueProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SQSQueue.Type,
-      properties,
-      SQSQueue.AttributeNames,
-      options,
-    );
+    super(logicalId, SQSQueue.Type, properties, options);
   }
 }

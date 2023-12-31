@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Cognito::IdentityPool
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html}
@@ -61,18 +61,11 @@ export class CognitoIdentityPool extends $Resource<
   CognitoIdentityPoolAttributes
 > {
   public static readonly Type = "AWS::Cognito::IdentityPool";
-  public static readonly AttributeNames = ["Id" as const, "Name" as const];
   constructor(
     logicalId: string,
     properties: CognitoIdentityPoolProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CognitoIdentityPool.Type,
-      properties,
-      CognitoIdentityPool.AttributeNames,
-      options,
-    );
+    super(logicalId, CognitoIdentityPool.Type, properties, options);
   }
 }

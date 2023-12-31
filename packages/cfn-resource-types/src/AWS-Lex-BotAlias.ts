@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Lex::BotAlias`.
  * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
@@ -147,6 +147,7 @@ export type CloudWatchLogGroupLogDestination = {
   CloudWatchLogGroupArn: string;
   /**
    * A string containing the value for the Log Prefix
+   * @minLength `0`
    * @maxLength `1024`
    */
   LogPrefix: string;
@@ -213,6 +214,7 @@ export type S3BucketLogDestination = {
   KmsKeyArn?: string;
   /**
    * The Amazon S3 key of the deployment package.
+   * @minLength `0`
    * @maxLength `1024`
    */
   LogPrefix: string;
@@ -238,6 +240,7 @@ export type Tag = {
   Key: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -273,22 +276,11 @@ export class LexBotAlias extends $Resource<
   LexBotAliasAttributes
 > {
   public static readonly Type = "AWS::Lex::BotAlias";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "BotAliasId" as const,
-    "BotAliasStatus" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LexBotAliasProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LexBotAlias.Type,
-      properties,
-      LexBotAlias.AttributeNames,
-      options,
-    );
+    super(logicalId, LexBotAlias.Type, properties, options);
   }
 }

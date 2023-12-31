@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::AppFlow::Connector
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html}
@@ -75,18 +75,11 @@ export class AppFlowConnector extends $Resource<
   AppFlowConnectorAttributes
 > {
   public static readonly Type = "AWS::AppFlow::Connector";
-  public static readonly AttributeNames = ["ConnectorArn" as const];
   constructor(
     logicalId: string,
     properties: AppFlowConnectorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppFlowConnector.Type,
-      properties,
-      AppFlowConnector.AttributeNames,
-      options,
-    );
+    super(logicalId, AppFlowConnector.Type, properties, options);
   }
 }

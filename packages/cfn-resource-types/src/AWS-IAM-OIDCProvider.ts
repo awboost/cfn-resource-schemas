@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IAM::OIDCProvider
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html}
@@ -58,18 +58,11 @@ export class IAMOIDCProvider extends $Resource<
   IAMOIDCProviderAttributes
 > {
   public static readonly Type = "AWS::IAM::OIDCProvider";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: IAMOIDCProviderProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IAMOIDCProvider.Type,
-      properties,
-      IAMOIDCProvider.AttributeNames,
-      options,
-    );
+    super(logicalId, IAMOIDCProvider.Type, properties, options);
   }
 }

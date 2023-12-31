@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EKS::Cluster`.
  * An object representing an Amazon EKS cluster.
@@ -129,10 +129,6 @@ export type KubernetesNetworkConfig = {
    * The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC.
    */
   ServiceIpv4Cidr?: string;
-  /**
-   * The CIDR block to assign Kubernetes service IP addresses from.
-   */
-  ServiceIpv6Cidr?: string;
 };
 /**
  * Type definition for `AWS::EKS::Cluster.Logging`.
@@ -226,6 +222,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -241,26 +238,11 @@ export class EKSCluster extends $Resource<
   EKSClusterAttributes
 > {
   public static readonly Type = "AWS::EKS::Cluster";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CertificateAuthorityData" as const,
-    "ClusterSecurityGroupId" as const,
-    "EncryptionConfigKeyArn" as const,
-    "Endpoint" as const,
-    "Id" as const,
-    "OpenIdConnectIssuerUrl" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EKSClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EKSCluster.Type,
-      properties,
-      EKSCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, EKSCluster.Type, properties, options);
   }
 }

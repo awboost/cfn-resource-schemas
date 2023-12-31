@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type Definition for AWS::Forecast::Dataset
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html}
@@ -69,6 +69,7 @@ export type ForecastDatasetProperties = {
     }[];
   };
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: {
@@ -80,6 +81,7 @@ export type ForecastDatasetProperties = {
     Key: string;
     /**
      * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+     * @minLength `0`
      * @maxLength `256`
      */
     Value: string;
@@ -89,7 +91,7 @@ export type ForecastDatasetProperties = {
  * Attribute type definition for `AWS::Forecast::Dataset`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-forecast-dataset.html#aws-resource-forecast-dataset-return-values}
  */
-export type ForecastDatasetAttribs = {
+export type ForecastDatasetAttributes = {
   /**
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9\-\_\.\/\:]+$`
@@ -103,21 +105,14 @@ export type ForecastDatasetAttribs = {
 export class ForecastDataset extends $Resource<
   "AWS::Forecast::Dataset",
   ForecastDatasetProperties,
-  ForecastDatasetAttribs
+  ForecastDatasetAttributes
 > {
   public static readonly Type = "AWS::Forecast::Dataset";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ForecastDatasetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ForecastDataset.Type,
-      properties,
-      ForecastDataset.AttributeNames,
-      options,
-    );
+    super(logicalId, ForecastDataset.Type, properties, options);
   }
 }

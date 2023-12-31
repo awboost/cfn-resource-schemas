@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ElasticLoadBalancing::LoadBalancer
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancing-loadbalancer.html}
@@ -127,12 +127,6 @@ export class ElasticLoadBalancingLoadBalancer extends $Resource<
   ElasticLoadBalancingLoadBalancerAttributes
 > {
   public static readonly Type = "AWS::ElasticLoadBalancing::LoadBalancer";
-  public static readonly AttributeNames = [
-    "CanonicalHostedZoneName" as const,
-    "CanonicalHostedZoneNameID" as const,
-    "DNSName" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ElasticLoadBalancingLoadBalancerProperties,
@@ -142,7 +136,6 @@ export class ElasticLoadBalancingLoadBalancer extends $Resource<
       logicalId,
       ElasticLoadBalancingLoadBalancer.Type,
       properties,
-      ElasticLoadBalancingLoadBalancer.AttributeNames,
       options,
     );
   }

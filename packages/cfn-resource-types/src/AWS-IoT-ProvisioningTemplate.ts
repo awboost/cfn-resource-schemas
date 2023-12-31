@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::ProvisioningTemplate`.
  * Creates a fleet provisioning template.
@@ -57,18 +57,11 @@ export class IoTProvisioningTemplate extends $Resource<
   IoTProvisioningTemplateAttributes
 > {
   public static readonly Type = "AWS::IoT::ProvisioningTemplate";
-  public static readonly AttributeNames = ["TemplateArn" as const];
   constructor(
     logicalId: string,
     properties: IoTProvisioningTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTProvisioningTemplate.Type,
-      properties,
-      IoTProvisioningTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTProvisioningTemplate.Type, properties, options);
   }
 }

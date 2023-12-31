@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html}
@@ -45,6 +45,7 @@ export type GameLiftGameServerGroupProperties = {
   MaxSize?: number;
   /**
    * The minimum number of instances allowed in the EC2 Auto Scaling group.
+   * @min `0`
    */
   MinSize?: number;
   /**
@@ -56,6 +57,7 @@ export type GameLiftGameServerGroupProperties = {
   RoleArn: string;
   /**
    * A list of labels to assign to the new game server group resource.
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -73,6 +75,7 @@ export type GameLiftGameServerGroupProperties = {
 export type GameLiftGameServerGroupAttributes = {
   /**
      * A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
+     * @minLength `0`
      * @maxLength `256`
      * @pattern `[ -퟿-�𐀀-􏿿
         ]*`
@@ -117,74 +120,6 @@ export type BalancingStrategy =
  */
 export type DeleteOption = "SAFE_DELETE" | "FORCE_DELETE" | "RETAIN";
 /**
- * Type definition for `AWS::GameLift::GameServerGroup.GameServerGroup`.
- * Properties that describe a game server group resource. A game server group manages certain properties of a corresponding EC2 Auto Scaling group.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-gameservergroup.html}
- */
-export type GameServerGroup = {
-  /**
-     * A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
-     * @maxLength `256`
-     * @pattern `[ -퟿-�𐀀-􏿿
-        ]*`
-     */
-  AutoScalingGroupArn?: string;
-  /**
-   * The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
-   */
-  BalancingStrategy?: BalancingStrategy;
-  /**
-   * A timestamp that indicates when this data object was created.
-   */
-  CreationTime?: string;
-  /**
-   * A generated unique ID for the game server group.
-   * @minLength `1`
-   * @maxLength `256`
-   * @pattern `^arn:.*:gameservergroup\/[a-zA-Z0-9-\.]*`
-   */
-  GameServerGroupArn?: string;
-  /**
-   * An identifier for the new game server group.
-   * @minLength `1`
-   * @maxLength `128`
-   * @pattern `[a-zA-Z0-9-\.]+`
-   */
-  GameServerGroupName?: string;
-  /**
-   * A flag that indicates whether instances in the game server group are protected from early termination.
-   */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy;
-  /**
-   * A set of EC2 instance types to use when creating instances in the group.
-   * @minLength `2`
-   * @maxLength `20`
-   */
-  InstanceDefinitions?: InstanceDefinition[];
-  /**
-   * A timestamp that indicates when this game server group was last updated.
-   */
-  LastUpdatedTime?: string;
-  /**
-   * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
-   * @minLength `1`
-   * @maxLength `256`
-   * @pattern `^arn:.*:role\/[\w+=,.@-]+`
-   */
-  RoleArn?: string;
-  /**
-   * The current status of the game server group.
-   */
-  Status?: Status;
-  /**
-   * Additional information about the current game server group status.
-   * @minLength `1`
-   * @maxLength `1024`
-   */
-  StatusReason?: string;
-  SuspendedActions?: "REPLACE_INSTANCE_TYPES"[];
-};
-/**
  * Type definition for `AWS::GameLift::GameServerGroup.GameServerProtectionPolicy`.
  * A flag that indicates whether instances in the game server group are protected from early termination.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-gameserverprotectionpolicy.html}
@@ -226,19 +161,6 @@ export type LaunchTemplate = {
   Version?: string;
 };
 /**
- * Type definition for `AWS::GameLift::GameServerGroup.Status`.
- * The current status of the game server group.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-status.html}
- */
-export type Status =
-  | "NEW"
-  | "ACTIVATING"
-  | "ACTIVE"
-  | "DELETE_SCHEDULED"
-  | "DELETING"
-  | "DELETED"
-  | "ERROR";
-/**
  * Type definition for `AWS::GameLift::GameServerGroup.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-tag.html}
  */
@@ -273,21 +195,11 @@ export class GameLiftGameServerGroup extends $Resource<
   GameLiftGameServerGroupAttributes
 > {
   public static readonly Type = "AWS::GameLift::GameServerGroup";
-  public static readonly AttributeNames = [
-    "AutoScalingGroupArn" as const,
-    "GameServerGroupArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: GameLiftGameServerGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GameLiftGameServerGroup.Type,
-      properties,
-      GameLiftGameServerGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, GameLiftGameServerGroup.Type, properties, options);
   }
 }

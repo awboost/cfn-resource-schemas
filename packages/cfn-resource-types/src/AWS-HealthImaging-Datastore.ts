@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::HealthImaging::Datastore Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-healthimaging-datastore.html}
@@ -40,6 +40,7 @@ export type HealthImagingDatastoreAttributes = {
    */
   DatastoreArn: string;
   /**
+   * @minLength `0`
    * @maxLength `32`
    * @pattern `^[0-9a-z]{32}$`
    */
@@ -58,8 +59,6 @@ export type HealthImagingDatastoreAttributes = {
 /**
  * Type definition for `AWS::HealthImaging::Datastore.DatastoreStatus`.
  * A string to denote the Datastore's state.
- * @minLength `1`
- * @maxLength `127`
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthimaging-datastore-datastorestatus.html}
  */
 export type DatastoreStatus =
@@ -84,24 +83,11 @@ export class HealthImagingDatastore extends $Resource<
   HealthImagingDatastoreAttributes
 > {
   public static readonly Type = "AWS::HealthImaging::Datastore";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "DatastoreArn" as const,
-    "DatastoreId" as const,
-    "DatastoreStatus" as const,
-    "UpdatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: HealthImagingDatastoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      HealthImagingDatastore.Type,
-      properties,
-      HealthImagingDatastore.AttributeNames,
-      options,
-    );
+    super(logicalId, HealthImagingDatastore.Type, properties, options);
   }
 }

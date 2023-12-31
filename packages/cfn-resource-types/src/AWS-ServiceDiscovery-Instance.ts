@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ServiceDiscovery::Instance
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html}
@@ -25,18 +25,11 @@ export class ServiceDiscoveryInstance extends $Resource<
   ServiceDiscoveryInstanceAttributes
 > {
   public static readonly Type = "AWS::ServiceDiscovery::Instance";
-  public static readonly AttributeNames = ["InstanceId" as const];
   constructor(
     logicalId: string,
     properties: ServiceDiscoveryInstanceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ServiceDiscoveryInstance.Type,
-      properties,
-      ServiceDiscoveryInstance.AttributeNames,
-      options,
-    );
+    super(logicalId, ServiceDiscoveryInstance.Type, properties, options);
   }
 }

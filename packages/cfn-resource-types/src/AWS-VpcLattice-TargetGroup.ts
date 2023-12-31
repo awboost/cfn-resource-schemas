@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::TargetGroup`.
  * A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
@@ -14,10 +14,12 @@ export type VpcLatticeTargetGroupProperties = {
    */
   Name?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   Targets?: Target[];
@@ -72,6 +74,7 @@ export type HealthCheckConfig = {
   HealthyThresholdCount?: number;
   Matcher?: Matcher;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    * @pattern `(^/[a-zA-Z0-9@:%_+.~#?&/=-]*$|(^$))`
    */
@@ -162,24 +165,11 @@ export class VpcLatticeTargetGroup extends $Resource<
   VpcLatticeTargetGroupAttributes
 > {
   public static readonly Type = "AWS::VpcLattice::TargetGroup";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedAt" as const,
-    "Id" as const,
-    "LastUpdatedAt" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: VpcLatticeTargetGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VpcLatticeTargetGroup.Type,
-      properties,
-      VpcLatticeTargetGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, VpcLatticeTargetGroup.Type, properties, options);
   }
 }

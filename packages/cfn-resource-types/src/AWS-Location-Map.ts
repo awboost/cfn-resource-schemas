@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Location::Map Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type LocationMapProperties = {
   Configuration: MapConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   Description?: string;
@@ -72,24 +73,11 @@ export class LocationMap extends $Resource<
   LocationMapAttributes
 > {
   public static readonly Type = "AWS::Location::Map";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreateTime" as const,
-    "DataSource" as const,
-    "MapArn" as const,
-    "UpdateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LocationMapProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LocationMap.Type,
-      properties,
-      LocationMap.AttributeNames,
-      options,
-    );
+    super(logicalId, LocationMap.Type, properties, options);
   }
 }

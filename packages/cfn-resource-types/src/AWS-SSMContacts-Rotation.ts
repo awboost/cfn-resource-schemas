@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SSMContacts::Rotation.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-rotation.html}
@@ -55,18 +55,6 @@ export type CoverageTime = {
    * @pattern `^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$`
    */
   StartTime: string;
-};
-/**
- * Type definition for `AWS::SSMContacts::Rotation.DailySetting`.
- * Handoff time for Daily Recurring Rotation.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-rotation-dailysetting.html}
- */
-export type DailySetting = {
-  /**
-   * Details about when an on-call rotation shift begins or ends. Time of the day in format HH:MM
-   * @pattern `^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$`
-   */
-  HandOffTime: string;
 };
 /**
  * Type definition for `AWS::SSMContacts::Rotation.DayOfWeek`.
@@ -155,6 +143,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -185,18 +174,11 @@ export class SSMContactsRotation extends $Resource<
   SSMContactsRotationAttributes
 > {
   public static readonly Type = "AWS::SSMContacts::Rotation";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: SSMContactsRotationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SSMContactsRotation.Type,
-      properties,
-      SSMContactsRotation.AttributeNames,
-      options,
-    );
+    super(logicalId, SSMContactsRotation.Type, properties, options);
   }
 }

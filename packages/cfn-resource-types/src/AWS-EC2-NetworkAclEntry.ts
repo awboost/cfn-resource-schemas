@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::NetworkAclEntry
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html}
@@ -75,18 +75,11 @@ export class EC2NetworkAclEntry extends $Resource<
   EC2NetworkAclEntryAttributes
 > {
   public static readonly Type = "AWS::EC2::NetworkAclEntry";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EC2NetworkAclEntryProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2NetworkAclEntry.Type,
-      properties,
-      EC2NetworkAclEntry.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2NetworkAclEntry.Type, properties, options);
   }
 }

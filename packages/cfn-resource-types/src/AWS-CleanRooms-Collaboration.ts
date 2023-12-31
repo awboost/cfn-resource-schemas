@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CleanRooms::Collaboration`.
  * Represents a collaboration between AWS accounts that allows for secure data collaboration
@@ -21,6 +21,7 @@ export type CleanRoomsCollaborationProperties = {
    */
   Description: string;
   /**
+   * @minLength `0`
    * @maxLength `9`
    */
   Members: MemberSpecification[];
@@ -38,7 +39,7 @@ export type CleanRoomsCollaborationProperties = {
 };
 /**
  * Attribute type definition for `AWS::CleanRooms::Collaboration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#aws-resource-cleanrooms-collaboration-return-values}
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html}
  */
 export type CleanRoomsCollaborationAttributes = {
   /**
@@ -92,11 +93,6 @@ export type MemberSpecification = {
   MemberAbilities: MemberAbility[];
 };
 /**
- * Type definition for `AWS::CleanRooms::Collaboration.MemberStatus`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberstatus.html}
- */
-export type MemberStatus = "INVITED" | "ACTIVE" | "LEFT" | "REMOVED";
-/**
  * Type definition for `AWS::CleanRooms::Collaboration.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-tag.html}
  */
@@ -123,21 +119,11 @@ export class CleanRoomsCollaboration extends $Resource<
   CleanRoomsCollaborationAttributes
 > {
   public static readonly Type = "AWS::CleanRooms::Collaboration";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CollaborationIdentifier" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CleanRoomsCollaborationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CleanRoomsCollaboration.Type,
-      properties,
-      CleanRoomsCollaboration.AttributeNames,
-      options,
-    );
+    super(logicalId, CleanRoomsCollaboration.Type, properties, options);
   }
 }

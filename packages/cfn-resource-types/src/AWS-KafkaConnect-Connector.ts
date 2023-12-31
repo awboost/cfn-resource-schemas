@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::KafkaConnect::Connector
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html}
@@ -363,18 +363,11 @@ export class KafkaConnectConnector extends $Resource<
   KafkaConnectConnectorAttributes
 > {
   public static readonly Type = "AWS::KafkaConnect::Connector";
-  public static readonly AttributeNames = ["ConnectorArn" as const];
   constructor(
     logicalId: string,
     properties: KafkaConnectConnectorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KafkaConnectConnector.Type,
-      properties,
-      KafkaConnectConnector.AttributeNames,
-      options,
-    );
+    super(logicalId, KafkaConnectConnector.Type, properties, options);
   }
 }

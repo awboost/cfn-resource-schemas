@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::LicenseManager::Grant`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -49,21 +49,11 @@ export class LicenseManagerGrant extends $Resource<
   LicenseManagerGrantAttributes
 > {
   public static readonly Type = "AWS::LicenseManager::Grant";
-  public static readonly AttributeNames = [
-    "GrantArn" as const,
-    "Version" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LicenseManagerGrantProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LicenseManagerGrant.Type,
-      properties,
-      LicenseManagerGrant.AttributeNames,
-      options,
-    );
+    super(logicalId, LicenseManagerGrant.Type, properties, options);
   }
 }

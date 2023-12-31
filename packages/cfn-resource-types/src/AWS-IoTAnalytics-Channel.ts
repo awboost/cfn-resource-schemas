@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IoTAnalytics::Channel
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html}
@@ -100,18 +100,11 @@ export class IoTAnalyticsChannel extends $Resource<
   IoTAnalyticsChannelAttributes
 > {
   public static readonly Type = "AWS::IoTAnalytics::Channel";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: IoTAnalyticsChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTAnalyticsChannel.Type,
-      properties,
-      IoTAnalyticsChannel.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTAnalyticsChannel.Type, properties, options);
   }
 }

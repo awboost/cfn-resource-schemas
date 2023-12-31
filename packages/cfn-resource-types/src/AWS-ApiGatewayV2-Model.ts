@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-model.html}
@@ -43,18 +43,11 @@ export class ApiGatewayV2Model extends $Resource<
   ApiGatewayV2ModelAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::Model";
-  public static readonly AttributeNames = ["ModelId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2ModelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2Model.Type,
-      properties,
-      ApiGatewayV2Model.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2Model.Type, properties, options);
   }
 }

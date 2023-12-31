@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ACMPCA::CertificateAuthorityActivation`.
  * Used to install the certificate authority certificate and update the certificate authority status.
@@ -44,7 +44,6 @@ export class ACMPCACertificateAuthorityActivation extends $Resource<
   ACMPCACertificateAuthorityActivationAttributes
 > {
   public static readonly Type = "AWS::ACMPCA::CertificateAuthorityActivation";
-  public static readonly AttributeNames = ["CompleteCertificateChain" as const];
   constructor(
     logicalId: string,
     properties: ACMPCACertificateAuthorityActivationProperties,
@@ -54,7 +53,6 @@ export class ACMPCACertificateAuthorityActivation extends $Resource<
       logicalId,
       ACMPCACertificateAuthorityActivation.Type,
       properties,
-      ACMPCACertificateAuthorityActivation.AttributeNames,
       options,
     );
   }

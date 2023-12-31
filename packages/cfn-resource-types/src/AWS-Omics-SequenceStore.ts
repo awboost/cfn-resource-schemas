@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Omics::SequenceStore Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-sequencestore.html}
@@ -93,22 +93,11 @@ export class OmicsSequenceStore extends $Resource<
   OmicsSequenceStoreAttributes
 > {
   public static readonly Type = "AWS::Omics::SequenceStore";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "SequenceStoreId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OmicsSequenceStoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OmicsSequenceStore.Type,
-      properties,
-      OmicsSequenceStore.AttributeNames,
-      options,
-    );
+    super(logicalId, OmicsSequenceStore.Type, properties, options);
   }
 }

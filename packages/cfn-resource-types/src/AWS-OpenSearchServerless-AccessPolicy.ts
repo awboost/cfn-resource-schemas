@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::OpenSearchServerless::AccessPolicy`.
  * Amazon OpenSearchServerless access policy resource
@@ -48,7 +48,6 @@ export class OpenSearchServerlessAccessPolicy extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::OpenSearchServerless::AccessPolicy";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: OpenSearchServerlessAccessPolicyProperties,
@@ -58,7 +57,6 @@ export class OpenSearchServerlessAccessPolicy extends $Resource<
       logicalId,
       OpenSearchServerlessAccessPolicy.Type,
       properties,
-      OpenSearchServerlessAccessPolicy.AttributeNames,
       options,
     );
   }

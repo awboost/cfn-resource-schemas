@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::KinesisAnalyticsV2::Application`.
  * Creates an Amazon Kinesis Data Analytics application. For information about creating a Kinesis Data Analytics application, see [Creating an Application](https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html).
@@ -12,6 +12,7 @@ export type KinesisAnalyticsV2ApplicationProperties = {
   ApplicationConfiguration?: ApplicationConfiguration;
   /**
    * The description of the application.
+   * @minLength `0`
    * @maxLength `1024`
    */
   ApplicationDescription?: string;
@@ -148,27 +149,6 @@ export type ApplicationSnapshotConfiguration = {
   SnapshotsEnabled: boolean;
 };
 /**
- * Type definition for `AWS::KinesisAnalyticsV2::Application.CSVMappingParameters`.
- * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
-`"name1", "address1"`
-`"name2", "address2"`
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-csvmappingparameters.html}
- */
-export type CSVMappingParameters = {
-  /**
-   * The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
-   * @minLength `1`
-   * @maxLength `1024`
-   */
-  RecordColumnDelimiter: string;
-  /**
-   * The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
-   * @minLength `1`
-   * @maxLength `1024`
-   */
-  RecordRowDelimiter: string;
-};
-/**
  * Type definition for `AWS::KinesisAnalyticsV2::Application.CatalogConfiguration`.
  * The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-catalogconfiguration.html}
@@ -201,6 +181,7 @@ export type CheckpointConfiguration = {
   ConfigurationType: "DEFAULT" | "CUSTOM";
   /**
    * Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start. If a checkpoint operation takes longer than the CheckpointInterval, the application otherwise performs continual checkpoint operations. For more information, see Tuning Checkpointing in the Apache Flink Documentation.
+   * @min `0`
    * @max `9223372036854776000`
    */
   MinPauseBetweenCheckpoints?: number;
@@ -225,6 +206,27 @@ export type CodeContent = {
    * The zip-format code for a Flink-based Kinesis Data Analytics application.
    */
   ZipFileContent?: string;
+};
+/**
+ * Type definition for `AWS::KinesisAnalyticsV2::Application.CSVMappingParameters`.
+ * For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the '\n' as the row delimiter and a comma (",") as the column delimiter:
+`"name1", "address1"`
+`"name2", "address2"`
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-csvmappingparameters.html}
+ */
+export type CSVMappingParameters = {
+  /**
+   * The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  RecordColumnDelimiter: string;
+  /**
+   * The row delimiter. For example, in a CSV format, '\n' is the typical row delimiter.
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  RecordRowDelimiter: string;
 };
 /**
  * Type definition for `AWS::KinesisAnalyticsV2::Application.CustomArtifactConfiguration`.
@@ -681,6 +683,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that's 0 to 256 characters in length.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -750,18 +753,11 @@ export class KinesisAnalyticsV2Application extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::KinesisAnalyticsV2::Application";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: KinesisAnalyticsV2ApplicationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KinesisAnalyticsV2Application.Type,
-      properties,
-      KinesisAnalyticsV2Application.AttributeNames,
-      options,
-    );
+    super(logicalId, KinesisAnalyticsV2Application.Type, properties, options);
   }
 }

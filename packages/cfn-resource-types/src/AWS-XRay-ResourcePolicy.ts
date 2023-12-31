@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::XRay::ResourcePolicy`.
  * This schema provides construct and validation rules for AWS-XRay Resource Policy resource parameters.
@@ -35,18 +35,11 @@ export class XRayResourcePolicy extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::XRay::ResourcePolicy";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: XRayResourcePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      XRayResourcePolicy.Type,
-      properties,
-      XRayResourcePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, XRayResourcePolicy.Type, properties, options);
   }
 }

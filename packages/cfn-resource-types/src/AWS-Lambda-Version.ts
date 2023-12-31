@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lambda::Version
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html}
@@ -11,6 +11,7 @@ export type LambdaVersionProperties = {
   CodeSha256?: string;
   /**
    * A description for the version to override the description in the function configuration. Updates are not supported for this property.
+   * @minLength `0`
    * @maxLength `256`
    */
   Description?: string;
@@ -83,21 +84,11 @@ export class LambdaVersion extends $Resource<
   LambdaVersionAttributes
 > {
   public static readonly Type = "AWS::Lambda::Version";
-  public static readonly AttributeNames = [
-    "FunctionArn" as const,
-    "Version" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LambdaVersionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LambdaVersion.Type,
-      properties,
-      LambdaVersion.AttributeNames,
-      options,
-    );
+    super(logicalId, LambdaVersion.Type, properties, options);
   }
 }

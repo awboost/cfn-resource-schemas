@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lambda::CodeSigningConfig.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html}
@@ -15,6 +15,7 @@ export type LambdaCodeSigningConfigProperties = {
   CodeSigningPolicies?: CodeSigningPolicies;
   /**
    * A description of the CodeSigningConfig
+   * @minLength `0`
    * @maxLength `256`
    */
   Description?: string;
@@ -69,21 +70,11 @@ export class LambdaCodeSigningConfig extends $Resource<
   LambdaCodeSigningConfigAttributes
 > {
   public static readonly Type = "AWS::Lambda::CodeSigningConfig";
-  public static readonly AttributeNames = [
-    "CodeSigningConfigArn" as const,
-    "CodeSigningConfigId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LambdaCodeSigningConfigProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LambdaCodeSigningConfig.Type,
-      properties,
-      LambdaCodeSigningConfig.AttributeNames,
-      options,
-    );
+    super(logicalId, LambdaCodeSigningConfig.Type, properties, options);
   }
 }

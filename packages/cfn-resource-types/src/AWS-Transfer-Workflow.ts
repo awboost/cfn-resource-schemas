@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Transfer::Workflow
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-workflow.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type TransferWorkflowProperties = {
   /**
    * A textual description for the workflow.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^[\w\- ]*$`
    */
@@ -55,6 +56,7 @@ export type TransferWorkflowAttributes = {
 export type EfsInputFileLocation = {
   /**
    * Specifies the EFS filesystem that contains the file.
+   * @minLength `0`
    * @maxLength `128`
    * @pattern `^(arn:aws[-a-z]*:elasticfilesystem:[0-9a-z-:]+:(access-point/fsap|file-system/fs)-[0-9a-f]{8,40}|fs(ap)?-[0-9a-f]{8,40})$`
    */
@@ -108,6 +110,7 @@ export type S3InputFileLocation = {
   Bucket?: string;
   /**
    * The name assigned to the file when it was created in S3. You use the object key to retrieve the object.
+   * @minLength `0`
    * @maxLength `1024`
    * @pattern `.*`
    */
@@ -127,6 +130,7 @@ export type S3Tag = {
   Key: string;
   /**
    * The value that corresponds to the key.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -145,6 +149,7 @@ export type Tag = {
   Key: string;
   /**
    * Contains one or more values that you assigned to the key name you create.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -165,6 +170,7 @@ export type WorkflowStep = {
     DestinationFileLocation?: S3FileLocation;
     /**
      * The name of the step, used as an identifier.
+     * @minLength `0`
      * @maxLength `30`
      * @pattern `^[\w-]*$`
      */
@@ -175,6 +181,7 @@ export type WorkflowStep = {
     OverwriteExisting?: "TRUE" | "FALSE";
     /**
      * Specifies which file to use as input to the workflow step.
+     * @minLength `0`
      * @maxLength `256`
      * @pattern `^\$\{(\w+.)+\w+\}$`
      */
@@ -186,18 +193,21 @@ export type WorkflowStep = {
   CustomStepDetails?: {
     /**
      * The name of the step, used as an identifier.
+     * @minLength `0`
      * @maxLength `30`
      * @pattern `^[\w-]*$`
      */
     Name?: string;
     /**
      * Specifies which file to use as input to the workflow step.
+     * @minLength `0`
      * @maxLength `256`
      * @pattern `^\$\{(\w+.)+\w+\}$`
      */
     SourceFileLocation?: string;
     /**
      * The ARN for the lambda function that is being called.
+     * @minLength `0`
      * @maxLength `170`
      * @pattern `arn:[a-z-]+:lambda:.*$`
      */
@@ -219,6 +229,7 @@ export type WorkflowStep = {
     DestinationFileLocation?: InputFileLocation;
     /**
      * The name of the step, used as an identifier.
+     * @minLength `0`
      * @maxLength `30`
      * @pattern `^[\w-]*$`
      */
@@ -229,6 +240,7 @@ export type WorkflowStep = {
     OverwriteExisting?: "TRUE" | "FALSE";
     /**
      * Specifies which file to use as input to the workflow step.
+     * @minLength `0`
      * @maxLength `256`
      * @pattern `^\$\{(\w+.)+\w+\}$`
      */
@@ -244,12 +256,14 @@ export type WorkflowStep = {
   DeleteStepDetails?: {
     /**
      * The name of the step, used as an identifier.
+     * @minLength `0`
      * @maxLength `30`
      * @pattern `^[\w-]*$`
      */
     Name?: string;
     /**
      * Specifies which file to use as input to the workflow step.
+     * @minLength `0`
      * @maxLength `256`
      * @pattern `^\$\{(\w+.)+\w+\}$`
      */
@@ -261,12 +275,14 @@ export type WorkflowStep = {
   TagStepDetails?: {
     /**
      * The name of the step, used as an identifier.
+     * @minLength `0`
      * @maxLength `30`
      * @pattern `^[\w-]*$`
      */
     Name?: string;
     /**
      * Specifies which file to use as input to the workflow step.
+     * @minLength `0`
      * @maxLength `256`
      * @pattern `^\$\{(\w+.)+\w+\}$`
      */
@@ -289,21 +305,11 @@ export class TransferWorkflow extends $Resource<
   TransferWorkflowAttributes
 > {
   public static readonly Type = "AWS::Transfer::Workflow";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "WorkflowId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: TransferWorkflowProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      TransferWorkflow.Type,
-      properties,
-      TransferWorkflow.AttributeNames,
-      options,
-    );
+    super(logicalId, TransferWorkflow.Type, properties, options);
   }
 }

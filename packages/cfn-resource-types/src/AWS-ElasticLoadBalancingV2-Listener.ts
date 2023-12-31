@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html}
@@ -128,18 +128,11 @@ export class ElasticLoadBalancingV2Listener extends $Resource<
   ElasticLoadBalancingV2ListenerAttributes
 > {
   public static readonly Type = "AWS::ElasticLoadBalancingV2::Listener";
-  public static readonly AttributeNames = ["ListenerArn" as const];
   constructor(
     logicalId: string,
     properties: ElasticLoadBalancingV2ListenerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ElasticLoadBalancingV2Listener.Type,
-      properties,
-      ElasticLoadBalancingV2Listener.AttributeNames,
-      options,
-    );
+    super(logicalId, ElasticLoadBalancingV2Listener.Type, properties, options);
   }
 }

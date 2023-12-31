@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Schema of AWS::EMRContainers::VirtualCluster Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html}
@@ -96,18 +96,11 @@ export class EMRContainersVirtualCluster extends $Resource<
   EMRContainersVirtualClusterAttributes
 > {
   public static readonly Type = "AWS::EMRContainers::VirtualCluster";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: EMRContainersVirtualClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EMRContainersVirtualCluster.Type,
-      properties,
-      EMRContainersVirtualCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, EMRContainersVirtualCluster.Type, properties, options);
   }
 }

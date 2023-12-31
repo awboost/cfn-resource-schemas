@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
 
@@ -9,6 +9,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type RekognitionStreamProcessorProperties = {
   /**
    * The BoundingBoxRegionsOfInterest specifies an array of bounding boxes of interest in the video frames to analyze, as part of connected home feature. If an object is partially in a region of interest, Rekognition will tag it as detected if the overlap of the object with the region-of-interest is greater than 20%.
+   * @minLength `0`
    */
   BoundingBoxRegionsOfInterest?: BoundingBox[];
   /**
@@ -48,6 +49,7 @@ export type RekognitionStreamProcessorProperties = {
   NotificationChannel?: NotificationChannel;
   /**
    * The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
+   * @minLength `0`
    */
   PolygonRegionsOfInterest?: Point[][];
   /**
@@ -62,6 +64,7 @@ export type RekognitionStreamProcessorProperties = {
   S3Destination?: S3Destination;
   /**
    * An array of key-value pairs to apply to this resource.
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -92,18 +95,22 @@ export type RekognitionStreamProcessorAttributes = {
  */
 export type BoundingBox = {
   /**
+   * @min `0`
    * @max `100`
    */
   Height: number;
   /**
+   * @min `0`
    * @max `100`
    */
   Left: number;
   /**
+   * @min `0`
    * @max `100`
    */
   Top: number;
   /**
+   * @min `0`
    * @max `100`
    */
   Width: number;
@@ -121,6 +128,7 @@ export type ConnectedHomeSettings = {
   Labels: string[];
   /**
    * Minimum object class match confidence score that must be met to return a result for a recognized object.
+   * @min `0`
    * @max `100`
    */
   MinConfidence?: number;
@@ -150,6 +158,7 @@ export type FaceSearchSettings = {
   CollectionId: string;
   /**
    * Minimum face match confidence score percentage that must be met to return a result for a recognized face. The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted.
+   * @min `0`
    * @max `100`
    */
   FaceMatchThreshold?: number;
@@ -239,6 +248,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `\A[a-zA-Z0-9+\-=\._\:\/@]+$`
    */
@@ -256,22 +266,11 @@ export class RekognitionStreamProcessor extends $Resource<
   RekognitionStreamProcessorAttributes
 > {
   public static readonly Type = "AWS::Rekognition::StreamProcessor";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Status" as const,
-    "StatusMessage" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RekognitionStreamProcessorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RekognitionStreamProcessor.Type,
-      properties,
-      RekognitionStreamProcessor.AttributeNames,
-      options,
-    );
+    super(logicalId, RekognitionStreamProcessor.Type, properties, options);
   }
 }

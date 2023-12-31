@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::AppImageConfig
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html}
@@ -18,6 +18,7 @@ export type SageMakerAppImageConfigProperties = {
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
   /**
    * A list of tags to apply to the AppImageConfig.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -43,11 +44,13 @@ export type SageMakerAppImageConfigAttributes = {
 export type FileSystemConfig = {
   /**
    * The default POSIX group ID (GID). If not specified, defaults to 100.
+   * @min `0`
    * @max `65535`
    */
   DefaultGid?: number;
   /**
    * The default POSIX user ID (UID). If not specified, defaults to 1000.
+   * @min `0`
    * @max `65535`
    */
   DefaultUid?: number;
@@ -120,18 +123,11 @@ export class SageMakerAppImageConfig extends $Resource<
   SageMakerAppImageConfigAttributes
 > {
   public static readonly Type = "AWS::SageMaker::AppImageConfig";
-  public static readonly AttributeNames = ["AppImageConfigArn" as const];
   constructor(
     logicalId: string,
     properties: SageMakerAppImageConfigProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerAppImageConfig.Type,
-      properties,
-      SageMakerAppImageConfig.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerAppImageConfig.Type, properties, options);
   }
 }

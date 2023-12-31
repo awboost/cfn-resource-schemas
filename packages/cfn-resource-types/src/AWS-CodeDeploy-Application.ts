@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html}
@@ -36,18 +36,11 @@ export class CodeDeployApplication extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::CodeDeploy::Application";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: CodeDeployApplicationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CodeDeployApplication.Type,
-      properties,
-      CodeDeployApplication.AttributeNames,
-      options,
-    );
+    super(logicalId, CodeDeployApplication.Type, properties, options);
   }
 }

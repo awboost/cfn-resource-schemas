@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::NimbleStudio::LaunchProfile`.
  * Represents a launch profile which delegates access to a collection of studio components to studio users
@@ -8,12 +8,14 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type NimbleStudioLaunchProfileProperties = {
   /**
    * <p>The description.</p>
+   * @minLength `0`
    * @maxLength `256`
    */
   Description?: string;
   /**
      * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
                 These subnets must support the specified instance types. </p>
+     * @minLength `0`
      * @maxLength `6`
      */
   Ec2SubnetIds: string[];
@@ -108,6 +110,7 @@ export type StreamConfiguration = {
                 If the time that a session stays in the <code>READY</code> state exceeds the
                     <code>maxSessionLengthInMinutes</code> value, the session will automatically be
                 stopped (instead of terminated).</p>
+     * @min `0`
      * @max `5760`
      */
   MaxStoppedSessionLengthInMinutes?: number;
@@ -146,6 +149,7 @@ export type StreamConfigurationSessionBackup = {
   /**
      * <p>The maximum number of backups that each streaming session created from this launch
                 profile can have.</p>
+     * @min `0`
      * @max `10`
      */
   MaxBackupsToRetain?: number;
@@ -266,18 +270,11 @@ export class NimbleStudioLaunchProfile extends $Resource<
   NimbleStudioLaunchProfileAttributes
 > {
   public static readonly Type = "AWS::NimbleStudio::LaunchProfile";
-  public static readonly AttributeNames = ["LaunchProfileId" as const];
   constructor(
     logicalId: string,
     properties: NimbleStudioLaunchProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NimbleStudioLaunchProfile.Type,
-      properties,
-      NimbleStudioLaunchProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, NimbleStudioLaunchProfile.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::DirectoryService::MicrosoftAD
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html}
@@ -40,22 +40,11 @@ export class DirectoryServiceMicrosoftAD extends $Resource<
   DirectoryServiceMicrosoftADAttributes
 > {
   public static readonly Type = "AWS::DirectoryService::MicrosoftAD";
-  public static readonly AttributeNames = [
-    "Alias" as const,
-    "DnsIpAddresses" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DirectoryServiceMicrosoftADProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DirectoryServiceMicrosoftAD.Type,
-      properties,
-      DirectoryServiceMicrosoftAD.AttributeNames,
-      options,
-    );
+    super(logicalId, DirectoryServiceMicrosoftAD.Type, properties, options);
   }
 }

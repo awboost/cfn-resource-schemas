@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Transfer::Server
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html}
@@ -110,18 +110,11 @@ export class TransferServer extends $Resource<
   TransferServerAttributes
 > {
   public static readonly Type = "AWS::Transfer::Server";
-  public static readonly AttributeNames = ["Arn" as const, "ServerId" as const];
   constructor(
     logicalId: string,
     properties: TransferServerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      TransferServer.Type,
-      properties,
-      TransferServer.AttributeNames,
-      options,
-    );
+    super(logicalId, TransferServer.Type, properties, options);
   }
 }

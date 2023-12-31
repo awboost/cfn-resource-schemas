@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::Domain
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html}
@@ -49,6 +49,7 @@ export type SageMakerDomainProperties = {
   SubnetIds: string[];
   /**
    * A list of tags to apply to the user profile.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -118,6 +119,7 @@ export type CustomImage = {
   ImageName: string;
   /**
    * The version number of the CustomImage.
+   * @min `0`
    */
   ImageVersionNumber?: number;
 };
@@ -144,6 +146,7 @@ export type DefaultSpaceSettings = {
   KernelGatewayAppSettings?: KernelGatewayAppSettings;
   /**
    * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+   * @minLength `0`
    * @maxLength `5`
    */
   SecurityGroups?: string[];
@@ -181,6 +184,7 @@ export type JupyterServerAppSettings = {
 export type KernelGatewayAppSettings = {
   /**
    * A list of custom SageMaker images that are configured to run as a KernelGateway app.
+   * @minLength `0`
    * @maxLength `30`
    */
   CustomImages?: CustomImage[];
@@ -188,59 +192,6 @@ export type KernelGatewayAppSettings = {
    * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
    */
   DefaultResourceSpec?: ResourceSpec;
-};
-/**
- * Type definition for `AWS::SageMaker::Domain.RSessionAppSettings`.
- * A collection of settings that apply to an RSessionGateway app.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html}
- */
-export type RSessionAppSettings = {
-  /**
-   * A list of custom SageMaker images that are configured to run as a KernelGateway app.
-   * @maxLength `30`
-   */
-  CustomImages?: CustomImage[];
-  DefaultResourceSpec?: ResourceSpec;
-};
-/**
- * Type definition for `AWS::SageMaker::Domain.RStudioServerProAppSettings`.
- * A collection of settings that configure user interaction with the RStudioServerPro app.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverproappsettings.html}
- */
-export type RStudioServerProAppSettings = {
-  /**
-   * Indicates whether the current user has access to the RStudioServerPro app.
-   */
-  AccessStatus?: "ENABLED" | "DISABLED";
-  /**
-   * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
-   */
-  UserGroup?: "R_STUDIO_ADMIN" | "R_STUDIO_USER";
-};
-/**
- * Type definition for `AWS::SageMaker::Domain.RStudioServerProDomainSettings`.
- * A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html}
- */
-export type RStudioServerProDomainSettings = {
-  DefaultResourceSpec?: ResourceSpec;
-  /**
-   * The ARN of the execution role for the RStudioServerPro Domain-level app.
-   * @minLength `20`
-   * @maxLength `2048`
-   * @pattern `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
-   */
-  DomainExecutionRoleArn: string;
-  /**
-   * A URL pointing to an RStudio Connect server.
-   * @pattern `^(https:|http:|www\.)\S*`
-   */
-  RStudioConnectUrl?: string;
-  /**
-   * A URL pointing to an RStudio Package Manager server.
-   * @pattern `^(https:|http:|www\.)\S*`
-   */
-  RStudioPackageManagerUrl?: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.ResourceSpec`.
@@ -331,6 +282,60 @@ export type ResourceSpec = {
   SageMakerImageVersionArn?: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::Domain.RSessionAppSettings`.
+ * A collection of settings that apply to an RSessionGateway app.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html}
+ */
+export type RSessionAppSettings = {
+  /**
+   * A list of custom SageMaker images that are configured to run as a KernelGateway app.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  CustomImages?: CustomImage[];
+  DefaultResourceSpec?: ResourceSpec;
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.RStudioServerProAppSettings`.
+ * A collection of settings that configure user interaction with the RStudioServerPro app.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverproappsettings.html}
+ */
+export type RStudioServerProAppSettings = {
+  /**
+   * Indicates whether the current user has access to the RStudioServerPro app.
+   */
+  AccessStatus?: "ENABLED" | "DISABLED";
+  /**
+   * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
+   */
+  UserGroup?: "R_STUDIO_ADMIN" | "R_STUDIO_USER";
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.RStudioServerProDomainSettings`.
+ * A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html}
+ */
+export type RStudioServerProDomainSettings = {
+  DefaultResourceSpec?: ResourceSpec;
+  /**
+   * The ARN of the execution role for the RStudioServerPro Domain-level app.
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+   */
+  DomainExecutionRoleArn: string;
+  /**
+   * A URL pointing to an RStudio Connect server.
+   * @pattern `^(https:|http:|www\.)\S*`
+   */
+  RStudioConnectUrl?: string;
+  /**
+   * A URL pointing to an RStudio Package Manager server.
+   * @pattern `^(https:|http:|www\.)\S*`
+   */
+  RStudioPackageManagerUrl?: string;
+};
+/**
  * Type definition for `AWS::SageMaker::Domain.SharingSettings`.
  * Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html}
@@ -400,6 +405,7 @@ export type UserSettings = {
   RStudioServerProAppSettings?: RStudioServerProAppSettings;
   /**
    * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+   * @minLength `0`
    * @maxLength `5`
    */
   SecurityGroups?: string[];
@@ -418,25 +424,11 @@ export class SageMakerDomain extends $Resource<
   SageMakerDomainAttributes
 > {
   public static readonly Type = "AWS::SageMaker::Domain";
-  public static readonly AttributeNames = [
-    "DomainArn" as const,
-    "DomainId" as const,
-    "HomeEfsFileSystemId" as const,
-    "SecurityGroupIdForDomainBoundary" as const,
-    "SingleSignOnManagedApplicationInstanceId" as const,
-    "Url" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerDomainProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerDomain.Type,
-      properties,
-      SageMakerDomain.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerDomain.Type, properties, options);
   }
 }

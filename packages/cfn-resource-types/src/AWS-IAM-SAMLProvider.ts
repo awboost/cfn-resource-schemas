@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IAM::SAMLProvider
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html}
@@ -59,18 +59,11 @@ export class IAMSAMLProvider extends $Resource<
   IAMSAMLProviderAttributes
 > {
   public static readonly Type = "AWS::IAM::SAMLProvider";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: IAMSAMLProviderProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IAMSAMLProvider.Type,
-      properties,
-      IAMSAMLProvider.AttributeNames,
-      options,
-    );
+    super(logicalId, IAMSAMLProvider.Type, properties, options);
   }
 }

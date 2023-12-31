@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
@@ -91,21 +91,11 @@ export class ApiGatewayV2DomainName extends $Resource<
   ApiGatewayV2DomainNameAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::DomainName";
-  public static readonly AttributeNames = [
-    "RegionalDomainName" as const,
-    "RegionalHostedZoneId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2DomainNameProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2DomainName.Type,
-      properties,
-      ApiGatewayV2DomainName.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2DomainName.Type, properties, options);
   }
 }

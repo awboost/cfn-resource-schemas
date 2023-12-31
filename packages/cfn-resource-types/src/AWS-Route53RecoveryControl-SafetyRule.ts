@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Route53RecoveryControl::SafetyRule`.
  * Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
@@ -131,10 +131,6 @@ export class Route53RecoveryControlSafetyRule extends $Resource<
   Route53RecoveryControlSafetyRuleAttributes
 > {
   public static readonly Type = "AWS::Route53RecoveryControl::SafetyRule";
-  public static readonly AttributeNames = [
-    "SafetyRuleArn" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: Route53RecoveryControlSafetyRuleProperties,
@@ -144,7 +140,6 @@ export class Route53RecoveryControlSafetyRule extends $Resource<
       logicalId,
       Route53RecoveryControlSafetyRule.Type,
       properties,
-      Route53RecoveryControlSafetyRule.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html}
@@ -78,7 +78,6 @@ export class ChatbotMicrosoftTeamsChannelConfiguration extends $Resource<
 > {
   public static readonly Type =
     "AWS::Chatbot::MicrosoftTeamsChannelConfiguration";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ChatbotMicrosoftTeamsChannelConfigurationProperties,
@@ -88,7 +87,6 @@ export class ChatbotMicrosoftTeamsChannelConfiguration extends $Resource<
       logicalId,
       ChatbotMicrosoftTeamsChannelConfiguration.Type,
       properties,
-      ChatbotMicrosoftTeamsChannelConfiguration.AttributeNames,
       options,
     );
   }

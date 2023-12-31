@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Wisdom::AssistantAssociation Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-assistantassociation.html}
@@ -73,22 +73,11 @@ export class WisdomAssistantAssociation extends $Resource<
   WisdomAssistantAssociationAttributes
 > {
   public static readonly Type = "AWS::Wisdom::AssistantAssociation";
-  public static readonly AttributeNames = [
-    "AssistantArn" as const,
-    "AssistantAssociationArn" as const,
-    "AssistantAssociationId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: WisdomAssistantAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WisdomAssistantAssociation.Type,
-      properties,
-      WisdomAssistantAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, WisdomAssistantAssociation.Type, properties, options);
   }
 }

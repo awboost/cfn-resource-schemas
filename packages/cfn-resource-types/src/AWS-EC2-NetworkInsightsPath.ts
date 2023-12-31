@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::EC2::NetworkInsightsPath
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html}
@@ -67,24 +67,11 @@ export class EC2NetworkInsightsPath extends $Resource<
   EC2NetworkInsightsPathAttributes
 > {
   public static readonly Type = "AWS::EC2::NetworkInsightsPath";
-  public static readonly AttributeNames = [
-    "CreatedDate" as const,
-    "DestinationArn" as const,
-    "NetworkInsightsPathArn" as const,
-    "NetworkInsightsPathId" as const,
-    "SourceArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2NetworkInsightsPathProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2NetworkInsightsPath.Type,
-      properties,
-      EC2NetworkInsightsPath.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2NetworkInsightsPath.Type, properties, options);
   }
 }

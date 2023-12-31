@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Oam::Link Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html}
@@ -55,12 +55,11 @@ export class OamLink extends $Resource<
   OamLinkAttributes
 > {
   public static readonly Type = "AWS::Oam::Link";
-  public static readonly AttributeNames = ["Arn" as const, "Label" as const];
   constructor(
     logicalId: string,
     properties: OamLinkProperties,
     options?: $ResourceOptions,
   ) {
-    super(logicalId, OamLink.Type, properties, OamLink.AttributeNames, options);
+    super(logicalId, OamLink.Type, properties, options);
   }
 }

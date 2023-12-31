@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataSync::LocationFSxONTAP.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html}
@@ -29,6 +29,7 @@ export type DataSyncLocationFSxONTAPProperties = {
   Subdirectory?: string;
   /**
    * An array of key-value pairs to apply to this resource.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -165,22 +166,11 @@ export class DataSyncLocationFSxONTAP extends $Resource<
   DataSyncLocationFSxONTAPAttributes
 > {
   public static readonly Type = "AWS::DataSync::LocationFSxONTAP";
-  public static readonly AttributeNames = [
-    "FsxFilesystemArn" as const,
-    "LocationArn" as const,
-    "LocationUri" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DataSyncLocationFSxONTAPProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataSyncLocationFSxONTAP.Type,
-      properties,
-      DataSyncLocationFSxONTAP.AttributeNames,
-      options,
-    );
+    super(logicalId, DataSyncLocationFSxONTAP.Type, properties, options);
   }
 }

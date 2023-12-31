@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::DocDB::DBCluster
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html}
@@ -57,23 +57,11 @@ export class DocDBDBCluster extends $Resource<
   DocDBDBClusterAttributes
 > {
   public static readonly Type = "AWS::DocDB::DBCluster";
-  public static readonly AttributeNames = [
-    "ClusterResourceId" as const,
-    "Endpoint" as const,
-    "Id" as const,
-    "ReadEndpoint" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DocDBDBClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DocDBDBCluster.Type,
-      properties,
-      DocDBDBCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, DocDBDBCluster.Type, properties, options);
   }
 }

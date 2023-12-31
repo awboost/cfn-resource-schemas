@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Omics::ReferenceStore Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-referencestore.html}
@@ -87,22 +87,11 @@ export class OmicsReferenceStore extends $Resource<
   OmicsReferenceStoreAttributes
 > {
   public static readonly Type = "AWS::Omics::ReferenceStore";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "ReferenceStoreId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OmicsReferenceStoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OmicsReferenceStore.Type,
-      properties,
-      OmicsReferenceStore.AttributeNames,
-      options,
-    );
+    super(logicalId, OmicsReferenceStore.Type, properties, options);
   }
 }

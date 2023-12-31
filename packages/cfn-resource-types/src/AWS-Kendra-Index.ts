@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Kendra::Index`.
  * A Kendra index
@@ -73,7 +73,13 @@ export type KendraIndexAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html}
  */
 export type CapacityUnitsConfiguration = {
+  /**
+   * @min `0`
+   */
   QueryCapacityUnits: number;
+  /**
+   * @min `0`
+   */
   StorageCapacityUnits: number;
 };
 /**
@@ -226,6 +232,7 @@ export type Tag = {
   Key: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -270,18 +277,11 @@ export class KendraIndex extends $Resource<
   KendraIndexAttributes
 > {
   public static readonly Type = "AWS::Kendra::Index";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: KendraIndexProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KendraIndex.Type,
-      properties,
-      KendraIndex.AttributeNames,
-      options,
-    );
+    super(logicalId, KendraIndex.Type, properties, options);
   }
 }

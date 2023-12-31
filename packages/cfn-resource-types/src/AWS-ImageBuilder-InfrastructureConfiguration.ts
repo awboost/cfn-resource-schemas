@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html}
@@ -110,25 +110,6 @@ export type S3Logs = {
   S3KeyPrefix?: string;
 };
 /**
- * Type definition for `AWS::ImageBuilder::InfrastructureConfiguration.TagMap`.
- * TagMap
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-tagmap.html}
- */
-export type TagMap = {
-  /**
-   * TagKey
-   * @minLength `1`
-   * @maxLength `128`
-   */
-  TagKey?: string;
-  /**
-   * TagValue
-   * @minLength `1`
-   * @maxLength `256`
-   */
-  TagValue?: string;
-};
-/**
  * Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html}
  */
@@ -139,7 +120,6 @@ export class ImageBuilderInfrastructureConfiguration extends $Resource<
 > {
   public static readonly Type =
     "AWS::ImageBuilder::InfrastructureConfiguration";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ImageBuilderInfrastructureConfigurationProperties,
@@ -149,7 +129,6 @@ export class ImageBuilderInfrastructureConfiguration extends $Resource<
       logicalId,
       ImageBuilderInfrastructureConfiguration.Type,
       properties,
-      ImageBuilderInfrastructureConfiguration.AttributeNames,
       options,
     );
   }

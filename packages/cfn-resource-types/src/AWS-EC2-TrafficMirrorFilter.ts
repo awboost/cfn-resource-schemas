@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::TrafficMirrorFilter
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html}
@@ -34,18 +34,11 @@ export class EC2TrafficMirrorFilter extends $Resource<
   EC2TrafficMirrorFilterAttributes
 > {
   public static readonly Type = "AWS::EC2::TrafficMirrorFilter";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EC2TrafficMirrorFilterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2TrafficMirrorFilter.Type,
-      properties,
-      EC2TrafficMirrorFilter.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2TrafficMirrorFilter.Type, properties, options);
   }
 }

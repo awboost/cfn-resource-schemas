@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::VPNGateway`.
  * Schema for EC2 VPN Gateway
@@ -48,18 +48,11 @@ export class EC2VPNGateway extends $Resource<
   EC2VPNGatewayAttributes
 > {
   public static readonly Type = "AWS::EC2::VPNGateway";
-  public static readonly AttributeNames = ["VPNGatewayId" as const];
   constructor(
     logicalId: string,
     properties: EC2VPNGatewayProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2VPNGateway.Type,
-      properties,
-      EC2VPNGateway.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2VPNGateway.Type, properties, options);
   }
 }

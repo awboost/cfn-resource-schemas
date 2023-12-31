@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Glue::Connection
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html}
@@ -46,18 +46,11 @@ export class GlueConnection extends $Resource<
   GlueConnectionAttributes
 > {
   public static readonly Type = "AWS::Glue::Connection";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GlueConnectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueConnection.Type,
-      properties,
-      GlueConnection.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueConnection.Type, properties, options);
   }
 }

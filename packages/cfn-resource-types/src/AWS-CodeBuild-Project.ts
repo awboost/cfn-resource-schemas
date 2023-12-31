@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CodeBuild::Project
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html}
@@ -237,18 +237,11 @@ export class CodeBuildProject extends $Resource<
   CodeBuildProjectAttributes
 > {
   public static readonly Type = "AWS::CodeBuild::Project";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: CodeBuildProjectProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CodeBuildProject.Type,
-      properties,
-      CodeBuildProject.AttributeNames,
-      options,
-    );
+    super(logicalId, CodeBuildProject.Type, properties, options);
   }
 }

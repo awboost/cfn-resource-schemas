@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::KMS::Alias resource specifies a display name for an AWS KMS key in AWS Key Management Service (AWS KMS). You can use an alias to identify an AWS KMS key in cryptographic operations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html}
@@ -29,18 +29,11 @@ export class KMSAlias extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::KMS::Alias";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: KMSAliasProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KMSAlias.Type,
-      properties,
-      KMSAlias.AttributeNames,
-      options,
-    );
+    super(logicalId, KMSAlias.Type, properties, options);
   }
 }

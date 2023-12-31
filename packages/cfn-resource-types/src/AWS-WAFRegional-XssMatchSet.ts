@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::WAFRegional::XssMatchSet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html}
@@ -41,18 +41,11 @@ export class WAFRegionalXssMatchSet extends $Resource<
   WAFRegionalXssMatchSetAttributes
 > {
   public static readonly Type = "AWS::WAFRegional::XssMatchSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: WAFRegionalXssMatchSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFRegionalXssMatchSet.Type,
-      properties,
-      WAFRegionalXssMatchSet.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFRegionalXssMatchSet.Type, properties, options);
   }
 }

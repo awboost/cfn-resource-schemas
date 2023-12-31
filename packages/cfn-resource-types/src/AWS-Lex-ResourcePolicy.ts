@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Lex::ResourcePolicy`.
  * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
@@ -51,21 +51,11 @@ export class LexResourcePolicy extends $Resource<
   LexResourcePolicyAttributes
 > {
   public static readonly Type = "AWS::Lex::ResourcePolicy";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "RevisionId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LexResourcePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LexResourcePolicy.Type,
-      properties,
-      LexResourcePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, LexResourcePolicy.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ECS::Cluster`.
  * Create an Elastic Container Service (ECS) cluster.
@@ -119,18 +119,11 @@ export class ECSCluster extends $Resource<
   ECSClusterAttributes
 > {
   public static readonly Type = "AWS::ECS::Cluster";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ECSClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ECSCluster.Type,
-      properties,
-      ECSCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, ECSCluster.Type, properties, options);
   }
 }

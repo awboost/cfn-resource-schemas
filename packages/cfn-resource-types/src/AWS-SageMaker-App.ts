@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::App
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html}
@@ -33,6 +33,7 @@ export type SageMakerAppProperties = {
   ResourceSpec?: ResourceSpec;
   /**
    * A list of tags to apply to the app.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -167,18 +168,11 @@ export class SageMakerApp extends $Resource<
   SageMakerAppAttributes
 > {
   public static readonly Type = "AWS::SageMaker::App";
-  public static readonly AttributeNames = ["AppArn" as const];
   constructor(
     logicalId: string,
     properties: SageMakerAppProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerApp.Type,
-      properties,
-      SageMakerApp.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerApp.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html}
@@ -136,18 +136,11 @@ export class CodePipelineCustomActionType extends $Resource<
   CodePipelineCustomActionTypeAttributes
 > {
   public static readonly Type = "AWS::CodePipeline::CustomActionType";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: CodePipelineCustomActionTypeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CodePipelineCustomActionType.Type,
-      properties,
-      CodePipelineCustomActionType.AttributeNames,
-      options,
-    );
+    super(logicalId, CodePipelineCustomActionType.Type, properties, options);
   }
 }

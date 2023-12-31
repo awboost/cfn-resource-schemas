@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Pinpoint::Segment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html}
@@ -126,21 +126,11 @@ export class PinpointSegment extends $Resource<
   PinpointSegmentAttributes
 > {
   public static readonly Type = "AWS::Pinpoint::Segment";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "SegmentId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: PinpointSegmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PinpointSegment.Type,
-      properties,
-      PinpointSegment.AttributeNames,
-      options,
-    );
+    super(logicalId, PinpointSegment.Type, properties, options);
   }
 }

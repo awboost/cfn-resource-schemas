@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::PinpointEmail::ConfigurationSet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpointemail-configurationset.html}
@@ -65,18 +65,11 @@ export class PinpointEmailConfigurationSet extends $Resource<
   PinpointEmailConfigurationSetAttributes
 > {
   public static readonly Type = "AWS::PinpointEmail::ConfigurationSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: PinpointEmailConfigurationSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PinpointEmailConfigurationSet.Type,
-      properties,
-      PinpointEmailConfigurationSet.AttributeNames,
-      options,
-    );
+    super(logicalId, PinpointEmailConfigurationSet.Type, properties, options);
   }
 }

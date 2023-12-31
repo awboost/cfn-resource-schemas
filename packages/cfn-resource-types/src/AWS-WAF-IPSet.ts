@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::WAF::IPSet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html}
@@ -33,18 +33,11 @@ export class WAFIPSet extends $Resource<
   WAFIPSetAttributes
 > {
   public static readonly Type = "AWS::WAF::IPSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: WAFIPSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFIPSet.Type,
-      properties,
-      WAFIPSet.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFIPSet.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Shield::Protection`.
  * Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
@@ -91,6 +91,7 @@ export type Tag = {
   Key: string;
   /**
    * Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or "companyB." Tag values are case-sensitive.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -106,21 +107,11 @@ export class ShieldProtection extends $Resource<
   ShieldProtectionAttributes
 > {
   public static readonly Type = "AWS::Shield::Protection";
-  public static readonly AttributeNames = [
-    "ProtectionArn" as const,
-    "ProtectionId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ShieldProtectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ShieldProtection.Type,
-      properties,
-      ShieldProtection.AttributeNames,
-      options,
-    );
+    super(logicalId, ShieldProtection.Type, properties, options);
   }
 }

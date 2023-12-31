@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ApiGateway::DomainName.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html}
@@ -57,23 +57,11 @@ export class ApiGatewayDomainName extends $Resource<
   ApiGatewayDomainNameAttributes
 > {
   public static readonly Type = "AWS::ApiGateway::DomainName";
-  public static readonly AttributeNames = [
-    "DistributionDomainName" as const,
-    "DistributionHostedZoneId" as const,
-    "RegionalDomainName" as const,
-    "RegionalHostedZoneId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ApiGatewayDomainNameProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayDomainName.Type,
-      properties,
-      ApiGatewayDomainName.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayDomainName.Type, properties, options);
   }
 }

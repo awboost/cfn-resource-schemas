@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::FlowLog`.
  * Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
@@ -90,18 +90,11 @@ export class EC2FlowLog extends $Resource<
   EC2FlowLogAttributes
 > {
   public static readonly Type = "AWS::EC2::FlowLog";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EC2FlowLogProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2FlowLog.Type,
-      properties,
-      EC2FlowLog.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2FlowLog.Type, properties, options);
   }
 }

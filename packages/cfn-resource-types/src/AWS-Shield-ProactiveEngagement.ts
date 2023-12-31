@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Shield::ProactiveEngagement`.
  * Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
@@ -65,18 +65,11 @@ export class ShieldProactiveEngagement extends $Resource<
   ShieldProactiveEngagementAttributes
 > {
   public static readonly Type = "AWS::Shield::ProactiveEngagement";
-  public static readonly AttributeNames = ["AccountId" as const];
   constructor(
     logicalId: string,
     properties: ShieldProactiveEngagementProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ShieldProactiveEngagement.Type,
-      properties,
-      ShieldProactiveEngagement.AttributeNames,
-      options,
-    );
+    super(logicalId, ShieldProactiveEngagement.Type, properties, options);
   }
 }

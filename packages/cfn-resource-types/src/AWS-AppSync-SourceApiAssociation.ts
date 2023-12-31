@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppSync::SourceApiAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-sourceapiassociation.html}
@@ -94,28 +94,11 @@ export class AppSyncSourceApiAssociation extends $Resource<
   AppSyncSourceApiAssociationAttributes
 > {
   public static readonly Type = "AWS::AppSync::SourceApiAssociation";
-  public static readonly AttributeNames = [
-    "AssociationArn" as const,
-    "AssociationId" as const,
-    "LastSuccessfulMergeDate" as const,
-    "MergedApiArn" as const,
-    "MergedApiId" as const,
-    "SourceApiArn" as const,
-    "SourceApiAssociationStatus" as const,
-    "SourceApiAssociationStatusDetail" as const,
-    "SourceApiId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppSyncSourceApiAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppSyncSourceApiAssociation.Type,
-      properties,
-      AppSyncSourceApiAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, AppSyncSourceApiAssociation.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Connect::Rule`.
  * Resource Type definition for AWS:Connect::Rule
@@ -215,6 +215,7 @@ export type TaskAction = {
   ContactFlowArn: string;
   /**
    * The description which appears in the agent's Contact Control Panel (CCP).
+   * @minLength `0`
    * @maxLength `4096`
    */
   Description?: string;
@@ -240,18 +241,11 @@ export class ConnectRule extends $Resource<
   ConnectRuleAttributes
 > {
   public static readonly Type = "AWS::Connect::Rule";
-  public static readonly AttributeNames = ["RuleArn" as const];
   constructor(
     logicalId: string,
     properties: ConnectRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectRule.Type,
-      properties,
-      ConnectRule.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectRule.Type, properties, options);
   }
 }

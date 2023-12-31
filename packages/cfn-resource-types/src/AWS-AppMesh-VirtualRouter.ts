@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppMesh::VirtualRouter
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html}
@@ -61,23 +61,11 @@ export class AppMeshVirtualRouter extends $Resource<
   AppMeshVirtualRouterAttributes
 > {
   public static readonly Type = "AWS::AppMesh::VirtualRouter";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "ResourceOwner" as const,
-    "Uid" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppMeshVirtualRouterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppMeshVirtualRouter.Type,
-      properties,
-      AppMeshVirtualRouter.AttributeNames,
-      options,
-    );
+    super(logicalId, AppMeshVirtualRouter.Type, properties, options);
   }
 }

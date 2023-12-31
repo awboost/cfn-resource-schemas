@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::ImageBuilder::ImagePipeline
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html}
@@ -138,18 +138,11 @@ export class ImageBuilderImagePipeline extends $Resource<
   ImageBuilderImagePipelineAttributes
 > {
   public static readonly Type = "AWS::ImageBuilder::ImagePipeline";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ImageBuilderImagePipelineProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ImageBuilderImagePipeline.Type,
-      properties,
-      ImageBuilderImagePipeline.AttributeNames,
-      options,
-    );
+    super(logicalId, ImageBuilderImagePipeline.Type, properties, options);
   }
 }

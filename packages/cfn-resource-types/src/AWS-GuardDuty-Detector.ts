@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::GuardDuty::Detector
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html}
@@ -101,6 +101,7 @@ export type TagItem = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -115,18 +116,11 @@ export class GuardDutyDetector extends $Resource<
   GuardDutyDetectorAttributes
 > {
   public static readonly Type = "AWS::GuardDuty::Detector";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GuardDutyDetectorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GuardDutyDetector.Type,
-      properties,
-      GuardDutyDetector.AttributeNames,
-      options,
-    );
+    super(logicalId, GuardDutyDetector.Type, properties, options);
   }
 }

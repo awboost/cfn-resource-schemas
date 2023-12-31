@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppStream::Fleet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html}
@@ -85,18 +85,11 @@ export class AppStreamFleet extends $Resource<
   AppStreamFleetAttributes
 > {
   public static readonly Type = "AWS::AppStream::Fleet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: AppStreamFleetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppStreamFleet.Type,
-      properties,
-      AppStreamFleet.AttributeNames,
-      options,
-    );
+    super(logicalId, AppStreamFleet.Type, properties, options);
   }
 }

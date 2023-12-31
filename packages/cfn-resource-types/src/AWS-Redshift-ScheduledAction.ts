@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html}
@@ -38,25 +38,7 @@ export type RedshiftScheduledActionProperties = {
   /**
    * A JSON format string of the Amazon Redshift API operation with input parameters.
    */
-  TargetAction?:
-    | {
-        /**
-         * Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
-         */
-        ResizeCluster?: ResizeClusterMessage;
-      }
-    | {
-        /**
-         * Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
-         */
-        PauseCluster?: PauseClusterMessage;
-      }
-    | {
-        /**
-         * Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
-         */
-        ResumeCluster?: ResumeClusterMessage;
-      };
+  TargetAction?: ScheduledActionType;
 };
 /**
  * Attribute type definition for `AWS::Redshift::ScheduledAction`.
@@ -101,6 +83,29 @@ export type ResumeClusterMessage = {
   ClusterIdentifier: string;
 };
 /**
+ * Type definition for `AWS::Redshift::ScheduledAction.ScheduledActionType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html}
+ */
+export type ScheduledActionType =
+  | {
+      /**
+       * Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.
+       */
+      ResizeCluster?: ResizeClusterMessage;
+    }
+  | {
+      /**
+       * Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.
+       */
+      PauseCluster?: PauseClusterMessage;
+    }
+  | {
+      /**
+       * Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.
+       */
+      ResumeCluster?: ResumeClusterMessage;
+    };
+/**
  * The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html}
  */
@@ -110,21 +115,11 @@ export class RedshiftScheduledAction extends $Resource<
   RedshiftScheduledActionAttributes
 > {
   public static readonly Type = "AWS::Redshift::ScheduledAction";
-  public static readonly AttributeNames = [
-    "NextInvocations" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RedshiftScheduledActionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RedshiftScheduledAction.Type,
-      properties,
-      RedshiftScheduledAction.AttributeNames,
-      options,
-    );
+    super(logicalId, RedshiftScheduledAction.Type, properties, options);
   }
 }

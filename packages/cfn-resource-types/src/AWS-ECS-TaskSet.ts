@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ECS::TaskSet`.
  * Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
@@ -116,6 +116,7 @@ export type Scale = {
   Unit?: "PERCENT";
   /**
    * The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
+   * @min `0`
    * @max `100`
    */
   Value?: number;
@@ -153,18 +154,11 @@ export class ECSTaskSet extends $Resource<
   ECSTaskSetAttributes
 > {
   public static readonly Type = "AWS::ECS::TaskSet";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ECSTaskSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ECSTaskSet.Type,
-      properties,
-      ECSTaskSet.AttributeNames,
-      options,
-    );
+    super(logicalId, ECSTaskSet.Type, properties, options);
   }
 }

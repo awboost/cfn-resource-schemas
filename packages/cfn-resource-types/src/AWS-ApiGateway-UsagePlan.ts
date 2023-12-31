@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGateway::UsagePlan`` resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.
  In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
@@ -66,10 +66,12 @@ export type ApiStage = {
 export type QuotaSettings = {
   /**
    * The target maximum number of requests that can be made in a given time period.
+   * @min `0`
    */
   Limit?: number;
   /**
    * The number of requests subtracted from the given limit in the initial time period.
+   * @min `0`
    */
   Offset?: number;
   /**
@@ -90,6 +92,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -102,10 +105,12 @@ export type Tag = {
 export type ThrottleSettings = {
   /**
    * The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
+   * @min `0`
    */
   BurstLimit?: number;
   /**
    * The API target request rate limit.
+   * @min `0`
    */
   RateLimit?: number;
 };
@@ -120,18 +125,11 @@ export class ApiGatewayUsagePlan extends $Resource<
   ApiGatewayUsagePlanAttributes
 > {
   public static readonly Type = "AWS::ApiGateway::UsagePlan";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayUsagePlanProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayUsagePlan.Type,
-      properties,
-      ApiGatewayUsagePlan.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayUsagePlan.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaLive::Multiplexprogram
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html}
@@ -105,6 +105,7 @@ export type MultiplexProgramSettings = {
   PreferredChannelPipeline?: PreferredChannelPipeline;
   /**
    * Unique program number.
+   * @min `0`
    * @max `65535`
    */
   ProgramNumber: number;
@@ -115,23 +116,7 @@ export type MultiplexProgramSettings = {
   /**
    * Program video settings configuration.
    */
-  VideoSettings?:
-    | {
-        /**
-         * The constant bitrate configuration for the video encode.
-        When this field is defined, StatmuxSettings must be undefined.
-         * @min `100000`
-         * @max `100000000`
-         */
-        ConstantBitrate: number;
-      }
-    | {
-        /**
-         * Statmux rate control settings.
-        When this field is defined, ConstantBitrate must be undefined.
-         */
-        StatmuxSettings: MultiplexStatmuxVideoSettings;
-      };
+  VideoSettings?: MultiplexVideoSettings;
 };
 /**
  * Type definition for `AWS::MediaLive::Multiplexprogram.MultiplexStatmuxVideoSettings`.
@@ -159,6 +144,28 @@ export type MultiplexStatmuxVideoSettings = {
   Priority?: number;
 };
 /**
+ * Type definition for `AWS::MediaLive::Multiplexprogram.MultiplexVideoSettings`.
+ * The video configuration for each program in a multiplex.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-multiplexprogram-multiplexvideosettings.html}
+ */
+export type MultiplexVideoSettings =
+  | {
+      /**
+     * The constant bitrate configuration for the video encode.
+    When this field is defined, StatmuxSettings must be undefined.
+     * @min `100000`
+     * @max `100000000`
+     */
+      ConstantBitrate: number;
+    }
+  | {
+      /**
+     * Statmux rate control settings.
+    When this field is defined, ConstantBitrate must be undefined.
+     */
+      StatmuxSettings: MultiplexStatmuxVideoSettings;
+    };
+/**
  * Type definition for `AWS::MediaLive::Multiplexprogram.PreferredChannelPipeline`.
  * Indicates which pipeline is preferred by the multiplex for program ingest.
 If set to \"PIPELINE_0\" or \"PIPELINE_1\" and an unhealthy ingest causes the multiplex to switch to the non-preferred pipeline,
@@ -182,18 +189,11 @@ export class MediaLiveMultiplexprogram extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::MediaLive::Multiplexprogram";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: MediaLiveMultiplexprogramProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaLiveMultiplexprogram.Type,
-      properties,
-      MediaLiveMultiplexprogram.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaLiveMultiplexprogram.Type, properties, options);
   }
 }

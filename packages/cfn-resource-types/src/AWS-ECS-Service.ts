@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ECS::Service
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html}
@@ -89,15 +89,6 @@ export type DeploymentController = {
   Type?: "CODE_DEPLOY" | "ECS" | "EXTERNAL";
 };
 /**
- * Type definition for `AWS::ECS::Service.EBSTagSpecification`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-ebstagspecification.html}
- */
-export type EBSTagSpecification = {
-  PropagateTags?: "SERVICE" | "TASK_DEFINITION";
-  ResourceType: string;
-  Tags?: Tag[];
-};
-/**
  * Type definition for `AWS::ECS::Service.LoadBalancer`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html}
  */
@@ -176,22 +167,6 @@ export type ServiceConnectService = {
   PortName: string;
 };
 /**
- * Type definition for `AWS::ECS::Service.ServiceManagedEBSVolumeConfiguration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html}
- */
-export type ServiceManagedEBSVolumeConfiguration = {
-  Encrypted?: boolean;
-  FilesystemType?: string;
-  Iops?: number;
-  KmsKeyId?: string;
-  RoleArn: string;
-  SizeInGiB?: number;
-  SnapshotId?: string;
-  TagSpecifications?: EBSTagSpecification[];
-  Throughput?: number;
-  VolumeType?: string;
-};
-/**
  * Type definition for `AWS::ECS::Service.ServiceRegistry`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html}
  */
@@ -219,21 +194,11 @@ export class ECSService extends $Resource<
   ECSServiceAttributes
 > {
   public static readonly Type = "AWS::ECS::Service";
-  public static readonly AttributeNames = [
-    "Name" as const,
-    "ServiceArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ECSServiceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ECSService.Type,
-      properties,
-      ECSService.AttributeNames,
-      options,
-    );
+    super(logicalId, ECSService.Type, properties, options);
   }
 }

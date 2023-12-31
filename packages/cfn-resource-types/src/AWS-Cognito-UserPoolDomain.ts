@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Cognito::UserPoolDomain
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooldomain.html}
@@ -34,21 +34,11 @@ export class CognitoUserPoolDomain extends $Resource<
   CognitoUserPoolDomainAttributes
 > {
   public static readonly Type = "AWS::Cognito::UserPoolDomain";
-  public static readonly AttributeNames = [
-    "CloudFrontDistribution" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CognitoUserPoolDomainProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CognitoUserPoolDomain.Type,
-      properties,
-      CognitoUserPoolDomain.AttributeNames,
-      options,
-    );
+    super(logicalId, CognitoUserPoolDomain.Type, properties, options);
   }
 }

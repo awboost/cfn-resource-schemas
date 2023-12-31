@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IAM::User
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html}
@@ -103,12 +103,11 @@ export class IAMUser extends $Resource<
   IAMUserAttributes
 > {
   public static readonly Type = "AWS::IAM::User";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: IAMUserProperties,
     options?: $ResourceOptions,
   ) {
-    super(logicalId, IAMUser.Type, properties, IAMUser.AttributeNames, options);
+    super(logicalId, IAMUser.Type, properties, options);
   }
 }

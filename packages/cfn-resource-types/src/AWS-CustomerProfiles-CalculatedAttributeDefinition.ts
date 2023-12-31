@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CustomerProfiles::CalculatedAttributeDefinition`.
  * A calculated attribute definition for Customer Profiles
@@ -47,6 +47,7 @@ export type CustomerProfilesCalculatedAttributeDefinitionProperties = {
   Statistic: Statistic;
   /**
    * An array of key-value pairs to apply to this resource.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -170,6 +171,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -213,10 +215,6 @@ export class CustomerProfilesCalculatedAttributeDefinition extends $Resource<
 > {
   public static readonly Type =
     "AWS::CustomerProfiles::CalculatedAttributeDefinition";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "LastUpdatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CustomerProfilesCalculatedAttributeDefinitionProperties,
@@ -226,7 +224,6 @@ export class CustomerProfilesCalculatedAttributeDefinition extends $Resource<
       logicalId,
       CustomerProfilesCalculatedAttributeDefinition.Type,
       properties,
-      CustomerProfilesCalculatedAttributeDefinition.AttributeNames,
       options,
     );
   }

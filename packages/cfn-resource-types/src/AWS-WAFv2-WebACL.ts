@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::WAFv2::WebACL`.
  * Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
@@ -62,6 +62,9 @@ export type WAFv2WebACLAttributes = {
    * @maxLength `2048`
    */
   Arn: string;
+  /**
+   * @min `0`
+   */
   Capacity: number;
   /**
    * Id of the WebACL
@@ -73,6 +76,40 @@ export type WAFv2WebACLAttributes = {
    * @pattern `^[0-9A-Za-z_:-]{1,1024}$`
    */
   LabelNamespace: string;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.AddressField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-addressfield.html}
+ */
+export type AddressField = FieldIdentifier;
+/**
+ * Type definition for `AWS::WAFv2::WebACL.AllowAction`.
+ * Allow traffic towards application.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html}
+ */
+export type AllowAction = {
+  /**
+   * Custom request handling.
+   */
+  CustomRequestHandling?: CustomRequestHandling;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.AndStatement`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html}
+ */
+export type AndStatement = {
+  Statements: Statement[];
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.AssociationConfig`.
+ * AssociationConfig for body inspection
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html}
+ */
+export type AssociationConfig = {
+  /**
+   * Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
+   */
+  RequestBody?: RequestBody;
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.AWSManagedRulesACFPRuleSet`.
@@ -117,35 +154,6 @@ export type AWSManagedRulesATPRuleSet = {
 export type AWSManagedRulesBotControlRuleSet = {
   EnableMachineLearning?: boolean;
   InspectionLevel: "COMMON" | "TARGETED";
-};
-/**
- * Type definition for `AWS::WAFv2::WebACL.AllowAction`.
- * Allow traffic towards application.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html}
- */
-export type AllowAction = {
-  /**
-   * Custom request handling.
-   */
-  CustomRequestHandling?: CustomRequestHandling;
-};
-/**
- * Type definition for `AWS::WAFv2::WebACL.AndStatement`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html}
- */
-export type AndStatement = {
-  Statements: Statement[];
-};
-/**
- * Type definition for `AWS::WAFv2::WebACL.AssociationConfig`.
- * AssociationConfig for body inspection
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html}
- */
-export type AssociationConfig = {
-  /**
-   * Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
-   */
-  RequestBody?: RequestBody;
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.BlockAction`.
@@ -513,6 +521,17 @@ export type Headers = {
   OversizeHandling: OversizeHandling;
 };
 /**
+ * Type definition for `AWS::WAFv2::WebACL.ImmunityTimeProperty`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html}
+ */
+export type ImmunityTimeProperty = {
+  /**
+   * @min `60`
+   * @max `259200`
+   */
+  ImmunityTime: number;
+};
+/**
  * Type definition for `AWS::WAFv2::WebACL.IPSetForwardedIPConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html}
  */
@@ -536,17 +555,6 @@ export type IPSetReferenceStatement = {
    */
   Arn: string;
   IPSetForwardedIPConfig?: IPSetForwardedIPConfiguration;
-};
-/**
- * Type definition for `AWS::WAFv2::WebACL.ImmunityTimeProperty`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html}
- */
-export type ImmunityTimeProperty = {
-  /**
-   * @min `60`
-   * @max `259200`
-   */
-  ImmunityTime: number;
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.JsonBody`.
@@ -721,6 +729,11 @@ export type OverrideAction = {
  */
 export type OversizeHandling = "CONTINUE" | "MATCH" | "NO_MATCH";
 /**
+ * Type definition for `AWS::WAFv2::WebACL.PhoneNumberField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-phonenumberfield.html}
+ */
+export type PhoneNumberField = FieldIdentifier;
+/**
  * Type definition for `AWS::WAFv2::WebACL.PositionalConstraint`.
  * Position of the evaluation in the FieldToMatch of request.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-positionalconstraint.html}
@@ -731,11 +744,6 @@ export type PositionalConstraint =
   | "ENDS_WITH"
   | "CONTAINS"
   | "CONTAINS_WORD";
-/**
- * Type definition for `AWS::WAFv2::WebACL.QueryString`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-querystring.html}
- */
-export type QueryString = Record<string, any>;
 /**
  * Type definition for `AWS::WAFv2::WebACL.RateBasedStatement`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html}
@@ -823,12 +831,6 @@ export type RateLimitCookie = {
  */
 export type RateLimitForwardedIP = Record<string, any>;
 /**
- * Type definition for `AWS::WAFv2::WebACL.RateLimitHTTPMethod`.
- * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimithttpmethod.html}
- */
-export type RateLimitHTTPMethod = Record<string, any>;
-/**
  * Type definition for `AWS::WAFv2::WebACL.RateLimitHeader`.
  * Specifies a header as an aggregate key for a rate-based rule.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitheader.html}
@@ -843,6 +845,12 @@ export type RateLimitHeader = {
   Name: string;
   TextTransformations: TextTransformation[];
 };
+/**
+ * Type definition for `AWS::WAFv2::WebACL.RateLimitHTTPMethod`.
+ * Specifies the request's HTTP method as an aggregate key for a rate-based rule.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimithttpmethod.html}
+ */
+export type RateLimitHTTPMethod = Record<string, any>;
 /**
  * Type definition for `AWS::WAFv2::WebACL.RateLimitIP`.
  * Specifies the IP address in the web request as an aggregate key for a rate-based rule.
@@ -958,11 +966,11 @@ export type RequestInspection = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspectionacfp.html}
  */
 export type RequestInspectionACFP = {
-  AddressFields?: FieldIdentifier[];
+  AddressFields?: AddressField[];
   EmailField?: FieldIdentifier;
   PasswordField?: FieldIdentifier;
   PayloadType: "JSON" | "FORM_ENCODED";
-  PhoneNumberFields?: FieldIdentifier[];
+  PhoneNumberFields?: PhoneNumberField[];
   UsernameField?: FieldIdentifier;
 };
 /**
@@ -1100,6 +1108,7 @@ export type Rule = {
   OverrideAction?: OverrideAction;
   /**
    * Priority of the Rule, Rules get evaluated from lower to higher priority.
+   * @min `0`
    */
   Priority: number;
   /**
@@ -1189,20 +1198,6 @@ export type Scope = "CLOUDFRONT" | "REGIONAL";
  */
 export type SensitivityLevel = "LOW" | "HIGH";
 /**
- * Type definition for `AWS::WAFv2::WebACL.SingleHeader`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singleheader.html}
- */
-export type SingleHeader = {
-  Name?: string;
-};
-/**
- * Type definition for `AWS::WAFv2::WebACL.SingleQueryArgument`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singlequeryargument.html}
- */
-export type SingleQueryArgument = {
-  Name?: string;
-};
-/**
  * Type definition for `AWS::WAFv2::WebACL.SizeConstraintStatement`.
  * Size Constraint statement.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html}
@@ -1214,6 +1209,7 @@ export type SizeConstraintStatement = {
    */
   FieldToMatch: FieldToMatch;
   /**
+   * @min `0`
    * @max `21474836480`
    */
   Size: number;
@@ -1285,6 +1281,7 @@ export type Tag = {
    */
   Key?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -1297,6 +1294,7 @@ export type Tag = {
 export type TextTransformation = {
   /**
    * Priority of Rule being evaluated.
+   * @min `0`
    */
   Priority: number;
   /**
@@ -1331,11 +1329,6 @@ export type TextTransformationType =
   | "BASE64_DECODE_EXT"
   | "URL_DECODE_UNI"
   | "UTF8_TO_UNICODE";
-/**
- * Type definition for `AWS::WAFv2::WebACL.UriPath`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-uripath.html}
- */
-export type UriPath = Record<string, any>;
 /**
  * Type definition for `AWS::WAFv2::WebACL.VisibilityConfig`.
  * Visibility Metric of the WebACL.
@@ -1373,23 +1366,11 @@ export class WAFv2WebACL extends $Resource<
   WAFv2WebACLAttributes
 > {
   public static readonly Type = "AWS::WAFv2::WebACL";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Capacity" as const,
-    "Id" as const,
-    "LabelNamespace" as const,
-  ];
   constructor(
     logicalId: string,
     properties: WAFv2WebACLProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFv2WebACL.Type,
-      properties,
-      WAFv2WebACL.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFv2WebACL.Type, properties, options);
   }
 }

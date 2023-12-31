@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Pinpoint::PushTemplate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html}
@@ -24,18 +24,6 @@ export type PinpointPushTemplateAttributes = {
   Id: string;
 };
 /**
- * Type definition for `AWS::Pinpoint::PushTemplate.APNSPushNotificationTemplate`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html}
- */
-export type APNSPushNotificationTemplate = {
-  Action?: string;
-  Body?: string;
-  MediaUrl?: string;
-  Sound?: string;
-  Title?: string;
-  Url?: string;
-};
-/**
  * Type definition for `AWS::Pinpoint::PushTemplate.AndroidPushNotificationTemplate`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-androidpushnotificationtemplate.html}
  */
@@ -45,6 +33,18 @@ export type AndroidPushNotificationTemplate = {
   ImageIconUrl?: string;
   ImageUrl?: string;
   SmallImageIconUrl?: string;
+  Sound?: string;
+  Title?: string;
+  Url?: string;
+};
+/**
+ * Type definition for `AWS::Pinpoint::PushTemplate.APNSPushNotificationTemplate`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-pushtemplate-apnspushnotificationtemplate.html}
+ */
+export type APNSPushNotificationTemplate = {
+  Action?: string;
+  Body?: string;
+  MediaUrl?: string;
   Sound?: string;
   Title?: string;
   Url?: string;
@@ -70,18 +70,11 @@ export class PinpointPushTemplate extends $Resource<
   PinpointPushTemplateAttributes
 > {
   public static readonly Type = "AWS::Pinpoint::PushTemplate";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: PinpointPushTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PinpointPushTemplate.Type,
-      properties,
-      PinpointPushTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, PinpointPushTemplate.Type, properties, options);
   }
 }

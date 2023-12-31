@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::MitigationAction`.
  * Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
@@ -164,21 +164,11 @@ export class IoTMitigationAction extends $Resource<
   IoTMitigationActionAttributes
 > {
   public static readonly Type = "AWS::IoT::MitigationAction";
-  public static readonly AttributeNames = [
-    "MitigationActionArn" as const,
-    "MitigationActionId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTMitigationActionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTMitigationAction.Type,
-      properties,
-      IoTMitigationAction.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTMitigationAction.Type, properties, options);
   }
 }

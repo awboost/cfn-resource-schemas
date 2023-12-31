@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppSync::ApiKey
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html}
@@ -28,22 +28,11 @@ export class AppSyncApiKey extends $Resource<
   AppSyncApiKeyAttributes
 > {
   public static readonly Type = "AWS::AppSync::ApiKey";
-  public static readonly AttributeNames = [
-    "ApiKey" as const,
-    "ApiKeyId" as const,
-    "Arn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppSyncApiKeyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppSyncApiKey.Type,
-      properties,
-      AppSyncApiKey.AttributeNames,
-      options,
-    );
+    super(logicalId, AppSyncApiKey.Type, properties, options);
   }
 }

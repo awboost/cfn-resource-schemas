@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::DMS::ReplicationConfig`.
  * A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
@@ -10,10 +10,6 @@ export type DMSReplicationConfigProperties = {
    * Configuration parameters for provisioning a AWS DMS Serverless replication
    */
   ComputeConfig?: ComputeConfig;
-  /**
-   * The Amazon Resource Name (ARN) of the Replication Config
-   */
-  ReplicationConfigArn?: string;
   /**
    * A unique identifier of replication configuration
    */
@@ -52,6 +48,16 @@ export type DMSReplicationConfigProperties = {
    * The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
    */
   TargetEndpointArn?: string;
+};
+/**
+ * Attribute type definition for `AWS::DMS::ReplicationConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html#aws-resource-dms-replicationconfig-return-values}
+ */
+export type DMSReplicationConfigAttributes = {
+  /**
+   * The Amazon Resource Name (ARN) of the Replication Config
+   */
+  ReplicationConfigArn: string;
 };
 /**
  * Type definition for `AWS::DMS::ReplicationConfig.ComputeConfig`.
@@ -97,21 +103,14 @@ export type Tag = {
 export class DMSReplicationConfig extends $Resource<
   "AWS::DMS::ReplicationConfig",
   DMSReplicationConfigProperties,
-  Record<string, never>
+  DMSReplicationConfigAttributes
 > {
   public static readonly Type = "AWS::DMS::ReplicationConfig";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: DMSReplicationConfigProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DMSReplicationConfig.Type,
-      properties,
-      DMSReplicationConfig.AttributeNames,
-      options,
-    );
+    super(logicalId, DMSReplicationConfig.Type, properties, options);
   }
 }

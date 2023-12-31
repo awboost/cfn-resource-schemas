@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::Instance
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html}
@@ -32,7 +32,7 @@ export type ConnectInstanceProperties = {
  * Attribute type definition for `AWS::Connect::Instance`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html#aws-resource-connect-instance-return-values}
  */
-export type ConnectInstanceAttribs = {
+export type ConnectInstanceAttributes = {
   /**
    * An instanceArn is automatically generated on creation based on instanceId.
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*$`
@@ -96,27 +96,14 @@ export type Attributes = {
 export class ConnectInstance extends $Resource<
   "AWS::Connect::Instance",
   ConnectInstanceProperties,
-  ConnectInstanceAttribs
+  ConnectInstanceAttributes
 > {
   public static readonly Type = "AWS::Connect::Instance";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "Id" as const,
-    "InstanceStatus" as const,
-    "ServiceRole" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ConnectInstanceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectInstance.Type,
-      properties,
-      ConnectInstance.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectInstance.Type, properties, options);
   }
 }

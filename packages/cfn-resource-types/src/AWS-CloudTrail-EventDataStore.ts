@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudTrail::EventDataStore`.
  * A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
@@ -173,23 +173,11 @@ export class CloudTrailEventDataStore extends $Resource<
   CloudTrailEventDataStoreAttributes
 > {
   public static readonly Type = "AWS::CloudTrail::EventDataStore";
-  public static readonly AttributeNames = [
-    "CreatedTimestamp" as const,
-    "EventDataStoreArn" as const,
-    "Status" as const,
-    "UpdatedTimestamp" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudTrailEventDataStoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudTrailEventDataStore.Type,
-      properties,
-      CloudTrailEventDataStore.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudTrailEventDataStore.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationreferencedatasource.html}
@@ -92,7 +92,6 @@ export class KinesisAnalyticsV2ApplicationReferenceDataSource extends $Resource<
 > {
   public static readonly Type =
     "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: KinesisAnalyticsV2ApplicationReferenceDataSourceProperties,
@@ -102,7 +101,6 @@ export class KinesisAnalyticsV2ApplicationReferenceDataSource extends $Resource<
       logicalId,
       KinesisAnalyticsV2ApplicationReferenceDataSource.Type,
       properties,
-      KinesisAnalyticsV2ApplicationReferenceDataSource.AttributeNames,
       options,
     );
   }

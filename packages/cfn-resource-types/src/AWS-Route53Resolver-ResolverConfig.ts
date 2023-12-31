@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Route53Resolver::ResolverConfig.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html}
@@ -48,22 +48,11 @@ export class Route53ResolverResolverConfig extends $Resource<
   Route53ResolverResolverConfigAttributes
 > {
   public static readonly Type = "AWS::Route53Resolver::ResolverConfig";
-  public static readonly AttributeNames = [
-    "AutodefinedReverse" as const,
-    "Id" as const,
-    "OwnerId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: Route53ResolverResolverConfigProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      Route53ResolverResolverConfig.Type,
-      properties,
-      Route53ResolverResolverConfig.AttributeNames,
-      options,
-    );
+    super(logicalId, Route53ResolverResolverConfig.Type, properties, options);
   }
 }

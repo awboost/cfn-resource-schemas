@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Athena::WorkGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type AthenaWorkGroupProperties = {
   /**
    * The workgroup description.
+   * @minLength `0`
    * @maxLength `1024`
    */
   Description?: string;
@@ -96,10 +97,6 @@ export type EncryptionOption = "SSE_S3" | "SSE_KMS" | "CSE_KMS";
  */
 export type EngineVersion = {
   /**
-   * Read only. The engine version on which the query runs. If the user requests a valid engine version other than Auto, the effective engine version is the same as the engine version that the user requested. If the user requests Auto, the effective engine version is chosen by Athena. When a request to update the engine version is made by a CreateWorkGroup or UpdateWorkGroup operation, the EffectiveEngineVersion field is ignored.
-   */
-  EffectiveEngineVersion?: string;
-  /**
    * The engine version requested by the user. Possible values are determined by the output of ListEngineVersions, including Auto. The default is Auto.
    */
   SelectedEngineVersion?: string;
@@ -172,6 +169,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -279,18 +277,11 @@ export class AthenaWorkGroup extends $Resource<
   AthenaWorkGroupAttributes
 > {
   public static readonly Type = "AWS::Athena::WorkGroup";
-  public static readonly AttributeNames = ["CreationTime" as const];
   constructor(
     logicalId: string,
     properties: AthenaWorkGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AthenaWorkGroup.Type,
-      properties,
-      AthenaWorkGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, AthenaWorkGroup.Type, properties, options);
   }
 }

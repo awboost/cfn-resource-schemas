@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::OpenSearchServerless::SecurityConfig`.
  * Amazon OpenSearchServerless security config resource
@@ -89,7 +89,6 @@ export class OpenSearchServerlessSecurityConfig extends $Resource<
   OpenSearchServerlessSecurityConfigAttributes
 > {
   public static readonly Type = "AWS::OpenSearchServerless::SecurityConfig";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: OpenSearchServerlessSecurityConfigProperties,
@@ -99,7 +98,6 @@ export class OpenSearchServerlessSecurityConfig extends $Resource<
       logicalId,
       OpenSearchServerlessSecurityConfig.Type,
       properties,
-      OpenSearchServerlessSecurityConfig.AttributeNames,
       options,
     );
   }

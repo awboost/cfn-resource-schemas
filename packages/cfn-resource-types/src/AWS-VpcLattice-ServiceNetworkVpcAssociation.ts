@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::ServiceNetworkVpcAssociation`.
  * Associates a VPC with a service network.
@@ -14,6 +14,7 @@ export type VpcLatticeServiceNetworkVpcAssociationProperties = {
    */
   ServiceNetworkIdentifier?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -101,16 +102,6 @@ export class VpcLatticeServiceNetworkVpcAssociation extends $Resource<
   VpcLatticeServiceNetworkVpcAssociationAttributes
 > {
   public static readonly Type = "AWS::VpcLattice::ServiceNetworkVpcAssociation";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedAt" as const,
-    "Id" as const,
-    "ServiceNetworkArn" as const,
-    "ServiceNetworkId" as const,
-    "ServiceNetworkName" as const,
-    "Status" as const,
-    "VpcId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: VpcLatticeServiceNetworkVpcAssociationProperties,
@@ -120,7 +111,6 @@ export class VpcLatticeServiceNetworkVpcAssociation extends $Resource<
       logicalId,
       VpcLatticeServiceNetworkVpcAssociation.Type,
       properties,
-      VpcLatticeServiceNetworkVpcAssociation.AttributeNames,
       options,
     );
   }

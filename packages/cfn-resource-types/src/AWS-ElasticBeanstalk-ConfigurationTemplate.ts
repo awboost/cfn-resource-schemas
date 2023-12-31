@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html}
@@ -100,7 +100,6 @@ export class ElasticBeanstalkConfigurationTemplate extends $Resource<
   ElasticBeanstalkConfigurationTemplateAttributes
 > {
   public static readonly Type = "AWS::ElasticBeanstalk::ConfigurationTemplate";
-  public static readonly AttributeNames = ["TemplateName" as const];
   constructor(
     logicalId: string,
     properties: ElasticBeanstalkConfigurationTemplateProperties,
@@ -110,7 +109,6 @@ export class ElasticBeanstalkConfigurationTemplate extends $Resource<
       logicalId,
       ElasticBeanstalkConfigurationTemplate.Type,
       properties,
-      ElasticBeanstalkConfigurationTemplate.AttributeNames,
       options,
     );
   }

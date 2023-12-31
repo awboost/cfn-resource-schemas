@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Batch::JobDefinition
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html}
@@ -360,18 +360,11 @@ export class BatchJobDefinition extends $Resource<
   BatchJobDefinitionAttributes
 > {
   public static readonly Type = "AWS::Batch::JobDefinition";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: BatchJobDefinitionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BatchJobDefinition.Type,
-      properties,
-      BatchJobDefinition.AttributeNames,
-      options,
-    );
+    super(logicalId, BatchJobDefinition.Type, properties, options);
   }
 }

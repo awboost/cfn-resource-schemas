@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::RDS::DBSecurityGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsecuritygroup.html}
@@ -45,18 +45,11 @@ export class RDSDBSecurityGroup extends $Resource<
   RDSDBSecurityGroupAttributes
 > {
   public static readonly Type = "AWS::RDS::DBSecurityGroup";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: RDSDBSecurityGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RDSDBSecurityGroup.Type,
-      properties,
-      RDSDBSecurityGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, RDSDBSecurityGroup.Type, properties, options);
   }
 }

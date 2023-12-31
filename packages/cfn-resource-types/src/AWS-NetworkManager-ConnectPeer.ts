@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::NetworkManager::ConnectPeer Resource Type Definition.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html}
@@ -42,7 +42,7 @@ export type NetworkManagerConnectPeerAttributes = {
   /**
    * Configuration of the connect peer.
    */
-  Configuration: ConnectPeerConfiguration;
+  Configuration: {};
   /**
    * The ID of the Connect peer.
    */
@@ -143,25 +143,11 @@ export class NetworkManagerConnectPeer extends $Resource<
   NetworkManagerConnectPeerAttributes
 > {
   public static readonly Type = "AWS::NetworkManager::ConnectPeer";
-  public static readonly AttributeNames = [
-    "Configuration" as const,
-    "ConnectPeerId" as const,
-    "CoreNetworkId" as const,
-    "CreatedAt" as const,
-    "EdgeLocation" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkManagerConnectPeerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NetworkManagerConnectPeer.Type,
-      properties,
-      NetworkManagerConnectPeer.AttributeNames,
-      options,
-    );
+    super(logicalId, NetworkManagerConnectPeer.Type, properties, options);
   }
 }

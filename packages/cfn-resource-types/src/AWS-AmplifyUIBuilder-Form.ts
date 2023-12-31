@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::AmplifyUIBuilder::Form Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-form.html}
@@ -37,16 +37,7 @@ export type FieldConfig = {
   Excluded?: boolean;
   InputType?: FieldInputConfig;
   Label?: string;
-  Position?:
-    | {
-        Fixed: FixedPosition;
-      }
-    | {
-        RightOf: string;
-      }
-    | {
-        Below: string;
-      };
+  Position?: FieldPosition;
   Validations?: FieldValidationConfiguration[];
 };
 /**
@@ -72,6 +63,25 @@ export type FieldInputConfig = {
   ValueMappings?: ValueMappings;
 };
 /**
+ * Type definition for `AWS::AmplifyUIBuilder::Form.FieldPosition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldposition.html}
+ */
+export type FieldPosition =
+  | {
+      Fixed: FixedPosition;
+    }
+  | {
+      RightOf: string;
+    }
+  | {
+      Below: string;
+    };
+/**
+ * Type definition for `AWS::AmplifyUIBuilder::Form.FieldsMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldsmap.html}
+ */
+export type FieldsMap = Record<string, FieldConfig>;
+/**
  * Type definition for `AWS::AmplifyUIBuilder::Form.FieldValidationConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldvalidationconfiguration.html}
  */
@@ -81,11 +91,6 @@ export type FieldValidationConfiguration = {
   Type: string;
   ValidationMessage?: string;
 };
-/**
- * Type definition for `AWS::AmplifyUIBuilder::Form.FieldsMap`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fieldsmap.html}
- */
-export type FieldsMap = Record<string, FieldConfig>;
 /**
  * Type definition for `AWS::AmplifyUIBuilder::Form.FileUploaderFieldConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-fileuploaderfieldconfig.html}
@@ -115,16 +120,7 @@ export type FormActionType = "create" | "update";
 export type FormButton = {
   Children?: string;
   Excluded?: boolean;
-  Position?:
-    | {
-        Fixed: FixedPosition;
-      }
-    | {
-        RightOf: string;
-      }
-    | {
-        Below: string;
-      };
+  Position?: FieldPosition;
 };
 /**
  * Type definition for `AWS::AmplifyUIBuilder::Form.FormButtonsPosition`.
@@ -166,28 +162,21 @@ export type FormInputValueProperty = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyle.html}
  */
 export type FormStyle = {
-  HorizontalGap?:
-    | {
-        TokenReference: string;
-      }
-    | {
-        Value: string;
-      };
-  OuterPadding?:
-    | {
-        TokenReference: string;
-      }
-    | {
-        Value: string;
-      };
-  VerticalGap?:
-    | {
-        TokenReference: string;
-      }
-    | {
-        Value: string;
-      };
+  HorizontalGap?: FormStyleConfig;
+  OuterPadding?: FormStyleConfig;
+  VerticalGap?: FormStyleConfig;
 };
+/**
+ * Type definition for `AWS::AmplifyUIBuilder::Form.FormStyleConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-formstyleconfig.html}
+ */
+export type FormStyleConfig =
+  | {
+      TokenReference: string;
+    }
+  | {
+      Value: string;
+    };
 /**
  * Type definition for `AWS::AmplifyUIBuilder::Form.LabelDecorator`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-labeldecorator.html}
@@ -201,16 +190,7 @@ export type SectionalElement = {
   Excluded?: boolean;
   Level?: number;
   Orientation?: string;
-  Position?:
-    | {
-        Fixed: FixedPosition;
-      }
-    | {
-        RightOf: string;
-      }
-    | {
-        Below: string;
-      };
+  Position?: FieldPosition;
   Text?: string;
   Type: string;
 };
@@ -254,18 +234,11 @@ export class AmplifyUIBuilderForm extends $Resource<
   AmplifyUIBuilderFormAttributes
 > {
   public static readonly Type = "AWS::AmplifyUIBuilder::Form";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: AmplifyUIBuilderFormProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AmplifyUIBuilderForm.Type,
-      properties,
-      AmplifyUIBuilderForm.AttributeNames,
-      options,
-    );
+    super(logicalId, AmplifyUIBuilderForm.Type, properties, options);
   }
 }

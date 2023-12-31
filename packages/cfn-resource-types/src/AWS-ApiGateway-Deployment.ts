@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html}
@@ -244,18 +244,11 @@ export class ApiGatewayDeployment extends $Resource<
   ApiGatewayDeploymentAttributes
 > {
   public static readonly Type = "AWS::ApiGateway::Deployment";
-  public static readonly AttributeNames = ["DeploymentId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayDeploymentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayDeployment.Type,
-      properties,
-      ApiGatewayDeployment.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayDeployment.Type, properties, options);
   }
 }

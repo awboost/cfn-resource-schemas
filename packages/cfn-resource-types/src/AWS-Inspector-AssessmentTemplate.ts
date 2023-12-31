@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Inspector::AssessmentTemplate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html}
@@ -36,18 +36,11 @@ export class InspectorAssessmentTemplate extends $Resource<
   InspectorAssessmentTemplateAttributes
 > {
   public static readonly Type = "AWS::Inspector::AssessmentTemplate";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: InspectorAssessmentTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      InspectorAssessmentTemplate.Type,
-      properties,
-      InspectorAssessmentTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, InspectorAssessmentTemplate.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudFormation::WaitCondition
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-waitcondition.html}
@@ -27,18 +27,11 @@ export class CloudFormationWaitCondition extends $Resource<
   CloudFormationWaitConditionAttributes
 > {
   public static readonly Type = "AWS::CloudFormation::WaitCondition";
-  public static readonly AttributeNames = ["Data" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: CloudFormationWaitConditionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFormationWaitCondition.Type,
-      properties,
-      CloudFormationWaitCondition.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFormationWaitCondition.Type, properties, options);
   }
 }

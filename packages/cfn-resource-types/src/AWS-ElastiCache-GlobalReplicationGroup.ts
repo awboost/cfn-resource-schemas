@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html}
@@ -117,10 +117,6 @@ export class ElastiCacheGlobalReplicationGroup extends $Resource<
   ElastiCacheGlobalReplicationGroupAttributes
 > {
   public static readonly Type = "AWS::ElastiCache::GlobalReplicationGroup";
-  public static readonly AttributeNames = [
-    "GlobalReplicationGroupId" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ElastiCacheGlobalReplicationGroupProperties,
@@ -130,7 +126,6 @@ export class ElastiCacheGlobalReplicationGroup extends $Resource<
       logicalId,
       ElastiCacheGlobalReplicationGroup.Type,
       properties,
-      ElastiCacheGlobalReplicationGroup.AttributeNames,
       options,
     );
   }

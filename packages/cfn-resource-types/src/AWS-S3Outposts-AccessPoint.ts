@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type Definition for AWS::S3Outposts::AccessPoint
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html}
@@ -63,18 +63,11 @@ export class S3OutpostsAccessPoint extends $Resource<
   S3OutpostsAccessPointAttributes
 > {
   public static readonly Type = "AWS::S3Outposts::AccessPoint";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: S3OutpostsAccessPointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3OutpostsAccessPoint.Type,
-      properties,
-      S3OutpostsAccessPoint.AttributeNames,
-      options,
-    );
+    super(logicalId, S3OutpostsAccessPoint.Type, properties, options);
   }
 }

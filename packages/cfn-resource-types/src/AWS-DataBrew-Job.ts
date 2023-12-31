@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataBrew::Job.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-job.html}
@@ -129,30 +129,6 @@ export type CsvOutputOptions = {
   Delimiter?: string;
 };
 /**
- * Type definition for `AWS::DataBrew::Job.DataCatalogOutput`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html}
- */
-export type DataCatalogOutput = {
-  /**
-   * @minLength `1`
-   * @maxLength `255`
-   */
-  CatalogId?: string;
-  /**
-   * @minLength `1`
-   * @maxLength `255`
-   */
-  DatabaseName: string;
-  DatabaseOptions?: DatabaseTableOutputOptions;
-  Overwrite?: boolean;
-  S3Options?: S3TableOutputOptions;
-  /**
-   * @minLength `1`
-   * @maxLength `255`
-   */
-  TableName: string;
-};
-/**
  * Type definition for `AWS::DataBrew::Job.DatabaseOutput`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html}
  */
@@ -181,6 +157,30 @@ export type DatabaseTableOutputOptions = {
    * S3 Output location
    */
   TempDirectory?: S3Location;
+};
+/**
+ * Type definition for `AWS::DataBrew::Job.DataCatalogOutput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html}
+ */
+export type DataCatalogOutput = {
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  CatalogId?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  DatabaseName: string;
+  DatabaseOptions?: DatabaseTableOutputOptions;
+  Overwrite?: boolean;
+  S3Options?: S3TableOutputOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  TableName: string;
 };
 /**
  * Type definition for `AWS::DataBrew::Job.EntityDetectorConfiguration`.
@@ -377,6 +377,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -410,18 +411,11 @@ export class DataBrewJob extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::DataBrew::Job";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: DataBrewJobProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataBrewJob.Type,
-      properties,
-      DataBrewJob.AttributeNames,
-      options,
-    );
+    super(logicalId, DataBrewJob.Type, properties, options);
   }
 }

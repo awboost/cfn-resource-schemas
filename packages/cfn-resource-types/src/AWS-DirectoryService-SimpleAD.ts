@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::DirectoryService::SimpleAD
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html}
@@ -40,7 +40,7 @@ export type DirectoryServiceSimpleADProperties = {
 };
 /**
  * Attribute type definition for `AWS::DirectoryService::SimpleAD`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#aws-resource-directoryservice-simplead-return-values}
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html}
  */
 export type DirectoryServiceSimpleADAttributes = {
   /**
@@ -80,22 +80,11 @@ export class DirectoryServiceSimpleAD extends $Resource<
   DirectoryServiceSimpleADAttributes
 > {
   public static readonly Type = "AWS::DirectoryService::SimpleAD";
-  public static readonly AttributeNames = [
-    "Alias" as const,
-    "DirectoryId" as const,
-    "DnsIpAddresses" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DirectoryServiceSimpleADProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DirectoryServiceSimpleAD.Type,
-      properties,
-      DirectoryServiceSimpleAD.AttributeNames,
-      options,
-    );
+    super(logicalId, DirectoryServiceSimpleAD.Type, properties, options);
   }
 }

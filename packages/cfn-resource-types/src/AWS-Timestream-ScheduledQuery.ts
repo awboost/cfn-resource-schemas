@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Timestream::ScheduledQuery resource creates a Timestream Scheduled Query.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-scheduledquery.html}
@@ -301,6 +301,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -362,28 +363,11 @@ export class TimestreamScheduledQuery extends $Resource<
   TimestreamScheduledQueryAttributes
 > {
   public static readonly Type = "AWS::Timestream::ScheduledQuery";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "SQErrorReportConfiguration" as const,
-    "SQKmsKeyId" as const,
-    "SQName" as const,
-    "SQNotificationConfiguration" as const,
-    "SQQueryString" as const,
-    "SQScheduleConfiguration" as const,
-    "SQScheduledQueryExecutionRoleArn" as const,
-    "SQTargetConfiguration" as const,
-  ];
   constructor(
     logicalId: string,
     properties: TimestreamScheduledQueryProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      TimestreamScheduledQuery.Type,
-      properties,
-      TimestreamScheduledQuery.AttributeNames,
-      options,
-    );
+    super(logicalId, TimestreamScheduledQuery.Type, properties, options);
   }
 }

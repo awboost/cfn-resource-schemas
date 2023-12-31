@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html}
@@ -180,7 +180,7 @@ export type DataQualityAppSpecification = {
   /**
    * Sets the environment variables in the Docker container
    */
-  Environment?: Record<string, string | string>;
+  Environment?: Record<string, string>;
   /**
    * The container image to be run by the monitoring job.
    * @maxLength `255`
@@ -455,10 +455,6 @@ export class SageMakerDataQualityJobDefinition extends $Resource<
   SageMakerDataQualityJobDefinitionAttributes
 > {
   public static readonly Type = "AWS::SageMaker::DataQualityJobDefinition";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "JobDefinitionArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerDataQualityJobDefinitionProperties,
@@ -468,7 +464,6 @@ export class SageMakerDataQualityJobDefinition extends $Resource<
       logicalId,
       SageMakerDataQualityJobDefinition.Type,
       properties,
-      SageMakerDataQualityJobDefinition.AttributeNames,
       options,
     );
   }

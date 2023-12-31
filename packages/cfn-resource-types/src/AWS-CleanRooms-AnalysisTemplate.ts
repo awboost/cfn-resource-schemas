@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CleanRooms::AnalysisTemplate`.
  * Represents a stored analysis within a collaboration
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type CleanRoomsAnalysisTemplateProperties = {
   /**
    * The member who can query can provide this placeholder for a literal data value in an analysis template
+   * @minLength `0`
    * @maxLength `10`
    */
   AnalysisParameters?: AnalysisParameter[];
@@ -63,7 +64,7 @@ export type CleanRoomsAnalysisTemplateAttributes = {
    * @maxLength `100`
    */
   MembershipArn: string;
-  Schema: AnalysisSchema;
+  Schema: {};
 };
 /**
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.AnalysisParameter`.
@@ -71,6 +72,7 @@ export type CleanRoomsAnalysisTemplateAttributes = {
  */
 export type AnalysisParameter = {
   /**
+   * @minLength `0`
    * @maxLength `250`
    */
   DefaultValue?: string;
@@ -102,6 +104,9 @@ export type AnalysisParameter = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html}
  */
 export type AnalysisSchema = {
+  /**
+   * @minLength `0`
+   */
   ReferencedTables: string[];
 };
 /**
@@ -110,6 +115,7 @@ export type AnalysisSchema = {
  */
 export type AnalysisSource = {
   /**
+   * @minLength `0`
    * @maxLength `15000`
    */
   Text: string;
@@ -141,25 +147,11 @@ export class CleanRoomsAnalysisTemplate extends $Resource<
   CleanRoomsAnalysisTemplateAttributes
 > {
   public static readonly Type = "AWS::CleanRooms::AnalysisTemplate";
-  public static readonly AttributeNames = [
-    "AnalysisTemplateIdentifier" as const,
-    "Arn" as const,
-    "CollaborationArn" as const,
-    "CollaborationIdentifier" as const,
-    "MembershipArn" as const,
-    "Schema" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CleanRoomsAnalysisTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CleanRoomsAnalysisTemplate.Type,
-      properties,
-      CleanRoomsAnalysisTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, CleanRoomsAnalysisTemplate.Type, properties, options);
   }
 }

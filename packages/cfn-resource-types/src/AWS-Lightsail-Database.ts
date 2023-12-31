@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lightsail::Database
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-database.html}
@@ -141,6 +141,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -155,18 +156,11 @@ export class LightsailDatabase extends $Resource<
   LightsailDatabaseAttributes
 > {
   public static readonly Type = "AWS::Lightsail::Database";
-  public static readonly AttributeNames = ["DatabaseArn" as const];
   constructor(
     logicalId: string,
     properties: LightsailDatabaseProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LightsailDatabase.Type,
-      properties,
-      LightsailDatabase.AttributeNames,
-      options,
-    );
+    super(logicalId, LightsailDatabase.Type, properties, options);
   }
 }

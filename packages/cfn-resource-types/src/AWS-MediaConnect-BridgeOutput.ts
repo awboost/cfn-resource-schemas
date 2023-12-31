@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaConnect::BridgeOutput
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html}
@@ -55,18 +55,11 @@ export class MediaConnectBridgeOutput extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::MediaConnect::BridgeOutput";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: MediaConnectBridgeOutputProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaConnectBridgeOutput.Type,
-      properties,
-      MediaConnectBridgeOutput.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaConnectBridgeOutput.Type, properties, options);
   }
 }

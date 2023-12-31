@@ -1,14 +1,10 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaPackage::Asset
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html}
  */
 export type MediaPackageAssetProperties = {
-  /**
-   * The list of egress endpoints available for the Asset.
-   */
-  EgressEndpoints?: EgressEndpoint[];
   /**
    * The unique identifier for the Asset.
    */
@@ -47,21 +43,19 @@ export type MediaPackageAssetAttributes = {
    * The time the Asset was initially submitted for Ingest.
    */
   CreatedAt: string;
-};
-/**
- * Type definition for `AWS::MediaPackage::Asset.EgressEndpoint`.
- * The endpoint URL used to access an Asset using one PackagingConfiguration.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html}
- */
-export type EgressEndpoint = {
   /**
-   * The ID of the PackagingConfiguration being applied to the Asset.
+   * The list of egress endpoints available for the Asset.
    */
-  PackagingConfigurationId: string;
-  /**
-   * The URL of the parent manifest for the repackaged Asset.
-   */
-  Url: string;
+  EgressEndpoints: {
+    /**
+     * The ID of the PackagingConfiguration being applied to the Asset.
+     */
+    PackagingConfigurationId: string;
+    /**
+     * The URL of the parent manifest for the repackaged Asset.
+     */
+    Url: string;
+  }[];
 };
 /**
  * Type definition for `AWS::MediaPackage::Asset.Tag`.
@@ -81,21 +75,11 @@ export class MediaPackageAsset extends $Resource<
   MediaPackageAssetAttributes
 > {
   public static readonly Type = "AWS::MediaPackage::Asset";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MediaPackageAssetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaPackageAsset.Type,
-      properties,
-      MediaPackageAsset.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaPackageAsset.Type, properties, options);
   }
 }

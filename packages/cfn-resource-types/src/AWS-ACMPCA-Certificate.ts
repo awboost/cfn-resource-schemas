@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ACMPCA::Certificate`.
  * A certificate issued via a private certificate authority
@@ -273,21 +273,11 @@ export class ACMPCACertificate extends $Resource<
   ACMPCACertificateAttributes
 > {
   public static readonly Type = "AWS::ACMPCA::Certificate";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Certificate" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ACMPCACertificateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ACMPCACertificate.Type,
-      properties,
-      ACMPCACertificate.AttributeNames,
-      options,
-    );
+    super(logicalId, ACMPCACertificate.Type, properties, options);
   }
 }

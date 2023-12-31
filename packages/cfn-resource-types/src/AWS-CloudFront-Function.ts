@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudFront::Function
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html}
@@ -8,7 +8,6 @@ export type CloudFrontFunctionProperties = {
   AutoPublish?: boolean;
   FunctionCode: string;
   FunctionConfig: FunctionConfig;
-  FunctionMetadata?: FunctionMetadata;
   Name: string;
 };
 /**
@@ -17,6 +16,9 @@ export type CloudFrontFunctionProperties = {
  */
 export type CloudFrontFunctionAttributes = {
   FunctionARN: string;
+  FunctionMetadata: {
+    FunctionARN: string;
+  };
   Stage: string;
 };
 /**
@@ -28,13 +30,6 @@ export type FunctionConfig = {
   Runtime: string;
 };
 /**
- * Type definition for `AWS::CloudFront::Function.FunctionMetadata`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html}
- */
-export type FunctionMetadata = {
-  FunctionARN?: string;
-};
-/**
  * Resource Type definition for AWS::CloudFront::Function
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html}
  */
@@ -44,21 +39,11 @@ export class CloudFrontFunction extends $Resource<
   CloudFrontFunctionAttributes
 > {
   public static readonly Type = "AWS::CloudFront::Function";
-  public static readonly AttributeNames = [
-    "FunctionARN" as const,
-    "Stage" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudFrontFunctionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFrontFunction.Type,
-      properties,
-      CloudFrontFunction.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFrontFunction.Type, properties, options);
   }
 }

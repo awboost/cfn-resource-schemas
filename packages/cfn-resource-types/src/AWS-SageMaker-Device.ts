@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::SageMaker::Device
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html}
@@ -62,6 +62,7 @@ export type Tag = {
   Key: string;
   /**
    * The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
@@ -77,18 +78,11 @@ export class SageMakerDevice extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::SageMaker::Device";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: SageMakerDeviceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerDevice.Type,
-      properties,
-      SageMakerDevice.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerDevice.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type KMSReplicaKeyProperties = {
   /**
    * A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
+   * @minLength `0`
    * @maxLength `8192`
    */
   Description?: string;
@@ -57,6 +58,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -71,18 +73,11 @@ export class KMSReplicaKey extends $Resource<
   KMSReplicaKeyAttributes
 > {
   public static readonly Type = "AWS::KMS::ReplicaKey";
-  public static readonly AttributeNames = ["Arn" as const, "KeyId" as const];
   constructor(
     logicalId: string,
     properties: KMSReplicaKeyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KMSReplicaKey.Type,
-      properties,
-      KMSReplicaKey.AttributeNames,
-      options,
-    );
+    super(logicalId, KMSReplicaKey.Type, properties, options);
   }
 }

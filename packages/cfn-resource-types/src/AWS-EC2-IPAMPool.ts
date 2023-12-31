@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Schema of AWS::EC2::IPAMPool Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html}
@@ -132,6 +132,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -146,27 +147,11 @@ export class EC2IPAMPool extends $Resource<
   EC2IPAMPoolAttributes
 > {
   public static readonly Type = "AWS::EC2::IPAMPool";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "IpamArn" as const,
-    "IpamPoolId" as const,
-    "IpamScopeArn" as const,
-    "IpamScopeType" as const,
-    "PoolDepth" as const,
-    "State" as const,
-    "StateMessage" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2IPAMPoolProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2IPAMPool.Type,
-      properties,
-      EC2IPAMPool.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2IPAMPool.Type, properties, options);
   }
 }

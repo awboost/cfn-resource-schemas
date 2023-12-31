@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngatewayroutepropagation.html}
@@ -25,18 +25,11 @@ export class EC2VPNGatewayRoutePropagation extends $Resource<
   EC2VPNGatewayRoutePropagationAttributes
 > {
   public static readonly Type = "AWS::EC2::VPNGatewayRoutePropagation";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EC2VPNGatewayRoutePropagationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2VPNGatewayRoutePropagation.Type,
-      properties,
-      EC2VPNGatewayRoutePropagation.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2VPNGatewayRoutePropagation.Type, properties, options);
   }
 }

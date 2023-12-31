@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::GlobalAccelerator::Accelerator
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html}
@@ -81,24 +81,11 @@ export class GlobalAcceleratorAccelerator extends $Resource<
   GlobalAcceleratorAcceleratorAttributes
 > {
   public static readonly Type = "AWS::GlobalAccelerator::Accelerator";
-  public static readonly AttributeNames = [
-    "AcceleratorArn" as const,
-    "DnsName" as const,
-    "DualStackDnsName" as const,
-    "Ipv4Addresses" as const,
-    "Ipv6Addresses" as const,
-  ];
   constructor(
     logicalId: string,
     properties: GlobalAcceleratorAcceleratorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlobalAcceleratorAccelerator.Type,
-      properties,
-      GlobalAcceleratorAccelerator.AttributeNames,
-      options,
-    );
+    super(logicalId, GlobalAcceleratorAccelerator.Type, properties, options);
   }
 }

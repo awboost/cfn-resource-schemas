@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::VPCDHCPOptionsAssociation`.
  * Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.
@@ -26,18 +26,11 @@ export class EC2VPCDHCPOptionsAssociation extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::EC2::VPCDHCPOptionsAssociation";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: EC2VPCDHCPOptionsAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2VPCDHCPOptionsAssociation.Type,
-      properties,
-      EC2VPCDHCPOptionsAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2VPCDHCPOptionsAssociation.Type, properties, options);
   }
 }

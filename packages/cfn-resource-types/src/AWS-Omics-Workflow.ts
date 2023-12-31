@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Omics::Workflow Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-workflow.html}
@@ -41,6 +41,7 @@ export type OmicsWorkflowProperties = {
   Name?: string;
   ParameterTemplate?: WorkflowParameterTemplate;
   /**
+   * @min `0`
    * @max `100000`
    */
   StorageCapacity?: number;
@@ -80,8 +81,6 @@ export type OmicsWorkflowAttributes = {
 };
 /**
  * Type definition for `AWS::Omics::Workflow.Accelerators`.
- * @minLength `1`
- * @maxLength `64`
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-accelerators.html}
  */
 export type Accelerators = "GPU";
@@ -93,8 +92,6 @@ export type Accelerators = "GPU";
 export type TagMap = Record<string, string>;
 /**
  * Type definition for `AWS::Omics::Workflow.WorkflowEngine`.
- * @minLength `1`
- * @maxLength `64`
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-workflowengine.html}
  */
 export type WorkflowEngine = "WDL" | "NEXTFLOW" | "CWL";
@@ -104,6 +101,7 @@ export type WorkflowEngine = "WDL" | "NEXTFLOW" | "CWL";
  */
 export type WorkflowParameter = {
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+$`
    */
@@ -117,8 +115,6 @@ export type WorkflowParameter = {
 export type WorkflowParameterTemplate = Record<string, WorkflowParameter>;
 /**
  * Type definition for `AWS::Omics::Workflow.WorkflowStatus`.
- * @minLength `1`
- * @maxLength `64`
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-workflowstatus.html}
  */
 export type WorkflowStatus =
@@ -129,8 +125,6 @@ export type WorkflowStatus =
   | "FAILED";
 /**
  * Type definition for `AWS::Omics::Workflow.WorkflowType`.
- * @minLength `1`
- * @maxLength `64`
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-workflowtype.html}
  */
 export type WorkflowType = "PRIVATE";
@@ -144,24 +138,11 @@ export class OmicsWorkflow extends $Resource<
   OmicsWorkflowAttributes
 > {
   public static readonly Type = "AWS::Omics::Workflow";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "Id" as const,
-    "Status" as const,
-    "Type" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OmicsWorkflowProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OmicsWorkflow.Type,
-      properties,
-      OmicsWorkflow.AttributeNames,
-      options,
-    );
+    super(logicalId, OmicsWorkflow.Type, properties, options);
   }
 }

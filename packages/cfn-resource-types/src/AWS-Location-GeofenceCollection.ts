@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Location::GeofenceCollection Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html}
@@ -12,6 +12,7 @@ export type LocationGeofenceCollectionProperties = {
    */
   CollectionName: string;
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   Description?: string;
@@ -64,23 +65,11 @@ export class LocationGeofenceCollection extends $Resource<
   LocationGeofenceCollectionAttributes
 > {
   public static readonly Type = "AWS::Location::GeofenceCollection";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CollectionArn" as const,
-    "CreateTime" as const,
-    "UpdateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LocationGeofenceCollectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LocationGeofenceCollection.Type,
-      properties,
-      LocationGeofenceCollection.AttributeNames,
-      options,
-    );
+    super(logicalId, LocationGeofenceCollection.Type, properties, options);
   }
 }

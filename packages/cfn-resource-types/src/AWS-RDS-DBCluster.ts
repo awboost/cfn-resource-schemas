@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::RDS::DBCluster resource creates an Amazon Aurora DB cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html}
@@ -23,6 +23,7 @@ export type RDSDBClusterProperties = {
   AvailabilityZones?: string[];
   /**
    * The target backtrack window, in seconds. To disable backtracking, set this value to 0.
+   * @min `0`
    */
   BacktrackWindow?: number;
   /**
@@ -109,6 +110,7 @@ export type RDSDBClusterProperties = {
      * If you are configuring an Aurora global database cluster and want your Aurora DB cluster to be a secondary member in the global database cluster, specify the global cluster ID of the global database cluster. To define the primary database cluster of the global cluster, use the AWS::RDS::GlobalCluster resource.
     
     If you aren't configuring a global database cluster, don't specify this property.
+     * @minLength `0`
      * @maxLength `63`
      * @pattern `^$|^[a-zA-Z]{1}(?:-?[a-zA-Z0-9]){0,62}$`
      */
@@ -179,7 +181,6 @@ export type RDSDBClusterProperties = {
    * A value that indicates whether the DB cluster is publicly accessible.
    */
   PubliclyAccessible?: boolean;
-  ReadEndpoint?: ReadEndpoint;
   /**
    * The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
    */
@@ -252,7 +253,22 @@ export type RDSDBClusterAttributes = {
    * The AWS Region-unique, immutable identifier for the DB cluster.
    */
   DBClusterResourceId: string;
-  Endpoint: Endpoint;
+  Endpoint: {
+    /**
+     * The connection endpoint for the DB cluster.
+     */
+    Address: string;
+    /**
+     * The port number that will accept connections on this DB cluster.
+     */
+    Port: string;
+  };
+  ReadEndpoint: {
+    /**
+     * The reader endpoint for the DB cluster.
+     */
+    Address: string;
+  };
 };
 /**
  * Type definition for `AWS::RDS::DBCluster.DBClusterRole`.
@@ -270,20 +286,6 @@ export type DBClusterRole = {
   RoleArn: string;
 };
 /**
- * Type definition for `AWS::RDS::DBCluster.Endpoint`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-endpoint.html}
- */
-export type Endpoint = {
-  /**
-   * The connection endpoint for the DB cluster.
-   */
-  Address?: string;
-  /**
-   * The port number that will accept connections on this DB cluster.
-   */
-  Port?: string;
-};
-/**
  * Type definition for `AWS::RDS::DBCluster.MasterUserSecret`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html}
  */
@@ -292,20 +294,6 @@ export type MasterUserSecret = {
    * The AWS KMS key identifier that is used to encrypt the secret.
    */
   KmsKeyId?: string;
-  /**
-   * The Amazon Resource Name (ARN) of the secret.
-   */
-  SecretArn?: string;
-};
-/**
- * Type definition for `AWS::RDS::DBCluster.ReadEndpoint`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-readendpoint.html}
- */
-export type ReadEndpoint = {
-  /**
-   * The reader endpoint for the DB cluster.
-   */
-  Address?: string;
 };
 /**
  * Type definition for `AWS::RDS::DBCluster.ScalingConfiguration`.
@@ -382,6 +370,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -396,22 +385,11 @@ export class RDSDBCluster extends $Resource<
   RDSDBClusterAttributes
 > {
   public static readonly Type = "AWS::RDS::DBCluster";
-  public static readonly AttributeNames = [
-    "DBClusterArn" as const,
-    "DBClusterResourceId" as const,
-    "Endpoint" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RDSDBClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RDSDBCluster.Type,
-      properties,
-      RDSDBCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, RDSDBCluster.Type, properties, options);
   }
 }

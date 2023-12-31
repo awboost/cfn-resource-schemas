@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::Project
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html}
@@ -150,23 +150,11 @@ export class SageMakerProject extends $Resource<
   SageMakerProjectAttributes
 > {
   public static readonly Type = "AWS::SageMaker::Project";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "ProjectArn" as const,
-    "ProjectId" as const,
-    "ProjectStatus" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerProjectProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerProject.Type,
-      properties,
-      SageMakerProject.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerProject.Type, properties, options);
   }
 }

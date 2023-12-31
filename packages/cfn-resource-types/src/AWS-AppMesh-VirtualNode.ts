@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppMesh::VirtualNode
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html}
@@ -401,23 +401,11 @@ export class AppMeshVirtualNode extends $Resource<
   AppMeshVirtualNodeAttributes
 > {
   public static readonly Type = "AWS::AppMesh::VirtualNode";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "ResourceOwner" as const,
-    "Uid" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppMeshVirtualNodeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppMeshVirtualNode.Type,
-      properties,
-      AppMeshVirtualNode.AttributeNames,
-      options,
-    );
+    super(logicalId, AppMeshVirtualNode.Type, properties, options);
   }
 }

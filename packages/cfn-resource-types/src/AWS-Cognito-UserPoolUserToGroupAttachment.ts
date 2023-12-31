@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Cognito::UserPoolUserToGroupAttachment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html}
@@ -19,7 +19,6 @@ export class CognitoUserPoolUserToGroupAttachment extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Cognito::UserPoolUserToGroupAttachment";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: CognitoUserPoolUserToGroupAttachmentProperties,
@@ -29,7 +28,6 @@ export class CognitoUserPoolUserToGroupAttachment extends $Resource<
       logicalId,
       CognitoUserPoolUserToGroupAttachment.Type,
       properties,
-      CognitoUserPoolUserToGroupAttachment.AttributeNames,
       options,
     );
   }

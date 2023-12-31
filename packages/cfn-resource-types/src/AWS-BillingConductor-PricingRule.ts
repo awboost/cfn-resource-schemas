@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::BillingConductor::PricingRule`.
  * A markup/discount that is defined for a specific set of services that can later be associated with a pricing plan.
@@ -17,6 +17,7 @@ export type BillingConductorPricingRuleProperties = {
   Description?: string;
   /**
    * Pricing rule modifier percentage
+   * @min `0`
    */
   ModifierPercentage?: number;
   /**
@@ -78,6 +79,7 @@ export type BillingConductorPricingRuleAttributes = {
   Arn: string;
   /**
    * The number of pricing plans associated with pricing rule
+   * @min `0`
    */
   AssociatedPricingPlanCount: number;
   /**
@@ -124,23 +126,11 @@ export class BillingConductorPricingRule extends $Resource<
   BillingConductorPricingRuleAttributes
 > {
   public static readonly Type = "AWS::BillingConductor::PricingRule";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "AssociatedPricingPlanCount" as const,
-    "CreationTime" as const,
-    "LastModifiedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: BillingConductorPricingRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BillingConductorPricingRule.Type,
-      properties,
-      BillingConductorPricingRule.AttributeNames,
-      options,
-    );
+    super(logicalId, BillingConductorPricingRule.Type, properties, options);
   }
 }

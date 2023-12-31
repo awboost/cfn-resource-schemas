@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudTrail::Channel`.
  * A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
@@ -75,6 +75,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -90,18 +91,11 @@ export class CloudTrailChannel extends $Resource<
   CloudTrailChannelAttributes
 > {
   public static readonly Type = "AWS::CloudTrail::Channel";
-  public static readonly AttributeNames = ["ChannelArn" as const];
   constructor(
     logicalId: string,
     properties: CloudTrailChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudTrailChannel.Type,
-      properties,
-      CloudTrailChannel.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudTrailChannel.Type, properties, options);
   }
 }

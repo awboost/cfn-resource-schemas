@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::RolesAnywhere::Profile Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html}
@@ -17,6 +17,7 @@ export type RolesAnywhereProfileProperties = {
   RoleArns: string[];
   SessionPolicy?: string;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -43,6 +44,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -57,21 +59,11 @@ export class RolesAnywhereProfile extends $Resource<
   RolesAnywhereProfileAttributes
 > {
   public static readonly Type = "AWS::RolesAnywhere::Profile";
-  public static readonly AttributeNames = [
-    "ProfileArn" as const,
-    "ProfileId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RolesAnywhereProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RolesAnywhereProfile.Type,
-      properties,
-      RolesAnywhereProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, RolesAnywhereProfile.Type, properties, options);
   }
 }

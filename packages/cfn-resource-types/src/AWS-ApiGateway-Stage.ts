@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html}
@@ -90,6 +90,7 @@ export type CanarySetting = {
   DeploymentId?: string;
   /**
    * The percent (0-100) of traffic diverted to a canary deployment.
+   * @min `0`
    * @max `100`
    */
   PercentTraffic?: number;
@@ -143,10 +144,12 @@ export type MethodSetting = {
   ResourcePath?: string;
   /**
    * Specifies the throttling burst limit.
+   * @min `0`
    */
   ThrottlingBurstLimit?: number;
   /**
    * Specifies the throttling rate limit.
+   * @min `0`
    */
   ThrottlingRateLimit?: number;
 };
@@ -163,6 +166,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -177,18 +181,11 @@ export class ApiGatewayStage extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::ApiGateway::Stage";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: ApiGatewayStageProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayStage.Type,
-      properties,
-      ApiGatewayStage.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayStage.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::DataPipeline::Pipeline`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -145,18 +145,11 @@ export class DataPipelinePipeline extends $Resource<
   DataPipelinePipelineAttributes
 > {
   public static readonly Type = "AWS::DataPipeline::Pipeline";
-  public static readonly AttributeNames = ["PipelineId" as const];
   constructor(
     logicalId: string,
     properties: DataPipelinePipelineProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataPipelinePipeline.Type,
-      properties,
-      DataPipelinePipeline.AttributeNames,
-      options,
-    );
+    super(logicalId, DataPipelinePipeline.Type, properties, options);
   }
 }

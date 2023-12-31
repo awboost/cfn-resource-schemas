@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Route53::CidrCollection.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html}
@@ -57,18 +57,11 @@ export class Route53CidrCollection extends $Resource<
   Route53CidrCollectionAttributes
 > {
   public static readonly Type = "AWS::Route53::CidrCollection";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: Route53CidrCollectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      Route53CidrCollection.Type,
-      properties,
-      Route53CidrCollection.AttributeNames,
-      options,
-    );
+    super(logicalId, Route53CidrCollection.Type, properties, options);
   }
 }

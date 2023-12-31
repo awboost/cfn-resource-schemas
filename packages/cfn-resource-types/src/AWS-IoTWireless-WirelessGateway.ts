@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoTWireless::WirelessGateway`.
  * Create and manage wireless gateways, including LoRa gateways.
@@ -78,6 +78,7 @@ export type Tag = {
    */
   Key?: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -93,18 +94,11 @@ export class IoTWirelessWirelessGateway extends $Resource<
   IoTWirelessWirelessGatewayAttributes
 > {
   public static readonly Type = "AWS::IoTWireless::WirelessGateway";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: IoTWirelessWirelessGatewayProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTWirelessWirelessGateway.Type,
-      properties,
-      IoTWirelessWirelessGateway.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTWirelessWirelessGateway.Type, properties, options);
   }
 }

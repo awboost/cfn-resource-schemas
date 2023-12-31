@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-parametergroup.html}
@@ -68,18 +68,11 @@ export class MemoryDBParameterGroup extends $Resource<
   MemoryDBParameterGroupAttributes
 > {
   public static readonly Type = "AWS::MemoryDB::ParameterGroup";
-  public static readonly AttributeNames = ["ARN" as const];
   constructor(
     logicalId: string,
     properties: MemoryDBParameterGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MemoryDBParameterGroup.Type,
-      properties,
-      MemoryDBParameterGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, MemoryDBParameterGroup.Type, properties, options);
   }
 }

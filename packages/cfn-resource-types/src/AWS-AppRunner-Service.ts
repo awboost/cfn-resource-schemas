@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::AppRunner::Service resource specifies an AppRunner Service.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html}
@@ -198,6 +198,7 @@ export type EgressConfiguration = {
 export type EncryptionConfiguration = {
   /**
    * The KMS Key
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `arn:aws(-[\w]+)*:kms:[a-z\-]+-[0-9]{1}:[0-9]{12}:key\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`
    */
@@ -422,23 +423,11 @@ export class AppRunnerService extends $Resource<
   AppRunnerServiceAttributes
 > {
   public static readonly Type = "AWS::AppRunner::Service";
-  public static readonly AttributeNames = [
-    "ServiceArn" as const,
-    "ServiceId" as const,
-    "ServiceUrl" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppRunnerServiceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppRunnerService.Type,
-      properties,
-      AppRunnerService.AttributeNames,
-      options,
-    );
+    super(logicalId, AppRunnerService.Type, properties, options);
   }
 }

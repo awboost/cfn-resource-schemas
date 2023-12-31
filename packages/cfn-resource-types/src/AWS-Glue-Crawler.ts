@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Glue::Crawler
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html}
@@ -138,18 +138,11 @@ export class GlueCrawler extends $Resource<
   GlueCrawlerAttributes
 > {
   public static readonly Type = "AWS::Glue::Crawler";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GlueCrawlerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueCrawler.Type,
-      properties,
-      GlueCrawler.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueCrawler.Type, properties, options);
   }
 }

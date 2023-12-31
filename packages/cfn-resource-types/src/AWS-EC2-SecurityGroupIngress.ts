@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::SecurityGroupIngress
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupingress.html}
@@ -35,18 +35,11 @@ export class EC2SecurityGroupIngress extends $Resource<
   EC2SecurityGroupIngressAttributes
 > {
   public static readonly Type = "AWS::EC2::SecurityGroupIngress";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EC2SecurityGroupIngressProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2SecurityGroupIngress.Type,
-      properties,
-      EC2SecurityGroupIngress.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2SecurityGroupIngress.Type, properties, options);
   }
 }

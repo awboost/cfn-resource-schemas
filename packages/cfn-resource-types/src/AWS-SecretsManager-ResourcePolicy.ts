@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SecretsManager::ResourcePolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html}
@@ -26,18 +26,11 @@ export class SecretsManagerResourcePolicy extends $Resource<
   SecretsManagerResourcePolicyAttributes
 > {
   public static readonly Type = "AWS::SecretsManager::ResourcePolicy";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: SecretsManagerResourcePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SecretsManagerResourcePolicy.Type,
-      properties,
-      SecretsManagerResourcePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, SecretsManagerResourcePolicy.Type, properties, options);
   }
 }

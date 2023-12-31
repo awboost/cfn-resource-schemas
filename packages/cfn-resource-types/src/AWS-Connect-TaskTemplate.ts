@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::TaskTemplate.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html}
@@ -41,6 +41,7 @@ export type ConnectTaskTemplateProperties = {
   Defaults?: DefaultFieldValue[];
   /**
    * The description of the task template.
+   * @minLength `0`
    * @maxLength `255`
    */
   Description?: string;
@@ -106,6 +107,7 @@ export type DefaultFieldValue = {
 export type Field = {
   /**
    * The description of the task template's field
+   * @minLength `0`
    * @maxLength `255`
    */
   Description?: string;
@@ -222,18 +224,11 @@ export class ConnectTaskTemplate extends $Resource<
   ConnectTaskTemplateAttributes
 > {
   public static readonly Type = "AWS::Connect::TaskTemplate";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ConnectTaskTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectTaskTemplate.Type,
-      properties,
-      ConnectTaskTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectTaskTemplate.Type, properties, options);
   }
 }

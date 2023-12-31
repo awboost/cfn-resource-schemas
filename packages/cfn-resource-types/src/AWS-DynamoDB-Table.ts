@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Version: None. Resource Type definition for AWS::DynamoDB::Table
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html}
@@ -53,21 +53,6 @@ export type ContributorInsightsSpecification = {
 export type Csv = {
   Delimiter?: string;
   HeaderList?: string[];
-};
-/**
- * Type definition for `AWS::DynamoDB::Table.DeprecatedHashKeyElement`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-deprecatedhashkeyelement.html}
- */
-export type DeprecatedHashKeyElement = {
-  AttributeName: string;
-  AttributeType: string;
-};
-/**
- * Type definition for `AWS::DynamoDB::Table.DeprecatedKeySchema`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-deprecatedkeyschema.html}
- */
-export type DeprecatedKeySchema = {
-  HashKeyElement: DeprecatedHashKeyElement;
 };
 /**
  * Type definition for `AWS::DynamoDB::Table.GlobalSecondaryIndex`.
@@ -195,21 +180,11 @@ export class DynamoDBTable extends $Resource<
   DynamoDBTableAttributes
 > {
   public static readonly Type = "AWS::DynamoDB::Table";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "StreamArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DynamoDBTableProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DynamoDBTable.Type,
-      properties,
-      DynamoDBTable.AttributeNames,
-      options,
-    );
+    super(logicalId, DynamoDBTable.Type, properties, options);
   }
 }

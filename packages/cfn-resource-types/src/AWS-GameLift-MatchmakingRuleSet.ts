@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-matchmakingruleset.html}
@@ -68,21 +68,11 @@ export class GameLiftMatchmakingRuleSet extends $Resource<
   GameLiftMatchmakingRuleSetAttributes
 > {
   public static readonly Type = "AWS::GameLift::MatchmakingRuleSet";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: GameLiftMatchmakingRuleSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GameLiftMatchmakingRuleSet.Type,
-      properties,
-      GameLiftMatchmakingRuleSet.AttributeNames,
-      options,
-    );
+    super(logicalId, GameLiftMatchmakingRuleSet.Type, properties, options);
   }
 }

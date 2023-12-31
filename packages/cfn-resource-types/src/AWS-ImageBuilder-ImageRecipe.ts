@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::ImageBuilder::ImageRecipe
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html}
@@ -180,18 +180,11 @@ export class ImageBuilderImageRecipe extends $Resource<
   ImageBuilderImageRecipeAttributes
 > {
   public static readonly Type = "AWS::ImageBuilder::ImageRecipe";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ImageBuilderImageRecipeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ImageBuilderImageRecipe.Type,
-      properties,
-      ImageBuilderImageRecipe.AttributeNames,
-      options,
-    );
+    super(logicalId, ImageBuilderImageRecipe.Type, properties, options);
   }
 }

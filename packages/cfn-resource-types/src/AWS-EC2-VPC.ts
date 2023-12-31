@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::VPC
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html}
@@ -84,18 +84,11 @@ export class EC2VPC extends $Resource<
   EC2VPCAttributes
 > {
   public static readonly Type = "AWS::EC2::VPC";
-  public static readonly AttributeNames = [
-    "CidrBlockAssociations" as const,
-    "DefaultNetworkAcl" as const,
-    "DefaultSecurityGroup" as const,
-    "Ipv6CidrBlocks" as const,
-    "VpcId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2VPCProperties,
     options?: $ResourceOptions,
   ) {
-    super(logicalId, EC2VPC.Type, properties, EC2VPC.AttributeNames, options);
+    super(logicalId, EC2VPC.Type, properties, options);
   }
 }

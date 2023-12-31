@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::KendraRanking::ExecutionPlan`.
  * A KendraRanking Rescore execution plan
@@ -48,6 +48,9 @@ export type KendraRankingExecutionPlanAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendraranking-executionplan-capacityunitsconfiguration.html}
  */
 export type CapacityUnitsConfiguration = {
+  /**
+   * @min `0`
+   */
   RescoreCapacityUnits: number;
 };
 /**
@@ -64,6 +67,7 @@ export type Tag = {
   Key: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -79,18 +83,11 @@ export class KendraRankingExecutionPlan extends $Resource<
   KendraRankingExecutionPlanAttributes
 > {
   public static readonly Type = "AWS::KendraRanking::ExecutionPlan";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: KendraRankingExecutionPlanProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KendraRankingExecutionPlan.Type,
-      properties,
-      KendraRankingExecutionPlan.AttributeNames,
-      options,
-    );
+    super(logicalId, KendraRankingExecutionPlan.Type, properties, options);
   }
 }

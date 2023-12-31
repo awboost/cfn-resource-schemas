@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Config::RemediationConfiguration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-remediationconfiguration.html}
@@ -48,18 +48,11 @@ export class ConfigRemediationConfiguration extends $Resource<
   ConfigRemediationConfigurationAttributes
 > {
   public static readonly Type = "AWS::Config::RemediationConfiguration";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ConfigRemediationConfigurationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConfigRemediationConfiguration.Type,
-      properties,
-      ConfigRemediationConfiguration.AttributeNames,
-      options,
-    );
+    super(logicalId, ConfigRemediationConfiguration.Type, properties, options);
   }
 }

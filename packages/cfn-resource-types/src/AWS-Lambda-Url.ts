@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lambda::Url
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html}
@@ -76,6 +76,7 @@ export type Cors = {
    */
   ExposeHeaders?: string[];
   /**
+   * @min `0`
    * @max `86400`
    */
   MaxAge?: number;
@@ -90,21 +91,11 @@ export class LambdaUrl extends $Resource<
   LambdaUrlAttributes
 > {
   public static readonly Type = "AWS::Lambda::Url";
-  public static readonly AttributeNames = [
-    "FunctionArn" as const,
-    "FunctionUrl" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LambdaUrlProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LambdaUrl.Type,
-      properties,
-      LambdaUrl.AttributeNames,
-      options,
-    );
+    super(logicalId, LambdaUrl.Type, properties, options);
   }
 }

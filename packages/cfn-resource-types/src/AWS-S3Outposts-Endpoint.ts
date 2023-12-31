@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type Definition for AWS::S3Outposts::Endpoint
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html}
@@ -71,7 +71,7 @@ export type S3OutpostsEndpointAttributes = {
   /**
    * The network interfaces of the endpoint.
    */
-  NetworkInterfaces: NetworkInterface[];
+  NetworkInterfaces: {}[];
   Status:
     | "Available"
     | "Pending"
@@ -115,25 +115,11 @@ export class S3OutpostsEndpoint extends $Resource<
   S3OutpostsEndpointAttributes
 > {
   public static readonly Type = "AWS::S3Outposts::Endpoint";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CidrBlock" as const,
-    "CreationTime" as const,
-    "Id" as const,
-    "NetworkInterfaces" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: S3OutpostsEndpointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3OutpostsEndpoint.Type,
-      properties,
-      S3OutpostsEndpoint.AttributeNames,
-      options,
-    );
+    super(logicalId, S3OutpostsEndpoint.Type, properties, options);
   }
 }

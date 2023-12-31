@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SSM::ResourceDataSync
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html}
@@ -11,6 +11,7 @@ export type SSMResourceDataSyncProperties = {
    */
   BucketName?: string;
   /**
+   * @minLength `0`
    * @maxLength `64`
    */
   BucketPrefix?: string;
@@ -20,11 +21,13 @@ export type SSMResourceDataSyncProperties = {
    */
   BucketRegion?: string;
   /**
+   * @minLength `0`
    * @maxLength `512`
    */
   KMSKeyArn?: string;
   S3Destination?: S3Destination;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   SyncFormat?: string;
@@ -113,18 +116,11 @@ export class SSMResourceDataSync extends $Resource<
   SSMResourceDataSyncAttributes
 > {
   public static readonly Type = "AWS::SSM::ResourceDataSync";
-  public static readonly AttributeNames = ["SyncName" as const];
   constructor(
     logicalId: string,
     properties: SSMResourceDataSyncProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SSMResourceDataSync.Type,
-      properties,
-      SSMResourceDataSync.AttributeNames,
-      options,
-    );
+    super(logicalId, SSMResourceDataSync.Type, properties, options);
   }
 }

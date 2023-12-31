@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IAM::InstanceProfile
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html}
@@ -38,18 +38,11 @@ export class IAMInstanceProfile extends $Resource<
   IAMInstanceProfileAttributes
 > {
   public static readonly Type = "AWS::IAM::InstanceProfile";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: IAMInstanceProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IAMInstanceProfile.Type,
-      properties,
-      IAMInstanceProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, IAMInstanceProfile.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::CapacityReservationFleet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html}
@@ -40,6 +40,7 @@ export type InstanceTypeSpecification = {
   InstancePlatform?: string;
   InstanceType?: string;
   /**
+   * @min `0`
    * @max `999`
    */
   Priority?: number;
@@ -71,20 +72,11 @@ export class EC2CapacityReservationFleet extends $Resource<
   EC2CapacityReservationFleetAttributes
 > {
   public static readonly Type = "AWS::EC2::CapacityReservationFleet";
-  public static readonly AttributeNames = [
-    "CapacityReservationFleetId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2CapacityReservationFleetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2CapacityReservationFleet.Type,
-      properties,
-      EC2CapacityReservationFleet.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2CapacityReservationFleet.Type, properties, options);
   }
 }

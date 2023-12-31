@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Greengrass::Group
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html}
@@ -43,23 +43,11 @@ export class GreengrassGroup extends $Resource<
   GreengrassGroupAttributes
 > {
   public static readonly Type = "AWS::Greengrass::Group";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "LatestVersionArn" as const,
-    "RoleAttachedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: GreengrassGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GreengrassGroup.Type,
-      properties,
-      GreengrassGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, GreengrassGroup.Type, properties, options);
   }
 }

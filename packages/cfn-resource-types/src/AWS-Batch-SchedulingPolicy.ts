@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type schema for AWS::Batch::SchedulingPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html}
@@ -11,6 +11,7 @@ export type BatchSchedulingPolicyProperties = {
   FairsharePolicy?: FairsharePolicy;
   /**
    * Name of Scheduling Policy.
+   * @pattern ``
    */
   Name?: string;
   /**
@@ -35,10 +36,12 @@ export type BatchSchedulingPolicyAttributes = {
  */
 export type FairsharePolicy = {
   /**
+   * @min `0`
    * @max `99`
    */
   ComputeReservation?: number;
   /**
+   * @min `0`
    * @max `604800`
    */
   ShareDecaySeconds?: number;
@@ -54,6 +57,7 @@ export type FairsharePolicy = {
 export type ShareAttributes = {
   ShareIdentifier?: string;
   /**
+   * @min `0`
    * @max `1000`
    */
   WeightFactor?: number;
@@ -68,18 +72,11 @@ export class BatchSchedulingPolicy extends $Resource<
   BatchSchedulingPolicyAttributes
 > {
   public static readonly Type = "AWS::Batch::SchedulingPolicy";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: BatchSchedulingPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BatchSchedulingPolicy.Type,
-      properties,
-      BatchSchedulingPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, BatchSchedulingPolicy.Type, properties, options);
   }
 }

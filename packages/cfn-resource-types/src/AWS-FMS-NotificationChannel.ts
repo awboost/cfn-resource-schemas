@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FMS::NotificationChannel`.
  * Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
@@ -32,18 +32,11 @@ export class FMSNotificationChannel extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::FMS::NotificationChannel";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: FMSNotificationChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FMSNotificationChannel.Type,
-      properties,
-      FMSNotificationChannel.AttributeNames,
-      options,
-    );
+    super(logicalId, FMSNotificationChannel.Type, properties, options);
   }
 }

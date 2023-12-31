@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::InternetMonitor::Monitor`.
  * Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
@@ -61,11 +61,13 @@ export type InternetMonitorMonitorAttributes = {
 export type HealthEventsConfig = {
   AvailabilityLocalHealthEventsConfig?: LocalHealthEventsConfig;
   /**
+   * @min `0`
    * @max `100`
    */
   AvailabilityScoreThreshold?: number;
   PerformanceLocalHealthEventsConfig?: LocalHealthEventsConfig;
   /**
+   * @min `0`
    * @max `100`
    */
   PerformanceScoreThreshold?: number;
@@ -83,10 +85,12 @@ export type InternetMeasurementsLogDelivery = {
  */
 export type LocalHealthEventsConfig = {
   /**
+   * @min `0`
    * @max `100`
    */
   HealthScoreThreshold?: number;
   /**
+   * @min `0`
    * @max `100`
    */
   MinTrafficImpact?: number;
@@ -140,24 +144,11 @@ export class InternetMonitorMonitor extends $Resource<
   InternetMonitorMonitorAttributes
 > {
   public static readonly Type = "AWS::InternetMonitor::Monitor";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "ModifiedAt" as const,
-    "MonitorArn" as const,
-    "ProcessingStatus" as const,
-    "ProcessingStatusInfo" as const,
-  ];
   constructor(
     logicalId: string,
     properties: InternetMonitorMonitorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      InternetMonitorMonitor.Type,
-      properties,
-      InternetMonitorMonitor.AttributeNames,
-      options,
-    );
+    super(logicalId, InternetMonitorMonitor.Type, properties, options);
   }
 }

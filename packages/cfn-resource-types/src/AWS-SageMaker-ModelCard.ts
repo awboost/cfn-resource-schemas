@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::ModelCard.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html}
@@ -9,14 +9,6 @@ export type SageMakerModelCardProperties = {
    * The content of the model card.
    */
   Content: Content;
-  /**
-   * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
-   */
-  CreatedBy?: UserContext;
-  /**
-   * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
-   */
-  LastModifiedBy?: UserContext;
   /**
    * The unique name of the model card.
    * @maxLength `63`
@@ -46,9 +38,43 @@ export type SageMakerModelCardProperties = {
  */
 export type SageMakerModelCardAttributes = {
   /**
+   * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+   */
+  CreatedBy: {
+    /**
+     * The domain associated with the user.
+     */
+    DomainId: string;
+    /**
+     * The Amazon Resource Name (ARN) of the user's profile.
+     */
+    UserProfileArn: string;
+    /**
+     * The name of the user's profile.
+     */
+    UserProfileName: string;
+  };
+  /**
    * The date and time the model card was created.
    */
   CreationTime: string;
+  /**
+   * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
+   */
+  LastModifiedBy: {
+    /**
+     * The domain associated with the user.
+     */
+    DomainId: string;
+    /**
+     * The Amazon Resource Name (ARN) of the user's profile.
+     */
+    UserProfileArn: string;
+    /**
+     * The name of the user's profile.
+     */
+    UserProfileName: string;
+  };
   /**
    * The date and time the model card was last modified.
    */
@@ -651,25 +677,6 @@ export type TrainingMetric = {
   Value: number;
 };
 /**
- * Type definition for `AWS::SageMaker::ModelCard.UserContext`.
- * Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-usercontext.html}
- */
-export type UserContext = {
-  /**
-   * The domain associated with the user.
-   */
-  DomainId?: string;
-  /**
-   * The Amazon Resource Name (ARN) of the user's profile.
-   */
-  UserProfileArn?: string;
-  /**
-   * The name of the user's profile.
-   */
-  UserProfileName?: string;
-};
-/**
  * Resource Type definition for AWS::SageMaker::ModelCard.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html}
  */
@@ -679,24 +686,11 @@ export class SageMakerModelCard extends $Resource<
   SageMakerModelCardAttributes
 > {
   public static readonly Type = "AWS::SageMaker::ModelCard";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "LastModifiedTime" as const,
-    "ModelCardArn" as const,
-    "ModelCardProcessingStatus" as const,
-    "ModelCardVersion" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerModelCardProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerModelCard.Type,
-      properties,
-      SageMakerModelCard.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerModelCard.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoTWireless::WirelessDeviceImportTask`.
  * Wireless Device Import Tasks
@@ -20,10 +20,6 @@ export type IoTWirelessWirelessDeviceImportTaskProperties = {
      * @maxLength `1024`
      */
     DeviceCreationFile?: string;
-    /**
-     * sidewalk create device's file path
-     */
-    DeviceCreationFileList?: string[];
     /**
      * sidewalk role
      * @maxLength `2048`
@@ -103,6 +99,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -118,17 +115,6 @@ export class IoTWirelessWirelessDeviceImportTask extends $Resource<
   IoTWirelessWirelessDeviceImportTaskAttributes
 > {
   public static readonly Type = "AWS::IoTWireless::WirelessDeviceImportTask";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationDate" as const,
-    "FailedImportedDevicesCount" as const,
-    "Id" as const,
-    "InitializedImportedDevicesCount" as const,
-    "OnboardedImportedDevicesCount" as const,
-    "PendingImportedDevicesCount" as const,
-    "Status" as const,
-    "StatusReason" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTWirelessWirelessDeviceImportTaskProperties,
@@ -138,7 +124,6 @@ export class IoTWirelessWirelessDeviceImportTask extends $Resource<
       logicalId,
       IoTWirelessWirelessDeviceImportTask.Type,
       properties,
-      IoTWirelessWirelessDeviceImportTask.AttributeNames,
       options,
     );
   }

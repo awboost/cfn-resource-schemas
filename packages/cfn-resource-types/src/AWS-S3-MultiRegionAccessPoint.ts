@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html}
@@ -91,21 +91,11 @@ export class S3MultiRegionAccessPoint extends $Resource<
   S3MultiRegionAccessPointAttributes
 > {
   public static readonly Type = "AWS::S3::MultiRegionAccessPoint";
-  public static readonly AttributeNames = [
-    "Alias" as const,
-    "CreatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: S3MultiRegionAccessPointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3MultiRegionAccessPoint.Type,
-      properties,
-      S3MultiRegionAccessPoint.AttributeNames,
-      options,
-    );
+    super(logicalId, S3MultiRegionAccessPoint.Type, properties, options);
   }
 }

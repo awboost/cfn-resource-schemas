@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::SystemsManagerSAP::Application
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-systemsmanagersap-application.html}
@@ -71,6 +71,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -85,18 +86,11 @@ export class SystemsManagerSAPApplication extends $Resource<
   SystemsManagerSAPApplicationAttributes
 > {
   public static readonly Type = "AWS::SystemsManagerSAP::Application";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: SystemsManagerSAPApplicationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SystemsManagerSAPApplication.Type,
-      properties,
-      SystemsManagerSAPApplication.AttributeNames,
-      options,
-    );
+    super(logicalId, SystemsManagerSAPApplication.Type, properties, options);
   }
 }

@@ -1,16 +1,11 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FraudDetector::Detector`.
  * A resource schema for a Detector in Amazon Fraud Detector.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html}
  */
 export type FraudDetectorDetectorProperties = {
-  /**
-   * The models to associate with this detector.
-   * @maxLength `10`
-   */
-  AssociatedModels?: Model[];
   /**
    * The description of the detector.
    * @minLength `1`
@@ -53,6 +48,13 @@ export type FraudDetectorDetectorAttributes = {
    */
   Arn: string;
   /**
+   * The models to associate with this detector.
+   * @maxLength `10`
+   */
+  AssociatedModels: {
+    Arn: string;
+  }[];
+  /**
    * The time when the detector was created.
    */
   CreatedTime: string;
@@ -70,11 +72,6 @@ export type FraudDetectorDetectorAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html}
  */
 export type EntityType = {
-  Arn?: string;
-  /**
-   * The time when the entity type was created.
-   */
-  CreatedTime?: string;
   /**
    * The description.
    * @minLength `1`
@@ -82,10 +79,6 @@ export type EntityType = {
    */
   Description?: string;
   Inline?: boolean;
-  /**
-   * The time when the entity type was last updated.
-   */
-  LastUpdatedTime?: string;
   Name?: string;
   /**
    * Tags associated with this entity type.
@@ -98,14 +91,6 @@ export type EntityType = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html}
  */
 export type EventType = {
-  /**
-   * The ARN of the event type.
-   */
-  Arn?: string;
-  /**
-   * The time when the event type was created.
-   */
-  CreatedTime?: string;
   /**
    * The description of the event type.
    * @minLength `1`
@@ -126,10 +111,6 @@ export type EventType = {
    */
   Labels?: Label[];
   /**
-   * The time when the event type was last updated.
-   */
-  LastUpdatedTime?: string;
-  /**
    * The name for the event type
    * @minLength `1`
    * @maxLength `64`
@@ -147,11 +128,6 @@ export type EventType = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html}
  */
 export type EventVariable = {
-  Arn?: string;
-  /**
-   * The time when the event variable was created.
-   */
-  CreatedTime?: string;
   DataSource?: "EVENT";
   DataType?: "STRING" | "INTEGER" | "FLOAT" | "BOOLEAN";
   DefaultValue?: string;
@@ -162,10 +138,6 @@ export type EventVariable = {
    */
   Description?: string;
   Inline?: boolean;
-  /**
-   * The time when the event variable was last updated.
-   */
-  LastUpdatedTime?: string;
   Name?: string;
   /**
    * Tags associated with this event variable.
@@ -212,11 +184,6 @@ export type EventVariable = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html}
  */
 export type Label = {
-  Arn?: string;
-  /**
-   * The time when the label was created.
-   */
-  CreatedTime?: string;
   /**
    * The description.
    * @minLength `1`
@@ -224,10 +191,6 @@ export type Label = {
    */
   Description?: string;
   Inline?: boolean;
-  /**
-   * The time when the label was last updated.
-   */
-  LastUpdatedTime?: string;
   Name?: string;
   /**
    * Tags associated with this label.
@@ -236,23 +199,10 @@ export type Label = {
   Tags?: Tag[];
 };
 /**
- * Type definition for `AWS::FraudDetector::Detector.Model`.
- * A model to associate with a detector.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html}
- */
-export type Model = {
-  Arn?: string;
-};
-/**
  * Type definition for `AWS::FraudDetector::Detector.Outcome`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html}
  */
 export type Outcome = {
-  Arn?: string;
-  /**
-   * The time when the outcome was created.
-   */
-  CreatedTime?: string;
   /**
    * The description.
    * @minLength `1`
@@ -260,10 +210,6 @@ export type Outcome = {
    */
   Description?: string;
   Inline?: boolean;
-  /**
-   * The time when the outcome was last updated.
-   */
-  LastUpdatedTime?: string;
   Name?: string;
   /**
    * Tags associated with this outcome.
@@ -276,11 +222,6 @@ export type Outcome = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html}
  */
 export type Rule = {
-  Arn?: string;
-  /**
-   * The time when the event type was created.
-   */
-  CreatedTime?: string;
   /**
    * The description.
    * @minLength `1`
@@ -291,15 +232,10 @@ export type Rule = {
   Expression?: string;
   Language?: "DETECTORPL";
   /**
-   * The time when the event type was last updated.
-   */
-  LastUpdatedTime?: string;
-  /**
    * @minLength `1`
    */
   Outcomes?: Outcome[];
   RuleId?: string;
-  RuleVersion?: string;
   /**
    * Tags associated with this event type.
    * @maxLength `200`
@@ -317,6 +253,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -332,23 +269,11 @@ export class FraudDetectorDetector extends $Resource<
   FraudDetectorDetectorAttributes
 > {
   public static readonly Type = "AWS::FraudDetector::Detector";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "DetectorVersionId" as const,
-    "LastUpdatedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: FraudDetectorDetectorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FraudDetectorDetector.Type,
-      properties,
-      FraudDetectorDetector.AttributeNames,
-      options,
-    );
+    super(logicalId, FraudDetectorDetector.Type, properties, options);
   }
 }

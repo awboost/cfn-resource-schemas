@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Transfer::Agreement
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html}
@@ -90,6 +90,7 @@ export type Tag = {
   Key: string;
   /**
    * Contains one or more values that you assigned to the key name you create.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -104,21 +105,11 @@ export class TransferAgreement extends $Resource<
   TransferAgreementAttributes
 > {
   public static readonly Type = "AWS::Transfer::Agreement";
-  public static readonly AttributeNames = [
-    "AgreementId" as const,
-    "Arn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: TransferAgreementProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      TransferAgreement.Type,
-      properties,
-      TransferAgreement.AttributeNames,
-      options,
-    );
+    super(logicalId, TransferAgreement.Type, properties, options);
   }
 }

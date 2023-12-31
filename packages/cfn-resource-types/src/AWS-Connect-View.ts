@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::View
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html}
@@ -12,6 +12,7 @@ export type ConnectViewProperties = {
   Actions: string[];
   /**
    * The description of the view.
+   * @minLength `0`
    * @maxLength `4096`
    * @pattern `^([\p{L}\p{N}_.:\/=+\-@,]+[\p{L}\p{Z}\p{N}_.:\/=+\-@,]*)$`
    */
@@ -94,22 +95,11 @@ export class ConnectView extends $Resource<
   ConnectViewAttributes
 > {
   public static readonly Type = "AWS::Connect::View";
-  public static readonly AttributeNames = [
-    "ViewArn" as const,
-    "ViewContentSha256" as const,
-    "ViewId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ConnectViewProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectView.Type,
-      properties,
-      ConnectView.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectView.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html}
@@ -17,6 +17,7 @@ export type Route53ResolverFirewallRuleGroupAssociationProperties = {
   MutationProtection?: "ENABLED" | "DISABLED";
   /**
    * FirewallRuleGroupAssociationName
+   * @minLength `0`
    * @maxLength `64`
    * @pattern `(?!^[0-9]+$)([a-zA-Z0-9\-_' ']+)`
    */
@@ -104,6 +105,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `255`
    */
   Value: string;
@@ -119,16 +121,6 @@ export class Route53ResolverFirewallRuleGroupAssociation extends $Resource<
 > {
   public static readonly Type =
     "AWS::Route53Resolver::FirewallRuleGroupAssociation";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "CreatorRequestId" as const,
-    "Id" as const,
-    "ManagedOwnerName" as const,
-    "ModificationTime" as const,
-    "Status" as const,
-    "StatusMessage" as const,
-  ];
   constructor(
     logicalId: string,
     properties: Route53ResolverFirewallRuleGroupAssociationProperties,
@@ -138,7 +130,6 @@ export class Route53ResolverFirewallRuleGroupAssociation extends $Resource<
       logicalId,
       Route53ResolverFirewallRuleGroupAssociation.Type,
       properties,
-      Route53ResolverFirewallRuleGroupAssociation.AttributeNames,
       options,
     );
   }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::OpsWorks::Volume
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html}
@@ -27,18 +27,11 @@ export class OpsWorksVolume extends $Resource<
   OpsWorksVolumeAttributes
 > {
   public static readonly Type = "AWS::OpsWorks::Volume";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: OpsWorksVolumeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OpsWorksVolume.Type,
-      properties,
-      OpsWorksVolume.AttributeNames,
-      options,
-    );
+    super(logicalId, OpsWorksVolume.Type, properties, options);
   }
 }

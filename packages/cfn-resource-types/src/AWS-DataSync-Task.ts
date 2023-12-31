@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataSync::Task.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html}
@@ -18,10 +18,12 @@ export type DataSyncTaskProperties = {
    */
   DestinationLocationArn: string;
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Excludes?: FilterRule[];
   /**
+   * @minLength `0`
    * @maxLength `1`
    */
   Includes?: FilterRule[];
@@ -301,23 +303,11 @@ export class DataSyncTask extends $Resource<
   DataSyncTaskAttributes
 > {
   public static readonly Type = "AWS::DataSync::Task";
-  public static readonly AttributeNames = [
-    "DestinationNetworkInterfaceArns" as const,
-    "SourceNetworkInterfaceArns" as const,
-    "Status" as const,
-    "TaskArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DataSyncTaskProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataSyncTask.Type,
-      properties,
-      DataSyncTask.AttributeNames,
-      options,
-    );
+    super(logicalId, DataSyncTask.Type, properties, options);
   }
 }

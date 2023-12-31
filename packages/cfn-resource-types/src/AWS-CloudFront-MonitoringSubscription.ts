@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudFront::MonitoringSubscription
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html}
@@ -32,7 +32,6 @@ export class CloudFrontMonitoringSubscription extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::CloudFront::MonitoringSubscription";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: CloudFrontMonitoringSubscriptionProperties,
@@ -42,7 +41,6 @@ export class CloudFrontMonitoringSubscription extends $Resource<
       logicalId,
       CloudFrontMonitoringSubscription.Type,
       properties,
-      CloudFrontMonitoringSubscription.AttributeNames,
       options,
     );
   }

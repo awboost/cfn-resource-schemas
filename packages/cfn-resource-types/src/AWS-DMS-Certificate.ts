@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::DMS::Certificate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html}
@@ -26,18 +26,11 @@ export class DMSCertificate extends $Resource<
   DMSCertificateAttributes
 > {
   public static readonly Type = "AWS::DMS::Certificate";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: DMSCertificateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DMSCertificate.Type,
-      properties,
-      DMSCertificate.AttributeNames,
-      options,
-    );
+    super(logicalId, DMSCertificate.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::FIS::ExperimentTemplate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html}
@@ -178,18 +178,11 @@ export class FISExperimentTemplate extends $Resource<
   FISExperimentTemplateAttributes
 > {
   public static readonly Type = "AWS::FIS::ExperimentTemplate";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: FISExperimentTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FISExperimentTemplate.Type,
-      properties,
-      FISExperimentTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, FISExperimentTemplate.Type, properties, options);
   }
 }

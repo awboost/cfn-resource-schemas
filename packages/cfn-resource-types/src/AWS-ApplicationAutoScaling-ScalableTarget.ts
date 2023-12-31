@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ApplicationAutoScaling::ScalableTarget
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html}
@@ -93,7 +93,6 @@ export class ApplicationAutoScalingScalableTarget extends $Resource<
   ApplicationAutoScalingScalableTargetAttributes
 > {
   public static readonly Type = "AWS::ApplicationAutoScaling::ScalableTarget";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ApplicationAutoScalingScalableTargetProperties,
@@ -103,7 +102,6 @@ export class ApplicationAutoScalingScalableTarget extends $Resource<
       logicalId,
       ApplicationAutoScalingScalableTarget.Type,
       properties,
-      ApplicationAutoScalingScalableTarget.AttributeNames,
       options,
     );
   }

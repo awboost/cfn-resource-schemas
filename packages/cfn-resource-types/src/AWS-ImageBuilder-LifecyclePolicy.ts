@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::ImageBuilder::LifecyclePolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html}
@@ -227,18 +227,11 @@ export class ImageBuilderLifecyclePolicy extends $Resource<
   ImageBuilderLifecyclePolicyAttributes
 > {
   public static readonly Type = "AWS::ImageBuilder::LifecyclePolicy";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ImageBuilderLifecyclePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ImageBuilderLifecyclePolicy.Type,
-      properties,
-      ImageBuilderLifecyclePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, ImageBuilderLifecyclePolicy.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::Queue
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html}
@@ -23,6 +23,7 @@ export type ConnectQueueProperties = {
   InstanceArn: string;
   /**
    * The maximum number of contacts that can be in the queue before it is considered full.
+   * @min `0`
    */
   MaxContacts?: number;
   /**
@@ -106,6 +107,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -120,21 +122,11 @@ export class ConnectQueue extends $Resource<
   ConnectQueueAttributes
 > {
   public static readonly Type = "AWS::Connect::Queue";
-  public static readonly AttributeNames = [
-    "QueueArn" as const,
-    "Type" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ConnectQueueProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectQueue.Type,
-      properties,
-      ConnectQueue.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectQueue.Type, properties, options);
   }
 }

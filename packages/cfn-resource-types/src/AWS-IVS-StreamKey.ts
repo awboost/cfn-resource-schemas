@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IVS::StreamKey
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html}
@@ -59,18 +59,11 @@ export class IVSStreamKey extends $Resource<
   IVSStreamKeyAttributes
 > {
   public static readonly Type = "AWS::IVS::StreamKey";
-  public static readonly AttributeNames = ["Arn" as const, "Value" as const];
   constructor(
     logicalId: string,
     properties: IVSStreamKeyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IVSStreamKey.Type,
-      properties,
-      IVSStreamKey.AttributeNames,
-      options,
-    );
+    super(logicalId, IVSStreamKey.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EFS::AccessPoint
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html}
@@ -110,21 +110,11 @@ export class EFSAccessPoint extends $Resource<
   EFSAccessPointAttributes
 > {
   public static readonly Type = "AWS::EFS::AccessPoint";
-  public static readonly AttributeNames = [
-    "AccessPointId" as const,
-    "Arn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EFSAccessPointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EFSAccessPoint.Type,
-      properties,
-      EFSAccessPoint.AttributeNames,
-      options,
-    );
+    super(logicalId, EFSAccessPoint.Type, properties, options);
   }
 }

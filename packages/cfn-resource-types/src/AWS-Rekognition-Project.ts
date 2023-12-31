@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rekognition-project.html}
@@ -34,18 +34,11 @@ export class RekognitionProject extends $Resource<
   RekognitionProjectAttributes
 > {
   public static readonly Type = "AWS::Rekognition::Project";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: RekognitionProjectProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RekognitionProject.Type,
-      properties,
-      RekognitionProject.AttributeNames,
-      options,
-    );
+    super(logicalId, RekognitionProject.Type, properties, options);
   }
 }

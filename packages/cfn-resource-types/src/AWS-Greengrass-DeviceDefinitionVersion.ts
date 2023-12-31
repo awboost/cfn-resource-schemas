@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Greengrass::DeviceDefinitionVersion
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinitionversion.html}
@@ -35,7 +35,6 @@ export class GreengrassDeviceDefinitionVersion extends $Resource<
   GreengrassDeviceDefinitionVersionAttributes
 > {
   public static readonly Type = "AWS::Greengrass::DeviceDefinitionVersion";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GreengrassDeviceDefinitionVersionProperties,
@@ -45,7 +44,6 @@ export class GreengrassDeviceDefinitionVersion extends $Resource<
       logicalId,
       GreengrassDeviceDefinitionVersion.Type,
       properties,
-      GreengrassDeviceDefinitionVersion.AttributeNames,
       options,
     );
   }

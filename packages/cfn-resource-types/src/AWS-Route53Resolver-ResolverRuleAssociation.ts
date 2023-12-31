@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html}
@@ -38,9 +38,6 @@ export class Route53ResolverResolverRuleAssociation extends $Resource<
   Route53ResolverResolverRuleAssociationAttributes
 > {
   public static readonly Type = "AWS::Route53Resolver::ResolverRuleAssociation";
-  public static readonly AttributeNames = [
-    "ResolverRuleAssociationId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: Route53ResolverResolverRuleAssociationProperties,
@@ -50,7 +47,6 @@ export class Route53ResolverResolverRuleAssociation extends $Resource<
       logicalId,
       Route53ResolverResolverRuleAssociation.Type,
       properties,
-      Route53ResolverResolverRuleAssociation.AttributeNames,
       options,
     );
   }

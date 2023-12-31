@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html}
@@ -45,18 +45,11 @@ export class LogsDestination extends $Resource<
   LogsDestinationAttributes
 > {
   public static readonly Type = "AWS::Logs::Destination";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: LogsDestinationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LogsDestination.Type,
-      properties,
-      LogsDestination.AttributeNames,
-      options,
-    );
+    super(logicalId, LogsDestination.Type, properties, options);
   }
 }

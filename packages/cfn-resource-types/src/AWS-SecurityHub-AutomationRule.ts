@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
 
@@ -75,6 +75,11 @@ export type SecurityHubAutomationRuleAttributes = {
   UpdatedAt: string;
 };
 /**
+ * Type definition for `AWS::SecurityHub::AutomationRule.arnOrId`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-arnorid.html}
+ */
+export type arnOrId = string | string;
+/**
  * Type definition for `AWS::SecurityHub::AutomationRule.AutomationRulesAction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html}
  */
@@ -88,10 +93,12 @@ export type AutomationRulesAction = {
  */
 export type AutomationRulesFindingFieldsUpdate = {
   /**
+   * @min `0`
    * @max `100`
    */
   Confidence?: number;
   /**
+   * @min `0`
    * @max `100`
    */
   Criticality?: number;
@@ -270,13 +277,6 @@ export type AutomationRulesFindingFilters = {
   WorkflowStatus?: StringFilter[];
 };
 /**
- * Type definition for `AWS::SecurityHub::AutomationRule.BooleanFilter`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-booleanfilter.html}
- */
-export type BooleanFilter = {
-  Value: boolean;
-};
-/**
  * Type definition for `AWS::SecurityHub::AutomationRule.DateFilter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html}
  */
@@ -300,6 +300,11 @@ export type DateRange = {
   Value: number;
 };
 /**
+ * Type definition for `AWS::SecurityHub::AutomationRule.map`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-map.html}
+ */
+export type map = Record<string, string>;
+/**
  * Type definition for `AWS::SecurityHub::AutomationRule.MapFilter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-mapfilter.html}
  */
@@ -318,7 +323,7 @@ export type NoteUpdate = {
    * @maxLength `512`
    */
   Text: string;
-  UpdatedBy: string | string;
+  UpdatedBy: arnOrId;
 };
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.NumberFilter`.
@@ -334,7 +339,7 @@ export type NumberFilter = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-relatedfinding.html}
  */
 export type RelatedFinding = {
-  Id: string | string;
+  Id: arnOrId;
   /**
    * @minLength `12`
    * @maxLength `2048`
@@ -349,6 +354,7 @@ export type RelatedFinding = {
 export type SeverityUpdate = {
   Label?: "INFORMATIONAL" | "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
   /**
+   * @min `0`
    * @max `100`
    */
   Normalized?: number;
@@ -387,11 +393,6 @@ export type WorkflowUpdate = {
   Status: "NEW" | "NOTIFIED" | "RESOLVED" | "SUPPRESSED";
 };
 /**
- * Type definition for `AWS::SecurityHub::AutomationRule.map`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-map.html}
- */
-export type map = Record<string, string>;
-/**
  * The AWS::SecurityHub::AutomationRule resource represents the Automation Rule in your account. One rule resource is created for each Automation Rule in which you configure rule criteria and actions.
 
 
@@ -403,23 +404,11 @@ export class SecurityHubAutomationRule extends $Resource<
   SecurityHubAutomationRuleAttributes
 > {
   public static readonly Type = "AWS::SecurityHub::AutomationRule";
-  public static readonly AttributeNames = [
-    "CreatedAt" as const,
-    "CreatedBy" as const,
-    "RuleArn" as const,
-    "UpdatedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SecurityHubAutomationRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SecurityHubAutomationRule.Type,
-      properties,
-      SecurityHubAutomationRule.AttributeNames,
-      options,
-    );
+    super(logicalId, SecurityHubAutomationRule.Type, properties, options);
   }
 }

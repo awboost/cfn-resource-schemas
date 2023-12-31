@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Lex::Bot`.
  * Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
@@ -233,6 +233,7 @@ export type BotLocale = {
   LocaleId: string;
   /**
    * The specified confidence threshold for inserting the AMAZON.FallbackIntent and AMAZON.KendraSearchIntent intents.
+   * @min `0`
    * @max `1`
    */
   NluConfidenceThreshold: number;
@@ -278,6 +279,7 @@ export type CloudWatchLogGroupLogDestination = {
   CloudWatchLogGroupArn: string;
   /**
    * A string containing the value for the Log Prefix
+   * @minLength `0`
    * @maxLength `1024`
    */
   LogPrefix: string;
@@ -305,20 +307,6 @@ export type Condition = {
    * @maxLength `1024`
    */
   ExpressionString: string;
-};
-/**
- * Type definition for `AWS::Lex::Bot.Conditional`.
- * Contains conditional branches to fork the conversation flow.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditional.html}
- */
-export type Conditional = {
-  /**
-   * A list of 1 to 4 conditional branches to fork the conversation flow.
-   * @minLength `1`
-   * @maxLength `4`
-   */
-  ConditionalBranches: ConditionalBranch[];
-  IsActive: boolean;
 };
 /**
  * Type definition for `AWS::Lex::Bot.ConditionalBranch`.
@@ -428,48 +416,10 @@ export type CustomVocabularyItem = {
   Phrase: string;
   /**
    * The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
+   * @min `0`
    * @max `3`
    */
   Weight?: number;
-};
-/**
- * Type definition for `AWS::Lex::Bot.DTMFSpecification`.
- * Specifies the settings on DTMF input.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dtmfspecification.html}
- */
-export type DTMFSpecification = {
-  /**
-   * The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
-   * @pattern `^[A-D0-9#*]{1}$`
-   */
-  DeletionCharacter: string;
-  /**
-   * The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
-   * @pattern `^[A-D0-9#*]{1}$`
-   */
-  EndCharacter: string;
-  /**
-   * How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
-   * @min `1`
-   */
-  EndTimeoutMs: number;
-  /**
-   * The maximum number of DTMF digits allowed in an utterance.
-   * @min `1`
-   * @max `1024`
-   */
-  MaxLength: number;
-};
-/**
- * Type definition for `AWS::Lex::Bot.DataPrivacy`.
- * Provides information on additional privacy protections Amazon Lex should use with the bot's data.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dataprivacy.html}
- */
-export type DataPrivacy = {
-  /**
-   * Specify whether your use of Amazon Lex is related to application that is directed or targeted, in whole or in part, to children under age 13 and subject to the Children's Online Privacy Protection Act (COPPA).
-   */
-  ChildDirected: boolean;
 };
 /**
  * Type definition for `AWS::Lex::Bot.DefaultConditionalBranch`.
@@ -575,6 +525,34 @@ export type DialogState = {
    * List of session attributes to be applied when the conversation reaches this step.
    */
   SessionAttributes?: SessionAttribute[];
+};
+/**
+ * Type definition for `AWS::Lex::Bot.DTMFSpecification`.
+ * Specifies the settings on DTMF input.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dtmfspecification.html}
+ */
+export type DTMFSpecification = {
+  /**
+   * The DTMF character that clears the accumulated DTMF digits and immediately ends the input.
+   * @pattern `^[A-D0-9#*]{1}$`
+   */
+  DeletionCharacter: string;
+  /**
+   * The DTMF character that immediately ends input. If the user does not press this character, the input ends after the end timeout.
+   * @pattern `^[A-D0-9#*]{1}$`
+   */
+  EndCharacter: string;
+  /**
+   * How long the bot should wait after the last DTMF character input before assuming that the input has concluded.
+   * @min `1`
+   */
+  EndTimeoutMs: number;
+  /**
+   * The maximum number of DTMF digits allowed in an utterance.
+   * @min `1`
+   * @max `1024`
+   */
+  MaxLength: number;
 };
 /**
  * Type definition for `AWS::Lex::Bot.ElicitationCodeHookInvocationSetting`.
@@ -1239,6 +1217,7 @@ export type PromptSpecification = {
   AllowInterrupt?: boolean;
   /**
    * The maximum number of times the bot tries to elicit a response from the user using this prompt.
+   * @min `0`
    * @max `5`
    */
   MaxRetries: number;
@@ -1289,6 +1268,7 @@ export type S3BucketLogDestination = {
   KmsKeyArn?: string;
   /**
    * The Amazon S3 key of the deployment package.
+   * @minLength `0`
    * @maxLength `1024`
    */
   LogPrefix: string;
@@ -1328,19 +1308,6 @@ export type S3Location = {
   S3ObjectVersion?: string;
 };
 /**
- * Type definition for `AWS::Lex::Bot.SSMLMessage`.
- * A message in Speech Synthesis Markup Language (SSML).
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html}
- */
-export type SSMLMessage = {
-  /**
-   * The SSML text that defines the prompt.
-   * @minLength `1`
-   * @maxLength `1000`
-   */
-  Value: string;
-};
-/**
  * Type definition for `AWS::Lex::Bot.SampleUtterance`.
  * A sample utterance that invokes an intent or respond to a slot elicitation prompt.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html}
@@ -1376,6 +1343,7 @@ export type SessionAttribute = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Value?: string;
@@ -1492,6 +1460,7 @@ export type SlotDefaultValueSpecification = {
 export type SlotPriority = {
   /**
    * The priority that a slot should be elicited.
+   * @min `0`
    * @max `100`
    */
   Priority: number;
@@ -1677,6 +1646,19 @@ export type SlotValueSelectionSetting = {
   ResolutionStrategy: SlotValueResolutionStrategy;
 };
 /**
+ * Type definition for `AWS::Lex::Bot.SSMLMessage`.
+ * A message in Speech Synthesis Markup Language (SSML).
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html}
+ */
+export type SSMLMessage = {
+  /**
+   * The SSML text that defines the prompt.
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  Value: string;
+};
+/**
  * Type definition for `AWS::Lex::Bot.StillWaitingResponseSpecification`.
  * StillWaitingResponseSpecification.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-stillwaitingresponsespecification.html}
@@ -1719,6 +1701,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -1834,12 +1817,11 @@ export class LexBot extends $Resource<
   LexBotAttributes
 > {
   public static readonly Type = "AWS::Lex::Bot";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: LexBotProperties,
     options?: $ResourceOptions,
   ) {
-    super(logicalId, LexBot.Type, properties, LexBot.AttributeNames, options);
+    super(logicalId, LexBot.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::FraudDetector::Outcome`.
  * An outcome for rule evaluation.
@@ -54,6 +54,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -69,22 +70,11 @@ export class FraudDetectorOutcome extends $Resource<
   FraudDetectorOutcomeAttributes
 > {
   public static readonly Type = "AWS::FraudDetector::Outcome";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "LastUpdatedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: FraudDetectorOutcomeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      FraudDetectorOutcome.Type,
-      properties,
-      FraudDetectorOutcome.AttributeNames,
-      options,
-    );
+    super(logicalId, FraudDetectorOutcome.Type, properties, options);
   }
 }

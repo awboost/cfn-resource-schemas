@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CodePipeline::Webhook
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html}
@@ -48,18 +48,11 @@ export class CodePipelineWebhook extends $Resource<
   CodePipelineWebhookAttributes
 > {
   public static readonly Type = "AWS::CodePipeline::Webhook";
-  public static readonly AttributeNames = ["Id" as const, "Url" as const];
   constructor(
     logicalId: string,
     properties: CodePipelineWebhookProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CodePipelineWebhook.Type,
-      properties,
-      CodePipelineWebhook.AttributeNames,
-      options,
-    );
+    super(logicalId, CodePipelineWebhook.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppIntegrations::EventIntegration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html}
@@ -31,6 +31,7 @@ export type AppIntegrationsEventIntegrationProperties = {
   Name: string;
   /**
    * The tags (keys and values) associated with the event integration.
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -62,26 +63,6 @@ export type EventFilter = {
   Source: string;
 };
 /**
- * Type definition for `AWS::AppIntegrations::EventIntegration.Metadata`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html}
- */
-export type Metadata = {
-  /**
-   * A key to identify the metadata.
-   * @minLength `1`
-   * @maxLength `255`
-   * @pattern `.*\S.*`
-   */
-  Key: string;
-  /**
-   * Corresponding metadata value for the key.
-   * @minLength `1`
-   * @maxLength `255`
-   * @pattern `.*\S.*`
-   */
-  Value: string;
-};
-/**
  * Type definition for `AWS::AppIntegrations::EventIntegration.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-tag.html}
  */
@@ -95,6 +76,7 @@ export type Tag = {
   Key: string;
   /**
    * Corresponding tag value for the key.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -109,18 +91,11 @@ export class AppIntegrationsEventIntegration extends $Resource<
   AppIntegrationsEventIntegrationAttributes
 > {
   public static readonly Type = "AWS::AppIntegrations::EventIntegration";
-  public static readonly AttributeNames = ["EventIntegrationArn" as const];
   constructor(
     logicalId: string,
     properties: AppIntegrationsEventIntegrationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppIntegrationsEventIntegration.Type,
-      properties,
-      AppIntegrationsEventIntegration.AttributeNames,
-      options,
-    );
+    super(logicalId, AppIntegrationsEventIntegration.Type, properties, options);
   }
 }

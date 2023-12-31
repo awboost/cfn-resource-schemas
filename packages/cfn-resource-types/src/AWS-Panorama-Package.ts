@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Panorama::Package`.
  * Schema for Package CloudFormation Resource
@@ -12,7 +12,6 @@ export type PanoramaPackageProperties = {
    * @pattern `^[a-zA-Z0-9\-\_]+$`
    */
   PackageName: string;
-  StorageLocation?: StorageLocation;
   Tags?: Tag[];
 };
 /**
@@ -32,17 +31,13 @@ export type PanoramaPackageAttributes = {
    * @pattern `^[a-zA-Z0-9\-\_\/]+$`
    */
   PackageId: string;
-};
-/**
- * Type definition for `AWS::Panorama::Package.StorageLocation`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html}
- */
-export type StorageLocation = {
-  BinaryPrefixLocation?: string;
-  Bucket?: string;
-  GeneratedPrefixLocation?: string;
-  ManifestPrefixLocation?: string;
-  RepoPrefixLocation?: string;
+  StorageLocation: {
+    BinaryPrefixLocation: string;
+    Bucket: string;
+    GeneratedPrefixLocation: string;
+    ManifestPrefixLocation: string;
+    RepoPrefixLocation: string;
+  };
 };
 /**
  * Type definition for `AWS::Panorama::Package.Tag`.
@@ -56,6 +51,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^.+$`
    */
@@ -72,22 +68,11 @@ export class PanoramaPackage extends $Resource<
   PanoramaPackageAttributes
 > {
   public static readonly Type = "AWS::Panorama::Package";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "PackageId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: PanoramaPackageProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PanoramaPackage.Type,
-      properties,
-      PanoramaPackage.AttributeNames,
-      options,
-    );
+    super(logicalId, PanoramaPackage.Type, properties, options);
   }
 }

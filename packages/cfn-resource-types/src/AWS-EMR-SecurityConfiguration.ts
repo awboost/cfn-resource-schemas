@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EMR::SecurityConfiguration`.
  * Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
@@ -26,18 +26,11 @@ export class EMRSecurityConfiguration extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::EMR::SecurityConfiguration";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: EMRSecurityConfigurationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EMRSecurityConfiguration.Type,
-      properties,
-      EMRSecurityConfiguration.AttributeNames,
-      options,
-    );
+    super(logicalId, EMRSecurityConfiguration.Type, properties, options);
   }
 }

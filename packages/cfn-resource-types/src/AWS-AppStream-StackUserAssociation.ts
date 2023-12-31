@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppStream::StackUserAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html}
@@ -27,18 +27,11 @@ export class AppStreamStackUserAssociation extends $Resource<
   AppStreamStackUserAssociationAttributes
 > {
   public static readonly Type = "AWS::AppStream::StackUserAssociation";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: AppStreamStackUserAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppStreamStackUserAssociation.Type,
-      properties,
-      AppStreamStackUserAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, AppStreamStackUserAssociation.Type, properties, options);
   }
 }

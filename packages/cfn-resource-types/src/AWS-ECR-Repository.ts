@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html}
@@ -141,21 +141,11 @@ export class ECRRepository extends $Resource<
   ECRRepositoryAttributes
 > {
   public static readonly Type = "AWS::ECR::Repository";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "RepositoryUri" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ECRRepositoryProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ECRRepository.Type,
-      properties,
-      ECRRepository.AttributeNames,
-      options,
-    );
+    super(logicalId, ECRRepository.Type, properties, options);
   }
 }

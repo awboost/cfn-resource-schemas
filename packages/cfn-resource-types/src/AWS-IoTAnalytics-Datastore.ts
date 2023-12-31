@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IoTAnalytics::Datastore
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html}
@@ -91,6 +91,7 @@ export type DatastorePartition = {
  */
 export type DatastorePartitions = {
   /**
+   * @minLength `0`
    * @maxLength `25`
    */
   Partitions?: DatastorePartition[];
@@ -209,18 +210,11 @@ export class IoTAnalyticsDatastore extends $Resource<
   IoTAnalyticsDatastoreAttributes
 > {
   public static readonly Type = "AWS::IoTAnalytics::Datastore";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: IoTAnalyticsDatastoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTAnalyticsDatastore.Type,
-      properties,
-      IoTAnalyticsDatastore.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTAnalyticsDatastore.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::KinesisFirehose::DeliveryStream
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html}
@@ -131,6 +131,7 @@ export type AmazonopensearchserviceDestinationConfiguration = {
   S3BackupMode?: "FailedDocumentsOnly" | "AllDocuments";
   S3Configuration: S3DestinationConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   TypeName?: string;
@@ -179,10 +180,12 @@ export type CloudWatchLoggingOptions = {
  */
 export type CopyCommand = {
   /**
+   * @minLength `0`
    * @maxLength `204800`
    */
   CopyOptions?: string;
   /**
+   * @minLength `0`
    * @maxLength `204800`
    */
   DataTableColumns?: string;
@@ -288,6 +291,7 @@ export type ElasticsearchDestinationConfiguration = {
   S3BackupMode?: "FailedDocumentsOnly" | "AllDocuments";
   S3Configuration: S3DestinationConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   TypeName?: string;
@@ -331,10 +335,12 @@ export type ExtendedS3DestinationConfiguration = {
   DynamicPartitioningConfiguration?: DynamicPartitioningConfiguration;
   EncryptionConfiguration?: EncryptionConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   ErrorOutputPrefix?: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Prefix?: string;
@@ -366,6 +372,7 @@ export type HttpEndpointCommonAttribute = {
    */
   AttributeName: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   AttributeValue: string;
@@ -376,6 +383,7 @@ export type HttpEndpointCommonAttribute = {
  */
 export type HttpEndpointConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `4096`
    */
   AccessKey?: string;
@@ -416,6 +424,7 @@ export type HttpEndpointDestinationConfiguration = {
  */
 export type HttpEndpointRequestConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   CommonAttributes?: HttpEndpointCommonAttribute[];
@@ -427,13 +436,6 @@ export type HttpEndpointRequestConfiguration = {
  */
 export type InputFormatConfiguration = {
   Deserializer?: Deserializer;
-};
-/**
- * Type definition for `AWS::KinesisFirehose::DeliveryStream.KMSEncryptionConfig`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html}
- */
-export type KMSEncryptionConfig = {
-  AWSKMSKeyARN: string;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.KinesisStreamSourceConfiguration`.
@@ -452,6 +454,13 @@ export type KinesisStreamSourceConfiguration = {
    * @pattern `arn:.*`
    */
   RoleARN: string;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.KMSEncryptionConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html}
+ */
+export type KMSEncryptionConfig = {
+  AWSKMSKeyARN: string;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.MSKSourceConfiguration`.
@@ -613,10 +622,12 @@ export type S3DestinationConfiguration = {
     | "HADOOP_SNAPPY";
   EncryptionConfiguration?: EncryptionConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   ErrorOutputPrefix?: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Prefix?: string;
@@ -664,11 +675,13 @@ export type SplunkDestinationConfiguration = {
    */
   HECAcknowledgmentTimeoutInSeconds?: number;
   /**
+   * @minLength `0`
    * @maxLength `2048`
    */
   HECEndpoint: string;
   HECEndpointType: "Raw" | "Event";
   /**
+   * @minLength `0`
    * @maxLength `2048`
    */
   HECToken: string;
@@ -696,6 +709,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$`
    */
@@ -733,18 +747,11 @@ export class KinesisFirehoseDeliveryStream extends $Resource<
   KinesisFirehoseDeliveryStreamAttributes
 > {
   public static readonly Type = "AWS::KinesisFirehose::DeliveryStream";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: KinesisFirehoseDeliveryStreamProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KinesisFirehoseDeliveryStream.Type,
-      properties,
-      KinesisFirehoseDeliveryStream.AttributeNames,
-      options,
-    );
+    super(logicalId, KinesisFirehoseDeliveryStream.Type, properties, options);
   }
 }

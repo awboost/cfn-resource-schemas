@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::S3::Bucket
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html}
@@ -131,6 +131,7 @@ export type S3BucketAttributes = {
 export type AbortIncompleteMultipartUpload = {
   /**
    * Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+   * @min `0`
    */
   DaysAfterInitiation: number;
 };
@@ -219,6 +220,7 @@ export type CorsRule = {
   Id?: string;
   /**
    * The time in seconds that your browser is to cache the preflight response for the specified resource.
+   * @min `0`
    */
   MaxAge?: number;
 };
@@ -426,19 +428,7 @@ export type LoggingConfiguration = {
   /**
    * Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
    */
-  TargetObjectKeyFormat?:
-    | {
-        /**
-         * This format defaults the prefix to the given log file prefix for delivering server access log file.
-         */
-        SimplePrefix: Record<string, any>;
-      }
-    | {
-        /**
-         * This format appends a time based prefix to the given log file prefix for delivering server access log file.
-         */
-        PartitionedPrefix: PartitionedPrefix;
-      };
+  TargetObjectKeyFormat?: TargetObjectKeyFormat;
 };
 /**
  * Type definition for `AWS::S3::Bucket.Metrics`.
@@ -967,6 +957,24 @@ export type TagFilter = {
   Value: string;
 };
 /**
+ * Type definition for `AWS::S3::Bucket.TargetObjectKeyFormat`.
+ * Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-targetobjectkeyformat.html}
+ */
+export type TargetObjectKeyFormat =
+  | {
+      /**
+       * This format defaults the prefix to the given log file prefix for delivering server access log file.
+       */
+      SimplePrefix: Record<string, any>;
+    }
+  | {
+      /**
+       * This format appends a time based prefix to the given log file prefix for delivering server access log file.
+       */
+      PartitionedPrefix: PartitionedPrefix;
+    };
+/**
  * Type definition for `AWS::S3::Bucket.Tiering`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html}
  */
@@ -1061,24 +1069,11 @@ export class S3Bucket extends $Resource<
   S3BucketAttributes
 > {
   public static readonly Type = "AWS::S3::Bucket";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "DomainName" as const,
-    "DualStackDomainName" as const,
-    "RegionalDomainName" as const,
-    "WebsiteURL" as const,
-  ];
   constructor(
     logicalId: string,
     properties: S3BucketProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3Bucket.Type,
-      properties,
-      S3Bucket.AttributeNames,
-      options,
-    );
+    super(logicalId, S3Bucket.Type, properties, options);
   }
 }

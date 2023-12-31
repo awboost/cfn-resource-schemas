@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Redshift::EndpointAuthorization`.
  * Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
@@ -76,27 +76,11 @@ export class RedshiftEndpointAuthorization extends $Resource<
   RedshiftEndpointAuthorizationAttributes
 > {
   public static readonly Type = "AWS::Redshift::EndpointAuthorization";
-  public static readonly AttributeNames = [
-    "AllowedAllVPCs" as const,
-    "AllowedVPCs" as const,
-    "AuthorizeTime" as const,
-    "ClusterStatus" as const,
-    "EndpointCount" as const,
-    "Grantee" as const,
-    "Grantor" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RedshiftEndpointAuthorizationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RedshiftEndpointAuthorization.Type,
-      properties,
-      RedshiftEndpointAuthorization.AttributeNames,
-      options,
-    );
+    super(logicalId, RedshiftEndpointAuthorization.Type, properties, options);
   }
 }

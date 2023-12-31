@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::DHCPOptions
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html}
@@ -48,6 +48,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -62,18 +63,11 @@ export class EC2DHCPOptions extends $Resource<
   EC2DHCPOptionsAttributes
 > {
   public static readonly Type = "AWS::EC2::DHCPOptions";
-  public static readonly AttributeNames = ["DhcpOptionsId" as const];
   constructor(
     logicalId: string,
     properties: EC2DHCPOptionsProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2DHCPOptions.Type,
-      properties,
-      EC2DHCPOptions.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2DHCPOptions.Type, properties, options);
   }
 }

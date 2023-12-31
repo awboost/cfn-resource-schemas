@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Macie::CustomDataIdentifier`.
  * Macie CustomDataIdentifier resource schema
@@ -75,18 +75,11 @@ export class MacieCustomDataIdentifier extends $Resource<
   MacieCustomDataIdentifierAttributes
 > {
   public static readonly Type = "AWS::Macie::CustomDataIdentifier";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: MacieCustomDataIdentifierProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MacieCustomDataIdentifier.Type,
-      properties,
-      MacieCustomDataIdentifier.AttributeNames,
-      options,
-    );
+    super(logicalId, MacieCustomDataIdentifier.Type, properties, options);
   }
 }

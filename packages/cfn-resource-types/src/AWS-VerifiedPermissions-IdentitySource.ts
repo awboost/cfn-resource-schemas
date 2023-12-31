@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html}
@@ -24,7 +24,7 @@ export type VerifiedPermissionsIdentitySourceProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-identitysource.html#aws-resource-verifiedpermissions-identitysource-return-values}
  */
 export type VerifiedPermissionsIdentitySourceAttributes = {
-  Details: IdentitySourceDetails;
+  Details: {};
   /**
    * @minLength `1`
    * @maxLength `200`
@@ -38,6 +38,7 @@ export type VerifiedPermissionsIdentitySourceAttributes = {
  */
 export type CognitoUserPoolConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   ClientIds?: string[];
@@ -61,6 +62,7 @@ export type IdentitySourceConfiguration = {
  */
 export type IdentitySourceDetails = {
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   ClientIds?: string[];
@@ -93,10 +95,6 @@ export class VerifiedPermissionsIdentitySource extends $Resource<
   VerifiedPermissionsIdentitySourceAttributes
 > {
   public static readonly Type = "AWS::VerifiedPermissions::IdentitySource";
-  public static readonly AttributeNames = [
-    "Details" as const,
-    "IdentitySourceId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: VerifiedPermissionsIdentitySourceProperties,
@@ -106,7 +104,6 @@ export class VerifiedPermissionsIdentitySource extends $Resource<
       logicalId,
       VerifiedPermissionsIdentitySource.Type,
       properties,
-      VerifiedPermissionsIdentitySource.AttributeNames,
       options,
     );
   }

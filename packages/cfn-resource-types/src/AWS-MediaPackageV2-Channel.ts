@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::MediaPackageV2::Channel Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html}
@@ -18,6 +18,7 @@ export type MediaPackageV2ChannelProperties = {
    */
   ChannelName?: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Description?: string;
@@ -30,7 +31,7 @@ export type MediaPackageV2ChannelProperties = {
 export type MediaPackageV2ChannelAttributes = {
   Arn: string;
   CreatedAt: string;
-  IngestEndpoints: IngestEndpoint[];
+  IngestEndpoints: {}[];
   ModifiedAt: string;
 };
 /**
@@ -59,23 +60,11 @@ export class MediaPackageV2Channel extends $Resource<
   MediaPackageV2ChannelAttributes
 > {
   public static readonly Type = "AWS::MediaPackageV2::Channel";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedAt" as const,
-    "IngestEndpoints" as const,
-    "ModifiedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MediaPackageV2ChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaPackageV2Channel.Type,
-      properties,
-      MediaPackageV2Channel.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaPackageV2Channel.Type, properties, options);
   }
 }

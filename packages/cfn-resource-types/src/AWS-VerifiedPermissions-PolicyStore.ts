@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html}
@@ -55,21 +55,11 @@ export class VerifiedPermissionsPolicyStore extends $Resource<
   VerifiedPermissionsPolicyStoreAttributes
 > {
   public static readonly Type = "AWS::VerifiedPermissions::PolicyStore";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "PolicyStoreId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: VerifiedPermissionsPolicyStoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VerifiedPermissionsPolicyStore.Type,
-      properties,
-      VerifiedPermissionsPolicyStore.AttributeNames,
-      options,
-    );
+    super(logicalId, VerifiedPermissionsPolicyStore.Type, properties, options);
   }
 }

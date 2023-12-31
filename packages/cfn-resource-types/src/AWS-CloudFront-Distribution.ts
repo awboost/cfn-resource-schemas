@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudFront::Distribution
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html}
@@ -309,21 +309,11 @@ export class CloudFrontDistribution extends $Resource<
   CloudFrontDistributionAttributes
 > {
   public static readonly Type = "AWS::CloudFront::Distribution";
-  public static readonly AttributeNames = [
-    "DomainName" as const,
-    "Id" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudFrontDistributionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFrontDistribution.Type,
-      properties,
-      CloudFrontDistribution.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFrontDistribution.Type, properties, options);
   }
 }

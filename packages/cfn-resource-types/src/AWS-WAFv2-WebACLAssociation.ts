@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::WAFv2::WebACLAssociation`.
  * Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
@@ -28,18 +28,11 @@ export class WAFv2WebACLAssociation extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::WAFv2::WebACLAssociation";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: WAFv2WebACLAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFv2WebACLAssociation.Type,
-      properties,
-      WAFv2WebACLAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFv2WebACLAssociation.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html}
@@ -34,18 +34,11 @@ export class SQSQueuePolicy extends $Resource<
   SQSQueuePolicyAttributes
 > {
   public static readonly Type = "AWS::SQS::QueuePolicy";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: SQSQueuePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SQSQueuePolicy.Type,
-      properties,
-      SQSQueuePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, SQSQueuePolicy.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type Definition for AWS::ResilienceHub::App.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html}
@@ -11,12 +11,14 @@ export type ResilienceHubAppProperties = {
   AppAssessmentSchedule?: "Disabled" | "Daily";
   /**
    * A string containing full ResilienceHub app template body.
+   * @minLength `0`
    * @maxLength `409600`
    * @pattern `^[\w\s:,-\.'\/{}\[\]:"]+$`
    */
   AppTemplateBody: string;
   /**
    * App description.
+   * @minLength `0`
    * @maxLength `500`
    */
   Description?: string;
@@ -157,21 +159,11 @@ export class ResilienceHubApp extends $Resource<
   ResilienceHubAppAttributes
 > {
   public static readonly Type = "AWS::ResilienceHub::App";
-  public static readonly AttributeNames = [
-    "AppArn" as const,
-    "DriftStatus" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ResilienceHubAppProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ResilienceHubApp.Type,
-      properties,
-      ResilienceHubApp.AttributeNames,
-      options,
-    );
+    super(logicalId, ResilienceHubApp.Type, properties, options);
   }
 }

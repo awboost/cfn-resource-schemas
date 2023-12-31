@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage a Lookout for Vision model.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html}
@@ -33,18 +33,11 @@ export class LookoutVisionProject extends $Resource<
   LookoutVisionProjectAttributes
 > {
   public static readonly Type = "AWS::LookoutVision::Project";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: LookoutVisionProjectProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LookoutVisionProject.Type,
-      properties,
-      LookoutVisionProject.AttributeNames,
-      options,
-    );
+    super(logicalId, LookoutVisionProject.Type, properties, options);
   }
 }

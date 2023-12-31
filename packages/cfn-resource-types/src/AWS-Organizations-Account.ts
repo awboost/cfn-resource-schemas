@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * You can use AWS::Organizations::Account to manage accounts in organization.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-account.html}
@@ -79,6 +79,7 @@ export type Tag = {
   Key: string;
   /**
    * The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `[\s\S]*`
    */
@@ -94,24 +95,11 @@ export class OrganizationsAccount extends $Resource<
   OrganizationsAccountAttributes
 > {
   public static readonly Type = "AWS::Organizations::Account";
-  public static readonly AttributeNames = [
-    "AccountId" as const,
-    "Arn" as const,
-    "JoinedMethod" as const,
-    "JoinedTimestamp" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OrganizationsAccountProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OrganizationsAccount.Type,
-      properties,
-      OrganizationsAccount.AttributeNames,
-      options,
-    );
+    super(logicalId, OrganizationsAccount.Type, properties, options);
   }
 }

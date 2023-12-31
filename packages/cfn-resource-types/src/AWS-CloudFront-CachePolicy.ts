@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudFront::CachePolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html}
@@ -21,8 +21,17 @@ export type CloudFrontCachePolicyAttributes = {
  */
 export type CachePolicyConfig = {
   Comment?: string;
+  /**
+   * @min `0`
+   */
   DefaultTTL: number;
+  /**
+   * @min `0`
+   */
   MaxTTL: number;
+  /**
+   * @min `0`
+   */
   MinTTL: number;
   Name: string;
   ParametersInCacheKeyAndForwardedToOrigin: ParametersInCacheKeyAndForwardedToOrigin;
@@ -81,21 +90,11 @@ export class CloudFrontCachePolicy extends $Resource<
   CloudFrontCachePolicyAttributes
 > {
   public static readonly Type = "AWS::CloudFront::CachePolicy";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "LastModifiedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudFrontCachePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFrontCachePolicy.Type,
-      properties,
-      CloudFrontCachePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFrontCachePolicy.Type, properties, options);
   }
 }

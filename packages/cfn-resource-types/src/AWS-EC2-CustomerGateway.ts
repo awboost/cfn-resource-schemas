@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::CustomerGateway
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html}
@@ -54,18 +54,11 @@ export class EC2CustomerGateway extends $Resource<
   EC2CustomerGatewayAttributes
 > {
   public static readonly Type = "AWS::EC2::CustomerGateway";
-  public static readonly AttributeNames = ["CustomerGatewayId" as const];
   constructor(
     logicalId: string,
     properties: EC2CustomerGatewayProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2CustomerGateway.Type,
-      properties,
-      EC2CustomerGateway.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2CustomerGateway.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaConnect::Bridge
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html}
@@ -13,6 +13,7 @@ export type MediaConnectBridgeProperties = {
   Name: string;
   /**
    * The outputs on this bridge.
+   * @minLength `0`
    * @maxLength `2`
    */
   Outputs?: BridgeOutput[];
@@ -26,6 +27,7 @@ export type MediaConnectBridgeProperties = {
   SourceFailoverConfig?: FailoverConfig;
   /**
    * The sources on this bridge.
+   * @minLength `0`
    * @maxLength `2`
    */
   Sources: BridgeSource[];
@@ -247,21 +249,11 @@ export class MediaConnectBridge extends $Resource<
   MediaConnectBridgeAttributes
 > {
   public static readonly Type = "AWS::MediaConnect::Bridge";
-  public static readonly AttributeNames = [
-    "BridgeArn" as const,
-    "BridgeState" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MediaConnectBridgeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaConnectBridge.Type,
-      properties,
-      MediaConnectBridge.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaConnectBridge.Type, properties, options);
   }
 }

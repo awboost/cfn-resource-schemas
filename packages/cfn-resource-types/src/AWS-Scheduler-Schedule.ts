@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Scheduler::Schedule Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedule.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type SchedulerScheduleProperties = {
   /**
    * The description of the schedule.
+   * @minLength `0`
    * @maxLength `512`
    */
   Description?: string;
@@ -113,6 +114,7 @@ export type AwsVpcConfiguration = {
 export type CapacityProviderStrategyItem = {
   /**
    * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used.
+   * @min `0`
    * @max `100000`
    */
   Base?: number;
@@ -124,6 +126,7 @@ export type CapacityProviderStrategyItem = {
   CapacityProvider: string;
   /**
    * The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+   * @min `0`
    * @max `1000`
    */
   Weight?: number;
@@ -202,6 +205,7 @@ export type EcsParameters = {
   ReferenceId?: string;
   /**
    * The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see RunTask in the Amazon ECS API Reference.
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: TagMap[];
@@ -355,6 +359,7 @@ export type RetryPolicy = {
   MaximumEventAgeInSeconds?: number;
   /**
    * The maximum number of retry attempts to make before the request fails. Retry attempts with exponential backoff continue until either the maximum number of attempts is made or until the duration of the MaximumEventAgeInSeconds is reached.
+   * @min `0`
    * @max `185`
    */
   MaximumRetryAttempts?: number;
@@ -387,6 +392,7 @@ export type SageMakerPipelineParameter = {
 export type SageMakerPipelineParameters = {
   /**
    * List of Parameter names and values for SageMaker Model Building Pipeline execution.
+   * @minLength `0`
    * @maxLength `200`
    */
   PipelineParameterList?: SageMakerPipelineParameter[];
@@ -478,18 +484,11 @@ export class SchedulerSchedule extends $Resource<
   SchedulerScheduleAttributes
 > {
   public static readonly Type = "AWS::Scheduler::Schedule";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: SchedulerScheduleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SchedulerSchedule.Type,
-      properties,
-      SchedulerSchedule.AttributeNames,
-      options,
-    );
+    super(logicalId, SchedulerSchedule.Type, properties, options);
   }
 }

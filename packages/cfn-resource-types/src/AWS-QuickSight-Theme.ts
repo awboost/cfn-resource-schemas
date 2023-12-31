@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of the AWS::QuickSight::Theme Resource Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html}
@@ -54,7 +54,7 @@ export type QuickSightThemeAttributes = {
   CreatedTime: string;
   LastUpdatedTime: string;
   Type: ThemeType;
-  Version: ThemeVersion;
+  Version: {};
 };
 /**
  * Type definition for `AWS::QuickSight::Theme.BorderStyle`.
@@ -69,6 +69,7 @@ export type BorderStyle = {
  */
 export type DataColorPalette = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   Colors?: string[];
@@ -77,6 +78,7 @@ export type DataColorPalette = {
    */
   EmptyFillColor?: string;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   MinMaxGradient?: string[];
@@ -236,6 +238,7 @@ export type TileStyle = {
  */
 export type Typography = {
   /**
+   * @minLength `0`
    * @maxLength `5`
    */
   FontFamilies?: Font[];
@@ -320,24 +323,11 @@ export class QuickSightTheme extends $Resource<
   QuickSightThemeAttributes
 > {
   public static readonly Type = "AWS::QuickSight::Theme";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "LastUpdatedTime" as const,
-    "Type" as const,
-    "Version" as const,
-  ];
   constructor(
     logicalId: string,
     properties: QuickSightThemeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      QuickSightTheme.Type,
-      properties,
-      QuickSightTheme.AttributeNames,
-      options,
-    );
+    super(logicalId, QuickSightTheme.Type, properties, options);
   }
 }

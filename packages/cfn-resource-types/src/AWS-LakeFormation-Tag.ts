@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::LakeFormation::Tag`.
  * A resource schema representing a Lake Formation Tag.
@@ -37,18 +37,11 @@ export class LakeFormationTag extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::LakeFormation::Tag";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: LakeFormationTagProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LakeFormationTag.Type,
-      properties,
-      LakeFormationTag.AttributeNames,
-      options,
-    );
+    super(logicalId, LakeFormationTag.Type, properties, options);
   }
 }

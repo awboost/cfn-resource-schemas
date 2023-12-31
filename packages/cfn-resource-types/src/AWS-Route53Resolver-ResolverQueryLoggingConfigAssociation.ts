@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html}
@@ -65,13 +65,6 @@ export class Route53ResolverResolverQueryLoggingConfigAssociation extends $Resou
 > {
   public static readonly Type =
     "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "Error" as const,
-    "ErrorMessage" as const,
-    "Id" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: Route53ResolverResolverQueryLoggingConfigAssociationProperties,
@@ -81,7 +74,6 @@ export class Route53ResolverResolverQueryLoggingConfigAssociation extends $Resou
       logicalId,
       Route53ResolverResolverQueryLoggingConfigAssociation.Type,
       properties,
-      Route53ResolverResolverQueryLoggingConfigAssociation.AttributeNames,
       options,
     );
   }

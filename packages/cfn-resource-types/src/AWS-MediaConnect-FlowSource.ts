@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaConnect::FlowSource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html}
@@ -181,22 +181,11 @@ export class MediaConnectFlowSource extends $Resource<
   MediaConnectFlowSourceAttributes
 > {
   public static readonly Type = "AWS::MediaConnect::FlowSource";
-  public static readonly AttributeNames = [
-    "IngestIp" as const,
-    "SourceArn" as const,
-    "SourceIngestPort" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MediaConnectFlowSourceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaConnectFlowSource.Type,
-      properties,
-      MediaConnectFlowSource.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaConnectFlowSource.Type, properties, options);
   }
 }

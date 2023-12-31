@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::RoutingProfile
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html}
@@ -112,6 +112,7 @@ export type MediaConcurrency = {
 export type RoutingProfileQueueConfig = {
   /**
    * The delay, in seconds, a contact should wait in the queue before they are routed to an available agent.
+   * @min `0`
    * @max `9999`
    */
   Delay: number;
@@ -171,18 +172,11 @@ export class ConnectRoutingProfile extends $Resource<
   ConnectRoutingProfileAttributes
 > {
   public static readonly Type = "AWS::Connect::RoutingProfile";
-  public static readonly AttributeNames = ["RoutingProfileArn" as const];
   constructor(
     logicalId: string,
     properties: ConnectRoutingProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectRoutingProfile.Type,
-      properties,
-      ConnectRoutingProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectRoutingProfile.Type, properties, options);
   }
 }

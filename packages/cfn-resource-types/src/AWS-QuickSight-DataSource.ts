@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of the AWS::QuickSight::DataSource Resource Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html}
@@ -185,19 +185,6 @@ export type AuroraPostgreSqlParameters = {
   Port: number;
 };
 /**
- * Type definition for `AWS::QuickSight::DataSource.AwsIotAnalyticsParameters`.
- * <p>AWS IoT Analytics parameters.</p>
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-awsiotanalyticsparameters.html}
- */
-export type AwsIotAnalyticsParameters = {
-  /**
-   * <p>Dataset name.</p>
-   * @minLength `1`
-   * @maxLength `128`
-   */
-  DataSetName: string;
-};
-/**
  * Type definition for `AWS::QuickSight::DataSource.CredentialPair`.
  * <p>The combination of user name and password that are used as credentials.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html}
@@ -229,6 +216,31 @@ export type CredentialPair = {
    * @maxLength `64`
    */
   Username: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSource.DatabricksParameters`.
+ * <p>Databricks parameters.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html}
+ */
+export type DatabricksParameters = {
+  /**
+   * <p>Host.</p>
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Host: string;
+  /**
+   * <p>Port.</p>
+   * @min `1`
+   * @max `65535`
+   */
+  Port: number;
+  /**
+   * <p>The HTTP Path of the Databricks data source.</p>
+   * @minLength `1`
+   * @maxLength `4096`
+   */
+  SqlEndpointPath: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.DataSourceCredentials`.
@@ -403,31 +415,6 @@ export type DataSourceType =
   | "STARBURST"
   | "TRINO";
 /**
- * Type definition for `AWS::QuickSight::DataSource.DatabricksParameters`.
- * <p>Databricks parameters.</p>
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html}
- */
-export type DatabricksParameters = {
-  /**
-   * <p>Host.</p>
-   * @minLength `1`
-   * @maxLength `256`
-   */
-  Host: string;
-  /**
-   * <p>Port.</p>
-   * @min `1`
-   * @max `65535`
-   */
-  Port: number;
-  /**
-   * <p>The HTTP Path of the Databricks data source.</p>
-   * @minLength `1`
-   * @maxLength `4096`
-   */
-  SqlEndpointPath: string;
-};
-/**
  * Type definition for `AWS::QuickSight::DataSource.ManifestFileLocation`.
  * <p>Amazon S3 manifest file location.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html}
@@ -550,6 +537,7 @@ export type PostgreSqlParameters = {
 export type PrestoParameters = {
   /**
    * <p>Catalog.</p>
+   * @minLength `0`
    * @maxLength `128`
    */
   Catalog: string;
@@ -614,6 +602,7 @@ export type RedshiftParameters = {
   Host?: string;
   /**
    * <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
+   * @min `0`
    * @max `65535`
    */
   Port?: number;
@@ -700,6 +689,7 @@ export type SnowflakeParameters = {
   Host: string;
   /**
    * <p>Warehouse.</p>
+   * @minLength `0`
    * @maxLength `128`
    */
   Warehouse: string;
@@ -768,6 +758,7 @@ export type SslProperties = {
 export type StarburstParameters = {
   /**
    * <p>Catalog.</p>
+   * @minLength `0`
    * @maxLength `128`
    */
   Catalog: string;
@@ -843,6 +834,7 @@ export type TeradataParameters = {
 export type TrinoParameters = {
   /**
    * <p>Catalog.</p>
+   * @minLength `0`
    * @maxLength `128`
    */
   Catalog: string;
@@ -880,23 +872,11 @@ export class QuickSightDataSource extends $Resource<
   QuickSightDataSourceAttributes
 > {
   public static readonly Type = "AWS::QuickSight::DataSource";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedTime" as const,
-    "LastUpdatedTime" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: QuickSightDataSourceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      QuickSightDataSource.Type,
-      properties,
-      QuickSightDataSource.AttributeNames,
-      options,
-    );
+    super(logicalId, QuickSightDataSource.Type, properties, options);
   }
 }

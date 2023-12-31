@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::MonitoringSchedule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html}
@@ -341,7 +341,7 @@ export type MonitoringJobDefinition = {
   /**
    * Sets the environment variables in the Docker container
    */
-  Environment?: Record<string, string | string>;
+  Environment?: Record<string, string>;
   /**
    * Container image configuration object for the monitoring job.
    */
@@ -595,22 +595,11 @@ export class SageMakerMonitoringSchedule extends $Resource<
   SageMakerMonitoringScheduleAttributes
 > {
   public static readonly Type = "AWS::SageMaker::MonitoringSchedule";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "LastModifiedTime" as const,
-    "MonitoringScheduleArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerMonitoringScheduleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerMonitoringSchedule.Type,
-      properties,
-      SageMakerMonitoringSchedule.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerMonitoringSchedule.Type, properties, options);
   }
 }

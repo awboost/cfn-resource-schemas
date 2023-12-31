@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::NimbleStudio::Studio`.
  * Represents a studio that contains other Nimble Studio resources
@@ -12,6 +12,7 @@ export type NimbleStudioStudioProperties = {
   AdminRoleArn: string;
   /**
    * <p>A friendly name for the studio.</p>
+   * @minLength `0`
    * @maxLength `64`
    */
   DisplayName: string;
@@ -39,6 +40,7 @@ export type NimbleStudioStudioProperties = {
 export type NimbleStudioStudioAttributes = {
   /**
    * <p>The Amazon Web Services Region where the studio resource is located.</p>
+   * @minLength `0`
    * @maxLength `50`
    * @pattern `[a-z]{2}-?(iso|gov)?-{1}[a-z]*-{1}[0-9]`
    */
@@ -94,23 +96,11 @@ export class NimbleStudioStudio extends $Resource<
   NimbleStudioStudioAttributes
 > {
   public static readonly Type = "AWS::NimbleStudio::Studio";
-  public static readonly AttributeNames = [
-    "HomeRegion" as const,
-    "SsoClientId" as const,
-    "StudioId" as const,
-    "StudioUrl" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NimbleStudioStudioProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NimbleStudioStudio.Type,
-      properties,
-      NimbleStudioStudio.AttributeNames,
-      options,
-    );
+    super(logicalId, NimbleStudioStudio.Type, properties, options);
   }
 }

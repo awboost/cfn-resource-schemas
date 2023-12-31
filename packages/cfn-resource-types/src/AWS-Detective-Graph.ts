@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Detective::Graph
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html}
@@ -35,6 +35,7 @@ export type Tag = {
   Key?: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. Valid characters are Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -49,18 +50,11 @@ export class DetectiveGraph extends $Resource<
   DetectiveGraphAttributes
 > {
   public static readonly Type = "AWS::Detective::Graph";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: DetectiveGraphProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DetectiveGraph.Type,
-      properties,
-      DetectiveGraph.AttributeNames,
-      options,
-    );
+    super(logicalId, DetectiveGraph.Type, properties, options);
   }
 }

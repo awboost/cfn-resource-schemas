@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataSync::LocationFSxWindows.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html}
@@ -94,21 +94,11 @@ export class DataSyncLocationFSxWindows extends $Resource<
   DataSyncLocationFSxWindowsAttributes
 > {
   public static readonly Type = "AWS::DataSync::LocationFSxWindows";
-  public static readonly AttributeNames = [
-    "LocationArn" as const,
-    "LocationUri" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DataSyncLocationFSxWindowsProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataSyncLocationFSxWindows.Type,
-      properties,
-      DataSyncLocationFSxWindows.AttributeNames,
-      options,
-    );
+    super(logicalId, DataSyncLocationFSxWindows.Type, properties, options);
   }
 }

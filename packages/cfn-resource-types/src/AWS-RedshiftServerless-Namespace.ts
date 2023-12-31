@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::RedshiftServerless::Namespace Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html}
@@ -47,6 +47,7 @@ export type RedshiftServerlessNamespaceProperties = {
   KmsKeyId?: string;
   /**
    * The collection of log types to be exported provided by the customer. Should only be one of the three supported log types: userlog, useractivitylog and connectionlog
+   * @minLength `0`
    * @maxLength `16`
    */
   LogExports?: LogExport[];
@@ -59,6 +60,7 @@ export type RedshiftServerlessNamespaceProperties = {
   NamespaceName: string;
   /**
    * The list of tags for the namespace.
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -68,41 +70,37 @@ export type RedshiftServerlessNamespaceProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html#aws-resource-redshiftserverless-namespace-return-values}
  */
 export type RedshiftServerlessNamespaceAttributes = {
-  Namespace: Namespace;
+  Namespace: {
+    AdminUsername: string;
+    CreationDate: string;
+    /**
+     * @pattern `[a-zA-Z][a-zA-Z_0-9+.@-]*`
+     */
+    DbName: string;
+    DefaultIamRoleArn: string;
+    IamRoles: string[];
+    KmsKeyId: string;
+    /**
+     * @minLength `0`
+     * @maxLength `16`
+     */
+    LogExports: LogExport[];
+    NamespaceArn: string;
+    NamespaceId: string;
+    /**
+     * @minLength `3`
+     * @maxLength `64`
+     * @pattern `^[a-z0-9-]+$`
+     */
+    NamespaceName: string;
+    Status: NamespaceStatus;
+  };
 };
 /**
  * Type definition for `AWS::RedshiftServerless::Namespace.LogExport`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-logexport.html}
  */
 export type LogExport = "useractivitylog" | "userlog" | "connectionlog";
-/**
- * Type definition for `AWS::RedshiftServerless::Namespace.Namespace`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html}
- */
-export type Namespace = {
-  AdminUsername?: string;
-  CreationDate?: string;
-  /**
-   * @pattern `[a-zA-Z][a-zA-Z_0-9+.@-]*`
-   */
-  DbName?: string;
-  DefaultIamRoleArn?: string;
-  IamRoles?: string[];
-  KmsKeyId?: string;
-  /**
-   * @maxLength `16`
-   */
-  LogExports?: LogExport[];
-  NamespaceArn?: string;
-  NamespaceId?: string;
-  /**
-   * @minLength `3`
-   * @maxLength `64`
-   * @pattern `^[a-z0-9-]+$`
-   */
-  NamespaceName?: string;
-  Status?: NamespaceStatus;
-};
 /**
  * Type definition for `AWS::RedshiftServerless::Namespace.NamespaceStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespacestatus.html}
@@ -119,6 +117,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -133,18 +132,11 @@ export class RedshiftServerlessNamespace extends $Resource<
   RedshiftServerlessNamespaceAttributes
 > {
   public static readonly Type = "AWS::RedshiftServerless::Namespace";
-  public static readonly AttributeNames = ["Namespace" as const];
   constructor(
     logicalId: string,
     properties: RedshiftServerlessNamespaceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RedshiftServerlessNamespace.Type,
-      properties,
-      RedshiftServerlessNamespace.AttributeNames,
-      options,
-    );
+    super(logicalId, RedshiftServerlessNamespace.Type, properties, options);
   }
 }

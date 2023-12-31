@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::MemoryDB::ACL
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-acl.html}
@@ -49,6 +49,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9 _\.\/=+:\-@]*$`
    */
@@ -64,18 +65,11 @@ export class MemoryDBACL extends $Resource<
   MemoryDBACLAttributes
 > {
   public static readonly Type = "AWS::MemoryDB::ACL";
-  public static readonly AttributeNames = ["Arn" as const, "Status" as const];
   constructor(
     logicalId: string,
     properties: MemoryDBACLProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MemoryDBACL.Type,
-      properties,
-      MemoryDBACL.AttributeNames,
-      options,
-    );
+    super(logicalId, MemoryDBACL.Type, properties, options);
   }
 }

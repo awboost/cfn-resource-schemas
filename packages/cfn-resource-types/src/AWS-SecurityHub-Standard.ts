@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::SecurityHub::Standard resource represents the implementation of an individual AWS Security Hub Standard in your account. It requires you have SecurityHub enabled before you can enable the Standard.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-standard.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type SecurityHubStandardProperties = {
   /**
    * StandardsControls to disable from this Standard.
+   * @minLength `0`
    * @maxLength `100`
    */
   DisabledStandardsControls?: StandardsControl[];
@@ -53,18 +54,11 @@ export class SecurityHubStandard extends $Resource<
   SecurityHubStandardAttributes
 > {
   public static readonly Type = "AWS::SecurityHub::Standard";
-  public static readonly AttributeNames = ["StandardsSubscriptionArn" as const];
   constructor(
     logicalId: string,
     properties: SecurityHubStandardProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SecurityHubStandard.Type,
-      properties,
-      SecurityHubStandard.AttributeNames,
-      options,
-    );
+    super(logicalId, SecurityHubStandard.Type, properties, options);
   }
 }

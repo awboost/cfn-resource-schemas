@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IoTThingsGraph::FlowTemplate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotthingsgraph-flowtemplate.html}
@@ -33,18 +33,11 @@ export class IoTThingsGraphFlowTemplate extends $Resource<
   IoTThingsGraphFlowTemplateAttributes
 > {
   public static readonly Type = "AWS::IoTThingsGraph::FlowTemplate";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: IoTThingsGraphFlowTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTThingsGraphFlowTemplate.Type,
-      properties,
-      IoTThingsGraphFlowTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTThingsGraphFlowTemplate.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html}
@@ -33,7 +33,6 @@ export class NetworkManagerCustomerGatewayAssociation extends $Resource<
 > {
   public static readonly Type =
     "AWS::NetworkManager::CustomerGatewayAssociation";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: NetworkManagerCustomerGatewayAssociationProperties,
@@ -43,7 +42,6 @@ export class NetworkManagerCustomerGatewayAssociation extends $Resource<
       logicalId,
       NetworkManagerCustomerGatewayAssociation.Type,
       properties,
-      NetworkManagerCustomerGatewayAssociation.AttributeNames,
       options,
     );
   }

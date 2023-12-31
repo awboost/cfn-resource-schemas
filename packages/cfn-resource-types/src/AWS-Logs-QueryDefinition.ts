@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Logs::QueryDefinition`.
  * The resource schema for AWSLogs QueryDefinition
@@ -30,6 +30,7 @@ export type LogsQueryDefinitionProperties = {
 export type LogsQueryDefinitionAttributes = {
   /**
    * Unique identifier of a query definition
+   * @minLength `0`
    * @maxLength `256`
    */
   QueryDefinitionId: string;
@@ -45,18 +46,11 @@ export class LogsQueryDefinition extends $Resource<
   LogsQueryDefinitionAttributes
 > {
   public static readonly Type = "AWS::Logs::QueryDefinition";
-  public static readonly AttributeNames = ["QueryDefinitionId" as const];
   constructor(
     logicalId: string,
     properties: LogsQueryDefinitionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LogsQueryDefinition.Type,
-      properties,
-      LogsQueryDefinition.AttributeNames,
-      options,
-    );
+    super(logicalId, LogsQueryDefinition.Type, properties, options);
   }
 }

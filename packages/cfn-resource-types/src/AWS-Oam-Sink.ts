@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Oam::Sink
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-sink.html}
@@ -42,12 +42,11 @@ export class OamSink extends $Resource<
   OamSinkAttributes
 > {
   public static readonly Type = "AWS::Oam::Sink";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: OamSinkProperties,
     options?: $ResourceOptions,
   ) {
-    super(logicalId, OamSink.Type, properties, OamSink.AttributeNames, options);
+    super(logicalId, OamSink.Type, properties, options);
   }
 }

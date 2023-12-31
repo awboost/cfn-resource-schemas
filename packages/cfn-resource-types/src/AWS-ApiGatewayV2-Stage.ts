@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ApiGatewayV2::Stage
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html}
@@ -54,18 +54,11 @@ export class ApiGatewayV2Stage extends $Resource<
   ApiGatewayV2StageAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::Stage";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2StageProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2Stage.Type,
-      properties,
-      ApiGatewayV2Stage.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2Stage.Type, properties, options);
   }
 }

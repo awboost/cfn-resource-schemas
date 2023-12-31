@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type Definition for AWS::S3Outposts::BucketPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html}
@@ -27,18 +27,11 @@ export class S3OutpostsBucketPolicy extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::S3Outposts::BucketPolicy";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: S3OutpostsBucketPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3OutpostsBucketPolicy.Type,
-      properties,
-      S3OutpostsBucketPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, S3OutpostsBucketPolicy.Type, properties, options);
   }
 }

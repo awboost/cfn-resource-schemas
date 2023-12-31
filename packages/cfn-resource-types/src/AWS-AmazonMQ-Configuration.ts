@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AmazonMQ::Configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html}
@@ -40,22 +40,11 @@ export class AmazonMQConfiguration extends $Resource<
   AmazonMQConfigurationAttributes
 > {
   public static readonly Type = "AWS::AmazonMQ::Configuration";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "Revision" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AmazonMQConfigurationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AmazonMQConfiguration.Type,
-      properties,
-      AmazonMQConfiguration.AttributeNames,
-      options,
-    );
+    super(logicalId, AmazonMQConfiguration.Type, properties, options);
   }
 }

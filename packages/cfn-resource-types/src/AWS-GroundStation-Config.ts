@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::GroundStation::Config`.
  * AWS Ground Station config resource type for CloudFormation.
@@ -201,22 +201,11 @@ export class GroundStationConfig extends $Resource<
   GroundStationConfigAttributes
 > {
   public static readonly Type = "AWS::GroundStation::Config";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "Type" as const,
-  ];
   constructor(
     logicalId: string,
     properties: GroundStationConfigProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GroundStationConfig.Type,
-      properties,
-      GroundStationConfig.AttributeNames,
-      options,
-    );
+    super(logicalId, GroundStationConfig.Type, properties, options);
   }
 }

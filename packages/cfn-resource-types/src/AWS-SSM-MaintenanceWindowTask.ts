@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SSM::MaintenanceWindowTask
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html}
@@ -123,18 +123,11 @@ export class SSMMaintenanceWindowTask extends $Resource<
   SSMMaintenanceWindowTaskAttributes
 > {
   public static readonly Type = "AWS::SSM::MaintenanceWindowTask";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: SSMMaintenanceWindowTaskProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SSMMaintenanceWindowTask.Type,
-      properties,
-      SSMMaintenanceWindowTask.AttributeNames,
-      options,
-    );
+    super(logicalId, SSMMaintenanceWindowTask.Type, properties, options);
   }
 }

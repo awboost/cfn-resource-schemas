@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::ResourceExplorer2::Index Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourceexplorer2-index.html}
@@ -46,21 +46,11 @@ export class ResourceExplorer2Index extends $Resource<
   ResourceExplorer2IndexAttributes
 > {
   public static readonly Type = "AWS::ResourceExplorer2::Index";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "IndexState" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ResourceExplorer2IndexProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ResourceExplorer2Index.Type,
-      properties,
-      ResourceExplorer2Index.AttributeNames,
-      options,
-    );
+    super(logicalId, ResourceExplorer2Index.Type, properties, options);
   }
 }

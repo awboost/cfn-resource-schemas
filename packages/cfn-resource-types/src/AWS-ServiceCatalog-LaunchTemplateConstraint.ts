@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchtemplateconstraint.html}
@@ -28,7 +28,6 @@ export class ServiceCatalogLaunchTemplateConstraint extends $Resource<
   ServiceCatalogLaunchTemplateConstraintAttributes
 > {
   public static readonly Type = "AWS::ServiceCatalog::LaunchTemplateConstraint";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ServiceCatalogLaunchTemplateConstraintProperties,
@@ -38,7 +37,6 @@ export class ServiceCatalogLaunchTemplateConstraint extends $Resource<
       logicalId,
       ServiceCatalogLaunchTemplateConstraint.Type,
       properties,
-      ServiceCatalogLaunchTemplateConstraint.AttributeNames,
       options,
     );
   }

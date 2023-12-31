@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for AWS::NetworkFirewall::FirewallPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html}
@@ -185,6 +185,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^.*$`
    */
@@ -200,21 +201,11 @@ export class NetworkFirewallFirewallPolicy extends $Resource<
   NetworkFirewallFirewallPolicyAttributes
 > {
   public static readonly Type = "AWS::NetworkFirewall::FirewallPolicy";
-  public static readonly AttributeNames = [
-    "FirewallPolicyArn" as const,
-    "FirewallPolicyId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: NetworkFirewallFirewallPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      NetworkFirewallFirewallPolicy.Type,
-      properties,
-      NetworkFirewallFirewallPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, NetworkFirewallFirewallPolicy.Type, properties, options);
   }
 }

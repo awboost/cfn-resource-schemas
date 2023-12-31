@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::StepFunctions::StateMachine`.
  * Resource schema for StateMachine
@@ -133,22 +133,11 @@ export class StepFunctionsStateMachine extends $Resource<
   StepFunctionsStateMachineAttributes
 > {
   public static readonly Type = "AWS::StepFunctions::StateMachine";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Name" as const,
-    "StateMachineRevisionId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: StepFunctionsStateMachineProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      StepFunctionsStateMachine.Type,
-      properties,
-      StepFunctionsStateMachine.AttributeNames,
-      options,
-    );
+    super(logicalId, StepFunctionsStateMachine.Type, properties, options);
   }
 }

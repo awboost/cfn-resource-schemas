@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::InstanceStorageConfig
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html}
@@ -148,18 +148,11 @@ export class ConnectInstanceStorageConfig extends $Resource<
   ConnectInstanceStorageConfigAttributes
 > {
   public static readonly Type = "AWS::Connect::InstanceStorageConfig";
-  public static readonly AttributeNames = ["AssociationId" as const];
   constructor(
     logicalId: string,
     properties: ConnectInstanceStorageConfigProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectInstanceStorageConfig.Type,
-      properties,
-      ConnectInstanceStorageConfig.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectInstanceStorageConfig.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudFormation::TypeActivation`.
  * Enable a resource that has been published in the CloudFormation Registry.
@@ -101,18 +101,11 @@ export class CloudFormationTypeActivation extends $Resource<
   CloudFormationTypeActivationAttributes
 > {
   public static readonly Type = "AWS::CloudFormation::TypeActivation";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: CloudFormationTypeActivationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFormationTypeActivation.Type,
-      properties,
-      CloudFormationTypeActivation.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFormationTypeActivation.Type, properties, options);
   }
 }

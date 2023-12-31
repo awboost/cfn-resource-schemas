@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudFront::OriginRequestPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html}
@@ -69,21 +69,11 @@ export class CloudFrontOriginRequestPolicy extends $Resource<
   CloudFrontOriginRequestPolicyAttributes
 > {
   public static readonly Type = "AWS::CloudFront::OriginRequestPolicy";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "LastModifiedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudFrontOriginRequestPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudFrontOriginRequestPolicy.Type,
-      properties,
-      CloudFrontOriginRequestPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudFrontOriginRequestPolicy.Type, properties, options);
   }
 }

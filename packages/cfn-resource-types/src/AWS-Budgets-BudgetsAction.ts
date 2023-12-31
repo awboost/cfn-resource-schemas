@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Budgets::BudgetsAction`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -109,18 +109,11 @@ export class BudgetsBudgetsAction extends $Resource<
   BudgetsBudgetsActionAttributes
 > {
   public static readonly Type = "AWS::Budgets::BudgetsAction";
-  public static readonly AttributeNames = ["ActionId" as const];
   constructor(
     logicalId: string,
     properties: BudgetsBudgetsActionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      BudgetsBudgetsAction.Type,
-      properties,
-      BudgetsBudgetsAction.AttributeNames,
-      options,
-    );
+    super(logicalId, BudgetsBudgetsAction.Type, properties, options);
   }
 }

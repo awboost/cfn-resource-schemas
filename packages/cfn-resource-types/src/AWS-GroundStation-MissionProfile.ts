@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::GroundStation::MissionProfile`.
  * AWS Ground Station Mission Profile resource type for CloudFormation.
@@ -88,22 +88,11 @@ export class GroundStationMissionProfile extends $Resource<
   GroundStationMissionProfileAttributes
 > {
   public static readonly Type = "AWS::GroundStation::MissionProfile";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "Region" as const,
-  ];
   constructor(
     logicalId: string,
     properties: GroundStationMissionProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GroundStationMissionProfile.Type,
-      properties,
-      GroundStationMissionProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, GroundStationMissionProfile.Type, properties, options);
   }
 }

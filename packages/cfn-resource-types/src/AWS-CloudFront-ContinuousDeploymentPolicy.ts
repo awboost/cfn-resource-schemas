@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-continuousdeploymentpolicy.html}
@@ -36,6 +36,7 @@ export type ContinuousDeploymentPolicyConfig = {
   SingleWeightPolicyConfig?: {
     SessionStickinessConfig?: SessionStickinessConfig;
     /**
+     * @min `0`
      * @max `1`
      */
     Weight: number;
@@ -86,6 +87,7 @@ export type SingleHeaderConfig = {
 export type SingleWeightConfig = {
   SessionStickinessConfig?: SessionStickinessConfig;
   /**
+   * @min `0`
    * @max `1`
    */
   Weight: number;
@@ -109,10 +111,6 @@ export class CloudFrontContinuousDeploymentPolicy extends $Resource<
   CloudFrontContinuousDeploymentPolicyAttributes
 > {
   public static readonly Type = "AWS::CloudFront::ContinuousDeploymentPolicy";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "LastModifiedTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: CloudFrontContinuousDeploymentPolicyProperties,
@@ -122,7 +120,6 @@ export class CloudFrontContinuousDeploymentPolicy extends $Resource<
       logicalId,
       CloudFrontContinuousDeploymentPolicy.Type,
       properties,
-      CloudFrontContinuousDeploymentPolicy.AttributeNames,
       options,
     );
   }

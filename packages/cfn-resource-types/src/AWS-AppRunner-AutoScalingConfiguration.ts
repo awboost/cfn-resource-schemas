@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::AppRunner::AutoScalingConfiguration`.
  * Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
@@ -70,11 +70,6 @@ export class AppRunnerAutoScalingConfiguration extends $Resource<
   AppRunnerAutoScalingConfigurationAttributes
 > {
   public static readonly Type = "AWS::AppRunner::AutoScalingConfiguration";
-  public static readonly AttributeNames = [
-    "AutoScalingConfigurationArn" as const,
-    "AutoScalingConfigurationRevision" as const,
-    "Latest" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppRunnerAutoScalingConfigurationProperties,
@@ -84,7 +79,6 @@ export class AppRunnerAutoScalingConfiguration extends $Resource<
       logicalId,
       AppRunnerAutoScalingConfiguration.Type,
       properties,
-      AppRunnerAutoScalingConfiguration.AttributeNames,
       options,
     );
   }

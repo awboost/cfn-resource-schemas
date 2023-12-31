@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::IoTEvents::AlarmModel resource creates a alarm model. AWS IoT Events alarms help you monitor your data for changes. The data can be metrics that you measure for your equipment and processes. You can create alarms that send notifications when a threshold is breached. Alarms help you detect issues, streamline maintenance, and optimize performance of your equipment and processes.
 
@@ -50,6 +50,7 @@ export type IoTEventsAlarmModelProperties = {
      * A non-negative integer that reflects the severity level of the alarm.
     
     
+     * @min `0`
      * @max `2147483647`
      */
   Severity?: number;
@@ -524,18 +525,11 @@ export class IoTEventsAlarmModel extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::IoTEvents::AlarmModel";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: IoTEventsAlarmModelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTEventsAlarmModel.Type,
-      properties,
-      IoTEventsAlarmModel.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTEventsAlarmModel.Type, properties, options);
   }
 }

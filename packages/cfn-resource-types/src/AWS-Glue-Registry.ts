@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Glue::Registry`.
  * This resource creates a Registry for authoring schemas as part of Glue Schema Registry.
@@ -8,6 +8,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type GlueRegistryProperties = {
   /**
    * A description of the registry. If description is not provided, there will not be any default value for this.
+   * @minLength `0`
    * @maxLength `1000`
    */
   Description?: string;
@@ -19,6 +20,7 @@ export type GlueRegistryProperties = {
   Name: string;
   /**
    * List of tags to tag the Registry
+   * @minLength `0`
    * @maxLength `10`
    */
   Tags?: Tag[];
@@ -47,6 +49,7 @@ export type Tag = {
   Key: string;
   /**
    * Corresponding tag value for the key.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -62,18 +65,11 @@ export class GlueRegistry extends $Resource<
   GlueRegistryAttributes
 > {
   public static readonly Type = "AWS::Glue::Registry";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: GlueRegistryProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueRegistry.Type,
-      properties,
-      GlueRegistry.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueRegistry.Type, properties, options);
   }
 }

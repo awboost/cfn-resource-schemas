@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`.
  * Describes a local gateway route table virtual interface group association for a local gateway.
@@ -77,13 +77,6 @@ export class EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends $
 > {
   public static readonly Type =
     "AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation";
-  public static readonly AttributeNames = [
-    "LocalGatewayId" as const,
-    "LocalGatewayRouteTableArn" as const,
-    "LocalGatewayRouteTableVirtualInterfaceGroupAssociationId" as const,
-    "OwnerId" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociationProperties,
@@ -93,7 +86,6 @@ export class EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends $
       logicalId,
       EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation.Type,
       properties,
-      EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation.AttributeNames,
       options,
     );
   }

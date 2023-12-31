@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html}
@@ -108,22 +108,11 @@ export class S3AccessPoint extends $Resource<
   S3AccessPointAttributes
 > {
   public static readonly Type = "AWS::S3::AccessPoint";
-  public static readonly AttributeNames = [
-    "Alias" as const,
-    "Arn" as const,
-    "NetworkOrigin" as const,
-  ];
   constructor(
     logicalId: string,
     properties: S3AccessPointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3AccessPoint.Type,
-      properties,
-      S3AccessPoint.AttributeNames,
-      options,
-    );
+    super(logicalId, S3AccessPoint.Type, properties, options);
   }
 }

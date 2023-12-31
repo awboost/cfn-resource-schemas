@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-eventsubscription.html}
@@ -94,6 +94,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -108,25 +109,11 @@ export class RedshiftEventSubscription extends $Resource<
   RedshiftEventSubscriptionAttributes
 > {
   public static readonly Type = "AWS::Redshift::EventSubscription";
-  public static readonly AttributeNames = [
-    "CustSubscriptionId" as const,
-    "CustomerAwsId" as const,
-    "EventCategoriesList" as const,
-    "SourceIdsList" as const,
-    "Status" as const,
-    "SubscriptionCreationTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: RedshiftEventSubscriptionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RedshiftEventSubscription.Type,
-      properties,
-      RedshiftEventSubscription.AttributeNames,
-      options,
-    );
+    super(logicalId, RedshiftEventSubscription.Type, properties, options);
   }
 }

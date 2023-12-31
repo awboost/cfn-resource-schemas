@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::CACertificate`.
  * Registers a CA Certificate in IoT.
@@ -49,6 +49,7 @@ export type RegistrationConfig = {
    */
   RoleArn?: string;
   /**
+   * @minLength `0`
    * @maxLength `10240`
    * @pattern `[\s\S]*`
    */
@@ -90,18 +91,11 @@ export class IoTCACertificate extends $Resource<
   IoTCACertificateAttributes
 > {
   public static readonly Type = "AWS::IoT::CACertificate";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: IoTCACertificateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTCACertificate.Type,
-      properties,
-      IoTCACertificate.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTCACertificate.Type, properties, options);
   }
 }

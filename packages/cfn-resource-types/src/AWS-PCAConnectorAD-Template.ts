@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::PCAConnectorAD::Template`.
  * Represents a template that defines certificate configurations, both for issuance and client handling
@@ -12,16 +12,7 @@ export type PCAConnectorADTemplateProperties = {
    * @pattern `^arn:[\w-]+:pca-connector-ad:[\w-]+:[0-9]+:connector\/[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}$`
    */
   ConnectorArn: string;
-  Definition:
-    | {
-        TemplateV2: TemplateV2;
-      }
-    | {
-        TemplateV3: TemplateV3;
-      }
-    | {
-        TemplateV4: TemplateV4;
-      };
+  Definition: TemplateDefinition;
   /**
    * @minLength `1`
    * @maxLength `64`
@@ -53,20 +44,24 @@ export type ApplicationPolicies = {
    * @minLength `1`
    * @maxLength `100`
    */
-  Policies: (
-    | {
-        PolicyType: ApplicationPolicyType;
-      }
-    | {
-        /**
-         * @minLength `1`
-         * @maxLength `64`
-         * @pattern `^([0-2])\.([0-9]|([0-3][0-9]))(\.([0-9]+)){0,126}$`
-         */
-        PolicyObjectIdentifier: string;
-      }
-  )[];
+  Policies: ApplicationPolicy[];
 };
+/**
+ * Type definition for `AWS::PCAConnectorAD::Template.ApplicationPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicy.html}
+ */
+export type ApplicationPolicy =
+  | {
+      PolicyType: ApplicationPolicyType;
+    }
+  | {
+      /**
+       * @minLength `1`
+       * @maxLength `64`
+       * @pattern `^([0-2])\.([0-9]|([0-3][0-9]))(\.([0-9]+)){0,126}$`
+       */
+      PolicyObjectIdentifier: string;
+    };
 /**
  * Type definition for `AWS::PCAConnectorAD::Template.ApplicationPolicyType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-applicationpolicytype.html}
@@ -287,6 +282,17 @@ export type KeyUsageFlags = {
   NonRepudiation?: boolean;
 };
 /**
+ * Type definition for `AWS::PCAConnectorAD::Template.KeyUsageProperty`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusageproperty.html}
+ */
+export type KeyUsageProperty =
+  | {
+      PropertyType: KeyUsagePropertyType;
+    }
+  | {
+      PropertyFlags: KeyUsagePropertyFlags;
+    };
+/**
  * Type definition for `AWS::PCAConnectorAD::Template.KeyUsagePropertyFlags`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-keyusagepropertyflags.html}
  */
@@ -337,13 +343,7 @@ export type PrivateKeyAttributesV3 = {
    */
   CryptoProviders?: string[];
   KeySpec: KeySpec;
-  KeyUsageProperty:
-    | {
-        PropertyType: KeyUsagePropertyType;
-      }
-    | {
-        PropertyFlags: KeyUsagePropertyFlags;
-      };
+  KeyUsageProperty: KeyUsageProperty;
   /**
    * @min `1`
    */
@@ -361,13 +361,7 @@ export type PrivateKeyAttributesV4 = {
    */
   CryptoProviders?: string[];
   KeySpec: KeySpec;
-  KeyUsageProperty?:
-    | {
-        PropertyType: KeyUsagePropertyType;
-      }
-    | {
-        PropertyFlags: KeyUsagePropertyFlags;
-      };
+  KeyUsageProperty?: KeyUsageProperty;
   /**
    * @min `1`
    */
@@ -458,6 +452,20 @@ export type SubjectNameFlagsV4 = {
  */
 export type Tags = Record<string, string>;
 /**
+ * Type definition for `AWS::PCAConnectorAD::Template.TemplateDefinition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatedefinition.html}
+ */
+export type TemplateDefinition =
+  | {
+      TemplateV2: TemplateV2;
+    }
+  | {
+      TemplateV3: TemplateV3;
+    }
+  | {
+      TemplateV4: TemplateV4;
+    };
+/**
  * Type definition for `AWS::PCAConnectorAD::Template.TemplateV2`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcaconnectorad-template-templatev2.html}
  */
@@ -546,18 +554,11 @@ export class PCAConnectorADTemplate extends $Resource<
   PCAConnectorADTemplateAttributes
 > {
   public static readonly Type = "AWS::PCAConnectorAD::Template";
-  public static readonly AttributeNames = ["TemplateArn" as const];
   constructor(
     logicalId: string,
     properties: PCAConnectorADTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PCAConnectorADTemplate.Type,
-      properties,
-      PCAConnectorADTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, PCAConnectorADTemplate.Type, properties, options);
   }
 }

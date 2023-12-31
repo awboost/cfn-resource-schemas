@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html}
@@ -17,10 +17,12 @@ export type CloudWatchCompositeAlarmProperties = {
   ActionsSuppressor?: string;
   /**
    * Actions will be suppressed if WaitPeriod is active. The length of time that actions are suppressed is in seconds.
+   * @min `0`
    */
   ActionsSuppressorExtensionPeriod?: number;
   /**
    * Actions will be suppressed if ExtensionPeriod is active. The length of time that actions are suppressed is in seconds.
+   * @min `0`
    */
   ActionsSuppressorWaitPeriod?: number;
   /**
@@ -30,6 +32,7 @@ export type CloudWatchCompositeAlarmProperties = {
   AlarmActions?: string[];
   /**
    * The description of the alarm
+   * @minLength `0`
    * @maxLength `1024`
    */
   AlarmDescription?: string;
@@ -78,18 +81,11 @@ export class CloudWatchCompositeAlarm extends $Resource<
   CloudWatchCompositeAlarmAttributes
 > {
   public static readonly Type = "AWS::CloudWatch::CompositeAlarm";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: CloudWatchCompositeAlarmProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudWatchCompositeAlarm.Type,
-      properties,
-      CloudWatchCompositeAlarm.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudWatchCompositeAlarm.Type, properties, options);
   }
 }

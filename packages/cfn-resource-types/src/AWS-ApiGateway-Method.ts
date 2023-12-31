@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html}
@@ -183,18 +183,11 @@ export class ApiGatewayMethod extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::ApiGateway::Method";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: ApiGatewayMethodProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayMethod.Type,
-      properties,
-      ApiGatewayMethod.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayMethod.Type, properties, options);
   }
 }

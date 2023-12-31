@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::CloudFormation::ModuleDefaultVersion`.
  * A module that has been registered in the CloudFormation registry as the default version
@@ -33,7 +33,6 @@ export class CloudFormationModuleDefaultVersion extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::CloudFormation::ModuleDefaultVersion";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: CloudFormationModuleDefaultVersionProperties,
@@ -43,7 +42,6 @@ export class CloudFormationModuleDefaultVersion extends $Resource<
       logicalId,
       CloudFormationModuleDefaultVersion.Type,
       properties,
-      CloudFormationModuleDefaultVersion.AttributeNames,
       options,
     );
   }

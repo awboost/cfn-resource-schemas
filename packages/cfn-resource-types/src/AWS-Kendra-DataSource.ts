@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Kendra::DataSource`.
  * Kendra DataSource
@@ -408,6 +408,27 @@ export type CustomDocumentEnrichmentConfiguration = {
   RoleArn?: string;
 };
 /**
+ * Type definition for `AWS::Kendra::DataSource.DatabaseConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html}
+ */
+export type DatabaseConfiguration = {
+  AclConfiguration?: AclConfiguration;
+  ColumnConfiguration: ColumnConfiguration;
+  ConnectionConfiguration: ConnectionConfiguration;
+  DatabaseEngineType: DatabaseEngineType;
+  SqlConfiguration?: SqlConfiguration;
+  VpcConfiguration?: DataSourceVpcConfiguration;
+};
+/**
+ * Type definition for `AWS::Kendra::DataSource.DatabaseEngineType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseenginetype.html}
+ */
+export type DatabaseEngineType =
+  | "RDS_AURORA_MYSQL"
+  | "RDS_AURORA_POSTGRESQL"
+  | "RDS_MYSQL"
+  | "RDS_POSTGRESQL";
+/**
  * Type definition for `AWS::Kendra::DataSource.DataSourceConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html}
  */
@@ -464,27 +485,6 @@ export type DataSourceVpcConfiguration = {
    */
   SubnetIds: string[];
 };
-/**
- * Type definition for `AWS::Kendra::DataSource.DatabaseConfiguration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html}
- */
-export type DatabaseConfiguration = {
-  AclConfiguration?: AclConfiguration;
-  ColumnConfiguration: ColumnConfiguration;
-  ConnectionConfiguration: ConnectionConfiguration;
-  DatabaseEngineType: DatabaseEngineType;
-  SqlConfiguration?: SqlConfiguration;
-  VpcConfiguration?: DataSourceVpcConfiguration;
-};
-/**
- * Type definition for `AWS::Kendra::DataSource.DatabaseEngineType`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseenginetype.html}
- */
-export type DatabaseEngineType =
-  | "RDS_AURORA_MYSQL"
-  | "RDS_AURORA_POSTGRESQL"
-  | "RDS_MYSQL"
-  | "RDS_POSTGRESQL";
 /**
  * Type definition for `AWS::Kendra::DataSource.DocumentAttributeCondition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html}
@@ -544,14 +544,17 @@ export type DocumentsMetadataConfiguration = {
  */
 export type GoogleDriveConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `30`
    */
   ExcludeMimeTypes?: string[];
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   ExcludeSharedDrives?: string[];
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   ExcludeUserAccounts?: string[];
@@ -1071,6 +1074,7 @@ export type Tag = {
   Key: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -1137,6 +1141,7 @@ export type WebCrawlerConfiguration = {
    */
   CrawlDepth?: number;
   /**
+   * @min `0`
    * @max `50`
    */
   MaxContentSizePerPageInMegaBytes?: number;
@@ -1167,6 +1172,7 @@ export type WebCrawlerConfiguration = {
  */
 export type WebCrawlerSeedUrlConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   SeedUrls: string[];
@@ -1178,6 +1184,7 @@ export type WebCrawlerSeedUrlConfiguration = {
  */
 export type WebCrawlerSiteMapsConfiguration = {
   /**
+   * @minLength `0`
    * @maxLength `3`
    */
   SiteMaps: string[];
@@ -1227,18 +1234,11 @@ export class KendraDataSource extends $Resource<
   KendraDataSourceAttributes
 > {
   public static readonly Type = "AWS::Kendra::DataSource";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: KendraDataSourceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KendraDataSource.Type,
-      properties,
-      KendraDataSource.AttributeNames,
-      options,
-    );
+    super(logicalId, KendraDataSource.Type, properties, options);
   }
 }

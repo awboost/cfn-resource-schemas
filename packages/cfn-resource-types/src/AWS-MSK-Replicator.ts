@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::MSK::Replicator
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html}
@@ -80,6 +80,7 @@ export type ConsumerGroupReplication = {
   ConsumerGroupsToExclude?: string[];
   /**
    * List of regular expression patterns indicating the consumer groups to copy.
+   * @minLength `0`
    * @maxLength `100`
    */
   ConsumerGroupsToReplicate: string[];
@@ -210,18 +211,11 @@ export class MSKReplicator extends $Resource<
   MSKReplicatorAttributes
 > {
   public static readonly Type = "AWS::MSK::Replicator";
-  public static readonly AttributeNames = ["ReplicatorArn" as const];
   constructor(
     logicalId: string,
     properties: MSKReplicatorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MSKReplicator.Type,
-      properties,
-      MSKReplicator.AttributeNames,
-      options,
-    );
+    super(logicalId, MSKReplicator.Type, properties, options);
   }
 }

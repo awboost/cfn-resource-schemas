@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::WorkSpacesWeb::Portal Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-portal.html}
@@ -38,6 +38,7 @@ export type WorkSpacesWebPortalProperties = {
    */
   NetworkSettingsArn?: string;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -82,6 +83,7 @@ export type WorkSpacesWebPortalAttributes = {
   PortalStatus: PortalStatus;
   RendererType: RendererType;
   /**
+   * @minLength `0`
    * @maxLength `204800`
    * @pattern `^.*$`
    */
@@ -130,6 +132,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
@@ -145,27 +148,11 @@ export class WorkSpacesWebPortal extends $Resource<
   WorkSpacesWebPortalAttributes
 > {
   public static readonly Type = "AWS::WorkSpacesWeb::Portal";
-  public static readonly AttributeNames = [
-    "BrowserType" as const,
-    "CreationDate" as const,
-    "PortalArn" as const,
-    "PortalEndpoint" as const,
-    "PortalStatus" as const,
-    "RendererType" as const,
-    "ServiceProviderSamlMetadata" as const,
-    "StatusReason" as const,
-  ];
   constructor(
     logicalId: string,
     properties: WorkSpacesWebPortalProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WorkSpacesWebPortal.Type,
-      properties,
-      WorkSpacesWebPortal.AttributeNames,
-      options,
-    );
+    super(logicalId, WorkSpacesWebPortal.Type, properties, options);
   }
 }

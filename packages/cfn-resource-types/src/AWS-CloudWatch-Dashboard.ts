@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::CloudWatch::Dashboard
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html}
@@ -25,18 +25,11 @@ export class CloudWatchDashboard extends $Resource<
   CloudWatchDashboardAttributes
 > {
   public static readonly Type = "AWS::CloudWatch::Dashboard";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: CloudWatchDashboardProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      CloudWatchDashboard.Type,
-      properties,
-      CloudWatchDashboard.AttributeNames,
-      options,
-    );
+    super(logicalId, CloudWatchDashboard.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html}
@@ -164,6 +164,24 @@ export type DetailedStatusCodesMetrics = {
   IsEnabled?: boolean;
 };
 /**
+ * Type definition for `AWS::S3::StorageLens.Encryption`.
+ * Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html}
+ */
+export type Encryption =
+  | {
+      /**
+       * S3 default server-side encryption.
+       */
+      SSES3: Record<string, any>;
+    }
+  | {
+      /**
+       * AWS KMS server-side encryption.
+       */
+      SSEKMS: SSEKMS;
+    };
+/**
  * Type definition for `AWS::S3::StorageLens.PrefixLevel`.
  * Prefix-level metrics configurations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html}
@@ -202,19 +220,7 @@ export type S3BucketDestination = {
   /**
    * Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
    */
-  Encryption?:
-    | {
-        /**
-         * S3 default server-side encryption.
-         */
-        SSES3: Record<string, any>;
-      }
-    | {
-        /**
-         * AWS KMS server-side encryption.
-         */
-        SSEKMS: SSEKMS;
-      };
+  Encryption?: Encryption;
   /**
    * Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
    */
@@ -227,17 +233,6 @@ export type S3BucketDestination = {
    * The prefix to use for Amazon S3 Storage Lens export.
    */
   Prefix?: string;
-};
-/**
- * Type definition for `AWS::S3::StorageLens.SSEKMS`.
- * AWS KMS server-side encryption.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-ssekms.html}
- */
-export type SSEKMS = {
-  /**
-   * The ARN of the KMS key to use for encryption.
-   */
-  KeyId: string;
 };
 /**
  * Type definition for `AWS::S3::StorageLens.SelectionCriteria`.
@@ -257,6 +252,17 @@ export type SelectionCriteria = {
    * The minimum storage bytes threshold for the prefixes to be included in the analysis.
    */
   MinStorageBytesPercentage?: number;
+};
+/**
+ * Type definition for `AWS::S3::StorageLens.SSEKMS`.
+ * AWS KMS server-side encryption.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-ssekms.html}
+ */
+export type SSEKMS = {
+  /**
+   * The ARN of the KMS key to use for encryption.
+   */
+  KeyId: string;
 };
 /**
  * Type definition for `AWS::S3::StorageLens.StorageLensConfiguration`.
@@ -295,10 +301,6 @@ export type StorageLensConfiguration = {
    * Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
    */
   IsEnabled: boolean;
-  /**
-   * The ARN for the Amazon S3 Storage Lens configuration.
-   */
-  StorageLensArn?: string;
 };
 /**
  * Type definition for `AWS::S3::StorageLens.StorageLensGroupLevel`.
@@ -348,18 +350,11 @@ export class S3StorageLens extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::S3::StorageLens";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: S3StorageLensProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3StorageLens.Type,
-      properties,
-      S3StorageLens.AttributeNames,
-      options,
-    );
+    super(logicalId, S3StorageLens.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Inspector::ResourceGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html}
@@ -32,18 +32,11 @@ export class InspectorResourceGroup extends $Resource<
   InspectorResourceGroupAttributes
 > {
   public static readonly Type = "AWS::Inspector::ResourceGroup";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: InspectorResourceGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      InspectorResourceGroup.Type,
-      properties,
-      InspectorResourceGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, InspectorResourceGroup.Type, properties, options);
   }
 }

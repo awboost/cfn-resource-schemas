@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Route53::HealthCheck.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html}
@@ -28,6 +28,7 @@ export type Route53HealthCheckProperties = {
      */
     FullyQualifiedDomainName?: string;
     /**
+     * @min `0`
      * @max `256`
      */
     HealthThreshold?: number;
@@ -132,18 +133,11 @@ export class Route53HealthCheck extends $Resource<
   Route53HealthCheckAttributes
 > {
   public static readonly Type = "AWS::Route53::HealthCheck";
-  public static readonly AttributeNames = ["HealthCheckId" as const];
   constructor(
     logicalId: string,
     properties: Route53HealthCheckProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      Route53HealthCheck.Type,
-      properties,
-      Route53HealthCheck.AttributeNames,
-      options,
-    );
+    super(logicalId, Route53HealthCheck.Type, properties, options);
   }
 }

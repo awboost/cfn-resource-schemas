@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::EC2::NetworkInsightsAnalysis
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html}
@@ -15,13 +15,13 @@ export type EC2NetworkInsightsAnalysisProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#aws-resource-ec2-networkinsightsanalysis-return-values}
  */
 export type EC2NetworkInsightsAnalysisAttributes = {
-  AlternatePathHints: AlternatePathHint[];
-  Explanations: Explanation[];
-  ForwardPathComponents: PathComponent[];
+  AlternatePathHints: {}[];
+  Explanations: {}[];
+  ForwardPathComponents: {}[];
   NetworkInsightsAnalysisArn: string;
   NetworkInsightsAnalysisId: string;
   NetworkPathFound: boolean;
-  ReturnPathComponents: PathComponent[];
+  ReturnPathComponents: {}[];
   StartDate: string;
   Status: "running" | "failed" | "succeeded";
   StatusMessage: string;
@@ -242,30 +242,11 @@ export class EC2NetworkInsightsAnalysis extends $Resource<
   EC2NetworkInsightsAnalysisAttributes
 > {
   public static readonly Type = "AWS::EC2::NetworkInsightsAnalysis";
-  public static readonly AttributeNames = [
-    "AlternatePathHints" as const,
-    "Explanations" as const,
-    "ForwardPathComponents" as const,
-    "NetworkInsightsAnalysisArn" as const,
-    "NetworkInsightsAnalysisId" as const,
-    "NetworkPathFound" as const,
-    "ReturnPathComponents" as const,
-    "StartDate" as const,
-    "Status" as const,
-    "StatusMessage" as const,
-    "SuggestedAccounts" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2NetworkInsightsAnalysisProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2NetworkInsightsAnalysis.Type,
-      properties,
-      EC2NetworkInsightsAnalysis.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2NetworkInsightsAnalysis.Type, properties, options);
   }
 }

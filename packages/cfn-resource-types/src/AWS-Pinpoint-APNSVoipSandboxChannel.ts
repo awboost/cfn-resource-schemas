@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Pinpoint::APNSVoipSandboxChannel
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-apnsvoipsandboxchannel.html}
@@ -32,18 +32,11 @@ export class PinpointAPNSVoipSandboxChannel extends $Resource<
   PinpointAPNSVoipSandboxChannelAttributes
 > {
   public static readonly Type = "AWS::Pinpoint::APNSVoipSandboxChannel";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: PinpointAPNSVoipSandboxChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PinpointAPNSVoipSandboxChannel.Type,
-      properties,
-      PinpointAPNSVoipSandboxChannel.AttributeNames,
-      options,
-    );
+    super(logicalId, PinpointAPNSVoipSandboxChannel.Type, properties, options);
   }
 }

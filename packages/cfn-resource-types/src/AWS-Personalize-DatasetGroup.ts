@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Schema for AWS::Personalize::DatasetGroup.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-datasetgroup.html}
@@ -24,6 +24,7 @@ export type PersonalizeDatasetGroupProperties = {
   Name: string;
   /**
    * The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `arn:([a-z\d-]+):iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`
    */
@@ -51,18 +52,11 @@ export class PersonalizeDatasetGroup extends $Resource<
   PersonalizeDatasetGroupAttributes
 > {
   public static readonly Type = "AWS::Personalize::DatasetGroup";
-  public static readonly AttributeNames = ["DatasetGroupArn" as const];
   constructor(
     logicalId: string,
     properties: PersonalizeDatasetGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PersonalizeDatasetGroup.Type,
-      properties,
-      PersonalizeDatasetGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, PersonalizeDatasetGroup.Type, properties, options);
   }
 }

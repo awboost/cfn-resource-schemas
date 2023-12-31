@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataSync::LocationSMB.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html}
@@ -111,21 +111,11 @@ export class DataSyncLocationSMB extends $Resource<
   DataSyncLocationSMBAttributes
 > {
   public static readonly Type = "AWS::DataSync::LocationSMB";
-  public static readonly AttributeNames = [
-    "LocationArn" as const,
-    "LocationUri" as const,
-  ];
   constructor(
     logicalId: string,
     properties: DataSyncLocationSMBProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataSyncLocationSMB.Type,
-      properties,
-      DataSyncLocationSMB.AttributeNames,
-      options,
-    );
+    super(logicalId, DataSyncLocationSMB.Type, properties, options);
   }
 }

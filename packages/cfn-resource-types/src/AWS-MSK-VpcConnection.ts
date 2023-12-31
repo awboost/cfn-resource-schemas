@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::MSK::VpcConnection
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html}
@@ -37,8 +37,6 @@ export type MSKVpcConnectionAttributes = {
 /**
  * Type definition for `AWS::MSK::VpcConnection.Authentication`.
  * The type of private link authentication
- * @minLength `3`
- * @maxLength `10`
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-vpcconnection-authentication.html}
  */
 export type Authentication = "SASL_IAM" | "SASL_SCRAM" | "TLS";
@@ -58,18 +56,11 @@ export class MSKVpcConnection extends $Resource<
   MSKVpcConnectionAttributes
 > {
   public static readonly Type = "AWS::MSK::VpcConnection";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: MSKVpcConnectionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MSKVpcConnection.Type,
-      properties,
-      MSKVpcConnection.AttributeNames,
-      options,
-    );
+    super(logicalId, MSKVpcConnection.Type, properties, options);
   }
 }

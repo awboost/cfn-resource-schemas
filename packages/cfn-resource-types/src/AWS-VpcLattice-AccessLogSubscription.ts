@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::AccessLogSubscription`.
  * Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
@@ -19,6 +19,7 @@ export type VpcLatticeAccessLogSubscriptionProperties = {
    */
   ResourceIdentifier?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -80,23 +81,11 @@ export class VpcLatticeAccessLogSubscription extends $Resource<
   VpcLatticeAccessLogSubscriptionAttributes
 > {
   public static readonly Type = "AWS::VpcLattice::AccessLogSubscription";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "ResourceArn" as const,
-    "ResourceId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: VpcLatticeAccessLogSubscriptionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VpcLatticeAccessLogSubscription.Type,
-      properties,
-      VpcLatticeAccessLogSubscription.AttributeNames,
-      options,
-    );
+    super(logicalId, VpcLatticeAccessLogSubscription.Type, properties, options);
   }
 }

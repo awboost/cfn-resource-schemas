@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Pinpoint::InAppTemplate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-inapptemplate.html}
@@ -105,18 +105,11 @@ export class PinpointInAppTemplate extends $Resource<
   PinpointInAppTemplateAttributes
 > {
   public static readonly Type = "AWS::Pinpoint::InAppTemplate";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: PinpointInAppTemplateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PinpointInAppTemplate.Type,
-      properties,
-      PinpointInAppTemplate.AttributeNames,
-      options,
-    );
+    super(logicalId, PinpointInAppTemplate.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::MediaLive::Multiplex
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplex.html}
@@ -95,11 +95,13 @@ export type MultiplexSettings = {
   TransportStreamBitrate: number;
   /**
    * Transport stream ID.
+   * @min `0`
    * @max `65535`
    */
   TransportStreamId: number;
   /**
    * Transport stream reserved bit rate.
+   * @min `0`
    * @max `100000000`
    */
   TransportStreamReservedBitrate?: number;
@@ -123,24 +125,11 @@ export class MediaLiveMultiplex extends $Resource<
   MediaLiveMultiplexAttributes
 > {
   public static readonly Type = "AWS::MediaLive::Multiplex";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Id" as const,
-    "PipelinesRunningCount" as const,
-    "ProgramCount" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MediaLiveMultiplexProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaLiveMultiplex.Type,
-      properties,
-      MediaLiveMultiplex.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaLiveMultiplex.Type, properties, options);
   }
 }

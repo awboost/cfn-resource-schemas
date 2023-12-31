@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::SupportApp::AccountAlias`.
  * An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
@@ -38,18 +38,11 @@ export class SupportAppAccountAlias extends $Resource<
   SupportAppAccountAliasAttributes
 > {
   public static readonly Type = "AWS::SupportApp::AccountAlias";
-  public static readonly AttributeNames = ["AccountAliasResourceId" as const];
   constructor(
     logicalId: string,
     properties: SupportAppAccountAliasProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SupportAppAccountAlias.Type,
-      properties,
-      SupportAppAccountAlias.AttributeNames,
-      options,
-    );
+    super(logicalId, SupportAppAccountAlias.Type, properties, options);
   }
 }

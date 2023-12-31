@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::EIPAssociation`.
  * Resource schema for EC2 EIP association.
@@ -48,18 +48,11 @@ export class EC2EIPAssociation extends $Resource<
   EC2EIPAssociationAttributes
 > {
   public static readonly Type = "AWS::EC2::EIPAssociation";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: EC2EIPAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2EIPAssociation.Type,
-      properties,
-      EC2EIPAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2EIPAssociation.Type, properties, options);
   }
 }

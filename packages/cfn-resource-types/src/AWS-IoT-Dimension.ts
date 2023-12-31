@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoT::Dimension`.
  * A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
@@ -69,18 +69,11 @@ export class IoTDimension extends $Resource<
   IoTDimensionAttributes
 > {
   public static readonly Type = "AWS::IoT::Dimension";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: IoTDimensionProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTDimension.Type,
-      properties,
-      IoTDimension.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTDimension.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Athena::DataCatalog
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html}
@@ -41,6 +41,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -55,18 +56,11 @@ export class AthenaDataCatalog extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Athena::DataCatalog";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: AthenaDataCatalogProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AthenaDataCatalog.Type,
-      properties,
-      AthenaDataCatalog.AttributeNames,
-      options,
-    );
+    super(logicalId, AthenaDataCatalog.Type, properties, options);
   }
 }

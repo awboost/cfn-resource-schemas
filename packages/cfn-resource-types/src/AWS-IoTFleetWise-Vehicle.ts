@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::IoTFleetWise::Vehicle Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html}
@@ -16,6 +16,7 @@ export type IoTFleetWiseVehicleProperties = {
    */
   Name: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -30,6 +31,11 @@ export type IoTFleetWiseVehicleAttributes = {
   LastModificationTime: string;
 };
 /**
+ * Type definition for `AWS::IoTFleetWise::Vehicle.attributesMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-attributesmap.html}
+ */
+export type attributesMap = Record<string, string>;
+/**
  * Type definition for `AWS::IoTFleetWise::Vehicle.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-tag.html}
  */
@@ -40,6 +46,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -52,11 +59,6 @@ export type VehicleAssociationBehavior =
   | "CreateIotThing"
   | "ValidateIotThingExists";
 /**
- * Type definition for `AWS::IoTFleetWise::Vehicle.attributesMap`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-attributesmap.html}
- */
-export type attributesMap = Record<string, string>;
-/**
  * Definition of AWS::IoTFleetWise::Vehicle Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html}
  */
@@ -66,22 +68,11 @@ export class IoTFleetWiseVehicle extends $Resource<
   IoTFleetWiseVehicleAttributes
 > {
   public static readonly Type = "AWS::IoTFleetWise::Vehicle";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "LastModificationTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTFleetWiseVehicleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTFleetWiseVehicle.Type,
-      properties,
-      IoTFleetWiseVehicle.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTFleetWiseVehicle.Type, properties, options);
   }
 }

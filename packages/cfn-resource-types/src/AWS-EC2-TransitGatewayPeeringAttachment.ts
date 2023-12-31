@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::EC2::TransitGatewayPeeringAttachment type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html}
@@ -42,7 +42,7 @@ export type EC2TransitGatewayPeeringAttachmentAttributes = {
   /**
    * The status of the transit gateway peering attachment.
    */
-  Status: PeeringAttachmentStatus;
+  Status: {};
   /**
    * The ID of the transit gateway peering attachment.
    */
@@ -86,12 +86,6 @@ export class EC2TransitGatewayPeeringAttachment extends $Resource<
   EC2TransitGatewayPeeringAttachmentAttributes
 > {
   public static readonly Type = "AWS::EC2::TransitGatewayPeeringAttachment";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "State" as const,
-    "Status" as const,
-    "TransitGatewayAttachmentId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2TransitGatewayPeeringAttachmentProperties,
@@ -101,7 +95,6 @@ export class EC2TransitGatewayPeeringAttachment extends $Resource<
       logicalId,
       EC2TransitGatewayPeeringAttachment.Type,
       properties,
-      EC2TransitGatewayPeeringAttachment.AttributeNames,
       options,
     );
   }

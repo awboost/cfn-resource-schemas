@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::AppSync::GraphQLApi
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html}
@@ -107,26 +107,11 @@ export class AppSyncGraphQLApi extends $Resource<
   AppSyncGraphQLApiAttributes
 > {
   public static readonly Type = "AWS::AppSync::GraphQLApi";
-  public static readonly AttributeNames = [
-    "ApiId" as const,
-    "Arn" as const,
-    "GraphQLDns" as const,
-    "GraphQLUrl" as const,
-    "Id" as const,
-    "RealtimeDns" as const,
-    "RealtimeUrl" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AppSyncGraphQLApiProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppSyncGraphQLApi.Type,
-      properties,
-      AppSyncGraphQLApi.AttributeNames,
-      options,
-    );
+    super(logicalId, AppSyncGraphQLApi.Type, properties, options);
   }
 }

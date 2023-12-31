@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lightsail::Container
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html}
@@ -161,10 +161,6 @@ export type PrivateRegistryAccess = {
      * A Boolean value that indicates whether to activate the role.
      */
     IsActive?: boolean;
-    /**
-     * The Amazon Resource Name (ARN) of the role, if it is activated.
-     */
-    PrincipalArn?: string;
   };
 };
 /**
@@ -212,6 +208,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -226,22 +223,11 @@ export class LightsailContainer extends $Resource<
   LightsailContainerAttributes
 > {
   public static readonly Type = "AWS::Lightsail::Container";
-  public static readonly AttributeNames = [
-    "ContainerArn" as const,
-    "PrincipalArn" as const,
-    "Url" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LightsailContainerProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LightsailContainer.Type,
-      properties,
-      LightsailContainer.AttributeNames,
-      options,
-    );
+    super(logicalId, LightsailContainer.Type, properties, options);
   }
 }

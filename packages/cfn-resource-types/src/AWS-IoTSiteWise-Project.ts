@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::IoTSiteWise::Project
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html}
@@ -59,21 +59,11 @@ export class IoTSiteWiseProject extends $Resource<
   IoTSiteWiseProjectAttributes
 > {
   public static readonly Type = "AWS::IoTSiteWise::Project";
-  public static readonly AttributeNames = [
-    "ProjectArn" as const,
-    "ProjectId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTSiteWiseProjectProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTSiteWiseProject.Type,
-      properties,
-      IoTSiteWiseProject.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTSiteWiseProject.Type, properties, options);
   }
 }

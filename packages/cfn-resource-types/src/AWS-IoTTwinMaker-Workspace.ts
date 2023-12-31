@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::IoTTwinMaker::Workspace
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-workspace.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type IoTTwinMakerWorkspaceProperties = {
   /**
    * The description of the workspace.
+   * @minLength `0`
    * @maxLength `512`
    */
   Description?: string;
@@ -64,22 +65,11 @@ export class IoTTwinMakerWorkspace extends $Resource<
   IoTTwinMakerWorkspaceAttributes
 > {
   public static readonly Type = "AWS::IoTTwinMaker::Workspace";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationDateTime" as const,
-    "UpdateDateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTTwinMakerWorkspaceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTTwinMakerWorkspace.Type,
-      properties,
-      IoTTwinMakerWorkspace.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTTwinMakerWorkspace.Type, properties, options);
   }
 }

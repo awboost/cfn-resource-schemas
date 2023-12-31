@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-voiceid-domain.html}
@@ -19,6 +19,7 @@ export type VoiceIDDomainProperties = {
   Name: string;
   ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -58,6 +59,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
@@ -73,18 +75,11 @@ export class VoiceIDDomain extends $Resource<
   VoiceIDDomainAttributes
 > {
   public static readonly Type = "AWS::VoiceID::Domain";
-  public static readonly AttributeNames = ["DomainId" as const];
   constructor(
     logicalId: string,
     properties: VoiceIDDomainProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VoiceIDDomain.Type,
-      properties,
-      VoiceIDDomain.AttributeNames,
-      options,
-    );
+    super(logicalId, VoiceIDDomain.Type, properties, options);
   }
 }

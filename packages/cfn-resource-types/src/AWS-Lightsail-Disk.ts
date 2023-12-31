@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Lightsail::Disk
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-disk.html}
@@ -22,10 +22,6 @@ export type LightsailDiskProperties = {
    * @pattern `^[a-zA-Z0-9][\w\-.]*[a-zA-Z0-9]$`
    */
   DiskName: string;
-  /**
-   * Location of a resource.
-   */
-  Location?: Location;
   /**
    * Size of the Lightsail disk
    */
@@ -57,6 +53,19 @@ export type LightsailDiskAttributes = {
    * Check is Disk is attached state
    */
   IsAttached: boolean;
+  /**
+   * Location of a resource.
+   */
+  Location: {
+    /**
+     * The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
+     */
+    AvailabilityZone: string;
+    /**
+     * The Region Name in which to create your disk.
+     */
+    RegionName: string;
+  };
   /**
    * Path of the  attached Disk
    */
@@ -115,21 +124,6 @@ export type AutoSnapshotAddOn = {
   SnapshotTimeOfDay?: string;
 };
 /**
- * Type definition for `AWS::Lightsail::Disk.Location`.
- * Location of a resource.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-location.html}
- */
-export type Location = {
-  /**
-   * The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
-   */
-  AvailabilityZone?: string;
-  /**
-   * The Region Name in which to create your disk.
-   */
-  RegionName?: string;
-};
-/**
  * Type definition for `AWS::Lightsail::Disk.Tag`.
  * A key-value pair to associate with a resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-tag.html}
@@ -143,6 +137,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
@@ -157,28 +152,11 @@ export class LightsailDisk extends $Resource<
   LightsailDiskAttributes
 > {
   public static readonly Type = "AWS::Lightsail::Disk";
-  public static readonly AttributeNames = [
-    "AttachedTo" as const,
-    "AttachmentState" as const,
-    "DiskArn" as const,
-    "Iops" as const,
-    "IsAttached" as const,
-    "Path" as const,
-    "ResourceType" as const,
-    "State" as const,
-    "SupportCode" as const,
-  ];
   constructor(
     logicalId: string,
     properties: LightsailDiskProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LightsailDisk.Type,
-      properties,
-      LightsailDisk.AttributeNames,
-      options,
-    );
+    super(logicalId, LightsailDisk.Type, properties, options);
   }
 }

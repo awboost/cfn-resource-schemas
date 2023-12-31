@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::IoTFleetWise::Fleet Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-fleet.html}
@@ -19,6 +19,7 @@ export type IoTFleetWiseFleetProperties = {
   Id: string;
   SignalCatalogArn: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -43,6 +44,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -57,22 +59,11 @@ export class IoTFleetWiseFleet extends $Resource<
   IoTFleetWiseFleetAttributes
 > {
   public static readonly Type = "AWS::IoTFleetWise::Fleet";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "LastModificationTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTFleetWiseFleetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTFleetWiseFleet.Type,
-      properties,
-      IoTFleetWiseFleet.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTFleetWiseFleet.Type, properties, options);
   }
 }

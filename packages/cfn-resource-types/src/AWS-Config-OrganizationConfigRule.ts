@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Config::OrganizationConfigRule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html}
@@ -74,18 +74,11 @@ export class ConfigOrganizationConfigRule extends $Resource<
   ConfigOrganizationConfigRuleAttributes
 > {
   public static readonly Type = "AWS::Config::OrganizationConfigRule";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: ConfigOrganizationConfigRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConfigOrganizationConfigRule.Type,
-      properties,
-      ConfigOrganizationConfigRule.AttributeNames,
-      options,
-    );
+    super(logicalId, ConfigOrganizationConfigRule.Type, properties, options);
   }
 }

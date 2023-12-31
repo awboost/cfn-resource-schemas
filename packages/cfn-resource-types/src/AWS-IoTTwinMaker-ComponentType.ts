@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::IoTTwinMaker::ComponentType
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html}
@@ -18,6 +18,7 @@ export type IoTTwinMakerComponentTypeProperties = {
   CompositeComponentTypes?: Record<string, CompositeComponentType>;
   /**
    * The description of the component type.
+   * @minLength `0`
    * @maxLength `512`
    */
   Description?: string;
@@ -82,7 +83,7 @@ export type IoTTwinMakerComponentTypeAttributes = {
   /**
    * The current status of the component type.
    */
-  Status: Status;
+  Status: {};
   /**
    * The last date and time when the component type was updated.
    */
@@ -125,6 +126,7 @@ export type DataConnector = {
 export type DataType = {
   /**
    * The allowed values for this data type.
+   * @minLength `0`
    * @maxLength `50`
    */
   AllowedValues?: DataValue[];
@@ -183,6 +185,7 @@ export type DataValue = {
   IntegerValue?: number;
   /**
    * A list of multiple values.
+   * @minLength `0`
    * @maxLength `50`
    */
   ListValue?: DataValue[];
@@ -337,6 +340,7 @@ export type Status = {
     | {
         Code?: "VALIDATION_ERROR" | "INTERNAL_FAILURE";
         /**
+         * @minLength `0`
          * @maxLength `2048`
          */
         Message?: string;
@@ -353,25 +357,11 @@ export class IoTTwinMakerComponentType extends $Resource<
   IoTTwinMakerComponentTypeAttributes
 > {
   public static readonly Type = "AWS::IoTTwinMaker::ComponentType";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationDateTime" as const,
-    "IsAbstract" as const,
-    "IsSchemaInitialized" as const,
-    "Status" as const,
-    "UpdateDateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTTwinMakerComponentTypeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTTwinMakerComponentType.Type,
-      properties,
-      IoTTwinMakerComponentType.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTTwinMakerComponentType.Type, properties, options);
   }
 }

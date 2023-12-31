@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ManagedBlockchain::Accessor`.
  * Definition of AWS::ManagedBlockchain::com.amazonaws.taiga.webservice.api#Accessor Resource Type
@@ -77,24 +77,11 @@ export class ManagedBlockchainAccessor extends $Resource<
   ManagedBlockchainAccessorAttributes
 > {
   public static readonly Type = "AWS::ManagedBlockchain::Accessor";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "BillingToken" as const,
-    "CreationDate" as const,
-    "Id" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ManagedBlockchainAccessorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ManagedBlockchainAccessor.Type,
-      properties,
-      ManagedBlockchainAccessor.AttributeNames,
-      options,
-    );
+    super(logicalId, ManagedBlockchainAccessor.Type, properties, options);
   }
 }

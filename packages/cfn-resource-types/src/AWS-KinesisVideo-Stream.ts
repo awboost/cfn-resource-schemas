@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type Definition for AWS::KinesisVideo::Stream
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisvideo-stream.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type KinesisVideoStreamProperties = {
   /**
    * The number of hours till which Kinesis Video will retain the data in the stream
+   * @min `0`
    * @max `87600`
    */
   DataRetentionInHours?: number;
@@ -69,6 +70,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. Specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. The following characters can be used: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -83,18 +85,11 @@ export class KinesisVideoStream extends $Resource<
   KinesisVideoStreamAttributes
 > {
   public static readonly Type = "AWS::KinesisVideo::Stream";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: KinesisVideoStreamProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      KinesisVideoStream.Type,
-      properties,
-      KinesisVideoStream.AttributeNames,
-      options,
-    );
+    super(logicalId, KinesisVideoStream.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IVS::Channel
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html}
@@ -19,6 +19,7 @@ export type IVSChannelProperties = {
   LatencyMode?: "NORMAL" | "LOW";
   /**
    * Channel
+   * @minLength `0`
    * @maxLength `128`
    * @pattern `^[a-zA-Z0-9-_]*$`
    */
@@ -29,6 +30,7 @@ export type IVSChannelProperties = {
   Preset?: "HIGHER_BANDWIDTH_DELIVERY" | "CONSTRAINED_BANDWIDTH_DELIVERY";
   /**
    * Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
+   * @minLength `0`
    * @maxLength `128`
    * @pattern `^$|arn:aws:ivs:[a-z0-9-]+:[0-9]+:recording-configuration/[a-zA-Z0-9-]+$`
    */
@@ -90,22 +92,11 @@ export class IVSChannel extends $Resource<
   IVSChannelAttributes
 > {
   public static readonly Type = "AWS::IVS::Channel";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "IngestEndpoint" as const,
-    "PlaybackUrl" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IVSChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IVSChannel.Type,
-      properties,
-      IVSChannel.AttributeNames,
-      options,
-    );
+    super(logicalId, IVSChannel.Type, properties, options);
   }
 }

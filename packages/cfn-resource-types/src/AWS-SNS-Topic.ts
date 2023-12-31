@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SNS::Topic
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html}
@@ -102,18 +102,11 @@ export class SNSTopic extends $Resource<
   SNSTopicAttributes
 > {
   public static readonly Type = "AWS::SNS::Topic";
-  public static readonly AttributeNames = ["TopicArn" as const];
   constructor(
     logicalId: string,
     properties: SNSTopicProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SNSTopic.Type,
-      properties,
-      SNSTopic.AttributeNames,
-      options,
-    );
+    super(logicalId, SNSTopic.Type, properties, options);
   }
 }

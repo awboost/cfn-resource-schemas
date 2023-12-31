@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::OSIS::Pipeline`.
  * An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
@@ -63,7 +63,7 @@ export type OSISPipelineAttributes = {
   /**
    * The VPC interface endpoints that have access to the pipeline.
    */
-  VpcEndpoints: VpcEndpoint[];
+  VpcEndpoints: {}[];
 };
 /**
  * Type definition for `AWS::OSIS::Pipeline.LogPublishingOptions`.
@@ -101,6 +101,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -150,22 +151,11 @@ export class OSISPipeline extends $Resource<
   OSISPipelineAttributes
 > {
   public static readonly Type = "AWS::OSIS::Pipeline";
-  public static readonly AttributeNames = [
-    "IngestEndpointUrls" as const,
-    "PipelineArn" as const,
-    "VpcEndpoints" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OSISPipelineProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OSISPipeline.Type,
-      properties,
-      OSISPipeline.AttributeNames,
-      options,
-    );
+    super(logicalId, OSISPipeline.Type, properties, options);
   }
 }

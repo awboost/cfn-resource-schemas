@@ -1,20 +1,11 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Config::ConfigRule`.
  * Schema for AWS Config ConfigRule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html}
  */
 export type ConfigConfigRuleProperties = {
-  /**
-   * Compliance details of the Config rule
-   */
-  Compliance?: {
-    /**
-     * Compliance type determined by the Config rule
-     */
-    Type?: string;
-  };
   /**
    * Name for the AWS Config rule
    */
@@ -53,6 +44,15 @@ export type ConfigConfigRuleAttributes = {
    * ARN generated for the AWS Config rule
    */
   Arn: string;
+  /**
+   * Compliance details of the Config rule
+   */
+  Compliance: {
+    /**
+     * Compliance type determined by the Config rule
+     */
+    Type: string;
+  };
   /**
    * ID of the config rule
    */
@@ -164,21 +164,11 @@ export class ConfigConfigRule extends $Resource<
   ConfigConfigRuleAttributes
 > {
   public static readonly Type = "AWS::Config::ConfigRule";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "ConfigRuleId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: ConfigConfigRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConfigConfigRule.Type,
-      properties,
-      ConfigConfigRule.AttributeNames,
-      options,
-    );
+    super(logicalId, ConfigConfigRule.Type, properties, options);
   }
 }

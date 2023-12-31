@@ -1,26 +1,14 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::M2::Application`.
  * Represents an application that runs on an AWS Mainframe Modernization Environment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html}
  */
 export type M2ApplicationProperties = {
-  Definition:
-    | {
-        /**
-         * @pattern `^\S{1,2000}$`
-         */
-        S3Location: string;
-      }
-    | {
-        /**
-         * @minLength `1`
-         * @maxLength `65000`
-         */
-        Content: string;
-      };
+  Definition: Definition;
   /**
+   * @minLength `0`
    * @maxLength `500`
    */
   Description?: string;
@@ -55,6 +43,24 @@ export type M2ApplicationAttributes = {
   ApplicationId: string;
 };
 /**
+ * Type definition for `AWS::M2::Application.Definition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-application-definition.html}
+ */
+export type Definition =
+  | {
+      /**
+       * @pattern `^\S{1,2000}$`
+       */
+      S3Location: string;
+    }
+  | {
+      /**
+       * @minLength `1`
+       * @maxLength `65000`
+       */
+      Content: string;
+    };
+/**
  * Type definition for `AWS::M2::Application.EngineType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-application-enginetype.html}
  */
@@ -75,21 +81,11 @@ export class M2Application extends $Resource<
   M2ApplicationAttributes
 > {
   public static readonly Type = "AWS::M2::Application";
-  public static readonly AttributeNames = [
-    "ApplicationArn" as const,
-    "ApplicationId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: M2ApplicationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      M2Application.Type,
-      properties,
-      M2Application.AttributeNames,
-      options,
-    );
+    super(logicalId, M2Application.Type, properties, options);
   }
 }

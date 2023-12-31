@@ -1,11 +1,12 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Omics::AnnotationStore Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-omics-annotationstore.html}
  */
 export type OmicsAnnotationStoreProperties = {
   /**
+   * @minLength `0`
    * @maxLength `500`
    */
   Description?: string;
@@ -31,6 +32,7 @@ export type OmicsAnnotationStoreAttributes = {
   Id: string;
   Status: StoreStatus;
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   StatusMessage: string;
@@ -69,11 +71,6 @@ export type EncryptionType = "KMS";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-formattoheader.html}
  */
 export type FormatToHeader = Record<string, string>;
-/**
- * Type definition for `AWS::Omics::AnnotationStore.FormatToHeaderKey`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-formattoheaderkey.html}
- */
-export type FormatToHeaderKey = "CHR" | "START" | "END" | "REF" | "ALT" | "POS";
 /**
  * Type definition for `AWS::Omics::AnnotationStore.ReferenceItem`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-annotationstore-referenceitem.html}
@@ -169,26 +166,11 @@ export class OmicsAnnotationStore extends $Resource<
   OmicsAnnotationStoreAttributes
 > {
   public static readonly Type = "AWS::Omics::AnnotationStore";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "Id" as const,
-    "Status" as const,
-    "StatusMessage" as const,
-    "StoreArn" as const,
-    "StoreSizeBytes" as const,
-    "UpdateTime" as const,
-  ];
   constructor(
     logicalId: string,
     properties: OmicsAnnotationStoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      OmicsAnnotationStore.Type,
-      properties,
-      OmicsAnnotationStore.AttributeNames,
-      options,
-    );
+    super(logicalId, OmicsAnnotationStore.Type, properties, options);
   }
 }

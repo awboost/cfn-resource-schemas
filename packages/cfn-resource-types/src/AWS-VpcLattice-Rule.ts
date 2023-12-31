@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::VpcLattice::Rule`.
  * Creates a listener rule. Each listener has a default rule for checking connection requests, but you can define additional rules. Each rule consists of a priority, one or more actions, and one or more conditions.
@@ -32,6 +32,7 @@ export type VpcLatticeRuleProperties = {
    */
   ServiceIdentifier?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -215,18 +216,11 @@ export class VpcLatticeRule extends $Resource<
   VpcLatticeRuleAttributes
 > {
   public static readonly Type = "AWS::VpcLattice::Rule";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: VpcLatticeRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      VpcLatticeRule.Type,
-      properties,
-      VpcLatticeRule.AttributeNames,
-      options,
-    );
+    super(logicalId, VpcLatticeRule.Type, properties, options);
   }
 }

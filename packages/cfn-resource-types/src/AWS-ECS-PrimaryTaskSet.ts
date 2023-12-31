@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ECS::PrimaryTaskSet`.
  * A pseudo-resource that manages which of your ECS task sets is primary.
@@ -30,18 +30,11 @@ export class ECSPrimaryTaskSet extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::ECS::PrimaryTaskSet";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: ECSPrimaryTaskSetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ECSPrimaryTaskSet.Type,
-      properties,
-      ECSPrimaryTaskSet.AttributeNames,
-      options,
-    );
+    super(logicalId, ECSPrimaryTaskSet.Type, properties, options);
   }
 }

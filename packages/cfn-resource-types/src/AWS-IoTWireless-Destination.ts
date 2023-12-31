@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoTWireless::Destination`.
  * Destination's resource schema demonstrating some basic constructs and validation rules.
@@ -74,18 +74,11 @@ export class IoTWirelessDestination extends $Resource<
   IoTWirelessDestinationAttributes
 > {
   public static readonly Type = "AWS::IoTWireless::Destination";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: IoTWirelessDestinationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTWirelessDestination.Type,
-      properties,
-      IoTWirelessDestination.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTWirelessDestination.Type, properties, options);
   }
 }

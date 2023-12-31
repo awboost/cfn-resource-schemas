@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Logs::MetricFilter`.
  * Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
@@ -130,18 +130,11 @@ export class LogsMetricFilter extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Logs::MetricFilter";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: LogsMetricFilterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LogsMetricFilter.Type,
-      properties,
-      LogsMetricFilter.AttributeNames,
-      options,
-    );
+    super(logicalId, LogsMetricFilter.Type, properties, options);
   }
 }

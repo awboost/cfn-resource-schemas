@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ApiGateway::VpcLink`.
  * Schema for AWS ApiGateway VpcLink
@@ -52,18 +52,11 @@ export class ApiGatewayVpcLink extends $Resource<
   ApiGatewayVpcLinkAttributes
 > {
   public static readonly Type = "AWS::ApiGateway::VpcLink";
-  public static readonly AttributeNames = ["VpcLinkId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayVpcLinkProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayVpcLink.Type,
-      properties,
-      ApiGatewayVpcLink.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayVpcLink.Type, properties, options);
   }
 }

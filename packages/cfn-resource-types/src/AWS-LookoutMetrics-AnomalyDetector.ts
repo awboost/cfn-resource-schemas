@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::LookoutMetrics::AnomalyDetector`.
  * An Amazon Lookout for Metrics Detector
@@ -165,6 +165,7 @@ export type Metric = {
 export type MetricSet = {
   /**
    * Dimensions for this MetricSet.
+   * @minLength `0`
    */
   DimensionList?: string[];
   /**
@@ -192,6 +193,7 @@ export type MetricSet = {
   MetricSource: MetricSource;
   /**
    * Offset, in seconds, between the frequency interval and the time at which the metrics are available.
+   * @min `0`
    * @max `432000`
    */
   Offset?: number;
@@ -365,18 +367,11 @@ export class LookoutMetricsAnomalyDetector extends $Resource<
   LookoutMetricsAnomalyDetectorAttributes
 > {
   public static readonly Type = "AWS::LookoutMetrics::AnomalyDetector";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: LookoutMetricsAnomalyDetectorProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      LookoutMetricsAnomalyDetector.Type,
-      properties,
-      LookoutMetricsAnomalyDetector.AttributeNames,
-      options,
-    );
+    super(logicalId, LookoutMetricsAnomalyDetector.Type, properties, options);
   }
 }

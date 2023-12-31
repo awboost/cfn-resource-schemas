@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Connect::EvaluationForm
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html}
@@ -109,6 +109,7 @@ export type EvaluationFormNumericQuestionOption = {
   MinValue: number;
   /**
    * The score of the option range.
+   * @min `0`
    * @max `10`
    */
   Score?: number;
@@ -174,6 +175,7 @@ export type EvaluationFormQuestion = {
   Title: string;
   /**
    * The question weight used for scoring.
+   * @min `0`
    * @max `100`
    */
   Weight?: number;
@@ -223,6 +225,7 @@ export type EvaluationFormSection = {
   Title: string;
   /**
    * The item weight used for scoring.
+   * @min `0`
    * @max `100`
    */
   Weight?: number;
@@ -273,6 +276,7 @@ export type EvaluationFormSingleSelectQuestionOption = {
   RefId: string;
   /**
    * The score of the option.
+   * @min `0`
    * @max `10`
    */
   Score?: number;
@@ -389,18 +393,11 @@ export class ConnectEvaluationForm extends $Resource<
   ConnectEvaluationFormAttributes
 > {
   public static readonly Type = "AWS::Connect::EvaluationForm";
-  public static readonly AttributeNames = ["EvaluationFormArn" as const];
   constructor(
     logicalId: string,
     properties: ConnectEvaluationFormProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ConnectEvaluationForm.Type,
-      properties,
-      ConnectEvaluationForm.AttributeNames,
-      options,
-    );
+    super(logicalId, ConnectEvaluationForm.Type, properties, options);
   }
 }

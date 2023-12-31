@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoTWireless::PartnerAccount`.
  * Create and manage partner account
@@ -119,21 +119,11 @@ export class IoTWirelessPartnerAccount extends $Resource<
   IoTWirelessPartnerAccountAttributes
 > {
   public static readonly Type = "AWS::IoTWireless::PartnerAccount";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "Fingerprint" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTWirelessPartnerAccountProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTWirelessPartnerAccount.Type,
-      properties,
-      IoTWirelessPartnerAccount.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTWirelessPartnerAccount.Type, properties, options);
   }
 }

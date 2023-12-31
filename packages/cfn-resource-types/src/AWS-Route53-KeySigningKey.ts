@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Route53::KeySigningKey`.
  * Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
@@ -38,18 +38,11 @@ export class Route53KeySigningKey extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::Route53::KeySigningKey";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: Route53KeySigningKeyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      Route53KeySigningKey.Type,
-      properties,
-      Route53KeySigningKey.AttributeNames,
-      options,
-    );
+    super(logicalId, Route53KeySigningKey.Type, properties, options);
   }
 }

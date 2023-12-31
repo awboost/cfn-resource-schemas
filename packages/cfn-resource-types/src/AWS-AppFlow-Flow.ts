@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::AppFlow::Flow.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html}
@@ -197,11 +197,6 @@ export type CustomConnectorSourceProperties = {
  */
 export type CustomProperties = Record<string, string>;
 /**
- * Type definition for `AWS::AppFlow::Flow.DataTransferApi`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datatransferapi.html}
- */
-export type DataTransferApi = "AUTOMATIC" | "BULKV2" | "REST_SYNC";
-/**
  * Type definition for `AWS::AppFlow::Flow.DatadogConnectorOperator`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogconnectoroperator.html}
  */
@@ -232,6 +227,11 @@ export type DatadogSourceProperties = {
    */
   Object: string;
 };
+/**
+ * Type definition for `AWS::AppFlow::Flow.DataTransferApi`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datatransferapi.html}
+ */
+export type DataTransferApi = "AUTOMATIC" | "BULKV2" | "REST_SYNC";
 /**
  * Type definition for `AWS::AppFlow::Flow.DestinationConnectorProperties`.
  * Destination connector details
@@ -350,18 +350,21 @@ export type FileType = "CSV" | "JSON" | "PARQUET";
 export type GlueDataCatalog = {
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]*`
    */
   DatabaseName: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `512`
    * @pattern `arn:aws:iam:.*:[0-9]+:.*`
    */
   RoleArn: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `128`
    * @pattern `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]*`
    */
@@ -693,6 +696,64 @@ export type S3SourceProperties = {
   S3InputFormatConfig?: S3InputFormatConfig;
 };
 /**
+ * Type definition for `AWS::AppFlow::Flow.SalesforceConnectorOperator`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforceconnectoroperator.html}
+ */
+export type SalesforceConnectorOperator =
+  | "PROJECTION"
+  | "LESS_THAN"
+  | "CONTAINS"
+  | "GREATER_THAN"
+  | "BETWEEN"
+  | "LESS_THAN_OR_EQUAL_TO"
+  | "GREATER_THAN_OR_EQUAL_TO"
+  | "EQUAL_TO"
+  | "NOT_EQUAL_TO"
+  | "ADDITION"
+  | "MULTIPLICATION"
+  | "DIVISION"
+  | "SUBTRACTION"
+  | "MASK_ALL"
+  | "MASK_FIRST_N"
+  | "MASK_LAST_N"
+  | "VALIDATE_NON_NULL"
+  | "VALIDATE_NON_ZERO"
+  | "VALIDATE_NON_NEGATIVE"
+  | "VALIDATE_NUMERIC"
+  | "NO_OP";
+/**
+ * Type definition for `AWS::AppFlow::Flow.SalesforceDestinationProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html}
+ */
+export type SalesforceDestinationProperties = {
+  DataTransferApi?: DataTransferApi;
+  ErrorHandlingConfig?: ErrorHandlingConfig;
+  /**
+   * List of fields used as ID when performing a write operation.
+   */
+  IdFieldNames?: string[];
+  /**
+   * @maxLength `512`
+   * @pattern `\S+`
+   */
+  Object: string;
+  WriteOperationType?: WriteOperationType;
+};
+/**
+ * Type definition for `AWS::AppFlow::Flow.SalesforceSourceProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html}
+ */
+export type SalesforceSourceProperties = {
+  DataTransferApi?: DataTransferApi;
+  EnableDynamicFieldUpdate?: boolean;
+  IncludeDeletedRecords?: boolean;
+  /**
+   * @maxLength `512`
+   * @pattern `\S+`
+   */
+  Object: string;
+};
+/**
  * Type definition for `AWS::AppFlow::Flow.SAPODataConnectorOperator`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodataconnectoroperator.html}
  */
@@ -780,64 +841,6 @@ export type SAPODataSourceProperties = {
   parallelismConfig?: SAPODataParallelismConfig;
 };
 /**
- * Type definition for `AWS::AppFlow::Flow.SalesforceConnectorOperator`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforceconnectoroperator.html}
- */
-export type SalesforceConnectorOperator =
-  | "PROJECTION"
-  | "LESS_THAN"
-  | "CONTAINS"
-  | "GREATER_THAN"
-  | "BETWEEN"
-  | "LESS_THAN_OR_EQUAL_TO"
-  | "GREATER_THAN_OR_EQUAL_TO"
-  | "EQUAL_TO"
-  | "NOT_EQUAL_TO"
-  | "ADDITION"
-  | "MULTIPLICATION"
-  | "DIVISION"
-  | "SUBTRACTION"
-  | "MASK_ALL"
-  | "MASK_FIRST_N"
-  | "MASK_LAST_N"
-  | "VALIDATE_NON_NULL"
-  | "VALIDATE_NON_ZERO"
-  | "VALIDATE_NON_NEGATIVE"
-  | "VALIDATE_NUMERIC"
-  | "NO_OP";
-/**
- * Type definition for `AWS::AppFlow::Flow.SalesforceDestinationProperties`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html}
- */
-export type SalesforceDestinationProperties = {
-  DataTransferApi?: DataTransferApi;
-  ErrorHandlingConfig?: ErrorHandlingConfig;
-  /**
-   * List of fields used as ID when performing a write operation.
-   */
-  IdFieldNames?: string[];
-  /**
-   * @maxLength `512`
-   * @pattern `\S+`
-   */
-  Object: string;
-  WriteOperationType?: WriteOperationType;
-};
-/**
- * Type definition for `AWS::AppFlow::Flow.SalesforceSourceProperties`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html}
- */
-export type SalesforceSourceProperties = {
-  DataTransferApi?: DataTransferApi;
-  EnableDynamicFieldUpdate?: boolean;
-  IncludeDeletedRecords?: boolean;
-  /**
-   * @maxLength `512`
-   * @pattern `\S+`
-   */
-  Object: string;
-};
-/**
  * Type definition for `AWS::AppFlow::Flow.ScheduledTriggerProperties`.
  * Details required for scheduled trigger type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html}
@@ -857,6 +860,7 @@ export type ScheduledTriggerProperties = {
    */
   ScheduleExpression: string;
   /**
+   * @min `0`
    * @max `36000`
    */
   ScheduleOffset?: number;
@@ -1042,11 +1046,6 @@ export type SourceFlowConfig = {
   SourceConnectorProperties: SourceConnectorProperties;
 };
 /**
- * Type definition for `AWS::AppFlow::Flow.Status`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-status.html}
- */
-export type Status = "Active" | "Draft" | "Errored" | "Suspended";
-/**
  * Type definition for `AWS::AppFlow::Flow.SuccessResponseHandlingConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-successresponsehandlingconfig.html}
  */
@@ -1076,6 +1075,7 @@ export type Tag = {
   Key: string;
   /**
    * A string containing the value for the tag
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -1317,18 +1317,11 @@ export class AppFlowFlow extends $Resource<
   AppFlowFlowAttributes
 > {
   public static readonly Type = "AWS::AppFlow::Flow";
-  public static readonly AttributeNames = ["FlowArn" as const];
   constructor(
     logicalId: string,
     properties: AppFlowFlowProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AppFlowFlow.Type,
-      properties,
-      AppFlowFlow.AttributeNames,
-      options,
-    );
+    super(logicalId, AppFlowFlow.Type, properties, options);
   }
 }

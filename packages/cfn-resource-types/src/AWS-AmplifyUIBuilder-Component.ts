@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::AmplifyUIBuilder::Component Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html}
@@ -253,18 +253,11 @@ export class AmplifyUIBuilderComponent extends $Resource<
   AmplifyUIBuilderComponentAttributes
 > {
   public static readonly Type = "AWS::AmplifyUIBuilder::Component";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: AmplifyUIBuilderComponentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AmplifyUIBuilderComponent.Type,
-      properties,
-      AmplifyUIBuilderComponent.AttributeNames,
-      options,
-    );
+    super(logicalId, AmplifyUIBuilderComponent.Type, properties, options);
   }
 }

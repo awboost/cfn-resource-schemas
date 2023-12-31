@@ -1,32 +1,20 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::IoTFleetWise::Campaign Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html}
  */
 export type IoTFleetWiseCampaignProperties = {
   Action: UpdateCampaignAction;
-  CollectionScheme:
-    | {
-        TimeBasedCollectionScheme: TimeBasedCollectionScheme;
-      }
-    | {
-        ConditionBasedCollectionScheme: ConditionBasedCollectionScheme;
-      };
+  CollectionScheme: CollectionScheme;
   Compression?: Compression;
   /**
    * @minLength `1`
    * @maxLength `1`
    */
-  DataDestinationConfigs?: (
-    | {
-        S3Config: S3Config;
-      }
-    | {
-        TimestreamConfig: TimestreamConfig;
-      }
-  )[];
+  DataDestinationConfigs?: DataDestinationConfig[];
   /**
+   * @minLength `0`
    * @maxLength `5`
    */
   DataExtraDimensions?: string[];
@@ -45,18 +33,24 @@ export type IoTFleetWiseCampaignProperties = {
    */
   Name: string;
   /**
+   * @min `0`
    * @max `4294967295`
    */
   PostTriggerCollectionDuration?: number;
+  /**
+   * @min `0`
+   */
   Priority?: number;
   SignalCatalogArn: string;
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   SignalsToCollect?: SignalInformation[];
   SpoolingMode?: SpoolingMode;
   StartTime?: string;
   /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -82,6 +76,17 @@ export type CampaignStatus =
   | "RUNNING"
   | "SUSPENDED";
 /**
+ * Type definition for `AWS::IoTFleetWise::Campaign.CollectionScheme`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-collectionscheme.html}
+ */
+export type CollectionScheme =
+  | {
+      TimeBasedCollectionScheme: TimeBasedCollectionScheme;
+    }
+  | {
+      ConditionBasedCollectionScheme: ConditionBasedCollectionScheme;
+    };
+/**
  * Type definition for `AWS::IoTFleetWise::Campaign.Compression`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-compression.html}
  */
@@ -101,11 +106,23 @@ export type ConditionBasedCollectionScheme = {
    */
   Expression: string;
   /**
+   * @min `0`
    * @max `4294967295`
    */
   MinimumTriggerIntervalMs?: number;
   TriggerMode?: TriggerMode;
 };
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.DataDestinationConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html}
+ */
+export type DataDestinationConfig =
+  | {
+      S3Config: S3Config;
+    }
+  | {
+      TimestreamConfig: TimestreamConfig;
+    };
 /**
  * Type definition for `AWS::IoTFleetWise::Campaign.DataFormat`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-dataformat.html}
@@ -147,6 +164,7 @@ export type SignalInformation = {
    */
   MaxSampleCount?: number;
   /**
+   * @min `0`
    * @max `4294967295`
    */
   MinimumSamplingIntervalMs?: number;
@@ -178,6 +196,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -231,23 +250,11 @@ export class IoTFleetWiseCampaign extends $Resource<
   IoTFleetWiseCampaignAttributes
 > {
   public static readonly Type = "AWS::IoTFleetWise::Campaign";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "LastModificationTime" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: IoTFleetWiseCampaignProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTFleetWiseCampaign.Type,
-      properties,
-      IoTFleetWiseCampaign.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTFleetWiseCampaign.Type, properties, options);
   }
 }

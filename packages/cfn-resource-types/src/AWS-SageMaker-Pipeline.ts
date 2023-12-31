@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::Pipeline
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html}
@@ -24,6 +24,7 @@ export type SageMakerPipelineProperties = {
       };
   /**
    * The description of the Pipeline.
+   * @minLength `0`
    * @maxLength `3072`
    */
   PipelineDescription?: string;
@@ -90,18 +91,11 @@ export class SageMakerPipeline extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::SageMaker::Pipeline";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: SageMakerPipelineProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerPipeline.Type,
-      properties,
-      SageMakerPipeline.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerPipeline.Type, properties, options);
   }
 }

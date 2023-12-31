@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Comprehend::DocumentClassifier`.
  * Document Classifier enables training document classifier models.
@@ -161,6 +161,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -192,18 +193,11 @@ export class ComprehendDocumentClassifier extends $Resource<
   ComprehendDocumentClassifierAttributes
 > {
   public static readonly Type = "AWS::Comprehend::DocumentClassifier";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: ComprehendDocumentClassifierProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ComprehendDocumentClassifier.Type,
-      properties,
-      ComprehendDocumentClassifier.AttributeNames,
-      options,
-    );
+    super(logicalId, ComprehendDocumentClassifier.Type, properties, options);
   }
 }

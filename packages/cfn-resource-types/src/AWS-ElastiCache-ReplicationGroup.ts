@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ElastiCache::ReplicationGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html}
@@ -122,18 +122,11 @@ export class ElastiCacheReplicationGroup extends $Resource<
   ElastiCacheReplicationGroupAttributes
 > {
   public static readonly Type = "AWS::ElastiCache::ReplicationGroup";
-  public static readonly AttributeNames = ["ReplicationGroupId" as const];
   constructor(
     logicalId: string,
     properties: ElastiCacheReplicationGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ElastiCacheReplicationGroup.Type,
-      properties,
-      ElastiCacheReplicationGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, ElastiCacheReplicationGroup.Type, properties, options);
   }
 }

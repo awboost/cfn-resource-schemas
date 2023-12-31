@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html}
@@ -42,18 +42,11 @@ export class EC2NetworkInterfaceAttachment extends $Resource<
   EC2NetworkInterfaceAttachmentAttributes
 > {
   public static readonly Type = "AWS::EC2::NetworkInterfaceAttachment";
-  public static readonly AttributeNames = ["AttachmentId" as const];
   constructor(
     logicalId: string,
     properties: EC2NetworkInterfaceAttachmentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2NetworkInterfaceAttachment.Type,
-      properties,
-      EC2NetworkInterfaceAttachment.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2NetworkInterfaceAttachment.Type, properties, options);
   }
 }

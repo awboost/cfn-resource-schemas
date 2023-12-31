@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::ModelPackageGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html}
@@ -81,22 +81,11 @@ export class SageMakerModelPackageGroup extends $Resource<
   SageMakerModelPackageGroupAttributes
 > {
   public static readonly Type = "AWS::SageMaker::ModelPackageGroup";
-  public static readonly AttributeNames = [
-    "CreationTime" as const,
-    "ModelPackageGroupArn" as const,
-    "ModelPackageGroupStatus" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerModelPackageGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerModelPackageGroup.Type,
-      properties,
-      SageMakerModelPackageGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerModelPackageGroup.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::Personalize::Dataset.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-personalize-dataset.html}
@@ -99,18 +99,11 @@ export class PersonalizeDataset extends $Resource<
   PersonalizeDatasetAttributes
 > {
   public static readonly Type = "AWS::Personalize::Dataset";
-  public static readonly AttributeNames = ["DatasetArn" as const];
   constructor(
     logicalId: string,
     properties: PersonalizeDatasetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PersonalizeDataset.Type,
-      properties,
-      PersonalizeDataset.AttributeNames,
-      options,
-    );
+    super(logicalId, PersonalizeDataset.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Schema for AWS::EKS::FargateProfile
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html}
@@ -96,18 +96,11 @@ export class EKSFargateProfile extends $Resource<
   EKSFargateProfileAttributes
 > {
   public static readonly Type = "AWS::EKS::FargateProfile";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: EKSFargateProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EKSFargateProfile.Type,
-      properties,
-      EKSFargateProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, EKSFargateProfile.Type, properties, options);
   }
 }

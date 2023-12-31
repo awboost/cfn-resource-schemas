@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Glue::Schema`.
  * This resource represents a schema of Glue Schema Registry.
@@ -28,6 +28,7 @@ export type GlueSchemaProperties = {
   DataFormat: "AVRO" | "JSON" | "PROTOBUF";
   /**
    * A description of the schema. If description is not provided, there will not be any default value for this.
+   * @minLength `0`
    * @maxLength `1000`
    */
   Description?: string;
@@ -49,6 +50,7 @@ export type GlueSchemaProperties = {
   SchemaDefinition: string;
   /**
    * List of tags to tag the schema
+   * @minLength `0`
    * @maxLength `10`
    */
   Tags?: Tag[];
@@ -117,6 +119,7 @@ export type Tag = {
   Key: string;
   /**
    * Corresponding tag value for the key.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -132,21 +135,11 @@ export class GlueSchema extends $Resource<
   GlueSchemaAttributes
 > {
   public static readonly Type = "AWS::Glue::Schema";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "InitialSchemaVersionId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: GlueSchemaProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueSchema.Type,
-      properties,
-      GlueSchema.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueSchema.Type, properties, options);
   }
 }

@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Scheduler::ScheduleGroup Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-scheduler-schedulegroup.html}
@@ -13,6 +13,7 @@ export type SchedulerScheduleGroupProperties = {
   Name?: string;
   /**
    * The list of tags to associate with the schedule group.
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -77,23 +78,11 @@ export class SchedulerScheduleGroup extends $Resource<
   SchedulerScheduleGroupAttributes
 > {
   public static readonly Type = "AWS::Scheduler::ScheduleGroup";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationDate" as const,
-    "LastModificationDate" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SchedulerScheduleGroupProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SchedulerScheduleGroup.Type,
-      properties,
-      SchedulerScheduleGroup.AttributeNames,
-      options,
-    );
+    super(logicalId, SchedulerScheduleGroup.Type, properties, options);
   }
 }

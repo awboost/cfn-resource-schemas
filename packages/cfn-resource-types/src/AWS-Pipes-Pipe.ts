@@ -1,17 +1,19 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::Pipes::Pipe Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html}
  */
 export type PipesPipeProperties = {
   /**
+   * @minLength `0`
    * @maxLength `512`
    * @pattern `^.*$`
    */
   Description?: string;
   DesiredState?: RequestedPipeState;
   /**
+   * @minLength `0`
    * @maxLength `1600`
    * @pattern `^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)$`
    */
@@ -61,6 +63,7 @@ export type PipesPipeAttributes = {
   CurrentState: PipeState;
   LastModifiedTime: string;
   /**
+   * @minLength `0`
    * @maxLength `512`
    * @pattern `^.*$`
    */
@@ -78,10 +81,12 @@ export type AssignPublicIp = "ENABLED" | "DISABLED";
 export type AwsVpcConfiguration = {
   AssignPublicIp?: AssignPublicIp;
   /**
+   * @minLength `0`
    * @maxLength `5`
    */
   SecurityGroups?: string[];
   /**
+   * @minLength `0`
    * @maxLength `16`
    */
   Subnets: string[];
@@ -163,6 +168,7 @@ export type BatchRetryStrategy = {
  */
 export type CapacityProviderStrategyItem = {
   /**
+   * @min `0`
    * @max `100000`
    */
   Base?: number;
@@ -172,6 +178,7 @@ export type CapacityProviderStrategyItem = {
    */
   CapacityProvider: string;
   /**
+   * @min `0`
    * @max `1000`
    */
   Weight?: number;
@@ -301,6 +308,7 @@ export type EcsTaskOverride = {
  */
 export type Filter = {
   /**
+   * @minLength `0`
    * @maxLength `4096`
    */
   Pattern?: string;
@@ -311,6 +319,7 @@ export type Filter = {
  */
 export type FilterCriteria = {
   /**
+   * @minLength `0`
    * @maxLength `5`
    */
   Filters?: Filter[];
@@ -369,6 +378,29 @@ export type MQBrokerAccessCredentials = {
   BasicAuth: string;
 };
 /**
+ * Type definition for `AWS::Pipes::Pipe.MSKAccessCredentials`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mskaccesscredentials.html}
+ */
+export type MSKAccessCredentials =
+  | {
+      /**
+       * Optional SecretManager ARN which stores the database credentials
+       * @minLength `1`
+       * @maxLength `1600`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       */
+      SaslScram512Auth: string;
+    }
+  | {
+      /**
+       * Optional SecretManager ARN which stores the database credentials
+       * @minLength `1`
+       * @maxLength `1600`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       */
+      ClientCertificateTlsAuth: string;
+    };
+/**
  * Type definition for `AWS::Pipes::Pipe.MSKStartPosition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mskstartposition.html}
  */
@@ -401,6 +433,7 @@ export type PipeEnrichmentHttpParameters = {
 export type PipeEnrichmentParameters = {
   HttpParameters?: PipeEnrichmentHttpParameters;
   /**
+   * @minLength `0`
    * @maxLength `8192`
    */
   InputTemplate?: string;
@@ -428,6 +461,7 @@ export type PipeSourceActiveMQBrokerParameters = {
   BatchSize?: number;
   Credentials: MQBrokerAccessCredentials;
   /**
+   * @min `0`
    * @max `300`
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -450,6 +484,7 @@ export type PipeSourceDynamoDBStreamParameters = {
   BatchSize?: number;
   DeadLetterConfig?: DeadLetterConfig;
   /**
+   * @min `0`
    * @max `300`
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -483,6 +518,7 @@ export type PipeSourceKinesisStreamParameters = {
   BatchSize?: number;
   DeadLetterConfig?: DeadLetterConfig;
   /**
+   * @min `0`
    * @max `300`
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -521,26 +557,9 @@ export type PipeSourceManagedStreamingKafkaParameters = {
    * @pattern `^[a-zA-Z0-9-\/*:_+=.@-]*$`
    */
   ConsumerGroupID?: string;
-  Credentials?:
-    | {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         * @minLength `1`
-         * @maxLength `1600`
-         * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
-         */
-        SaslScram512Auth: string;
-      }
-    | {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         * @minLength `1`
-         * @maxLength `1600`
-         * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
-         */
-        ClientCertificateTlsAuth: string;
-      };
+  Credentials?: MSKAccessCredentials;
   /**
+   * @min `0`
    * @max `300`
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -578,6 +597,7 @@ export type PipeSourceRabbitMQBrokerParameters = {
   BatchSize?: number;
   Credentials: MQBrokerAccessCredentials;
   /**
+   * @min `0`
    * @max `300`
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -600,6 +620,7 @@ export type PipeSourceRabbitMQBrokerParameters = {
  */
 export type PipeSourceSelfManagedKafkaParameters = {
   /**
+   * @minLength `0`
    * @maxLength `2`
    */
   AdditionalBootstrapServers?: string[];
@@ -614,44 +635,9 @@ export type PipeSourceSelfManagedKafkaParameters = {
    * @pattern `^[a-zA-Z0-9-\/*:_+=.@-]*$`
    */
   ConsumerGroupID?: string;
-  Credentials?:
-    | {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         * @minLength `1`
-         * @maxLength `1600`
-         * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
-         */
-        BasicAuth: string;
-      }
-    | {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         * @minLength `1`
-         * @maxLength `1600`
-         * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
-         */
-        SaslScram512Auth: string;
-      }
-    | {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         * @minLength `1`
-         * @maxLength `1600`
-         * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
-         */
-        SaslScram256Auth: string;
-      }
-    | {
-        /**
-         * Optional SecretManager ARN which stores the database credentials
-         * @minLength `1`
-         * @maxLength `1600`
-         * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
-         */
-        ClientCertificateTlsAuth: string;
-      };
+  Credentials?: SelfManagedKafkaAccessConfigurationCredentials;
   /**
+   * @min `0`
    * @max `300`
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -682,6 +668,7 @@ export type PipeSourceSqsQueueParameters = {
    */
   BatchSize?: number;
   /**
+   * @min `0`
    * @max `300`
    */
   MaximumBatchingWindowInSeconds?: number;
@@ -714,6 +701,7 @@ export type PipeTargetBatchJobParameters = {
   ArrayProperties?: BatchArrayProperties;
   ContainerOverrides?: BatchContainerOverrides;
   /**
+   * @minLength `0`
    * @maxLength `20`
    */
   DependsOn?: BatchJobDependency[];
@@ -745,6 +733,7 @@ export type PipeTargetCloudWatchLogsParameters = {
  */
 export type PipeTargetEcsTaskParameters = {
   /**
+   * @minLength `0`
    * @maxLength `6`
    */
   CapacityProviderStrategy?: CapacityProviderStrategyItem[];
@@ -755,16 +744,19 @@ export type PipeTargetEcsTaskParameters = {
   NetworkConfiguration?: NetworkConfiguration;
   Overrides?: EcsTaskOverride;
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   PlacementConstraints?: PlacementConstraint[];
   /**
+   * @minLength `0`
    * @maxLength `5`
    */
   PlacementStrategy?: PlacementStrategy[];
   PlatformVersion?: string;
   PropagateTags?: PropagateTags;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   ReferenceId?: string;
@@ -797,6 +789,7 @@ export type PipeTargetEventBridgeEventBusParameters = {
    */
   EndpointId?: string;
   /**
+   * @minLength `0`
    * @maxLength `10`
    */
   Resources?: string[];
@@ -833,6 +826,7 @@ export type PipeTargetInvocationType = "REQUEST_RESPONSE" | "FIRE_AND_FORGET";
  */
 export type PipeTargetKinesisStreamParameters = {
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   PartitionKey: string;
@@ -855,6 +849,7 @@ export type PipeTargetParameters = {
   EventBridgeEventBusParameters?: PipeTargetEventBridgeEventBusParameters;
   HttpParameters?: PipeTargetHttpParameters;
   /**
+   * @minLength `0`
    * @maxLength `8192`
    */
   InputTemplate?: string;
@@ -909,6 +904,7 @@ export type PipeTargetRedshiftDataParameters = {
  */
 export type PipeTargetSageMakerPipelineParameters = {
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   PipelineParameterList?: SageMakerPipelineParameter[];
@@ -919,10 +915,12 @@ export type PipeTargetSageMakerPipelineParameters = {
  */
 export type PipeTargetSqsQueueParameters = {
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   MessageDeduplicationId?: string;
   /**
+   * @minLength `0`
    * @maxLength `100`
    */
   MessageGroupId?: string;
@@ -940,6 +938,7 @@ export type PipeTargetStateMachineParameters = {
  */
 export type PlacementConstraint = {
   /**
+   * @minLength `0`
    * @maxLength `2000`
    */
   Expression?: string;
@@ -956,6 +955,7 @@ export type PlacementConstraintType = "distinctInstance" | "memberOf";
  */
 export type PlacementStrategy = {
   /**
+   * @minLength `0`
    * @maxLength `255`
    */
   Field?: string;
@@ -1008,10 +1008,52 @@ export type SageMakerPipelineParameter = {
    */
   Name: string;
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Value: string;
 };
+/**
+ * Type definition for `AWS::Pipes::Pipe.SelfManagedKafkaAccessConfigurationCredentials`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationcredentials.html}
+ */
+export type SelfManagedKafkaAccessConfigurationCredentials =
+  | {
+      /**
+       * Optional SecretManager ARN which stores the database credentials
+       * @minLength `1`
+       * @maxLength `1600`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       */
+      BasicAuth: string;
+    }
+  | {
+      /**
+       * Optional SecretManager ARN which stores the database credentials
+       * @minLength `1`
+       * @maxLength `1600`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       */
+      SaslScram512Auth: string;
+    }
+  | {
+      /**
+       * Optional SecretManager ARN which stores the database credentials
+       * @minLength `1`
+       * @maxLength `1600`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       */
+      SaslScram256Auth: string;
+    }
+  | {
+      /**
+       * Optional SecretManager ARN which stores the database credentials
+       * @minLength `1`
+       * @maxLength `1600`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       */
+      ClientCertificateTlsAuth: string;
+    };
 /**
  * Type definition for `AWS::Pipes::Pipe.SelfManagedKafkaAccessConfigurationVpc`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-selfmanagedkafkaaccessconfigurationvpc.html}
@@ -1019,11 +1061,13 @@ export type SageMakerPipelineParameter = {
 export type SelfManagedKafkaAccessConfigurationVpc = {
   /**
    * List of SecurityGroupId.
+   * @minLength `0`
    * @maxLength `5`
    */
   SecurityGroup?: string[];
   /**
    * List of SubnetId.
+   * @minLength `0`
    * @maxLength `16`
    */
   Subnets?: string[];
@@ -1044,6 +1088,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -1063,24 +1108,11 @@ export class PipesPipe extends $Resource<
   PipesPipeAttributes
 > {
   public static readonly Type = "AWS::Pipes::Pipe";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "CurrentState" as const,
-    "LastModifiedTime" as const,
-    "StateReason" as const,
-  ];
   constructor(
     logicalId: string,
     properties: PipesPipeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      PipesPipe.Type,
-      properties,
-      PipesPipe.AttributeNames,
-      options,
-    );
+    super(logicalId, PipesPipe.Type, properties, options);
   }
 }

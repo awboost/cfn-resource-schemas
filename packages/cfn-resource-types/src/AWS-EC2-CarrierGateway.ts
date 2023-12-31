@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::CarrierGateway`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -62,22 +62,11 @@ export class EC2CarrierGateway extends $Resource<
   EC2CarrierGatewayAttributes
 > {
   public static readonly Type = "AWS::EC2::CarrierGateway";
-  public static readonly AttributeNames = [
-    "CarrierGatewayId" as const,
-    "OwnerId" as const,
-    "State" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2CarrierGatewayProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2CarrierGateway.Type,
-      properties,
-      EC2CarrierGateway.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2CarrierGateway.Type, properties, options);
   }
 }

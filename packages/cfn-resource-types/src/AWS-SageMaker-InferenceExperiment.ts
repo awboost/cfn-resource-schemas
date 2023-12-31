@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SageMaker::InferenceExperiment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html}
@@ -94,7 +94,7 @@ export type SageMakerInferenceExperimentAttributes = {
   /**
    * The metadata of the endpoint on which the inference experiment ran.
    */
-  EndpointMetadata: EndpointMetadata;
+  EndpointMetadata: {};
   /**
    * The timestamp at which you last modified the inference experiment.
    */
@@ -321,24 +321,11 @@ export class SageMakerInferenceExperiment extends $Resource<
   SageMakerInferenceExperimentAttributes
 > {
   public static readonly Type = "AWS::SageMaker::InferenceExperiment";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreationTime" as const,
-    "EndpointMetadata" as const,
-    "LastModifiedTime" as const,
-    "Status" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SageMakerInferenceExperimentProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SageMakerInferenceExperiment.Type,
-      properties,
-      SageMakerInferenceExperiment.AttributeNames,
-      options,
-    );
+    super(logicalId, SageMakerInferenceExperiment.Type, properties, options);
   }
 }

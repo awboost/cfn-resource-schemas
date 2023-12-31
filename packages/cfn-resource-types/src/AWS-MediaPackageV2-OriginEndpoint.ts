@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::MediaPackageV2::OriginEndpoint`.
  * <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
@@ -21,6 +21,7 @@ export type MediaPackageV2OriginEndpointProperties = {
   ContainerType: ContainerType;
   /**
    * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
+   * @minLength `0`
    * @maxLength `1024`
    */
   Description?: string;
@@ -162,6 +163,7 @@ export type FilterConfiguration = {
   Start?: string;
   /**
    * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+   * @min `0`
    * @max `1209600`
    */
   TimeDelaySeconds?: number;
@@ -206,10 +208,6 @@ export type HlsManifestConfiguration = {
    * <p>The SCTE configuration.</p>
    */
   ScteHls?: ScteHls;
-  /**
-   * <p>The egress domain URL for stream delivery from MediaPackage.</p>
-   */
-  Url?: string;
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.LowLatencyHlsManifestConfiguration`.
@@ -251,10 +249,6 @@ export type LowLatencyHlsManifestConfiguration = {
    * <p>The SCTE configuration.</p>
    */
   ScteHls?: ScteHls;
-  /**
-   * <p>The egress domain URL for stream delivery from MediaPackage.</p>
-   */
-  Url?: string;
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.PresetSpeke20Audio`.
@@ -289,6 +283,7 @@ export type PresetSpeke20Video =
 export type Scte = {
   /**
    * <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
+   * @minLength `0`
    * @maxLength `100`
    */
   ScteFilter?: ScteFilter[];
@@ -421,22 +416,11 @@ export class MediaPackageV2OriginEndpoint extends $Resource<
   MediaPackageV2OriginEndpointAttributes
 > {
   public static readonly Type = "AWS::MediaPackageV2::OriginEndpoint";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CreatedAt" as const,
-    "ModifiedAt" as const,
-  ];
   constructor(
     logicalId: string,
     properties: MediaPackageV2OriginEndpointProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MediaPackageV2OriginEndpoint.Type,
-      properties,
-      MediaPackageV2OriginEndpoint.AttributeNames,
-      options,
-    );
+    super(logicalId, MediaPackageV2OriginEndpoint.Type, properties, options);
   }
 }

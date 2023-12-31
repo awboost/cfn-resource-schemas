@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html}
@@ -57,18 +57,11 @@ export class ApiGatewayV2IntegrationResponse extends $Resource<
   ApiGatewayV2IntegrationResponseAttributes
 > {
   public static readonly Type = "AWS::ApiGatewayV2::IntegrationResponse";
-  public static readonly AttributeNames = ["IntegrationResponseId" as const];
   constructor(
     logicalId: string,
     properties: ApiGatewayV2IntegrationResponseProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ApiGatewayV2IntegrationResponse.Type,
-      properties,
-      ApiGatewayV2IntegrationResponse.AttributeNames,
-      options,
-    );
+    super(logicalId, ApiGatewayV2IntegrationResponse.Type, properties, options);
   }
 }

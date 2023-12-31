@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::IoTWireless::ServiceProfile`.
  * An example resource schema demonstrating some basic constructs and validation rules.
@@ -42,24 +42,8 @@ export type IoTWirelessServiceProfileAttributes = {
  */
 export type LoRaWANServiceProfile = {
   AddGwMetadata?: boolean;
-  ChannelMask?: string;
-  DevStatusReqFreq?: number;
-  DlBucketSize?: number;
-  DlRate?: number;
-  DlRatePolicy?: string;
-  DrMax?: number;
-  DrMin?: number;
-  HrAllowed?: boolean;
-  MinGwDiversity?: number;
-  NwkGeoLoc?: boolean;
   PrAllowed?: boolean;
   RaAllowed?: boolean;
-  ReportDevStatusBattery?: boolean;
-  ReportDevStatusMargin?: boolean;
-  TargetPer?: number;
-  UlBucketSize?: number;
-  UlRate?: number;
-  UlRatePolicy?: string;
 };
 /**
  * Type definition for `AWS::IoTWireless::ServiceProfile.Tag`.
@@ -88,18 +72,11 @@ export class IoTWirelessServiceProfile extends $Resource<
   IoTWirelessServiceProfileAttributes
 > {
   public static readonly Type = "AWS::IoTWireless::ServiceProfile";
-  public static readonly AttributeNames = ["Arn" as const, "Id" as const];
   constructor(
     logicalId: string,
     properties: IoTWirelessServiceProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IoTWirelessServiceProfile.Type,
-      properties,
-      IoTWirelessServiceProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, IoTWirelessServiceProfile.Type, properties, options);
   }
 }

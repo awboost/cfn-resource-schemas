@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SES::EmailIdentity
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html}
@@ -121,25 +121,11 @@ export class SESEmailIdentity extends $Resource<
   SESEmailIdentityAttributes
 > {
   public static readonly Type = "AWS::SES::EmailIdentity";
-  public static readonly AttributeNames = [
-    "DkimDNSTokenName1" as const,
-    "DkimDNSTokenName2" as const,
-    "DkimDNSTokenName3" as const,
-    "DkimDNSTokenValue1" as const,
-    "DkimDNSTokenValue2" as const,
-    "DkimDNSTokenValue3" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SESEmailIdentityProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SESEmailIdentity.Type,
-      properties,
-      SESEmailIdentity.AttributeNames,
-      options,
-    );
+    super(logicalId, SESEmailIdentity.Type, properties, options);
   }
 }

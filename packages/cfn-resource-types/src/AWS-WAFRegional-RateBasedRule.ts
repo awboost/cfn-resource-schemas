@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::WAFRegional::RateBasedRule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ratebasedrule.html}
@@ -37,18 +37,11 @@ export class WAFRegionalRateBasedRule extends $Resource<
   WAFRegionalRateBasedRuleAttributes
 > {
   public static readonly Type = "AWS::WAFRegional::RateBasedRule";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: WAFRegionalRateBasedRuleProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WAFRegionalRateBasedRule.Type,
-      properties,
-      WAFRegionalRateBasedRule.AttributeNames,
-      options,
-    );
+    super(logicalId, WAFRegionalRateBasedRule.Type, properties, options);
   }
 }

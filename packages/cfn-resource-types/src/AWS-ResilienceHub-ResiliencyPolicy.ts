@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::ResilienceHub::ResiliencyPolicy`.
  * Resource Type Definition for Resiliency Policy.
@@ -79,18 +79,11 @@ export class ResilienceHubResiliencyPolicy extends $Resource<
   ResilienceHubResiliencyPolicyAttributes
 > {
   public static readonly Type = "AWS::ResilienceHub::ResiliencyPolicy";
-  public static readonly AttributeNames = ["PolicyArn" as const];
   constructor(
     logicalId: string,
     properties: ResilienceHubResiliencyPolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ResilienceHubResiliencyPolicy.Type,
-      properties,
-      ResilienceHubResiliencyPolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, ResilienceHubResiliencyPolicy.Type, properties, options);
   }
 }

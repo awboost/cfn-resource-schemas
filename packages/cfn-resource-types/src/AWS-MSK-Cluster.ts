@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::MSK::Cluster
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html}
@@ -134,20 +134,20 @@ export type EncryptionAtRest = {
   DataVolumeKMSKeyId: string;
 };
 /**
- * Type definition for `AWS::MSK::Cluster.EncryptionInTransit`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionintransit.html}
- */
-export type EncryptionInTransit = {
-  ClientBroker?: "TLS" | "TLS_PLAINTEXT" | "PLAINTEXT";
-  InCluster?: boolean;
-};
-/**
  * Type definition for `AWS::MSK::Cluster.EncryptionInfo`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptioninfo.html}
  */
 export type EncryptionInfo = {
   EncryptionAtRest?: EncryptionAtRest;
   EncryptionInTransit?: EncryptionInTransit;
+};
+/**
+ * Type definition for `AWS::MSK::Cluster.EncryptionInTransit`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-encryptionintransit.html}
+ */
+export type EncryptionInTransit = {
+  ClientBroker?: "TLS" | "TLS_PLAINTEXT" | "PLAINTEXT";
+  InCluster?: boolean;
 };
 /**
  * Type definition for `AWS::MSK::Cluster.Firehose`.
@@ -319,18 +319,11 @@ export class MSKCluster extends $Resource<
   MSKClusterAttributes
 > {
   public static readonly Type = "AWS::MSK::Cluster";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: MSKClusterProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      MSKCluster.Type,
-      properties,
-      MSKCluster.AttributeNames,
-      options,
-    );
+    super(logicalId, MSKCluster.Type, properties, options);
   }
 }

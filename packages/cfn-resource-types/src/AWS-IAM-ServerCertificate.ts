@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::IAM::ServerCertificate
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html}
@@ -78,18 +78,11 @@ export class IAMServerCertificate extends $Resource<
   IAMServerCertificateAttributes
 > {
   public static readonly Type = "AWS::IAM::ServerCertificate";
-  public static readonly AttributeNames = ["Arn" as const];
   constructor(
     logicalId: string,
     properties: IAMServerCertificateProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      IAMServerCertificate.Type,
-      properties,
-      IAMServerCertificate.AttributeNames,
-      options,
-    );
+    super(logicalId, IAMServerCertificate.Type, properties, options);
   }
 }

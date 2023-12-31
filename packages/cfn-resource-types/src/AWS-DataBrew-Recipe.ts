@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataBrew::Recipe.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type DataBrewRecipeProperties = {
   /**
    * Description of the recipe
+   * @minLength `0`
    * @maxLength `1024`
    */
   Description?: string;
@@ -244,6 +245,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -258,18 +260,11 @@ export class DataBrewRecipe extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::DataBrew::Recipe";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: DataBrewRecipeProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataBrewRecipe.Type,
-      properties,
-      DataBrewRecipe.AttributeNames,
-      options,
-    );
+    super(logicalId, DataBrewRecipe.Type, properties, options);
   }
 }

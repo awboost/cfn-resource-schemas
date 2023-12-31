@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html}
@@ -19,6 +19,7 @@ export type AmplifyAppProperties = {
    */
   BuildSpec?: string;
   /**
+   * @minLength `0`
    * @maxLength `25000`
    * @pattern `(?s).*`
    */
@@ -78,6 +79,7 @@ export type AmplifyAppAttributes = {
    */
   Arn: string;
   /**
+   * @minLength `0`
    * @maxLength `1000`
    */
   DefaultDomain: string;
@@ -139,6 +141,7 @@ export type BasicAuthConfig = {
  */
 export type CustomRule = {
   /**
+   * @minLength `0`
    * @maxLength `2048`
    * @pattern `(?s).*`
    */
@@ -190,6 +193,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -204,23 +208,11 @@ export class AmplifyApp extends $Resource<
   AmplifyAppAttributes
 > {
   public static readonly Type = "AWS::Amplify::App";
-  public static readonly AttributeNames = [
-    "AppId" as const,
-    "AppName" as const,
-    "Arn" as const,
-    "DefaultDomain" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AmplifyAppProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AmplifyApp.Type,
-      properties,
-      AmplifyApp.AttributeNames,
-      options,
-    );
+    super(logicalId, AmplifyApp.Type, properties, options);
   }
 }

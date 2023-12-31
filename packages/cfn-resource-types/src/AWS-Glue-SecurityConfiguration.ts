@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::Glue::SecurityConfiguration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html}
@@ -55,18 +55,11 @@ export class GlueSecurityConfiguration extends $Resource<
   GlueSecurityConfigurationAttributes
 > {
   public static readonly Type = "AWS::Glue::SecurityConfiguration";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: GlueSecurityConfigurationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      GlueSecurityConfiguration.Type,
-      properties,
-      GlueSecurityConfiguration.AttributeNames,
-      options,
-    );
+    super(logicalId, GlueSecurityConfiguration.Type, properties, options);
   }
 }

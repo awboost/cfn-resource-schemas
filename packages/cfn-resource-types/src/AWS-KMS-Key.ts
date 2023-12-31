@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::KMS::Key resource specifies an AWS KMS key in AWS Key Management Service (AWS KMS). Authorized users can use the AWS KMS key to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use AWS KMS keys to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html}
@@ -11,6 +11,7 @@ export type KMSKeyProperties = {
   BypassPolicyLockoutSafetyCheck?: boolean;
   /**
    * A description of the AWS KMS key. Use a description that helps you to distinguish this AWS KMS key from others in the account, such as its intended use.
+   * @minLength `0`
    * @maxLength `8192`
    */
   Description?: string;
@@ -88,6 +89,7 @@ export type Tag = {
   Key: string;
   /**
    * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -102,12 +104,11 @@ export class KMSKey extends $Resource<
   KMSKeyAttributes
 > {
   public static readonly Type = "AWS::KMS::Key";
-  public static readonly AttributeNames = ["Arn" as const, "KeyId" as const];
   constructor(
     logicalId: string,
     properties: KMSKeyProperties,
     options?: $ResourceOptions,
   ) {
-    super(logicalId, KMSKey.Type, properties, KMSKey.AttributeNames, options);
+    super(logicalId, KMSKey.Type, properties, options);
   }
 }

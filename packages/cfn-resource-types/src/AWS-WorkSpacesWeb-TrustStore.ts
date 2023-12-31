@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-truststore.html}
@@ -7,6 +7,7 @@ import { ResourceOptions as $ResourceOptions } from "../template.js";
 export type WorkSpacesWebTrustStoreProperties = {
   CertificateList: string[];
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -36,6 +37,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
@@ -51,21 +53,11 @@ export class WorkSpacesWebTrustStore extends $Resource<
   WorkSpacesWebTrustStoreAttributes
 > {
   public static readonly Type = "AWS::WorkSpacesWeb::TrustStore";
-  public static readonly AttributeNames = [
-    "AssociatedPortalArns" as const,
-    "TrustStoreArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: WorkSpacesWebTrustStoreProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      WorkSpacesWebTrustStore.Type,
-      properties,
-      WorkSpacesWebTrustStore.AttributeNames,
-      options,
-    );
+    super(logicalId, WorkSpacesWebTrustStore.Type, properties, options);
   }
 }

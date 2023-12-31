@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::DevOpsGuru::NotificationChannel`.
  * This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
@@ -99,18 +99,11 @@ export class DevOpsGuruNotificationChannel extends $Resource<
   DevOpsGuruNotificationChannelAttributes
 > {
   public static readonly Type = "AWS::DevOpsGuru::NotificationChannel";
-  public static readonly AttributeNames = ["Id" as const];
   constructor(
     logicalId: string,
     properties: DevOpsGuruNotificationChannelProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DevOpsGuruNotificationChannel.Type,
-      properties,
-      DevOpsGuruNotificationChannel.AttributeNames,
-      options,
-    );
+    super(logicalId, DevOpsGuruNotificationChannel.Type, properties, options);
   }
 }

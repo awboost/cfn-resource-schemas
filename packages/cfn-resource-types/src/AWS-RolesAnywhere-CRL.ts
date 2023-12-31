@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Definition of AWS::RolesAnywhere::CRL Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-crl.html}
@@ -9,6 +9,7 @@ export type RolesAnywhereCRLProperties = {
   Enabled?: boolean;
   Name: string;
   /**
+   * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
@@ -38,6 +39,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -52,18 +54,11 @@ export class RolesAnywhereCRL extends $Resource<
   RolesAnywhereCRLAttributes
 > {
   public static readonly Type = "AWS::RolesAnywhere::CRL";
-  public static readonly AttributeNames = ["CrlId" as const];
   constructor(
     logicalId: string,
     properties: RolesAnywhereCRLProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      RolesAnywhereCRL.Type,
-      properties,
-      RolesAnywhereCRL.AttributeNames,
-      options,
-    );
+    super(logicalId, RolesAnywhereCRL.Type, properties, options);
   }
 }

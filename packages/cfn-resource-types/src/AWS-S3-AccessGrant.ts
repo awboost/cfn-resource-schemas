@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrant.html}
@@ -91,22 +91,11 @@ export class S3AccessGrant extends $Resource<
   S3AccessGrantAttributes
 > {
   public static readonly Type = "AWS::S3::AccessGrant";
-  public static readonly AttributeNames = [
-    "AccessGrantArn" as const,
-    "AccessGrantId" as const,
-    "GrantScope" as const,
-  ];
   constructor(
     logicalId: string,
     properties: S3AccessGrantProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      S3AccessGrant.Type,
-      properties,
-      S3AccessGrant.AttributeNames,
-      options,
-    );
+    super(logicalId, S3AccessGrant.Type, properties, options);
   }
 }

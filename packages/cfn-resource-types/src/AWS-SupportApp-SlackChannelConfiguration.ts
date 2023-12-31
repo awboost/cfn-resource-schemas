@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::SupportApp::SlackChannelConfiguration`.
  * An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.
@@ -62,7 +62,6 @@ export class SupportAppSlackChannelConfiguration extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::SupportApp::SlackChannelConfiguration";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: SupportAppSlackChannelConfigurationProperties,
@@ -72,7 +71,6 @@ export class SupportAppSlackChannelConfiguration extends $Resource<
       logicalId,
       SupportAppSlackChannelConfiguration.Type,
       properties,
-      SupportAppSlackChannelConfiguration.AttributeNames,
       options,
     );
   }

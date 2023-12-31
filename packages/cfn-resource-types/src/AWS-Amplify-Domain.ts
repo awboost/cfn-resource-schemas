@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html}
@@ -75,23 +75,11 @@ export class AmplifyDomain extends $Resource<
   AmplifyDomainAttributes
 > {
   public static readonly Type = "AWS::Amplify::Domain";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "CertificateRecord" as const,
-    "DomainStatus" as const,
-    "StatusReason" as const,
-  ];
   constructor(
     logicalId: string,
     properties: AmplifyDomainProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      AmplifyDomain.Type,
-      properties,
-      AmplifyDomain.AttributeNames,
-      options,
-    );
+    super(logicalId, AmplifyDomain.Type, properties, options);
   }
 }

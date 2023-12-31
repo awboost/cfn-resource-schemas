@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::ECS::CapacityProvider.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html}
@@ -57,18 +57,11 @@ export class ECSCapacityProvider extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::ECS::CapacityProvider";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: ECSCapacityProviderProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      ECSCapacityProvider.Type,
-      properties,
-      ECSCapacityProvider.AttributeNames,
-      options,
-    );
+    super(logicalId, ECSCapacityProvider.Type, properties, options);
   }
 }

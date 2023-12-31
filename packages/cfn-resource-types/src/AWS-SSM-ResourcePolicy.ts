@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::SSM::ResourcePolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcepolicy.html}
@@ -38,21 +38,11 @@ export class SSMResourcePolicy extends $Resource<
   SSMResourcePolicyAttributes
 > {
   public static readonly Type = "AWS::SSM::ResourcePolicy";
-  public static readonly AttributeNames = [
-    "PolicyHash" as const,
-    "PolicyId" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SSMResourcePolicyProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SSMResourcePolicy.Type,
-      properties,
-      SSMResourcePolicy.AttributeNames,
-      options,
-    );
+    super(logicalId, SSMResourcePolicy.Type, properties, options);
   }
 }

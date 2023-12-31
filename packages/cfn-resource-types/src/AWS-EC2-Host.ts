@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource Type definition for AWS::EC2::Host
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html}
@@ -58,12 +58,11 @@ export class EC2Host extends $Resource<
   EC2HostAttributes
 > {
   public static readonly Type = "AWS::EC2::Host";
-  public static readonly AttributeNames = ["HostId" as const];
   constructor(
     logicalId: string,
     properties: EC2HostProperties,
     options?: $ResourceOptions,
   ) {
-    super(logicalId, EC2Host.Type, properties, EC2Host.AttributeNames, options);
+    super(logicalId, EC2Host.Type, properties, options);
   }
 }

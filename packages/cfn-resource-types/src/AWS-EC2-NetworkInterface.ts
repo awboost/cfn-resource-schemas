@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::EC2::NetworkInterface resource creates network interface
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterface.html}
@@ -131,22 +131,11 @@ export class EC2NetworkInterface extends $Resource<
   EC2NetworkInterfaceAttributes
 > {
   public static readonly Type = "AWS::EC2::NetworkInterface";
-  public static readonly AttributeNames = [
-    "Id" as const,
-    "PrimaryPrivateIpAddress" as const,
-    "SecondaryPrivateIpAddresses" as const,
-  ];
   constructor(
     logicalId: string,
     properties: EC2NetworkInterfaceProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2NetworkInterface.Type,
-      properties,
-      EC2NetworkInterface.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2NetworkInterface.Type, properties, options);
   }
 }

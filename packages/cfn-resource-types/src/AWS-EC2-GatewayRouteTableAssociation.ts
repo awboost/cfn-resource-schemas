@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::GatewayRouteTableAssociation`.
  * Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
@@ -36,18 +36,11 @@ export class EC2GatewayRouteTableAssociation extends $Resource<
   EC2GatewayRouteTableAssociationAttributes
 > {
   public static readonly Type = "AWS::EC2::GatewayRouteTableAssociation";
-  public static readonly AttributeNames = ["AssociationId" as const];
   constructor(
     logicalId: string,
     properties: EC2GatewayRouteTableAssociationProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      EC2GatewayRouteTableAssociation.Type,
-      properties,
-      EC2GatewayRouteTableAssociation.AttributeNames,
-      options,
-    );
+    super(logicalId, EC2GatewayRouteTableAssociation.Type, properties, options);
   }
 }

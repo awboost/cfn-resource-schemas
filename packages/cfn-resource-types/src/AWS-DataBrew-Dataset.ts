@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource schema for AWS::DataBrew::Dataset.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html}
@@ -43,28 +43,6 @@ export type CsvOptions = {
   HeaderRow?: boolean;
 };
 /**
- * Type definition for `AWS::DataBrew::Dataset.DataCatalogInputDefinition`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html}
- */
-export type DataCatalogInputDefinition = {
-  /**
-   * Catalog id
-   */
-  CatalogId?: string;
-  /**
-   * Database name
-   */
-  DatabaseName?: string;
-  /**
-   * Table name
-   */
-  TableName?: string;
-  /**
-   * Input location
-   */
-  TempDirectory?: S3Location;
-};
-/**
  * Type definition for `AWS::DataBrew::Dataset.DatabaseInputDefinition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html}
  */
@@ -81,6 +59,28 @@ export type DatabaseInputDefinition = {
    * Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
    */
   QueryString?: string;
+  /**
+   * Input location
+   */
+  TempDirectory?: S3Location;
+};
+/**
+ * Type definition for `AWS::DataBrew::Dataset.DataCatalogInputDefinition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html}
+ */
+export type DataCatalogInputDefinition = {
+  /**
+   * Catalog id
+   */
+  CatalogId?: string;
+  /**
+   * Database name
+   */
+  DatabaseName?: string;
+  /**
+   * Table name
+   */
+  TableName?: string;
   /**
    * Input location
    */
@@ -190,6 +190,7 @@ export type FilterExpression = {
  */
 export type FilterValue = {
   /**
+   * @minLength `0`
    * @maxLength `1024`
    */
   Value: string;
@@ -294,6 +295,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;
@@ -308,18 +310,11 @@ export class DataBrewDataset extends $Resource<
   Record<string, never>
 > {
   public static readonly Type = "AWS::DataBrew::Dataset";
-  public static readonly AttributeNames = [];
   constructor(
     logicalId: string,
     properties: DataBrewDatasetProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      DataBrewDataset.Type,
-      properties,
-      DataBrewDataset.AttributeNames,
-      options,
-    );
+    super(logicalId, DataBrewDataset.Type, properties, options);
   }
 }

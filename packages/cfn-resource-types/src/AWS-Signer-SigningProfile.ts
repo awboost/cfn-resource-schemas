@@ -1,5 +1,5 @@
-import { Resource as $Resource } from "../template/Resource.js";
-import { ResourceOptions as $ResourceOptions } from "../template.js";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Signer::SigningProfile`.
  * A signing profile is a signing template that can be used to carry out a pre-defined signing job.
@@ -85,23 +85,11 @@ export class SignerSigningProfile extends $Resource<
   SignerSigningProfileAttributes
 > {
   public static readonly Type = "AWS::Signer::SigningProfile";
-  public static readonly AttributeNames = [
-    "Arn" as const,
-    "ProfileName" as const,
-    "ProfileVersion" as const,
-    "ProfileVersionArn" as const,
-  ];
   constructor(
     logicalId: string,
     properties: SignerSigningProfileProperties,
     options?: $ResourceOptions,
   ) {
-    super(
-      logicalId,
-      SignerSigningProfile.Type,
-      properties,
-      SignerSigningProfile.AttributeNames,
-      options,
-    );
+    super(logicalId, SignerSigningProfile.Type, properties, options);
   }
 }
