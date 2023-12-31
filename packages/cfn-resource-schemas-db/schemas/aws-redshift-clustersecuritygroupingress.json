@@ -1,0 +1,22 @@
+{
+  "$hash": "95c816d479fcf30740fce7e72d7875cc840628d1",
+  "additionalProperties": false,
+  "createOnlyProperties": [
+    "/properties/ClusterSecurityGroupName",
+    "/properties/CIDRIP",
+    "/properties/EC2SecurityGroupOwnerId",
+    "/properties/EC2SecurityGroupName"
+  ],
+  "description": "Resource Type definition for AWS::Redshift::ClusterSecurityGroupIngress",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "CIDRIP": { "type": "string" },
+    "ClusterSecurityGroupName": { "type": "string" },
+    "EC2SecurityGroupName": { "type": "string" },
+    "EC2SecurityGroupOwnerId": { "type": "string" },
+    "Id": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["ClusterSecurityGroupName"],
+  "typeName": "AWS::Redshift::ClusterSecurityGroupIngress"
+}

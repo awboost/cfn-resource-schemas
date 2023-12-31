@@ -1,0 +1,11 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true,
+    "allowJs": true,
+    "noPropertyAccessFromIndexSignature": false
+  },
+  "include": ["./"],
+  "references": []
+}

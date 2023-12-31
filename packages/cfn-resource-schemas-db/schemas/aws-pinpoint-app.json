@@ -1,0 +1,16 @@
+{
+  "$hash": "dfe1ea23000b89a7ec8b09790c7951b6cd54c89b",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/Name"],
+  "description": "Resource Type definition for AWS::Pinpoint::App",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "Arn": { "type": "string" },
+    "Id": { "type": "string" },
+    "Name": { "type": "string" },
+    "Tags": { "type": "object" }
+  },
+  "readOnlyProperties": ["/properties/Arn", "/properties/Id"],
+  "required": ["Name"],
+  "typeName": "AWS::Pinpoint::App"
+}

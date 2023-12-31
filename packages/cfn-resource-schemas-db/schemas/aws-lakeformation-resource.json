@@ -1,0 +1,17 @@
+{
+  "$hash": "f2ecf77e08f3f3eb6333f673d3d72158a74d0b2f",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/ResourceArn"],
+  "description": "Resource Type definition for AWS::LakeFormation::Resource",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "Id": { "type": "string" },
+    "ResourceArn": { "type": "string" },
+    "RoleArn": { "type": "string" },
+    "UseServiceLinkedRole": { "type": "boolean" },
+    "WithFederation": { "type": "boolean" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["ResourceArn", "UseServiceLinkedRole"],
+  "typeName": "AWS::LakeFormation::Resource"
+}

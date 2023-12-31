@@ -1,0 +1,41 @@
+{
+  "name": "@awboost/cfn-resource-types",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "author": {
+    "email": "gordonmleigh@gmail.com",
+    "name": "Gordon Leigh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awboost/cfn-resource-schemas"
+  },
+  "license": "MIT",
+  "exports": {
+    "./*": {
+      "types": "./lib/*.d.ts",
+      "default": "./lib/*.js"
+    }
+  },
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.d.ts"
+  ],
+  "scripts": {
+    "generate": "node --enable-source-maps ../cfn-codegen/lib/cli/main.js generate ../../.local/schemas --output-dir src --resource",
+    "lint": "eslint src/ --ext=ts",
+    "postpublish": "npm run tag-version && git push --follow-tags",
+    "preversion": "git diff-index --quiet HEAD -- || echo 'Uncommitted changes present' && exit 1",
+    "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}",
+    "version": "git add package.json && git commit -m ${npm_package_name}@${npm_package_version}"
+  },
+  "devDependencies": {
+    "@awboost/cfn-codegen": "^0.1.0"
+  },
+  "peerDependencies": {
+    "@awboost/cfn-template-builder": ">=0.2.0"
+  }
+}

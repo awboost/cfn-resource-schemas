@@ -1,0 +1,36 @@
+{
+  "$hash": "d6a95c5d9679067fc451f0e6b578b6e30df23dd5",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/SourceArn"],
+  "definitions": {
+    "TagsEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": { "type": "string" }
+      },
+      "required": ["Value", "Key"],
+      "type": "object"
+    }
+  },
+  "description": "Resource Type definition for AWS::EventSchemas::Discoverer",
+  "primaryIdentifier": ["/properties/DiscovererId"],
+  "properties": {
+    "CrossAccount": { "type": "boolean" },
+    "Description": { "type": "string" },
+    "DiscovererArn": { "type": "string" },
+    "DiscovererId": { "type": "string" },
+    "SourceArn": { "type": "string" },
+    "Tags": {
+      "items": { "$ref": "#/definitions/TagsEntry" },
+      "type": "array",
+      "uniqueItems": false
+    }
+  },
+  "readOnlyProperties": [
+    "/properties/DiscovererId",
+    "/properties/DiscovererArn"
+  ],
+  "required": ["SourceArn"],
+  "typeName": "AWS::EventSchemas::Discoverer"
+}

@@ -1,0 +1,22 @@
+{
+  "$hash": "a291a8b7b963912867e79f51545f948ca0e63198",
+  "additionalProperties": false,
+  "createOnlyProperties": [
+    "/properties/SourcePortfolioId",
+    "/properties/PortfolioId",
+    "/properties/AcceptLanguage",
+    "/properties/ProductId"
+  ],
+  "description": "Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "AcceptLanguage": { "type": "string" },
+    "Id": { "type": "string" },
+    "PortfolioId": { "type": "string" },
+    "ProductId": { "type": "string" },
+    "SourcePortfolioId": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["PortfolioId", "ProductId"],
+  "typeName": "AWS::ServiceCatalog::PortfolioProductAssociation"
+}

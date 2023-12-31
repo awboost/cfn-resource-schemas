@@ -1,0 +1,36 @@
+{
+  "$hash": "b4639efe41cff35de1da93c3e3fb869964a4d07c",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/DBSubnetGroupName"],
+  "definitions": {
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": { "type": "string" }
+      },
+      "required": ["Value", "Key"],
+      "type": "object"
+    }
+  },
+  "description": "Resource Type definition for AWS::Neptune::DBSubnetGroup",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "DBSubnetGroupDescription": { "type": "string" },
+    "DBSubnetGroupName": { "type": "string" },
+    "Id": { "type": "string" },
+    "SubnetIds": {
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "Tags": {
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
+    }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["DBSubnetGroupDescription", "SubnetIds"],
+  "typeName": "AWS::Neptune::DBSubnetGroup"
+}

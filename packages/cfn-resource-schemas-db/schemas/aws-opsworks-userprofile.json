@@ -1,0 +1,17 @@
+{
+  "$hash": "266c5d1bb5ed6c55e96fd1babf2c199ef9d0b018",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/IamUserArn"],
+  "description": "Resource Type definition for AWS::OpsWorks::UserProfile",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "AllowSelfManagement": { "type": "boolean" },
+    "IamUserArn": { "type": "string" },
+    "Id": { "type": "string" },
+    "SshPublicKey": { "type": "string" },
+    "SshUsername": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": ["IamUserArn"],
+  "typeName": "AWS::OpsWorks::UserProfile"
+}
