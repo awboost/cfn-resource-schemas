@@ -4,6 +4,7 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "npm run clean && npm run compile && npm run test && npm run lint",
     "clean": "rimraf --glob 'packages/*/lib' '**/tsconfig.tsbuildinfo'",
     "compile": "node scripts/tsbuild.mjs scripts",
     "download": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js download packages/cfn-resource-schemas-db/schemas --exit-code",
