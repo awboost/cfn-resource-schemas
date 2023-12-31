@@ -566,6 +566,48 @@ describe("TypeNode", () => {
         assert.ok(node.properties[1].type instanceof TypeDefinitionNode);
         assert.ok(node.properties[1].readOnly);
       });
+
+      it("does not set readOnly if the property type has no children", () => {
+        const file = new SchemaFileNode(
+          {
+            description: "the description",
+            primaryIdentifier: [],
+            properties: {
+              one: { type: "string" },
+              two: { $ref: "#/definitions/MyType" },
+            },
+            typeName: "Acme::Service::Resource",
+            definitions: {
+              MyType: {
+                type: "object",
+                properties: {},
+              },
+            },
+            readOnlyProperties: [],
+          },
+          "file.json",
+        );
+
+        const node = TypeNode.makeTypeNode(
+          {
+            type: "object",
+            properties: file.schema.properties,
+          } satisfies JSONSchema7,
+          file,
+          "",
+        );
+
+        assert.ok(node instanceof ObjectTypeNode);
+        assert.strictEqual(node.properties.length, 2);
+
+        assert.strictEqual(node.properties[0].name, "one");
+        assert.ok(node.properties[0].type instanceof StringTypeNode);
+        assert.ok(!node.properties[0].readOnly);
+
+        assert.strictEqual(node.properties[1].name, "two");
+        assert.ok(node.properties[1].type instanceof TypeDefinitionNode);
+        assert.ok(!node.properties[1].readOnly);
+      });
     });
 
     describe('when type="string"', () => {
@@ -985,6 +1027,40 @@ describe("PropertyListNode", () => {
     assert.deepStrictEqual(node.schema, [
       "/definitions/ObjectType1/properties/child1",
       "/definitions/ObjectType2/properties/child2_1",
+    ]);
+  });
+
+  it("does not convert path for the root of a definition", () => {
+    const file = new SchemaFileNode(
+      {
+        typeName: "Acme::Service::Resource",
+        description: "a resource",
+        primaryIdentifier: [],
+        definitions: {
+          StringType: { type: "string" },
+        },
+        properties: {
+          one: { $ref: "#/definitions/StringType" },
+          two: {
+            type: "object",
+            properties: {
+              three: { $ref: "#/definitions/StringType" },
+            },
+          },
+        },
+      },
+      "file.json",
+    );
+
+    const node = new PropertyListNode(
+      ["/properties/one", "/properties/two/three"],
+      file,
+      "/readOnlyProperties",
+    );
+
+    assert.deepStrictEqual(node.schema, [
+      "/properties/one",
+      "/properties/two/properties/three",
     ]);
   });
 

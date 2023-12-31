@@ -5,11 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "node --enable-source-maps node_modules/.bin/cfn-codegen generate .local/schemas --output-dir .local/code",
       "name": "Run cfn-codegen generate",
       "request": "launch",
-      "type": "node-terminal",
-      "skipFiles": ["<node_internals>/**"],
+      "type": "node",
+      "runtimeArgs": ["--enable-source-maps"],
+      "program": "packages/cfn-codegen/lib/cli/main.js",
+      "args": [
+        "generate",
+        ".local/schemas",
+        "--output-dir",
+        "packages/cfn-resource-types/src",
+        "--resource"
+      ],
+      "skipFiles": ["<node_internals>/**", "**/node_modules/typescript/**"],
       "outFiles": ["${workspaceFolder}/**/*.js"]
     },
     {

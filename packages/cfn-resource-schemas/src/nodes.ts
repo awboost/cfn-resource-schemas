@@ -173,11 +173,11 @@ export class PropertyListNode extends NodeBase<string[]> {
     path: string,
     ref = "",
   ): string | undefined {
-    if (/^\/properties\//i.test(path)) {
-      path = path.slice("/properties/".length);
-    }
+    // replace wrong casing
+    path = path.replace(/^\/properties\//i, "/properties/");
+
     // some AWS schemas have dot-delimited props
-    const [first, ...restParts] = path.split(/\/|\./);
+    const [first, ...restParts] = path.slice(1).split(/\/|\./);
     const rest = restParts.join("/");
 
     let searchPath: string;
@@ -190,12 +190,16 @@ export class PropertyListNode extends NodeBase<string[]> {
         return;
       }
     } else {
-      searchPath = `/properties/${first}`;
+      searchPath = `/${first}`;
     }
 
-    const found = this.resolve(`#${searchPath}`, schema);
+    let found = this.resolve(`#${searchPath}`, schema);
     if (!found) {
-      return;
+      searchPath = `/properties` + searchPath;
+      found = this.resolve(`#${searchPath}`, schema);
+      if (!found) {
+        return;
+      }
     }
 
     if (typeof found.$ref === "string") {
@@ -204,15 +208,15 @@ export class PropertyListNode extends NodeBase<string[]> {
         return;
       }
       if (!rest) {
-        return found.$ref.slice(1);
+        return ref + searchPath;
       }
-      return this.convertChildPath(target, rest, found.$ref.slice(1));
+      return this.convertChildPath(target, `/${rest}`, found.$ref.slice(1));
     }
 
     if (!rest) {
       return ref + searchPath;
     }
-    return this.convertChildPath(found, rest, ref + searchPath);
+    return this.convertChildPath(found, `/${rest}`, ref + searchPath);
   }
 
   private resolve(ref: string, schema: any = this.file.schema): any {
@@ -586,7 +590,10 @@ export class ObjectTypeNode extends TypeNode {
   }
 
   public override isReadOnly(): boolean {
-    return !this.properties.some((x) => !(x.readOnly || x.type?.isReadOnly()));
+    return (
+      this.properties.length > 0 &&
+      this.properties.every((x) => x.readOnly || x.type?.isReadOnly())
+    );
   }
 }
 
@@ -690,10 +697,14 @@ export class UnionTypeNode extends TypeNode {
     }
 
     if (schema.anyOf) {
-      return !schema.anyOf.some((x) => !this.isRealType(x));
+      return (
+        schema.anyOf.length > 0 && schema.anyOf.every((x) => this.isRealType(x))
+      );
     }
     if (schema.oneOf) {
-      return !schema.oneOf.some((x) => !this.isRealType(x));
+      return (
+        schema.oneOf.length > 0 && schema.oneOf.every((x) => this.isRealType(x))
+      );
     }
     return false;
   }
@@ -724,6 +735,6 @@ export class UnionTypeNode extends TypeNode {
   }
 
   public override isReadOnly(): boolean {
-    return !this.types?.some((x) => !x.isReadOnly());
+    return !!this.types?.length && this.types?.every((x) => x.isReadOnly());
   }
 }
