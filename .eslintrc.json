@@ -3,7 +3,8 @@
     "ecmaVersion": 2022,
     "sourceType": "module"
   },
-  "extends": ["plugin:prettier/recommended"],
+  "extends": ["plugin:prettier/recommended", "plugin:import/typescript"],
+  "plugins": ["import"],
   "overrides": [
     {
       "files": ["*.ts"],
@@ -17,7 +18,11 @@
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-floating-promises": "error",
         "@typescript-eslint/no-misused-promises": "error",
-        "@typescript-eslint/no-unused-vars": "error"
+        "@typescript-eslint/no-unused-vars": "error",
+        "import/no-extraneous-dependencies": [
+          "error",
+          { "devDependencies": false }
+        ]
       }
     },
     {
