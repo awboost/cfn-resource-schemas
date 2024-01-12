@@ -33,4 +33,4 @@ jobs:
 
       - name: Generate Types
         if: steps.download.outcome == 'success'
-        run: npm run generate
+        run: npm run generate:cached

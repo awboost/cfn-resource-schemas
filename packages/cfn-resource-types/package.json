@@ -25,7 +25,6 @@
     "lib/**/*.d.ts"
   ],
   "scripts": {
-    "generate": "node --enable-source-maps ../cfn-codegen/lib/cli/main.js generate ../../.local/schemas --output-dir src --resource",
     "lint": "eslint src/ --ext=ts",
     "postpublish": "npm run tag-version && git push --follow-tags",
     "preversion": "git diff-index --quiet HEAD -- || echo 'Uncommitted changes present' && exit 1",
