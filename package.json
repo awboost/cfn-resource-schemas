@@ -10,6 +10,7 @@
     "download": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js download packages/cfn-resource-schemas-db/schemas --exit-code --changelog recent-changes.md",
     "generate:cached": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js generate packages/cfn-resource-schemas-db/schemas --output-dir packages/cfn-resource-types/src --resource",
     "lint": "npm run --workspaces --if-present lint",
+    "sync-versions": "node scripts/sync-workspace-versions.mjs && npm install --package-lock-only --ignore-scripts --silent",
     "test": "node --enable-source-maps --test",
     "watch:compile": "node scripts/tsbuild.mjs scripts -- -w",
     "watch:test": "node --enable-source-maps --test --watch"
