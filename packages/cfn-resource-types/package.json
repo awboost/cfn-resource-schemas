@@ -29,7 +29,7 @@
     "postpublish": "npm run tag-version && git push --follow-tags",
     "preversion": "git diff-index --quiet HEAD -- || ! echo 'Uncommitted changes present'",
     "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}",
-    "version": "git add package.json && git commit -m ${npm_package_name}@${npm_package_version}"
+    "version": "git add -A && git commit -m ${npm_package_name}@${npm_package_version}"
   },
   "devDependencies": {
     "@awboost/cfn-codegen": "^0.1.0"
