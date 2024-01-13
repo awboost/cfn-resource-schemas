@@ -36,7 +36,7 @@ Description of a CloudFormation resource.
 import { ResourceTypeSchema } from "@awboost/cfn-resource-schemas/types";
 ```
 
-## Parsed representation
+## Parsed representation
 
 This package also provides a set of node classes to represent schemas, similar to an AST. There are available from the `"@awboost/cfn-resource-schemas/nodes"` module path.
 
