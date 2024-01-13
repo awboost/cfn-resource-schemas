@@ -145,8 +145,10 @@ async function* withHash<T>(
   iterator: AsyncIterable<T>,
 ): AsyncGenerator<T & IntegrityProps> {
   for await (const item of iterator) {
+    // exclude $id from hash calculation if present
+    const { $id, ...rest } = item as any;
     const hash = createHash("sha1");
-    hash.update(canonicalize(item));
+    hash.update(canonicalize(rest));
 
     yield {
       ...item,
