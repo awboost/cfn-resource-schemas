@@ -32,6 +32,6 @@
     "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}"
   },
   "dependencies": {
-    "@awboost/cfn-resource-schemas": "^0.1.0"
+    "@awboost/cfn-resource-schemas": "^0.2.0"
   }
 }
