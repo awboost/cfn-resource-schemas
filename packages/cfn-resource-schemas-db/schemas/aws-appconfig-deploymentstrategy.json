@@ -1,5 +1,5 @@
 {
-  "$hash": "147d69e82c982f50d10b3d97bdfb3ec2ff0100a9",
+  "$hash": "dac33bdf0cab870769753cd50f0232be9fa7d61c",
   "$id": "aws-appconfig-deploymentstrategy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ReplicateTo"],

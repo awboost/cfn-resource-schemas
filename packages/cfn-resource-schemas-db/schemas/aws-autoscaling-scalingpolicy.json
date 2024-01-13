@@ -1,5 +1,5 @@
 {
-  "$hash": "424b4400aeb3b400d0ecf88caeabc04073b686a0",
+  "$hash": "ddd813b05cd8c8d39d6cd63a452685d2b92286c2",
   "$id": "aws-autoscaling-scalingpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AutoScalingGroupName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "1fb359588f4a4ea4142b55cfbb4e89b8f4da702f",
+  "$hash": "290cc9a5f7fb62433659c242797562ab6d746f08",
   "$id": "aws-gamelift-matchmakingconfiguration.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,

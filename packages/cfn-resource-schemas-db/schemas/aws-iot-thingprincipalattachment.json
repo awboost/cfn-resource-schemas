@@ -1,5 +1,5 @@
 {
-  "$hash": "1a1d7ad89056107eedaae5db349f8bc28f7051d8",
+  "$hash": "e41cd9af8c9df513bdfb6535fe310259cfcb03f6",
   "$id": "aws-iot-thingprincipalattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ThingName", "/properties/Principal"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "36af74d534f8464f9f0535659b8619a3f0017957",
+  "$hash": "476f18b682d1554856655c5645abcbdf6d888014",
   "$id": "aws-route53resolver-firewalldomainlist.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

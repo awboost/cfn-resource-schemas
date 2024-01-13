@@ -1,5 +1,5 @@
 {
-  "$hash": "41347955ba27fa8e458eec9e736a873bcc06f0c4",
+  "$hash": "d82ca59306768996277d257c11816e0e84bca169",
   "$id": "aws-wafv2-loggingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn"],

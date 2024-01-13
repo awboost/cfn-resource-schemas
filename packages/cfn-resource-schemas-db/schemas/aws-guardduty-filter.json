@@ -1,5 +1,5 @@
 {
-  "$hash": "86f96ce21870f8d432092a53607d35970320ac73",
+  "$hash": "71f7db3c1230bc2b3ee6b9a47b61d0d04294b188",
   "$id": "aws-guardduty-filter.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DetectorId", "/properties/Name"],

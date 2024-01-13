@@ -1,5 +1,5 @@
 {
-  "$hash": "37572b2cf723454fc02f9da5399feaff25066004",
+  "$hash": "7742556e44dd03d0c11dcd3da069f137ef5d8566",
   "$id": "aws-resiliencehub-app.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

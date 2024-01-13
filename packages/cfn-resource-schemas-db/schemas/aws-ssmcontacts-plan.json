@@ -1,5 +1,5 @@
 {
-  "$hash": "2abdec4c17fc70bf0af3b2df588eb04776b2cc3c",
+  "$hash": "b64b3821430048cb17486e78ca2ec4bfb497e17d",
   "$id": "aws-ssmcontacts-plan.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ContactId"],

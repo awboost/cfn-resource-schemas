@@ -1,5 +1,5 @@
 {
-  "$hash": "f514608a9daaf308b0df1a0f97355b770ca1e020",
+  "$hash": "406e779c696146a99010f503337d0e627f746bdc",
   "$id": "aws-route53-cidrcollection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

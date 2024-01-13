@@ -1,5 +1,5 @@
 {
-  "$hash": "6d602266f96165264c6522b09e7b6b1dede519be",
+  "$hash": "13c7c16b77ccd947895cd60b7a6778ba9ec4ed77",
   "$id": "aws-auditmanager-assessment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FrameworkId", "/properties/AwsAccount"],

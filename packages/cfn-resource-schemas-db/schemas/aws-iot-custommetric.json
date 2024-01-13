@@ -1,5 +1,5 @@
 {
-  "$hash": "5f3882f39013a23175c48bf74d301572b096793d",
+  "$hash": "da24f04552db1114d5f93c0ec98b1bf9800e46f8",
   "$id": "aws-iot-custommetric.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MetricName", "/properties/MetricType"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "98f16ede1f1ac046709c4473a865df9e266bf1b8",
+  "$hash": "930ca411d680076686c8e79b99224176d26dd726",
   "$id": "aws-ec2-carriergateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId"],

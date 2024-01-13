@@ -1,5 +1,5 @@
 {
-  "$hash": "2f8715f1ce3c20f2f9d6301a79cbdcc01607f7f7",
+  "$hash": "15526ca3f6161ba565db451390d2f23151960314",
   "$id": "aws-servicecatalog-launchnotificationconstraint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PortfolioId", "/properties/ProductId"],

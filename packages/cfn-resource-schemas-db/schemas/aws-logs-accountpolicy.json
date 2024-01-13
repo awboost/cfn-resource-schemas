@@ -1,5 +1,5 @@
 {
-  "$hash": "3bb4a556597081c25dda497a9c7ce36b505eb852",
+  "$hash": "34009573da1e2aa155ec4ae2b8c268b0d8b5f5d5",
   "$id": "aws-logs-accountpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName", "/properties/PolicyType"],

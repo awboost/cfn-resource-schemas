@@ -1,5 +1,5 @@
 {
-  "$hash": "44164ac849f8465cf9caa6217598b04f14bc61bd",
+  "$hash": "cf8fa36a90d49a5e13555ef3cd465cb58b5b29dd",
   "$id": "aws-route53recoverycontrol-controlpanel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterArn", "/properties/Tags"],

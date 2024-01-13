@@ -1,5 +1,5 @@
 {
-  "$hash": "7785bead18197333d14f196172ea27e0b40e9dee",
+  "$hash": "912fa97fd4625ecb0fb8d2204adbd2f7033d8015",
   "$id": "aws-route53resolver-resolverrule.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/DomainName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "e3d700b1ae012e20676f66534707151cf4dec8b8",
+  "$hash": "18c6c5437ec4513288c01add3348dcf5b9feb4f7",
   "$id": "aws-ec2-networkinterface.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,

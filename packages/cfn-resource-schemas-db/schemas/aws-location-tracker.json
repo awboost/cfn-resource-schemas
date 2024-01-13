@@ -1,5 +1,5 @@
 {
-  "$hash": "18bda95e6683515f70f016923927b1e4ba3f8ce6",
+  "$hash": "6591df4bac807eba57ac0f32f69bb3128088d8c8",
   "$id": "aws-location-tracker.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyId", "/properties/TrackerName"],

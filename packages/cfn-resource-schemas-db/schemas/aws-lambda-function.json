@@ -1,5 +1,5 @@
 {
-  "$hash": "a997a59b2658b667073e739021c42e8bf7dd33b7",
+  "$hash": "948f57c7e4c2e627f8230ba8c781c6464a48b547",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FunctionName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "10c65d7caad3d986dff868aec7a60c6e5e67703b",
+  "$hash": "db78d3fa9904190b503792da19a1546c6640c77d",
   "$id": "aws-cloudtrail-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Source"],

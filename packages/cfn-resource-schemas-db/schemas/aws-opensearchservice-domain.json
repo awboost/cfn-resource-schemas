@@ -1,5 +1,5 @@
 {
-  "$hash": "ff6f56bcfb54f9c58d04013adb619a8c0243cc13",
+  "$hash": "cc310ec45fac64ed5784ea4b57939b6f417d15c9",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [

@@ -1,5 +1,5 @@
 {
-  "$hash": "346d5e427cdc4e89cedbc5b389aadfac38eb4631",
+  "$hash": "cd5e33e8629c2f1999c2671606b36131fdcc63a5",
   "$id": "aws-memorydb-user.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "da13ca4c97464b0f971cb60ae5e5afa8fc7a0a3b",
+  "$hash": "925c21451e042dae74abcfb070ee37c61d777d9e",
   "$id": "aws-quicksight-theme.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ThemeId", "/properties/AwsAccountId"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "28dcd4fe772dc8cdb5cf2ec759d16679f1c082a4",
+  "$hash": "52dfca09578e2067b103c9513363d1de279e3755",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

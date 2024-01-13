@@ -1,5 +1,5 @@
 {
-  "$hash": "c6a3dbaa8b50ecfcf1520f2e1a69d0f1df20602b",
+  "$hash": "b7d328371cc91f6e609f04098bf23b19f92ad2d5",
   "$id": "aws-appsync-graphqlschema.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],

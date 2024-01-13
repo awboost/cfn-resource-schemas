@@ -1,5 +1,5 @@
 {
-  "$hash": "1c89727e4e481a68cc3009b01dc562b8928c0569",
+  "$hash": "80abeefbcaa6d0905c1bb5c4888f9328524048d6",
   "$id": "aws-elasticloadbalancingv2-truststore.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

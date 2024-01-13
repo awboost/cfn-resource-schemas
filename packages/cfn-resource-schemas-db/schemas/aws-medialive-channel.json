@@ -1,5 +1,5 @@
 {
-  "$hash": "b60e300dab077a330e65b01b44946c466470ddfa",
+  "$hash": "78ca17e2f9d49458368c0ab970e5e1a3035a8d30",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],

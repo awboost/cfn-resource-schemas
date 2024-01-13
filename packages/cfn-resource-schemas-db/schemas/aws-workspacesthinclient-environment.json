@@ -1,5 +1,5 @@
 {
-  "$hash": "bb8aa726cf9cc8bad5196b7deffd62ae1b55c08e",
+  "$hash": "f141c65322fde351637291b0ed2e20364b04bd25",
   "$id": "aws-workspacesthinclient-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn", "/properties/DesktopArn"],

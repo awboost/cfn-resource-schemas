@@ -1,5 +1,5 @@
 {
-  "$hash": "d89bbb44183ecf866b587f73d5b41c90be6e402e",
+  "$hash": "d11125a5183ecc18a12a8504ea0070a2a87cc589",
   "$id": "aws-ec2-trafficmirrorsession.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/NetworkInterfaceId"],

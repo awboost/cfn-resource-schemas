@@ -1,5 +1,5 @@
 {
-  "$hash": "f2d2a480e912ec90015186fc6ed6e9e56b429992",
+  "$hash": "9d3c3ddd0678c3050b168febcab068f0c9cdac95",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],

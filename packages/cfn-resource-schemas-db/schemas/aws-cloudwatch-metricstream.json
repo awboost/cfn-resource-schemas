@@ -1,5 +1,5 @@
 {
-  "$hash": "6eb1a1af08d858d9eaff63ebb6069f832506d25c",
+  "$hash": "b09417fc190a3907de5ef821ab6964578ab4d0a0",
   "$id": "aws-cloudwatch-metricstream.json",
   "additionalProperties": false,
   "anyOf": [

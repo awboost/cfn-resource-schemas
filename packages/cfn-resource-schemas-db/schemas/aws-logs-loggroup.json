@@ -1,5 +1,5 @@
 {
-  "$hash": "c18735e2ef9cc724a0ebdfbd6b7abcc4bd06241a",
+  "$hash": "6d291070dbec8f876c8fe008925ddd967b948233",
   "$id": "aws-logs-loggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupName"],

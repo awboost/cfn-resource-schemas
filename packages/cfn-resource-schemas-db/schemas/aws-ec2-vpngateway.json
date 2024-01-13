@@ -1,5 +1,5 @@
 {
-  "$hash": "c99eaabb567160d5388338bc2af7e09e0121e606",
+  "$hash": "a2424bb601a4b7597a9a374516b6a4a3453640ea",
   "$id": "aws-ec2-vpngateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AmazonSideAsn", "/properties/Type"],

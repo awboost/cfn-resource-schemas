@@ -1,5 +1,5 @@
 {
-  "$hash": "eea9dd8d2ec238e364b7571ecd5c6bf5b4c95b09",
+  "$hash": "98e829102841148347c9e919edff5d5f38889010",
   "$id": "aws-gamelift-gamesessionqueue.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,

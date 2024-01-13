@@ -1,5 +1,5 @@
 {
-  "$hash": "0b153c261430bbb29ebb530aa42679099630ed71",
+  "$hash": "1790feb09789603248dca4f88bd775340d572f1f",
   "$id": "aws-config-remediationconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConfigRuleName"],

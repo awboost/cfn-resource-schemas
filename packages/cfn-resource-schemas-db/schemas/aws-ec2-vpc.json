@@ -1,5 +1,5 @@
 {
-  "$hash": "9e3c3019e916d86ac0fe2b1938a5c86e0e83ebe5",
+  "$hash": "af63b172813d23ca6ed9dfb8330e226d306ce516",
   "$id": "aws-ec2-vpc.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/InstanceTenancy"],

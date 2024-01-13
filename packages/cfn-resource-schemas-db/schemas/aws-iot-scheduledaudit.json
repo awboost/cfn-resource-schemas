@@ -1,5 +1,5 @@
 {
-  "$hash": "31770a8f12f4b9c5e444b88e92dbb039a8addb6d",
+  "$hash": "d2d51b706b13ee82f05dcb5759d9212bf949389d",
   "$id": "aws-iot-scheduledaudit.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ScheduledAuditName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "05dcabd91591334a3c8497d215b19d135d106df8",
+  "$hash": "f0028222ba8a42d816a1608393b1ed514dc9d4eb",
   "$id": "aws-datasync-locationsmb.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServerHostname"],

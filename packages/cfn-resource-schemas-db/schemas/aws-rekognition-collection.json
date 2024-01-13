@@ -1,5 +1,5 @@
 {
-  "$hash": "e61890dc1d843910672a39bb4543b19db83ff7ca",
+  "$hash": "49fc24282c316f45cd67b9dbc65f6b7227ca7ce8",
   "$id": "aws-rekognition-collection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CollectionId"],

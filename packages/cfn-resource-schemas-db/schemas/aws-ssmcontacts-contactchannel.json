@@ -1,5 +1,5 @@
 {
-  "$hash": "acd0cffbd33dad43b3291e590d2a6c32813418a3",
+  "$hash": "9a1bf7c91b8f83a58d16211a638576bc692fb3f3",
   "$id": "aws-ssmcontacts-contactchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ContactId", "/properties/ChannelType"],

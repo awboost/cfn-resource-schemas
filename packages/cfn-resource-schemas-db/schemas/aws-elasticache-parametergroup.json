@@ -1,5 +1,5 @@
 {
-  "$hash": "739f00dcc21fc5239ce7ba90ba10cbdd08f91530",
+  "$hash": "2bf79a3a38bc3d54d3dfa9a0aaf1762fab76d1c4",
   "$id": "aws-elasticache-parametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CacheParameterGroupFamily"],

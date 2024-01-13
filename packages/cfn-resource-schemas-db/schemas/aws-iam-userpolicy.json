@@ -1,5 +1,5 @@
 {
-  "$hash": "c0bd527d482b5138b477dd4f538371b510fc053c",
+  "$hash": "7c4429bdb402a4a1e40b9af872213aaec28b4801",
   "$id": "aws-iam-userpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName", "/properties/UserName"],

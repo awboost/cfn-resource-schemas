@@ -1,5 +1,5 @@
 {
-  "$hash": "23ba6f9b96294fd02e5098a377d642cd40b2569d",
+  "$hash": "01296966aff43be7f56ddeb26aae2e4d5bfa10ff",
   "$id": "aws-iotwireless-partneraccount.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PartnerAccountId"],

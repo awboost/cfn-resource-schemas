@@ -1,5 +1,5 @@
 {
-  "$hash": "9250fe5ee89ee8540f004c18fcee185bb3419fdc",
+  "$hash": "671b791f70ca764ed31b10af4d042cff832a29cd",
   "$id": "aws-amplify-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AppId", "/properties/DomainName"],

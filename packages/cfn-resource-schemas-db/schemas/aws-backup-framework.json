@@ -1,5 +1,5 @@
 {
-  "$hash": "d30157b428434557bc41ee19126296a5a817889f",
+  "$hash": "a1baed951fa105ca65733826159e52cbd43f1f63",
   "$id": "aws-backup-framework.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FrameworkName"],

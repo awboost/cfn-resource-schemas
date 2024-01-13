@@ -1,5 +1,5 @@
 {
-  "$hash": "8f3c0f1d92fc1604bb9645290150c3c27c698acc",
+  "$hash": "63ef9ba1bde293274c82bd46ed05afa5456ee371",
   "$id": "aws-cognito-userpooldomain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserPoolId", "/properties/Domain"],

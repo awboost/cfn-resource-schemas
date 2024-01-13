@@ -1,5 +1,5 @@
 {
-  "$hash": "33fdfb27562d23308eecb19610ad0a36ad11ce5b",
+  "$hash": "cb7c2f8dd022daebc7ce0266b3f244d84bed8ef5",
   "$id": "aws-elasticloadbalancingv2-listenerrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ListenerArn"],

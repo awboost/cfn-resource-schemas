@@ -1,5 +1,5 @@
 {
-  "$hash": "fedeb6400ed360952e801491b69541715ec1d7c2",
+  "$hash": "80c9e2789ed585559384e9ee0c8c15e97433bbec",
   "$id": "aws-ec2-networkinsightspath.json",
   "additionalIdentifiers": [["/properties/NetworkInsightsPathArn"]],
   "additionalProperties": false,

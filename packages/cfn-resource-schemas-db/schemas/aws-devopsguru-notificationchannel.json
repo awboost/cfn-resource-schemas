@@ -1,5 +1,5 @@
 {
-  "$hash": "b7e36a1042ef5a04a1857b486beb73ee92a10e01",
+  "$hash": "015753a13a01ce36773580bf7029109c12246e06",
   "$id": "aws-devopsguru-notificationchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Config"],

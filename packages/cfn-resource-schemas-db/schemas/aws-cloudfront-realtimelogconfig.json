@@ -1,5 +1,5 @@
 {
-  "$hash": "977a66e564eccadf042115ec57d98f449dd3399a",
+  "$hash": "92acd33cf720729b7c64939064cea465a9e5668f",
   "$id": "aws-cloudfront-realtimelogconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

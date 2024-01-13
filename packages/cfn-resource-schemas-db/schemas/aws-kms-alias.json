@@ -1,5 +1,5 @@
 {
-  "$hash": "2bb039cd61ba6fcae989f8c5d65b42d00223a19a",
+  "$hash": "2078b97b172fc408e4f88b0f89d6f0c993679789",
   "$id": "aws-kms-alias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AliasName"],

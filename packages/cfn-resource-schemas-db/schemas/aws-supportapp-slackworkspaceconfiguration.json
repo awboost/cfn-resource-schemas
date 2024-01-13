@@ -1,5 +1,5 @@
 {
-  "$hash": "5a69d12919281ffd6fcbdd4dc76c28ce4e0131e6",
+  "$hash": "12044b517376cf71b6a7029ebd03cbea03240320",
   "$id": "aws-supportapp-slackworkspaceconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TeamId"],

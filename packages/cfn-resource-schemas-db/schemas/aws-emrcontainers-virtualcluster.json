@@ -1,5 +1,5 @@
 {
-  "$hash": "ceee33259ff5e9f2acdf3b75772e1fa283cb9f88",
+  "$hash": "86c8cec4658fc247f95001c421b41b8d0b4a004b",
   "$id": "aws-emrcontainers-virtualcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ContainerProvider", "/properties/Name"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "f30c1ed5879ed56397d32f6f9655bd6ae3e4c6bb",
+  "$hash": "bec6b1228d9513661efdd75ace83491dd24e3b91",
   "$id": "aws-iot-softwarepackage.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PackageName"],

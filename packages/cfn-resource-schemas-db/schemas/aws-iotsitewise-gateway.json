@@ -1,5 +1,5 @@
 {
-  "$hash": "aacea7ac76e1570499bc88efcaccc9a4af534622",
+  "$hash": "4f057a9d1d8a8e39a73b9d8f0be5969a4c3a5630",
   "$id": "aws-iotsitewise-gateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayPlatform"],

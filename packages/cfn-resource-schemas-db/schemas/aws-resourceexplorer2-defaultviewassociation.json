@@ -1,5 +1,5 @@
 {
-  "$hash": "4545eddd13bc7048da53e4326a4dde23c69d5002",
+  "$hash": "86766e484f4056a23ed2950d613e9a21e8a9f0e9",
   "$id": "aws-resourceexplorer2-defaultviewassociation.json",
   "additionalProperties": false,
   "description": "Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type",

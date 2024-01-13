@@ -1,5 +1,5 @@
 {
-  "$hash": "efe615e57a9a2700d9c5a92a4437fa0be3a5eb57",
+  "$hash": "46a301b1336066cfda954ddeb63b4533f44ef57d",
   "$id": "aws-ec2-snapshotblockpublicaccess.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess",

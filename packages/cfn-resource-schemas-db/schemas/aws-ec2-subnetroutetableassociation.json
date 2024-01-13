@@ -1,5 +1,5 @@
 {
-  "$hash": "4dbe7d4ff1365c21b022ac6a2f1063cbe9321f43",
+  "$hash": "47ca17a6992b7ff00ae60e5db1bca5bbae681bf8",
   "$id": "aws-ec2-subnetroutetableassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubnetId", "/properties/RouteTableId"],

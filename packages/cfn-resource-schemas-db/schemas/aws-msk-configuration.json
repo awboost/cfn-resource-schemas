@@ -1,5 +1,5 @@
 {
-  "$hash": "424d84097461591b4a040ee5ce03089a622dc4f0",
+  "$hash": "027371ec7c36a4345895082a7e513216c26bf238",
   "$id": "aws-msk-configuration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KafkaVersionsList", "/properties/Name"],

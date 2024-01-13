@@ -1,5 +1,5 @@
 {
-  "$hash": "aac5571c8555c56dd0300f10a3bb744763dccb58",
+  "$hash": "d8e041f4cd0bb641c8f5cc9e3ab71a904ac277ce",
   "$id": "aws-networkfirewall-firewallpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FirewallPolicyName"],

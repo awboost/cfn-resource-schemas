@@ -1,5 +1,5 @@
 {
-  "$hash": "150d94069877b42bce78c324f0d48d567d268991",
+  "$hash": "8d160ec56d9697b627cc3018f56e586c4f41086d",
   "$id": "aws-ecs-taskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [

@@ -1,5 +1,5 @@
 {
-  "$hash": "fd1503224e7a923227dbfe6588d661dcc93dc416",
+  "$hash": "7996637d5c570749bc901b0688e517e896d4a2bf",
   "$id": "aws-lightsail-staticip.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/StaticIpName"],

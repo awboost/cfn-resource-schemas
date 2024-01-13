@@ -1,5 +1,5 @@
 {
-  "$hash": "4753ecde55363d154cb9c9b367cfa3b5022ec031",
+  "$hash": "2b79692281cdb5b5f3b55856edce0adcb596de8e",
   "$id": "aws-emrserverless-application.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [

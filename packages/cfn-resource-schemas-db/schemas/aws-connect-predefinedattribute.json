@@ -1,5 +1,5 @@
 {
-  "$hash": "3c1a2f01a18af39a0fbbaca6d865976ecb817a46",
+  "$hash": "a8f17ae3dff254fd2ed6403fb115bff4bfd87a19",
   "$id": "aws-connect-predefinedattribute.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceArn", "/properties/Name"],

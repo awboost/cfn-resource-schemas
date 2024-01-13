@@ -1,5 +1,5 @@
 {
-  "$hash": "fccdb2d75a66d859c556efe0b4d0d0e25c0e0e88",
+  "$hash": "3efb7e0e2764998145d09d4a95486a661861e6fd",
   "$id": "aws-connect-trafficdistributiongroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Description", "/properties/Name"],

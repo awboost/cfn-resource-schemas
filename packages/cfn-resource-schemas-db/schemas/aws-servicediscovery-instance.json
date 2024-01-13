@@ -1,5 +1,5 @@
 {
-  "$hash": "dc66ff85566e0d91b64af800f6172a66014762cc",
+  "$hash": "a9882393c1e929eb7890c911457aab9858deaa1e",
   "$id": "aws-servicediscovery-instance.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceId", "/properties/ServiceId"],

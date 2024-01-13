@@ -1,5 +1,5 @@
 {
-  "$hash": "a7bbaae96b4fc51b4a08521a44d2a9c3eef3fa38",
+  "$hash": "cdf64621f8e476ca9c4d9c41b448c534de9ac529",
   "$id": "aws-glue-mltransform.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InputRecordTables"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "273f5516d955a70b91b941b4fdec3461f04ca70d",
+  "$hash": "70285bd37c30bbe4fd82490819bf2b11e6c0a2dc",
   "$id": "aws-ec2-networkinterfaceattachment.json",
   "additionalIdentifiers": [["/properties/NetworkInterfaceId"]],
   "additionalProperties": false,

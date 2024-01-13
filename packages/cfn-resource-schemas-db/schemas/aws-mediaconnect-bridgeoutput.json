@@ -1,5 +1,5 @@
 {
-  "$hash": "32048483cf34a836bc600adac13280f8aa36c787",
+  "$hash": "ba995ed100d0007941f4a28f10f0f394fbf16ebf",
   "$id": "aws-mediaconnect-bridgeoutput.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BridgeArn", "/properties/Name"],

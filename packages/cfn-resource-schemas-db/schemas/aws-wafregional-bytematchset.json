@@ -1,5 +1,5 @@
 {
-  "$hash": "57f9b217f5db422ffb930c799372fe6086844bee",
+  "$hash": "71692e8f5901c3df7c6695055b53ca863b690055",
   "$id": "aws-wafregional-bytematchset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

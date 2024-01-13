@@ -1,5 +1,5 @@
 {
-  "$hash": "8498f0b10b6ed12bd1f6b65f45a29d6dd47a49d4",
+  "$hash": "606a722a50cdc42baf6d2215a669408346266f72",
   "$id": "aws-route53resolver-outpostresolver.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/OutpostArn"],

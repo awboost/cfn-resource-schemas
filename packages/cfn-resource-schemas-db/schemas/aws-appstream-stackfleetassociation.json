@@ -1,5 +1,5 @@
 {
-  "$hash": "f311528f86ff7a944760728dd9e1453df1b2a0d1",
+  "$hash": "6914d8fa2a12a3216c3740efc4164d2e4557e45f",
   "$id": "aws-appstream-stackfleetassociation.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::AppStream::StackFleetAssociation",

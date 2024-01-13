@@ -1,5 +1,5 @@
 {
-  "$hash": "43839b58ecd55b5f0cb3a17941a66514babcbb61",
+  "$hash": "8cdf841f2843a0a2c83258de1a1aae294f3ffd4b",
   "$id": "aws-sns-topic.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TopicName", "/properties/FifoTopic"],

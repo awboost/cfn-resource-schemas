@@ -1,5 +1,5 @@
 {
-  "$hash": "ce9cbe6e94703b4d9c0f495844b69b755d1f3acd",
+  "$hash": "f9c34c1ac54638d9710ef34dcc1a329caf39c009",
   "$id": "aws-autoscaling-scheduledaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AutoScalingGroupName"],

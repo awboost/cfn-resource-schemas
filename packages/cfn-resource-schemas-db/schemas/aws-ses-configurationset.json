@@ -1,5 +1,5 @@
 {
-  "$hash": "26b56083fcc58c0849cdeae8d1ab79b2d18dccf5",
+  "$hash": "6f7889b20022d3a4d5dc56c0a59c48806a7244ff",
   "$id": "aws-ses-configurationset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

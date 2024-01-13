@@ -1,5 +1,5 @@
 {
-  "$hash": "2e72e20b11962c2f6e5f8d8828bdb86de9378de9",
+  "$hash": "5e357feba06305faa7602db3360abb8b98e0e63b",
   "$id": "aws-transfer-agreement.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServerId"],

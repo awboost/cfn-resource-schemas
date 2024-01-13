@@ -1,5 +1,5 @@
 {
-  "$hash": "f2e88880b9012a0c746d1f4890b899db97723d56",
+  "$hash": "096c5d9d5ecc8f30416c4fcd7212871e41e9c0b2",
   "$id": "aws-ses-receiptfilter.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Filter"],

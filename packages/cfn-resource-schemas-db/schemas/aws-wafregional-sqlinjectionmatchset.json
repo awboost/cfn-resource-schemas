@@ -1,5 +1,5 @@
 {
-  "$hash": "7b1942262c7181d684ffe698386ad3d9463bea72",
+  "$hash": "d1ff4fa55c6f37934373d090aec29f739a405b09",
   "$id": "aws-wafregional-sqlinjectionmatchset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

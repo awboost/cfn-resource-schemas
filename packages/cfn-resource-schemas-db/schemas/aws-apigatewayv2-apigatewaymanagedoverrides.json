@@ -1,5 +1,5 @@
 {
-  "$hash": "c6cc61770b1ad73461e2033c013b3b931f7646b0",
+  "$hash": "e090fd3536b2dd3451b8e949be5f37c997b83cba",
   "$id": "aws-apigatewayv2-apigatewaymanagedoverrides.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],

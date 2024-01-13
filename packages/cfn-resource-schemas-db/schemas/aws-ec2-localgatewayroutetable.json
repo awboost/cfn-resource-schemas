@@ -1,5 +1,5 @@
 {
-  "$hash": "6e9e5305f48e2c868ee17e6d503f38223f373437",
+  "$hash": "fd3e2866d1e3e08b78e49bb58fe8dd3da1a69f4d",
   "$id": "aws-ec2-localgatewayroutetable.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LocalGatewayId", "/properties/Mode"],

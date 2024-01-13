@@ -1,5 +1,5 @@
 {
-  "$hash": "89e5f66b3656c918d03a086387a76bab93bf4612",
+  "$hash": "34379746ad50417be1c408cf83f7e7e11f4ab14f",
   "$id": "aws-sso-permissionset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceArn", "/properties/Name"],

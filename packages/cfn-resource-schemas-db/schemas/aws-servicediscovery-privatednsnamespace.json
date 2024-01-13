@@ -1,5 +1,5 @@
 {
-  "$hash": "e56a3772d2903d273f1945d85bffce716c27aedf",
+  "$hash": "7defbf8799007094b07ca1de1b9895b43eb47a80",
   "$id": "aws-servicediscovery-privatednsnamespace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc", "/properties/Name"],

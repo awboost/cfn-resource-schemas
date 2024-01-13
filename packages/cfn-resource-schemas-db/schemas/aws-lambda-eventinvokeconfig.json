@@ -1,5 +1,5 @@
 {
-  "$hash": "cdffbc8bd65b6f68e42e83f14a94f5d1d9c1008a",
+  "$hash": "842e72bdf844def7e5ae1fb2bc8a6bd178996b80",
   "$id": "aws-lambda-eventinvokeconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FunctionName", "/properties/Qualifier"],

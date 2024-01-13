@@ -1,5 +1,5 @@
 {
-  "$hash": "4aa0a891f23cd10c79bb54437d82611661246d27",
+  "$hash": "e2549c5296a75da134b83a487a95742977b7eab2",
   "$id": "aws-pinpoint-emailchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],

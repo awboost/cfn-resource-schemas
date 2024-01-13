@@ -1,5 +1,5 @@
 {
-  "$hash": "e41e0aa59fd370704eda8943454a7a4f00bbd9d6",
+  "$hash": "7cb6717ef80e2afea90634e9813cd7bf09aa6f1d",
   "$id": "aws-mediaconvert-jobtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

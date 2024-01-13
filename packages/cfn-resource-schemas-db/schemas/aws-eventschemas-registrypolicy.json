@@ -1,5 +1,5 @@
 {
-  "$hash": "d4ed4f772cabffdce52935de2298135509fc7b25",
+  "$hash": "79d008b4442aa449d03ed4d710b6a76224b6f6b4",
   "$id": "aws-eventschemas-registrypolicy.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::EventSchemas::RegistryPolicy",

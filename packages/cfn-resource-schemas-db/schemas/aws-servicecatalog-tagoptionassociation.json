@@ -1,5 +1,5 @@
 {
-  "$hash": "9a966b99dfc751e73126ad90114c520040a78a22",
+  "$hash": "bd1d2bb62b33e857d85100391ada3962159ab2a4",
   "$id": "aws-servicecatalog-tagoptionassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TagOptionId", "/properties/ResourceId"],

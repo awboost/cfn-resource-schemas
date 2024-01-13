@@ -1,5 +1,5 @@
 {
-  "$hash": "8dd0d11b5ee5efc0887d2a5e80c2a6a1309c523e",
+  "$hash": "e10cc0fdfe2ae03114fdd057dad4d06ec1844f62",
   "$id": "aws-gamelift-script.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,

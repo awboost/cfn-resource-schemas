@@ -1,5 +1,5 @@
 {
-  "$hash": "82ce939c419cac189c146f3746df180f9fb5dfa4",
+  "$hash": "24493d3490bd7440d5702c254bcb8eabf951e642",
   "$id": "aws-budgets-budgetsaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ActionType", "/properties/BudgetName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "a8a126b2ffc456ac7eb1494c91b338b7560356c1",
+  "$hash": "6daba75e0549e92779e1300b60f77f1218015b41",
   "$id": "aws-resourcegroups-group.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

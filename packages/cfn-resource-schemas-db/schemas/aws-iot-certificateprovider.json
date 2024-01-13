@@ -1,5 +1,5 @@
 {
-  "$hash": "c3470576a56640faaf301134882b0015d7992725",
+  "$hash": "0035e63ddb5161b68eeb4ef32a385bf5e2a93ee1",
   "$id": "aws-iot-certificateprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CertificateProviderName"],

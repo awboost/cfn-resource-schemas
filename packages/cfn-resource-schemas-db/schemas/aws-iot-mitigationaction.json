@@ -1,5 +1,5 @@
 {
-  "$hash": "ca562bf07bd7787f0c237a5f1da4c22e6ea1d2cc",
+  "$hash": "042f268978626708922b849711f6bf62d6b7ca73",
   "$id": "aws-iot-mitigationaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ActionName"],

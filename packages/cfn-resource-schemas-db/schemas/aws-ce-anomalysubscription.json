@@ -1,5 +1,5 @@
 {
-  "$hash": "ddbdffb4caeeaefb0dbf6b4fcd3f78a8824df2cb",
+  "$hash": "25bd98c84d6702997581ffab3111127f127cc5fb",
   "$id": "aws-ce-anomalysubscription.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceTags"],

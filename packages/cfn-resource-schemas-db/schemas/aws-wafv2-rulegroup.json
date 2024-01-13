@@ -1,5 +1,5 @@
 {
-  "$hash": "837b212d810b7735885a0cd1c1de224cf1b51807",
+  "$hash": "3548bc3747bbd854bad090c83851b6d6561f1649",
   "$id": "aws-wafv2-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],

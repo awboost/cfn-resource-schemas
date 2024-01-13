@@ -1,5 +1,5 @@
 {
-  "$hash": "ec232ad5f52ba699d934e8ead3fe1f489ecf121e",
+  "$hash": "11b8110cd3e3f0fb83f5c84e87003c4fbbcaf662",
   "$id": "aws-backupgateway-hypervisor.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn", "/properties/Tags"],

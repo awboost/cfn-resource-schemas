@@ -1,5 +1,5 @@
 {
-  "$hash": "f3f03d8b453dfc2a0cf85f67677f2de9cea84218",
+  "$hash": "b38704fea089c66683b7261ea68626d44f63ee8a",
   "$id": "aws-ec2-vpcgatewayattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId"],

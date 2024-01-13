@@ -1,5 +1,5 @@
 {
-  "$hash": "1fbfe1b649626881d14d6681a97c70f638781f84",
+  "$hash": "55e0e8bb1b286b2dee788153c49190f7e7d54272",
   "$id": "aws-b2bi-capability.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],

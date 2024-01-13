@@ -1,5 +1,5 @@
 {
-  "$hash": "e42f4461fead574f6ed4b95cc3a92042e439d9e5",
+  "$hash": "c62f376deaa8841ea54f35e3626831cae8d531f2",
   "$id": "aws-iotanalytics-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PipelineName"],

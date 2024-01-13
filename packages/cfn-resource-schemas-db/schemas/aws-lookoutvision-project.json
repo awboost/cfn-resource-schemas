@@ -1,5 +1,5 @@
 {
-  "$hash": "ec684bb3f39189cd34962a9700c3662700157ffb",
+  "$hash": "33b3291c393de089b1f3bd56352c6248e998881f",
   "$id": "aws-lookoutvision-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProjectName"],

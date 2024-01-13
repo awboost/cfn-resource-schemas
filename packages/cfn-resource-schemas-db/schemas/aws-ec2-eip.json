@@ -1,5 +1,5 @@
 {
-  "$hash": "d78521631ce48b77cc5e4e9bbb130d9840abdf60",
+  "$hash": "2e5bc503ecc452aef907fa39effe374b2dd816bf",
   "$id": "aws-ec2-eip.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,

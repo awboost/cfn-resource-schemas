@@ -1,5 +1,5 @@
 {
-  "$hash": "856c29bfdab46ca97818f0611a4eb94cdbf469b1",
+  "$hash": "3bf00d2e3bcbbb03fd7565b69029e15008785378",
   "$id": "aws-glue-datacatalogencryptionsettings.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CatalogId"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "f909d27cf7c33820199b2b9e9a61000297b8bdbc",
+  "$hash": "e072515e42f59e7b6f8ecd8da4b933d063a86a5f",
   "$id": "aws-s3-storagelensgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

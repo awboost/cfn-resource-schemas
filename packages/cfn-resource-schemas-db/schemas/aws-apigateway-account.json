@@ -1,5 +1,5 @@
 {
-  "$hash": "10f438699567daa80968462ad094715ea9e14fe4",
+  "$hash": "d9cf74fbd7f8737942bf2d57d2b16a2a0979de60",
   "$id": "aws-apigateway-account.json",
   "additionalProperties": false,
   "description": "The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.",

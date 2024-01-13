@@ -1,5 +1,5 @@
 {
-  "$hash": "9ed947b53040737ec246c2e31ec1bfecb6eb8e0c",
+  "$hash": "970cf92624d6e29170aa39166175532cf2c3e5e8",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [

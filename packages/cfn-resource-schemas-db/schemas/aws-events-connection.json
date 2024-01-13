@@ -1,5 +1,5 @@
 {
-  "$hash": "f9479f2f9949ceb4a5c119024d4c2bf87a134d0a",
+  "$hash": "917cff02a369273fe636944449aebcac0a36986f",
   "$id": "aws-events-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

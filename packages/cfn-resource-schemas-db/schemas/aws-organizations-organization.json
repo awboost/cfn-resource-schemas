@@ -1,5 +1,5 @@
 {
-  "$hash": "27864f1b297d0192806ffa22d91030575434edad",
+  "$hash": "fa0ac8ecae93fca728200ac39c2ade7bdd19acd8",
   "$id": "aws-organizations-organization.json",
   "additionalProperties": false,
   "description": "Resource schema for AWS::Organizations::Organization",

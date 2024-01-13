@@ -1,5 +1,5 @@
 {
-  "$hash": "016746aafff2a1c2c0a5a8de982c9c715abdcc07",
+  "$hash": "1b5581e0283805a2a8c32e01e048e8b55c4df2a5",
   "$id": "aws-pinpoint-gcmchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],

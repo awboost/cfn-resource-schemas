@@ -1,5 +1,5 @@
 {
-  "$hash": "12d0c087cf8b92cf077ed133be0fcf744b06b4c9",
+  "$hash": "22f946bc7c7ec89d0cf521dde1ee572fdc4d7a82",
   "$id": "aws-logs-loganomalydetector.json",
   "additionalProperties": false,
   "description": "The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.",

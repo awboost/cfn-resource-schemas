@@ -1,5 +1,5 @@
 {
-  "$hash": "cab2d3d0c44875f518cad60f2ce696716dcca2d2",
+  "$hash": "a8d0fd058cd1c359a084ed6876881ec8dd6d6723",
   "$id": "aws-nimblestudio-studio.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/StudioName", "/properties/Tags"],

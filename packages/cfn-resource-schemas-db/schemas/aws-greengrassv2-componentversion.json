@@ -1,5 +1,5 @@
 {
-  "$hash": "38ab5aa0a69bea2800cd8dc3f4c6d6cc60db54af",
+  "$hash": "ed92730203bf32043d5a6b72ca3520319885eb1a",
   "$id": "aws-greengrassv2-componentversion.json",
   "additionalIdentifiers": [
     ["/properties/ComponentName", "/properties/ComponentVersion"]

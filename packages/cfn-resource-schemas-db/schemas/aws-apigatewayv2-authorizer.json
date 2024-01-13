@@ -1,5 +1,5 @@
 {
-  "$hash": "1517df418e37567c60e07b8b84b9167741266e33",
+  "$hash": "373648e6aa1b3845375c7ea53aba02c315579a36",
   "$id": "aws-apigatewayv2-authorizer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],

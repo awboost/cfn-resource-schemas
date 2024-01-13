@@ -1,5 +1,5 @@
 {
-  "$hash": "96029692c407fedefd4e6fb27ad55768fad1f7bb",
+  "$hash": "dfe1ea23000b89a7ec8b09790c7951b6cd54c89b",
   "$id": "aws-pinpoint-app.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

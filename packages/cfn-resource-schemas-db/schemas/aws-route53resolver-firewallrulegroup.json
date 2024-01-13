@@ -1,5 +1,5 @@
 {
-  "$hash": "06c968f99666a4f681d5ff380e8450f31ec074f7",
+  "$hash": "99a43ff9ad25a28835d7d3a895016f016d00b902",
   "$id": "aws-route53resolver-firewallrulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

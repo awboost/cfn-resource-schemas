@@ -1,5 +1,5 @@
 {
-  "$hash": "ac1b668d0f43f3f1f76c47fa8b448a1d89644de6",
+  "$hash": "e40f1fe5582687d28830c73fdbbf225bc6021ccd",
   "$id": "aws-logs-destination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DestinationName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "9597351b05f39ca8cce477142fc7ad85a46054c2",
+  "$hash": "d472d0c4012dbafc4e3b3eeee9944f8467fb4d79",
   "$id": "aws-autoscaling-warmpool.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AutoScalingGroupName"],

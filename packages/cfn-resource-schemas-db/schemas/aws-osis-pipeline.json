@@ -1,5 +1,5 @@
 {
-  "$hash": "3ef7abb71db1385eca130db2119c072b548b5774",
+  "$hash": "30f1fcf3aefeab0e248aa180978608ee671db663",
   "$id": "aws-osis-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PipelineName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "1385cfe541e39630430d24713e83272782d2eb28",
+  "$hash": "f205f710f62ed0cb88c1e6dc1dd652768e710bfc",
   "$id": "aws-cloudfront-keyvaluestore.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

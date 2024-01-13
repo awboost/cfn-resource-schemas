@@ -1,5 +1,5 @@
 {
-  "$hash": "a7fa1ca0e32d9ca596c6c146248be4cae08cebc6",
+  "$hash": "0119f287447a9fcfd417123e7bde75ead0a7c261",
   "$id": "aws-appsync-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId", "/properties/Name"],

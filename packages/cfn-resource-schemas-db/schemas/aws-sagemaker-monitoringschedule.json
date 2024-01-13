@@ -1,5 +1,5 @@
 {
-  "$hash": "ed1745fd860ef7ac0513026734078224f0a1684c",
+  "$hash": "6ab53ae540e2dad5ef7ed1f66c8c4aec279240e8",
   "$id": "aws-sagemaker-monitoringschedule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MonitoringScheduleName"],

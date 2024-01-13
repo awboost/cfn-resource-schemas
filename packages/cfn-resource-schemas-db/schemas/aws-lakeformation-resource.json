@@ -1,5 +1,5 @@
 {
-  "$hash": "35fab58e050a3598bfc5d5bd61d6c005addf8a5f",
+  "$hash": "f2ecf77e08f3f3eb6333f673d3d72158a74d0b2f",
   "$id": "aws-lakeformation-resource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn"],

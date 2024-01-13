@@ -1,5 +1,5 @@
 {
-  "$hash": "502a41eb2768521e60e2db45bf8d80c0d15bcc2a",
+  "$hash": "862132855ab7b2843e18ba63d3e684779f4b5af4",
   "$id": "aws-wafv2-webaclassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn", "/properties/WebACLArn"],

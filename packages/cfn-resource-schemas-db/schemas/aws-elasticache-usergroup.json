@@ -1,5 +1,5 @@
 {
-  "$hash": "b8ad3edb878a6b15db0f51910634a17a0515c0c7",
+  "$hash": "baa39b69b0296e13a4cbafd285850065bdc199ac",
   "$id": "aws-elasticache-usergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserGroupId", "/properties/Engine"],

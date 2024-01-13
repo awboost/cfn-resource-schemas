@@ -1,5 +1,5 @@
 {
-  "$hash": "ccab448382a04ead8f0baed511e1d41f5b39c444",
+  "$hash": "486a2ebf38dafa75e363ede46ca69b2f06a82327",
   "$id": "aws-workspaces-workspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserName"],

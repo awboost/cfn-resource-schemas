@@ -1,5 +1,5 @@
 {
-  "$hash": "d8ee86442e2bd69bd552b9902785835715cc763a",
+  "$hash": "7fac136ebd6d8bb881a713fea391446cf685dc71",
   "$id": "aws-lakeformation-tagassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Resource", "/properties/LFTags"],

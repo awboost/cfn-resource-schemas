@@ -1,5 +1,5 @@
 {
-  "$hash": "f6348c6fe80bd432c6b08a4f1e40ecb3f3cb75da",
+  "$hash": "2b29174eca85e874ad8b92735a6330c785f846f3",
   "$id": "aws-aps-workspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn"],

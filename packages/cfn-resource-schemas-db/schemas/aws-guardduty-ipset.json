@@ -1,5 +1,5 @@
 {
-  "$hash": "e0b9680a0d637929d5bf1298f3da55756b2f56ff",
+  "$hash": "cc7bf69901b043abcf6f9afb954f67dd45a4fd16",
   "$id": "aws-guardduty-ipset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Format", "/properties/DetectorId"],

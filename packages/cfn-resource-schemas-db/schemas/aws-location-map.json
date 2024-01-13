@@ -1,5 +1,5 @@
 {
-  "$hash": "cbdb1e7091b8bb1c1f5cbda84b2c8ee7af606ac9",
+  "$hash": "7a2e7689240553919c4ebc4f3d27fe1570adc252",
   "$id": "aws-location-map.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Configuration", "/properties/MapName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "4323d1ed63d98b3a8a25f7813318ba71a6200d08",
+  "$hash": "9f9a44deeff99ba2aee5ddafac2bd4d50e6cb8a7",
   "$id": "aws-quicksight-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/DataSetId"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "cf5f074219b648556eb00306891fada89929db80",
+  "$hash": "58129cc0d9b22b2e576ad588690653652c6d767a",
   "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "ec16af04e9b53f998b5c6eece94585ad065804d3",
+  "$hash": "6ba1b9a70b52a587b243d5f537e74df4a73bc6db",
   "$id": "aws-athena-datacatalog.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

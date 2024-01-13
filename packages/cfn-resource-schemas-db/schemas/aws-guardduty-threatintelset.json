@@ -1,5 +1,5 @@
 {
-  "$hash": "f922e94ef08a6b8cd4297c7c6905e5f9f26ce12a",
+  "$hash": "c3954ebc0d1e42e2501fd8e8f8babdc4ad6eac8d",
   "$id": "aws-guardduty-threatintelset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Format", "/properties/DetectorId"],

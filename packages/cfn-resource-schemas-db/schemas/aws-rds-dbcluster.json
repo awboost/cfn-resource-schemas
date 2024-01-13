@@ -1,5 +1,5 @@
 {
-  "$hash": "8bc55e32605704da09adf9d8099366e28379b757",
+  "$hash": "cb74d2182df9c4d831718759a8d427783164e6a9",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [

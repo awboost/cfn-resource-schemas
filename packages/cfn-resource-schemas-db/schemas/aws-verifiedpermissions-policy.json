@@ -1,5 +1,5 @@
 {
-  "$hash": "375e2d724bdaac58f6c65908dd05aa773615bfbf",
+  "$hash": "fff0995d209c1efe985664616b20623a4d7d508b",
   "$id": "aws-verifiedpermissions-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyStoreId"],

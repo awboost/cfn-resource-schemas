@@ -1,5 +1,5 @@
 {
-  "$hash": "7a7fb07857eb340a0c2ca1620f228bd17fbb8102",
+  "$hash": "f4d751cff34eea833c39c56c4cf94c0b1be333d8",
   "$id": "aws-cognito-userpooluicustomizationattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserPoolId", "/properties/ClientId"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "2bec056a651cc444849c89fcd10f55e001cd6b93",
+  "$hash": "03d0ca7c72e8a6310162e0b4a85416af75bb8e0c",
   "$id": "aws-cognito-identitypoolroleattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/IdentityPoolId"],

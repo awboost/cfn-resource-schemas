@@ -1,5 +1,5 @@
 {
-  "$hash": "4d80017f37d2cbfbcd791592cdd2358fae4742ce",
+  "$hash": "4b000c58da207b8a66883a09bfc3d2e42e6868e7",
   "$id": "aws-ssm-maintenancewindowtarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WindowId"],

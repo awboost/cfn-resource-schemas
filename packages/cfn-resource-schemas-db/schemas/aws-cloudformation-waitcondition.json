@@ -1,5 +1,5 @@
 {
-  "$hash": "2956be424ce23fa5514871e464bffcc1794a42c3",
+  "$hash": "38fff3797686ea536f0d7fa1d2d0fb83832198af",
   "$id": "aws-cloudformation-waitcondition.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::CloudFormation::WaitCondition",

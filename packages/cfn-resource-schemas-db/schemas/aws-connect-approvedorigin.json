@@ -1,5 +1,5 @@
 {
-  "$hash": "404cfeedd100a09557e8fbcffb338614afb345e9",
+  "$hash": "36f7a87715221dd93030426c9a83e6023a3f3cf0",
   "$id": "aws-connect-approvedorigin.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceId", "/properties/Origin"],

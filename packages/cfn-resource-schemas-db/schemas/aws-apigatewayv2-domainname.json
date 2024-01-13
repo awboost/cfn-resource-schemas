@@ -1,5 +1,5 @@
 {
-  "$hash": "ddf667882ba111191c9ea747464496de8cdc04b9",
+  "$hash": "b282ae2fbafa2408de21e35b9c2516668d2edffd",
   "$id": "aws-apigatewayv2-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],

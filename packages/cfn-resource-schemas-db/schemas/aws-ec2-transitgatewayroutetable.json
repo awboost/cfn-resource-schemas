@@ -1,5 +1,5 @@
 {
-  "$hash": "680001306ce06b4fb1eb08ba9e6f3bdd30eb43da",
+  "$hash": "c402a0698014ebe37147a6a3c6ab2c574ff2f8b0",
   "$id": "aws-ec2-transitgatewayroutetable.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TransitGatewayId", "/properties/Tags"],

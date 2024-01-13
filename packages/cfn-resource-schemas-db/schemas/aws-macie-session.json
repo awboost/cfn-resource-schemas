@@ -1,5 +1,5 @@
 {
-  "$hash": "d2af766775ea7d9a99cb94de860b4059dde6f28c",
+  "$hash": "36f2837aeddfb5e8d5d646b09ab3129884436202",
   "$id": "aws-macie-session.json",
   "additionalProperties": false,
   "description": "The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.",

@@ -1,5 +1,5 @@
 {
-  "$hash": "409bab505e5723d8bafa9ae1cdc06dd7c14dd7b8",
+  "$hash": "a9700196c7370b89471d8d3f458b93d6049d4bfb",
   "$id": "aws-detective-memberinvitation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GraphArn", "/properties/MemberId"],

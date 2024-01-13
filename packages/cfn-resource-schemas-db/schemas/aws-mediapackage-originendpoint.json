@@ -1,5 +1,5 @@
 {
-  "$hash": "dea22e5e021541ceca76fbfe76368156b41f0f45",
+  "$hash": "5ca88c12cc96fe455586278d906cb7cbb1dc6cb1",
   "$id": "aws-mediapackage-originendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Id"],

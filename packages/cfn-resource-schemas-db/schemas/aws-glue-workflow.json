@@ -1,5 +1,5 @@
 {
-  "$hash": "81e336d7ffe748a3fa3ebb38a86cb84606144142",
+  "$hash": "1185e37ee6933fb64697c4814c88100cb2f37e9f",
   "$id": "aws-glue-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

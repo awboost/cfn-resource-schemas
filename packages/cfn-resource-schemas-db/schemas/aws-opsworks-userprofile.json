@@ -1,5 +1,5 @@
 {
-  "$hash": "26a832207810aee77e44d13a983c070c07664fda",
+  "$hash": "266c5d1bb5ed6c55e96fd1babf2c199ef9d0b018",
   "$id": "aws-opsworks-userprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/IamUserArn"],

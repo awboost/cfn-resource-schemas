@@ -1,5 +1,5 @@
 {
-  "$hash": "b743d781618751c77952a0ecfd01305b5691edfb",
+  "$hash": "d7124c16cf12fd3cf05688c93ef22d68f5b6e1b7",
   "$id": "aws-databrew-ruleset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/TargetArn"],

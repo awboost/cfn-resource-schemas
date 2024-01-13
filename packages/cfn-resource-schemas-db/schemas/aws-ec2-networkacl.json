@@ -1,5 +1,5 @@
 {
-  "$hash": "20c9aa132b864255631ab4cb18225b7198182c3a",
+  "$hash": "773ccbeda181c56c76e1e3f680a9ac63708d0c8e",
   "$id": "aws-ec2-networkacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId"],

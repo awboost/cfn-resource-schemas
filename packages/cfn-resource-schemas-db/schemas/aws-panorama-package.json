@@ -1,5 +1,5 @@
 {
-  "$hash": "40f25e887041fa8b798ea2fc10ee4246484faf29",
+  "$hash": "63fd8c8e42842d4d91db6a47a78945ba7ae3651f",
   "$id": "aws-panorama-package.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PackageName"],

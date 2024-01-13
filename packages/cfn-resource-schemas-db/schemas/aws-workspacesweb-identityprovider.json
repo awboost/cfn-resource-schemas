@@ -1,5 +1,5 @@
 {
-  "$hash": "11a96a7de69dce375c9531bb283f42a074a983e0",
+  "$hash": "329dfdc8076673be1479b773e8aed42908990197",
   "$id": "aws-workspacesweb-identityprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PortalArn"],

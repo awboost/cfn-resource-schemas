@@ -1,5 +1,5 @@
 {
-  "$hash": "2f926dc9363b5e8ca9aa9b73d2471c5389484cd6",
+  "$hash": "f859fa4c0092e3260653c96dc9c9331d1faae8c0",
   "$id": "aws-iottwinmaker-scene.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SceneId", "/properties/WorkspaceId"],

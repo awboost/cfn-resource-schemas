@@ -1,5 +1,5 @@
 {
-  "$hash": "ddee5288e91ed902533dcc9e08e775e82626e879",
+  "$hash": "f363630e5385042c739721dc6440d0da00b2f7d7",
   "$id": "aws-memorydb-subnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubnetGroupName"],

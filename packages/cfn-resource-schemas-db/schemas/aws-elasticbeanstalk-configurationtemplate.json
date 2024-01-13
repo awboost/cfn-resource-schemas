@@ -1,5 +1,5 @@
 {
-  "$hash": "0c900a37e0f9b505b5fd34dc65f5b6761b0de868",
+  "$hash": "daf769ed4a769ed91f6cabcf026a585193e73479",
   "$id": "aws-elasticbeanstalk-configurationtemplate.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,

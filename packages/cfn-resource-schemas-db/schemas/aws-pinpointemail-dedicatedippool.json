@@ -1,5 +1,5 @@
 {
-  "$hash": "7a6802597a25e6d2aec28416db2ecb044bdb4c3b",
+  "$hash": "3700649616003aff564d99a28cdb620d650d5584",
   "$id": "aws-pinpointemail-dedicatedippool.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PoolName"],

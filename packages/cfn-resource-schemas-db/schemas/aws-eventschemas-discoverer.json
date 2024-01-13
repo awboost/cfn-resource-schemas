@@ -1,5 +1,5 @@
 {
-  "$hash": "5e349cc34fe3f24fca06b2c1bbfd5fa0c223c72f",
+  "$hash": "892465d92afe92744f58c0dac87b8b527f3199c9",
   "$id": "aws-eventschemas-discoverer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SourceArn"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "6d20de60f7d9c620a87151a116a49d469f887651",
+  "$hash": "2616ba029a7099cc1f69c2b09fc968f61210c20b",
   "$id": "aws-datasync-locationnfs.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServerHostname"],

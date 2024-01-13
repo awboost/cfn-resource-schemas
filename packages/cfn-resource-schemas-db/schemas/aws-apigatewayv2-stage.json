@@ -1,5 +1,5 @@
 {
-  "$hash": "80521e014a6898dd4f9b8961ddea83f191bd39b2",
+  "$hash": "282e003ed6d33070bd9fbf5848a2f5be07f66a15",
   "$id": "aws-apigatewayv2-stage.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/StageName", "/properties/ApiId"],

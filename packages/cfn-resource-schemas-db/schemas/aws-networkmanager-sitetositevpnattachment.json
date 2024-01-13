@@ -1,5 +1,5 @@
 {
-  "$hash": "aff93671c7ade1efc81e6091cca4197db466a345",
+  "$hash": "3e79fde52812850c24edcfd433d8eda8c81187a5",
   "$id": "aws-networkmanager-sitetositevpnattachment.json",
   "additionalIdentifiers": [
     ["/properties/CoreNetworkId", "/properties/VpnConnectionArn"]

@@ -1,5 +1,5 @@
 {
-  "$hash": "e4c15c5fca2a6c38ec2533bdc7b259117a1dde87",
+  "$hash": "c140e5186b713c0011a2ad999ba26c52685b9066",
   "$id": "aws-backup-restoretestingplan.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RestoreTestingPlanName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "5df2af354d6638ef5ff92d73904e6019c022909e",
+  "$hash": "b8fb9cf19ac6bb8b3ea61963635f81067c7e0386",
   "$id": "aws-iot1click-device.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DeviceId"],

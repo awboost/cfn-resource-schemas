@@ -1,5 +1,5 @@
 {
-  "$hash": "0c6c8aaacf46ec000a94c6f959bb2f2fa5ea2aa3",
+  "$hash": "ee8902d41b77b6eaefc7838183b8107b26a6392e",
   "$id": "aws-codestarconnections-syncconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SyncType", "/properties/ResourceName"],

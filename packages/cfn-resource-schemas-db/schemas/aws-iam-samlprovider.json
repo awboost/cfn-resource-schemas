@@ -1,5 +1,5 @@
 {
-  "$hash": "a082998b74ee2b236dcc7c7ffa35a46f1a977cbe",
+  "$hash": "5033b68e61b595b99d07075d301adb10f58e3a0b",
   "$id": "aws-iam-samlprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

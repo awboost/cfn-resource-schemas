@@ -1,5 +1,5 @@
 {
-  "$hash": "8ac306d8822d6dd69cb2762e667bb1d49b1c0854",
+  "$hash": "bdd9ed89a9ff4f9293ef6291021a95b2f5dd8535",
   "$id": "aws-wafregional-sizeconstraintset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

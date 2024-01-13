@@ -1,5 +1,5 @@
 {
-  "$hash": "78cef8178b7fd137455344d65b20b82fd8a2a416",
+  "$hash": "d4de689e68275da5891707ffe6d4d26c8d1e8082",
   "$id": "aws-ivs-streamkey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ChannelArn"],

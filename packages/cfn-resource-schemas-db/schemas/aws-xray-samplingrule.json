@@ -1,5 +1,5 @@
 {
-  "$hash": "01259a0dc7fb3c5c6dfbcb1f6477ad94eab2b3d9",
+  "$hash": "c428eff3b036bcf674e79b5b6b2eac5ba815bdd1",
   "$id": "aws-xray-samplingrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SamplingRule/Version"],

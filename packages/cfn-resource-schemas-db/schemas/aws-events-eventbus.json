@@ -1,5 +1,5 @@
 {
-  "$hash": "41799b127f4dd7bf4d3fa7aa37e027364f57908d",
+  "$hash": "2aa54ff232708487d39381f85fc8581d9e2b74f2",
   "$id": "aws-events-eventbus.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "97f01a55f1844f8001f0a3e8c1949977aab7f10f",
+  "$hash": "9e3545c728f928d8dd20ef7fe0de953a5070f415",
   "$id": "aws-synthetics-group.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

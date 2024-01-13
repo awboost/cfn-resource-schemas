@@ -1,5 +1,5 @@
 {
-  "$hash": "b13873493a89ef3e8c1a00a6039764c0a93b5a95",
+  "$hash": "583f6da250e063a3fdd33484bc40c446db4d5410",
   "$id": "aws-route53recoverycontrol-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "1d168254f56952673bad94fd7e3e5f1c7a88ae2d",
+  "$hash": "8e7217800aad6d5468513a8b9fc710dd7c2a2afe",
   "$id": "aws-glue-database.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CatalogId"],

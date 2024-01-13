@@ -1,5 +1,5 @@
 {
-  "$hash": "07db53fb1a0451ac9f25f9ac09838713c848d867",
+  "$hash": "92b0f86aca6be31245dce6b0b1bdb2db2ea0988c",
   "$id": "aws-stepfunctions-statemachine.json",
   "additionalIdentifiers": [["/properties/StateMachineName"]],
   "additionalProperties": false,

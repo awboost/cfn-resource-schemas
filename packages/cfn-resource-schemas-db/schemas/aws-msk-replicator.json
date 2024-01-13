@@ -1,5 +1,5 @@
 {
-  "$hash": "63b76a7ca57e5488eaf6c3f8a665df1dd45a4be6",
+  "$hash": "3f084fd7520deffd9ac9452352f3347fd261d7c1",
   "$id": "aws-msk-replicator.json",
   "additionalIdentifiers": [["/properties/ReplicatorName"]],
   "additionalProperties": false,

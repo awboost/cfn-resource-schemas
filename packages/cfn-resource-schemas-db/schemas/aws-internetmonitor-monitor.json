@@ -1,5 +1,5 @@
 {
-  "$hash": "19f98ad73e4d8b990e54331ed40117a38aa1d769",
+  "$hash": "29a35418ad731483d20af57ad2b93bf582674d6e",
   "$id": "aws-internetmonitor-monitor.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MonitorName"],

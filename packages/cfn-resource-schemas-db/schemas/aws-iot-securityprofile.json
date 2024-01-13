@@ -1,5 +1,5 @@
 {
-  "$hash": "6e10f35f364cb7d9ef1da08b87fc4f44abe1ed73",
+  "$hash": "dea1145663be616c37ab8aff63e47c5e7fcb5007",
   "$id": "aws-iot-securityprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SecurityProfileName"],

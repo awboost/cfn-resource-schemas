@@ -1,5 +1,5 @@
 {
-  "$hash": "41e416ee861b65d2a678e0e276e0f63d04b3b637",
+  "$hash": "7757b6564f03e01985d425fb8e1a3ee96ec76d57",
   "$id": "aws-sns-topicinlinepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TopicArn"],

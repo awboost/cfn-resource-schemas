@@ -1,5 +1,5 @@
 {
-  "$hash": "8bae89cfd81857b6f20d39874557165b8de89c4e",
+  "$hash": "cda60d2a67bab6fa1485efb3beb37156caba6bdd",
   "$id": "aws-appsync-sourceapiassociation.json",
   "additionalIdentifiers": [
     ["/properties/SourceApiIdentifier", "/properties/MergedApiIdentifier"]

@@ -1,5 +1,5 @@
 {
-  "$hash": "eb4e0d536d2b3ef0e13fe33710e1f07d4344eded",
+  "$hash": "2fe9a58af04f7cbe568423c64c2d95d5edbab3dc",
   "$id": "aws-lightsail-bucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BucketName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "1d92ad20057257d6ff1799018a0381cbb8f8e12c",
+  "$hash": "d2817db5464c20f8d4bde348962f5404b734fda3",
   "$id": "aws-networkmanager-vpcattachment.json",
   "additionalIdentifiers": [
     ["/properties/CoreNetworkId", "/properties/VpcArn"]

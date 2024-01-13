@@ -1,5 +1,5 @@
 {
-  "$hash": "66663d0b6f3b475796f42fe4c81a910b0075da0f",
+  "$hash": "9e89686a2c8bff55c5c8818a24b1f1357c7ed2d2",
   "$id": "aws-events-apidestination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

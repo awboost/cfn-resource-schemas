@@ -1,5 +1,5 @@
 {
-  "$hash": "f60fd2b8c61992ac49927bfe0faf9c236ba1aadf",
+  "$hash": "bb6209e1b04d99cfccf63dc39b53ea787b500e29",
   "$id": "aws-rds-eventsubscription.json",
   "additionalProperties": false,
   "createOnlyProperties": [

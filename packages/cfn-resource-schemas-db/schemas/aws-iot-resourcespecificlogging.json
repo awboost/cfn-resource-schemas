@@ -1,5 +1,5 @@
 {
-  "$hash": "0521d1ee8e8c53724d7395a823eaea671779f429",
+  "$hash": "5bb15b89ac9a0fab2db11af2fa5ad362cf52b0af",
   "$id": "aws-iot-resourcespecificlogging.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TargetName", "/properties/TargetType"],

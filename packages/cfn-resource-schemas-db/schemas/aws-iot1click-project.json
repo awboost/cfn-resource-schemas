@@ -1,5 +1,5 @@
 {
-  "$hash": "b95569ed2bc3bf2ec604830d1961ea2d9b675f05",
+  "$hash": "808081b193ae6a5d85e3e3d4e07a2af6177224a5",
   "$id": "aws-iot1click-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProjectName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "3d77d625e5c46231390b27b9d2b6617280ec706d",
+  "$hash": "b71773df25de083435690fecaba3bde48df9506f",
   "$id": "aws-location-apikey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KeyName"],

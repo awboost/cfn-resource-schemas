@@ -1,5 +1,5 @@
 {
-  "$hash": "e3923356f3e139d0ae99c7d47f7ff84289542122",
+  "$hash": "782f6b9d29708feb4fdf800f1e60f5124da85b4e",
   "$id": "aws-apigateway-documentationpart.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Location", "/properties/RestApiId"],

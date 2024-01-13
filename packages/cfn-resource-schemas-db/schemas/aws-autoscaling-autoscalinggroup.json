@@ -1,5 +1,5 @@
 {
-  "$hash": "44f9891577f428fc156abb84b55d226d309d114a",
+  "$hash": "30c193d695ba29f60b38ed6c575a4c07f0c597b6",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [

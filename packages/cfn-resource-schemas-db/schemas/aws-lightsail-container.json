@@ -1,5 +1,5 @@
 {
-  "$hash": "ac8cf3805e5af1319d83909429556ee4bb6e5754",
+  "$hash": "8447c3efb7cb2fb55858b8a07df481be4339e079",
   "$id": "aws-lightsail-container.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServiceName"],

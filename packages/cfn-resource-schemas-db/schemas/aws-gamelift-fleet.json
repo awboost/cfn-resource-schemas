@@ -1,5 +1,5 @@
 {
-  "$hash": "f5184a59389861cd17654d64cf1cc811a1f9be8e",
+  "$hash": "e70706c1ec702cd0cbbb7ecb6965ead5d8702e01",
   "$id": "aws-gamelift-fleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,

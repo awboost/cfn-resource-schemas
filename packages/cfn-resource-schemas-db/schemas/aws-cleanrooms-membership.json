@@ -1,5 +1,5 @@
 {
-  "$hash": "83a52dc5bd9eca221bb8f2bade28cc5b527065a1",
+  "$hash": "0e168717b97f2517172b1ad177584c1bb54c09de",
   "$id": "aws-cleanrooms-membership.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CollaborationIdentifier"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "026c794fd1f698c8ff9bcbb0fa3b104c5af020ae",
+  "$hash": "1182b76ecc73d953bcea1f823d9b4c7ae3fb8ea0",
   "$id": "aws-redshiftserverless-namespace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/NamespaceName", "/properties/Tags"],

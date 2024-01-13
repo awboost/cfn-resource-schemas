@@ -1,5 +1,5 @@
 {
-  "$hash": "0528a185224c983c21da6b52b720ce079d7cb28f",
+  "$hash": "03268818e39b95493af96101bbb16e267d115bbc",
   "$id": "aws-dms-replicationconfig.json",
   "additionalIdentifiers": [["/properties/ReplicationConfigIdentifier"]],
   "additionalProperties": false,

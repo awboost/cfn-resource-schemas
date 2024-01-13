@@ -1,5 +1,5 @@
 {
-  "$hash": "7b2c7e471e1ff5dab57ca64f6d4dbf1ee14d5dcf",
+  "$hash": "e7cd395bdbfa88c1e39028447f5578df39a1a4e8",
   "$id": "aws-wafv2-ipset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],

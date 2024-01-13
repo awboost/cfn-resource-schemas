@@ -1,5 +1,5 @@
 {
-  "$hash": "1fae6864c3b3ce7f53f32c2da97e5744754eac5e",
+  "$hash": "adbb27f7791c41effc9387b0c16307b3dbd75cf7",
   "$id": "aws-imagebuilder-lifecyclepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

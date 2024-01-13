@@ -1,5 +1,5 @@
 {
-  "$hash": "3b473d3eee38fb1d6a5acbe2e3810163776cee43",
+  "$hash": "70615a65a582751bb26a78d69c72b5ea6688ab4c",
   "$id": "aws-apigatewayv2-deployment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],

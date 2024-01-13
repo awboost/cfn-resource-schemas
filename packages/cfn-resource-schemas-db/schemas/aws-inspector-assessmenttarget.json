@@ -1,5 +1,5 @@
 {
-  "$hash": "b5933f1f6014f97c164ccf9ca9d29e603cbb9f8a",
+  "$hash": "1ced126d7ebbc3836b0a586a5d0d5c474e39a064",
   "$id": "aws-inspector-assessmenttarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AssessmentTargetName"],

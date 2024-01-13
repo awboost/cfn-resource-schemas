@@ -1,5 +1,5 @@
 {
-  "$hash": "413bb4b207ad5f3c216908a69f124f29e8bef6cf",
+  "$hash": "5d502b917dfb17700683259c790f12c6dd11b1ff",
   "$id": "aws-acmpca-certificateauthorityactivation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CertificateAuthorityArn"],

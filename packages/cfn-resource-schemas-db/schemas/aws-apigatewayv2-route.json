@@ -1,5 +1,5 @@
 {
-  "$hash": "b1d39127e8cbb0e2573d0636738e23a566414e3b",
+  "$hash": "f2375c0a2d4473798c9d7acd6393c9962a272a16",
   "$id": "aws-apigatewayv2-route.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "8110516a34857ecf0e589591f85bc3db6858ad1c",
+  "$hash": "38e82a908fe88f0f7abbdef5730305126cf3fb25",
   "$id": "aws-cloudwatch-compositealarm.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AlarmName"],

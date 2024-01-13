@@ -1,5 +1,5 @@
 {
-  "$hash": "1300c3e198cd8e9cf330415cfafce62773c4981a",
+  "$hash": "a6b5f8768d0646e5297437656c7e11c4361dc8b4",
   "$id": "aws-forecast-datasetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DatasetGroupName"],

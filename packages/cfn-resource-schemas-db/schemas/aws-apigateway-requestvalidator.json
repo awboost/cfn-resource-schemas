@@ -1,5 +1,5 @@
 {
-  "$hash": "7cc29d694b55ac6bc3b5cdb6ff9ba5d40c07a957",
+  "$hash": "1b76e1a87afe6382551b66665408f14daec52fce",
   "$id": "aws-apigateway-requestvalidator.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/RestApiId"],

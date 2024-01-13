@@ -1,5 +1,5 @@
 {
-  "$hash": "5f5a77a086522c95666f6cfe19f59c349afe5eb2",
+  "$hash": "a76e1fe65dd77c5c59dacd644b20b102e764252c",
   "$id": "aws-kinesisanalyticsv2-applicationcloudwatchloggingoption.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "b258b61dab239a02587cfd8b9a46618a1dadb175",
+  "$hash": "4b216228276d24d28f1bf048a07a67fd0fa9b291",
   "$id": "aws-autoscaling-lifecyclehook.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,

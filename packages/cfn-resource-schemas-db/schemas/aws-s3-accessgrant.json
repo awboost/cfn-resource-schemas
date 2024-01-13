@@ -1,5 +1,5 @@
 {
-  "$hash": "07d1b938eebd93c2df417625565013b9aa05a331",
+  "$hash": "6af928bc7f76a581cadbb36e666ec31f4b46e43b",
   "$id": "aws-s3-accessgrant.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/S3PrefixType", "/properties/Tags"],

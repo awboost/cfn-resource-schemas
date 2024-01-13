@@ -1,5 +1,5 @@
 {
-  "$hash": "5b788fad46723c6ec1f65e74ed6ff05723ae9096",
+  "$hash": "9f2c83346a8a649a1fdfcd601f98bb4c43826a07",
   "$id": "aws-connect-securitykey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceId", "/properties/Key"],

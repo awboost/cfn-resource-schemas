@@ -1,5 +1,5 @@
 {
-  "$hash": "efe99a54d5f2d6bbfdb7eb0d530113de10e51de9",
+  "$hash": "9e4d2fd72f9a692ad2477e0c32453534bd644420",
   "$id": "aws-b2bi-profile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Logging"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "80ac924594923876dd72a88d7c91d058edc3d1e5",
+  "$hash": "2e91f9b494f2f66c197c22b380ee6f9aca8bf08b",
   "$id": "aws-rds-dbsubnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DBSubnetGroupName"],

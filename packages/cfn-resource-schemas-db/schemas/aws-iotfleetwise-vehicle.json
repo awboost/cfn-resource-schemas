@@ -1,5 +1,5 @@
 {
-  "$hash": "f9b57b97f023fa7b751cc79ea563c3fedaef297f",
+  "$hash": "f0b9adaa2b9da97054622d92ce91f2169a206748",
   "$id": "aws-iotfleetwise-vehicle.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

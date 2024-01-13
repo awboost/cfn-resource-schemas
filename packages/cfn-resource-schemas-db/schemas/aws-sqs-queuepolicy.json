@@ -1,5 +1,5 @@
 {
-  "$hash": "893acf777146e2075171e32c0777115a0f838925",
+  "$hash": "646116793e4ec9dd3573e5c072995204a66215f8",
   "$id": "aws-sqs-queuepolicy.json",
   "additionalProperties": false,
   "description": "The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.",

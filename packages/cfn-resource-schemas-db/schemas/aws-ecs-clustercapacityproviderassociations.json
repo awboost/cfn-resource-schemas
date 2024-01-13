@@ -1,5 +1,5 @@
 {
-  "$hash": "bb7b565a68809eb0525348e46a94df4efc9d4826",
+  "$hash": "4b2e111c243c2003ac18a0a24d3aeb5e224c48ef",
   "$id": "aws-ecs-clustercapacityproviderassociations.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Cluster"],

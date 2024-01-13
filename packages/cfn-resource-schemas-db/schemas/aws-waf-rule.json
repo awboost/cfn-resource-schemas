@@ -1,5 +1,5 @@
 {
-  "$hash": "ffa6884e22e1bb002fbcf30a03c7c93e282af89f",
+  "$hash": "d9a3ead0857352646612a295d32577a319de2cfe",
   "$id": "aws-waf-rule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MetricName", "/properties/Name"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "2161b2e4a2757db09dba9dfff411be2910275ba2",
+  "$hash": "321efd85e49d79453a13c6d330c314f8a84f2033",
   "$id": "aws-networkfirewall-tlsinspectionconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TLSInspectionConfigurationName"],

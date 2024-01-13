@@ -1,5 +1,5 @@
 {
-  "$hash": "4277cee19d6001df128002957cb4a7a3af2f2233",
+  "$hash": "985f567640586b64624e1dd903e1377c907ef481",
   "$id": "aws-ssm-parameter.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

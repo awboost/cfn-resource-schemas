@@ -1,5 +1,5 @@
 {
-  "$hash": "ff0a3d19ea191838cf2aa2e3c4cc5e9afbc27c66",
+  "$hash": "bd7fb018ac17a2cce023f6002d194803b9a50a42",
   "$id": "aws-scheduler-schedule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

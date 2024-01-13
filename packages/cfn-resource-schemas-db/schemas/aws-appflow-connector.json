@@ -1,5 +1,5 @@
 {
-  "$hash": "2303b957febe039e64c3fc8047b7bcae50d3a41f",
+  "$hash": "d14b5442f2759c78d3e61f1fa622a5e38288d237",
   "$id": "aws-appflow-connector.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectorLabel"],

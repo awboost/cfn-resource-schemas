@@ -1,5 +1,5 @@
 {
-  "$hash": "3d4653cc67c7fa0e41940f9e9af733f03c5f1dbc",
+  "$hash": "9705f24db57c8c29b4b76c50d051c1e6f7cb7898",
   "$id": "aws-neptunegraph-privategraphendpoint.json",
   "additionalIdentifiers": [
     ["/properties/GraphIdentifier", "/properties/VpcId"]

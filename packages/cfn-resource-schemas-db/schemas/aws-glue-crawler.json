@@ -1,5 +1,5 @@
 {
-  "$hash": "f05677db8128d59ed2d08590a22d21fd2206837c",
+  "$hash": "fa5dc23ed44ec55a798e2bc0db2900749b4b3e61",
   "$id": "aws-glue-crawler.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

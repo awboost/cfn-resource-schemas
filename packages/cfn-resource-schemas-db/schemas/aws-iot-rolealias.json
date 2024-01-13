@@ -1,5 +1,5 @@
 {
-  "$hash": "f0b22106f2d4b8f54143a17f54214bb25e270de7",
+  "$hash": "c60ceb24ef609f34d59b4ff04a702bfa84d62c07",
   "$id": "aws-iot-rolealias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RoleAlias"],

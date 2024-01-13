@@ -1,5 +1,5 @@
 {
-  "$hash": "be61a2fda710db6943ee734394d8321679881832",
+  "$hash": "ae81cfd5ad6565f5d09f4d1b7ff394a5f1d03550",
   "$id": "aws-apigatewayv2-model.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],

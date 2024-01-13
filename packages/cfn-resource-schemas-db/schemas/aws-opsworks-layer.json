@@ -1,5 +1,5 @@
 {
-  "$hash": "f34241f616a2a746ec758e597b852f7588ac6d60",
+  "$hash": "2564c03f4f71d441f3ae19681320f798b0f76533",
   "$id": "aws-opsworks-layer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type", "/properties/StackId"],

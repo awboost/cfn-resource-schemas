@@ -1,5 +1,5 @@
 {
-  "$hash": "0af88eaa99b38acd26f621800077594c8dd334f2",
+  "$hash": "4b9ec9dd2b510061a2c9d56aaab19d6348b74f31",
   "$id": "aws-rds-dbsecuritygroupingress.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::RDS::DBSecurityGroupIngress",

@@ -1,5 +1,5 @@
 {
-  "$hash": "1accfd5489782ad07ad661ef86841e66e51d8ec8",
+  "$hash": "b6b756885094f722d11626fe167f42d9400cdb6d",
   "$id": "aws-sagemaker-notebookinstancelifecycleconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/NotebookInstanceLifecycleConfigName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "9fc0b068544b8efa845076eda3a9dffff634bd15",
+  "$hash": "8d9f9db2bb4111926b4302d4c36bb933880c4984",
   "$id": "aws-ec2-enclavecertificateiamroleassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CertificateArn", "/properties/RoleArn"],

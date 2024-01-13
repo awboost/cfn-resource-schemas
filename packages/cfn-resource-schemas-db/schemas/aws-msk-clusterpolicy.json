@@ -1,5 +1,5 @@
 {
-  "$hash": "852bd0185830724e01b36dc54aafc22dca141ba9",
+  "$hash": "701ae5d18e8bbb22b04d417c732fac56e7454bb0",
   "$id": "aws-msk-clusterpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterArn"],

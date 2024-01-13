@@ -1,5 +1,5 @@
 {
-  "$hash": "9ab6e2093236953190e51fdf969720f5be63a239",
+  "$hash": "94a7d584eab593e2d1e6d0c7226c3ca0b1175013",
   "$id": "aws-kendra-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],

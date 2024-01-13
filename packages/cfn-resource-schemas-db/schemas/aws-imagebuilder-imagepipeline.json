@@ -1,5 +1,5 @@
 {
-  "$hash": "5f5b7821ed94cfc196a583b929c613f2b8e05194",
+  "$hash": "f2a4534aaa8770f1ff92da87a52d7abfa5943c30",
   "$id": "aws-imagebuilder-imagepipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

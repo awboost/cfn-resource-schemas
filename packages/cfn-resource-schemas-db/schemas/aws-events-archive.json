@@ -1,5 +1,5 @@
 {
-  "$hash": "1f103bdd8da81cdaf8757c6aa4a8275add156bdf",
+  "$hash": "be5e84c514903015730b624bac0e07adce61a49d",
   "$id": "aws-events-archive.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ArchiveName", "/properties/SourceArn"],

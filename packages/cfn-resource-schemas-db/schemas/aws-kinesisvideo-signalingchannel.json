@@ -1,5 +1,5 @@
 {
-  "$hash": "104b20237a7c8b963d3c0667dd37d0af96b341dc",
+  "$hash": "ad0d03a96fb9b42f217e3fcf63062ad27e58580a",
   "$id": "aws-kinesisvideo-signalingchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

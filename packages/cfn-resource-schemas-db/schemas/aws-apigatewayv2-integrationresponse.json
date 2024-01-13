@@ -1,5 +1,5 @@
 {
-  "$hash": "b749b7962c18e0ea5287db761426ec8ffb33b96b",
+  "$hash": "87307bfbd785f727dc63adab22f1907ffa5039f8",
   "$id": "aws-apigatewayv2-integrationresponse.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId", "/properties/IntegrationId"],

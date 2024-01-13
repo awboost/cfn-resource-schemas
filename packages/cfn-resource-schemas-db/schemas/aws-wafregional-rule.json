@@ -1,5 +1,5 @@
 {
-  "$hash": "eddcfaf965ed92983af6b55d6b865adc8eb92e5e",
+  "$hash": "086a8c6855038d4ca2b0b2a12821ead462dde042",
   "$id": "aws-wafregional-rule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MetricName", "/properties/Name"],

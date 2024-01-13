@@ -1,5 +1,5 @@
 {
-  "$hash": "14ca7f78f4b59f097c6fd21ac77a127a37e08140",
+  "$hash": "e21cac1012f2694b1dbd69dbae9c95356984d77a",
   "$id": "aws-supportapp-accountalias.json",
   "additionalProperties": false,
   "description": "An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.",

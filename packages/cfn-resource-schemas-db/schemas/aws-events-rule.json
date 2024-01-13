@@ -1,5 +1,5 @@
 {
-  "$hash": "82269f2969ea5e156a475e99ab2bda6bd8585fbc",
+  "$hash": "9bf02bd6e57162c171626d406e8fbe829a3e7bc8",
   "$id": "aws-events-rule.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/EventBusName"],

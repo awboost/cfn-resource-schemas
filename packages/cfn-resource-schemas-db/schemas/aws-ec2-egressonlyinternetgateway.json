@@ -1,5 +1,5 @@
 {
-  "$hash": "a599482e22d610d314e982a3874a948c54d4a7c3",
+  "$hash": "6d2886c5bf4b0ed457de382cccdb33eb5fe47f4c",
   "$id": "aws-ec2-egressonlyinternetgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId"],

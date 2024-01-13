@@ -1,5 +1,5 @@
 {
-  "$hash": "023a72199c2148eefaec91481822938445f487b1",
+  "$hash": "88359657a25485de32dec9ec5aa6213fe9113a32",
   "$id": "aws-lex-botalias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BotId"],

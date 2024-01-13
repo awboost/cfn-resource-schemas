@@ -1,5 +1,5 @@
 {
-  "$hash": "5e96f77b82dc07838a73774ada07464f256e529f",
+  "$hash": "a7cf256cadbf5bd7041964d16c564e1ab92ac15d",
   "$id": "aws-batch-computeenvironment.json",
   "additionalIdentifiers": [["/properties/ComputeEnvironmentName"]],
   "additionalProperties": false,

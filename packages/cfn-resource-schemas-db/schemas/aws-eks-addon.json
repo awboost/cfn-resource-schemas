@@ -1,5 +1,5 @@
 {
-  "$hash": "495fbbcbe556f9c22cd2a4849c7e97c48b5518a4",
+  "$hash": "ca627d45695d6a371dceade679ea685d5c0161ab",
   "$id": "aws-eks-addon.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterName", "/properties/AddonName"],

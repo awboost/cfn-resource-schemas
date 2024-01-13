@@ -1,5 +1,5 @@
 {
-  "$hash": "fc21101b7902cba94fb89ba49cba15b751e03759",
+  "$hash": "7eeeef07d4e739e11546647c9dd484edcecc5d22",
   "$id": "aws-ec2-vpcendpointservicepermissions.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServiceId"],

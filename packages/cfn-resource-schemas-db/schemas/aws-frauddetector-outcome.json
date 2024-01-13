@@ -1,5 +1,5 @@
 {
-  "$hash": "7453777366f5d3661676aa6057556d2a565918fa",
+  "$hash": "279be51ee543d31269be1dbbe8cb11af8fccff02",
   "$id": "aws-frauddetector-outcome.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

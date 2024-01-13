@@ -1,5 +1,5 @@
 {
-  "$hash": "086ad95b2591377b88f4b87f954ca209f36e49e2",
+  "$hash": "aafc435c50fc50f409d175b24d64f298bd2d61e3",
   "$id": "aws-iam-policy.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::IAM::Policy",

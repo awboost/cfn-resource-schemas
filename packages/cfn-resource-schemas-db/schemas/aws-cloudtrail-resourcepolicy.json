@@ -1,5 +1,5 @@
 {
-  "$hash": "4fa4bc6d896fc6c7aa630f2df5dfdb418533bf54",
+  "$hash": "278680f60fe5d65dd0e42b15b78429a096aa0db0",
   "$id": "aws-cloudtrail-resourcepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn"],

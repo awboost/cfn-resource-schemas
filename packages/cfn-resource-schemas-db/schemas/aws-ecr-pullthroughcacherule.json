@@ -1,5 +1,5 @@
 {
-  "$hash": "cdee8cb63b07b2700a92a99048571dd63ffeb352",
+  "$hash": "d232c6cbe3c810d270d0271bd1e346ac8bba8498",
   "$id": "aws-ecr-pullthroughcacherule.json",
   "additionalProperties": false,
   "createOnlyProperties": [

@@ -1,5 +1,5 @@
 {
-  "$hash": "5041164f300d2aca713be251b2ffdc90cabe7dd2",
+  "$hash": "1b38cfca5d670e22d9d52604aad6a6f743329364",
   "$id": "aws-pinpoint-emailtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TemplateName"],

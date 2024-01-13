@@ -1,5 +1,5 @@
 {
-  "$hash": "e61071e6e61c1a5b77d8168d2e46c87c236528d4",
+  "$hash": "73dc697153d2cc26ac9b976dbef7690948228c92",
   "$id": "aws-pinpoint-pushtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TemplateName"],

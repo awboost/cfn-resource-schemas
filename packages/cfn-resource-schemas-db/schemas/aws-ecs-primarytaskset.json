@@ -1,5 +1,5 @@
 {
-  "$hash": "97e312fdc10f6b51b1e608cb4c84d6928221bcf1",
+  "$hash": "d47b3c4ae24346813d70e9cb03f5eceb30690bb3",
   "$id": "aws-ecs-primarytaskset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Cluster", "/properties/Service"],

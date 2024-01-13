@@ -1,5 +1,5 @@
 {
-  "$hash": "2d8f51236a7b602dbd6d63a1359d9d94b7a52f40",
+  "$hash": "d7ec1527a85344f31b681e4fcb6e3190eccddc40",
   "$id": "aws-mediatailor-channelpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ChannelName"],

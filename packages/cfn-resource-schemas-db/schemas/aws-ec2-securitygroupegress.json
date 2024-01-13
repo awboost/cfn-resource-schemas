@@ -1,5 +1,5 @@
 {
-  "$hash": "4b12f68e70a165febacd407fed628e38ce09b75a",
+  "$hash": "541459eeeda991cf7ba71e325fa16e05e38f8010",
   "$id": "aws-ec2-securitygroupegress.json",
   "additionalProperties": false,
   "createOnlyProperties": [

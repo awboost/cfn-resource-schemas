@@ -1,5 +1,5 @@
 {
-  "$hash": "be84172087f9deeb89a9d20c2142dab674b92d0b",
+  "$hash": "a055a2acc3ddcbf7cc13a33f8ffb27b2a162b214",
   "$id": "aws-mediaconvert-preset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

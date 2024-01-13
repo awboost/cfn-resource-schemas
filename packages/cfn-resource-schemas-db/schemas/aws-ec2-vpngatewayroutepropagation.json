@@ -1,5 +1,5 @@
 {
-  "$hash": "89a8616680b0f938c98f99f813999841e10ce805",
+  "$hash": "a292fc2bfcf6558183a34110e2815d67826cd60b",
   "$id": "aws-ec2-vpngatewayroutepropagation.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::EC2::VPNGatewayRoutePropagation",

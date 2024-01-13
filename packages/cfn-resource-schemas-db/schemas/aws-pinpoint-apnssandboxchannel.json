@@ -1,5 +1,5 @@
 {
-  "$hash": "9437b50c71b8228c563a4d22639b8c380cfdbda2",
+  "$hash": "d5fa7336010b10771e3beda6b422cf1463b286f8",
   "$id": "aws-pinpoint-apnssandboxchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],

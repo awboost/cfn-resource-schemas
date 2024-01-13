@@ -1,5 +1,5 @@
 {
-  "$hash": "5f059e26f5688d6c9543aa0744467d861ad966b6",
+  "$hash": "59a98e53b8c436e681d6e10148fa4350fad0c0ba",
   "$id": "aws-appstream-appblockbuilder.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "2da74de2cd1b375f05a8e8a7ad86343652401d22",
+  "$hash": "fa4ad4dd24b55c126b2fe858759b5bb0c3a0347e",
   "$id": "aws-location-placeindex.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DataSource", "/properties/IndexName"],

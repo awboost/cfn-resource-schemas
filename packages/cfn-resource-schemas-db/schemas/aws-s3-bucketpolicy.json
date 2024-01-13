@@ -1,5 +1,5 @@
 {
-  "$hash": "2267724da9cb4fb45864b7c8409f0c2b2e457fa3",
+  "$hash": "e56b2106b38cbaaea2f89c4ddd379d53d46cffa9",
   "$id": "aws-s3-bucketpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Bucket"],

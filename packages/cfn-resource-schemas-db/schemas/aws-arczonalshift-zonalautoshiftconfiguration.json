@@ -1,5 +1,5 @@
 {
-  "$hash": "fc1c66462bff4d404e7e513086a7234cb544b818",
+  "$hash": "71e9cfbd0595f884e2926127829834bae37ee0fd",
   "$id": "aws-arczonalshift-zonalautoshiftconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceIdentifier"],

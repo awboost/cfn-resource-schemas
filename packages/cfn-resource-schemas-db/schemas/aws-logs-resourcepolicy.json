@@ -1,5 +1,5 @@
 {
-  "$hash": "915aa0f94123728743e5ba73e394140ab6fdc2c4",
+  "$hash": "f4e690a1cb56a06055b40faf00ce29b5ad0e16ed",
   "$id": "aws-logs-resourcepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName"],

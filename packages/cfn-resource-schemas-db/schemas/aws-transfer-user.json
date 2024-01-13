@@ -1,5 +1,5 @@
 {
-  "$hash": "281676adb4f3bb7b08323792aeeb927ea8456d96",
+  "$hash": "51413960c34b0fafb5c17b2ff4fd59d39f2d48f8",
   "$id": "aws-transfer-user.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServerId", "/properties/UserName"],

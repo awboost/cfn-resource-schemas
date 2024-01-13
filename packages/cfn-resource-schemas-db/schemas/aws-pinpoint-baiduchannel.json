@@ -1,5 +1,5 @@
 {
-  "$hash": "3a47e62145d63ab7bd8545ec1ae0a6be81c5e0b4",
+  "$hash": "3a5b9c2ef71930b904013217a83335e919f6192f",
   "$id": "aws-pinpoint-baiduchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],

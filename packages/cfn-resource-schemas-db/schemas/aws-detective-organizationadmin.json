@@ -1,5 +1,5 @@
 {
-  "$hash": "1ae73dde585b374a38aba2deb091f8e909da1867",
+  "$hash": "c27d86195bd63e75271c23bf6f69ed5ffeb9aea1",
   "$id": "aws-detective-organizationadmin.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AccountId"],

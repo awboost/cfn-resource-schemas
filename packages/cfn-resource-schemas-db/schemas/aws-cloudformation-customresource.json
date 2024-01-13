@@ -1,5 +1,5 @@
 {
-  "$hash": "f9b274e46cd7067ec662cd1376c08ce0e2e339b6",
+  "$hash": "89cf6df2822e9839f10594e611a49800039eeb80",
   "$id": "aws-cloudformation-customresource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServiceToken"],

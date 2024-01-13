@@ -1,5 +1,5 @@
 {
-  "$hash": "1da97fa472758d3fca424532671f8e92b62bebaa",
+  "$hash": "f1e0ddc50fa8342173940f28ba390b21b4b344c6",
   "$id": "aws-imagebuilder-distributionconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

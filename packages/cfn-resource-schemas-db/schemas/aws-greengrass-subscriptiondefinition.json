@@ -1,5 +1,5 @@
 {
-  "$hash": "521f7a902ec08a19b08c693a96f0b16dc39971a5",
+  "$hash": "1e286b8edd4d70900947acafa237c6511d676ec5",
   "$id": "aws-greengrass-subscriptiondefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InitialVersion"],

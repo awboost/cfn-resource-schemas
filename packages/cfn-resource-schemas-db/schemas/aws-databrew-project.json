@@ -1,5 +1,5 @@
 {
-  "$hash": "0827523151a5718ae9ea13b5a9ae1b9e2f1cc4af",
+  "$hash": "90d9d8cc6cb2f63efce818fc7d0f966a06c55277",
   "$id": "aws-databrew-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],

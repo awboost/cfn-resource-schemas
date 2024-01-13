@@ -1,5 +1,5 @@
 {
-  "$hash": "9510f3615ae791903ca524ef511d9b0235b51b64",
+  "$hash": "f96c71761d1d56e38b541faada800841fa00c352",
   "$id": "aws-dms-instanceprofile.json",
   "additionalIdentifiers": [["/properties/InstanceProfileName"]],
   "additionalProperties": false,

@@ -1,5 +1,5 @@
 {
-  "$hash": "18d9650b6084a579f9c1d68f0cfd83d4c5bb0b23",
+  "$hash": "e6e205dd94a9f74b27a6541a77cf2503924d3800",
   "$id": "aws-iottwinmaker-workspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkspaceId"],

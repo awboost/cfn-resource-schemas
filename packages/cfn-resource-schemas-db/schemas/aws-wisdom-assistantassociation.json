@@ -1,5 +1,5 @@
 {
-  "$hash": "95bc85ed94fd677b8196eee45b778b82771ce9da",
+  "$hash": "989c1c6f7bd996a0c9cd06f027b64f4d8b2bf645",
   "$id": "aws-wisdom-assistantassociation.json",
   "additionalIdentifiers": [
     ["/properties/AssistantAssociationArn", "/properties/AssistantArn"]

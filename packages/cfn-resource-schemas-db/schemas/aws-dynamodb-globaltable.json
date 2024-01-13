@@ -1,5 +1,5 @@
 {
-  "$hash": "643bb3e0ed4a2020dbeaaa768b5d6d08687ad225",
+  "$hash": "1b6273630823dcaa67bcc164c37e4948309a1c01",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,

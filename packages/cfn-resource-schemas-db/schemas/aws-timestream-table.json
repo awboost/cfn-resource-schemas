@@ -1,5 +1,5 @@
 {
-  "$hash": "8c8b47fb4e303b43619ec0790e1787d5746bac4f",
+  "$hash": "2f2b468a23b0da4463e55614c24d8fbc4680740c",
   "$id": "aws-timestream-table.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DatabaseName", "/properties/TableName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "f5dbf904ac1072e2d793a716b22e04842f4d09e0",
+  "$hash": "872ddc5fb8bb0be0c5f8026070410251e00177ab",
   "$id": "aws-dax-parametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ParameterGroupName"],

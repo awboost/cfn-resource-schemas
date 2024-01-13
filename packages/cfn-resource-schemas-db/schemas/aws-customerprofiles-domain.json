@@ -1,5 +1,5 @@
 {
-  "$hash": "883c8bcb05a007206e3618bbd85905207057aa5c",
+  "$hash": "236f55838492fc484e1fdd0cd0cf4c5c45dcc73c",
   "$id": "aws-customerprofiles-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],

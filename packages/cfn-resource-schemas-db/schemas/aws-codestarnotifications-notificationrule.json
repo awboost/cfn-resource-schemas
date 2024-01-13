@@ -1,5 +1,5 @@
 {
-  "$hash": "5c078ecadd78a9aa2bb08ab224dee9542045b6e5",
+  "$hash": "cf2fdc4d6b18b5cb1a1e746df7643625ffc4bed4",
   "$id": "aws-codestarnotifications-notificationrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Resource"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "d96db8e452ea9a39c1bfbf2b7757cae5831575fd",
+  "$hash": "d05465d8c204259a5c369880bf90a2e316dff05e",
   "$id": "aws-resourceexplorer2-view.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Scope", "/properties/ViewName"],

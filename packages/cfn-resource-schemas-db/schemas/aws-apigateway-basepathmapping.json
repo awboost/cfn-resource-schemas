@@ -1,5 +1,5 @@
 {
-  "$hash": "a41751cae8e5b817724a2357a6e80600b42a89cf",
+  "$hash": "7b679bcca71fb8aa6725ae7ea5e9db42aa897b59",
   "$id": "aws-apigateway-basepathmapping.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName", "/properties/BasePath"],

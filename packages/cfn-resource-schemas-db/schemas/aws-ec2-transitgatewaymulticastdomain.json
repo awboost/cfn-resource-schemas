@@ -1,5 +1,5 @@
 {
-  "$hash": "a5cee8ebe829c5e3c18eecba3aca8fa6351005db",
+  "$hash": "4c75c997a661abd338fcb6932eebc2ff0bdd1b4e",
   "$id": "aws-ec2-transitgatewaymulticastdomain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TransitGatewayId"],

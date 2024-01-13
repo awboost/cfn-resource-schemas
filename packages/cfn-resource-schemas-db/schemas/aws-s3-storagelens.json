@@ -1,5 +1,5 @@
 {
-  "$hash": "4b8f8d08d92afa50a332198b26f7aee930348328",
+  "$hash": "f524d6d298794d110109431810ee97bd973423b8",
   "$id": "aws-s3-storagelens.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/StorageLensConfiguration/Id"],

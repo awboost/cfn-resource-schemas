@@ -1,5 +1,5 @@
 {
-  "$hash": "918e53d6734185a7bbe20b4922ef2f86fd9d1407",
+  "$hash": "3926d1fe7749029a18e78091cc50d3267646cdfc",
   "$id": "aws-logs-subscriptionfilter.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-cli/master/src/rpdk/core/data/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,

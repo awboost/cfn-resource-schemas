@@ -1,5 +1,5 @@
 {
-  "$hash": "0606bce638b32657b9711d395b54ae8c2cd426f7",
+  "$hash": "8881d00a1f7d63a583f33a37acc251b0679b11da",
   "$id": "aws-kms-replicakey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PrimaryKeyArn"],

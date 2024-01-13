@@ -1,5 +1,5 @@
 {
-  "$hash": "ab0c87c88ebe50a7401cc9453da5afa20253dd0a",
+  "$hash": "be294e9ae9c2502f01f59051810eb5a33bd123c2",
   "$id": "aws-config-configurationrecorder.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

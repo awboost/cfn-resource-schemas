@@ -1,5 +1,5 @@
 {
-  "$hash": "da0019394cb8d3d125f1687badb30eb6ba4ee736",
+  "$hash": "7d27c8d0e025f35546ee674c5cfe4df5cec3dc86",
   "$id": "aws-iotanalytics-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DatasetName"],

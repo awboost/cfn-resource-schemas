@@ -1,5 +1,5 @@
 {
-  "$hash": "b71838d4850120464101c06463e38ed7d4bff281",
+  "$hash": "f0f47946d23ca11c736220a4820ca20e602cce65",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,

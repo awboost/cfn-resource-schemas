@@ -1,5 +1,5 @@
 {
-  "$hash": "3e914b55744c175c1005727e3362e91e001df41f",
+  "$hash": "f2007869ede655dd7bc35a798be9f7fcf954e191",
   "$id": "aws-cloudfront-monitoringsubscription.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DistributionId"],

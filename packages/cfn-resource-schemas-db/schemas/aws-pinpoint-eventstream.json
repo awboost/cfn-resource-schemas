@@ -1,5 +1,5 @@
 {
-  "$hash": "27ace45125a6c769e12e76fda57b831aeb6c8fff",
+  "$hash": "1175c19095421d4311b3ffce6eac292683fd2112",
   "$id": "aws-pinpoint-eventstream.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "2041ba2c8248793ceff3df5a66db4aaf02877a7d",
+  "$hash": "581e9048bc725d76e177a697b3a62cbf04593e06",
   "$id": "aws-macie-findingsfilter.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/Name"]],
   "additionalProperties": false,

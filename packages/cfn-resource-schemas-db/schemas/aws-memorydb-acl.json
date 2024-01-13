@@ -1,5 +1,5 @@
 {
-  "$hash": "86993e450e2348f6be7433c68eab783e85691f67",
+  "$hash": "80260b24c5c5e1867b4b04db3c1702f5caf10896",
   "$id": "aws-memorydb-acl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ACLName"],

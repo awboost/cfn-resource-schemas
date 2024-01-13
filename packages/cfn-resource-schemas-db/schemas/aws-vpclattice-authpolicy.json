@@ -1,5 +1,5 @@
 {
-  "$hash": "44d530bc6a394eacb9d01bf46b5c2dd419a47938",
+  "$hash": "af3bd59d6bea04ef27271c91326a9967a79960c0",
   "$id": "aws-vpclattice-authpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceIdentifier"],

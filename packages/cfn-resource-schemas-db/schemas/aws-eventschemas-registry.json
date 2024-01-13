@@ -1,5 +1,5 @@
 {
-  "$hash": "c90a3e1725da3f6302c5d07dc173e599ca6bda35",
+  "$hash": "99e95dffb5e269a8faec90afda492b74481ad173",
   "$id": "aws-eventschemas-registry.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RegistryName"],

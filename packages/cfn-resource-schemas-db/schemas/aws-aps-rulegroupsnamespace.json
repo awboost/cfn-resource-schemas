@@ -1,5 +1,5 @@
 {
-  "$hash": "6cc0ed172b758cdfaa31f7111f3f9943311953e5",
+  "$hash": "19264351798b4874f1615bd5ade04a1ed0d68d2b",
   "$id": "aws-aps-rulegroupsnamespace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

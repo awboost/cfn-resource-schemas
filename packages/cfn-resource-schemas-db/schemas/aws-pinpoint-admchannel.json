@@ -1,5 +1,5 @@
 {
-  "$hash": "d72b96ab70bf04e03e0c66eb7a74c4c014eaf3f6",
+  "$hash": "7e91bb3e36894721a1500f423d565d981ac4a5bf",
   "$id": "aws-pinpoint-admchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],

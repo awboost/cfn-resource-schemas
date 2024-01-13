@@ -1,5 +1,5 @@
 {
-  "$hash": "875acd218ae16b552c9c39972862edee09569155",
+  "$hash": "cd9addbae70905ea856eb0ecc73aa94a403083af",
   "$id": "aws-greengrass-group.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InitialVersion"],

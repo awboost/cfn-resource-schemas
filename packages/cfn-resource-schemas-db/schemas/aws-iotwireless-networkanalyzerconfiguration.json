@@ -1,5 +1,5 @@
 {
-  "$hash": "dd424115f4205b3c499b49aeb8fdd022bf661912",
+  "$hash": "07a4854d7f66a6a21c9efa41835ddd7b2ff2eb8e",
   "$id": "aws-iotwireless-networkanalyzerconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],

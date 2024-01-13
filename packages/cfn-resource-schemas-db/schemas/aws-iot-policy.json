@@ -1,5 +1,5 @@
 {
-  "$hash": "798d391f11c920ff743bd30c54e9a8f6663dc7ed",
+  "$hash": "97589b133f70b76e8784974bbdb361ce97244c6e",
   "$id": "aws-iot-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "47d95aa6514b04b0b79e3717165e1bc4deb341ee",
+  "$hash": "f360e5f642bd1687ecde8c3615636878b3d13ac6",
   "$id": "aws-appstream-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/FleetType"],

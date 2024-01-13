@@ -1,5 +1,5 @@
 {
-  "$hash": "bec989113059a6bb047e8e3a2240766c342af67f",
+  "$hash": "72bb01a4dddbcbb7edc441fe37b1af87cc6cb4a3",
   "$id": "aws-route53recoveryreadiness-cell.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CellName"],

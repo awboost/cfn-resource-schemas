@@ -1,5 +1,5 @@
 {
-  "$hash": "50bb0ff24b552a5191d95a507dd268ece66bf970",
+  "$hash": "2aa0a56b70a16a9c75b8aa0b52b71fbff0b5a70e",
   "$id": "aws-greengrass-coredefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InitialVersion"],

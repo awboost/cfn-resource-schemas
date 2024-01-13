@@ -1,5 +1,5 @@
 {
-  "$hash": "b61ab72e9ce781517d8043445970720c0f19218a",
+  "$hash": "c5f45b019242974df7df334e76aad95e71a03444",
   "$id": "aws-kinesis-stream.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

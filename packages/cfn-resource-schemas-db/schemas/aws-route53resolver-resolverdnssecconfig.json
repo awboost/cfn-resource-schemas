@@ -1,5 +1,5 @@
 {
-  "$hash": "f27ece187206de9c07fae8b6d947feedb50a3d5d",
+  "$hash": "764f51ec06d5b42ec316862b5245bfaa8751f83b",
   "$id": "aws-route53resolver-resolverdnssecconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceId"],

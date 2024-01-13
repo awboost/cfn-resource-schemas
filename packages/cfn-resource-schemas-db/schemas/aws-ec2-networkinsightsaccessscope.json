@@ -1,5 +1,5 @@
 {
-  "$hash": "4363b7f743f13a16ed887c53b1220f32855cf1d5",
+  "$hash": "4445accb5c82e7a66e6b8dffa04304e65742f8cc",
   "$id": "aws-ec2-networkinsightsaccessscope.json",
   "additionalIdentifiers": [["/properties/NetworkInsightsAccessScopeArn"]],
   "additionalProperties": false,
