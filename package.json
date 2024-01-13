@@ -7,7 +7,7 @@
     "build": "npm run clean && npm run compile && npm run test && npm run lint",
     "clean": "rimraf --glob 'packages/*/lib' '**/tsconfig.tsbuildinfo'",
     "compile": "node scripts/tsbuild.mjs scripts",
-    "download": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js download packages/cfn-resource-schemas-db/schemas --exit-code",
+    "download": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js download packages/cfn-resource-schemas-db/schemas --exit-code --changelog recent-changes.md",
     "generate:cached": "node --enable-source-maps packages/cfn-codegen/lib/cli/main.js generate packages/cfn-resource-schemas-db/schemas --output-dir packages/cfn-resource-types/src --resource",
     "lint": "npm run --workspaces --if-present lint",
     "test": "node --enable-source-maps --test",
