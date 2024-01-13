@@ -27,9 +27,9 @@
   "scripts": {
     "lint": "eslint src/ --ext=ts",
     "postpublish": "npm run tag-version && git push --follow-tags",
+    "postversion": "npm install --package-lock-only --ignore-scripts --silent && git commit -am ${npm_package_name}@${npm_package_version}",
     "preversion": "git diff-index --quiet HEAD -- || ! echo 'Uncommitted changes present'",
-    "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}",
-    "version": "git add -A && git commit -m ${npm_package_name}@${npm_package_version}"
+    "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}"
   },
   "dependencies": {
     "@awboost/cfn-resource-schemas": "^0.1.0"
