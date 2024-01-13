@@ -146,6 +146,7 @@ async function* withHash<T>(
 ): AsyncGenerator<T & IntegrityProps> {
   for await (const item of iterator) {
     // exclude $id from hash calculation if present
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { $id, ...rest } = item as any;
     const hash = createHash("sha1");
     hash.update(canonicalize(rest));
