@@ -34,3 +34,34 @@ jobs:
       - name: Generate Types
         if: steps.download.outcome == 'success'
         run: npm run generate:cached
+
+      - name: Build with new types
+        if: steps.download.outcome == 'success'
+        run: npm run build
+
+      - name: Configure Git
+        if: steps.download.outcome == 'success'
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+        run: |
+          set -e
+          git config user.email "actions@github.com"
+          git config user.name "Github Actions"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+
+      - name: Commit changes
+        if: steps.download.outcome == 'success'
+        run: |
+          set -e
+          git add -A
+          git commit -m "update schemas"
+
+      - name: Bump @awboost/cfn-resource-types version
+        if: steps.download.outcome == 'success'
+        run: npm version -w @awboost/cfn-resource-types patch
+
+      - name: Publish @awboost/cfn-resource-types
+        if: steps.download.outcome == 'success'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish -w @awboost/cfn-resource-types
