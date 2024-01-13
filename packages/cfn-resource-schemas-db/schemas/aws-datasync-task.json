@@ -1,5 +1,6 @@
 {
-  "$hash": "62fddec133231638cdf6ec29d274f067e337bdaf",
+  "$hash": "a5d34ab08b77ab3ae1ee9ed0d54a6ede498ad920",
+  "$id": "aws-datasync-task.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DestinationLocationArn",

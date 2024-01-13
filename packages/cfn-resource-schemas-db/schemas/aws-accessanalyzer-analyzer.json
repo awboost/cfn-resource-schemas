@@ -1,7 +1,12 @@
 {
-  "$hash": "6b148d0af06b6cad8888429523a6d7dae06ec1c8",
+  "$hash": "4dba85b401a3f9009480ae3558d3aa692624e155",
+  "$id": "aws-accessanalyzer-analyzer.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/AnalyzerName", "/properties/Type"],
+  "createOnlyProperties": [
+    "/properties/AnalyzerName",
+    "/properties/Type",
+    "/properties/AnalyzerConfiguration"
+  ],
   "definitions": {
     "ArchiveRule": {
       "additionalProperties": false,
@@ -61,6 +66,19 @@
       },
       "required": ["Key", "Value"],
       "type": "object"
+    },
+    "UnusedAccessConfiguration": {
+      "additionalProperties": false,
+      "description": "The Configuration for Unused Access Analyzer",
+      "properties": {
+        "UnusedAccessAge": {
+          "description": "The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.",
+          "maximum": 180,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
     }
   },
   "description": "The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account",
@@ -96,6 +114,16 @@
   },
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
+    "AnalyzerConfiguration": {
+      "additionalProperties": false,
+      "description": "The configuration for the analyzer",
+      "properties": {
+        "UnusedAccessConfiguration": {
+          "$ref": "#/definitions/UnusedAccessConfiguration"
+        }
+      },
+      "type": "object"
+    },
     "AnalyzerName": {
       "description": "Analyzer name",
       "maxLength": 1024,
@@ -122,7 +150,7 @@
       "uniqueItems": true
     },
     "Type": {
-      "description": "The type of the analyzer, must be one of ACCOUNT, ORGANIZATION",
+      "description": "The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS",
       "maxLength": 1024,
       "minLength": 0,
       "type": "string"

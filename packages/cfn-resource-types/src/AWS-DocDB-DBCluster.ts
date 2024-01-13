@@ -25,6 +25,7 @@ export type DocDBDBClusterProperties = {
   SnapshotIdentifier?: string;
   SourceDBClusterIdentifier?: string;
   StorageEncrypted?: boolean;
+  StorageType?: string;
   Tags?: Tag[];
   UseLatestRestorableTime?: boolean;
   VpcSecurityGroupIds?: string[];

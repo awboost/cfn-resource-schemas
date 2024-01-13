@@ -1,5 +1,6 @@
 {
-  "$hash": "c84671be6b824a3e16b49fec38e79df25cf3ed92",
+  "$hash": "7b1cdc7550ec6c41a5f49621055050055198f403",
+  "$id": "aws-mediapackage-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Id", "/properties/Tags"],
   "definitions": {

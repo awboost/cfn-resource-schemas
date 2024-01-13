@@ -1,5 +1,6 @@
 {
-  "$hash": "806d544050d43750f22af62b667fc69ccc2756c8",
+  "$hash": "b54f9d1c76dd22ef38c9f334b2cff148924b2ec4",
+  "$id": "aws-cognito-logdeliveryconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserPoolId"],
   "definitions": {

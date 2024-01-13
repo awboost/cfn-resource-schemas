@@ -5,8 +5,17 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html}
  */
 export type EventSchemasRegistryProperties = {
+  /**
+   * A description of the registry to be created.
+   */
   Description?: string;
+  /**
+   * The name of the schema registry.
+   */
   RegistryName?: string;
+  /**
+   * Tags associated with the resource.
+   */
   Tags?: TagsEntry[];
 };
 /**
@@ -14,7 +23,9 @@ export type EventSchemasRegistryProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registry.html#aws-resource-eventschemas-registry-return-values}
  */
 export type EventSchemasRegistryAttributes = {
-  Id: string;
+  /**
+   * The ARN of the registry.
+   */
   RegistryArn: string;
 };
 /**

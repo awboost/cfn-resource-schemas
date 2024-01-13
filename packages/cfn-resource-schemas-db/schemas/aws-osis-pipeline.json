@@ -1,8 +1,33 @@
 {
-  "$hash": "226420ce95943100136d1433040ea0a0f5266a2b",
+  "$hash": "3ef7abb71db1385eca130db2119c072b548b5774",
+  "$id": "aws-osis-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PipelineName"],
   "definitions": {
+    "BufferOptions": {
+      "additionalProperties": false,
+      "description": "Key-value pairs to configure buffering.",
+      "properties": {
+        "PersistentBufferEnabled": {
+          "description": "Whether persistent buffering should be enabled.",
+          "type": "boolean"
+        }
+      },
+      "required": ["PersistentBufferEnabled"],
+      "type": "object"
+    },
+    "EncryptionAtRestOptions": {
+      "additionalProperties": false,
+      "description": "Key-value pairs to configure encryption at rest.",
+      "properties": {
+        "KmsKeyArn": {
+          "description": "The KMS key to use for encrypting data. By default an AWS owned key is used",
+          "type": "string"
+        }
+      },
+      "required": ["KmsKeyArn"],
+      "type": "object"
+    },
     "LogPublishingOptions": {
       "additionalProperties": false,
       "description": "Key-value pairs to configure log publishing.",
@@ -18,6 +43,7 @@
               "type": "string"
             }
           },
+          "required": ["LogGroup"],
           "type": "object"
         },
         "IsLoggingEnabled": {
@@ -90,6 +116,7 @@
           "type": "array"
         }
       },
+      "required": ["SubnetIds"],
       "type": "object"
     }
   },
@@ -99,26 +126,46 @@
       "permissions": [
         "osis:CreatePipeline",
         "osis:GetPipeline",
+        "osis:TagResource",
         "osis:ListTagsForResource",
         "iam:PassRole",
-        "iam:CreateServiceLinkedRole"
+        "iam:CreateServiceLinkedRole",
+        "logs:CreateLogDelivery",
+        "kms:DescribeKey"
       ]
     },
-    "delete": { "permissions": ["osis:DeletePipeline"] },
+    "delete": {
+      "permissions": [
+        "osis:DeletePipeline",
+        "osis:GetPipeline",
+        "logs:GetLogDelivery",
+        "logs:DeleteLogDelivery",
+        "logs:ListLogDeliveries"
+      ]
+    },
     "list": { "permissions": ["osis:ListPipelines"] },
     "read": { "permissions": ["osis:GetPipeline", "osis:ListTagsForResource"] },
     "update": {
       "permissions": [
         "osis:UpdatePipeline",
+        "osis:GetPipeline",
         "osis:ListTagsForResource",
         "osis:TagResource",
         "osis:UntagResource",
-        "iam:PassRole"
+        "iam:PassRole",
+        "logs:GetLogDelivery",
+        "logs:UpdateLogDelivery",
+        "logs:ListLogDeliveries",
+        "kms:DescribeKey"
       ]
     }
   },
   "primaryIdentifier": ["/properties/PipelineArn"],
   "properties": {
+    "BufferOptions": { "$ref": "#/definitions/BufferOptions" },
+    "EncryptionAtRestOptions": {
+      "$ref": "#/definitions/EncryptionAtRestOptions"
+    },
     "IngestEndpointUrls": {
       "description": "A list of endpoints that can be used for ingesting data into a pipeline",
       "insertionOrder": false,

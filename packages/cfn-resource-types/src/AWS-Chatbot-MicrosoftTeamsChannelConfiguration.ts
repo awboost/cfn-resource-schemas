@@ -41,7 +41,7 @@ export type ChatbotMicrosoftTeamsChannelConfigurationProperties = {
    * The id of the Microsoft Teams channel
    * @minLength `1`
    * @maxLength `256`
-   * @pattern `^([a-zA-Z0-9-_=+/.,])*%3a([a-zA-Z0-9-_=+/.,])*%40([a-zA-Z0-9-_=+/.,])*$`
+   * @pattern `^([a-zA-Z0-9-_=+/.,])*%3[aA]([a-zA-Z0-9-_=+/.,])*%40([a-zA-Z0-9-_=+/.,])*$`
    */
   TeamsChannelId: string;
   /**

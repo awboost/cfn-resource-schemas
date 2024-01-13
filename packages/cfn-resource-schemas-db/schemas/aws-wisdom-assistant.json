@@ -1,5 +1,6 @@
 {
-  "$hash": "24457d7de5959bbda14f33d4555bf2c5624bc7e6",
+  "$hash": "a42277c8b72b04d05ee99f77c299d29132ccb1d1",
+  "$id": "aws-wisdom-assistant.json",
   "additionalIdentifiers": [["/properties/AssistantArn"]],
   "additionalProperties": false,
   "createOnlyProperties": [

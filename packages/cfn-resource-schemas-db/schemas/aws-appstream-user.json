@@ -1,5 +1,6 @@
 {
-  "$hash": "39e259543175b275130a6d64ce2c1d8c542e3498",
+  "$hash": "2c7c06d92d4127250669b3a2d0b04743ea185366",
+  "$id": "aws-appstream-user.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/FirstName",

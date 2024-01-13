@@ -1,5 +1,6 @@
 {
-  "$hash": "fbeb3a8e5f856ea68ad956fc4c9202c6ebac9844",
+  "$hash": "aa7643b52409e1684039b2ed7e6c17f8258530ba",
+  "$id": "aws-iotwireless-serviceprofile.json",
   "additionalProperties": false,
   "definitions": {
     "LoRaWANServiceProfile": {

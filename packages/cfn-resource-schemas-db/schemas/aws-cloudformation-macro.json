@@ -1,5 +1,6 @@
 {
-  "$hash": "e3ce22c64f226b13695f9abcbf52283883530dd7",
+  "$hash": "9aa5e620ddfed1f4967aed87691728a056f906e4",
+  "$id": "aws-cloudformation-macro.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "description": "Resource Type definition for AWS::CloudFormation::Macro",

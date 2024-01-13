@@ -1,5 +1,6 @@
 {
-  "$hash": "51c738f950f72d7f50370a45b1e91c57a78a687c",
+  "$hash": "a997a59b2658b667073e739021c42e8bf7dd33b7",
+  "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FunctionName"],
   "definitions": {
@@ -281,7 +282,11 @@
       ]
     },
     "delete": {
-      "permissions": ["lambda:DeleteFunction", "ec2:DescribeNetworkInterfaces"]
+      "permissions": [
+        "lambda:DeleteFunction",
+        "lambda:GetFunction",
+        "ec2:DescribeNetworkInterfaces"
+      ]
     },
     "list": { "permissions": ["lambda:ListFunctions"] },
     "read": {
@@ -409,10 +414,6 @@
       "enum": ["Image", "Zip"],
       "type": "string"
     },
-    "Policy": {
-      "description": "The resource policy of your function",
-      "type": "object"
-    },
     "ReservedConcurrentExecutions": {
       "description": "The number of simultaneous executions to reserve for the function.",
       "minimum": 0,
@@ -483,7 +484,6 @@
     "/properties/Code/S3Bucket",
     "/properties/Code/S3Key",
     "/properties/Code/S3ObjectVersion",
-    "/properties/Code/ZipFile",
-    "/properties/Policy"
+    "/properties/Code/ZipFile"
   ]
 }

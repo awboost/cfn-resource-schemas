@@ -1,5 +1,6 @@
 {
-  "$hash": "8404d04121280eebe9f00607b187b6f5bada8941",
+  "$hash": "1a8e76a9041ee762e04316d03b1d2831ee0b69cf",
+  "$id": "aws-codebuild-reportgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Type"],
   "definitions": {

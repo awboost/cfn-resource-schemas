@@ -1,5 +1,6 @@
 {
-  "$hash": "320ee0b5694beb04cf407d0f1133e431020ffe52",
+  "$hash": "7d732c5e4f26ad80779b3a4f141cac177e07d72e",
+  "$id": "aws-forecast-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DatasetName"],
   "definitions": {

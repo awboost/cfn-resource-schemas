@@ -1,5 +1,6 @@
 {
-  "$hash": "4cacb9473bb3ba8b5dc9f6fd2e67cb49a4b02df7",
+  "$hash": "8997cfb68d96df059ee59768fe4f8e745050942b",
+  "$id": "aws-appsync-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DomainName",

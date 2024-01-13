@@ -11,7 +11,7 @@ export type VerifiedPermissionsPolicyProperties = {
    * @maxLength `200`
    * @pattern `^[a-zA-Z0-9-]*$`
    */
-  PolicyStoreId?: string;
+  PolicyStoreId: string;
 };
 /**
  * Attribute type definition for `AWS::VerifiedPermissions::Policy`.

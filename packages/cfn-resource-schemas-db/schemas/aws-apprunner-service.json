@@ -1,5 +1,6 @@
 {
-  "$hash": "e84d2347c7c9364e8f68ed021b692e91cf0723a4",
+  "$hash": "e118ffeba7f8490ee0d2d974c7749309556c972c",
+  "$id": "aws-apprunner-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceName",
@@ -59,7 +60,9 @@
             "GO_1",
             "DOTNET_6",
             "PHP_81",
-            "RUBY_31"
+            "RUBY_31",
+            "PYTHON_311",
+            "NODEJS_18"
           ],
           "type": "string"
         },

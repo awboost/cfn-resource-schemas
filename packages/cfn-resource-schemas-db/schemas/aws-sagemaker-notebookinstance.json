@@ -1,5 +1,6 @@
 {
-  "$hash": "5a1e3e60f51d3f4ed0c706f0fd7499449fb9e615",
+  "$hash": "c019d15ccdd01ced3ccded056013ce7cdf99b9df",
+  "$id": "aws-sagemaker-notebookinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KmsKeyId",

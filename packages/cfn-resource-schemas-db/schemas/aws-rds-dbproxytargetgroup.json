@@ -1,5 +1,6 @@
 {
-  "$hash": "2670809dc3f161dcdd815049275a81e2ba764dc1",
+  "$hash": "68703e234d57ba3adb9d9071715a959ad465b914",
+  "$id": "aws-rds-dbproxytargetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DBProxyName",
@@ -100,5 +101,11 @@
   "readOnlyProperties": ["/properties/TargetGroupArn"],
   "required": ["DBProxyName", "TargetGroupName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-rds-proxy",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::RDS::DBProxyTargetGroup"
 }

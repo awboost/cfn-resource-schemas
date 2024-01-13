@@ -1,5 +1,6 @@
 {
-  "$hash": "2acd5051af101a3ef5f930a0533b458b9b45d674",
+  "$hash": "876692e9f7018ba0b16d8882d417a563ac2d2c52",
+  "$id": "aws-docdb-dbcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KmsKeyId",
@@ -9,7 +10,6 @@
     "/properties/DBClusterIdentifier",
     "/properties/AvailabilityZones",
     "/properties/DBSubnetGroupName",
-    "/properties/EngineVersion",
     "/properties/StorageEncrypted"
   ],
   "definitions": {
@@ -58,6 +58,7 @@
     "SnapshotIdentifier": { "type": "string" },
     "SourceDBClusterIdentifier": { "type": "string" },
     "StorageEncrypted": { "type": "boolean" },
+    "StorageType": { "type": "string" },
     "Tags": {
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",

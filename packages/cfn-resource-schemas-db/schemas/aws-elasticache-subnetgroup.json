@@ -1,5 +1,6 @@
 {
-  "$hash": "372bf1992472410f769e069bab2c98be9897a146",
+  "$hash": "b883715a8dcef6ad1c53063771d8101f1ae04f30",
+  "$id": "aws-elasticache-subnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CacheSubnetGroupName"],
   "definitions": {

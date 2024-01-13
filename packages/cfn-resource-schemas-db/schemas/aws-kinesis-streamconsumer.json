@@ -1,5 +1,6 @@
 {
-  "$hash": "a74723e6267d48628608f2f34e6f9a9eb6c12059",
+  "$hash": "790524afa19e718b9a756ff556f1b12c203a2d68",
+  "$id": "aws-kinesis-streamconsumer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConsumerName", "/properties/StreamARN"],
   "description": "Resource Type definition for AWS::Kinesis::StreamConsumer",

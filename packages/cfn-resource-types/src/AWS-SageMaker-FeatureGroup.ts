@@ -42,6 +42,7 @@ export type SageMakerFeatureGroupProperties = {
   OnlineStoreConfig?: {
     EnableOnlineStore?: boolean;
     SecurityConfig?: OnlineStoreSecurityConfig;
+    StorageType?: StorageType;
   };
   /**
    * The Record Identifier Feature Name.
@@ -62,6 +63,7 @@ export type SageMakerFeatureGroupProperties = {
    * @maxLength `50`
    */
   Tags?: Tag[];
+  ThroughputConfig?: ThroughputConfig;
 };
 /**
  * Attribute type definition for `AWS::SageMaker::FeatureGroup`.
@@ -140,6 +142,11 @@ export type S3StorageConfig = {
   S3Uri: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::FeatureGroup.StorageType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-storagetype.html}
+ */
+export type StorageType = "Standard" | "InMemory";
+/**
  * Type definition for `AWS::SageMaker::FeatureGroup.TableFormat`.
  * Format for the offline store feature group. Iceberg is the optimal format for feature groups shared between offline and online stores.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-tableformat.html}
@@ -154,6 +161,30 @@ export type Tag = {
   Key: string;
   Value: string;
 };
+/**
+ * Type definition for `AWS::SageMaker::FeatureGroup.ThroughputConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-throughputconfig.html}
+ */
+export type ThroughputConfig = {
+  /**
+   * For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.
+   */
+  ProvisionedReadCapacityUnits?: number;
+  /**
+   * For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.
+   */
+  ProvisionedWriteCapacityUnits?: number;
+  /**
+   * Throughput mode configuration of the feature group
+   */
+  ThroughputMode: ThroughputMode;
+};
+/**
+ * Type definition for `AWS::SageMaker::FeatureGroup.ThroughputMode`.
+ * Throughput mode configuration of the feature group
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-throughputmode.html}
+ */
+export type ThroughputMode = "OnDemand" | "Provisioned";
 /**
  * Resource Type definition for AWS::SageMaker::FeatureGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html}

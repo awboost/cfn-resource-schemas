@@ -1,5 +1,6 @@
 {
-  "$hash": "dc308f4c0aac05d98592854ab4b766f8588059e7",
+  "$hash": "117d656fcbeaf509173960fbfe6bb8a6e4f6d240",
+  "$id": "aws-lambda-url.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TargetFunctionArn",

@@ -1,5 +1,6 @@
 {
-  "$hash": "114ed7e5ff79622f2b3559606417cf31a24378b9",
+  "$hash": "e49736e6aa26037098a91ed4e65f800fda10a4cc",
+  "$id": "aws-shield-drtaccess.json",
   "additionalProperties": false,
   "description": "Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.",
   "handlers": {

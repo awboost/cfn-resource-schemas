@@ -1,5 +1,6 @@
 {
-  "$hash": "2033e75b255d138d29ca50d59f63ee588b2efcb0",
+  "$hash": "ae5488fe3cd14a0965662823f9cca91f4231869b",
+  "$id": "aws-docdb-dbsubnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DBSubnetGroupName"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "730149babfc7079c9e25f90f62edf0ab90a21fd6",
+  "$hash": "ac459b609624a75e4f7b809815027c258ee88e44",
+  "$id": "aws-vpclattice-listener.json",
   "additionalIdentifiers": [
     ["/properties/ServiceIdentifier", "/properties/Name", "/properties/Port"]
   ],

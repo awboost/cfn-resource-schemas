@@ -1,5 +1,6 @@
 {
-  "$hash": "cb41284dc9e26a0427cc40727ad562799d23ac0e",
+  "$hash": "46499c11201fde8dcc33d616b8806b217030fd00",
+  "$id": "aws-pinpoint-apnsvoipsandboxchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
   "description": "Resource Type definition for AWS::Pinpoint::APNSVoipSandboxChannel",

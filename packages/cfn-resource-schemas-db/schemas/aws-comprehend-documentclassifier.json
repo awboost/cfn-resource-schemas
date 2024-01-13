@@ -1,5 +1,6 @@
 {
-  "$hash": "acfb9d28f11efbf04416719e07759c0c97d798c6",
+  "$hash": "fb6cb407d77147e92e5c043a62a3bc7f379b4521",
+  "$id": "aws-comprehend-documentclassifier.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DataAccessRoleArn",

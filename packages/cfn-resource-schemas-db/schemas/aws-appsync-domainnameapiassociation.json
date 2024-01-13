@@ -1,5 +1,6 @@
 {
-  "$hash": "f4c1796f04133680d6fd42336fd5bf0fd3538c29",
+  "$hash": "840e407a3b7ad5357c3363c6488f3ff807969096",
+  "$id": "aws-appsync-domainnameapiassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
   "description": "Resource Type definition for AWS::AppSync::DomainNameApiAssociation",

@@ -1,5 +1,6 @@
 {
-  "$hash": "5f3a4514a889a42701e95c2109ebc7755399d8ac",
+  "$hash": "c149299da8660d5834cae17b4ca3f58ba36659e8",
+  "$id": "aws-emr-walworkspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WALWorkspaceName"],
   "definitions": {

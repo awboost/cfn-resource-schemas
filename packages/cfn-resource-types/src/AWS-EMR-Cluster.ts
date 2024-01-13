@@ -12,7 +12,9 @@ export type EMRClusterProperties = {
   BootstrapActions?: BootstrapActionConfig[];
   Configurations?: Configuration[];
   CustomAmiId?: string;
+  EbsRootVolumeIops?: number;
   EbsRootVolumeSize?: number;
+  EbsRootVolumeThroughput?: number;
   Instances: JobFlowInstancesConfig;
   JobFlowRole: string;
   KerberosAttributes?: KerberosAttributes;
@@ -21,6 +23,7 @@ export type EMRClusterProperties = {
   ManagedScalingPolicy?: ManagedScalingPolicy;
   Name: string;
   OSReleaseLabel?: string;
+  PlacementGroupConfigs?: PlacementGroupConfig[];
   ReleaseLabel?: string;
   ScaleDownBehavior?: string;
   SecurityConfiguration?: string;
@@ -243,6 +246,14 @@ export type MetricDimension = {
  */
 export type OnDemandProvisioningSpecification = {
   AllocationStrategy: string;
+};
+/**
+ * Type definition for `AWS::EMR::Cluster.PlacementGroupConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-placementgroupconfig.html}
+ */
+export type PlacementGroupConfig = {
+  InstanceRole: string;
+  PlacementStrategy?: string;
 };
 /**
  * Type definition for `AWS::EMR::Cluster.PlacementType`.

@@ -1,5 +1,6 @@
 {
-  "$hash": "b9dda29457ce284a1d2fe8eb86f3abe376ab2239",
+  "$hash": "d76a94817f2764e411812d38d1b2b17688643390",
+  "$id": "aws-lakeformation-tag.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CatalogId", "/properties/TagKey"],
   "definitions": {

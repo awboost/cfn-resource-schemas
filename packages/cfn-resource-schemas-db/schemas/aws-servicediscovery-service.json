@@ -1,5 +1,6 @@
 {
-  "$hash": "4e2e4709f6d6e5582f24b28018c35492d779cc5b",
+  "$hash": "39b38737eeab2b68018ac7520ce6a7284c326210",
+  "$id": "aws-servicediscovery-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/HealthCheckCustomConfig",

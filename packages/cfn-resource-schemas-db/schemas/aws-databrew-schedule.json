@@ -1,5 +1,6 @@
 {
-  "$hash": "09ef9d20586d26b4314e2e008b46f746ed7e73b3",
+  "$hash": "ec3b62e26f80d0d40d7d76a7d04fa734dea0a04b",
+  "$id": "aws-databrew-schedule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
   "definitions": {

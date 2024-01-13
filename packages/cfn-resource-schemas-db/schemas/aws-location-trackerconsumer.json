@@ -1,5 +1,6 @@
 {
-  "$hash": "daa7a735c1ce8d2a0a491c91a6468b15e03f3df3",
+  "$hash": "178fa7ac18a08033dd3f802e01ff4f0099ac9a3b",
+  "$id": "aws-location-trackerconsumer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TrackerName",
@@ -7,10 +8,22 @@
   ],
   "description": "Definition of AWS::Location::TrackerConsumer Resource Type",
   "handlers": {
-    "create": { "permissions": ["geo:AssociateTrackerConsumer"] },
-    "delete": { "permissions": ["geo:DisassociateTrackerConsumer"] },
-    "list": { "permissions": ["geo:ListTrackerConsumers"] },
-    "read": { "permissions": ["geo:ListTrackerConsumers"] }
+    "create": {
+      "permissions": [
+        "geo:AssociateTrackerConsumer",
+        "geo:ListTrackerConsumers",
+        "kms:*"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "geo:DisassociateTrackerConsumer",
+        "geo:ListTrackerConsumers",
+        "kms:*"
+      ]
+    },
+    "list": { "permissions": ["geo:ListTrackerConsumers", "kms:*"] },
+    "read": { "permissions": ["geo:ListTrackerConsumers", "kms:*"] }
   },
   "primaryIdentifier": ["/properties/TrackerName", "/properties/ConsumerArn"],
   "properties": {

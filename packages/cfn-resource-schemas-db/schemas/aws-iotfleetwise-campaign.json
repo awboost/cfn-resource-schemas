@@ -1,5 +1,6 @@
 {
-  "$hash": "84c486a7321c09f56d00fa6840fc06782566c9b2",
+  "$hash": "8c4677c10aec6656404f2bb7a47a8e47b5adfff8",
+  "$id": "aws-iotfleetwise-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

@@ -1,5 +1,6 @@
 {
-  "$hash": "c2f2a3951079bb62326dc9005e805a8ffc7cd4ff",
+  "$hash": "53ed4cddd1003f3f32f628fd4145f4b3af2ca508",
+  "$id": "aws-lambda-layerversionpermission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/OrganizationId",

@@ -1,5 +1,6 @@
 {
-  "$hash": "1ced126d7ebbc3836b0a586a5d0d5c474e39a064",
+  "$hash": "b5933f1f6014f97c164ccf9ca9d29e603cbb9f8a",
+  "$id": "aws-inspector-assessmenttarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AssessmentTargetName"],
   "description": "Resource Type definition for AWS::Inspector::AssessmentTarget",

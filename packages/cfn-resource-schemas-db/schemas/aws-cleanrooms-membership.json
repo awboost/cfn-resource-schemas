@@ -1,8 +1,19 @@
 {
-  "$hash": "9ced296234e3db3045462fb8fb77608d99096974",
+  "$hash": "83a52dc5bd9eca221bb8f2bade28cc5b527065a1",
+  "$id": "aws-cleanrooms-membership.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CollaborationIdentifier"],
   "definitions": {
+    "MembershipPaymentConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "QueryCompute": {
+          "$ref": "#/definitions/MembershipQueryComputePaymentConfig"
+        }
+      },
+      "required": ["QueryCompute"],
+      "type": "object"
+    },
     "MembershipProtectedQueryOutputConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -20,6 +31,12 @@
         "RoleArn": { "maxLength": 512, "minLength": 32, "type": "string" }
       },
       "required": ["OutputConfiguration"],
+      "type": "object"
+    },
+    "MembershipQueryComputePaymentConfig": {
+      "additionalProperties": false,
+      "properties": { "IsResponsible": { "type": "boolean" } },
+      "required": ["IsResponsible"],
       "type": "object"
     },
     "MembershipQueryLogStatus": {
@@ -139,6 +156,9 @@
       "minLength": 36,
       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
       "type": "string"
+    },
+    "PaymentConfiguration": {
+      "$ref": "#/definitions/MembershipPaymentConfiguration"
     },
     "QueryLogStatus": { "$ref": "#/definitions/MembershipQueryLogStatus" },
     "Tags": {

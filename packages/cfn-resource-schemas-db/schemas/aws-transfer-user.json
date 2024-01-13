@@ -1,5 +1,6 @@
 {
-  "$hash": "81ac9106e5e3965a02f6561e2f51c627698b72cc",
+  "$hash": "281676adb4f3bb7b08323792aeeb927ea8456d96",
+  "$id": "aws-transfer-user.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServerId", "/properties/UserName"],
   "definitions": {
@@ -7,7 +8,8 @@
       "additionalProperties": false,
       "properties": {
         "Entry": { "type": "string" },
-        "Target": { "type": "string" }
+        "Target": { "type": "string" },
+        "Type": { "type": "string" }
       },
       "required": ["Entry", "Target"],
       "type": "object"

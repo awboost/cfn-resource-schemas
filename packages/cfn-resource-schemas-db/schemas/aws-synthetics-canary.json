@@ -1,5 +1,6 @@
 {
-  "$hash": "a3c266b7a6ad7193554cbe03f3b754c9435ce146",
+  "$hash": "28dcd4fe772dc8cdb5cf2ec759d16679f1c082a4",
+  "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
@@ -151,11 +152,14 @@
       "permissions": [
         "synthetics:CreateCanary",
         "synthetics:StartCanary",
+        "synthetics:GetCanary",
+        "synthetics:TagResource",
         "s3:CreateBucket",
         "s3:GetObject",
         "s3:GetObjectVersion",
         "s3:PutBucketEncryption",
         "s3:PutEncryptionConfiguration",
+        "s3:GetBucketLocation",
         "lambda:CreateFunction",
         "lambda:AddPermission",
         "lambda:PublishVersion",
@@ -189,8 +193,22 @@
         "synthetics:UpdateCanary",
         "synthetics:StartCanary",
         "synthetics:StopCanary",
+        "synthetics:GetCanary",
         "synthetics:TagResource",
-        "synthetics:UntagResource"
+        "synthetics:UntagResource",
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:PutBucketEncryption",
+        "s3:PutEncryptionConfiguration",
+        "s3:GetBucketLocation",
+        "lambda:AddPermission",
+        "lambda:PublishVersion",
+        "lambda:UpdateFunctionConfiguration",
+        "lambda:GetFunctionConfiguration",
+        "lambda:GetLayerVersionByArn",
+        "lambda:GetLayerVersion",
+        "lambda:PublishLayerVersion",
+        "iam:PassRole"
       ]
     }
   },
@@ -276,6 +294,7 @@
     "RuntimeVersion"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-synthetics",
+  "tagging": { "taggable": true },
   "typeName": "AWS::Synthetics::Canary",
   "writeOnlyProperties": [
     "/properties/Code/S3Bucket",

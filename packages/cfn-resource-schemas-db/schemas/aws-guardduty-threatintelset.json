@@ -1,5 +1,6 @@
 {
-  "$hash": "2158deca80f426be153bb1ab7d0caafe938889c4",
+  "$hash": "f922e94ef08a6b8cd4297c7c6905e5f9f26ce12a",
+  "$id": "aws-guardduty-threatintelset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Format", "/properties/DetectorId"],
   "definitions": {
@@ -57,7 +58,7 @@
     "Tags": { "items": { "$ref": "#/definitions/TagItem" }, "type": "array" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": ["Format", "Location", "Name"],
+  "required": ["Format", "Location"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-guardduty",
   "tagging": {
     "cloudFormationSystemTags": false,

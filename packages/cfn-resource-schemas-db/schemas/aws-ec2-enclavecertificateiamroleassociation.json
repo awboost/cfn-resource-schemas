@@ -1,5 +1,6 @@
 {
-  "$hash": "8d9f9db2bb4111926b4302d4c36bb933880c4984",
+  "$hash": "9fc0b068544b8efa845076eda3a9dffff634bd15",
+  "$id": "aws-ec2-enclavecertificateiamroleassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CertificateArn", "/properties/RoleArn"],
   "description": "Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.",

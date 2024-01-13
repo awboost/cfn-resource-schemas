@@ -1,5 +1,6 @@
 {
-  "$hash": "77a64bde574ec3d6b0ea9c1bebc1f6d82af161e7",
+  "$hash": "d46ca3c31066a7649b442041a65fead58c85663f",
+  "$id": "aws-ses-vdmattributes.json",
   "additionalProperties": false,
   "definitions": {
     "DashboardAttributes": {

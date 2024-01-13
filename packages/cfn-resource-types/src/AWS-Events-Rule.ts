@@ -53,6 +53,13 @@ export type EventsRuleAttributes = {
   Arn: string;
 };
 /**
+ * Type definition for `AWS::Events::Rule.AppSyncParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-appsyncparameters.html}
+ */
+export type AppSyncParameters = {
+  GraphQLOperation: string;
+};
+/**
  * Type definition for `AWS::Events::Rule.AwsVpcConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-awsvpcconfiguration.html}
  */
@@ -239,6 +246,7 @@ export type Tag = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html}
  */
 export type Target = {
+  AppSyncParameters?: AppSyncParameters;
   Arn: string;
   BatchParameters?: BatchParameters;
   DeadLetterConfig?: DeadLetterConfig;

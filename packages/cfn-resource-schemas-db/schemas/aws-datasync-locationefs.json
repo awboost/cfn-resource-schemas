@@ -1,5 +1,6 @@
 {
-  "$hash": "a7a1beb8e6b377870f35c1ec8de6b058a345369d",
+  "$hash": "0151f36342b445df95e2d7af0daa3594b0d6ad9d",
+  "$id": "aws-datasync-locationefs.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Ec2Config",

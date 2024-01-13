@@ -1,5 +1,6 @@
 {
-  "$hash": "982c2d954320e3a13110e9a810dc2ff02f67305b",
+  "$hash": "ddf667882ba111191c9ea747464496de8cdc04b9",
+  "$id": "aws-apigatewayv2-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
   "definitions": {
@@ -74,14 +75,8 @@
       "$ref": "#/definitions/MutualTlsAuthentication",
       "description": "The mutual TLS authentication configuration for a custom domain name."
     },
-    "RegionalDomainName": {
-      "description": "The domain name associated with the regional endpoint for this custom domain name.",
-      "type": "string"
-    },
-    "RegionalHostedZoneId": {
-      "description": "The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.",
-      "type": "string"
-    },
+    "RegionalDomainName": { "description": "", "type": "string" },
+    "RegionalHostedZoneId": { "description": "", "type": "string" },
     "Tags": {
       "additionalProperties": false,
       "description": "The collection of tags associated with a domain name.",

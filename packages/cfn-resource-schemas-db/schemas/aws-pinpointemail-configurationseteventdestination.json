@@ -1,5 +1,6 @@
 {
-  "$hash": "6ec7ce64467bdad9108c556c00f15e045096fd67",
+  "$hash": "646cd8fbeadc20da992a0d17c4e8204fdf0bef9b",
+  "$id": "aws-pinpointemail-configurationseteventdestination.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ConfigurationSetName",

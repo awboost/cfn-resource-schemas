@@ -1,5 +1,6 @@
 {
-  "$hash": "ab3d2444bdc72fa68d05a1072fba0c1069f38f6f",
+  "$hash": "5fe1e8b744ac7d9453c749fee7c55caf189f63f6",
+  "$id": "aws-securityhub-automationrule.json",
   "additionalProperties": false,
   "definitions": {
     "AutomationRulesAction": {

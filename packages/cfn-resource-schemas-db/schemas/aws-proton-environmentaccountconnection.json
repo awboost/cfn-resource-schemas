@@ -1,5 +1,6 @@
 {
-  "$hash": "1e638671b266c916419bee83a4a930a8d39d79bd",
+  "$hash": "6acd0a91b22e93790ce82225e8c3b523ec1c09d5",
+  "$id": "aws-proton-environmentaccountconnection.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
   "definitions": {

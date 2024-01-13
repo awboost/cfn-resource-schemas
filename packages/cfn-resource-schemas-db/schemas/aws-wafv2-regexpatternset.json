@@ -1,5 +1,6 @@
 {
-  "$hash": "96c5415dbb5388b900c58b4b4a2c116ddf2453d8",
+  "$hash": "55262d811a1416bf7794ba1482adb6f3ed5b3d19",
+  "$id": "aws-wafv2-regexpatternset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
   "definitions": {

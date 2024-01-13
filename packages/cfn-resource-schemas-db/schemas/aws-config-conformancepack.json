@@ -1,5 +1,6 @@
 {
-  "$hash": "28c9a007ae04afa8555e66f29e9051bbe0578302",
+  "$hash": "57de0fe0e7c529b7a5b090e8018adbb26754431a",
+  "$id": "aws-config-conformancepack.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConformancePackName"],
   "definitions": {

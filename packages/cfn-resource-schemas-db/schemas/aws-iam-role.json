@@ -1,5 +1,6 @@
 {
-  "$hash": "b47b5b9d091d6abe7eeb92227733f6c5d3620e5b",
+  "$hash": "c87eb409bdc3099eeba40e28f3b69b15376ba79f",
+  "$id": "aws-iam-role.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Path", "/properties/RoleName"],

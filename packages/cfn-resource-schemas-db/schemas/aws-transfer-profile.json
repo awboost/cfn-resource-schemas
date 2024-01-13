@@ -1,5 +1,6 @@
 {
-  "$hash": "f7a9c9701e2ccdc0e9c3ab9e2710783d411401fd",
+  "$hash": "3d1a2639e1a041ddf7d6343b1b3fd8b249710326",
+  "$id": "aws-transfer-profile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProfileType"],
   "definitions": {

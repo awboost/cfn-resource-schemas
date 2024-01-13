@@ -1,5 +1,6 @@
 {
-  "$hash": "4cf9486a0b7d179daafcbda89c6a81f4043ce6dd",
+  "$hash": "38171043c2d56815dc26cd531125c35a6db729e1",
+  "$id": "aws-iot-authorizer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SigningDisabled",

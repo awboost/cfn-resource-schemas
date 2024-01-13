@@ -1,5 +1,6 @@
 {
-  "$hash": "4ff099ba0fa1212a1f2c15754da2bd6c0c0864cf",
+  "$hash": "25f2ab14c5b3d09e62cd7fddc53b6c296027d204",
+  "$id": "aws-redshift-clustersecuritygroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Description"],
   "definitions": {

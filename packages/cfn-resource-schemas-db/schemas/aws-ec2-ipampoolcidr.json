@@ -1,5 +1,6 @@
 {
-  "$hash": "af98b4207c66fab687b21ae766a7f2491a7e2610",
+  "$hash": "d39547c9255b511f8bcbd664b6ffcc8546827fef",
+  "$id": "aws-ec2-ipampoolcidr.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IpamPoolId",

@@ -1,5 +1,6 @@
 {
-  "$hash": "57adcad7e47a2f1ea2de1c9086d6e8ab448d9b2d",
+  "$hash": "583467c64bc71243442971419e1566a9c11ab41b",
+  "$id": "aws-signer-signingprofile.json",
   "additionalIdentifiers": [
     ["/properties/ProfileName"],
     ["/properties/ProfileVersionArn"]
@@ -11,7 +12,7 @@
   ],
   "definitions": {
     "Arn": {
-      "pattern": "^arn:aws(-(cn|gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$",
+      "pattern": "^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$",
       "type": "string"
     },
     "PlatformId": {

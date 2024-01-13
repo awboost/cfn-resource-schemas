@@ -1,5 +1,6 @@
 {
-  "$hash": "b4c1104fbc523a27f35c1c43481030feefadf9a2",
+  "$hash": "07679254c4382860153e758f7618b20b8f54d82c",
+  "$id": "aws-amplifyuibuilder-form.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
   "definitions": {

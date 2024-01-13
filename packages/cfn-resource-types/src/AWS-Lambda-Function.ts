@@ -78,10 +78,6 @@ export type LambdaFunctionProperties = {
    */
   PackageType?: "Image" | "Zip";
   /**
-   * The resource policy of your function
-   */
-  Policy?: Record<string, any>;
-  /**
    * The number of simultaneous executions to reserve for the function.
    * @min `0`
    */

@@ -1,5 +1,6 @@
 {
-  "$hash": "42e4a3f993a88d4a96ef5f49b1c765cd2df42670",
+  "$hash": "40da8e39b1f72e7e7b2c19248f70661013bb6373",
+  "$id": "aws-vpclattice-servicenetworkserviceassociation.json",
   "additionalIdentifiers": [
     ["/properties/Id"],
     ["/properties/ServiceNetworkIdentifier", "/properties/ServiceIdentifier"]

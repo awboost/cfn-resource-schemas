@@ -1,5 +1,6 @@
 {
-  "$hash": "63cc52fc07bb47520563d25d94c6f76ba9fdc95c",
+  "$hash": "758dd4c4a9604440e2ac1f55472ac73b9caa3af2",
+  "$id": "aws-redshift-scheduledaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ScheduledActionName"],
   "definitions": {

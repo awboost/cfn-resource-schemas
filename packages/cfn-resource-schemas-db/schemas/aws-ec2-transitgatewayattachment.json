@@ -1,5 +1,6 @@
 {
-  "$hash": "172c3107abb2713136020fb131c66c7cdf6b097e",
+  "$hash": "e09c6696be7652f1b7ccb7c0d94de18e7a01c387",
+  "$id": "aws-ec2-transitgatewayattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TransitGatewayId", "/properties/VpcId"],
   "definitions": {

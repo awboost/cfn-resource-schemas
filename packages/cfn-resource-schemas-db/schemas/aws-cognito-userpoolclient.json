@@ -1,5 +1,6 @@
 {
-  "$hash": "b66fd5c9dad4509af077bc1f7932f5f21e6fdf50",
+  "$hash": "f9a1aa2d5054c3e43ad9a8e093f0877c989ced00",
+  "$id": "aws-cognito-userpoolclient.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/GenerateSecret",

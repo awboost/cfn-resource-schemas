@@ -27,11 +27,15 @@ export type LogsAccountPolicyProperties = {
   /**
    * Type of the policy.
    */
-  PolicyType: "DATA_PROTECTION_POLICY";
+  PolicyType: "DATA_PROTECTION_POLICY" | "SUBSCRIPTION_FILTER_POLICY";
   /**
    * Scope for policy application
    */
   Scope?: "ALL";
+  /**
+   * Log group  selection criteria to apply policy only to a subset of log groups. SelectionCriteria string can be up to 25KB and cloudwatchlogs determines the length of selectionCriteria by using its UTF-8 bytes
+   */
+  SelectionCriteria?: string;
 };
 /**
  * Attribute type definition for `AWS::Logs::AccountPolicy`.

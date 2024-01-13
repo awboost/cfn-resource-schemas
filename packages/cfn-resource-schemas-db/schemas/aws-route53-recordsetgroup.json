@@ -1,5 +1,6 @@
 {
-  "$hash": "533578e48e9ac2a751e665d362c6f565ac44ba61",
+  "$hash": "0fe20ac80960e8edea4809d583b8a5c4ae4da3f7",
+  "$id": "aws-route53-recordsetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/HostedZoneName",

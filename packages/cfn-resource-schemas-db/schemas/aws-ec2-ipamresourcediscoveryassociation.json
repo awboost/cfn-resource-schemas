@@ -1,5 +1,6 @@
 {
-  "$hash": "1cf34886e67919cd733c905788561474781bc47a",
+  "$hash": "c4bfa7deaf19f584fdaa7b7569aacc042abbd13f",
+  "$id": "aws-ec2-ipamresourcediscoveryassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IpamId",

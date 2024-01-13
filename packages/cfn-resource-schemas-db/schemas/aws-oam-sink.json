@@ -1,5 +1,6 @@
 {
-  "$hash": "9b9f4db1de68fc8b28c0bc09384bba3fea2d25b6",
+  "$hash": "9b3dbc9222a5c7a1efd364f7ca3ac92a5979ca2b",
+  "$id": "aws-oam-sink.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "description": "Resource Type definition for AWS::Oam::Sink",

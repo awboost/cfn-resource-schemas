@@ -1,5 +1,6 @@
 {
-  "$hash": "71725587983f51dba860762f5377b1403be41291",
+  "$hash": "b6a5d73f5797bfdda2a4f29938927f39b501f1ee",
+  "$id": "aws-simspaceweaver-simulation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

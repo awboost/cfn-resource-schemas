@@ -1,5 +1,6 @@
 {
-  "$hash": "fc230ce91f93ee5e585a1ca9ca9a8e6b1045acfa",
+  "$hash": "74d6bc96fbe87e23453e61256b54ae5b731ddc95",
+  "$id": "aws-glue-schemaversionmetadata.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SchemaVersionId",

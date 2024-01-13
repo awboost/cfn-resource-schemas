@@ -22,6 +22,10 @@ export type LogsLogGroupProperties = {
    */
   KmsKeyId?: string;
   /**
+   * The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+   */
+  LogGroupClass?: "STANDARD" | "INFREQUENT_ACCESS";
+  /**
    * The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
    * @minLength `1`
    * @maxLength `512`

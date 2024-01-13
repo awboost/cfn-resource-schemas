@@ -1,5 +1,6 @@
 {
-  "$hash": "a3d79d9f11de18211768ce04427bd50560687918",
+  "$hash": "41ddc722da0bd52110758ad680a57a1fd34f29cb",
+  "$id": "aws-networkfirewall-firewall.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId", "/properties/FirewallName"],
   "definitions": {

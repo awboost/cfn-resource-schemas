@@ -1,5 +1,6 @@
 {
-  "$hash": "3e17f9566b6c5a8e5b04bce7368905dfda88341b",
+  "$hash": "e5074b56ddee61b2482e89f617634a9a75509485",
+  "$id": "aws-gamelift-gameservergroup.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
   "definitions": {

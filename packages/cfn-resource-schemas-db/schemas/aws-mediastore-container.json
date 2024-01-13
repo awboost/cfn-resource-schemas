@@ -1,5 +1,6 @@
 {
-  "$hash": "1d4cbe006f066882ea33aa89ab1f4344f301f723",
+  "$hash": "b845bb2e139203635cc0cbf2227918bd39e05ff2",
+  "$id": "aws-mediastore-container.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ContainerName"],
   "definitions": {

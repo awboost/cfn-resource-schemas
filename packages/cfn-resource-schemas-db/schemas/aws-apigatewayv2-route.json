@@ -1,10 +1,12 @@
 {
-  "$hash": "b63e2738aded28e325c54ccc2b643ee3a966b2a4",
+  "$hash": "b1d39127e8cbb0e2573d0636738e23a566414e3b",
+  "$id": "aws-apigatewayv2-route.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],
   "definitions": {
     "ParameterConstraints": {
       "additionalProperties": false,
+      "description": "",
       "properties": { "Required": { "type": "boolean" } },
       "required": ["Required"],
       "type": "object"
@@ -66,7 +68,7 @@
       "items": { "$ref": "#/definitions/ParameterConstraints" },
       "type": "object"
     },
-    "RouteId": { "type": "string" },
+    "RouteId": { "description": "", "type": "string" },
     "RouteKey": {
       "description": "The route key for the route. For HTTP APIs, the route key can be either ``$default``, or a combination of an HTTP method and resource path, for example, ``GET /pets``.",
       "type": "string"

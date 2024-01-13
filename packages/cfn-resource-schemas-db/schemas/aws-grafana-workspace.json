@@ -1,5 +1,6 @@
 {
-  "$hash": "a5701267c5448cf37d212785b7f9e5c841b29719",
+  "$hash": "e9e7fba381095b5b5e8fb806eee3fbe7e03678c0",
+  "$id": "aws-grafana-workspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClientToken"],
   "definitions": {

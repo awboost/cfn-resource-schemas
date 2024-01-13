@@ -7,7 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type SageMakerModelProperties = {
   Containers?: ContainerDefinition[];
   EnableNetworkIsolation?: boolean;
-  ExecutionRoleArn: string;
+  ExecutionRoleArn?: string;
   InferenceExecutionConfig?: InferenceExecutionConfig;
   ModelName?: string;
   PrimaryContainer?: ContainerDefinition;
@@ -32,6 +32,7 @@ export type ContainerDefinition = {
   ImageConfig?: ImageConfig;
   InferenceSpecificationName?: string;
   Mode?: string;
+  ModelDataSource?: ModelDataSource;
   ModelDataUrl?: string;
   ModelPackageName?: string;
   MultiModelConfig?: MultiModelConfig;
@@ -52,6 +53,20 @@ export type InferenceExecutionConfig = {
   Mode: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::Model.ModelAccessConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-modelaccessconfig.html}
+ */
+export type ModelAccessConfig = {
+  AcceptEula: boolean;
+};
+/**
+ * Type definition for `AWS::SageMaker::Model.ModelDataSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-modeldatasource.html}
+ */
+export type ModelDataSource = {
+  S3DataSource: S3DataSource;
+};
+/**
  * Type definition for `AWS::SageMaker::Model.MultiModelConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-multimodelconfig.html}
  */
@@ -64,6 +79,16 @@ export type MultiModelConfig = {
  */
 export type RepositoryAuthConfig = {
   RepositoryCredentialsProviderArn: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Model.S3DataSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource.html}
+ */
+export type S3DataSource = {
+  CompressionType: string;
+  ModelAccessConfig?: ModelAccessConfig;
+  S3DataType: string;
+  S3Uri: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Model.Tag`.

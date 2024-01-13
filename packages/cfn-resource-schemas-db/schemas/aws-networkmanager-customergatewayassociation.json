@@ -1,5 +1,6 @@
 {
-  "$hash": "efacfecbba21b0d317183a2c647589efeed9690c",
+  "$hash": "5e790a820b241546246edde52a719f14281c35d8",
+  "$id": "aws-networkmanager-customergatewayassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/GlobalNetworkId",

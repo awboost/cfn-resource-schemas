@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ManagedBlockchainAccessorProperties = {
   AccessorType: AccessorType;
+  NetworkType?: NetworkAccessorType;
   /**
    * An array of key-value pairs to apply to this resource.
    * @maxLength `50`
@@ -47,6 +48,16 @@ export type AccessorStatus = "AVAILABLE" | "PENDING_DELETION" | "DELETED";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-accessor-accessortype.html}
  */
 export type AccessorType = "BILLING_TOKEN";
+/**
+ * Type definition for `AWS::ManagedBlockchain::Accessor.NetworkAccessorType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-accessor-networkaccessortype.html}
+ */
+export type NetworkAccessorType =
+  | "ETHEREUM_GOERLI"
+  | "ETHEREUM_MAINNET"
+  | "ETHEREUM_MAINNET_AND_GOERLI"
+  | "POLYGON_MAINNET"
+  | "POLYGON_MUMBAI";
 /**
  * Type definition for `AWS::ManagedBlockchain::Accessor.Tag`.
  * A key-value pair to associate with a resource.

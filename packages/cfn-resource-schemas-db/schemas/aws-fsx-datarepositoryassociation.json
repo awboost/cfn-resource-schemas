@@ -1,5 +1,6 @@
 {
-  "$hash": "34aeaf77ccca59abde2638f31f257f4cc8214986",
+  "$hash": "32d8ec7a76476031bde2179eaec5ca9ce0c5be5a",
+  "$id": "aws-fsx-datarepositoryassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/FileSystemId",
@@ -167,6 +168,7 @@
   "tagging": {
     "cloudFormationSystemTags": true,
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

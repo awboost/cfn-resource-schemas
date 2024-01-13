@@ -1,5 +1,6 @@
 {
-  "$hash": "872ddc5fb8bb0be0c5f8026070410251e00177ab",
+  "$hash": "f5dbf904ac1072e2d793a716b22e04842f4d09e0",
+  "$id": "aws-dax-parametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ParameterGroupName"],
   "description": "Resource Type definition for AWS::DAX::ParameterGroup",

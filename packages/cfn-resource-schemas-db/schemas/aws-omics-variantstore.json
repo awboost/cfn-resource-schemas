@@ -1,5 +1,6 @@
 {
-  "$hash": "c1487a53a2f54117548bafad74407947ff770eff",
+  "$hash": "cf1d96d717072137805022286631c0c995cbf3e0",
+  "$id": "aws-omics-variantstore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

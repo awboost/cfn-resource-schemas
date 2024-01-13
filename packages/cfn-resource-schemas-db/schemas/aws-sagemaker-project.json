@@ -1,5 +1,6 @@
 {
-  "$hash": "bf87cd8e576d6781a278b2aa37ff6faa2278f2bb",
+  "$hash": "1beb33ccc2f50df0dcf07b1c4556ad30bd42939f",
+  "$id": "aws-sagemaker-project.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ProjectName",

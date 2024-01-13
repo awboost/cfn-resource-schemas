@@ -1,5 +1,6 @@
 {
-  "$hash": "32278f49003a5074af831d80b4d9b9362b73408d",
+  "$hash": "4f76008935932592dcc771b271e0127a4fb1423d",
+  "$id": "aws-groundstation-config.json",
   "additionalProperties": false,
   "definitions": {
     "AntennaDownlinkConfig": {

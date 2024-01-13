@@ -1,5 +1,6 @@
 {
-  "$hash": "c76170977c889fb4104191d1a859076a6785fb5d",
+  "$hash": "8a22304579204df9a3a6df116fd71be8f5d97fc9",
+  "$id": "aws-apigatewayv2-vpclink.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SecurityGroupIds",
@@ -75,7 +76,7 @@
       "patternProperties": { ".*": { "type": "string" } },
       "type": "object"
     },
-    "VpcLinkId": { "type": "string" }
+    "VpcLinkId": { "description": "", "type": "string" }
   },
   "readOnlyProperties": ["/properties/VpcLinkId"],
   "required": ["SubnetIds", "Name"],

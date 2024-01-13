@@ -1,7 +1,11 @@
 {
-  "$hash": "1c06c2e21f4c6d69a9bb30a383470eaaf2bb2a97",
+  "$hash": "a41068a91380e6800be27f8f1f17facb9c03e211",
+  "$id": "aws-fis-experimenttemplate.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Tags"],
+  "createOnlyProperties": [
+    "/properties/Tags",
+    "/properties/ExperimentOptions/properties/AccountTargeting"
+  ],
   "definitions": {
     "ActionId": {
       "description": "The ID of the action.",
@@ -76,6 +80,22 @@
       "description": "A description for the experiment template.",
       "maxLength": 512,
       "type": "string"
+    },
+    "ExperimentTemplateExperimentOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "AccountTargeting": {
+          "description": "The account targeting setting for the experiment template.",
+          "enum": ["multi-account", "single-account"],
+          "type": "string"
+        },
+        "EmptyTargetResolutionMode": {
+          "description": "The target resolution failure mode for the experiment template.",
+          "enum": ["fail", "skip"],
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "ExperimentTemplateId": { "type": "string" },
     "ExperimentTemplateLogConfiguration": {
@@ -246,6 +266,9 @@
   "properties": {
     "Actions": { "$ref": "#/definitions/ExperimentTemplateActionMap" },
     "Description": { "$ref": "#/definitions/ExperimentTemplateDescription" },
+    "ExperimentOptions": {
+      "$ref": "#/definitions/ExperimentTemplateExperimentOptions"
+    },
     "Id": { "$ref": "#/definitions/ExperimentTemplateId" },
     "LogConfiguration": {
       "$ref": "#/definitions/ExperimentTemplateLogConfiguration"

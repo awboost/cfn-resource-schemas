@@ -1,5 +1,6 @@
 {
-  "$hash": "322389bfba85ccfe6b0ad1dd0ea4214aca846fc4",
+  "$hash": "f0a675501a3df21491e53e07fb48c53919774e29",
+  "$id": "aws-s3-accessgrantsinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "ab6c6824bf31dee3b4c3abf7a8a44fdbabe43aed",
+  "$hash": "b02dbf4cc3c5cacc08473afc76b9815fcd581b3a",
+  "$id": "aws-qldb-ledger.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

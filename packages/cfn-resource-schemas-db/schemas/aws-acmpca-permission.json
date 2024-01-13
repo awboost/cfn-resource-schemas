@@ -1,5 +1,6 @@
 {
-  "$hash": "d8bdeac368ab36720222bdcb3023596220359817",
+  "$hash": "dc09ddc80615bf7a5547f2811d9e6e426d728a13",
+  "$id": "aws-acmpca-permission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Actions",

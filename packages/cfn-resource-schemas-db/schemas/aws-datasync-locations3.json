@@ -1,5 +1,6 @@
 {
-  "$hash": "7b0f0fd85ff21a617b6ca01242115d2947d98579",
+  "$hash": "8566b51c2d40e5c4aaa10774f3a49128462bfd1c",
+  "$id": "aws-datasync-locations3.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/S3Config",

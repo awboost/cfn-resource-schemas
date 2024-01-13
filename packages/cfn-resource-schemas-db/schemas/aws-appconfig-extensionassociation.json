@@ -1,5 +1,6 @@
 {
-  "$hash": "daf345f20b95cc367fd55c6b96179671fcb55b29",
+  "$hash": "61a569bc751b3475606860bff3e451d73414b76c",
+  "$id": "aws-appconfig-extensionassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ExtensionIdentifier",

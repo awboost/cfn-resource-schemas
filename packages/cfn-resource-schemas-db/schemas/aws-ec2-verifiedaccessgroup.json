@@ -1,5 +1,6 @@
 {
-  "$hash": "e92bfc629d2ac903368c7baef11ed0502d807b9b",
+  "$hash": "5c572ff0b04e120dd9fc54bb755e497632a18ec2",
+  "$id": "aws-ec2-verifiedaccessgroup.json",
   "additionalProperties": false,
   "definitions": {
     "SseSpecification": {

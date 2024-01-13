@@ -1,5 +1,6 @@
 {
-  "$hash": "c84b0d94b2c23a4e62085e43efe8258bbc62cc78",
+  "$hash": "1517df418e37567c60e07b8b84b9167741266e33",
+  "$id": "aws-apigatewayv2-authorizer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],
   "definitions": {
@@ -51,7 +52,7 @@
       "description": "Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null. Supported only for ``REQUEST`` authorizers.",
       "type": "string"
     },
-    "AuthorizerId": { "type": "string" },
+    "AuthorizerId": { "description": "", "type": "string" },
     "AuthorizerPayloadFormatVersion": {
       "description": "Specifies the format of the payload sent to an HTTP API Lambda authorizer. Required for HTTP API Lambda authorizers. Supported values are ``1.0`` and ``2.0``. To learn more, see [Working with Lambda authorizers for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html).",
       "type": "string"

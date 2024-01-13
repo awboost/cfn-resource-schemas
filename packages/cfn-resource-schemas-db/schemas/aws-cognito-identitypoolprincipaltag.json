@@ -1,5 +1,6 @@
 {
-  "$hash": "a9a8054cb3ba785063d71a3f6f2ab43841225e91",
+  "$hash": "2eb5091a8ec78e27f726d6759ddd741b7b826ba0",
+  "$id": "aws-cognito-identitypoolprincipaltag.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IdentityPoolId",

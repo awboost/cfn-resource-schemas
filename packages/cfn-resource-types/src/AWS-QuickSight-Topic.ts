@@ -28,6 +28,7 @@ export type QuickSightTopicProperties = {
    * @pattern `^[A-Za-z0-9-_.\\+]*$`
    */
   TopicId?: string;
+  UserExperienceVersion?: TopicUserExperienceVersion;
 };
 /**
  * Attribute type definition for `AWS::QuickSight::Topic`.
@@ -620,6 +621,11 @@ export type TopicTimeGranularity =
   | "MONTH"
   | "QUARTER"
   | "YEAR";
+/**
+ * Type definition for `AWS::QuickSight::Topic.TopicUserExperienceVersion`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicuserexperienceversion.html}
+ */
+export type TopicUserExperienceVersion = "LEGACY" | "NEW_READER_EXPERIENCE";
 /**
  * Type definition for `AWS::QuickSight::Topic.TypeParameters`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-typeparameters.html}

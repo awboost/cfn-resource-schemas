@@ -1,5 +1,6 @@
 {
-  "$hash": "1e75cab1382ffcc839e088937d9832d7e392745b",
+  "$hash": "7a285d0e402c8941ee2aa64a99ff6ce4ad3182db",
+  "$id": "aws-ec2-routetable.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId"],
   "definitions": {

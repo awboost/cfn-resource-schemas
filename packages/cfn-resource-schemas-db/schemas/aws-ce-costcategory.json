@@ -1,5 +1,6 @@
 {
-  "$hash": "44ffa24ba88930964efd55e5c88dece8a4d4d13c",
+  "$hash": "aa472767df8821fe44b310ef62f9e43d3679b968",
+  "$id": "aws-ce-costcategory.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

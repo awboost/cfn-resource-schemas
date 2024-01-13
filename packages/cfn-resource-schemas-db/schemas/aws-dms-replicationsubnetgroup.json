@@ -1,5 +1,6 @@
 {
-  "$hash": "9e42be3880d2103a0401530e0c50e7ce47b20327",
+  "$hash": "f4c7db7440cdd56c46d84ad34470193a4bfc344a",
+  "$id": "aws-dms-replicationsubnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ReplicationSubnetGroupIdentifier"],
   "definitions": {

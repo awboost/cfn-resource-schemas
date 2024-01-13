@@ -1,5 +1,6 @@
 {
-  "$hash": "01a0d541bf35da477242f588de172b54dab7b951",
+  "$hash": "359787d967d56dfc9f0aec682b8eb8772ae95b09",
+  "$id": "aws-iotevents-alarmmodel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AlarmModelName", "/properties/Key"],
   "definitions": {

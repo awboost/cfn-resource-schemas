@@ -1,5 +1,6 @@
 {
-  "$hash": "7feb5d168bd91ddfffa15aa234e8462d38c9cc3f",
+  "$hash": "1775fd7e7d8cabaf849c2a446debbf2be356b2c2",
+  "$id": "aws-fms-notificationchannel.json",
   "additionalProperties": false,
   "definitions": {
     "ResourceArn": {

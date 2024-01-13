@@ -1,5 +1,6 @@
 {
-  "$hash": "87b5fde10ed6b0e129ff9b0f1f7e2fe371e27f29",
+  "$hash": "99e7e513f537712ea1acc7d49a70a1f3a7a11361",
+  "$id": "aws-greengrass-loggerdefinitionversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LoggerDefinitionId",

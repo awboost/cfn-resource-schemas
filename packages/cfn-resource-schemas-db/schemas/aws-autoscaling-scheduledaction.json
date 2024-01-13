@@ -1,5 +1,6 @@
 {
-  "$hash": "f9c34c1ac54638d9710ef34dcc1a329caf39c009",
+  "$hash": "ce9cbe6e94703b4d9c0f495844b69b755d1f3acd",
+  "$id": "aws-autoscaling-scheduledaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AutoScalingGroupName"],
   "description": "The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.",

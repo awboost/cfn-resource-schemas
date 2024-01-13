@@ -1,5 +1,6 @@
 {
-  "$hash": "eb11f8c6241398c1cb842b53c56c508fd851c267",
+  "$hash": "c0471f447c30bd3ae795c9649bd5629e1311a204",
+  "$id": "aws-lex-resourcepolicy.json",
   "additionalIdentifiers": [["/properties/ResourceArn"]],
   "additionalProperties": false,
   "definitions": {

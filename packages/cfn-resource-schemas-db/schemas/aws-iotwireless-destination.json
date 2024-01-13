@@ -1,5 +1,6 @@
 {
-  "$hash": "018c9e3add58bad5226948ee01f5a3b0d12822b1",
+  "$hash": "3fc7f597f5a883302552b46a778b0c165263ba9a",
+  "$id": "aws-iotwireless-destination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

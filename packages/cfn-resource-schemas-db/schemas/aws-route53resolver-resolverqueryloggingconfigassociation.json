@@ -1,5 +1,6 @@
 {
-  "$hash": "ae446ac677ba3454781698fab71a4691181bd6a8",
+  "$hash": "11f6106d2553fe312f7cc903841e19b06dae8516",
+  "$id": "aws-route53resolver-resolverqueryloggingconfigassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ResolverQueryLogConfigId",

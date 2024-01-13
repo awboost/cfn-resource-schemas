@@ -1,5 +1,6 @@
 {
-  "$hash": "e903c401bbf4bf2d4285c6d3ceefd51426990735",
+  "$hash": "73fdc4d2b79326314e894fe4c7b96624545a25cb",
+  "$id": "aws-config-deliverychannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "c013edd6f3a6ff223b1a88497317235d7b890497",
+  "$hash": "1e99ceb05db84ddaa62d6528ed31b6962021da6d",
+  "$id": "aws-iot-domainconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DomainConfigurationName",

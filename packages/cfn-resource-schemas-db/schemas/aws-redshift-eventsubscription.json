@@ -1,5 +1,6 @@
 {
-  "$hash": "0824b4453d000177142dac1af54e3ae4c0c70a0f",
+  "$hash": "c79b7fa5a64c1f4a78b29365f6f057fb59a42812",
+  "$id": "aws-redshift-eventsubscription.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubscriptionName"],
   "definitions": {

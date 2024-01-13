@@ -1,5 +1,6 @@
 {
-  "$hash": "e73e5daaff89bcaa4983dce9af05edca240bd264",
+  "$hash": "be2e8b8c60aeac666bea4a801d72a37c68f7bba4",
+  "$id": "aws-iot-dimension.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Type"],
   "definitions": {

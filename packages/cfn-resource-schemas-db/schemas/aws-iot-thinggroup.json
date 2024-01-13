@@ -1,5 +1,6 @@
 {
-  "$hash": "8eac4bf8bc62e255e3794169d027a84da98512f6",
+  "$hash": "916222ff36332f856b5bd795ee269663feaccedb",
+  "$id": "aws-iot-thinggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ThingGroupName",

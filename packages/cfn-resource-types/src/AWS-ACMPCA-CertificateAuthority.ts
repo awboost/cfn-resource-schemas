@@ -90,11 +90,23 @@ export type AccessMethod = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html}
  */
 export type CrlConfiguration = {
+  /**
+   * Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+   */
+  CrlDistributionPointExtensionConfiguration?: CrlDistributionPointExtensionConfiguration;
   CustomCname?: string;
   Enabled?: boolean;
   ExpirationInDays?: number;
   S3BucketName?: string;
   S3ObjectAcl?: string;
+};
+/**
+ * Type definition for `AWS::ACMPCA::CertificateAuthority.CrlDistributionPointExtensionConfiguration`.
+ * Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crldistributionpointextensionconfiguration.html}
+ */
+export type CrlDistributionPointExtensionConfiguration = {
+  OmitExtension: boolean;
 };
 /**
  * Type definition for `AWS::ACMPCA::CertificateAuthority.CsrExtensions`.

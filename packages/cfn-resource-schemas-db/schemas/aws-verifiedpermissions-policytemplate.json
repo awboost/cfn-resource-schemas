@@ -1,5 +1,6 @@
 {
-  "$hash": "f469dcbba339b3e70d619ca1fd360834787f414d",
+  "$hash": "9dec0ad941e236efe362d564d575ea6d5d61a1fb",
+  "$id": "aws-verifiedpermissions-policytemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyStoreId"],
   "description": "Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type",

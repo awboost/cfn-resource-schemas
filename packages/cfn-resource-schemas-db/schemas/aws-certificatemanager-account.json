@@ -1,5 +1,6 @@
 {
-  "$hash": "067e59682e8b4cdf1a570234f8ba1bd5edc88973",
+  "$hash": "5cacdf43cf34a67186fa34e0a94bab4ff61e7de1",
+  "$id": "aws-certificatemanager-account.json",
   "additionalProperties": false,
   "definitions": {
     "AccountId": { "type": "string" },

@@ -1,5 +1,6 @@
 {
-  "$hash": "1fba4ed7ec88ecf68427a22a93a06e445271ad49",
+  "$hash": "a2ead708a3d923cd83359f3cb8a119351a938603",
+  "$id": "aws-servicediscovery-httpnamespace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

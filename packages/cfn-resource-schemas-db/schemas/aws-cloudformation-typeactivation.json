@@ -1,5 +1,6 @@
 {
-  "$hash": "0c445fc960cd96589d82d82a2456241fceb4b590",
+  "$hash": "bbf9feb4220fe0e124650b301953d28e94d0ff5a",
+  "$id": "aws-cloudformation-typeactivation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoggingConfig"],
   "definitions": {

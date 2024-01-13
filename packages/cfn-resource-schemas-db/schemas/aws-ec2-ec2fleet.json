@@ -1,5 +1,6 @@
 {
-  "$hash": "b23fd34578328d0d1a4b2b844d3bd210d0b645bb",
+  "$hash": "606f874b9f173805afe97b9fae0a86de2b6d85df",
+  "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LaunchTemplateConfigs",

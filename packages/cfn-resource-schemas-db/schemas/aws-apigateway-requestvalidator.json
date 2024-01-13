@@ -1,5 +1,6 @@
 {
-  "$hash": "1b76e1a87afe6382551b66665408f14daec52fce",
+  "$hash": "7cc29d694b55ac6bc3b5cdb6ff9ba5d40c07a957",
+  "$id": "aws-apigateway-requestvalidator.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/RestApiId"],
   "description": "The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.",

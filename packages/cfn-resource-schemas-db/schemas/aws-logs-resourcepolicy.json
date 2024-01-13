@@ -1,5 +1,6 @@
 {
-  "$hash": "7b058730bbc9aedc904e0e0fee6f7aaa88055f5b",
+  "$hash": "915aa0f94123728743e5ba73e394140ab6fdc2c4",
+  "$id": "aws-logs-resourcepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName"],
   "description": "The resource schema for AWSLogs ResourcePolicy",
@@ -37,6 +38,6 @@
   },
   "required": ["PolicyName", "PolicyDocument"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-logs.git",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::Logs::ResourcePolicy"
 }

@@ -16,6 +16,7 @@ export type OpenSearchServiceDomainProperties = {
   EBSOptions?: EBSOptions;
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
   EngineVersion?: string;
+  IPAddressType?: string;
   LogPublishingOptions?: Record<string, LogPublishingOption>;
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
   OffPeakWindowOptions?: OffPeakWindowOptions;
@@ -38,6 +39,7 @@ export type OpenSearchServiceDomainAttributes = {
   Arn: string;
   DomainArn: string;
   DomainEndpoint: string;
+  DomainEndpointV2: string;
   DomainEndpoints: Record<string, string>;
   Id: string;
   ServiceSoftwareOptions: {

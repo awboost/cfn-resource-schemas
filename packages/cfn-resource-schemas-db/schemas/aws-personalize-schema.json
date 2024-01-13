@@ -1,5 +1,6 @@
 {
-  "$hash": "f3c1781084be910d8ed083e6c313bce193832e51",
+  "$hash": "6cb97fd8f0c11b784727502ef324f6bd5825c0b7",
+  "$id": "aws-personalize-schema.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

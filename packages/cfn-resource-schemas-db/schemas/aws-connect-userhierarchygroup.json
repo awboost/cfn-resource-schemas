@@ -1,5 +1,6 @@
 {
-  "$hash": "62a20dc263ef67f1c7705f1970c28d453825700a",
+  "$hash": "719b1087c627050c73a8b12088921be877b86fbd",
+  "$id": "aws-connect-userhierarchygroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ParentGroupArn"],
   "definitions": {

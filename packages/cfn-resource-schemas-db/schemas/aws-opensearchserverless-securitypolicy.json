@@ -1,5 +1,6 @@
 {
-  "$hash": "69272f559285ab108d427b36cf224cdfc8bf02df",
+  "$hash": "99853585e8a4afa081964e96dde333a753e6923a",
+  "$id": "aws-opensearchserverless-securitypolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type", "/properties/Name"],
   "definitions": {

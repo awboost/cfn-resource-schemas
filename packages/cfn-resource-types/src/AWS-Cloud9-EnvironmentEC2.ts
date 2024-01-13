@@ -8,7 +8,7 @@ export type Cloud9EnvironmentEC2Properties = {
   AutomaticStopTimeMinutes?: number;
   ConnectionType?: string;
   Description?: string;
-  ImageId?: string;
+  ImageId: string;
   InstanceType: string;
   Name?: string;
   OwnerArn?: string;

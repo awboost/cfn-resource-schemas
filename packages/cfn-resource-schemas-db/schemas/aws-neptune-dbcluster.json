@@ -1,5 +1,6 @@
 {
-  "$hash": "2df34f113fd346a9a03d81064344941f99930fb7",
+  "$hash": "2dd1a5e44ec26981028272617c149983be846220",
+  "$id": "aws-neptune-dbcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AvailabilityZones",
@@ -97,6 +98,7 @@
         "rds:DescribeGlobalClusters",
         "rds:ListTagsForResource",
         "rds:RemoveFromGlobalCluster",
+        "rds:CreateDBClusterSnapshot",
         "kms:*"
       ],
       "timeoutInMinutes": 2160

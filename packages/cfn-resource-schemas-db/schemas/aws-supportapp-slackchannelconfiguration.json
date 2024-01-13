@@ -1,5 +1,6 @@
 {
-  "$hash": "f5b65d9b1fc7e6cba7f584b9c77d706171d0fd3a",
+  "$hash": "b634de5fecd2a59e95cacafaed1b36729a8eb0d1",
+  "$id": "aws-supportapp-slackchannelconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TeamId", "/properties/ChannelId"],
   "description": "An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.",

@@ -1,5 +1,6 @@
 {
-  "$hash": "c6e8a7cad3671229d48ea4858bf67add3e053a81",
+  "$hash": "7747f85bb5aa69cacdbf3b731bb746b0df609a54",
+  "$id": "aws-ec2-verifiedaccessinstance.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

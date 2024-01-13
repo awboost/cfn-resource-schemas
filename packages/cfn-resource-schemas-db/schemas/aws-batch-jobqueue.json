@@ -1,5 +1,6 @@
 {
-  "$hash": "39553bb24f2d3740c26afe398afa6a60e05bf3ba",
+  "$hash": "d61cb070bbef4f044fbe49b245c644472014d7ef",
+  "$id": "aws-batch-jobqueue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags", "/properties/JobQueueName"],
   "definitions": {

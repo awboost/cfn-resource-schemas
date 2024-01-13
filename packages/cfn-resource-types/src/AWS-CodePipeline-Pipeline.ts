@@ -9,10 +9,13 @@ export type CodePipelinePipelineProperties = {
   ArtifactStores?: ArtifactStoreMap[];
   DisableInboundStageTransitions?: StageTransition[];
   Name?: string;
+  PipelineType?: string;
   RestartExecutionOnUpdate?: boolean;
   RoleArn: string;
   Stages: StageDeclaration[];
   Tags?: Tag[];
+  Triggers?: PipelineTriggerDeclaration[];
+  Variables?: VariableDeclaration[];
 };
 /**
  * Attribute type definition for `AWS::CodePipeline::Pipeline`.
@@ -81,6 +84,29 @@ export type EncryptionKey = {
   Type: string;
 };
 /**
+ * Type definition for `AWS::CodePipeline::Pipeline.GitConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html}
+ */
+export type GitConfiguration = {
+  Push?: GitPushFilter[];
+  SourceActionName: string;
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.GitPushFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html}
+ */
+export type GitPushFilter = {
+  Tags?: GitTagFilterCriteria;
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.GitTagFilterCriteria`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gittagfiltercriteria.html}
+ */
+export type GitTagFilterCriteria = {
+  Excludes?: string[];
+  Includes?: string[];
+};
+/**
  * Type definition for `AWS::CodePipeline::Pipeline.InputArtifact`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-inputartifact.html}
  */
@@ -93,6 +119,14 @@ export type InputArtifact = {
  */
 export type OutputArtifact = {
   Name: string;
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.PipelineTriggerDeclaration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html}
+ */
+export type PipelineTriggerDeclaration = {
+  GitConfiguration?: GitConfiguration;
+  ProviderType: string;
 };
 /**
  * Type definition for `AWS::CodePipeline::Pipeline.StageDeclaration`.
@@ -118,6 +152,15 @@ export type StageTransition = {
 export type Tag = {
   Key: string;
   Value: string;
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.VariableDeclaration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-variabledeclaration.html}
+ */
+export type VariableDeclaration = {
+  DefaultValue?: string;
+  Description?: string;
+  Name: string;
 };
 /**
  * Resource Type definition for AWS::CodePipeline::Pipeline

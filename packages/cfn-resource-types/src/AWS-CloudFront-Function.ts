@@ -27,7 +27,15 @@ export type CloudFrontFunctionAttributes = {
  */
 export type FunctionConfig = {
   Comment: string;
+  KeyValueStoreAssociations?: KeyValueStoreAssociation[];
   Runtime: string;
+};
+/**
+ * Type definition for `AWS::CloudFront::Function.KeyValueStoreAssociation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-keyvaluestoreassociation.html}
+ */
+export type KeyValueStoreAssociation = {
+  KeyValueStoreARN: string;
 };
 /**
  * Resource Type definition for AWS::CloudFront::Function

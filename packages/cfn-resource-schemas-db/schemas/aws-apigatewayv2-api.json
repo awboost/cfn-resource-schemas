@@ -1,5 +1,6 @@
 {
-  "$hash": "c9ae0f81e7a1758a9dcc1d7d99a3d8ccee4bb1e2",
+  "$hash": "91af7a0839df6929aad6c9211b9b8c35c4e395ff",
+  "$id": "aws-apigatewayv2-api.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProtocolType"],
   "definitions": {
@@ -88,8 +89,8 @@
   },
   "primaryIdentifier": ["/properties/ApiId"],
   "properties": {
-    "ApiEndpoint": { "type": "string" },
-    "ApiId": { "type": "string" },
+    "ApiEndpoint": { "description": "", "type": "string" },
+    "ApiId": { "description": "", "type": "string" },
     "ApiKeySelectionExpression": {
       "description": "An API key selection expression. Supported only for WebSocket APIs. See [API Key Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).",
       "type": "string"

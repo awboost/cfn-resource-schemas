@@ -1,5 +1,6 @@
 {
-  "$hash": "b670931d3a664a37299460e2c3d77cd119fa12b7",
+  "$hash": "3b484d2c4b5dbc46f14ca00876f5a8622fd2cd5a",
+  "$id": "aws-apigateway-usageplankey.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KeyId",

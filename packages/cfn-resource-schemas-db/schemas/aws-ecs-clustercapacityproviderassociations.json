@@ -1,5 +1,6 @@
 {
-  "$hash": "ac5b9d76cf315454d5a5ea5781bda5f61dfdb056",
+  "$hash": "bb7b565a68809eb0525348e46a94df4efc9d4826",
+  "$id": "aws-ecs-clustercapacityproviderassociations.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Cluster"],
   "definitions": {
@@ -67,5 +68,11 @@
     "DefaultCapacityProviderStrategy"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::ECS::ClusterCapacityProviderAssociations"
 }

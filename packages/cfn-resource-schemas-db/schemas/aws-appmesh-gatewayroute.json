@@ -1,5 +1,6 @@
 {
-  "$hash": "66be9502f3b86baf133bdc339e7906b5133588fa",
+  "$hash": "b1775b0a69b1596eac54b00bc83e8856d2a57b89",
+  "$id": "aws-appmesh-gatewayroute.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/MeshName",

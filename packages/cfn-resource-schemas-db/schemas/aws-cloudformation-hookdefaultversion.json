@@ -1,5 +1,6 @@
 {
-  "$hash": "aaea97d390c47287b15b48115ddc5ad0b7a94595",
+  "$hash": "22bce3fd517fd8c203a9d08d6669f0038441f392",
+  "$id": "aws-cloudformation-hookdefaultversion.json",
   "additionalProperties": false,
   "description": "Set a version as default version for a hook in CloudFormation Registry.",
   "handlers": {

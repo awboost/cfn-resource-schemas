@@ -5,9 +5,16 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html}
  */
 export type DLMLifecyclePolicyProperties = {
+  CopyTags?: boolean;
+  CreateInterval?: number;
+  CrossRegionCopyTargets?: CrossRegionCopyTargets;
+  DefaultPolicy?: string;
   Description?: string;
+  Exclusions?: Exclusions;
   ExecutionRoleArn?: string;
+  ExtendDeletion?: boolean;
   PolicyDetails?: PolicyDetails;
+  RetainInterval?: number;
   State?: string;
   Tags?: Tag[];
 };
@@ -92,6 +99,11 @@ export type CrossRegionCopyRule = {
   TargetRegion?: string;
 };
 /**
+ * Type definition for `AWS::DLM::LifecyclePolicy.CrossRegionCopyTargets`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopytargets.html}
+ */
+export type CrossRegionCopyTargets = Record<string, any>;
+/**
  * Type definition for `AWS::DLM::LifecyclePolicy.DeprecateRule`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-deprecaterule.html}
  */
@@ -126,6 +138,25 @@ export type EventSource = {
   Type: string;
 };
 /**
+ * Type definition for `AWS::DLM::LifecyclePolicy.ExcludeTags`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-excludetags.html}
+ */
+export type ExcludeTags = Record<string, any>;
+/**
+ * Type definition for `AWS::DLM::LifecyclePolicy.ExcludeVolumeTypesList`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-excludevolumetypeslist.html}
+ */
+export type ExcludeVolumeTypesList = Record<string, any>;
+/**
+ * Type definition for `AWS::DLM::LifecyclePolicy.Exclusions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html}
+ */
+export type Exclusions = {
+  ExcludeBootVolumes?: boolean;
+  ExcludeTags?: ExcludeTags;
+  ExcludeVolumeTypes?: ExcludeVolumeTypesList;
+};
+/**
  * Type definition for `AWS::DLM::LifecyclePolicy.FastRestoreRule`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html}
  */
@@ -150,11 +181,19 @@ export type Parameters = {
  */
 export type PolicyDetails = {
   Actions?: Action[];
+  CopyTags?: boolean;
+  CreateInterval?: number;
+  CrossRegionCopyTargets?: CrossRegionCopyTargets;
   EventSource?: EventSource;
+  Exclusions?: Exclusions;
+  ExtendDeletion?: boolean;
   Parameters?: Parameters;
+  PolicyLanguage?: string;
   PolicyType?: string;
   ResourceLocations?: string[];
+  ResourceType?: string;
   ResourceTypes?: string[];
+  RetainInterval?: number;
   Schedules?: Schedule[];
   TargetTags?: Tag[];
 };

@@ -1,5 +1,6 @@
 {
-  "$hash": "4bcc20afb4502e4c35cd7d24934580d6c289cc8d",
+  "$hash": "e52c48eae8b5bacf826548bc3a89f20b3890cda8",
+  "$id": "aws-ec2-subnetnetworkaclassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubnetId", "/properties/NetworkAclId"],
   "description": "Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation",

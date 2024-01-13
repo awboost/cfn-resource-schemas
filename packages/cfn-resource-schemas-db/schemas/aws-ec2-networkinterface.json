@@ -1,14 +1,28 @@
 {
-  "$hash": "2c12104c2484ba9b7ef7f74b7ba44d3edfe2f676",
+  "$hash": "e3d700b1ae012e20676f66534707151cf4dec8b8",
+  "$id": "aws-ec2-networkinterface.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
-  "conditionalCreateOnlyProperties": ["/properties/PrivateIpAddresses"],
+  "conditionalCreateOnlyProperties": [
+    "/properties/PrivateIpAddresses",
+    "/properties/EnablePrimaryIpv6",
+    "/properties/ConnectionTrackingSpecification"
+  ],
   "createOnlyProperties": [
     "/properties/PrivateIpAddress",
     "/properties/InterfaceType",
     "/properties/SubnetId"
   ],
   "definitions": {
+    "ConnectionTrackingSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "TcpEstablishedTimeout": { "type": "integer" },
+        "UdpStreamTimeout": { "type": "integer" },
+        "UdpTimeout": { "type": "integer" }
+      },
+      "type": "object"
+    },
     "InstanceIpv6Address": {
       "additionalProperties": false,
       "properties": { "Ipv6Address": { "type": "string" } },
@@ -79,9 +93,16 @@
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
+    "ConnectionTrackingSpecification": {
+      "$ref": "#/definitions/ConnectionTrackingSpecification"
+    },
     "Description": {
       "description": "A description for the network interface.",
       "type": "string"
+    },
+    "EnablePrimaryIpv6": {
+      "description": "If you have instances or ENIs that rely on the IPv6 address not changing, to avoid disrupting traffic to instances or ENIs, you can enable a primary IPv6 address. Enable this option to automatically assign an IPv6 associated with the ENI attached to your instance to be the primary IPv6 address. When you enable an IPv6 address to be a primary IPv6, you cannot disable it. Traffic will be routed to the primary IPv6 address until the instance is terminated or the ENI is detached. If you have multiple IPv6 addresses associated with an ENI and you enable a primary IPv6 address, the first IPv6 address associated with the ENI becomes the primary IPv6 address.",
+      "type": "boolean"
     },
     "GroupSet": {
       "description": "A list of security group IDs associated with this network interface.",
@@ -128,6 +149,10 @@
       "type": "array",
       "uniqueItems": false
     },
+    "PrimaryIpv6Address": {
+      "description": "The primary IPv6 address",
+      "type": "string"
+    },
     "PrimaryPrivateIpAddress": {
       "description": "Returns the primary private IP address of the network interface.",
       "type": "string"
@@ -173,7 +198,8 @@
   "readOnlyProperties": [
     "/properties/Id",
     "/properties/SecondaryPrivateIpAddresses",
-    "/properties/PrimaryPrivateIpAddress"
+    "/properties/PrimaryPrivateIpAddress",
+    "/properties/PrimaryIpv6Address"
   ],
   "required": ["SubnetId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2/networkinterface",

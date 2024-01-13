@@ -1,5 +1,6 @@
 {
-  "$hash": "aeb7e43b6eb003d6380c9a9c6bcbb386ab980941",
+  "$hash": "08605f8f606fca98d5f27ac93ecd674d5b8ceed0",
+  "$id": "aws-iotsitewise-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PortalId"],
   "definitions": {
@@ -20,10 +21,19 @@
     "create": {
       "permissions": [
         "iotsitewise:CreateProject",
+        "iotsitewise:DescribeProject",
+        "iotsitewise:ListProjectAssets",
+        "iotsitewise:ListTagsForResource",
+        "iotsitewise:TagResource",
         "iotsitewise:BatchAssociateProjectAssets"
       ]
     },
-    "delete": { "permissions": ["iotsitewise:DeleteProject"] },
+    "delete": {
+      "permissions": [
+        "iotsitewise:DescribeProject",
+        "iotsitewise:DeleteProject"
+      ]
+    },
     "list": { "permissions": ["iotsitewise:ListProjects"] },
     "read": {
       "permissions": [

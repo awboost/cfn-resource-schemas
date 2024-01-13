@@ -1,5 +1,6 @@
 {
-  "$hash": "80b773793ed2a293ad4ce45eb6f43b9f2ae21d37",
+  "$hash": "1da243c3fe96d84d2e524a1295fb39de2994f12d",
+  "$id": "aws-lookoutmetrics-alert.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AlertName",

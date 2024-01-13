@@ -1,5 +1,6 @@
 {
-  "$hash": "b203975fb4111a81dfd46f65c418dcd2ff925730",
+  "$hash": "91a4c738ae0f97639e1aebbe4481e9af5af1d333",
+  "$id": "aws-glue-securityconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

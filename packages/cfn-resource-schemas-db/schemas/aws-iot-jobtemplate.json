@@ -1,5 +1,6 @@
 {
-  "$hash": "aa00f3fdb2d3769412e4fe094d4d65d2dd5a2e3a",
+  "$hash": "5464aa8a6f57fe082c150708571d37dfee65c97e",
+  "$id": "aws-iot-jobtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/JobTemplateId",

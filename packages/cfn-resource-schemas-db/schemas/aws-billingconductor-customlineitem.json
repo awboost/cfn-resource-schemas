@@ -1,8 +1,10 @@
 {
-  "$hash": "52817b1f0077ce46da74396f64015fa98ed7ee05",
+  "$hash": "e51f4353d07dc0d60a2b9379aa4033854829a05c",
+  "$id": "aws-billingconductor-customlineitem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/BillingGroupArn",
+    "/properties/AccountId",
     "/properties/BillingPeriodRange/InclusiveStartBillingPeriod",
     "/properties/BillingPeriodRange/ExclusiveEndBillingPeriod",
     "/properties/CustomLineItemChargeDetails/Type"
@@ -151,6 +153,11 @@
   },
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
+    "AccountId": {
+      "description": "The account which this custom line item will be charged to",
+      "pattern": "[0-9]{12}",
+      "type": "string"
+    },
     "Arn": {
       "description": "ARN",
       "pattern": "(arn:aws(-cn)?:billingconductor::[0-9]{12}:customlineitem/)?[a-zA-Z0-9]{10}",

@@ -5,9 +5,11 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-gcmchannel.html}
  */
 export type PinpointGCMChannelProperties = {
-  ApiKey: string;
+  ApiKey?: string;
   ApplicationId: string;
+  DefaultAuthenticationMethod?: string;
   Enabled?: boolean;
+  ServiceJson?: string;
 };
 /**
  * Attribute type definition for `AWS::Pinpoint::GCMChannel`.

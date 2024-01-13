@@ -1,5 +1,6 @@
 {
-  "$hash": "09879f1406ce0b8a40fd15dfa021ad9fc62e3b88",
+  "$hash": "d4e5122012174c32f31e7806613ca1acda4cbd36",
+  "$id": "aws-ec2-dhcpoptions.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/NetbiosNameServers",

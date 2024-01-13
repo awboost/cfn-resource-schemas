@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html}
  */
 export type EKSClusterProperties = {
+  /**
+   * An object representing the Access Config to use for the cluster.
+   */
+  AccessConfig?: AccessConfig;
   EncryptionConfig?: EncryptionConfig[];
   /**
    * The Kubernetes network configuration for the cluster.
@@ -86,6 +90,21 @@ export type EKSClusterAttributes = {
    * The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
    */
   OpenIdConnectIssuerUrl: string;
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.AccessConfig`.
+ * An object representing the Access Config to use for the cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-accessconfig.html}
+ */
+export type AccessConfig = {
+  /**
+   * Specify the authentication mode that should be used to create your cluster.
+   */
+  AuthenticationMode?: "CONFIG_MAP" | "API_AND_CONFIG_MAP" | "API";
+  /**
+   * Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+   */
+  BootstrapClusterCreatorAdminPermissions?: boolean;
 };
 /**
  * Type definition for `AWS::EKS::Cluster.ClusterLogging`.

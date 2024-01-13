@@ -1,5 +1,6 @@
 {
-  "$hash": "232b76b8885cdbbc981fd3619a4f9916d6c0815d",
+  "$hash": "2b29754ca5cbc4f257650cc43f45c78d81c3b54d",
+  "$id": "aws-voiceid-domain.json",
   "additionalProperties": false,
   "definitions": {
     "ServerSideEncryptionConfiguration": {
@@ -32,11 +33,44 @@
   },
   "description": "The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.",
   "handlers": {
-    "create": { "permissions": ["voiceid:CreateDomain"] },
-    "delete": { "permissions": ["voiceid:DeleteDomain"] },
-    "list": { "permissions": ["voiceid:ListDomains"] },
-    "read": { "permissions": ["voiceid:DescribeDomain"] },
-    "update": { "permissions": ["voiceid:UpdateDomain"] }
+    "create": {
+      "permissions": [
+        "voiceid:CreateDomain",
+        "voiceid:DescribeDomain",
+        "voiceid:TagResource",
+        "voiceid:ListTagsForResource",
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:Decrypt"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "voiceid:DeleteDomain",
+        "voiceid:DescribeDomain",
+        "kms:Decrypt"
+      ]
+    },
+    "list": { "permissions": ["voiceid:ListDomains", "kms:Decrypt"] },
+    "read": {
+      "permissions": [
+        "voiceid:DescribeDomain",
+        "voiceid:ListTagsForResource",
+        "kms:Decrypt"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "voiceid:DescribeDomain",
+        "voiceid:UpdateDomain",
+        "voiceid:TagResource",
+        "voiceid:UntagResource",
+        "voiceid:ListTagsForResource",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/DomainId"],
   "properties": {

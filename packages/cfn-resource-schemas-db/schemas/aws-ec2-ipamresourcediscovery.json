@@ -1,5 +1,6 @@
 {
-  "$hash": "ff51da524a0b43b239a1e5b3c3bc96619114075a",
+  "$hash": "636e3a54f906daa491b8e194e454a08db0b7657a",
+  "$id": "aws-ec2-ipamresourcediscovery.json",
   "additionalProperties": false,
   "definitions": {
     "IpamOperatingRegion": {

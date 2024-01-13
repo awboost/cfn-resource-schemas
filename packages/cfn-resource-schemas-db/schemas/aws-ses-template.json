@@ -1,5 +1,6 @@
 {
-  "$hash": "b19428cbfe5def5943f90d02e994b0cb0d80cee8",
+  "$hash": "f56ac6f2d96b642c88e88de4bd0e7a1c875535a3",
+  "$id": "aws-ses-template.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Template/TemplateName"],
   "definitions": {

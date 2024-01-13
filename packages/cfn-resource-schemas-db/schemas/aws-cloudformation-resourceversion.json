@@ -1,5 +1,6 @@
 {
-  "$hash": "2d88bd3d5a2966b1ef390b4d63f18ec7b4762930",
+  "$hash": "52eae8f73ec3eb7b0b26141a47295c583286117f",
+  "$id": "aws-cloudformation-resourceversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ExecutionRoleArn",

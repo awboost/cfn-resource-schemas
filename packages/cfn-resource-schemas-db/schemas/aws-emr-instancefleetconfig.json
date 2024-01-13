@@ -1,5 +1,6 @@
 {
-  "$hash": "0174ad8bb5012448c6feb6ac5bbe92ff0352fad0",
+  "$hash": "f600debcfccdabe78bf81b61fa3a8bf74505696c",
+  "$id": "aws-emr-instancefleetconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

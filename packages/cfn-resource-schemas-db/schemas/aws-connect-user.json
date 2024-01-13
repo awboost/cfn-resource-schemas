@@ -1,11 +1,24 @@
 {
-  "$hash": "7ef749f11e15a386b005282e130a516c20ec98ae",
+  "$hash": "ed03f039072d0b0294e2319d3b89c01aa6c29ca9",
+  "$id": "aws-connect-user.json",
   "additionalProperties": false,
   "definitions": {
     "AfterContactWorkTimeLimit": {
       "description": "The After Call Work (ACW) timeout setting, in seconds.",
       "minimum": 0,
       "type": "integer"
+    },
+    "AttributeName": {
+      "description": "The name of user's proficiency. You must use name of predefined attribute present in the Amazon Connect instance.",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "AttributeValue": {
+      "description": "The value of user's proficiency. You must use value of predefined attribute present in the Amazon Connect instance.",
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
     },
     "AutoAccept": {
       "description": "The Auto accept setting.",
@@ -26,6 +39,12 @@
     "LastName": {
       "description": "The last name. This is required if you are using Amazon Connect or SAML for identity management.",
       "type": "string"
+    },
+    "Level": {
+      "description": "The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.",
+      "maximum": 5,
+      "minimum": 1,
+      "type": "number"
     },
     "Mobile": {
       "description": "The mobile phone number.",
@@ -92,15 +111,34 @@
       },
       "required": ["PhoneType"],
       "type": "object"
+    },
+    "UserProficiency": {
+      "additionalProperties": false,
+      "description": "Proficiency of a user.",
+      "properties": {
+        "AttributeName": { "$ref": "#/definitions/AttributeName" },
+        "AttributeValue": { "$ref": "#/definitions/AttributeValue" },
+        "Level": { "$ref": "#/definitions/Level" }
+      },
+      "required": ["AttributeName", "AttributeValue", "Level"],
+      "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::Connect::User",
   "handlers": {
-    "create": { "permissions": ["connect:CreateUser", "connect:TagResource"] },
+    "create": {
+      "permissions": [
+        "connect:CreateUser",
+        "connect:TagResource",
+        "connect:AssociateUserProficiencies"
+      ]
+    },
     "delete": {
       "permissions": ["connect:DeleteUser", "connect:UntagResource"]
     },
-    "read": { "permissions": ["connect:DescribeUser"] },
+    "read": {
+      "permissions": ["connect:DescribeUser", "connect:ListUserProficiencies"]
+    },
     "update": {
       "permissions": [
         "connect:UpdateUserIdentityInfo",
@@ -109,7 +147,10 @@
         "connect:UpdateUserSecurityProfiles",
         "connect:UpdateUserHierarchy",
         "connect:TagResource",
-        "connect:UntagResource"
+        "connect:UntagResource",
+        "connect:AssociateUserProficiencies",
+        "connect:DisassociateUserProficiencies",
+        "connect:UpdateUserProficiencies"
       ]
     }
   },
@@ -168,6 +209,12 @@
       "description": "The Amazon Resource Name (ARN) for the user.",
       "pattern": "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/agent/[-a-zA-Z0-9]*$",
       "type": "string"
+    },
+    "UserProficiencies": {
+      "description": "One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/UserProficiency" },
+      "type": "array"
     },
     "Username": {
       "description": "The user name for the account.",

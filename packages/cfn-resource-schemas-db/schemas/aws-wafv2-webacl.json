@@ -1,5 +1,6 @@
 {
-  "$hash": "64068c919948f72ec48c60b6b716bf729eff2189",
+  "$hash": "a335d08afec3297e372e082fc1cf3ea0cc64d403",
+  "$id": "aws-wafv2-webacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
   "definitions": {

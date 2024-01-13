@@ -1,5 +1,6 @@
 {
-  "$hash": "09fd4df92e861377b7404a43cf6d4f311ff86c64",
+  "$hash": "8741e97bda49d7f221134d93ddf0cf24767bcb3d",
+  "$id": "aws-ec2-networkinsightsanalysis.json",
   "additionalIdentifiers": [["/properties/NetworkInsightsAnalysisArn"]],
   "additionalProperties": false,
   "createOnlyProperties": [

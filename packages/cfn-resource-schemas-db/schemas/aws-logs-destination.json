@@ -1,5 +1,6 @@
 {
-  "$hash": "e40f1fe5582687d28830c73fdbbf225bc6021ccd",
+  "$hash": "ac1b668d0f43f3f1f76c47fa8b448a1d89644de6",
+  "$id": "aws-logs-destination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DestinationName"],
   "description": "The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.",

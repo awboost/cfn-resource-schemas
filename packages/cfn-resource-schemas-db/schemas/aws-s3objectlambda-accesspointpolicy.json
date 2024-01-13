@@ -1,5 +1,6 @@
 {
-  "$hash": "c265d8b0fa07a02a8fbd21a46ee5fcba24911711",
+  "$hash": "998480954fe74ca7153ee0ccfa71babb34e1ec0b",
+  "$id": "aws-s3objectlambda-accesspointpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ObjectLambdaAccessPoint"],
   "description": "AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda",

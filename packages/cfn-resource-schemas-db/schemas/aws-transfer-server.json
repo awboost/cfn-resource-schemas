@@ -1,5 +1,6 @@
 {
-  "$hash": "3eebcf54e24e9138394e7b447b8ec8fb78fb15fe",
+  "$hash": "205295b20f029c07d51c87f05a9380ce69ed91b0",
+  "$id": "aws-transfer-server.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IdentityProviderType",
@@ -54,6 +55,11 @@
         "SetStatOption": { "type": "string" },
         "TlsSessionResumptionMode": { "type": "string" }
       },
+      "type": "object"
+    },
+    "S3StorageOptions": {
+      "additionalProperties": false,
+      "properties": { "DirectoryListingOptimization": { "type": "string" } },
       "type": "object"
     },
     "StructuredLogDestination": {
@@ -116,6 +122,7 @@
       "type": "array",
       "uniqueItems": false
     },
+    "S3StorageOptions": { "$ref": "#/definitions/S3StorageOptions" },
     "SecurityPolicyName": { "type": "string" },
     "ServerId": { "type": "string" },
     "StructuredLogDestinations": {

@@ -11,10 +11,19 @@ export type EC2SubnetProperties = {
   CidrBlock?: string;
   EnableDns64?: boolean;
   /**
+   * The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+   */
+  Ipv4IpamPoolId?: string;
+  /**
    * The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
    */
   Ipv4NetmaskLength?: number;
   Ipv6CidrBlock?: string;
+  Ipv6CidrBlocks?: string[];
+  /**
+   * The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+   */
+  Ipv6IpamPoolId?: string;
   Ipv6Native?: boolean;
   /**
    * The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
@@ -35,7 +44,6 @@ export type EC2SubnetProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#aws-resource-ec2-subnet-return-values}
  */
 export type EC2SubnetAttributes = {
-  Ipv6CidrBlocks: string[];
   NetworkAclAssociationId: string;
   SubnetId: string;
 };

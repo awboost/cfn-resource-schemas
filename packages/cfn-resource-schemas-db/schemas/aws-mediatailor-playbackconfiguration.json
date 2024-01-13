@@ -1,5 +1,6 @@
 {
-  "$hash": "176432e1a627846ca5ee4fbb24b71d40af84f63b",
+  "$hash": "2c88ede9ef59b506c359c67da732c79fe98d79ae",
+  "$id": "aws-mediatailor-playbackconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "cd30534723b83e03f1f64ef4fb6a680625688799",
+  "$hash": "6d0a56b4697f326d6516cdd5156f70396e95150f",
+  "$id": "aws-connect-contactflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
   "definitions": {

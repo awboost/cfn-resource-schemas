@@ -1,5 +1,6 @@
 {
-  "$hash": "81e8f7523a2ba58319d4117ad9869a51b6879cb1",
+  "$hash": "e52ffe2d79342cd0a9b795eb5e64893b46cc56a5",
+  "$id": "aws-config-organizationconformancepack.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/OrganizationConformancePackName"],
   "definitions": {

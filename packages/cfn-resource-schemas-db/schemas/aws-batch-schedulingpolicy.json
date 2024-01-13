@@ -1,5 +1,6 @@
 {
-  "$hash": "438c0fd49a37df8b110a71cf787f6dc0dd8390d9",
+  "$hash": "5055d34c7db46262e5eec3bc1ecfe368fefe9b11",
+  "$id": "aws-batch-schedulingpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
   "definitions": {

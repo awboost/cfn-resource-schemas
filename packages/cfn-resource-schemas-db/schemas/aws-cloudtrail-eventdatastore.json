@@ -1,5 +1,6 @@
 {
-  "$hash": "04033cfc6530d0b51c8a116ba9cb90436b01d9e7",
+  "$hash": "5be3bbed4c38cc4d866e28e341a5e116a48a3c21",
+  "$id": "aws-cloudtrail-eventdatastore.json",
   "additionalProperties": false,
   "definitions": {
     "AdvancedEventSelector": {
@@ -153,19 +154,28 @@
         "CloudTrail:CreateEventDataStore",
         "CloudTrail:AddTags",
         "CloudTrail:PutInsightSelectors",
+        "CloudTrail:EnableFederation",
+        "CloudTrail:GetEventDataStore",
         "iam:PassRole",
         "iam:GetRole",
         "iam:CreateServiceLinkedRole",
         "organizations:DescribeOrganization",
         "organizations:ListAWSServiceAccessForOrganization",
         "kms:GenerateDataKey",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "glue:CreateDatabase",
+        "glue:CreateTable",
+        "glue:PassConnection",
+        "lakeformation:RegisterResource"
       ]
     },
     "delete": {
       "permissions": [
         "CloudTrail:DeleteEventDataStore",
-        "CloudTrail:GetEventDataStore"
+        "CloudTrail:GetEventDataStore",
+        "CloudTrail:DisableFederation",
+        "glue:DeleteTable",
+        "lakeformation:DeregisterResource"
       ]
     },
     "list": {
@@ -195,11 +205,19 @@
         "CloudTrail:GetEventDataStore",
         "CloudTrail:PutInsightSelectors",
         "CloudTrail:GetInsightSelectors",
+        "CloudTrail:EnableFederation",
+        "CloudTrail:DisableFederation",
         "iam:PassRole",
         "iam:GetRole",
         "iam:CreateServiceLinkedRole",
         "organizations:DescribeOrganization",
-        "organizations:ListAWSServiceAccessForOrganization"
+        "organizations:ListAWSServiceAccessForOrganization",
+        "glue:CreateDatabase",
+        "glue:CreateTable",
+        "glue:PassConnection",
+        "lakeformation:RegisterResource",
+        "glue:DeleteTable",
+        "lakeformation:DeregisterResource"
       ]
     }
   },
@@ -222,6 +240,14 @@
     },
     "EventDataStoreArn": {
       "description": "The ARN of the event data store.",
+      "type": "string"
+    },
+    "FederationEnabled": {
+      "description": "Indicates whether federation is enabled on an event data store.",
+      "type": "boolean"
+    },
+    "FederationRoleArn": {
+      "description": "The ARN of the role used for event data store federation.",
       "type": "string"
     },
     "IngestionEnabled": {
@@ -285,7 +311,8 @@
     "/properties/EventDataStoreArn",
     "/properties/CreatedTimestamp",
     "/properties/UpdatedTimestamp",
-    "/properties/Status"
+    "/properties/Status",
+    "/properties/FederationStatus"
   ],
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudtrail.git",

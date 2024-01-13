@@ -1,5 +1,6 @@
 {
-  "$hash": "261d8c0d43ba47d1722d8117dccf8caabe247dd7",
+  "$hash": "0e8d5cf82601cf033d4e79a00b8500671c818c9d",
+  "$id": "aws-cloudformation-hooktypeconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConfigurationAlias"],
   "description": "Specifies the configuration data for a registered hook in CloudFormation Registry.",

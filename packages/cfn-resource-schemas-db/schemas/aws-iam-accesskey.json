@@ -1,5 +1,6 @@
 {
-  "$hash": "d5757bd8fb0155118619e4d433f730ab7f7767f5",
+  "$hash": "dd767045a63c0ed951d155cf7c26a7e979b0d8af",
+  "$id": "aws-iam-accesskey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserName", "/properties/Serial"],
   "description": "Resource Type definition for AWS::IAM::AccessKey",

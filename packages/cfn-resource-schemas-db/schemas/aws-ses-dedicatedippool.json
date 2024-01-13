@@ -1,5 +1,6 @@
 {
-  "$hash": "b768a628200fb92108eb585255386639f334b29b",
+  "$hash": "4f099bd41cc812ed27cb8e83e995e5dfed389396",
+  "$id": "aws-ses-dedicatedippool.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/ScalingMode"],
   "createOnlyProperties": ["/properties/PoolName"],

@@ -541,6 +541,7 @@ export type Processor = {
   Parameters?: ProcessorParameter[];
   Type:
     | "RecordDeAggregation"
+    | "Decompression"
     | "Lambda"
     | "MetadataExtraction"
     | "AppendDelimiterToRecord";
@@ -664,10 +665,19 @@ export type Serializer = {
   ParquetSerDe?: ParquetSerDe;
 };
 /**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.SplunkBufferingHints`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkbufferinghints.html}
+ */
+export type SplunkBufferingHints = {
+  IntervalInSeconds?: number;
+  SizeInMBs?: number;
+};
+/**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkdestinationconfiguration.html}
  */
 export type SplunkDestinationConfiguration = {
+  BufferingHints?: SplunkBufferingHints;
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
   /**
    * @min `180`

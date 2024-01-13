@@ -1,5 +1,6 @@
 {
-  "$hash": "b2ecd6e69bb741e0dbb89c531ecdddfbc9feae55",
+  "$hash": "0073b91b19a33f3563047e7bd40756dea4839b90",
+  "$id": "aws-route53-healthcheck.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/HealthCheckConfig/Type",

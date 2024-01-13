@@ -7,12 +7,15 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type SageMakerEndpointConfigProperties = {
   AsyncInferenceConfig?: AsyncInferenceConfig;
   DataCaptureConfig?: DataCaptureConfig;
+  EnableNetworkIsolation?: boolean;
   EndpointConfigName?: string;
+  ExecutionRoleArn?: string;
   ExplainerConfig?: ExplainerConfig;
   KmsKeyId?: string;
   ProductionVariants: ProductionVariant[];
   ShadowProductionVariants?: ProductionVariant[];
   Tags?: Tag[];
+  VpcConfig?: VpcConfig;
 };
 /**
  * Attribute type definition for `AWS::SageMaker::EndpointConfig`.
@@ -154,6 +157,15 @@ export type ExplainerConfig = {
   ClarifyExplainerConfig?: ClarifyExplainerConfig;
 };
 /**
+ * Type definition for `AWS::SageMaker::EndpointConfig.ManagedInstanceScaling`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-managedinstancescaling.html}
+ */
+export type ManagedInstanceScaling = {
+  MaxInstanceCount?: number;
+  MinInstanceCount?: number;
+  Status?: string;
+};
+/**
  * Type definition for `AWS::SageMaker::EndpointConfig.ProductionVariant`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html}
  */
@@ -162,13 +174,22 @@ export type ProductionVariant = {
   ContainerStartupHealthCheckTimeoutInSeconds?: number;
   EnableSSMAccess?: boolean;
   InitialInstanceCount?: number;
-  InitialVariantWeight: number;
+  InitialVariantWeight?: number;
   InstanceType?: string;
+  ManagedInstanceScaling?: ManagedInstanceScaling;
   ModelDataDownloadTimeoutInSeconds?: number;
-  ModelName: string;
+  ModelName?: string;
+  RoutingConfig?: RoutingConfig;
   ServerlessConfig?: ServerlessConfig;
   VariantName: string;
   VolumeSizeInGB?: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::EndpointConfig.RoutingConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-routingconfig.html}
+ */
+export type RoutingConfig = {
+  RoutingStrategy?: string;
 };
 /**
  * Type definition for `AWS::SageMaker::EndpointConfig.ServerlessConfig`.
@@ -186,6 +207,14 @@ export type ServerlessConfig = {
 export type Tag = {
   Key: string;
   Value: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::EndpointConfig.VpcConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-vpcconfig.html}
+ */
+export type VpcConfig = {
+  SecurityGroupIds: string[];
+  Subnets: string[];
 };
 /**
  * Resource Type definition for AWS::SageMaker::EndpointConfig

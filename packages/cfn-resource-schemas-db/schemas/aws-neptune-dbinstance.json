@@ -1,5 +1,6 @@
 {
-  "$hash": "800dc297cfacd0914a9014549a113851a0bba130",
+  "$hash": "dc167ed986c49745103b1edf4ca9df242c5a6907",
+  "$id": "aws-neptune-dbinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DBClusterIdentifier",

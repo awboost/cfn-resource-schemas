@@ -1,5 +1,6 @@
 {
-  "$hash": "b72c3a81c9877c19321dbec5957a96085acf798f",
+  "$hash": "9666f7612ae8903b75367dc81f1ed98ef5f0eda9",
+  "$id": "aws-networkmanager-transitgatewayregistration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/GlobalNetworkId",

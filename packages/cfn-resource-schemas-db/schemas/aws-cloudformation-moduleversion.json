@@ -1,5 +1,6 @@
 {
-  "$hash": "afa77c8df025c3776f24e95af13785ab777a5c60",
+  "$hash": "27741b6dacbc58afc445cc41091a3cb9e8f75692",
+  "$id": "aws-cloudformation-moduleversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ModuleName",

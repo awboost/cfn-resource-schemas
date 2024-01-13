@@ -7,6 +7,14 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type OSISPipelineProperties = {
   /**
+   * Key-value pairs to configure buffering.
+   */
+  BufferOptions?: BufferOptions;
+  /**
+   * Key-value pairs to configure encryption at rest.
+   */
+  EncryptionAtRestOptions?: EncryptionAtRestOptions;
+  /**
    * Key-value pairs to configure log publishing.
    */
   LogPublishingOptions?: LogPublishingOptions;
@@ -88,6 +96,28 @@ export type OSISPipelineAttributes = {
   }[];
 };
 /**
+ * Type definition for `AWS::OSIS::Pipeline.BufferOptions`.
+ * Key-value pairs to configure buffering.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-bufferoptions.html}
+ */
+export type BufferOptions = {
+  /**
+   * Whether persistent buffering should be enabled.
+   */
+  PersistentBufferEnabled: boolean;
+};
+/**
+ * Type definition for `AWS::OSIS::Pipeline.EncryptionAtRestOptions`.
+ * Key-value pairs to configure encryption at rest.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-encryptionatrestoptions.html}
+ */
+export type EncryptionAtRestOptions = {
+  /**
+   * The KMS key to use for encrypting data. By default an AWS owned key is used
+   */
+  KmsKeyArn: string;
+};
+/**
  * Type definition for `AWS::OSIS::Pipeline.LogPublishingOptions`.
  * Key-value pairs to configure log publishing.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-logpublishingoptions.html}
@@ -102,7 +132,7 @@ export type LogPublishingOptions = {
      * @maxLength `512`
      * @pattern `\/aws\/vendedlogs\/[\.\-_/#A-Za-z0-9]+`
      */
-    LogGroup?: string;
+    LogGroup: string;
   };
   /**
    * Whether logs should be published.
@@ -160,7 +190,7 @@ export type VpcOptions = {
   /**
    * A list of subnet IDs associated with the VPC endpoint.
    */
-  SubnetIds?: string[];
+  SubnetIds: string[];
 };
 /**
  * Resource type definition for `AWS::OSIS::Pipeline`.

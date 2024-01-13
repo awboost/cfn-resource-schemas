@@ -1,5 +1,6 @@
 {
-  "$hash": "ac47f93881466886b9ad76d8f07c21071433e827",
+  "$hash": "562aab961618043d96dc9c02b04f6919e7d1f0e6",
+  "$id": "aws-ssmcontacts-contact.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Alias", "/properties/Type"],
   "definitions": {

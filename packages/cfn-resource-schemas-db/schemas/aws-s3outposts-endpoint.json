@@ -1,5 +1,6 @@
 {
-  "$hash": "ea111070ce753bdf0d721e89ac1b266d00ca2e38",
+  "$hash": "9b1f76f4459c3ed3f26d981c7e51e4c73441d150",
+  "$id": "aws-s3outposts-endpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/OutpostId",

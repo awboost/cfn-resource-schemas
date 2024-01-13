@@ -1,6 +1,8 @@
 {
-  "$hash": "d85aa45a7ebcbac8352752ccb5993bf745424665",
+  "$hash": "f6348c6fe80bd432c6b08a4f1e40ecb3f3cb75da",
+  "$id": "aws-aps-workspace.json",
   "additionalProperties": false,
+  "createOnlyProperties": ["/properties/KmsKeyArn"],
   "definitions": {
     "LoggingConfiguration": {
       "additionalProperties": false,
@@ -49,7 +51,10 @@
         "logs:CreateLogDelivery",
         "logs:GetLogDelivery",
         "logs:ListLogDeliveries",
-        "logs:PutResourcePolicy"
+        "logs:PutResourcePolicy",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
       ]
     },
     "delete": {
@@ -112,6 +117,13 @@
       "maxLength": 128,
       "minLength": 1,
       "pattern": "^arn:(aws|aws-us-gov|aws-cn):aps:[a-z0-9-]+:[0-9]+:workspace/[a-zA-Z0-9-]+$",
+      "type": "string"
+    },
+    "KmsKeyArn": {
+      "description": "KMS Key ARN used to encrypt and decrypt AMP workspace data.",
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "^arn:aws[-a-z]*:kms:[-a-z0-9]+:[0-9]{12}:key/.+$",
       "type": "string"
     },
     "LoggingConfiguration": { "$ref": "#/definitions/LoggingConfiguration" },

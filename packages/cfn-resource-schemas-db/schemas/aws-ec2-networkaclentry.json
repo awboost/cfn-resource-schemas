@@ -1,5 +1,6 @@
 {
-  "$hash": "49ceaebecbe51df1e0f7ff80b36b46641c8bc72f",
+  "$hash": "3b0286c68c840a84ba5896af8ad2530cd0bd31b2",
+  "$id": "aws-ec2-networkaclentry.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Egress",

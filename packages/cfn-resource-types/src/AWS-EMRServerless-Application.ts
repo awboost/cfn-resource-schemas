@@ -117,6 +117,41 @@ export type AutoStopConfiguration = {
   IdleTimeoutMinutes?: number;
 };
 /**
+ * Type definition for `AWS::EMRServerless::Application.CloudWatchLoggingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html}
+ */
+export type CloudWatchLoggingConfiguration = {
+  /**
+   * If set to false, CloudWatch logging will be turned off. Defaults to false.
+   */
+  Enabled?: boolean;
+  /**
+   * KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:(aws[a-zA-Z0-9-]*):kms:[a-zA-Z0-9\-]*:(\d{12})?:key\/[a-zA-Z0-9-]+$`
+   */
+  EncryptionKeyArn?: string;
+  /**
+   * Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\.\-_/#A-Za-z0-9]+$`
+   */
+  LogGroupName?: string;
+  /**
+   * Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[^:*]*$`
+   */
+  LogStreamNamePrefix?: string;
+  /**
+   * The specific log-streams which need to be uploaded to CloudWatch.
+   */
+  LogTypeMap?: LogTypeMapKeyValuePair[];
+};
+/**
  * Type definition for `AWS::EMRServerless::Application.ConfigurationObject`.
  * Configuration for a JobRun.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-configurationobject.html}
@@ -174,6 +209,24 @@ export type InitialCapacityConfigKeyValuePair = {
   Value: InitialCapacityConfig;
 };
 /**
+ * Type definition for `AWS::EMRServerless::Application.LogTypeMapKeyValuePair`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-logtypemapkeyvaluepair.html}
+ */
+export type LogTypeMapKeyValuePair = {
+  /**
+   * @minLength `1`
+   * @maxLength `50`
+   * @pattern `^[a-zA-Z]+[-_]*[a-zA-Z]+$`
+   */
+  Key: string;
+  /**
+   * List of Applicable values: [STDOUT, STDERR, HIVE_LOG, TEZ_AM, SYSTEM_LOGS]
+   * @minLength `1`
+   * @maxLength `5`
+   */
+  Value: string[];
+};
+/**
  * Type definition for `AWS::EMRServerless::Application.ManagedPersistenceMonitoringConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-managedpersistencemonitoringconfiguration.html}
  */
@@ -223,6 +276,10 @@ export type MaximumAllowedResources = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html}
  */
 export type MonitoringConfiguration = {
+  /**
+   * CloudWatch logging configurations for a JobRun.
+   */
+  CloudWatchLoggingConfiguration?: CloudWatchLoggingConfiguration;
   /**
    * Managed log persistence configurations for a JobRun.
    */

@@ -1,5 +1,6 @@
 {
-  "$hash": "665d7626c3b24f4a5ec12667d62c0d59f3292b76",
+  "$hash": "aa1546d22f7b3985e3c1c0a68dd58c4f56f0d253",
+  "$id": "aws-iotwireless-multicastgroup.json",
   "additionalProperties": false,
   "definitions": {
     "LoRaWAN": {

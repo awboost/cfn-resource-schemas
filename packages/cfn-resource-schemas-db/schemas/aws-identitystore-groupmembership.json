@@ -1,7 +1,12 @@
 {
-  "$hash": "25eb4c54403ebecc90ed015a90a9d3aecc0eaf13",
+  "$hash": "6902c6247915e5a995633ef136e5f9988a73e55b",
+  "$id": "aws-identitystore-groupmembership.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/IdentityStoreId"],
+  "createOnlyProperties": [
+    "/properties/IdentityStoreId",
+    "/properties/GroupId",
+    "/properties/MemberId"
+  ],
   "definitions": {
     "MemberId": {
       "additionalProperties": false,

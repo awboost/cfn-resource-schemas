@@ -1,5 +1,6 @@
 {
-  "$hash": "f03dfa2b7c10141fc658699f462e08da7d1b56f7",
+  "$hash": "439136656e19e8506729deacf95c730f13167737",
+  "$id": "aws-iotwireless-fuotatask.json",
   "additionalProperties": false,
   "definitions": {
     "LoRaWAN": {

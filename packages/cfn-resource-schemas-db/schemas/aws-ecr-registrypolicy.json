@@ -1,5 +1,6 @@
 {
-  "$hash": "650e7e16e77d04fc4badf667f2da4d8fc4891245",
+  "$hash": "cc7bd2d63e5a2f3f6e7c60d0c78c2c0dd03507d2",
+  "$id": "aws-ecr-registrypolicy.json",
   "additionalProperties": false,
   "definitions": {
     "RegistryId": {

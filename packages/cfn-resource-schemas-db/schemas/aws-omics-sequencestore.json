@@ -1,5 +1,6 @@
 {
-  "$hash": "f2d7323aca161867cdd39edc3f35647194f52a60",
+  "$hash": "866ecf6b9a02b2872043a85e17abc48c324c1c17",
+  "$id": "aws-omics-sequencestore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Description",

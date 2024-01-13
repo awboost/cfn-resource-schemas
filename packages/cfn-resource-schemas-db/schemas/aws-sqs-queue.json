@@ -1,5 +1,6 @@
 {
-  "$hash": "9e58d051432d3b6c01ec405aef6f8b7d5635af8a",
+  "$hash": "b19da978140e6ec1642aeca6a388759af22555ba",
+  "$id": "aws-sqs-queue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FifoQueue", "/properties/QueueName"],
   "definitions": {

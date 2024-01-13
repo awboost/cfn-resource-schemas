@@ -1,5 +1,6 @@
 {
-  "$hash": "6dfc3795db2405b3de8c993ec6e9f90dc700938a",
+  "$hash": "5eea81c9ca155bd68250863b280f628cf16043bf",
+  "$id": "aws-entityresolution-schemamapping.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SchemaName"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "6eeb0a30910c2e7c50bdd994172588de79e541f7",
+  "$hash": "745794f20b72d9114af8b6946854d4bd97f96bd7",
+  "$id": "aws-iotfleetwise-modelmanifest.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

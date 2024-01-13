@@ -1,5 +1,6 @@
 {
-  "$hash": "b885e78b197ac61c7dad70965473c8d4494fd918",
+  "$hash": "41912bae6da26e70b84e407b4ccff52e8a680d17",
+  "$id": "aws-ecr-repository.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/RepositoryName",

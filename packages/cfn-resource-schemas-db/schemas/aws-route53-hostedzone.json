@@ -1,5 +1,6 @@
 {
-  "$hash": "1975c3e4aa9fa901103b11dfe20acb413f4fc47e",
+  "$hash": "69ff3751730850054e9dbcfbf11fa81a9317cf16",
+  "$id": "aws-route53-hostedzone.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

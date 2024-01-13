@@ -30,6 +30,10 @@ export type SNSTopicProperties = {
      */
   DataProtectionPolicy?: Record<string, any>;
   /**
+   * Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+   */
+  DeliveryStatusLogging?: LoggingConfig[];
+  /**
    * The display name to use for an Amazon SNS topic with SMS subscriptions.
    */
   DisplayName?: string;
@@ -69,6 +73,28 @@ export type SNSTopicProperties = {
  */
 export type SNSTopicAttributes = {
   TopicArn: string;
+};
+/**
+ * Type definition for `AWS::SNS::Topic.LoggingConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-loggingconfig.html}
+ */
+export type LoggingConfig = {
+  /**
+   * The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
+   */
+  FailureFeedbackRoleArn?: string;
+  /**
+   * Indicates one of the supported protocols for the SNS topic
+   */
+  Protocol: "http/s" | "sqs" | "lambda" | "firehose" | "application";
+  /**
+   * The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
+   */
+  SuccessFeedbackRoleArn?: string;
+  /**
+   * The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
+   */
+  SuccessFeedbackSampleRate?: string;
 };
 /**
  * Type definition for `AWS::SNS::Topic.Subscription`.

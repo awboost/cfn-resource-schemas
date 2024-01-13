@@ -136,6 +136,7 @@ export type LambdaConfig = {
   PreAuthentication?: string;
   PreSignUp?: string;
   PreTokenGeneration?: string;
+  PreTokenGenerationConfig?: PreTokenGenerationConfig;
   UserMigration?: string;
   VerifyAuthChallengeResponse?: string;
 };
@@ -165,6 +166,14 @@ export type PasswordPolicy = {
  */
 export type Policies = {
   PasswordPolicy?: PasswordPolicy;
+};
+/**
+ * Type definition for `AWS::Cognito::UserPool.PreTokenGenerationConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-pretokengenerationconfig.html}
+ */
+export type PreTokenGenerationConfig = {
+  LambdaArn?: string;
+  LambdaVersion?: string;
 };
 /**
  * Type definition for `AWS::Cognito::UserPool.RecoveryOption`.

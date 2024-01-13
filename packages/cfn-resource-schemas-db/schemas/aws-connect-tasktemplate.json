@@ -1,10 +1,11 @@
 {
-  "$hash": "1b9b9baf61c0234af55a23e4ca79a4690c598463",
+  "$hash": "1aa560db37e3ac60adc5fe8d02be03d31d96fff6",
+  "$id": "aws-connect-tasktemplate.json",
   "additionalProperties": false,
   "definitions": {
     "ClientToken": {
       "description": "the client token string in uuid format",
-      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "pattern": "^$|[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$",
       "type": "string"
     },
     "DefaultFieldValue": {
@@ -155,7 +156,22 @@
       "permissions": ["connect:CreateTaskTemplate", "connect:TagResource"]
     },
     "delete": {
-      "permissions": ["connect:DeleteTaskTemplate", "connect:UntagResource"]
+      "permissions": [
+        "connect:DeleteTaskTemplate",
+        "connect:UntagResource",
+        "connect:GetTaskTemplate"
+      ]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "InstanceArn": {
+            "$ref": "resource-schema.json#/properties/InstanceArn"
+          }
+        },
+        "required": ["InstanceArn"]
+      },
+      "permissions": ["connect:ListTaskTemplates"]
     },
     "read": { "permissions": ["connect:GetTaskTemplate"] },
     "update": {
@@ -190,7 +206,7 @@
     },
     "ContactFlowArn": {
       "description": "The identifier of the contact flow.",
-      "pattern": "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/contact-flow/[-a-zA-Z0-9]*$",
+      "pattern": "^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/contact-flow/[-a-zA-Z0-9]*$",
       "type": "string"
     },
     "Defaults": {
@@ -235,5 +251,12 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["InstanceArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": false,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Connect::TaskTemplate"
 }

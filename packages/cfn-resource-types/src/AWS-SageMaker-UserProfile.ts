@@ -52,6 +52,42 @@ export type SageMakerUserProfileAttributes = {
   UserProfileArn: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::UserProfile.CodeEditorAppSettings`.
+ * The CodeEditor app settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html}
+ */
+export type CodeEditorAppSettings = {
+  /**
+   * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+   */
+  DefaultResourceSpec?: ResourceSpec;
+  /**
+   * A list of LifecycleConfigArns available for use with CodeEditor apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  LifecycleConfigArns?: string[];
+};
+/**
+ * Type definition for `AWS::SageMaker::UserProfile.CodeRepository`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-coderepository.html}
+ */
+export type CodeRepository = {
+  /**
+   * A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+   * @maxLength `256`
+   * @pattern `^https://([.\-_a-zA-Z0-9]+/?){3,1016}$`
+   */
+  RepositoryUrl: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::UserProfile.CustomFileSystemConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customfilesystemconfig.html}
+ */
+export type CustomFileSystemConfig = {
+  EFSFileSystemConfig?: EFSFileSystemConfig;
+};
+/**
  * Type definition for `AWS::SageMaker::UserProfile.CustomImage`.
  * A custom SageMaker image.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html}
@@ -74,6 +110,99 @@ export type CustomImage = {
    * @min `0`
    */
   ImageVersionNumber?: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::UserProfile.CustomPosixUserConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customposixuserconfig.html}
+ */
+export type CustomPosixUserConfig = {
+  /**
+   * @min `1001`
+   * @max `4000000`
+   */
+  Gid: number;
+  /**
+   * @min `10000`
+   * @max `4000000`
+   */
+  Uid: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::UserProfile.DefaultEbsStorageSettings`.
+ * Properties related to the Amazon Elastic Block Store volume.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html}
+ */
+export type DefaultEbsStorageSettings = {
+  /**
+   * Default size of the Amazon EBS volume in Gb
+   * @min `5`
+   * @max `16384`
+   */
+  DefaultEbsVolumeSizeInGb: number;
+  /**
+   * Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+   * @min `5`
+   * @max `16384`
+   */
+  MaximumEbsVolumeSizeInGb: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::UserProfile.DefaultSpaceStorageSettings`.
+ * Default storage settings for a space.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultspacestoragesettings.html}
+ */
+export type DefaultSpaceStorageSettings = {
+  /**
+   * Properties related to the Amazon Elastic Block Store volume.
+   */
+  DefaultEbsStorageSettings?: DefaultEbsStorageSettings;
+};
+/**
+ * Type definition for `AWS::SageMaker::UserProfile.EFSFileSystemConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-efsfilesystemconfig.html}
+ */
+export type EFSFileSystemConfig = {
+  /**
+   * @minLength `11`
+   * @maxLength `21`
+   * @pattern `^(fs-[0-9a-f]{8,})$`
+   */
+  FileSystemId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^\/\S*$`
+   */
+  FileSystemPath?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::UserProfile.JupyterLabAppSettings`.
+ * The JupyterLab app settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html}
+ */
+export type JupyterLabAppSettings = {
+  /**
+   * A list of CodeRepositories available for use with JupyterLab apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  CodeRepositories?: CodeRepository[];
+  /**
+   * A list of custom images available for use for JupyterLab apps
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  CustomImages?: CustomImage[];
+  /**
+   * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+   */
+  DefaultResourceSpec?: ResourceSpec;
+  /**
+   * A list of LifecycleConfigArns available for use with JupyterLab apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  LifecycleConfigArns?: string[];
 };
 /**
  * Type definition for `AWS::SageMaker::UserProfile.JupyterServerAppSettings`.
@@ -168,7 +297,10 @@ export type ResourceSpec = {
     | "ml.g5.48xlarge"
     | "ml.p4d.24xlarge"
     | "ml.p4de.24xlarge"
-    | "ml.geospatial.interactive";
+    | "ml.geospatial.interactive"
+    | "ml.trn1.2xlarge"
+    | "ml.trn1.32xlarge"
+    | "ml.trn1n.32xlarge";
   /**
    * The ARN of the SageMaker image that the image version belongs to.
    * @maxLength `256`
@@ -243,12 +375,31 @@ export type Tag = {
  */
 export type UserSettings = {
   /**
+   * The CodeEditor app settings.
+   */
+  CodeEditorAppSettings?: CodeEditorAppSettings;
+  /**
+   * @minLength `0`
+   * @maxLength `2`
+   */
+  CustomFileSystemConfigs?: CustomFileSystemConfig[];
+  CustomPosixUserConfig?: CustomPosixUserConfig;
+  /**
+   * Defines which Amazon SageMaker application users are directed to by default.
+   * @maxLength `1023`
+   */
+  DefaultLandingUri?: string;
+  /**
    * The user profile Amazon Resource Name (ARN).
    * @minLength `20`
    * @maxLength `2048`
    * @pattern `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
    */
   ExecutionRole?: string;
+  /**
+   * The JupyterLab app settings.
+   */
+  JupyterLabAppSettings?: JupyterLabAppSettings;
   /**
    * The Jupyter server's app settings.
    */
@@ -271,6 +422,14 @@ export type UserSettings = {
    * The sharing settings.
    */
   SharingSettings?: SharingSettings;
+  /**
+   * Default storage settings for a space.
+   */
+  SpaceStorageSettings?: DefaultSpaceStorageSettings;
+  /**
+   * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+   */
+  StudioWebPortal?: "ENABLED" | "DISABLED";
 };
 /**
  * Resource Type definition for AWS::SageMaker::UserProfile

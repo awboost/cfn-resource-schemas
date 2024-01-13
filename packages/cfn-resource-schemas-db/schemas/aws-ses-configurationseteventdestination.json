@@ -1,5 +1,6 @@
 {
-  "$hash": "2d0820b0e37c857dcc9b6063a1601339851298d9",
+  "$hash": "21cc997f1aa8a16fb9a0b8dea92bd05b42ccc6ae",
+  "$id": "aws-ses-configurationseteventdestination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConfigurationSetName"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "6220446e11d51335980fc2ba7418a848752029fc",
+  "$hash": "2d6dab914993bcbd0a12a6e05faaf55dd104b50b",
+  "$id": "aws-efs-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AvailabilityZoneName",
@@ -24,9 +25,20 @@
       "required": ["Value", "Key"],
       "type": "object"
     },
+    "FileSystemProtection": {
+      "additionalProperties": false,
+      "properties": {
+        "ReplicationOverwriteProtection": {
+          "enum": ["DISABLED", "ENABLED"],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "LifecyclePolicy": {
       "additionalProperties": false,
       "properties": {
+        "TransitionToArchive": { "type": "string" },
         "TransitionToIA": { "type": "string" },
         "TransitionToPrimaryStorageClass": { "type": "string" }
       },
@@ -68,6 +80,7 @@
         "elasticfilesystem:PutBackupPolicy",
         "elasticfilesystem:PutFileSystemPolicy",
         "elasticfilesystem:PutLifecycleConfiguration",
+        "elasticfilesystem:UpdateFileSystemProtection",
         "kms:DescribeKey",
         "kms:GenerateDataKeyWithoutPlaintext",
         "kms:CreateGrant"
@@ -117,6 +130,7 @@
         "elasticfilesystem:TagResource",
         "elasticfilesystem:UntagResource",
         "elasticfilesystem:UpdateFileSystem",
+        "elasticfilesystem:UpdateFileSystemProtection",
         "kms:DescribeKey",
         "kms:GenerateDataKeyWithoutPlaintext",
         "kms:CreateGrant"
@@ -135,6 +149,7 @@
     "Encrypted": { "type": "boolean" },
     "FileSystemId": { "type": "string" },
     "FileSystemPolicy": { "type": "object" },
+    "FileSystemProtection": { "$ref": "#/definitions/FileSystemProtection" },
     "FileSystemTags": {
       "items": { "$ref": "#/definitions/ElasticFileSystemTag" },
       "type": "array",
@@ -154,6 +169,7 @@
     "ThroughputMode": { "type": "string" }
   },
   "propertyTransform": {
+    "/properties/FileSystemProtection/ReplicationOverwriteProtection": "$uppercase(FileSystemProtection.ReplicationOverwriteProtection)='DISABLED' ? 'REPLICATING' : $uppercase(FileSystemProtection.ReplicationOverwriteProtection)",
     "/properties/KmsKeyId": "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\""
   },
   "readOnlyProperties": ["/properties/Arn", "/properties/FileSystemId"],

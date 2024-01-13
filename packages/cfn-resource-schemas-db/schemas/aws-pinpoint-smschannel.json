@@ -1,5 +1,6 @@
 {
-  "$hash": "c053aa2fdee26289eaf4e606cc5d738df8e6a47f",
+  "$hash": "53576f678547a745b0c0683981041005416118cd",
+  "$id": "aws-pinpoint-smschannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
   "description": "Resource Type definition for AWS::Pinpoint::SMSChannel",

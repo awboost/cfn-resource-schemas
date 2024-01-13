@@ -1,5 +1,6 @@
 {
-  "$hash": "45dc0c9364e03d574c998ec25e4842d83aecaeee",
+  "$hash": "e43b81e505f7d8192ba131f38981b139d41db8b8",
+  "$id": "aws-servicecatalog-tagoption.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Value", "/properties/Key"],
   "description": "Resource Type definition for AWS::ServiceCatalog::TagOption",

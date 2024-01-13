@@ -1,5 +1,6 @@
 {
-  "$hash": "beba55b6d2dd26bf6ab08dd0a3ef5ec16bee4628",
+  "$hash": "22328cf64174864bd6e7bfab640ba250a1077e3e",
+  "$id": "aws-mediaconnect-flowvpcinterface.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FlowArn", "/properties/Name"],
   "description": "Resource schema for AWS::MediaConnect::FlowVpcInterface",

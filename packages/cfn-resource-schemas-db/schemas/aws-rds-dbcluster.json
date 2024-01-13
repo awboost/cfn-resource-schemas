@@ -1,5 +1,6 @@
 {
-  "$hash": "ef67308e5784df0b8c6f717eeb2b9d649f7ab296",
+  "$hash": "8bc55e32605704da09adf9d8099366e28379b757",
+  "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
     "/properties/Engine",
@@ -171,6 +172,7 @@
     },
     "delete": {
       "permissions": [
+        "rds:CreateDBClusterSnapshot",
         "rds:DeleteDBCluster",
         "rds:DeleteDBInstance",
         "rds:DescribeDBClusters",

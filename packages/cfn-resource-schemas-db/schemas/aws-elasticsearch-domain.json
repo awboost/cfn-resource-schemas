@@ -1,5 +1,6 @@
 {
-  "$hash": "fb228716b5332f5045b21ecc59cd11094a70f197",
+  "$hash": "ea8864e424f0af772e8c87181b436e3e2d8c6cb2",
+  "$id": "aws-elasticsearch-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
   "definitions": {

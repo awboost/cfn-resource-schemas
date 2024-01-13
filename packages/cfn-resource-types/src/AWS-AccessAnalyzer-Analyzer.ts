@@ -6,6 +6,15 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type AccessAnalyzerAnalyzerProperties = {
   /**
+   * The configuration for the analyzer
+   */
+  AnalyzerConfiguration?: {
+    /**
+     * The Configuration for Unused Access Analyzer
+     */
+    UnusedAccessConfiguration?: UnusedAccessConfiguration;
+  };
+  /**
    * Analyzer name
    * @minLength `1`
    * @maxLength `1024`
@@ -18,7 +27,7 @@ export type AccessAnalyzerAnalyzerProperties = {
    */
   Tags?: Tag[];
   /**
-   * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+   * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
    * @minLength `0`
    * @maxLength `1024`
    */
@@ -80,6 +89,19 @@ export type Tag = {
    * @maxLength `255`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::AccessAnalyzer::Analyzer.UnusedAccessConfiguration`.
+ * The Configuration for Unused Access Analyzer
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html}
+ */
+export type UnusedAccessConfiguration = {
+  /**
+   * The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+   * @min `1`
+   * @max `180`
+   */
+  UnusedAccessAge?: number;
 };
 /**
  * The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account

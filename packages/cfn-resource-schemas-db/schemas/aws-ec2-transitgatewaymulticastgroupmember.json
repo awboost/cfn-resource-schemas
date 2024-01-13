@@ -1,5 +1,6 @@
 {
-  "$hash": "f568fbd24f32ffd64a63a3058b8ff06ff9443047",
+  "$hash": "6a84df5f582c763e8ab62b928adf397d25367862",
+  "$id": "aws-ec2-transitgatewaymulticastgroupmember.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TransitGatewayMulticastDomainId",

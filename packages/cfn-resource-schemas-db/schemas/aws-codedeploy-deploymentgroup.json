@@ -1,5 +1,6 @@
 {
-  "$hash": "dc20e5d6060f4b3b84df11564932f63bea490fcb",
+  "$hash": "4c03bcfb9832a4946cd9f45a16fd48e7bb5eb974",
+  "$id": "aws-codedeploy-deploymentgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DeploymentGroupName",
@@ -315,6 +316,7 @@
       "type": "array",
       "uniqueItems": false
     },
+    "TerminationHookEnabled": { "type": "boolean" },
     "TriggerConfigurations": {
       "items": { "$ref": "#/definitions/TriggerConfig" },
       "type": "array",

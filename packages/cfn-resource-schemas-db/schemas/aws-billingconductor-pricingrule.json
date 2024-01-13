@@ -1,5 +1,6 @@
 {
-  "$hash": "ad20d1573298b9bec8677cf14b6022b272fa9210",
+  "$hash": "bedf1c530efbc25a5ed6812c689ae0dd528e0250",
+  "$id": "aws-billingconductor-pricingrule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Scope",

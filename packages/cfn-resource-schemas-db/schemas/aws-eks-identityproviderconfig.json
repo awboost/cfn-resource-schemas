@@ -1,5 +1,6 @@
 {
-  "$hash": "c24f1eaa0391dded46234cfb46ddef4908494cb3",
+  "$hash": "a2f18e8f4cbd4c932df658b94f51a2473330a199",
+  "$id": "aws-eks-identityproviderconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Oidc",

@@ -1,5 +1,6 @@
 {
-  "$hash": "80a0643863ac6ba43f1ca8901bc0c19b435cf854",
+  "$hash": "60ac099ac9569ded83ae9566b8c68f5e66b54d72",
+  "$id": "aws-s3outposts-accesspoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Bucket",

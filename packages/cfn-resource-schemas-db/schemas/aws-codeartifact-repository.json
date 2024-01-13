@@ -1,5 +1,6 @@
 {
-  "$hash": "5069cbe78027886970fb98cee7748223618e494e",
+  "$hash": "96b4805bc064b4197e1fab6de6e3c0fbe7bb0878",
+  "$id": "aws-codeartifact-repository.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/RepositoryName",

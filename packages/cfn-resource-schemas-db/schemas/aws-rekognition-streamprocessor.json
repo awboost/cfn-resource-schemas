@@ -1,6 +1,7 @@
 {
   "$comment": "We explicitly specify the replacement strategy to be delete_then_create because we cannot create a new SP resource with the same name or same KVS input before deleting the old one",
-  "$hash": "91910b282aa3afc11b8a10c1e3482ca26a1501a4",
+  "$hash": "abc9ae55ed72e9199e39b9c7487c8fdfffac6e3c",
+  "$id": "aws-rekognition-streamprocessor.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

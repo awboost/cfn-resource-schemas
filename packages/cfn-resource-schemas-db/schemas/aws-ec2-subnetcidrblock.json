@@ -1,8 +1,14 @@
 {
-  "$hash": "84569df05634b4b2b81a74332d86410050012932",
+  "$hash": "b4702605398845d1ac35c3f277e06b0c05135d1f",
+  "$id": "aws-ec2-subnetcidrblock.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Ipv6CidrBlock", "/properties/SubnetId"],
+  "createOnlyProperties": [
+    "/properties/Ipv6CidrBlock",
+    "/properties/SubnetId",
+    "/properties/Ipv6IpamPoolId",
+    "/properties/Ipv6NetmaskLength"
+  ],
   "description": "The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR",
   "handlers": {
     "create": {
@@ -25,13 +31,23 @@
       "maxLength": 42,
       "type": "string"
     },
+    "Ipv6IpamPoolId": {
+      "description": "The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR",
+      "type": "string"
+    },
+    "Ipv6NetmaskLength": {
+      "description": "The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool",
+      "maximum": 128,
+      "minimum": 0,
+      "type": "integer"
+    },
     "SubnetId": { "description": "The ID of the subnet", "type": "string" }
   },
   "propertyTransform": {
     "/properties/Ipv6CidrBlock": "$join([$match($replace(Ipv6CidrBlock, /(^|:)(0{1,4})([0-9a-fA-F]{1,4})/, \"$1$3\"), /^([0-9a-fA-F]{1,4}:){4}/).match, \":/64\"])"
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": ["Ipv6CidrBlock", "SubnetId"],
+  "required": ["SubnetId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2/subnetcidrblock",
   "tagging": {
     "cloudFormationSystemTags": false,
@@ -39,5 +55,9 @@
     "tagUpdatable": false,
     "taggable": false
   },
-  "typeName": "AWS::EC2::SubnetCidrBlock"
+  "typeName": "AWS::EC2::SubnetCidrBlock",
+  "writeOnlyProperties": [
+    "/properties/Ipv6IpamPoolId",
+    "/properties/Ipv6NetmaskLength"
+  ]
 }

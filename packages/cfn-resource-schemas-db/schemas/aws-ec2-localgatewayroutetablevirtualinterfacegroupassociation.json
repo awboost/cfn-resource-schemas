@@ -1,5 +1,6 @@
 {
-  "$hash": "916f7be8b1a3b50e7d0f58c2e3674bd4d355cf9b",
+  "$hash": "c7402d35287dc2fb854e6b7d863a8353b931fec7",
+  "$id": "aws-ec2-localgatewayroutetablevirtualinterfacegroupassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LocalGatewayRouteTableId",

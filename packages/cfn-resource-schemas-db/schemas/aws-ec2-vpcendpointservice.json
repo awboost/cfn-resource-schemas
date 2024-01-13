@@ -1,5 +1,6 @@
 {
-  "$hash": "46b3ad6bb3ae2ed0c9693f4c61aeb5cfd24c4a8a",
+  "$hash": "7a8ac90077a3d1d89af0f6e6a8d7b119fcfd44e5",
+  "$id": "aws-ec2-vpcendpointservice.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::EC2::VPCEndpointService",
   "handlers": {

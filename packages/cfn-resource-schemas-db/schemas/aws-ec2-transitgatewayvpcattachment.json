@@ -1,5 +1,6 @@
 {
-  "$hash": "5017ce6a52c67eb30a3aee1ed811d35641d13757",
+  "$hash": "3e2adc0d0e4914a762102f1b6312a828bb01a8e9",
+  "$id": "aws-ec2-transitgatewayvpcattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TransitGatewayId",
@@ -106,10 +107,6 @@
         },
         "Ipv6Support": {
           "description": "Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable",
-          "type": "string"
-        },
-        "SecurityGroupReferencingSupport": {
-          "description": "Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable",
           "type": "string"
         }
       },

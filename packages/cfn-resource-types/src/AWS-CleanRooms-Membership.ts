@@ -13,6 +13,7 @@ export type CleanRoomsMembershipProperties = {
    */
   CollaborationIdentifier: string;
   DefaultResultConfiguration?: MembershipProtectedQueryResultConfiguration;
+  PaymentConfiguration?: MembershipPaymentConfiguration;
   QueryLogStatus: MembershipQueryLogStatus;
   /**
    * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
@@ -46,6 +47,13 @@ export type CleanRoomsMembershipAttributes = {
   MembershipIdentifier: string;
 };
 /**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipPaymentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html}
+ */
+export type MembershipPaymentConfiguration = {
+  QueryCompute: MembershipQueryComputePaymentConfig;
+};
+/**
  * Type definition for `AWS::CleanRooms::Membership.MembershipProtectedQueryOutputConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html}
  */
@@ -63,6 +71,13 @@ export type MembershipProtectedQueryResultConfiguration = {
    * @maxLength `512`
    */
   RoleArn?: string;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipQueryComputePaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerycomputepaymentconfig.html}
+ */
+export type MembershipQueryComputePaymentConfig = {
+  IsResponsible: boolean;
 };
 /**
  * Type definition for `AWS::CleanRooms::Membership.MembershipQueryLogStatus`.

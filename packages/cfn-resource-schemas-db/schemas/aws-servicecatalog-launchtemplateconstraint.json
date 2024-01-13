@@ -1,5 +1,6 @@
 {
-  "$hash": "266e313d3888863c902096ca68d7bef3da1a0fdc",
+  "$hash": "2083e07e59d844261e027c089206da28d5b893f1",
+  "$id": "aws-servicecatalog-launchtemplateconstraint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PortfolioId", "/properties/ProductId"],
   "description": "Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint",

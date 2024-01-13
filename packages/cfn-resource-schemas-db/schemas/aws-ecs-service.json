@@ -1,5 +1,6 @@
 {
-  "$hash": "0b57605fc45424d69d1829c167dbf8a8f735f604",
+  "$hash": "b593a86dab087be424b454bf2a4c34a1e6304352",
+  "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Cluster",
@@ -205,6 +206,16 @@
       },
       "type": "object"
     },
+    "ServiceVolumeConfiguration": {
+      "properties": {
+        "ManagedEBSVolume": {
+          "$ref": "#/definitions/ServiceManagedEBSVolumeConfiguration"
+        },
+        "Name": { "type": "string" }
+      },
+      "required": ["Name"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -220,7 +231,8 @@
       "permissions": [
         "ecs:CreateService",
         "ecs:DescribeServices",
-        "iam:PassRole"
+        "iam:PassRole",
+        "ecs:TagResource"
       ],
       "timeoutInMinutes": 180
     },
@@ -294,7 +306,11 @@
       "type": "array"
     },
     "Tags": { "items": { "$ref": "#/definitions/Tag" }, "type": "array" },
-    "TaskDefinition": { "type": "string" }
+    "TaskDefinition": { "type": "string" },
+    "VolumeConfigurations": {
+      "items": { "$ref": "#/definitions/ServiceVolumeConfiguration" },
+      "type": "array"
+    }
   },
   "readOnlyProperties": ["/properties/ServiceArn", "/properties/Name"],
   "tagging": {
@@ -305,5 +321,8 @@
     "taggable": true
   },
   "typeName": "AWS::ECS::Service",
-  "writeOnlyProperties": ["/properties/ServiceConnectConfiguration"]
+  "writeOnlyProperties": [
+    "/properties/ServiceConnectConfiguration",
+    "/properties/VolumeConfigurations"
+  ]
 }

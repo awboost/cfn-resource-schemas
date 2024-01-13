@@ -1,0 +1,20 @@
+{
+  "$hash": "a68f2f4763e718d7a3717f87c266f6107ab2e601",
+  "$id": "aws-glue-customentitytype.json",
+  "additionalProperties": false,
+  "description": "Resource Type definition for AWS::Glue::CustomEntityType",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "ContextWords": {
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "Id": { "type": "string" },
+    "Name": { "type": "string" },
+    "RegexString": { "type": "string" },
+    "Tags": { "type": "object" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "typeName": "AWS::Glue::CustomEntityType"
+}

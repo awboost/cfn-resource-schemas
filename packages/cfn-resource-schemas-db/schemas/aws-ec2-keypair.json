@@ -1,5 +1,6 @@
 {
-  "$hash": "b106a4864b910aeb9e73c8db6a94ded82b091387",
+  "$hash": "ab8ed7e04073e13182d43b568c7a5eab5fef7e58",
+  "$id": "aws-ec2-keypair.json",
   "additionalIdentifiers": [["/properties/KeyPairId"]],
   "additionalProperties": false,
   "createOnlyProperties": [

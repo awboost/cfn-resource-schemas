@@ -1,5 +1,6 @@
 {
-  "$hash": "3a1d01fcd05045d6822e64bdb9fd2c6e2f6f5715",
+  "$hash": "d25a28ca8aa6ce3fa5932adeaee30be6b1ff2176",
+  "$id": "aws-kinesisanalyticsv2-applicationoutput.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationName"],
   "definitions": {

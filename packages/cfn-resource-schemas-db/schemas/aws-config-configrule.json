@@ -1,5 +1,6 @@
 {
-  "$hash": "6accb0409ed2b36a6ffef3caff8dd7503c6f806d",
+  "$hash": "5d58e1127b96c54bddfd426bae4e067681a3e9e6",
+  "$id": "aws-config-configrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConfigRuleName"],
   "definitions": {

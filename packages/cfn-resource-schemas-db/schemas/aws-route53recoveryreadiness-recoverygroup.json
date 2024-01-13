@@ -1,5 +1,6 @@
 {
-  "$hash": "777976fb7beca3575d0a4105a2412974cb37dc98",
+  "$hash": "c16c8e95c6f3a27afc52ce33eb76ca6bb4acdada",
+  "$id": "aws-route53recoveryreadiness-recoverygroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RecoveryGroupName"],
   "definitions": {

@@ -14,7 +14,6 @@ export type EC2TransitGatewayProperties = {
   DnsSupport?: string;
   MulticastSupport?: string;
   PropagationDefaultRouteTableId?: string;
-  SecurityGroupReferencingSupport?: string;
   Tags?: Tag[];
   TransitGatewayCidrBlocks?: string[];
   VpnEcmpSupport?: string;

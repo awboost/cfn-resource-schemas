@@ -1,5 +1,6 @@
 {
-  "$hash": "8a3764b46a938e5aab1a1b9f66fa26c9e0a3202c",
+  "$hash": "fec0ddc64ca8c4cfac8bdddfee077600e0ceebb7",
+  "$id": "aws-athena-preparedstatement.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/StatementName",

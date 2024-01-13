@@ -1,5 +1,6 @@
 {
-  "$hash": "cb55a01d7cb94df1c68d36f61aed0d8645bd8414",
+  "$hash": "5360c28b8f4492c9492a91c3f4ab53c5e52ebeb5",
+  "$id": "aws-sagemaker-model.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ExecutionRoleArn",
@@ -20,6 +21,7 @@
         "ImageConfig": { "$ref": "#/definitions/ImageConfig" },
         "InferenceSpecificationName": { "type": "string" },
         "Mode": { "type": "string" },
+        "ModelDataSource": { "$ref": "#/definitions/ModelDataSource" },
         "ModelDataUrl": { "type": "string" },
         "ModelPackageName": { "type": "string" },
         "MultiModelConfig": { "$ref": "#/definitions/MultiModelConfig" }
@@ -41,6 +43,20 @@
       "required": ["Mode"],
       "type": "object"
     },
+    "ModelAccessConfig": {
+      "additionalProperties": false,
+      "properties": { "AcceptEula": { "type": "boolean" } },
+      "required": ["AcceptEula"],
+      "type": "object"
+    },
+    "ModelDataSource": {
+      "additionalProperties": false,
+      "properties": {
+        "S3DataSource": { "$ref": "#/definitions/S3DataSource" }
+      },
+      "required": ["S3DataSource"],
+      "type": "object"
+    },
     "MultiModelConfig": {
       "additionalProperties": false,
       "properties": { "ModelCacheSetting": { "type": "string" } },
@@ -52,6 +68,17 @@
         "RepositoryCredentialsProviderArn": { "type": "string" }
       },
       "required": ["RepositoryCredentialsProviderArn"],
+      "type": "object"
+    },
+    "S3DataSource": {
+      "additionalProperties": false,
+      "properties": {
+        "CompressionType": { "type": "string" },
+        "ModelAccessConfig": { "$ref": "#/definitions/ModelAccessConfig" },
+        "S3DataType": { "type": "string" },
+        "S3Uri": { "type": "string" }
+      },
+      "required": ["S3Uri", "S3DataType", "CompressionType"],
       "type": "object"
     },
     "Tag": {
@@ -105,6 +132,5 @@
     "VpcConfig": { "$ref": "#/definitions/VpcConfig" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": ["ExecutionRoleArn"],
   "typeName": "AWS::SageMaker::Model"
 }

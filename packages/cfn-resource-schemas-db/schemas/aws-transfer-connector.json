@@ -1,5 +1,6 @@
 {
-  "$hash": "03935dfdf018ada65fbcda44e13a42397e03d4a4",
+  "$hash": "a8cd80df833c53071aaf94187efc8aa287d8e037",
+  "$id": "aws-transfer-connector.json",
   "additionalProperties": false,
   "definitions": {
     "SftpConnectorTrustedHostKey": {

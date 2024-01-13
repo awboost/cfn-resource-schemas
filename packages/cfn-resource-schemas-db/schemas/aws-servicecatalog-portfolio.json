@@ -1,5 +1,6 @@
 {
-  "$hash": "1005c61bad188064220aab407f84a86656e596b4",
+  "$hash": "03dda4dadec6f44f074d75ffa53d13e04cc30e8b",
+  "$id": "aws-servicecatalog-portfolio.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

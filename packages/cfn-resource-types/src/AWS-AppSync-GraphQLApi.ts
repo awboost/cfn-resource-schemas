@@ -8,12 +8,15 @@ export type AppSyncGraphQLApiProperties = {
   AdditionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
   ApiType?: string;
   AuthenticationType: string;
+  IntrospectionConfig?: string;
   LambdaAuthorizerConfig?: LambdaAuthorizerConfig;
   LogConfig?: LogConfig;
   MergedApiExecutionRoleArn?: string;
   Name: string;
   OpenIDConnectConfig?: OpenIDConnectConfig;
   OwnerContact?: string;
+  QueryDepthLimit?: number;
+  ResolverCountLimit?: number;
   Tags?: Tag[];
   UserPoolConfig?: UserPoolConfig;
   Visibility?: string;
@@ -27,6 +30,7 @@ export type AppSyncGraphQLApiAttributes = {
   ApiId: string;
   Arn: string;
   GraphQLDns: string;
+  GraphQLEndpointArn: string;
   GraphQLUrl: string;
   Id: string;
   RealtimeDns: string;

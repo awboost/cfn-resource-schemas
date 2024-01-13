@@ -1,5 +1,6 @@
 {
-  "$hash": "2a0428f5552a3e1b5baa2701e5fb7ad801188efa",
+  "$hash": "c5ae25260b16e8653023f38ff5589a95addc5292",
+  "$id": "aws-apigateway-stage.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RestApiId", "/properties/StageName"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "c7c79139d41efcee0746b81ab0cf1dc23f6b9e63",
+  "$hash": "1850d8c82ae48fb7cfcccf1a0e4832910b43d3b6",
+  "$id": "aws-mediatailor-sourcelocation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SourceLocationName"],
   "definitions": {

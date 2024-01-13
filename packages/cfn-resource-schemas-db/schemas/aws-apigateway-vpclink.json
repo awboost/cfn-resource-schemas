@@ -1,5 +1,6 @@
 {
-  "$hash": "d631a845afe808fe4d8eec668e99fdf28041ec71",
+  "$hash": "48d96047726f2f61c5133696d97cae43aec21f8d",
+  "$id": "aws-apigateway-vpclink.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TargetArns"],
   "definitions": {

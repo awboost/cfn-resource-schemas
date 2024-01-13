@@ -1,5 +1,6 @@
 {
-  "$hash": "dfe97e89986bff961209a26a041b4ffc04009a0c",
+  "$hash": "5585b0e43ce7fe57187c88ae6509807f5f5eb321",
+  "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AwsAccountId",
@@ -5415,8 +5416,7 @@
           "minItems": 1,
           "type": "array"
         },
-        "Principal": { "maxLength": 256, "minLength": 1, "type": "string" },
-        "Resource": { "type": "string" }
+        "Principal": { "maxLength": 256, "minLength": 1, "type": "string" }
       },
       "required": ["Actions", "Principal"],
       "type": "object"
@@ -7489,6 +7489,8 @@
         "quicksight:DescribeTemplatePermissions",
         "quicksight:CreateTemplate",
         "quicksight:DescribeAnalysis",
+        "quicksight:TagResource",
+        "quicksight:UntagResource",
         "quicksight:ListTagsForResource"
       ]
     },
@@ -7498,13 +7500,31 @@
         "quicksight:DeleteTemplate"
       ]
     },
-    "list": { "permissions": ["quicksight:ListTemplates"] },
-    "read": { "permissions": ["quicksight:DescribeTemplate"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "AwsAccountId": {
+            "$ref": "resource-schema.json#/properties/AwsAccountId"
+          }
+        },
+        "required": ["AwsAccountId"]
+      },
+      "permissions": ["quicksight:ListTemplates"]
+    },
+    "read": {
+      "permissions": [
+        "quicksight:DescribeTemplate",
+        "quicksight:DescribeTemplatePermissions",
+        "quicksight:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
+        "quicksight:DescribeTemplate",
+        "quicksight:DescribeTemplatePermissions",
         "quicksight:UpdateTemplate",
         "quicksight:UpdateTemplatePermissions",
-        "quicksight:DescribeAnalysis",
+        "quicksight:PassDataSet",
         "quicksight:TagResource",
         "quicksight:UntagResource",
         "quicksight:ListTagsForResource"
@@ -7548,21 +7568,18 @@
     "VersionDescription": { "maxLength": 512, "minLength": 1, "type": "string" }
   },
   "readOnlyProperties": [
-    "/properties/TemplateError",
     "/properties/Arn",
     "/properties/CreatedTime",
     "/properties/LastUpdatedTime",
     "/properties/Version"
   ],
   "required": ["AwsAccountId", "TemplateId"],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "typeName": "AWS::QuickSight::Template",
   "writeOnlyProperties": [
     "/properties/Definition",
     "/properties/VersionDescription",
     "/properties/SourceEntity",
-    "/properties/CreatedTime",
-    "/properties/Version",
-    "/properties/LastUpdatedTime",
     "/properties/ValidationStrategy"
   ]
 }

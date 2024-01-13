@@ -1,5 +1,6 @@
 {
-  "$hash": "05c3e20b002707081db25d200a2e26fe5dc823a1",
+  "$hash": "232761a7aef360597a19dbd34e55064f99280b1d",
+  "$id": "aws-vpclattice-resourcepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn"],
   "description": "Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.",

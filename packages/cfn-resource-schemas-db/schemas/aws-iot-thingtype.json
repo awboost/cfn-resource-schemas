@@ -1,5 +1,6 @@
 {
-  "$hash": "9a2ff0f4fe5bbe317748a8b1a10b144c521d9ee2",
+  "$hash": "dff2383090e5d90d3d5dddfa7cc69a3fd0b10446",
+  "$id": "aws-iot-thingtype.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ThingTypeName",

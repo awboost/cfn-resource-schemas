@@ -1,5 +1,6 @@
 {
-  "$hash": "55b07a38210b23f13fd19d900cf3ecc5f60c1907",
+  "$hash": "8ea4eda18aeec328de151a16dddc67782d3e8601",
+  "$id": "aws-redshift-clustersubnetgroup.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

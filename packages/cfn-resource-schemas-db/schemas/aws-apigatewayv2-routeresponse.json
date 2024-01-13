@@ -1,5 +1,6 @@
 {
-  "$hash": "f69432c35890eeff37e02863d096e104a0fb65e0",
+  "$hash": "7e3f31c76f376a01f13ccea8dc22a1fd3c001822",
+  "$id": "aws-apigatewayv2-routeresponse.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId", "/properties/RouteId"],
   "definitions": {
@@ -52,7 +53,7 @@
       "description": "The route response parameters."
     },
     "RouteId": { "description": "The route ID.", "type": "string" },
-    "RouteResponseId": { "type": "string" },
+    "RouteResponseId": { "description": "", "type": "string" },
     "RouteResponseKey": {
       "description": "The route response key.",
       "type": "string"

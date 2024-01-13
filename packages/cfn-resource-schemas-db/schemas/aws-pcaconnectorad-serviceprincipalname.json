@@ -1,5 +1,6 @@
 {
-  "$hash": "3b10b6f247abe681a787fe924633a81af064c777",
+  "$hash": "1b7b132e32f9a5090651072868a11c54809df95f",
+  "$id": "aws-pcaconnectorad-serviceprincipalname.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ConnectorArn",

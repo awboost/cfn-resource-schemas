@@ -1,5 +1,6 @@
 {
-  "$hash": "cac52761193c04250b3941283a7bbca4ef40bf31",
+  "$hash": "f1cae51b50d11d22967a7f9f509a7afc62e9f20a",
+  "$id": "aws-appsync-functionconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],
   "definitions": {

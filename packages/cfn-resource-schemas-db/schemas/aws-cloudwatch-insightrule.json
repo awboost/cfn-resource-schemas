@@ -1,5 +1,6 @@
 {
-  "$hash": "e0af4cd6b1fc9b8bf2c2314b63afa5709235d529",
+  "$hash": "cd2a6464af3f46ce1e3c168c22d2fb9c8ddc4449",
+  "$id": "aws-cloudwatch-insightrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
   "definitions": {

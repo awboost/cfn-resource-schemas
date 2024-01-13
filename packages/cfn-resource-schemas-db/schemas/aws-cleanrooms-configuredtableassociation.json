@@ -1,5 +1,6 @@
 {
-  "$hash": "1687f2c449160c52600d8f6d3b85ba1c2e64444f",
+  "$hash": "1d671e45167b58120a96cf83a39b9cf45a247dc6",
+  "$id": "aws-cleanrooms-configuredtableassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ConfiguredTableIdentifier",

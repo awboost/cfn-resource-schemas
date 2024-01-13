@@ -9,6 +9,7 @@ export type ElasticLoadBalancingV2ListenerProperties = {
   Certificates?: Certificate[];
   DefaultActions: Action[];
   LoadBalancerArn: string;
+  MutualAuthentication?: MutualAuthentication;
   Port?: number;
   Protocol?: string;
   SslPolicy?: string;
@@ -89,6 +90,15 @@ export type FixedResponseConfig = {
 export type ForwardConfig = {
   TargetGroupStickinessConfig?: TargetGroupStickinessConfig;
   TargetGroups?: TargetGroupTuple[];
+};
+/**
+ * Type definition for `AWS::ElasticLoadBalancingV2::Listener.MutualAuthentication`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-mutualauthentication.html}
+ */
+export type MutualAuthentication = {
+  IgnoreClientCertificateExpiry?: boolean;
+  Mode?: string;
+  TrustStoreArn?: string;
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::Listener.RedirectConfig`.

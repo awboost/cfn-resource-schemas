@@ -1,5 +1,6 @@
 {
-  "$hash": "a6b0467c7919d03229b7f64d8bf4dfe89e585a39",
+  "$hash": "1a7aa8e1485d5257ebe5ebbac515864689b20c56",
+  "$id": "aws-appsync-graphqlapi.json",
   "additionalProperties": false,
   "definitions": {
     "AdditionalAuthenticationProvider": {
@@ -85,8 +86,10 @@
     "Arn": { "type": "string" },
     "AuthenticationType": { "type": "string" },
     "GraphQLDns": { "type": "string" },
+    "GraphQLEndpointArn": { "type": "string" },
     "GraphQLUrl": { "type": "string" },
     "Id": { "type": "string" },
+    "IntrospectionConfig": { "type": "string" },
     "LambdaAuthorizerConfig": {
       "$ref": "#/definitions/LambdaAuthorizerConfig"
     },
@@ -95,8 +98,10 @@
     "Name": { "type": "string" },
     "OpenIDConnectConfig": { "$ref": "#/definitions/OpenIDConnectConfig" },
     "OwnerContact": { "type": "string" },
+    "QueryDepthLimit": { "type": "integer" },
     "RealtimeDns": { "type": "string" },
     "RealtimeUrl": { "type": "string" },
+    "ResolverCountLimit": { "type": "integer" },
     "Tags": {
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
@@ -108,6 +113,7 @@
   },
   "readOnlyProperties": [
     "/properties/ApiId",
+    "/properties/GraphQLEndpointArn",
     "/properties/Id",
     "/properties/GraphQLDns",
     "/properties/GraphQLUrl",

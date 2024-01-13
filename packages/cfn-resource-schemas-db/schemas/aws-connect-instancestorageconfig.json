@@ -1,5 +1,6 @@
 {
-  "$hash": "cfa1ce3b6a504fdca7fbfe8ec450c08ef7b27f4d",
+  "$hash": "c324b58534e560f238fb2f7e1aba740fb0c40a1d",
+  "$id": "aws-connect-instancestorageconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/InstanceArn",
@@ -85,7 +86,7 @@
         "Prefix": { "$ref": "#/definitions/Prefix" },
         "RetentionPeriodHours": { "$ref": "#/definitions/Hours" }
       },
-      "required": ["Prefix", "RetentionPeriodHours"],
+      "required": ["Prefix", "RetentionPeriodHours", "EncryptionConfig"],
       "type": "object"
     },
     "Prefix": {

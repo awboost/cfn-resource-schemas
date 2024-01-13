@@ -1,5 +1,6 @@
 {
-  "$hash": "25151303d1df7c403a7a199a5d08a074912e6afe",
+  "$hash": "d3bd9a8521834852fde7359f02031322b18c9022",
+  "$id": "aws-ec2-ipampool.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IpamScopeId",
@@ -8,7 +9,8 @@
     "/properties/AddressFamily",
     "/properties/PubliclyAdvertisable",
     "/properties/PublicIpSource",
-    "/properties/AwsService"
+    "/properties/AwsService",
+    "/properties/SourceResource"
   ],
   "definitions": {
     "Cidr": {
@@ -20,6 +22,23 @@
       "description": "An address space to be inserted into this pool. All allocations must be made from this address space.",
       "properties": { "Cidr": { "$ref": "#/definitions/Cidr" } },
       "required": ["Cidr"],
+      "type": "object"
+    },
+    "SourceResource": {
+      "additionalProperties": false,
+      "description": "The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations",
+      "properties": {
+        "ResourceId": { "type": "string" },
+        "ResourceOwner": { "type": "string" },
+        "ResourceRegion": { "type": "string" },
+        "ResourceType": { "type": "string" }
+      },
+      "required": [
+        "ResourceId",
+        "ResourceType",
+        "ResourceRegion",
+        "ResourceOwner"
+      ],
       "type": "object"
     },
     "Tag": {
@@ -164,6 +183,7 @@
       "description": "The Id of this pool's source. If set, all space provisioned in this pool must be free space provisioned in the parent pool.",
       "type": "string"
     },
+    "SourceResource": { "$ref": "#/definitions/SourceResource" },
     "State": {
       "description": "The state of this pool. This can be one of the following values: \"create-in-progress\", \"create-complete\", \"modify-in-progress\", \"modify-complete\", \"delete-in-progress\", or \"delete-complete\"",
       "enum": [

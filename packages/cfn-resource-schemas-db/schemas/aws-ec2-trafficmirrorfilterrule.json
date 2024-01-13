@@ -1,5 +1,6 @@
 {
-  "$hash": "e8a09f846d223507cfd9612324deb3f5311d5a9c",
+  "$hash": "caa64e50d4b854592880b7738048a4dbf557095a",
+  "$id": "aws-ec2-trafficmirrorfilterrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TrafficMirrorFilterId"],
   "definitions": {

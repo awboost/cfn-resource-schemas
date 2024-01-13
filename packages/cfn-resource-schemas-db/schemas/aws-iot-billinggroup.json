@@ -1,5 +1,6 @@
 {
-  "$hash": "0c18336be7723f8407523f4174d3d565a1c36465",
+  "$hash": "285730d6145b9e522119090871e773c9b951e5c6",
+  "$id": "aws-iot-billinggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BillingGroupName"],
   "definitions": {

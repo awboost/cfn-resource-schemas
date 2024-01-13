@@ -1,5 +1,6 @@
 {
-  "$hash": "05facab230356e1c1dad32fdbde51953679229bf",
+  "$hash": "5b2f5c8ef9dffdfa760d86ebe80a234d2649e187",
+  "$id": "aws-iot-cacertificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/VerificationCertificatePem",

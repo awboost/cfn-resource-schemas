@@ -1,5 +1,6 @@
 {
-  "$hash": "64f21eb1e2437248cd9f83c4173a0df836e59277",
+  "$hash": "15d7439b1ea16a71b832ec25be2c4b44d4e1cd2e",
+  "$id": "aws-wafregional-regexpatternset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "description": "Resource Type definition for AWS::WAFRegional::RegexPatternSet",

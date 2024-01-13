@@ -135,7 +135,9 @@ export type CodeConfigurationValues = {
     | "GO_1"
     | "DOTNET_6"
     | "PHP_81"
-    | "RUBY_31";
+    | "RUBY_31"
+    | "PYTHON_311"
+    | "NODEJS_18";
   /**
    * The secrets and parameters that get referenced by your service as environment variables
    */

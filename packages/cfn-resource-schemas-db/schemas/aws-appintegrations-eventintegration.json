@@ -1,5 +1,6 @@
 {
-  "$hash": "7af3a00d542ee294731c3799181a0881839824e1",
+  "$hash": "b755a609d8819fbeba095bdaec01582619a25161",
+  "$id": "aws-appintegrations-eventintegration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

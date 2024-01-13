@@ -1,5 +1,6 @@
 {
-  "$hash": "475e5cd2eee51b1387d182682950957ba4c0c81d",
+  "$hash": "db3b424fca2d8a36d265287c31f58ec8a9034ea8",
+  "$id": "aws-ec2-vpccidrblock.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Ipv6Pool",

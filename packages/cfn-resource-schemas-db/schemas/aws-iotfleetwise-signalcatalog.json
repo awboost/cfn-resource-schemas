@@ -1,5 +1,6 @@
 {
-  "$hash": "66ac987d416d664ccd73f67ad88a1c823fcaf4be",
+  "$hash": "284d339c6859187e890c7235d3807b8831170642",
+  "$id": "aws-iotfleetwise-signalcatalog.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

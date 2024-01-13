@@ -1,5 +1,6 @@
 {
-  "$hash": "b0f3e15a66ac828d083eb2bbbf33091122a20c3e",
+  "$hash": "a0597d495d321cd4dd41d761449459840784cca3",
+  "$id": "aws-sdb-domain.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::SDB::Domain",
   "primaryIdentifier": ["/properties/Id"],

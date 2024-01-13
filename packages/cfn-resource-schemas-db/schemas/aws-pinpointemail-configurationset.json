@@ -1,5 +1,6 @@
 {
-  "$hash": "4f26bc7159300eed9ce730ebce54314d708b75de",
+  "$hash": "96439daafbe43f8b2a3df09fa176b5deb2922d51",
+  "$id": "aws-pinpointemail-configurationset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

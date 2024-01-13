@@ -1,5 +1,6 @@
 {
-  "$hash": "31f087c1dab559b0d81b074fe490dc5177b3d08f",
+  "$hash": "81192461b98193641921729028ddddf3b9c5eb80",
+  "$id": "aws-datasync-locationfsxwindows.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Domain",

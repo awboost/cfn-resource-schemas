@@ -1,5 +1,6 @@
 {
-  "$hash": "e1b81a775a5e83ee433cb164dfb7addc1368ef7f",
+  "$hash": "2a3ae123ee6fadb73423c900814498332bf5493f",
+  "$id": "aws-elasticache-securitygroupingress.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::ElastiCache::SecurityGroupIngress",
   "primaryIdentifier": ["/properties/Id"],

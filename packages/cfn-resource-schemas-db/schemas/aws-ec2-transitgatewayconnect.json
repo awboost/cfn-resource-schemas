@@ -1,5 +1,6 @@
 {
-  "$hash": "092af4c03ab94893265ca52ea223bbac4334d89a",
+  "$hash": "72901e13a4f1584f8c58fbcb3dc8002e02d68c33",
+  "$id": "aws-ec2-transitgatewayconnect.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TransportTransitGatewayAttachmentId",

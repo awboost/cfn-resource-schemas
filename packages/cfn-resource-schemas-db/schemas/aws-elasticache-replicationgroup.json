@@ -1,5 +1,6 @@
 {
-  "$hash": "54d48813c530e4d5da8928f5bd64e54750d00110",
+  "$hash": "bbe7c1e40cc39c972694a390ba89d5e77c126e76",
+  "$id": "aws-elasticache-replicationgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KmsKeyId",

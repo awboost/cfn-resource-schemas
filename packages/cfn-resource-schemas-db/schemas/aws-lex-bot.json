@@ -1,5 +1,6 @@
 {
-  "$hash": "3e6a7f6b8d04f05042d0fb14f813707a4de94e78",
+  "$hash": "84287453881c6ef269a3a07ce9daccb17b7086d4",
+  "$id": "aws-lex-bot.json",
   "additionalProperties": false,
   "definitions": {
     "AdvancedRecognitionSetting": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "ed99f2b840d0fd6fa74387a713284f8fb8fd86dc",
+  "$hash": "fb11684666d9663c695d801c6dc8f86dc230147c",
+  "$id": "aws-finspace-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KmsKeyId",

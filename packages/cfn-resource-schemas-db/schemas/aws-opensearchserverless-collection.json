@@ -1,5 +1,6 @@
 {
-  "$hash": "698081c6501a8db5b231167828ce88f8471bfd14",
+  "$hash": "c22970bd92cbf42d31753507d9b344d4b36bf237",
+  "$id": "aws-opensearchserverless-collection.json",
   "additionalIdentifiers": [["/properties/Name"], ["/properties/Arn"]],
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,6 +12,11 @@
     "CollectionType": {
       "description": "The possible types for the collection",
       "enum": ["SEARCH", "TIMESERIES", "VECTORSEARCH"],
+      "type": "string"
+    },
+    "StandbyReplicas": {
+      "description": "The possible standby replicas for the collection",
+      "enum": ["ENABLED", "DISABLED"],
       "type": "string"
     },
     "Tag": {
@@ -84,6 +90,7 @@
       "pattern": "^[a-z][a-z0-9-]{2,31}$",
       "type": "string"
     },
+    "StandbyReplicas": { "$ref": "#/definitions/StandbyReplicas" },
     "Tags": {
       "description": "List of tags to be added to the resource",
       "insertionOrder": false,

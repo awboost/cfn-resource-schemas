@@ -1,5 +1,6 @@
 {
-  "$hash": "fe0efdeee7769089bc0d52997432a561f4169139",
+  "$hash": "86993e450e2348f6be7433c68eab783e85691f67",
+  "$id": "aws-memorydb-acl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ACLName"],
   "definitions": {
@@ -32,6 +33,7 @@
       "permissions": [
         "memorydb:CreateACL",
         "memorydb:DescribeACLs",
+        "memorydb:TagResource",
         "memorydb:ListTags"
       ]
     },

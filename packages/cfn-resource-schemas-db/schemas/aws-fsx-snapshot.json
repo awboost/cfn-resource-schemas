@@ -1,5 +1,6 @@
 {
-  "$hash": "676eea4b52ee4d5f3afa88b3ff502c5cee49072b",
+  "$hash": "522ababa93b7d7bf314cf7b0d1275fa68829c94a",
+  "$id": "aws-fsx-snapshot.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VolumeId"],
   "definitions": {

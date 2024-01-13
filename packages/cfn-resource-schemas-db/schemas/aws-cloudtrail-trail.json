@@ -1,5 +1,6 @@
 {
-  "$hash": "2211d0fc082c8950ea1978dbaa1727b37fb6b024",
+  "$hash": "addc431a96237a854a0572e4d36c00d539d464cd",
+  "$id": "aws-cloudtrail-trail.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TrailName"],
   "definitions": {

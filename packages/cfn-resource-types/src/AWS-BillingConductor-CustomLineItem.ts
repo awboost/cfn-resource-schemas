@@ -7,6 +7,11 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type BillingConductorCustomLineItemProperties = {
   /**
+   * The account which this custom line item will be charged to
+   * @pattern `[0-9]{12}`
+   */
+  AccountId?: string;
+  /**
    * Billing Group ARN
    * @pattern `arn:aws(-cn)?:billingconductor::[0-9]{12}:billinggroup/?[0-9]{12}`
    */

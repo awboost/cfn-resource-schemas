@@ -21,12 +21,24 @@ export type CodeDeployDeploymentConfigProperties = {
    * The configuration that specifies how the deployment traffic is routed.
    */
   TrafficRoutingConfig?: TrafficRoutingConfig;
+  /**
+   * The zonal deployment config that specifies how the zonal deployment behaves
+   */
+  ZonalConfig?: ZonalConfig;
 };
 /**
  * Type definition for `AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHosts`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html}
  */
 export type MinimumHealthyHosts = {
+  Type: string;
+  Value: number;
+};
+/**
+ * Type definition for `AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHostsPerZone`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhostsperzone.html}
+ */
+export type MinimumHealthyHostsPerZone = {
   Type: string;
   Value: number;
 };
@@ -54,6 +66,15 @@ export type TrafficRoutingConfig = {
   TimeBasedCanary?: TimeBasedCanary;
   TimeBasedLinear?: TimeBasedLinear;
   Type: string;
+};
+/**
+ * Type definition for `AWS::CodeDeploy::DeploymentConfig.ZonalConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-zonalconfig.html}
+ */
+export type ZonalConfig = {
+  FirstZoneMonitorDurationInSeconds?: number;
+  MinimumHealthyHostsPerZone?: MinimumHealthyHostsPerZone;
+  MonitorDurationInSeconds?: number;
 };
 /**
  * Resource Type definition for AWS::CodeDeploy::DeploymentConfig

@@ -1,5 +1,6 @@
 {
-  "$hash": "1ad47cd1c94e0aec48e4691a1bebdc0753e211c3",
+  "$hash": "20edde7ffceee4cafc77e1168313a0035de1ad05",
+  "$id": "aws-sso-instanceaccesscontrolattributeconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceArn"],
   "definitions": {

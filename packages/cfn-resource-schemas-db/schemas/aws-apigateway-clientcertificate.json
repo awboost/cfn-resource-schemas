@@ -1,5 +1,6 @@
 {
-  "$hash": "1282b3f8053a66fdc6ee50ae4827af7b2d02de23",
+  "$hash": "0ea7613de8688fcede7e572c5b68265ad2a932e8",
+  "$id": "aws-apigateway-clientcertificate.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

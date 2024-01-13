@@ -1,5 +1,6 @@
 {
-  "$hash": "879c7c20c61e992b6653bc46a333f17766b71cb0",
+  "$hash": "2d728f9f02aa6e725afbc38fa863b2af07f83ccf",
+  "$id": "aws-rds-dbsecuritygroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/GroupDescription",

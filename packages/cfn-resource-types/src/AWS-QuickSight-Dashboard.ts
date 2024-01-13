@@ -5500,7 +5500,6 @@ export type ResourcePermission = {
    * @maxLength `256`
    */
   Principal: string;
-  Resource?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.ResourceStatus`.

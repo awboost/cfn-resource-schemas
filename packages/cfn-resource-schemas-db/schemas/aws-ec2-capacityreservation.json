@@ -1,5 +1,6 @@
 {
-  "$hash": "7541306eb66da2fa5c5ca93099487a0de4642ae8",
+  "$hash": "d1fb6d2aa2729e1042e6f134377be8bc534b7091",
+  "$id": "aws-ec2-capacityreservation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Tenancy",

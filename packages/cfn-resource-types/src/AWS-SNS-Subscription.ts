@@ -13,6 +13,7 @@ export type SNSSubscriptionProperties = {
   RawMessageDelivery?: boolean;
   RedrivePolicy?: Record<string, any>;
   Region?: string;
+  ReplayPolicy?: Record<string, any>;
   SubscriptionRoleArn?: string;
   TopicArn: string;
 };

@@ -1,5 +1,6 @@
 {
-  "$hash": "aee2fd4a59e1fbf807b8973598d892ea238e97c7",
+  "$hash": "796322e5cc83c3033e69c7a600b699fe851689d0",
+  "$id": "aws-shield-protectiongroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProtectionGroupId"],
   "definitions": {

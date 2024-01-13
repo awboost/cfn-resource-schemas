@@ -14,12 +14,30 @@ export type ControlTowerEnabledControlProperties = {
    */
   ControlIdentifier: string;
   /**
+   * Parameters to configure the enabled control behavior.
+   * @minLength `1`
+   */
+  Parameters?: EnabledControlParameter[];
+  /**
    * Arn for Organizational unit to which the control needs to be applied
    * @minLength `20`
    * @maxLength `2048`
    * @pattern `^arn:aws[0-9a-zA-Z_\-:\/]+$`
    */
   TargetIdentifier: string;
+};
+/**
+ * Type definition for `AWS::ControlTower::EnabledControl.EnabledControlParameter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-controltower-enabledcontrol-enabledcontrolparameter.html}
+ */
+export type EnabledControlParameter = {
+  Key: string;
+  Value:
+    | (string | number | Record<string, any> | boolean)[]
+    | string
+    | number
+    | Record<string, any>
+    | boolean;
 };
 /**
  * Resource type definition for `AWS::ControlTower::EnabledControl`.

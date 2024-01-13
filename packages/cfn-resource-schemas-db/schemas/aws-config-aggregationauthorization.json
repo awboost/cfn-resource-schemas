@@ -1,5 +1,6 @@
 {
-  "$hash": "2a50fd6876e04476eb4c8dc6ae7bc74124c857a0",
+  "$hash": "27ae0cebb1d2a3278108242d9ce00d73a0f5842e",
+  "$id": "aws-config-aggregationauthorization.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AuthorizedAccountId",

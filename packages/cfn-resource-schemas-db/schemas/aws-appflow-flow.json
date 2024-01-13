@@ -1,5 +1,6 @@
 {
-  "$hash": "9cd2c03625e2012f2d265a695a4b21f1022402e6",
+  "$hash": "65c3c4699573dc295610e01629606019266eb96e",
+  "$id": "aws-appflow-flow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FlowName", "/properties/KMSArn"],
   "definitions": {

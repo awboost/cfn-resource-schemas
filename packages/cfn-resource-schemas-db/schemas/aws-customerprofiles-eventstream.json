@@ -1,5 +1,6 @@
 {
-  "$hash": "50e7b404da5ba77e0d19924c08cb3685e7b1ba4b",
+  "$hash": "f48ded1b80b4b6df13e2bd7789a9cffd3931be0e",
+  "$id": "aws-customerprofiles-eventstream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DomainName",

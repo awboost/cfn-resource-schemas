@@ -1,5 +1,6 @@
 {
-  "$hash": "68931be63b29bede638046c059d9f47f3cc3f412",
+  "$hash": "3966bfecf112e0b885060720ce3065d4aee4a9c9",
+  "$id": "aws-connectcampaigns-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceArn"],
   "definitions": {

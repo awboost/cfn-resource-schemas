@@ -1,5 +1,6 @@
 {
-  "$hash": "ce7bf14775de03b33eef85a0a61ae69f0c3fec5d",
+  "$hash": "e399bed120dba06e476b02df1249090d1708f0ab",
+  "$id": "aws-vpclattice-targetgroup.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/Name"]],
   "additionalProperties": false,
   "createOnlyProperties": [

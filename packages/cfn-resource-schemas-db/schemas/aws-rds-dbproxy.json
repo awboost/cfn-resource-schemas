@@ -1,5 +1,6 @@
 {
-  "$hash": "115e2a8ba20f46fe5c38c6011935d0beb6c33ac4",
+  "$hash": "d2e6fbb945d76ca6227610f8132192c9eef8a4c6",
+  "$id": "aws-rds-dbproxy.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DBProxyName",
@@ -161,5 +162,12 @@
     "VpcSubnetIds"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RDS::DBProxy"
 }

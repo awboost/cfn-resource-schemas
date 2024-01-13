@@ -28,13 +28,7 @@ export type ApiGatewayV2DomainNameProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#aws-resource-apigatewayv2-domainname-return-values}
  */
 export type ApiGatewayV2DomainNameAttributes = {
-  /**
-   * The domain name associated with the regional endpoint for this custom domain name.
-   */
   RegionalDomainName: string;
-  /**
-   * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-   */
   RegionalHostedZoneId: string;
 };
 /**

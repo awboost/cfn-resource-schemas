@@ -1,5 +1,6 @@
 {
-  "$hash": "937d28988edec8e7892e95946f2f4fd50a1e4412",
+  "$hash": "1e634d68fb6321ef0fead769897c00388a3eabe2",
+  "$id": "aws-robomaker-robotapplication.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

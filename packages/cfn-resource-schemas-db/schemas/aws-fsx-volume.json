@@ -1,8 +1,21 @@
 {
-  "$hash": "4dbc28058dc0a7dd8be8e23e74f8f414a48ed696",
+  "$hash": "4e14331fad6171a79902f87703fddf3f0d48dd96",
+  "$id": "aws-fsx-volume.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BackupId", "/properties/VolumeType"],
   "definitions": {
+    "AggregateConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Aggregates": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "ConstituentsPerAggregate": { "type": "integer" }
+      },
+      "type": "object"
+    },
     "AutocommitPeriod": {
       "additionalProperties": false,
       "properties": {
@@ -40,10 +53,14 @@
     "OntapConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "AggregateConfiguration": {
+          "$ref": "#/definitions/AggregateConfiguration"
+        },
         "CopyTagsToBackups": { "type": "string" },
         "JunctionPath": { "type": "string" },
         "OntapVolumeType": { "type": "string" },
         "SecurityStyle": { "type": "string" },
+        "SizeInBytes": { "type": "string" },
         "SizeInMegabytes": { "type": "string" },
         "SnaplockConfiguration": {
           "$ref": "#/definitions/SnaplockConfiguration"
@@ -51,9 +68,10 @@
         "SnapshotPolicy": { "type": "string" },
         "StorageEfficiencyEnabled": { "type": "string" },
         "StorageVirtualMachineId": { "type": "string" },
-        "TieringPolicy": { "$ref": "#/definitions/TieringPolicy" }
+        "TieringPolicy": { "$ref": "#/definitions/TieringPolicy" },
+        "VolumeStyle": { "type": "string" }
       },
-      "required": ["StorageVirtualMachineId", "SizeInMegabytes"],
+      "required": ["StorageVirtualMachineId"],
       "type": "object"
     },
     "OpenZFSConfiguration": {

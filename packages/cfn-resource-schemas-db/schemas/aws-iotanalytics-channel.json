@@ -1,5 +1,6 @@
 {
-  "$hash": "52d51aecc1d62a4cb18e95b183552f8a0ea93a19",
+  "$hash": "6bfd8a1c6b1d1c46269eb9a1de3a2814666c101e",
+  "$id": "aws-iotanalytics-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ChannelName"],
   "definitions": {

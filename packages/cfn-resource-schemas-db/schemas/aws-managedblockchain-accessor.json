@@ -1,14 +1,28 @@
 {
-  "$hash": "412ed8c166756e43603fa717de3d988aeb06b36e",
+  "$hash": "86051e1c0cbaca32bc14b4d1167ceb23b43e4e5f",
+  "$id": "aws-managedblockchain-accessor.json",
   "additionalIdentifiers": [["/properties/Arn"]],
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/AccessorType"],
+  "createOnlyProperties": [
+    "/properties/AccessorType",
+    "/properties/NetworkType"
+  ],
   "definitions": {
     "AccessorStatus": {
       "enum": ["AVAILABLE", "PENDING_DELETION", "DELETED"],
       "type": "string"
     },
     "AccessorType": { "enum": ["BILLING_TOKEN"], "type": "string" },
+    "NetworkAccessorType": {
+      "enum": [
+        "ETHEREUM_GOERLI",
+        "ETHEREUM_MAINNET",
+        "ETHEREUM_MAINNET_AND_GOERLI",
+        "POLYGON_MAINNET",
+        "POLYGON_MUMBAI"
+      ],
+      "type": "string"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
@@ -63,6 +77,7 @@
     "BillingToken": { "maxLength": 42, "minLength": 42, "type": "string" },
     "CreationDate": { "type": "string" },
     "Id": { "maxLength": 32, "minLength": 1, "type": "string" },
+    "NetworkType": { "$ref": "#/definitions/NetworkAccessorType" },
     "Status": { "$ref": "#/definitions/AccessorStatus" },
     "Tags": {
       "description": "An array of key-value pairs to apply to this resource.",

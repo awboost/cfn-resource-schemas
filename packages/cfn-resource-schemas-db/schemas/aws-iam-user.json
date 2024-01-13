@@ -1,5 +1,6 @@
 {
-  "$hash": "caf03f6d075f9bb974766479361299716b85c0dd",
+  "$hash": "b4e25b31e5ce81ae5dbf09a6743580c5b6344b2f",
+  "$id": "aws-iam-user.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserName"],
   "definitions": {

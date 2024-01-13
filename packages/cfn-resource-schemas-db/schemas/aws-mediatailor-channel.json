@@ -1,5 +1,6 @@
 {
-  "$hash": "973d48f21a5670ec6546e78d342d6b518a24c50f",
+  "$hash": "4ef6d62c7f8ed0746c730010b40ffa92d6cb089d",
+  "$id": "aws-mediatailor-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ChannelName", "/properties/Tier"],
   "definitions": {
@@ -12,22 +13,18 @@
       "description": "<p>Dash manifest configuration parameters.</p>",
       "properties": {
         "ManifestWindowSeconds": {
-          "default": 0,
           "description": "<p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>",
           "type": "number"
         },
         "MinBufferTimeSeconds": {
-          "default": 0,
           "description": "<p>Minimum amount of content (measured in seconds) that a player must keep available in the buffer. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>",
           "type": "number"
         },
         "MinUpdatePeriodSeconds": {
-          "default": 0,
           "description": "<p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>",
           "type": "number"
         },
         "SuggestedPresentationDelaySeconds": {
-          "default": 0,
           "description": "<p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>",
           "type": "number"
         }
@@ -44,7 +41,6 @@
           "type": "array"
         },
         "ManifestWindowSeconds": {
-          "default": 0,
           "description": "<p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>",
           "type": "number"
         }
@@ -110,7 +106,19 @@
       "required": ["Value", "Key"],
       "type": "object"
     },
-    "Tier": { "enum": ["BASIC", "STANDARD"], "type": "string" }
+    "Tier": { "enum": ["BASIC", "STANDARD"], "type": "string" },
+    "TimeShiftConfiguration": {
+      "additionalProperties": false,
+      "description": "<p>The configuration for time-shifted viewing.</p>",
+      "properties": {
+        "MaxTimeDelaySeconds": {
+          "description": "<p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>",
+          "type": "number"
+        }
+      },
+      "required": ["MaxTimeDelaySeconds"],
+      "type": "object"
+    }
   },
   "description": "Definition of AWS::MediaTailor::Channel Resource Type",
   "handlers": {
@@ -165,7 +173,8 @@
       "type": "array",
       "uniqueItems": true
     },
-    "Tier": { "$ref": "#/definitions/Tier" }
+    "Tier": { "$ref": "#/definitions/Tier" },
+    "TimeShiftConfiguration": { "$ref": "#/definitions/TimeShiftConfiguration" }
   },
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["ChannelName", "Outputs", "PlaybackMode"],

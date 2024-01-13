@@ -1,5 +1,6 @@
 {
-  "$hash": "6274e3f4ad9007b19203c15af3b000d7d0b20e14",
+  "$hash": "dca256e6bce479feb0e1a184c483861827e4155c",
+  "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AutoScalingGroupProvider/AutoScalingGroupArn",
@@ -10,6 +11,10 @@
       "additionalProperties": false,
       "properties": {
         "AutoScalingGroupArn": { "type": "string" },
+        "ManagedDraining": {
+          "enum": ["DISABLED", "ENABLED"],
+          "type": "string"
+        },
         "ManagedScaling": { "$ref": "#/definitions/ManagedScaling" },
         "ManagedTerminationProtection": {
           "enum": ["DISABLED", "ENABLED"],
@@ -80,5 +85,6 @@
     "/properties/AutoScalingGroupProvider/AutoScalingGroupArn": "$split(AutoScalingGroupProvider.AutoScalingGroupArn, \"autoScalingGroupName/\")[-1] $OR $split(AutoScalingGroupArn, \"autoScalingGroupName/\")[-1]"
   },
   "required": ["AutoScalingGroupProvider"],
+  "tagging": { "taggable": true },
   "typeName": "AWS::ECS::CapacityProvider"
 }

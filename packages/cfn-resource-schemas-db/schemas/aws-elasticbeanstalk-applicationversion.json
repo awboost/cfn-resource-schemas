@@ -1,5 +1,6 @@
 {
-  "$hash": "ddf84978cc95dedfeceb09c224bca6f1da2dcd44",
+  "$hash": "cfca61fdd6c9aa79609060335ed21e48f9367d3a",
+  "$id": "aws-elasticbeanstalk-applicationversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SourceBundle",

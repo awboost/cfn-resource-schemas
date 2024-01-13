@@ -1,5 +1,6 @@
 {
-  "$hash": "e339259fbd4ffce0441cf97a57071e05133aa541",
+  "$hash": "d2fd56d6ea5263afcc0ed4fae51a04bd15b1e77e",
+  "$id": "aws-fsx-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KmsKeyId",
@@ -80,6 +81,7 @@
         },
         "EndpointIpAddressRange": { "type": "string" },
         "FsxAdminPassword": { "type": "string" },
+        "HAPairs": { "type": "integer" },
         "PreferredSubnetId": { "type": "string" },
         "RouteTableIds": {
           "items": { "type": "string" },
@@ -87,6 +89,7 @@
           "uniqueItems": false
         },
         "ThroughputCapacity": { "type": "integer" },
+        "ThroughputCapacityPerHAPair": { "type": "integer" },
         "WeeklyMaintenanceStartTime": { "type": "string" }
       },
       "required": ["DeploymentType"],

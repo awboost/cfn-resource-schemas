@@ -1,5 +1,6 @@
 {
-  "$hash": "ce9e19f86eb3983cf2c7c93e5f7b9c0c7614f900",
+  "$hash": "239fac425f2b94dfd54068388d01267135a31e4c",
+  "$id": "aws-events-endpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

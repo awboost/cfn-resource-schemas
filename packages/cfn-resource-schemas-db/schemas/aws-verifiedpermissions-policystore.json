@@ -1,5 +1,6 @@
 {
-  "$hash": "410a5c31cccef5e77563bf86777c2453118a303c",
+  "$hash": "76ee7c9fcc555846dc92696b2b9ac95c42d57ea2",
+  "$id": "aws-verifiedpermissions-policystore.json",
   "additionalProperties": false,
   "definitions": {
     "SchemaDefinition": {
@@ -73,6 +74,7 @@
       "pattern": "^arn:[^:]*:[^:]*:[^:]*:[^:]*:.*$",
       "type": "string"
     },
+    "Description": { "maxLength": 150, "minLength": 0, "type": "string" },
     "PolicyStoreId": {
       "maxLength": 200,
       "minLength": 1,

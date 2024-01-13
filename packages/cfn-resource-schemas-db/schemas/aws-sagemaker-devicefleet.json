@@ -1,5 +1,6 @@
 {
-  "$hash": "f0d8d53d1ebd73b61233c6391e6d8790cd593db0",
+  "$hash": "bd3c4c5dc6172c8bf37a4ad950cf6377f26bddbd",
+  "$id": "aws-sagemaker-devicefleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DeviceFleetName"],
   "definitions": {

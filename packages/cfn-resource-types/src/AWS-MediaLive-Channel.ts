@@ -551,6 +551,14 @@ export type EncoderSettings = {
   VideoDescriptions?: VideoDescription[];
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.EpochLockingSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-epochlockingsettings.html}
+ */
+export type EpochLockingSettings = {
+  CustomEpoch?: string;
+  JamSyncTime?: string;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.Esam`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html}
  */
@@ -584,6 +592,7 @@ export type FailoverConditionSettings = {
  */
 export type FeatureActivations = {
   InputPrepareScheduleActions?: string;
+  OutputStaticImageOverlayScheduleActions?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.FecOutputSettings`.
@@ -655,6 +664,7 @@ export type GlobalConfiguration = {
   InputEndAction?: string;
   InputLossBehavior?: InputLossBehavior;
   OutputLockingMode?: string;
+  OutputLockingSettings?: OutputLockingSettings;
   OutputTimingSource?: string;
   SupportLowFramerateInputs?: string;
 };
@@ -1328,6 +1338,14 @@ export type OutputLocationRef = {
   DestinationRefId?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.OutputLockingSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html}
+ */
+export type OutputLockingSettings = {
+  EpochLockingSettings?: EpochLockingSettings;
+  PipelineLockingSettings?: PipelineLockingSettings;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.OutputSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html}
  */
@@ -1346,6 +1364,11 @@ export type OutputSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-passthroughsettings.html}
  */
 export type PassThroughSettings = Record<string, any>;
+/**
+ * Type definition for `AWS::MediaLive::Channel.PipelineLockingSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-pipelinelockingsettings.html}
+ */
+export type PipelineLockingSettings = Record<string, any>;
 /**
  * Type definition for `AWS::MediaLive::Channel.RawSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rawsettings.html}

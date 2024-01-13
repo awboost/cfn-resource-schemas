@@ -1,5 +1,6 @@
 {
-  "$hash": "68b271bd283987ced2710200dca024723b40b212",
+  "$hash": "51a0fcb1307ea84447f59462a9fe1c79b463d8c9",
+  "$id": "aws-opsworks-volume.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/StackId", "/properties/Ec2VolumeId"],
   "description": "Resource Type definition for AWS::OpsWorks::Volume",

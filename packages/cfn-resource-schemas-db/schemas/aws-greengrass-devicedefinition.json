@@ -1,5 +1,6 @@
 {
-  "$hash": "643a66c54fa55c4a89a1b2161349b8fd964448d4",
+  "$hash": "a95df13358162a6e2145016a822a1b7a0088f4b6",
+  "$id": "aws-greengrass-devicedefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InitialVersion"],
   "definitions": {

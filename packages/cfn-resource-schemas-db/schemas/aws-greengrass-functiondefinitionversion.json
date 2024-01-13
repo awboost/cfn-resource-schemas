@@ -1,5 +1,6 @@
 {
-  "$hash": "075a0e07c1a89578902f3f9ebc696c55bca88648",
+  "$hash": "99f223a346ea163d1cf06ce27db1652418cbbe0d",
+  "$id": "aws-greengrass-functiondefinitionversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Functions",

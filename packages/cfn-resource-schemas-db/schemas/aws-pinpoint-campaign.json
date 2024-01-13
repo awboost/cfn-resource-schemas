@@ -1,5 +1,6 @@
 {
-  "$hash": "bd36ded811f57146426264a01eb4349abd946675",
+  "$hash": "c4902d52b58c23b94cfe7574349fa37d85567b53",
+  "$id": "aws-pinpoint-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
   "definitions": {

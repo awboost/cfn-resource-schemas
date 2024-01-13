@@ -1,5 +1,6 @@
 {
-  "$hash": "7d630fb07b67a881cdec11294c53f22158db7c2a",
+  "$hash": "e2ea6fe6750e7087f5517b09a3624059165b5dc5",
+  "$id": "aws-rds-optiongroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/EngineName",

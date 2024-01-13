@@ -1,11 +1,42 @@
 {
-  "$hash": "e390c015a6ea0af36445ace4d7dcf0653b0bef12",
+  "$hash": "9fd748da809bf9ae8519c4dd42fdc659c9e9d99d",
+  "$id": "aws-controltower-enabledcontrol.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TargetIdentifier",
     "/properties/ControlIdentifier"
   ],
-  "definitions": {},
+  "definitions": {
+    "EnabledControlParameter": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": {
+          "anyOf": [
+            {
+              "insertionOrder": false,
+              "items": {
+                "anyOf": [
+                  { "type": "string" },
+                  { "type": "number" },
+                  { "type": "object" },
+                  { "type": "boolean" }
+                ]
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "object" },
+            { "type": "boolean" }
+          ]
+        }
+      },
+      "required": ["Value", "Key"],
+      "type": "object"
+    }
+  },
   "description": "Enables a control on a specified target.",
   "handlers": {
     "create": {
@@ -81,6 +112,13 @@
       "minLength": 20,
       "pattern": "^arn:aws[0-9a-zA-Z_\\-:\\/]+$",
       "type": "string"
+    },
+    "Parameters": {
+      "description": "Parameters to configure the enabled control behavior.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/EnabledControlParameter" },
+      "minItems": 1,
+      "type": "array"
     },
     "TargetIdentifier": {
       "description": "Arn for Organizational unit to which the control needs to be applied",

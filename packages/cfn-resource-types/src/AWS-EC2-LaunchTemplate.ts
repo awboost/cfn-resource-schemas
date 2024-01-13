@@ -139,6 +139,25 @@ export type CapacityReservationTarget = {
   CapacityReservationResourceGroupArn?: string;
 };
 /**
+ * Type definition for `AWS::EC2::LaunchTemplate.ConnectionTrackingSpecification`.
+ * Allows customer to specify Connection Tracking options
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-connectiontrackingspecification.html}
+ */
+export type ConnectionTrackingSpecification = {
+  /**
+   * Integer value for TCP Established Timeout
+   */
+  TcpEstablishedTimeout?: number;
+  /**
+   * Integer value for UDP Stream Timeout
+   */
+  UdpStreamTimeout?: number;
+  /**
+   * Integer value for UDP Timeout
+   */
+  UdpTimeout?: number;
+};
+/**
  * Type definition for `AWS::EC2::LaunchTemplate.CpuOptions`.
  * specifies the CPU options for an instance.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html}
@@ -595,6 +614,10 @@ export type MaintenanceOptions = {
    * Disables the automatic recovery behavior of your instance or sets it to default.
    */
   AutoRecovery?: string;
+  /**
+   * Disables the automatic reboot-migration behavior of your instance or sets it to default.
+   */
+  RebootMigration?: string;
 };
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.MemoryGiBPerVCpu`.
@@ -693,6 +716,10 @@ export type NetworkInterface = {
    * Associates a public IPv4 address with eth0 for a new network interface.
    */
   AssociatePublicIpAddress?: boolean;
+  /**
+   * Allows customer to specify Connection Tracking options
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecification;
   /**
    * Indicates whether the network interface is deleted when the instance is terminated.
    */

@@ -1,5 +1,6 @@
 {
-  "$hash": "52acd9bd25f943d0db7393220de10b2c3fafcb06",
+  "$hash": "9500747ecb833b23a65bc27aad12fc0d8b8c1550",
+  "$id": "aws-ivs-channel.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

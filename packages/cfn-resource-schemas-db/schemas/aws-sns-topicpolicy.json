@@ -1,5 +1,6 @@
 {
-  "$hash": "ae2e118cd3529f2a87b41fc3c7aafe47f03a2206",
+  "$hash": "7629b97e79a961836065d6a395c309021b4cf2eb",
+  "$id": "aws-sns-topicpolicy.json",
   "additionalProperties": false,
   "description": "Schema for AWS::SNS::TopicPolicy",
   "handlers": {

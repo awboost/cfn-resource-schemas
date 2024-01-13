@@ -1,5 +1,6 @@
 {
-  "$hash": "1bd74b2c7b7d12863ae63da02d6b8b03970aed9e",
+  "$hash": "4ab38be1308e19074ed5368494e4a3d9a971faad",
+  "$id": "aws-medialive-inputsecuritygroup.json",
   "additionalProperties": false,
   "definitions": {
     "InputWhitelistRuleCidr": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "7b6adaf71adcdd90aefbfaa8dc7779a68c88b04a",
+  "$hash": "ec1d5bc8827a4edc695183a406e42939446ed09e",
+  "$id": "aws-ec2-trafficmirrortarget.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/GatewayLoadBalancerEndpointId",

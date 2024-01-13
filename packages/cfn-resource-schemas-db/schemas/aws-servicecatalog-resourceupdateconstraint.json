@@ -1,5 +1,6 @@
 {
-  "$hash": "deb850c5b92fc820fdb77dde72d09afa57084e33",
+  "$hash": "a63d93cf7007fb96270f7c991696c97f1a592080",
+  "$id": "aws-servicecatalog-resourceupdateconstraint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PortfolioId", "/properties/ProductId"],
   "description": "Resource Type definition for AWS::ServiceCatalog::ResourceUpdateConstraint",

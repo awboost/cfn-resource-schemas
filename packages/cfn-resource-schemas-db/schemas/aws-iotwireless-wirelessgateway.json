@@ -1,5 +1,6 @@
 {
-  "$hash": "dd3f6d3c6d1c3c1e0bd52ae2b93de61fc31b9742",
+  "$hash": "eeeeca87d0c7cd9409be108430448bbe1b45df11",
+  "$id": "aws-iotwireless-wirelessgateway.json",
   "additionalProperties": false,
   "definitions": {
     "LoRaWANGateway": {

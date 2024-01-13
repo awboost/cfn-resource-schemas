@@ -1,5 +1,6 @@
 {
-  "$hash": "99815f2082d7c1deee820447129bade90985dc5a",
+  "$hash": "47c00b06ba04bbfb4b7b79a85f6aad659032fcea",
+  "$id": "aws-ecs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterName"],
   "definitions": {

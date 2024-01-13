@@ -1,5 +1,6 @@
 {
-  "$hash": "fb2244dfbfa478f4cdfe06be47920335383562be",
+  "$hash": "ecfe7f565a1adf85e64f5c7afd3d6d44b1466733",
+  "$id": "aws-s3objectlambda-accesspoint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

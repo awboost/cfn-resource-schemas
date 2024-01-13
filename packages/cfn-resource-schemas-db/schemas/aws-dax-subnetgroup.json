@@ -1,5 +1,6 @@
 {
-  "$hash": "259bacad2e3d29a2f9ff78d03d8e020299a47a8c",
+  "$hash": "1675043b7125f51e561cfd72a261b31c41c3aba2",
+  "$id": "aws-dax-subnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubnetGroupName"],
   "description": "Resource Type definition for AWS::DAX::SubnetGroup",

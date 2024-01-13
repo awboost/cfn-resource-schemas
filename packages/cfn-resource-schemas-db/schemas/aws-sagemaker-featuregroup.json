@@ -1,5 +1,6 @@
 {
-  "$hash": "b4c424a79eecc5f595b74f86ff7235c6fe4102d4",
+  "$hash": "bb94f9b10fea73bd8459681a0875787840c71adc",
+  "$id": "aws-sagemaker-featuregroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/FeatureGroupName",
@@ -73,6 +74,7 @@
       "required": ["S3Uri"],
       "type": "object"
     },
+    "StorageType": { "enum": ["Standard", "InMemory"], "type": "string" },
     "TableFormat": {
       "description": "Format for the offline store feature group. Iceberg is the optimal format for feature groups shared between offline and online stores.",
       "enum": ["Iceberg", "Glue"],
@@ -87,6 +89,27 @@
       },
       "required": ["Value", "Key"],
       "type": "object"
+    },
+    "ThroughputConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "ProvisionedReadCapacityUnits": {
+          "description": "For provisioned feature groups with online store enabled, this indicates the read throughput you are billed for and can consume without throttling.",
+          "type": "integer"
+        },
+        "ProvisionedWriteCapacityUnits": {
+          "description": "For provisioned feature groups, this indicates the write throughput you are billed for and can consume without throttling.",
+          "type": "integer"
+        },
+        "ThroughputMode": { "$ref": "#/definitions/ThroughputMode" }
+      },
+      "required": ["ThroughputMode"],
+      "type": "object"
+    },
+    "ThroughputMode": {
+      "description": "Throughput mode configuration of the feature group",
+      "enum": ["OnDemand", "Provisioned"],
+      "type": "string"
     }
   },
   "description": "Resource Type definition for AWS::SageMaker::FeatureGroup",
@@ -146,6 +169,7 @@
     },
     "FeatureDefinitions": {
       "description": "An Array of Feature Definition",
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/FeatureDefinition" },
       "maxItems": 2500,
       "minItems": 1,
@@ -178,7 +202,8 @@
       "additionalProperties": false,
       "properties": {
         "EnableOnlineStore": { "type": "boolean" },
-        "SecurityConfig": { "$ref": "#/definitions/OnlineStoreSecurityConfig" }
+        "SecurityConfig": { "$ref": "#/definitions/OnlineStoreSecurityConfig" },
+        "StorageType": { "$ref": "#/definitions/StorageType" }
       },
       "type": "object"
     },
@@ -198,11 +223,13 @@
     },
     "Tags": {
       "description": "An array of key-value pair to apply to this resource.",
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "maxItems": 50,
       "type": "array",
       "uniqueItems": false
-    }
+    },
+    "ThroughputConfig": { "$ref": "#/definitions/ThroughputConfig" }
   },
   "readOnlyProperties": [
     "/properties/CreationTime",
@@ -214,5 +241,12 @@
     "EventTimeFeatureName",
     "FeatureDefinitions"
   ],
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::SageMaker::FeatureGroup"
 }

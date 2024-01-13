@@ -1,5 +1,6 @@
 {
-  "$hash": "510a6d139ad061d4e02b66e35cc48d0fd053beff",
+  "$hash": "d3262785c8ab6a0bca83ed17da65250d5ef37805",
+  "$id": "aws-iot-topicrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
   "definitions": {

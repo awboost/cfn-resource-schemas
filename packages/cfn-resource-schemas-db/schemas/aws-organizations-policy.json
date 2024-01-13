@@ -1,5 +1,6 @@
 {
-  "$hash": "3afbdbe2703d3ca72505621306539beb4d10fddf",
+  "$hash": "224f5ecfc4ee9a39407faf6d65cc2f984a9cf8e1",
+  "$id": "aws-organizations-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
   "definitions": {

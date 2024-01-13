@@ -1,5 +1,6 @@
 {
-  "$hash": "3f24b688c8495438508e1d46ef67f8b2ac43ee38",
+  "$hash": "468cf9273ffbdd62f5db237cd35d25148cb344b0",
+  "$id": "aws-inspector-assessmenttemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DurationInSeconds",

@@ -1,5 +1,6 @@
 {
-  "$hash": "362f88fdf57b738022d2e4f7b589a3539ebea245",
+  "$hash": "ea46c239c5187f45c0d96bb6bf661647e21ce8d3",
+  "$id": "aws-emr-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Steps",
@@ -9,14 +10,17 @@
     "/properties/Configurations",
     "/properties/ReleaseLabel",
     "/properties/BootstrapActions",
+    "/properties/EbsRootVolumeIops",
     "/properties/KerberosAttributes",
     "/properties/ServiceRole",
     "/properties/LogEncryptionKmsKeyId",
     "/properties/Name",
+    "/properties/EbsRootVolumeThroughput",
     "/properties/JobFlowRole",
     "/properties/AdditionalInfo",
     "/properties/LogUri",
     "/properties/CustomAmiId",
+    "/properties/PlacementGroupConfigs",
     "/properties/OSReleaseLabel",
     "/properties/AutoScalingRole",
     "/properties/Applications"
@@ -309,6 +313,15 @@
       "required": ["AllocationStrategy"],
       "type": "object"
     },
+    "PlacementGroupConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "InstanceRole": { "type": "string" },
+        "PlacementStrategy": { "type": "string" }
+      },
+      "required": ["InstanceRole"],
+      "type": "object"
+    },
     "PlacementType": {
       "additionalProperties": false,
       "properties": { "AvailabilityZone": { "type": "string" } },
@@ -443,7 +456,9 @@
       "uniqueItems": true
     },
     "CustomAmiId": { "type": "string" },
+    "EbsRootVolumeIops": { "type": "integer" },
     "EbsRootVolumeSize": { "type": "integer" },
+    "EbsRootVolumeThroughput": { "type": "integer" },
     "Id": { "type": "string" },
     "Instances": { "$ref": "#/definitions/JobFlowInstancesConfig" },
     "JobFlowRole": { "type": "string" },
@@ -454,6 +469,11 @@
     "MasterPublicDNS": { "type": "string" },
     "Name": { "type": "string" },
     "OSReleaseLabel": { "type": "string" },
+    "PlacementGroupConfigs": {
+      "items": { "$ref": "#/definitions/PlacementGroupConfig" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "ReleaseLabel": { "type": "string" },
     "ScaleDownBehavior": { "type": "string" },
     "SecurityConfiguration": { "type": "string" },

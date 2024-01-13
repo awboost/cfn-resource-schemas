@@ -1,5 +1,6 @@
 {
-  "$hash": "c0f302d12ea355c03a664bac673cfb3c4dd722b7",
+  "$hash": "81fa6a7a48646c22d36e37e077aa571b9247888a",
+  "$id": "aws-mediatailor-livesource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LiveSourceName",

@@ -1,5 +1,6 @@
 {
-  "$hash": "9d5abfb50c20aa0e3e7f1aaf23e12c0c674975be",
+  "$hash": "9b0a69b513ec5fda5c4106e7badbbb684ea16c0f",
+  "$id": "aws-glue-partition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TableName",

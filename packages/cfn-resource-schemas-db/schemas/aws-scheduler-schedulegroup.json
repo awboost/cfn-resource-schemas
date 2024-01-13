@@ -1,5 +1,6 @@
 {
-  "$hash": "2bd39330d7c7ccd805fab0fe49af538126f15f2e",
+  "$hash": "995fc9dfb87adcbec5759dd47f631b77fe08946c",
+  "$id": "aws-scheduler-schedulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

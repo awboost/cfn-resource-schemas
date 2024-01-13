@@ -1,5 +1,6 @@
 {
-  "$hash": "8b1a3ead1f9cd6b137db8acf0c69293cf79dde29",
+  "$hash": "34ed9ef03f63f7352ebef4fa911a5df379bffc47",
+  "$id": "aws-waf-xssmatchset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

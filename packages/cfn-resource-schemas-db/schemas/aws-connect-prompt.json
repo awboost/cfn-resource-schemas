@@ -1,5 +1,6 @@
 {
-  "$hash": "968398e3f89f1c01a7c174a31ecd327b12f0cf40",
+  "$hash": "920468f12cebb3ad26b0fa15fe4c1f9c4cb383c7",
+  "$id": "aws-connect-prompt.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

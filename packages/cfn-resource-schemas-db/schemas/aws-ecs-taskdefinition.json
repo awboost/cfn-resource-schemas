@@ -1,5 +1,6 @@
 {
-  "$hash": "fbe14093ca3eb9f39660a981e392eb997095a0bd",
+  "$hash": "150d94069877b42bce78c324f0d48d567d268991",
+  "$id": "aws-ecs-taskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Family",
@@ -481,6 +482,7 @@
     "Volume": {
       "additionalProperties": false,
       "properties": {
+        "ConfiguredAtLaunch": { "type": "boolean" },
         "DockerVolumeConfiguration": {
           "$ref": "#/definitions/DockerVolumeConfiguration"
         },

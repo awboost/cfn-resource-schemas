@@ -1,5 +1,6 @@
 {
-  "$hash": "d865ca5ca5de7b317914452d067414dffe9a9dd1",
+  "$hash": "a3f0b9ada0dbae7aaa04dc2ea8344b25b8c35ef3",
+  "$id": "aws-lex-botversion.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BotId"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "0686fe67c63f7e32e13c88490fe7c3ac0041bd38",
+  "$hash": "37458dd707532ae13a3dffe57e440349b94827a9",
+  "$id": "aws-route53-dnssec.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/HostedZoneId"],
   "description": "Resource used to control (enable/disable) DNSSEC in a specific hosted zone.",

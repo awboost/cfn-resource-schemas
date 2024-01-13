@@ -330,13 +330,13 @@ export type Tag = {
   /**
    * @minLength `1`
    * @maxLength `127`
-   * @pattern `^(?!aws:.*)[a-zA-Z0-9\s\_\.\/\=\+\-]+$`
+   * @pattern `^(?!aws:.*)[a-zA-Z0-9\s\_\.\/\=\+\-\@\:]+$`
    */
   Key: string;
   /**
    * @minLength `1`
    * @maxLength `255`
-   * @pattern `^(?!aws:.*)[a-zA-Z0-9\s\_\.\/\=\+\-\@]+$`
+   * @pattern `^(?!aws:.*)[a-zA-Z0-9\s\_\.\/\=\+\-\@\:]+$`
    */
   Value: string;
 };

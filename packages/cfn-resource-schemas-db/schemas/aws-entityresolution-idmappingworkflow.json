@@ -1,5 +1,6 @@
 {
-  "$hash": "6f413d8d8ce60cd04f56ef7c839ef1021255f039",
+  "$hash": "c8aeebe01d33bec45b576ff7b7a175bf6f245f20",
+  "$id": "aws-entityresolution-idmappingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
   "definitions": {

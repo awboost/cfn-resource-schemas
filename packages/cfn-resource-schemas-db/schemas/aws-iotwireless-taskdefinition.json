@@ -1,5 +1,6 @@
 {
-  "$hash": "9f594a177b41e9fe5cad5bb3da98148b24dacb8b",
+  "$hash": "a0ce6823468661a10587dea02f6b474b1ed4e922",
+  "$id": "aws-iotwireless-taskdefinition.json",
   "additionalProperties": false,
   "definitions": {
     "LoRaWANGatewayVersion": {

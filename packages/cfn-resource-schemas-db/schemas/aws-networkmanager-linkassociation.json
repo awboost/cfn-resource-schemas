@@ -1,5 +1,6 @@
 {
-  "$hash": "3422563c98b2bce5a3cd6aefc18a305f70ab9d5f",
+  "$hash": "384e4e0fe7efd1d7d714660ed6bf1c30837239e8",
+  "$id": "aws-networkmanager-linkassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/GlobalNetworkId",

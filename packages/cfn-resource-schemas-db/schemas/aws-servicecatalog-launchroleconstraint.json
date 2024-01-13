@@ -1,5 +1,6 @@
 {
-  "$hash": "82e0e77870115e912908e7ebad4047165c33c5b2",
+  "$hash": "556447f48932eebdc5f9d5ee3e673392b6974b1e",
+  "$id": "aws-servicecatalog-launchroleconstraint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PortfolioId", "/properties/ProductId"],
   "description": "Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint",

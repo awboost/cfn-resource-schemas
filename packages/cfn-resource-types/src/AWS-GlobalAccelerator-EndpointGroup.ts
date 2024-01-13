@@ -61,6 +61,10 @@ export type GlobalAcceleratorEndpointGroupAttributes = {
  */
 export type EndpointConfiguration = {
   /**
+   * Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+   */
+  AttachmentArn?: string;
+  /**
    * true if client ip should be preserved
    */
   ClientIPPreservationEnabled?: boolean;

@@ -1,5 +1,6 @@
 {
-  "$hash": "41b5aa9deb5144cfcd7ac00ffff79e3c927eb32c",
+  "$hash": "ddee5288e91ed902533dcc9e08e775e82626e879",
+  "$id": "aws-memorydb-subnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubnetGroupName"],
   "definitions": {
@@ -32,6 +33,7 @@
       "permissions": [
         "memorydb:CreateSubnetGroup",
         "memorydb:DescribeSubnetGroups",
+        "memorydb:TagResource",
         "memorydb:ListTags"
       ]
     },

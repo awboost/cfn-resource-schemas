@@ -1,5 +1,6 @@
 {
-  "$hash": "d13c699fa2c8b992793d92ffe00e5a7f7a87712f",
+  "$hash": "561a4eee08a086d4f37d8bca012938c99ce9bc36",
+  "$id": "aws-ecr-replicationconfiguration.json",
   "additionalProperties": false,
   "definitions": {
     "Filter": {

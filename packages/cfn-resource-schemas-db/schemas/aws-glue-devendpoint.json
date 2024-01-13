@@ -1,5 +1,6 @@
 {
-  "$hash": "9e99ae0fb7cc08f40e25050e3d2aa869950bd6a1",
+  "$hash": "545388b8b9daaf3078f69e88780b2a027579de3a",
+  "$id": "aws-glue-devendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/EndpointName"],
   "description": "Resource Type definition for AWS::Glue::DevEndpoint",

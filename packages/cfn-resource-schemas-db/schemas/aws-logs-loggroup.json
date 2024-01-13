@@ -1,5 +1,6 @@
 {
-  "$hash": "22c2831f47b39112ef95cd7f9162463967c5023a",
+  "$hash": "c18735e2ef9cc724a0ebdfbd6b7abcc4bd06241a",
+  "$id": "aws-logs-loggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupName"],
   "definitions": {
@@ -94,6 +95,12 @@
       "description": "The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.",
       "maxLength": 256,
       "pattern": "^arn:[a-z0-9-]+:kms:[a-z0-9-]+:\\d{12}:(key|alias)/.+\\Z",
+      "type": "string"
+    },
+    "LogGroupClass": {
+      "default": "STANDARD",
+      "description": "The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class",
+      "enum": ["STANDARD", "INFREQUENT_ACCESS"],
       "type": "string"
     },
     "LogGroupName": {

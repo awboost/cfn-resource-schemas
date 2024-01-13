@@ -1,5 +1,6 @@
 {
-  "$hash": "b018b87568ac040755d43ce6eb4a3b5f94544884",
+  "$hash": "c4cfa90bd457505842fa372da35341a65ca178f6",
+  "$id": "aws-backup-backupvault.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/BackupVaultName",

@@ -1,5 +1,6 @@
 {
-  "$hash": "047cb32f1a88b71da11ecf3d78544c2287cb7f77",
+  "$hash": "97f01a55f1844f8001f0a3e8c1949977aab7f10f",
+  "$id": "aws-synthetics-group.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
@@ -87,5 +88,6 @@
   "readOnlyProperties": ["/properties/Id"],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-synthetics",
+  "tagging": { "taggable": true },
   "typeName": "AWS::Synthetics::Group"
 }

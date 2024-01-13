@@ -15,6 +15,7 @@ export type ECSCapacityProviderProperties = {
  */
 export type AutoScalingGroupProvider = {
   AutoScalingGroupArn: string;
+  ManagedDraining?: "DISABLED" | "ENABLED";
   /**
    * The managed scaling settings for the Auto Scaling group capacity provider.
    */

@@ -1,5 +1,6 @@
 {
-  "$hash": "1024b2f78ad78c353c5d0f648ff613bdf7c3d773",
+  "$hash": "093db6156fea994a3cd255eff08537db89f69f30",
+  "$id": "aws-glue-schema.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Registry",

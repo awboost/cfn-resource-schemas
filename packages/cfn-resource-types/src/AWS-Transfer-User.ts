@@ -31,6 +31,7 @@ export type TransferUserAttributes = {
 export type HomeDirectoryMapEntry = {
   Entry: string;
   Target: string;
+  Type?: string;
 };
 /**
  * Type definition for `AWS::Transfer::User.PosixProfile`.

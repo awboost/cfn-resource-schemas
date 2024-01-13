@@ -1,5 +1,6 @@
 {
-  "$hash": "5a7055a2dbe5547b265f8360a3d9098db2366273",
+  "$hash": "5ca7f09aef26adb7fa4dbdcfae175ec8a445b942",
+  "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
     "CacheBehavior": {

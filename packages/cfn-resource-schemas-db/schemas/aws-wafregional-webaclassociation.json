@@ -1,5 +1,6 @@
 {
-  "$hash": "3e4f09d0673edbd2a649926627322554451d0a08",
+  "$hash": "01d7e5ef24065db0b96a40aaaae7efbb626c2b4f",
+  "$id": "aws-wafregional-webaclassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn", "/properties/WebACLId"],
   "description": "Resource Type definition for AWS::WAFRegional::WebACLAssociation",

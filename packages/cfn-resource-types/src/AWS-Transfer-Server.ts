@@ -16,6 +16,7 @@ export type TransferServerProperties = {
   PreAuthenticationLoginBanner?: string;
   ProtocolDetails?: ProtocolDetails;
   Protocols?: Protocol[];
+  S3StorageOptions?: S3StorageOptions;
   SecurityPolicyName?: string;
   StructuredLogDestinations?: StructuredLogDestination[];
   Tags?: Tag[];
@@ -70,6 +71,13 @@ export type ProtocolDetails = {
   PassiveIp?: string;
   SetStatOption?: string;
   TlsSessionResumptionMode?: string;
+};
+/**
+ * Type definition for `AWS::Transfer::Server.S3StorageOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-s3storageoptions.html}
+ */
+export type S3StorageOptions = {
+  DirectoryListingOptimization?: string;
 };
 /**
  * Type definition for `AWS::Transfer::Server.StructuredLogDestination`.

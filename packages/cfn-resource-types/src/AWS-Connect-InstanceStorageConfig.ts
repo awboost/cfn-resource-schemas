@@ -97,7 +97,7 @@ export type KinesisStreamConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html}
  */
 export type KinesisVideoStreamConfig = {
-  EncryptionConfig?: EncryptionConfig;
+  EncryptionConfig: EncryptionConfig;
   /**
    * Prefixes are used to infer logical hierarchy
    * @minLength `1`

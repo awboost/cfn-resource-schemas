@@ -1,5 +1,6 @@
 {
-  "$hash": "e4ca029727fe287e93904a0fc9f354f2a66d48d3",
+  "$hash": "7353367b507792bbc65becb7f5118204c2496da5",
+  "$id": "aws-ivs-playbackkeypair.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PublicKeyMaterial", "/properties/Name"],
   "definitions": {

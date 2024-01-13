@@ -25,6 +25,25 @@ export type ServiceCatalogAppRegistryApplicationProperties = {
  */
 export type ServiceCatalogAppRegistryApplicationAttributes = {
   /**
+   * The name of the application.
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `\w+`
+   */
+  ApplicationName: string;
+  /**
+   * The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+   * @maxLength `128`
+   * @pattern `\w+`
+   */
+  ApplicationTagKey: string;
+  /**
+   * The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+   * @maxLength `256`
+   * @pattern `\[a-zA-Z0-9_-:/]+`
+   */
+  ApplicationTagValue: string;
+  /**
    * @pattern `arn:aws[-a-z]*:servicecatalog:[a-z]{2}(-gov)?-[a-z]+-\d:\d{12}:/applications/[a-z0-9]+`
    */
   Arn: string;

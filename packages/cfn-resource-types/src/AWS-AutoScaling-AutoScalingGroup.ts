@@ -97,14 +97,14 @@ export type InstanceRequirements = {
   LocalStorage?: string;
   LocalStorageTypes?: string[];
   MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest;
-  MemoryMiB?: MemoryMiBRequest;
+  MemoryMiB: MemoryMiBRequest;
   NetworkBandwidthGbps?: NetworkBandwidthGbpsRequest;
   NetworkInterfaceCount?: NetworkInterfaceCountRequest;
   OnDemandMaxPricePercentageOverLowestPrice?: number;
   RequireHibernateSupport?: boolean;
   SpotMaxPricePercentageOverLowestPrice?: number;
   TotalLocalStorageGB?: TotalLocalStorageGBRequest;
-  VCpuCount?: VCpuCountRequest;
+  VCpuCount: VCpuCountRequest;
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.InstancesDistribution`.

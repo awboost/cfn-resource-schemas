@@ -1,5 +1,6 @@
 {
-  "$hash": "e29cca8dcde1f9a36b9d22fee7fe6ce4398eb3b3",
+  "$hash": "4edd4be9deb82f36d1ef86894eb60c954646853f",
+  "$id": "aws-dax-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IAMRoleARN",

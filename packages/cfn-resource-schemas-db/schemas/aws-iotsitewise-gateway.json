@@ -1,5 +1,6 @@
 {
-  "$hash": "17a9c666999c761d0d7493acbef14bc7b11ce877",
+  "$hash": "aacea7ac76e1570499bc88efcaccc9a4af534622",
+  "$id": "aws-iotsitewise-gateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayPlatform"],
   "definitions": {
@@ -82,14 +83,24 @@
     "create": {
       "permissions": [
         "iotsitewise:CreateGateway",
+        "iotsitewise:DescribeGateway",
+        "iotsitewise:DescribeGatewayCapabilityConfiguration",
         "iotsitewise:UpdateGatewayCapabilityConfiguration",
         "iam:PassRole",
         "iam:GetRole",
         "greengrass:GetCoreDevice",
+        "iotsitewise:ListTagsForResource",
+        "iotsitewise:TagResource",
         "iot:DescribeThing"
       ]
     },
-    "delete": { "permissions": ["iotsitewise:DeleteGateway"] },
+    "delete": {
+      "permissions": [
+        "iotsitewise:DescribeGateway",
+        "iotsitewise:DescribeGatewayCapabilityConfiguration",
+        "iotsitewise:DeleteGateway"
+      ]
+    },
     "list": { "permissions": ["iotsitewise:ListGateways"] },
     "read": {
       "permissions": [
@@ -105,6 +116,7 @@
         "iotsitewise:TagResource",
         "iotsitewise:UntagResource",
         "iotsitewise:DescribeGateway",
+        "iotsitewise:DescribeGatewayCapabilityConfiguration",
         "iotsitewise:ListTagsForResource"
       ]
     }

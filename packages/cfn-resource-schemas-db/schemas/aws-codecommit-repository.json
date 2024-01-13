@@ -1,5 +1,6 @@
 {
-  "$hash": "f4c75a37ececcb3dec89505d40d6976f8ceadc0e",
+  "$hash": "8d5e4f76e25a31058ea5098450ce8476f25b1db2",
+  "$id": "aws-codecommit-repository.json",
   "additionalProperties": false,
   "definitions": {
     "Code": {
@@ -59,6 +60,7 @@
     "CloneUrlSsh": { "type": "string" },
     "Code": { "$ref": "#/definitions/Code" },
     "Id": { "type": "string" },
+    "KmsKeyId": { "type": "string" },
     "Name": { "type": "string" },
     "RepositoryDescription": { "type": "string" },
     "RepositoryName": { "type": "string" },

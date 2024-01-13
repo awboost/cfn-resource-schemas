@@ -1,5 +1,6 @@
 {
-  "$hash": "af717d31eb8cfee858545e96280175aec7c1cf6f",
+  "$hash": "95b02aae03014edab62af5381edc76658108b740",
+  "$id": "aws-ec2-vpcdhcpoptionsassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DhcpOptionsId", "/properties/VpcId"],
   "description": "Associates a set of DHCP options with a VPC, or associates no DHCP options with the VPC.",
@@ -21,6 +22,11 @@
   "replacementStrategy": "delete_then_create",
   "required": ["VpcId", "DhcpOptionsId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2.git",
-  "taggable": false,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::EC2::VPCDHCPOptionsAssociation"
 }

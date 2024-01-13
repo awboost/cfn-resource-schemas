@@ -1,5 +1,6 @@
 {
-  "$hash": "e09a00bb6918e9df7b031aa4e8dca697ab477d33",
+  "$hash": "278e6857b4315b4f3491572ec53e688b41d1bedb",
+  "$id": "aws-ec2-capacityreservationfleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/InstanceTypeSpecifications",
@@ -58,7 +59,8 @@
         "ec2:DescribeCapacityReservations",
         "ec2:CancelCapacityReservation",
         "ec2:DescribeInstances",
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     "delete": {

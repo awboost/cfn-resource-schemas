@@ -1,5 +1,6 @@
 {
-  "$hash": "fa2faf68002b24208c675fdd39a25b26160a90a5",
+  "$hash": "8b8469beeaacc3b3526f2e32fa448a97b5d422bd",
+  "$id": "aws-docdb-dbinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DBClusterIdentifier",
@@ -22,6 +23,8 @@
   "properties": {
     "AutoMinorVersionUpgrade": { "type": "boolean" },
     "AvailabilityZone": { "type": "string" },
+    "CACertificateIdentifier": { "type": "string" },
+    "CertificateRotationRestart": { "type": "boolean" },
     "DBClusterIdentifier": { "type": "string" },
     "DBInstanceClass": { "type": "string" },
     "DBInstanceIdentifier": { "type": "string" },

@@ -1,5 +1,6 @@
 {
-  "$hash": "32cbf06d965eb326079675b2889c55c7ff29017e",
+  "$hash": "981f54657da386136436547395049128ceae7864",
+  "$id": "aws-iam-usertogroupaddition.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::IAM::UserToGroupAddition",
   "primaryIdentifier": ["/properties/Id"],

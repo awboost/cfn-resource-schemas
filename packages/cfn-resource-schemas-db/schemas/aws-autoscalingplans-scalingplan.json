@@ -1,5 +1,6 @@
 {
-  "$hash": "595e10993b942d46fc7547aee6082a4a5941756e",
+  "$hash": "bef71593c153a535c3477ccab2dc5e69239cdc8a",
+  "$id": "aws-autoscalingplans-scalingplan.json",
   "additionalProperties": false,
   "definitions": {
     "ApplicationSource": {

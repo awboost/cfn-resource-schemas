@@ -1,5 +1,6 @@
 {
-  "$hash": "ea37f6075bd3bbd09393b47cb7b049e2e0b83d9e",
+  "$hash": "8c2a5db1c52fba40ef2ee06f3be0b198a27f9d60",
+  "$id": "aws-vpclattice-service.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/Name"]],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/CustomDomainName"],

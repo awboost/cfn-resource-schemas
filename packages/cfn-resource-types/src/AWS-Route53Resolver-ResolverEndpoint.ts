@@ -10,6 +10,7 @@ export type Route53ResolverResolverEndpointProperties = {
   Name?: string;
   OutpostArn?: string;
   PreferredInstanceType?: string;
+  Protocols?: string[];
   ResolverEndpointType?: string;
   SecurityGroupIds: string[];
   Tags?: Tag[];

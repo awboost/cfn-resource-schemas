@@ -1,5 +1,6 @@
 {
-  "$hash": "a86794a13955a3e10fde2302564e4a5e3c4cdb1a",
+  "$hash": "e11569c288e93573903e560c19c4c6d3b0eaa09a",
+  "$id": "aws-kafkaconnect-connector.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ConnectorConfiguration",

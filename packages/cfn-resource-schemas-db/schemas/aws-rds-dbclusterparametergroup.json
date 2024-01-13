@@ -1,5 +1,6 @@
 {
-  "$hash": "5f0e2c47a6aa13d9094265eca91ee67c4df4a729",
+  "$hash": "b12f4af4f93d62a1e2ae2dd6bef9d51d97fb1580",
+  "$id": "aws-rds-dbclusterparametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DBClusterParameterGroupName",

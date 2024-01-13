@@ -1,5 +1,6 @@
 {
-  "$hash": "9e8c26f71040be88fd4935814b23996f41be305d",
+  "$hash": "3425800c6d10438cfc13c0fa1fb36517ea43aef3",
+  "$id": "aws-fsx-storagevirtualmachine.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

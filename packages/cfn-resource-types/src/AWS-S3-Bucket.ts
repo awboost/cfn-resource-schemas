@@ -376,6 +376,9 @@ export type InventoryConfiguration = {
     | "ObjectLockLegalHoldStatus"
     | "IntelligentTieringAccessTier"
     | "BucketKeyStatus"
+    | "ChecksumAlgorithm"
+    | "ObjectAccessControlList"
+    | "ObjectOwner"
   )[];
   /**
    * The prefix that is prepended to all inventory results.

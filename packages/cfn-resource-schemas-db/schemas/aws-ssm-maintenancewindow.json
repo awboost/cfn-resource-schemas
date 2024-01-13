@@ -1,5 +1,6 @@
 {
-  "$hash": "9573dccb9a42a9a3a8ad719782f6499b1c5bcefb",
+  "$hash": "06e1a7d47bccff9b44b7f880bd892c0b104dbbed",
+  "$id": "aws-ssm-maintenancewindow.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

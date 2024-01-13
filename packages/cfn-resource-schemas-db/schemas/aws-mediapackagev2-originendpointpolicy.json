@@ -1,5 +1,6 @@
 {
-  "$hash": "b4fd2cd9b6a42e066ab8f1f016711ae0770087d9",
+  "$hash": "a08c893cb3ae59ce89b07812449fb714b92fe718",
+  "$id": "aws-mediapackagev2-originendpointpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ChannelGroupName",

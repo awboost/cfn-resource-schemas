@@ -1,5 +1,6 @@
 {
-  "$hash": "25f2c3ffb5981ef936f92f4b6d5a0dd0719686da",
+  "$hash": "b0e3796826e8ab45cec5d2e071d827b8b35da9bb",
+  "$id": "aws-mediaconnect-flowoutput.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

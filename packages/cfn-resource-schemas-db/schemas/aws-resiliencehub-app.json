@@ -1,5 +1,6 @@
 {
-  "$hash": "daab09a968bd146ac9ff2b134b54db1a592fad72",
+  "$hash": "37572b2cf723454fc02f9da5399feaff25066004",
+  "$id": "aws-resiliencehub-app.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
@@ -224,7 +225,7 @@
   "required": ["Name", "AppTemplateBody", "ResourceMappings"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-resiliencehub",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

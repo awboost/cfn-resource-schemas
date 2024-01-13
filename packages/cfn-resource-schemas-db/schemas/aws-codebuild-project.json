@@ -1,5 +1,6 @@
 {
-  "$hash": "ed1c3df24e1cb8d28d75eb0f6a977c881abe400b",
+  "$hash": "607fed7b6d045d2c58093893b76fe34823df9250",
+  "$id": "aws-codebuild-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "022e8d6826e0f6635fd8b8b932c4f08bd1a5240f",
+  "$hash": "ab0c87c88ebe50a7401cc9453da5afa20253dd0a",
+  "$id": "aws-config-configurationrecorder.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
@@ -32,6 +33,33 @@
       },
       "type": "object"
     },
+    "RecordingMode": {
+      "additionalProperties": false,
+      "properties": {
+        "RecordingFrequency": { "type": "string" },
+        "RecordingModeOverrides": {
+          "items": { "$ref": "#/definitions/RecordingModeOverride" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": ["RecordingFrequency"],
+      "type": "object"
+    },
+    "RecordingModeOverride": {
+      "additionalProperties": false,
+      "properties": {
+        "Description": { "type": "string" },
+        "RecordingFrequency": { "type": "string" },
+        "ResourceTypes": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": ["ResourceTypes", "RecordingFrequency"],
+      "type": "object"
+    },
     "RecordingStrategy": {
       "additionalProperties": false,
       "properties": { "UseOnly": { "type": "string" } },
@@ -45,6 +73,7 @@
     "Id": { "type": "string" },
     "Name": { "type": "string" },
     "RecordingGroup": { "$ref": "#/definitions/RecordingGroup" },
+    "RecordingMode": { "$ref": "#/definitions/RecordingMode" },
     "RoleARN": { "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],

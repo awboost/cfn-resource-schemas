@@ -26,6 +26,10 @@ export type OpenSearchServerlessCollectionProperties = {
      */
   Name: string;
   /**
+   * The possible standby replicas for the collection
+   */
+  StandbyReplicas?: StandbyReplicas;
+  /**
    * List of tags to be added to the resource
    * @minLength `0`
    * @maxLength `50`
@@ -66,6 +70,12 @@ export type OpenSearchServerlessCollectionAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-collectiontype.html}
  */
 export type CollectionType = "SEARCH" | "TIMESERIES" | "VECTORSEARCH";
+/**
+ * Type definition for `AWS::OpenSearchServerless::Collection.StandbyReplicas`.
+ * The possible standby replicas for the collection
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-standbyreplicas.html}
+ */
+export type StandbyReplicas = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::OpenSearchServerless::Collection.Tag`.
  * A key-value pair metadata associated with resource

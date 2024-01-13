@@ -1,5 +1,6 @@
 {
-  "$hash": "9e87f62c2bc0d8611070f026057a81fe474715c6",
+  "$hash": "62c2e9d27a8066d6b02ffd1b1f46d2d0c5487257",
+  "$id": "aws-ec2-instanceconnectendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SubnetId",

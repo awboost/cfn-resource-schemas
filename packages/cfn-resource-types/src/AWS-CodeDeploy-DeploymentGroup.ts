@@ -23,6 +23,7 @@ export type CodeDeployDeploymentGroupProperties = {
   OutdatedInstancesStrategy?: string;
   ServiceRoleArn: string;
   Tags?: Tag[];
+  TerminationHookEnabled?: boolean;
   TriggerConfigurations?: TriggerConfig[];
 };
 /**

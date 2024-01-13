@@ -1,5 +1,6 @@
 {
-  "$hash": "7d21a0f64e3021ebae774715a65c22467f0df111",
+  "$hash": "7d052ae615057e13c364716af4825fcf7955b71c",
+  "$id": "aws-mwaa-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

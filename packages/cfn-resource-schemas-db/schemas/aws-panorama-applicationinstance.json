@@ -1,5 +1,6 @@
 {
-  "$hash": "6954c4dbb589ef62819fd04b28f444df30931bb9",
+  "$hash": "3939be28a0e5759ce709f9cfc80f98ee92b8e5fb",
+  "$id": "aws-panorama-applicationinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

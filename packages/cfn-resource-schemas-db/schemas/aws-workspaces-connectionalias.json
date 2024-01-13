@@ -1,5 +1,6 @@
 {
-  "$hash": "5acdae464c75f04aee10462b7901feb2ed2e2fb7",
+  "$hash": "6180b24c88b80ed3ec08cdfd7f916eb60c193bb1",
+  "$id": "aws-workspaces-connectionalias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectionString", "/properties/Tags"],
   "definitions": {

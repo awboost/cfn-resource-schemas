@@ -1,5 +1,6 @@
 {
-  "$hash": "33360c0f264828329c63880f94ac5210ebad2d17",
+  "$hash": "3ed1d7a62583f1ff8dbc9cd8261a7ad757750123",
+  "$id": "alexa-ask-skill.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VendorId"],
   "definitions": {

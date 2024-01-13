@@ -1,5 +1,6 @@
 {
-  "$hash": "0a581e292c2f5cace382bc23a113516b7d4c3b59",
+  "$hash": "17686eb7f94678f5b9ea065a8aa283aed37ff3ca",
+  "$id": "aws-appstream-imagebuilder.json",
   "additionalProperties": false,
   "definitions": {
     "AccessEndpoint": {

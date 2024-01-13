@@ -1,5 +1,6 @@
 {
-  "$hash": "365d3e86df837ce8c527a5b927253b88fb2ef018",
+  "$hash": "fbcd71d95256d6610bc3af611e26b692318c5185",
+  "$id": "aws-connect-rule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TriggerEventSource",

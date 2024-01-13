@@ -1,5 +1,6 @@
 {
-  "$hash": "4ad1d5bde05c8462586d7998993f19e381954f6d",
+  "$hash": "f18ff79636ec1b76fccca9368d25d06a9510c630",
+  "$id": "aws-opsworkscm-server.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KeyPair",

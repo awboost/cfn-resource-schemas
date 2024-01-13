@@ -1,5 +1,6 @@
 {
-  "$hash": "87d91b73396e286c73e8d75cde7f683d26ebfeb0",
+  "$hash": "359ab38833c6bdb068de58a09429c234cd015301",
+  "$id": "aws-pinpoint-voicechannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
   "description": "Resource Type definition for AWS::Pinpoint::VoiceChannel",

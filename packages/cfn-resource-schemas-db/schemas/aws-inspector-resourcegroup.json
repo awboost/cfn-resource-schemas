@@ -1,5 +1,6 @@
 {
-  "$hash": "e18a35972a9bb70aafee6fd11f0f50cc0403d98a",
+  "$hash": "fb8f93cd27f895daf50ea440744e5b069a8a5120",
+  "$id": "aws-inspector-resourcegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceGroupTags"],
   "definitions": {

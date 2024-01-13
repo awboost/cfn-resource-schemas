@@ -206,7 +206,7 @@ export type DashPackage = {
   /**
    * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
    */
-  ManifestLayout?: "FULL" | "COMPACT";
+  ManifestLayout?: "FULL" | "COMPACT" | "DRM_TOP_LEVEL_COMPACT";
   /**
    * Time window (in seconds) contained in each manifest.
    */

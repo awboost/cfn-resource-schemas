@@ -24,6 +24,10 @@ export type MediaTailorChannelProperties = {
    */
   Tags?: Tag[];
   Tier?: Tier;
+  /**
+   * <p>The configuration for time-shifted viewing.</p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 };
 /**
  * Attribute type definition for `AWS::MediaTailor::Channel`.
@@ -150,6 +154,17 @@ export type Tag = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-tier.html}
  */
 export type Tier = "BASIC" | "STANDARD";
+/**
+ * Type definition for `AWS::MediaTailor::Channel.TimeShiftConfiguration`.
+ * <p>The configuration for time-shifted viewing.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-channel-timeshiftconfiguration.html}
+ */
+export type TimeShiftConfiguration = {
+  /**
+   * <p>The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours).</p>
+   */
+  MaxTimeDelaySeconds: number;
+};
 /**
  * Definition of AWS::MediaTailor::Channel Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html}

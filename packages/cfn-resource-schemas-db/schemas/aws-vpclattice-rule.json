@@ -1,5 +1,6 @@
 {
-  "$hash": "7e0c18af7226f019a1f008ef91b1951f1f6d5bde",
+  "$hash": "eff8ea984a6f1c2a1768d76fc36936f998d67ccd",
+  "$id": "aws-vpclattice-rule.json",
   "additionalIdentifiers": [
     [
       "/properties/ServiceIdentifier",

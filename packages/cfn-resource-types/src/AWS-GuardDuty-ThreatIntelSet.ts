@@ -21,7 +21,7 @@ export type GuardDutyThreatIntelSetProperties = {
    * @maxLength `300`
    */
   Location: string;
-  Name: string;
+  Name?: string;
   Tags?: TagItem[];
 };
 /**

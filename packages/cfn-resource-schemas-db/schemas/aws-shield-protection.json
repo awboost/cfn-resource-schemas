@@ -1,5 +1,6 @@
 {
-  "$hash": "65b4c5b81ee639b33e1f639bfacff878367f377b",
+  "$hash": "9508a2aa24908b1f9127d4ef56d1e2aa6f79a480",
+  "$id": "aws-shield-protection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ResourceArn"],
   "definitions": {

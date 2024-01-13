@@ -1,5 +1,6 @@
 {
-  "$hash": "28f918dd9eaef1b6d39759adb25a55c5cbe920e6",
+  "$hash": "7825aca74a15f5801b9243318cf2da32aba6867d",
+  "$id": "aws-ec2-ipamscope.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/IpamId"],
   "definitions": {

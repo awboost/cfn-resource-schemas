@@ -1,5 +1,6 @@
 {
-  "$hash": "6121cbc849ce81e8607e258cfcfdcd60ffd94f67",
+  "$hash": "578f94f4a869d54dbbc3cab010b199c5f4ba4043",
+  "$id": "aws-xray-resourcepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName"],
   "description": "This schema provides construct and validation rules for AWS-XRay Resource Policy resource parameters.",

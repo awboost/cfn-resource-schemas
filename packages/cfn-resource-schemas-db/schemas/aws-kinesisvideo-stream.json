@@ -1,5 +1,6 @@
 {
-  "$hash": "0271ce5a6748dbb44be52e6aa0219b4a5b565bad",
+  "$hash": "fe236baf5917895166e2d0974f062a3a5be0483c",
+  "$id": "aws-kinesisvideo-stream.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

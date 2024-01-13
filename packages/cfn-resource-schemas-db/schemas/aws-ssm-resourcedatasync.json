@@ -1,5 +1,6 @@
 {
-  "$hash": "be0fdeb3b258f499d4487a1249590500269febed",
+  "$hash": "da2e2389c7bd78837532879b5079df312a41573b",
+  "$id": "aws-ssm-resourcedatasync.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KMSKeyArn",

@@ -1,5 +1,6 @@
 {
-  "$hash": "d6a95c5d9679067fc451f0e6b578b6e30df23dd5",
+  "$hash": "5e349cc34fe3f24fca06b2c1bbfd5fa0c223c72f",
+  "$id": "aws-eventschemas-discoverer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SourceArn"],
   "definitions": {
@@ -14,23 +15,88 @@
     }
   },
   "description": "Resource Type definition for AWS::EventSchemas::Discoverer",
-  "primaryIdentifier": ["/properties/DiscovererId"],
+  "handlers": {
+    "create": {
+      "permissions": [
+        "schemas:CreateDiscoverer",
+        "schemas:DescribeDiscoverer",
+        "schemas:TagResource",
+        "events:PutRule",
+        "events:PutTargets",
+        "events:EnableRule",
+        "events:ListTargetsByRule",
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "schemas:DescribeDiscoverer",
+        "schemas:DeleteDiscoverer",
+        "events:DeleteRule",
+        "events:DisableRule",
+        "events:RemoveTargets"
+      ]
+    },
+    "list": { "permissions": ["schemas:ListDiscoverers"] },
+    "read": { "permissions": ["schemas:DescribeDiscoverer"] },
+    "update": {
+      "permissions": [
+        "schemas:DescribeDiscoverer",
+        "schemas:UpdateDiscoverer",
+        "schemas:TagResource",
+        "schemas:UntagResource",
+        "schemas:ListTagsForResource",
+        "events:PutTargets",
+        "events:PutRule"
+      ]
+    }
+  },
+  "primaryIdentifier": ["/properties/DiscovererArn"],
   "properties": {
-    "CrossAccount": { "type": "boolean" },
-    "Description": { "type": "string" },
-    "DiscovererArn": { "type": "string" },
-    "DiscovererId": { "type": "string" },
-    "SourceArn": { "type": "string" },
+    "CrossAccount": {
+      "default": true,
+      "description": "Defines whether event schemas from other accounts are discovered. Default is True.",
+      "type": "boolean"
+    },
+    "Description": {
+      "description": "A description for the discoverer.",
+      "type": "string"
+    },
+    "DiscovererArn": {
+      "description": "The ARN of the discoverer.",
+      "type": "string"
+    },
+    "DiscovererId": {
+      "description": "The Id of the discoverer.",
+      "type": "string"
+    },
+    "SourceArn": {
+      "description": "The ARN of the event bus.",
+      "type": "string"
+    },
+    "State": {
+      "description": "Defines the current state of the discoverer.",
+      "type": "string"
+    },
     "Tags": {
+      "description": "Tags associated with the resource.",
       "items": { "$ref": "#/definitions/TagsEntry" },
       "type": "array",
       "uniqueItems": false
     }
   },
   "readOnlyProperties": [
+    "/properties/DiscovererArn",
     "/properties/DiscovererId",
-    "/properties/DiscovererArn"
+    "/properties/State"
   ],
   "required": ["SourceArn"],
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EventSchemas::Discoverer"
 }

@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type EC2IPAMAllocationProperties = {
   /**
-   * Represents a single IPv4 or IPv6 CIDR
+   * Represents an IPAM custom allocation of a single IPv4 or IPv6 CIDR
    */
   Cidr?: string;
   Description?: string;

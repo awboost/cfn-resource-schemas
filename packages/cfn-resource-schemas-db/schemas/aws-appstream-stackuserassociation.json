@@ -1,5 +1,6 @@
 {
-  "$hash": "c202ae715be2428989e6f8455d29b28f79ff1a68",
+  "$hash": "1722092a477f8caab4a4cda6529f399547688a53",
+  "$id": "aws-appstream-stackuserassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/StackName",

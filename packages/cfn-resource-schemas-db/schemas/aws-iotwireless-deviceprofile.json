@@ -1,5 +1,6 @@
 {
-  "$hash": "342eea45fb1cdc2d18d30d4f3518e2d6a7ae6ab1",
+  "$hash": "37bbd4f7192a3f94d1c7d2a6824d21c9a57e1df1",
+  "$id": "aws-iotwireless-deviceprofile.json",
   "additionalProperties": false,
   "definitions": {
     "FactoryPresetFreq": {

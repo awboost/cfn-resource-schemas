@@ -1,5 +1,6 @@
 {
-  "$hash": "80c1cabc06c5d812db1b7454a9131e9abfc3977b",
+  "$hash": "0093d4b1137d30172d2d8bd1fb7d528c23076d64",
+  "$id": "aws-sagemaker-device.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Device/DeviceName"],
   "definitions": {

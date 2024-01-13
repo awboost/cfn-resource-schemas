@@ -1,5 +1,6 @@
 {
-  "$hash": "dbbdd8034e174fcda98e23f976dcbd618a31de1b",
+  "$hash": "768d80526a6634c01288b5d072639d6ca9bc9264",
+  "$id": "aws-iot-fleetmetric.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MetricName"],
   "definitions": {

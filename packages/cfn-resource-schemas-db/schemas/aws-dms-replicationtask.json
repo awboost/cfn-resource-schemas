@@ -1,5 +1,6 @@
 {
-  "$hash": "8cbfed08d019ab1163576f3108ff7ad60427156e",
+  "$hash": "8b81e1a6f46ec0e8523a8101d2eb01b637fb63a7",
+  "$id": "aws-dms-replicationtask.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ResourceIdentifier",

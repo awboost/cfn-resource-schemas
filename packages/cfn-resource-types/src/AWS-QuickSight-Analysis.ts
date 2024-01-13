@@ -20,6 +20,10 @@ export type QuickSightAnalysisProperties = {
   Definition?: AnalysisDefinition;
   /**
    * @minLength `1`
+   */
+  Errors?: AnalysisError[];
+  /**
+   * @minLength `1`
    * @maxLength `2048`
    */
   Name: string;
@@ -29,6 +33,11 @@ export type QuickSightAnalysisProperties = {
    * @maxLength `64`
    */
   Permissions?: ResourcePermission[];
+  /**
+   * @minLength `0`
+   * @maxLength `20`
+   */
+  Sheets?: Sheet[];
   SourceEntity?: AnalysisSourceEntity;
   Status?: ResourceStatus;
   /**
@@ -51,44 +60,7 @@ export type QuickSightAnalysisAttributes = {
    * @maxLength `100`
    */
   DataSetArns: string[];
-  /**
-   * @minLength `1`
-   */
-  Errors: {
-    /**
-     * @pattern `.*\S.*`
-     */
-    Message: string;
-    Type: AnalysisErrorType;
-    /**
-     * @minLength `0`
-     * @maxLength `200`
-     */
-    ViolatedEntities: {
-      /**
-       * @pattern `.*\S.*`
-       */
-      Path: string;
-    }[];
-  }[];
   LastUpdatedTime: string;
-  /**
-   * @minLength `0`
-   * @maxLength `20`
-   */
-  Sheets: {
-    /**
-     * @minLength `1`
-     * @maxLength `2048`
-     */
-    Name: string;
-    /**
-     * @minLength `1`
-     * @maxLength `512`
-     * @pattern `[\w\-]+`
-     */
-    SheetId: string;
-  }[];
 };
 /**
  * Type definition for `AWS::QuickSight::Analysis.AggregationFunction`.
@@ -5349,7 +5321,6 @@ export type ResourcePermission = {
    * @maxLength `256`
    */
   Principal: string;
-  Resource?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Analysis.ResourceStatus`.

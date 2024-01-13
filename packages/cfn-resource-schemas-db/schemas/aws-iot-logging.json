@@ -1,5 +1,6 @@
 {
-  "$hash": "1c6bb1fd7bda568a0222cd1153d5fc6c66fd7348",
+  "$hash": "760be26d4ec6b6c6859f08f18f9856cff1e01dbc",
+  "$id": "aws-iot-logging.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AccountId"],
   "definitions": {},

@@ -1,5 +1,6 @@
 {
-  "$hash": "5b3de13455794eea88d08ca8dab92149ac50c7a0",
+  "$hash": "b9ae499f3f8ccd4d0f9c087230be1a7a1eb80695",
+  "$id": "aws-config-configurationaggregator.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConfigurationAggregatorName"],
   "definitions": {

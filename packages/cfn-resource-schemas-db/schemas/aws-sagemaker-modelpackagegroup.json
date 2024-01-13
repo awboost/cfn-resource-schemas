@@ -1,5 +1,6 @@
 {
-  "$hash": "3ef535b542bb27485c74fedefc56e5e603eb0730",
+  "$hash": "6d30433b5286ebc2df0a6f92aa55c15aa3532d8b",
+  "$id": "aws-sagemaker-modelpackagegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ModelPackageGroupName",

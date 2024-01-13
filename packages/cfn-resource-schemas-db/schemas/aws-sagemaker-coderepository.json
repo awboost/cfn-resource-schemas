@@ -1,5 +1,6 @@
 {
-  "$hash": "58e49e3dbcd5713f0c5ddede28f89dde4e03425f",
+  "$hash": "023112fbe169ae6646b2100536b497b6b0b50375",
+  "$id": "aws-sagemaker-coderepository.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CodeRepositoryName"],
   "definitions": {

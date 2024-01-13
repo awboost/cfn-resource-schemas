@@ -1,5 +1,6 @@
 {
-  "$hash": "5b5e5e08b40203cdc1e3835e18ef5f8e041cbf78",
+  "$hash": "3c4e84d7de39a3b92726f1e658349754bfd33222",
+  "$id": "aws-nimblestudio-streamingimage.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Ec2ImageId",

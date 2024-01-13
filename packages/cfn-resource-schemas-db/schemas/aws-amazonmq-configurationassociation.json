@@ -1,5 +1,6 @@
 {
-  "$hash": "85b44788a432ca344bcb4af554eec3724ddcf4fb",
+  "$hash": "38d3b0610535961d3d6ebec8513108b35c29d5f1",
+  "$id": "aws-amazonmq-configurationassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Broker"],
   "definitions": {

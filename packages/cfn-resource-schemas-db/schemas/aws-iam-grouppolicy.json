@@ -1,5 +1,6 @@
 {
-  "$hash": "0ca6b59942234f88dd3cf6ee6ed6ce09a1488b0b",
+  "$hash": "f470413d2910ec7e2af161ede5c76e44144c07f4",
+  "$id": "aws-iam-grouppolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName", "/properties/GroupName"],
   "description": "Schema for IAM Group Policy",

@@ -1,5 +1,6 @@
 {
-  "$hash": "f12251901df687f4ad92fab33d0ca81f072a23e1",
+  "$hash": "259f0dd5ba6df38bea0c06ea426d3fa8d6314aee",
+  "$id": "aws-quicksight-vpcconnection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AwsAccountId",

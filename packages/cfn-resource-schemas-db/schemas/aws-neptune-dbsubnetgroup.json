@@ -1,5 +1,6 @@
 {
-  "$hash": "b4639efe41cff35de1da93c3e3fb869964a4d07c",
+  "$hash": "2d06baba4303efd914b6d25702c23c752e924da4",
+  "$id": "aws-neptune-dbsubnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DBSubnetGroupName"],
   "definitions": {

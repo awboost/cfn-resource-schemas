@@ -1,5 +1,6 @@
 {
-  "$hash": "dd21af55737835ed44d3e339e81126a9f92c1f9a",
+  "$hash": "44164ac849f8465cf9caa6217598b04f14bc61bd",
+  "$id": "aws-route53recoverycontrol-controlpanel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterArn", "/properties/Tags"],
   "definitions": {
@@ -25,7 +26,10 @@
       ]
     },
     "delete": {
-      "permissions": ["route53-recovery-control-config:DeleteControlPanel"]
+      "permissions": [
+        "route53-recovery-control-config:DeleteControlPanel",
+        "route53-recovery-control-config:DescribeControlPanel"
+      ]
     },
     "list": {
       "permissions": ["route53-recovery-control-config:ListControlPanels"]

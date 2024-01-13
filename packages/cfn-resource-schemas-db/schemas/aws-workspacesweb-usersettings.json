@@ -1,5 +1,6 @@
 {
-  "$hash": "342ccbab07e69e10e5a629d1aa81507a4302a2a6",
+  "$hash": "670e9801901001797ea7f3a3f7bac68717efaa33",
+  "$id": "aws-workspacesweb-usersettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AdditionalEncryptionContext",

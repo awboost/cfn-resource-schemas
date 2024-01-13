@@ -1,5 +1,6 @@
 {
-  "$hash": "fbe23581777a02e6ab455ee95791d2c02dfe1d15",
+  "$hash": "6dad655bdf4238b5cd5c98cd9ddc1fb247f9f948",
+  "$id": "aws-xray-group.json",
   "additionalProperties": false,
   "definitions": {
     "InsightsConfiguration": {

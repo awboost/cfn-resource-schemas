@@ -1,5 +1,6 @@
 {
-  "$hash": "a1d456ac67e57d178fc51aaea8533985ea17a00b",
+  "$hash": "2a3c2fc8abdb47b3cbe0f2d433506d56f8645a57",
+  "$id": "aws-ses-receiptrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleSetName"],
   "definitions": {

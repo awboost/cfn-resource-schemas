@@ -1,5 +1,6 @@
 {
-  "$hash": "5a1ae46afee93a993d4c4e3bc8dc4affc1154f8e",
+  "$hash": "3ae755d4f3759cba3904b2e152d13f0b10ccab86",
+  "$id": "aws-iotwireless-wirelessdevice.json",
   "additionalProperties": false,
   "definitions": {
     "AbpV10x": {

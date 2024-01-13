@@ -1,5 +1,6 @@
 {
-  "$hash": "adc2004355bfca867cc77caef2920c67bd8cc10a",
+  "$hash": "1d93d17e72b6929f57164ede5de063db92a52f66",
+  "$id": "aws-cloudfront-streamingdistribution.json",
   "additionalProperties": false,
   "definitions": {
     "Logging": {

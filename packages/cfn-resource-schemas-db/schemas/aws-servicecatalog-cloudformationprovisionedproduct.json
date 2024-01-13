@@ -1,5 +1,6 @@
 {
-  "$hash": "a70013497ca3d05a9c884d99dbe3e7821138244c",
+  "$hash": "fe459ccab0c59ee5d7e4ae471f1d699ca3ada7e5",
+  "$id": "aws-servicecatalog-cloudformationprovisionedproduct.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/NotificationArns",

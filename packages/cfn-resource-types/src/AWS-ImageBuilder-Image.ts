@@ -18,6 +18,10 @@ export type ImageBuilderImageProperties = {
    */
   EnhancedImageMetadataEnabled?: boolean;
   /**
+   * The execution role name/ARN for the image build, if provided
+   */
+  ExecutionRole?: string;
+  /**
    * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
    */
   ImageRecipeArn?: string;
@@ -37,6 +41,10 @@ export type ImageBuilderImageProperties = {
    * The tags associated with the image.
    */
   Tags?: Record<string, string>;
+  /**
+   * Workflows to define the image build process
+   */
+  Workflows?: WorkflowConfiguration[];
 };
 /**
  * Attribute type definition for `AWS::ImageBuilder::Image`.
@@ -106,6 +114,38 @@ export type ImageTestsConfiguration = {
    * @max `1440`
    */
   TimeoutMinutes?: number;
+};
+/**
+ * Type definition for `AWS::ImageBuilder::Image.WorkflowConfiguration`.
+ * The workflow configuration of the image
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-workflowconfiguration.html}
+ */
+export type WorkflowConfiguration = {
+  /**
+   * Define execution decision in case of workflow failure
+   */
+  OnFailure?: "CONTINUE" | "ABORT";
+  /**
+   * The parallel group name
+   */
+  ParallelGroup?: string;
+  /**
+   * The parameters associated with the workflow
+   */
+  Parameters?: WorkflowParameter[];
+  /**
+   * The Amazon Resource Name (ARN) of the workflow
+   */
+  WorkflowArn?: string;
+};
+/**
+ * Type definition for `AWS::ImageBuilder::Image.WorkflowParameter`.
+ * A parameter associated with the workflow
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-workflowparameter.html}
+ */
+export type WorkflowParameter = {
+  Name?: string;
+  Value?: string[];
 };
 /**
  * Resource schema for AWS::ImageBuilder::Image

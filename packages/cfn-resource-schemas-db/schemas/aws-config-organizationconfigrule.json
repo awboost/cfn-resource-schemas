@@ -1,5 +1,6 @@
 {
-  "$hash": "7069efe4c52f0b989a2ab977bca8642fcc70b213",
+  "$hash": "1adf198ea9b7c7f2634a5785f8cbf6c05e568651",
+  "$id": "aws-config-organizationconfigrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/OrganizationConfigRuleName"],
   "definitions": {

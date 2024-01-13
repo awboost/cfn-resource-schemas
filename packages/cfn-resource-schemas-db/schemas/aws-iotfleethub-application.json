@@ -1,5 +1,6 @@
 {
-  "$hash": "460cecb57d07f7de5585c5dcc0a9020da4898217",
+  "$hash": "6048fff4855a2170511f3208f63241075e126ffb",
+  "$id": "aws-iotfleethub-application.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

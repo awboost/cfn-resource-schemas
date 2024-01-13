@@ -89,6 +89,11 @@ export type SageMakerDomainAttributes = {
    */
   SecurityGroupIdForDomainBoundary: string;
   /**
+   * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+   * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso::[0-9]+:application/[a-zA-Z0-9-_.]+/apl-[a-zA-Z0-9]+$`
+   */
+  SingleSignOnApplicationArn: string;
+  /**
    * The SSO managed application instance ID.
    * @maxLength `256`
    */
@@ -98,6 +103,42 @@ export type SageMakerDomainAttributes = {
    * @maxLength `1024`
    */
   Url: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.CodeEditorAppSettings`.
+ * The CodeEditor app settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html}
+ */
+export type CodeEditorAppSettings = {
+  /**
+   * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+   */
+  DefaultResourceSpec?: ResourceSpec;
+  /**
+   * A list of LifecycleConfigArns available for use with CodeEditor apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  LifecycleConfigArns?: string[];
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.CodeRepository`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-coderepository.html}
+ */
+export type CodeRepository = {
+  /**
+   * A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+   * @maxLength `256`
+   * @pattern `^https://([.\-_a-zA-Z0-9]+/?){3,1016}$`
+   */
+  RepositoryUrl: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.CustomFileSystemConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customfilesystemconfig.html}
+ */
+export type CustomFileSystemConfig = {
+  EFSFileSystemConfig?: EFSFileSystemConfig;
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.CustomImage`.
@@ -122,6 +163,41 @@ export type CustomImage = {
    * @min `0`
    */
   ImageVersionNumber?: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.CustomPosixUserConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customposixuserconfig.html}
+ */
+export type CustomPosixUserConfig = {
+  /**
+   * @min `1001`
+   * @max `4000000`
+   */
+  Gid: number;
+  /**
+   * @min `10000`
+   * @max `4000000`
+   */
+  Uid: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.DefaultEbsStorageSettings`.
+ * Properties related to the Amazon Elastic Block Store volume. Must be provided if storage type is Amazon EBS and must not be provided if storage type is not Amazon EBS
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultebsstoragesettings.html}
+ */
+export type DefaultEbsStorageSettings = {
+  /**
+   * Default size of the Amazon EBS volume in Gb
+   * @min `5`
+   * @max `16384`
+   */
+  DefaultEbsVolumeSizeInGb: number;
+  /**
+   * Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+   * @min `5`
+   * @max `16384`
+   */
+  MaximumEbsVolumeSizeInGb: number;
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.DefaultSpaceSettings`.
@@ -152,6 +228,17 @@ export type DefaultSpaceSettings = {
   SecurityGroups?: string[];
 };
 /**
+ * Type definition for `AWS::SageMaker::Domain.DefaultSpaceStorageSettings`.
+ * Default storage settings for a space.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacestoragesettings.html}
+ */
+export type DefaultSpaceStorageSettings = {
+  /**
+   * Properties related to the Amazon Elastic Block Store volume. Must be provided if storage type is Amazon EBS and must not be provided if storage type is not Amazon EBS
+   */
+  DefaultEbsStorageSettings?: DefaultEbsStorageSettings;
+};
+/**
  * Type definition for `AWS::SageMaker::Domain.DomainSettings`.
  * A collection of Domain settings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html}
@@ -167,6 +254,53 @@ export type DomainSettings = {
    * @maxLength `3`
    */
   SecurityGroupIds?: string[];
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.EFSFileSystemConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-efsfilesystemconfig.html}
+ */
+export type EFSFileSystemConfig = {
+  /**
+   * @minLength `11`
+   * @maxLength `21`
+   * @pattern `^(fs-[0-9a-f]{8,})$`
+   */
+  FileSystemId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^\/\S*$`
+   */
+  FileSystemPath?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.JupyterLabAppSettings`.
+ * The JupyterLab app settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterlabappsettings.html}
+ */
+export type JupyterLabAppSettings = {
+  /**
+   * A list of CodeRepositories available for use with JupyterLab apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  CodeRepositories?: CodeRepository[];
+  /**
+   * A list of custom images for use for JupyterLab apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  CustomImages?: CustomImage[];
+  /**
+   * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+   */
+  DefaultResourceSpec?: ResourceSpec;
+  /**
+   * A list of LifecycleConfigArns available for use with JupyterLab apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  LifecycleConfigArns?: string[];
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.JupyterServerAppSettings`.
@@ -261,7 +395,10 @@ export type ResourceSpec = {
     | "ml.g5.48xlarge"
     | "ml.p4d.24xlarge"
     | "ml.p4de.24xlarge"
-    | "ml.geospatial.interactive";
+    | "ml.geospatial.interactive"
+    | "ml.trn1.2xlarge"
+    | "ml.trn1.32xlarge"
+    | "ml.trn1n.32xlarge";
   /**
    * The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
    * @maxLength `256`
@@ -381,12 +518,31 @@ export type Tag = {
  */
 export type UserSettings = {
   /**
+   * The CodeEditor app settings.
+   */
+  CodeEditorAppSettings?: CodeEditorAppSettings;
+  /**
+   * @minLength `0`
+   * @maxLength `2`
+   */
+  CustomFileSystemConfigs?: CustomFileSystemConfig[];
+  CustomPosixUserConfig?: CustomPosixUserConfig;
+  /**
+   * Defines which Amazon SageMaker application users are directed to by default.
+   * @maxLength `1023`
+   */
+  DefaultLandingUri?: string;
+  /**
    * The execution role for the user.
    * @minLength `20`
    * @maxLength `2048`
    * @pattern `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
    */
   ExecutionRole: string;
+  /**
+   * The JupyterLab app settings.
+   */
+  JupyterLabAppSettings?: JupyterLabAppSettings;
   /**
    * The Jupyter server's app settings.
    */
@@ -413,6 +569,14 @@ export type UserSettings = {
    * The sharing settings.
    */
   SharingSettings?: SharingSettings;
+  /**
+   * Default storage settings for a space.
+   */
+  SpaceStorageSettings?: DefaultSpaceStorageSettings;
+  /**
+   * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+   */
+  StudioWebPortal?: "ENABLED" | "DISABLED";
 };
 /**
  * Resource Type definition for AWS::SageMaker::Domain

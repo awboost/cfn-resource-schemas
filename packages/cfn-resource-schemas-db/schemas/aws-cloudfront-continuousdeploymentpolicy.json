@@ -1,5 +1,6 @@
 {
-  "$hash": "ccf9db2ceab1e280f8052210b768aecfa2045d39",
+  "$hash": "1fc5637279f714f6da5b4412a1c26af27e34c5a3",
+  "$id": "aws-cloudfront-continuousdeploymentpolicy.json",
   "additionalProperties": false,
   "definitions": {
     "ContinuousDeploymentPolicyConfig": {

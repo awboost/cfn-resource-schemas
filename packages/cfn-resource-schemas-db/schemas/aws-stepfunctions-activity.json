@@ -1,5 +1,6 @@
 {
-  "$hash": "67410d89562d506b44520f0bd597601b34f7a683",
+  "$hash": "8a1b409d73bc61071bd1cda55eeff05bc3fc7b1f",
+  "$id": "aws-stepfunctions-activity.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

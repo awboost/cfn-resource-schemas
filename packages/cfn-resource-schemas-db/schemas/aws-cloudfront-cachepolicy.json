@@ -1,5 +1,6 @@
 {
-  "$hash": "19674152cd7f4dd3498f887f3222ea012e2f54f5",
+  "$hash": "23294d7d7433551033cdeb645b5051087f4e05f5",
+  "$id": "aws-cloudfront-cachepolicy.json",
   "additionalProperties": false,
   "definitions": {
     "CachePolicyConfig": {

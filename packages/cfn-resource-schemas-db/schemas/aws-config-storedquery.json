@@ -1,5 +1,6 @@
 {
-  "$hash": "82ae46768c2a0b79e1d6a6ab739cd50899354b1b",
+  "$hash": "9dca4f3eead0e34059fdb8e4c318a1bd8c14fd7d",
+  "$id": "aws-config-storedquery.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/QueryName"],
   "definitions": {

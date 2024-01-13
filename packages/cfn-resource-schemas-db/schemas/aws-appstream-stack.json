@@ -1,5 +1,6 @@
 {
-  "$hash": "331b39f682d2eeeaef2434da898908e2aba46821",
+  "$hash": "a9d4c4dce7190d28daaed2346429b6c166c37030",
+  "$id": "aws-appstream-stack.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

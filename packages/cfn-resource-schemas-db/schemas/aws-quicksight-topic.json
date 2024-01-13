@@ -1,5 +1,6 @@
 {
-  "$hash": "25ff151343c3f2d1880870521af82d5c52b7f9cd",
+  "$hash": "1ae864236569c30fd3ba9124f8cc2ef31f4f8c61",
+  "$id": "aws-quicksight-topic.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/TopicId"],
   "definitions": {
@@ -436,7 +437,10 @@
           "type": "array"
         },
         "Description": { "maxLength": 256, "minLength": 0, "type": "string" },
-        "Name": { "maxLength": 128, "minLength": 1, "type": "string" }
+        "Name": { "maxLength": 128, "minLength": 1, "type": "string" },
+        "UserExperienceVersion": {
+          "$ref": "#/definitions/TopicUserExperienceVersion"
+        }
       },
       "type": "object"
     },
@@ -566,6 +570,10 @@
       ],
       "type": "string"
     },
+    "TopicUserExperienceVersion": {
+      "enum": ["LEGACY", "NEW_READER_EXPERIENCE"],
+      "type": "string"
+    },
     "TypeParameters": {
       "additionalProperties": false,
       "patternProperties": {
@@ -618,6 +626,9 @@
       "minLength": 0,
       "pattern": "^[A-Za-z0-9-_.\\\\+]*$",
       "type": "string"
+    },
+    "UserExperienceVersion": {
+      "$ref": "#/definitions/TopicUserExperienceVersion"
     }
   },
   "readOnlyProperties": ["/properties/Arn"],

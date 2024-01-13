@@ -1,5 +1,6 @@
 {
-  "$hash": "f37ac2ed245c56a839abaacc850578faaa05c164",
+  "$hash": "4c5d17c71b2ff6b47ddbd6404851b47c9f11f0ca",
+  "$id": "aws-cloudfront-publickey.json",
   "additionalProperties": false,
   "definitions": {
     "PublicKeyConfig": {

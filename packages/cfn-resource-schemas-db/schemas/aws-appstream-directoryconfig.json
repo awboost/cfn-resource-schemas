@@ -1,5 +1,6 @@
 {
-  "$hash": "130af65484e2eea03604bc6d002c8b7e16302355",
+  "$hash": "5996f3a460b38e5c8e2f6510b3e90804581ae216",
+  "$id": "aws-appstream-directoryconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DirectoryName"],
   "definitions": {

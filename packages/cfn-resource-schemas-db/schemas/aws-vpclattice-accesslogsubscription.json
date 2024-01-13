@@ -1,5 +1,6 @@
 {
-  "$hash": "f7be51b28e585e0262d5e0377844243e5969849e",
+  "$hash": "618466879bc4af8e388ef8d84d325e88fbea5841",
+  "$id": "aws-vpclattice-accesslogsubscription.json",
   "additionalIdentifiers": [
     ["/properties/Id"],
     ["/properties/ResourceIdentifier"]

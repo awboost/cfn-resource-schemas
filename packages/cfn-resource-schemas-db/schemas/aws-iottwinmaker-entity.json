@@ -1,5 +1,6 @@
 {
-  "$hash": "da86a0c4dde3d37d825f2027654e4bbaf9ce6897",
+  "$hash": "f3b8cd65afb5070ec410c65641dc96ac7d4f65bd",
+  "$id": "aws-iottwinmaker-entity.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkspaceId", "/properties/EntityId"],
   "definitions": {

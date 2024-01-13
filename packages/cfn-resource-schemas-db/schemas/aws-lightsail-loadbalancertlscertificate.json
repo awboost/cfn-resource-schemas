@@ -1,5 +1,6 @@
 {
-  "$hash": "fadcd85f6fd1bdbb8598bfe3758238ff7f29e5ba",
+  "$hash": "5930210157421be424c3e71a3c4a86112a8e346a",
+  "$id": "aws-lightsail-loadbalancertlscertificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LoadBalancerName",

@@ -1,5 +1,6 @@
 {
-  "$hash": "59e08884c21b3ce0eb2db449a46f3396728aec34",
+  "$hash": "2b62b73b776b414b734fc925c4b1a566d6ae5874",
+  "$id": "aws-ec2-natgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SubnetId",

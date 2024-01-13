@@ -1,5 +1,6 @@
 {
-  "$hash": "10b8ef3380d8b594d74fd624cff5c8b792e886bd",
+  "$hash": "634e4737105919ad1b1298498f2cf193099b915c",
+  "$id": "aws-ec2-ipamallocation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IpamPoolId",
@@ -9,7 +10,7 @@
   ],
   "definitions": {
     "Cidr": {
-      "description": "Represents a single IPv4 or IPv6 CIDR",
+      "description": "Represents an IPAM custom allocation of a single IPv4 or IPv6 CIDR",
       "type": "string"
     }
   },

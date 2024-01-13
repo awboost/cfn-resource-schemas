@@ -10,6 +10,10 @@ export type EC2RouteProperties = {
    */
   CarrierGatewayId?: string;
   /**
+   * The Amazon Resource Name (ARN) of the core network.
+   */
+  CoreNetworkArn?: string;
+  /**
    * The IPv4 CIDR block used for the destination match.
    */
   DestinationCidrBlock?: string;

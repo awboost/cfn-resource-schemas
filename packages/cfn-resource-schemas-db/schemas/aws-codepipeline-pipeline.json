@@ -1,5 +1,6 @@
 {
-  "$hash": "cc37db74fb545ab91467073bf10f27d91e69e490",
+  "$hash": "cf5f074219b648556eb00306891fada89929db80",
+  "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
@@ -75,6 +76,42 @@
       "required": ["Type", "Id"],
       "type": "object"
     },
+    "GitConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Push": {
+          "items": { "$ref": "#/definitions/GitPushFilter" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "SourceActionName": { "type": "string" }
+      },
+      "required": ["SourceActionName"],
+      "type": "object"
+    },
+    "GitPushFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "Tags": { "$ref": "#/definitions/GitTagFilterCriteria" }
+      },
+      "type": "object"
+    },
+    "GitTagFilterCriteria": {
+      "additionalProperties": false,
+      "properties": {
+        "Excludes": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "Includes": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
     "InputArtifact": {
       "additionalProperties": false,
       "properties": { "Name": { "type": "string" } },
@@ -85,6 +122,15 @@
       "additionalProperties": false,
       "properties": { "Name": { "type": "string" } },
       "required": ["Name"],
+      "type": "object"
+    },
+    "PipelineTriggerDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "GitConfiguration": { "$ref": "#/definitions/GitConfiguration" },
+        "ProviderType": { "type": "string" }
+      },
+      "required": ["ProviderType"],
       "type": "object"
     },
     "StageDeclaration": {
@@ -122,6 +168,16 @@
       },
       "required": ["Value", "Key"],
       "type": "object"
+    },
+    "VariableDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "DefaultValue": { "type": "string" },
+        "Description": { "type": "string" },
+        "Name": { "type": "string" }
+      },
+      "required": ["Name"],
+      "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::CodePipeline::Pipeline",
@@ -140,6 +196,7 @@
     },
     "Id": { "type": "string" },
     "Name": { "type": "string" },
+    "PipelineType": { "type": "string" },
     "RestartExecutionOnUpdate": { "type": "boolean" },
     "RoleArn": { "type": "string" },
     "Stages": {
@@ -151,6 +208,16 @@
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
+    },
+    "Triggers": {
+      "items": { "$ref": "#/definitions/PipelineTriggerDeclaration" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "Variables": {
+      "items": { "$ref": "#/definitions/VariableDeclaration" },
+      "type": "array",
+      "uniqueItems": true
     },
     "Version": { "type": "string" }
   },

@@ -1,5 +1,6 @@
 {
-  "$hash": "f389f9c97dcfe1023add2fa6007c79af95459953",
+  "$hash": "416d605508f80793e9d7919daaa353c24d9dfb96",
+  "$id": "aws-amazonmq-configuration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/EngineType",

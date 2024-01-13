@@ -1,5 +1,6 @@
 {
-  "$hash": "fcb1fa67cc86cc43c7e2357983cecd9d24306325",
+  "$hash": "dfa0e57de39b673270fc6b9cbf932226f4b00e84",
+  "$id": "aws-codepipeline-webhook.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

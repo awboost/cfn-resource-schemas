@@ -1,5 +1,6 @@
 {
-  "$hash": "aa60df4a2e5c64ff9697e1db2e21cbd562ec80b3",
+  "$hash": "bd68d54d83009540f324a9cd0f402e92607da51d",
+  "$id": "aws-rds-globalcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/GlobalClusterIdentifier",

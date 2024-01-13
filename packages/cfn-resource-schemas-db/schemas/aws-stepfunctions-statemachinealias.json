@@ -1,5 +1,6 @@
 {
-  "$hash": "b98cb9a7d3effc223107c1b2cb65aea1a876a5b3",
+  "$hash": "126ed2818462427553a20e9f1ffe223b68098106",
+  "$id": "aws-stepfunctions-statemachinealias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

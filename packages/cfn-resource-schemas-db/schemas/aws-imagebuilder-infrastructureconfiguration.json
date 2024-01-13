@@ -1,5 +1,6 @@
 {
-  "$hash": "0f4f01373c60fbc7e0498153cffe0a2b058dde88",
+  "$hash": "28959798806f727d7062d7efb7c88593b65da5f3",
+  "$id": "aws-imagebuilder-infrastructureconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

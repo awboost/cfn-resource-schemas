@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CodeCommitRepositoryProperties = {
   Code?: Code;
+  KmsKeyId?: string;
   RepositoryDescription?: string;
   RepositoryName: string;
   Tags?: Tag[];

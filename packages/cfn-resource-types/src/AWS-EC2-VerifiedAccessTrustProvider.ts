@@ -76,6 +76,10 @@ export type EC2VerifiedAccessTrustProviderAttributes = {
  */
 export type DeviceOptions = {
   /**
+   * URL Verified Access will use to verify authenticity of the device tokens.
+   */
+  PublicSigningKeyUrl?: string;
+  /**
    * The ID of the tenant application with the device-identity provider.
    */
   TenantId?: string;

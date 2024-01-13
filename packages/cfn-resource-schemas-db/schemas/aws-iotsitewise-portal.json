@@ -1,5 +1,6 @@
 {
-  "$hash": "707d596a40f0b6567c95b66fde7340e9e1438431",
+  "$hash": "c7fbe8d2d82e71b1eea5a60c4e46a922251d93d6",
+  "$id": "aws-iotsitewise-portal.json",
   "additionalIdentifiers": [["/properties/PortalArn"]],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PortalAuthMode"],
@@ -20,6 +21,8 @@
     "create": {
       "permissions": [
         "iotsitewise:CreatePortal",
+        "iotsitewise:DescribePortal",
+        "iotsitewise:ListTagsForResource",
         "iotsitewise:TagResource",
         "iam:PassRole",
         "sso:CreateManagedApplicationInstance",
@@ -28,14 +31,21 @@
     },
     "delete": {
       "permissions": [
+        "iotsitewise:DescribePortal",
         "iotsitewise:DeletePortal",
         "sso:DeleteManagedApplicationInstance"
       ]
     },
     "list": { "permissions": ["iotsitewise:ListPortals"] },
-    "read": { "permissions": ["iotsitewise:DescribePortal"] },
+    "read": {
+      "permissions": [
+        "iotsitewise:DescribePortal",
+        "iotsitewise:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
+        "iotsitewise:DescribePortal",
         "iotsitewise:ListTagsForResource",
         "iotsitewise:TagResource",
         "iotsitewise:UpdatePortal",

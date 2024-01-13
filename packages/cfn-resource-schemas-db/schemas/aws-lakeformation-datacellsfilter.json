@@ -1,5 +1,6 @@
 {
-  "$hash": "4cef348c4cc62266fb19c601029be3ee7ecc625c",
+  "$hash": "3e12b79d5de361b3fff600d671875410325ba237",
+  "$id": "aws-lakeformation-datacellsfilter.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TableCatalogId",

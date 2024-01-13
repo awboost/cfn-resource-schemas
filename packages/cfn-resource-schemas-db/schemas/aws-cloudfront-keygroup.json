@@ -1,5 +1,6 @@
 {
-  "$hash": "1e23ca3e1fad649becc9d91be4013d4f706e271f",
+  "$hash": "b4c9b8c0eca9050e1aab4af88e6d73bf1301387c",
+  "$id": "aws-cloudfront-keygroup.json",
   "additionalProperties": false,
   "definitions": {
     "KeyGroupConfig": {

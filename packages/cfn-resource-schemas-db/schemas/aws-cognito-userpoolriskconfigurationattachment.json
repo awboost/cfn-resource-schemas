@@ -1,5 +1,6 @@
 {
-  "$hash": "e94920c1be29337fa71184155270cf61471f547d",
+  "$hash": "54a929d270b59495788e36f8ee5c6254b7c267f3",
+  "$id": "aws-cognito-userpoolriskconfigurationattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserPoolId", "/properties/ClientId"],
   "definitions": {

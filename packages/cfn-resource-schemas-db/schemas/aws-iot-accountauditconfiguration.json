@@ -1,5 +1,6 @@
 {
-  "$hash": "c836f111032cb01a237396e752b3fb7818b44db8",
+  "$hash": "e11bc926f3ded57b224bca5e0d44ca07c302f2d1",
+  "$id": "aws-iot-accountauditconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AccountId"],
   "definitions": {

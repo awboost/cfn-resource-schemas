@@ -23,12 +23,27 @@ export type EMRStudioProperties = {
    */
   Description?: string;
   /**
+   * The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+   * @pattern `^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
+   */
+  EncryptionKeyArn?: string;
+  /**
    * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
    * @minLength `4`
    * @maxLength `256`
    * @pattern `^sg-[a-zA-Z0-9\-._]+$`
    */
   EngineSecurityGroupId: string;
+  /**
+   * The ARN of the IAM Identity Center instance to create the Studio application.
+   * @minLength `20`
+   * @maxLength `2048`
+   */
+  IdcInstanceArn?: string;
+  /**
+   * Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+   */
+  IdcUserAssignment?: "REQUIRED" | "OPTIONAL";
   /**
    * Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
    * @maxLength `4096`
@@ -62,6 +77,10 @@ export type EMRStudioProperties = {
    * A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
    */
   Tags?: Tag[];
+  /**
+   * A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+   */
+  TrustedIdentityPropagationEnabled?: boolean;
   /**
    * The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
    * @pattern `^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`

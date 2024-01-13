@@ -1,5 +1,6 @@
 {
-  "$hash": "0e900be7ddd2f88ec97aba9b5cc17a982c354573",
+  "$hash": "fb875a923b9cbfd32ee5f34f0121dfe5b29bb3a2",
+  "$id": "aws-cognito-userpool.json",
   "additionalProperties": false,
   "definitions": {
     "AccountRecoverySetting": {
@@ -81,6 +82,9 @@
         "PreAuthentication": { "type": "string" },
         "PreSignUp": { "type": "string" },
         "PreTokenGeneration": { "type": "string" },
+        "PreTokenGenerationConfig": {
+          "$ref": "#/definitions/PreTokenGenerationConfig"
+        },
         "UserMigration": { "type": "string" },
         "VerifyAuthChallengeResponse": { "type": "string" }
       },
@@ -110,6 +114,14 @@
       "additionalProperties": false,
       "properties": {
         "PasswordPolicy": { "$ref": "#/definitions/PasswordPolicy" }
+      },
+      "type": "object"
+    },
+    "PreTokenGenerationConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "LambdaArn": { "type": "string" },
+        "LambdaVersion": { "type": "string" }
       },
       "type": "object"
     },

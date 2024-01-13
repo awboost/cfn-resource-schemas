@@ -1,5 +1,6 @@
 {
-  "$hash": "3a6ea79ea445fa0110920d0b23de028d4f8ffff3",
+  "$hash": "7caedefeba5fdaf49909d8deb38c4cc180640131",
+  "$id": "aws-sagemaker-appimageconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AppImageConfigName",

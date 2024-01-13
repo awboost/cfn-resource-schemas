@@ -1,5 +1,6 @@
 {
-  "$hash": "08414556d47ef1cd05e0297fc9f0c6304ec579d4",
+  "$hash": "b243f803309b4b728c804b7d123dcda02709200c",
+  "$id": "aws-medialive-multiplexprogram.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ProgramName",

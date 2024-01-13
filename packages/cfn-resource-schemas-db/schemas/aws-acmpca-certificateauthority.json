@@ -1,5 +1,6 @@
 {
-  "$hash": "09c82482e066ba36565447b025f4391d578c7520",
+  "$hash": "9a486c740e78abf927e57278a39ab2cf47fcbf6f",
+  "$id": "aws-acmpca-certificateauthority.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Type",
@@ -41,12 +42,22 @@
       "additionalProperties": false,
       "description": "Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.",
       "properties": {
+        "CrlDistributionPointExtensionConfiguration": {
+          "$ref": "#/definitions/CrlDistributionPointExtensionConfiguration"
+        },
         "CustomCname": { "type": "string" },
         "Enabled": { "type": "boolean" },
         "ExpirationInDays": { "type": "integer" },
         "S3BucketName": { "type": "string" },
         "S3ObjectAcl": { "type": "string" }
       },
+      "type": "object"
+    },
+    "CrlDistributionPointExtensionConfiguration": {
+      "additionalProperties": false,
+      "description": "Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority",
+      "properties": { "OmitExtension": { "type": "boolean" } },
+      "required": ["OmitExtension"],
       "type": "object"
     },
     "CsrExtensions": {
@@ -211,7 +222,12 @@
         "acm-pca:GetCertificateAuthorityCsr"
       ]
     },
-    "delete": { "permissions": ["acm-pca:DeleteCertificateAuthority"] },
+    "delete": {
+      "permissions": [
+        "acm-pca:DeleteCertificateAuthority",
+        "acm-pca:DescribeCertificateAuthority"
+      ]
+    },
     "list": {
       "permissions": [
         "acm-pca:DescribeCertificateAuthority",
@@ -287,5 +303,12 @@
   "required": ["Type", "KeyAlgorithm", "SigningAlgorithm", "Subject"],
   "sourceUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ACMPCA.html",
   "typeName": "AWS::ACMPCA::CertificateAuthority",
-  "writeOnlyProperties": ["/properties/Subject"]
+  "writeOnlyProperties": [
+    "/properties/Subject",
+    "/properties/Subject",
+    "/properties/CsrExtensions",
+    "/properties/Tags",
+    "/properties/RevocationConfiguration",
+    "/properties/KeyStorageSecurityStandard"
+  ]
 }

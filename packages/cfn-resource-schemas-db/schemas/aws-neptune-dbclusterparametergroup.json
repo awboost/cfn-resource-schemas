@@ -1,5 +1,6 @@
 {
-  "$hash": "3791b02f48e15f773688bb3ae43138d8237d5b83",
+  "$hash": "98f82a2f77b8c74eb754233734bc572f3cc5932e",
+  "$id": "aws-neptune-dbclusterparametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Family",

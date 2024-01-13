@@ -1,5 +1,6 @@
 {
-  "$hash": "406fd64b7e1774444d7c4b8ffb9458df6a9b7947",
+  "$hash": "346d5e427cdc4e89cedbc5b389aadfac38eb4631",
+  "$id": "aws-memorydb-user.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserName"],
   "definitions": {
@@ -32,6 +33,7 @@
       "permissions": [
         "memorydb:CreateUser",
         "memorydb:DescribeUsers",
+        "memorydb:TagResource",
         "memorydb:ListTags"
       ]
     },

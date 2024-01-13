@@ -1,5 +1,6 @@
 {
-  "$hash": "b25ad27f83ea933bef21bcab3519db52a46ba535",
+  "$hash": "c457c7530a9e2587709397d5653cc7c1af3589f5",
+  "$id": "aws-mediapackagev2-channel.json",
   "additionalIdentifiers": [
     ["/properties/ChannelGroupName", "/properties/ChannelName"]
   ],

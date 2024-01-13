@@ -1,5 +1,6 @@
 {
-  "$hash": "5d135640b6aae5a9559dab4e5e621d1012ff273f",
+  "$hash": "a5f82d6ba24f01daf49519bbd7d8d6b6e9b6ed9f",
+  "$id": "aws-lightsail-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/CertificateName",

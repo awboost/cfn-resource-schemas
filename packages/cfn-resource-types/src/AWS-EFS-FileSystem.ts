@@ -13,6 +13,7 @@ export type EFSFileSystemProperties = {
   BypassPolicyLockoutSafetyCheck?: boolean;
   Encrypted?: boolean;
   FileSystemPolicy?: Record<string, any>;
+  FileSystemProtection?: FileSystemProtection;
   FileSystemTags?: ElasticFileSystemTag[];
   KmsKeyId?: string;
   LifecyclePolicies?: LifecyclePolicy[];
@@ -45,10 +46,18 @@ export type ElasticFileSystemTag = {
   Value: string;
 };
 /**
+ * Type definition for `AWS::EFS::FileSystem.FileSystemProtection`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemprotection.html}
+ */
+export type FileSystemProtection = {
+  ReplicationOverwriteProtection?: "DISABLED" | "ENABLED";
+};
+/**
  * Type definition for `AWS::EFS::FileSystem.LifecyclePolicy`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html}
  */
 export type LifecyclePolicy = {
+  TransitionToArchive?: string;
   TransitionToIA?: string;
   TransitionToPrimaryStorageClass?: string;
 };

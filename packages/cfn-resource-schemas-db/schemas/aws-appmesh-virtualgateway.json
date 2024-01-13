@@ -1,5 +1,6 @@
 {
-  "$hash": "bf8ae55a13eee8aec6072814935467fdb228f8e8",
+  "$hash": "f1046648d75b056a4b1d6caba21f202af13f93c4",
+  "$id": "aws-appmesh-virtualgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/MeshName",

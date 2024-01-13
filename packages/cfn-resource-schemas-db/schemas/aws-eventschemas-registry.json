@@ -1,5 +1,6 @@
 {
-  "$hash": "e5d0482650c072cc7704b86b69b487b5a2664e2a",
+  "$hash": "c90a3e1725da3f6302c5d07dc173e599ca6bda35",
+  "$id": "aws-eventschemas-registry.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RegistryName"],
   "definitions": {
@@ -14,18 +15,57 @@
     }
   },
   "description": "Resource Type definition for AWS::EventSchemas::Registry",
-  "primaryIdentifier": ["/properties/Id"],
+  "handlers": {
+    "create": {
+      "permissions": [
+        "schemas:DescribeRegistry",
+        "schemas:CreateRegistry",
+        "schemas:TagResource"
+      ]
+    },
+    "delete": {
+      "permissions": ["schemas:DescribeRegistry", "schemas:DeleteRegistry"]
+    },
+    "list": { "permissions": ["schemas:ListRegistries"] },
+    "read": { "permissions": ["schemas:DescribeRegistry"] },
+    "update": {
+      "permissions": [
+        "schemas:DescribeRegistry",
+        "schemas:UpdateRegistry",
+        "schemas:TagResource",
+        "schemas:UntagResource",
+        "schemas:ListTagsForResource"
+      ]
+    }
+  },
+  "primaryIdentifier": ["/properties/RegistryArn"],
   "properties": {
-    "Description": { "type": "string" },
-    "Id": { "type": "string" },
-    "RegistryArn": { "type": "string" },
-    "RegistryName": { "type": "string" },
+    "Description": {
+      "description": "A description of the registry to be created.",
+      "type": "string"
+    },
+    "RegistryArn": {
+      "description": "The ARN of the registry.",
+      "type": "string"
+    },
+    "RegistryName": {
+      "description": "The name of the schema registry.",
+      "type": "string"
+    },
     "Tags": {
+      "description": "Tags associated with the resource.",
       "items": { "$ref": "#/definitions/TagsEntry" },
       "type": "array",
       "uniqueItems": false
     }
   },
-  "readOnlyProperties": ["/properties/RegistryArn", "/properties/Id"],
+  "readOnlyProperties": ["/properties/RegistryArn"],
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EventSchemas::Registry"
 }

@@ -1,5 +1,6 @@
 {
-  "$hash": "cfd3f599c51084e1bc0b2a84deca93e10a14f552",
+  "$hash": "7c9ed922f81a965e92ab210f85f595c9c0c6f724",
+  "$id": "aws-networkmanager-transitgatewaypeering.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/CoreNetworkId",

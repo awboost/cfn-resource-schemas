@@ -1,5 +1,6 @@
 {
-  "$hash": "e1691af068f075a79ca87449b82523fc6642698f",
+  "$hash": "d87100c4c51b5ee0bec5d30969b9e0e01ed893eb",
+  "$id": "aws-cognito-userpoolresourceserver.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Identifier", "/properties/UserPoolId"],
   "definitions": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "dc9324fa0a3a1adeea7f2f445ed48dcbdd7b9449",
+  "$hash": "ae3422e921eba980615e6f42a08acc5e8aa9bdf8",
+  "$id": "aws-ssm-maintenancewindowtask.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WindowId", "/properties/TaskType"],
   "definitions": {

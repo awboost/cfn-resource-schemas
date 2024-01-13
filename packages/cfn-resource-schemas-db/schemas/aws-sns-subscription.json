@@ -1,5 +1,6 @@
 {
-  "$hash": "99d64264c76f623c30faf0630c4feb9482dce6f9",
+  "$hash": "09c0832740fa754becc70c90bceae53c5f3bf1cf",
+  "$id": "aws-sns-subscription.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Endpoint",
@@ -18,6 +19,7 @@
     "RawMessageDelivery": { "type": "boolean" },
     "RedrivePolicy": { "type": "object" },
     "Region": { "type": "string" },
+    "ReplayPolicy": { "type": "object" },
     "SubscriptionRoleArn": { "type": "string" },
     "TopicArn": { "type": "string" }
   },

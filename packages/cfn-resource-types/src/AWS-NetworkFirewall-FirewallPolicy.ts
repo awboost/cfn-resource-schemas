@@ -86,6 +86,13 @@ export type FirewallPolicy = {
   StatelessDefaultActions: string[];
   StatelessFragmentDefaultActions: string[];
   StatelessRuleGroupReferences?: StatelessRuleGroupReference[];
+  /**
+   * A resource ARN.
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^(arn:aws.*)$`
+   */
+  TLSInspectionConfigurationArn?: string;
 };
 /**
  * Type definition for `AWS::NetworkFirewall::FirewallPolicy.IPSet`.

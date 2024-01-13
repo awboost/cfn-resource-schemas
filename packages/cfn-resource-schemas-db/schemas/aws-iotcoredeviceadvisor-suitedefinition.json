@@ -1,5 +1,6 @@
 {
-  "$hash": "2d49e50c7a78c51d5b6d8e8d33ea14f64ee9cf07",
+  "$hash": "f3bc82175469495cf0aac67dbb5fcc921c33e72a",
+  "$id": "aws-iotcoredeviceadvisor-suitedefinition.json",
   "additionalProperties": false,
   "definitions": {
     "DevicePermissionRoleArn": {

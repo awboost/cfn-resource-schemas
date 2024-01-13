@@ -1,5 +1,6 @@
 {
-  "$hash": "d88bd707446cff0bf1de1483b1112bce416a1759",
+  "$hash": "eba94bb3135454b125c3163de2a34ef8a17fe876",
+  "$id": "aws-ec2-vpcendpointconnectionnotification.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceId",

@@ -1,5 +1,6 @@
 {
-  "$hash": "d943d88bee370cd98fb9937d5bb823d872c8c425",
+  "$hash": "b254c082e5d9b914e5c0211c296e6a135108c000",
+  "$id": "aws-route53recoveryreadiness-readinesscheck.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ReadinessCheckName"],
   "definitions": {

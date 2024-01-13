@@ -1,5 +1,6 @@
 {
-  "$hash": "5ec80ca491653a50c14424482994b0cd4971e92a",
+  "$hash": "1695154848c926aee8cfbe5535a91640b4adcac4",
+  "$id": "aws-efs-accesspoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/FileSystemId",

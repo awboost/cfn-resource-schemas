@@ -1,5 +1,6 @@
 {
-  "$hash": "a333e93906f3ec6c440665deb6413691d173f686",
+  "$hash": "a19b22720c387673decb2231b2c516de54fe9b93",
+  "$id": "aws-networkmanager-transitgatewayroutetableattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/PeeringId",

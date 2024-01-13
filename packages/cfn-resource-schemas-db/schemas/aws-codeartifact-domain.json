@@ -1,5 +1,6 @@
 {
-  "$hash": "d2219441963e15e80397efd5567401b37d16a4ee",
+  "$hash": "d58c51efea855fe8a3bd786cc34a051a694544da",
+  "$id": "aws-codeartifact-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DomainName",

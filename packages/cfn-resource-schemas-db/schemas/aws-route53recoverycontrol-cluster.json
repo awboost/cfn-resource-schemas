@@ -1,5 +1,6 @@
 {
-  "$hash": "5df6f90202c79813e366a4a6af4cc9c61fd50fdc",
+  "$hash": "b13873493a89ef3e8c1a00a6039764c0a93b5a95",
+  "$id": "aws-route53recoverycontrol-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
   "definitions": {
@@ -26,12 +27,16 @@
     "create": {
       "permissions": [
         "route53-recovery-control-config:CreateCluster",
+        "route53-recovery-control-config:DescribeCluster",
         "route53-recovery-control-config:ListTagsForResource",
         "route53-recovery-control-config:TagResource"
       ]
     },
     "delete": {
-      "permissions": ["route53-recovery-control-config:DeleteCluster"]
+      "permissions": [
+        "route53-recovery-control-config:DescribeCluster",
+        "route53-recovery-control-config:DeleteCluster"
+      ]
     },
     "list": { "permissions": ["route53-recovery-control-config:ListClusters"] },
     "read": {

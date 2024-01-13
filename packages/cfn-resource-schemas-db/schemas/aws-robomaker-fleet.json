@@ -1,5 +1,6 @@
 {
-  "$hash": "6be15d3a9fa46c880ba4b178631bcf70844db8ea",
+  "$hash": "d79a9f7bbdd16a5dd1d7e144e0459afb4f9a807f",
+  "$id": "aws-robomaker-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

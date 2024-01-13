@@ -22,6 +22,14 @@ export type FSxVolumeAttributes = {
   VolumeId: string;
 };
 /**
+ * Type definition for `AWS::FSx::Volume.AggregateConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-aggregateconfiguration.html}
+ */
+export type AggregateConfiguration = {
+  Aggregates?: string[];
+  ConstituentsPerAggregate?: number;
+};
+/**
  * Type definition for `AWS::FSx::Volume.AutocommitPeriod`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-autocommitperiod.html}
  */
@@ -49,16 +57,19 @@ export type NfsExports = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html}
  */
 export type OntapConfiguration = {
+  AggregateConfiguration?: AggregateConfiguration;
   CopyTagsToBackups?: string;
   JunctionPath?: string;
   OntapVolumeType?: string;
   SecurityStyle?: string;
-  SizeInMegabytes: string;
+  SizeInBytes?: string;
+  SizeInMegabytes?: string;
   SnaplockConfiguration?: SnaplockConfiguration;
   SnapshotPolicy?: string;
   StorageEfficiencyEnabled?: string;
   StorageVirtualMachineId: string;
   TieringPolicy?: TieringPolicy;
+  VolumeStyle?: string;
 };
 /**
  * Type definition for `AWS::FSx::Volume.OpenZFSConfiguration`.

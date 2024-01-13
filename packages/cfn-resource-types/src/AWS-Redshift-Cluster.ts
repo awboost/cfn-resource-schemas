@@ -128,16 +128,24 @@ export type RedshiftClusterProperties = {
    */
   MaintenanceTrackName?: string;
   /**
+   * A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+   */
+  ManageMasterPassword?: boolean;
+  /**
      * The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
     
     The value must be either -1 or an integer between 1 and 3,653.
      */
   ManualSnapshotRetentionPeriod?: number;
   /**
-   * The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+   * The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+   */
+  MasterPasswordSecretKmsKeyId?: string;
+  /**
+   * The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
    * @maxLength `64`
    */
-  MasterUserPassword: string;
+  MasterUserPassword?: string;
   /**
    * The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
    * @maxLength `128`
@@ -147,6 +155,10 @@ export type RedshiftClusterProperties = {
    * A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
    */
   MultiAZ?: boolean;
+  /**
+   * The namespace resource policy document that will be attached to a Redshift cluster.
+   */
+  NamespaceResourcePolicy?: Record<string, any>;
   /**
    * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
    */
@@ -220,6 +232,10 @@ export type RedshiftClusterProperties = {
  */
 export type RedshiftClusterAttributes = {
   /**
+   * The Amazon Resource Name (ARN) of the cluster namespace.
+   */
+  ClusterNamespaceArn: string;
+  /**
    * A unique identifier for the deferred maintenance window.
    */
   DeferMaintenanceIdentifier: string;
@@ -227,14 +243,17 @@ export type RedshiftClusterAttributes = {
     Address: string;
     Port: string;
   };
-  Id: string;
+  /**
+   * The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+   */
+  MasterPasswordSecretArn: string;
 };
 /**
  * Type definition for `AWS::Redshift::Cluster.LoggingProperties`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html}
  */
 export type LoggingProperties = {
-  BucketName: string;
+  BucketName?: string;
   S3KeyPrefix?: string;
 };
 /**

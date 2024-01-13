@@ -1,5 +1,6 @@
 {
-  "$hash": "c773817532d3babbce3e32ae7525cf0d13b5ff7a",
+  "$hash": "061b4844513ff179f5342d8295ea2c1a8855dbe6",
+  "$id": "aws-sagemaker-space.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainId", "/properties/SpaceName"],
   "definitions": {

@@ -14,6 +14,7 @@ export type FISExperimentTemplateProperties = {
    * @maxLength `512`
    */
   Description: string;
+  ExperimentOptions?: ExperimentTemplateExperimentOptions;
   LogConfiguration?: ExperimentTemplateLogConfiguration;
   /**
    * The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
@@ -75,6 +76,20 @@ export type ExperimentTemplateActionMap = Record<
   string,
   ExperimentTemplateAction
 >;
+/**
+ * Type definition for `AWS::FIS::ExperimentTemplate.ExperimentTemplateExperimentOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentoptions.html}
+ */
+export type ExperimentTemplateExperimentOptions = {
+  /**
+   * The account targeting setting for the experiment template.
+   */
+  AccountTargeting?: "multi-account" | "single-account";
+  /**
+   * The target resolution failure mode for the experiment template.
+   */
+  EmptyTargetResolutionMode?: "fail" | "skip";
+};
 /**
  * Type definition for `AWS::FIS::ExperimentTemplate.ExperimentTemplateLogConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html}

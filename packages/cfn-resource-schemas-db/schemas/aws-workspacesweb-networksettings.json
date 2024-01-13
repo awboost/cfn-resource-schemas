@@ -1,5 +1,6 @@
 {
-  "$hash": "342a6d53b6f8ba15b8a1afd1b3e10483d04072d3",
+  "$hash": "f4e30118fc3e08a860b0b03383e03a5dc67d14c4",
+  "$id": "aws-workspacesweb-networksettings.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

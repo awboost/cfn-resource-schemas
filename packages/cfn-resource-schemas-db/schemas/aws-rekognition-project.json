@@ -1,5 +1,6 @@
 {
-  "$hash": "2d084235a4cb6d756ca6cc173d683de59898de15",
+  "$hash": "eff362bdacb86aa465cd1be7551563e8c5f87032",
+  "$id": "aws-rekognition-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProjectName"],
   "definitions": {

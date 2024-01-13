@@ -1,5 +1,6 @@
 {
-  "$hash": "55550d461df51bdc995320e71d6219fecc3c09f3",
+  "$hash": "9ed947b53040737ec246c2e31ec1bfecb6eb8e0c",
+  "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
     "/properties/AutoMinorVersionUpgrade",
@@ -176,7 +177,11 @@
       "timeoutInMinutes": 2160
     },
     "delete": {
-      "permissions": ["rds:DeleteDBInstance", "rds:DescribeDBInstances"],
+      "permissions": [
+        "rds:CreateDBSnapshot",
+        "rds:DeleteDBInstance",
+        "rds:DescribeDBInstances"
+      ],
       "timeoutInMinutes": 2160
     },
     "list": { "permissions": ["rds:DescribeDBInstances"] },

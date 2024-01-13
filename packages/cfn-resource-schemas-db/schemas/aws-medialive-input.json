@@ -1,5 +1,6 @@
 {
-  "$hash": "28aabf471d63d38747b069638ab0001047de14bd",
+  "$hash": "64f61a69315d9beff20f85d7dd7df3f1dab732a9",
+  "$id": "aws-medialive-input.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc", "/properties/Type"],
   "definitions": {

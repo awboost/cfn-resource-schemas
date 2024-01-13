@@ -1,11 +1,17 @@
 {
-  "$hash": "f61c4edf403d4bc304d3983484e928d0c5535291",
+  "$hash": "b337440601f64968d15401305bb7e6588f8dc98a",
+  "$id": "aws-cloudfront-function.json",
   "additionalProperties": false,
   "definitions": {
     "FunctionConfig": {
       "additionalProperties": false,
       "properties": {
         "Comment": { "type": "string" },
+        "KeyValueStoreAssociations": {
+          "items": { "$ref": "#/definitions/KeyValueStoreAssociation" },
+          "type": "array",
+          "uniqueItems": true
+        },
         "Runtime": { "type": "string" }
       },
       "required": ["Comment", "Runtime"],
@@ -14,6 +20,12 @@
     "FunctionMetadata": {
       "additionalProperties": false,
       "properties": { "FunctionARN": { "type": "string" } },
+      "type": "object"
+    },
+    "KeyValueStoreAssociation": {
+      "additionalProperties": false,
+      "properties": { "KeyValueStoreARN": { "type": "string" } },
+      "required": ["KeyValueStoreARN"],
       "type": "object"
     }
   },

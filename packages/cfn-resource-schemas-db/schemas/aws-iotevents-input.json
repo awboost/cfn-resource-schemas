@@ -1,5 +1,6 @@
 {
-  "$hash": "bbac9d408f1bdd1acefbeb21bda93e81be1f6f43",
+  "$hash": "bbb6931b6ca100d8feb4dd8c16ecdbebc01373d8",
+  "$id": "aws-iotevents-input.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InputName"],
   "definitions": {

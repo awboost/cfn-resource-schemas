@@ -1,5 +1,6 @@
 {
-  "$hash": "8ca6f7392a3cb0b80f59abf484a978a297168b62",
+  "$hash": "9fdb5a38f28b8c47dc1e55a9bcbf463147a1ec63",
+  "$id": "aws-customerprofiles-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName", "/properties/Uri"],
   "definitions": {

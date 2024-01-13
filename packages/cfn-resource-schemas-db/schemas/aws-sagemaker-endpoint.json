@@ -1,5 +1,6 @@
 {
-  "$hash": "39bb861886d5f0db558888c05d46eb1af68b1d3e",
+  "$hash": "c0bf640306caad6b3325e21a9004469e2b4b3245",
+  "$id": "aws-sagemaker-endpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/EndpointName"],
   "definitions": {

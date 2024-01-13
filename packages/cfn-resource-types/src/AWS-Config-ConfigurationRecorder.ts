@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type ConfigConfigurationRecorderProperties = {
   Name?: string;
   RecordingGroup?: RecordingGroup;
+  RecordingMode?: RecordingMode;
   RoleARN: string;
 };
 /**
@@ -33,6 +34,23 @@ export type RecordingGroup = {
   IncludeGlobalResourceTypes?: boolean;
   RecordingStrategy?: RecordingStrategy;
   ResourceTypes?: string[];
+};
+/**
+ * Type definition for `AWS::Config::ConfigurationRecorder.RecordingMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmode.html}
+ */
+export type RecordingMode = {
+  RecordingFrequency: string;
+  RecordingModeOverrides?: RecordingModeOverride[];
+};
+/**
+ * Type definition for `AWS::Config::ConfigurationRecorder.RecordingModeOverride`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingmodeoverride.html}
+ */
+export type RecordingModeOverride = {
+  Description?: string;
+  RecordingFrequency: string;
+  ResourceTypes: string[];
 };
 /**
  * Type definition for `AWS::Config::ConfigurationRecorder.RecordingStrategy`.

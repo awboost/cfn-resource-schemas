@@ -1,5 +1,6 @@
 {
-  "$hash": "dddd1cc8abb7fcc7b2290667d775c118de1f09be",
+  "$hash": "326d5e15c367f4801ce3bab5ff74ccb76503cf0e",
+  "$id": "aws-cognito-userpoolgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserPoolId", "/properties/GroupName"],
   "description": "Resource Type definition for AWS::Cognito::UserPoolGroup",

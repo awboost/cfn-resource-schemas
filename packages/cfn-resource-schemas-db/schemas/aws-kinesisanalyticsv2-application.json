@@ -1,5 +1,6 @@
 {
-  "$hash": "2f66fa52bc8908586415c48db721779eb71a5ece",
+  "$hash": "dd16d3b36832b150d791f417cf1239a559564914",
+  "$id": "aws-kinesisanalyticsv2-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ApplicationName",
@@ -855,7 +856,7 @@
   "required": ["RuntimeEnvironment", "ServiceExecutionRole"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-kinesisanalyticsv2.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

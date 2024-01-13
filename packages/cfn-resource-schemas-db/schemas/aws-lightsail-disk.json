@@ -1,5 +1,6 @@
 {
-  "$hash": "e57164477e1ed5506cffd25ab75775ccaebf44fe",
+  "$hash": "11e5fa5f32cc4c5d8d833d874f692690f4e62a55",
+  "$id": "aws-lightsail-disk.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DiskName",

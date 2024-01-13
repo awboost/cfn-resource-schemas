@@ -1,5 +1,6 @@
 {
-  "$hash": "7c66746dbd6419af27b5ac0a005aa1a8fb4ee91a",
+  "$hash": "9a2d87466e6ae697a2c44696a8b281218514783b",
+  "$id": "aws-redshift-endpointauthorization.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ClusterIdentifier",

@@ -1,5 +1,6 @@
 {
-  "$hash": "d5bc10907ac041c0b871d451f1797064102a5341",
+  "$hash": "363b83ef826e4542b72088d5d169fbba28a26e21",
+  "$id": "aws-route53recoveryreadiness-resourceset.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ResourceSetName",

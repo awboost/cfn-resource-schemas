@@ -1,5 +1,6 @@
 {
-  "$hash": "b24669ac6dc26fbeb053cde88bde4ab5f9547981",
+  "$hash": "60e9be18db1731e670fa1b11e5738147a5351507",
+  "$id": "aws-amplify-branch.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AppId", "/properties/BranchName"],
   "definitions": {

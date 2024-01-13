@@ -1,5 +1,6 @@
 {
-  "$hash": "ca80dfe56655153051d4e9477db67890eca603b5",
+  "$hash": "c30ef7aa766f2670a8609cfa9481f103e13abd53",
+  "$id": "aws-sagemaker-workteam.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/WorkteamName",

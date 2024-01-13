@@ -1,5 +1,6 @@
 {
-  "$hash": "0a3ddf8ea7727cc9963b9a364ca80bd020b2c70c",
+  "$hash": "b60e300dab077a330e65b01b44946c466470ddfa",
+  "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
   "definitions": {
@@ -589,6 +590,14 @@
       },
       "type": "object"
     },
+    "EpochLockingSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "CustomEpoch": { "type": "string" },
+        "JamSyncTime": { "type": "string" }
+      },
+      "type": "object"
+    },
     "Esam": {
       "additionalProperties": false,
       "properties": {
@@ -627,7 +636,10 @@
     },
     "FeatureActivations": {
       "additionalProperties": false,
-      "properties": { "InputPrepareScheduleActions": { "type": "string" } },
+      "properties": {
+        "InputPrepareScheduleActions": { "type": "string" },
+        "OutputStaticImageOverlayScheduleActions": { "type": "string" }
+      },
       "type": "object"
     },
     "FecOutputSettings": {
@@ -699,6 +711,9 @@
         "InputEndAction": { "type": "string" },
         "InputLossBehavior": { "$ref": "#/definitions/InputLossBehavior" },
         "OutputLockingMode": { "type": "string" },
+        "OutputLockingSettings": {
+          "$ref": "#/definitions/OutputLockingSettings"
+        },
         "OutputTimingSource": { "type": "string" },
         "SupportLowFramerateInputs": { "type": "string" }
       },
@@ -1448,6 +1463,18 @@
       "properties": { "DestinationRefId": { "type": "string" } },
       "type": "object"
     },
+    "OutputLockingSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "EpochLockingSettings": {
+          "$ref": "#/definitions/EpochLockingSettings"
+        },
+        "PipelineLockingSettings": {
+          "$ref": "#/definitions/PipelineLockingSettings"
+        }
+      },
+      "type": "object"
+    },
     "OutputSettings": {
       "additionalProperties": false,
       "properties": {
@@ -1473,6 +1500,10 @@
       "type": "object"
     },
     "PassThroughSettings": { "additionalProperties": false, "type": "object" },
+    "PipelineLockingSettings": {
+      "additionalProperties": false,
+      "type": "object"
+    },
     "RawSettings": { "additionalProperties": false, "type": "object" },
     "Rec601Settings": { "additionalProperties": false, "type": "object" },
     "Rec709Settings": { "additionalProperties": false, "type": "object" },

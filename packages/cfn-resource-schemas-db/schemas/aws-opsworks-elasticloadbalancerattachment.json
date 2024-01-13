@@ -1,5 +1,6 @@
 {
-  "$hash": "d47e298621a745053eafbe2462551e5f744773be",
+  "$hash": "0cb4dc714eb97d3b51d35117580d0c4b53a667b3",
+  "$id": "aws-opsworks-elasticloadbalancerattachment.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment",
   "primaryIdentifier": ["/properties/Id"],

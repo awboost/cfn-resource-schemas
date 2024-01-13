@@ -5,11 +5,29 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-schema.html}
  */
 export type EventSchemasSchemaProperties = {
+  /**
+   * The source of the schema definition.
+   */
   Content: string;
+  /**
+   * A description of the schema.
+   */
   Description?: string;
+  /**
+   * The name of the schema registry.
+   */
   RegistryName: string;
+  /**
+   * The name of the schema.
+   */
   SchemaName?: string;
+  /**
+   * Tags associated with the resource.
+   */
   Tags?: TagsEntry[];
+  /**
+   * The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+   */
   Type: string;
 };
 /**
@@ -17,9 +35,22 @@ export type EventSchemasSchemaProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-schema.html#aws-resource-eventschemas-schema-return-values}
  */
 export type EventSchemasSchemaAttributes = {
-  Id: string;
+  /**
+   * The last modified time of the schema.
+   */
+  LastModified: string;
+  /**
+   * The ARN of the schema.
+   */
   SchemaArn: string;
+  /**
+   * The version number of the schema.
+   */
   SchemaVersion: string;
+  /**
+   * The date the schema version was created.
+   */
+  VersionCreatedDate: string;
 };
 /**
  * Type definition for `AWS::EventSchemas::Schema.TagsEntry`.

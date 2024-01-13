@@ -1,5 +1,6 @@
 {
-  "$hash": "a715b172a8329637f9d00ef6bf65a4f0349297d0",
+  "$hash": "d6d07815da281c889de2df110a158caed77ffa3a",
+  "$id": "aws-elasticloadbalancing-loadbalancer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LoadBalancerName",

@@ -1,5 +1,6 @@
 {
-  "$hash": "bfce0f5f7beefd66cfa9438b1b138aab7a95ead7",
+  "$hash": "991cfe3711936675afabb2f5e9d2ecfaf4af8e4c",
+  "$id": "aws-cloudformation-publictypeversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LogDeliveryBucket",

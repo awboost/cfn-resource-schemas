@@ -1,5 +1,6 @@
 {
-  "$hash": "11ae7327f7881f923dee3cd2c1459e311227178f",
+  "$hash": "a1548d3cc3aee8064b2e33ec9ec8e6e32397c93c",
+  "$id": "aws-appmesh-virtualrouter.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/MeshName",

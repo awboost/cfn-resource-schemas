@@ -1,5 +1,6 @@
 {
-  "$hash": "ea4dc28490f11bab3f9d5346275ace8c60102d2b",
+  "$hash": "1fb4158232fe33dd40ef4d0407cdf28b47fd2e9e",
+  "$id": "aws-glue-job.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

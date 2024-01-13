@@ -1,5 +1,6 @@
 {
-  "$hash": "58ce9973f066aed2e7c7db2d727901ac219d137c",
+  "$hash": "0875b457f17620a8009efd4a94c02954156bc80e",
+  "$id": "aws-globalaccelerator-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AcceleratorArn"],
   "definitions": {

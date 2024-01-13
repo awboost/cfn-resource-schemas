@@ -1,5 +1,6 @@
 {
-  "$hash": "7fe5773834276be8857e059decbf27de953a20df",
+  "$hash": "f149ca9fe5a7d3bffe367ea25a0cb4f9fa104a8d",
+  "$id": "aws-refactorspaces-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Description",

@@ -1,5 +1,6 @@
 {
-  "$hash": "ad14e4fe5937666014629e78eaec8dc4178ad02e",
+  "$hash": "9ccc7f109a1cf22892f88e835abadbc654ab48a0",
+  "$id": "aws-connect-routingprofile.json",
   "additionalProperties": false,
   "definitions": {
     "BehaviorType": {

@@ -1,5 +1,6 @@
 {
-  "$hash": "e7c1c002db8e58617e0727cfc46c009f3a5cde35",
+  "$hash": "f6d123520244d6a0738a124b3f4fa8d7487bdbb6",
+  "$id": "aws-ssm-association.json",
   "additionalProperties": false,
   "definitions": {
     "InstanceAssociationOutputLocation": {
@@ -46,8 +47,10 @@
       "permissions": [
         "ec2:DescribeInstanceStatus",
         "iam:PassRole",
+        "iam:CreateServiceLinkedRole",
         "ssm:CreateAssociation",
-        "ssm:DescribeAssociation"
+        "ssm:DescribeAssociation",
+        "ssm:GetCalendarState"
       ]
     },
     "delete": { "permissions": ["ssm:DeleteAssociation"] },
@@ -60,7 +63,13 @@
         "resource-groups:ListGroupResources"
       ]
     },
-    "update": { "permissions": ["iam:PassRole", "ssm:UpdateAssociation"] }
+    "update": {
+      "permissions": [
+        "iam:PassRole",
+        "ssm:UpdateAssociation",
+        "ssm:GetCalendarState"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/AssociationId"],
   "properties": {
@@ -162,5 +171,6 @@
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ssm",
   "tagging": { "taggable": false },
-  "typeName": "AWS::SSM::Association"
+  "typeName": "AWS::SSM::Association",
+  "writeOnlyProperties": ["/properties/WaitForSuccessTimeoutSeconds"]
 }

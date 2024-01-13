@@ -1,5 +1,6 @@
 {
-  "$hash": "b73ab0f0a4d12dfdba043628561053b7c4000579",
+  "$hash": "711b0cd2eb74fc21d247eb87f45557314064e6d9",
+  "$id": "aws-ses-emailidentity.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/EmailIdentity"],
   "definitions": {

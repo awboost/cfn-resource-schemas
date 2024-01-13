@@ -1,5 +1,6 @@
 {
-  "$hash": "4c03a0c5427fc294b6713351a32b88ae3af0b032",
+  "$hash": "30e2b71bdd76e0432a2948d4b2156507626e729a",
+  "$id": "aws-connect-hoursofoperation.json",
   "additionalProperties": false,
   "definitions": {
     "HoursOfOperationConfig": {

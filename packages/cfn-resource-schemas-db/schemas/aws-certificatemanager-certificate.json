@@ -1,5 +1,6 @@
 {
-  "$hash": "8c358e4c70c44b76bcb67c3c19bed394d679a0f6",
+  "$hash": "7a20d50cb81eb70fee2a8415732bb66c8b87a06e",
+  "$id": "aws-certificatemanager-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SubjectAlternativeNames",

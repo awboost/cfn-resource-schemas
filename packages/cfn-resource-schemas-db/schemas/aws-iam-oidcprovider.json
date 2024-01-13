@@ -1,5 +1,6 @@
 {
-  "$hash": "c92ea8aefb1bd695efd031a563c534fdb166cf8b",
+  "$hash": "c1006824797b9baf46cfcc57523913b2b9c47a15",
+  "$id": "aws-iam-oidcprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Url"],
   "definitions": {

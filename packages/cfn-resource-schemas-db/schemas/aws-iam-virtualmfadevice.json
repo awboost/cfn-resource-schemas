@@ -1,5 +1,6 @@
 {
-  "$hash": "43e90c121d59d79a52682d0fef65ba090ebb9fbc",
+  "$hash": "e6143725696574ab913b51cf826b925ec1447067",
+  "$id": "aws-iam-virtualmfadevice.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/VirtualMfaDeviceName",

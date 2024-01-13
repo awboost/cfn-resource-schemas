@@ -1,5 +1,6 @@
 {
-  "$hash": "54938c1bb2a1851b510591b3f86a7b468aa1d6fa",
+  "$hash": "dbbbdb3053325bc78bcf321b7db97055319c2a62",
+  "$id": "aws-medialive-multiplex.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AvailabilityZones"],
   "definitions": {

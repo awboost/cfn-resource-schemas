@@ -1,5 +1,6 @@
 {
-  "$hash": "eb25a87725d2ac4e3d035fd5d79dc5e7b290631c",
+  "$hash": "fcdb255faa7c961f271fbc03caa45eb5ecd51719",
+  "$id": "aws-networkfirewall-loggingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/FirewallName",

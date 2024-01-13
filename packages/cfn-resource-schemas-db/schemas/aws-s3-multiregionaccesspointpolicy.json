@@ -1,5 +1,6 @@
 {
-  "$hash": "df5dfa852fa7321f90570d698ad0654e9ada8d96",
+  "$hash": "51a7a46c74672b1d44f6e559217ae9083ee1f667",
+  "$id": "aws-s3-multiregionaccesspointpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MrapName"],
   "description": "The policy to be attached to a Multi Region Access Point",

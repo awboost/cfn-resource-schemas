@@ -9,7 +9,17 @@ export type EC2SubnetCidrBlockProperties = {
    * The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length
    * @maxLength `42`
    */
-  Ipv6CidrBlock: string;
+  Ipv6CidrBlock?: string;
+  /**
+   * The ID of an IPv6 Amazon VPC IP Address Manager (IPAM) pool from which to allocate, to get the subnet's CIDR
+   */
+  Ipv6IpamPoolId?: string;
+  /**
+   * The netmask length of the IPv6 CIDR to allocate to the subnet from an IPAM pool
+   * @min `0`
+   * @max `128`
+   */
+  Ipv6NetmaskLength?: number;
   /**
    * The ID of the subnet
    */

@@ -39,7 +39,7 @@ export type ConnectIntegrationAssociationAttributes = {
  * Specifies the integration type to be associated with the instance
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-integrationassociation-integrationtype.html}
  */
-export type IntegrationType = "LEX_BOT" | "LAMBDA_FUNCTION";
+export type IntegrationType = "LEX_BOT" | "LAMBDA_FUNCTION" | "APPLICATION";
 /**
  * Resource Type definition for AWS::Connect::IntegrationAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html}

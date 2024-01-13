@@ -1,5 +1,6 @@
 {
-  "$hash": "d5f5761d01e8cbd55e05358d82f2aa89b306a8b2",
+  "$hash": "bbce70ec4b8b4a52ddb94266e76d266339ff65a6",
+  "$id": "aws-managedblockchain-node.json",
   "additionalProperties": false,
   "definitions": {
     "NodeConfiguration": {

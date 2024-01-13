@@ -1,5 +1,6 @@
 {
-  "$hash": "b5e908eb715851a025eeb5a868328e7c111905f5",
+  "$hash": "d118a90a4f028808f5df39e9ce9380cb1ef78646",
+  "$id": "aws-personalize-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

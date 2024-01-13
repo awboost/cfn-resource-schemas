@@ -15,6 +15,14 @@ export type CloudTrailEventDataStoreProperties = {
    */
   BillingMode?: string;
   /**
+   * Indicates whether federation is enabled on an event data store.
+   */
+  FederationEnabled?: boolean;
+  /**
+   * The ARN of the role used for event data store federation.
+   */
+  FederationRoleArn?: string;
+  /**
    * Indicates whether the event data store is ingesting events.
    */
   IngestionEnabled?: boolean;

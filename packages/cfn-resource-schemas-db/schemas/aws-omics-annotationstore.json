@@ -1,5 +1,6 @@
 {
-  "$hash": "ffe20d3a18707dab9196920a0ca821ed125030f4",
+  "$hash": "ac9d6dab0409bb44c7b67c8b2f1e3997dd6f7e07",
+  "$id": "aws-omics-annotationstore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

@@ -1,5 +1,6 @@
 {
-  "$hash": "e214cd32332e1c4509fd022f0183d9ac70322aae",
+  "$hash": "06f08799ac163bbeaacb2c74c09760ccc273a944",
+  "$id": "aws-pcaconnectorad-template.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectorArn", "/properties/Name"],
   "definitions": {

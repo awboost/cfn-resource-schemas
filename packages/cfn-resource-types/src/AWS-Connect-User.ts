@@ -49,6 +49,10 @@ export type ConnectUserProperties = {
    */
   Tags?: Tag[];
   /**
+   * One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+   */
+  UserProficiencies?: UserProficiency[];
+  /**
    * The user name for the account.
    * @minLength `1`
    * @maxLength `64`
@@ -144,6 +148,31 @@ export type UserPhoneConfig = {
    * The phone type.
    */
   PhoneType: PhoneType;
+};
+/**
+ * Type definition for `AWS::Connect::User.UserProficiency`.
+ * Proficiency of a user.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userproficiency.html}
+ */
+export type UserProficiency = {
+  /**
+   * The name of user's proficiency. You must use name of predefined attribute present in the Amazon Connect instance.
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  AttributeName: string;
+  /**
+   * The value of user's proficiency. You must use value of predefined attribute present in the Amazon Connect instance.
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  AttributeValue: string;
+  /**
+   * The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.
+   * @min `1`
+   * @max `5`
+   */
+  Level: number;
 };
 /**
  * Resource Type definition for AWS::Connect::User

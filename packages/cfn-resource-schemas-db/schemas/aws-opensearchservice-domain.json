@@ -1,5 +1,6 @@
 {
-  "$hash": "47932e4ac8f7d68f26c2bba3e4a55f1673704314",
+  "$hash": "ff6f56bcfb54f9c58d04013adb619a8c0243cc13",
+  "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
     "/properties/EncryptionAtRestOptions/properties",
@@ -255,6 +256,7 @@
     "DomainArn": { "type": "string" },
     "DomainEndpoint": { "type": "string" },
     "DomainEndpointOptions": { "$ref": "#/definitions/DomainEndpointOptions" },
+    "DomainEndpointV2": { "type": "string" },
     "DomainEndpoints": {
       "additionalProperties": false,
       "patternProperties": { "^.*$": { "type": "string" } },
@@ -266,6 +268,7 @@
       "$ref": "#/definitions/EncryptionAtRestOptions"
     },
     "EngineVersion": { "type": "string" },
+    "IPAddressType": { "type": "string" },
     "Id": { "type": "string" },
     "LogPublishingOptions": {
       "additionalProperties": false,
@@ -296,6 +299,7 @@
     "/properties/Arn",
     "/properties/DomainArn",
     "/properties/DomainEndpoint",
+    "/properties/DomainEndpointV2",
     "/properties/DomainEndpoints",
     "/properties/ServiceSoftwareOptions",
     "/properties/AdvancedSecurityOptions/AnonymousAuthDisableDate"

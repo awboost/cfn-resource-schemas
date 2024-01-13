@@ -1,5 +1,6 @@
 {
-  "$hash": "8b92f0ea06a98961c3fd8349576d4f011727f23f",
+  "$hash": "3e274d1359af1dc035a619e7102d543259bb35b3",
+  "$id": "aws-appstream-entitlement.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/StackName"],
   "definitions": {

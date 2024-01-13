@@ -1,5 +1,6 @@
 {
-  "$hash": "ada00d8acd3fe3f0f17c441588a00c92d92fbaef",
+  "$hash": "137086a974f8bae066ea0a31ede9559afdb92595",
+  "$id": "aws-fms-resourceset.json",
   "additionalProperties": false,
   "definitions": {
     "Base62Id": {

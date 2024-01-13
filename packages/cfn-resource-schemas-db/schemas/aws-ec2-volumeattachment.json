@@ -1,5 +1,6 @@
 {
-  "$hash": "946c3b8330a9447703dc993894d70a091ea182ee",
+  "$hash": "2cad0c06ae0e8d23f75891cf83c89cff073f4fec",
+  "$id": "aws-ec2-volumeattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Device",

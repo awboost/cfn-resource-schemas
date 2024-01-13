@@ -1,5 +1,6 @@
 {
-  "$hash": "cdb9df55aae1b7214207e2769bec327bac0e76a8",
+  "$hash": "d76118ab55adc07e454f8dac32e28ad624729e54",
+  "$id": "aws-emr-instancegroupconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/InstanceRole",

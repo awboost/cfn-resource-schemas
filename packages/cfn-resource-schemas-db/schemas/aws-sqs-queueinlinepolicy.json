@@ -1,5 +1,6 @@
 {
-  "$hash": "a5d86ceebaa49e3c5477492d2d44cd2980862420",
+  "$hash": "2a806b71ebd4ce326cbe238e5ed48fa1160c3f66",
+  "$id": "aws-sqs-queueinlinepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Queue"],
   "description": "Schema for SQS QueueInlinePolicy",

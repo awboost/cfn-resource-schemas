@@ -1,5 +1,6 @@
 {
-  "$hash": "83b93c3aa115fb047534ebe673c18a7b4f72439b",
+  "$hash": "85a0783652738481b10f0dc7e004aaf92f9f65a8",
+  "$id": "aws-sagemaker-app.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AppName",
@@ -75,7 +76,10 @@
             "ml.g5.48xlarge",
             "ml.p4d.24xlarge",
             "ml.p4de.24xlarge",
-            "ml.geospatial.interactive"
+            "ml.geospatial.interactive",
+            "ml.trn1.2xlarge",
+            "ml.trn1.32xlarge",
+            "ml.trn1n.32xlarge"
           ],
           "type": "string"
         },

@@ -1,5 +1,6 @@
 {
-  "$hash": "521ee2b022d853f7a2caac59a63c782a68aac8a0",
+  "$hash": "1991d427fbc7506433cc3e5ac4dd29a86b0138c4",
+  "$id": "aws-dms-endpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KmsKeyId",
@@ -55,10 +56,14 @@
       "additionalProperties": false,
       "properties": {
         "CurrentLsn": { "type": "string" },
+        "KeepCsvFiles": { "type": "boolean" },
+        "LoadTimeout": { "type": "integer" },
+        "MaxFileSize": { "type": "integer" },
         "MaxKBytesPerRead": { "type": "integer" },
         "SecretsManagerAccessRoleArn": { "type": "string" },
         "SecretsManagerSecretId": { "type": "string" },
-        "SetDataCaptureChanges": { "type": "boolean" }
+        "SetDataCaptureChanges": { "type": "boolean" },
+        "WriteBufferSize": { "type": "integer" }
       },
       "type": "object"
     },
@@ -288,6 +293,7 @@
       "additionalProperties": false,
       "properties": {
         "AddColumnName": { "type": "boolean" },
+        "AddTrailingPaddingCharacter": { "type": "boolean" },
         "BucketFolder": { "type": "string" },
         "BucketName": { "type": "string" },
         "CannedAclForObjects": { "type": "string" },
@@ -311,7 +317,9 @@
         "EnableStatistics": { "type": "boolean" },
         "EncodingType": { "type": "string" },
         "EncryptionMode": { "type": "string" },
+        "ExpectedBucketOwner": { "type": "string" },
         "ExternalTableDefinition": { "type": "string" },
+        "GlueCatalogGeneration": { "type": "boolean" },
         "IgnoreHeaderRows": { "type": "integer" },
         "IncludeOpForFullLoad": { "type": "boolean" },
         "MaxFileSize": { "type": "integer" },

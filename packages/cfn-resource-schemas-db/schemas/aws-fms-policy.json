@@ -1,5 +1,6 @@
 {
-  "$hash": "2ab2860752aebddfabf58c5a854b50ca3244023e",
+  "$hash": "a8693c658d2e9b7f5c10005dafac24039cdfd8b5",
+  "$id": "aws-fms-policy.json",
   "additionalProperties": false,
   "definitions": {
     "AccountId": {

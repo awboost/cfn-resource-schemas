@@ -1,5 +1,6 @@
 {
-  "$hash": "513db329cbb44841be5e47a36eab214c33c97e6b",
+  "$hash": "994d36c11deafe520b45cd22b20490a88174da0c",
+  "$id": "aws-iot-topicruledestination.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/HttpUrlProperties",

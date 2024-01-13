@@ -1,5 +1,6 @@
 {
-  "$hash": "499fae5a2e648e848c773a0ba07461b48ee2a7bb",
+  "$hash": "fc0031b97da540e2dfdb5b88fef42c72fcd576c9",
+  "$id": "aws-s3-bucket.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/BucketName",
@@ -302,7 +303,10 @@
               "ObjectLockMode",
               "ObjectLockLegalHoldStatus",
               "IntelligentTieringAccessTier",
-              "BucketKeyStatus"
+              "BucketKeyStatus",
+              "ChecksumAlgorithm",
+              "ObjectAccessControlList",
+              "ObjectOwner"
             ],
             "type": "string"
           },

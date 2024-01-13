@@ -1,5 +1,6 @@
 {
-  "$hash": "0a5201f2b73f20acae5325fc49876679975c4f58",
+  "$hash": "2caef71e5ecbca752c89311346e4cb17843caab4",
+  "$id": "aws-greengrass-connectordefinitionversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ConnectorDefinitionId",

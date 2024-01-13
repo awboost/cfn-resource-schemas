@@ -1,5 +1,6 @@
 {
-  "$hash": "13dd7b57fd9d0b66e21245f414ef7bd171d969b5",
+  "$hash": "06bf817b205fd68920b79180f78bb8928b055a6b",
+  "$id": "aws-opsworks-stack.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceRoleArn",

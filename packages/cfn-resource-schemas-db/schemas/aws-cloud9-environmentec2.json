@@ -1,5 +1,6 @@
 {
-  "$hash": "21a672dd725e5da68dc87a503856ad4f0da8edfd",
+  "$hash": "7c8bd270d4fe849409a7fc6c092fd250c4f926c9",
+  "$id": "aws-cloud9-environmentec2.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AutomaticStopTimeMinutes",
@@ -55,6 +56,6 @@
     }
   },
   "readOnlyProperties": ["/properties/Id", "/properties/Arn"],
-  "required": ["InstanceType"],
+  "required": ["ImageId", "InstanceType"],
   "typeName": "AWS::Cloud9::EnvironmentEC2"
 }

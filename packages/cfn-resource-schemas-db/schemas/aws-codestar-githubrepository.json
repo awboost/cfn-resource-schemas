@@ -1,5 +1,6 @@
 {
-  "$hash": "83450a85754d20441641b088e93ed8d3f1d68a38",
+  "$hash": "bf15ebd9e05d1992587e89973bb93e31b8c55335",
+  "$id": "aws-codestar-githubrepository.json",
   "additionalProperties": false,
   "definitions": {
     "Code": {

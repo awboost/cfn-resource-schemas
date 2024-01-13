@@ -1,5 +1,6 @@
 {
-  "$hash": "fbdca238101680c76201cebf33eb6a5ec8e351fb",
+  "$hash": "e2d9f1f56b136510150986f7cc6c8fdd5b19ca5c",
+  "$id": "aws-ec2-vpnconnectionroute.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DestinationCidrBlock",

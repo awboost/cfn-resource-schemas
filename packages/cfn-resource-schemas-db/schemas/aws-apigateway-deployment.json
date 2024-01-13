@@ -1,5 +1,6 @@
 {
-  "$hash": "4823dd52a0727505788e82fa1c99ecc9305db2e1",
+  "$hash": "e7be5d4878056912a68aabc8fdac3361b25b217d",
+  "$id": "aws-apigateway-deployment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DeploymentCanarySettings",

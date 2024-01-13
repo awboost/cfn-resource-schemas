@@ -1,5 +1,6 @@
 {
-  "$hash": "f9c7e6de116b1596ce4f9854481393a49f79fccc",
+  "$hash": "df01390f2a1990f049b4128f8a768a0da00a5640",
+  "$id": "aws-logs-logstream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LogGroupName",

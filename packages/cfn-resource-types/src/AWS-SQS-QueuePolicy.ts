@@ -19,9 +19,6 @@ export type SQSQueuePolicyProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html#aws-resource-sqs-queuepolicy-return-values}
  */
 export type SQSQueuePolicyAttributes = {
-  /**
-   * The provider-assigned unique ID for this managed resource.
-   */
   Id: string;
 };
 /**

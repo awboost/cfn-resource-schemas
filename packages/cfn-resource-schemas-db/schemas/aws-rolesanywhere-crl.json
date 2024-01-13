@@ -1,5 +1,6 @@
 {
-  "$hash": "bc8b142df17cc9f92e7732ccec87127fd808c2e6",
+  "$hash": "d57461f97c849ab5d751cb631269c4171d1b97e0",
+  "$id": "aws-rolesanywhere-crl.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

@@ -9,7 +9,7 @@ export type ConnectPhoneNumberProperties = {
    * The phone number country code.
    * @pattern `^[A-Z]{2}`
    */
-  CountryCode: string;
+  CountryCode?: string;
   /**
    * The description of the phone number.
    * @minLength `1`
@@ -22,6 +22,10 @@ export type ConnectPhoneNumberProperties = {
    */
   Prefix?: string;
   /**
+   * The source phone number arn.
+   */
+  SourcePhoneNumberArn?: string;
+  /**
    * One or more tags.
    * @maxLength `50`
    */
@@ -33,9 +37,9 @@ export type ConnectPhoneNumberProperties = {
   TargetArn: string;
   /**
    * The phone number type
-   * @pattern `TOLL_FREE|DID|UIFN|SHARED|THIRD_PARTY_DID|THIRD_PARTY_TF`
+   * @pattern `TOLL_FREE|DID|UIFN|SHARED|THIRD_PARTY_DID|THIRD_PARTY_TF|SHORT_CODE`
    */
-  Type: string;
+  Type?: string;
 };
 /**
  * Attribute type definition for `AWS::Connect::PhoneNumber`.

@@ -1,5 +1,6 @@
 {
-  "$hash": "fdda18c3e576b7999ee486533ce2c888bbe6ca9e",
+  "$hash": "822e178fc3fa191be8fd6e9dcc94ee41d03bec95",
+  "$id": "aws-gamelift-build.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/StorageLocation",

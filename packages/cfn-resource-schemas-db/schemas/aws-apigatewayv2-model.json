@@ -1,5 +1,6 @@
 {
-  "$hash": "7e15d3ec4e695f5d0505c0eb7a162bcabf5e66c4",
+  "$hash": "be61a2fda710db6943ee734394d8321679881832",
+  "$id": "aws-apigatewayv2-model.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],
   "description": "The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.",
@@ -31,7 +32,7 @@
       "description": "The description of the model.",
       "type": "string"
     },
-    "ModelId": { "type": "string" },
+    "ModelId": { "description": "", "type": "string" },
     "Name": { "description": "The name of the model.", "type": "string" },
     "Schema": {
       "description": "The schema for the model. For application/json models, this should be JSON schema draft 4 model.",

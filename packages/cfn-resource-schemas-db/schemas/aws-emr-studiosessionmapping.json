@@ -1,5 +1,6 @@
 {
-  "$hash": "bf7107986987de5f2a65810bc8a358eea7ffca2b",
+  "$hash": "00dd50e684672382a1dd58edf65f3025c48f3152",
+  "$id": "aws-emr-studiosessionmapping.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/StudioId",
@@ -36,6 +37,8 @@
         "sso-directory:SearchGroups",
         "sso-directory:DescribeUser",
         "sso-directory:DescribeGroup",
+        "sso:GetManagedApplicationInstance",
+        "sso:DescribeInstance",
         "sso:ListDirectoryAssociations",
         "sso:GetProfile",
         "sso:ListProfiles",
@@ -50,7 +53,8 @@
         "sso-directory:SearchGroups",
         "sso-directory:DescribeUser",
         "sso-directory:DescribeGroup",
-        "sso:GetManagedApplicationInstance"
+        "sso:GetManagedApplicationInstance",
+        "sso:DescribeInstance"
       ]
     },
     "update": {
@@ -61,7 +65,8 @@
         "sso-directory:SearchGroups",
         "sso-directory:DescribeUser",
         "sso-directory:DescribeGroup",
-        "sso:GetManagedApplicationInstance"
+        "sso:GetManagedApplicationInstance",
+        "sso:DescribeInstance"
       ]
     }
   },

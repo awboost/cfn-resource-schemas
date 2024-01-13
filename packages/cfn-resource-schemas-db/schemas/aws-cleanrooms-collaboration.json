@@ -1,12 +1,14 @@
 {
-  "$hash": "03fe4a75a3bfa961a51166f414e5f442822a2b8b",
+  "$hash": "ce6ab772d9c4143b5b68700aacf5cf6c096389bc",
+  "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/CreatorDisplayName",
     "/properties/CreatorMemberAbilities",
     "/properties/DataEncryptionMetadata",
     "/properties/QueryLogStatus",
-    "/properties/Members"
+    "/properties/Members",
+    "/properties/CreatorPaymentConfiguration"
   ],
   "definitions": {
     "CollaborationQueryLogStatus": {
@@ -49,7 +51,8 @@
           "type": "string"
         },
         "DisplayName": { "$ref": "#/definitions/Name" },
-        "MemberAbilities": { "$ref": "#/definitions/MemberAbilities" }
+        "MemberAbilities": { "$ref": "#/definitions/MemberAbilities" },
+        "PaymentConfiguration": { "$ref": "#/definitions/PaymentConfiguration" }
       },
       "required": ["AccountId", "DisplayName", "MemberAbilities"],
       "type": "object"
@@ -63,6 +66,20 @@
       "minLength": 1,
       "pattern": "^(?!\\s*$)[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t]*$",
       "type": "string"
+    },
+    "PaymentConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "QueryCompute": { "$ref": "#/definitions/QueryComputePaymentConfig" }
+      },
+      "required": ["QueryCompute"],
+      "type": "object"
+    },
+    "QueryComputePaymentConfig": {
+      "additionalProperties": false,
+      "properties": { "IsResponsible": { "type": "boolean" } },
+      "required": ["IsResponsible"],
+      "type": "object"
     },
     "Tag": {
       "additionalProperties": false,
@@ -128,6 +145,9 @@
     },
     "CreatorDisplayName": { "$ref": "#/definitions/Name" },
     "CreatorMemberAbilities": { "$ref": "#/definitions/MemberAbilities" },
+    "CreatorPaymentConfiguration": {
+      "$ref": "#/definitions/PaymentConfiguration"
+    },
     "DataEncryptionMetadata": {
       "$ref": "#/definitions/DataEncryptionMetadata"
     },

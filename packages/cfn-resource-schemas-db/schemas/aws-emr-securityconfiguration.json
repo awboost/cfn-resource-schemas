@@ -1,5 +1,6 @@
 {
-  "$hash": "8ac85cb89a60f4d9e02ca1ca7a036847c8eee5a5",
+  "$hash": "0ea6ae1d354faaf257e89714d0ad89e0c3ee9974",
+  "$id": "aws-emr-securityconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

@@ -1,5 +1,6 @@
 {
-  "$hash": "04b3e7cbd34a2b7e5aaea07a763a42ab21d0485d",
+  "$hash": "29c22f2a0dde967bb5396867656191f05c9e541e",
+  "$id": "aws-pinpoint-segment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
   "definitions": {

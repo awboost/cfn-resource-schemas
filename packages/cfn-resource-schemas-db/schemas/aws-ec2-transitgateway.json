@@ -1,5 +1,6 @@
 {
-  "$hash": "69a1035b6fbd01ba70cdd7a1e1b1690be57807c8",
+  "$hash": "2efd4681e224f6bfff44557610eeb1ed7a3020d9",
+  "$id": "aws-ec2-transitgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AmazonSideAsn",
@@ -91,7 +92,6 @@
     "Id": { "type": "string" },
     "MulticastSupport": { "type": "string" },
     "PropagationDefaultRouteTableId": { "type": "string" },
-    "SecurityGroupReferencingSupport": { "type": "string" },
     "Tags": {
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",

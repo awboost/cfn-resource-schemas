@@ -1,5 +1,6 @@
 {
-  "$hash": "e842a2d86fd0d3acaa86c8619b571880d4420f09",
+  "$hash": "47bcd55497eb9fb8b013909ed087ce620dc50869",
+  "$id": "aws-sagemaker-modelqualityjobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/JobDefinitionName",

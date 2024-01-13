@@ -1,5 +1,6 @@
 {
-  "$hash": "5279ce00d6ed7519dfc5c9c5fb9ab693e4786c70",
+  "$hash": "cde1ae0c1e7a9d03c751af58038f54e5268ce3db",
+  "$id": "aws-workspacesweb-truststore.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

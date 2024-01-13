@@ -1,5 +1,6 @@
 {
-  "$hash": "e4b6eb90eea60838d1b2f8ebbca613020ca8e2a0",
+  "$hash": "7e849c4f8f771ab2b043b31676c9fb6237dbcc6f",
+  "$id": "aws-lightsail-instance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/InstanceName",

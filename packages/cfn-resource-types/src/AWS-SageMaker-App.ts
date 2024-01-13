@@ -126,7 +126,10 @@ export type ResourceSpec = {
     | "ml.g5.48xlarge"
     | "ml.p4d.24xlarge"
     | "ml.p4de.24xlarge"
-    | "ml.geospatial.interactive";
+    | "ml.geospatial.interactive"
+    | "ml.trn1.2xlarge"
+    | "ml.trn1.32xlarge"
+    | "ml.trn1n.32xlarge";
   /**
    * The ARN of the SageMaker image that the image version belongs to.
    * @minLength `1`

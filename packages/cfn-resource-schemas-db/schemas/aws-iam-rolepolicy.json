@@ -1,5 +1,6 @@
 {
-  "$hash": "dc867ed561d8ac97bd226f021dc54419f5dd2161",
+  "$hash": "5847277e43ccd2a2da1e117203f0ffc5e4c3f277",
+  "$id": "aws-iam-rolepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName", "/properties/RoleName"],
   "description": "Schema for IAM Role Policy",

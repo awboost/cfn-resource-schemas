@@ -367,6 +367,7 @@ export type Ulimit = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html}
  */
 export type Volume = {
+  ConfiguredAtLaunch?: boolean;
   DockerVolumeConfiguration?: DockerVolumeConfiguration;
   EFSVolumeConfiguration?: EFSVolumeConfiguration;
   Host?: HostVolumeProperties;

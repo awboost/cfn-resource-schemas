@@ -13,6 +13,7 @@ export type CleanRoomsCollaborationProperties = {
    */
   CreatorDisplayName: string;
   CreatorMemberAbilities: MemberAbility[];
+  CreatorPaymentConfiguration?: PaymentConfiguration;
   DataEncryptionMetadata?: DataEncryptionMetadata;
   /**
    * @minLength `1`
@@ -91,6 +92,21 @@ export type MemberSpecification = {
    */
   DisplayName: string;
   MemberAbilities: MemberAbility[];
+  PaymentConfiguration?: PaymentConfiguration;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.PaymentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html}
+ */
+export type PaymentConfiguration = {
+  QueryCompute: QueryComputePaymentConfig;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.QueryComputePaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-querycomputepaymentconfig.html}
+ */
+export type QueryComputePaymentConfig = {
+  IsResponsible: boolean;
 };
 /**
  * Type definition for `AWS::CleanRooms::Collaboration.Tag`.

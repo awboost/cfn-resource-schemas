@@ -1,5 +1,6 @@
 {
-  "$hash": "f8b4736435b67062d56f338de231939cd458b169",
+  "$hash": "de8208148793b937cd9567136ea42b03cb29a734",
+  "$id": "aws-wafregional-ratebasedrule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/MetricName",

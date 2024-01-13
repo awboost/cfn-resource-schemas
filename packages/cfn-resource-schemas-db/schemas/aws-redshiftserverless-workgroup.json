@@ -1,5 +1,6 @@
 {
-  "$hash": "80d8a24dcc34d1197d53a8d24f655a67a294c944",
+  "$hash": "712d8a6538610ba2d01a95d30b6acd977a083ca9",
+  "$id": "aws-redshiftserverless-workgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/WorkgroupName",

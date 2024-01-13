@@ -1,5 +1,6 @@
 {
-  "$hash": "a69e7d103ce102ff3005a069f77615aa90c3fe17",
+  "$hash": "ef1ea9aed668d2a67f437baa8af79c36e6b0ba3f",
+  "$id": "aws-appsync-apicache.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],
   "description": "Resource Type definition for AWS::AppSync::ApiCache",

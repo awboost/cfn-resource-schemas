@@ -1,5 +1,6 @@
 {
-  "$hash": "c3e526d5f7377be80ea12de0136d28b014dc18cb",
+  "$hash": "32d7dac80e1c080f5aadaaceb7ebf8cfc81e49b5",
+  "$id": "aws-ec2-clientvpnroute.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ClientVpnEndpointId",

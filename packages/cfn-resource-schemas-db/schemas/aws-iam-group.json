@@ -1,5 +1,6 @@
 {
-  "$hash": "704aa62b1d40cc315d3814f1a26a3b03a96ee5f9",
+  "$hash": "0e496b771539a83c271362759909a32d556fe715",
+  "$id": "aws-iam-group.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GroupName"],
   "definitions": {

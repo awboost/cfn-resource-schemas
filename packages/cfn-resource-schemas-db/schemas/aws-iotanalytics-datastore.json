@@ -1,5 +1,6 @@
 {
-  "$hash": "9b40ebc6181ef6572401ce91b79b1d4a7e235bfd",
+  "$hash": "c3d080674bd768e26904b64ad7aad760d29277d5",
+  "$id": "aws-iotanalytics-datastore.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DatastoreName"],
   "definitions": {

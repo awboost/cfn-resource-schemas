@@ -1,5 +1,6 @@
 {
-  "$hash": "1bc31814f64d925c8c72d258c9a3f6894a09abe7",
+  "$hash": "65fe508e98b478c7175ad5ed63dc71eb4f7fe139",
+  "$id": "aws-groundstation-dataflowendpointgroup.json",
   "additionalProperties": false,
   "definitions": {
     "AgentStatus": {

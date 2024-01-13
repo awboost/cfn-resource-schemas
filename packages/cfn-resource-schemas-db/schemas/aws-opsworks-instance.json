@@ -1,5 +1,6 @@
 {
-  "$hash": "95d332218dcc231668f1aee9a9b05aab39391b68",
+  "$hash": "f399373a42c51c6d670ac12435a5feda86e8191b",
+  "$id": "aws-opsworks-instance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Tenancy",

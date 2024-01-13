@@ -1,5 +1,6 @@
 {
-  "$hash": "42def1fd93eccf287ead8040d31140b95b45e5f6",
+  "$hash": "1828ae4a76f2b1984bd341aa53d4a07d07e5d0b4",
+  "$id": "aws-wafregional-geomatchset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

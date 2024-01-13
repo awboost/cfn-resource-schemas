@@ -1,5 +1,6 @@
 {
-  "$hash": "67a5fdc604ee6a2c341a949508ff8ac9a0c58de7",
+  "$hash": "38e55ed8bcf173be49b76b4a3b7c5d48d829c1f0",
+  "$id": "aws-apigateway-resource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/PathPart",

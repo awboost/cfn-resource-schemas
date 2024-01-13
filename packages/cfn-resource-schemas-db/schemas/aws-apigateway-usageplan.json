@@ -1,5 +1,6 @@
 {
-  "$hash": "6d95504c7ec4e985a325a6527ffa0bdc2cced59e",
+  "$hash": "1b5daa6095885cabfada9d32f60db94b8395b144",
+  "$id": "aws-apigateway-usageplan.json",
   "additionalProperties": false,
   "definitions": {
     "ApiStage": {

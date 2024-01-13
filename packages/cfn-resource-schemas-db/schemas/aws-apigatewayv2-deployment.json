@@ -1,5 +1,6 @@
 {
-  "$hash": "d7cb13d42aada39dae2e9985080ac5645255f618",
+  "$hash": "3b473d3eee38fb1d6a5acbe2e3810163776cee43",
+  "$id": "aws-apigatewayv2-deployment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],
   "description": "The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.",
@@ -23,7 +24,7 @@
   "primaryIdentifier": ["/properties/ApiId", "/properties/DeploymentId"],
   "properties": {
     "ApiId": { "description": "The API identifier.", "type": "string" },
-    "DeploymentId": { "type": "string" },
+    "DeploymentId": { "description": "", "type": "string" },
     "Description": {
       "description": "The description for the deployment resource.",
       "type": "string"

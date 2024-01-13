@@ -1,5 +1,6 @@
 {
-  "$hash": "ca04c67cf4b5639929cb701d5650c6ea4b16ea4c",
+  "$hash": "1383c0e83954fa89db0f4fba73103ff36c8b151e",
+  "$id": "aws-route53resolver-resolverqueryloggingconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/DestinationArn"],
   "description": "Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.",

@@ -1,5 +1,6 @@
 {
-  "$hash": "a291a8b7b963912867e79f51545f948ca0e63198",
+  "$hash": "a06572580d466cb7c91fc032d11313efc057e411",
+  "$id": "aws-servicecatalog-portfolioproductassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SourcePortfolioId",

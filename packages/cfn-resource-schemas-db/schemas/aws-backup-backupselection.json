@@ -1,5 +1,6 @@
 {
-  "$hash": "61b1a99d9fb056367244e8d75846ad4ef22e291c",
+  "$hash": "9eeb75aa0cbf8275423bc435c27a2c844827e206",
+  "$id": "aws-backup-backupselection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/BackupSelection",

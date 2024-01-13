@@ -1,5 +1,6 @@
 {
-  "$hash": "feabaa03723edbed41da8f2c9a726b33cae70fa7",
+  "$hash": "35c9959212f8b4206c52f8e34122a308f8fa121a",
+  "$id": "aws-ec2-gatewayroutetableassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayId"],
   "description": "Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.",

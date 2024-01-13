@@ -1,5 +1,6 @@
 {
-  "$hash": "d08e43134f94efdcd3724bb0d1abae1e5f269a26",
+  "$hash": "62287d7c09794d53493562b34b1db28f8d2552b9",
+  "$id": "aws-ssm-document.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
     "/properties/Content",

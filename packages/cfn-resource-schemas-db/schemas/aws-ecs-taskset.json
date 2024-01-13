@@ -1,5 +1,6 @@
 {
-  "$hash": "a5f6b8eb6cf508315d968b8171104511cd88e154",
+  "$hash": "77394ae395a5bd89c0e0f0035960e3acca1af723",
+  "$id": "aws-ecs-taskset.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Cluster",

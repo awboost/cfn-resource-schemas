@@ -1,5 +1,6 @@
 {
-  "$hash": "ff2be4b5bc293c2b9cd45d132f2b36fa6f8338d0",
+  "$hash": "cf7acee1df5b400e15d9cb249923bbe050982d77",
+  "$id": "aws-frauddetector-eventtype.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

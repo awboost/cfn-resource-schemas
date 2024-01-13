@@ -16,6 +16,13 @@ export type APSWorkspaceProperties = {
    */
   Alias?: string;
   /**
+   * KMS Key ARN used to encrypt and decrypt AMP workspace data.
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:aws[-a-z]*:kms:[-a-z0-9]+:[0-9]{12}:key/.+$`
+   */
+  KmsKeyArn?: string;
+  /**
    * Logging configuration
    */
   LoggingConfiguration?: LoggingConfiguration;

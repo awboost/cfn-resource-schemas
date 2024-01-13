@@ -1,5 +1,6 @@
 {
-  "$hash": "f086b80125adb908fab181337035edaa80004320",
+  "$hash": "57f058dd3788e03807c0119f6f5ddfb4b98d2a76",
+  "$id": "aws-healthimaging-datastore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DatastoreName",

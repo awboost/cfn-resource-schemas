@@ -1,5 +1,6 @@
 {
-  "$hash": "9232ed8e6fb38172f8cb3a134e883be50987b3fd",
+  "$hash": "bc9ebb7f46d9c7a8c8cd1002900cfb780d1ecd7c",
+  "$id": "aws-networkmanager-site.json",
   "additionalIdentifiers": [["/properties/SiteArn"]],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GlobalNetworkId"],

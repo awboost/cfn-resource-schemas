@@ -27,6 +27,7 @@ export type ECSServiceProperties = {
   ServiceRegistries?: ServiceRegistry[];
   Tags?: Tag[];
   TaskDefinition?: string;
+  VolumeConfigurations?: ServiceVolumeConfiguration[];
 };
 /**
  * Attribute type definition for `AWS::ECS::Service`.
@@ -87,6 +88,15 @@ export type DeploymentConfiguration = {
  */
 export type DeploymentController = {
   Type?: "CODE_DEPLOY" | "ECS" | "EXTERNAL";
+};
+/**
+ * Type definition for `AWS::ECS::Service.EBSTagSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-ebstagspecification.html}
+ */
+export type EBSTagSpecification = {
+  PropagateTags?: "SERVICE" | "TASK_DEFINITION";
+  ResourceType: string;
+  Tags?: Tag[];
 };
 /**
  * Type definition for `AWS::ECS::Service.LoadBalancer`.
@@ -167,6 +177,22 @@ export type ServiceConnectService = {
   PortName: string;
 };
 /**
+ * Type definition for `AWS::ECS::Service.ServiceManagedEBSVolumeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html}
+ */
+export type ServiceManagedEBSVolumeConfiguration = {
+  Encrypted?: boolean;
+  FilesystemType?: string;
+  Iops?: number;
+  KmsKeyId?: string;
+  RoleArn: string;
+  SizeInGiB?: number;
+  SnapshotId?: string;
+  TagSpecifications?: EBSTagSpecification[];
+  Throughput?: number;
+  VolumeType?: string;
+};
+/**
  * Type definition for `AWS::ECS::Service.ServiceRegistry`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html}
  */
@@ -175,6 +201,14 @@ export type ServiceRegistry = {
   ContainerPort?: number;
   Port?: number;
   RegistryArn?: string;
+};
+/**
+ * Type definition for `AWS::ECS::Service.ServiceVolumeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html}
+ */
+export type ServiceVolumeConfiguration = {
+  ManagedEBSVolume?: ServiceManagedEBSVolumeConfiguration;
+  Name: string;
 };
 /**
  * Type definition for `AWS::ECS::Service.Tag`.

@@ -1,5 +1,6 @@
 {
-  "$hash": "1d8f56538cd33dba99f6e636f86000a0de500ab0",
+  "$hash": "da13ca4c97464b0f971cb60ae5e5afa8fc7a0a3b",
+  "$id": "aws-quicksight-theme.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ThemeId", "/properties/AwsAccountId"],
   "definitions": {
@@ -51,8 +52,7 @@
           "minItems": 1,
           "type": "array"
         },
-        "Principal": { "maxLength": 256, "minLength": 1, "type": "string" },
-        "Resource": { "type": "string" }
+        "Principal": { "maxLength": 256, "minLength": 1, "type": "string" }
       },
       "required": ["Actions", "Principal"],
       "type": "object"
@@ -193,14 +193,32 @@
         "quicksight:DescribeTheme",
         "quicksight:DescribeThemePermissions",
         "quicksight:CreateTheme",
+        "quicksight:TagResource",
+        "quicksight:UntagResource",
         "quicksight:ListTagsForResource"
       ]
     },
     "delete": {
       "permissions": ["quicksight:DescribeTheme", "quicksight:DeleteTheme"]
     },
-    "list": { "permissions": ["quicksight:ListThemes"] },
-    "read": { "permissions": ["quicksight:DescribeTheme"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "AwsAccountId": {
+            "$ref": "resource-schema.json#/properties/AwsAccountId"
+          }
+        },
+        "required": ["AwsAccountId"]
+      },
+      "permissions": ["quicksight:ListThemes"]
+    },
+    "read": {
+      "permissions": [
+        "quicksight:DescribeTheme",
+        "quicksight:DescribeThemePermissions",
+        "quicksight:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "quicksight:DescribeTheme",
@@ -255,7 +273,6 @@
     "VersionDescription": { "maxLength": 512, "minLength": 1, "type": "string" }
   },
   "readOnlyProperties": [
-    "/properties/ThemeError",
     "/properties/CreatedTime",
     "/properties/Version",
     "/properties/LastUpdatedTime",
@@ -269,6 +286,7 @@
     "Configuration",
     "Name"
   ],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "typeName": "AWS::QuickSight::Theme",
   "writeOnlyProperties": [
     "/properties/VersionDescription",

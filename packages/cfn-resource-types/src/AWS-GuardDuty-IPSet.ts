@@ -21,7 +21,7 @@ export type GuardDutyIPSetProperties = {
    * @minLength `1`
    * @maxLength `300`
    */
-  Name: string;
+  Name?: string;
   Tags?: TagItem[];
 };
 /**

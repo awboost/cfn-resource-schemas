@@ -1,5 +1,6 @@
 {
-  "$hash": "eb2b2e5e2383de5ee248eb9690afdd41c9efb7d2",
+  "$hash": "1b1e143717978f8c726582f06e5089e7d7b78d1d",
+  "$id": "aws-wafregional-xssmatchset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {

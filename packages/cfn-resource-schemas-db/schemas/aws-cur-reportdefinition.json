@@ -1,5 +1,6 @@
 {
-  "$hash": "b4fc1a675d1cca831d4b7cbdd9dab27ad6d1ee64",
+  "$hash": "4ee69a73516b45425e8aa1722ba64adcf4d906a5",
+  "$id": "aws-cur-reportdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ReportName",

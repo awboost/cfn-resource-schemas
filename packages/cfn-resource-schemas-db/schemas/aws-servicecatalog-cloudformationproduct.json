@@ -1,5 +1,6 @@
 {
-  "$hash": "3d63c0868e518f2f4fb84806ec19641c5a81f433",
+  "$hash": "975f22b3eadf621226cf4a743a86104b10fc6a7e",
+  "$id": "aws-servicecatalog-cloudformationproduct.json",
   "additionalProperties": false,
   "definitions": {
     "CodeStarParameters": {

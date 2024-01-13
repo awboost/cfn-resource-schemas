@@ -98,10 +98,14 @@ export type GcpMySQLSettings = {
  */
 export type IbmDb2Settings = {
   CurrentLsn?: string;
+  KeepCsvFiles?: boolean;
+  LoadTimeout?: number;
+  MaxFileSize?: number;
   MaxKBytesPerRead?: number;
   SecretsManagerAccessRoleArn?: string;
   SecretsManagerSecretId?: string;
   SetDataCaptureChanges?: boolean;
+  WriteBufferSize?: number;
 };
 /**
  * Type definition for `AWS::DMS::Endpoint.KafkaSettings`.
@@ -327,6 +331,7 @@ export type RedshiftSettings = {
  */
 export type S3Settings = {
   AddColumnName?: boolean;
+  AddTrailingPaddingCharacter?: boolean;
   BucketFolder?: string;
   BucketName?: string;
   CannedAclForObjects?: string;
@@ -350,7 +355,9 @@ export type S3Settings = {
   EnableStatistics?: boolean;
   EncodingType?: string;
   EncryptionMode?: string;
+  ExpectedBucketOwner?: string;
   ExternalTableDefinition?: string;
+  GlueCatalogGeneration?: boolean;
   IgnoreHeaderRows?: number;
   IncludeOpForFullLoad?: boolean;
   MaxFileSize?: number;

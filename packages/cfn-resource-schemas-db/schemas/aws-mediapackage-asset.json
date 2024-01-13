@@ -1,5 +1,6 @@
 {
-  "$hash": "c6a032250a90fb4c7a0db2c40c6b78aa165ba273",
+  "$hash": "ee2b1e6417faf27bfd1b62bb9df9b122d450c386",
+  "$id": "aws-mediapackage-asset.json",
   "additionalProperties": false,
   "definitions": {
     "EgressEndpoint": {

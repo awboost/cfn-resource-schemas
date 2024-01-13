@@ -59,6 +59,10 @@ export type EC2IPAMPoolProperties = {
    */
   SourceIpamPoolId?: string;
   /**
+   * The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+   */
+  SourceResource?: SourceResource;
+  /**
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];
@@ -117,6 +121,17 @@ export type ProvisionedCidr = {
    * Represents a single IPv4 or IPv6 CIDR
    */
   Cidr: string;
+};
+/**
+ * Type definition for `AWS::EC2::IPAMPool.SourceResource`.
+ * The resource associated with this pool's space. Depending on the ResourceType, setting a SourceResource changes which space can be provisioned in this pool and which types of resources can receive allocations
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-sourceresource.html}
+ */
+export type SourceResource = {
+  ResourceId: string;
+  ResourceOwner: string;
+  ResourceRegion: string;
+  ResourceType: string;
 };
 /**
  * Type definition for `AWS::EC2::IPAMPool.Tag`.

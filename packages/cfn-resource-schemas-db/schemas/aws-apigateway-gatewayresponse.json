@@ -1,5 +1,6 @@
 {
-  "$hash": "2f61d47de416b3cd0dcf021304fa3ad0e53105ea",
+  "$hash": "5123c9be52298a5695651848b775a6091b196975",
+  "$id": "aws-apigateway-gatewayresponse.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResponseType", "/properties/RestApiId"],
   "description": "The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.",

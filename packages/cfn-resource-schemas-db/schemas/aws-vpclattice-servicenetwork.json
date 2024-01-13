@@ -1,5 +1,6 @@
 {
-  "$hash": "8342682d10013b2e7a1fd0af38c9760a20bd7033",
+  "$hash": "831615283dfcf56f3116fa9d7d7ac6f7eec883fe",
+  "$id": "aws-vpclattice-servicenetwork.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/Name"]],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],

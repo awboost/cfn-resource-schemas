@@ -1,5 +1,6 @@
 {
-  "$hash": "304020d9b2f71a1412eb6a5b3b0133419cd07770",
+  "$hash": "f83838e7da6ea08add27104f2397d8f8579e2e3a",
+  "$id": "aws-apigateway-restapi.json",
   "additionalProperties": false,
   "definitions": {
     "EndpointConfiguration": {

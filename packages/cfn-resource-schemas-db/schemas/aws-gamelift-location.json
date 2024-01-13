@@ -1,5 +1,6 @@
 {
-  "$hash": "9bc1e01277a585d802bf71a5031d847defb044c8",
+  "$hash": "1dc57b63cc677be0d4c060a8f45cd73b24882b6e",
+  "$id": "aws-gamelift-location.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LocationName"],

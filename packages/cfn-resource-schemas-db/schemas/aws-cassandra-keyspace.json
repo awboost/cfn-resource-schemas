@@ -1,5 +1,6 @@
 {
-  "$hash": "80a786748c68957d5a03cbd20e5e3d8173c53a89",
+  "$hash": "1f87770f07594b29debffcdbbc5cfd0464670d7d",
+  "$id": "aws-cassandra-keyspace.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ReplicationSpecification",

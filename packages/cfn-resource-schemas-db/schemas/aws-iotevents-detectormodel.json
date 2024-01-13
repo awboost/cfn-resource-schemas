@@ -1,5 +1,6 @@
 {
-  "$hash": "71ec45ac24f1de8c871af842bdf41a01ea94a34e",
+  "$hash": "027fd34c9d57d9ab7f96062da0df134a3c5007c4",
+  "$id": "aws-iotevents-detectormodel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DetectorModelName", "/properties/Key"],
   "definitions": {

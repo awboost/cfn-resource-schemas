@@ -1,5 +1,6 @@
 {
-  "$hash": "387d1441dbfcb96e993720ee2ccf65bc403c4b9c",
+  "$hash": "8cc31903b47c0a7324cf3dcc152372231079bdef",
+  "$id": "aws-imagebuilder-imagerecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",

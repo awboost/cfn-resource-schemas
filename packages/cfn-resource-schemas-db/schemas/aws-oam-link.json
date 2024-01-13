@@ -1,5 +1,6 @@
 {
-  "$hash": "b2d4837acc301dd77e33ee7a264954920e2692d9",
+  "$hash": "ab6273d7406e5461a49b27a5c0cac4a2f2ce9ca0",
+  "$id": "aws-oam-link.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SinkIdentifier",

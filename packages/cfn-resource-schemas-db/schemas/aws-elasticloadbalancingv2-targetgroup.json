@@ -1,5 +1,6 @@
 {
-  "$hash": "19d5d9360abac170d027d43c6f622ecfbecb5ac2",
+  "$hash": "d7d86b9f452b62de1ef9fab8ddddca3f9dce216f",
+  "$id": "aws-elasticloadbalancingv2-targetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TargetType",
@@ -78,6 +79,8 @@
         "elasticloadbalancing:CreateTargetGroup",
         "elasticloadbalancing:DescribeTargetGroups",
         "elasticloadbalancing:RegisterTargets",
+        "elasticloadbalancing:ModifyTargetGroupAttributes",
+        "elasticloadbalancing:DescribeTargetHealth",
         "elasticloadbalancing:AddTags"
       ]
     },
@@ -102,6 +105,7 @@
         "elasticloadbalancing:ModifyTargetGroup",
         "elasticloadbalancing:ModifyTargetGroupAttributes",
         "elasticloadbalancing:RegisterTargets",
+        "elasticloadbalancing:DescribeTargetHealth",
         "elasticloadbalancing:DeregisterTargets",
         "elasticloadbalancing:AddTags",
         "elasticloadbalancing:RemoveTags"

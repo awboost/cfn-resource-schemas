@@ -1,5 +1,6 @@
 {
-  "$hash": "dbbf943ba6667c9fe4e240ceea63f04fbc32dd9e",
+  "$hash": "6dec0660ca6ef05be4c777589a3686f62b88b312",
+  "$id": "aws-devopsguru-resourcecollection.json",
   "additionalProperties": false,
   "definitions": {
     "CloudFormationCollectionFilter": {

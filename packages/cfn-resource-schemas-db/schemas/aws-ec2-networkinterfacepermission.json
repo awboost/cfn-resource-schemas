@@ -1,5 +1,6 @@
 {
-  "$hash": "da924cca589a878ec9bd9696a3e87b14c8f5f98d",
+  "$hash": "51b266daeb887244d7d00297419f2219298bb4f5",
+  "$id": "aws-ec2-networkinterfacepermission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AwsAccountId",

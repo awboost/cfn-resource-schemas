@@ -1,5 +1,6 @@
 {
-  "$hash": "0a1c19ab7c8bbefac49032dfce7b560f109f84d7",
+  "$hash": "d069348908311379b3fb7ac94617aab126333e8c",
+  "$id": "aws-kinesisfirehose-deliverystream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DeliveryStreamName",
@@ -561,6 +562,7 @@
         "Type": {
           "enum": [
             "RecordDeAggregation",
+            "Decompression",
             "Lambda",
             "MetadataExtraction",
             "AppendDelimiterToRecord"
@@ -693,9 +695,18 @@
       },
       "type": "object"
     },
+    "SplunkBufferingHints": {
+      "additionalProperties": false,
+      "properties": {
+        "IntervalInSeconds": { "type": "integer" },
+        "SizeInMBs": { "type": "integer" }
+      },
+      "type": "object"
+    },
     "SplunkDestinationConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "BufferingHints": { "$ref": "#/definitions/SplunkBufferingHints" },
         "CloudWatchLoggingOptions": {
           "$ref": "#/definitions/CloudWatchLoggingOptions"
         },

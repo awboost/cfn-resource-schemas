@@ -1,5 +1,6 @@
 {
-  "$hash": "5a7e8a14aa96ac041ad1242802c8e9ab78b62ae2",
+  "$hash": "7588ddec56544ec6d5cbfa0209c1bfbe65f1888d",
+  "$id": "aws-ec2-volume.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {

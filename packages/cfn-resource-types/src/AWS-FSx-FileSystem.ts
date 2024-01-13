@@ -91,9 +91,11 @@ export type OntapConfiguration = {
   DiskIopsConfiguration?: DiskIopsConfiguration;
   EndpointIpAddressRange?: string;
   FsxAdminPassword?: string;
+  HAPairs?: number;
   PreferredSubnetId?: string;
   RouteTableIds?: string[];
   ThroughputCapacity?: number;
+  ThroughputCapacityPerHAPair?: number;
   WeeklyMaintenanceStartTime?: string;
 };
 /**

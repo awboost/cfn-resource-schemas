@@ -1,5 +1,6 @@
 {
-  "$hash": "e88e7cbca1e2498da887f63c6002724c24e56bcc",
+  "$hash": "cbd81497242158c18beda0077802a705e4462f9f",
+  "$id": "aws-ec2-vpcendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceName",
