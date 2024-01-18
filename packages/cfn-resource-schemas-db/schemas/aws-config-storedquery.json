@@ -1,5 +1,5 @@
 {
-  "$hash": "82ae46768c2a0b79e1d6a6ab739cd50899354b1b",
+  "$hash": "4e8b2f7fffe919ed8223d536c2e6b0b553252fc1",
   "$id": "aws-config-storedquery.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/QueryName"],
@@ -89,5 +89,12 @@
   "readOnlyProperties": ["/properties/QueryId", "/properties/QueryArn"],
   "required": ["QueryName", "QueryExpression"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-config.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Config::StoredQuery"
 }

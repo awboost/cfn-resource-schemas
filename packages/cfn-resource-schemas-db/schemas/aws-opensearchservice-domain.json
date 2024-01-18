@@ -1,5 +1,5 @@
 {
-  "$hash": "cc310ec45fac64ed5784ea4b57939b6f417d15c9",
+  "$hash": "b394d0f6dd990b16a19f906570af1d5ba943c813",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -23,6 +23,7 @@
     "ClusterConfig": {
       "additionalProperties": false,
       "properties": {
+        "ColdStorageOptions": { "$ref": "#/definitions/ColdStorageOptions" },
         "DedicatedMasterCount": { "type": "integer" },
         "DedicatedMasterEnabled": { "type": "boolean" },
         "DedicatedMasterType": { "type": "string" },
@@ -45,6 +46,11 @@
         "RoleArn": { "type": "string" },
         "UserPoolId": { "type": "string" }
       },
+      "type": "object"
+    },
+    "ColdStorageOptions": {
+      "additionalProperties": false,
+      "properties": { "Enabled": { "type": "boolean" } },
       "type": "object"
     },
     "DomainEndpointOptions": {

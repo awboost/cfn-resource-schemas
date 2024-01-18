@@ -1,5 +1,5 @@
 {
-  "$hash": "78ca17e2f9d49458368c0ab970e5e1a3035a8d30",
+  "$hash": "937bbd66a6ca53325966851230b7b891b0dee584",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -419,6 +419,26 @@
       "properties": { "Resolution": { "type": "string" } },
       "type": "object"
     },
+    "ColorCorrection": {
+      "additionalProperties": false,
+      "properties": {
+        "InputColorSpace": { "type": "string" },
+        "OutputColorSpace": { "type": "string" },
+        "Uri": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "ColorCorrectionSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "GlobalColorCorrections": {
+          "items": { "$ref": "#/definitions/ColorCorrection" },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
+      "type": "object"
+    },
     "ColorSpacePassthroughSettings": {
       "additionalProperties": false,
       "type": "object"
@@ -564,6 +584,9 @@
           "items": { "$ref": "#/definitions/CaptionDescription" },
           "type": "array",
           "uniqueItems": false
+        },
+        "ColorCorrectionSettings": {
+          "$ref": "#/definitions/ColorCorrectionSettings"
         },
         "FeatureActivations": { "$ref": "#/definitions/FeatureActivations" },
         "GlobalConfiguration": { "$ref": "#/definitions/GlobalConfiguration" },

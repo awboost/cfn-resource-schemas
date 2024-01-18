@@ -69,6 +69,7 @@ export type AdvancedSecurityOptionsInput = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-clusterconfig.html}
  */
 export type ClusterConfig = {
+  ColdStorageOptions?: ColdStorageOptions;
   DedicatedMasterCount?: number;
   DedicatedMasterEnabled?: boolean;
   DedicatedMasterType?: string;
@@ -90,6 +91,13 @@ export type CognitoOptions = {
   IdentityPoolId?: string;
   RoleArn?: string;
   UserPoolId?: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.ColdStorageOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-coldstorageoptions.html}
+ */
+export type ColdStorageOptions = {
+  Enabled?: boolean;
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.DomainEndpointOptions`.

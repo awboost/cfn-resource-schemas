@@ -87,7 +87,7 @@ export type RDSDBClusterProperties = {
    */
   EnableGlobalWriteForwarding?: boolean;
   /**
-   * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
+   * A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.
    */
   EnableHttpEndpoint?: boolean;
   /**

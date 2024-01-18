@@ -1,5 +1,5 @@
 {
-  "$hash": "cb74d2182df9c4d831718759a8d427783164e6a9",
+  "$hash": "b2e9a005246008090870ee5c215738a74206e041",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -162,6 +162,7 @@
         "rds:CreateDBInstance",
         "rds:DescribeDBClusters",
         "rds:DescribeEvents",
+        "rds:EnableHttpEndpoint",
         "rds:ModifyDBCluster",
         "rds:RestoreDBClusterFromSnapshot",
         "rds:RestoreDBClusterToPointInTime",
@@ -192,6 +193,8 @@
         "rds:DescribeDBSubnetGroups",
         "rds:DescribeEvents",
         "rds:DescribeGlobalClusters",
+        "rds:DisableHttpEndpoint",
+        "rds:EnableHttpEndpoint",
         "rds:ModifyDBCluster",
         "rds:ModifyDBInstance",
         "rds:RemoveFromGlobalCluster",
@@ -304,7 +307,7 @@
       "type": "boolean"
     },
     "EnableHttpEndpoint": {
-      "description": "A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.",
+      "description": "A value that indicates whether to enable the HTTP endpoint for DB cluster. By default, the HTTP endpoint is disabled.",
       "type": "boolean"
     },
     "EnableIAMDatabaseAuthentication": {
@@ -463,7 +466,7 @@
     "/properties/DBClusterIdentifier": "$lowercase(DBClusterIdentifier)",
     "/properties/DBClusterParameterGroupName": "$lowercase(DBClusterParameterGroupName)",
     "/properties/DBSubnetGroupName": "$lowercase(DBSubnetGroupName)",
-    "/properties/EnableHttpEndpoint": "$lowercase($string(EngineMode)) = 'serverless' ? EnableHttpEndpoint : false",
+    "/properties/EnableHttpEndpoint": "$lowercase($string(EngineMode)) = 'serverless' ? EnableHttpEndpoint : ($lowercase($string(Engine)) = 'aurora-postgresql' ? EnableHttpEndpoint : false )",
     "/properties/Engine": "$lowercase(Engine)",
     "/properties/EngineVersion": "$join([$string(EngineVersion), \".*\"])",
     "/properties/KmsKeyId": "$join([\"arn:(aws)[-]{0,1}[a-z]{0,2}[-]{0,1}[a-z]{0,3}:kms:[a-z]{2}[-]{1}[a-z]{3,10}[-]{0,1}[a-z]{0,10}[-]{1}[1-3]{1}:[0-9]{12}[:]{1}key\\/\", KmsKeyId])",

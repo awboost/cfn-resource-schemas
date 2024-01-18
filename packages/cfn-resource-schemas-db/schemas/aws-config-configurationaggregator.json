@@ -1,5 +1,5 @@
 {
-  "$hash": "5b3de13455794eea88d08ca8dab92149ac50c7a0",
+  "$hash": "02e9bafb14a07e69e7c330fcf5c3b63b02cea27a",
   "$id": "aws-config-configurationaggregator.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConfigurationAggregatorName"],
@@ -126,5 +126,12 @@
   },
   "readOnlyProperties": ["/properties/ConfigurationAggregatorArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-config.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Config::ConfigurationAggregator"
 }

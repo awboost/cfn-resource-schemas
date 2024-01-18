@@ -1,5 +1,5 @@
 {
-  "$hash": "2a50fd6876e04476eb4c8dc6ae7bc74124c857a0",
+  "$hash": "a19c0df951bfbc807f4ec2e48b88715cf349ef51",
   "$id": "aws-config-aggregationauthorization.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -91,5 +91,12 @@
   "readOnlyProperties": ["/properties/AggregationAuthorizationArn"],
   "required": ["AuthorizedAccountId", "AuthorizedAwsRegion"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-config.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Config::AggregationAuthorization"
 }

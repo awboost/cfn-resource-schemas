@@ -396,6 +396,22 @@ export type CdiInputSpecification = {
   Resolution?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.ColorCorrection`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrection.html}
+ */
+export type ColorCorrection = {
+  InputColorSpace?: string;
+  OutputColorSpace?: string;
+  Uri?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.ColorCorrectionSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrectionsettings.html}
+ */
+export type ColorCorrectionSettings = {
+  GlobalColorCorrections?: ColorCorrection[];
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.ColorSpacePassthroughSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorspacepassthroughsettings.html}
  */
@@ -541,6 +557,7 @@ export type EncoderSettings = {
   AvailConfiguration?: AvailConfiguration;
   BlackoutSlate?: BlackoutSlate;
   CaptionDescriptions?: CaptionDescription[];
+  ColorCorrectionSettings?: ColorCorrectionSettings;
   FeatureActivations?: FeatureActivations;
   GlobalConfiguration?: GlobalConfiguration;
   MotionGraphicsConfiguration?: MotionGraphicsConfiguration;

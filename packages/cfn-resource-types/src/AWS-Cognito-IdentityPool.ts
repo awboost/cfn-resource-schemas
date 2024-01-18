@@ -30,8 +30,8 @@ export type CognitoIdentityPoolAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html}
  */
 export type CognitoIdentityProvider = {
-  ClientId?: string;
-  ProviderName?: string;
+  ClientId: string;
+  ProviderName: string;
   ServerSideTokenCheck?: boolean;
 };
 /**

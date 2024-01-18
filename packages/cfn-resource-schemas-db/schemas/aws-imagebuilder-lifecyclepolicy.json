@@ -1,5 +1,5 @@
 {
-  "$hash": "adbb27f7791c41effc9387b0c16307b3dbd75cf7",
+  "$hash": "aee52104b69d0007e2ad0c2defd72b9fc35f4f82",
   "$id": "aws-imagebuilder-lifecyclepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -143,7 +143,7 @@
           "type": "string"
         }
       },
-      "required": ["Name"],
+      "required": ["Name", "SemanticVersion"],
       "type": "object"
     },
     "ResourceSelection": {

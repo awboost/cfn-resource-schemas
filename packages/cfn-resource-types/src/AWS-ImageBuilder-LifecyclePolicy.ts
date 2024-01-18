@@ -194,7 +194,7 @@ export type RecipeSelection = {
   /**
    * The recipe version.
    */
-  SemanticVersion?: string;
+  SemanticVersion: string;
 };
 /**
  * Type definition for `AWS::ImageBuilder::LifecyclePolicy.ResourceSelection`.

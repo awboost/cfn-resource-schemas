@@ -1,5 +1,5 @@
 {
-  "$hash": "077ba8cb9fa34b4f8fa56731ed1583a52d1fce2a",
+  "$hash": "460f3654ae8a8d3a1d0a3dd3fa0f4342cf003429",
   "$id": "aws-cognito-identitypool.json",
   "additionalProperties": false,
   "definitions": {
@@ -10,6 +10,7 @@
         "ProviderName": { "type": "string" },
         "ServerSideTokenCheck": { "type": "boolean" }
       },
+      "required": ["ProviderName", "ClientId"],
       "type": "object"
     },
     "CognitoStreams": {
@@ -25,6 +26,7 @@
       "additionalProperties": false,
       "properties": {
         "ApplicationArns": {
+          "insertionOrder": false,
           "items": { "type": "string" },
           "type": "array",
           "uniqueItems": false
@@ -35,12 +37,35 @@
     }
   },
   "description": "Resource Type definition for AWS::Cognito::IdentityPool",
+  "handlers": {
+    "create": {
+      "permissions": [
+        "cognito-identity:CreateIdentityPool",
+        "cognito-sync:SetIdentityPoolConfiguration",
+        "cognito-sync:SetCognitoEvents",
+        "iam:PassRole"
+      ]
+    },
+    "delete": { "permissions": ["cognito-identity:DeleteIdentityPool"] },
+    "list": { "permissions": ["cognito-identity:ListIdentityPools"] },
+    "read": { "permissions": ["cognito-identity:DescribeIdentityPool"] },
+    "update": {
+      "permissions": [
+        "cognito-identity:UpdateIdentityPool",
+        "cognito-identity:DescribeIdentityPool",
+        "cognito-sync:SetIdentityPoolConfiguration",
+        "cognito-sync:SetCognitoEvents",
+        "iam:PassRole"
+      ]
+    }
+  },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
     "AllowClassicFlow": { "type": "boolean" },
     "AllowUnauthenticatedIdentities": { "type": "boolean" },
     "CognitoEvents": { "type": "object" },
     "CognitoIdentityProviders": {
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/CognitoIdentityProvider" },
       "type": "array",
       "uniqueItems": false
@@ -51,12 +76,14 @@
     "IdentityPoolName": { "type": "string" },
     "Name": { "type": "string" },
     "OpenIdConnectProviderARNs": {
+      "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false
     },
     "PushSync": { "$ref": "#/definitions/PushSync" },
     "SamlProviderARNs": {
+      "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false
@@ -65,5 +92,17 @@
   },
   "readOnlyProperties": ["/properties/Id", "/properties/Name"],
   "required": ["AllowUnauthenticatedIdentities"],
-  "typeName": "AWS::Cognito::IdentityPool"
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
+  "typeName": "AWS::Cognito::IdentityPool",
+  "writeOnlyProperties": [
+    "/properties/PushSync",
+    "/properties/CognitoStreams",
+    "/properties/CognitoEvents"
+  ]
 }
