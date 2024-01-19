@@ -1,5 +1,5 @@
 {
-  "$hash": "75c90552062eecf27aced9b43120ea491b5d4ab8",
+  "$hash": "5f14bb9482321ccbe4296161bee287584a3b828a",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -172,9 +172,28 @@
         },
         "DiscoveryName": { "type": "string" },
         "IngressPortOverride": { "type": "integer" },
-        "PortName": { "type": "string" }
+        "PortName": { "type": "string" },
+        "Timeout": { "$ref": "#/definitions/TimeoutConfiguration" },
+        "Tls": { "$ref": "#/definitions/ServiceConnectTlsConfiguration" }
       },
       "required": ["PortName"],
+      "type": "object"
+    },
+    "ServiceConnectTlsCertificateAuthority": {
+      "additionalProperties": false,
+      "properties": { "AwsPcaAuthorityArn": { "type": "string" } },
+      "type": "object"
+    },
+    "ServiceConnectTlsConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "IssuerCertificateAuthority": {
+          "$ref": "#/definitions/ServiceConnectTlsCertificateAuthority"
+        },
+        "KmsKey": { "type": "string" },
+        "RoleArn": { "type": "string" }
+      },
+      "required": ["IssuerCertificateAuthority"],
       "type": "object"
     },
     "ServiceManagedEBSVolumeConfiguration": {
@@ -221,6 +240,14 @@
       "properties": {
         "Key": { "type": "string" },
         "Value": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "TimeoutConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "IdleTimeoutSeconds": { "type": "integer" },
+        "PerRequestTimeoutSeconds": { "type": "integer" }
       },
       "type": "object"
     }

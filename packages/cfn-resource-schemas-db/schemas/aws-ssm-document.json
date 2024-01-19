@@ -1,5 +1,5 @@
 {
-  "$hash": "d08e43134f94efdcd3724bb0d1abae1e5f269a26",
+  "$hash": "2909ff6fd43514fcccd0f370d0450a415f0b77ba",
   "$id": "aws-ssm-document.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -140,7 +140,8 @@
         "Policy",
         "ProblemAnalysis",
         "ProblemAnalysisTemplate",
-        "Session"
+        "Session",
+        "OpsPack"
       ],
       "type": "string"
     },

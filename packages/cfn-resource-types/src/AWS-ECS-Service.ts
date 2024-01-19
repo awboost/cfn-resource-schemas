@@ -175,6 +175,24 @@ export type ServiceConnectService = {
   DiscoveryName?: string;
   IngressPortOverride?: number;
   PortName: string;
+  Timeout?: TimeoutConfiguration;
+  Tls?: ServiceConnectTlsConfiguration;
+};
+/**
+ * Type definition for `AWS::ECS::Service.ServiceConnectTlsCertificateAuthority`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlscertificateauthority.html}
+ */
+export type ServiceConnectTlsCertificateAuthority = {
+  AwsPcaAuthorityArn?: string;
+};
+/**
+ * Type definition for `AWS::ECS::Service.ServiceConnectTlsConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlsconfiguration.html}
+ */
+export type ServiceConnectTlsConfiguration = {
+  IssuerCertificateAuthority: ServiceConnectTlsCertificateAuthority;
+  KmsKey?: string;
+  RoleArn?: string;
 };
 /**
  * Type definition for `AWS::ECS::Service.ServiceManagedEBSVolumeConfiguration`.
@@ -217,6 +235,14 @@ export type ServiceVolumeConfiguration = {
 export type Tag = {
   Key?: string;
   Value?: string;
+};
+/**
+ * Type definition for `AWS::ECS::Service.TimeoutConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-timeoutconfiguration.html}
+ */
+export type TimeoutConfiguration = {
+  IdleTimeoutSeconds?: number;
+  PerRequestTimeoutSeconds?: number;
 };
 /**
  * Resource Type definition for AWS::ECS::Service

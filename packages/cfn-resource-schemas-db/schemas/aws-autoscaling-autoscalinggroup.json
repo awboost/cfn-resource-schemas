@@ -1,5 +1,5 @@
 {
-  "$hash": "30c193d695ba29f60b38ed6c575a4c07f0c597b6",
+  "$hash": "faea21e78baf6df46a992af3181cba68c858f92b",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -315,7 +315,7 @@
         "managed-fleets:CreateAutoScalingGroup",
         "ssm:GetParameters"
       ],
-      "timeoutInMinutes": 120
+      "timeoutInMinutes": 360
     },
     "delete": {
       "permissions": [
@@ -346,7 +346,7 @@
         "managed-fleets:UpdateAutoScalingGroup",
         "ssm:GetParameters"
       ],
-      "timeoutInMinutes": 480
+      "timeoutInMinutes": 660
     }
   },
   "primaryIdentifier": ["/properties/AutoScalingGroupName"],
@@ -412,7 +412,7 @@
       "type": "array"
     },
     "TargetGroupARNs": {
-      "insertionOrder": true,
+      "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false

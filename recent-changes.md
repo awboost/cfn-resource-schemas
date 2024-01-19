@@ -1,36 +1,12 @@
-- added `AWS::DataZone::DataSource`
-- added `AWS::DataZone::Domain`
-- added `AWS::DataZone::Environment`
-- added `AWS::DataZone::EnvironmentBlueprintConfiguration`
-- added `AWS::DataZone::EnvironmentProfile`
-- added `AWS::DataZone::Project`
-- added `AWS::DataZone::SubscriptionTarget`
-- updated `AWS::Cognito::IdentityPool`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - updated definition `CognitoIdentityProvider`
-  - updated definition `PushSync`
+- updated `AWS::AutoScaling::AutoScalingGroup`
   - updated handler permissions
-  - updated property `CognitoIdentityProviders`
-  - updated property `OpenIdConnectProviderARNs`
-  - updated property `SamlProviderARNs`
-- updated `AWS::Config::AggregationAuthorization`
+  - updated property `TargetGroupARNs`
+- updated `AWS::EC2::EgressOnlyInternetGateway`
   - added `tagging`
-- updated `AWS::Config::ConfigurationAggregator`
-  - added `tagging`
-- updated `AWS::Config::StoredQuery`
-  - added `tagging`
-- updated `AWS::ImageBuilder::LifecyclePolicy`
-  - updated definition `RecipeSelection`
-- updated `AWS::MediaLive::Channel`
-  - added definition `ColorCorrectionSettings`
-  - added definition `ColorCorrection`
-  - updated definition `EncoderSettings`
-- updated `AWS::OpenSearchService::Domain`
-  - added definition `ColdStorageOptions`
-  - updated definition `ClusterConfig`
-- updated `AWS::RDS::DBCluster`
-  - updated `propertyTransform`
-  - updated handler permissions
-  - updated property `EnableHttpEndpoint`
+- updated `AWS::ECS::Service`
+  - added definition `ServiceConnectTlsCertificateAuthority`
+  - added definition `ServiceConnectTlsConfiguration`
+  - added definition `TimeoutConfiguration`
+  - updated definition `ServiceConnectService`
+- updated `AWS::SSM::Document`
+  - updated property `DocumentType`
