@@ -1,5 +1,5 @@
 {
-  "$hash": "a83cdf7a526a359834a82fcd98edd9bbc596a60a",
+  "$hash": "cb8b54955143595c1867218b47ae85a1234e0824",
   "$id": "aws-ivs-recordingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -209,5 +209,12 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/State"],
   "required": ["DestinationConfiguration"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IVS::RecordingConfiguration"
 }

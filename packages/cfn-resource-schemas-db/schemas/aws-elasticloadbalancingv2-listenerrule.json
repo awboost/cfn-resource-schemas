@@ -1,5 +1,5 @@
 {
-  "$hash": "cb7c2f8dd022daebc7ce0266b3f244d84bed8ef5",
+  "$hash": "2b000c253fe0d8173680d8c2e7f8ddff5dc2d95c",
   "$id": "aws-elasticloadbalancingv2-listenerrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ListenerArn"],
@@ -294,7 +294,12 @@
   "readOnlyProperties": ["/properties/RuleArn", "/properties/IsDefault"],
   "required": ["Actions", "Priority", "Conditions"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-elasticloadbalancingv2",
-  "taggable": false,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::ElasticLoadBalancingV2::ListenerRule",
   "writeOnlyProperties": [
     "/properties/Actions/*/AuthenticateOidcConfig/ClientSecret",

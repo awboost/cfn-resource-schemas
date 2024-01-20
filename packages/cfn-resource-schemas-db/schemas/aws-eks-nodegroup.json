@@ -1,5 +1,5 @@
 {
-  "$hash": "43e05137021ab946294c596a98490a2966606a13",
+  "$hash": "2c670f04a17b38c9fee24ede61b7282c59e89cfd",
   "$id": "aws-eks-nodegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -104,7 +104,17 @@
     "delete": {
       "permissions": ["eks:DeleteNodegroup", "eks:DescribeNodegroup"]
     },
-    "list": { "permissions": ["eks:ListNodegroups"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "ClusterName": {
+            "$ref": "resource-schema.json#/properties/ClusterName"
+          }
+        },
+        "required": ["ClusterName"]
+      },
+      "permissions": ["eks:ListNodegroups"]
+    },
     "read": { "permissions": ["eks:DescribeNodegroup"] },
     "update": {
       "permissions": [

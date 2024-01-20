@@ -1,5 +1,5 @@
 {
-  "$hash": "8ee5c7587061c06c4f6d61a355b716fa63b8b044",
+  "$hash": "8c519ac46f68b18778403e2f0781e96e03b2adbe",
   "$id": "aws-elasticloadbalancingv2-loadbalancer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -81,6 +81,10 @@
     },
     "DNSName": {
       "description": "The public DNS name of the load balancer.",
+      "type": "string"
+    },
+    "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
+      "description": "Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink",
       "type": "string"
     },
     "IpAddressType": {

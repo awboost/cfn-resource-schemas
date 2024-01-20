@@ -6,8 +6,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CognitoIdentityPoolRoleAttachmentProperties = {
   IdentityPoolId: string;
-  RoleMappings?: Record<string, any>;
-  Roles?: Record<string, any>;
+  RoleMappings?: Record<string, RoleMapping>;
+  Roles?: Record<string, string>;
 };
 /**
  * Attribute type definition for `AWS::Cognito::IdentityPoolRoleAttachment`.
@@ -15,6 +15,33 @@ export type CognitoIdentityPoolRoleAttachmentProperties = {
  */
 export type CognitoIdentityPoolRoleAttachmentAttributes = {
   Id: string;
+};
+/**
+ * Type definition for `AWS::Cognito::IdentityPoolRoleAttachment.MappingRule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html}
+ */
+export type MappingRule = {
+  Claim: string;
+  MatchType: string;
+  RoleARN: string;
+  Value: string;
+};
+/**
+ * Type definition for `AWS::Cognito::IdentityPoolRoleAttachment.RoleMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html}
+ */
+export type RoleMapping = {
+  AmbiguousRoleResolution?: string;
+  IdentityProvider?: string;
+  RulesConfiguration?: RulesConfigurationType;
+  Type: string;
+};
+/**
+ * Type definition for `AWS::Cognito::IdentityPoolRoleAttachment.RulesConfigurationType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html}
+ */
+export type RulesConfigurationType = {
+  Rules: MappingRule[];
 };
 /**
  * Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment

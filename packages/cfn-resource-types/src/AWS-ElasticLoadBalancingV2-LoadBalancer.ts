@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ElasticLoadBalancingV2LoadBalancerProperties = {
   /**
+   * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through PrivateLink
+   */
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: string;
+  /**
    * The type of IP addresses used by the subnets for your load balancer. The possible values are ipv4 (for IPv4 addresses) and dualstack (for IPv4 and IPv6 addresses).
    */
   IpAddressType?: string;

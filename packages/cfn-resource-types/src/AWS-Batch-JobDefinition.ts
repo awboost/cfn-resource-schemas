@@ -7,9 +7,6 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type BatchJobDefinitionProperties = {
   ContainerProperties?: ContainerProperties;
   EksProperties?: EksProperties;
-  /**
-   * @maxLength `128`
-   */
   JobDefinitionName?: string;
   NodeProperties?: NodeProperties;
   Parameters?: Record<string, string>;
@@ -17,9 +14,6 @@ export type BatchJobDefinitionProperties = {
   PropagateTags?: boolean;
   RetryStrategy?: RetryStrategy;
   SchedulingPriority?: number;
-  /**
-   * A key-value pair to associate with a resource.
-   */
   Tags?: Record<string, string>;
   Timeout?: JobTimeout;
   Type: string;
@@ -30,6 +24,7 @@ export type BatchJobDefinitionProperties = {
  */
 export type BatchJobDefinitionAttributes = {
   ContainerOrchestrationType: string;
+  Id: string;
   JobDefinitionArn: string;
   Revision: number;
   Status: string;
@@ -41,41 +36,21 @@ export type BatchJobDefinitionAttributes = {
 export type ContainerProperties = {
   Command?: string[];
   Environment?: Environment[];
-  EphemeralStorage?: {
-    SizeInGiB: number;
-  };
+  EphemeralStorage?: EphemeralStorage;
   ExecutionRoleArn?: string;
-  FargatePlatformConfiguration?: {
-    PlatformVersion?: string;
-  };
+  FargatePlatformConfiguration?: FargatePlatformConfiguration;
   Image: string;
   InstanceType?: string;
   JobRoleArn?: string;
-  LinuxParameters?: {
-    Devices?: Device[];
-    InitProcessEnabled?: boolean;
-    MaxSwap?: number;
-    SharedMemorySize?: number;
-    Swappiness?: number;
-    Tmpfs?: Tmpfs[];
-  };
-  LogConfiguration?: {
-    LogDriver: string;
-    Options?: Record<string, string>;
-    SecretOptions?: Secret[];
-  };
+  LinuxParameters?: LinuxParameters;
+  LogConfiguration?: LogConfiguration;
   Memory?: number;
   MountPoints?: MountPoint[];
-  NetworkConfiguration?: {
-    AssignPublicIp?: string;
-  };
+  NetworkConfiguration?: NetworkConfiguration;
   Privileged?: boolean;
   ReadonlyRootFilesystem?: boolean;
   ResourceRequirements?: ResourceRequirement[];
-  RuntimePlatform?: {
-    CpuArchitecture?: string;
-    OperatingSystemFamily?: string;
-  };
+  RuntimePlatform?: RuntimePlatform;
   Secrets?: Secret[];
   Ulimits?: Ulimit[];
   User?: string;
@@ -229,6 +204,13 @@ export type Environment = {
   Value?: string;
 };
 /**
+ * Type definition for `AWS::Batch::JobDefinition.EphemeralStorage`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ephemeralstorage.html}
+ */
+export type EphemeralStorage = {
+  SizeInGiB: number;
+};
+/**
  * Type definition for `AWS::Batch::JobDefinition.EvaluateOnExit`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-evaluateonexit.html}
  */
@@ -237,6 +219,13 @@ export type EvaluateOnExit = {
   OnExitCode?: string;
   OnReason?: string;
   OnStatusReason?: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.FargatePlatformConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-fargateplatformconfiguration.html}
+ */
+export type FargatePlatformConfiguration = {
+  PlatformVersion?: string;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.Host`.
@@ -253,6 +242,27 @@ export type JobTimeout = {
   AttemptDurationSeconds?: number;
 };
 /**
+ * Type definition for `AWS::Batch::JobDefinition.LinuxParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html}
+ */
+export type LinuxParameters = {
+  Devices?: Device[];
+  InitProcessEnabled?: boolean;
+  MaxSwap?: number;
+  SharedMemorySize?: number;
+  Swappiness?: number;
+  Tmpfs?: Tmpfs[];
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.LogConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-logconfiguration.html}
+ */
+export type LogConfiguration = {
+  LogDriver: string;
+  Options?: Record<string, string>;
+  SecretOptions?: Secret[];
+};
+/**
  * Type definition for `AWS::Batch::JobDefinition.MountPoint`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoint.html}
  */
@@ -260,6 +270,13 @@ export type MountPoint = {
   ContainerPath?: string;
   ReadOnly?: boolean;
   SourceVolume?: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.NetworkConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-networkconfiguration.html}
+ */
+export type NetworkConfiguration = {
+  AssignPublicIp?: string;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.NodeProperties`.
@@ -293,6 +310,14 @@ export type ResourceRequirement = {
 export type RetryStrategy = {
   Attempts?: number;
   EvaluateOnExit?: EvaluateOnExit[];
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.RuntimePlatform`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-runtimeplatform.html}
+ */
+export type RuntimePlatform = {
+  CpuArchitecture?: string;
+  OperatingSystemFamily?: string;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.Secret`.

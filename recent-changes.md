@@ -1,12 +1,51 @@
-- updated `AWS::AutoScaling::AutoScalingGroup`
+- added `AWS::IVS::Stage`
+- updated `AWS::Batch::JobDefinition`
+  - added definition `EphemeralStorage`
+  - added definition `FargatePlatformConfiguration`
+  - added definition `LinuxParameters`
+  - added definition `LogConfiguration`
+  - added definition `NetworkConfiguration`
+  - added definition `RuntimePlatform`
+  - added property `Id`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - removed `writeOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `ContainerProperties`
+  - updated definition `Device`
+  - updated definition `EksContainerResourceRequirements`
+  - updated definition `EksContainer`
+  - updated definition `EksMetadata`
+  - updated definition `EksPodProperties`
+  - updated definition `NodeProperties`
+  - updated definition `RetryStrategy`
+  - updated definition `Secret`
+  - updated definition `Tmpfs`
+  - updated definition `Ulimit`
   - updated handler permissions
-  - updated property `TargetGroupARNs`
-- updated `AWS::EC2::EgressOnlyInternetGateway`
+  - updated property `JobDefinitionName`
+  - updated property `Parameters`
+  - updated property `PlatformCapabilities`
+  - updated property `Tags`
+- updated `AWS::Cognito::IdentityPoolRoleAttachment`
+  - added `additionalIdentifiers`
+  - added `sourceUrl`
   - added `tagging`
-- updated `AWS::ECS::Service`
-  - added definition `ServiceConnectTlsCertificateAuthority`
-  - added definition `ServiceConnectTlsConfiguration`
-  - added definition `TimeoutConfiguration`
-  - updated definition `ServiceConnectService`
-- updated `AWS::SSM::Document`
-  - updated property `DocumentType`
+  - updated definition `undefined`
+  - updated handler permissions
+  - updated property `RoleMappings`
+  - updated property `Roles`
+- updated `AWS::EKS::Nodegroup`
+  - updated handler permissions
+- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
+  - added `tagging`
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - added property `EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic`
+- updated `AWS::IVS::Channel`
+  - added `tagging`
+- updated `AWS::IVS::RecordingConfiguration`
+  - added `tagging`
+- updated `AWS::IVS::StreamKey`
+  - added `tagging`
