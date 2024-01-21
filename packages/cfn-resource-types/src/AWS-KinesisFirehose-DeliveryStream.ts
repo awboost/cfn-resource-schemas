@@ -22,6 +22,7 @@ export type KinesisFirehoseDeliveryStreamProperties = {
   MSKSourceConfiguration?: MSKSourceConfiguration;
   RedshiftDestinationConfiguration?: RedshiftDestinationConfiguration;
   S3DestinationConfiguration?: S3DestinationConfiguration;
+  SnowflakeDestinationConfiguration?: SnowflakeDestinationConfiguration;
   SplunkDestinationConfiguration?: SplunkDestinationConfiguration;
   /**
    * @minLength `1`
@@ -663,6 +664,107 @@ export type SchemaConfiguration = {
 export type Serializer = {
   OrcSerDe?: OrcSerDe;
   ParquetSerDe?: ParquetSerDe;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.SnowflakeDestinationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html}
+ */
+export type SnowflakeDestinationConfiguration = {
+  /**
+   * @minLength `24`
+   * @maxLength `2048`
+   * @pattern `.+?\.snowflakecomputing\.com`
+   */
+  AccountUrl: string;
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  ContentColumnName?: string;
+  DataLoadingOption?:
+    | "JSON_MAPPING"
+    | "VARIANT_CONTENT_MAPPING"
+    | "VARIANT_CONTENT_AND_METADATA_MAPPING";
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  Database: string;
+  /**
+   * @minLength `7`
+   * @maxLength `255`
+   */
+  KeyPassphrase?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  MetaDataColumnName?: string;
+  /**
+   * @minLength `256`
+   * @maxLength `4096`
+   * @pattern `^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$`
+   */
+  PrivateKey: string;
+  ProcessingConfiguration?: ProcessingConfiguration;
+  RetryOptions?: SnowflakeRetryOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `arn:.*`
+   */
+  RoleARN: string;
+  S3BackupMode?: "FailedDataOnly" | "AllData";
+  S3Configuration: S3DestinationConfiguration;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  Schema: string;
+  SnowflakeRoleConfiguration?: SnowflakeRoleConfiguration;
+  SnowflakeVpcConfiguration?: SnowflakeVpcConfiguration;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  Table: string;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  User: string;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.SnowflakeRetryOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakeretryoptions.html}
+ */
+export type SnowflakeRetryOptions = {
+  DurationInSeconds?: number;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.SnowflakeRoleConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakeroleconfiguration.html}
+ */
+export type SnowflakeRoleConfiguration = {
+  Enabled?: boolean;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  SnowflakeRole?: string;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.SnowflakeVpcConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakevpcconfiguration.html}
+ */
+export type SnowflakeVpcConfiguration = {
+  /**
+   * @minLength `47`
+   * @maxLength `255`
+   * @pattern `([a-zA-Z0-9\-\_]+\.){2,3}vpce\.[a-zA-Z0-9\-]*\.vpce-svc\-[a-zA-Z0-9\-]{17}$`
+   */
+  PrivateLinkVpceId: string;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.SplunkBufferingHints`.

@@ -1,51 +1,42 @@
-- added `AWS::IVS::Stage`
+- added `AWS::CodeBuild::Fleet`
 - updated `AWS::Batch::JobDefinition`
-  - added definition `EphemeralStorage`
-  - added definition `FargatePlatformConfiguration`
-  - added definition `LinuxParameters`
-  - added definition `LogConfiguration`
-  - added definition `NetworkConfiguration`
-  - added definition `RuntimePlatform`
-  - added property `Id`
-  - removed `sourceUrl`
-  - removed `tagging`
-  - removed `writeOnlyProperties`
+  - added definition `AuthorizationConfig`
+  - added definition `EfsVolumeConfiguration`
+  - added definition `Metadata`
+  - added definition `MountPoints`
+  - added definition `PodProperties`
+  - added definition `Timeout`
+  - added definition `VolumesHost`
+  - added definition `Volumes`
+  - removed definition `EFSAuthorizationConfig`
+  - removed definition `EFSVolumeConfiguration`
+  - removed definition `EksMetadata`
+  - removed definition `EksPodProperties`
+  - removed definition `Host`
+  - removed definition `JobTimeout`
+  - removed definition `MountPoint`
+  - removed definition `Volume`
+  - removed property `ContainerOrchestrationType`
+  - removed property `JobDefinitionArn`
+  - removed property `Revision`
+  - removed property `Status`
   - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
   - updated `readOnlyProperties`
   - updated definition `ContainerProperties`
-  - updated definition `Device`
   - updated definition `EksContainerResourceRequirements`
-  - updated definition `EksContainer`
-  - updated definition `EksMetadata`
-  - updated definition `EksPodProperties`
-  - updated definition `NodeProperties`
-  - updated definition `RetryStrategy`
-  - updated definition `Secret`
-  - updated definition `Tmpfs`
-  - updated definition `Ulimit`
-  - updated handler permissions
-  - updated property `JobDefinitionName`
+  - updated definition `EksProperties`
+  - updated definition `LogConfiguration`
   - updated property `Parameters`
-  - updated property `PlatformCapabilities`
   - updated property `Tags`
-- updated `AWS::Cognito::IdentityPoolRoleAttachment`
-  - added `additionalIdentifiers`
-  - added `sourceUrl`
-  - added `tagging`
-  - updated definition `undefined`
-  - updated handler permissions
-  - updated property `RoleMappings`
-  - updated property `Roles`
-- updated `AWS::EKS::Nodegroup`
-  - updated handler permissions
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - added `tagging`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - added property `EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic`
-- updated `AWS::IVS::Channel`
-  - added `tagging`
-- updated `AWS::IVS::RecordingConfiguration`
-  - added `tagging`
-- updated `AWS::IVS::StreamKey`
-  - added `tagging`
+  - updated property `Timeout`
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - added definition `SnowflakeDestinationConfiguration`
+  - added definition `SnowflakeRetryOptions`
+  - added definition `SnowflakeRoleConfiguration`
+  - added definition `SnowflakeVpcConfiguration`
+  - added property `SnowflakeDestinationConfiguration`
+  - updated `createOnlyProperties`
+- updated `AWS::LakeFormation::Resource`
+  - added property `HybridAccessEnabled`
+- updated `AWS::Route53Resolver::FirewallRuleGroup`
+  - updated definition `FirewallRule`

@@ -1,5 +1,5 @@
 {
-  "$hash": "99a43ff9ad25a28835d7d3a895016f016d00b902",
+  "$hash": "35531af55ac27e84b751decb5cbef9a38d293471",
   "$id": "aws-route53resolver-firewallrulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -41,7 +41,13 @@
           "minLength": 1,
           "type": "string"
         },
-        "Priority": { "description": "Rule Priority", "type": "integer" }
+        "Priority": { "description": "Rule Priority", "type": "integer" },
+        "Qtype": {
+          "description": "Qtype",
+          "maxLength": 16,
+          "minLength": 1,
+          "type": "string"
+        }
       },
       "required": ["FirewallDomainListId", "Priority", "Action"],
       "type": "object"

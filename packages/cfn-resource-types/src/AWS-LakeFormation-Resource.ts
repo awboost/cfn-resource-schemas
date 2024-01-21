@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html}
  */
 export type LakeFormationResourceProperties = {
+  HybridAccessEnabled?: boolean;
   ResourceArn: string;
   RoleArn?: string;
   UseServiceLinkedRole: boolean;

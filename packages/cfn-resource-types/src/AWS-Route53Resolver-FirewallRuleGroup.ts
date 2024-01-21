@@ -123,6 +123,12 @@ export type FirewallRule = {
    * Rule Priority
    */
   Priority: number;
+  /**
+   * Qtype
+   * @minLength `1`
+   * @maxLength `16`
+   */
+  Qtype?: string;
 };
 /**
  * Type definition for `AWS::Route53Resolver::FirewallRuleGroup.Tag`.

@@ -1,21 +1,17 @@
 {
-  "$hash": "aac5691d42cc9a60553e674e3b838f3281495505",
+  "$hash": "072411deb59ce6f53513aecfc6e920af5eda772c",
   "$id": "aws-batch-jobdefinition.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/PropagateTags",
-    "/properties/PlatformCapabilities",
-    "/properties/ContainerProperties",
-    "/properties/NodeProperties",
-    "/properties/Type",
-    "/properties/Parameters",
-    "/properties/EksProperties",
-    "/properties/SchedulingPriority",
-    "/properties/JobDefinitionName",
-    "/properties/RetryStrategy",
-    "/properties/Timeout"
-  ],
+  "createOnlyProperties": ["/properties/Tags", "/properties/JobDefinitionName"],
   "definitions": {
+    "AuthorizationConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "AccessPointId": { "type": "string" },
+        "Iam": { "type": "string" }
+      },
+      "type": "object"
+    },
     "ContainerProperties": {
       "additionalProperties": false,
       "properties": {
@@ -41,7 +37,7 @@
         "LogConfiguration": { "$ref": "#/definitions/LogConfiguration" },
         "Memory": { "type": "integer" },
         "MountPoints": {
-          "items": { "$ref": "#/definitions/MountPoint" },
+          "items": { "$ref": "#/definitions/MountPoints" },
           "type": "array",
           "uniqueItems": false
         },
@@ -69,7 +65,7 @@
         "User": { "type": "string" },
         "Vcpus": { "type": "integer" },
         "Volumes": {
-          "items": { "$ref": "#/definitions/Volume" },
+          "items": { "$ref": "#/definitions/Volumes" },
           "type": "array",
           "uniqueItems": false
         }
@@ -90,20 +86,10 @@
       },
       "type": "object"
     },
-    "EFSAuthorizationConfig": {
+    "EfsVolumeConfiguration": {
       "additionalProperties": false,
       "properties": {
-        "AccessPointId": { "type": "string" },
-        "Iam": { "type": "string" }
-      },
-      "type": "object"
-    },
-    "EFSVolumeConfiguration": {
-      "additionalProperties": false,
-      "properties": {
-        "AuthorizationConfig": {
-          "$ref": "#/definitions/EFSAuthorizationConfig"
-        },
+        "AuthorizationConfig": { "$ref": "#/definitions/AuthorizationConfig" },
         "FileSystemId": { "type": "string" },
         "RootDirectory": { "type": "string" },
         "TransitEncryption": { "type": "string" },
@@ -160,14 +146,8 @@
     "EksContainerResourceRequirements": {
       "additionalProperties": false,
       "properties": {
-        "Limits": {
-          "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
-          "type": "object"
-        },
-        "Requests": {
-          "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
-          "type": "object"
-        }
+        "Limits": { "type": "object" },
+        "Requests": { "type": "object" }
       },
       "type": "object"
     },
@@ -204,40 +184,10 @@
       "properties": { "Path": { "type": "string" } },
       "type": "object"
     },
-    "EksMetadata": {
-      "additionalProperties": false,
-      "properties": {
-        "Labels": {
-          "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
-    "EksPodProperties": {
-      "additionalProperties": false,
-      "properties": {
-        "Containers": {
-          "items": { "$ref": "#/definitions/EksContainer" },
-          "type": "array",
-          "uniqueItems": false
-        },
-        "DnsPolicy": { "type": "string" },
-        "HostNetwork": { "type": "boolean" },
-        "Metadata": { "$ref": "#/definitions/EksMetadata" },
-        "ServiceAccountName": { "type": "string" },
-        "Volumes": {
-          "items": { "$ref": "#/definitions/EksVolume" },
-          "type": "array",
-          "uniqueItems": false
-        }
-      },
-      "type": "object"
-    },
     "EksProperties": {
       "additionalProperties": false,
       "properties": {
-        "PodProperties": { "$ref": "#/definitions/EksPodProperties" }
+        "PodProperties": { "$ref": "#/definitions/PodProperties" }
       },
       "type": "object"
     },
@@ -291,16 +241,6 @@
       "properties": { "PlatformVersion": { "type": "string" } },
       "type": "object"
     },
-    "Host": {
-      "additionalProperties": false,
-      "properties": { "SourcePath": { "type": "string" } },
-      "type": "object"
-    },
-    "JobTimeout": {
-      "additionalProperties": false,
-      "properties": { "AttemptDurationSeconds": { "type": "integer" } },
-      "type": "object"
-    },
     "LinuxParameters": {
       "additionalProperties": false,
       "properties": {
@@ -325,10 +265,7 @@
       "additionalProperties": false,
       "properties": {
         "LogDriver": { "type": "string" },
-        "Options": {
-          "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
-          "type": "object"
-        },
+        "Options": { "type": "object" },
         "SecretOptions": {
           "items": { "$ref": "#/definitions/Secret" },
           "type": "array",
@@ -338,7 +275,12 @@
       "required": ["LogDriver"],
       "type": "object"
     },
-    "MountPoint": {
+    "Metadata": {
+      "additionalProperties": false,
+      "properties": { "Labels": { "type": "object" } },
+      "type": "object"
+    },
+    "MountPoints": {
       "additionalProperties": false,
       "properties": {
         "ContainerPath": { "type": "string" },
@@ -373,6 +315,26 @@
         "TargetNodes": { "type": "string" }
       },
       "required": ["TargetNodes"],
+      "type": "object"
+    },
+    "PodProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "Containers": {
+          "items": { "$ref": "#/definitions/EksContainer" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "DnsPolicy": { "type": "string" },
+        "HostNetwork": { "type": "boolean" },
+        "Metadata": { "$ref": "#/definitions/Metadata" },
+        "ServiceAccountName": { "type": "string" },
+        "Volumes": {
+          "items": { "$ref": "#/definitions/EksVolume" },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
       "type": "object"
     },
     "ResourceRequirement": {
@@ -412,6 +374,11 @@
       "required": ["ValueFrom", "Name"],
       "type": "object"
     },
+    "Timeout": {
+      "additionalProperties": false,
+      "properties": { "AttemptDurationSeconds": { "type": "integer" } },
+      "type": "object"
+    },
     "Tmpfs": {
       "additionalProperties": false,
       "properties": {
@@ -436,32 +403,32 @@
       "required": ["SoftLimit", "HardLimit", "Name"],
       "type": "object"
     },
-    "Volume": {
+    "Volumes": {
       "additionalProperties": false,
       "properties": {
         "EfsVolumeConfiguration": {
-          "$ref": "#/definitions/EFSVolumeConfiguration"
+          "$ref": "#/definitions/EfsVolumeConfiguration"
         },
-        "Host": { "$ref": "#/definitions/Host" },
+        "Host": { "$ref": "#/definitions/VolumesHost" },
         "Name": { "type": "string" }
       },
+      "type": "object"
+    },
+    "VolumesHost": {
+      "additionalProperties": false,
+      "properties": { "SourcePath": { "type": "string" } },
       "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::Batch::JobDefinition",
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
-    "ContainerOrchestrationType": { "type": "string" },
     "ContainerProperties": { "$ref": "#/definitions/ContainerProperties" },
     "EksProperties": { "$ref": "#/definitions/EksProperties" },
     "Id": { "type": "string" },
-    "JobDefinitionArn": { "type": "string" },
     "JobDefinitionName": { "type": "string" },
     "NodeProperties": { "$ref": "#/definitions/NodeProperties" },
-    "Parameters": {
-      "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
-      "type": "object"
-    },
+    "Parameters": { "type": "object" },
     "PlatformCapabilities": {
       "items": { "type": "string" },
       "type": "array",
@@ -469,23 +436,12 @@
     },
     "PropagateTags": { "type": "boolean" },
     "RetryStrategy": { "$ref": "#/definitions/RetryStrategy" },
-    "Revision": { "type": "integer" },
     "SchedulingPriority": { "type": "integer" },
-    "Status": { "type": "string" },
-    "Tags": {
-      "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
-      "type": "object"
-    },
-    "Timeout": { "$ref": "#/definitions/JobTimeout" },
+    "Tags": { "type": "object" },
+    "Timeout": { "$ref": "#/definitions/Timeout" },
     "Type": { "type": "string" }
   },
-  "readOnlyProperties": [
-    "/properties/Revision",
-    "/properties/Id",
-    "/properties/Status",
-    "/properties/JobDefinitionArn",
-    "/properties/ContainerOrchestrationType"
-  ],
+  "readOnlyProperties": ["/properties/Id"],
   "required": ["Type"],
   "typeName": "AWS::Batch::JobDefinition"
 }

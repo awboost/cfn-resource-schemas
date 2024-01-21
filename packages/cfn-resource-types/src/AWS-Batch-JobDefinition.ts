@@ -9,13 +9,13 @@ export type BatchJobDefinitionProperties = {
   EksProperties?: EksProperties;
   JobDefinitionName?: string;
   NodeProperties?: NodeProperties;
-  Parameters?: Record<string, string>;
+  Parameters?: Record<string, any>;
   PlatformCapabilities?: string[];
   PropagateTags?: boolean;
   RetryStrategy?: RetryStrategy;
   SchedulingPriority?: number;
-  Tags?: Record<string, string>;
-  Timeout?: JobTimeout;
+  Tags?: Record<string, any>;
+  Timeout?: Timeout;
   Type: string;
 };
 /**
@@ -23,11 +23,15 @@ export type BatchJobDefinitionProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#aws-resource-batch-jobdefinition-return-values}
  */
 export type BatchJobDefinitionAttributes = {
-  ContainerOrchestrationType: string;
   Id: string;
-  JobDefinitionArn: string;
-  Revision: number;
-  Status: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.AuthorizationConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-authorizationconfig.html}
+ */
+export type AuthorizationConfig = {
+  AccessPointId?: string;
+  Iam?: string;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.ContainerProperties`.
@@ -45,7 +49,7 @@ export type ContainerProperties = {
   LinuxParameters?: LinuxParameters;
   LogConfiguration?: LogConfiguration;
   Memory?: number;
-  MountPoints?: MountPoint[];
+  MountPoints?: MountPoints[];
   NetworkConfiguration?: NetworkConfiguration;
   Privileged?: boolean;
   ReadonlyRootFilesystem?: boolean;
@@ -55,7 +59,7 @@ export type ContainerProperties = {
   Ulimits?: Ulimit[];
   User?: string;
   Vcpus?: number;
-  Volumes?: Volume[];
+  Volumes?: Volumes[];
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.Device`.
@@ -67,19 +71,11 @@ export type Device = {
   Permissions?: string[];
 };
 /**
- * Type definition for `AWS::Batch::JobDefinition.EFSAuthorizationConfig`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsauthorizationconfig.html}
- */
-export type EFSAuthorizationConfig = {
-  AccessPointId?: string;
-  Iam?: string;
-};
-/**
- * Type definition for `AWS::Batch::JobDefinition.EFSVolumeConfiguration`.
+ * Type definition for `AWS::Batch::JobDefinition.EfsVolumeConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsvolumeconfiguration.html}
  */
-export type EFSVolumeConfiguration = {
-  AuthorizationConfig?: EFSAuthorizationConfig;
+export type EfsVolumeConfiguration = {
+  AuthorizationConfig?: AuthorizationConfig;
   FileSystemId: string;
   RootDirectory?: string;
   TransitEncryption?: string;
@@ -113,8 +109,8 @@ export type EksContainerEnvironmentVariable = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainerresourcerequirements.html}
  */
 export type EksContainerResourceRequirements = {
-  Limits?: Record<string, string>;
-  Requests?: Record<string, string>;
+  Limits?: Record<string, any>;
+  Requests?: Record<string, any>;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.EksContainerSecurityContext`.
@@ -152,30 +148,11 @@ export type EksHostPath = {
   Path?: string;
 };
 /**
- * Type definition for `AWS::Batch::JobDefinition.EksMetadata`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksmetadata.html}
- */
-export type EksMetadata = {
-  Labels?: Record<string, string>;
-};
-/**
- * Type definition for `AWS::Batch::JobDefinition.EksPodProperties`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekspodproperties.html}
- */
-export type EksPodProperties = {
-  Containers?: EksContainer[];
-  DnsPolicy?: string;
-  HostNetwork?: boolean;
-  Metadata?: EksMetadata;
-  ServiceAccountName?: string;
-  Volumes?: EksVolume[];
-};
-/**
  * Type definition for `AWS::Batch::JobDefinition.EksProperties`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html}
  */
 export type EksProperties = {
-  PodProperties?: EksPodProperties;
+  PodProperties?: PodProperties;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.EksSecret`.
@@ -228,20 +205,6 @@ export type FargatePlatformConfiguration = {
   PlatformVersion?: string;
 };
 /**
- * Type definition for `AWS::Batch::JobDefinition.Host`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-host.html}
- */
-export type Host = {
-  SourcePath?: string;
-};
-/**
- * Type definition for `AWS::Batch::JobDefinition.JobTimeout`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-jobtimeout.html}
- */
-export type JobTimeout = {
-  AttemptDurationSeconds?: number;
-};
-/**
  * Type definition for `AWS::Batch::JobDefinition.LinuxParameters`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html}
  */
@@ -259,14 +222,21 @@ export type LinuxParameters = {
  */
 export type LogConfiguration = {
   LogDriver: string;
-  Options?: Record<string, string>;
+  Options?: Record<string, any>;
   SecretOptions?: Secret[];
 };
 /**
- * Type definition for `AWS::Batch::JobDefinition.MountPoint`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoint.html}
+ * Type definition for `AWS::Batch::JobDefinition.Metadata`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-metadata.html}
  */
-export type MountPoint = {
+export type Metadata = {
+  Labels?: Record<string, any>;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.MountPoints`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html}
+ */
+export type MountPoints = {
   ContainerPath?: string;
   ReadOnly?: boolean;
   SourceVolume?: string;
@@ -294,6 +264,18 @@ export type NodeProperties = {
 export type NodeRangeProperty = {
   Container?: ContainerProperties;
   TargetNodes: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.PodProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html}
+ */
+export type PodProperties = {
+  Containers?: EksContainer[];
+  DnsPolicy?: string;
+  HostNetwork?: boolean;
+  Metadata?: Metadata;
+  ServiceAccountName?: string;
+  Volumes?: EksVolume[];
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.ResourceRequirement`.
@@ -328,6 +310,13 @@ export type Secret = {
   ValueFrom: string;
 };
 /**
+ * Type definition for `AWS::Batch::JobDefinition.Timeout`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-timeout.html}
+ */
+export type Timeout = {
+  AttemptDurationSeconds?: number;
+};
+/**
  * Type definition for `AWS::Batch::JobDefinition.Tmpfs`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-tmpfs.html}
  */
@@ -346,13 +335,20 @@ export type Ulimit = {
   SoftLimit: number;
 };
 /**
- * Type definition for `AWS::Batch::JobDefinition.Volume`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volume.html}
+ * Type definition for `AWS::Batch::JobDefinition.Volumes`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html}
  */
-export type Volume = {
-  EfsVolumeConfiguration?: EFSVolumeConfiguration;
-  Host?: Host;
+export type Volumes = {
+  EfsVolumeConfiguration?: EfsVolumeConfiguration;
+  Host?: VolumesHost;
   Name?: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.VolumesHost`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumeshost.html}
+ */
+export type VolumesHost = {
+  SourcePath?: string;
 };
 /**
  * Resource Type definition for AWS::Batch::JobDefinition
