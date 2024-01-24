@@ -10,12 +10,12 @@ export type DataZoneEnvironmentProfileProperties = {
    * The AWS account in which the Amazon DataZone environment is created.
    * @pattern `^\d{12}$`
    */
-  AwsAccountId?: string;
+  AwsAccountId: string;
   /**
    * The AWS region in which this environment profile is created.
    * @pattern `^[a-z]{2}-[a-z]{4,10}-\d$`
    */
-  AwsAccountRegion?: string;
+  AwsAccountRegion: string;
   /**
    * The description of this Amazon DataZone environment profile.
    * @maxLength `2048`

@@ -13,6 +13,7 @@ export type EKSAccessEntryProperties = {
   AccessPolicies?: AccessPolicy[];
   /**
    * The cluster that the access entry is created for.
+   * @minLength `1`
    */
   ClusterName: string;
   /**
@@ -21,6 +22,7 @@ export type EKSAccessEntryProperties = {
   KubernetesGroups?: string[];
   /**
    * The principal ARN that the access entry is created for.
+   * @minLength `1`
    */
   PrincipalArn: string;
   /**

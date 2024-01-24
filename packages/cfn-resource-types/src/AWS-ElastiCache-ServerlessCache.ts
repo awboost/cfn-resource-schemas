@@ -86,7 +86,7 @@ export type ElastiCacheServerlessCacheAttributes = {
     /**
      * Endpoint port.
      */
-    Port: number;
+    Port: string;
   };
   /**
    * The full engine version of the Serverless Cache.
@@ -103,7 +103,7 @@ export type ElastiCacheServerlessCacheAttributes = {
     /**
      * Endpoint port.
      */
-    Port: number;
+    Port: string;
   };
   /**
    * The status of the Serverless Cache.

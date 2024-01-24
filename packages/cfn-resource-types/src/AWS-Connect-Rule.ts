@@ -62,6 +62,18 @@ export type Actions = {
    */
   AssignContactCategoryActions?: AssignContactCategoryAction[];
   /**
+   * This action will create a case when a rule is triggered.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  CreateCaseActions?: CreateCaseAction[];
+  /**
+   * This action will end associated tasks when a rule is triggered.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  EndAssociatedTasksActions?: EndAssociatedTasksAction[];
+  /**
    * This action will send event bridge notification when a rule is triggered.
    * @minLength `1`
    * @maxLength `1`
@@ -79,6 +91,12 @@ export type Actions = {
    * @maxLength `1`
    */
   TaskActions?: TaskAction[];
+  /**
+   * This action will update a case when a rule is triggered.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  UpdateCaseActions?: UpdateCaseAction[];
 };
 /**
  * Type definition for `AWS::Connect::Rule.AssignContactCategoryAction`.
@@ -86,6 +104,31 @@ export type Actions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-assigncontactcategoryaction.html}
  */
 export type AssignContactCategoryAction = Record<string, any>;
+/**
+ * Type definition for `AWS::Connect::Rule.CreateCaseAction`.
+ * The definition for create case action.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html}
+ */
+export type CreateCaseAction = {
+  /**
+   * An array of case fields
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  Fields: Field[];
+  /**
+   * The Id of template.
+   * @minLength `1`
+   * @maxLength `500`
+   */
+  TemplateId: string;
+};
+/**
+ * Type definition for `AWS::Connect::Rule.EndAssociatedTasksAction`.
+ * The definition for ending associated task action.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-endassociatedtasksaction.html}
+ */
+export type EndAssociatedTasksAction = Record<string, any>;
 /**
  * Type definition for `AWS::Connect::Rule.EventBridgeAction`.
  * The definition for event bridge action.
@@ -97,6 +140,34 @@ export type EventBridgeAction = {
    * @pattern `^[a-zA-Z0-9._-]{1,100}$`
    */
   Name: string;
+};
+/**
+ * Type definition for `AWS::Connect::Rule.Field`.
+ * The field of the case.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html}
+ */
+export type Field = {
+  /**
+   * The Id of the field
+   * @minLength `1`
+   * @maxLength `500`
+   */
+  Id: string;
+  /**
+   * The value of the field.
+   */
+  Value: FieldValue;
+};
+/**
+ * Type definition for `AWS::Connect::Rule.FieldValue`.
+ * The value of the field.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html}
+ */
+export type FieldValue = {
+  BooleanValue?: boolean;
+  DoubleValue?: number;
+  EmptyValue?: Record<string, any>;
+  StringValue?: string;
 };
 /**
  * Type definition for `AWS::Connect::Rule.NotificationRecipientType`.
@@ -145,7 +216,9 @@ export type RuleTriggerEventSource = {
     | "OnZendeskTicketCreate"
     | "OnZendeskTicketStatusUpdate"
     | "OnSalesforceCaseCreate"
-    | "OnMetricDataUpdate";
+    | "OnMetricDataUpdate"
+    | "OnCaseCreate"
+    | "OnCaseUpdate";
   /**
    * The Amazon Resource Name (ARN) for the AppIntegration association.
    * @pattern `^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*integration-association/[-a-zA-Z0-9]*$`
@@ -229,6 +302,19 @@ export type TaskAction = {
    * A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
    */
   References?: Record<string, Reference>;
+};
+/**
+ * Type definition for `AWS::Connect::Rule.UpdateCaseAction`.
+ * The definition for update case action.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-updatecaseaction.html}
+ */
+export type UpdateCaseAction = {
+  /**
+   * An array of case fields
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  Fields: Field[];
 };
 /**
  * Resource type definition for `AWS::Connect::Rule`.

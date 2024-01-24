@@ -1,5 +1,5 @@
 {
-  "$hash": "8b0c103be3e64f172a9d3f41d4937ae90387bbd4",
+  "$hash": "bc5db2991a0d740640f827c309933a12a6a0e351",
   "$id": "aws-datazone-environmentprofile.json",
   "additionalIdentifiers": [["/properties/DomainIdentifier"]],
   "additionalProperties": false,
@@ -151,6 +151,8 @@
     "EnvironmentBlueprintIdentifier",
     "ProjectIdentifier",
     "DomainIdentifier",
+    "AwsAccountId",
+    "AwsAccountRegion",
     "Name"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datazone",

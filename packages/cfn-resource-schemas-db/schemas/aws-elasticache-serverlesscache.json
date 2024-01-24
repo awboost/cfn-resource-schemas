@@ -1,5 +1,5 @@
 {
-  "$hash": "f6594b6168c1868fe63ea3485fe1c532c32d2cfe",
+  "$hash": "bdda51a9861a99135cfa767041b8e0a0fd652fb9",
   "$id": "aws-elasticache-serverlesscache.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -54,7 +54,7 @@
       "description": "The address and the port.",
       "properties": {
         "Address": { "description": "Endpoint address.", "type": "string" },
-        "Port": { "description": "Endpoint port.", "type": "integer" }
+        "Port": { "description": "Endpoint port.", "type": "string" }
       },
       "type": "object"
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "365d3e86df837ce8c527a5b927253b88fb2ef018",
+  "$hash": "8afda19f6ab84e3d68ead924dacdd1ce5a04f2c2",
   "$id": "aws-connect-rule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -14,11 +14,16 @@
         "AssignContactCategoryActions": {
           "$ref": "#/definitions/AssignContactCategoryActions"
         },
+        "CreateCaseActions": { "$ref": "#/definitions/CreateCaseActions" },
+        "EndAssociatedTasksActions": {
+          "$ref": "#/definitions/EndAssociatedTasksActions"
+        },
         "EventBridgeActions": { "$ref": "#/definitions/EventBridgeActions" },
         "SendNotificationActions": {
           "$ref": "#/definitions/SendNotificationActions"
         },
-        "TaskActions": { "$ref": "#/definitions/TaskActions" }
+        "TaskActions": { "$ref": "#/definitions/TaskActions" },
+        "UpdateCaseActions": { "$ref": "#/definitions/UpdateCaseActions" }
       },
       "type": "object"
     },
@@ -30,6 +35,43 @@
       "description": "This action will assign contact category when a rule is triggered.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/AssignContactCategoryAction" },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "CreateCaseAction": {
+      "additionalProperties": false,
+      "description": "The definition for create case action.",
+      "properties": {
+        "Fields": { "$ref": "#/definitions/Fields" },
+        "TemplateId": {
+          "description": "The Id of template.",
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["Fields", "TemplateId"],
+      "type": "object"
+    },
+    "CreateCaseActions": {
+      "description": "This action will create a case when a rule is triggered.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/CreateCaseAction" },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "EndAssociatedTasksAction": {
+      "description": "The definition for ending associated task action.",
+      "type": "object"
+    },
+    "EndAssociatedTasksActions": {
+      "description": "This action will end associated tasks when a rule is triggered.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/EndAssociatedTasksAction" },
       "maxItems": 1,
       "minItems": 1,
       "type": "array",
@@ -53,6 +95,41 @@
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/EventBridgeAction" },
       "maxItems": 1,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "Field": {
+      "additionalProperties": false,
+      "description": "The field of the case.",
+      "properties": {
+        "Id": {
+          "description": "The Id of the field",
+          "maxLength": 500,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": { "$ref": "#/definitions/FieldValue" }
+      },
+      "required": ["Id", "Value"],
+      "type": "object"
+    },
+    "FieldValue": {
+      "additionalProperties": false,
+      "description": "The value of the field.",
+      "properties": {
+        "BooleanValue": { "type": "boolean" },
+        "DoubleValue": { "type": "number" },
+        "EmptyValue": { "type": "object" },
+        "StringValue": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "Fields": {
+      "description": "An array of case fields",
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/Field" },
+      "maxItems": 100,
       "minItems": 1,
       "type": "array",
       "uniqueItems": true
@@ -106,7 +183,9 @@
             "OnZendeskTicketCreate",
             "OnZendeskTicketStatusUpdate",
             "OnSalesforceCaseCreate",
-            "OnMetricDataUpdate"
+            "OnMetricDataUpdate",
+            "OnCaseCreate",
+            "OnCaseUpdate"
           ],
           "type": "string"
         },
@@ -220,6 +299,22 @@
       "type": "array",
       "uniqueItems": true
     },
+    "UpdateCaseAction": {
+      "additionalProperties": false,
+      "description": "The definition for update case action.",
+      "properties": { "Fields": { "$ref": "#/definitions/Fields" } },
+      "required": ["Fields"],
+      "type": "object"
+    },
+    "UpdateCaseActions": {
+      "description": "This action will update a case when a rule is triggered.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/UpdateCaseAction" },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
     "UserArn": {
       "description": "The Amazon Resource Name (ARN) of the user.",
       "pattern": "^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/agent/[-a-zA-Z0-9]*$",
@@ -228,7 +323,14 @@
   },
   "description": "Resource Type definition for AWS:Connect::Rule",
   "handlers": {
-    "create": { "permissions": ["connect:CreateRule"] },
+    "create": {
+      "permissions": [
+        "connect:CreateRule",
+        "cases:GetTemplate",
+        "cases:ListFields",
+        "cases:ListFieldOptions"
+      ]
+    },
     "delete": {
       "permissions": ["connect:DeleteRule", "connect:UntagResource"]
     },
@@ -236,6 +338,9 @@
     "update": {
       "permissions": [
         "connect:UpdateRule",
+        "cases:GetTemplate",
+        "cases:ListFields",
+        "cases:ListFieldOptions",
         "connect:TagResource",
         "connect:UntagResource"
       ]

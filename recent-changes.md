@@ -1,42 +1,21 @@
-- added `AWS::CodeBuild::Fleet`
-- updated `AWS::Batch::JobDefinition`
-  - added definition `AuthorizationConfig`
-  - added definition `EfsVolumeConfiguration`
-  - added definition `Metadata`
-  - added definition `MountPoints`
-  - added definition `PodProperties`
-  - added definition `Timeout`
-  - added definition `VolumesHost`
-  - added definition `Volumes`
-  - removed definition `EFSAuthorizationConfig`
-  - removed definition `EFSVolumeConfiguration`
-  - removed definition `EksMetadata`
-  - removed definition `EksPodProperties`
-  - removed definition `Host`
-  - removed definition `JobTimeout`
-  - removed definition `MountPoint`
-  - removed definition `Volume`
-  - removed property `ContainerOrchestrationType`
-  - removed property `JobDefinitionArn`
-  - removed property `Revision`
-  - removed property `Status`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `ContainerProperties`
-  - updated definition `EksContainerResourceRequirements`
-  - updated definition `EksProperties`
-  - updated definition `LogConfiguration`
-  - updated property `Parameters`
-  - updated property `Tags`
-  - updated property `Timeout`
-- updated `AWS::KinesisFirehose::DeliveryStream`
-  - added definition `SnowflakeDestinationConfiguration`
-  - added definition `SnowflakeRetryOptions`
-  - added definition `SnowflakeRoleConfiguration`
-  - added definition `SnowflakeVpcConfiguration`
-  - added property `SnowflakeDestinationConfiguration`
-  - updated `createOnlyProperties`
-- updated `AWS::LakeFormation::Resource`
-  - added property `HybridAccessEnabled`
-- updated `AWS::Route53Resolver::FirewallRuleGroup`
-  - updated definition `FirewallRule`
+- added `AWS::SSMGuiConnect::Preferences`
+- updated `AWS::Connect::Rule`
+  - added definition `CreateCaseAction`
+  - added definition `CreateCaseActions`
+  - added definition `EndAssociatedTasksAction`
+  - added definition `EndAssociatedTasksActions`
+  - added definition `FieldValue`
+  - added definition `Field`
+  - added definition `Fields`
+  - added definition `UpdateCaseAction`
+  - added definition `UpdateCaseActions`
+  - updated definition `Actions`
+  - updated definition `RuleTriggerEventSource`
+  - updated handler permissions
+- updated `AWS::DataZone::EnvironmentProfile`
+  - updated `required`
+- updated `AWS::EKS::AccessEntry`
+  - updated property `ClusterName`
+  - updated property `PrincipalArn`
+- updated `AWS::ElastiCache::ServerlessCache`
+  - updated definition `Endpoint`

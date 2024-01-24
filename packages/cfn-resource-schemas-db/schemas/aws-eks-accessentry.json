@@ -1,5 +1,5 @@
 {
-  "$hash": "4b757e3e7252dda68eb6597cd6045092f577b75a",
+  "$hash": "a782d09b8d6d7181c13d0ac1838d351f1efb6b19",
   "$id": "aws-eks-accessentry.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -121,6 +121,7 @@
     },
     "ClusterName": {
       "description": "The cluster that the access entry is created for.",
+      "minLength": 1,
       "type": "string"
     },
     "KubernetesGroups": {
@@ -132,6 +133,7 @@
     },
     "PrincipalArn": {
       "description": "The principal ARN that the access entry is created for.",
+      "minLength": 1,
       "type": "string"
     },
     "Tags": {
