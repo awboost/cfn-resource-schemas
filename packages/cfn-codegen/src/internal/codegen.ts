@@ -16,17 +16,22 @@ import {
 } from "@awboost/cfn-resource-schemas/nodes";
 import ts from "typescript";
 
+const DefaultResourceBuilderClassName = "Resource";
+const DefaultResourceBuilderModule =
+  "@awboost/cfn-template-builder/template/resource";
+const DefaultResourceOptionsTypeName = "ResourceOptions";
+const DefaultResourceOptionsModule = "@awboost/cfn-template-builder/template";
+const LogicalResourceIdParam = "logicalId";
+const OptionsParam = "options";
+const PropertiesParam = "properties";
 const ResourceAttribsTypeSuffix = "Attributes";
 const ResourceAttribsTypeSuffixAlt = "Attribs";
 const ResourceBuilderLocalClass = "$Resource";
-const ResourceClassTypeProp = "Type";
 const ResourceClassSuffix = "";
+const ResourceClassTypeProp = "Type";
 const ResourceModelTypeSuffix = "Model";
 const ResourceOptionsLocalType = "$ResourceOptions";
 const ResourcePropsTypeSuffix = "Properties";
-const LogicalResourceIdParam = "logicalId";
-const PropertiesParam = "properties";
-const OptionsParam = "options";
 
 export type ImportGenerationOptions = {
   resourceBuilderModule?: string;
@@ -431,10 +436,10 @@ export function generateResourceImports(
   options: ImportGenerationOptions = {},
 ): ts.Statement[] {
   const {
-    resourceBuilderClassName = "Resource",
-    resourceBuilderModule = "@awboost/cfn-template-builder/template/Resource",
-    resourceOptionsModule = "@awboost/cfn-template-builder/template",
-    resourceOptionsTypeName = "ResourceOptions",
+    resourceBuilderClassName = DefaultResourceBuilderClassName,
+    resourceBuilderModule = DefaultResourceBuilderModule,
+    resourceOptionsModule = DefaultResourceOptionsModule,
+    resourceOptionsTypeName = DefaultResourceOptionsTypeName,
   } = options;
 
   return [

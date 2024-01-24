@@ -4,7 +4,7 @@ Strong types for all AWS CloudFormation Resource Schemas.
 
 ```typescript
 import { Stack } from "@awboost/cfn-template-builder/stack";
-import { Asset } from "@awboost/cfn-template-builder/template/Asset";
+import { Asset } from "@awboost/cfn-template-builder/template/asset";
 import { LambdaFunction } from "@awboost/cfn-resource-types/AWS-Lambda-Function";
 
 const stack = new Stack();

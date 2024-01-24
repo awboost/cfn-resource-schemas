@@ -35,6 +35,6 @@
     "@awboost/cfn-codegen": "^0.1.2"
   },
   "peerDependencies": {
-    "@awboost/cfn-template-builder": ">=0.2.0"
+    "@awboost/cfn-template-builder": "^0.3.0"
   }
 }
