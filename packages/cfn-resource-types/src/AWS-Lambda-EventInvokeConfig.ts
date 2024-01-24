@@ -1,4 +1,4 @@
-import { Resource as $Resource } from "@awboost/cfn-template-builder/template/Resource";
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
