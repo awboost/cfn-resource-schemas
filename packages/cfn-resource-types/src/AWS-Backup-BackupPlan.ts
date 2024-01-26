@@ -65,6 +65,7 @@ export type CopyActionResourceType = {
 export type LifecycleResourceType = {
   DeleteAfterDays?: number;
   MoveToColdStorageAfterDays?: number;
+  OptInToArchiveForSupportedResources?: boolean;
 };
 /**
  * Resource Type definition for AWS::Backup::BackupPlan

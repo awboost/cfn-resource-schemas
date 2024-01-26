@@ -55,12 +55,14 @@ export type IoTFleetMetricProperties = {
 export type IoTFleetMetricAttributes = {
   /**
    * The creation date of a fleet metric
+   * @pattern `^([0-2]\d{3})-(0[0-9]|1[0-2])-([0-2]\d|3[01])T([01]\d|2[0-4]):([0-5]\d):([0-6]\d)((\.\d{3})?)Z$`
    */
-  CreationDate: number;
+  CreationDate: string;
   /**
    * The last modified date of a fleet metric
+   * @pattern `^([0-2]\d{3})-(0[0-9]|1[0-2])-([0-2]\d|3[01])T([01]\d|2[0-4]):([0-5]\d):([0-6]\d)((\.\d{3})?)Z$`
    */
-  LastModifiedDate: number;
+  LastModifiedDate: string;
   /**
    * The Amazon Resource Number (ARN) of a fleet metric metric
    */

@@ -1,21 +1,43 @@
-- added `AWS::SSMGuiConnect::Preferences`
-- updated `AWS::Connect::Rule`
-  - added definition `CreateCaseAction`
-  - added definition `CreateCaseActions`
-  - added definition `EndAssociatedTasksAction`
-  - added definition `EndAssociatedTasksActions`
-  - added definition `FieldValue`
-  - added definition `Field`
-  - added definition `Fields`
-  - added definition `UpdateCaseAction`
-  - added definition `UpdateCaseActions`
-  - updated definition `Actions`
-  - updated definition `RuleTriggerEventSource`
+- updated `AWS::AmazonMQ::Broker`
+  - updated definition `User`
+- updated `AWS::Backup::BackupPlan`
+  - updated definition `LifecycleResourceType`
+- updated `AWS::CloudTrail::EventDataStore`
   - updated handler permissions
-- updated `AWS::DataZone::EnvironmentProfile`
-  - updated `required`
-- updated `AWS::EKS::AccessEntry`
+- updated `AWS::CodeBuild::Project`
+  - added definition `ProjectFleet`
+  - updated definition `Environment`
+- updated `AWS::CodeGuruReviewer::RepositoryAssociation`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::EC2::DHCPOptions`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::EKS::PodIdentityAssociation`
+  - updated property `AssociationId`
   - updated property `ClusterName`
-  - updated property `PrincipalArn`
-- updated `AWS::ElastiCache::ServerlessCache`
-  - updated definition `Endpoint`
+- updated `AWS::GuardDuty::Filter`
+  - added `tagging`
+  - added definition `TagItem`
+  - removed `readOnlyProperties`
+  - removed definition `Tag`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `required`
+  - updated definition `Condition`
+  - updated definition `FindingCriteria`
+  - updated handler permissions
+  - updated property `DetectorId`
+  - updated property `Name`
+  - updated property `Rank`
+  - updated property `Tags`
+- updated `AWS::InspectorV2::Filter`
+  - added `tagging`
+- updated `AWS::IoT::FleetMetric`
+  - added definition `iso8601UTC`
+  - updated handler permissions
+  - updated property `CreationDate`
+  - updated property `LastModifiedDate`
+- updated `AWS::Route53Resolver::ResolverDNSSECConfig`
+  - added `tagging`
+  - updated handler permissions

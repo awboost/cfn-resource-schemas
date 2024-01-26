@@ -1,5 +1,5 @@
 {
-  "$hash": "aab3419c41bb676e8414790d088ab4c0a47e5478",
+  "$hash": "0a91abc5c9e0f594c62331eebd8baba820d74eb4",
   "$id": "aws-eks-podidentityassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -77,10 +77,12 @@
     },
     "AssociationId": {
       "description": "The ID of the pod identity association.",
+      "minLength": 1,
       "type": "string"
     },
     "ClusterName": {
       "description": "The cluster that the pod identity association is created for.",
+      "minLength": 1,
       "type": "string"
     },
     "Namespace": {

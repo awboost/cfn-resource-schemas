@@ -1,5 +1,5 @@
 {
-  "$hash": "42c9e1410f039e55745f35b8e98066b2beacba73",
+  "$hash": "d3e59dfaf7bdf7a12724e302b2358dd5c54cbe67",
   "$id": "aws-backup-backupplan.json",
   "additionalProperties": false,
   "definitions": {
@@ -73,7 +73,8 @@
       "additionalProperties": false,
       "properties": {
         "DeleteAfterDays": { "type": "number" },
-        "MoveToColdStorageAfterDays": { "type": "number" }
+        "MoveToColdStorageAfterDays": { "type": "number" },
+        "OptInToArchiveForSupportedResources": { "type": "boolean" }
       },
       "type": "object"
     }

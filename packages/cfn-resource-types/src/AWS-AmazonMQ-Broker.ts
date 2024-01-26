@@ -108,6 +108,7 @@ export type User = {
   ConsoleAccess?: boolean;
   Groups?: string[];
   Password: string;
+  ReplicationUser?: boolean;
   Username: string;
 };
 /**

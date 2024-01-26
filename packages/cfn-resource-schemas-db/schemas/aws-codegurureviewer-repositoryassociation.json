@@ -1,14 +1,14 @@
 {
-  "$hash": "bb1414eedf598918b399a039991de64ad8f71a26",
+  "$hash": "7020a9a454300c6b1b67691b58522a0a6c6d0de6",
   "$id": "aws-codegurureviewer-repositoryassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",
     "/properties/Type",
-    "/properties/Owner",
-    "/properties/ConnectionArn",
     "/properties/Tags",
-    "/properties/BucketName"
+    "/properties/BucketName",
+    "/properties/Owner",
+    "/properties/ConnectionArn"
   ],
   "definitions": {
     "Tag": {
@@ -36,6 +36,7 @@
   "handlers": {
     "create": {
       "permissions": [
+        "codeguru-reviewer:DescribeRepositoryAssociation",
         "codeguru-reviewer:AssociateRepository",
         "codeguru-reviewer:TagResource",
         "iam:CreateServiceLinkedRole",
@@ -49,16 +50,19 @@
         "codestar-connections:ListTagsForResource",
         "codestar-connections:PassConnection",
         "codestar-connections:TagResource",
-        "codestar-connections:UseConnection"
+        "codestar-connections:UseConnection",
+        "s3:ListBucket"
       ]
     },
     "delete": {
       "permissions": [
+        "codeguru-reviewer:DescribeRepositoryAssociation",
         "codeguru-reviewer:DisassociateRepository",
         "codecommit:UntagResource",
         "events:DeleteRule",
         "events:RemoveTargets",
-        "codestar-connections:UntagResource"
+        "codestar-connections:UntagResource",
+        "codestar-connections:ListTagsForResource"
       ]
     },
     "list": { "permissions": ["codeguru-reviewer:ListRepositoryAssociations"] },

@@ -1,5 +1,5 @@
 {
-  "$hash": "6b4dcd6e6dc1142bab880e2cdd062226aae2eae5",
+  "$hash": "1971e19f36004ba320eac6344516c5c560909b35",
   "$id": "aws-amazonmq-broker.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -98,6 +98,7 @@
           "uniqueItems": false
         },
         "Password": { "type": "string" },
+        "ReplicationUser": { "type": "boolean" },
         "Username": { "type": "string" }
       },
       "required": ["Username", "Password"],

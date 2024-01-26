@@ -1,5 +1,5 @@
 {
-  "$hash": "764f51ec06d5b42ec316862b5245bfaa8751f83b",
+  "$hash": "c042e0d7178df6492278d8187e17e9d733b5909b",
   "$id": "aws-route53resolver-resolverdnssecconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceId"],
@@ -10,7 +10,7 @@
         "resolverdnssec:CreateConfig",
         "route53resolver:UpdateResolverDnssecConfig",
         "route53resolver:GetResolverDnssecConfig",
-        "ec2:*"
+        "ec2:DescribeVpcs"
       ]
     },
     "delete": {
@@ -18,7 +18,7 @@
         "resolverdnssec:DeleteConfig",
         "route53resolver:UpdateResolverDnssecConfig",
         "route53resolver:ListResolverDnssecConfigs",
-        "ec2:*"
+        "ec2:DescribeVpcs"
       ]
     },
     "list": {
@@ -65,5 +65,6 @@
     "/properties/Id",
     "/properties/ValidationStatus"
   ],
+  "tagging": { "taggable": false },
   "typeName": "AWS::Route53Resolver::ResolverDNSSECConfig"
 }

@@ -84,13 +84,14 @@ export type CloudWatchLogsConfig = {
  */
 export type Environment = {
   Certificate?: string;
-  ComputeType?: string;
+  ComputeType: string;
   EnvironmentVariables?: EnvironmentVariable[];
+  Fleet?: ProjectFleet;
   Image: string;
   ImagePullCredentialsType?: string;
   PrivilegedMode?: boolean;
   RegistryCredential?: RegistryCredential;
-  Type?: string;
+  Type: string;
 };
 /**
  * Type definition for `AWS::CodeBuild::Project.EnvironmentVariable`.
@@ -151,6 +152,13 @@ export type ProjectFileSystemLocation = {
   MountOptions?: string;
   MountPoint: string;
   Type: string;
+};
+/**
+ * Type definition for `AWS::CodeBuild::Project.ProjectFleet`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfleet.html}
+ */
+export type ProjectFleet = {
+  FleetArn?: string;
 };
 /**
  * Type definition for `AWS::CodeBuild::Project.ProjectSourceVersion`.

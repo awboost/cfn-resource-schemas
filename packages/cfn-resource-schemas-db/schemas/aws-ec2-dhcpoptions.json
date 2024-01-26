@@ -1,5 +1,5 @@
 {
-  "$hash": "09879f1406ce0b8a40fd15dfa021ad9fc62e3b88",
+  "$hash": "598d0fd24c0670d649a1a90dd914444f887a5320",
   "$id": "aws-ec2-dhcpoptions.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -84,6 +84,12 @@
     }
   },
   "readOnlyProperties": ["/properties/DhcpOptionsId"],
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EC2::DHCPOptions"
 }

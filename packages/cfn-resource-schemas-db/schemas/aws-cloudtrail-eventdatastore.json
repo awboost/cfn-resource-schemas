@@ -1,5 +1,5 @@
 {
-  "$hash": "4262c0d6a335889dbf185793bb9f7f3ecca36da1",
+  "$hash": "8066029ef2c9d91245a60bbccf7df3f521eb35fd",
   "$id": "aws-cloudtrail-eventdatastore.json",
   "additionalProperties": false,
   "definitions": {
@@ -217,7 +217,8 @@
         "glue:PassConnection",
         "lakeformation:RegisterResource",
         "glue:DeleteTable",
-        "lakeformation:DeregisterResource"
+        "lakeformation:DeregisterResource",
+        "kms:DescribeKey"
       ]
     }
   },

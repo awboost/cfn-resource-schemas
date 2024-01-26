@@ -8,6 +8,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type EKSPodIdentityAssociationProperties = {
   /**
    * The cluster that the pod identity association is created for.
+   * @minLength `1`
    */
   ClusterName: string;
   /**
@@ -38,6 +39,7 @@ export type EKSPodIdentityAssociationAttributes = {
   AssociationArn: string;
   /**
    * The ID of the pod identity association.
+   * @minLength `1`
    */
   AssociationId: string;
 };

@@ -5,20 +5,25 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html}
  */
 export type GuardDutyFilterProperties = {
-  Action: string;
-  Description: string;
-  DetectorId: string;
+  Action?: string;
+  Description?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `300`
+   */
+  DetectorId?: string;
   FindingCriteria: FindingCriteria;
-  Name: string;
-  Rank: number;
-  Tags?: Tag[];
-};
-/**
- * Attribute type definition for `AWS::GuardDuty::Filter`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#aws-resource-guardduty-filter-return-values}
- */
-export type GuardDutyFilterAttributes = {
-  Id: string;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Name?: string;
+  /**
+   * @min `1`
+   * @max `100`
+   */
+  Rank?: number;
+  Tags?: TagItem[];
 };
 /**
  * Type definition for `AWS::GuardDuty::Filter.Condition`.
@@ -43,15 +48,22 @@ export type Condition = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-findingcriteria.html}
  */
 export type FindingCriteria = {
-  Criterion?: Record<string, any>;
-  ItemType?: Condition;
+  Criterion?: Record<string, Condition>;
 };
 /**
- * Type definition for `AWS::GuardDuty::Filter.Tag`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-tag.html}
+ * Type definition for `AWS::GuardDuty::Filter.TagItem`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-filter-tagitem.html}
  */
-export type Tag = {
+export type TagItem = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
   Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   */
   Value: string;
 };
 /**
@@ -61,7 +73,7 @@ export type Tag = {
 export class GuardDutyFilter extends $Resource<
   "AWS::GuardDuty::Filter",
   GuardDutyFilterProperties,
-  GuardDutyFilterAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::GuardDuty::Filter";
   constructor(
