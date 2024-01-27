@@ -2,12 +2,14 @@ import type { ResourceTypeSchema } from "@awboost/cfn-resource-schemas/types";
 import JsonPointer from "json-pointer";
 import type { JSONSchema7, JSONSchema7Definition } from "json-schema";
 import { join } from "path/posix";
-import { formatWithOptions } from "util";
+import { format, formatWithOptions } from "util";
+import { validateResourceTypeSchema } from "./meta.js";
 
 export type Problem = {
   level: "error" | "warn";
   message: string;
-  node: NodeBase;
+  node?: NodeBase;
+  path?: string;
 };
 
 export type TypeDocumentation = {
@@ -19,6 +21,10 @@ export type TypeDocumentation = {
   minItems?: number;
   minLength?: number;
   pattern?: string;
+};
+
+export type SchemaFileNodeOptions = {
+  validationProblemLevel?: Problem["level"] | "silent";
 };
 
 export class SchemaFileNode {
@@ -42,7 +48,9 @@ export class SchemaFileNode {
   constructor(
     public readonly schema: ResourceTypeSchema,
     public readonly fileName: string,
+    options: SchemaFileNodeOptions = {},
   ) {
+    const { validationProblemLevel = "warn" } = options;
     this.description = schema.description;
     this.documentationUrl = schema.documentationUrl;
     this.typeName = schema.typeName;
@@ -64,6 +72,24 @@ export class SchemaFileNode {
     );
 
     this.model = new ObjectTypeNode({ ...schema, type: "object" }, this, "");
+
+    if (validationProblemLevel !== "silent") {
+      const validationResult = validateResourceTypeSchema(schema);
+      if (!validationResult.ok) {
+        for (const error of validationResult.errors) {
+          const message = format(
+            `%s %O`,
+            error.message ?? "validation error",
+            error.params,
+          );
+          this.problems.push({
+            level: validationProblemLevel,
+            message,
+            path: error.instancePath,
+          });
+        }
+      }
+    }
   }
 
   public error(node: NodeBase, message: string, ...args: any[]): void {

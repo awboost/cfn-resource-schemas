@@ -46,6 +46,8 @@ async function downloadAction(
 
   const schemas = withHash(
     downloadAwsResourceSchemas({
+      // we'll validate before generation instead so we get nice error output
+      skipValidate: true,
       url: opts.url,
     }),
   );

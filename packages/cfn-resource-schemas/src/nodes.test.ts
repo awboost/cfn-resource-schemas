@@ -22,7 +22,9 @@ describe("TypeNode", () => {
   describe("build()", () => {
     describe("for an invalid type", () => {
       it("returns an InvalidTypeNode", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           { type: "fred" } as any,
@@ -40,7 +42,9 @@ describe("TypeNode", () => {
 
     describe("when no type is present", () => {
       it("returns an AnyTypeNode", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode({}, file, "/path/to/node");
 
@@ -51,7 +55,9 @@ describe("TypeNode", () => {
 
     describe('when type="array"', () => {
       it("returns a ArrayTypeNode", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -76,7 +82,9 @@ describe("TypeNode", () => {
 
     describe('when type="boolean"', () => {
       it("returns a BooleanTypeNode", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -94,7 +102,9 @@ describe("TypeNode", () => {
 
     describe('when type="integer"', () => {
       it("returns a IntegerTypeNode", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -120,7 +130,9 @@ describe("TypeNode", () => {
       });
 
       it("handles enums correctly", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -136,7 +148,9 @@ describe("TypeNode", () => {
       });
 
       it("rejects string elements in enum", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -157,7 +171,9 @@ describe("TypeNode", () => {
       });
 
       it("rejects float elements in enum", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -178,7 +194,9 @@ describe("TypeNode", () => {
       });
 
       it("handles const correctly", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -194,7 +212,9 @@ describe("TypeNode", () => {
       });
 
       it("rejects string value in const", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -215,7 +235,9 @@ describe("TypeNode", () => {
       });
 
       it("rejects float value in const", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -238,7 +260,9 @@ describe("TypeNode", () => {
 
     describe('when type="null"', () => {
       it("returns a NullTypeNode for a null type", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -256,7 +280,9 @@ describe("TypeNode", () => {
 
     describe('when type="number"', () => {
       it("returns a NumberTypeNode", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -282,7 +308,9 @@ describe("TypeNode", () => {
       });
 
       it("handles enums correctly", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -298,7 +326,9 @@ describe("TypeNode", () => {
       });
 
       it("rejects string elements in enum", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -319,7 +349,9 @@ describe("TypeNode", () => {
       });
 
       it("handles const correctly", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -335,7 +367,9 @@ describe("TypeNode", () => {
       });
 
       it("rejects string value in const", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -367,6 +401,7 @@ describe("TypeNode", () => {
             definitions: {},
           },
           "file.json",
+          { validationProblemLevel: "silent" },
         );
 
         const node = TypeNode.makeTypeNode(
@@ -408,6 +443,7 @@ describe("TypeNode", () => {
             },
           },
           "file.json",
+          { validationProblemLevel: "silent" },
         );
 
         const node = TypeNode.makeTypeNode(
@@ -453,6 +489,7 @@ describe("TypeNode", () => {
             definitions: {},
           },
           "file.json",
+          { validationProblemLevel: "silent" },
         );
 
         const node = TypeNode.makeTypeNode(file.schema, file, "");
@@ -489,6 +526,7 @@ describe("TypeNode", () => {
             readOnlyProperties: ["/properties/one", "/properties/two/three"],
           },
           "file.json",
+          { validationProblemLevel: "silent" },
         );
 
         const node = TypeNode.makeTypeNode(
@@ -544,6 +582,7 @@ describe("TypeNode", () => {
             ],
           },
           "file.json",
+          { validationProblemLevel: "silent" },
         );
 
         const node = TypeNode.makeTypeNode(
@@ -586,6 +625,7 @@ describe("TypeNode", () => {
             readOnlyProperties: [],
           },
           "file.json",
+          { validationProblemLevel: "silent" },
         );
 
         const node = TypeNode.makeTypeNode(
@@ -612,7 +652,9 @@ describe("TypeNode", () => {
 
     describe('when type="string"', () => {
       it("returns a StringTypeNode", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -636,7 +678,9 @@ describe("TypeNode", () => {
       });
 
       it("handles enums correctly", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -652,7 +696,9 @@ describe("TypeNode", () => {
       });
 
       it("rejects number elements in enum", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -673,7 +719,9 @@ describe("TypeNode", () => {
       });
 
       it("handles const correctly", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -689,7 +737,9 @@ describe("TypeNode", () => {
       });
 
       it("rejects number value in const", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -712,7 +762,9 @@ describe("TypeNode", () => {
 
     describe('for a type with "anyOf"', () => {
       it("returns a UnionTypeNode", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -735,7 +787,9 @@ describe("TypeNode", () => {
 
     describe('for a type with "oneOf"', () => {
       it("returns a UnionTypeNode", () => {
-        const file = new SchemaFileNode({} as any, "file.json");
+        const file = new SchemaFileNode({} as any, "file.json", {
+          validationProblemLevel: "silent",
+        });
 
         const node = TypeNode.makeTypeNode(
           {
@@ -769,6 +823,7 @@ describe("TypeNode", () => {
             },
           },
           "file.json",
+          { validationProblemLevel: "silent" },
         );
 
         const node = TypeNode.makeTypeNode(
@@ -796,6 +851,7 @@ describe("TypeNode", () => {
             },
           },
           "file.json",
+          { validationProblemLevel: "silent" },
         );
 
         const node = TypeNode.makeTypeNode(
@@ -824,6 +880,7 @@ describe("TypeNode", () => {
             },
           },
           "file.json",
+          { validationProblemLevel: "silent" },
         );
 
         const node = TypeNode.makeTypeNode(
@@ -864,6 +921,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(
@@ -891,6 +949,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(
@@ -928,6 +987,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(
@@ -960,6 +1020,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(
@@ -998,6 +1059,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(
@@ -1046,6 +1108,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(
@@ -1080,6 +1143,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(
@@ -1128,6 +1192,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(
@@ -1161,6 +1226,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(
@@ -1193,6 +1259,7 @@ describe("PropertyListNode", () => {
         },
       },
       "file.json",
+      { validationProblemLevel: "silent" },
     );
 
     const node = new PropertyListNode(

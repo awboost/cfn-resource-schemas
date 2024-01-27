@@ -31,7 +31,15 @@ export async function* downloadAwsResourceSchemas({
     try {
       const schema = JSON.parse(await file.async("text"));
       if (!skipValidate) {
-        validateResourceTypeSchema(schema);
+        const result = validateResourceTypeSchema(schema);
+        if (!result.ok) {
+          throw new Error(
+            result.errors
+              .map((x) => x.message)
+              .filter(Boolean)
+              .join(", "),
+          );
+        }
       }
       schema.$id = path;
       yield schema;

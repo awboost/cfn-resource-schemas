@@ -1,8 +1,8 @@
 import { downloadAwsResourceSchemas } from "@awboost/cfn-resource-schemas";
-import { SchemaFileNode } from "@awboost/cfn-resource-schemas/nodes";
+import { NodeBase, SchemaFileNode } from "@awboost/cfn-resource-schemas/nodes";
 import type { ResourceTypeSchema } from "@awboost/cfn-resource-schemas/types";
 import chalk from "chalk";
-import { Command } from "commander";
+import { Command, Option } from "commander";
 import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { format } from "prettier";
@@ -27,6 +27,12 @@ export function addGenerateCommand(program: Command): void {
     .option("--output-dir <path>", "the directory to output code to")
     .option("--output-file <path>", "the path to output code to")
     .option("--resource", "generate the resource class and associate types")
+    .addOption(
+      new Option(
+        "--schema-validation-errors <level>",
+        "what level to log schema validation errors at",
+      ).choices(["error", "silent", "warn"]),
+    )
     .action(
       async (
         input: string[],
@@ -36,12 +42,14 @@ export function addGenerateCommand(program: Command): void {
           outputDir,
           outputFile,
           resource: generateResource,
+          schemaValidationErrors,
         }: {
           download?: string | boolean;
           model?: boolean;
           outputDir?: string;
           outputFile?: string;
           resource?: boolean;
+          schemaValidationErrors?: "error" | "silent" | "warn";
         },
       ) => {
         if (generateResource === generateModel) {
@@ -80,39 +88,19 @@ export function addGenerateCommand(program: Command): void {
         let totalWarnCount = 0;
 
         for await (const schema of schemas) {
-          const schemaFile = new SchemaFileNode(schema, schema.$id);
+          delete (schema as any)["$hash"];
 
-          const [errorCount, warnCount] = schemaFile.problems.reduce(
-            ([errorCount, warnCount], p) =>
-              p.level === "error"
-                ? [errorCount + 1, warnCount]
-                : [errorCount, warnCount + 1],
-            [0, 0],
+          const schemaFile = new SchemaFileNode(schema, schema.$id, {
+            validationProblemLevel: schemaValidationErrors,
+          });
+
+          const [errorCount, warnCount] = reportProblems(
+            schema.$id,
+            schemaFile.problems,
           );
           totalErrorCount += errorCount;
           totalWarnCount += warnCount;
 
-          if (schemaFile.problems.length) {
-            console.error(
-              "\n" +
-                chalk.underline(chalk.whiteBright(schema.$id)) +
-                ` (${errorCount} errors, ${warnCount} warnings)`,
-            );
-
-            for (const problem of schemaFile.problems) {
-              if (problem.level === "error") {
-                console.error(
-                  `  ${chalk.red("error")} ` +
-                    `${chalk.gray(problem.node.path)} ${problem.message}`,
-                );
-              } else if (problem.level === "warn") {
-                console.error(
-                  `  ${chalk.yellow("warn ")} ` +
-                    `${chalk.gray(problem.node.path)} ${problem.message}`,
-                );
-              }
-            }
-          }
           if (errorCount === 0) {
             const statements: ts.Statement[] = [];
 
@@ -205,4 +193,62 @@ async function* readSchemas(
     schema.$id = path;
     yield schema;
   }
+}
+
+type Problem = {
+  level: "error" | "warn";
+  message: string;
+  node?: NodeBase;
+  path?: string;
+};
+
+function reportProblems(
+  fileName: string,
+  problems: Problem[],
+): [number, number] {
+  if (!problems.length) {
+    return [0, 0];
+  }
+
+  let errorCount = 0;
+  let warnCount = 0;
+
+  for (const problem of problems) {
+    switch (problem.level) {
+      case "error":
+        ++errorCount;
+        break;
+      case "warn":
+        ++warnCount;
+        break;
+    }
+  }
+
+  console.error(
+    "\n" +
+      chalk.underline(chalk.whiteBright(fileName)) +
+      ` (${errorCount} errors, ${warnCount} warnings)`,
+  );
+
+  for (const problem of problems) {
+    let message: string;
+
+    if (problem.level === "error") {
+      message = chalk.red("error ");
+    } else if (problem.level === "warn") {
+      message = chalk.yellow("warn  ");
+    } else {
+      message = "";
+    }
+
+    const path = problem.node?.path ?? problem.path;
+    if (path) {
+      message += chalk.gray(path) + " ";
+    }
+
+    message += problem.message;
+    console.error(message);
+  }
+
+  return [errorCount, warnCount];
 }
