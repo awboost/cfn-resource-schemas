@@ -1,4 +1,4 @@
-import Ajv from "ajv";
+import Ajv, { type ErrorObject, type ValidateFunction } from "ajv";
 import addFormats from "ajv-formats";
 import type { JSONSchema7 } from "json-schema";
 import type { ResourceTypeSchema } from "./types.js";
@@ -37,16 +37,20 @@ export const metaSchemas: JSONSchema7[] = [
         },
       },
       validations: {
+        type: "object",
         dependencies: {
           enum: {
+            type: "object",
             $comment:
               "Enforce that properties are strongly typed when enum, or const is specified.",
             required: ["type"],
           },
           const: {
+            type: "object",
             required: ["type"],
           },
           properties: {
+            type: "object",
             $comment:
               "An object cannot have both defined and undefined properties; therefore, patternProperties is not allowed when properties is specified.",
             not: {
@@ -444,14 +448,12 @@ export const metaSchemas: JSONSchema7[] = [
             items: {
               type: "string",
             },
-            additionalItems: false,
           },
           permissions: {
             type: "array",
             items: {
               type: "string",
             },
-            additionalItems: false,
           },
         },
         additionalProperties: false,
@@ -593,7 +595,6 @@ export const metaSchemas: JSONSchema7[] = [
             items: {
               type: "string",
             },
-            additionalItems: false,
           },
           timeoutInMinutes: {
             description:
@@ -1015,7 +1016,6 @@ export const metaSchemas: JSONSchema7[] = [
             items: {
               type: "string",
             },
-            additionalItems: false,
           },
           timeoutInMinutes: {
             description:
@@ -1039,7 +1039,6 @@ export const metaSchemas: JSONSchema7[] = [
             items: {
               type: "string",
             },
-            additionalItems: false,
           },
           timeoutInMinutes: {
             description:
@@ -1179,7 +1178,6 @@ export const metaSchemas: JSONSchema7[] = [
             items: {
               type: "string",
             },
-            additionalItems: false,
           },
         },
         required: ["taggable"],
@@ -1321,10 +1319,42 @@ export const metaSchemas: JSONSchema7[] = [
   },
 ];
 
-export const validateResourceTypeSchema = addFormats
-  .default(
-    new Ajv.default({
-      schemas: metaSchemas.slice(1),
-    }),
-  )
-  .compile<ResourceTypeSchema>(metaSchemas[0]);
+export type ValidationResult<T> =
+  | { ok: true; value: T }
+  | { ok: false; errors: ErrorObject[] };
+
+export type Validator<T> = {
+  (value: unknown): ValidationResult<T>;
+  test: (value: unknown) => value is T;
+};
+
+function buildValidator(): ValidateFunction<ResourceTypeSchema> {
+  const validate = addFormats
+    .default(new Ajv.default({ schemas: metaSchemas, validateSchema: "log" }))
+    .getSchema<ResourceTypeSchema>(
+      "http://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
+    );
+
+  if (!validate) {
+    throw new Error(`error loading meta schemas`);
+  }
+  return validate;
+}
+
+function wrapValidator<T>(validate: ValidateFunction<T>): Validator<T> {
+  return Object.assign(
+    function wrappedValidate(value: unknown): ValidationResult<T> {
+      if (validate(value)) {
+        return { ok: true, value };
+      }
+      return { ok: false, errors: validate.errors ?? [] };
+    },
+    {
+      test(value: unknown): value is T {
+        return validate(value);
+      },
+    },
+  );
+}
+
+export const validateResourceTypeSchema = wrapValidator(buildValidator());
