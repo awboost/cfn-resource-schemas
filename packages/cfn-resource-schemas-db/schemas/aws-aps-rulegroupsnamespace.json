@@ -1,8 +1,8 @@
 {
-  "$hash": "19264351798b4874f1615bd5ade04a1ed0d68d2b",
+  "$hash": "dec8fcb3dab3114614f429d3135a4631dbf23b9c",
   "$id": "aws-aps-rulegroupsnamespace.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Name"],
+  "createOnlyProperties": ["/properties/Name", "/properties/Workspace"],
   "definitions": {
     "Tag": {
       "additionalProperties": false,
