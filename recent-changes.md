@@ -1,2 +1,1 @@
-- updated `AWS::APS::RuleGroupsNamespace`
-  - updated `createOnlyProperties`
+- added `AWS::RDS::Integration`
