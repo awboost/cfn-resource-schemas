@@ -1,5 +1,5 @@
 {
-  "$hash": "ca627d45695d6a371dceade679ea685d5c0161ab",
+  "$hash": "c9925300755b9deef6951a06987d08d239552244",
   "$id": "aws-eks-addon.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterName", "/properties/AddonName"],
@@ -36,7 +36,17 @@
       ]
     },
     "delete": { "permissions": ["eks:DeleteAddon", "eks:DescribeAddon"] },
-    "list": { "permissions": ["eks:ListAddons"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "ClusterName": {
+            "$ref": "resource-schema.json#/properties/ClusterName"
+          }
+        },
+        "required": ["ClusterName"]
+      },
+      "permissions": ["eks:ListAddons"]
+    },
     "read": { "permissions": ["eks:DescribeAddon"] },
     "update": {
       "permissions": [

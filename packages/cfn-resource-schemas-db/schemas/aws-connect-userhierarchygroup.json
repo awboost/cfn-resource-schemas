@@ -1,5 +1,5 @@
 {
-  "$hash": "62a20dc263ef67f1c7705f1970c28d453825700a",
+  "$hash": "698c1248456dd95ec8e891e417014ca8834bd3f7",
   "$id": "aws-connect-userhierarchygroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ParentGroupArn"],
@@ -94,6 +94,12 @@
   "readOnlyProperties": ["/properties/UserHierarchyGroupArn"],
   "required": ["Name", "InstanceArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Connect::UserHierarchyGroup"
 }

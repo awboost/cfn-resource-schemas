@@ -1,5 +1,5 @@
 {
-  "$hash": "faea21e78baf6df46a992af3181cba68c858f92b",
+  "$hash": "d77421c1d0bfb2c296b14f4d0c0aa4bfbf93879b",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -111,6 +111,7 @@
           "type": "array",
           "uniqueItems": true
         },
+        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": { "type": "integer" },
         "MemoryGiBPerVCpu": { "$ref": "#/definitions/MemoryGiBPerVCpuRequest" },
         "MemoryMiB": { "$ref": "#/definitions/MemoryMiBRequest" },
         "NetworkBandwidthGbps": {

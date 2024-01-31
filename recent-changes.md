@@ -1,1 +1,15 @@
-- added `AWS::RDS::Integration`
+- added `AWS::InspectorV2::CisScanConfiguration`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - updated definition `InstanceRequirements`
+- updated `AWS::Connect::HoursOfOperation`
+  - added `tagging`
+- updated `AWS::Connect::QuickConnect`
+  - added `tagging`
+- updated `AWS::Connect::User`
+  - added `tagging`
+- updated `AWS::Connect::UserHierarchyGroup`
+  - updated `tagging`
+- updated `AWS::EKS::Addon`
+  - updated handler permissions
+- updated `AWS::Location::Map`
+  - updated definition `MapConfiguration`

@@ -57,6 +57,10 @@ export type LocationMapAttributes = {
  */
 export type MapConfiguration = {
   /**
+   * @maxLength `10`
+   */
+  CustomLayers?: string[];
+  /**
    * @minLength `3`
    * @maxLength `3`
    * @pattern `^[A-Z]{3}$`

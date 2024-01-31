@@ -1,5 +1,5 @@
 {
-  "$hash": "739dc0e98e96ddb39ec8e79d4b10760f9548b8b9",
+  "$hash": "5ea3caac89cbff6605d9b7b9695dc60aee94f65e",
   "$id": "aws-connect-user.json",
   "additionalProperties": false,
   "definitions": {
@@ -233,6 +233,13 @@
     "Username"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Connect::User",
   "writeOnlyProperties": ["/properties/Password"]
 }

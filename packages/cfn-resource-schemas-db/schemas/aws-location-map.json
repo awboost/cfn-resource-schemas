@@ -1,5 +1,5 @@
 {
-  "$hash": "7a2e7689240553919c4ebc4f3d27fe1570adc252",
+  "$hash": "188b9cf64f682247df640e0c2c273bea604fa6fb",
   "$id": "aws-location-map.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Configuration", "/properties/MapName"],
@@ -7,6 +7,16 @@
     "MapConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "CustomLayers": {
+          "items": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[-._\\w]+$",
+            "type": "string"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
         "PoliticalView": {
           "maxLength": 3,
           "minLength": 3,

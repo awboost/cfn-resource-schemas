@@ -96,6 +96,7 @@ export type InstanceRequirements = {
   InstanceGenerations?: string[];
   LocalStorage?: string;
   LocalStorageTypes?: string[];
+  MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
   MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest;
   MemoryMiB: MemoryMiBRequest;
   NetworkBandwidthGbps?: NetworkBandwidthGbpsRequest;

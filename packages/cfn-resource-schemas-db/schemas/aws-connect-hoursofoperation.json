@@ -1,5 +1,5 @@
 {
-  "$hash": "4c03a0c5427fc294b6713351a32b88ae3af0b032",
+  "$hash": "56342bf4ce85b7e88e6570ab27e59abdfd6e0643",
   "$id": "aws-connect-hoursofoperation.json",
   "additionalProperties": false,
   "definitions": {
@@ -149,5 +149,12 @@
   "readOnlyProperties": ["/properties/HoursOfOperationArn"],
   "required": ["InstanceArn", "Name", "TimeZone", "Config"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Connect::HoursOfOperation"
 }
