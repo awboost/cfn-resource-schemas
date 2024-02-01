@@ -11,6 +11,12 @@ export type SageMakerSpaceProperties = {
    * @maxLength `63`
    */
   DomainId: string;
+  OwnershipSettings?: OwnershipSettings;
+  /**
+   * @maxLength `64`
+   * @pattern `^(?!\s*$).+`
+   */
+  SpaceDisplayName?: string;
   /**
    * A name for the Space.
    * @minLength `1`
@@ -21,6 +27,7 @@ export type SageMakerSpaceProperties = {
    * A collection of settings.
    */
   SpaceSettings?: SpaceSettings;
+  SpaceSharingSettings?: SpaceSharingSettings;
   /**
    * A list of tags to apply to the space.
    * @minLength `0`
@@ -39,6 +46,41 @@ export type SageMakerSpaceAttributes = {
    * @pattern `arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:space/.*`
    */
   SpaceArn: string;
+  /**
+   * @maxLength `1024`
+   */
+  Url: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Space.AppType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-apptype.html}
+ */
+export type AppType =
+  | "JupyterServer"
+  | "KernelGateway"
+  | "TensorBoard"
+  | "RStudioServerPro"
+  | "RSessionGateway"
+  | "JupyterLab"
+  | "CodeEditor";
+/**
+ * Type definition for `AWS::SageMaker::Space.CodeRepository`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-coderepository.html}
+ */
+export type CodeRepository = {
+  /**
+   * A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+   * @maxLength `256`
+   * @pattern `^https://([.\-_a-zA-Z0-9]+/?){3,1016}$`
+   */
+  RepositoryUrl: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Space.CustomFileSystem`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html}
+ */
+export type CustomFileSystem = {
+  EFSFileSystem?: EFSFileSystem;
 };
 /**
  * Type definition for `AWS::SageMaker::Space.CustomImage`.
@@ -65,6 +107,31 @@ export type CustomImage = {
   ImageVersionNumber?: number;
 };
 /**
+ * Type definition for `AWS::SageMaker::Space.EbsStorageSettings`.
+ * Properties related to the space's Amazon Elastic Block Store volume.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ebsstoragesettings.html}
+ */
+export type EbsStorageSettings = {
+  /**
+   * Size of the Amazon EBS volume in Gb
+   * @min `5`
+   * @max `16384`
+   */
+  EbsVolumeSizeInGb: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::Space.EFSFileSystem`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-efsfilesystem.html}
+ */
+export type EFSFileSystem = {
+  /**
+   * @minLength `11`
+   * @maxLength `21`
+   * @pattern `^(fs-[0-9a-f]{8,})$`
+   */
+  FileSystemId: string;
+};
+/**
  * Type definition for `AWS::SageMaker::Space.JupyterServerAppSettings`.
  * The JupyterServer app settings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-jupyterserverappsettings.html}
@@ -88,6 +155,17 @@ export type KernelGatewayAppSettings = {
    * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
    */
   DefaultResourceSpec?: ResourceSpec;
+};
+/**
+ * Type definition for `AWS::SageMaker::Space.OwnershipSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html}
+ */
+export type OwnershipSettings = {
+  /**
+   * @maxLength `63`
+   * @pattern `^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}`
+   */
+  OwnerUserProfileName: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Space.ResourceSpec`.
@@ -157,7 +235,10 @@ export type ResourceSpec = {
     | "ml.g5.48xlarge"
     | "ml.p4d.24xlarge"
     | "ml.p4de.24xlarge"
-    | "ml.geospatial.interactive";
+    | "ml.geospatial.interactive"
+    | "ml.trn1.2xlarge"
+    | "ml.trn1.32xlarge"
+    | "ml.trn1n.32xlarge";
   /**
    * The ARN of the SageMaker image that the image version belongs to.
    * @maxLength `256`
@@ -172,11 +253,47 @@ export type ResourceSpec = {
   SageMakerImageVersionArn?: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::Space.SpaceCodeEditorAppSettings`.
+ * The CodeEditor app settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html}
+ */
+export type SpaceCodeEditorAppSettings = {
+  DefaultResourceSpec?: ResourceSpec;
+};
+/**
+ * Type definition for `AWS::SageMaker::Space.SpaceJupyterLabAppSettings`.
+ * The JupyterServer app settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html}
+ */
+export type SpaceJupyterLabAppSettings = {
+  /**
+   * A list of CodeRepositories available for use with JupyterLab apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  CodeRepositories?: CodeRepository[];
+  DefaultResourceSpec?: ResourceSpec;
+};
+/**
  * Type definition for `AWS::SageMaker::Space.SpaceSettings`.
  * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html}
  */
 export type SpaceSettings = {
+  AppType?: AppType;
+  /**
+   * The CodeEditor app settings.
+   */
+  CodeEditorAppSettings?: SpaceCodeEditorAppSettings;
+  /**
+   * @minLength `0`
+   * @maxLength `1`
+   */
+  CustomFileSystems?: CustomFileSystem[];
+  /**
+   * The JupyterLab app settings.
+   */
+  JupyterLabAppSettings?: SpaceJupyterLabAppSettings;
   /**
    * The Jupyter server's app settings.
    */
@@ -185,6 +302,27 @@ export type SpaceSettings = {
    * The kernel gateway app settings.
    */
   KernelGatewayAppSettings?: KernelGatewayAppSettings;
+  /**
+   * Default storage settings for a space.
+   */
+  SpaceStorageSettings?: SpaceStorageSettings;
+};
+/**
+ * Type definition for `AWS::SageMaker::Space.SpaceSharingSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesharingsettings.html}
+ */
+export type SpaceSharingSettings = {
+  SharingType: "Private" | "Shared";
+};
+/**
+ * Type definition for `AWS::SageMaker::Space.SpaceStorageSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacestoragesettings.html}
+ */
+export type SpaceStorageSettings = {
+  /**
+   * Properties related to the space's Amazon Elastic Block Store volume.
+   */
+  EbsStorageSettings?: EbsStorageSettings;
 };
 /**
  * Type definition for `AWS::SageMaker::Space.Tag`.

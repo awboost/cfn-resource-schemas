@@ -1,5 +1,5 @@
 {
-  "$hash": "c92ea8aefb1bd695efd031a563c534fdb166cf8b",
+  "$hash": "0d87125656d152628a662b02189964a752ef15fc",
   "$id": "aws-iam-oidcprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Url"],
@@ -30,6 +30,7 @@
     "create": {
       "permissions": [
         "iam:CreateOpenIDConnectProvider",
+        "iam:TagOpenIDConnectProvider",
         "iam:GetOpenIDConnectProvider"
       ]
     },

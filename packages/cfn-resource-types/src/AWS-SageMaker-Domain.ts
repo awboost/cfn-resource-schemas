@@ -239,11 +239,32 @@ export type DefaultSpaceStorageSettings = {
   DefaultEbsStorageSettings?: DefaultEbsStorageSettings;
 };
 /**
+ * Type definition for `AWS::SageMaker::Domain.DockerSettings`.
+ * A collection of settings that are required to start docker-proxy server.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-dockersettings.html}
+ */
+export type DockerSettings = {
+  /**
+   * The flag to enable/disable docker-proxy server
+   */
+  EnableDockerAccess?: "ENABLED" | "DISABLED";
+  /**
+   * A list of account id's that would be used to pull images from in VpcOnly mode
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  VpcOnlyTrustedAccounts?: string[];
+};
+/**
  * Type definition for `AWS::SageMaker::Domain.DomainSettings`.
  * A collection of Domain settings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html}
  */
 export type DomainSettings = {
+  /**
+   * A collection of settings that are required to start docker-proxy server.
+   */
+  DockerSettings?: DockerSettings;
   /**
    * A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
    */

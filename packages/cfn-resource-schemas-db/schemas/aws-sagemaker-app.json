@@ -1,5 +1,5 @@
 {
-  "$hash": "6cdc180f4dade30a14df28fc4f7f8276eee6e8ca",
+  "$hash": "ae779e4839f91022065f2f1ff62f63595ff911fb",
   "$id": "aws-sagemaker-app.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -115,9 +115,13 @@
     "create": {
       "permissions": ["sagemaker:CreateApp", "sagemaker:DescribeApp"]
     },
-    "delete": { "permissions": ["sagemaker:DeleteApp"] },
+    "delete": {
+      "permissions": ["sagemaker:DeleteApp", "sagemaker:DescribeApp"]
+    },
     "list": { "permissions": ["sagemaker:ListApps"] },
-    "read": { "permissions": ["sagemaker:DescribeApp"] }
+    "read": {
+      "permissions": ["sagemaker:DescribeApp", "sagemaker:DescribeApp"]
+    }
   },
   "primaryIdentifier": [
     "/properties/AppName",

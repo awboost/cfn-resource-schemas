@@ -1,5 +1,5 @@
 {
-  "$hash": "604d53e770e6793d56efb5a4a9a9aecfea47fa8f",
+  "$hash": "0362a3948c28183adeea6b803315d59544321020",
   "$id": "aws-apprunner-vpcconnector.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -22,6 +22,7 @@
   "handlers": {
     "create": {
       "permissions": [
+        "iam:CreateServiceLinkedRole",
         "apprunner:CreateVpcConnector",
         "apprunner:DescribeVpcConnector",
         "apprunner:TagResource",

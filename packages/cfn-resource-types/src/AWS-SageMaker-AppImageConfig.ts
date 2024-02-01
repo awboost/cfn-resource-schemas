@@ -13,6 +13,10 @@ export type SageMakerAppImageConfigProperties = {
    */
   AppImageConfigName: string;
   /**
+   * The JupyterLabAppImageConfig.
+   */
+  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
+  /**
    * The KernelGatewayImageConfig.
    */
   KernelGatewayImageConfig?: KernelGatewayImageConfig;
@@ -35,6 +39,49 @@ export type SageMakerAppImageConfigAttributes = {
    * @pattern `arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:app-image-config/.*`
    */
   AppImageConfigArn: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::AppImageConfig.ContainerConfig`.
+ * The container configuration for a SageMaker image.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-containerconfig.html}
+ */
+export type ContainerConfig = {
+  /**
+   * A list of arguments to apply to the container.
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  ContainerArguments?: string[];
+  /**
+   * The custom entry point to use on container.
+   * @minLength `0`
+   * @maxLength `1`
+   */
+  ContainerEntrypoint?: string[];
+  /**
+   * A list of variables to apply to the custom container.
+   * @minLength `0`
+   * @maxLength `25`
+   */
+  ContainerEnvironmentVariables?: CustomImageContainerEnvironmentVariable[];
+};
+/**
+ * Type definition for `AWS::SageMaker::AppImageConfig.CustomImageContainerEnvironmentVariable`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-customimagecontainerenvironmentvariable.html}
+ */
+export type CustomImageContainerEnvironmentVariable = {
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^(?!\s*$).+`
+   */
+  Key: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^(?!\s*$).+`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::SageMaker::AppImageConfig.FileSystemConfig`.
@@ -61,6 +108,17 @@ export type FileSystemConfig = {
    * @pattern `^/.*`
    */
   MountPath?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::AppImageConfig.JupyterLabAppImageConfig`.
+ * The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-jupyterlabappimageconfig.html}
+ */
+export type JupyterLabAppImageConfig = {
+  /**
+   * The container configuration for a SageMaker image.
+   */
+  ContainerConfig?: ContainerConfig;
 };
 /**
  * Type definition for `AWS::SageMaker::AppImageConfig.KernelGatewayImageConfig`.
