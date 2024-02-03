@@ -375,6 +375,10 @@ export type InstanceRequirements = {
    */
   LocalStorageTypes?: string[];
   /**
+   * The price protection threshold for Spot Instances.
+   */
+  MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
+  /**
    * The minimum and maximum amount of memory per vCPU, in GiB.
    */
   MemoryGiBPerVCpu?: MemoryGiBPerVCpu;

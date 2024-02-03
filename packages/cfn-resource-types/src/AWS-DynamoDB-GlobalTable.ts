@@ -109,6 +109,7 @@ export type KeySchema = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-kinesisstreamspecification.html}
  */
 export type KinesisStreamSpecification = {
+  ApproximateCreationDateTimePrecision?: "MICROSECOND" | "MILLISECOND";
   StreamArn: string;
 };
 /**

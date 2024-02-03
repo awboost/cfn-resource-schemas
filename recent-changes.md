@@ -1,40 +1,64 @@
-- updated `AWS::AppRunner::VpcConnector`
+- added `AWS::Glue::TableOptimizer`
+- updated `AWS::AmplifyUIBuilder::Component`
+  - added property `CreatedAt`
+  - added property `ModifiedAt`
+  - removed `required`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated `tagging`
+  - updated definition `ComponentBindingPropertiesValueProperties`
+  - updated definition `ComponentChild`
+  - updated definition `ComponentEvent`
+  - updated definition `Predicate`
   - updated handler permissions
+- updated `AWS::AmplifyUIBuilder::Form`
+  - added definition `FormInputBindingPropertiesValueProperties`
+  - added definition `FormInputBindingPropertiesValue`
+  - added definition `FormInputBindingProperties`
+  - added definition `FormInputValuePropertyBindingProperties`
+  - removed `required`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated definition `FormInputValueProperty`
+  - updated definition `ValueMappings`
+  - updated handler permissions
+- updated `AWS::AmplifyUIBuilder::Theme`
+  - added `tagging`
+  - added property `CreatedAt`
+  - added property `ModifiedAt`
+  - removed `required`
+  - removed `taggable`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated definition `ThemeValue`
+  - updated handler permissions
+  - updated property `Overrides`
+  - updated property `Values`
+- updated `AWS::Cassandra::Table`
+  - added `writeOnlyProperties`
+  - added definition `AutoScalingSetting`
+  - added definition `AutoScalingSpecification`
+  - added definition `ReplicaSpecification`
+  - added definition `ScalingPolicy`
+  - added definition `TargetTrackingScalingPolicyConfiguration`
+  - added property `AutoScalingSpecifications`
+  - added property `ReplicaSpecifications`
+  - updated handler permissions
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `DistributionConfig`
+- updated `AWS::DynamoDB::GlobalTable`
+  - updated definition `KinesisStreamSpecification`
+  - updated handler permissions
+- updated `AWS::DynamoDB::Table`
+  - updated definition `KinesisStreamSpecification`
+  - updated handler permissions
+- updated `AWS::EC2::GatewayRouteTableAssociation`
+  - added `tagging`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `InstanceRequirements`
 - updated `AWS::IAM::OIDCProvider`
   - updated handler permissions
 - updated `AWS::IAM::SAMLProvider`
   - updated handler permissions
-- updated `AWS::SageMaker::App`
+- updated `AWS::Location::GeofenceCollection`
   - updated handler permissions
-- updated `AWS::SageMaker::AppImageConfig`
-  - added definition `ContainerConfig`
-  - added definition `CustomImageContainerArguments`
-  - added definition `CustomImageContainerEntrypoint`
-  - added definition `CustomImageContainerEnvironmentVariable`
-  - added definition `JupyterLabAppImageConfig`
-  - added property `JupyterLabAppImageConfig`
-  - updated handler permissions
-- updated `AWS::SageMaker::Domain`
-  - added definition `DockerSettings`
-  - updated definition `DomainSettings`
-- updated `AWS::SageMaker::Space`
-  - added definition `AppType`
-  - added definition `CodeRepository`
-  - added definition `CustomFileSystem`
-  - added definition `CustomFileSystems`
-  - added definition `EFSFileSystem`
-  - added definition `EbsStorageSettings`
-  - added definition `OwnershipSettings`
-  - added definition `SpaceCodeEditorAppSettings`
-  - added definition `SpaceEbsVolumeSizeInGb`
-  - added definition `SpaceJupyterLabAppSettings`
-  - added definition `SpaceSharingSettings`
-  - added definition `SpaceStorageSettings`
-  - added property `OwnershipSettings`
-  - added property `SpaceDisplayName`
-  - added property `SpaceSharingSettings`
-  - added property `Url`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `ResourceSpec`
-  - updated definition `SpaceSettings`

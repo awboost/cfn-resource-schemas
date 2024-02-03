@@ -1,5 +1,5 @@
 {
-  "$hash": "5a7055a2dbe5547b265f8360a3d9098db2366273",
+  "$hash": "279f6fe79056f191370a3f748b8bf67beb55b2a3",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -186,6 +186,7 @@
         "Logging": { "$ref": "#/definitions/Logging" },
         "OriginGroups": { "$ref": "#/definitions/OriginGroups" },
         "Origins": {
+          "insertionOrder": false,
           "items": { "$ref": "#/definitions/Origin" },
           "type": "array",
           "uniqueItems": false

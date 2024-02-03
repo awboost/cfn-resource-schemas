@@ -6,34 +6,36 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type AmplifyUIBuilderComponentProperties = {
   AppId?: string;
-  BindingProperties: ComponentBindingProperties;
+  BindingProperties?: ComponentBindingProperties;
   Children?: ComponentChild[];
   CollectionProperties?: ComponentCollectionProperties;
   /**
    * @minLength `1`
    * @maxLength `255`
    */
-  ComponentType: string;
+  ComponentType?: string;
   EnvironmentName?: string;
   Events?: ComponentEvents;
   /**
    * @minLength `1`
    * @maxLength `255`
    */
-  Name: string;
-  Overrides: ComponentOverrides;
-  Properties: ComponentProperties;
+  Name?: string;
+  Overrides?: ComponentOverrides;
+  Properties?: ComponentProperties;
   SchemaVersion?: string;
   SourceId?: string;
   Tags?: Tags;
-  Variants: ComponentVariant[];
+  Variants?: ComponentVariant[];
 };
 /**
  * Attribute type definition for `AWS::AmplifyUIBuilder::Component`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-component.html#aws-resource-amplifyuibuilder-component-return-values}
  */
 export type AmplifyUIBuilderComponentAttributes = {
+  CreatedAt: string;
   Id: string;
+  ModifiedAt: string;
 };
 /**
  * Type definition for `AWS::AmplifyUIBuilder::Component.ActionParameters`.
@@ -78,6 +80,7 @@ export type ComponentBindingPropertiesValueProperties = {
   Key?: string;
   Model?: string;
   Predicates?: Predicate[];
+  SlotName?: string;
   UserAttribute?: string;
 };
 /**
@@ -90,6 +93,7 @@ export type ComponentChild = {
   Events?: ComponentEvents;
   Name: string;
   Properties: ComponentProperties;
+  SourceId?: string;
 };
 /**
  * Type definition for `AWS::AmplifyUIBuilder::Component.ComponentCollectionProperties`.
@@ -128,6 +132,7 @@ export type ComponentDataConfiguration = {
  */
 export type ComponentEvent = {
   Action?: string;
+  BindingEvent?: string;
   Parameters?: ActionParameters;
 };
 /**
@@ -222,6 +227,10 @@ export type Predicate = {
   And?: Predicate[];
   Field?: string;
   Operand?: string;
+  /**
+   * @pattern `^boolean|string|number$`
+   */
+  OperandType?: string;
   Operator?: string;
   Or?: Predicate[];
 };

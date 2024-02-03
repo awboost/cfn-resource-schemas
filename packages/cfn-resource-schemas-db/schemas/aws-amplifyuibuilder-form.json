@@ -1,8 +1,8 @@
 {
-  "$hash": "b4c1104fbc523a27f35c1c43481030feefadf9a2",
+  "$hash": "7fd08071fa5aaa69590a30a0ed64ad9215cd3d1e",
   "$id": "aws-amplifyuibuilder-form.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Tags"],
+  "createOnlyProperties": ["/properties/AppId", "/properties/EnvironmentName"],
   "definitions": {
     "FieldConfig": {
       "additionalProperties": false,
@@ -132,9 +132,49 @@
       "required": ["DataSourceType", "DataTypeName"],
       "type": "object"
     },
+    "FormInputBindingProperties": {
+      "additionalProperties": false,
+      "patternProperties": {
+        ".+": { "$ref": "#/definitions/FormInputBindingPropertiesValue" }
+      },
+      "type": "object"
+    },
+    "FormInputBindingPropertiesValue": {
+      "additionalProperties": false,
+      "properties": {
+        "BindingProperties": {
+          "$ref": "#/definitions/FormInputBindingPropertiesValueProperties"
+        },
+        "Type": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "FormInputBindingPropertiesValueProperties": {
+      "additionalProperties": false,
+      "properties": { "Model": { "type": "string" } },
+      "type": "object"
+    },
     "FormInputValueProperty": {
       "additionalProperties": false,
-      "properties": { "Value": { "type": "string" } },
+      "properties": {
+        "BindingProperties": {
+          "$ref": "#/definitions/FormInputValuePropertyBindingProperties"
+        },
+        "Concat": {
+          "items": { "$ref": "#/definitions/FormInputValueProperty" },
+          "type": "array"
+        },
+        "Value": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "FormInputValuePropertyBindingProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "Field": { "type": "string" },
+        "Property": { "type": "string" }
+      },
+      "required": ["Property"],
       "type": "object"
     },
     "FormStyle": {
@@ -215,6 +255,9 @@
     "ValueMappings": {
       "additionalProperties": false,
       "properties": {
+        "BindingProperties": {
+          "$ref": "#/definitions/FormInputBindingProperties"
+        },
         "Values": {
           "items": { "$ref": "#/definitions/ValueMapping" },
           "type": "array"
@@ -229,16 +272,17 @@
     "create": {
       "permissions": [
         "amplify:GetApp",
-        "amplifyuibuilder:GetForm",
         "amplifyuibuilder:CreateForm",
-        "amplifyuibuilder:TagResource"
+        "amplifyuibuilder:GetForm",
+        "amplifyuibuilder:TagResource",
+        "amplifyuibuilder:UntagResource"
       ]
     },
     "delete": {
       "permissions": [
         "amplify:GetApp",
-        "amplifyuibuilder:GetForm",
         "amplifyuibuilder:DeleteForm",
+        "amplifyuibuilder:TagResource",
         "amplifyuibuilder:UntagResource"
       ]
     },
@@ -252,19 +296,22 @@
         },
         "required": ["AppId", "EnvironmentName"]
       },
+      "permissions": ["amplify:GetApp", "amplifyuibuilder:ListForms"]
+    },
+    "read": {
       "permissions": [
         "amplify:GetApp",
         "amplifyuibuilder:GetForm",
-        "amplifyuibuilder:ListForms"
+        "amplifyuibuilder:TagResource"
       ]
     },
-    "read": { "permissions": ["amplify:GetApp", "amplifyuibuilder:GetForm"] },
     "update": {
       "permissions": [
         "amplify:GetApp",
         "amplifyuibuilder:GetForm",
-        "amplifyuibuilder:UpdateForm",
-        "amplifyuibuilder:TagResource"
+        "amplifyuibuilder:TagResource",
+        "amplifyuibuilder:UntagResource",
+        "amplifyuibuilder:UpdateForm"
       ]
     }
   },
@@ -289,21 +336,12 @@
     "Tags": { "$ref": "#/definitions/Tags" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": [
-    "DataType",
-    "Fields",
-    "FormActionType",
-    "Name",
-    "SchemaVersion",
-    "SectionalElements",
-    "Style"
-  ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-amplifyuibuilder",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "tagOnCreate": true,
-    "tagProperty": "#/properties/Tags",
-    "tagUpdatable": false,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::AmplifyUIBuilder::Form"

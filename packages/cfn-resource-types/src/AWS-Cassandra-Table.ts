@@ -5,6 +5,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html}
  */
 export type CassandraTableProperties = {
+  /**
+   * Represents the read and write settings used for AutoScaling.
+   */
+  AutoScalingSpecifications?: AutoScalingSpecification;
   BillingMode?: BillingMode;
   /**
    * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
@@ -42,6 +46,10 @@ export type CassandraTableProperties = {
    */
   RegularColumns?: Column[];
   /**
+   * @minLength `1`
+   */
+  ReplicaSpecifications?: ReplicaSpecification[];
+  /**
    * Name for Cassandra table
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`
    */
@@ -52,6 +60,41 @@ export type CassandraTableProperties = {
    * @maxLength `50`
    */
   Tags?: Tag[];
+};
+/**
+ * Type definition for `AWS::Cassandra::Table.AutoScalingSetting`.
+ * Represents configuration for auto scaling.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingsetting.html}
+ */
+export type AutoScalingSetting = {
+  AutoScalingDisabled?: boolean;
+  /**
+   * @min `1`
+   */
+  MaximumUnits?: number;
+  /**
+   * @min `1`
+   */
+  MinimumUnits?: number;
+  /**
+   * Represents scaling policy.
+   */
+  ScalingPolicy?: ScalingPolicy;
+};
+/**
+ * Type definition for `AWS::Cassandra::Table.AutoScalingSpecification`.
+ * Represents the read and write settings used for AutoScaling.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingspecification.html}
+ */
+export type AutoScalingSpecification = {
+  /**
+   * Represents configuration for auto scaling.
+   */
+  ReadCapacityAutoScaling?: AutoScalingSetting;
+  /**
+   * Represents configuration for auto scaling.
+   */
+  WriteCapacityAutoScaling?: AutoScalingSetting;
 };
 /**
  * Type definition for `AWS::Cassandra::Table.BillingMode`.
@@ -129,6 +172,34 @@ export type ProvisionedThroughput = {
   WriteCapacityUnits: number;
 };
 /**
+ * Type definition for `AWS::Cassandra::Table.ReplicaSpecification`.
+ * Represents replica specifications.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-replicaspecification.html}
+ */
+export type ReplicaSpecification = {
+  /**
+   * Represents configuration for auto scaling.
+   */
+  ReadCapacityAutoScaling?: AutoScalingSetting;
+  ReadCapacityUnits?: number;
+  /**
+   * @minLength `2`
+   * @maxLength `25`
+   */
+  Region: string;
+};
+/**
+ * Type definition for `AWS::Cassandra::Table.ScalingPolicy`.
+ * Represents scaling policy.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-scalingpolicy.html}
+ */
+export type ScalingPolicy = {
+  /**
+   * Represents configuration for target tracking scaling policy.
+   */
+  TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration;
+};
+/**
  * Type definition for `AWS::Cassandra::Table.Tag`.
  * A key-value pair to apply to the resource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-tag.html}
@@ -144,6 +215,17 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::Cassandra::Table.TargetTrackingScalingPolicyConfiguration`.
+ * Represents configuration for target tracking scaling policy.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html}
+ */
+export type TargetTrackingScalingPolicyConfiguration = {
+  DisableScaleIn?: boolean;
+  ScaleInCooldown?: number;
+  ScaleOutCooldown?: number;
+  TargetValue: number;
 };
 /**
  * Resource schema for AWS::Cassandra::Table

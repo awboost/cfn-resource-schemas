@@ -1,0 +1,42 @@
+{
+  "$hash": "0fbbc90cef5d7c5fba31b1d1f4e3398b0d08d6d9",
+  "$id": "aws-glue-tableoptimizer.json",
+  "additionalProperties": false,
+  "createOnlyProperties": [
+    "/properties/TableName",
+    "/properties/DatabaseName",
+    "/properties/Type",
+    "/properties/CatalogId"
+  ],
+  "definitions": {
+    "TableOptimizerConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Enabled": { "type": "boolean" },
+        "RoleArn": { "type": "string" }
+      },
+      "type": "object"
+    }
+  },
+  "description": "Resource Type definition for AWS::Glue::TableOptimizer",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "CatalogId": { "type": "string" },
+    "DatabaseName": { "type": "string" },
+    "Id": { "type": "string" },
+    "TableName": { "type": "string" },
+    "TableOptimizerConfiguration": {
+      "$ref": "#/definitions/TableOptimizerConfiguration"
+    },
+    "Type": { "type": "string" }
+  },
+  "readOnlyProperties": ["/properties/Id"],
+  "required": [
+    "TableName",
+    "Type",
+    "DatabaseName",
+    "TableOptimizerConfiguration",
+    "CatalogId"
+  ],
+  "typeName": "AWS::Glue::TableOptimizer"
+}

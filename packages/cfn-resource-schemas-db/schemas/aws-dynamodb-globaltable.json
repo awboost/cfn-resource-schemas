@@ -1,5 +1,5 @@
 {
-  "$hash": "1b6273630823dcaa67bcc164c37e4948309a1c01",
+  "$hash": "a2b6df98da5be1fe1e3d4f8d9dcd93df10310b9c",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -71,7 +71,13 @@
     },
     "KinesisStreamSpecification": {
       "additionalProperties": false,
-      "properties": { "StreamArn": { "type": "string" } },
+      "properties": {
+        "ApproximateCreationDateTimePrecision": {
+          "enum": ["MICROSECOND", "MILLISECOND"],
+          "type": "string"
+        },
+        "StreamArn": { "type": "string" }
+      },
       "required": ["StreamArn"],
       "type": "object"
     },
@@ -321,6 +327,7 @@
         "dynamodb:EnableKinesisStreamingDestination",
         "dynamodb:DisableKinesisStreamingDestination",
         "dynamodb:UpdateTableReplicaAutoScaling",
+        "dynamodb:UpdateKinesisStreamingDestination",
         "application-autoscaling:DeleteScalingPolicy",
         "application-autoscaling:DeleteScheduledAction",
         "application-autoscaling:DeregisterScalableTarget",

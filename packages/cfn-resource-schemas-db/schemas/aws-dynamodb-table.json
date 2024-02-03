@@ -1,5 +1,5 @@
 {
-  "$hash": "aa6905eed166d35fba6c7ef8c97048834949a1d5",
+  "$hash": "60ab4de34963541c40b58815b8581913508900ea",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -98,7 +98,13 @@
     },
     "KinesisStreamSpecification": {
       "additionalProperties": false,
-      "properties": { "StreamArn": { "type": "string" } },
+      "properties": {
+        "ApproximateCreationDateTimePrecision": {
+          "enum": ["MICROSECOND", "MILLISECOND"],
+          "type": "string"
+        },
+        "StreamArn": { "type": "string" }
+      },
       "required": ["StreamArn"],
       "type": "object"
     },
@@ -250,6 +256,7 @@
         "dynamodb:UpdateTimeToLive",
         "dynamodb:UpdateContinuousBackups",
         "dynamodb:UpdateContributorInsights",
+        "dynamodb:UpdateKinesisStreamingDestination",
         "dynamodb:DescribeContinuousBackups",
         "dynamodb:DescribeKinesisStreamingDestination",
         "dynamodb:ListTagsOfResource",

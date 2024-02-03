@@ -11,17 +11,19 @@ export type AmplifyUIBuilderThemeProperties = {
    * @minLength `1`
    * @maxLength `255`
    */
-  Name: string;
+  Name?: string;
   Overrides?: ThemeValues[];
   Tags?: Tags;
-  Values: ThemeValues[];
+  Values?: ThemeValues[];
 };
 /**
  * Attribute type definition for `AWS::AmplifyUIBuilder::Theme`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplifyuibuilder-theme.html#aws-resource-amplifyuibuilder-theme-return-values}
  */
 export type AmplifyUIBuilderThemeAttributes = {
+  CreatedAt: string;
   Id: string;
+  ModifiedAt: string;
 };
 /**
  * Type definition for `AWS::AmplifyUIBuilder::Theme.Tags`.

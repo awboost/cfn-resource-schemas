@@ -1,5 +1,5 @@
 {
-  "$hash": "f5d004f8bb92bd9f843a27b7951824147e58b2b1",
+  "$hash": "40564edddf0705ce6655234725f12ea4510f1a8b",
   "$id": "aws-location-geofencecollection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -61,26 +61,29 @@
         "geo:DescribeGeofenceCollection",
         "geo:TagResource",
         "geo:UntagResource",
-        "kms:*"
+        "kms:DescribeKey",
+        "kms:CreateGrant"
       ]
     },
     "delete": {
       "permissions": [
         "geo:DeleteGeofenceCollection",
-        "geo:DescribeGeofenceCollection",
-        "kms:*"
+        "geo:DescribeGeofenceCollection"
       ]
     },
-    "list": { "permissions": ["geo:ListGeofenceCollections", "kms:*"] },
-    "read": { "permissions": ["geo:DescribeGeofenceCollection", "kms:*"] },
+    "list": { "permissions": ["geo:ListGeofenceCollections"] },
+    "read": {
+      "permissions": ["geo:DescribeGeofenceCollection", "kms:DescribeKey"]
+    },
     "update": {
       "permissions": [
         "geo:CreateGeofenceCollection",
         "geo:DescribeGeofenceCollection",
         "geo:TagResource",
         "geo:UntagResource",
-        "geo:UpdateGeofenceCollection",
-        "kms:*"
+        "kms:DescribeKey",
+        "kms:CreateGrant",
+        "geo:UpdateGeofenceCollection"
       ]
     }
   },

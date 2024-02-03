@@ -7,19 +7,19 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type AmplifyUIBuilderFormProperties = {
   AppId?: string;
   Cta?: FormCTA;
-  DataType: FormDataTypeConfig;
+  DataType?: FormDataTypeConfig;
   EnvironmentName?: string;
-  Fields: FieldsMap;
-  FormActionType: FormActionType;
+  Fields?: FieldsMap;
+  FormActionType?: FormActionType;
   LabelDecorator?: LabelDecorator;
   /**
    * @minLength `1`
    * @maxLength `255`
    */
-  Name: string;
-  SchemaVersion: string;
-  SectionalElements: SectionalElementMap;
-  Style: FormStyle;
+  Name?: string;
+  SchemaVersion?: string;
+  SectionalElements?: SectionalElementMap;
+  Style?: FormStyle;
   Tags?: Tags;
 };
 /**
@@ -151,11 +151,44 @@ export type FormDataTypeConfig = {
   DataTypeName: string;
 };
 /**
+ * Type definition for `AWS::AmplifyUIBuilder::Form.FormInputBindingProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputbindingproperties.html}
+ */
+export type FormInputBindingProperties = Record<
+  string,
+  FormInputBindingPropertiesValue
+>;
+/**
+ * Type definition for `AWS::AmplifyUIBuilder::Form.FormInputBindingPropertiesValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputbindingpropertiesvalue.html}
+ */
+export type FormInputBindingPropertiesValue = {
+  BindingProperties?: FormInputBindingPropertiesValueProperties;
+  Type?: string;
+};
+/**
+ * Type definition for `AWS::AmplifyUIBuilder::Form.FormInputBindingPropertiesValueProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputbindingpropertiesvalueproperties.html}
+ */
+export type FormInputBindingPropertiesValueProperties = {
+  Model?: string;
+};
+/**
  * Type definition for `AWS::AmplifyUIBuilder::Form.FormInputValueProperty`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvalueproperty.html}
  */
 export type FormInputValueProperty = {
+  BindingProperties?: FormInputValuePropertyBindingProperties;
+  Concat?: FormInputValueProperty[];
   Value?: string;
+};
+/**
+ * Type definition for `AWS::AmplifyUIBuilder::Form.FormInputValuePropertyBindingProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-forminputvaluepropertybindingproperties.html}
+ */
+export type FormInputValuePropertyBindingProperties = {
+  Field?: string;
+  Property: string;
 };
 /**
  * Type definition for `AWS::AmplifyUIBuilder::Form.FormStyle`.
@@ -222,6 +255,7 @@ export type ValueMapping = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplifyuibuilder-form-valuemappings.html}
  */
 export type ValueMappings = {
+  BindingProperties?: FormInputBindingProperties;
   Values: ValueMapping[];
 };
 /**
