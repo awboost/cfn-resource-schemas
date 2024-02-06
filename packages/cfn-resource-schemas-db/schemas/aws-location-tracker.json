@@ -1,5 +1,5 @@
 {
-  "$hash": "6591df4bac807eba57ac0f32f69bb3128088d8c8",
+  "$hash": "06163308cd79deba1b7a8ce3749463e293bd439b",
   "$id": "aws-location-tracker.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyId", "/properties/TrackerName"],
@@ -62,22 +62,22 @@
         "geo:DescribeTracker",
         "geo:TagResource",
         "geo:UntagResource",
-        "kms:*"
+        "kms:DescribeKey",
+        "kms:CreateGrant"
       ]
     },
-    "delete": {
-      "permissions": ["geo:DeleteTracker", "geo:DescribeTracker", "kms:*"]
-    },
-    "list": { "permissions": ["geo:ListTrackers", "kms:*"] },
-    "read": { "permissions": ["geo:DescribeTracker", "kms:*"] },
+    "delete": { "permissions": ["geo:DeleteTracker", "geo:DescribeTracker"] },
+    "list": { "permissions": ["geo:ListTrackers"] },
+    "read": { "permissions": ["geo:DescribeTracker", "kms:DescribeKey"] },
     "update": {
       "permissions": [
         "geo:CreateTracker",
         "geo:DescribeTracker",
         "geo:TagResource",
         "geo:UntagResource",
-        "geo:UpdateTracker",
-        "kms:*"
+        "kms:DescribeKey",
+        "kms:CreateGrant",
+        "geo:UpdateTracker"
       ]
     }
   },
