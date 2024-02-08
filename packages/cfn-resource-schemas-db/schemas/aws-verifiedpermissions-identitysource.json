@@ -1,5 +1,5 @@
 {
-  "$hash": "9e991c259dbb532ba9043194115045f4003750fb",
+  "$hash": "ffa059ee5bc453a0a413c3c592cedda290790595",
   "$id": "aws-verifiedpermissions-identitysource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyStoreId"],
@@ -166,7 +166,7 @@
     }
   },
   "readOnlyProperties": ["/properties/Details", "/properties/IdentitySourceId"],
-  "required": ["Configuration"],
+  "required": ["Configuration", "PolicyStoreId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-avp",
   "tagging": {
     "cloudFormationSystemTags": false,

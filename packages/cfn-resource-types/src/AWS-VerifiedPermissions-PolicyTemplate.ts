@@ -15,7 +15,7 @@ export type VerifiedPermissionsPolicyTemplateProperties = {
    * @maxLength `200`
    * @pattern `^[a-zA-Z0-9-]*$`
    */
-  PolicyStoreId?: string;
+  PolicyStoreId: string;
   /**
    * @minLength `1`
    * @maxLength `10000`

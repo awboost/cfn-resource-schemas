@@ -1,5 +1,4 @@
-- updated `AWS::Location::Tracker`
-  - updated handler permissions
-- updated `AWS::Location::TrackerConsumer`
-  - added `tagging`
-  - updated handler permissions
+- updated `AWS::VerifiedPermissions::IdentitySource`
+  - updated `required`
+- updated `AWS::VerifiedPermissions::PolicyTemplate`
+  - updated `required`
