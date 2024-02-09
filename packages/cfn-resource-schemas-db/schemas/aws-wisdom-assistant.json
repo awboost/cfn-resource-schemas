@@ -1,5 +1,5 @@
 {
-  "$hash": "24457d7de5959bbda14f33d4555bf2c5624bc7e6",
+  "$hash": "06ccd3b62f547b0f7a445643e1661a27ec513ba0",
   "$id": "aws-wisdom-assistant.json",
   "additionalIdentifiers": [["/properties/AssistantArn"]],
   "additionalProperties": false,
@@ -47,7 +47,7 @@
     "delete": { "permissions": ["wisdom:DeleteAssistant"] },
     "list": { "permissions": ["wisdom:ListAssistants"] },
     "read": { "permissions": ["wisdom:GetAssistant"] },
-    "update": { "permissions": [] }
+    "update": { "permissions": ["wisdom:GetAssistant"] }
   },
   "primaryIdentifier": ["/properties/AssistantId"],
   "properties": {

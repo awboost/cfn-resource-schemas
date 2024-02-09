@@ -1,5 +1,5 @@
 {
-  "$hash": "6e2d05d22ba0563d8fc996a7b3c916c6d68ffa2a",
+  "$hash": "2a6e7dbc056324336a99610aa2ad6ccf43f11fcb",
   "$id": "aws-wisdom-knowledgebase.json",
   "additionalIdentifiers": [["/properties/KnowledgeBaseArn"]],
   "additionalProperties": false,
@@ -100,7 +100,7 @@
     },
     "list": { "permissions": ["wisdom:ListKnowledgeBases"] },
     "read": { "permissions": ["wisdom:GetKnowledgeBase"] },
-    "update": { "permissions": [] }
+    "update": { "permissions": ["wisdom:GetKnowledgeBase"] }
   },
   "primaryIdentifier": ["/properties/KnowledgeBaseId"],
   "properties": {

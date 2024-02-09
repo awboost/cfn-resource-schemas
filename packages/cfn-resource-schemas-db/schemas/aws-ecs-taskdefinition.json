@@ -1,5 +1,5 @@
 {
-  "$hash": "8d160ec56d9697b627cc3018f56e586c4f41086d",
+  "$hash": "da3b28ee6385e0c786169d7c4b009a0ff7c6ae7e",
   "$id": "aws-ecs-taskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -39,6 +39,11 @@
           "type": "array"
         },
         "Cpu": { "type": "integer" },
+        "CredentialSpecs": {
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
         "DependsOn": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/ContainerDependency" },

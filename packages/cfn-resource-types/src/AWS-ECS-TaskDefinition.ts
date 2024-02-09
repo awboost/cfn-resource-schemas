@@ -50,6 +50,7 @@ export type AuthorizationConfig = {
 export type ContainerDefinition = {
   Command?: string[];
   Cpu?: number;
+  CredentialSpecs?: string[];
   DependsOn?: ContainerDependency[];
   DisableNetworking?: boolean;
   DnsSearchDomains?: string[];

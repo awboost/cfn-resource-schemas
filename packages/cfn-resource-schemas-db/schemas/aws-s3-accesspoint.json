@@ -1,5 +1,5 @@
 {
-  "$hash": "dac84f4fa67f7e765f4db2fb9dc2f413907b32ad",
+  "$hash": "9cab8a5c43f8d12cc6fd4ddd704cf977018a3af5",
   "$id": "aws-s3-accesspoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -65,7 +65,9 @@
       "permissions": [
         "s3:PutAccessPointPolicy",
         "s3:PutAccessPointPublicAccessBlock",
-        "s3:DeleteAccessPointPolicy"
+        "s3:DeleteAccessPointPolicy",
+        "s3:GetAccessPoint",
+        "s3:GetAccessPointPolicy"
       ]
     }
   },
