@@ -1,64 +1,58 @@
-- updated `AWS::AppConfig::Environment`
+- removed `AWS::SSMGuiConnect::Preferences`
+- updated `AWS::AppSync::GraphQLApi`
+  - added property `EnvironmentVariables`
+- updated `AWS::EC2::ClientVpnEndpoint`
+  - added definition `ClientRouteMonitoringOptions`
+  - added property `ClientRouteMonitoringOptions`
+- updated `AWS::EC2::SecurityGroupIngress`
   - added `sourceUrl`
   - added `tagging`
-  - added definition `Monitor`
-  - added definition `Tag`
-  - added property `EnvironmentId`
-  - removed definition `Monitors`
-  - removed definition `Tags`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated `required`
   - updated handler permissions
-  - updated property `ApplicationId`
+  - updated property `CidrIp`
+  - updated property `CidrIpv6`
   - updated property `Description`
-  - updated property `Monitors`
+  - updated property `FromPort`
+  - updated property `GroupId`
+  - updated property `GroupName`
+  - updated property `Id`
+  - updated property `IpProtocol`
+  - updated property `SourcePrefixListId`
+  - updated property `SourceSecurityGroupId`
+  - updated property `SourceSecurityGroupName`
+  - updated property `SourceSecurityGroupOwnerId`
+  - updated property `ToPort`
+- updated `AWS::IAM::OIDCProvider`
+  - updated handler permissions
+- updated `AWS::IAM::SAMLProvider`
+  - updated handler permissions
+- updated `AWS::IAM::ServerCertificate`
+  - updated handler permissions
+- updated `AWS::IoT::DomainConfiguration`
+  - added definition `ServerCertificateConfig`
+  - added property `ServerCertificateConfig`
+- updated `AWS::Location::APIKey`
+  - updated definition `Tag`
+- updated `AWS::Location::PlaceIndex`
+  - updated definition `Tag`
+- updated `AWS::Location::RouteCalculator`
+  - updated definition `Tag`
+- updated `AWS::RedshiftServerless::Namespace`
+  - added property `AdminPasswordSecretKmsKeyId`
+  - added property `ManageAdminPassword`
+  - added property `NamespaceResourcePolicy`
+  - added property `RedshiftIdcApplicationArn`
+  - updated `writeOnlyProperties`
+  - updated definition `Namespace`
+  - updated handler permissions
+  - updated property `AdminUserPassword`
+  - updated property `Namespace`
+- updated `AWS::SSM::Parameter`
+  - updated property `AllowedPattern`
+  - updated property `DataType`
+  - updated property `Description`
   - updated property `Name`
+  - updated property `Policies`
   - updated property `Tags`
-- updated `AWS::AppConfig::HostedConfigurationVersion`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - added property `VersionNumber`
-  - removed property `Id`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated `required`
-  - updated handler permissions
-  - updated property `ApplicationId`
-  - updated property `ConfigurationProfileId`
-  - updated property `ContentType`
-  - updated property `Content`
-  - updated property `Description`
-  - updated property `LatestVersionNumber`
-  - updated property `VersionLabel`
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `ContainerDefinition`
-- updated `AWS::Location::GeofenceCollection`
-  - updated definition `Tag`
-- updated `AWS::Location::Map`
-  - updated definition `Tag`
-- updated `AWS::Location::Tracker`
-  - updated definition `Tag`
-- updated `AWS::S3::AccessPoint`
-  - updated handler permissions
-- updated `AWS::SSMGuiConnect::Preferences`
-  - added property `Id`
-  - removed `sourceUrl`
-  - removed `tagging`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `IdleConnectionAlert`
-  - updated definition `IdleConnectionPreferences`
-  - updated definition `IdleConnectionTimeout`
-  - updated handler permissions
-  - updated property `AccountId`
-  - updated property `IdleConnection`
-- updated `AWS::Wisdom::Assistant`
-  - updated handler permissions
-- updated `AWS::Wisdom::AssistantAssociation`
-  - updated handler permissions
-- updated `AWS::Wisdom::KnowledgeBase`
-  - updated handler permissions
+  - updated property `Tier`
+  - updated property `Type`
+  - updated property `Value`

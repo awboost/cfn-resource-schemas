@@ -24,6 +24,7 @@ export type IoTDomainConfigurationProperties = {
    * @maxLength `1`
    */
   ServerCertificateArns?: string[];
+  ServerCertificateConfig?: ServerCertificateConfig;
   ServiceType?: "DATA" | "CREDENTIAL_PROVIDER" | "JOBS";
   Tags?: Tag[];
   TlsConfig?: TlsConfig;
@@ -62,6 +63,13 @@ export type AuthorizerConfig = {
    * @pattern `^[\w=,@-]+$`
    */
   DefaultAuthorizerName?: string;
+};
+/**
+ * Type definition for `AWS::IoT::DomainConfiguration.ServerCertificateConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificateconfig.html}
+ */
+export type ServerCertificateConfig = {
+  EnableOCSPCheck?: boolean;
 };
 /**
  * Type definition for `AWS::IoT::DomainConfiguration.ServerCertificateSummary`.

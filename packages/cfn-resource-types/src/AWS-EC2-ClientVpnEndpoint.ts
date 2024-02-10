@@ -9,6 +9,7 @@ export type EC2ClientVpnEndpointProperties = {
   ClientCidrBlock: string;
   ClientConnectOptions?: ClientConnectOptions;
   ClientLoginBannerOptions?: ClientLoginBannerOptions;
+  ClientRouteMonitoringOptions?: ClientRouteMonitoringOptions;
   ConnectionLogOptions: ConnectionLogOptions;
   Description?: string;
   DnsServers?: string[];
@@ -61,6 +62,13 @@ export type ClientConnectOptions = {
 export type ClientLoginBannerOptions = {
   BannerText?: string;
   Enabled: boolean;
+};
+/**
+ * Type definition for `AWS::EC2::ClientVpnEndpoint.ClientRouteMonitoringOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientroutemonitoringoptions.html}
+ */
+export type ClientRouteMonitoringOptions = {
+  Enabled?: boolean;
 };
 /**
  * Type definition for `AWS::EC2::ClientVpnEndpoint.ConnectionLogOptions`.

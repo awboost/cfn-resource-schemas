@@ -1,5 +1,5 @@
 {
-  "$hash": "8cc53db65a69c9a7bb6e5428a335b99559be9c59",
+  "$hash": "5a95c1c562da56c325df2fafb95f64fb32652967",
   "$id": "aws-appsync-graphqlapi.json",
   "additionalProperties": false,
   "definitions": {
@@ -85,6 +85,7 @@
     "ApiType": { "type": "string" },
     "Arn": { "type": "string" },
     "AuthenticationType": { "type": "string" },
+    "EnvironmentVariables": { "type": "object" },
     "GraphQLDns": { "type": "string" },
     "GraphQLEndpointArn": { "type": "string" },
     "GraphQLUrl": { "type": "string" },

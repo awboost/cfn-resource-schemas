@@ -1,5 +1,5 @@
 {
-  "$hash": "5033b68e61b595b99d07075d301adb10f58e3a0b",
+  "$hash": "ef827a55dc305c1c18ab4ec4521183ff0713b786",
   "$id": "aws-iam-samlprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -28,7 +28,11 @@
   "description": "Resource Type definition for AWS::IAM::SAMLProvider",
   "handlers": {
     "create": {
-      "permissions": ["iam:CreateSAMLProvider", "iam:GetSAMLProvider"]
+      "permissions": [
+        "iam:CreateSAMLProvider",
+        "iam:GetSAMLProvider",
+        "iam:TagSAMLProvider"
+      ]
     },
     "delete": { "permissions": ["iam:DeleteSAMLProvider"] },
     "list": { "permissions": ["iam:ListSAMLProviders", "iam:GetSAMLProvider"] },
@@ -38,6 +42,7 @@
         "iam:UpdateSAMLProvider",
         "iam:GetSAMLProvider",
         "iam:TagSAMLProvider",
+        "iam:ListSAMLProviderTags",
         "iam:UntagSAMLProvider"
       ]
     }

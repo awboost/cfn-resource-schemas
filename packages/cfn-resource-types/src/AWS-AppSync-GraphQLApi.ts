@@ -8,6 +8,7 @@ export type AppSyncGraphQLApiProperties = {
   AdditionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
   ApiType?: string;
   AuthenticationType: string;
+  EnvironmentVariables?: Record<string, any>;
   IntrospectionConfig?: string;
   LambdaAuthorizerConfig?: LambdaAuthorizerConfig;
   LogConfig?: LogConfig;

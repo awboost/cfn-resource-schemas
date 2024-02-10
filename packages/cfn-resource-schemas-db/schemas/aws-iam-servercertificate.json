@@ -1,5 +1,5 @@
 {
-  "$hash": "63d56e1fd9ff88a2509e17808154e18450d118bb",
+  "$hash": "6e80b688e8d198f6243b04ce62ffd4592ebcfbcc",
   "$id": "aws-iam-servercertificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -33,7 +33,11 @@
   "description": "Resource Type definition for AWS::IAM::ServerCertificate",
   "handlers": {
     "create": {
-      "permissions": ["iam:UploadServerCertificate", "iam:GetServerCertificate"]
+      "permissions": [
+        "iam:UploadServerCertificate",
+        "iam:TagServerCertificate",
+        "iam:GetServerCertificate"
+      ]
     },
     "delete": { "permissions": ["iam:DeleteServerCertificate"] },
     "list": {
@@ -41,7 +45,12 @@
     },
     "read": { "permissions": ["iam:GetServerCertificate"] },
     "update": {
-      "permissions": ["iam:TagServerCertificate", "iam:UntagServerCertificate"]
+      "permissions": [
+        "iam:TagServerCertificate",
+        "iam:UntagServerCertificate",
+        "iam:ListServerCertificateTags",
+        "iam:GetServerCertificate"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/ServerCertificateName"],
