@@ -1,58 +1,61 @@
-- removed `AWS::SSMGuiConnect::Preferences`
-- updated `AWS::AppSync::GraphQLApi`
-  - added property `EnvironmentVariables`
-- updated `AWS::EC2::ClientVpnEndpoint`
-  - added definition `ClientRouteMonitoringOptions`
-  - added property `ClientRouteMonitoringOptions`
-- updated `AWS::EC2::SecurityGroupIngress`
-  - added `sourceUrl`
-  - added `tagging`
-  - updated handler permissions
-  - updated property `CidrIp`
-  - updated property `CidrIpv6`
+- updated `AWS::ACMPCA::Certificate`
+  - updated definition `ApiPassthrough`
+  - updated definition `CustomAttribute`
+  - updated definition `CustomExtension`
+  - updated definition `EdiPartyName`
+  - updated definition `ExtendedKeyUsage`
+  - updated definition `Extensions`
+  - updated definition `GeneralName`
+  - updated definition `KeyUsage`
+  - updated definition `OtherName`
+  - updated definition `PolicyInformation`
+  - updated definition `PolicyQualifierInfo`
+  - updated definition `Qualifier`
+  - updated definition `Subject`
+  - updated definition `Validity`
+  - updated property `ApiPassthrough`
+  - updated property `Arn`
+  - updated property `CertificateAuthorityArn`
+  - updated property `CertificateSigningRequest`
+  - updated property `Certificate`
+  - updated property `SigningAlgorithm`
+  - updated property `TemplateArn`
+  - updated property `ValidityNotBefore`
+  - updated property `Validity`
+- updated `AWS::SecurityHub::AutomationRule`
+  - updated definition `AutomationRulesAction`
+  - updated definition `AutomationRulesFindingFieldsUpdate`
+  - updated definition `AutomationRulesFindingFilters`
+  - updated definition `BooleanFilter`
+  - updated definition `DateFilter`
+  - updated definition `DateRange`
+  - updated definition `ISO8601DateString`
+  - updated definition `MapFilter`
+  - updated definition `NoteUpdate`
+  - updated definition `NumberFilter`
+  - updated definition `RelatedFinding`
+  - updated definition `SeverityUpdate`
+  - updated definition `StringFilterComparison`
+  - updated definition `StringFilter`
+  - updated definition `WorkflowUpdate`
+  - updated definition `arnOrId`
+  - updated definition `arn`
+  - updated definition `int100`
+  - updated definition `map`
+  - updated property `Actions`
+  - updated property `CreatedAt`
+  - updated property `CreatedBy`
+  - updated property `Criteria`
   - updated property `Description`
-  - updated property `FromPort`
-  - updated property `GroupId`
-  - updated property `GroupName`
-  - updated property `Id`
-  - updated property `IpProtocol`
-  - updated property `SourcePrefixListId`
-  - updated property `SourceSecurityGroupId`
-  - updated property `SourceSecurityGroupName`
-  - updated property `SourceSecurityGroupOwnerId`
-  - updated property `ToPort`
-- updated `AWS::IAM::OIDCProvider`
-  - updated handler permissions
-- updated `AWS::IAM::SAMLProvider`
-  - updated handler permissions
-- updated `AWS::IAM::ServerCertificate`
-  - updated handler permissions
-- updated `AWS::IoT::DomainConfiguration`
-  - added definition `ServerCertificateConfig`
-  - added property `ServerCertificateConfig`
-- updated `AWS::Location::APIKey`
-  - updated definition `Tag`
-- updated `AWS::Location::PlaceIndex`
-  - updated definition `Tag`
-- updated `AWS::Location::RouteCalculator`
-  - updated definition `Tag`
-- updated `AWS::RedshiftServerless::Namespace`
-  - added property `AdminPasswordSecretKmsKeyId`
-  - added property `ManageAdminPassword`
-  - added property `NamespaceResourcePolicy`
-  - added property `RedshiftIdcApplicationArn`
-  - updated `writeOnlyProperties`
-  - updated definition `Namespace`
-  - updated handler permissions
-  - updated property `AdminUserPassword`
-  - updated property `Namespace`
-- updated `AWS::SSM::Parameter`
-  - updated property `AllowedPattern`
-  - updated property `DataType`
-  - updated property `Description`
-  - updated property `Name`
-  - updated property `Policies`
+  - updated property `IsTerminal`
+  - updated property `RuleArn`
+  - updated property `RuleName`
+  - updated property `RuleOrder`
+  - updated property `RuleStatus`
   - updated property `Tags`
-  - updated property `Tier`
-  - updated property `Type`
-  - updated property `Value`
+  - updated property `UpdatedAt`
+- updated `AWS::SecurityHub::Standard`
+  - updated definition `StandardsControl`
+  - updated property `DisabledStandardsControls`
+  - updated property `StandardsArn`
+  - updated property `StandardsSubscriptionArn`
