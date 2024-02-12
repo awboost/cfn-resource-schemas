@@ -1,5 +1,5 @@
 {
-  "$hash": "056a3f603516f525b33dcc86a643da33911ab8c1",
+  "$hash": "486b27b335032ee76d989839932db5ae44bfab96",
   "$id": "aws-efs-mounttarget.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,7 +7,7 @@
     "/properties/SubnetId",
     "/properties/FileSystemId"
   ],
-  "description": "Resource Type definition for AWS::EFS::MountTarget",
+  "description": "The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.",
   "handlers": {
     "create": {
       "permissions": [
@@ -51,16 +51,26 @@
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
-    "FileSystemId": { "type": "string" },
-    "Id": { "type": "string" },
-    "IpAddress": { "type": "string" },
+    "FileSystemId": {
+      "description": "The ID of the file system for which to create the mount target.",
+      "type": "string"
+    },
+    "Id": { "description": "", "type": "string" },
+    "IpAddress": {
+      "description": "Valid IPv4 address within the address range of the specified subnet.",
+      "type": "string"
+    },
     "SecurityGroups": {
+      "description": "Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.",
       "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": true
     },
-    "SubnetId": { "type": "string" }
+    "SubnetId": {
+      "description": "The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.",
+      "type": "string"
+    }
   },
   "readOnlyProperties": ["/properties/Id"],
   "required": ["FileSystemId", "SecurityGroups", "SubnetId"],

@@ -1,13 +1,25 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::EFS::MountTarget
+ * The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html}
  */
 export type EFSMountTargetProperties = {
+  /**
+   * The ID of the file system for which to create the mount target.
+   */
   FileSystemId: string;
+  /**
+   * Valid IPv4 address within the address range of the specified subnet.
+   */
   IpAddress?: string;
+  /**
+   * Up to five VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as subnet specified.
+   */
   SecurityGroups: string[];
+  /**
+   * The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet that is associated with the file system's Availability Zone.
+   */
   SubnetId: string;
 };
 /**
@@ -18,7 +30,7 @@ export type EFSMountTargetAttributes = {
   Id: string;
 };
 /**
- * Resource Type definition for AWS::EFS::MountTarget
+ * The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html}
  */
 export class EFSMountTarget extends $Resource<
