@@ -1,18 +1,23 @@
-- updated `AWS::EFS::AccessPoint`
-  - updated definition `AccessPointTag`
-  - updated definition `CreationInfo`
-  - updated definition `PosixUser`
-  - updated definition `RootDirectory`
-  - updated property `AccessPointId`
-  - updated property `AccessPointTags`
-  - updated property `Arn`
-  - updated property `ClientToken`
-  - updated property `FileSystemId`
-  - updated property `PosixUser`
-  - updated property `RootDirectory`
-- updated `AWS::EFS::MountTarget`
-  - updated property `FileSystemId`
-  - updated property `Id`
-  - updated property `IpAddress`
-  - updated property `SecurityGroups`
-  - updated property `SubnetId`
+- updated `AWS::AppSync::Resolver`
+  - updated definition `AppSyncRuntime`
+  - updated definition `CachingConfig`
+  - updated definition `LambdaConflictHandlerConfig`
+  - updated definition `PipelineConfig`
+  - updated definition `SyncConfig`
+  - updated property `ApiId`
+  - updated property `Code`
+  - updated property `Kind`
+  - updated property `MaxBatchSize`
+  - updated property `RequestMappingTemplateS3Location`
+  - updated property `RequestMappingTemplate`
+  - updated property `ResolverArn`
+  - updated property `ResponseMappingTemplateS3Location`
+  - updated property `Runtime`
+  - updated property `SyncConfig`
+- updated `AWS::CodeStarConnections::Connection`
+  - added `tagging`
+  - updated property `Tags`
+- updated `AWS::IoT::TopicRule`
+  - updated property `Tags`
+- updated `AWS::SSM::Document`
+  - updated property `DocumentType`

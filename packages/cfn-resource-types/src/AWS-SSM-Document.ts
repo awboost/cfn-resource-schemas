@@ -35,8 +35,7 @@ export type SSMDocumentProperties = {
     | "Policy"
     | "ProblemAnalysis"
     | "ProblemAnalysisTemplate"
-    | "Session"
-    | "OpsPack";
+    | "Session";
   /**
    * A name for the Systems Manager document.
    * @pattern `^[a-zA-Z0-9_\-.]{3,128}$`

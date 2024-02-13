@@ -1,5 +1,5 @@
 {
-  "$hash": "788ed3161168dd2e8c185c8a982c56285382b38d",
+  "$hash": "d6fbf26cad5399b8fa0aa35fe102cbd0ea9fd69d",
   "$id": "aws-codestarconnections-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -97,6 +97,7 @@
     },
     "Tags": {
       "description": "Specifies the tags applied to a connection.",
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array"
     }
@@ -108,5 +109,12 @@
   ],
   "required": ["ConnectionName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-codestarconnections.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::CodeStarConnections::Connection"
 }

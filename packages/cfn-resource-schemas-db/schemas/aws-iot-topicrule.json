@@ -1,5 +1,5 @@
 {
-  "$hash": "510a6d139ad061d4e02b66e35cc48d0fd053beff",
+  "$hash": "8c5b1ef0130bfbba730d5eb01db29ef2edb667e9",
   "$id": "aws-iot-topicrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
@@ -530,7 +530,7 @@
     "Arn": { "type": "string" },
     "RuleName": { "type": "string" },
     "Tags": {
-      "insertionOrder": true,
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array"
     },
