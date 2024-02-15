@@ -1,23 +1,37 @@
-- updated `AWS::AppSync::Resolver`
-  - updated definition `AppSyncRuntime`
-  - updated definition `CachingConfig`
-  - updated definition `LambdaConflictHandlerConfig`
-  - updated definition `PipelineConfig`
-  - updated definition `SyncConfig`
-  - updated property `ApiId`
-  - updated property `Code`
-  - updated property `Kind`
-  - updated property `MaxBatchSize`
-  - updated property `RequestMappingTemplateS3Location`
-  - updated property `RequestMappingTemplate`
-  - updated property `ResolverArn`
-  - updated property `ResponseMappingTemplateS3Location`
-  - updated property `Runtime`
-  - updated property `SyncConfig`
-- updated `AWS::CodeStarConnections::Connection`
+- updated `AWS::CodePipeline::Pipeline`
+  - added definition `GitBranchFilterCriteria`
+  - added definition `GitFilePathFilterCriteria`
+  - added definition `GitPullRequestFilter`
+  - added property `ExecutionMode`
+  - updated definition `GitConfiguration`
+  - updated definition `GitPushFilter`
+- updated `AWS::Cognito::UserPoolRiskConfigurationAttachment`
+  - added `sourceUrl`
   - added `tagging`
-  - updated property `Tags`
-- updated `AWS::IoT::TopicRule`
-  - updated property `Tags`
-- updated `AWS::SSM::Document`
-  - updated property `DocumentType`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `required`
+  - updated definition `AccountTakeoverActionType`
+  - updated definition `CompromisedCredentialsRiskConfigurationType`
+  - updated definition `RiskExceptionConfigurationType`
+  - updated handler permissions
+- updated `AWS::EC2::PrefixList`
+  - updated `required`
+- updated `AWS::EC2::Subnet`
+  - updated property `NetworkAclAssociationId`
+  - updated property `SubnetId`
+- updated `AWS::EC2::SubnetRouteTableAssociation`
+  - updated property `Id`
+  - updated property `RouteTableId`
+  - updated property `SubnetId`
+- updated `AWS::Route53::RecordSet`
+  - added definition `Coordinates`
+  - added definition `GeoProximityLocation`
+  - added property `GeoProximityLocation`
+- updated `AWS::Route53::RecordSetGroup`
+  - added definition `Coordinates`
+  - added definition `GeoProximityLocation`
+  - updated definition `RecordSet`
+- updated `AWS::S3::BucketPolicy`
+  - updated property `PolicyDocument`

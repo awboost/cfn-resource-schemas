@@ -17,7 +17,7 @@ export type EC2PrefixListProperties = {
    * Max Entries of Prefix List.
    * @min `1`
    */
-  MaxEntries: number;
+  MaxEntries?: number;
   /**
    * Name of Prefix List.
    * @minLength `1`

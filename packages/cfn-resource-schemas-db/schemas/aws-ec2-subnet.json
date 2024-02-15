@@ -1,5 +1,5 @@
 {
-  "$hash": "7f583e14e71c46c974c8f9106afa9d1f68ffced0",
+  "$hash": "6c5d8059d00c74eb2ddee41ad83adda6f9206d68",
   "$id": "aws-ec2-subnet.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/Ipv6CidrBlock"],
@@ -85,7 +85,10 @@
       "type": "integer"
     },
     "MapPublicIpOnLaunch": { "type": "boolean" },
-    "NetworkAclAssociationId": { "type": "string" },
+    "NetworkAclAssociationId": {
+      "description": "The ID of the network ACL that is associated with the subnet's VPC",
+      "type": "string"
+    },
     "OutpostArn": { "type": "string" },
     "PrivateDnsNameOptionsOnLaunch": {
       "additionalProperties": false,
@@ -96,7 +99,7 @@
       },
       "type": "object"
     },
-    "SubnetId": { "type": "string" },
+    "SubnetId": { "description": "The ID of the subnet", "type": "string" },
     "Tags": {
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",

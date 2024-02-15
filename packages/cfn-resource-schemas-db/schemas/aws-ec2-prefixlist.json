@@ -1,5 +1,5 @@
 {
-  "$hash": "93c7543cd1e3b9ff6734153d9689fa6085821c8a",
+  "$hash": "99d683d95679ede9da7dafd977effacaf1db369d",
   "$id": "aws-ec2-prefixlist.json",
   "additionalProperties": false,
   "definitions": {
@@ -101,7 +101,7 @@
     "/properties/Version",
     "/properties/Arn"
   ],
-  "required": ["PrefixListName", "MaxEntries", "AddressFamily"],
+  "required": ["PrefixListName", "AddressFamily"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,

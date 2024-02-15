@@ -8,6 +8,7 @@ export type CodePipelinePipelineProperties = {
   ArtifactStore?: ArtifactStore;
   ArtifactStores?: ArtifactStoreMap[];
   DisableInboundStageTransitions?: StageTransition[];
+  ExecutionMode?: string;
   Name?: string;
   PipelineType?: string;
   RestartExecutionOnUpdate?: boolean;
@@ -84,18 +85,46 @@ export type EncryptionKey = {
   Type: string;
 };
 /**
+ * Type definition for `AWS::CodePipeline::Pipeline.GitBranchFilterCriteria`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html}
+ */
+export type GitBranchFilterCriteria = {
+  Excludes?: string[];
+  Includes?: string[];
+};
+/**
  * Type definition for `AWS::CodePipeline::Pipeline.GitConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html}
  */
 export type GitConfiguration = {
+  PullRequest?: GitPullRequestFilter[];
   Push?: GitPushFilter[];
   SourceActionName: string;
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.GitFilePathFilterCriteria`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitfilepathfiltercriteria.html}
+ */
+export type GitFilePathFilterCriteria = {
+  Excludes?: string[];
+  Includes?: string[];
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.GitPullRequestFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html}
+ */
+export type GitPullRequestFilter = {
+  Branches?: GitBranchFilterCriteria;
+  Events?: string[];
+  FilePaths?: GitFilePathFilterCriteria;
 };
 /**
  * Type definition for `AWS::CodePipeline::Pipeline.GitPushFilter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html}
  */
 export type GitPushFilter = {
+  Branches?: GitBranchFilterCriteria;
+  FilePaths?: GitFilePathFilterCriteria;
   Tags?: GitTagFilterCriteria;
 };
 /**

@@ -10,6 +10,7 @@ export type Route53RecordSetProperties = {
   Comment?: string;
   Failover?: string;
   GeoLocation?: GeoLocation;
+  GeoProximityLocation?: GeoProximityLocation;
   HealthCheckId?: string;
   HostedZoneId?: string;
   HostedZoneName?: string;
@@ -47,6 +48,14 @@ export type CidrRoutingConfig = {
   LocationName: string;
 };
 /**
+ * Type definition for `AWS::Route53::RecordSet.Coordinates`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-coordinates.html}
+ */
+export type Coordinates = {
+  Latitude: string;
+  Longitude: string;
+};
+/**
  * Type definition for `AWS::Route53::RecordSet.GeoLocation`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geolocation.html}
  */
@@ -54,6 +63,16 @@ export type GeoLocation = {
   ContinentCode?: string;
   CountryCode?: string;
   SubdivisionCode?: string;
+};
+/**
+ * Type definition for `AWS::Route53::RecordSet.GeoProximityLocation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geoproximitylocation.html}
+ */
+export type GeoProximityLocation = {
+  AWSRegion?: string;
+  Bias?: number;
+  Coordinates?: Coordinates;
+  LocalZoneGroup?: string;
 };
 /**
  * Resource Type definition for AWS::Route53::RecordSet

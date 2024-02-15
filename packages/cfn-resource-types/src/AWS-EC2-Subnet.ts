@@ -44,7 +44,13 @@ export type EC2SubnetProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#aws-resource-ec2-subnet-return-values}
  */
 export type EC2SubnetAttributes = {
+  /**
+   * The ID of the network ACL that is associated with the subnet's VPC
+   */
   NetworkAclAssociationId: string;
+  /**
+   * The ID of the subnet
+   */
   SubnetId: string;
 };
 /**

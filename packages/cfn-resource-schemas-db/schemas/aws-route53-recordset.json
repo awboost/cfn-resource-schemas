@@ -1,5 +1,5 @@
 {
-  "$hash": "15220636f3a984820f9c11a17c9b7002c4a3c79e",
+  "$hash": "4ae5d0a0a3f0b4b123d812a553551777e0096a35",
   "$id": "aws-route53-recordset.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -27,12 +27,31 @@
       "required": ["CollectionId", "LocationName"],
       "type": "object"
     },
+    "Coordinates": {
+      "additionalProperties": false,
+      "properties": {
+        "Latitude": { "type": "string" },
+        "Longitude": { "type": "string" }
+      },
+      "required": ["Latitude", "Longitude"],
+      "type": "object"
+    },
     "GeoLocation": {
       "additionalProperties": false,
       "properties": {
         "ContinentCode": { "type": "string" },
         "CountryCode": { "type": "string" },
         "SubdivisionCode": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "GeoProximityLocation": {
+      "additionalProperties": false,
+      "properties": {
+        "AWSRegion": { "type": "string" },
+        "Bias": { "type": "integer" },
+        "Coordinates": { "$ref": "#/definitions/Coordinates" },
+        "LocalZoneGroup": { "type": "string" }
       },
       "type": "object"
     }
@@ -45,6 +64,7 @@
     "Comment": { "type": "string" },
     "Failover": { "type": "string" },
     "GeoLocation": { "$ref": "#/definitions/GeoLocation" },
+    "GeoProximityLocation": { "$ref": "#/definitions/GeoProximityLocation" },
     "HealthCheckId": { "type": "string" },
     "HostedZoneId": { "type": "string" },
     "HostedZoneName": { "type": "string" },

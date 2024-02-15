@@ -1,5 +1,5 @@
 {
-  "$hash": "533578e48e9ac2a751e665d362c6f565ac44ba61",
+  "$hash": "28111da92bcda0f33b07c686b314a63ded28b0db",
   "$id": "aws-route53-recordsetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -26,12 +26,31 @@
       "required": ["CollectionId", "LocationName"],
       "type": "object"
     },
+    "Coordinates": {
+      "additionalProperties": false,
+      "properties": {
+        "Latitude": { "type": "string" },
+        "Longitude": { "type": "string" }
+      },
+      "required": ["Latitude", "Longitude"],
+      "type": "object"
+    },
     "GeoLocation": {
       "additionalProperties": false,
       "properties": {
         "ContinentCode": { "type": "string" },
         "CountryCode": { "type": "string" },
         "SubdivisionCode": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "GeoProximityLocation": {
+      "additionalProperties": false,
+      "properties": {
+        "AWSRegion": { "type": "string" },
+        "Bias": { "type": "integer" },
+        "Coordinates": { "$ref": "#/definitions/Coordinates" },
+        "LocalZoneGroup": { "type": "string" }
       },
       "type": "object"
     },
@@ -42,6 +61,9 @@
         "CidrRoutingConfig": { "$ref": "#/definitions/CidrRoutingConfig" },
         "Failover": { "type": "string" },
         "GeoLocation": { "$ref": "#/definitions/GeoLocation" },
+        "GeoProximityLocation": {
+          "$ref": "#/definitions/GeoProximityLocation"
+        },
         "HealthCheckId": { "type": "string" },
         "HostedZoneId": { "type": "string" },
         "HostedZoneName": { "type": "string" },

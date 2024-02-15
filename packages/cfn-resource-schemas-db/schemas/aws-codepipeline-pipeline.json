@@ -1,5 +1,5 @@
 {
-  "$hash": "58129cc0d9b22b2e576ad588690653652c6d767a",
+  "$hash": "7e049dc2c16c8b856610e79289a5114c278d3db0",
   "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -76,9 +76,30 @@
       "required": ["Type", "Id"],
       "type": "object"
     },
+    "GitBranchFilterCriteria": {
+      "additionalProperties": false,
+      "properties": {
+        "Excludes": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "Includes": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
     "GitConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "PullRequest": {
+          "items": { "$ref": "#/definitions/GitPullRequestFilter" },
+          "type": "array",
+          "uniqueItems": true
+        },
         "Push": {
           "items": { "$ref": "#/definitions/GitPushFilter" },
           "type": "array",
@@ -89,9 +110,40 @@
       "required": ["SourceActionName"],
       "type": "object"
     },
+    "GitFilePathFilterCriteria": {
+      "additionalProperties": false,
+      "properties": {
+        "Excludes": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "Includes": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
+    "GitPullRequestFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "Branches": { "$ref": "#/definitions/GitBranchFilterCriteria" },
+        "Events": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "FilePaths": { "$ref": "#/definitions/GitFilePathFilterCriteria" }
+      },
+      "type": "object"
+    },
     "GitPushFilter": {
       "additionalProperties": false,
       "properties": {
+        "Branches": { "$ref": "#/definitions/GitBranchFilterCriteria" },
+        "FilePaths": { "$ref": "#/definitions/GitFilePathFilterCriteria" },
         "Tags": { "$ref": "#/definitions/GitTagFilterCriteria" }
       },
       "type": "object"
@@ -194,6 +246,7 @@
       "type": "array",
       "uniqueItems": true
     },
+    "ExecutionMode": { "type": "string" },
     "Id": { "type": "string" },
     "Name": { "type": "string" },
     "PipelineType": { "type": "string" },

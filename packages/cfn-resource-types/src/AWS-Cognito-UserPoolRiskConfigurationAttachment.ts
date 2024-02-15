@@ -12,13 +12,6 @@ export type CognitoUserPoolRiskConfigurationAttachmentProperties = {
   UserPoolId: string;
 };
 /**
- * Attribute type definition for `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolriskconfigurationattachment.html#aws-resource-cognito-userpoolriskconfigurationattachment-return-values}
- */
-export type CognitoUserPoolRiskConfigurationAttachmentAttributes = {
-  Id: string;
-};
-/**
  * Type definition for `AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverActionsType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-accounttakeoveractionstype.html}
  */
@@ -94,7 +87,7 @@ export type RiskExceptionConfigurationType = {
 export class CognitoUserPoolRiskConfigurationAttachment extends $Resource<
   "AWS::Cognito::UserPoolRiskConfigurationAttachment",
   CognitoUserPoolRiskConfigurationAttachmentProperties,
-  CognitoUserPoolRiskConfigurationAttachmentAttributes
+  Record<string, never>
 > {
   public static readonly Type =
     "AWS::Cognito::UserPoolRiskConfigurationAttachment";
