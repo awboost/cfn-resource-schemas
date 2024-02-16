@@ -1,5 +1,5 @@
 {
-  "$hash": "e70706c1ec702cd0cbbb7ecb6965ead5d8702e01",
+  "$hash": "4cab90da2dfa4b467753a29034f1c70e2acd60c5",
   "$id": "aws-gamelift-fleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -508,5 +508,6 @@
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
   "taggable": true,
-  "typeName": "AWS::GameLift::Fleet"
+  "typeName": "AWS::GameLift::Fleet",
+  "writeOnlyProperties": ["/properties/ApplyCapacity"]
 }

@@ -111,7 +111,7 @@ export type FileSystemConfig = {
 };
 /**
  * Type definition for `AWS::SageMaker::AppImageConfig.JupyterLabAppImageConfig`.
- * The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.
+ * The configuration for the kernels in a SageMaker image running as a JupyterLab app.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-jupyterlabappimageconfig.html}
  */
 export type JupyterLabAppImageConfig = {

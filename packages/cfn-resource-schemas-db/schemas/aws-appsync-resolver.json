@@ -1,5 +1,5 @@
 {
-  "$hash": "f6038dfa94c61c80c4d6e788034d3917de0978e9",
+  "$hash": "cec9ad33fa1d44268c15b75c87cb363434eaaa9e",
   "$id": "aws-appsync-resolver.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -145,6 +145,11 @@
     "MaxBatchSize": {
       "description": "The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.",
       "type": "integer"
+    },
+    "MetricsConfig": {
+      "description": "",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
     },
     "PipelineConfig": {
       "$ref": "#/definitions/PipelineConfig",

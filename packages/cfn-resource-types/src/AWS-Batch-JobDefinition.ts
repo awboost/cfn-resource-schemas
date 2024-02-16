@@ -53,6 +53,7 @@ export type ContainerProperties = {
   NetworkConfiguration?: NetworkConfiguration;
   Privileged?: boolean;
   ReadonlyRootFilesystem?: boolean;
+  RepositoryCredentials?: RepositoryCredentials;
   ResourceRequirements?: ResourceRequirement[];
   RuntimePlatform?: RuntimePlatform;
   Secrets?: Secret[];
@@ -276,6 +277,13 @@ export type PodProperties = {
   Metadata?: Metadata;
   ServiceAccountName?: string;
   Volumes?: EksVolume[];
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.RepositoryCredentials`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-repositorycredentials.html}
+ */
+export type RepositoryCredentials = {
+  CredentialsParameter: string;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.ResourceRequirement`.

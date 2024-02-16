@@ -1,5 +1,5 @@
 {
-  "$hash": "c5f45b019242974df7df334e76aad95e71a03444",
+  "$hash": "29530614d968daff075f9f3870eac0e06bd1b26d",
   "$id": "aws-kinesis-stream.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -14,6 +14,20 @@
           "type": "string"
         },
         "KeyId": {
+          "anyOf": [
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/Arn",
+                "typeName": "AWS::KMS::Key"
+              }
+            },
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/KeyId",
+                "typeName": "AWS::KMS::Key"
+              }
+            }
+          ],
           "description": "The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by \"alias/\".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.",
           "maxLength": 2048,
           "minLength": 1,

@@ -1,5 +1,5 @@
 {
-  "$hash": "9e87f62c2bc0d8611070f026057a81fe474715c6",
+  "$hash": "7dc717058755aeffef36f7fb8bdc6d82f1727386",
   "$id": "aws-ec2-instanceconnectendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -62,7 +62,7 @@
       "type": "string"
     },
     "PreserveClientIp": {
-      "description": "If true, the address of the loki client is preserved when connecting to the end resource",
+      "description": "If true, the address of the instance connect endpoint client is preserved when connecting to the end resource",
       "type": "boolean"
     },
     "SecurityGroupIds": {

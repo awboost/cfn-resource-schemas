@@ -8,6 +8,7 @@ export type AppSyncApiCacheProperties = {
   ApiCachingBehavior: string;
   ApiId: string;
   AtRestEncryptionEnabled?: boolean;
+  HealthMetricsConfig?: string;
   TransitEncryptionEnabled?: boolean;
   Ttl: number;
   Type: string;

@@ -1,5 +1,5 @@
 {
-  "$hash": "60ab4de34963541c40b58815b8581913508900ea",
+  "$hash": "b4284fb9d738d6c446760b47b0df19d11a7587eb",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -148,6 +148,12 @@
       "required": ["WriteCapacityUnits", "ReadCapacityUnits"],
       "type": "object"
     },
+    "ResourcePolicy": {
+      "additionalProperties": false,
+      "properties": { "PolicyDocument": { "type": "object" } },
+      "required": ["PolicyDocument"],
+      "type": "object"
+    },
     "S3BucketSource": {
       "additionalProperties": false,
       "properties": {
@@ -170,7 +176,10 @@
     },
     "StreamSpecification": {
       "additionalProperties": false,
-      "properties": { "StreamViewType": { "type": "string" } },
+      "properties": {
+        "ResourcePolicy": { "$ref": "#/definitions/ResourcePolicy" },
+        "StreamViewType": { "type": "string" }
+      },
       "required": ["StreamViewType"],
       "type": "object"
     },
@@ -213,6 +222,8 @@
         "dynamodb:ListTagsOfResource",
         "dynamodb:TagResource",
         "dynamodb:UpdateTable",
+        "dynamodb:GetResourcePolicy",
+        "dynamodb:PutResourcePolicy",
         "kinesis:DescribeStream",
         "kinesis:PutRecords",
         "iam:CreateServiceLinkedRole",
@@ -245,7 +256,8 @@
         "dynamodb:DescribeContinuousBackups",
         "dynamodb:DescribeContributorInsights",
         "dynamodb:DescribeKinesisStreamingDestination",
-        "dynamodb:ListTagsOfResource"
+        "dynamodb:ListTagsOfResource",
+        "dynamodb:GetResourcePolicy"
       ]
     },
     "update": {
@@ -265,6 +277,9 @@
         "dynamodb:DescribeContributorInsights",
         "dynamodb:EnableKinesisStreamingDestination",
         "dynamodb:DisableKinesisStreamingDestination",
+        "dynamodb:GetResourcePolicy",
+        "dynamodb:PutResourcePolicy",
+        "dynamodb:DeleteResourcePolicy",
         "kinesis:DescribeStream",
         "kinesis:PutRecords",
         "iam:CreateServiceLinkedRole",
@@ -319,6 +334,7 @@
       "$ref": "#/definitions/PointInTimeRecoverySpecification"
     },
     "ProvisionedThroughput": { "$ref": "#/definitions/ProvisionedThroughput" },
+    "ResourcePolicy": { "$ref": "#/definitions/ResourcePolicy" },
     "SSESpecification": { "$ref": "#/definitions/SSESpecification" },
     "StreamArn": { "type": "string" },
     "StreamSpecification": { "$ref": "#/definitions/StreamSpecification" },

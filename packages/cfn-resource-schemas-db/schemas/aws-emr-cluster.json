@@ -1,5 +1,5 @@
 {
-  "$hash": "4af286e02a75b705933d78820476ab171c39dd76",
+  "$hash": "c8b9c2984ecc835410fcd80e1b8b7fdb0b65b04b",
   "$id": "aws-emr-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -267,7 +267,8 @@
           "type": "array",
           "uniqueItems": true
         },
-        "TerminationProtected": { "type": "boolean" }
+        "TerminationProtected": { "type": "boolean" },
+        "UnhealthyNodeReplacement": { "type": "boolean" }
       },
       "type": "object"
     },

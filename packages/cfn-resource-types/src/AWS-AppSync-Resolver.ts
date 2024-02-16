@@ -41,6 +41,7 @@ export type AppSyncResolverProperties = {
    * The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
    */
   MaxBatchSize?: number;
+  MetricsConfig?: "ENABLED" | "DISABLED";
   /**
    * Functions linked with the pipeline resolver.
    */

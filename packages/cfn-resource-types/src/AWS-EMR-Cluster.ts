@@ -205,6 +205,7 @@ export type JobFlowInstancesConfig = {
   TaskInstanceFleets?: InstanceFleetConfig[];
   TaskInstanceGroups?: InstanceGroupConfig[];
   TerminationProtected?: boolean;
+  UnhealthyNodeReplacement?: boolean;
 };
 /**
  * Type definition for `AWS::EMR::Cluster.KerberosAttributes`.

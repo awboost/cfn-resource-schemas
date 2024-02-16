@@ -1,5 +1,5 @@
 {
-  "$hash": "2e4c56cbd412a934f7b1030e4419caf4df261d9b",
+  "$hash": "9fe117010c7dda52967d3e5e3713ef71b4c3113e",
   "$id": "aws-sagemaker-appimageconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -101,7 +101,7 @@
     },
     "JupyterLabAppImageConfig": {
       "additionalProperties": false,
-      "description": "The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.",
+      "description": "The configuration for the kernels in a SageMaker image running as a JupyterLab app.",
       "properties": {
         "ContainerConfig": {
           "$ref": "#/definitions/ContainerConfig",

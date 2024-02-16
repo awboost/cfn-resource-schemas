@@ -12,6 +12,7 @@ export type AppSyncDataSourceProperties = {
   EventBridgeConfig?: EventBridgeConfig;
   HttpConfig?: HttpConfig;
   LambdaConfig?: LambdaConfig;
+  MetricsConfig?: string;
   Name: string;
   OpenSearchServiceConfig?: OpenSearchServiceConfig;
   RelationalDatabaseConfig?: RelationalDatabaseConfig;

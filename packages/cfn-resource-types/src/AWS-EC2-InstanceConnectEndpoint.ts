@@ -10,7 +10,7 @@ export type EC2InstanceConnectEndpointProperties = {
    */
   ClientToken?: string;
   /**
-   * If true, the address of the loki client is preserved when connecting to the end resource
+   * If true, the address of the instance connect endpoint client is preserved when connecting to the end resource
    */
   PreserveClientIp?: boolean;
   /**

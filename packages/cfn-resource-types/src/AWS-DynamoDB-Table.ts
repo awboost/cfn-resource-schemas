@@ -16,6 +16,7 @@ export type DynamoDBTableProperties = {
   LocalSecondaryIndexes?: LocalSecondaryIndex[];
   PointInTimeRecoverySpecification?: PointInTimeRecoverySpecification;
   ProvisionedThroughput?: ProvisionedThroughput;
+  ResourcePolicy?: ResourcePolicy;
   SSESpecification?: SSESpecification;
   StreamSpecification?: StreamSpecification;
   TableClass?: string;
@@ -131,6 +132,13 @@ export type ProvisionedThroughput = {
   WriteCapacityUnits: number;
 };
 /**
+ * Type definition for `AWS::DynamoDB::Table.ResourcePolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html}
+ */
+export type ResourcePolicy = {
+  PolicyDocument: Record<string, any>;
+};
+/**
  * Type definition for `AWS::DynamoDB::Table.S3BucketSource`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-s3bucketsource.html}
  */
@@ -153,6 +161,7 @@ export type SSESpecification = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html}
  */
 export type StreamSpecification = {
+  ResourcePolicy?: ResourcePolicy;
   StreamViewType: string;
 };
 /**

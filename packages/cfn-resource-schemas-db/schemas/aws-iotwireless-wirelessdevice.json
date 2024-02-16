@@ -1,5 +1,5 @@
 {
-  "$hash": "5a1ae46afee93a993d4c4e3bc8dc4affc1154f8e",
+  "$hash": "88316455776bc5f9ea5c5aaad771f8f261cb4385",
   "$id": "aws-iotwireless-wirelessdevice.json",
   "additionalProperties": false,
   "definitions": {
@@ -21,6 +21,43 @@
       "required": ["DevAddr", "SessionKeys"],
       "type": "object"
     },
+    "Application": {
+      "additionalProperties": false,
+      "description": "LoRaWAN application configuration, which can be used to perform geolocation.",
+      "properties": {
+        "DestinationName": {
+          "description": "The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.",
+          "maxLength": 128,
+          "pattern": "[a-zA-Z0-9-_]+",
+          "type": "string"
+        },
+        "FPort": {
+          "description": "The Fport value.",
+          "maximum": 223,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "Type": {
+          "description": "Application type, which can be specified to obtain real-time position information of your LoRaWAN device.",
+          "enum": ["SemtechGeolocation"],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FPorts": {
+      "additionalProperties": false,
+      "properties": {
+        "Applications": {
+          "description": "A list of optional LoRaWAN application information, which can be used for geolocation.",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/Application" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
     "LoRaWANDevice": {
       "additionalProperties": false,
       "oneOf": [
@@ -34,6 +71,7 @@
         "AbpV11": { "$ref": "#/definitions/AbpV11" },
         "DevEui": { "pattern": "[a-f0-9]{16}", "type": "string" },
         "DeviceProfileId": { "maxLength": 256, "type": "string" },
+        "FPorts": { "$ref": "#/definitions/FPorts" },
         "OtaaV10x": { "$ref": "#/definitions/OtaaV10x" },
         "OtaaV11": { "$ref": "#/definitions/OtaaV11" },
         "ServiceProfileId": { "maxLength": 256, "type": "string" }

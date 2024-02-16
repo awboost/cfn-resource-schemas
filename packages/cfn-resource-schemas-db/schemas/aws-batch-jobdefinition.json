@@ -1,5 +1,5 @@
 {
-  "$hash": "072411deb59ce6f53513aecfc6e920af5eda772c",
+  "$hash": "763b7a135d745d1120a5c25f369750047407cf20",
   "$id": "aws-batch-jobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags", "/properties/JobDefinitionName"],
@@ -46,6 +46,9 @@
         },
         "Privileged": { "type": "boolean" },
         "ReadonlyRootFilesystem": { "type": "boolean" },
+        "RepositoryCredentials": {
+          "$ref": "#/definitions/RepositoryCredentials"
+        },
         "ResourceRequirements": {
           "items": { "$ref": "#/definitions/ResourceRequirement" },
           "type": "array",
@@ -335,6 +338,12 @@
           "uniqueItems": false
         }
       },
+      "type": "object"
+    },
+    "RepositoryCredentials": {
+      "additionalProperties": false,
+      "properties": { "CredentialsParameter": { "type": "string" } },
+      "required": ["CredentialsParameter"],
       "type": "object"
     },
     "ResourceRequirement": {

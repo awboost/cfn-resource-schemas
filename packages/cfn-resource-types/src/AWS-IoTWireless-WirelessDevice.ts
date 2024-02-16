@@ -85,6 +85,39 @@ export type AbpV11 = {
   SessionKeys: SessionKeysAbpV11;
 };
 /**
+ * Type definition for `AWS::IoTWireless::WirelessDevice.Application`.
+ * LoRaWAN application configuration, which can be used to perform geolocation.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-application.html}
+ */
+export type Application = {
+  /**
+   * The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9-_]+`
+   */
+  DestinationName?: string;
+  /**
+   * The Fport value.
+   * @min `1`
+   * @max `223`
+   */
+  FPort?: number;
+  /**
+   * Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+   */
+  Type?: "SemtechGeolocation";
+};
+/**
+ * Type definition for `AWS::IoTWireless::WirelessDevice.FPorts`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-fports.html}
+ */
+export type FPorts = {
+  /**
+   * A list of optional LoRaWAN application information, which can be used for geolocation.
+   */
+  Applications?: Application[];
+};
+/**
  * Type definition for `AWS::IoTWireless::WirelessDevice.LoRaWANDevice`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html}
  */
@@ -99,6 +132,7 @@ export type LoRaWANDevice = {
    * @maxLength `256`
    */
   DeviceProfileId?: string;
+  FPorts?: FPorts;
   OtaaV10x?: OtaaV10x;
   OtaaV11?: OtaaV11;
   /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "49fc24282c316f45cd67b9dbc65f6b7227ca7ce8",
+  "$hash": "e16b44070bf475dff08919711b932e70a6339d2f",
   "$id": "aws-rekognition-collection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CollectionId"],
@@ -43,7 +43,8 @@
       "permissions": [
         "rekognition:CreateCollection",
         "rekognition:DescribeCollection",
-        "rekognition:ListTagsForResource"
+        "rekognition:ListTagsForResource",
+        "rekognition:TagResource"
       ]
     },
     "delete": { "permissions": ["rekognition:DeleteCollection"] },

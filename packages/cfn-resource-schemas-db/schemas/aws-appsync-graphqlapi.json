@@ -1,5 +1,5 @@
 {
-  "$hash": "5a95c1c562da56c325df2fafb95f64fb32652967",
+  "$hash": "4e79e1c3497b20948346caa117feb091e9711825",
   "$id": "aws-appsync-graphqlapi.json",
   "additionalProperties": false,
   "definitions": {
@@ -23,6 +23,20 @@
         "AwsRegion": { "type": "string" },
         "UserPoolId": { "type": "string" }
       },
+      "type": "object"
+    },
+    "EnhancedMetricsConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "DataSourceLevelMetricsBehavior": { "type": "string" },
+        "OperationLevelMetricsConfig": { "type": "string" },
+        "ResolverLevelMetricsBehavior": { "type": "string" }
+      },
+      "required": [
+        "OperationLevelMetricsConfig",
+        "ResolverLevelMetricsBehavior",
+        "DataSourceLevelMetricsBehavior"
+      ],
       "type": "object"
     },
     "LambdaAuthorizerConfig": {
@@ -85,6 +99,7 @@
     "ApiType": { "type": "string" },
     "Arn": { "type": "string" },
     "AuthenticationType": { "type": "string" },
+    "EnhancedMetricsConfig": { "$ref": "#/definitions/EnhancedMetricsConfig" },
     "EnvironmentVariables": { "type": "object" },
     "GraphQLDns": { "type": "string" },
     "GraphQLEndpointArn": { "type": "string" },

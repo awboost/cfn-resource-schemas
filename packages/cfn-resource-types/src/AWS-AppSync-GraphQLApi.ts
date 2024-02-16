@@ -8,6 +8,7 @@ export type AppSyncGraphQLApiProperties = {
   AdditionalAuthenticationProviders?: AdditionalAuthenticationProvider[];
   ApiType?: string;
   AuthenticationType: string;
+  EnhancedMetricsConfig?: EnhancedMetricsConfig;
   EnvironmentVariables?: Record<string, any>;
   IntrospectionConfig?: string;
   LambdaAuthorizerConfig?: LambdaAuthorizerConfig;
@@ -55,6 +56,15 @@ export type CognitoUserPoolConfig = {
   AppIdClientRegex?: string;
   AwsRegion?: string;
   UserPoolId?: string;
+};
+/**
+ * Type definition for `AWS::AppSync::GraphQLApi.EnhancedMetricsConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-enhancedmetricsconfig.html}
+ */
+export type EnhancedMetricsConfig = {
+  DataSourceLevelMetricsBehavior: string;
+  OperationLevelMetricsConfig: string;
+  ResolverLevelMetricsBehavior: string;
 };
 /**
  * Type definition for `AWS::AppSync::GraphQLApi.LambdaAuthorizerConfig`.

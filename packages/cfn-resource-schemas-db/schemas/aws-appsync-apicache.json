@@ -1,5 +1,5 @@
 {
-  "$hash": "a69e7d103ce102ff3005a069f77615aa90c3fe17",
+  "$hash": "23e87eea61d0ba804ca8f2b8864eff38dca22eb3",
   "$id": "aws-appsync-apicache.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],
@@ -9,6 +9,7 @@
     "ApiCachingBehavior": { "type": "string" },
     "ApiId": { "type": "string" },
     "AtRestEncryptionEnabled": { "type": "boolean" },
+    "HealthMetricsConfig": { "type": "string" },
     "Id": { "type": "string" },
     "TransitEncryptionEnabled": { "type": "boolean" },
     "Ttl": { "type": "number" },
