@@ -50,12 +50,13 @@ export type ACMPCACertificateAttributes = {
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.ApiPassthrough`.
- * Contains information about the certificate subject. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate.
+ * Contains X.509 certificate information to be placed in an issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
+ If conflicting or duplicate certificate information is supplied from other sources, AWS Private CA applies [order of operation rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations) to determine what information is used.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html}
  */
 export type ApiPassthrough = {
   /**
-   * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+   * Specifies X.509 extension information for a certificate.
    */
   Extensions?: Extensions;
   /**
@@ -65,67 +66,100 @@ export type ApiPassthrough = {
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.CustomAttribute`.
+ * Defines the X.500 relative distinguished name (RDN).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-customattribute.html}
  */
 export type CustomAttribute = {
   /**
-   * String that contains X.509 ObjectIdentifier information.
+   * Specifies the object identifier (OID) of the attribute type of the relative distinguished name (RDN).
    */
   ObjectIdentifier: string;
+  /**
+   * Specifies the attribute value of relative distinguished name (RDN).
+   */
   Value: string;
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.CustomExtension`.
+ * Specifies the X.509 extension information for a certificate.
+ Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-customextension.html}
  */
 export type CustomExtension = {
+  /**
+   * Specifies the critical flag of the X.509 extension.
+   */
   Critical?: boolean;
   /**
-   * String that contains X.509 ObjectIdentifier information.
+   * Specifies the object identifier (OID) of the X.509 extension. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
    */
   ObjectIdentifier: string;
+  /**
+   * Specifies the base64-encoded value of the X.509 extension.
+   */
   Value: string;
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.EdiPartyName`.
+ * Describes an Electronic Data Interchange (EDI) entity as described in as defined in [Subject Alternative Name](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280) in RFC 5280.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html}
  */
 export type EdiPartyName = {
+  /**
+   * Specifies the name assigner.
+   */
   NameAssigner: string;
+  /**
+   * Specifies the party name.
+   */
   PartyName: string;
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.ExtendedKeyUsage`.
+ * Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html}
  */
 export type ExtendedKeyUsage = {
   /**
-   * String that contains X.509 ObjectIdentifier information.
+   * Specifies a custom ``ExtendedKeyUsage`` with an object identifier (OID).
    */
   ExtendedKeyUsageObjectIdentifier?: string;
+  /**
+   * Specifies a standard ``ExtendedKeyUsage`` as defined as in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12).
+   */
   ExtendedKeyUsageType?: string;
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.Extensions`.
- * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+ * Contains X.509 extension information for a certificate.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html}
  */
 export type Extensions = {
+  /**
+     * Contains a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+     In an end-entity certificate, these terms indicate the policy under which the certificate was issued and the purposes for which it may be used. In a CA certificate, these terms limit the set of policies for certification paths that include this certificate.
+     */
   CertificatePolicies?: PolicyInformation[];
   /**
-   * Array of X.509 extensions for a certificate.
+   * Contains a sequence of one or more X.509 extensions, each of which consists of an object identifier (OID), a base64-encoded value, and the critical flag. For more information, see the [Global OID reference database.](https://docs.aws.amazon.com/https://oidref.com/2.5.29)
    */
   CustomExtensions?: CustomExtension[];
+  /**
+   * Specifies additional purposes for which the certified public key may be used other than basic purposes indicated in the ``KeyUsage`` extension.
+   */
   ExtendedKeyUsage?: ExtendedKeyUsage[];
   /**
    * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
    */
   KeyUsage?: KeyUsage;
+  /**
+   * The subject alternative name extension allows identities to be bound to the subject of the certificate. These identities may be included in addition to or in place of the identity in the subject field of the certificate.
+   */
   SubjectAlternativeNames?: GeneralName[];
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.GeneralName`.
- * Contains information about the certificate subject. The certificate can be one issued by your private certificate authority (CA) or it can be your private CA certificate. The Subject field in the certificate identifies the entity that owns or controls the public key in the certificate. The entity can be a user, computer, device, or service. The Subject must contain an X.500 distinguished name (DN). A DN is a sequence of relative distinguished names (RDNs). The RDNs are separated by commas in the certificate. The DN must be unique for each entity, but your private CA can issue more than one certificate with the same DN to the same entity.
+ * Describes an ASN.1 X.400 ``GeneralName`` as defined in [RFC 5280](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280). Only one of the following naming options should be provided. Providing more than one option results in an ``InvalidArgsException`` error.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html}
  */
 export type GeneralName = {
@@ -134,78 +168,131 @@ export type GeneralName = {
    */
   DirectoryName?: Subject;
   /**
-   * String that contains X.509 DnsName information.
+   * Represents ``GeneralName`` as a DNS name.
    */
   DnsName?: string;
+  /**
+   * Represents ``GeneralName`` as an ``EdiPartyName`` object.
+   */
   EdiPartyName?: EdiPartyName;
   /**
-   * String that contains X.509 IpAddress information.
+   * Represents ``GeneralName`` as an IPv4 or IPv6 address.
    */
   IpAddress?: string;
+  /**
+   * Represents ``GeneralName`` using an ``OtherName`` object.
+   */
   OtherName?: OtherName;
   /**
-   * String that contains X.509 ObjectIdentifier information.
+   * Represents ``GeneralName`` as an object identifier (OID).
    */
   RegisteredId?: string;
   /**
-   * String that contains X.509 Rfc822Name information.
+   * Represents ``GeneralName`` as an [RFC 822](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc822) email address.
    */
   Rfc822Name?: string;
   /**
-   * String that contains X.509 UniformResourceIdentifier information.
+   * Represents ``GeneralName`` as a URI.
    */
   UniformResourceIdentifier?: string;
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.KeyUsage`.
+ * Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html}
  */
 export type KeyUsage = {
+  /**
+   * Key can be used to sign CRLs.
+   */
   CRLSign?: boolean;
+  /**
+   * Key can be used to decipher data.
+   */
   DataEncipherment?: boolean;
+  /**
+   * Key can be used only to decipher data.
+   */
   DecipherOnly?: boolean;
+  /**
+   * Key can be used for digital signing.
+   */
   DigitalSignature?: boolean;
+  /**
+   * Key can be used only to encipher data.
+   */
   EncipherOnly?: boolean;
+  /**
+   * Key can be used in a key-agreement protocol.
+   */
   KeyAgreement?: boolean;
+  /**
+   * Key can be used to sign certificates.
+   */
   KeyCertSign?: boolean;
+  /**
+   * Key can be used to encipher data.
+   */
   KeyEncipherment?: boolean;
+  /**
+   * Key can be used for non-repudiation.
+   */
   NonRepudiation?: boolean;
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.OtherName`.
+ * Defines a custom ASN.1 X.400 ``GeneralName`` using an object identifier (OID) and value. The OID must satisfy the regular expression shown below. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html}
  */
 export type OtherName = {
   /**
-   * String that contains X.509 ObjectIdentifier information.
+   * Specifies an OID.
    */
   TypeId: string;
+  /**
+   * Specifies an OID value.
+   */
   Value: string;
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.PolicyInformation`.
+ * Defines the X.509 ``CertificatePolicies`` extension.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html}
  */
 export type PolicyInformation = {
   /**
-   * String that contains X.509 ObjectIdentifier information.
+   * Specifies the object identifier (OID) of the certificate policy under which the certificate was issued. For more information, see NIST's definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
    */
   CertPolicyId: string;
+  /**
+   * Modifies the given ``CertPolicyId`` with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
+   */
   PolicyQualifiers?: PolicyQualifierInfo[];
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.PolicyQualifierInfo`.
+ * Modifies the ``CertPolicyId`` of a ``PolicyInformation`` object with a qualifier. AWS Private CA supports the certification practice statement (CPS) qualifier.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html}
  */
 export type PolicyQualifierInfo = {
+  /**
+   * Identifies the qualifier modifying a ``CertPolicyId``.
+   */
   PolicyQualifierId: string;
+  /**
+   * Defines the qualifier type. AWS Private CA supports the use of a URI for a CPS qualifier in this field.
+   */
   Qualifier: Qualifier;
 };
 /**
  * Type definition for `AWS::ACMPCA::Certificate.Qualifier`.
+ * Defines a ``PolicyInformation`` qualifier. AWS Private CA supports the [certification practice statement (CPS) qualifier](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.4) defined in RFC 5280.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html}
  */
 export type Qualifier = {
+  /**
+   * Contains a pointer to a certification practice statement (CPS) published by the CA.
+   */
   CpsUri: string;
 };
 /**
@@ -224,8 +311,9 @@ export type Subject = {
    */
   Country?: string;
   /**
-   * Array of X.500 attribute type and value. CustomAttributes cannot be used along with pre-defined attributes.
-   */
+     * Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier).
+      Custom attributes cannot be used in combination with standard attributes.
+     */
   CustomAttributes?: CustomAttribute[];
   /**
    * Disambiguating information for the certificate subject.
@@ -287,7 +375,7 @@ export type Validity = {
    */
   Type: string;
   /**
-   * Time period.
+   * A long integer interpreted according to the value of ``Type``, below.
    */
   Value: number;
 };

@@ -576,7 +576,7 @@ export type PositionalConstraint =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html}
  */
 export type RateBasedStatement = {
-  AggregateKeyType: "CONSTANT" | "IP" | "FORWARDED_IP" | "CUSTOM_KEYS";
+  AggregateKeyType: "IP" | "FORWARDED_IP" | "CONSTANT" | "CUSTOM_KEYS";
   /**
    * Specifies the aggregate keys to use in a rate-base rule.
    * @maxLength `5`

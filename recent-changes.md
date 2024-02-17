@@ -1,227 +1,53 @@
-- added `AWS::ControlTower::EnabledBaseline`
-- updated `AWS::AppSync::ApiCache`
-  - added property `HealthMetricsConfig`
-- updated `AWS::AppSync::DataSource`
-  - added property `MetricsConfig`
-- updated `AWS::AppSync::GraphQLApi`
-  - added definition `EnhancedMetricsConfig`
-  - added property `EnhancedMetricsConfig`
-- updated `AWS::AppSync::Resolver`
-  - added property `MetricsConfig`
-- updated `AWS::Batch::JobDefinition`
-  - added definition `RepositoryCredentials`
-  - updated definition `ContainerProperties`
-- updated `AWS::Config::ConfigRule`
-  - added `propertyTransform`
-- updated `AWS::DynamoDB::Table`
-  - added definition `ResourcePolicy`
-  - added property `ResourcePolicy`
-  - updated definition `StreamSpecification`
-  - updated handler permissions
-- updated `AWS::EC2::InstanceConnectEndpoint`
-  - updated property `PreserveClientIp`
-- updated `AWS::EC2::NatGateway`
-  - updated definition `Tag`
-  - updated property `AllocationId`
-  - updated property `ConnectivityType`
-  - updated property `MaxDrainDurationSeconds`
-  - updated property `NatGatewayId`
-  - updated property `PrivateIpAddress`
-  - updated property `SecondaryAllocationIds`
-  - updated property `SecondaryPrivateIpAddressCount`
-  - updated property `SecondaryPrivateIpAddresses`
-  - updated property `SubnetId`
-  - updated property `Tags`
-- updated `AWS::EC2::VPC`
-  - updated definition `Tag`
-  - updated property `CidrBlockAssociations`
-  - updated property `CidrBlock`
-  - updated property `DefaultNetworkAcl`
-  - updated property `DefaultSecurityGroup`
-  - updated property `EnableDnsHostnames`
-  - updated property `EnableDnsSupport`
-  - updated property `InstanceTenancy`
-  - updated property `Ipv4IpamPoolId`
-  - updated property `Ipv4NetmaskLength`
-  - updated property `Ipv6CidrBlocks`
-  - updated property `VpcId`
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `AuthorizationConfig`
-  - updated definition `ContainerDefinition`
-  - updated definition `ContainerDependency`
-  - updated definition `Device`
-  - updated definition `DockerVolumeConfiguration`
-  - updated definition `EFSVolumeConfiguration`
-  - updated definition `EnvironmentFile`
-  - updated definition `EphemeralStorage`
-  - updated definition `FirelensConfiguration`
-  - updated definition `HealthCheck`
-  - updated definition `HostEntry`
-  - updated definition `HostVolumeProperties`
-  - updated definition `InferenceAccelerator`
-  - updated definition `KernelCapabilities`
-  - updated definition `KeyValuePair`
-  - updated definition `LinuxParameters`
-  - updated definition `LogConfiguration`
-  - updated definition `MountPoint`
-  - updated definition `PortMapping`
-  - updated definition `ProxyConfiguration`
-  - updated definition `RepositoryCredentials`
-  - updated definition `ResourceRequirement`
-  - updated definition `RuntimePlatform`
-  - updated definition `Secret`
-  - updated definition `SystemControl`
-  - updated definition `Tag`
-  - updated definition `TaskDefinitionPlacementConstraint`
-  - updated definition `Tmpfs`
-  - updated definition `Ulimit`
-  - updated definition `VolumeFrom`
-  - updated definition `Volume`
-  - updated property `ContainerDefinitions`
-  - updated property `Cpu`
-  - updated property `EphemeralStorage`
-  - updated property `ExecutionRoleArn`
-  - updated property `Family`
-  - updated property `InferenceAccelerators`
-  - updated property `IpcMode`
-  - updated property `Memory`
-  - updated property `NetworkMode`
-  - updated property `PidMode`
-  - updated property `PlacementConstraints`
-  - updated property `ProxyConfiguration`
-  - updated property `RequiresCompatibilities`
-  - updated property `RuntimePlatform`
-  - updated property `Tags`
-  - updated property `TaskDefinitionArn`
-  - updated property `TaskRoleArn`
-  - updated property `Volumes`
-- updated `AWS::EMR::Cluster`
-  - updated definition `JobFlowInstancesConfig`
-- updated `AWS::GameLift::Fleet`
-  - added `writeOnlyProperties`
-- updated `AWS::GuardDuty::Master`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated `required`
-  - updated handler permissions
-  - updated property `DetectorId`
-  - updated property `InvitationId`
-  - updated property `MasterId`
-- updated `AWS::IAM::User`
-  - updated definition `LoginProfile`
-  - updated definition `Policy`
-  - updated definition `Tag`
-  - updated property `Arn`
-  - updated property `LoginProfile`
-  - updated property `ManagedPolicyArns`
-  - updated property `Path`
-  - updated property `PermissionsBoundary`
-  - updated property `Policies`
-  - updated property `Tags`
-  - updated property `UserName`
-- updated `AWS::IoTWireless::WirelessDevice`
-  - added definition `Application`
-  - added definition `FPorts`
-  - updated definition `LoRaWANDevice`
-- updated `AWS::KMS::Alias`
-  - updated property `AliasName`
-  - updated property `TargetKeyId`
-- updated `AWS::KMS::Key`
-  - updated definition `Tag`
-  - updated property `Arn`
-  - updated property `BypassPolicyLockoutSafetyCheck`
-  - updated property `Description`
-  - updated property `EnableKeyRotation`
-  - updated property `Enabled`
-  - updated property `KeyId`
-  - updated property `KeyPolicy`
-  - updated property `KeySpec`
-  - updated property `KeyUsage`
-  - updated property `MultiRegion`
-  - updated property `Origin`
-  - updated property `PendingWindowInDays`
-  - updated property `Tags`
-- updated `AWS::Kinesis::Stream`
-  - updated definition `StreamEncryption`
-- updated `AWS::Rekognition::Collection`
-  - updated handler permissions
-- updated `AWS::S3::Bucket`
-  - updated definition `AbortIncompleteMultipartUpload`
-  - updated definition `AccelerateConfiguration`
-  - updated definition `AccessControlTranslation`
-  - updated definition `AnalyticsConfiguration`
-  - updated definition `BucketEncryption`
-  - updated definition `CorsConfiguration`
-  - updated definition `CorsRule`
-  - updated definition `DataExport`
-  - updated definition `DefaultRetention`
-  - updated definition `DeleteMarkerReplication`
-  - updated definition `Destination`
-  - updated definition `EncryptionConfiguration`
-  - updated definition `EventBridgeConfiguration`
-  - updated definition `FilterRule`
-  - updated definition `IntelligentTieringConfiguration`
-  - updated definition `InventoryConfiguration`
-  - updated definition `LambdaConfiguration`
-  - updated definition `LifecycleConfiguration`
-  - updated definition `LoggingConfiguration`
-  - updated definition `MetricsConfiguration`
-  - updated definition `Metrics`
-  - updated definition `NoncurrentVersionExpiration`
-  - updated definition `NoncurrentVersionTransition`
-  - updated definition `NotificationConfiguration`
-  - updated definition `NotificationFilter`
-  - updated definition `ObjectLockConfiguration`
-  - updated definition `ObjectLockRule`
-  - updated definition `OwnershipControlsRule`
-  - updated definition `OwnershipControls`
-  - updated definition `PartitionedPrefix`
-  - updated definition `PublicAccessBlockConfiguration`
-  - updated definition `QueueConfiguration`
-  - updated definition `RedirectRule`
-  - updated definition `ReplicaModifications`
+- updated `AWS::ACMPCA::Certificate`
+  - updated definition `ApiPassthrough`
+  - updated definition `CustomAttribute`
+  - updated definition `CustomExtension`
+  - updated definition `EdiPartyName`
+  - updated definition `ExtendedKeyUsage`
+  - updated definition `Extensions`
+  - updated definition `GeneralName`
+  - updated definition `KeyUsage`
+  - updated definition `OtherName`
+  - updated definition `PolicyInformation`
+  - updated definition `PolicyQualifierInfo`
+  - updated definition `Qualifier`
+  - updated definition `Subject`
+  - updated definition `Validity`
+- updated `AWS::DMS::DataProvider`
+  - updated property `Engine`
+- updated `AWS::EFS::FileSystem`
+  - updated definition `BackupPolicy`
+  - updated definition `ElasticFileSystemTag`
+  - updated definition `FileSystemProtection`
+  - updated definition `LifecyclePolicy`
   - updated definition `ReplicationConfiguration`
   - updated definition `ReplicationDestination`
-  - updated definition `ReplicationRuleAndOperator`
-  - updated definition `ReplicationRuleFilter`
-  - updated definition `ReplicationRule`
-  - updated definition `ReplicationTimeValue`
-  - updated definition `ReplicationTime`
-  - updated definition `RoutingRuleCondition`
-  - updated definition `RoutingRule`
-  - updated definition `Rule`
-  - updated definition `S3KeyFilter`
-  - updated definition `ServerSideEncryptionByDefault`
-  - updated definition `ServerSideEncryptionRule`
-  - updated definition `SourceSelectionCriteria`
-  - updated definition `SseKmsEncryptedObjects`
-  - updated definition `StorageClassAnalysis`
-  - updated definition `TagFilter`
-  - updated definition `Tag`
-  - updated definition `Tiering`
-  - updated definition `TopicConfiguration`
-  - updated definition `Transition`
-  - updated definition `VersioningConfiguration`
-  - updated definition `WebsiteConfiguration`
-  - updated property `AccelerateConfiguration`
-  - updated property `AccessControl`
-  - updated property `AnalyticsConfigurations`
-  - updated property `BucketEncryption`
-  - updated property `BucketName`
-  - updated property `CorsConfiguration`
-  - updated property `IntelligentTieringConfigurations`
-  - updated property `InventoryConfigurations`
-  - updated property `LifecycleConfiguration`
-  - updated property `MetricsConfigurations`
-  - updated property `ObjectLockConfiguration`
-  - updated property `ObjectLockEnabled`
-  - updated property `OwnershipControls`
-  - updated property `PublicAccessBlockConfiguration`
+  - updated property `Arn`
+  - updated property `AvailabilityZoneName`
+  - updated property `BackupPolicy`
+  - updated property `BypassPolicyLockoutSafetyCheck`
+  - updated property `Encrypted`
+  - updated property `FileSystemId`
+  - updated property `FileSystemPolicy`
+  - updated property `FileSystemProtection`
+  - updated property `FileSystemTags`
+  - updated property `KmsKeyId`
+  - updated property `LifecyclePolicies`
+  - updated property `PerformanceMode`
+  - updated property `ProvisionedThroughputInMibps`
   - updated property `ReplicationConfiguration`
-  - updated property `VersioningConfiguration`
-  - updated property `WebsiteConfiguration`
-- updated `AWS::SageMaker::AppImageConfig`
-  - updated definition `JupyterLabAppImageConfig`
+  - updated property `ThroughputMode`
+- updated `AWS::WAFv2::IPSet`
+  - added `tagging`
+- updated `AWS::WAFv2::LoggingConfiguration`
+  - added `tagging`
+  - updated definition `FieldToMatch`
+- updated `AWS::WAFv2::RegexPatternSet`
+  - added `tagging`
+- updated `AWS::WAFv2::RuleGroup`
+  - added `tagging`
+  - updated definition `RateBasedStatement`
+- updated `AWS::WAFv2::WebACL`
+  - added `tagging`
+- updated `AWS::WAFv2::WebACLAssociation`
+  - added `tagging`

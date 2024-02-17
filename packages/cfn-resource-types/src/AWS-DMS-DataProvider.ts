@@ -27,7 +27,7 @@ export type DMSDataProviderProperties = {
    * The property describes a data engine for the data provider.
    */
   Engine:
-    | "postgresql"
+    | "postgres"
     | "mysql"
     | "oracle"
     | "sqlserver"

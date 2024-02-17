@@ -1,5 +1,5 @@
 {
-  "$hash": "3a96926d8f820708895da6c39720908c3b1aa0f5",
+  "$hash": "9771fff8d29e95873d1ab81f73becd779af87a63",
   "$id": "aws-dms-dataprovider.json",
   "additionalIdentifiers": [["/properties/DataProviderName"]],
   "additionalProperties": false,
@@ -100,7 +100,7 @@
     "Engine": {
       "description": "The property describes a data engine for the data provider.",
       "enum": [
-        "postgresql",
+        "postgres",
         "mysql",
         "oracle",
         "sqlserver",
