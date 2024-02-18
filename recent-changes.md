@@ -1,53 +1,9 @@
-- updated `AWS::ACMPCA::Certificate`
-  - updated definition `ApiPassthrough`
-  - updated definition `CustomAttribute`
-  - updated definition `CustomExtension`
-  - updated definition `EdiPartyName`
-  - updated definition `ExtendedKeyUsage`
-  - updated definition `Extensions`
-  - updated definition `GeneralName`
-  - updated definition `KeyUsage`
-  - updated definition `OtherName`
-  - updated definition `PolicyInformation`
-  - updated definition `PolicyQualifierInfo`
-  - updated definition `Qualifier`
-  - updated definition `Subject`
-  - updated definition `Validity`
-- updated `AWS::DMS::DataProvider`
-  - updated property `Engine`
-- updated `AWS::EFS::FileSystem`
-  - updated definition `BackupPolicy`
-  - updated definition `ElasticFileSystemTag`
-  - updated definition `FileSystemProtection`
-  - updated definition `LifecyclePolicy`
-  - updated definition `ReplicationConfiguration`
-  - updated definition `ReplicationDestination`
-  - updated property `Arn`
-  - updated property `AvailabilityZoneName`
-  - updated property `BackupPolicy`
-  - updated property `BypassPolicyLockoutSafetyCheck`
-  - updated property `Encrypted`
-  - updated property `FileSystemId`
-  - updated property `FileSystemPolicy`
-  - updated property `FileSystemProtection`
-  - updated property `FileSystemTags`
-  - updated property `KmsKeyId`
-  - updated property `LifecyclePolicies`
-  - updated property `PerformanceMode`
-  - updated property `ProvisionedThroughputInMibps`
-  - updated property `ReplicationConfiguration`
-  - updated property `ThroughputMode`
-- updated `AWS::WAFv2::IPSet`
+- updated `AWS::GuardDuty::Member`
+  - added `sourceUrl`
   - added `tagging`
-- updated `AWS::WAFv2::LoggingConfiguration`
-  - added `tagging`
-  - updated definition `FieldToMatch`
-- updated `AWS::WAFv2::RegexPatternSet`
-  - added `tagging`
-- updated `AWS::WAFv2::RuleGroup`
-  - added `tagging`
-  - updated definition `RateBasedStatement`
-- updated `AWS::WAFv2::WebACL`
-  - added `tagging`
-- updated `AWS::WAFv2::WebACLAssociation`
-  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed `readOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated `required`
+  - updated handler permissions

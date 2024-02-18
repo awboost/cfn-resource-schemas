@@ -5,18 +5,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html}
  */
 export type GuardDutyMemberProperties = {
-  DetectorId: string;
+  DetectorId?: string;
   DisableEmailNotification?: boolean;
   Email: string;
+  MemberId?: string;
   Message?: string;
   Status?: string;
-};
-/**
- * Attribute type definition for `AWS::GuardDuty::Member`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#aws-resource-guardduty-member-return-values}
- */
-export type GuardDutyMemberAttributes = {
-  MemberId: string;
 };
 /**
  * Resource Type definition for AWS::GuardDuty::Member
@@ -25,7 +19,7 @@ export type GuardDutyMemberAttributes = {
 export class GuardDutyMember extends $Resource<
   "AWS::GuardDuty::Member",
   GuardDutyMemberProperties,
-  GuardDutyMemberAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::GuardDuty::Member";
   constructor(

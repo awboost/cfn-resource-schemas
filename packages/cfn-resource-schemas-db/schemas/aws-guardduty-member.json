@@ -1,14 +1,37 @@
 {
-  "$hash": "54dc3c12edef7402ee9faaa003f5bb48222165ae",
+  "$hash": "f305a69d9eaf276ce7344035ce6eea3116d9b3de",
   "$id": "aws-guardduty-member.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/DetectorId",
-    "/properties/MemberId",
-    "/properties/Email"
-  ],
+  "createOnlyProperties": ["/properties/DetectorId", "/properties/MemberId"],
   "description": "Resource Type definition for AWS::GuardDuty::Member",
-  "primaryIdentifier": ["/properties/MemberId"],
+  "handlers": {
+    "create": {
+      "permissions": ["guardduty:CreateMembers", "guardduty:GetMembers"]
+    },
+    "delete": {
+      "permissions": [
+        "guardduty:GetMembers",
+        "guardduty:DisassociateMembers",
+        "guardduty:DeleteMembers"
+      ]
+    },
+    "list": {
+      "handlerSchema": { "properties": { "DetectorId": { "type": "string" } } },
+      "permissions": ["guardduty:ListMembers"]
+    },
+    "read": { "permissions": ["guardduty:GetMembers"] },
+    "update": {
+      "permissions": [
+        "guardduty:GetMembers",
+        "guardduty:CreateMembers",
+        "guardduty:DisassociateMembers",
+        "guardduty:StartMonitoringMembers",
+        "guardduty:StopMonitoringMembers",
+        "guardduty:InviteMembers"
+      ]
+    }
+  },
+  "primaryIdentifier": ["/properties/DetectorId", "/properties/MemberId"],
   "properties": {
     "DetectorId": { "type": "string" },
     "DisableEmailNotification": { "type": "boolean" },
@@ -17,7 +40,17 @@
     "Message": { "type": "string" },
     "Status": { "type": "string" }
   },
-  "readOnlyProperties": ["/properties/MemberId"],
-  "required": ["MemberId", "Email", "DetectorId"],
-  "typeName": "AWS::GuardDuty::Member"
+  "required": ["Email"],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-guardduty",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
+  "typeName": "AWS::GuardDuty::Member",
+  "writeOnlyProperties": [
+    "/properties/DisableEmailNotification",
+    "/properties/Message"
+  ]
 }
