@@ -1,5 +1,5 @@
 {
-  "$hash": "b23fd34578328d0d1a4b2b844d3bd210d0b645bb",
+  "$hash": "d76bf293135b6e0dcfadf9f3a2e2bc6a5e49aaba",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -206,6 +206,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": { "type": "integer" },
         "MemoryGiBPerVCpu": { "$ref": "#/definitions/MemoryGiBPerVCpuRequest" },
         "MemoryMiB": { "$ref": "#/definitions/MemoryMiBRequest" },
         "NetworkBandwidthGbps": {

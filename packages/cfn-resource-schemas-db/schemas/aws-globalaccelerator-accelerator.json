@@ -1,5 +1,5 @@
 {
-  "$hash": "7fff7b76368d26f9ec91de987df7526ec89bd6a3",
+  "$hash": "58f3576741919e3e99d06ead735ac89ae7f8e6f7",
   "$id": "aws-globalaccelerator-accelerator.json",
   "additionalProperties": false,
   "definitions": {
@@ -84,17 +84,20 @@
     "IpAddresses": {
       "default": null,
       "description": "The IP addresses from BYOIP Prefix pool.",
+      "insertionOrder": true,
       "items": { "$ref": "#/definitions/IpAddress" },
       "type": "array"
     },
     "Ipv4Addresses": {
       "description": "The IPv4 addresses assigned to the accelerator.",
+      "insertionOrder": true,
       "items": { "type": "string" },
       "type": "array"
     },
     "Ipv6Addresses": {
       "default": null,
       "description": "The IPv6 addresses assigned if the accelerator is dualstack",
+      "insertionOrder": true,
       "items": { "type": "string" },
       "type": "array"
     },
@@ -105,7 +108,11 @@
       "pattern": "^[a-zA-Z0-9_-]{0,64}$",
       "type": "string"
     },
-    "Tags": { "items": { "$ref": "#/definitions/Tag" }, "type": "array" }
+    "Tags": {
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array"
+    }
   },
   "readOnlyProperties": [
     "/properties/AcceleratorArn",

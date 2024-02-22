@@ -19,6 +19,12 @@ export type ControlTowerEnabledControlProperties = {
    */
   Parameters?: EnabledControlParameter[];
   /**
+   * A set of tags to assign to the enabled control.
+   * @minLength `1`
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
+  /**
    * Arn for Organizational unit to which the control needs to be applied
    * @minLength `20`
    * @maxLength `2048`
@@ -38,6 +44,25 @@ export type EnabledControlParameter = {
     | number
     | Record<string, any>
     | boolean;
+};
+/**
+ * Type definition for `AWS::ControlTower::EnabledControl.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-controltower-enabledcontrol-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Resource type definition for `AWS::ControlTower::EnabledControl`.

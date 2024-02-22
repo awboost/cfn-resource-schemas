@@ -15,6 +15,7 @@ export type ElastiCacheParameterGroupProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html#aws-resource-elasticache-parametergroup-return-values}
  */
 export type ElastiCacheParameterGroupAttributes = {
+  CacheParameterGroupName: string;
   Id: string;
 };
 /**

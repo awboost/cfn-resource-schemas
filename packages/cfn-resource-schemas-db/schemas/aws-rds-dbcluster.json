@@ -1,5 +1,5 @@
 {
-  "$hash": "b2e9a005246008090870ee5c215738a74206e041",
+  "$hash": "a005b94e233b0be9bbab5200e6d3a90a1b27b5dd",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -116,14 +116,10 @@
       "properties": {
         "MaxCapacity": {
           "description": "The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value that you can use is 128.",
-          "maximum": 128,
-          "minimum": 0.5,
           "type": "number"
         },
         "MinCapacity": {
           "description": "The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.",
-          "maximum": 128,
-          "minimum": 0.5,
           "type": "number"
         }
       },

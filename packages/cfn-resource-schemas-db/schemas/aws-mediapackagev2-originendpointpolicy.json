@@ -1,5 +1,5 @@
 {
-  "$hash": "b4fd2cd9b6a42e066ab8f1f016711ae0770087d9",
+  "$hash": "ae462a4993a7b3d5dd2db9b21711b6f85c1da566",
   "$id": "aws-mediapackagev2-originendpointpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,7 +7,7 @@
     "/properties/ChannelName",
     "/properties/OriginEndpointName"
   ],
-  "description": "Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type",
+  "description": "<p>Represents a resource policy that allows or denies access to an origin endpoint.</p>",
   "handlers": {
     "create": {
       "permissions": [
@@ -55,7 +55,12 @@
     },
     "Policy": { "type": ["object", "string"] }
   },
-  "required": ["Policy"],
+  "required": [
+    "ChannelGroupName",
+    "ChannelName",
+    "OriginEndpointName",
+    "Policy"
+  ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediapackagev2",
   "tagging": {
     "cloudFormationSystemTags": false,

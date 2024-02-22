@@ -1,5 +1,5 @@
 {
-  "$hash": "968398e3f89f1c01a7c174a31ecd327b12f0cf40",
+  "$hash": "581604232cc8b9e4f16673d6cc33e97489c1754d",
   "$id": "aws-connect-prompt.json",
   "additionalProperties": false,
   "definitions": {
@@ -84,7 +84,7 @@
       "description": "S3 URI of the customer's audio file for creating prompts resource..",
       "maxLength": 2000,
       "minLength": 1,
-      "pattern": "s3://\\S+/.+|https://\\S+\\.s3\\.\\S+\\.amazonaws\\.com/\\S+",
+      "pattern": "s3://\\S+/.+|https://\\S+\\.s3(\\.\\S+)?\\.amazonaws\\.com/\\S+",
       "type": "string"
     },
     "Tags": {

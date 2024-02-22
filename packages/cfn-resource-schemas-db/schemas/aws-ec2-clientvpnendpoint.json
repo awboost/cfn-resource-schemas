@@ -1,5 +1,5 @@
 {
-  "$hash": "389f3f390b4539554ecd9efea8c336622bdcf3a5",
+  "$hash": "9efeec7a6f06fe483000de0281c0baa693842df4",
   "$id": "aws-ec2-clientvpnendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -48,11 +48,6 @@
         "Enabled": { "type": "boolean" }
       },
       "required": ["Enabled"],
-      "type": "object"
-    },
-    "ClientRouteMonitoringOptions": {
-      "additionalProperties": false,
-      "properties": { "Enabled": { "type": "boolean" } },
       "type": "object"
     },
     "ConnectionLogOptions": {
@@ -115,9 +110,6 @@
     "ClientConnectOptions": { "$ref": "#/definitions/ClientConnectOptions" },
     "ClientLoginBannerOptions": {
       "$ref": "#/definitions/ClientLoginBannerOptions"
-    },
-    "ClientRouteMonitoringOptions": {
-      "$ref": "#/definitions/ClientRouteMonitoringOptions"
     },
     "ConnectionLogOptions": { "$ref": "#/definitions/ConnectionLogOptions" },
     "Description": { "type": "string" },

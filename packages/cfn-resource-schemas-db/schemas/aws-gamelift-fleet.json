@@ -1,5 +1,5 @@
 {
-  "$hash": "4cab90da2dfa4b467753a29034f1c70e2acd60c5",
+  "$hash": "7a94988c2f48ba38b2af1b37b1a48001be021ec9",
   "$id": "aws-gamelift-fleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -354,7 +354,7 @@
       "description": "Configuration for Anywhere fleet."
     },
     "ApplyCapacity": {
-      "description": "ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.",
+      "description": "Determines whether to apply fleet or location capacities on fleet creation.",
       "enum": ["ON_UPDATE", "ON_CREATE_AND_UPDATE"],
       "type": "string"
     },

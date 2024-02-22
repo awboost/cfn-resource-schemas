@@ -23,8 +23,8 @@ export type GlueTableOptimizerAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html}
  */
 export type TableOptimizerConfiguration = {
-  Enabled?: boolean;
-  RoleArn?: string;
+  Enabled: boolean;
+  RoleArn: string;
 };
 /**
  * Resource Type definition for AWS::Glue::TableOptimizer

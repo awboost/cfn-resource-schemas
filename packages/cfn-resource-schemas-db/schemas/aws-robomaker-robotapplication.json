@@ -1,5 +1,5 @@
 {
-  "$hash": "937d28988edec8e7892e95946f2f4fd50a1e4412",
+  "$hash": "8f165c6ab2b1b8e7f3223a55dc8ad6081fd2437a",
   "$id": "aws-robomaker-robotapplication.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -64,15 +64,35 @@
   },
   "description": "This schema is for testing purpose only.",
   "handlers": {
-    "create": { "permissions": ["robomaker:CreateRobotApplication"] },
-    "delete": { "permissions": ["robomaker:DeleteRobotApplication"] },
+    "create": {
+      "permissions": [
+        "robomaker:CreateRobotApplication",
+        "robomaker:TagResource",
+        "robomaker:UntagResource",
+        "ecr:BatchGetImage",
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr-public:GetAuthorizationToken",
+        "sts:GetServiceBearerToken"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "robomaker:DescribeRobotApplication",
+        "robomaker:DeleteRobotApplication"
+      ]
+    },
     "list": { "permissions": ["robomaker:ListRobotApplications"] },
     "read": { "permissions": ["robomaker:DescribeRobotApplication"] },
     "update": {
       "permissions": [
         "robomaker:TagResource",
         "robomaker:UntagResource",
-        "robomaker:UpdateRobotApplication"
+        "robomaker:UpdateRobotApplication",
+        "ecr:BatchGetImage",
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr-public:GetAuthorizationToken"
       ]
     }
   },

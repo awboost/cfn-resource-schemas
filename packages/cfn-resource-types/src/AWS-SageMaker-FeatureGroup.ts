@@ -43,6 +43,10 @@ export type SageMakerFeatureGroupProperties = {
     EnableOnlineStore?: boolean;
     SecurityConfig?: OnlineStoreSecurityConfig;
     StorageType?: StorageType;
+    /**
+     * TTL configuration of the feature group
+     */
+    TtlDuration?: TtlDuration;
   };
   /**
    * The Record Identifier Feature Name.
@@ -185,6 +189,27 @@ export type ThroughputConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-throughputmode.html}
  */
 export type ThroughputMode = "OnDemand" | "Provisioned";
+/**
+ * Type definition for `AWS::SageMaker::FeatureGroup.TtlDuration`.
+ * TTL configuration of the feature group
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-ttlduration.html}
+ */
+export type TtlDuration = {
+  /**
+   * Unit of ttl configuration
+   */
+  Unit?: Unit;
+  /**
+   * Value of ttl configuration
+   */
+  Value?: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::FeatureGroup.Unit`.
+ * Unit of ttl configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-unit.html}
+ */
+export type Unit = "Seconds" | "Minutes" | "Hours" | "Days" | "Weeks";
 /**
  * Resource Type definition for AWS::SageMaker::FeatureGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html}

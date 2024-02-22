@@ -1,6 +1,7 @@
 {
-  "$hash": "48d9bfcf07007ced14c85d2c5bf91ca4b40f73b4",
+  "$hash": "f645439db5c054b4b196725993784b22c42f8c3c",
   "$id": "aws-cloudformation-stackset.json",
+  "additionalIdentifiers": [["/properties/StackSetName"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/PermissionModel",

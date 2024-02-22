@@ -1,5 +1,5 @@
 {
-  "$hash": "3bf00d2e3bcbbb03fd7565b69029e15008785378",
+  "$hash": "a7e4681aaaf0a4179391f71439ff30cb1014b234",
   "$id": "aws-glue-datacatalogencryptionsettings.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CatalogId"],
@@ -26,6 +26,7 @@
       "additionalProperties": false,
       "properties": {
         "CatalogEncryptionMode": { "type": "string" },
+        "CatalogEncryptionServiceRole": { "type": "string" },
         "SseAwsKmsKeyId": { "type": "string" }
       },
       "type": "object"
@@ -41,6 +42,6 @@
     "Id": { "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": ["CatalogId", "DataCatalogEncryptionSettings"],
+  "required": ["DataCatalogEncryptionSettings", "CatalogId"],
   "typeName": "AWS::Glue::DataCatalogEncryptionSettings"
 }

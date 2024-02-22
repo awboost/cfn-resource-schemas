@@ -1,5 +1,5 @@
 {
-  "$hash": "2298a37d1f8865595fdbb32b562678701c90f0d8",
+  "$hash": "172fcf79b1ec0eb9adf3c24e4780129b36d04ff9",
   "$id": "aws-robomaker-robotapplicationversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -15,7 +15,15 @@
   "description": "AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.",
   "handlers": {
     "create": {
-      "permissions": ["robomaker:CreateRobotApplicationVersion", "s3:GetObject"]
+      "permissions": [
+        "robomaker:CreateRobotApplicationVersion",
+        "s3:GetObject",
+        "ecr:BatchGetImage",
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr-public:GetAuthorizationToken",
+        "sts:GetServiceBearerToken"
+      ]
     },
     "delete": {
       "permissions": [

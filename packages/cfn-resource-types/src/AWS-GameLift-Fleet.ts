@@ -10,7 +10,7 @@ export type GameLiftFleetProperties = {
    */
   AnywhereConfiguration?: AnywhereConfiguration;
   /**
-   * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+   * Determines whether to apply fleet or location capacities on fleet creation.
    */
   ApplyCapacity?: "ON_UPDATE" | "ON_CREATE_AND_UPDATE";
   /**

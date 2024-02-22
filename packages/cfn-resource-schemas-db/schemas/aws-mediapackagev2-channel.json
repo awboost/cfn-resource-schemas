@@ -1,5 +1,5 @@
 {
-  "$hash": "b25ad27f83ea933bef21bcab3519db52a46ba535",
+  "$hash": "ca97bd731d28257ee512e848e3ef693eedabca67",
   "$id": "aws-mediapackagev2-channel.json",
   "additionalIdentifiers": [
     ["/properties/ChannelGroupName", "/properties/ChannelName"]
@@ -12,7 +12,17 @@
   "definitions": {
     "IngestEndpoint": {
       "additionalProperties": false,
-      "properties": { "Id": { "type": "string" }, "Url": { "type": "string" } },
+      "description": "<p>The ingest domain URL where the source stream should be sent.</p>",
+      "properties": {
+        "Id": {
+          "description": "<p>The system-generated unique identifier for the IngestEndpoint.</p>",
+          "type": "string"
+        },
+        "Url": {
+          "description": "<p>The ingest domain URL where the source stream should be sent.</p>",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "Tag": {
@@ -24,7 +34,7 @@
       "type": "object"
     }
   },
-  "description": "Definition of AWS::MediaPackageV2::Channel Resource Type",
+  "description": "<p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>",
   "handlers": {
     "create": {
       "permissions": [
@@ -61,7 +71,10 @@
   },
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
-    "Arn": { "type": "string" },
+    "Arn": {
+      "description": "<p>The Amazon Resource Name (ARN) associated with the resource.</p>",
+      "type": "string"
+    },
     "ChannelGroupName": {
       "maxLength": 256,
       "minLength": 1,
@@ -74,13 +87,27 @@
       "pattern": "^[a-zA-Z0-9_-]+$",
       "type": "string"
     },
-    "CreatedAt": { "format": "date-time", "type": "string" },
-    "Description": { "maxLength": 1024, "minLength": 0, "type": "string" },
+    "CreatedAt": {
+      "description": "<p>The date and time the channel was created.</p>",
+      "format": "date-time",
+      "type": "string"
+    },
+    "Description": {
+      "description": "<p>Enter any descriptive text that helps you to identify the channel.</p>",
+      "maxLength": 1024,
+      "minLength": 0,
+      "type": "string"
+    },
     "IngestEndpoints": {
+      "description": "<p>The list of ingest endpoints.</p>",
       "items": { "$ref": "#/definitions/IngestEndpoint" },
       "type": "array"
     },
-    "ModifiedAt": { "format": "date-time", "type": "string" },
+    "ModifiedAt": {
+      "description": "<p>The date and time the channel was modified.</p>",
+      "format": "date-time",
+      "type": "string"
+    },
     "Tags": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
@@ -93,6 +120,7 @@
     "/properties/IngestEndpoints",
     "/properties/ModifiedAt"
   ],
+  "required": ["ChannelGroupName", "ChannelName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediapackagev2",
   "tagging": {
     "cloudFormationSystemTags": false,

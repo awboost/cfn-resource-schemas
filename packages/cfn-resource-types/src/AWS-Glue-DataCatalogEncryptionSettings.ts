@@ -37,6 +37,7 @@ export type DataCatalogEncryptionSettings = {
  */
 export type EncryptionAtRest = {
   CatalogEncryptionMode?: string;
+  CatalogEncryptionServiceRole?: string;
   SseAwsKmsKeyId?: string;
 };
 /**

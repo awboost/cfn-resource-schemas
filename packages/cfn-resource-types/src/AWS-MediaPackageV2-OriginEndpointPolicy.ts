@@ -1,7 +1,8 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
+ * Resource type definition for `AWS::MediaPackageV2::OriginEndpointPolicy`.
+ * <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html}
  */
 export type MediaPackageV2OriginEndpointPolicyProperties = {
@@ -10,23 +11,24 @@ export type MediaPackageV2OriginEndpointPolicyProperties = {
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
-  ChannelGroupName?: string;
+  ChannelGroupName: string;
   /**
    * @minLength `1`
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
-  ChannelName?: string;
+  ChannelName: string;
   /**
    * @minLength `1`
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
-  OriginEndpointName?: string;
+  OriginEndpointName: string;
   Policy: Record<string, any> | string;
 };
 /**
- * Definition of AWS::MediaPackageV2::OriginEndpointPolicy Resource Type
+ * Resource type definition for `AWS::MediaPackageV2::OriginEndpointPolicy`.
+ * <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html}
  */
 export class MediaPackageV2OriginEndpointPolicy extends $Resource<

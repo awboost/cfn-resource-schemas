@@ -1,5 +1,5 @@
 {
-  "$hash": "98e829102841148347c9e919edff5d5f38889010",
+  "$hash": "d2bf6f7317f7d3af11d6c037f16311170e4a55e2",
   "$id": "aws-gamelift-gamesessionqueue.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -40,7 +40,7 @@
     },
     "LocationOrder": {
       "description": "The prioritization order to use for fleet locations, when the PriorityOrder property includes LOCATION.",
-      "insertionOrder": false,
+      "insertionOrder": true,
       "items": {
         "maxLength": 64,
         "minLength": 1,
@@ -78,7 +78,7 @@
     },
     "PriorityOrder": {
       "description": "The recommended sequence to use when prioritizing where to place new game sessions.",
-      "insertionOrder": false,
+      "insertionOrder": true,
       "items": {
         "enum": ["LATENCY", "COST", "DESTINATION", "LOCATION"],
         "type": "string"
@@ -157,7 +157,7 @@
     },
     "Destinations": {
       "description": "A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.",
-      "insertionOrder": false,
+      "insertionOrder": true,
       "items": { "$ref": "#/definitions/GameSessionQueueDestination" },
       "type": "array"
     },

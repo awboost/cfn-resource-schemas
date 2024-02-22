@@ -1,5 +1,5 @@
 {
-  "$hash": "9fa081076c0fbb251863ba25e784fbc43d3b4c3c",
+  "$hash": "7abe6987b12b501b82733ffe269ca267626ec812",
   "$id": "aws-ec2-spotfleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -253,6 +253,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": { "type": "integer" },
         "MemoryGiBPerVCpu": { "$ref": "#/definitions/MemoryGiBPerVCpuRequest" },
         "MemoryMiB": { "$ref": "#/definitions/MemoryMiBRequest" },
         "NetworkBandwidthGbps": {

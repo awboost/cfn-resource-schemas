@@ -1,5 +1,5 @@
 {
-  "$hash": "ce69d75bd02a555a016875f52147426f3da23d91",
+  "$hash": "a37d9697a890fcaf2b8832cd45970c56bea6468c",
   "$id": "aws-controltower-enabledcontrol.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -35,6 +35,26 @@
       },
       "required": ["Value", "Key"],
       "type": "object"
+    },
+    "Tag": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "properties": {
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
     }
   },
   "description": "Enables a control on a specified target.",
@@ -45,6 +65,7 @@
         "controltower:GetEnabledControl",
         "controltower:GetControlOperation",
         "controltower:EnableControl",
+        "controltower:TagResource",
         "organizations:UpdatePolicy",
         "organizations:CreatePolicy",
         "organizations:AttachPolicy",
@@ -82,7 +103,8 @@
     "read": {
       "permissions": [
         "controltower:ListEnabledControls",
-        "controltower:GetEnabledControl"
+        "controltower:GetEnabledControl",
+        "controltower:ListTagsForResource"
       ]
     },
     "update": {
@@ -91,6 +113,8 @@
         "controltower:GetEnabledControl",
         "controltower:GetControlOperation",
         "controltower:UpdateEnabledControl",
+        "controltower:UntagResource",
+        "controltower:TagResource",
         "organizations:UpdatePolicy",
         "organizations:CreatePolicy",
         "organizations:AttachPolicy",
@@ -120,6 +144,14 @@
       "minItems": 1,
       "type": "array"
     },
+    "Tags": {
+      "description": "A set of tags to assign to the enabled control.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 50,
+      "minItems": 1,
+      "type": "array"
+    },
     "TargetIdentifier": {
       "description": "Arn for Organizational unit to which the control needs to be applied",
       "maxLength": 2048,
@@ -131,10 +163,11 @@
   "required": ["TargetIdentifier", "ControlIdentifier"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-controltower",
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "tagOnCreate": false,
-    "tagUpdatable": false,
-    "taggable": false
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
   },
   "typeName": "AWS::ControlTower::EnabledControl"
 }

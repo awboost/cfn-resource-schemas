@@ -1,5 +1,5 @@
 {
-  "$hash": "666a501b66a63aef23ca4ce217c08fcd1aab148c",
+  "$hash": "a365418d31dfc3c21451e55da4b9fdce8d345b63",
   "$id": "aws-mediapackagev2-originendpoint.json",
   "additionalIdentifiers": [
     [
@@ -427,7 +427,7 @@
     "/properties/LowLatencyHlsManifests/*/Url",
     "/properties/HlsManifests/*/Url"
   ],
-  "required": ["ContainerType"],
+  "required": ["ChannelGroupName", "ChannelName", "OriginEndpointName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediapackagev2",
   "tagging": {
     "cloudFormationSystemTags": false,

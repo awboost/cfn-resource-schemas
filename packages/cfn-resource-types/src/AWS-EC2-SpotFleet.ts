@@ -164,6 +164,7 @@ export type InstanceRequirementsRequest = {
   InstanceGenerations?: ("current" | "previous")[];
   LocalStorage?: "included" | "required" | "excluded";
   LocalStorageTypes?: ("hdd" | "ssd")[];
+  MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
   MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest;
   MemoryMiB?: MemoryMiBRequest;
   NetworkBandwidthGbps?: NetworkBandwidthGbpsRequest;

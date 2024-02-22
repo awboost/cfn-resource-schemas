@@ -26,7 +26,7 @@ export type ConnectPromptProperties = {
    * S3 URI of the customer's audio file for creating prompts resource..
    * @minLength `1`
    * @maxLength `2000`
-   * @pattern `s3://\S+/.+|https://\S+\.s3\.\S+\.amazonaws\.com/\S+`
+   * @pattern `s3://\S+/.+|https://\S+\.s3(\.\S+)?\.amazonaws\.com/\S+`
    */
   S3Uri?: string;
   /**

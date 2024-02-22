@@ -1,5 +1,5 @@
 {
-  "$hash": "0fbbc90cef5d7c5fba31b1d1f4e3398b0d08d6d9",
+  "$hash": "619f73eda5a6ab3c014b73c3e131218a9ef7dd87",
   "$id": "aws-glue-tableoptimizer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -15,6 +15,7 @@
         "Enabled": { "type": "boolean" },
         "RoleArn": { "type": "string" }
       },
+      "required": ["Enabled", "RoleArn"],
       "type": "object"
     }
   },

@@ -1,5 +1,5 @@
 {
-  "$hash": "aabcc856cae0fdb679e0410bb59840ce687fa7b0",
+  "$hash": "25157313e9379a5335de57a2a71ebbfc602507cf",
   "$id": "aws-robomaker-simulationapplicationversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -17,7 +17,12 @@
     "create": {
       "permissions": [
         "robomaker:CreateSimulationApplicationVersion",
-        "s3:GetObject"
+        "s3:GetObject",
+        "ecr:BatchGetImage",
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr-public:GetAuthorizationToken",
+        "sts:GetServiceBearerToken"
       ]
     },
     "delete": {

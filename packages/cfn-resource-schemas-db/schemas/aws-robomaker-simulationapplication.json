@@ -1,5 +1,5 @@
 {
-  "$hash": "69ddc3c30b59baa99daa920be627ef2e7b57e9d1",
+  "$hash": "3e82c524996204b6ffc4e6964c1b4bbdffb7156e",
   "$id": "aws-robomaker-simulationapplication.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -102,15 +102,35 @@
   },
   "description": "This schema is for testing purpose only.",
   "handlers": {
-    "create": { "permissions": ["robomaker:CreateSimulationApplication"] },
-    "delete": { "permissions": ["robomaker:DeleteSimulationApplication"] },
+    "create": {
+      "permissions": [
+        "robomaker:CreateSimulationApplication",
+        "robomaker:TagResource",
+        "robomaker:UntagResource",
+        "ecr:BatchGetImage",
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr-public:GetAuthorizationToken",
+        "sts:GetServiceBearerToken"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "robomaker:DescribeSimulationApplication",
+        "robomaker:DeleteSimulationApplication"
+      ]
+    },
     "list": { "permissions": ["robomaker:ListSimulationApplications"] },
     "read": { "permissions": ["robomaker:DescribeSimulationApplication"] },
     "update": {
       "permissions": [
         "robomaker:TagResource",
         "robomaker:UntagResource",
-        "robomaker:UpdateSimulationApplication"
+        "robomaker:UpdateSimulationApplication",
+        "ecr:BatchGetImage",
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr-public:GetAuthorizationToken"
       ]
     }
   },

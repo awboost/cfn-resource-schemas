@@ -1,5 +1,5 @@
 {
-  "$hash": "8205c02d8ac6ade9abe9018dd2c80fefc253eeaf",
+  "$hash": "1acf989441d6e9607e457a804b1056cccbf2f5d6",
   "$id": "aws-mediapackagev2-channelgroup.json",
   "additionalIdentifiers": [["/properties/ChannelGroupName"]],
   "additionalProperties": false,
@@ -14,7 +14,7 @@
       "type": "object"
     }
   },
-  "description": "Definition of AWS::MediaPackageV2::ChannelGroup Resource Type",
+  "description": "<p>Represents a channel group that facilitates the grouping of multiple channels.</p>",
   "handlers": {
     "create": {
       "permissions": [
@@ -41,17 +41,36 @@
   },
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
-    "Arn": { "type": "string" },
+    "Arn": {
+      "description": "<p>The Amazon Resource Name (ARN) associated with the resource.</p>",
+      "type": "string"
+    },
     "ChannelGroupName": {
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9_-]+$",
       "type": "string"
     },
-    "CreatedAt": { "format": "date-time", "type": "string" },
-    "Description": { "maxLength": 1024, "minLength": 0, "type": "string" },
-    "EgressDomain": { "type": "string" },
-    "ModifiedAt": { "format": "date-time", "type": "string" },
+    "CreatedAt": {
+      "description": "<p>The date and time the channel group was created.</p>",
+      "format": "date-time",
+      "type": "string"
+    },
+    "Description": {
+      "description": "<p>Enter any descriptive text that helps you to identify the channel group.</p>",
+      "maxLength": 1024,
+      "minLength": 0,
+      "type": "string"
+    },
+    "EgressDomain": {
+      "description": "<p>The output domain where the source stream should be sent. Integrate the domain with a downstream CDN (such as Amazon CloudFront) or playback device.</p>",
+      "type": "string"
+    },
+    "ModifiedAt": {
+      "description": "<p>The date and time the channel group was modified.</p>",
+      "format": "date-time",
+      "type": "string"
+    },
     "Tags": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
@@ -64,6 +83,7 @@
     "/properties/EgressDomain",
     "/properties/ModifiedAt"
   ],
+  "required": ["ChannelGroupName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediapackagev2",
   "tagging": {
     "cloudFormationSystemTags": false,

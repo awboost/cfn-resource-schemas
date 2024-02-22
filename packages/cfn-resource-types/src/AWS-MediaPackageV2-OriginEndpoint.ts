@@ -11,14 +11,14 @@ export type MediaPackageV2OriginEndpointProperties = {
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
-  ChannelGroupName?: string;
+  ChannelGroupName: string;
   /**
    * @minLength `1`
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
-  ChannelName?: string;
-  ContainerType: ContainerType;
+  ChannelName: string;
+  ContainerType?: ContainerType;
   /**
    * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
    * @minLength `0`
@@ -38,7 +38,7 @@ export type MediaPackageV2OriginEndpointProperties = {
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
-  OriginEndpointName?: string;
+  OriginEndpointName: string;
   /**
    * <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
    */
