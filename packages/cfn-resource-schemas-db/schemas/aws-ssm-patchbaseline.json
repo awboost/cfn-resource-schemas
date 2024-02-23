@@ -1,5 +1,5 @@
 {
-  "$hash": "aa5ba9e2e3771214feff41f182eb88dfa53e8ad0",
+  "$hash": "38968a3a06c8f7ef9edb444a4caffdcab0419d13",
   "$id": "aws-ssm-patchbaseline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/OperatingSystem"],
@@ -252,7 +252,8 @@
         "DEBIAN",
         "MACOS",
         "RASPBIAN",
-        "ROCKY_LINUX"
+        "ROCKY_LINUX",
+        "ALMA_LINUX"
       ],
       "type": "string"
     },

@@ -1,7 +1,9 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::EC2::RouteTable
+ * Resource type definition for `AWS::EC2::RouteTable`.
+ * Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+ For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html}
  */
 export type EC2RouteTableProperties = {
@@ -19,21 +21,27 @@ export type EC2RouteTableProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html#aws-resource-ec2-routetable-return-values}
  */
 export type EC2RouteTableAttributes = {
-  /**
-   * The route table ID.
-   */
   RouteTableId: string;
 };
 /**
  * Type definition for `AWS::EC2::RouteTable.Tag`.
+ * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-routetable-tag.html}
  */
 export type Tag = {
+  /**
+   * The tag key.
+   */
   Key: string;
+  /**
+   * The tag value.
+   */
   Value: string;
 };
 /**
- * Resource Type definition for AWS::EC2::RouteTable
+ * Resource type definition for `AWS::EC2::RouteTable`.
+ * Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+ For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html}
  */
 export class EC2RouteTable extends $Resource<

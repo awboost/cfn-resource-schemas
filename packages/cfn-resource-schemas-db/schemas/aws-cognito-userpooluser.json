@@ -1,5 +1,5 @@
 {
-  "$hash": "2f856515742f95299e18d69d9f4c5694ee092ed7",
+  "$hash": "57a9209f8973f16aee9aebdc57ebf55f5830adca",
   "$id": "aws-cognito-userpooluser.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -25,7 +25,11 @@
   "description": "Resource Type definition for AWS::Cognito::UserPoolUser",
   "handlers": {
     "create": {
-      "permissions": ["cognito-idp:AdminCreateUser", "iam:PassRole"],
+      "permissions": [
+        "cognito-idp:AdminCreateUser",
+        "cognito-idp:AdminGetUser",
+        "iam:PassRole"
+      ],
       "timeoutInMinutes": 2
     },
     "delete": {

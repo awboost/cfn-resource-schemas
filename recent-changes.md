@@ -1,401 +1,53 @@
-- updated `AWS::ApiGateway::Authorizer`
-  - updated property `IdentitySource`
-- updated `AWS::ApiGateway::Method`
-  - updated definition `Integration`
-- updated `AWS::CloudFormation::StackSet`
-  - added `additionalIdentifiers`
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `CacheBehavior`
-  - updated definition `Cookies`
-  - updated definition `CustomErrorResponse`
-  - updated definition `CustomOriginConfig`
-  - updated definition `DefaultCacheBehavior`
-  - updated definition `DistributionConfig`
-  - updated definition `ForwardedValues`
-  - updated definition `FunctionAssociation`
-  - updated definition `GeoRestriction`
-  - updated definition `LambdaFunctionAssociation`
-  - updated definition `LegacyCustomOrigin`
-  - updated definition `LegacyS3Origin`
-  - updated definition `Logging`
-  - updated definition `OriginCustomHeader`
-  - updated definition `OriginGroupFailoverCriteria`
-  - updated definition `OriginGroupMember`
-  - updated definition `OriginGroupMembers`
-  - updated definition `OriginGroup`
-  - updated definition `OriginGroups`
-  - updated definition `OriginShield`
-  - updated definition `Origin`
-  - updated definition `Restrictions`
-  - updated definition `S3OriginConfig`
-  - updated definition `StatusCodes`
-  - updated definition `Tag`
-  - updated definition `ViewerCertificate`
-  - updated property `DistributionConfig`
-  - updated property `DomainName`
-  - updated property `Id`
-  - updated property `Tags`
-- updated `AWS::Config::ConfigRule`
-  - updated definition `CustomPolicyDetails`
-  - updated definition `EvaluationModeConfiguration`
-  - updated definition `Scope`
-  - updated definition `SourceDetail`
-  - updated definition `Source`
-  - updated property `Arn`
-  - updated property `Compliance`
-  - updated property `ConfigRuleId`
-  - updated property `ConfigRuleName`
-  - updated property `Description`
-  - updated property `EvaluationModes`
-  - updated property `InputParameters`
-  - updated property `MaximumExecutionFrequency`
-  - updated property `Scope`
-  - updated property `Source`
-- updated `AWS::Connect::Prompt`
-  - updated property `S3Uri`
-- updated `AWS::ControlTower::EnabledControl`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated `tagging`
+- updated `AWS::Cognito::UserPoolUser`
   - updated handler permissions
-- updated `AWS::DynamoDB::Table`
-  - removed definition `ResourcePolicy`
-  - removed property `ResourcePolicy`
-  - updated definition `AttributeDefinition`
-  - updated definition `ContributorInsightsSpecification`
-  - updated definition `Csv`
-  - updated definition `DeprecatedHashKeyElement`
-  - updated definition `DeprecatedKeySchema`
-  - updated definition `GlobalSecondaryIndex`
-  - updated definition `ImportSourceSpecification`
-  - updated definition `InputFormatOptions`
-  - updated definition `KeySchema`
-  - updated definition `KinesisStreamSpecification`
-  - updated definition `LocalSecondaryIndex`
-  - updated definition `PointInTimeRecoverySpecification`
-  - updated definition `Projection`
-  - updated definition `ProvisionedThroughput`
-  - updated definition `S3BucketSource`
-  - updated definition `SSESpecification`
-  - updated definition `StreamSpecification`
+- updated `AWS::EC2::RouteTable`
   - updated definition `Tag`
-  - updated definition `TimeToLiveSpecification`
-  - updated property `Arn`
-  - updated property `AttributeDefinitions`
-  - updated property `BillingMode`
-  - updated property `ContributorInsightsSpecification`
-  - updated property `DeletionProtectionEnabled`
-  - updated property `GlobalSecondaryIndexes`
-  - updated property `ImportSourceSpecification`
-  - updated property `KeySchema`
-  - updated property `KinesisStreamSpecification`
-  - updated property `LocalSecondaryIndexes`
-  - updated property `PointInTimeRecoverySpecification`
-  - updated property `ProvisionedThroughput`
-  - updated property `SSESpecification`
-  - updated property `StreamArn`
-  - updated property `StreamSpecification`
-  - updated property `TableClass`
-  - updated property `TableName`
-  - updated property `Tags`
-  - updated property `TimeToLiveSpecification`
-- updated `AWS::EC2::ClientVpnEndpoint`
-  - removed definition `ClientRouteMonitoringOptions`
-  - removed property `ClientRouteMonitoringOptions`
-- updated `AWS::EC2::EC2Fleet`
-  - updated definition `InstanceRequirementsRequest`
-- updated `AWS::EC2::EIP`
-  - updated definition `Tag`
-  - updated property `AllocationId`
-  - updated property `Domain`
-  - updated property `InstanceId`
-  - updated property `NetworkBorderGroup`
-  - updated property `PublicIp`
-  - updated property `PublicIpv4Pool`
-  - updated property `Tags`
-  - updated property `TransferAddress`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `AcceleratorCount`
-  - updated definition `AcceleratorTotalMemoryMiB`
-  - updated definition `BaselineEbsBandwidthMbps`
-  - updated definition `BlockDeviceMapping`
-  - updated definition `CapacityReservationSpecification`
-  - updated definition `CapacityReservationTarget`
-  - updated definition `ConnectionTrackingSpecification`
-  - updated definition `CpuOptions`
-  - updated definition `CreditSpecification`
-  - updated definition `Ebs`
-  - updated definition `ElasticGpuSpecification`
-  - updated definition `EnaSrdSpecification`
-  - updated definition `EnaSrdUdpSpecification`
-  - updated definition `EnclaveOptions`
-  - updated definition `HibernationOptions`
-  - updated definition `IamInstanceProfile`
-  - updated definition `InstanceMarketOptions`
-  - updated definition `InstanceRequirements`
-  - updated definition `Ipv4PrefixSpecification`
-  - updated definition `Ipv6Add`
-  - updated definition `Ipv6PrefixSpecification`
-  - updated definition `LaunchTemplateData`
-  - updated definition `LaunchTemplateElasticInferenceAccelerator`
-  - updated definition `LaunchTemplateTagSpecification`
-  - updated definition `LicenseSpecification`
-  - updated definition `MaintenanceOptions`
-  - updated definition `MemoryGiBPerVCpu`
-  - updated definition `MemoryMiB`
-  - updated definition `MetadataOptions`
-  - updated definition `Monitoring`
-  - updated definition `NetworkBandwidthGbps`
-  - updated definition `NetworkInterfaceCount`
-  - updated definition `NetworkInterface`
-  - updated definition `Placement`
-  - updated definition `PrivateDnsNameOptions`
-  - updated definition `PrivateIpAdd`
-  - updated definition `SpotOptions`
-  - updated definition `TagSpecification`
-  - updated definition `Tag`
-  - updated definition `TotalLocalStorageGB`
-  - updated definition `VCpuCount`
-  - updated property `DefaultVersionNumber`
-  - updated property `LatestVersionNumber`
-  - updated property `LaunchTemplateData`
-  - updated property `LaunchTemplateId`
-  - updated property `TagSpecifications`
-- updated `AWS::EC2::SecurityGroupEgress`
-  - updated property `CidrIp`
-  - updated property `CidrIpv6`
-  - updated property `Description`
-  - updated property `DestinationPrefixListId`
-  - updated property `DestinationSecurityGroupId`
-  - updated property `FromPort`
-  - updated property `Id`
-  - updated property `IpProtocol`
-  - updated property `ToPort`
-- updated `AWS::EC2::SpotFleet`
-  - updated definition `InstanceRequirementsRequest`
-- updated `AWS::EC2::Volume`
-  - updated definition `Tag`
-  - updated property `AutoEnableIO`
-  - updated property `AvailabilityZone`
-  - updated property `Encrypted`
-  - updated property `Iops`
-  - updated property `KmsKeyId`
-  - updated property `MultiAttachEnabled`
-  - updated property `Size`
-  - updated property `SnapshotId`
-  - updated property `Throughput`
-  - updated property `VolumeId`
-  - updated property `VolumeType`
+  - updated property `RouteTableId`
 - updated `AWS::ElastiCache::ParameterGroup`
-  - added property `CacheParameterGroupName`
+  - removed property `CacheParameterGroupName`
   - updated `readOnlyProperties`
-- updated `AWS::GameLift::Fleet`
-  - updated property `ApplyCapacity`
-- updated `AWS::GameLift::GameSessionQueue`
-  - updated definition `LocationOrder`
-  - updated definition `PriorityOrder`
-  - updated property `Destinations`
-- updated `AWS::GlobalAccelerator::Accelerator`
-  - updated property `IpAddresses`
-  - updated property `Ipv4Addresses`
-  - updated property `Ipv6Addresses`
-  - updated property `Tags`
-- updated `AWS::Glue::DataCatalogEncryptionSettings`
-  - updated `required`
-  - updated definition `EncryptionAtRest`
-- updated `AWS::Glue::TableOptimizer`
-  - updated definition `TableOptimizerConfiguration`
-- updated `AWS::IAM::GroupPolicy`
-  - updated property `GroupName`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated definition `Action`
+  - updated definition `AuthenticateCognitoConfig`
+  - updated definition `AuthenticateOidcConfig`
+  - updated definition `Certificate`
+  - updated definition `FixedResponseConfig`
+  - updated definition `ForwardConfig`
+  - updated definition `MutualAuthentication`
+  - updated definition `RedirectConfig`
+  - updated definition `TargetGroupStickinessConfig`
+  - updated definition `TargetGroupTuple`
+  - updated property `AlpnPolicy`
+  - updated property `Certificates`
+  - updated property `DefaultActions`
+  - updated property `ListenerArn`
+  - updated property `LoadBalancerArn`
+  - updated property `MutualAuthentication`
+  - updated property `Port`
+  - updated property `Protocol`
+  - updated property `SslPolicy`
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - updated definition `LoadBalancerAttribute`
+  - updated definition `SubnetMapping`
+  - updated definition `Tag`
+  - updated property `CanonicalHostedZoneID`
+  - updated property `DNSName`
+  - updated property `EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic`
+  - updated property `IpAddressType`
+  - updated property `LoadBalancerArn`
+  - updated property `LoadBalancerFullName`
+  - updated property `LoadBalancerName`
+  - updated property `Name`
+  - updated property `Scheme`
+  - updated property `SecurityGroups`
+  - updated property `SubnetMappings`
+  - updated property `Subnets`
+  - updated property `Type`
+- updated `AWS::IAM::RolePolicy`
   - updated property `PolicyDocument`
   - updated property `PolicyName`
-- updated `AWS::Lambda::Function`
-  - updated definition `Code`
-  - updated definition `DeadLetterConfig`
-  - updated definition `Environment`
-  - updated definition `EphemeralStorage`
-  - updated definition `FileSystemConfig`
-  - updated definition `ImageConfig`
-  - updated definition `LoggingConfig`
-  - updated definition `RuntimeManagementConfig`
-  - updated definition `SnapStartResponse`
-  - updated definition `SnapStart`
-  - updated definition `Tag`
-  - updated definition `TracingConfig`
-  - updated definition `VpcConfig`
-  - updated property `Architectures`
-  - updated property `Arn`
-  - updated property `CodeSigningConfigArn`
-  - updated property `DeadLetterConfig`
-  - updated property `EphemeralStorage`
-  - updated property `FileSystemConfigs`
-  - updated property `FunctionName`
-  - updated property `Handler`
-  - updated property `ImageConfig`
-  - updated property `KmsKeyArn`
-  - updated property `Layers`
-  - updated property `LoggingConfig`
-  - updated property `MemorySize`
-  - updated property `PackageType`
-  - updated property `RuntimeManagementConfig`
-  - updated property `Runtime`
-  - updated property `SnapStartResponse`
-  - updated property `SnapStart`
-  - updated property `Tags`
-  - updated property `Timeout`
-  - updated property `TracingConfig`
-  - updated property `VpcConfig`
-- updated `AWS::Lambda::Permission`
-  - updated handler permissions
-  - updated property `Action`
-  - updated property `EventSourceToken`
-  - updated property `FunctionName`
-  - updated property `FunctionUrlAuthType`
-  - updated property `Id`
-  - updated property `PrincipalOrgID`
-  - updated property `Principal`
-  - updated property `SourceAccount`
-  - updated property `SourceArn`
-- updated `AWS::MediaPackageV2::Channel`
-  - added `required`
-  - updated definition `IngestEndpoint`
-  - updated property `Arn`
-  - updated property `CreatedAt`
-  - updated property `Description`
-  - updated property `IngestEndpoints`
-  - updated property `ModifiedAt`
-- updated `AWS::MediaPackageV2::ChannelGroup`
-  - added `required`
-  - updated property `Arn`
-  - updated property `CreatedAt`
-  - updated property `Description`
-  - updated property `EgressDomain`
-  - updated property `ModifiedAt`
-- updated `AWS::MediaPackageV2::ChannelPolicy`
-  - updated `required`
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - updated `required`
-- updated `AWS::MediaPackageV2::OriginEndpointPolicy`
-  - updated `required`
-- updated `AWS::RDS::DBCluster`
-  - updated definition `ServerlessV2ScalingConfiguration`
+  - updated property `RoleName`
 - updated `AWS::RDS::DBInstance`
-  - updated definition `CertificateDetails`
-  - updated definition `DBInstanceRole`
-  - updated definition `Endpoint`
-  - updated definition `MasterUserSecret`
-  - updated definition `ProcessorFeature`
-  - updated definition `Tag`
-  - updated property `AllocatedStorage`
-  - updated property `AllowMajorVersionUpgrade`
-  - updated property `AssociatedRoles`
-  - updated property `AutomaticBackupReplicationRegion`
-  - updated property `AvailabilityZone`
-  - updated property `BackupRetentionPeriod`
-  - updated property `CACertificateIdentifier`
-  - updated property `CertificateDetails`
-  - updated property `CertificateRotationRestart`
-  - updated property `CharacterSetName`
-  - updated property `CopyTagsToSnapshot`
-  - updated property `CustomIAMInstanceProfile`
   - updated property `DBClusterSnapshotIdentifier`
-  - updated property `DBInstanceArn`
-  - updated property `DBInstanceClass`
-  - updated property `DBInstanceIdentifier`
-  - updated property `DBName`
-  - updated property `DBParameterGroupName`
-  - updated property `DBSecurityGroups`
-  - updated property `DBSnapshotIdentifier`
-  - updated property `DBSubnetGroupName`
-  - updated property `DBSystemId`
-  - updated property `DbiResourceId`
-  - updated property `DeleteAutomatedBackups`
-  - updated property `DeletionProtection`
-  - updated property `DomainAuthSecretArn`
-  - updated property `DomainDnsIps`
-  - updated property `DomainFqdn`
-  - updated property `DomainIAMRoleName`
-  - updated property `DomainOu`
-  - updated property `Domain`
-  - updated property `EnableCloudwatchLogsExports`
-  - updated property `EnableIAMDatabaseAuthentication`
-  - updated property `EnablePerformanceInsights`
-  - updated property `Endpoint`
-  - updated property `EngineVersion`
-  - updated property `Engine`
-  - updated property `Iops`
-  - updated property `KmsKeyId`
-  - updated property `LicenseModel`
-  - updated property `ManageMasterUserPassword`
-  - updated property `MasterUserPassword`
-  - updated property `MasterUserSecret`
-  - updated property `MasterUsername`
-  - updated property `MaxAllocatedStorage`
-  - updated property `MonitoringInterval`
-  - updated property `MonitoringRoleArn`
-  - updated property `MultiAZ`
-  - updated property `NcharCharacterSetName`
-  - updated property `NetworkType`
-  - updated property `OptionGroupName`
-  - updated property `PerformanceInsightsKMSKeyId`
-  - updated property `PerformanceInsightsRetentionPeriod`
-  - updated property `Port`
-  - updated property `PreferredBackupWindow`
-  - updated property `PreferredMaintenanceWindow`
-  - updated property `ProcessorFeatures`
-  - updated property `PromotionTier`
-  - updated property `PubliclyAccessible`
-  - updated property `ReplicaMode`
-  - updated property `RestoreTime`
-  - updated property `SourceDBClusterIdentifier`
-  - updated property `SourceDBInstanceAutomatedBackupsArn`
-  - updated property `SourceDBInstanceIdentifier`
-  - updated property `SourceRegion`
-  - updated property `StorageEncrypted`
-  - updated property `StorageThroughput`
-  - updated property `StorageType`
-  - updated property `Tags`
-  - updated property `TdeCredentialArn`
-  - updated property `TdeCredentialPassword`
-  - updated property `Timezone`
-  - updated property `UseDefaultProcessorFeatures`
-  - updated property `UseLatestRestorableTime`
-  - updated property `VPCSecurityGroups`
-- updated `AWS::RDS::DBParameterGroup`
-  - updated definition `Tag`
-  - updated property `DBParameterGroupName`
-  - updated property `Family`
-  - updated property `Parameters`
-  - updated property `Tags`
-- updated `AWS::RDS::DBSubnetGroup`
-  - updated definition `Tag`
-  - updated property `DBSubnetGroupDescription`
-  - updated property `DBSubnetGroupName`
-  - updated property `SubnetIds`
-  - updated property `Tags`
-- updated `AWS::RoboMaker::RobotApplication`
-  - updated handler permissions
-- updated `AWS::RoboMaker::RobotApplicationVersion`
-  - updated handler permissions
-- updated `AWS::RoboMaker::SimulationApplication`
-  - updated handler permissions
-- updated `AWS::RoboMaker::SimulationApplicationVersion`
-  - updated handler permissions
-- updated `AWS::SageMaker::FeatureGroup`
-  - added definition `TtlDuration`
-  - added definition `Unit`
-  - added definition `Value`
-  - updated `createOnlyProperties`
-  - updated property `OnlineStoreConfig`
-- updated `AWS::SecretsManager::Secret`
-  - updated definition `GenerateSecretString`
-  - updated definition `ReplicaRegion`
-  - updated definition `Tag`
-  - updated property `Description`
-  - updated property `GenerateSecretString`
-  - updated property `Id`
-  - updated property `KmsKeyId`
-  - updated property `Name`
-  - updated property `ReplicaRegions`
-  - updated property `SecretString`
-  - updated property `Tags`
+- updated `AWS::SSM::PatchBaseline`
+  - updated property `OperatingSystem`

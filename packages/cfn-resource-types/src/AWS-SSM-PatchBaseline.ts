@@ -67,7 +67,8 @@ export type SSMPatchBaselineProperties = {
     | "DEBIAN"
     | "MACOS"
     | "RASPBIAN"
-    | "ROCKY_LINUX";
+    | "ROCKY_LINUX"
+    | "ALMA_LINUX";
   /**
    * PatchGroups is used to associate instances with a specific patch baseline
    */
