@@ -1,53 +1,17 @@
-- updated `AWS::Cognito::UserPoolUser`
-  - updated handler permissions
-- updated `AWS::EC2::RouteTable`
-  - updated definition `Tag`
-  - updated property `RouteTableId`
-- updated `AWS::ElastiCache::ParameterGroup`
-  - removed property `CacheParameterGroupName`
+- updated `AWS::RedshiftServerless::Workgroup`
+  - added property `MaxCapacity`
   - updated `readOnlyProperties`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `Action`
-  - updated definition `AuthenticateCognitoConfig`
-  - updated definition `AuthenticateOidcConfig`
-  - updated definition `Certificate`
-  - updated definition `FixedResponseConfig`
-  - updated definition `ForwardConfig`
-  - updated definition `MutualAuthentication`
-  - updated definition `RedirectConfig`
-  - updated definition `TargetGroupStickinessConfig`
-  - updated definition `TargetGroupTuple`
-  - updated property `AlpnPolicy`
-  - updated property `Certificates`
-  - updated property `DefaultActions`
-  - updated property `ListenerArn`
-  - updated property `LoadBalancerArn`
-  - updated property `MutualAuthentication`
+  - updated `writeOnlyProperties`
+  - updated definition `Workgroup`
+  - updated handler permissions
+  - updated property `BaseCapacity`
+  - updated property `ConfigParameters`
+  - updated property `EnhancedVpcRouting`
+  - updated property `NamespaceName`
   - updated property `Port`
-  - updated property `Protocol`
-  - updated property `SslPolicy`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - updated definition `LoadBalancerAttribute`
-  - updated definition `SubnetMapping`
-  - updated definition `Tag`
-  - updated property `CanonicalHostedZoneID`
-  - updated property `DNSName`
-  - updated property `EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic`
-  - updated property `IpAddressType`
-  - updated property `LoadBalancerArn`
-  - updated property `LoadBalancerFullName`
-  - updated property `LoadBalancerName`
-  - updated property `Name`
-  - updated property `Scheme`
-  - updated property `SecurityGroups`
-  - updated property `SubnetMappings`
-  - updated property `Subnets`
-  - updated property `Type`
-- updated `AWS::IAM::RolePolicy`
-  - updated property `PolicyDocument`
-  - updated property `PolicyName`
-  - updated property `RoleName`
-- updated `AWS::RDS::DBInstance`
-  - updated property `DBClusterSnapshotIdentifier`
-- updated `AWS::SSM::PatchBaseline`
-  - updated property `OperatingSystem`
+  - updated property `PubliclyAccessible`
+  - updated property `SecurityGroupIds`
+  - updated property `SubnetIds`
+  - updated property `Tags`
+  - updated property `WorkgroupName`
+  - updated property `Workgroup`

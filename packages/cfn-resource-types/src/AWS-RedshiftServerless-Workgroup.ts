@@ -5,32 +5,53 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html}
  */
 export type RedshiftServerlessWorkgroupProperties = {
+  /**
+   * The base compute capacity of the workgroup in Redshift Processing Units (RPUs).
+   */
   BaseCapacity?: number;
+  /**
+   * The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
+   */
   EnhancedVpcRouting?: boolean;
   /**
+   * The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
+   */
+  MaxCapacity?: number;
+  /**
+   * The namespace the workgroup is associated with.
    * @minLength `3`
    * @maxLength `64`
    * @pattern `^(?=^[a-z0-9-]+$).{3,64}$`
    */
   NamespaceName?: string;
+  /**
+   * The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+   */
   Port?: number;
+  /**
+   * A value that specifies whether the workgroup can be accessible from a public network.
+   */
   PubliclyAccessible?: boolean;
   /**
+   * A list of security group IDs to associate with the workgroup.
    * @minLength `1`
    * @maxLength `32`
    */
   SecurityGroupIds?: string[];
   /**
+   * A list of subnet IDs the workgroup is associated with.
    * @minLength `1`
    * @maxLength `32`
    */
   SubnetIds?: string[];
   /**
+   * The map of the key-value pairs used to tag the workgroup.
    * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
   /**
+   * The name of the workgroup.
    * @minLength `3`
    * @maxLength `64`
    * @pattern `^(?=^[a-z0-9-]+$).{3,64}$`
@@ -43,6 +64,7 @@ export type RedshiftServerlessWorkgroupProperties = {
  */
 export type RedshiftServerlessWorkgroupAttributes = {
   /**
+   * A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
    * @minLength `1`
    */
   ConfigParameters: {
@@ -57,6 +79,9 @@ export type RedshiftServerlessWorkgroupAttributes = {
      */
     ParameterValue: string;
   }[];
+  /**
+   * Definition for workgroup resource
+   */
   Workgroup: {
     BaseCapacity: number;
     ConfigParameters: {
@@ -87,6 +112,7 @@ export type RedshiftServerlessWorkgroupAttributes = {
       }[];
     };
     EnhancedVpcRouting: boolean;
+    MaxCapacity: number;
     /**
      * @minLength `3`
      * @maxLength `64`
