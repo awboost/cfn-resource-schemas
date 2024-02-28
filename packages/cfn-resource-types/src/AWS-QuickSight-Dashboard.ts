@@ -19,6 +19,11 @@ export type QuickSightDashboardProperties = {
   DashboardId: string;
   DashboardPublishOptions?: DashboardPublishOptions;
   Definition?: DashboardVersionDefinition;
+  /**
+   * @minLength `0`
+   * @maxLength `5`
+   */
+  LinkEntities?: string[];
   LinkSharingConfiguration?: LinkSharingConfiguration;
   /**
    * @minLength `1`

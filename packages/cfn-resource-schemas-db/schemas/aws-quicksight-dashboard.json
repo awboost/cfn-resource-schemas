@@ -1,5 +1,5 @@
 {
-  "$hash": "779daa5ad5bc734dffd313054b26d179f216fab2",
+  "$hash": "0d0bc527411915a336d960f50be608fb1d0156de",
   "$id": "aws-quicksight-dashboard.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7686,6 +7686,7 @@
         "quicksight:DescribeDashboard",
         "quicksight:DescribeDashboardPermissions",
         "quicksight:UpdateDashboard",
+        "quicksight:UpdateDashboardLinks",
         "quicksight:UpdateDashboardPermissions",
         "quicksight:UpdateDashboardPublishedVersion",
         "quicksight:DescribeTemplate",
@@ -7719,6 +7720,17 @@
     "Definition": { "$ref": "#/definitions/DashboardVersionDefinition" },
     "LastPublishedTime": { "format": "date-time", "type": "string" },
     "LastUpdatedTime": { "format": "date-time", "type": "string" },
+    "LinkEntities": {
+      "items": {
+        "maxLength": 1024,
+        "minLength": 1,
+        "pattern": "^arn:aws[\\w\\-]*:quicksight:[\\w\\-]+:\\d+:analysis/[\\w\\-]{1,512}",
+        "type": "string"
+      },
+      "maxItems": 5,
+      "minItems": 0,
+      "type": "array"
+    },
     "LinkSharingConfiguration": {
       "$ref": "#/definitions/LinkSharingConfiguration"
     },

@@ -1,17 +1,28 @@
-- updated `AWS::RedshiftServerless::Workgroup`
-  - added property `MaxCapacity`
-  - updated `readOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated definition `Workgroup`
-  - updated handler permissions
-  - updated property `BaseCapacity`
-  - updated property `ConfigParameters`
-  - updated property `EnhancedVpcRouting`
-  - updated property `NamespaceName`
-  - updated property `Port`
-  - updated property `PubliclyAccessible`
-  - updated property `SecurityGroupIds`
-  - updated property `SubnetIds`
+- updated `AWS::EC2::Subnet`
+  - updated definition `Tag`
+  - updated property `AssignIpv6AddressOnCreation`
+  - updated property `AvailabilityZoneId`
+  - updated property `AvailabilityZone`
+  - updated property `CidrBlock`
+  - updated property `EnableDns64`
+  - updated property `Ipv4IpamPoolId`
+  - updated property `Ipv4NetmaskLength`
+  - updated property `Ipv6CidrBlock`
+  - updated property `Ipv6CidrBlocks`
+  - updated property `Ipv6IpamPoolId`
+  - updated property `Ipv6Native`
+  - updated property `Ipv6NetmaskLength`
+  - updated property `MapPublicIpOnLaunch`
+  - updated property `NetworkAclAssociationId`
+  - updated property `OutpostArn`
+  - updated property `PrivateDnsNameOptionsOnLaunch`
+  - updated property `SubnetId`
   - updated property `Tags`
-  - updated property `WorkgroupName`
-  - updated property `Workgroup`
+  - updated property `VpcId`
+- updated `AWS::QuickSight::Dashboard`
+  - added property `LinkEntities`
+  - updated handler permissions
+- updated `AWS::QuickSight::Theme`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated `writeOnlyProperties`

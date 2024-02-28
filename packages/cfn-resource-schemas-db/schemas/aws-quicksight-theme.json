@@ -1,8 +1,8 @@
 {
-  "$hash": "925c21451e042dae74abcfb070ee37c61d777d9e",
+  "$hash": "e34082f6d9f6c5b41bd85eb7bd14aea0dcb330d2",
   "$id": "aws-quicksight-theme.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/ThemeId", "/properties/AwsAccountId"],
+  "createOnlyProperties": ["/properties/AwsAccountId", "/properties/ThemeId"],
   "definitions": {
     "BorderStyle": {
       "additionalProperties": false,
@@ -231,7 +231,7 @@
       ]
     }
   },
-  "primaryIdentifier": ["/properties/ThemeId", "/properties/AwsAccountId"],
+  "primaryIdentifier": ["/properties/AwsAccountId", "/properties/ThemeId"],
   "properties": {
     "Arn": { "type": "string" },
     "AwsAccountId": {
@@ -289,8 +289,8 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "typeName": "AWS::QuickSight::Theme",
   "writeOnlyProperties": [
-    "/properties/VersionDescription",
+    "/properties/BaseThemeId",
     "/properties/Configuration",
-    "/properties/BaseThemeId"
+    "/properties/VersionDescription"
   ]
 }
