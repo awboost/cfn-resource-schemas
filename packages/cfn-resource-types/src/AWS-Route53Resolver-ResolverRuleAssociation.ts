@@ -1,7 +1,8 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+ * Resource type definition for `AWS::Route53Resolver::ResolverRuleAssociation`.
+ * In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html}
  */
 export type Route53ResolverResolverRuleAssociationProperties = {
@@ -10,7 +11,7 @@ export type Route53ResolverResolverRuleAssociationProperties = {
    */
   Name?: string;
   /**
-   * The ID of the Resolver rule that you associated with the VPC that is specified by VPCId.
+   * The ID of the Resolver rule that you associated with the VPC that is specified by ``VPCId``.
    */
   ResolverRuleId: string;
   /**
@@ -23,13 +24,11 @@ export type Route53ResolverResolverRuleAssociationProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html#aws-resource-route53resolver-resolverruleassociation-return-values}
  */
 export type Route53ResolverResolverRuleAssociationAttributes = {
-  /**
-   * Primary Identifier for Resolver Rule Association
-   */
   ResolverRuleAssociationId: string;
 };
 /**
- * Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
+ * Resource type definition for `AWS::Route53Resolver::ResolverRuleAssociation`.
+ * In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html}
  */
 export class Route53ResolverResolverRuleAssociation extends $Resource<

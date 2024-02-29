@@ -332,6 +332,11 @@ export type ExtendedS3DestinationConfiguration = {
     | "ZIP"
     | "Snappy"
     | "HADOOP_SNAPPY";
+  /**
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  CustomTimeZone?: string;
   DataFormatConversionConfiguration?: DataFormatConversionConfiguration;
   DynamicPartitioningConfiguration?: DynamicPartitioningConfiguration;
   EncryptionConfiguration?: EncryptionConfiguration;
@@ -340,6 +345,12 @@ export type ExtendedS3DestinationConfiguration = {
    * @maxLength `1024`
    */
   ErrorOutputPrefix?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `128`
+   * @pattern `^$|\.[0-9a-z!\-_.*'()]+`
+   */
+  FileExtension?: string;
   /**
    * @minLength `0`
    * @maxLength `1024`
@@ -543,6 +554,7 @@ export type Processor = {
   Type:
     | "RecordDeAggregation"
     | "Decompression"
+    | "CloudWatchLogProcessing"
     | "Lambda"
     | "MetadataExtraction"
     | "AppendDelimiterToRecord";

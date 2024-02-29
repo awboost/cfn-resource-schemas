@@ -1,5 +1,5 @@
 {
-  "$hash": "e64126bc080b037985aeaab46dc982db2888bab0",
+  "$hash": "04b565c2c664b7dd5d5722e1b44bb708e3c2ff8c",
   "$id": "aws-rds-customdbengineversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -36,7 +36,6 @@
   "handlers": {
     "create": {
       "permissions": [
-        "iam:PassRole",
         "kms:CreateGrant",
         "kms:DescribeKey",
         "mediaimport:CreateDatabaseBinarySnapshot",

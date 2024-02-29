@@ -1,28 +1,25 @@
-- updated `AWS::EC2::Subnet`
+- updated `AWS::Amplify::Domain`
+  - added definition `CertificateSettings`
+  - added definition `Certificate`
+  - added property `CertificateSettings`
+  - added property `Certificate`
+  - added property `UpdateStatus`
+- updated `AWS::IAM::Policy`
+  - updated property `Groups`
+  - updated property `Id`
+  - updated property `PolicyDocument`
+  - updated property `PolicyName`
+  - updated property `Roles`
+  - updated property `Users`
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - updated definition `ExtendedS3DestinationConfiguration`
+  - updated definition `OpenXJsonSerDe`
+  - updated definition `Processor`
   - updated definition `Tag`
-  - updated property `AssignIpv6AddressOnCreation`
-  - updated property `AvailabilityZoneId`
-  - updated property `AvailabilityZone`
-  - updated property `CidrBlock`
-  - updated property `EnableDns64`
-  - updated property `Ipv4IpamPoolId`
-  - updated property `Ipv4NetmaskLength`
-  - updated property `Ipv6CidrBlock`
-  - updated property `Ipv6CidrBlocks`
-  - updated property `Ipv6IpamPoolId`
-  - updated property `Ipv6Native`
-  - updated property `Ipv6NetmaskLength`
-  - updated property `MapPublicIpOnLaunch`
-  - updated property `NetworkAclAssociationId`
-  - updated property `OutpostArn`
-  - updated property `PrivateDnsNameOptionsOnLaunch`
-  - updated property `SubnetId`
-  - updated property `Tags`
-  - updated property `VpcId`
-- updated `AWS::QuickSight::Dashboard`
-  - added property `LinkEntities`
+- updated `AWS::Lightsail::Certificate`
   - updated handler permissions
-- updated `AWS::QuickSight::Theme`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated `writeOnlyProperties`
+- updated `AWS::RDS::CustomDBEngineVersion`
+  - updated handler permissions
+- updated `AWS::Route53Resolver::ResolverRuleAssociation`
+  - updated property `ResolverRuleAssociationId`
+  - updated property `ResolverRuleId`

@@ -1,5 +1,5 @@
 {
-  "$hash": "5d135640b6aae5a9559dab4e5e621d1012ff273f",
+  "$hash": "ecabe2aa4c20aeb69a84e1d18b15a6765d23b85f",
   "$id": "aws-lightsail-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -34,7 +34,9 @@
     "create": {
       "permissions": [
         "lightsail:CreateCertificate",
-        "lightsail:GetCertificates"
+        "lightsail:GetCertificates",
+        "lightsail:TagResource",
+        "lightsail:UntagResource"
       ]
     },
     "delete": {

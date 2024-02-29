@@ -1,9 +1,41 @@
 {
-  "$hash": "671b791f70ca764ed31b10af4d042cff832a29cd",
+  "$hash": "e583d63fa84aadac2380d9cb7c14bdb2c0e70c14",
   "$id": "aws-amplify-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AppId", "/properties/DomainName"],
   "definitions": {
+    "Certificate": {
+      "additionalProperties": false,
+      "properties": {
+        "CertificateArn": {
+          "pattern": "\"^arn:aws:acm:[a-z0-9-]+:\\d{12}:certificate\\/.+$\"",
+          "type": "string"
+        },
+        "CertificateType": {
+          "enum": ["AMPLIFY_MANAGED", "CUSTOM"],
+          "type": "string"
+        },
+        "CertificateVerificationDNSRecord": {
+          "maxLength": 1000,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CertificateSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "CertificateType": {
+          "enum": ["AMPLIFY_MANAGED", "CUSTOM"],
+          "type": "string"
+        },
+        "CustomCertificateArn": {
+          "pattern": "\"^arn:aws:acm:[a-z0-9-]+:\\d{12}:certificate\\/.+$\"",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "SubDomainSetting": {
       "additionalProperties": false,
       "properties": {
@@ -88,7 +120,9 @@
       "pattern": "^$|^arn:.+:iam::\\d{12}:role.+",
       "type": "string"
     },
+    "Certificate": { "$ref": "#/definitions/Certificate" },
     "CertificateRecord": { "maxLength": 1000, "type": "string" },
+    "CertificateSettings": { "$ref": "#/definitions/CertificateSettings" },
     "DomainName": {
       "maxLength": 255,
       "pattern": "^(((?!-)[A-Za-z0-9-]{0,62}[A-Za-z0-9])\\.)+((?!-)[A-Za-z0-9-]{1,62}[A-Za-z0-9])(\\.)?$",
@@ -102,7 +136,8 @@
       "maxItems": 255,
       "type": "array",
       "uniqueItems": false
-    }
+    },
+    "UpdateStatus": { "type": "string" }
   },
   "readOnlyProperties": [
     "/properties/Arn",

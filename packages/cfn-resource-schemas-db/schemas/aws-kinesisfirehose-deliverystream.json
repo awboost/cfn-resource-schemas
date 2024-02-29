@@ -1,5 +1,5 @@
 {
-  "$hash": "875a97629d63f1b58712cf4d57a4b24032332871",
+  "$hash": "b3010354a22e155c6e87da73deeae567e1f6c672",
   "$id": "aws-kinesisfirehose-deliverystream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -326,6 +326,7 @@
           "enum": ["UNCOMPRESSED", "GZIP", "ZIP", "Snappy", "HADOOP_SNAPPY"],
           "type": "string"
         },
+        "CustomTimeZone": { "maxLength": 50, "minLength": 0, "type": "string" },
         "DataFormatConversionConfiguration": {
           "$ref": "#/definitions/DataFormatConversionConfiguration"
         },
@@ -338,6 +339,12 @@
         "ErrorOutputPrefix": {
           "maxLength": 1024,
           "minLength": 0,
+          "type": "string"
+        },
+        "FileExtension": {
+          "maxLength": 128,
+          "minLength": 0,
+          "pattern": "^$|\\.[0-9a-z!\\-_.*'()]+",
           "type": "string"
         },
         "Prefix": { "maxLength": 1024, "minLength": 0, "type": "string" },
@@ -496,6 +503,7 @@
       "properties": {
         "CaseInsensitive": { "type": "boolean" },
         "ColumnToJsonKeyMappings": {
+          "additionalProperties": false,
           "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
           "type": "object"
         },
@@ -564,6 +572,7 @@
           "enum": [
             "RecordDeAggregation",
             "Decompression",
+            "CloudWatchLogProcessing",
             "Lambda",
             "MetadataExtraction",
             "AppendDelimiterToRecord"
@@ -845,6 +854,7 @@
       "type": "object"
     },
     "Tag": {
+      "additionalProperties": false,
       "properties": {
         "Key": {
           "maxLength": 128,
