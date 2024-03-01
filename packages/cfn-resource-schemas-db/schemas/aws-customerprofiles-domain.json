@@ -1,5 +1,5 @@
 {
-  "$hash": "236f55838492fc484e1fdd0cd0cf4c5c45dcc73c",
+  "$hash": "941c03844d90cce45de37ff1c614f6038bf4e851",
   "$id": "aws-customerprofiles-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -344,7 +344,7 @@
     "/properties/RuleBasedMatching/Status",
     "/properties/Stats"
   ],
-  "required": ["DomainName"],
+  "required": ["DomainName", "DefaultExpirationDays"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-customer-profiles.git",
   "tagging": {
     "cloudFormationSystemTags": true,

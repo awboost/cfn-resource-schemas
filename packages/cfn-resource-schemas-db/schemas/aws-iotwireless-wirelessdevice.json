@@ -1,5 +1,5 @@
 {
-  "$hash": "88316455776bc5f9ea5c5aaad771f8f261cb4385",
+  "$hash": "958eac5cb08b6428a616f6db47df276a80391c5b",
   "$id": "aws-iotwireless-wirelessdevice.json",
   "additionalProperties": false,
   "definitions": {
@@ -194,6 +194,11 @@
     "Name": {
       "description": "Wireless device name",
       "maxLength": 256,
+      "type": "string"
+    },
+    "Positioning": {
+      "description": "FPort values for the GNSS, stream, and ClockSync functions of the positioning information.",
+      "enum": ["Enabled", "Disabled"],
       "type": "string"
     },
     "Tags": {

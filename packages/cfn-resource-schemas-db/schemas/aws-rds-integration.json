@@ -1,5 +1,5 @@
 {
-  "$hash": "e07c614d17c933ee9b884ac4d317ffece6b7eb8d",
+  "$hash": "5cfa82caf569e9a28224fb75c279617074f10dd1",
   "$id": "aws-rds-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -47,7 +47,7 @@
       "uniqueItems": true
     }
   },
-  "description": "An example resource schema demonstrating some basic constructs and validation rules.",
+  "description": "Creates a zero-ETL integration with Amazon Redshift.",
   "handlers": {
     "create": {
       "permissions": [

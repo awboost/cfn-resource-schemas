@@ -23,7 +23,7 @@ export type CustomerProfilesDomainProperties = {
    * @min `1`
    * @max `1098`
    */
-  DefaultExpirationDays?: number;
+  DefaultExpirationDays: number;
   /**
    * The unique name of the domain.
    * @minLength `1`

@@ -1,5 +1,5 @@
 {
-  "$hash": "8c0db363c3d1bbe70285e1ddee6542e0aea3d774",
+  "$hash": "3a1b2b09d6bfaa5e4d07d1b20afe8baaecd0f535",
   "$id": "aws-appstream-applicationfleetassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -32,5 +32,6 @@
   },
   "required": ["FleetName", "ApplicationArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appstream.git",
+  "tagging": { "taggable": false },
   "typeName": "AWS::AppStream::ApplicationFleetAssociation"
 }

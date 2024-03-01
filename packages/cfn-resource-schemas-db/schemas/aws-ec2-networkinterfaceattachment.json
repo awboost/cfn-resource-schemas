@@ -1,5 +1,5 @@
 {
-  "$hash": "70285bd37c30bbe4fd82490819bf2b11e6c0a2dc",
+  "$hash": "414825a96487689f8a1194e840556d446c3bfc01",
   "$id": "aws-ec2-networkinterfaceattachment.json",
   "additionalIdentifiers": [["/properties/NetworkInterfaceId"]],
   "additionalProperties": false,
@@ -8,6 +8,20 @@
     "/properties/InstanceId",
     "/properties/NetworkInterfaceId"
   ],
+  "definitions": {
+    "EnaSrdSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "EnaSrdEnabled": { "type": "boolean" },
+        "EnaSrdUdpSpecification": {
+          "additionalProperties": false,
+          "properties": { "EnaSrdUdpEnabled": { "type": "boolean" } },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    }
+  },
   "description": "Resource Type definition for AWS::EC2::NetworkInterfaceAttachment",
   "handlers": {
     "create": {
@@ -49,6 +63,7 @@
       "description": "The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.",
       "type": "string"
     },
+    "EnaSrdSpecification": { "$ref": "#/definitions/EnaSrdSpecification" },
     "InstanceId": {
       "description": "The ID of the instance to which you will attach the ENI.",
       "type": "string"

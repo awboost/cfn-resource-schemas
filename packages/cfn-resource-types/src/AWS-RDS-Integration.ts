@@ -2,7 +2,7 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::RDS::Integration`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Creates a zero-ETL integration with Amazon Redshift.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html}
  */
 export type RDSIntegrationProperties = {
@@ -72,7 +72,7 @@ export type Tag = {
 };
 /**
  * Resource type definition for `AWS::RDS::Integration`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Creates a zero-ETL integration with Amazon Redshift.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html}
  */
 export class RDSIntegration extends $Resource<

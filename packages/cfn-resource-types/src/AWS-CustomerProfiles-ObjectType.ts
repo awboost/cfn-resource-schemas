@@ -15,7 +15,7 @@ export type CustomerProfilesObjectTypeProperties = {
    * @minLength `1`
    * @maxLength `1000`
    */
-  Description?: string;
+  Description: string;
   /**
    * The unique name of the domain.
    * @minLength `1`
@@ -49,7 +49,7 @@ export type CustomerProfilesObjectTypeProperties = {
    * @maxLength `255`
    * @pattern `^[a-zA-Z_][a-zA-Z_0-9-]*$`
    */
-  ObjectTypeName?: string;
+  ObjectTypeName: string;
   /**
    * The format of your sourceLastUpdatedTimestamp that was previously set up.
    * @minLength `1`

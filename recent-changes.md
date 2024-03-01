@@ -1,25 +1,68 @@
-- updated `AWS::Amplify::Domain`
-  - added definition `CertificateSettings`
-  - added definition `Certificate`
-  - added property `CertificateSettings`
-  - added property `Certificate`
-  - added property `UpdateStatus`
-- updated `AWS::IAM::Policy`
-  - updated property `Groups`
+- updated `AWS::AppStream::AppBlock`
+  - added `tagging`
+- updated `AWS::AppStream::Application`
+  - added `tagging`
+- updated `AWS::AppStream::ApplicationEntitlementAssociation`
+  - added `tagging`
+- updated `AWS::AppStream::ApplicationFleetAssociation`
+  - added `tagging`
+- updated `AWS::AppStream::Entitlement`
+  - added `tagging`
+- updated `AWS::B2BI::Transformer`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Connect::User`
+  - updated handler permissions
+- updated `AWS::CustomerProfiles::Domain`
+  - updated `required`
+- updated `AWS::CustomerProfiles::ObjectType`
+  - updated `required`
+- updated `AWS::EC2::NetworkInterfaceAttachment`
+  - added property `EnaSrdSpecification`
+  - updated definition `undefined`
+- updated `AWS::EC2::VPCEndpoint`
+  - updated property `CreationTimestamp`
+  - updated property `DnsEntries`
   - updated property `Id`
+  - updated property `NetworkInterfaceIds`
   - updated property `PolicyDocument`
-  - updated property `PolicyName`
-  - updated property `Roles`
-  - updated property `Users`
-- updated `AWS::KinesisFirehose::DeliveryStream`
-  - updated definition `ExtendedS3DestinationConfiguration`
-  - updated definition `OpenXJsonSerDe`
-  - updated definition `Processor`
+  - updated property `PrivateDnsEnabled`
+  - updated property `RouteTableIds`
+  - updated property `SecurityGroupIds`
+  - updated property `ServiceName`
+  - updated property `SubnetIds`
+  - updated property `VpcEndpointType`
+  - updated property `VpcId`
+- updated `AWS::EC2::VolumeAttachment`
+  - updated property `Device`
+  - updated property `InstanceId`
+  - updated property `VolumeId`
+- updated `AWS::ECS::TaskSet`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::IAM::InstanceProfile`
+  - updated property `Arn`
+  - updated property `InstanceProfileName`
+  - updated property `Path`
+- updated `AWS::IAM::Role`
+  - updated definition `Policy`
   - updated definition `Tag`
-- updated `AWS::Lightsail::Certificate`
-  - updated handler permissions
-- updated `AWS::RDS::CustomDBEngineVersion`
-  - updated handler permissions
-- updated `AWS::Route53Resolver::ResolverRuleAssociation`
-  - updated property `ResolverRuleAssociationId`
-  - updated property `ResolverRuleId`
+  - updated property `Arn`
+  - updated property `AssumeRolePolicyDocument`
+  - updated property `ManagedPolicyArns`
+  - updated property `MaxSessionDuration`
+  - updated property `Path`
+  - updated property `PermissionsBoundary`
+  - updated property `Policies`
+  - updated property `RoleId`
+  - updated property `RoleName`
+  - updated property `Tags`
+- updated `AWS::IoTTwinMaker::Entity`
+  - added definition `Definition`
+  - updated definition `PropertyDefinitionConfiguration`
+  - updated definition `Property`
+- updated `AWS::IoTWireless::WirelessDevice`
+  - added property `Positioning`
+- updated `AWS::RDS::Integration`

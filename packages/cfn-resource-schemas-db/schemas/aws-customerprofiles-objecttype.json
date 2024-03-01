@@ -1,5 +1,5 @@
 {
-  "$hash": "873448cda927d882ba4d3a7541f1d6f30ba39499",
+  "$hash": "08abeb91a9f02b9d61304135dcbae60676dec2da",
   "$id": "aws-customerprofiles-objecttype.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -221,7 +221,7 @@
     }
   },
   "readOnlyProperties": ["/properties/LastUpdatedAt", "/properties/CreatedAt"],
-  "required": ["DomainName"],
+  "required": ["DomainName", "ObjectTypeName", "Description"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-customer-profiles.git",
   "tagging": {
     "cloudFormationSystemTags": true,

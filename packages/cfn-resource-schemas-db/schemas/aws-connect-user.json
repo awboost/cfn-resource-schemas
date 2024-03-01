@@ -1,5 +1,5 @@
 {
-  "$hash": "5ea3caac89cbff6605d9b7b9695dc60aee94f65e",
+  "$hash": "4370bd78eb3a491d8f20bf706c4ef1e1390dd3be",
   "$id": "aws-connect-user.json",
   "additionalProperties": false,
   "definitions": {
@@ -135,6 +135,17 @@
     },
     "delete": {
       "permissions": ["connect:DeleteUser", "connect:UntagResource"]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "InstanceArn": {
+            "$ref": "resource-schema.json#/properties/InstanceArn"
+          }
+        },
+        "required": ["InstanceArn"]
+      },
+      "permissions": ["connect:ListUsers"]
     },
     "read": {
       "permissions": ["connect:DescribeUser", "connect:ListUserProficiencies"]

@@ -30,6 +30,10 @@ export type IoTWirelessWirelessDeviceProperties = {
    */
   Name?: string;
   /**
+   * FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+   */
+  Positioning?: "Enabled" | "Disabled";
+  /**
    * A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
    * @maxLength `200`
    */

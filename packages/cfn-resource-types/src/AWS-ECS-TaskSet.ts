@@ -39,6 +39,7 @@ export type ECSTaskSetProperties = {
    * The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
    */
   ServiceRegistries?: ServiceRegistry[];
+  Tags?: Tag[];
   /**
    * The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
    */
@@ -142,6 +143,14 @@ export type ServiceRegistry = {
    * The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html
    */
   RegistryArn?: string;
+};
+/**
+ * Type definition for `AWS::ECS::TaskSet.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-tag.html}
+ */
+export type Tag = {
+  Key?: string;
+  Value?: string;
 };
 /**
  * Resource type definition for `AWS::ECS::TaskSet`.

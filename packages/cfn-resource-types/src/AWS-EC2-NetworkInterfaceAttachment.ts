@@ -13,6 +13,7 @@ export type EC2NetworkInterfaceAttachmentProperties = {
    * The network interface's position in the attachment order. For example, the first attached network interface has a DeviceIndex of 0.
    */
   DeviceIndex: string;
+  EnaSrdSpecification?: EnaSrdSpecification;
   /**
    * The ID of the instance to which you will attach the ENI.
    */
@@ -31,6 +32,16 @@ export type EC2NetworkInterfaceAttachmentAttributes = {
    * The ID of the network interface attachment.
    */
   AttachmentId: string;
+};
+/**
+ * Type definition for `AWS::EC2::NetworkInterfaceAttachment.EnaSrdSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html}
+ */
+export type EnaSrdSpecification = {
+  EnaSrdEnabled?: boolean;
+  EnaSrdUdpSpecification?: {
+    EnaSrdUdpEnabled?: boolean;
+  };
 };
 /**
  * Resource Type definition for AWS::EC2::NetworkInterfaceAttachment

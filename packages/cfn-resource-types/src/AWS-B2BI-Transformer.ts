@@ -12,7 +12,6 @@ export type B2BITransformerProperties = {
    * @maxLength `350000`
    */
   MappingTemplate: string;
-  ModifiedAt?: string;
   /**
    * @minLength `1`
    * @maxLength `254`
@@ -36,6 +35,7 @@ export type B2BITransformerProperties = {
  */
 export type B2BITransformerAttributes = {
   CreatedAt: string;
+  ModifiedAt: string;
   /**
    * @minLength `1`
    * @maxLength `255`

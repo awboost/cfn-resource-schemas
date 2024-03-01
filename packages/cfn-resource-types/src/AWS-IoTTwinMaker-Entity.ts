@@ -287,55 +287,62 @@ export type DataValue = {
   StringValue?: string;
 };
 /**
+ * Type definition for `AWS::IoTTwinMaker::Entity.Definition`.
+ * An object that specifies information about a property definition.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html}
+ */
+export type Definition = {
+  /**
+   * An object that specifies information about a property configuration.
+   */
+  Configuration?: PropertyDefinitionConfiguration;
+  /**
+   * An object that contains information about the data type.
+   */
+  DataType?: DataType;
+  /**
+   * An object that contains the default value.
+   */
+  DefaultValue?: DataValue;
+  /**
+   * A Boolean value that specifies whether the property ID comes from an external data store.
+   */
+  IsExternalId?: boolean;
+  /**
+   * A Boolean value that specifies whether the property definition can be updated.
+   */
+  IsFinal?: boolean;
+  /**
+   * A Boolean value that specifies whether the property definition is imported from an external data store.
+   */
+  IsImported?: boolean;
+  /**
+   * A Boolean value that specifies whether the property definition is inherited from a parent entity.
+   */
+  IsInherited?: boolean;
+  /**
+   * A Boolean value that specifies whether the property is required.
+   */
+  IsRequiredInEntity?: boolean;
+  /**
+   * A Boolean value that specifies whether the property is stored externally.
+   */
+  IsStoredExternally?: boolean;
+  /**
+   * A Boolean value that specifies whether the property consists of time series data.
+   */
+  IsTimeSeries?: boolean;
+};
+/**
  * Type definition for `AWS::IoTTwinMaker::Entity.Property`.
+ * An object that specifies information about a property.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html}
  */
 export type Property = {
   /**
-   * An object that specifies information about a property.
+   * The definition of the property.
    */
-  Definition?: {
-    /**
-     * An object that specifies information about a property.
-     */
-    Configuration?: PropertyDefinitionConfiguration;
-    /**
-     * An object that contains information about the data type.
-     */
-    DataType?: DataType;
-    /**
-     * An object that contains the default value.
-     */
-    DefaultValue?: DataValue;
-    /**
-     * A Boolean value that specifies whether the property ID comes from an external data store.
-     */
-    IsExternalId?: boolean;
-    /**
-     * A Boolean value that specifies whether the property definition can be updated.
-     */
-    IsFinal?: boolean;
-    /**
-     * A Boolean value that specifies whether the property definition is imported from an external data store.
-     */
-    IsImported?: boolean;
-    /**
-     * A Boolean value that specifies whether the property definition is inherited from a parent entity.
-     */
-    IsInherited?: boolean;
-    /**
-     * A Boolean value that specifies whether the property is required.
-     */
-    IsRequiredInEntity?: boolean;
-    /**
-     * A Boolean value that specifies whether the property is stored externally.
-     */
-    IsStoredExternally?: boolean;
-    /**
-     * A Boolean value that specifies whether the property consists of time series data.
-     */
-    IsTimeSeries?: boolean;
-  };
+  Definition?: Definition;
   /**
    * The value of the property.
    */
@@ -343,7 +350,7 @@ export type Property = {
 };
 /**
  * Type definition for `AWS::IoTTwinMaker::Entity.PropertyDefinitionConfiguration`.
- * An object that specifies information about a property.
+ * An object that specifies information about a property configuration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-propertydefinitionconfiguration.html}
  */
 export type PropertyDefinitionConfiguration = Record<string, string>;

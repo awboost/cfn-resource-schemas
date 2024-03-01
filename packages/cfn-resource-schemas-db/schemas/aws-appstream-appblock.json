@@ -1,5 +1,5 @@
 {
-  "$hash": "df4f9eb2886470f45eeaeebf8dbca65bc33126bb",
+  "$hash": "43f7c8fa55d680ce97676056e342990b6caab888",
   "$id": "aws-appstream-appblock.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -96,6 +96,13 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/CreatedTime"],
   "required": ["Name", "SourceS3Location"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appstream.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::AppStream::AppBlock",
   "writeOnlyProperties": ["/properties/Tags"]
 }

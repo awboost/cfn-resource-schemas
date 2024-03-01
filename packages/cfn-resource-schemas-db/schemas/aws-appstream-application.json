@@ -1,5 +1,5 @@
 {
-  "$hash": "0cef36e04218a4676a0ae0bd5274e709f897e42c",
+  "$hash": "fab639fef2c4601049c5525a57488786841383cb",
   "$id": "aws-appstream-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -107,6 +107,13 @@
     "AppBlockArn"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appstream.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::AppStream::Application",
   "writeOnlyProperties": ["/properties/Tags", "/properties/AttributesToDelete"]
 }

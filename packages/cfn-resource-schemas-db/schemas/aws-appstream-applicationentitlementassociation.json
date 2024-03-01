@@ -1,5 +1,5 @@
 {
-  "$hash": "fe70dab39b68057304c0c839ee640baff938c8d9",
+  "$hash": "e167dce573725f6f186b887da0fe408db0dbbc0b",
   "$id": "aws-appstream-applicationentitlementassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -36,5 +36,6 @@
   },
   "required": ["StackName", "EntitlementName", "ApplicationIdentifier"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appstream.git",
+  "tagging": { "taggable": false },
   "typeName": "AWS::AppStream::ApplicationEntitlementAssociation"
 }

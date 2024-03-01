@@ -1,5 +1,5 @@
 {
-  "$hash": "5a5064bdd395ed4650efc37eac2dff61391950d7",
+  "$hash": "1f65a19ddb3d18b068ab890f442e9d89241e88f5",
   "$id": "aws-b2bi-transformer.json",
   "additionalProperties": false,
   "definitions": {
@@ -76,6 +76,7 @@
       "permissions": [
         "b2bi:CreateTransformer",
         "b2bi:TagResource",
+        "b2bi:UpdateTransformer",
         "logs:CreateLogDelivery",
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
@@ -96,7 +97,7 @@
     },
     "list": { "permissions": ["b2bi:ListTransformers"] },
     "read": {
-      "permissions": ["b2bi:ListTagsForResource", "b2bi:GetTransformer"]
+      "permissions": ["b2bi:GetTransformer", "b2bi:ListTagsForResource"]
     },
     "update": {
       "permissions": [
@@ -136,6 +137,7 @@
   },
   "readOnlyProperties": [
     "/properties/CreatedAt",
+    "/properties/ModifiedAt",
     "/properties/TransformerArn",
     "/properties/TransformerId"
   ],
