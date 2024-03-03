@@ -1,5 +1,5 @@
 {
-  "$hash": "bbac9d408f1bdd1acefbeb21bda93e81be1f6f43",
+  "$hash": "846363272ec42fdc500ac7fbcf265a6562f10e84",
   "$id": "aws-iotevents-input.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InputName"],
@@ -82,7 +82,7 @@
     "InputDefinition": { "$ref": "#/definitions/InputDefinition" },
     "InputDescription": {
       "description": "A brief description of the input.",
-      "maxLength": 128,
+      "maxLength": 1024,
       "minLength": 1,
       "type": "string"
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "e34082f6d9f6c5b41bd85eb7bd14aea0dcb330d2",
+  "$hash": "5cd8da44dc9a002ce9b2e5c2713804ef80b224d8",
   "$id": "aws-quicksight-theme.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/ThemeId"],
@@ -231,7 +231,7 @@
       ]
     }
   },
-  "primaryIdentifier": ["/properties/AwsAccountId", "/properties/ThemeId"],
+  "primaryIdentifier": ["/properties/ThemeId", "/properties/AwsAccountId"],
   "properties": {
     "Arn": { "type": "string" },
     "AwsAccountId": {

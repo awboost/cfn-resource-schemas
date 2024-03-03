@@ -104,7 +104,7 @@ export type DynamoDBTableAttributes = {
 };
 /**
  * Type definition for `AWS::DynamoDB::Table.AttributeDefinition`.
- * Represents an attribute for describing the key schema for the table and indexes.
+ * Represents an attribute for describing the schema for the table and indexes.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html}
  */
 export type AttributeDefinition = {
@@ -302,6 +302,8 @@ export type Projection = {
       +   ``KEYS_ONLY`` - Only the index and primary keys are projected into the index.
       +   ``INCLUDE`` - In addition to the attributes described in ``KEYS_ONLY``, the secondary index will include other non-key attributes that you specify.
       +   ``ALL`` - All of the table attributes are projected into the index.
+      
+     When using the DynamoDB console, ``ALL`` is selected by default.
      */
   ProjectionType?: string;
 };

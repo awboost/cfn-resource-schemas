@@ -17,7 +17,7 @@ export type IoTEventsAlarmModelProperties = {
   AlarmEventActions?: AlarmEventActions;
   /**
    * A brief description of the alarm model.
-   * @maxLength `128`
+   * @maxLength `1024`
    */
   AlarmModelDescription?: string;
   /**

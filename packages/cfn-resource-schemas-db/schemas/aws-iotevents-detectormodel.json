@@ -1,5 +1,5 @@
 {
-  "$hash": "71ec45ac24f1de8c871af842bdf41a01ea94a34e",
+  "$hash": "323865d2c710bf2342d2f3ee8332f0547a56667b",
   "$id": "aws-iotevents-detectormodel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DetectorModelName", "/properties/Key"],
@@ -541,7 +541,7 @@
     },
     "DetectorModelDescription": {
       "description": "A brief description of the detector model.",
-      "maxLength": 128,
+      "maxLength": 1024,
       "type": "string"
     },
     "DetectorModelName": {

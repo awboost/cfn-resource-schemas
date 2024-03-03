@@ -12,7 +12,7 @@ export type IoTEventsInputProperties = {
   /**
    * A brief description of the input.
    * @minLength `1`
-   * @maxLength `128`
+   * @maxLength `1024`
    */
   InputDescription?: string;
   /**

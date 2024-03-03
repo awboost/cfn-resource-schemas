@@ -1,5 +1,5 @@
 {
-  "$hash": "01a0d541bf35da477242f588de172b54dab7b951",
+  "$hash": "c9ef244a53558befeb40c4c4aff31d71c3092b1b",
   "$id": "aws-iotevents-alarmmodel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AlarmModelName", "/properties/Key"],
@@ -409,7 +409,7 @@
     "AlarmEventActions": { "$ref": "#/definitions/AlarmEventActions" },
     "AlarmModelDescription": {
       "description": "A brief description of the alarm model.",
-      "maxLength": 128,
+      "maxLength": 1024,
       "type": "string"
     },
     "AlarmModelName": {

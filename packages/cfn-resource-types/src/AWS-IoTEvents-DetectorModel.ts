@@ -11,7 +11,7 @@ export type IoTEventsDetectorModelProperties = {
   DetectorModelDefinition: DetectorModelDefinition;
   /**
    * A brief description of the detector model.
-   * @maxLength `128`
+   * @maxLength `1024`
    */
   DetectorModelDescription?: string;
   /**
