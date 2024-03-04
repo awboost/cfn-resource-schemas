@@ -1,17 +1,2 @@
-- updated `AWS::DynamoDB::GlobalTable`
-  - updated handler permissions
-- updated `AWS::DynamoDB::Table`
-  - updated definition `AttributeDefinition`
-  - updated definition `Projection`
-- updated `AWS::IoTEvents::AlarmModel`
-  - updated property `AlarmModelDescription`
-- updated `AWS::IoTEvents::DetectorModel`
-  - updated property `DetectorModelDescription`
-- updated `AWS::IoTEvents::Input`
-  - updated property `InputDescription`
-- updated `AWS::QuickSight::Theme`
-  - updated `primaryIdentifier`
-- updated `AWS::RedshiftServerless::Namespace`
-  - added definition `SnapshotCopyConfiguration`
-  - added property `SnapshotCopyConfigurations`
-  - updated handler permissions
+- updated `AWS::StepFunctions::StateMachine`
+  - updated definition `CloudWatchLogsLogGroup`
