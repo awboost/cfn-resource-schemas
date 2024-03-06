@@ -1,2 +1,92 @@
-- updated `AWS::StepFunctions::StateMachine`
-  - updated definition `CloudWatchLogsLogGroup`
+- updated `AWS::Config::ConfigRule`
+  - updated `propertyTransform`
+- updated `AWS::Glue::Registry`
+  - updated handler permissions
+- updated `AWS::IAM::RolePolicy`
+- updated `AWS::IoTSiteWise::Asset`
+  - added `writeOnlyProperties`
+  - added property `AssetExternalId`
+  - updated `readOnlyProperties`
+  - updated definition `AssetHierarchy`
+  - updated definition `AssetProperty`
+  - updated handler permissions
+  - updated property `AssetId`
+- updated `AWS::IoTSiteWise::AssetModel`
+  - added `createOnlyProperties`
+  - added definition `PropertyPathDefinition`
+  - added property `AssetModelExternalId`
+  - added property `AssetModelType`
+  - updated `readOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated definition `AssetModelCompositeModel`
+  - updated definition `AssetModelHierarchy`
+  - updated definition `AssetModelProperty`
+  - updated definition `VariableValue`
+  - updated handler permissions
+  - updated property `AssetModelId`
+- updated `AWS::IoTSiteWise::Dashboard`
+  - updated handler permissions
+- updated `AWS::Lambda::Function`
+  - updated definition `Code`
+  - updated definition `RuntimeManagementConfig`
+- updated `AWS::RDS::DBCluster`
+  - added property `StorageThroughput`
+  - updated `readOnlyProperties`
+- updated `AWS::RDS::DBInstance`
+  - updated property `CACertificateIdentifier`
+  - updated property `DBClusterSnapshotIdentifier`
+- updated `AWS::RedshiftServerless::Namespace`
+  - removed definition `SnapshotCopyConfiguration`
+  - removed property `SnapshotCopyConfigurations`
+  - updated handler permissions
+- updated `AWS::SNS::Topic`
+  - updated definition `LoggingConfig`
+  - updated definition `Subscription`
+  - updated definition `Tag`
+  - updated property `ArchivePolicy`
+  - updated property `ContentBasedDeduplication`
+  - updated property `DataProtectionPolicy`
+  - updated property `DeliveryStatusLogging`
+  - updated property `DisplayName`
+  - updated property `KmsMasterKeyId`
+  - updated property `SignatureVersion`
+  - updated property `Subscription`
+  - updated property `Tags`
+  - updated property `TopicArn`
+  - updated property `TopicName`
+  - updated property `TracingConfig`
+- updated `AWS::SNS::TopicPolicy`
+  - updated property `Id`
+  - updated property `Topics`
+- updated `AWS::SQS::Queue`
+  - updated definition `Tag`
+  - updated property `Arn`
+  - updated property `ContentBasedDeduplication`
+  - updated property `DeduplicationScope`
+  - updated property `DelaySeconds`
+  - updated property `FifoQueue`
+  - updated property `FifoThroughputLimit`
+  - updated property `KmsDataKeyReusePeriodSeconds`
+  - updated property `KmsMasterKeyId`
+  - updated property `MaximumMessageSize`
+  - updated property `MessageRetentionPeriod`
+  - updated property `QueueName`
+  - updated property `QueueUrl`
+  - updated property `ReceiveMessageWaitTimeSeconds`
+  - updated property `RedriveAllowPolicy`
+  - updated property `RedrivePolicy`
+  - updated property `SqsManagedSseEnabled`
+  - updated property `Tags`
+  - updated property `VisibilityTimeout`
+- updated `AWS::SSM::Parameter`
+  - updated property `AllowedPattern`
+- updated `AWS::SecretsManager::Secret`
+  - updated property `Tags`
+- updated `AWS::WAFv2::RuleGroup`
+  - added definition `JA3Fingerprint`
+  - updated definition `Cookies`
+  - updated definition `FieldToMatch`
+- updated `AWS::WAFv2::WebACL`
+  - added definition `JA3Fingerprint`
+  - updated definition `Cookies`
+  - updated definition `FieldToMatch`

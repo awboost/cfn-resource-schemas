@@ -1,5 +1,5 @@
 {
-  "$hash": "2af39e0a9c1a98c1bc5a17720a124235e8dafd85",
+  "$hash": "bf703f98b2768e1f048aa0c31f773125148063db",
   "$id": "aws-wafv2-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -137,7 +137,7 @@
     },
     "Cookies": {
       "additionalProperties": false,
-      "description": "Includes headers of a web request.",
+      "description": "Includes cookies of a web request.",
       "properties": {
         "MatchPattern": { "$ref": "#/definitions/CookieMatchPattern" },
         "MatchScope": { "$ref": "#/definitions/MapMatchScope" },
@@ -257,6 +257,7 @@
         "Body": { "$ref": "#/definitions/Body" },
         "Cookies": { "$ref": "#/definitions/Cookies" },
         "Headers": { "$ref": "#/definitions/Headers" },
+        "JA3Fingerprint": { "$ref": "#/definitions/JA3Fingerprint" },
         "JsonBody": { "$ref": "#/definitions/JsonBody" },
         "Method": {
           "description": "The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.",
@@ -379,6 +380,15 @@
         "ImmunityTime": { "maximum": 259200, "minimum": 60, "type": "integer" }
       },
       "required": ["ImmunityTime"],
+      "type": "object"
+    },
+    "JA3Fingerprint": {
+      "additionalProperties": false,
+      "description": "Includes the JA3 fingerprint of a web request.",
+      "properties": {
+        "FallbackBehavior": { "enum": ["MATCH", "NO_MATCH"], "type": "string" }
+      },
+      "required": ["FallbackBehavior"],
       "type": "object"
     },
     "JsonBody": {

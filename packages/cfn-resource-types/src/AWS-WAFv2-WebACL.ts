@@ -269,7 +269,7 @@ export type CookieMatchPattern = {
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.Cookies`.
- * Includes headers of a web request.
+ * Includes cookies of a web request.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html}
  */
 export type Cookies = {
@@ -428,13 +428,17 @@ export type FieldToMatch = {
    */
   Body?: Body;
   /**
-   * Includes headers of a web request.
+   * Includes cookies of a web request.
    */
   Cookies?: Cookies;
   /**
    * Includes headers of a web request.
    */
   Headers?: Headers;
+  /**
+   * Includes the JA3 fingerprint of a web request.
+   */
+  JA3Fingerprint?: JA3Fingerprint;
   /**
    * Inspect the request body as JSON. The request body immediately follows the request headers.
    */
@@ -555,6 +559,14 @@ export type IPSetReferenceStatement = {
    */
   Arn: string;
   IPSetForwardedIPConfig?: IPSetForwardedIPConfiguration;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.JA3Fingerprint`.
+ * Includes the JA3 fingerprint of a web request.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ja3fingerprint.html}
+ */
+export type JA3Fingerprint = {
+  FallbackBehavior: "MATCH" | "NO_MATCH";
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.JsonBody`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "76860a79668d1a4a699eb2bdc8d08e4ead54eecb",
+  "$hash": "ff9f0ce6b6977339124f2226f8c1452ffc405a8d",
   "$id": "aws-glue-registry.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -29,7 +29,7 @@
     "create": {
       "permissions": ["glue:CreateRegistry", "glue:GetRegistry", "glue:GetTags"]
     },
-    "delete": { "permissions": ["glue:DeleteRegistry"] },
+    "delete": { "permissions": ["glue:GetRegistry", "glue:DeleteRegistry"] },
     "list": { "permissions": ["glue:ListRegistries"] },
     "read": { "permissions": ["glue:GetRegistry", "glue:GetTags"] },
     "update": {

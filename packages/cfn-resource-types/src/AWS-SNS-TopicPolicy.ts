@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Schema for AWS::SNS::TopicPolicy
+ * The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html}
  */
 export type SNSTopicPolicyProperties = {
@@ -10,7 +10,7 @@ export type SNSTopicPolicyProperties = {
    */
   PolicyDocument: Record<string, any> | string;
   /**
-   * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.
+   * The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.
    */
   Topics: string[];
 };
@@ -19,13 +19,10 @@ export type SNSTopicPolicyProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html#aws-resource-sns-topicpolicy-return-values}
  */
 export type SNSTopicPolicyAttributes = {
-  /**
-   * The provider-assigned unique ID for this managed resource.
-   */
   Id: string;
 };
 /**
- * Schema for AWS::SNS::TopicPolicy
+ * The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html}
  */
 export class SNSTopicPolicy extends $Resource<

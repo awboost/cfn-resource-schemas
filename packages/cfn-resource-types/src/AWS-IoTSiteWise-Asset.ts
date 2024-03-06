@@ -9,6 +9,13 @@ export type IoTSiteWiseAssetProperties = {
    * A description for the asset
    */
   AssetDescription?: string;
+  /**
+   * The External ID of the asset
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  AssetExternalId?: string;
   AssetHierarchies?: AssetHierarchy[];
   /**
    * The ID of the asset model from which to create the asset.
@@ -33,10 +40,31 @@ export type IoTSiteWiseAssetAttributes = {
    * The ARN of the asset
    */
   AssetArn: string;
+  AssetHierarchies: {
+    /**
+     * Customer provided actual UUID for property
+     * @minLength `36`
+     * @maxLength `36`
+     * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+     */
+    Id: string;
+  }[];
   /**
    * The ID of the asset
+   * @minLength `36`
+   * @maxLength `36`
+   * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
    */
   AssetId: string;
+  AssetProperties: {
+    /**
+     * Customer provided actual UUID for property
+     * @minLength `36`
+     * @maxLength `36`
+     * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+     */
+    Id: string;
+  }[];
 };
 /**
  * Type definition for `AWS::IoTSiteWise::Asset.AssetHierarchy`.
@@ -49,12 +77,19 @@ export type AssetHierarchy = {
    */
   ChildAssetId: string;
   /**
+   * String-friendly customer provided external ID
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  ExternalId?: string;
+  /**
    * The LogicalID of a hierarchy in the parent asset's model.
    * @minLength `1`
    * @maxLength `256`
    * @pattern `[^\u0000-\u001F\u007F]+`
    */
-  LogicalId: string;
+  LogicalId?: string;
 };
 /**
  * Type definition for `AWS::IoTSiteWise::Asset.AssetProperty`.
@@ -67,12 +102,19 @@ export type AssetProperty = {
    */
   Alias?: string;
   /**
+   * String-friendly customer provided external ID
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  ExternalId?: string;
+  /**
    * Customer provided ID for property.
    * @minLength `1`
    * @maxLength `256`
    * @pattern `[^\u0000-\u001F\u007F]+`
    */
-  LogicalId: string;
+  LogicalId?: string;
   /**
    * The MQTT notification state (ENABLED or DISABLED) for this asset property.
    */

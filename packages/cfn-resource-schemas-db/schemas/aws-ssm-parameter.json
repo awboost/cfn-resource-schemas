@@ -1,5 +1,5 @@
 {
-  "$hash": "131621fd8ab6165c76c8fd079e51aa36d64db07e",
+  "$hash": "1672d7c2f46e152e39e984266e5ae9e1eb264d3f",
   "$id": "aws-ssm-parameter.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -29,7 +29,7 @@
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
     "AllowedPattern": {
-      "description": "A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``",
+      "description": "A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\\d+$``",
       "type": "string"
     },
     "DataType": {

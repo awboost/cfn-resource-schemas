@@ -9,7 +9,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SSMParameterProperties = {
   /**
-   * A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
+   * A regular expression used to validate the parameter value. For example, for ``String`` types with values restricted to numbers, you can specify the following: ``AllowedPattern=^\d+$``
    */
   AllowedPattern?: string;
   /**

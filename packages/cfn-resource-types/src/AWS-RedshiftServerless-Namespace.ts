@@ -75,12 +75,6 @@ export type RedshiftServerlessNamespaceProperties = {
    */
   RedshiftIdcApplicationArn?: string;
   /**
-   * The snapshot copy configurations for the namespace.
-   * @minLength `0`
-   * @maxLength `1`
-   */
-  SnapshotCopyConfigurations?: SnapshotCopyConfiguration[];
-  /**
    * The list of tags for the namespace.
    * @minLength `0`
    * @maxLength `200`
@@ -141,15 +135,6 @@ export type Namespace = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespacestatus.html}
  */
 export type NamespaceStatus = "AVAILABLE" | "MODIFYING" | "DELETING";
-/**
- * Type definition for `AWS::RedshiftServerless::Namespace.SnapshotCopyConfiguration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-snapshotcopyconfiguration.html}
- */
-export type SnapshotCopyConfiguration = {
-  DestinationKmsKeyId?: string;
-  DestinationRegion: string;
-  SnapshotRetentionPeriod?: number;
-};
 /**
  * Type definition for `AWS::RedshiftServerless::Namespace.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-tag.html}

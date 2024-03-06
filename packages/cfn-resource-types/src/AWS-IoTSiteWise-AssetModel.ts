@@ -14,6 +14,13 @@ export type IoTSiteWiseAssetModelProperties = {
    */
   AssetModelDescription?: string;
   /**
+   * The external ID of the asset model.
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  AssetModelExternalId?: string;
+  /**
    * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
    */
   AssetModelHierarchies?: AssetModelHierarchy[];
@@ -25,6 +32,10 @@ export type IoTSiteWiseAssetModelProperties = {
    * The property definitions of the asset model. You can specify up to 200 properties per asset model.
    */
   AssetModelProperties?: AssetModelProperty[];
+  /**
+   * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+   */
+  AssetModelType?: string;
   /**
    * A list of key-value pairs that contain metadata for the asset model.
    */
@@ -40,9 +51,150 @@ export type IoTSiteWiseAssetModelAttributes = {
    */
   AssetModelArn: string;
   /**
+   * The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
+   */
+  AssetModelCompositeModels: {
+    /**
+     * The property definitions of the asset model. You can specify up to 200 properties per asset model.
+     */
+    CompositeModelProperties: {
+      /**
+       * The ID of the Asset Model Property
+       * @minLength `36`
+       * @maxLength `36`
+       * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+       */
+      Id: string;
+      /**
+       * The property type
+       */
+      Type: {
+        Metric: {
+          /**
+           * The list of variables used in the expression.
+           */
+          Variables: {
+            /**
+             * The variable that identifies an asset property from which to use values.
+             */
+            Value: {
+              /**
+               * The ID of the property that is trying to be referenced
+               * @minLength `36`
+               * @maxLength `36`
+               * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+               */
+              PropertyId: string;
+            };
+          }[];
+        };
+        Transform: {
+          /**
+           * The list of variables used in the expression.
+           */
+          Variables: {
+            /**
+             * The variable that identifies an asset property from which to use values.
+             */
+            Value: {
+              /**
+               * The ID of the property that is trying to be referenced
+               * @minLength `36`
+               * @maxLength `36`
+               * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+               */
+              PropertyId: string;
+            };
+          }[];
+        };
+      };
+    }[];
+    /**
+     * The Actual ID of the composite model
+     * @minLength `36`
+     * @maxLength `36`
+     * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+     */
+    Id: string;
+    /**
+     * The path of the composite model. This is only for derived composite models
+     */
+    Path: string[];
+  }[];
+  /**
+   * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
+   */
+  AssetModelHierarchies: {
+    /**
+     * Customer provided actual ID for hierarchy
+     * @minLength `36`
+     * @maxLength `36`
+     * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+     */
+    Id: string;
+  }[];
+  /**
    * The ID of the asset model.
+   * @minLength `36`
+   * @maxLength `36`
+   * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
    */
   AssetModelId: string;
+  /**
+   * The property definitions of the asset model. You can specify up to 200 properties per asset model.
+   */
+  AssetModelProperties: {
+    /**
+     * The ID of the Asset Model Property
+     * @minLength `36`
+     * @maxLength `36`
+     * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+     */
+    Id: string;
+    /**
+     * The property type
+     */
+    Type: {
+      Metric: {
+        /**
+         * The list of variables used in the expression.
+         */
+        Variables: {
+          /**
+           * The variable that identifies an asset property from which to use values.
+           */
+          Value: {
+            /**
+             * The ID of the property that is trying to be referenced
+             * @minLength `36`
+             * @maxLength `36`
+             * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+             */
+            PropertyId: string;
+          };
+        }[];
+      };
+      Transform: {
+        /**
+         * The list of variables used in the expression.
+         */
+        Variables: {
+          /**
+           * The variable that identifies an asset property from which to use values.
+           */
+          Value: {
+            /**
+             * The ID of the property that is trying to be referenced
+             * @minLength `36`
+             * @maxLength `36`
+             * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+             */
+            PropertyId: string;
+          };
+        }[];
+      };
+    };
+  }[];
 };
 /**
  * Type definition for `AWS::IoTSiteWise::AssetModel.AssetModelCompositeModel`.
@@ -50,6 +202,10 @@ export type IoTSiteWiseAssetModelAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html}
  */
 export type AssetModelCompositeModel = {
+  /**
+   * The component model ID for which the composite model is composed of
+   */
+  ComposedAssetModelId?: string;
   /**
    * The property definitions of the asset model. You can specify up to 200 properties per asset model.
    */
@@ -59,9 +215,23 @@ export type AssetModelCompositeModel = {
    */
   Description?: string;
   /**
+   * The External ID of the composite model
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  ExternalId?: string;
+  /**
    * A unique, friendly name for the asset composite model.
    */
   Name: string;
+  /**
+   * The parent composite model External ID
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  ParentAssetModelCompositeModelExternalId?: string;
   /**
    * The type of the composite model. For alarm composite models, this type is AWS/ALARM
    */
@@ -78,12 +248,19 @@ export type AssetModelHierarchy = {
    */
   ChildAssetModelId: string;
   /**
-   * Customer provided ID for hierarchy.
+   * Customer provided external ID for hierarchy
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  ExternalId?: string;
+  /**
+   * Customer provided logical ID for hierarchy.
    * @minLength `1`
    * @maxLength `256`
    * @pattern `[^\u0000-\u001F\u007F]+`
    */
-  LogicalId: string;
+  LogicalId?: string;
   /**
    * The name of the asset model hierarchy.
    */
@@ -104,12 +281,19 @@ export type AssetModelProperty = {
    */
   DataTypeSpec?: DataTypeSpec;
   /**
-   * Customer provided ID for property.
+   * The External ID of the Asset Model Property
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  ExternalId?: string;
+  /**
+   * Customer provided Logical ID for property.
    * @minLength `1`
    * @maxLength `256`
    * @pattern `[^\u0000-\u001F\u007F]+`
    */
-  LogicalId: string;
+  LogicalId?: string;
   /**
    * The name of the asset model property.
    */
@@ -184,6 +368,17 @@ export type MetricWindow = {
   Tumbling?: TumblingWindow;
 };
 /**
+ * Type definition for `AWS::IoTSiteWise::AssetModel.PropertyPathDefinition`.
+ * The definition for property path which is used to reference properties in transforms/metrics
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html}
+ */
+export type PropertyPathDefinition = {
+  /**
+   * The name of the property
+   */
+  Name: string;
+};
+/**
  * Type definition for `AWS::IoTSiteWise::AssetModel.PropertyType`.
  * Contains a property type, which can be one of attribute, measurement, metric, or transform.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html}
@@ -242,17 +437,42 @@ export type TypeName = "Measurement" | "Attribute" | "Transform" | "Metric";
  */
 export type VariableValue = {
   /**
+   * The External ID of the hierarchy that is trying to be referenced
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  HierarchyExternalId?: string;
+  /**
+   * The ID of the hierarchy that is trying to be referenced
+   * @minLength `36`
+   * @maxLength `36`
+   * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+   */
+  HierarchyId?: string;
+  /**
    * @minLength `1`
    * @maxLength `256`
    * @pattern `[^\u0000-\u001F\u007F]+`
    */
   HierarchyLogicalId?: string;
   /**
+   * The External ID of the property that is trying to be referenced
+   * @minLength `2`
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
+   */
+  PropertyExternalId?: string;
+  /**
    * @minLength `1`
    * @maxLength `256`
    * @pattern `[^\u0000-\u001F\u007F]+`
    */
-  PropertyLogicalId: string;
+  PropertyLogicalId?: string;
+  /**
+   * The path of the property that is trying to be referenced
+   */
+  PropertyPath?: PropertyPathDefinition[];
 };
 /**
  * Resource schema for AWS::IoTSiteWise::AssetModel

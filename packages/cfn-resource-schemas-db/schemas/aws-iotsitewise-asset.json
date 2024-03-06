@@ -1,5 +1,5 @@
 {
-  "$hash": "c1bf83ac95612dd461f2327edbf7ee6e21cec70a",
+  "$hash": "32d3bf204cc64f50ee78cc723ecea8572d407fca",
   "$id": "aws-iotsitewise-asset.json",
   "additionalProperties": false,
   "definitions": {
@@ -11,6 +11,20 @@
           "description": "The ID of the child asset to be associated.",
           "type": "string"
         },
+        "ExternalId": {
+          "description": "String-friendly customer provided external ID",
+          "maxLength": 128,
+          "minLength": 2,
+          "pattern": "[a-zA-Z0-9_][a-zA-Z_\\-0-9.:]*[a-zA-Z0-9_]+",
+          "type": "string"
+        },
+        "Id": {
+          "description": "Customer provided actual UUID for property",
+          "maxLength": 36,
+          "minLength": 36,
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+          "type": "string"
+        },
         "LogicalId": {
           "description": "The LogicalID of a hierarchy in the parent asset's model.",
           "maxLength": 256,
@@ -19,7 +33,7 @@
           "type": "string"
         }
       },
-      "required": ["LogicalId", "ChildAssetId"],
+      "required": ["ChildAssetId"],
       "type": "object"
     },
     "AssetProperty": {
@@ -28,6 +42,20 @@
       "properties": {
         "Alias": {
           "description": "The property alias that identifies the property.",
+          "type": "string"
+        },
+        "ExternalId": {
+          "description": "String-friendly customer provided external ID",
+          "maxLength": 128,
+          "minLength": 2,
+          "pattern": "[a-zA-Z0-9_][a-zA-Z_\\-0-9.:]*[a-zA-Z0-9_]+",
+          "type": "string"
+        },
+        "Id": {
+          "description": "Customer provided actual UUID for property",
+          "maxLength": 36,
+          "minLength": 36,
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
           "type": "string"
         },
         "LogicalId": {
@@ -47,7 +75,6 @@
           "type": "string"
         }
       },
-      "required": ["LogicalId"],
       "type": "object"
     },
     "Tag": {
@@ -71,6 +98,9 @@
         "iotsitewise:ListAssociatedAssets",
         "iotsitewise:ListTagsForResource",
         "iotsitewise:TagResource",
+        "iotsitewise:ListAssetModelProperties",
+        "iotsitewise:ListAssetProperties",
+        "iotsitewise:ListAssetModelCompositeModels",
         "iotsitewise:UpdateAssetProperty"
       ]
     },
@@ -81,7 +111,11 @@
         "iotsitewise:DescribeAssetModel",
         "iotsitewise:DisassociateAssets",
         "iotsitewise:ListAssociatedAssets",
-        "iotsitewise:ListTagsForResource"
+        "iotsitewise:ListAssetProperties",
+        "iotsitewise:ListTagsForResource",
+        "iotsitewise:ListAssetModelCompositeModels",
+        "iotsitewise:ListAssetModelProperties",
+        "iotsitewise:ListAssetProperties"
       ]
     },
     "list": {
@@ -92,6 +126,9 @@
         "iotsitewise:DescribeAsset",
         "iotsitewise:DescribeAssetModel",
         "iotsitewise:ListAssociatedAssets",
+        "iotsitewise:ListAssetModelProperties",
+        "iotsitewise:ListAssetModelCompositeModels",
+        "iotsitewise:ListAssetProperties",
         "iotsitewise:ListTagsForResource"
       ]
     },
@@ -106,6 +143,9 @@
         "iotsitewise:TagResource",
         "iotsitewise:UpdateAsset",
         "iotsitewise:UpdateAssetProperty",
+        "iotsitewise:ListAssetModelProperties",
+        "iotsitewise:ListAssetProperties",
+        "iotsitewise:ListAssetModelCompositeModels",
         "iotsitewise:UntagResource"
       ]
     }
@@ -117,12 +157,25 @@
       "description": "A description for the asset",
       "type": "string"
     },
+    "AssetExternalId": {
+      "description": "The External ID of the asset",
+      "maxLength": 128,
+      "minLength": 2,
+      "pattern": "[a-zA-Z0-9_][a-zA-Z_\\-0-9.:]*[a-zA-Z0-9_]+",
+      "type": "string"
+    },
     "AssetHierarchies": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/AssetHierarchy" },
       "type": "array"
     },
-    "AssetId": { "description": "The ID of the asset", "type": "string" },
+    "AssetId": {
+      "description": "The ID of the asset",
+      "maxLength": 36,
+      "minLength": 36,
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
     "AssetModelId": {
       "description": "The ID of the asset model from which to create the asset.",
       "type": "string"
@@ -144,9 +197,18 @@
       "uniqueItems": false
     }
   },
-  "readOnlyProperties": ["/properties/AssetArn", "/properties/AssetId"],
+  "readOnlyProperties": [
+    "/properties/AssetArn",
+    "/properties/AssetId",
+    "/properties/AssetProperties/*/Id",
+    "/properties/AssetHierarchies/*/Id"
+  ],
   "required": ["AssetName", "AssetModelId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-IoTSiteWise.git",
   "taggable": true,
-  "typeName": "AWS::IoTSiteWise::Asset"
+  "typeName": "AWS::IoTSiteWise::Asset",
+  "writeOnlyProperties": [
+    "/properties/AssetProperties/*/ExternalId",
+    "/properties/AssetHierarchies/*/ExternalId"
+  ]
 }

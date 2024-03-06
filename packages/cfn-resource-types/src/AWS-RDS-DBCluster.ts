@@ -278,6 +278,10 @@ export type RDSDBClusterAttributes = {
      */
     Address: string;
   };
+  /**
+   * Specifies the storage throughput value for the DB cluster. This setting applies only to the gp3 storage type.
+   */
+  StorageThroughput: number;
 };
 /**
  * Type definition for `AWS::RDS::DBCluster.DBClusterRole`.

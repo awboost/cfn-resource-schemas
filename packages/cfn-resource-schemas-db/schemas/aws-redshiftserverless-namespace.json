@@ -1,5 +1,5 @@
 {
-  "$hash": "eb84fd89a5e9c617684215d6144a76e7f4a7b0c5",
+  "$hash": "94963c8e11e63d8a67ec66086c30051230aed37a",
   "$id": "aws-redshiftserverless-namespace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/NamespaceName", "/properties/Tags"],
@@ -46,16 +46,6 @@
       "enum": ["AVAILABLE", "MODIFYING", "DELETING"],
       "type": "string"
     },
-    "SnapshotCopyConfiguration": {
-      "additionalProperties": false,
-      "properties": {
-        "DestinationKmsKeyId": { "type": "string" },
-        "DestinationRegion": { "type": "string" },
-        "SnapshotRetentionPeriod": { "type": "integer" }
-      },
-      "required": ["DestinationRegion"],
-      "type": "object"
-    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -86,8 +76,6 @@
         "kms:RetireGrant",
         "redshift-serverless:CreateNamespace",
         "redshift-serverless:GetNamespace",
-        "redshift-serverless:ListSnapshotCopyConfigurations",
-        "redshift-serverless:CreateSnapshotCopyConfiguration",
         "redshift:GetResourcePolicy",
         "redshift:PutResourcePolicy",
         "secretsmanager:CreateSecret",
@@ -114,8 +102,7 @@
       "permissions": [
         "iam:PassRole",
         "redshift-serverless:GetNamespace",
-        "redshift:GetResourcePolicy",
-        "redshift-serverless:ListSnapshotCopyConfigurations"
+        "redshift:GetResourcePolicy"
       ]
     },
     "update": {
@@ -136,10 +123,6 @@
         "kms:GenerateDataKey",
         "redshift-serverless:UpdateNamespace",
         "redshift-serverless:GetNamespace",
-        "redshift-serverless:ListSnapshotCopyConfigurations",
-        "redshift-serverless:CreateSnapshotCopyConfiguration",
-        "redshift-serverless:UpdateSnapshotCopyConfiguration",
-        "redshift-serverless:DeleteSnapshotCopyConfiguration",
         "redshift:GetResourcePolicy",
         "redshift:PutResourcePolicy",
         "redshift:DeleteResourcePolicy",
@@ -230,14 +213,6 @@
     "RedshiftIdcApplicationArn": {
       "description": "The ARN for the Redshift application that integrates with IAM Identity Center.",
       "type": "string"
-    },
-    "SnapshotCopyConfigurations": {
-      "description": "The snapshot copy configurations for the namespace.",
-      "insertionOrder": false,
-      "items": { "$ref": "#/definitions/SnapshotCopyConfiguration" },
-      "maxItems": 1,
-      "minItems": 0,
-      "type": "array"
     },
     "Tags": {
       "description": "The list of tags for the namespace.",

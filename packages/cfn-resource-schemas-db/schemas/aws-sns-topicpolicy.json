@@ -1,8 +1,8 @@
 {
-  "$hash": "ae2e118cd3529f2a87b41fc3c7aafe47f03a2206",
+  "$hash": "c5a7a2c2a9d4f9aa539fb9efb3d790ace1b0ba5a",
   "$id": "aws-sns-topicpolicy.json",
   "additionalProperties": false,
-  "description": "Schema for AWS::SNS::TopicPolicy",
+  "description": "The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.",
   "handlers": {
     "create": { "permissions": ["sns:SetTopicAttributes"] },
     "delete": { "permissions": ["sns:SetTopicAttributes"] },
@@ -10,16 +10,13 @@
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
-    "Id": {
-      "description": "The provider-assigned unique ID for this managed resource.",
-      "type": "string"
-    },
+    "Id": { "description": "", "type": "string" },
     "PolicyDocument": {
       "description": "A policy document that contains permissions to add to the specified SNS topics.",
       "type": ["object", "string"]
     },
     "Topics": {
-      "description": "The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html)` function to specify an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html) resource.",
+      "description": "The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SNS::Topic`` resource.",
       "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
