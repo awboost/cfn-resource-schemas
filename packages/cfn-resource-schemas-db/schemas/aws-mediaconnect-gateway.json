@@ -1,13 +1,13 @@
 {
-  "$hash": "ec279dd321fece30282e5a35026cf4ad01228ddb",
+  "$hash": "0cc0365546a7729a5444f4002119f87b1bd1979a",
   "$id": "aws-mediaconnect-gateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",
     "/properties/EgressCidrBlocks",
     "/properties/Networks",
-    "/properties/Networks/Name",
-    "/properties/Networks/CidrBlock"
+    "/properties/Networks/*/Name",
+    "/properties/Networks/*/CidrBlock"
   ],
   "definitions": {
     "GatewayNetwork": {

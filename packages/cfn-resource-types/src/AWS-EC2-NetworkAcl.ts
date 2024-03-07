@@ -1,16 +1,17 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::EC2::NetworkAcl
+ * Resource type definition for `AWS::EC2::NetworkAcl`.
+ * Specifies a network ACL for your VPC.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html}
  */
 export type EC2NetworkAclProperties = {
   /**
-   * The tags to assign to the network ACL.
+   * The tags for the network ACL.
    */
   Tags?: Tag[];
   /**
-   * The ID of the VPC.
+   * The ID of the VPC for the network ACL.
    */
   VpcId: string;
 };
@@ -23,14 +24,22 @@ export type EC2NetworkAclAttributes = {
 };
 /**
  * Type definition for `AWS::EC2::NetworkAcl.Tag`.
+ * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkacl-tag.html}
  */
 export type Tag = {
+  /**
+   * The tag key.
+   */
   Key: string;
+  /**
+   * The tag value.
+   */
   Value: string;
 };
 /**
- * Resource Type definition for AWS::EC2::NetworkAcl
+ * Resource type definition for `AWS::EC2::NetworkAcl`.
+ * Specifies a network ACL for your VPC.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html}
  */
 export class EC2NetworkAcl extends $Resource<

@@ -1,5 +1,5 @@
 {
-  "$hash": "130af65484e2eea03604bc6d002c8b7e16302355",
+  "$hash": "4becbca0ae5f28bbd64652650a16c1189242a3cf",
   "$id": "aws-appstream-directoryconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DirectoryName"],
@@ -28,7 +28,7 @@
       "permissions": [
         "appstream:CreateDirectoryConfig",
         "appstream:DeleteDirectoryConfig",
-        "appstream:DescribeDirectoryConfig",
+        "appstream:DescribeDirectoryConfigs",
         "appstream:UpdateDirectoryConfig",
         "iam:CreateServiceLinkedRole",
         "iam:DeleteServiceLinkedRole",
@@ -39,7 +39,7 @@
       "permissions": [
         "appstream:CreateDirectoryConfig",
         "appstream:DeleteDirectoryConfig",
-        "appstream:DescribeDirectoryConfig",
+        "appstream:DescribeDirectoryConfigs",
         "appstream:UpdateDirectoryConfig",
         "iam:CreateServiceLinkedRole",
         "iam:DeleteServiceLinkedRole",
@@ -50,7 +50,7 @@
       "permissions": [
         "appstream:CreateDirectoryConfig",
         "appstream:DeleteDirectoryConfig",
-        "appstream:DescribeDirectoryConfig",
+        "appstream:DescribeDirectoryConfigs",
         "appstream:UpdateDirectoryConfig",
         "iam:CreateServiceLinkedRole",
         "iam:DeleteServiceLinkedRole",
@@ -61,7 +61,7 @@
       "permissions": [
         "appstream:CreateDirectoryConfig",
         "appstream:DeleteDirectoryConfig",
-        "appstream:DescribeDirectoryConfig",
+        "appstream:DescribeDirectoryConfigs",
         "appstream:UpdateDirectoryConfig",
         "iam:CreateServiceLinkedRole",
         "iam:DeleteServiceLinkedRole",
@@ -72,7 +72,7 @@
       "permissions": [
         "appstream:CreateDirectoryConfig",
         "appstream:DeleteDirectoryConfig",
-        "appstream:DescribeDirectoryConfig",
+        "appstream:DescribeDirectoryConfigs",
         "appstream:UpdateDirectoryConfig",
         "iam:CreateServiceLinkedRole",
         "iam:DeleteServiceLinkedRole",
@@ -100,7 +100,7 @@
     "OrganizationalUnitDistinguishedNames",
     "ServiceAccountCredentials"
   ],
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::AppStream::DirectoryConfig",
   "writeOnlyProperties": [
     "/properties/ServiceAccountCredentials/AccountPassword"

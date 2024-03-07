@@ -1,5 +1,5 @@
 {
-  "$hash": "32d3bf204cc64f50ee78cc723ecea8572d407fca",
+  "$hash": "89af450705f2bb8054f34024d452e1092058310d",
   "$id": "aws-iotsitewise-asset.json",
   "additionalProperties": false,
   "definitions": {
@@ -206,9 +206,5 @@
   "required": ["AssetName", "AssetModelId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-IoTSiteWise.git",
   "taggable": true,
-  "typeName": "AWS::IoTSiteWise::Asset",
-  "writeOnlyProperties": [
-    "/properties/AssetProperties/*/ExternalId",
-    "/properties/AssetHierarchies/*/ExternalId"
-  ]
+  "typeName": "AWS::IoTSiteWise::Asset"
 }

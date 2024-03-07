@@ -116,10 +116,6 @@ export type IoTSiteWiseAssetModelAttributes = {
      * @pattern `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
      */
     Id: string;
-    /**
-     * The path of the composite model. This is only for derived composite models
-     */
-    Path: string[];
   }[];
   /**
    * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
@@ -232,6 +228,10 @@ export type AssetModelCompositeModel = {
    * @pattern `[a-zA-Z0-9_][a-zA-Z_\-0-9.:]*[a-zA-Z0-9_]+`
    */
   ParentAssetModelCompositeModelExternalId?: string;
+  /**
+   * The path of the composite model. This is only for derived composite models
+   */
+  Path?: string[];
   /**
    * The type of the composite model. For alarm composite models, this type is AWS/ALARM
    */

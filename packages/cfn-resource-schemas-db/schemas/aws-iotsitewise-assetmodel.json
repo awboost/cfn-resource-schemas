@@ -1,5 +1,5 @@
 {
-  "$hash": "a30ff263d00ff474f90ba787c86e03754932204e",
+  "$hash": "5510ece98998a10ffe59d76f0ce9beae3ff0bfa8",
   "$id": "aws-iotsitewise-assetmodel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AssetModelType"],
@@ -444,7 +444,6 @@
     "/properties/AssetModelProperties/*/Type/Metric/Variables/*/Value/PropertyId",
     "/properties/AssetModelHierarchies/*/Id",
     "/properties/AssetModelCompositeModels/*/Id",
-    "/properties/AssetModelCompositeModels/*/Path",
     "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Id",
     "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Transform/Variables/*/Value/PropertyId",
     "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Metric/Variables/*/Value/PropertyId"
@@ -468,7 +467,6 @@
     "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Transform/Variables/*/Value/HierarchyExternalId",
     "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Transform/Variables/*/Value/PropertyPath/*/Name",
     "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/Type/Metric/Variables/*/Value/PropertyPath/*/Name",
-    "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/DataTypeSpec",
-    "/properties/AssetModelCompositeModels/*/ComposedAssetModelId"
+    "/properties/AssetModelCompositeModels/*/CompositeModelProperties/*/DataTypeSpec"
   ]
 }
