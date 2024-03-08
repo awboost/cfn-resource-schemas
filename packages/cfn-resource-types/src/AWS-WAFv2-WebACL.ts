@@ -390,6 +390,11 @@ export type DefaultAction = {
   Block?: BlockAction;
 };
 /**
+ * Type definition for `AWS::WAFv2::WebACL.EvaluationWindowSec`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-evaluationwindowsec.html}
+ */
+export type EvaluationWindowSec = 60 | 120 | 300 | 600;
+/**
  * Type definition for `AWS::WAFv2::WebACL.ExcludedRule`.
  * Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html}
@@ -767,6 +772,7 @@ export type RateBasedStatement = {
    * @maxLength `5`
    */
   CustomKeys?: RateBasedStatementCustomKey[];
+  EvaluationWindowSec?: EvaluationWindowSec;
   ForwardedIPConfig?: ForwardedIPConfiguration;
   /**
    * @min `100`

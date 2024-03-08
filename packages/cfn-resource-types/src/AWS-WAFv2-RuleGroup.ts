@@ -321,6 +321,11 @@ export type CustomResponseBody = {
   ContentType: ResponseContentType;
 };
 /**
+ * Type definition for `AWS::WAFv2::RuleGroup.EvaluationWindowSec`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-evaluationwindowsec.html}
+ */
+export type EvaluationWindowSec = 60 | 120 | 300 | 600;
+/**
  * Type definition for `AWS::WAFv2::RuleGroup.FieldToMatch`.
  * Field of the request to match.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html}
@@ -594,6 +599,7 @@ export type RateBasedStatement = {
    * @maxLength `5`
    */
   CustomKeys?: RateBasedStatementCustomKey[];
+  EvaluationWindowSec?: EvaluationWindowSec;
   ForwardedIPConfig?: ForwardedIPConfiguration;
   /**
    * @min `100`

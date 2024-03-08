@@ -1,5 +1,5 @@
 {
-  "$hash": "bf703f98b2768e1f048aa0c31f773125148063db",
+  "$hash": "2a649eeadc5926d3d353d66c412867db25ef76d8",
   "$id": "aws-wafv2-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -246,6 +246,7 @@
       "pattern": "^[0-9A-Za-z_-]{1,128}$",
       "type": "string"
     },
+    "EvaluationWindowSec": { "enum": [60, 120, 300, 600], "type": "integer" },
     "FieldToMatch": {
       "additionalProperties": false,
       "description": "Field of the request to match.",
@@ -511,6 +512,7 @@
           "maxItems": 5,
           "type": "array"
         },
+        "EvaluationWindowSec": { "$ref": "#/definitions/EvaluationWindowSec" },
         "ForwardedIPConfig": {
           "$ref": "#/definitions/ForwardedIPConfiguration"
         },

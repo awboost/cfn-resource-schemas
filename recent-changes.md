@@ -1,28 +1,6 @@
-- updated `AWS::AppStream::DirectoryConfig`
-  - added `tagging`
-  - updated handler permissions
-- updated `AWS::Config::ConfigRule`
-- updated `AWS::EC2::NetworkAcl`
-  - updated definition `Tag`
-  - updated property `Id`
-  - updated property `Tags`
-  - updated property `VpcId`
-- updated `AWS::IoTSiteWise::Asset`
-  - removed `writeOnlyProperties`
-- updated `AWS::IoTSiteWise::AssetModel`
-  - updated `readOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::MediaConnect::Gateway`
-  - updated `createOnlyProperties`
-- updated `AWS::Route53::HostedZone`
-  - added `propertyTransform`
-  - updated definition `HostedZoneConfig`
-  - updated definition `HostedZoneTag`
-  - updated definition `VPC`
-  - updated property `HostedZoneConfig`
-  - updated property `HostedZoneTags`
-  - updated property `Id`
-  - updated property `NameServers`
-  - updated property `Name`
-  - updated property `QueryLoggingConfig`
-  - updated property `VPCs`
+- updated `AWS::WAFv2::RuleGroup`
+  - added definition `EvaluationWindowSec`
+  - updated definition `RateBasedStatement`
+- updated `AWS::WAFv2::WebACL`
+  - added definition `EvaluationWindowSec`
+  - updated definition `RateBasedStatement`

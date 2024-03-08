@@ -1,5 +1,5 @@
 {
-  "$hash": "4c834f7ec3d3e70984fd78ebf3ecbd7180f3c9e0",
+  "$hash": "eaf4ccc960acdcc836226aae5df5ef2f49decf00",
   "$id": "aws-wafv2-webacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -297,6 +297,7 @@
       "pattern": "^[0-9A-Za-z_-]{1,128}$",
       "type": "string"
     },
+    "EvaluationWindowSec": { "enum": [60, 120, 300, 600], "type": "integer" },
     "ExcludedRule": {
       "additionalProperties": false,
       "description": "Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.",
@@ -654,6 +655,7 @@
           "maxItems": 5,
           "type": "array"
         },
+        "EvaluationWindowSec": { "$ref": "#/definitions/EvaluationWindowSec" },
         "ForwardedIPConfig": {
           "$ref": "#/definitions/ForwardedIPConfiguration"
         },
