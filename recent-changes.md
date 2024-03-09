@@ -1,6 +1,89 @@
-- updated `AWS::WAFv2::RuleGroup`
-  - added definition `EvaluationWindowSec`
-  - updated definition `RateBasedStatement`
-- updated `AWS::WAFv2::WebACL`
-  - added definition `EvaluationWindowSec`
-  - updated definition `RateBasedStatement`
+- updated `AWS::AppConfig::Extension`
+  - updated definition `Parameter`
+- updated `AWS::ApplicationInsights::Application`
+  - added definition `NetWeaverPrometheusExporter`
+  - added definition `Process`
+  - added definition `SQLServerPrometheusExporter`
+  - added property `AttachMissingPermission`
+  - updated `writeOnlyProperties`
+  - updated definition `ConfigurationDetails`
+  - updated definition `SubComponentConfigurationDetails`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - updated handler permissions
+- updated `AWS::Batch::JobDefinition`
+  - added definition `EcsProperties`
+  - added definition `EcsTaskProperties`
+  - added definition `TaskContainerDependency`
+  - added definition `TaskContainerProperties`
+  - added property `EcsProperties`
+  - updated definition `NodeRangeProperty`
+  - updated definition `PodProperties`
+- updated `AWS::EC2::SecurityGroup`
+  - added `deprecatedProperties`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated definition `Egress`
+  - updated handler permissions
+  - updated property `GroupDescription`
+  - updated property `GroupId`
+  - updated property `GroupName`
+  - updated property `Id`
+  - updated property `SecurityGroupEgress`
+  - updated property `SecurityGroupIngress`
+  - updated property `Tags`
+  - updated property `VpcId`
+- updated `AWS::EC2::SubnetRouteTableAssociation`
+  - added `replacementStrategy`
+- updated `AWS::EC2::VPCCidrBlock`
+  - added `replacementStrategy`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated handler permissions
+  - updated property `AmazonProvidedIpv6CidrBlock`
+  - updated property `CidrBlock`
+  - updated property `Id`
+  - updated property `Ipv4IpamPoolId`
+  - updated property `Ipv4NetmaskLength`
+  - updated property `Ipv6CidrBlock`
+  - updated property `Ipv6IpamPoolId`
+  - updated property `Ipv6NetmaskLength`
+  - updated property `Ipv6Pool`
+  - updated property `VpcId`
+- updated `AWS::IAM::UserPolicy`
+  - updated property `PolicyDocument`
+  - updated property `PolicyName`
+  - updated property `UserName`
+- updated `AWS::LakeFormation::PrincipalPermissions`
+  - updated definition `ColumnWildcard`
+  - updated definition `DataCellsFilterResource`
+  - updated definition `DataLakePrincipal`
+  - updated definition `DataLocationResource`
+  - updated definition `DatabaseResource`
+  - updated definition `LFTagKeyResource`
+  - updated definition `LFTagPair`
+  - updated definition `LFTagPolicyResource`
+  - updated definition `LFTag`
+  - updated definition `PrincipalPermissions`
+  - updated definition `PrincipalResourcePair`
+  - updated definition `Resource`
+  - updated definition `TableResource`
+  - updated definition `TableWithColumnsResource`
+  - updated property `Catalog`
+  - updated property `PermissionsWithGrantOption`
+  - updated property `Permissions`
+  - updated property `PrincipalIdentifier`
+  - updated property `Principal`
+  - updated property `ResourceIdentifier`
+  - updated property `Resource`
+- updated `AWS::Logs::LogStream`
+  - updated handler permissions
+- updated `AWS::Oam::Link`
+  - updated definition `ResourceType`
+  - updated handler permissions
+- updated `AWS::SQS::Queue`
+  - updated property `RedriveAllowPolicy`
+- updated `AWS::SSM::Parameter`
+  - updated property `Name`
+  - updated property `Type`

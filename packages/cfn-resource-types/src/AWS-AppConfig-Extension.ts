@@ -73,6 +73,7 @@ export type Parameter = {
    * @maxLength `1024`
    */
   Description?: string;
+  Dynamic?: boolean;
   Required: boolean;
 };
 /**

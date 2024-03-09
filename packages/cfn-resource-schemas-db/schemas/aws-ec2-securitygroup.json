@@ -1,6 +1,7 @@
 {
-  "$hash": "e164a5543902f44028048f23bb9bb23e1d6498a3",
+  "$hash": "c0c664ef9c6bcc2f56bd27fb6954baae5c4b0d7a",
   "$id": "aws-ec2-securitygroup.json",
+  "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/GroupDescription",
@@ -18,6 +19,7 @@
         "DestinationSecurityGroupId": { "type": "string" },
         "FromPort": { "type": "integer" },
         "IpProtocol": { "type": "string" },
+        "SourceSecurityGroupId": { "type": "string" },
         "ToPort": { "type": "integer" }
       },
       "required": ["IpProtocol"],
@@ -50,31 +52,93 @@
       "type": "object"
     }
   },
+  "deprecatedProperties": [
+    "/properties/SecurityGroupEgress/*/SourceSecurityGroupId"
+  ],
   "description": "Resource Type definition for AWS::EC2::SecurityGroup",
+  "handlers": {
+    "create": {
+      "permissions": [
+        "ec2:CreateSecurityGroup",
+        "ec2:DescribeSecurityGroups",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateTags"
+      ]
+    },
+    "delete": {
+      "permissions": ["ec2:DeleteSecurityGroup", "ec2:DescribeInstances"]
+    },
+    "list": { "permissions": ["ec2:DescribeSecurityGroups"] },
+    "read": { "permissions": ["ec2:DescribeSecurityGroups"] },
+    "update": {
+      "permissions": [
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress",
+        "ec2:DescribeSecurityGroups",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateTags",
+        "ec2:DeleteTags"
+      ]
+    }
+  },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
-    "GroupDescription": { "type": "string" },
-    "GroupId": { "type": "string" },
-    "GroupName": { "type": "string" },
-    "Id": { "type": "string" },
+    "GroupDescription": {
+      "description": "A description for the security group.",
+      "type": "string"
+    },
+    "GroupId": {
+      "description": "The group ID of the specified security group.",
+      "type": "string"
+    },
+    "GroupName": {
+      "description": "The name of the security group.",
+      "type": "string"
+    },
+    "Id": {
+      "description": "The group name or group ID depending on whether the SG is created in default or specific VPC",
+      "type": "string"
+    },
     "SecurityGroupEgress": {
+      "description": "[VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.",
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Egress" },
       "type": "array",
       "uniqueItems": false
     },
     "SecurityGroupIngress": {
+      "description": "The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.",
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Ingress" },
       "type": "array",
       "uniqueItems": false
     },
     "Tags": {
+      "description": "Any tags assigned to the security group.",
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
     },
-    "VpcId": { "type": "string" }
+    "VpcId": {
+      "description": "The ID of the VPC for the security group.",
+      "type": "string"
+    }
   },
   "readOnlyProperties": ["/properties/Id", "/properties/GroupId"],
   "required": ["GroupDescription"],
-  "typeName": "AWS::EC2::SecurityGroup"
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::EC2::SecurityGroup",
+  "writeOnlyProperties": [
+    "/properties/SecurityGroupIngress/*/SourceSecurityGroupName"
+  ]
 }

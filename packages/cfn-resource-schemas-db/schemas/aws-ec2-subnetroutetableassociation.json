@@ -1,5 +1,5 @@
 {
-  "$hash": "a83cf72c562988a5a5b826c1293152347f6acc10",
+  "$hash": "64d186c4faef28d80eacb29eb80ae559f6a831b9",
   "$id": "aws-ec2-subnetroutetableassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubnetId", "/properties/RouteTableId"],
@@ -33,6 +33,7 @@
     "SubnetId": { "description": "The ID of the subnet.", "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],
+  "replacementStrategy": "delete_then_create",
   "required": ["RouteTableId", "SubnetId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2.git",
   "tagging": {

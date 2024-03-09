@@ -5,11 +5,29 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html}
  */
 export type EC2SecurityGroupProperties = {
+  /**
+   * A description for the security group.
+   */
   GroupDescription: string;
+  /**
+   * The name of the security group.
+   */
   GroupName?: string;
+  /**
+   * [VPC only] The outbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+   */
   SecurityGroupEgress?: Egress[];
+  /**
+   * The inbound rules associated with the security group. There is a short interruption during which you cannot connect to the security group.
+   */
   SecurityGroupIngress?: Ingress[];
+  /**
+   * Any tags assigned to the security group.
+   */
   Tags?: Tag[];
+  /**
+   * The ID of the VPC for the security group.
+   */
   VpcId?: string;
 };
 /**
@@ -17,7 +35,13 @@ export type EC2SecurityGroupProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html#aws-resource-ec2-securitygroup-return-values}
  */
 export type EC2SecurityGroupAttributes = {
+  /**
+   * The group ID of the specified security group.
+   */
   GroupId: string;
+  /**
+   * The group name or group ID depending on whether the SG is created in default or specific VPC
+   */
   Id: string;
 };
 /**
@@ -32,6 +56,7 @@ export type Egress = {
   DestinationSecurityGroupId?: string;
   FromPort?: number;
   IpProtocol: string;
+  SourceSecurityGroupId?: string;
   ToPort?: number;
 };
 /**

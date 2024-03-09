@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type BatchJobDefinitionProperties = {
   ContainerProperties?: ContainerProperties;
+  EcsProperties?: EcsProperties;
   EksProperties?: EksProperties;
   JobDefinitionName?: string;
   NodeProperties?: NodeProperties;
@@ -70,6 +71,29 @@ export type Device = {
   ContainerPath?: string;
   HostPath?: string;
   Permissions?: string[];
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.EcsProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecsproperties.html}
+ */
+export type EcsProperties = {
+  TaskProperties: EcsTaskProperties[];
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.EcsTaskProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html}
+ */
+export type EcsTaskProperties = {
+  Containers?: TaskContainerProperties[];
+  EphemeralStorage?: EphemeralStorage;
+  ExecutionRoleArn?: string;
+  IpcMode?: string;
+  NetworkConfiguration?: NetworkConfiguration;
+  PidMode?: string;
+  PlatformVersion?: string;
+  RuntimePlatform?: RuntimePlatform;
+  TaskRoleArn?: string;
+  Volumes?: Volumes[];
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.EfsVolumeConfiguration`.
@@ -264,6 +288,8 @@ export type NodeProperties = {
  */
 export type NodeRangeProperty = {
   Container?: ContainerProperties;
+  EcsProperties?: EcsProperties;
+  InstanceTypes?: string[];
   TargetNodes: string;
 };
 /**
@@ -274,8 +300,10 @@ export type PodProperties = {
   Containers?: EksContainer[];
   DnsPolicy?: string;
   HostNetwork?: boolean;
+  InitContainers?: EksContainer[];
   Metadata?: Metadata;
   ServiceAccountName?: string;
+  ShareProcessNamespace?: boolean;
   Volumes?: EksVolume[];
 };
 /**
@@ -316,6 +344,36 @@ export type RuntimePlatform = {
 export type Secret = {
   Name: string;
   ValueFrom: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.TaskContainerDependency`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerdependency.html}
+ */
+export type TaskContainerDependency = {
+  Condition: string;
+  ContainerName: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.TaskContainerProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html}
+ */
+export type TaskContainerProperties = {
+  Command?: string[];
+  DependsOn?: TaskContainerDependency[];
+  Environment?: Environment[];
+  Essential?: boolean;
+  Image: string;
+  LinuxParameters?: LinuxParameters;
+  LogConfiguration?: LogConfiguration;
+  MountPoints?: MountPoints[];
+  Name?: string;
+  Privileged?: boolean;
+  ReadonlyRootFilesystem?: boolean;
+  RepositoryCredentials?: RepositoryCredentials;
+  ResourceRequirements?: ResourceRequirement[];
+  Secrets?: Secret[];
+  Ulimits?: Ulimit[];
+  User?: string;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.Timeout`.

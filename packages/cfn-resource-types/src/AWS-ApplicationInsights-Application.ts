@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ApplicationInsightsApplicationProperties = {
   /**
+   * If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing
+   */
+  AttachMissingPermission?: boolean;
+  /**
    * If set to true, application will be configured with recommended monitoring configuration.
    */
   AutoConfigurationEnabled?: boolean;
@@ -178,6 +182,18 @@ export type ConfigurationDetails = {
    * A list of logs to monitor for the component.
    */
   Logs?: Log[];
+  /**
+   * The NetWeaver Prometheus Exporter settings.
+   */
+  NetWeaverPrometheusExporter?: NetWeaverPrometheusExporter;
+  /**
+   * A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+   */
+  Processes?: Process[];
+  /**
+   * The SQL Prometheus Exporter settings.
+   */
+  SQLServerPrometheusExporter?: SQLServerPrometheusExporter;
   /**
    * A list of Windows Events to log.
    */
@@ -354,6 +370,58 @@ export type LogPatternSet = {
   PatternSetName: string;
 };
 /**
+ * Type definition for `AWS::ApplicationInsights::Application.NetWeaverPrometheusExporter`.
+ * The NetWeaver Prometheus Exporter Settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-netweaverprometheusexporter.html}
+ */
+export type NetWeaverPrometheusExporter = {
+  /**
+   * SAP instance numbers for ASCS, ERS, and App Servers.
+   */
+  InstanceNumbers: string[];
+  /**
+   * Prometheus exporter port.
+   */
+  PrometheusPort?: string;
+  /**
+   * SAP NetWeaver SID.
+   */
+  SAPSID: string;
+};
+/**
+ * Type definition for `AWS::ApplicationInsights::Application.Process`.
+ * A process to be monitored for the component.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-process.html}
+ */
+export type Process = {
+  /**
+   * A list of metrics to monitor for the component.
+   */
+  AlarmMetrics: AlarmMetric[];
+  /**
+   * The name of the process to be monitored for the component.
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[a-zA-Z0-9_,-]+$`
+   */
+  ProcessName: string;
+};
+/**
+ * Type definition for `AWS::ApplicationInsights::Application.SQLServerPrometheusExporter`.
+ * The SQL prometheus exporter settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-sqlserverprometheusexporter.html}
+ */
+export type SQLServerPrometheusExporter = {
+  /**
+   * Prometheus exporter port.
+   */
+  PrometheusPort: string;
+  /**
+   * Secret name which managers SQL exporter connection. e.g. {"data_source_name": "sqlserver://<USERNAME>:<PASSWORD>@localhost:1433"}
+   */
+  SQLSecretName: string;
+};
+/**
  * Type definition for `AWS::ApplicationInsights::Application.SubComponentConfigurationDetails`.
  * The configuration settings of sub components.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html}
@@ -367,6 +435,10 @@ export type SubComponentConfigurationDetails = {
    * A list of logs to monitor for the component.
    */
   Logs?: Log[];
+  /**
+   * A list of processes to monitor for the component. Only Windows EC2 instances can have a processes section.
+   */
+  Processes?: Process[];
   /**
    * A list of Windows Events to log.
    */

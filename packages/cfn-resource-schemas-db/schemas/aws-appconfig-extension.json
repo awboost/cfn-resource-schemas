@@ -1,5 +1,5 @@
 {
-  "$hash": "2e2478ca561a96bbb64506b4153c44eab7ff7ca0",
+  "$hash": "2e5c6ea79bdffd7a57e66a0e3637b417599d18f5",
   "$id": "aws-appconfig-extension.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -58,6 +58,7 @@
           "minLength": 0,
           "type": "string"
         },
+        "Dynamic": { "type": "boolean" },
         "Required": { "type": "boolean" }
       },
       "required": ["Required"],
