@@ -1,5 +1,5 @@
 {
-  "$hash": "598d0fd24c0670d649a1a90dd914444f887a5320",
+  "$hash": "15177da602e9df3481e6aa8e08f550acc7212684",
   "$id": "aws-ec2-dhcpoptions.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,7 +7,8 @@
     "/properties/NetbiosNodeType",
     "/properties/NtpServers",
     "/properties/DomainName",
-    "/properties/DomainNameServers"
+    "/properties/DomainNameServers",
+    "/properties/Ipv6AddressPreferredLeaseTime"
   ],
   "definitions": {
     "Tag": {
@@ -58,6 +59,10 @@
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": true
+    },
+    "Ipv6AddressPreferredLeaseTime": {
+      "description": "The preferred Lease Time for ipV6 address in seconds.",
+      "type": "integer"
     },
     "NetbiosNameServers": {
       "description": "The IPv4 addresses of up to four NetBIOS name servers.",

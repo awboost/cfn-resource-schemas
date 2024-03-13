@@ -14,6 +14,10 @@ export type EC2DHCPOptionsProperties = {
    */
   DomainNameServers?: string[];
   /**
+   * The preferred Lease Time for ipV6 address in seconds.
+   */
+  Ipv6AddressPreferredLeaseTime?: number;
+  /**
    * The IPv4 addresses of up to four NetBIOS name servers.
    */
   NetbiosNameServers?: string[];

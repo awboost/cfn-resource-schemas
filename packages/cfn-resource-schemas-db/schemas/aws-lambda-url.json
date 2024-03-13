@@ -1,5 +1,5 @@
 {
-  "$hash": "dc308f4c0aac05d98592854ab4b766f8588059e7",
+  "$hash": "19c71733bbc68850876fca8f3e18f472a11c9fc9",
   "$id": "aws-lambda-url.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -104,7 +104,7 @@
       "type": "string"
     },
     "InvokeMode": {
-      "description": "The invocation mode for the function’s URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.",
+      "description": "The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.",
       "enum": ["BUFFERED", "RESPONSE_STREAM"],
       "type": "string"
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "e583d63fa84aadac2380d9cb7c14bdb2c0e70c14",
+  "$hash": "89cdd69170b632a1c9191c2e98fcf06bcca51b40",
   "$id": "aws-amplify-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AppId", "/properties/DomainName"],
@@ -30,7 +30,7 @@
           "type": "string"
         },
         "CustomCertificateArn": {
-          "pattern": "\"^arn:aws:acm:[a-z0-9-]+:\\d{12}:certificate\\/.+$\"",
+          "pattern": "^arn:aws:acm:[a-z0-9-]+:\\d{12}:certificate\\/.+$",
           "type": "string"
         }
       },

@@ -157,6 +157,23 @@ export type ReplicationInfo = {
   TopicReplication: TopicReplication;
 };
 /**
+ * Type definition for `AWS::MSK::Replicator.ReplicationStartingPosition`.
+ * Configuration for specifying the position in the topics to start replicating from.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationstartingposition.html}
+ */
+export type ReplicationStartingPosition = {
+  /**
+   * The type of replication starting position.
+   */
+  Type?: ReplicationStartingPositionType;
+};
+/**
+ * Type definition for `AWS::MSK::Replicator.ReplicationStartingPositionType`.
+ * The type of replication starting position.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationstartingpositiontype.html}
+ */
+export type ReplicationStartingPositionType = "LATEST" | "EARLIEST";
+/**
  * Type definition for `AWS::MSK::Replicator.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-tag.html}
  */
@@ -188,6 +205,10 @@ export type TopicReplication = {
    * Whether to periodically check for new topics and partitions.
    */
   DetectAndCopyNewTopics?: boolean;
+  /**
+   * Configuration for specifying the position in the topics to start replicating from.
+   */
+  StartingPosition?: ReplicationStartingPosition;
   /**
    * List of regular expression patterns indicating the topics that should not be replicated.
    * @minLength `1`

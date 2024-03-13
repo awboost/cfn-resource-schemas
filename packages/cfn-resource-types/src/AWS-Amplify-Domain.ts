@@ -73,7 +73,7 @@ export type Certificate = {
 export type CertificateSettings = {
   CertificateType?: "AMPLIFY_MANAGED" | "CUSTOM";
   /**
-   * @pattern `"^arn:aws:acm:[a-z0-9-]+:\d{12}:certificate\/.+$"`
+   * @pattern `^arn:aws:acm:[a-z0-9-]+:\d{12}:certificate\/.+$`
    */
   CustomCertificateArn?: string;
 };
