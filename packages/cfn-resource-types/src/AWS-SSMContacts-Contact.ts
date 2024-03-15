@@ -26,7 +26,7 @@ export type SSMContactsContactProperties = {
   /**
    * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
    */
-  Type: "PERSONAL" | "CUSTOM" | "SERVICE" | "ESCALATION" | "ONCALL_SCHEDULE";
+  Type: "PERSONAL" | "ESCALATION" | "ONCALL_SCHEDULE";
 };
 /**
  * Attribute type definition for `AWS::SSMContacts::Contact`.

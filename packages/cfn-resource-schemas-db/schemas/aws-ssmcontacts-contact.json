@@ -1,5 +1,5 @@
 {
-  "$hash": "ac47f93881466886b9ad76d8f07c21071433e827",
+  "$hash": "4525ff2ea8d5f9b0075260bc2965eb6e957d136e",
   "$id": "aws-ssmcontacts-contact.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Alias", "/properties/Type"],
@@ -129,13 +129,7 @@
     },
     "Type": {
       "description": "Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.",
-      "enum": [
-        "PERSONAL",
-        "CUSTOM",
-        "SERVICE",
-        "ESCALATION",
-        "ONCALL_SCHEDULE"
-      ],
+      "enum": ["PERSONAL", "ESCALATION", "ONCALL_SCHEDULE"],
       "type": "string"
     }
   },

@@ -7,7 +7,14 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type InternetMonitorMonitorProperties = {
   HealthEventsConfig?: HealthEventsConfig;
+  IncludeLinkedAccounts?: boolean;
   InternetMeasurementsLogDelivery?: InternetMeasurementsLogDelivery;
+  /**
+   * @minLength `12`
+   * @maxLength `12`
+   * @pattern `^(\d{12})$`
+   */
+  LinkedAccountId?: string;
   /**
    * @min `1`
    * @max `500000`

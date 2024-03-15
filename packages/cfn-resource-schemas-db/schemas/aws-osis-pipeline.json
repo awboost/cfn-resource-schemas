@@ -1,5 +1,5 @@
 {
-  "$hash": "30f1fcf3aefeab0e248aa180978608ee671db663",
+  "$hash": "4506637b2c7df865a83280947b88d85160a640d9",
   "$id": "aws-osis-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PipelineName"],
@@ -174,14 +174,14 @@
     },
     "LogPublishingOptions": { "$ref": "#/definitions/LogPublishingOptions" },
     "MaxUnits": {
-      "description": "The maximum pipeline capacity, in Ingestion Compute Units (ICUs).",
-      "maximum": 24,
+      "description": "The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).",
+      "maximum": 384,
       "minimum": 1,
       "type": "integer"
     },
     "MinUnits": {
-      "description": "The minimum pipeline capacity, in Ingestion Compute Units (ICUs).",
-      "maximum": 24,
+      "description": "The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).",
+      "maximum": 384,
       "minimum": 1,
       "type": "integer"
     },
@@ -193,8 +193,8 @@
       "type": "string"
     },
     "PipelineConfigurationBody": {
-      "description": "The Data Prepper pipeline configuration in YAML format.",
-      "maxLength": 12000,
+      "description": "The Data Prepper pipeline configuration.",
+      "maxLength": 24000,
       "minLength": 1,
       "type": "string"
     },

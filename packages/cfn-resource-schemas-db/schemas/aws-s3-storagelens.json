@@ -1,5 +1,5 @@
 {
-  "$hash": "f524d6d298794d110109431810ee97bd973423b8",
+  "$hash": "b7984b6d5117e3361ffde77656441697c4efe752",
   "$id": "aws-s3-storagelens.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/StorageLensConfiguration/Id"],
@@ -384,5 +384,12 @@
   "readOnlyProperties": ["/properties/StorageLensConfiguration/StorageLensArn"],
   "required": ["StorageLensConfiguration"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-s3-storagelens",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::S3::StorageLens"
 }

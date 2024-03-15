@@ -1,11 +1,10 @@
 {
-  "$hash": "0d975b2a2223ba14e87fc8d7b1f9594df4dbe2f7",
+  "$hash": "1a8e4b48a18a89ffdfff71caa8ec6353b56aadc0",
   "$id": "aws-kinesisanalyticsv2-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ApplicationName",
-    "/properties/ApplicationMode",
-    "/properties/RuntimeEnvironment"
+    "/properties/ApplicationMode"
   ],
   "definitions": {
     "ApplicationCodeConfiguration": {

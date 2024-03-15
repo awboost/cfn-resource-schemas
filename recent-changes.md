@@ -1,35 +1,35 @@
-- updated `AWS::Amplify::Domain`
-  - updated definition `CertificateSettings`
-- updated `AWS::CodeArtifact::Domain`
-  - added `tagging`
-  - updated definition `Tag`
-- updated `AWS::CodeArtifact::Repository`
-  - added `tagging`
-  - updated definition `Tag`
-- updated `AWS::EC2::DHCPOptions`
-  - added property `Ipv6AddressPreferredLeaseTime`
-  - updated `createOnlyProperties`
-- updated `AWS::EC2::NatGateway`
-- updated `AWS::ECS::Cluster`
-  - updated definition `CapacityProviderStrategyItem`
-  - updated definition `ClusterConfiguration`
-  - updated definition `ClusterSettings`
-  - updated definition `ExecuteCommandConfiguration`
-  - updated definition `ExecuteCommandLogConfiguration`
-  - updated definition `ServiceConnectDefaults`
+- updated `AWS::DynamoDB::Table`
+  - updated property `GlobalSecondaryIndexes`
+- updated `AWS::ECR::RegistryPolicy`
+  - updated property `PolicyText`
+  - updated property `RegistryId`
+- updated `AWS::ECR::Repository`
+  - updated definition `EncryptionConfiguration`
+  - updated definition `ImageScanningConfiguration`
+  - updated definition `LifecyclePolicy`
   - updated definition `Tag`
   - updated property `Arn`
-  - updated property `CapacityProviders`
-  - updated property `ClusterName`
-  - updated property `ClusterSettings`
-  - updated property `Configuration`
-  - updated property `DefaultCapacityProviderStrategy`
-  - updated property `ServiceConnectDefaults`
-  - updated property `Tags`
-- updated `AWS::Lambda::Url`
-  - updated property `InvokeMode`
-- updated `AWS::MSK::Replicator`
-  - added definition `ReplicationStartingPositionType`
-  - added definition `ReplicationStartingPosition`
+  - updated property `EmptyOnDelete`
+  - updated property `EncryptionConfiguration`
+  - updated property `ImageScanningConfiguration`
+  - updated property `ImageTagMutability`
+  - updated property `LifecyclePolicy`
+  - updated property `RepositoryName`
+  - updated property `RepositoryPolicyText`
+  - updated property `RepositoryUri`
+- updated `AWS::InternetMonitor::Monitor`
+  - added property `IncludeLinkedAccounts`
+  - added property `LinkedAccountId`
+  - updated `writeOnlyProperties`
+- updated `AWS::KinesisAnalyticsV2::Application`
   - updated `createOnlyProperties`
-  - updated definition `TopicReplication`
+- updated `AWS::OSIS::Pipeline`
+  - updated property `MaxUnits`
+  - updated property `MinUnits`
+  - updated property `PipelineConfigurationBody`
+- updated `AWS::S3::MultiRegionAccessPoint`
+  - updated definition `Region`
+- updated `AWS::S3::StorageLens`
+  - added `tagging`
+- updated `AWS::SSMContacts::Contact`
+  - updated property `Type`

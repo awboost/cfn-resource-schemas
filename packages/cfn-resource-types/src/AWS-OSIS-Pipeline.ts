@@ -19,21 +19,21 @@ export type OSISPipelineProperties = {
    */
   LogPublishingOptions?: LogPublishingOptions;
   /**
-   * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
+   * The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
    * @min `1`
-   * @max `24`
+   * @max `384`
    */
   MaxUnits: number;
   /**
-   * The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
+   * The minimum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
    * @min `1`
-   * @max `24`
+   * @max `384`
    */
   MinUnits: number;
   /**
-   * The Data Prepper pipeline configuration in YAML format.
+   * The Data Prepper pipeline configuration.
    * @minLength `1`
-   * @maxLength `12000`
+   * @maxLength `24000`
    */
   PipelineConfigurationBody: string;
   /**
