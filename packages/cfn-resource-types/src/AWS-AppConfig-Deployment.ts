@@ -10,6 +10,7 @@ export type AppConfigDeploymentProperties = {
   ConfigurationVersion: string;
   DeploymentStrategyId: string;
   Description?: string;
+  DynamicExtensionParameters?: DynamicExtensionParameters[];
   EnvironmentId: string;
   KmsKeyIdentifier?: string;
   Tags?: Tags[];
@@ -20,6 +21,15 @@ export type AppConfigDeploymentProperties = {
  */
 export type AppConfigDeploymentAttributes = {
   Id: string;
+};
+/**
+ * Type definition for `AWS::AppConfig::Deployment.DynamicExtensionParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deployment-dynamicextensionparameters.html}
+ */
+export type DynamicExtensionParameters = {
+  ExtensionReference?: string;
+  ParameterName?: string;
+  ParameterValue?: string;
 };
 /**
  * Type definition for `AWS::AppConfig::Deployment.Tags`.

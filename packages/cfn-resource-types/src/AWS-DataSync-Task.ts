@@ -28,6 +28,10 @@ export type DataSyncTaskProperties = {
    */
   Includes?: FilterRule[];
   /**
+   * Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+   */
+  ManifestConfig?: ManifestConfig;
+  /**
    * The name of a task. This value is a text reference that is used to identify the task in the console.
    * @minLength `1`
    * @maxLength `256`
@@ -102,6 +106,61 @@ export type FilterRule = {
    * @pattern `^[^\x00]+$`
    */
   Value?: string;
+};
+/**
+ * Type definition for `AWS::DataSync::Task.ManifestConfig`.
+ * Configures a manifest, which is a list of files or objects that you want DataSync to transfer.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfig.html}
+ */
+export type ManifestConfig = {
+  /**
+   * Specifies what DataSync uses the manifest for.
+   */
+  Action?: "TRANSFER";
+  /**
+   * Specifies the file format of your manifest.
+   */
+  Format?: "CSV";
+  /**
+   * Specifies the manifest that you want DataSync to use and where it's hosted.
+   */
+  Source: {
+    /**
+     * Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+     */
+    S3?: ManifestConfigSourceS3;
+  };
+};
+/**
+ * Type definition for `AWS::DataSync::Task.ManifestConfigSourceS3`.
+ * Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfigsources3.html}
+ */
+export type ManifestConfigSourceS3 = {
+  /**
+   * Specifies the AWS Identity and Access Management (IAM) role that allows DataSync to access your manifest.
+   * @maxLength `2048`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*$`
+   */
+  BucketAccessRoleArn?: string;
+  /**
+   * Specifies the Amazon S3 object key of your manifest.
+   * @maxLength `1024`
+   * @pattern `^[\p{L}\p{M}\p{Z}\p{S}\p{N}\p{P}\p{C}]*$`
+   */
+  ManifestObjectPath?: string;
+  /**
+   * Specifies the object version ID of the manifest that you want DataSync to use.
+   * @maxLength `100`
+   * @pattern `^.+$`
+   */
+  ManifestObjectVersionId?: string;
+  /**
+   * Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.
+   * @maxLength `156`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(s3|s3-outposts):[a-z\-0-9]*:[0-9]*:.*$`
+   */
+  S3BucketArn?: string;
 };
 /**
  * Type definition for `AWS::DataSync::Task.Options`.
@@ -205,26 +264,7 @@ export type TaskReportConfig = {
     /**
      * Specifies the Amazon S3 bucket where DataSync uploads your task report.
      */
-    S3?: {
-      /**
-       * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
-       * @maxLength `2048`
-       * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*$`
-       */
-      BucketAccessRoleArn?: string;
-      /**
-       * Specifies the ARN of the S3 bucket where Datasync uploads your report.
-       * @maxLength `156`
-       * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(s3|s3-outposts):[a-z\-0-9]*:[0-9]*:.*$`
-       */
-      S3BucketArn?: string;
-      /**
-       * Specifies a bucket prefix for your report.
-       * @maxLength `4096`
-       * @pattern `^[a-zA-Z0-9_\-\+\./\(\)\p{Zs}]*$`
-       */
-      Subdirectory?: string;
-    };
+    S3?: TaskReportConfigDestinationS3;
   };
   /**
    * Specifies whether your task report includes the new version of each object transferred into an S3 bucket, this only applies if you enable versioning on your bucket.
@@ -279,6 +319,31 @@ export type TaskReportConfig = {
    * Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
    */
   ReportLevel?: "ERRORS_ONLY" | "SUCCESSES_AND_ERRORS";
+};
+/**
+ * Type definition for `AWS::DataSync::Task.TaskReportConfigDestinationS3`.
+ * Specifies the Amazon S3 bucket where DataSync uploads your task report.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfigdestinations3.html}
+ */
+export type TaskReportConfigDestinationS3 = {
+  /**
+   * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows Datasync to upload a task report to your S3 bucket.
+   * @maxLength `2048`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*$`
+   */
+  BucketAccessRoleArn?: string;
+  /**
+   * Specifies the ARN of the S3 bucket where Datasync uploads your report.
+   * @maxLength `156`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):(s3|s3-outposts):[a-z\-0-9]*:[0-9]*:.*$`
+   */
+  S3BucketArn?: string;
+  /**
+   * Specifies a bucket prefix for your report.
+   * @maxLength `4096`
+   * @pattern `^[a-zA-Z0-9_\-\+\./\(\)\p{Zs}]*$`
+   */
+  Subdirectory?: string;
 };
 /**
  * Type definition for `AWS::DataSync::Task.TaskSchedule`.

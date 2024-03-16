@@ -11,6 +11,7 @@ export type BatchJobQueueProperties = {
    * @maxLength `128`
    */
   JobQueueName?: string;
+  JobStateTimeLimitActions?: JobStateTimeLimitAction[];
   /**
    * @min `0`
    * @max `1000`
@@ -43,6 +44,20 @@ export type BatchJobQueueAttributes = {
 export type ComputeEnvironmentOrder = {
   ComputeEnvironment: string;
   Order: number;
+};
+/**
+ * Type definition for `AWS::Batch::JobQueue.JobStateTimeLimitAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-jobstatetimelimitaction.html}
+ */
+export type JobStateTimeLimitAction = {
+  Action: "CANCEL";
+  /**
+   * @min `600`
+   * @max `86400`
+   */
+  MaxTimeSeconds: number;
+  Reason: string;
+  State: "RUNNABLE";
 };
 /**
  * Resource Type definition for AWS::Batch::JobQueue

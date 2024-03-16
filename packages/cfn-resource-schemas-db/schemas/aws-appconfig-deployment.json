@@ -1,5 +1,5 @@
 {
-  "$hash": "c214786fff7cea5ada737dae068f3a6fa3c7187d",
+  "$hash": "fce9693e2d1c6ac337aa1d8ebcc4a2f4979d3e41",
   "$id": "aws-appconfig-deployment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,9 +10,19 @@
     "/properties/ConfigurationProfileId",
     "/properties/Tags",
     "/properties/EnvironmentId",
-    "/properties/Description"
+    "/properties/Description",
+    "/properties/DynamicExtensionParameters"
   ],
   "definitions": {
+    "DynamicExtensionParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "ExtensionReference": { "type": "string" },
+        "ParameterName": { "type": "string" },
+        "ParameterValue": { "type": "string" }
+      },
+      "type": "object"
+    },
     "Tags": {
       "additionalProperties": false,
       "properties": {
@@ -30,6 +40,11 @@
     "ConfigurationVersion": { "type": "string" },
     "DeploymentStrategyId": { "type": "string" },
     "Description": { "type": "string" },
+    "DynamicExtensionParameters": {
+      "items": { "$ref": "#/definitions/DynamicExtensionParameters" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "EnvironmentId": { "type": "string" },
     "Id": { "type": "string" },
     "KmsKeyIdentifier": { "type": "string" },

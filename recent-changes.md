@@ -1,35 +1,103 @@
-- updated `AWS::DynamoDB::Table`
-  - updated property `GlobalSecondaryIndexes`
-- updated `AWS::ECR::RegistryPolicy`
-  - updated property `PolicyText`
-  - updated property `RegistryId`
-- updated `AWS::ECR::Repository`
-  - updated definition `EncryptionConfiguration`
-  - updated definition `ImageScanningConfiguration`
-  - updated definition `LifecyclePolicy`
+- updated `AWS::ApiGateway::Authorizer`
+  - updated property `IdentitySource`
+- updated `AWS::ApiGateway::Method`
+  - updated definition `Integration`
+- updated `AWS::AppConfig::Deployment`
+  - added definition `DynamicExtensionParameters`
+  - added property `DynamicExtensionParameters`
+  - updated `createOnlyProperties`
+- updated `AWS::Batch::JobQueue`
+  - added definition `JobStateTimeLimitAction`
+  - added property `JobStateTimeLimitActions`
+- updated `AWS::CodePipeline::Pipeline`
+  - updated definition `ActionDeclaration`
+- updated `AWS::DataSync::Task`
+  - added definition `ManifestConfigSourceS3`
+  - added definition `ManifestConfig`
+  - added definition `TaskReportConfigDestinationS3`
+  - added property `ManifestConfig`
+  - updated definition `TaskReportConfig`
+  - updated handler permissions
+- updated `AWS::EC2::NetworkInterface`
+  - added property `VpcId`
+  - updated `readOnlyProperties`
+- updated `AWS::ECS::Service`
+  - updated definition `AwsVpcConfiguration`
+  - updated definition `CapacityProviderStrategyItem`
+  - updated definition `DeploymentAlarms`
+  - updated definition `DeploymentCircuitBreaker`
+  - updated definition `DeploymentConfiguration`
+  - updated definition `DeploymentController`
+  - updated definition `EBSTagSpecification`
+  - updated definition `LoadBalancer`
+  - updated definition `LogConfiguration`
+  - updated definition `NetworkConfiguration`
+  - updated definition `PlacementConstraint`
+  - updated definition `PlacementStrategy`
+  - updated definition `Secret`
+  - updated definition `ServiceConnectClientAlias`
+  - updated definition `ServiceConnectConfiguration`
+  - updated definition `ServiceConnectService`
+  - updated definition `ServiceConnectTlsCertificateAuthority`
+  - updated definition `ServiceConnectTlsConfiguration`
+  - updated definition `ServiceManagedEBSVolumeConfiguration`
+  - updated definition `ServiceRegistry`
+  - updated definition `ServiceVolumeConfiguration`
+  - updated definition `Tag`
+  - updated definition `TimeoutConfiguration`
+  - updated property `CapacityProviderStrategy`
+  - updated property `Cluster`
+  - updated property `DeploymentConfiguration`
+  - updated property `DeploymentController`
+  - updated property `DesiredCount`
+  - updated property `EnableECSManagedTags`
+  - updated property `EnableExecuteCommand`
+  - updated property `HealthCheckGracePeriodSeconds`
+  - updated property `LaunchType`
+  - updated property `LoadBalancers`
+  - updated property `Name`
+  - updated property `NetworkConfiguration`
+  - updated property `PlacementConstraints`
+  - updated property `PlacementStrategies`
+  - updated property `PlatformVersion`
+  - updated property `PropagateTags`
+  - updated property `Role`
+  - updated property `SchedulingStrategy`
+  - updated property `ServiceArn`
+  - updated property `ServiceConnectConfiguration`
+  - updated property `ServiceName`
+  - updated property `ServiceRegistries`
+  - updated property `Tags`
+  - updated property `TaskDefinition`
+  - updated property `VolumeConfigurations`
+- updated `AWS::IAM::Group`
+  - updated definition `Policy`
+  - updated property `Arn`
+  - updated property `GroupName`
+  - updated property `ManagedPolicyArns`
+  - updated property `Path`
+  - updated property `Policies`
+- updated `AWS::Logs::LogGroup`
   - updated definition `Tag`
   - updated property `Arn`
-  - updated property `EmptyOnDelete`
-  - updated property `EncryptionConfiguration`
-  - updated property `ImageScanningConfiguration`
-  - updated property `ImageTagMutability`
-  - updated property `LifecyclePolicy`
-  - updated property `RepositoryName`
-  - updated property `RepositoryPolicyText`
-  - updated property `RepositoryUri`
-- updated `AWS::InternetMonitor::Monitor`
-  - added property `IncludeLinkedAccounts`
-  - added property `LinkedAccountId`
-  - updated `writeOnlyProperties`
-- updated `AWS::KinesisAnalyticsV2::Application`
-  - updated `createOnlyProperties`
-- updated `AWS::OSIS::Pipeline`
-  - updated property `MaxUnits`
-  - updated property `MinUnits`
-  - updated property `PipelineConfigurationBody`
-- updated `AWS::S3::MultiRegionAccessPoint`
-  - updated definition `Region`
-- updated `AWS::S3::StorageLens`
-  - added `tagging`
-- updated `AWS::SSMContacts::Contact`
-  - updated property `Type`
+  - updated property `DataProtectionPolicy`
+  - updated property `KmsKeyId`
+  - updated property `LogGroupClass`
+  - updated property `LogGroupName`
+  - updated property `RetentionInDays`
+  - updated property `Tags`
+- updated `AWS::Logs::MetricFilter`
+  - updated definition `Dimension`
+  - updated definition `MetricTransformation`
+  - updated property `FilterName`
+  - updated property `FilterPattern`
+  - updated property `LogGroupName`
+  - updated property `MetricTransformations`
+- updated `AWS::Logs::SubscriptionFilter`
+  - updated property `Distribution`
+  - updated property `FilterName`
+  - updated property `FilterPattern`
+  - updated property `LogGroupName`
+  - updated property `RoleArn`
+- updated `AWS::Pinpoint::EmailChannel`
+  - added property `OrchestrationSendingRoleArn`

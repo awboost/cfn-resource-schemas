@@ -40,6 +40,7 @@ export type ActionDeclaration = {
   Region?: string;
   RoleArn?: string;
   RunOrder?: number;
+  TimeoutInMinutes?: number;
 };
 /**
  * Type definition for `AWS::CodePipeline::Pipeline.ActionTypeId`.

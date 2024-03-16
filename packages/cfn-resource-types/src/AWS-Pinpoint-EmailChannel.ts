@@ -10,6 +10,7 @@ export type PinpointEmailChannelProperties = {
   Enabled?: boolean;
   FromAddress: string;
   Identity: string;
+  OrchestrationSendingRoleArn?: string;
   RoleArn?: string;
 };
 /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "7e049dc2c16c8b856610e79289a5114c278d3db0",
+  "$hash": "fe231cb143a6881133e8535e098f0d7f2a0e122e",
   "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -23,7 +23,8 @@
         },
         "Region": { "type": "string" },
         "RoleArn": { "type": "string" },
-        "RunOrder": { "type": "integer" }
+        "RunOrder": { "type": "integer" },
+        "TimeoutInMinutes": { "type": "integer" }
       },
       "required": ["ActionTypeId", "Name"],
       "type": "object"

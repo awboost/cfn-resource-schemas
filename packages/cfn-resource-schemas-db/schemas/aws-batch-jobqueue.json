@@ -1,5 +1,5 @@
 {
-  "$hash": "39553bb24f2d3740c26afe398afa6a60e05bf3ba",
+  "$hash": "69d5824725cd578e4fc396ce9bb1cdac27ba6e0b",
   "$id": "aws-batch-jobqueue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags", "/properties/JobQueueName"],
@@ -11,6 +11,21 @@
         "Order": { "type": "integer" }
       },
       "required": ["ComputeEnvironment", "Order"],
+      "type": "object"
+    },
+    "JobStateTimeLimitAction": {
+      "additionalProperties": false,
+      "properties": {
+        "Action": { "enum": ["CANCEL"], "type": "string" },
+        "MaxTimeSeconds": {
+          "maximum": 86400,
+          "minimum": 600,
+          "type": "integer"
+        },
+        "Reason": { "type": "string" },
+        "State": { "enum": ["RUNNABLE"], "type": "string" }
+      },
+      "required": ["Action", "MaxTimeSeconds", "Reason", "State"],
       "type": "object"
     },
     "ResourceArn": {
@@ -55,6 +70,12 @@
     },
     "JobQueueArn": { "$ref": "#/definitions/ResourceArn" },
     "JobQueueName": { "maxLength": 128, "minLength": 1, "type": "string" },
+    "JobStateTimeLimitActions": {
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/JobStateTimeLimitAction" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "Priority": { "maximum": 1000, "minimum": 0, "type": "integer" },
     "SchedulingPolicyArn": { "$ref": "#/definitions/ResourceArn" },
     "State": { "enum": ["DISABLED", "ENABLED"], "type": "string" },

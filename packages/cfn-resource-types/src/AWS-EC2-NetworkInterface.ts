@@ -92,6 +92,10 @@ export type EC2NetworkInterfaceAttributes = {
    * Returns the secondary private IP addresses of the network interface.
    */
   SecondaryPrivateIpAddresses: string[];
+  /**
+   * The ID of the VPC
+   */
+  VpcId: string;
 };
 /**
  * Type definition for `AWS::EC2::NetworkInterface.ConnectionTrackingSpecification`.
