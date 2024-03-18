@@ -1,10 +1,10 @@
 {
-  "$hash": "b128dcd1e47284e124dd0c821981a295678701cf",
+  "$hash": "aa095ecdf0d950ac65be34ff6e60b73946188763",
   "$id": "aws-fis-experimenttemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Tags",
-    "/properties/ExperimentOptions/properties/AccountTargeting"
+    "/properties/ExperimentOptions/AccountTargeting"
   ],
   "definitions": {
     "ActionId": {
