@@ -1,5 +1,5 @@
 {
-  "$hash": "4c29931aefdde56ed110a73adb26ff3abbb2d97d",
+  "$hash": "5296df558fd259f9b82e00655e49833bd58ac180",
   "$id": "aws-ssm-parameter.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -63,7 +63,7 @@
       "type": "string"
     },
     "Type": {
-      "description": "The type of parameter.\n  Although ``SecureString`` is included in the list of valid values, CFNlong does *not* currently support creating ``SecureString`` parameters.",
+      "description": "The type of parameter.",
       "enum": ["String", "StringList"],
       "type": "string"
     },

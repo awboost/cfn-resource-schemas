@@ -1,5 +1,5 @@
 {
-  "$hash": "d6a7bc9e86f4f8996ada6125f04ebbf4b2d25fa4",
+  "$hash": "8502f02d7d07042bdc28bca3b982aa4c5f0f7c91",
   "$id": "aws-ssm-association.json",
   "additionalProperties": false,
   "definitions": {
@@ -11,7 +11,15 @@
       "type": "object"
     },
     "ParameterValues": { "items": { "type": "string" }, "type": "array" },
-    "S3BucketName": { "maxLength": 63, "minLength": 3, "type": "string" },
+    "S3BucketName": {
+      "maxLength": 63,
+      "minLength": 3,
+      "relationshipRef": {
+        "propertyPath": "/properties/BucketName",
+        "typeName": "AWS::S3::Bucket"
+      },
+      "type": "string"
+    },
     "S3KeyPrefix": { "maxLength": 1024, "type": "string" },
     "S3OutputLocation": {
       "additionalProperties": false,
@@ -31,7 +39,17 @@
           "type": "string"
         },
         "Values": {
-          "items": { "type": "string" },
+          "items": {
+            "anyOf": [
+              {
+                "relationshipRef": {
+                  "propertyPath": "/properties/Id",
+                  "typeName": "AWS::EC2::Instance"
+                }
+              }
+            ],
+            "type": "string"
+          },
           "maxItems": 50,
           "minItems": 0,
           "type": "array"

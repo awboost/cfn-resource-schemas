@@ -1,5 +1,5 @@
 {
-  "$hash": "2e17f88bb0a3aad76db23b4806eb757e65bf4b6b",
+  "$hash": "a179287454062bed327134fb88ff6f9b64789b17",
   "$id": "aws-ivschat-loggingconfiguration.json",
   "additionalProperties": false,
   "definitions": {
@@ -128,7 +128,7 @@
         "ivschat:UpdateLoggingConfiguration",
         "ivschat:GetLoggingConfiguration",
         "ivschat:TagResource",
-        "ivschat:UnTagResource",
+        "ivschat:UntagResource",
         "ivschat:ListTagsForResource",
         "logs:CreateLogDelivery",
         "logs:GetLogDelivery",

@@ -23,6 +23,13 @@ export type KendraFaqProperties = {
    */
   IndexId: string;
   /**
+   * The code for a language.
+   * @minLength `2`
+   * @maxLength `10`
+   * @pattern `[a-zA-Z-]*`
+   */
+  LanguageCode?: string;
+  /**
    * FAQ name
    * @minLength `1`
    * @maxLength `100`

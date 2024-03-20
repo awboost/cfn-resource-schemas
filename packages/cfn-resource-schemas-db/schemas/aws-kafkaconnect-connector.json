@@ -1,6 +1,7 @@
 {
-  "$hash": "a86794a13955a3e10fde2302564e4a5e3c4cdb1a",
+  "$hash": "3efafe6178e892d810d7e85cf8a790c8f511c75a",
   "$id": "aws-kafkaconnect-connector.json",
+  "additionalIdentifiers": [["/properties/ConnectorName"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ConnectorConfiguration",
@@ -246,6 +247,15 @@
       "required": ["CpuUtilizationPercentage"],
       "type": "object"
     },
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
+        "Value": { "maxLength": 256, "type": "string" }
+      },
+      "required": ["Value", "Key"],
+      "type": "object"
+    },
     "Vpc": {
       "additionalProperties": false,
       "description": "Information about a VPC used with the connector.",
@@ -305,6 +315,8 @@
       "permissions": [
         "kafkaconnect:CreateConnector",
         "kafkaconnect:DescribeConnector",
+        "kafkaconnect:TagResource",
+        "kafkaconnect:ListTagsForResource",
         "iam:CreateServiceLinkedRole",
         "iam:PassRole",
         "ec2:CreateNetworkInterface",
@@ -332,11 +344,19 @@
       ]
     },
     "list": { "permissions": ["kafkaconnect:ListConnectors"] },
-    "read": { "permissions": ["kafkaconnect:DescribeConnector"] },
+    "read": {
+      "permissions": [
+        "kafkaconnect:DescribeConnector",
+        "kafkaconnect:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "kafkaconnect:UpdateConnector",
         "kafkaconnect:DescribeConnector",
+        "kafkaconnect:TagResource",
+        "kafkaconnect:ListTagsForResource",
+        "kafkaconnect:UntagResource",
         "iam:CreateServiceLinkedRole",
         "logs:UpdateLogDelivery",
         "logs:GetLogDelivery",
@@ -400,6 +420,13 @@
       "pattern": "arn:(aws|aws-us-gov|aws-cn):iam:.*",
       "type": "string"
     },
+    "Tags": {
+      "description": "A collection of tags associated with a resource",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "WorkerConfiguration": { "$ref": "#/definitions/WorkerConfiguration" }
   },
   "readOnlyProperties": ["/properties/ConnectorArn"],
@@ -416,6 +443,12 @@
     "ServiceExecutionRoleArn"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-kafkaconnect.git",
-  "taggable": false,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::KafkaConnect::Connector"
 }

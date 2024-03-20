@@ -1,5 +1,5 @@
 {
-  "$hash": "4e34dbd0f4d095611c945752fbb7dd18c63bbb0c",
+  "$hash": "f375650ff11542983e63d94b34a208b15b93b54c",
   "$id": "aws-kendra-faq.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -33,6 +33,13 @@
       "description": "Unique ID of Index",
       "maxLength": 36,
       "minLength": 36,
+      "type": "string"
+    },
+    "LanguageCode": {
+      "description": "The code for a language.",
+      "maxLength": 10,
+      "minLength": 2,
+      "pattern": "[a-zA-Z-]*",
       "type": "string"
     },
     "RoleArn": {
@@ -121,6 +128,7 @@
     },
     "Id": { "$ref": "#/definitions/Id" },
     "IndexId": { "$ref": "#/definitions/IndexId", "description": "Index ID" },
+    "LanguageCode": { "$ref": "#/definitions/LanguageCode" },
     "Name": { "$ref": "#/definitions/FaqName", "description": "FAQ name" },
     "RoleArn": {
       "$ref": "#/definitions/RoleArn",

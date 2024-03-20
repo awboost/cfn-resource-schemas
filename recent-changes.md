@@ -1,2 +1,115 @@
-- updated `AWS::FIS::ExperimentTemplate`
-  - updated `createOnlyProperties`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - updated definition `AcceleratorCountRequest`
+  - updated definition `AcceleratorTotalMemoryMiBRequest`
+  - updated definition `BaselineEbsBandwidthMbpsRequest`
+  - updated definition `InstanceMaintenancePolicy`
+  - updated definition `InstanceRequirements`
+  - updated definition `InstancesDistribution`
+  - updated definition `LaunchTemplateOverrides`
+  - updated definition `LaunchTemplateSpecification`
+  - updated definition `LaunchTemplate`
+  - updated definition `LifecycleHookSpecification`
+  - updated definition `MemoryGiBPerVCpuRequest`
+  - updated definition `MemoryMiBRequest`
+  - updated definition `MetricsCollection`
+  - updated definition `MixedInstancesPolicy`
+  - updated definition `NetworkBandwidthGbpsRequest`
+  - updated definition `NetworkInterfaceCountRequest`
+  - updated definition `NotificationConfiguration`
+  - updated definition `TagProperty`
+  - updated definition `TotalLocalStorageGBRequest`
+  - updated definition `VCpuCountRequest`
+  - updated property `AutoScalingGroupName`
+  - updated property `AvailabilityZones`
+  - updated property `CapacityRebalance`
+  - updated property `Context`
+  - updated property `Cooldown`
+  - updated property `DefaultInstanceWarmup`
+  - updated property `DesiredCapacityType`
+  - updated property `DesiredCapacity`
+  - updated property `HealthCheckGracePeriod`
+  - updated property `HealthCheckType`
+  - updated property `InstanceId`
+  - updated property `InstanceMaintenancePolicy`
+  - updated property `LaunchConfigurationName`
+  - updated property `LaunchTemplate`
+  - updated property `LifecycleHookSpecificationList`
+  - updated property `LoadBalancerNames`
+  - updated property `MaxInstanceLifetime`
+  - updated property `MaxSize`
+  - updated property `MetricsCollection`
+  - updated property `MinSize`
+  - updated property `MixedInstancesPolicy`
+  - updated property `NewInstancesProtectedFromScaleIn`
+  - updated property `NotificationConfiguration`
+  - updated property `NotificationConfigurations`
+  - updated property `PlacementGroup`
+  - updated property `ServiceLinkedRoleARN`
+  - updated property `Tags`
+  - updated property `TargetGroupARNs`
+  - updated property `TerminationPolicies`
+  - updated property `VPCZoneIdentifier`
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `CacheBehavior`
+  - updated definition `Cookies`
+  - updated definition `CustomErrorResponse`
+  - updated definition `DefaultCacheBehavior`
+  - updated definition `DistributionConfig`
+  - updated definition `ForwardedValues`
+  - updated definition `S3OriginConfig`
+  - updated definition `ViewerCertificate`
+- updated `AWS::Connect::SecurityProfile`
+  - added property `AllowedAccessControlHierarchyGroupId`
+  - added property `HierarchyRestrictedResources`
+  - added property `LastModifiedRegion`
+  - added property `LastModifiedTime`
+  - updated `readOnlyProperties`
+  - updated definition `ResourceName`
+- updated `AWS::EC2::InternetGateway`
+  - updated definition `Tag`
+  - updated property `InternetGatewayId`
+- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
+  - updated definition `Action`
+  - updated definition `AuthenticateCognitoConfig`
+  - updated definition `AuthenticateOidcConfig`
+  - updated definition `FixedResponseConfig`
+  - updated definition `ForwardConfig`
+  - updated definition `HostHeaderConfig`
+  - updated definition `HttpHeaderConfig`
+  - updated definition `HttpRequestMethodConfig`
+  - updated definition `PathPatternConfig`
+  - updated definition `QueryStringConfig`
+  - updated definition `QueryStringKeyValue`
+  - updated definition `RedirectConfig`
+  - updated definition `RuleCondition`
+  - updated definition `SourceIpConfig`
+  - updated definition `TargetGroupStickinessConfig`
+  - updated definition `TargetGroupTuple`
+  - updated property `Actions`
+  - updated property `Conditions`
+  - updated property `IsDefault`
+  - updated property `ListenerArn`
+  - updated property `Priority`
+  - updated property `RuleArn`
+- updated `AWS::IVSChat::LoggingConfiguration`
+  - updated handler permissions
+- updated `AWS::IVSChat::Room`
+  - updated handler permissions
+- updated `AWS::KafkaConnect::Connector`
+  - added `additionalIdentifiers`
+  - added `tagging`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated handler permissions
+- updated `AWS::Kendra::Faq`
+  - added definition `LanguageCode`
+  - added property `LanguageCode`
+- updated `AWS::ResilienceHub::ResiliencyPolicy`
+  - updated definition `PolicyMap`
+- updated `AWS::SSM::Association`
+  - updated definition `S3BucketName`
+  - updated definition `Target`
+- updated `AWS::SSM::Parameter`
+  - updated property `Type`
+- updated `AWS::WAFv2::WebACL`
+  - updated definition `RequestBody`

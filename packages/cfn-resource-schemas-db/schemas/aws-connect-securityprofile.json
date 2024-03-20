@@ -1,5 +1,5 @@
 {
-  "$hash": "28d3a25ee2660423fe1ea46448f572a91cec33c9",
+  "$hash": "56e252dbe83d39d46a8cd4b07c682c8e43d45662",
   "$id": "aws-connect-securityprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -14,7 +14,7 @@
       "type": "string"
     },
     "ResourceName": {
-      "description": "A resource that a security profile applies tag restrictions to in Amazon Connect.",
+      "description": "A resource that a security profile applies tag or hierarchy restrictions to in Amazon Connect.",
       "maxLength": 128,
       "minLength": 1,
       "type": "string"
@@ -76,6 +76,13 @@
   },
   "primaryIdentifier": ["/properties/SecurityProfileArn"],
   "properties": {
+    "AllowedAccessControlHierarchyGroupId": {
+      "description": "The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.",
+      "maxLength": 127,
+      "minLength": 0,
+      "pattern": "^[a-zA-Z0-9-]+$",
+      "type": "string"
+    },
     "AllowedAccessControlTags": {
       "description": "The list of tags that a security profile uses to restrict access to resources in Amazon Connect.",
       "insertionOrder": false,
@@ -90,10 +97,27 @@
       "minLength": 0,
       "type": "string"
     },
+    "HierarchyRestrictedResources": {
+      "description": "The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/ResourceName" },
+      "maxItems": 10,
+      "type": "array",
+      "uniqueItems": true
+    },
     "InstanceArn": {
       "description": "The identifier of the Amazon Connect instance.",
       "pattern": "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*$",
       "type": "string"
+    },
+    "LastModifiedRegion": {
+      "description": "The AWS Region where this resource was last modified.",
+      "pattern": "[a-z]{2}(-[a-z]+){1,2}(-[0-9])?",
+      "type": "string"
+    },
+    "LastModifiedTime": {
+      "description": "The timestamp when this resource was last modified.",
+      "type": "number"
     },
     "Permissions": {
       "description": "Permissions assigned to the security profile.",
@@ -132,7 +156,11 @@
       "uniqueItems": true
     }
   },
-  "readOnlyProperties": ["/properties/SecurityProfileArn"],
+  "readOnlyProperties": [
+    "/properties/SecurityProfileArn",
+    "/properties/LastModifiedRegion",
+    "/properties/LastModifiedTime"
+  ],
   "required": ["InstanceArn", "SecurityProfileName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
   "tagging": {

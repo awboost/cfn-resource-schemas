@@ -55,6 +55,10 @@ export type KafkaConnectConnectorProperties = {
    */
   ServiceExecutionRoleArn: string;
   /**
+   * A collection of tags associated with a resource
+   */
+  Tags?: Tag[];
+  /**
    * Specifies the worker configuration to use with the connector.
    */
   WorkerConfiguration?: WorkerConfiguration;
@@ -300,6 +304,21 @@ export type ScaleOutPolicy = {
    * @max `100`
    */
   CpuUtilizationPercentage: number;
+};
+/**
+ * Type definition for `AWS::KafkaConnect::Connector.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::KafkaConnect::Connector.Vpc`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "17715edfeaeda6691e4faf27125ad514a383a344",
+  "$hash": "579d95d8b3843e46d802ff4928d967c0798637a8",
   "$id": "aws-resiliencehub-resiliencypolicy.json",
   "additionalProperties": false,
   "definitions": {
@@ -15,9 +15,13 @@
     },
     "PolicyMap": {
       "additionalProperties": false,
-      "patternProperties": {
-        ".*{1,8}": { "$ref": "#/definitions/FailurePolicy" }
+      "properties": {
+        "AZ": { "$ref": "#/definitions/FailurePolicy" },
+        "Hardware": { "$ref": "#/definitions/FailurePolicy" },
+        "Region": { "$ref": "#/definitions/FailurePolicy" },
+        "Software": { "$ref": "#/definitions/FailurePolicy" }
       },
+      "required": ["AZ", "Hardware", "Software"],
       "type": "object"
     },
     "TagMap": {

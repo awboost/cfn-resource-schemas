@@ -1,5 +1,5 @@
 {
-  "$hash": "facae7e809d95925b4fbc03646359711c03063d2",
+  "$hash": "f63924e684e5daf2dd95ed464fe85b14cc4be382",
   "$id": "aws-ivschat-room.json",
   "additionalProperties": false,
   "definitions": {
@@ -61,7 +61,7 @@
       "permissions": [
         "ivschat:UpdateRoom",
         "ivschat:TagResource",
-        "ivschat:UnTagResource",
+        "ivschat:UntagResource",
         "ivschat:ListTagsForResource"
       ]
     }

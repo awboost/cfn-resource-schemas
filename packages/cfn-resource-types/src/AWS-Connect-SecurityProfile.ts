@@ -6,6 +6,13 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ConnectSecurityProfileProperties = {
   /**
+   * The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.
+   * @minLength `0`
+   * @maxLength `127`
+   * @pattern `^[a-zA-Z0-9-]+$`
+   */
+  AllowedAccessControlHierarchyGroupId?: string;
+  /**
    * The list of tags that a security profile uses to restrict access to resources in Amazon Connect.
    * @maxLength `2`
    */
@@ -16,6 +23,11 @@ export type ConnectSecurityProfileProperties = {
    * @maxLength `250`
    */
   Description?: string;
+  /**
+   * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
+   * @maxLength `10`
+   */
+  HierarchyRestrictedResources?: string[];
   /**
    * The identifier of the Amazon Connect instance.
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*$`
@@ -49,6 +61,15 @@ export type ConnectSecurityProfileProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html#aws-resource-connect-securityprofile-return-values}
  */
 export type ConnectSecurityProfileAttributes = {
+  /**
+   * The AWS Region where this resource was last modified.
+   * @pattern `[a-z]{2}(-[a-z]+){1,2}(-[0-9])?`
+   */
+  LastModifiedRegion: string;
+  /**
+   * The timestamp when this resource was last modified.
+   */
+  LastModifiedTime: number;
   /**
    * The Amazon Resource Name (ARN) for the security profile.
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*security-profile/[-a-zA-Z0-9]*$`

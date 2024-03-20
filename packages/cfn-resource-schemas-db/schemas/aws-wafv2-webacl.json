@@ -1,5 +1,5 @@
 {
-  "$hash": "eaf4ccc960acdcc836226aae5df5ef2f49decf00",
+  "$hash": "de7802c9734085f8897ee9f75a19cff197c0a604",
   "$id": "aws-wafv2-webacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -818,7 +818,7 @@
       "additionalProperties": false,
       "description": "Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig",
       "patternProperties": {
-        "^(CLOUDFRONT)$": {
+        "^(CLOUDFRONT|API_GATEWAY|COGNITO_USER_POOL|APP_RUNNER_SERVICE|VERIFIED_ACCESS_INSTANCE)$": {
           "$ref": "#/definitions/RequestBodyAssociatedResourceTypeConfig"
         }
       },

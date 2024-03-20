@@ -1,7 +1,8 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::EC2::InternetGateway
+ * Resource type definition for `AWS::EC2::InternetGateway`.
+ * Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html}
  */
 export type EC2InternetGatewayProperties = {
@@ -15,28 +16,29 @@ export type EC2InternetGatewayProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#aws-resource-ec2-internetgateway-return-values}
  */
 export type EC2InternetGatewayAttributes = {
-  /**
-   * ID of internet gateway.
-   */
   InternetGatewayId: string;
 };
 /**
  * Type definition for `AWS::EC2::InternetGateway.Tag`.
+ * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-internetgateway-tag.html}
  */
 export type Tag = {
   /**
+   * The tag key.
    * @minLength `1`
    * @maxLength `128`
    */
   Key: string;
   /**
+   * The tag value.
    * @maxLength `256`
    */
   Value: string;
 };
 /**
- * Resource Type definition for AWS::EC2::InternetGateway
+ * Resource type definition for `AWS::EC2::InternetGateway`.
+ * Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html}
  */
 export class EC2InternetGateway extends $Resource<

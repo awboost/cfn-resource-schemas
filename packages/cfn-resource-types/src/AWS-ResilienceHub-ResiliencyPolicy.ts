@@ -62,7 +62,24 @@ export type FailurePolicy = {
  * Type definition for `AWS::ResilienceHub::ResiliencyPolicy.PolicyMap`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html}
  */
-export type PolicyMap = Record<string, FailurePolicy>;
+export type PolicyMap = {
+  /**
+   * Failure Policy.
+   */
+  AZ: FailurePolicy;
+  /**
+   * Failure Policy.
+   */
+  Hardware: FailurePolicy;
+  /**
+   * Failure Policy.
+   */
+  Region?: FailurePolicy;
+  /**
+   * Failure Policy.
+   */
+  Software: FailurePolicy;
+};
 /**
  * Type definition for `AWS::ResilienceHub::ResiliencyPolicy.TagMap`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-tagmap.html}
