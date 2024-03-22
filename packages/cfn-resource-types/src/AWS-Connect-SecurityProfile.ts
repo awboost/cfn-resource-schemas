@@ -18,6 +18,11 @@ export type ConnectSecurityProfileProperties = {
    */
   AllowedAccessControlTags?: Tag[];
   /**
+   * A list of third-party applications that the security profile will give access to.
+   * @maxLength `10`
+   */
+  Applications?: Application[];
+  /**
    * The description of the security profile.
    * @minLength `0`
    * @maxLength `250`
@@ -75,6 +80,24 @@ export type ConnectSecurityProfileAttributes = {
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*security-profile/[-a-zA-Z0-9]*$`
    */
   SecurityProfileArn: string;
+};
+/**
+ * Type definition for `AWS::Connect::SecurityProfile.Application`.
+ * A third-party application's metadata.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html}
+ */
+export type Application = {
+  /**
+   * The permissions that the agent is granted on the application
+   * @maxLength `10`
+   */
+  ApplicationPermissions: string[];
+  /**
+   * Namespace of the application that you want to give access to.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Namespace: string;
 };
 /**
  * Type definition for `AWS::Connect::SecurityProfile.Tag`.

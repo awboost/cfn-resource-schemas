@@ -92,7 +92,7 @@ export type BackupPolicy = {
       +   *ENABLED* - Turns automatic backups on for the file system.
       +   *DISABLED* - Turns automatic backups off for the file system.
      */
-  Status: string;
+  Status: "DISABLED" | "ENABLED";
 };
 /**
  * Type definition for `AWS::EFS::FileSystem.ElasticFileSystemTag`.

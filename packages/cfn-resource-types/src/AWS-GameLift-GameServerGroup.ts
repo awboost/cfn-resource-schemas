@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type GameLiftGameServerGroupProperties = {
   /**
-   * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+   * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
    */
   AutoScalingPolicy?: AutoScalingPolicy;
   /**
@@ -35,16 +35,16 @@ export type GameLiftGameServerGroupProperties = {
    */
   InstanceDefinitions: InstanceDefinition[];
   /**
-   * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+   * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
    */
   LaunchTemplate?: LaunchTemplate;
   /**
-   * The maximum number of instances allowed in the EC2 Auto Scaling group.
+   * The maximum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
    * @min `1`
    */
   MaxSize?: number;
   /**
-   * The minimum number of instances allowed in the EC2 Auto Scaling group.
+   * The minimum number of instances allowed in the EC2 Auto Scaling group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
    * @min `0`
    */
   MinSize?: number;
@@ -56,13 +56,13 @@ export type GameLiftGameServerGroupProperties = {
    */
   RoleArn: string;
   /**
-   * A list of labels to assign to the new game server group resource.
+   * A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.
    * @minLength `0`
    * @maxLength `200`
    */
   Tags?: Tag[];
   /**
-   * A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
+   * A list of virtual private cloud (VPC) subnets to use with instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
    * @minLength `1`
    * @maxLength `20`
    */
@@ -91,7 +91,7 @@ export type GameLiftGameServerGroupAttributes = {
 };
 /**
  * Type definition for `AWS::GameLift::GameServerGroup.AutoScalingPolicy`.
- * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+ * Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html}
  */
 export type AutoScalingPolicy = {
@@ -143,7 +143,7 @@ export type InstanceDefinition = {
 };
 /**
  * Type definition for `AWS::GameLift::GameServerGroup.LaunchTemplate`.
- * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+ * The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group. Updating this game server group property will not take effect for the created EC2 Auto Scaling group, please update the EC2 Auto Scaling group directly after creating the resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html}
  */
 export type LaunchTemplate = {

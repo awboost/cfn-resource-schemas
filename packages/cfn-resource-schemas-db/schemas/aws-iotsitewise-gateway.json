@@ -1,5 +1,5 @@
 {
-  "$hash": "4f057a9d1d8a8e39a73b9d8f0be5969a4c3a5630",
+  "$hash": "b8628e4d8492e4b8559039365c4e36451342e276",
   "$id": "aws-iotsitewise-gateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayPlatform"],
@@ -29,7 +29,8 @@
       "description": "Contains a gateway's platform information.",
       "oneOf": [
         { "required": ["Greengrass"] },
-        { "required": ["GreengrassV2"] }
+        { "required": ["GreengrassV2"] },
+        { "required": ["SiemensIE"] }
       ],
       "properties": {
         "Greengrass": {
@@ -39,6 +40,10 @@
         "GreengrassV2": {
           "$ref": "#/definitions/GreengrassV2",
           "description": "A gateway that runs on AWS IoT Greengrass V2."
+        },
+        "SiemensIE": {
+          "$ref": "#/definitions/SiemensIE",
+          "description": "A gateway that runs on Siemens Industrial Edge."
         }
       },
       "type": "object"
@@ -65,6 +70,18 @@
         }
       },
       "required": ["CoreDeviceThingName"],
+      "type": "object"
+    },
+    "SiemensIE": {
+      "additionalProperties": false,
+      "description": "Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.",
+      "properties": {
+        "IotCoreThingName": {
+          "description": "The name of the IoT Core Thing.",
+          "type": "string"
+        }
+      },
+      "required": ["IotCoreThingName"],
       "type": "object"
     },
     "Tag": {

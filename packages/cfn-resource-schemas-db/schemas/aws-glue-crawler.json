@@ -1,5 +1,5 @@
 {
-  "$hash": "fa5dc23ed44ec55a798e2bc0db2900749b4b3e61",
+  "$hash": "3d5a6b11a11e6d9d52e803e2da6d5374dc237ca9",
   "$id": "aws-glue-crawler.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -66,6 +66,14 @@
           "uniqueItems": false
         },
         "Path": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "LakeFormationConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "AccountId": { "type": "string" },
+        "UseLakeFormationCredentials": { "type": "boolean" }
       },
       "type": "object"
     },
@@ -166,6 +174,9 @@
     "DatabaseName": { "type": "string" },
     "Description": { "type": "string" },
     "Id": { "type": "string" },
+    "LakeFormationConfiguration": {
+      "$ref": "#/definitions/LakeFormationConfiguration"
+    },
     "Name": { "type": "string" },
     "RecrawlPolicy": { "$ref": "#/definitions/RecrawlPolicy" },
     "Role": { "type": "string" },

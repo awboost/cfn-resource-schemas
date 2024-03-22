@@ -1,5 +1,5 @@
 {
-  "$hash": "4d5434383867cc758c4fbd95d0e8bcd6c523c60c",
+  "$hash": "a8be4d7c64d88ee46e7bde237e6c8187e7649dab",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -170,6 +170,10 @@
           "$ref": "#/definitions/ReadProvisionedThroughputSettings"
         },
         "Region": { "type": "string" },
+        "ReplicaStreamSpecification": {
+          "$ref": "#/definitions/ReplicaStreamSpecification"
+        },
+        "ResourcePolicy": { "$ref": "#/definitions/ResourcePolicy" },
         "SSESpecification": { "$ref": "#/definitions/ReplicaSSESpecification" },
         "TableClass": { "type": "string" },
         "Tags": {
@@ -180,6 +184,20 @@
         }
       },
       "required": ["Region"],
+      "type": "object"
+    },
+    "ReplicaStreamSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "ResourcePolicy": { "$ref": "#/definitions/ResourcePolicy" }
+      },
+      "required": ["ResourcePolicy"],
+      "type": "object"
+    },
+    "ResourcePolicy": {
+      "additionalProperties": false,
+      "properties": { "PolicyDocument": { "type": "object" } },
+      "required": ["PolicyDocument"],
       "type": "object"
     },
     "SSESpecification": {

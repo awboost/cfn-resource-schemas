@@ -1,5 +1,5 @@
 {
-  "$hash": "7af3a00d542ee294731c3799181a0881839824e1",
+  "$hash": "925369fbade737ead6e06c2db5e55a62c9a85f85",
   "$id": "aws-appintegrations-eventintegration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -133,5 +133,12 @@
   "readOnlyProperties": ["/properties/EventIntegrationArn"],
   "required": ["Name", "EventBridgeBus", "EventFilter"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::AppIntegrations::EventIntegration"
 }

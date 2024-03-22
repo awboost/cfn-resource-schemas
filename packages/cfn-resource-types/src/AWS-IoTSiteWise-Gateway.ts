@@ -61,6 +61,10 @@ export type GatewayPlatform = {
    * A gateway that runs on AWS IoT Greengrass V2.
    */
   GreengrassV2?: GreengrassV2;
+  /**
+   * A gateway that runs on Siemens Industrial Edge.
+   */
+  SiemensIE?: SiemensIE;
 };
 /**
  * Type definition for `AWS::IoTSiteWise::Gateway.Greengrass`.
@@ -83,6 +87,17 @@ export type GreengrassV2 = {
    * The name of the CoreDevice in GreenGrass V2.
    */
   CoreDeviceThingName: string;
+};
+/**
+ * Type definition for `AWS::IoTSiteWise::Gateway.SiemensIE`.
+ * Contains the IotCoreThingName of AWS IoT Thing that the gateway runs on.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-siemensie.html}
+ */
+export type SiemensIE = {
+  /**
+   * The name of the IoT Core Thing.
+   */
+  IotCoreThingName: string;
 };
 /**
  * Type definition for `AWS::IoTSiteWise::Gateway.Tag`.

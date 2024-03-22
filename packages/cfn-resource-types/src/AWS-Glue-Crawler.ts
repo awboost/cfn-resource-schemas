@@ -10,6 +10,7 @@ export type GlueCrawlerProperties = {
   CrawlerSecurityConfiguration?: string;
   DatabaseName?: string;
   Description?: string;
+  LakeFormationConfiguration?: LakeFormationConfiguration;
   Name?: string;
   RecrawlPolicy?: RecrawlPolicy;
   Role: string;
@@ -72,6 +73,14 @@ export type JdbcTarget = {
   ConnectionName?: string;
   Exclusions?: string[];
   Path?: string;
+};
+/**
+ * Type definition for `AWS::Glue::Crawler.LakeFormationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-lakeformationconfiguration.html}
+ */
+export type LakeFormationConfiguration = {
+  AccountId?: string;
+  UseLakeFormationCredentials?: boolean;
 };
 /**
  * Type definition for `AWS::Glue::Crawler.MongoDBTarget`.

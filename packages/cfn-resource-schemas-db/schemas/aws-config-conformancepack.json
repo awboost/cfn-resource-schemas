@@ -1,5 +1,5 @@
 {
-  "$hash": "28c9a007ae04afa8555e66f29e9051bbe0578302",
+  "$hash": "671132d373df178a43a6a6fd3acf6f8f6ebca92b",
   "$id": "aws-config-conformancepack.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConformancePackName"],
@@ -117,6 +117,13 @@
   },
   "required": ["ConformancePackName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-config.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::Config::ConformancePack",
   "writeOnlyProperties": [
     "/properties/TemplateBody",

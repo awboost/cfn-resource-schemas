@@ -1,5 +1,5 @@
 {
-  "$hash": "e2de71801d36f9b12272b127feac51c038940d90",
+  "$hash": "2c375bf41d52f68b2422b88f7dc8e9fb4040e668",
   "$id": "aws-connect-integrationassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -61,6 +61,7 @@
         "lex:CreateResourcePolicyStatement",
         "lambda:AddPermission",
         "app-integrations:GetApplication",
+        "app-integrations:CreateApplicationAssociation",
         "iam:AttachRolePolicy",
         "iam:CreateServiceLinkedRole",
         "iam:GetRolePolicy",
@@ -72,6 +73,7 @@
         "connect:DescribeInstance",
         "ds:DescribeDirectories",
         "app-integrations:DeleteEventIntegrationAssociation",
+        "app-integrations:DeleteApplicationAssociation",
         "events:ListTargetsByRule",
         "events:RemoveTargets",
         "events:DeleteRule",
@@ -90,6 +92,14 @@
       ]
     },
     "list": {
+      "handlerSchema": {
+        "properties": {
+          "InstanceId": {
+            "$ref": "resource-schema.json#/properties/InstanceId"
+          }
+        },
+        "required": ["InstanceId"]
+      },
       "permissions": [
         "connect:ListBots",
         "connect:ListLambdaFunctions",

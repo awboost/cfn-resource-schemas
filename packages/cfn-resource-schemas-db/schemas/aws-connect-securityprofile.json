@@ -1,5 +1,5 @@
 {
-  "$hash": "56e252dbe83d39d46a8cd4b07c682c8e43d45662",
+  "$hash": "50c3650b3657f6c701a031dbff146dd6efdd3157",
   "$id": "aws-connect-securityprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,6 +7,34 @@
     "/properties/InstanceArn"
   ],
   "definitions": {
+    "Application": {
+      "additionalProperties": false,
+      "description": "A third-party application's metadata.",
+      "properties": {
+        "ApplicationPermissions": {
+          "description": "The permissions that the agent is granted on the application",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/ApplicationPermission" },
+          "maxItems": 10,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "Namespace": {
+          "description": "Namespace of the application that you want to give access to.",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["ApplicationPermissions", "Namespace"],
+      "type": "object"
+    },
+    "ApplicationPermission": {
+      "description": "The permissions that the agent is granted on the application.",
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
     "Permission": {
       "description": "A permission associated with the security profile.",
       "maxLength": 128,
@@ -63,6 +91,7 @@
     "read": {
       "permissions": [
         "connect:DescribeSecurityProfile",
+        "connect:ListSecurityProfileApplications",
         "connect:ListSecurityProfilePermissions"
       ]
     },
@@ -88,6 +117,14 @@
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "maxItems": 2,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "Applications": {
+      "description": "A list of third-party applications that the security profile will give access to.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Application" },
+      "maxItems": 10,
       "type": "array",
       "uniqueItems": true
     },

@@ -1,115 +1,121 @@
-- updated `AWS::AutoScaling::AutoScalingGroup`
-  - updated definition `AcceleratorCountRequest`
-  - updated definition `AcceleratorTotalMemoryMiBRequest`
-  - updated definition `BaselineEbsBandwidthMbpsRequest`
-  - updated definition `InstanceMaintenancePolicy`
-  - updated definition `InstanceRequirements`
-  - updated definition `InstancesDistribution`
-  - updated definition `LaunchTemplateOverrides`
-  - updated definition `LaunchTemplateSpecification`
-  - updated definition `LaunchTemplate`
-  - updated definition `LifecycleHookSpecification`
-  - updated definition `MemoryGiBPerVCpuRequest`
-  - updated definition `MemoryMiBRequest`
-  - updated definition `MetricsCollection`
-  - updated definition `MixedInstancesPolicy`
-  - updated definition `NetworkBandwidthGbpsRequest`
-  - updated definition `NetworkInterfaceCountRequest`
-  - updated definition `NotificationConfiguration`
-  - updated definition `TagProperty`
-  - updated definition `TotalLocalStorageGBRequest`
-  - updated definition `VCpuCountRequest`
-  - updated property `AutoScalingGroupName`
-  - updated property `AvailabilityZones`
-  - updated property `CapacityRebalance`
-  - updated property `Context`
-  - updated property `Cooldown`
-  - updated property `DefaultInstanceWarmup`
-  - updated property `DesiredCapacityType`
-  - updated property `DesiredCapacity`
-  - updated property `HealthCheckGracePeriod`
-  - updated property `HealthCheckType`
-  - updated property `InstanceId`
-  - updated property `InstanceMaintenancePolicy`
-  - updated property `LaunchConfigurationName`
-  - updated property `LaunchTemplate`
-  - updated property `LifecycleHookSpecificationList`
-  - updated property `LoadBalancerNames`
-  - updated property `MaxInstanceLifetime`
-  - updated property `MaxSize`
-  - updated property `MetricsCollection`
-  - updated property `MinSize`
-  - updated property `MixedInstancesPolicy`
-  - updated property `NewInstancesProtectedFromScaleIn`
-  - updated property `NotificationConfiguration`
-  - updated property `NotificationConfigurations`
-  - updated property `PlacementGroup`
-  - updated property `ServiceLinkedRoleARN`
-  - updated property `Tags`
-  - updated property `TargetGroupARNs`
-  - updated property `TerminationPolicies`
-  - updated property `VPCZoneIdentifier`
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `CacheBehavior`
-  - updated definition `Cookies`
-  - updated definition `CustomErrorResponse`
-  - updated definition `DefaultCacheBehavior`
-  - updated definition `DistributionConfig`
-  - updated definition `ForwardedValues`
-  - updated definition `S3OriginConfig`
-  - updated definition `ViewerCertificate`
-- updated `AWS::Connect::SecurityProfile`
-  - added property `AllowedAccessControlHierarchyGroupId`
-  - added property `HierarchyRestrictedResources`
-  - added property `LastModifiedRegion`
-  - added property `LastModifiedTime`
-  - updated `readOnlyProperties`
-  - updated definition `ResourceName`
-- updated `AWS::EC2::InternetGateway`
-  - updated definition `Tag`
-  - updated property `InternetGatewayId`
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - updated definition `Action`
-  - updated definition `AuthenticateCognitoConfig`
-  - updated definition `AuthenticateOidcConfig`
-  - updated definition `FixedResponseConfig`
-  - updated definition `ForwardConfig`
-  - updated definition `HostHeaderConfig`
-  - updated definition `HttpHeaderConfig`
-  - updated definition `HttpRequestMethodConfig`
-  - updated definition `PathPatternConfig`
-  - updated definition `QueryStringConfig`
-  - updated definition `QueryStringKeyValue`
-  - updated definition `RedirectConfig`
-  - updated definition `RuleCondition`
-  - updated definition `SourceIpConfig`
-  - updated definition `TargetGroupStickinessConfig`
-  - updated definition `TargetGroupTuple`
-  - updated property `Actions`
-  - updated property `Conditions`
-  - updated property `IsDefault`
-  - updated property `ListenerArn`
-  - updated property `Priority`
-  - updated property `RuleArn`
-- updated `AWS::IVSChat::LoggingConfiguration`
-  - updated handler permissions
-- updated `AWS::IVSChat::Room`
-  - updated handler permissions
-- updated `AWS::KafkaConnect::Connector`
-  - added `additionalIdentifiers`
+- added `AWS::AppIntegrations::Application`
+- added `AWS::CodeArtifact::PackageGroup`
+- added `AWS::SecurityHub::DelegatedAdmin`
+- added `AWS::SecurityHub::Insight`
+- added `AWS::SecurityHub::ProductSubscription`
+- updated `AWS::AppIntegrations::EventIntegration`
   - added `tagging`
-  - added definition `Tag`
-  - added property `Tags`
+- updated `AWS::Config::ConformancePack`
+  - added `tagging`
+- updated `AWS::Connect::IntegrationAssociation`
   - updated handler permissions
-- updated `AWS::Kendra::Faq`
-  - added definition `LanguageCode`
-  - added property `LanguageCode`
-- updated `AWS::ResilienceHub::ResiliencyPolicy`
-  - updated definition `PolicyMap`
-- updated `AWS::SSM::Association`
-  - updated definition `S3BucketName`
-  - updated definition `Target`
-- updated `AWS::SSM::Parameter`
-  - updated property `Type`
-- updated `AWS::WAFv2::WebACL`
-  - updated definition `RequestBody`
+- updated `AWS::Connect::SecurityProfile`
+  - added definition `ApplicationPermission`
+  - added definition `Application`
+  - added property `Applications`
+  - updated handler permissions
+- updated `AWS::DMS::DataProvider`
+  - updated property `Settings`
+- updated `AWS::DynamoDB::GlobalTable`
+  - added definition `ReplicaStreamSpecification`
+  - added definition `ResourcePolicy`
+  - updated definition `ReplicaSpecification`
+- updated `AWS::DynamoDB::Table`
+  - added definition `ResourcePolicy`
+  - added property `ResourcePolicy`
+  - updated definition `StreamSpecification`
+- updated `AWS::EC2::Instance`
+  - added `conditionalCreateOnlyProperties`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - added property `InstanceId`
+  - added property `VpcId`
+  - removed definition `CpuOptions`
+  - removed definition `CreditSpecification`
+  - removed definition `EnclaveOptions`
+  - removed definition `HibernationOptions`
+  - removed definition `NoDevice`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `AssociationParameter`
+  - updated definition `BlockDeviceMapping`
+  - updated definition `Ebs`
+  - updated definition `ElasticGpuSpecification`
+  - updated definition `ElasticInferenceAccelerator`
+  - updated definition `InstanceIpv6Address`
+  - updated definition `LaunchTemplateSpecification`
+  - updated definition `LicenseSpecification`
+  - updated definition `NetworkInterface`
+  - updated definition `PrivateDnsNameOptions`
+  - updated definition `PrivateIpAddressSpecification`
+  - updated definition `SsmAssociation`
+  - updated definition `Volume`
+  - updated handler permissions
+  - updated property `AdditionalInfo`
+  - updated property `Affinity`
+  - updated property `AvailabilityZone`
+  - updated property `BlockDeviceMappings`
+  - updated property `CpuOptions`
+  - updated property `CreditSpecification`
+  - updated property `DisableApiTermination`
+  - updated property `EbsOptimized`
+  - updated property `ElasticGpuSpecifications`
+  - updated property `ElasticInferenceAccelerators`
+  - updated property `EnclaveOptions`
+  - updated property `HibernationOptions`
+  - updated property `HostId`
+  - updated property `HostResourceGroupArn`
+  - updated property `IamInstanceProfile`
+  - updated property `ImageId`
+  - updated property `InstanceInitiatedShutdownBehavior`
+  - updated property `InstanceType`
+  - updated property `Ipv6AddressCount`
+  - updated property `Ipv6Addresses`
+  - updated property `KernelId`
+  - updated property `KeyName`
+  - updated property `LaunchTemplate`
+  - updated property `LicenseSpecifications`
+  - updated property `Monitoring`
+  - updated property `NetworkInterfaces`
+  - updated property `PlacementGroupName`
+  - updated property `PrivateDnsNameOptions`
+  - updated property `PrivateDnsName`
+  - updated property `PrivateIpAddress`
+  - updated property `PrivateIp`
+  - updated property `PropagateTagsToVolumeOnCreation`
+  - updated property `PublicDnsName`
+  - updated property `PublicIp`
+  - updated property `RamdiskId`
+  - updated property `SecurityGroupIds`
+  - updated property `SecurityGroups`
+  - updated property `SourceDestCheck`
+  - updated property `SsmAssociations`
+  - updated property `SubnetId`
+  - updated property `Tags`
+  - updated property `Tenancy`
+  - updated property `UserData`
+  - updated property `Volumes`
+- updated `AWS::EFS::FileSystem`
+  - updated definition `BackupPolicy`
+- updated `AWS::GameLift::GameServerGroup`
+  - updated definition `AutoScalingPolicy`
+  - updated definition `LaunchTemplate`
+  - updated definition `MaxSize`
+  - updated definition `MinSize`
+  - updated definition `Tags`
+  - updated definition `VpcSubnets`
+  - updated property `AutoScalingPolicy`
+  - updated property `LaunchTemplate`
+  - updated property `MaxSize`
+  - updated property `MinSize`
+  - updated property `Tags`
+  - updated property `VpcSubnets`
+- updated `AWS::Glue::Crawler`
+  - added definition `LakeFormationConfiguration`
+  - added property `LakeFormationConfiguration`
+- updated `AWS::IoTSiteWise::Gateway`
+  - added definition `SiemensIE`
+  - updated definition `GatewayPlatform`

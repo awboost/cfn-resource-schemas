@@ -67,6 +67,7 @@ export type DynamoDBTableProperties = {
      If you set ``BillingMode`` as ``PROVISIONED``, you must specify this property. If you set ``BillingMode`` as ``PAY_PER_REQUEST``, you cannot specify this property.
      */
   ProvisionedThroughput?: ProvisionedThroughput;
+  ResourcePolicy?: ResourcePolicy;
   /**
    * Specifies the settings to enable server-side encryption.
    */
@@ -326,6 +327,13 @@ export type ProvisionedThroughput = {
   WriteCapacityUnits: number;
 };
 /**
+ * Type definition for `AWS::DynamoDB::Table.ResourcePolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html}
+ */
+export type ResourcePolicy = {
+  PolicyDocument: Record<string, any>;
+};
+/**
  * Type definition for `AWS::DynamoDB::Table.S3BucketSource`.
  * The S3 bucket that is being imported from.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-s3bucketsource.html}
@@ -370,6 +378,7 @@ export type SSESpecification = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html}
  */
 export type StreamSpecification = {
+  ResourcePolicy?: ResourcePolicy;
   /**
      * When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:
       +   ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.

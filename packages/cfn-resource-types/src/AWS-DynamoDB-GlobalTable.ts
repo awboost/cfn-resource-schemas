@@ -182,6 +182,8 @@ export type ReplicaSpecification = {
   PointInTimeRecoverySpecification?: PointInTimeRecoverySpecification;
   ReadProvisionedThroughputSettings?: ReadProvisionedThroughputSettings;
   Region: string;
+  ReplicaStreamSpecification?: ReplicaStreamSpecification;
+  ResourcePolicy?: ResourcePolicy;
   SSESpecification?: ReplicaSSESpecification;
   TableClass?: string;
   Tags?: Tag[];
@@ -192,6 +194,20 @@ export type ReplicaSpecification = {
  */
 export type ReplicaSSESpecification = {
   KMSMasterKeyId: string;
+};
+/**
+ * Type definition for `AWS::DynamoDB::GlobalTable.ReplicaStreamSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html}
+ */
+export type ReplicaStreamSpecification = {
+  ResourcePolicy: ResourcePolicy;
+};
+/**
+ * Type definition for `AWS::DynamoDB::GlobalTable.ResourcePolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-resourcepolicy.html}
+ */
+export type ResourcePolicy = {
+  PolicyDocument: Record<string, any>;
 };
 /**
  * Type definition for `AWS::DynamoDB::GlobalTable.SSESpecification`.
