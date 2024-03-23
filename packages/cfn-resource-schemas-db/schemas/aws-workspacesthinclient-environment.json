@@ -1,5 +1,5 @@
 {
-  "$hash": "f141c65322fde351637291b0ed2e20364b04bd25",
+  "$hash": "86c2cf06d23ecad7f51cd7661ddf348993bb5f05",
   "$id": "aws-workspacesthinclient-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn", "/properties/DesktopArn"],
@@ -95,7 +95,8 @@
         "kms:DescribeKey",
         "kms:Encrypt",
         "kms:Decrypt",
-        "kms:CreateGrant"
+        "kms:CreateGrant",
+        "kms:GenerateDataKey"
       ]
     },
     "delete": {
@@ -112,7 +113,8 @@
         "thinclient:ListTagsForResource",
         "kms:DescribeKey",
         "kms:Encrypt",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
       ]
     },
     "read": {
@@ -121,7 +123,8 @@
         "thinclient:ListTagsForResource",
         "kms:DescribeKey",
         "kms:Encrypt",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
       ]
     },
     "update": {
@@ -139,7 +142,8 @@
         "kms:Encrypt",
         "kms:Decrypt",
         "kms:CreateGrant",
-        "kms:RetireGrant"
+        "kms:RetireGrant",
+        "kms:GenerateDataKey"
       ]
     }
   },
