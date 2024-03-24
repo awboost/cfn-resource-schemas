@@ -1,5 +1,5 @@
 {
-  "$hash": "815f3d7c7837284b8c8f8603dfe72d399abfbced",
+  "$hash": "da66f1b2780d2b38f51fec528f0a5b527cd5b84b",
   "$id": "aws-cloudwatch-anomalydetector.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -94,6 +94,7 @@
     "SingleMetricAnomalyDetector": {
       "additionalProperties": false,
       "properties": {
+        "AccountId": { "type": "string" },
         "Dimensions": {
           "items": { "$ref": "#/definitions/Dimension" },
           "type": "array",

@@ -88,6 +88,7 @@ export type Range = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-singlemetricanomalydetector.html}
  */
 export type SingleMetricAnomalyDetector = {
+  AccountId?: string;
   Dimensions?: Dimension[];
   MetricName?: string;
   Namespace?: string;

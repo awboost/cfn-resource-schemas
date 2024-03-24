@@ -1,4 +1,21 @@
-- added `AWS::KafkaConnect::CustomPlugin`
-- added `AWS::KafkaConnect::WorkerConfiguration`
-- updated `AWS::WorkSpacesThinClient::Environment`
-  - updated handler permissions
+- removed `AWS::SecurityHub::DelegatedAdmin`
+- removed `AWS::SecurityHub::Insight`
+- removed `AWS::SecurityHub::ProductSubscription`
+- updated `AWS::CloudWatch::AnomalyDetector`
+  - updated definition `SingleMetricAnomalyDetector`
+- updated `AWS::IAM::ManagedPolicy`
+  - updated property `AttachmentCount`
+  - updated property `CreateDate`
+  - updated property `DefaultVersionId`
+  - updated property `Description`
+  - updated property `Groups`
+  - updated property `IsAttachable`
+  - updated property `ManagedPolicyName`
+  - updated property `Path`
+  - updated property `PermissionsBoundaryUsageCount`
+  - updated property `PolicyArn`
+  - updated property `PolicyDocument`
+  - updated property `PolicyId`
+  - updated property `Roles`
+  - updated property `UpdateDate`
+  - updated property `Users`
