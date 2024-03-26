@@ -1,5 +1,5 @@
 {
-  "$hash": "d232c6cbe3c810d270d0271bd1e346ac8bba8498",
+  "$hash": "9869548cc7e245f9e02d19182b29b8432f2f4748",
   "$id": "aws-ecr-pullthroughcacherule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -106,7 +106,7 @@
     }
   },
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ecr.git",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::ECR::PullThroughCacheRule",
   "writeOnlyProperties": [
     "/properties/CredentialArn",

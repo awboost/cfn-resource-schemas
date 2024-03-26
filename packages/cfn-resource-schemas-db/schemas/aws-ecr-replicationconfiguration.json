@@ -1,5 +1,5 @@
 {
-  "$hash": "d13c699fa2c8b992793d92ffe00e5a7f7a87712f",
+  "$hash": "c4ebdd964aa2d3b72e1306115b55867953d0a72a",
   "$id": "aws-ecr-replicationconfiguration.json",
   "additionalProperties": false,
   "definitions": {
@@ -120,5 +120,6 @@
   "readOnlyProperties": ["/properties/RegistryId"],
   "required": ["ReplicationConfiguration"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ecr.git",
+  "tagging": { "taggable": false },
   "typeName": "AWS::ECR::ReplicationConfiguration"
 }

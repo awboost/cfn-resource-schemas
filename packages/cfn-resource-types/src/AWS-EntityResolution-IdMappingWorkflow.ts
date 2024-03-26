@@ -22,7 +22,7 @@ export type EntityResolutionIdMappingWorkflowProperties = {
    * @minLength `1`
    * @maxLength `1`
    */
-  OutputSourceConfig: IdMappingWorkflowOutputSource[];
+  OutputSourceConfig?: IdMappingWorkflowOutputSource[];
   /**
    * @pattern `^arn:(aws|aws-us-gov|aws-cn):iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
    */
@@ -73,7 +73,7 @@ export type IdMappingTechniques = {
  */
 export type IdMappingWorkflowInputSource = {
   /**
-   * An Glue table ARN for the input source table
+   * An Glue table ARN for the input source table or IdNamespace ARN
    * @pattern `arn:(aws|aws-us-gov|aws-cn):.*:.*:[0-9]+:.*$`
    */
   InputSourceARN: string;
@@ -81,7 +81,8 @@ export type IdMappingWorkflowInputSource = {
    * The SchemaMapping arn associated with the Schema
    * @pattern `^arn:(aws|aws-us-gov|aws-cn):entityresolution:.*:[0-9]+:(schemamapping/.*)$`
    */
-  SchemaArn: string;
+  SchemaArn?: string;
+  Type?: "SOURCE" | "TARGET";
 };
 /**
  * Type definition for `AWS::EntityResolution::IdMappingWorkflow.IdMappingWorkflowOutputSource`.

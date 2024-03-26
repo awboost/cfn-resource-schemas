@@ -1,5 +1,5 @@
 {
-  "$hash": "6f413d8d8ce60cd04f56ef7c839ef1021255f039",
+  "$hash": "378213312cd999c0f239eb804b4de55ab5a4887a",
   "$id": "aws-entityresolution-idmappingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
@@ -38,16 +38,17 @@
       "additionalProperties": false,
       "properties": {
         "InputSourceARN": {
-          "description": "An Glue table ARN for the input source table",
+          "description": "An Glue table ARN for the input source table or IdNamespace ARN",
           "pattern": "arn:(aws|aws-us-gov|aws-cn):.*:.*:[0-9]+:.*$",
           "type": "string"
         },
         "SchemaArn": {
           "$ref": "#/definitions/SchemaMappingArn",
           "type": "string"
-        }
+        },
+        "Type": { "enum": ["SOURCE", "TARGET"], "type": "string" }
       },
-      "required": ["InputSourceARN", "SchemaArn"],
+      "required": ["InputSourceARN"],
       "type": "object"
     },
     "IdMappingWorkflowOutputSource": {
@@ -217,7 +218,6 @@
   "required": [
     "WorkflowName",
     "InputSourceConfig",
-    "OutputSourceConfig",
     "IdMappingTechniques",
     "RoleArn"
   ],

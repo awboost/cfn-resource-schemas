@@ -1,21 +1,18 @@
-- removed `AWS::SecurityHub::DelegatedAdmin`
-- removed `AWS::SecurityHub::Insight`
-- removed `AWS::SecurityHub::ProductSubscription`
-- updated `AWS::CloudWatch::AnomalyDetector`
-  - updated definition `SingleMetricAnomalyDetector`
-- updated `AWS::IAM::ManagedPolicy`
-  - updated property `AttachmentCount`
-  - updated property `CreateDate`
-  - updated property `DefaultVersionId`
-  - updated property `Description`
-  - updated property `Groups`
-  - updated property `IsAttachable`
-  - updated property `ManagedPolicyName`
-  - updated property `Path`
-  - updated property `PermissionsBoundaryUsageCount`
-  - updated property `PolicyArn`
-  - updated property `PolicyDocument`
-  - updated property `PolicyId`
-  - updated property `Roles`
-  - updated property `UpdateDate`
-  - updated property `Users`
+- updated `AWS::Config::OrganizationConformancePack`
+  - added `tagging`
+- updated `AWS::DocDBElastic::Cluster`
+  - added property `BackupRetentionPeriod`
+  - added property `PreferredBackupWindow`
+  - added property `ShardInstanceCount`
+  - updated handler permissions
+- updated `AWS::ECR::PullThroughCacheRule`
+  - added `tagging`
+- updated `AWS::ECR::RegistryPolicy`
+  - added `tagging`
+- updated `AWS::ECR::ReplicationConfiguration`
+  - added `tagging`
+- updated `AWS::ECR::Repository`
+  - added `tagging`
+- updated `AWS::EntityResolution::IdMappingWorkflow`
+  - updated `required`
+  - updated definition `IdMappingWorkflowInputSource`

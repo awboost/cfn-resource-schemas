@@ -8,6 +8,7 @@ export type DocDBElasticClusterProperties = {
   AdminUserName: string;
   AdminUserPassword?: string;
   AuthType: string;
+  BackupRetentionPeriod?: number;
   /**
    * @minLength `1`
    * @maxLength `50`
@@ -15,9 +16,11 @@ export type DocDBElasticClusterProperties = {
    */
   ClusterName: string;
   KmsKeyId?: string;
+  PreferredBackupWindow?: string;
   PreferredMaintenanceWindow?: string;
   ShardCapacity: number;
   ShardCount: number;
+  ShardInstanceCount?: number;
   SubnetIds?: string[];
   /**
    * @minLength `0`
