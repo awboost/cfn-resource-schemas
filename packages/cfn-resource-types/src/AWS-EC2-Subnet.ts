@@ -31,6 +31,7 @@ export type EC2SubnetProperties = {
    * Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.
    */
   EnableDns64?: boolean;
+  EnableLniAtDeviceIndex?: number;
   /**
    * An IPv4 IPAM pool ID for the subnet.
    */

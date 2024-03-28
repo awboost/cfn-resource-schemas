@@ -14,6 +14,10 @@ export type CodeStarConnectionsSyncConfigurationProperties = {
    */
   ConfigFile: string;
   /**
+   * Whether to enable or disable publishing of deployment status to source providers.
+   */
+  PublishDeploymentStatus?: "ENABLED" | "DISABLED";
+  /**
    * A UUID that uniquely identifies the RepositoryLink that the SyncConfig is associated with.
    * @pattern `[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`
    */
@@ -31,6 +35,10 @@ export type CodeStarConnectionsSyncConfigurationProperties = {
    * The type of resource synchronization service that is to be configured, for example, CFN_STACK_SYNC.
    */
   SyncType: string;
+  /**
+   * When to trigger Git sync to begin the stack update.
+   */
+  TriggerResourceUpdateOn?: "ANY_CHANGE" | "FILE_CHANGE";
 };
 /**
  * Attribute type definition for `AWS::CodeStarConnections::SyncConfiguration`.
@@ -44,9 +52,13 @@ export type CodeStarConnectionsSyncConfigurationAttributes = {
   OwnerId: string;
   /**
    * The name of the external provider where your third-party code repository is configured.
-   * @pattern `^(GitHub|Bitbucket|GitHubEnterprise|GitLab)$`
    */
-  ProviderType: string;
+  ProviderType:
+    | "GitHub"
+    | "Bitbucket"
+    | "GitHubEnterprise"
+    | "GitLab"
+    | "GitLabSelfManaged";
   /**
    * The name of the repository that is being synced to.
    * @pattern `[a-za-z0-9_\.-]+`

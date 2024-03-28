@@ -1,5 +1,5 @@
 {
-  "$hash": "0549245a4fb382460ee4f2dc2ff717f998372df9",
+  "$hash": "8a9a8f8fa8013b96fdb8c74c3a90d150a3e3d032",
   "$id": "aws-cleanrooms-configuredtable.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -130,7 +130,8 @@
         "AllowedAnalyses": { "$ref": "#/definitions/AllowedAnalyses" },
         "AllowedAnalysisProviders": {
           "$ref": "#/definitions/AllowedAnalysisProviders"
-        }
+        },
+        "DifferentialPrivacy": { "$ref": "#/definitions/DifferentialPrivacy" }
       },
       "required": ["AllowedAnalyses"],
       "type": "object"
@@ -203,6 +204,25 @@
       "enum": ["AGGREGATION", "LIST", "CUSTOM"],
       "type": "string"
     },
+    "DifferentialPrivacy": {
+      "additionalProperties": false,
+      "properties": {
+        "Columns": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/DifferentialPrivacyColumn" },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["Columns"],
+      "type": "object"
+    },
+    "DifferentialPrivacyColumn": {
+      "additionalProperties": false,
+      "properties": { "Name": { "type": "string" } },
+      "required": ["Name"],
+      "type": "object"
+    },
     "GlueTableReference": {
       "additionalProperties": false,
       "properties": {
@@ -236,7 +256,18 @@
         "LOWER",
         "RTRIM",
         "UPPER",
-        "COALESCE"
+        "COALESCE",
+        "CONVERT",
+        "CURRENT_DATE",
+        "DATEADD",
+        "EXTRACT",
+        "GETDATE",
+        "SUBSTRING",
+        "TO_CHAR",
+        "TO_DATE",
+        "TO_NUMBER",
+        "TO_TIMESTAMP",
+        "TRIM"
       ],
       "type": "string"
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "7b76d5b2234eca13db4ce4db510655aff390b78c",
+  "$hash": "b378767708884ad4842fb6f1074b2cf0183a7840",
   "$id": "aws-ec2-subnet.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/Ipv6CidrBlock"],
@@ -77,6 +77,7 @@
       "description": "Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. For more information, see [DNS64 and NAT64](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-nat64-dns64) in the *User Guide*.",
       "type": "boolean"
     },
+    "EnableLniAtDeviceIndex": { "description": "", "type": "integer" },
     "Ipv4IpamPoolId": {
       "description": "An IPv4 IPAM pool ID for the subnet.",
       "type": "string"
@@ -152,6 +153,7 @@
   },
   "typeName": "AWS::EC2::Subnet",
   "writeOnlyProperties": [
+    "/properties/EnableLniAtDeviceIndex",
     "/properties/Ipv4IpamPoolId",
     "/properties/Ipv4NetmaskLength",
     "/properties/Ipv6IpamPoolId",

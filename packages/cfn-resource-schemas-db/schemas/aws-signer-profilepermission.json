@@ -1,5 +1,5 @@
 {
-  "$hash": "2c20a494b728fe7339fbd5c156e2e70ecb6521a6",
+  "$hash": "4f2e4508f8f7f09d33b37bb55cc83aa63d4f7029",
   "$id": "aws-signer-profilepermission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -24,6 +24,16 @@
       ]
     },
     "list": {
+      "handlerSchema": {
+        "properties": {
+          "ProfileName": {
+            "$ref": "resource-schema.json#/properties/ProfileName"
+          },
+          "StatementId": {
+            "$ref": "resource-schema.json#/properties/StatementId"
+          }
+        }
+      },
       "permissions": [
         "signer:ListProfilePermissions",
         "signer:GetSigningProfile"

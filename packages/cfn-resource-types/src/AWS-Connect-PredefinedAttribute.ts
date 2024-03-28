@@ -29,13 +29,28 @@ export type ConnectPredefinedAttributeProperties = {
   };
 };
 /**
+ * Attribute type definition for `AWS::Connect::PredefinedAttribute`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html#aws-resource-connect-predefinedattribute-return-values}
+ */
+export type ConnectPredefinedAttributeAttributes = {
+  /**
+   * Last modified region.
+   * @pattern `[a-z]{2}(-[a-z]+){1,2}(-[0-9])?`
+   */
+  LastModifiedRegion: string;
+  /**
+   * Last modified time.
+   */
+  LastModifiedTime: number;
+};
+/**
  * Resource Type definition for AWS::Connect::PredefinedAttribute
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html}
  */
 export class ConnectPredefinedAttribute extends $Resource<
   "AWS::Connect::PredefinedAttribute",
   ConnectPredefinedAttributeProperties,
-  Record<string, never>
+  ConnectPredefinedAttributeAttributes
 > {
   public static readonly Type = "AWS::Connect::PredefinedAttribute";
   constructor(

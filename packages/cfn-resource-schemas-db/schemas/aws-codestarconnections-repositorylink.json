@@ -1,5 +1,5 @@
 {
-  "$hash": "6efb9e7177a4b60db05a9497fdf1b778ae93c106",
+  "$hash": "c873776f08fbe6b1262dd9b664e821bc9b2055d7",
   "$id": "aws-codestarconnections-repositorylink.json",
   "additionalIdentifiers": [["/properties/RepositoryLinkId"]],
   "additionalProperties": false,
@@ -89,7 +89,13 @@
     },
     "ProviderType": {
       "description": "The name of the external provider where your third-party code repository is configured.",
-      "pattern": "^(GitHub|Bitbucket|GitHubEnterprise|GitLab)$",
+      "enum": [
+        "GitHub",
+        "Bitbucket",
+        "GitHubEnterprise",
+        "GitLab",
+        "GitLabSelfManaged"
+      ],
       "type": "string"
     },
     "RepositoryLinkArn": {

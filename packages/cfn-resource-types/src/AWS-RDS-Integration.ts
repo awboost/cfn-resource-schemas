@@ -11,6 +11,19 @@ export type RDSIntegrationProperties = {
    */
   AdditionalEncryptionContext?: EncryptionContextMap;
   /**
+   * The data filter for the integration.
+   * @minLength `1`
+   * @maxLength `25600`
+   * @pattern `[a-zA-Z0-9_ "\\\-$,*.:?+\/]*`
+   */
+  DataFilter?: string;
+  /**
+   * The description of the integration.
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  Description?: string;
+  /**
    * The name of the integration.
    * @minLength `1`
    * @maxLength `64`

@@ -37,9 +37,13 @@ export type CodeStarConnectionsRepositoryLinkProperties = {
 export type CodeStarConnectionsRepositoryLinkAttributes = {
   /**
    * The name of the external provider where your third-party code repository is configured.
-   * @pattern `^(GitHub|Bitbucket|GitHubEnterprise|GitLab)$`
    */
-  ProviderType: string;
+  ProviderType:
+    | "GitHub"
+    | "Bitbucket"
+    | "GitHubEnterprise"
+    | "GitLab"
+    | "GitLabSelfManaged";
   /**
    * A unique Amazon Resource Name (ARN) to designate the repository link.
    * @pattern `arn:(aws|aws-us-gov|aws-cn):.+:.+:[0-9]{12}:.+`

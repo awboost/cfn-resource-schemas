@@ -1,5 +1,5 @@
 {
-  "$hash": "321efd85e49d79453a13c6d330c314f8a84f2033",
+  "$hash": "1aaf876cd196cb421113e4cbb01588c066655057",
   "$id": "aws-networkfirewall-tlsinspectionconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TLSInspectionConfigurationName"],
@@ -151,6 +151,7 @@
   "handlers": {
     "create": {
       "permissions": [
+        "iam:CreateServiceLinkedRole",
         "network-firewall:CreateTLSInspectionConfiguration",
         "network-firewall:DescribeTLSInspectionConfiguration",
         "network-firewall:TagResource"

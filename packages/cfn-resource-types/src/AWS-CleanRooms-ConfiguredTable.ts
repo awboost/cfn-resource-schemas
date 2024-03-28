@@ -142,6 +142,7 @@ export type AnalysisRuleCustom = {
    * @minLength `0`
    */
   AllowedAnalysisProviders?: string[];
+  DifferentialPrivacy?: DifferentialPrivacy;
 };
 /**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.AnalysisRuleList`.
@@ -185,6 +186,23 @@ export type ConfiguredTableAnalysisRulePolicyV1 =
  */
 export type ConfiguredTableAnalysisRuleType = "AGGREGATION" | "LIST" | "CUSTOM";
 /**
+ * Type definition for `AWS::CleanRooms::ConfiguredTable.DifferentialPrivacy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-differentialprivacy.html}
+ */
+export type DifferentialPrivacy = {
+  /**
+   * @minLength `1`
+   */
+  Columns: DifferentialPrivacyColumn[];
+};
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTable.DifferentialPrivacyColumn`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-differentialprivacycolumn.html}
+ */
+export type DifferentialPrivacyColumn = {
+  Name: string;
+};
+/**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.GlueTableReference`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html}
  */
@@ -227,7 +245,18 @@ export type ScalarFunctions =
   | "LOWER"
   | "RTRIM"
   | "UPPER"
-  | "COALESCE";
+  | "COALESCE"
+  | "CONVERT"
+  | "CURRENT_DATE"
+  | "DATEADD"
+  | "EXTRACT"
+  | "GETDATE"
+  | "SUBSTRING"
+  | "TO_CHAR"
+  | "TO_DATE"
+  | "TO_NUMBER"
+  | "TO_TIMESTAMP"
+  | "TRIM";
 /**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.TableReference`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html}

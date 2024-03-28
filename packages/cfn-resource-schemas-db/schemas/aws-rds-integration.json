@@ -1,13 +1,12 @@
 {
-  "$hash": "5cfa82caf569e9a28224fb75c279617074f10dd1",
+  "$hash": "16e1e1f66a40fe6b828ea3d138c9e54eccccf0a8",
   "$id": "aws-rds-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SourceArn",
     "/properties/TargetArn",
     "/properties/KMSKeyId",
-    "/properties/AdditionalEncryptionContext",
-    "/properties/IntegrationName"
+    "/properties/AdditionalEncryptionContext"
   ],
   "definitions": {
     "EncryptionContextMap": {
@@ -68,7 +67,8 @@
       "permissions": [
         "rds:DescribeIntegrations",
         "rds:AddTagsToResource",
-        "rds:RemoveTagsFromResource"
+        "rds:RemoveTagsFromResource",
+        "rds:ModifyIntegration"
       ]
     }
   },
@@ -78,6 +78,19 @@
       "$ref": "#/definitions/EncryptionContextMap"
     },
     "CreateTime": { "type": "string" },
+    "DataFilter": {
+      "description": "The data filter for the integration.",
+      "maxLength": 25600,
+      "minLength": 1,
+      "pattern": "[a-zA-Z0-9_ \"\\\\\\-$,*.:?+\\/]*",
+      "type": "string"
+    },
+    "Description": {
+      "description": "The description of the integration.",
+      "maxLength": 1000,
+      "minLength": 1,
+      "type": "string"
+    },
     "IntegrationArn": {
       "description": "The ARN of the integration.",
       "type": "string"

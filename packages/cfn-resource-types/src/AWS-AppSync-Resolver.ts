@@ -41,6 +41,9 @@ export type AppSyncResolverProperties = {
    * The maximum number of resolver request inputs that will be sent to a single LAMlong function in a ``BatchInvoke`` operation.
    */
   MaxBatchSize?: number;
+  /**
+   * Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
+   */
   MetricsConfig?: "ENABLED" | "DISABLED";
   /**
    * Functions linked with the pipeline resolver.

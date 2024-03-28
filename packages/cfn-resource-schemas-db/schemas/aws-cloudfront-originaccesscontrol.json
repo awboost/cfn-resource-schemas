@@ -1,5 +1,5 @@
 {
-  "$hash": "a3bb5b89907ea1aecdb609aec65b4a4de2dd4640",
+  "$hash": "dd9ca197bfb4217bdb5f048059fd34d5ddde88d4",
   "$id": "aws-cloudfront-originaccesscontrol.json",
   "additionalProperties": false,
   "definitions": {
@@ -9,7 +9,7 @@
         "Description": { "type": "string" },
         "Name": { "type": "string" },
         "OriginAccessControlOriginType": {
-          "pattern": "^(s3|mediastore)$",
+          "pattern": "^(s3|mediastore|lambda|mediapackagev2)$",
           "type": "string"
         },
         "SigningBehavior": {

@@ -22,7 +22,7 @@ export type OriginAccessControlConfig = {
   Description?: string;
   Name: string;
   /**
-   * @pattern `^(s3|mediastore)$`
+   * @pattern `^(s3|mediastore|lambda|mediapackagev2)$`
    */
   OriginAccessControlOriginType: string;
   /**
