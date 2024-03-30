@@ -1,5 +1,5 @@
 {
-  "$hash": "091979cddf1ec7174551089b2b75e9ecc1a7d1ce",
+  "$hash": "c93ae4d837688eb13b895fb82ea35d8e2db91ae1",
   "$id": "aws-acmpca-certificateauthority.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -302,6 +302,13 @@
   ],
   "required": ["Type", "KeyAlgorithm", "SigningAlgorithm", "Subject"],
   "sourceUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ACMPCA.html",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ACMPCA::CertificateAuthority",
   "writeOnlyProperties": [
     "/properties/Subject",

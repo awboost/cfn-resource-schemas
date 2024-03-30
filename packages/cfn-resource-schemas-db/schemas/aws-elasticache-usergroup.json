@@ -1,5 +1,5 @@
 {
-  "$hash": "baa39b69b0296e13a4cbafd285850065bdc199ac",
+  "$hash": "bb8ae53fd2df713e82c8d759ae4e9a89d5a4e522",
   "$id": "aws-elasticache-usergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserGroupId", "/properties/Engine"],
@@ -33,7 +33,8 @@
       "permissions": [
         "elasticache:CreateUserGroup",
         "elasticache:DescribeUserGroups",
-        "elasticache:ListTagsForResource"
+        "elasticache:ListTagsForResource",
+        "elasticache:AddTagsToResource"
       ]
     },
     "delete": {

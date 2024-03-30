@@ -1,5 +1,5 @@
 {
-  "$hash": "aacfab7d0ab8293760fd5ba32d5a55e0340d7e7e",
+  "$hash": "09a7a9484bd1239a1ddbe617f191a0dcab14107f",
   "$id": "aws-appconfig-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
@@ -12,6 +12,10 @@
           "description": "Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.",
           "maxLength": 2048,
           "minLength": 1,
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::CloudWatch::Alarm"
+          },
           "type": "string"
         },
         "AlarmRoleArn": {
@@ -19,6 +23,10 @@
           "maxLength": 2048,
           "minLength": 20,
           "pattern": "^((arn):(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):(iam)::\\d{12}:role[/].*)$",
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::IAM::Role"
+          },
           "type": "string"
         }
       },

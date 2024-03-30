@@ -1,5 +1,5 @@
 {
-  "$hash": "bf7ff43ee9f4dee9cba5fe4db2d5ab01236db828",
+  "$hash": "c81ee97738d22f9125be6d607462dea26ec318b6",
   "$id": "aws-logs-loggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupName"],
@@ -99,7 +99,7 @@
     },
     "LogGroupClass": {
       "default": "STANDARD",
-      "description": "Specifies the log group class for this log group. There are two classes:\n  + The ``Standard`` log class supports all CWL features.\n + The ``Infrequent Access`` log class supports a subset of CWL features and incurs lower costs.\n \n For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)",
+      "description": "Specifies the log group class for this log group. There are two classes:\n  +  The ``Standard`` log class supports all CWL features.\n  +  The ``Infrequent Access`` log class supports a subset of CWL features and incurs lower costs.\n  \n For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)",
       "enum": ["STANDARD", "INFREQUENT_ACCESS"],
       "type": "string"
     },

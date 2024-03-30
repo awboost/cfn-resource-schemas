@@ -1,5 +1,5 @@
 {
-  "$hash": "1a950f59782e9f7c5f4e52019b4866041a93f8ca",
+  "$hash": "837421aaa866a161980dcc96a11c258c6f8a9217",
   "$id": "aws-elasticache-user.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -37,7 +37,8 @@
       "permissions": [
         "elasticache:CreateUser",
         "elasticache:DescribeUsers",
-        "elasticache:ListTagsForResource"
+        "elasticache:ListTagsForResource",
+        "elasticache:AddTagsToResource"
       ]
     },
     "delete": {

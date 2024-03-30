@@ -134,9 +134,13 @@ export type DataStorage = {
   /**
    * The maximum cached data capacity of the Serverless Cache.
    */
-  Maximum: number;
+  Maximum?: number;
   /**
-   * The unix of cached data capacity of the Serverless Cache.
+   * The minimum cached data capacity of the Serverless Cache.
+   */
+  Minimum?: number;
+  /**
+   * The unit of cached data capacity of the Serverless Cache.
    */
   Unit: "GB";
 };
@@ -149,7 +153,11 @@ export type ECPUPerSecond = {
   /**
    * The maximum ECPU per second of the Serverless Cache.
    */
-  Maximum: number;
+  Maximum?: number;
+  /**
+   * The minimum ECPU per second of the Serverless Cache.
+   */
+  Minimum?: number;
 };
 /**
  * Type definition for `AWS::ElastiCache::ServerlessCache.Tag`.
