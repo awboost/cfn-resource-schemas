@@ -1,26 +1,2 @@
-- added `AWS::BCMDataExports::Export`
-- added `AWS::Bedrock::AgentAlias`
-- added `AWS::SecurityLake::DataLake`
-- updated `AWS::ACMPCA::CertificateAuthority`
-  - added `tagging`
-- updated `AWS::AppConfig::Environment`
-  - updated definition `Monitor`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `Ebs`
-  - updated definition `ElasticGpuSpecification`
-  - updated definition `IamInstanceProfile`
-  - updated definition `InstanceRequirements`
-  - updated definition `LaunchTemplateData`
-  - updated definition `MaintenanceOptions`
-  - updated definition `SpotOptions`
-- updated `AWS::ElastiCache::ServerlessCache`
-  - updated definition `DataStorage`
-  - updated definition `ECPUPerSecond`
-- updated `AWS::ElastiCache::User`
-  - updated handler permissions
-- updated `AWS::ElastiCache::UserGroup`
-  - updated handler permissions
-- updated `AWS::Logs::LogGroup`
-  - updated property `LogGroupClass`
-- updated `AWS::Logs::MetricFilter`
-  - updated definition `Dimension`
+- added `AWS::Bedrock::Agent`
+- added `AWS::CodeConnections::Connection`
