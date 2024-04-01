@@ -1,2 +1,2 @@
-- added `AWS::Bedrock::Agent`
-- added `AWS::CodeConnections::Connection`
+- added `AWS::SecurityLake::AwsLogSource`
+- added `AWS::SecurityLake::Subscriber`
