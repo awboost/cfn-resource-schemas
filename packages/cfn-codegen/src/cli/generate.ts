@@ -4,7 +4,7 @@ import type { ResourceTypeSchema } from "@awboost/cfn-resource-schemas/types";
 import chalk from "chalk";
 import { Command, Option } from "commander";
 import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { basename, extname, join } from "node:path";
 import { format } from "prettier";
 import ts from "typescript";
 import {
@@ -23,6 +23,10 @@ export function addGenerateCommand(program: Command): void {
     .description("generate code for the given schema files")
     .argument("[input...]", "the schema file(s) to generate code for")
     .option("--download [url]", "download the resource schemas from AWS")
+    .option(
+      "--input-file-names",
+      "name the output files according to the input file names",
+    )
     .option("--model", "generate the full model type")
     .option("--output-dir <path>", "the directory to output code to")
     .option("--output-file <path>", "the path to output code to")
@@ -38,6 +42,7 @@ export function addGenerateCommand(program: Command): void {
         input: string[],
         {
           download,
+          inputFileNames,
           model: generateModel,
           outputDir,
           outputFile,
@@ -45,6 +50,7 @@ export function addGenerateCommand(program: Command): void {
           schemaValidationErrors,
         }: {
           download?: string | boolean;
+          inputFileNames?: boolean;
           model?: boolean;
           outputDir?: string;
           outputFile?: string;
@@ -130,7 +136,10 @@ export function addGenerateCommand(program: Command): void {
               ),
             );
 
-            const outputBasename = schemaFile.typeName.replace(/::/g, "-");
+            const outputBasename = inputFileNames
+              ? basename(schema.$id, extname(schema.$id))
+              : schemaFile.typeName.replace(/::/g, "-");
+
             // we can bang this because we checked the options
             const outputPath =
               outputFile ?? join(outputDir!, outputBasename + ".ts");
