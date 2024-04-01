@@ -32,7 +32,7 @@
     "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}"
   },
   "devDependencies": {
-    "@awboost/cfn-codegen": "^0.2.1"
+    "@awboost/cfn-codegen": "^0.2.2"
   },
   "peerDependencies": {
     "@awboost/cfn-template-builder": "^0.3.1"
