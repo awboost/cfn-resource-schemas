@@ -5,6 +5,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-channel.html}
  */
 export type MediaTailorChannelProperties = {
+  /**
+   * <p>The list of audiences defined in channel.</p>
+   */
+  Audiences?: string[];
   ChannelName: string;
   /**
    * <p>Slate VOD source configuration.</p>

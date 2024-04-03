@@ -1,5 +1,5 @@
 {
-  "$hash": "6db7b9e0cc476e53d643cbc7df40e88030606597",
+  "$hash": "8c1cbaf9ae1e1ef74b0fa4201880f0cd9bf5a0dc",
   "$id": "aws-mediatailor-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ChannelName", "/properties/Tier"],
@@ -155,6 +155,11 @@
     "Arn": {
       "description": "<p>The ARN of the channel.</p>",
       "type": "string"
+    },
+    "Audiences": {
+      "description": "<p>The list of audiences defined in channel.</p>",
+      "items": { "type": "string" },
+      "type": "array"
     },
     "ChannelName": { "type": "string" },
     "FillerSlate": { "$ref": "#/definitions/SlateSource" },

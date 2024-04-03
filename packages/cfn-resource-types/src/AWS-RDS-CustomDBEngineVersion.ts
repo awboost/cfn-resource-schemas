@@ -10,7 +10,7 @@ export type RDSCustomDBEngineVersionProperties = {
    * @minLength `3`
    * @maxLength `63`
    */
-  DatabaseInstallationFilesS3BucketName: string;
+  DatabaseInstallationFilesS3BucketName?: string;
   /**
    * The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
    * @minLength `1`
@@ -36,6 +36,10 @@ export type RDSCustomDBEngineVersionProperties = {
    */
   EngineVersion: string;
   /**
+   * The identifier of Amazon Machine Image (AMI) used for CEV.
+   */
+  ImageId?: string;
+  /**
    * The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
    * @minLength `1`
    * @maxLength `2048`
@@ -48,6 +52,10 @@ export type RDSCustomDBEngineVersionProperties = {
    */
   Manifest?: string;
   /**
+   * The identifier of the source custom engine version.
+   */
+  SourceCustomDbEngineVersionIdentifier?: string;
+  /**
    * The availability status to be assigned to the CEV.
    */
   Status?: "available" | "inactive" | "inactive-except-restore";
@@ -55,6 +63,10 @@ export type RDSCustomDBEngineVersionProperties = {
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];
+  /**
+   * A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+   */
+  UseAwsProvidedLatestImage?: boolean;
 };
 /**
  * Attribute type definition for `AWS::RDS::CustomDBEngineVersion`.

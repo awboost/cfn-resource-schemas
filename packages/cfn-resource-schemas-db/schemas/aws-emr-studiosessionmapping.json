@@ -1,5 +1,5 @@
 {
-  "$hash": "c8361e3469a1082ecc8633d4ce1d3b6271ef159b",
+  "$hash": "3a59480c8f17b5e64683bffc677545aec895e62b",
   "$id": "aws-emr-studiosessionmapping.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -23,6 +23,7 @@
         "sso-directory:SearchGroups",
         "sso-directory:DescribeUser",
         "sso-directory:DescribeGroup",
+        "sso:GetManagedApplicationInstance",
         "sso:ListDirectoryAssociations",
         "sso:GetProfile",
         "sso:ListProfiles",

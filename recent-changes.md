@@ -1,2 +1,30 @@
-- added `AWS::SecurityLake::AwsLogSource`
-- added `AWS::SecurityLake::Subscriber`
+- added `AWS::CleanRoomsML::TrainingDataset`
+- added `AWS::Deadline::Farm`
+- added `AWS::Deadline::Fleet`
+- added `AWS::Deadline::LicenseEndpoint`
+- added `AWS::Deadline::MeteredProduct`
+- added `AWS::Deadline::Queue`
+- added `AWS::Deadline::QueueEnvironment`
+- added `AWS::Deadline::QueueFleetAssociation`
+- added `AWS::Deadline::StorageProfile`
+- added `AWS::EntityResolution::IdNamespace`
+- added `AWS::EntityResolution::PolicyStatement`
+- added `AWS::GlobalAccelerator::CrossAccountAttachment`
+- updated `AWS::EC2::Subnet`
+  - updated property `EnableLniAtDeviceIndex`
+  - updated property `MapPublicIpOnLaunch`
+  - updated property `PrivateDnsNameOptionsOnLaunch`
+- updated `AWS::EMR::StudioSessionMapping`
+  - updated handler permissions
+- updated `AWS::Lambda::Function`
+  - updated definition `RuntimeManagementConfig`
+- updated `AWS::MediaTailor::Channel`
+  - added property `Audiences`
+- updated `AWS::RDS::CustomDBEngineVersion`
+  - added property `ImageId`
+  - added property `SourceCustomDbEngineVersionIdentifier`
+  - added property `UseAwsProvidedLatestImage`
+  - updated `createOnlyProperties`
+  - updated `required`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
