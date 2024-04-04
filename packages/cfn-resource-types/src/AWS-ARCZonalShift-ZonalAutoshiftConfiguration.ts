@@ -61,7 +61,7 @@ export type PracticeRunConfiguration = {
  * Type definition for `AWS::ARCZonalShift::ZonalAutoshiftConfiguration.ZonalAutoshiftStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-zonalautoshiftstatus.html}
  */
-export type ZonalAutoshiftStatus = "ENABLED" | "DISABLED";
+export type ZonalAutoshiftStatus = "ENABLED";
 /**
  * Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-zonalautoshiftconfiguration.html}

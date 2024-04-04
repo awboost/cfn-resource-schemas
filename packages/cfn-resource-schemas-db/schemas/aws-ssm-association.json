@@ -1,5 +1,5 @@
 {
-  "$hash": "8502f02d7d07042bdc28bca3b982aa4c5f0f7c91",
+  "$hash": "b084471745a5ef29998d3aafddd34bc2280def48",
   "$id": "aws-ssm-association.json",
   "additionalProperties": false,
   "definitions": {
@@ -154,7 +154,7 @@
       "additionalProperties": false,
       "description": "Parameter values that the SSM document uses at runtime.",
       "patternProperties": {
-        ".*{1,255}": { "$ref": "#/definitions/ParameterValues" }
+        ".{1,255}": { "$ref": "#/definitions/ParameterValues" }
       },
       "type": "object"
     },

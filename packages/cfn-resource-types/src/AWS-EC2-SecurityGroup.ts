@@ -56,7 +56,6 @@ export type Egress = {
   DestinationSecurityGroupId?: string;
   FromPort?: number;
   IpProtocol: string;
-  SourceSecurityGroupId?: string;
   ToPort?: number;
 };
 /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "1469f5b720bb847c94701dd7d64c112c7df2901a",
+  "$hash": "f8b3f2a6bee01f390f17e5a9d81f9f012165ec20",
   "$id": "aws-sagemaker-userprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -16,6 +16,14 @@
       "additionalProperties": false,
       "description": "The CodeEditor app settings.",
       "properties": {
+        "CustomImages": {
+          "description": "A list of custom images for use for CodeEditor apps.",
+          "items": { "$ref": "#/definitions/CustomImage" },
+          "maxItems": 30,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": false
+        },
         "DefaultResourceSpec": {
           "$ref": "#/definitions/ResourceSpec",
           "description": "The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app."

@@ -1,5 +1,5 @@
 {
-  "$hash": "89cdd69170b632a1c9191c2e98fcf06bcca51b40",
+  "$hash": "0681654cf58feaefa2d3ed19e359c67799a85873",
   "$id": "aws-amplify-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AppId", "/properties/DomainName"],
@@ -143,8 +143,11 @@
     "/properties/Arn",
     "/properties/DomainStatus",
     "/properties/StatusReason",
-    "/properties/CertificateRecord"
+    "/properties/CertificateRecord",
+    "/properties/Certificate",
+    "/properties/UpdateStatus"
   ],
   "required": ["AppId", "DomainName", "SubDomainSettings"],
-  "typeName": "AWS::Amplify::Domain"
+  "typeName": "AWS::Amplify::Domain",
+  "writeOnlyProperties": ["/properties/CertificateSettings"]
 }

@@ -149,6 +149,11 @@ export type AwsSecurityFindingFilters = {
    */
   Id?: StringFilter[];
   /**
+   * A keyword for a finding.
+   * @maxLength `20`
+   */
+  Keyword?: KeywordFilter[];
+  /**
    * An ISO8601-formatted timestamp that indicates when the security findings provider most recently observed the potential security issue that a finding captured.
    * @maxLength `20`
    */
@@ -384,6 +389,11 @@ export type AwsSecurityFindingFilters = {
    */
   ResourceAwsIamAccessKeyStatus?: StringFilter[];
   /**
+   * The user associated with the IAM access key related to a finding.
+   * @maxLength `20`
+   */
+  ResourceAwsIamAccessKeyUserName?: StringFilter[];
+  /**
    * The name of an IAM user.
    * @maxLength `20`
    */
@@ -458,6 +468,16 @@ export type AwsSecurityFindingFilters = {
    * @maxLength `20`
    */
   SeverityLabel?: StringFilter[];
+  /**
+   * The normalized severity of a finding.
+   * @maxLength `20`
+   */
+  SeverityNormalized?: NumberFilter[];
+  /**
+   * The native severity as defined by the security findings provider's solution that generated the finding.
+   * @maxLength `20`
+   */
+  SeverityProduct?: NumberFilter[];
   /**
    * A URL that links to a page about the current finding in the security findings provider's solution.
    * @maxLength `20`
@@ -562,12 +582,12 @@ export type DateFilter = {
   DateRange?: DateRange;
   /**
    * The date and time, in UTC and ISO 8601 format.
-   * @pattern `^(\d\d\d\d)-([0][1-9]|[1][0-2])-([0][1-9]|[1-2](\d)|[3][0-1])[T](?:([0-1](\d)|[2][0-3]):[0-5](\d):[0-5](\d)|23:59:60)(?:\.(\d)+)?([Z]|[+-](\d\d)(:?(\d\d))?)$`
+   * @pattern `^([\+-]?\d{4}(?!\d{2}))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([tT]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$`
    */
   End?: string;
   /**
    * The date and time, in UTC and ISO 8601 format.
-   * @pattern `^(\d\d\d\d)-([0][1-9]|[1][0-2])-([0][1-9]|[1-2](\d)|[3][0-1])[T](?:([0-1](\d)|[2][0-3]):[0-5](\d):[0-5](\d)|23:59:60)(?:\.(\d)+)?([Z]|[+-](\d\d)(:?(\d\d))?)$`
+   * @pattern `^([\+-]?\d{4}(?!\d{2}))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([tT]((([01]\d|2[0-3])((:?)[0-5]\d)?|24\:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$`
    */
   Start?: string;
 };
@@ -596,7 +616,19 @@ export type IpFilter = {
    * A finding's CIDR value.
    * @minLength `1`
    */
-  Cidr?: string;
+  Cidr: string;
+};
+/**
+ * Type definition for `AWS::SecurityHub::Insight.KeywordFilter`.
+ * A keyword filter for querying findings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-insight-keywordfilter.html}
+ */
+export type KeywordFilter = {
+  /**
+   * A value for the keyword.
+   * @minLength `1`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::SecurityHub::Insight.MapFilter`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "c0c664ef9c6bcc2f56bd27fb6954baae5c4b0d7a",
+  "$hash": "e946cae3a5642d2936cae3f60824728faf5e0c66",
   "$id": "aws-ec2-securitygroup.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -19,7 +19,6 @@
         "DestinationSecurityGroupId": { "type": "string" },
         "FromPort": { "type": "integer" },
         "IpProtocol": { "type": "string" },
-        "SourceSecurityGroupId": { "type": "string" },
         "ToPort": { "type": "integer" }
       },
       "required": ["IpProtocol"],
@@ -127,6 +126,14 @@
       "description": "The ID of the VPC for the security group.",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/SecurityGroupEgress/*/FromPort": "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$ipProtocol := $mapVal ? $mapVal : $lowercase(IpProtocol);$ipProtocol in ['imcp', 'tcp', 'udp', 'imcp'] ? FromPort : -1)",
+    "/properties/SecurityGroupEgress/*/IpProtocol": "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$mapVal ? $mapVal : $lowercase(IpProtocol))",
+    "/properties/SecurityGroupEgress/*/ToPort": "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$ipProtocol := $mapVal ? $mapVal : $lowercase(IpProtocol);$ipProtocol in ['imcp', 'tcp', 'udp', 'imcp'] ? ToPort : -1)",
+    "/properties/SecurityGroupIngress/*/FromPort": "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$ipProtocol := $mapVal ? $mapVal : $lowercase(IpProtocol);$ipProtocol in ['imcp', 'tcp', 'udp', 'imcp'] ? FromPort : -1)",
+    "/properties/SecurityGroupIngress/*/IpProtocol": "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$mapVal ? $mapVal : $lowercase(IpProtocol))",
+    "/properties/SecurityGroupIngress/*/ToPort": "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$ipProtocol := $mapVal ? $mapVal : $lowercase(IpProtocol);$ipProtocol in ['imcp', 'tcp', 'udp', 'imcp'] ? ToPort : -1)"
   },
   "readOnlyProperties": ["/properties/Id", "/properties/GroupId"],
   "required": ["GroupDescription"],

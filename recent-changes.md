@@ -1,30 +1,51 @@
-- added `AWS::CleanRoomsML::TrainingDataset`
-- added `AWS::Deadline::Farm`
-- added `AWS::Deadline::Fleet`
-- added `AWS::Deadline::LicenseEndpoint`
-- added `AWS::Deadline::MeteredProduct`
-- added `AWS::Deadline::Queue`
-- added `AWS::Deadline::QueueEnvironment`
-- added `AWS::Deadline::QueueFleetAssociation`
-- added `AWS::Deadline::StorageProfile`
-- added `AWS::EntityResolution::IdNamespace`
-- added `AWS::EntityResolution::PolicyStatement`
-- added `AWS::GlobalAccelerator::CrossAccountAttachment`
-- updated `AWS::EC2::Subnet`
-  - updated property `EnableLniAtDeviceIndex`
-  - updated property `MapPublicIpOnLaunch`
-  - updated property `PrivateDnsNameOptionsOnLaunch`
-- updated `AWS::EMR::StudioSessionMapping`
-  - updated handler permissions
-- updated `AWS::Lambda::Function`
-  - updated definition `RuntimeManagementConfig`
-- updated `AWS::MediaTailor::Channel`
-  - added property `Audiences`
-- updated `AWS::RDS::CustomDBEngineVersion`
-  - added property `ImageId`
-  - added property `SourceCustomDbEngineVersionIdentifier`
-  - added property `UseAwsProvidedLatestImage`
-  - updated `createOnlyProperties`
-  - updated `required`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
+- added `AWS::Bedrock::DataSource`
+- added `AWS::Bedrock::KnowledgeBase`
+- added `AWS::IVS::EncoderConfiguration`
+- added `AWS::IVS::PlaybackRestrictionPolicy`
+- added `AWS::IVS::StorageConfiguration`
+- added `AWS::SecurityHub::DelegatedAdmin`
+- added `AWS::SecurityHub::Insight`
+- added `AWS::SecurityHub::ProductSubscription`
+- updated `AWS::ARCZonalShift::ZonalAutoshiftConfiguration`
+  - updated definition `ZonalAutoshiftStatus`
+- updated `AWS::Amplify::Domain`
+  - added `writeOnlyProperties`
+  - updated `readOnlyProperties`
+- updated `AWS::EC2::SecurityGroup`
+  - added `propertyTransform`
+  - updated definition `Egress`
+- updated `AWS::EC2::VPCCidrBlock`
+  - removed `replacementStrategy`
+- updated `AWS::ECS::TaskDefinition`
+  - added definition `FSxAuthorizationConfig`
+  - added definition `FSxWindowsFileServerVolumeConfiguration`
+  - updated definition `ContainerDefinition`
+  - updated definition `ContainerDependency`
+  - updated definition `EnvironmentFile`
+  - updated definition `EphemeralStorage`
+  - updated definition `FirelensConfiguration`
+  - updated definition `HealthCheck`
+  - updated definition `KernelCapabilities`
+  - updated definition `LogConfiguration`
+  - updated definition `PortMapping`
+  - updated definition `ProxyConfiguration`
+  - updated definition `SystemControl`
+  - updated definition `Tag`
+  - updated definition `Volume`
+  - updated property `Cpu`
+  - updated property `IpcMode`
+  - updated property `Memory`
+  - updated property `NetworkMode`
+  - updated property `PidMode`
+  - updated property `Tags`
+- updated `AWS::Route53::HostedZone`
+  - updated definition `VPC`
+  - updated property `VPCs`
+- updated `AWS::SSM::Association`
+  - updated property `Parameters`
+- updated `AWS::SSM::Parameter`
+  - updated property `Name`
+- updated `AWS::SageMaker::Domain`
+  - updated definition `CodeEditorAppSettings`
+- updated `AWS::SageMaker::UserProfile`
+  - updated definition `CodeEditorAppSettings`

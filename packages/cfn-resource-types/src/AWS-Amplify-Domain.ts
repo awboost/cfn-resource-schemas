@@ -17,7 +17,6 @@ export type AmplifyDomainProperties = {
    * @pattern `^$|^arn:.+:iam::\d{12}:role.+`
    */
   AutoSubDomainIAMRole?: string;
-  Certificate?: Certificate;
   CertificateSettings?: CertificateSettings;
   /**
    * @maxLength `255`
@@ -29,7 +28,6 @@ export type AmplifyDomainProperties = {
    * @maxLength `255`
    */
   SubDomainSettings: SubDomainSetting[];
-  UpdateStatus?: string;
 };
 /**
  * Attribute type definition for `AWS::Amplify::Domain`.
@@ -41,6 +39,17 @@ export type AmplifyDomainAttributes = {
    * @pattern `(?s).*`
    */
   Arn: string;
+  Certificate: {
+    /**
+     * @pattern `"^arn:aws:acm:[a-z0-9-]+:\d{12}:certificate\/.+$"`
+     */
+    CertificateArn: string;
+    CertificateType: "AMPLIFY_MANAGED" | "CUSTOM";
+    /**
+     * @maxLength `1000`
+     */
+    CertificateVerificationDNSRecord: string;
+  };
   /**
    * @maxLength `1000`
    */
@@ -50,6 +59,7 @@ export type AmplifyDomainAttributes = {
    * @maxLength `1000`
    */
   StatusReason: string;
+  UpdateStatus: string;
 };
 /**
  * Type definition for `AWS::Amplify::Domain.Certificate`.

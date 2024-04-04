@@ -1,5 +1,5 @@
 {
-  "$hash": "71e9cfbd0595f884e2926127829834bae37ee0fd",
+  "$hash": "787ba85b78e7cf590a6c616a2a189b81e40b5ce8",
   "$id": "aws-arczonalshift-zonalautoshiftconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceIdentifier"],
@@ -64,10 +64,7 @@
       "required": ["OutcomeAlarms"],
       "type": "object"
     },
-    "ZonalAutoshiftStatus": {
-      "enum": ["ENABLED", "DISABLED"],
-      "type": "string"
-    }
+    "ZonalAutoshiftStatus": { "enum": ["ENABLED"], "type": "string" }
   },
   "description": "Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type",
   "handlers": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "13a26c7829dffb69763366dc7ef7f18460aa3ff8",
+  "$hash": "a3d01ce10781a1eba89c5cc6d092b95195fa508a",
   "$id": "aws-ec2-vpccidrblock.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -77,7 +77,6 @@
     "VpcId": { "description": "The ID of the VPC.", "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "replacementStrategy": "delete_then_create",
   "required": ["VpcId"],
   "tagging": { "taggable": false },
   "typeName": "AWS::EC2::VPCCidrBlock",

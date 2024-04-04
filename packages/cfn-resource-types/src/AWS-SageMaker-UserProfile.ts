@@ -58,6 +58,12 @@ export type SageMakerUserProfileAttributes = {
  */
 export type CodeEditorAppSettings = {
   /**
+   * A list of custom images for use for CodeEditor apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  CustomImages?: CustomImage[];
+  /**
    * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
    */
   DefaultResourceSpec?: ResourceSpec;
