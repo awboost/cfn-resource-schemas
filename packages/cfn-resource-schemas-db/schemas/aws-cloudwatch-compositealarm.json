@@ -1,25 +1,61 @@
 {
-  "$hash": "38e82a908fe88f0f7abbdef5730305126cf3fb25",
+  "$hash": "028f997d3a721a3ae00995d4f68632de17dbb799",
   "$id": "aws-cloudwatch-compositealarm.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AlarmName"],
+  "definitions": {
+    "AlarmActionARN": {
+      "description": "Amazon Resource Name (ARN) of the action",
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "Tag": {
+      "additionalProperties": false,
+      "description": "Metadata that you can assign to a composite alarm, Tags can help you organize and categorize your resources.",
+      "properties": {
+        "Key": {
+          "description": "A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the specified tag key.",
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    }
+  },
   "description": "The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression",
   "handlers": {
     "create": {
       "permissions": [
         "cloudwatch:DescribeAlarms",
-        "cloudwatch:PutCompositeAlarm"
+        "cloudwatch:PutCompositeAlarm",
+        "cloudwatch:TagResource"
       ]
     },
     "delete": {
       "permissions": ["cloudwatch:DescribeAlarms", "cloudwatch:DeleteAlarms"]
     },
     "list": { "permissions": ["cloudwatch:DescribeAlarms"] },
-    "read": { "permissions": ["cloudwatch:DescribeAlarms"] },
+    "read": {
+      "permissions": [
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "cloudwatch:DescribeAlarms",
-        "cloudwatch:PutCompositeAlarm"
+        "cloudwatch:PutCompositeAlarm",
+        "cloudwatch:TagResource",
+        "cloudwatch:UntagResource"
       ]
     }
   },
@@ -101,11 +137,24 @@
       },
       "maxItems": 5,
       "type": "array"
+    },
+    "Tags": {
+      "description": "A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.",
+      "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 50,
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["AlarmRule"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudwatch.git",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::CloudWatch::CompositeAlarm"
 }

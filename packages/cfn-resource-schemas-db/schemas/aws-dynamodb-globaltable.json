@@ -1,5 +1,5 @@
 {
-  "$hash": "a8be4d7c64d88ee46e7bde237e6c8187e7649dab",
+  "$hash": "f2f249da4f1eb55e37a6b02aec753a839ad006da",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -76,7 +76,13 @@
           "enum": ["MICROSECOND", "MILLISECOND"],
           "type": "string"
         },
-        "StreamArn": { "type": "string" }
+        "StreamArn": {
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::Kinesis::Stream"
+          },
+          "type": "string"
+        }
       },
       "required": ["StreamArn"],
       "type": "object"
@@ -141,7 +147,31 @@
     },
     "ReplicaSSESpecification": {
       "additionalProperties": false,
-      "properties": { "KMSMasterKeyId": { "type": "string" } },
+      "properties": {
+        "KMSMasterKeyId": {
+          "anyOf": [
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/Arn",
+                "typeName": "AWS::KMS::Key"
+              }
+            },
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/KeyId",
+                "typeName": "AWS::KMS::Key"
+              }
+            },
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/AliasName",
+                "typeName": "AWS::KMS::Alias"
+              }
+            }
+          ],
+          "type": "string"
+        }
+      },
       "required": ["KMSMasterKeyId"],
       "type": "object"
     },

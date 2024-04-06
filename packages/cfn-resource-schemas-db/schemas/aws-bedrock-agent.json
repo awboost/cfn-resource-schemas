@@ -1,5 +1,5 @@
 {
-  "$hash": "93c9ff5d40ed9ef59b34b936a3e89bee482f3cd7",
+  "$hash": "1f6f21d2a6d01991789a6cda960132b5ac26fc17",
   "$id": "aws-bedrock-agent.json",
   "additionalProperties": false,
   "definitions": {
@@ -449,7 +449,7 @@
   ],
   "required": ["AgentName"],
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

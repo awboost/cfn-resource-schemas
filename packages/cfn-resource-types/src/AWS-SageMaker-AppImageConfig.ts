@@ -13,6 +13,10 @@ export type SageMakerAppImageConfigProperties = {
    */
   AppImageConfigName: string;
   /**
+   * The CodeEditorAppImageConfig.
+   */
+  CodeEditorAppImageConfig?: CodeEditorAppImageConfig;
+  /**
    * The JupyterLabAppImageConfig.
    */
   JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
@@ -39,6 +43,17 @@ export type SageMakerAppImageConfigAttributes = {
    * @pattern `arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:app-image-config/.*`
    */
   AppImageConfigArn: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::AppImageConfig.CodeEditorAppImageConfig`.
+ * The configuration for the kernels in a SageMaker image running as a CodeEditor app.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-codeeditorappimageconfig.html}
+ */
+export type CodeEditorAppImageConfig = {
+  /**
+   * The container configuration for a SageMaker image.
+   */
+  ContainerConfig?: ContainerConfig;
 };
 /**
  * Type definition for `AWS::SageMaker::AppImageConfig.ContainerConfig`.

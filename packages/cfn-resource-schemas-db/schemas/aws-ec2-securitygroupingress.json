@@ -1,5 +1,5 @@
 {
-  "$hash": "102277d198c9c5e67c1a1f40bde3b7ca09074dd1",
+  "$hash": "54961380b852d3fbd0e0bb97aedbf37387183d67",
   "$id": "aws-ec2-securitygroupingress.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -88,6 +88,11 @@
       "description": "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.\n\nUse this for ICMP and any protocol that uses ports.",
       "type": "integer"
     }
+  },
+  "propertyTransform": {
+    "/properties/FromPort": "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$ipProtocol := $mapVal ? $mapVal : $lowercase(IpProtocol);$ipProtocol in ['imcp', 'tcp', 'udp', 'imcp'] ? FromPort : -1)",
+    "/properties/IpProtocol": "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$mapVal ? $mapVal : $lowercase(IpProtocol))",
+    "/properties/ToPort": "($mapVal := $lookup({'1': 'icmp','6': 'tcp','17': 'udp','58': 'icmpv6'}, IpProtocol);$ipProtocol := $mapVal ? $mapVal : $lowercase(IpProtocol);$ipProtocol in ['imcp', 'tcp', 'udp', 'imcp'] ? ToPort : -1)"
   },
   "readOnlyProperties": ["/properties/Id"],
   "required": ["IpProtocol"],

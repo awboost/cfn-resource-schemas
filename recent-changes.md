@@ -1,51 +1,76 @@
-- added `AWS::Bedrock::DataSource`
-- added `AWS::Bedrock::KnowledgeBase`
-- added `AWS::IVS::EncoderConfiguration`
-- added `AWS::IVS::PlaybackRestrictionPolicy`
-- added `AWS::IVS::StorageConfiguration`
-- added `AWS::SecurityHub::DelegatedAdmin`
-- added `AWS::SecurityHub::Insight`
-- added `AWS::SecurityHub::ProductSubscription`
-- updated `AWS::ARCZonalShift::ZonalAutoshiftConfiguration`
-  - updated definition `ZonalAutoshiftStatus`
-- updated `AWS::Amplify::Domain`
-  - added `writeOnlyProperties`
+- updated `AWS::Bedrock::Agent`
+  - updated `tagging`
+- updated `AWS::Bedrock::AgentAlias`
+  - updated `tagging`
+- updated `AWS::CloudWatch::Alarm`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated definition `Dimension`
+  - updated definition `MetricDataQuery`
+  - updated definition `MetricStat`
+  - updated definition `Metric`
+  - updated handler permissions
+  - updated property `AlarmActions`
+  - updated property `AlarmName`
+  - updated property `Arn`
+  - updated property `ComparisonOperator`
+  - updated property `DatapointsToAlarm`
+  - updated property `Dimensions`
+  - updated property `EvaluateLowSampleCountPercentile`
+  - updated property `EvaluationPeriods`
+  - updated property `ExtendedStatistic`
+  - updated property `InsufficientDataActions`
+  - updated property `MetricName`
+  - updated property `Metrics`
+  - updated property `Namespace`
+  - updated property `OKActions`
+  - updated property `Period`
+  - updated property `Statistic`
+  - updated property `ThresholdMetricId`
+  - updated property `Threshold`
+  - updated property `TreatMissingData`
+  - updated property `Unit`
+- updated `AWS::CloudWatch::CompositeAlarm`
+  - added property `Tags`
+  - updated `tagging`
+  - updated definition `undefined`
+  - updated handler permissions
+- updated `AWS::DynamoDB::GlobalTable`
+  - updated definition `KinesisStreamSpecification`
+  - updated definition `ReplicaSSESpecification`
+- updated `AWS::DynamoDB::Table`
+  - updated definition `KinesisStreamSpecification`
+  - updated definition `ResourcePolicy`
+  - updated definition `S3BucketSource`
+  - updated definition `SSESpecification`
+  - updated definition `StreamSpecification`
+  - updated definition `TimeToLiveSpecification`
+  - updated property `ResourcePolicy`
+- updated `AWS::EC2::NatGateway`
+  - updated property `SecondaryPrivateIpAddressCount`
+  - updated property `SecondaryPrivateIpAddresses`
+- updated `AWS::EC2::NetworkInsightsAnalysis`
   - updated `readOnlyProperties`
-- updated `AWS::EC2::SecurityGroup`
+- updated `AWS::EC2::SecurityGroupEgress`
   - added `propertyTransform`
-  - updated definition `Egress`
-- updated `AWS::EC2::VPCCidrBlock`
-  - removed `replacementStrategy`
-- updated `AWS::ECS::TaskDefinition`
-  - added definition `FSxAuthorizationConfig`
-  - added definition `FSxWindowsFileServerVolumeConfiguration`
-  - updated definition `ContainerDefinition`
-  - updated definition `ContainerDependency`
-  - updated definition `EnvironmentFile`
-  - updated definition `EphemeralStorage`
-  - updated definition `FirelensConfiguration`
-  - updated definition `HealthCheck`
-  - updated definition `KernelCapabilities`
-  - updated definition `LogConfiguration`
-  - updated definition `PortMapping`
-  - updated definition `ProxyConfiguration`
-  - updated definition `SystemControl`
-  - updated definition `Tag`
-  - updated definition `Volume`
-  - updated property `Cpu`
-  - updated property `IpcMode`
-  - updated property `Memory`
-  - updated property `NetworkMode`
-  - updated property `PidMode`
-  - updated property `Tags`
-- updated `AWS::Route53::HostedZone`
-  - updated definition `VPC`
-  - updated property `VPCs`
-- updated `AWS::SSM::Association`
-  - updated property `Parameters`
-- updated `AWS::SSM::Parameter`
-  - updated property `Name`
-- updated `AWS::SageMaker::Domain`
-  - updated definition `CodeEditorAppSettings`
-- updated `AWS::SageMaker::UserProfile`
-  - updated definition `CodeEditorAppSettings`
+  - updated property `CidrIp`
+  - updated property `CidrIpv6`
+  - updated property `DestinationPrefixListId`
+  - updated property `DestinationSecurityGroupId`
+- updated `AWS::EC2::SecurityGroupIngress`
+  - added `propertyTransform`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated property `SslPolicy`
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - updated definition `LoadBalancerAttribute`
+  - updated handler permissions
+  - updated property `SubnetMappings`
+  - updated property `Subnets`
+- updated `AWS::SageMaker::AppImageConfig`
+  - added definition `CodeEditorAppImageConfig`
+  - added property `CodeEditorAppImageConfig`
+- updated `AWS::VerifiedPermissions::IdentitySource`
+  - added `deprecatedProperties`
+  - added definition `CognitoGroupConfiguration`
+  - updated definition `CognitoUserPoolConfiguration`

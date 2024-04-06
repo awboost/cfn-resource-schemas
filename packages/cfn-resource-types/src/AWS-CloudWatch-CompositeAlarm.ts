@@ -58,6 +58,11 @@ export type CloudWatchCompositeAlarmProperties = {
    * @maxLength `5`
    */
   OKActions?: string[];
+  /**
+   * A list of key-value pairs to associate with the composite alarm. You can associate as many as 50 tags with an alarm.
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::CloudWatch::CompositeAlarm`.
@@ -70,6 +75,25 @@ export type CloudWatchCompositeAlarmAttributes = {
    * @maxLength `1600`
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::CloudWatch::CompositeAlarm.Tag`.
+ * Metadata that you can assign to a composite alarm, Tags can help you organize and categorize your resources.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-compositealarm-tag.html}
+ */
+export type Tag = {
+  /**
+   * A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the specified tag key.
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression

@@ -1,5 +1,5 @@
 {
-  "$hash": "09fd4df92e861377b7404a43cf6d4f311ff86c64",
+  "$hash": "b240e09eecc5e631d42912c7a22f0d571a13aeac",
   "$id": "aws-ec2-networkinsightsanalysis.json",
   "additionalIdentifiers": [["/properties/NetworkInsightsAnalysisArn"]],
   "additionalProperties": false,
@@ -402,8 +402,6 @@
     "/properties/StartDate",
     "/properties/Status",
     "/properties/StatusMessage",
-    "/properties/ErrorCode",
-    "/properties/ErrorMessage",
     "/properties/NetworkPathFound",
     "/properties/ForwardPathComponents",
     "/properties/ReturnPathComponents",

@@ -1,5 +1,5 @@
 {
-  "$hash": "9fe117010c7dda52967d3e5e3713ef71b4c3113e",
+  "$hash": "ebc718e9b83326d74498a6e1a282728ee2cbc7df",
   "$id": "aws-sagemaker-appimageconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,6 +7,17 @@
     "/properties/Tags"
   ],
   "definitions": {
+    "CodeEditorAppImageConfig": {
+      "additionalProperties": false,
+      "description": "The configuration for the kernels in a SageMaker image running as a CodeEditor app.",
+      "properties": {
+        "ContainerConfig": {
+          "$ref": "#/definitions/ContainerConfig",
+          "description": "The container configuration for a SageMaker image."
+        }
+      },
+      "type": "object"
+    },
     "ContainerConfig": {
       "additionalProperties": false,
       "description": "The container configuration for a SageMaker image.",
@@ -196,6 +207,10 @@
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}",
       "type": "string"
+    },
+    "CodeEditorAppImageConfig": {
+      "$ref": "#/definitions/CodeEditorAppImageConfig",
+      "description": "The CodeEditorAppImageConfig."
     },
     "JupyterLabAppImageConfig": {
       "$ref": "#/definitions/JupyterLabAppImageConfig",

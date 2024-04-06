@@ -52,6 +52,18 @@ export type VerifiedPermissionsIdentitySourceAttributes = {
   IdentitySourceId: string;
 };
 /**
+ * Type definition for `AWS::VerifiedPermissions::IdentitySource.CognitoGroupConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitogroupconfiguration.html}
+ */
+export type CognitoGroupConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `200`
+   * @pattern `^([_a-zA-Z][_a-zA-Z0-9]*::)*[_a-zA-Z][_a-zA-Z0-9]*$`
+   */
+  GroupEntityType: string;
+};
+/**
  * Type definition for `AWS::VerifiedPermissions::IdentitySource.CognitoUserPoolConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-cognitouserpoolconfiguration.html}
  */
@@ -61,6 +73,7 @@ export type CognitoUserPoolConfiguration = {
    * @maxLength `1000`
    */
   ClientIds?: string[];
+  GroupConfiguration?: CognitoGroupConfiguration;
   /**
    * @minLength `1`
    * @maxLength `255`
