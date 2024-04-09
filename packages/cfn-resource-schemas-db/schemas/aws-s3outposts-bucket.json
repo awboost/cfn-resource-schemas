@@ -1,5 +1,5 @@
 {
-  "$hash": "88d7c06ec3b664d4ba1f752a378643b0b8b11c94",
+  "$hash": "86aece04097208a51f0f13ffd389a26259c928f6",
   "$id": "aws-s3outposts-bucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BucketName", "/properties/OutpostId"],
@@ -168,7 +168,15 @@
       ]
     },
     "delete": { "permissions": ["s3-outposts:DeleteBucket"] },
-    "list": { "permissions": ["s3-outposts:ListRegionalBuckets"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "OutpostId": { "$ref": "resource-schema.json#/properties/OutpostId" }
+        },
+        "required": ["OutpostId"]
+      },
+      "permissions": ["s3-outposts:ListRegionalBuckets"]
+    },
     "read": {
       "permissions": [
         "s3-outposts:GetBucket",

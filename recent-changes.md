@@ -1,76 +1,24 @@
-- updated `AWS::Bedrock::Agent`
-  - updated `tagging`
-- updated `AWS::Bedrock::AgentAlias`
-  - updated `tagging`
-- updated `AWS::CloudWatch::Alarm`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated `tagging`
-  - updated definition `Dimension`
-  - updated definition `MetricDataQuery`
-  - updated definition `MetricStat`
-  - updated definition `Metric`
+- updated `AWS::B2BI::Capability`
+  - updated definition `X12TransactionSet`
+- updated `AWS::B2BI::Transformer`
+  - updated definition `X12TransactionSet`
+  - updated definition `X12Version`
+- updated `AWS::EC2::CustomerGateway`
+  - added property `CertificateArn`
+  - updated `createOnlyProperties`
+  - updated definition `Tag`
   - updated handler permissions
-  - updated property `AlarmActions`
-  - updated property `AlarmName`
-  - updated property `Arn`
-  - updated property `ComparisonOperator`
-  - updated property `DatapointsToAlarm`
-  - updated property `Dimensions`
-  - updated property `EvaluateLowSampleCountPercentile`
-  - updated property `EvaluationPeriods`
-  - updated property `ExtendedStatistic`
-  - updated property `InsufficientDataActions`
-  - updated property `MetricName`
-  - updated property `Metrics`
-  - updated property `Namespace`
-  - updated property `OKActions`
-  - updated property `Period`
-  - updated property `Statistic`
-  - updated property `ThresholdMetricId`
-  - updated property `Threshold`
-  - updated property `TreatMissingData`
-  - updated property `Unit`
-- updated `AWS::CloudWatch::CompositeAlarm`
-  - added property `Tags`
-  - updated `tagging`
-  - updated definition `undefined`
+  - updated property `BgpAsn`
+  - updated property `CustomerGatewayId`
+  - updated property `DeviceName`
+  - updated property `IpAddress`
+  - updated property `Type`
+- updated `AWS::IAM::ManagedPolicy`
+  - updated property `PolicyDocument`
+- updated `AWS::Redshift::EventSubscription`
+  - updated property `SubscriptionName`
+- updated `AWS::Redshift::ScheduledAction`
+  - updated property `ScheduledActionDescription`
+  - updated property `ScheduledActionName`
+- updated `AWS::S3Outposts::Bucket`
   - updated handler permissions
-- updated `AWS::DynamoDB::GlobalTable`
-  - updated definition `KinesisStreamSpecification`
-  - updated definition `ReplicaSSESpecification`
-- updated `AWS::DynamoDB::Table`
-  - updated definition `KinesisStreamSpecification`
-  - updated definition `ResourcePolicy`
-  - updated definition `S3BucketSource`
-  - updated definition `SSESpecification`
-  - updated definition `StreamSpecification`
-  - updated definition `TimeToLiveSpecification`
-  - updated property `ResourcePolicy`
-- updated `AWS::EC2::NatGateway`
-  - updated property `SecondaryPrivateIpAddressCount`
-  - updated property `SecondaryPrivateIpAddresses`
-- updated `AWS::EC2::NetworkInsightsAnalysis`
-  - updated `readOnlyProperties`
-- updated `AWS::EC2::SecurityGroupEgress`
-  - added `propertyTransform`
-  - updated property `CidrIp`
-  - updated property `CidrIpv6`
-  - updated property `DestinationPrefixListId`
-  - updated property `DestinationSecurityGroupId`
-- updated `AWS::EC2::SecurityGroupIngress`
-  - added `propertyTransform`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated property `SslPolicy`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - updated definition `LoadBalancerAttribute`
-  - updated handler permissions
-  - updated property `SubnetMappings`
-  - updated property `Subnets`
-- updated `AWS::SageMaker::AppImageConfig`
-  - added definition `CodeEditorAppImageConfig`
-  - added property `CodeEditorAppImageConfig`
-- updated `AWS::VerifiedPermissions::IdentitySource`
-  - added `deprecatedProperties`
-  - added definition `CognitoGroupConfiguration`
-  - updated definition `CognitoUserPoolConfiguration`

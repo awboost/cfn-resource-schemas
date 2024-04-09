@@ -42,7 +42,7 @@ export type RedshiftEventSubscriptionProperties = {
     | "scheduled-action";
   /**
    * The name of the Amazon Redshift event notification subscription
-   * @pattern `^(?=^[a-z][a-z0-9]*(-[a-z0-9]+)*$).{1,255}$`
+   * @pattern `^(?=^[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$).{1,255}$`
    */
   SubscriptionName: string;
   /**

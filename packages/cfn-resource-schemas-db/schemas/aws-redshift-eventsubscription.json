@@ -1,5 +1,5 @@
 {
-  "$hash": "0824b4453d000177142dac1af54e3ae4c0c70a0f",
+  "$hash": "652ee42715cbc2817cb25756462a3d266b60abef",
   "$id": "aws-redshift-eventsubscription.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubscriptionName"],
@@ -145,7 +145,7 @@
     },
     "SubscriptionName": {
       "description": "The name of the Amazon Redshift event notification subscription",
-      "pattern": "^(?=^[a-z][a-z0-9]*(-[a-z0-9]+)*$).{1,255}$",
+      "pattern": "^(?=^[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$).{1,255}$",
       "type": "string"
     },
     "Tags": {

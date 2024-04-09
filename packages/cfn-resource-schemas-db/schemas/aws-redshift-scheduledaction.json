@@ -1,5 +1,5 @@
 {
-  "$hash": "63cc52fc07bb47520563d25d94c6f76ba9fdc95c",
+  "$hash": "e1e1f13bce2a2f2c835724189b65c5a66660d58f",
   "$id": "aws-redshift-scheduledaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ScheduledActionName"],
@@ -126,12 +126,10 @@
     },
     "ScheduledActionDescription": {
       "description": "The description of the scheduled action.",
-      "pattern": "^(?=^[\\x09\\x0a\\x0d\\x20-\\xff]*$).{1,255}$",
       "type": "string"
     },
     "ScheduledActionName": {
       "description": "The name of the scheduled action. The name must be unique within an account.",
-      "pattern": "^(?=^[a-z][a-z0-9]*(-[a-z0-9]+)*$).{1,60}$",
       "type": "string"
     },
     "StartTime": {

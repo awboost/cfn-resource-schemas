@@ -23,12 +23,10 @@ export type RedshiftScheduledActionProperties = {
   Schedule?: string;
   /**
    * The description of the scheduled action.
-   * @pattern `^(?=^[\x09\x0a\x0d\x20-\xff]*$).{1,255}$`
    */
   ScheduledActionDescription?: string;
   /**
    * The name of the scheduled action. The name must be unique within an account.
-   * @pattern `^(?=^[a-z][a-z0-9]*(-[a-z0-9]+)*$).{1,60}$`
    */
   ScheduledActionName: string;
   /**

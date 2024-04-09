@@ -1,8 +1,9 @@
 {
-  "$hash": "eca7be53c443740b09be83c62568c680969e2826",
+  "$hash": "5c365303d24014ff3fa2d343152397cbbc7077fe",
   "$id": "aws-ec2-customergateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
+    "/properties/CertificateArn",
     "/properties/BgpAsn",
     "/properties/Type",
     "/properties/IpAddress",
@@ -11,49 +12,60 @@
   "definitions": {
     "Tag": {
       "additionalProperties": false,
+      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
       "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" }
+        "Key": { "description": "The tag key.", "type": "string" },
+        "Value": { "description": "The tag value.", "type": "string" }
       },
       "required": ["Value", "Key"],
       "type": "object"
     }
   },
-  "description": "Resource Type definition for AWS::EC2::CustomerGateway",
+  "description": "Specifies a customer gateway.",
   "handlers": {
     "create": {
       "permissions": [
         "ec2:CreateCustomerGateway",
-        "ec2:DescribeCustomerGateways"
+        "ec2:DescribeCustomerGateways",
+        "ec2:CreateTags"
       ]
     },
     "delete": {
       "permissions": [
         "ec2:DeleteCustomerGateway",
-        "ec2:DescribeCustomerGateways"
+        "ec2:DescribeCustomerGateways",
+        "ec2:DeleteTags"
       ]
     },
     "list": { "permissions": ["ec2:DescribeCustomerGateways"] },
     "read": { "permissions": ["ec2:DescribeCustomerGateways"] },
-    "update": { "permissions": ["ec2:CreateTags", "ec2:DeleteTags"] }
+    "update": {
+      "permissions": [
+        "ec2:CreateTags",
+        "ec2:DeleteTags",
+        "ec2:DescribeCustomerGateways"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/CustomerGatewayId"],
   "properties": {
     "BgpAsn": {
       "default": 65000,
-      "description": "For devices that support BGP, the customer gateway's BGP ASN.",
+      "description": "For devices that support BGP, the customer gateway's BGP ASN.\n Default: 65000",
       "type": "integer"
     },
-    "CustomerGatewayId": {
-      "description": "CustomerGateway ID generated after customer gateway is created. Each customer gateway has a unique ID.",
+    "CertificateArn": {
+      "description": "",
+      "pattern": "^arn:(aws[a-zA-Z-]*)?:acm:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:certificate\\/[a-zA-Z0-9-_]+$",
       "type": "string"
     },
+    "CustomerGatewayId": { "description": "", "type": "string" },
     "DeviceName": {
-      "description": "A name for the customer gateway device.",
+      "description": "The name of customer gateway device.",
       "type": "string"
     },
     "IpAddress": {
-      "description": "The internet-routable IP address for the customer gateway's outside interface. The address must be static.",
+      "description": "IPv4 address for the customer gateway device's outside interface. The address must be static.",
       "type": "string"
     },
     "Tags": {
@@ -64,7 +76,7 @@
       "uniqueItems": false
     },
     "Type": {
-      "description": "The type of VPN connection that this customer gateway supports.",
+      "description": "The type of VPN connection that this customer gateway supports (``ipsec.1``).",
       "type": "string"
     }
   },
