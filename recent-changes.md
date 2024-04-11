@@ -1,24 +1,12 @@
-- updated `AWS::B2BI::Capability`
-  - updated definition `X12TransactionSet`
-- updated `AWS::B2BI::Transformer`
-  - updated definition `X12TransactionSet`
-  - updated definition `X12Version`
-- updated `AWS::EC2::CustomerGateway`
-  - added property `CertificateArn`
+- added `AWS::CleanRooms::PrivacyBudgetTemplate`
+- updated `AWS::ElastiCache::GlobalReplicationGroup`
+  - updated `writeOnlyProperties`
+- updated `AWS::GameLift::Fleet`
   - updated `createOnlyProperties`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `BgpAsn`
-  - updated property `CustomerGatewayId`
-  - updated property `DeviceName`
-  - updated property `IpAddress`
-  - updated property `Type`
-- updated `AWS::IAM::ManagedPolicy`
-  - updated property `PolicyDocument`
-- updated `AWS::Redshift::EventSubscription`
-  - updated property `SubscriptionName`
-- updated `AWS::Redshift::ScheduledAction`
-  - updated property `ScheduledActionDescription`
-  - updated property `ScheduledActionName`
+- updated `AWS::S3::StorageLens`
+  - updated definition `S3BucketDestination`
 - updated `AWS::S3Outposts::Bucket`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::WorkSpacesThinClient::Environment`
   - updated handler permissions

@@ -1,5 +1,5 @@
 {
-  "$hash": "75386888aa808bebb746865cb37ef6c20568e27f",
+  "$hash": "2220d37be163a9562366d12c9c1b4146fd48be31",
   "$id": "aws-elasticache-globalreplicationgroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -153,7 +153,6 @@
     "/properties/CacheNodeType",
     "/properties/EngineVersion",
     "/properties/GlobalNodeGroupCount",
-    "/properties/GlobalReplicationGroupDescription",
     "/properties/RegionalConfigurations"
   ]
 }

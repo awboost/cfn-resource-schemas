@@ -1,5 +1,5 @@
 {
-  "$hash": "b7984b6d5117e3361ffde77656441697c4efe752",
+  "$hash": "0e258a4f6d683e78dcefdf8632d65fff064ab77f",
   "$id": "aws-s3-storagelens.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/StorageLensConfiguration/Id"],
@@ -198,6 +198,10 @@
         },
         "Arn": {
           "description": "The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.",
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::S3::Bucket"
+          },
           "type": "string"
         },
         "Encryption": { "$ref": "#/definitions/Encryption" },

@@ -1,5 +1,5 @@
 {
-  "$hash": "7a94988c2f48ba38b2af1b37b1a48001be021ec9",
+  "$hash": "ce3cf97afb1b2a8740acddfc344a6cc138d0ee32",
   "$id": "aws-gamelift-fleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -17,7 +17,6 @@
     "/properties/ScriptId",
     "/properties/ServerLaunchParameters",
     "/properties/ServerLaunchPath",
-    "/properties/CertificateType",
     "/properties/ComputeType"
   ],
   "definitions": {
