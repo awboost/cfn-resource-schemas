@@ -1,12 +1,6 @@
-- added `AWS::CleanRooms::PrivacyBudgetTemplate`
-- updated `AWS::ElastiCache::GlobalReplicationGroup`
-  - updated `writeOnlyProperties`
-- updated `AWS::GameLift::Fleet`
-  - updated `createOnlyProperties`
-- updated `AWS::S3::StorageLens`
-  - updated definition `S3BucketDestination`
-- updated `AWS::S3Outposts::Bucket`
+- updated `AWS::S3Outposts::AccessPoint`
   - added `tagging`
-  - removed `taggable`
-- updated `AWS::WorkSpacesThinClient::Environment`
-  - updated handler permissions
+- updated `AWS::S3Outposts::BucketPolicy`
+  - added `tagging`
+- updated `AWS::S3Outposts::Endpoint`
+  - added `tagging`
