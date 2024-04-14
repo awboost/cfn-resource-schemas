@@ -142,6 +142,7 @@ export type EksContainerResourceRequirements = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainersecuritycontext.html}
  */
 export type EksContainerSecurityContext = {
+  AllowPrivilegeEscalation?: boolean;
   Privileged?: boolean;
   ReadOnlyRootFilesystem?: boolean;
   RunAsGroup?: number;
@@ -230,6 +231,13 @@ export type FargatePlatformConfiguration = {
   PlatformVersion?: string;
 };
 /**
+ * Type definition for `AWS::Batch::JobDefinition.ImagePullSecret`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-imagepullsecret.html}
+ */
+export type ImagePullSecret = {
+  Name: string;
+};
+/**
  * Type definition for `AWS::Batch::JobDefinition.LinuxParameters`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html}
  */
@@ -300,6 +308,7 @@ export type PodProperties = {
   Containers?: EksContainer[];
   DnsPolicy?: string;
   HostNetwork?: boolean;
+  ImagePullSecrets?: ImagePullSecret[];
   InitContainers?: EksContainer[];
   Metadata?: Metadata;
   ServiceAccountName?: string;

@@ -1,6 +1,8 @@
-- updated `AWS::S3Outposts::AccessPoint`
-  - added `tagging`
-- updated `AWS::S3Outposts::BucketPolicy`
-  - added `tagging`
-- updated `AWS::S3Outposts::Endpoint`
-  - added `tagging`
+- updated `AWS::Batch::JobDefinition`
+  - added definition `ImagePullSecret`
+  - updated definition `EksContainerSecurityContext`
+  - updated definition `PodProperties`
+- updated `AWS::CloudWatch::AnomalyDetector`
+  - added definition `MetricCharacteristics`
+  - added property `MetricCharacteristics`
+  - updated `createOnlyProperties`

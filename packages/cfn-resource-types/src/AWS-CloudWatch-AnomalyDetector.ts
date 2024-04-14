@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type CloudWatchAnomalyDetectorProperties = {
   Configuration?: Configuration;
   Dimensions?: Dimension[];
+  MetricCharacteristics?: MetricCharacteristics;
   MetricMathAnomalyDetector?: MetricMathAnomalyDetector;
   MetricName?: string;
   Namespace?: string;
@@ -44,6 +45,13 @@ export type Metric = {
   Dimensions?: Dimension[];
   MetricName: string;
   Namespace: string;
+};
+/**
+ * Type definition for `AWS::CloudWatch::AnomalyDetector.MetricCharacteristics`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-anomalydetector-metriccharacteristics.html}
+ */
+export type MetricCharacteristics = {
+  PeriodicSpikes?: boolean;
 };
 /**
  * Type definition for `AWS::CloudWatch::AnomalyDetector.MetricDataQuery`.
