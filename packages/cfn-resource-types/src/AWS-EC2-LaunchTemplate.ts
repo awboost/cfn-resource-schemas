@@ -331,7 +331,7 @@ export type IamInstanceProfile = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.InstanceMarketOptions`.
  * Specifies the market (purchasing) option for an instance.
- ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+  ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html}
  */
 export type InstanceMarketOptions = {
@@ -544,7 +544,7 @@ export type InstanceRequirements = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.Ipv4PrefixSpecification`.
  * Specifies an IPv4 prefix for a network interface.
- ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+  ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv4prefixspecification.html}
  */
 export type Ipv4PrefixSpecification = {
@@ -556,7 +556,7 @@ export type Ipv4PrefixSpecification = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.Ipv6Add`.
  * Specifies an IPv6 address in an Amazon EC2 launch template.
- ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+  ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html}
  */
 export type Ipv6Add = {
@@ -568,7 +568,7 @@ export type Ipv6Add = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.Ipv6PrefixSpecification`.
  * Specifies an IPv6 prefix for a network interface.
- ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+  ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6prefixspecification.html}
  */
 export type Ipv6PrefixSpecification = {
@@ -701,7 +701,7 @@ export type LaunchTemplateData = {
    */
   Monitoring?: Monitoring;
   /**
-   * One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.
+   * The network interfaces for the instance.
    */
   NetworkInterfaces?: NetworkInterface[];
   /**
@@ -718,12 +718,14 @@ export type LaunchTemplateData = {
      */
   RamDiskId?: string;
   /**
-   * The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
-   */
+     * The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.
+     If you specify a network interface, you must specify any security groups as part of the network interface instead.
+     */
   SecurityGroupIds?: string[];
   /**
-   * One or more security group names. For a nondefault VPC, you must use security group IDs instead.
-   */
+     * The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
+     If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
+     */
   SecurityGroups?: string[];
   /**
      * The tags to apply to the resources that are created during instance launch.
@@ -740,7 +742,7 @@ export type LaunchTemplateData = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.LaunchTemplateElasticInferenceAccelerator`.
  * Specifies an elastic inference accelerator.
- ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+  ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html}
  */
 export type LaunchTemplateElasticInferenceAccelerator = {
@@ -757,7 +759,7 @@ export type LaunchTemplateElasticInferenceAccelerator = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.LaunchTemplateTagSpecification`.
  * Specifies the tags to apply to the launch template during creation.
- ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+  ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatetagspecification.html}
  */
 export type LaunchTemplateTagSpecification = {
@@ -773,7 +775,7 @@ export type LaunchTemplateTagSpecification = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.LicenseSpecification`.
  * Specifies a license configuration for an instance.
- ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+  ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-licensespecification.html}
  */
 export type LicenseSpecification = {
@@ -826,7 +828,7 @@ export type MemoryMiB = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.MetadataOptions`.
  * The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
- ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+  ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.html}
  */
 export type MetadataOptions = {
@@ -863,7 +865,7 @@ export type MetadataOptions = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.Monitoring`.
  * Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.
- ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+  ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-monitoring.html}
  */
 export type Monitoring = {
@@ -891,7 +893,7 @@ export type NetworkBandwidthGbps = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.NetworkInterface`.
  * Specifies the parameters for a network interface.
- ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+  ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html}
  */
 export type NetworkInterface = {
@@ -1006,7 +1008,7 @@ export type NetworkInterfaceCount = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.Placement`.
  * Specifies the placement of an instance.
- ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+  ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-placement.html}
  */
 export type Placement = {
@@ -1069,7 +1071,7 @@ export type PrivateDnsNameOptions = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.PrivateIpAdd`.
  * Specifies a secondary private IPv4 address for a network interface.
- ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
+  ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privateipadd.html}
  */
 export type PrivateIpAdd = {
@@ -1085,7 +1087,7 @@ export type PrivateIpAdd = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.SpotOptions`.
  * Specifies options for Spot Instances.
- ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
+  ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-spotoptions.html}
  */
 export type SpotOptions = {
@@ -1134,7 +1136,7 @@ export type Tag = {
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.TagSpecification`.
  * Specifies the tags to apply to a resource when the resource is created for the launch template.
- ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
+  ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html}
  */
 export type TagSpecification = {

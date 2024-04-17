@@ -1,5 +1,5 @@
 {
-  "$hash": "fff0995d209c1efe985664616b20623a4d7d508b",
+  "$hash": "0adadca66a69206866876dae8c8881f418d42fb6",
   "$id": "aws-verifiedpermissions-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyStoreId"],
@@ -78,17 +78,13 @@
     "create": {
       "permissions": [
         "verifiedpermissions:CreatePolicy",
-        "verifiedpermissions:GetPolicy",
-        "verifiedpermissions:UpdatePolicy",
-        "verifiedpermissions:DeletePolicy"
+        "verifiedpermissions:GetPolicy"
       ]
     },
     "delete": {
       "permissions": [
-        "verifiedpermissions:CreatePolicy",
-        "verifiedpermissions:GetPolicy",
-        "verifiedpermissions:UpdatePolicy",
-        "verifiedpermissions:DeletePolicy"
+        "verifiedpermissions:DeletePolicy",
+        "verifiedpermissions:GetPolicy"
       ]
     },
     "list": {
@@ -101,26 +97,15 @@
         "required": ["PolicyStoreId"]
       },
       "permissions": [
-        "verifiedpermissions:CreatePolicy",
-        "verifiedpermissions:GetPolicy",
-        "verifiedpermissions:UpdatePolicy",
-        "verifiedpermissions:DeletePolicy"
+        "verifiedpermissions:ListPolicies",
+        "verifiedpermissions:GetPolicy"
       ]
     },
-    "read": {
-      "permissions": [
-        "verifiedpermissions:CreatePolicy",
-        "verifiedpermissions:GetPolicy",
-        "verifiedpermissions:UpdatePolicy",
-        "verifiedpermissions:DeletePolicy"
-      ]
-    },
+    "read": { "permissions": ["verifiedpermissions:GetPolicy"] },
     "update": {
       "permissions": [
-        "verifiedpermissions:CreatePolicy",
-        "verifiedpermissions:GetPolicy",
         "verifiedpermissions:UpdatePolicy",
-        "verifiedpermissions:DeletePolicy"
+        "verifiedpermissions:GetPolicy"
       ]
     }
   },

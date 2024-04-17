@@ -1,8 +1,30 @@
-- updated `AWS::Batch::JobDefinition`
-  - added definition `ImagePullSecret`
-  - updated definition `EksContainerSecurityContext`
-  - updated definition `PodProperties`
-- updated `AWS::CloudWatch::AnomalyDetector`
-  - added definition `MetricCharacteristics`
-  - added property `MetricCharacteristics`
-  - updated `createOnlyProperties`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `InstanceMarketOptions`
+  - updated definition `Ipv4PrefixSpecification`
+  - updated definition `Ipv6Add`
+  - updated definition `Ipv6PrefixSpecification`
+  - updated definition `LaunchTemplateData`
+  - updated definition `LaunchTemplateElasticInferenceAccelerator`
+  - updated definition `LaunchTemplateTagSpecification`
+  - updated definition `LicenseSpecification`
+  - updated definition `MetadataOptions`
+  - updated definition `Monitoring`
+  - updated definition `NetworkInterface`
+  - updated definition `Placement`
+  - updated definition `PrivateIpAdd`
+  - updated definition `SpotOptions`
+  - updated definition `TagSpecification`
+- updated `AWS::Lambda::Function`
+  - updated definition `Code`
+  - updated definition `DeadLetterConfig`
+  - updated definition `VpcConfig`
+  - updated property `Layers`
+- updated `AWS::VerifiedPermissions::IdentitySource`
+  - updated handler permissions
+- updated `AWS::VerifiedPermissions::Policy`
+  - updated handler permissions
+- updated `AWS::VerifiedPermissions::PolicyStore`
+  - added `sourceUrl`
+  - updated handler permissions
+- updated `AWS::VerifiedPermissions::PolicyTemplate`
+  - updated handler permissions

@@ -1,5 +1,5 @@
 {
-  "$hash": "c5994baf5ac582f9e7e4084e57636a44520098f5",
+  "$hash": "26d329c8d999f454aaac1142fc4605a95fd41766",
   "$id": "aws-verifiedpermissions-identitysource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyStoreId"],
@@ -96,20 +96,14 @@
       "permissions": [
         "verifiedpermissions:CreateIdentitySource",
         "verifiedpermissions:GetIdentitySource",
-        "verifiedpermissions:UpdateIdentitySource",
-        "verifiedpermissions:DeleteIdentitySource",
-        "verifiedpermissions:ListIdentitySources",
         "cognito-idp:DescribeUserPool",
         "cognito-idp:ListUserPoolClients"
       ]
     },
     "delete": {
       "permissions": [
-        "verifiedpermissions:CreateIdentitySource",
-        "verifiedpermissions:GetIdentitySource",
-        "verifiedpermissions:UpdateIdentitySource",
         "verifiedpermissions:DeleteIdentitySource",
-        "verifiedpermissions:ListIdentitySources",
+        "verifiedpermissions:GetIdentitySource",
         "cognito-idp:DescribeUserPool",
         "cognito-idp:ListUserPoolClients"
       ]
@@ -124,33 +118,23 @@
         "required": ["PolicyStoreId"]
       },
       "permissions": [
-        "verifiedpermissions:CreateIdentitySource",
-        "verifiedpermissions:GetIdentitySource",
-        "verifiedpermissions:UpdateIdentitySource",
-        "verifiedpermissions:DeleteIdentitySource",
         "verifiedpermissions:ListIdentitySources",
+        "verifiedpermissions:GetIdentitySource",
         "cognito-idp:DescribeUserPool",
         "cognito-idp:ListUserPoolClients"
       ]
     },
     "read": {
       "permissions": [
-        "verifiedpermissions:CreateIdentitySource",
         "verifiedpermissions:GetIdentitySource",
-        "verifiedpermissions:UpdateIdentitySource",
-        "verifiedpermissions:DeleteIdentitySource",
-        "verifiedpermissions:ListIdentitySources",
         "cognito-idp:DescribeUserPool",
         "cognito-idp:ListUserPoolClients"
       ]
     },
     "update": {
       "permissions": [
-        "verifiedpermissions:CreateIdentitySource",
-        "verifiedpermissions:GetIdentitySource",
         "verifiedpermissions:UpdateIdentitySource",
-        "verifiedpermissions:DeleteIdentitySource",
-        "verifiedpermissions:ListIdentitySources",
+        "verifiedpermissions:GetIdentitySource",
         "cognito-idp:DescribeUserPool",
         "cognito-idp:ListUserPoolClients"
       ]

@@ -1,7 +1,8 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+ * Resource type definition for `AWS::VerifiedPermissions::PolicyStore`.
+ * Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html}
  */
 export type VerifiedPermissionsPolicyStoreProperties = {
@@ -51,7 +52,8 @@ export type ValidationSettings = {
   Mode: ValidationMode;
 };
 /**
- * Definition of AWS::VerifiedPermissions::PolicyStore Resource Type
+ * Resource type definition for `AWS::VerifiedPermissions::PolicyStore`.
+ * Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html}
  */
 export class VerifiedPermissionsPolicyStore extends $Resource<

@@ -1,5 +1,5 @@
 {
-  "$hash": "7d5288c9cf10384bdeb3c2e4f09c9ae2786500fa",
+  "$hash": "01fc84ab106b33b095142ac3d93c5a3967593914",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -267,7 +267,7 @@
     },
     "InstanceMarketOptions": {
       "additionalProperties": false,
-      "description": "Specifies the market (purchasing) option for an instance.\n ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
+      "description": "Specifies the market (purchasing) option for an instance.\n  ``InstanceMarketOptions`` is a property of the [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
       "properties": {
         "MarketType": { "description": "The market type.", "type": "string" },
         "SpotOptions": {
@@ -401,7 +401,7 @@
     },
     "Ipv4PrefixSpecification": {
       "additionalProperties": false,
-      "description": "Specifies an IPv4 prefix for a network interface.\n ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).",
+      "description": "Specifies an IPv4 prefix for a network interface.\n  ``Ipv4PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).",
       "properties": {
         "Ipv4Prefix": {
           "description": "The IPv4 prefix. For information, see [Assigning prefixes to Amazon EC2 network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html) in the *Amazon Elastic Compute Cloud User Guide*.",
@@ -412,7 +412,7 @@
     },
     "Ipv6Add": {
       "additionalProperties": false,
-      "description": "Specifies an IPv6 address in an Amazon EC2 launch template.\n ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).",
+      "description": "Specifies an IPv6 address in an Amazon EC2 launch template.\n  ``Ipv6Add`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).",
       "properties": {
         "Ipv6Address": {
           "description": "One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.",
@@ -423,7 +423,7 @@
     },
     "Ipv6PrefixSpecification": {
       "additionalProperties": false,
-      "description": "Specifies an IPv6 prefix for a network interface.\n ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).",
+      "description": "Specifies an IPv6 prefix for a network interface.\n  ``Ipv6PrefixSpecification`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).",
       "properties": {
         "Ipv6Prefix": { "description": "The IPv6 prefix.", "type": "string" }
       },
@@ -536,7 +536,7 @@
           "description": "The monitoring for the instance."
         },
         "NetworkInterfaces": {
-          "description": "One or more network interfaces. If you specify a network interface, you must specify any security groups and subnets as part of the network interface.",
+          "description": "The network interfaces for the instance.",
           "items": { "$ref": "#/definitions/NetworkInterface" },
           "type": "array",
           "uniqueItems": false
@@ -554,13 +554,13 @@
           "type": "string"
         },
         "SecurityGroupIds": {
-          "description": "The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.",
+          "description": "The IDs of the security groups. You can specify the IDs of existing security groups and references to resources created by the stack template.\n If you specify a network interface, you must specify any security groups as part of the network interface instead.",
           "items": { "type": "string" },
           "type": "array",
           "uniqueItems": false
         },
         "SecurityGroups": {
-          "description": "One or more security group names. For a nondefault VPC, you must use security group IDs instead.",
+          "description": "The names of the security groups. For a nondefault VPC, you must use security group IDs instead.\n If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.",
           "items": { "type": "string" },
           "type": "array",
           "uniqueItems": false
@@ -580,7 +580,7 @@
     },
     "LaunchTemplateElasticInferenceAccelerator": {
       "additionalProperties": false,
-      "description": "Specifies an elastic inference accelerator.\n ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
+      "description": "Specifies an elastic inference accelerator.\n  ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
       "properties": {
         "Count": {
           "description": "The number of elastic inference accelerators to attach to the instance. \n Default: 1",
@@ -595,7 +595,7 @@
     },
     "LaunchTemplateTagSpecification": {
       "additionalProperties": false,
-      "description": "Specifies the tags to apply to the launch template during creation.\n ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).",
+      "description": "Specifies the tags to apply to the launch template during creation.\n  ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).",
       "properties": {
         "ResourceType": {
           "description": "The type of resource. To tag the launch template, ``ResourceType`` must be ``launch-template``.",
@@ -612,7 +612,7 @@
     },
     "LicenseSpecification": {
       "additionalProperties": false,
-      "description": "Specifies a license configuration for an instance.\n ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
+      "description": "Specifies a license configuration for an instance.\n  ``LicenseSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
       "properties": {
         "LicenseConfigurationArn": {
           "description": "The Amazon Resource Name (ARN) of the license configuration.",
@@ -664,7 +664,7 @@
     },
     "MetadataOptions": {
       "additionalProperties": false,
-      "description": "The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.\n ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
+      "description": "The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.\n  ``MetadataOptions`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
       "properties": {
         "HttpEndpoint": {
           "description": "Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is ``enabled``.\n  If you specify a value of ``disabled``, you will not be able to access your instance metadata.",
@@ -691,7 +691,7 @@
     },
     "Monitoring": {
       "additionalProperties": false,
-      "description": "Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.\n ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
+      "description": "Specifies whether detailed monitoring is enabled for an instance. For more information about detailed monitoring, see [Enable or turn off detailed monitoring for your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html) in the *User Guide*.\n  ``Monitoring`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
       "properties": {
         "Enabled": {
           "description": "Specify ``true`` to enable detailed monitoring. Otherwise, basic monitoring is enabled.",
@@ -717,7 +717,7 @@
     },
     "NetworkInterface": {
       "additionalProperties": false,
-      "description": "Specifies the parameters for a network interface.\n ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
+      "description": "Specifies the parameters for a network interface.\n  ``NetworkInterface`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
       "properties": {
         "AssociateCarrierIpAddress": {
           "description": "Associates a Carrier IP address with eth0 for a new network interface.\n Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see [Carrier IP addresses](https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip) in the *Developer Guide*.",
@@ -837,7 +837,7 @@
     },
     "Placement": {
       "additionalProperties": false,
-      "description": "Specifies the placement of an instance.\n ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
+      "description": "Specifies the placement of an instance.\n  ``Placement`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
       "properties": {
         "Affinity": {
           "description": "The affinity setting for an instance on a Dedicated Host.",
@@ -899,7 +899,7 @@
     },
     "PrivateIpAdd": {
       "additionalProperties": false,
-      "description": "Specifies a secondary private IPv4 address for a network interface.\n ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).",
+      "description": "Specifies a secondary private IPv4 address for a network interface.\n  ``PrivateIpAdd`` is a property of [AWS::EC2::LaunchTemplate NetworkInterface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html).",
       "properties": {
         "Primary": {
           "description": "Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.",
@@ -914,7 +914,7 @@
     },
     "SpotOptions": {
       "additionalProperties": false,
-      "description": "Specifies options for Spot Instances.\n ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).",
+      "description": "Specifies options for Spot Instances.\n  ``SpotOptions`` is a property of [AWS::EC2::LaunchTemplate InstanceMarketOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html).",
       "properties": {
         "BlockDurationMinutes": {
           "description": "Deprecated.",
@@ -951,7 +951,7 @@
     },
     "TagSpecification": {
       "additionalProperties": false,
-      "description": "Specifies the tags to apply to a resource when the resource is created for the launch template.\n ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
+      "description": "Specifies the tags to apply to a resource when the resource is created for the launch template.\n  ``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
       "properties": {
         "ResourceType": {
           "description": "The type of resource to tag.\n Valid Values lists all resource types for Amazon EC2 that can be tagged. When you create a launch template, you can specify tags for the following resource types only: ``instance`` | ``volume`` | ``network-interface`` | ``spot-instances-request``. If the instance does not include the resource type that you specify, the instance launch fails. For example, not all instance types include a volume.\n To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).",

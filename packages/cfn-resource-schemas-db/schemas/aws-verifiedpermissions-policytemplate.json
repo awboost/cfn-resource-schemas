@@ -1,5 +1,5 @@
 {
-  "$hash": "a6ca91c6ad491d9b37b2de61a1d5ec141dbf7e66",
+  "$hash": "ea72fe5f4c4f8452307863e4c4a6deffbe4549bb",
   "$id": "aws-verifiedpermissions-policytemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyStoreId"],
@@ -8,17 +8,13 @@
     "create": {
       "permissions": [
         "verifiedpermissions:CreatePolicyTemplate",
-        "verifiedpermissions:GetPolicyTemplate",
-        "verifiedpermissions:UpdatePolicyTemplate",
-        "verifiedpermissions:DeletePolicyTemplate"
+        "verifiedpermissions:GetPolicyTemplate"
       ]
     },
     "delete": {
       "permissions": [
-        "verifiedpermissions:CreatePolicyTemplate",
-        "verifiedpermissions:GetPolicyTemplate",
-        "verifiedpermissions:UpdatePolicyTemplate",
-        "verifiedpermissions:DeletePolicyTemplate"
+        "verifiedpermissions:DeletePolicyTemplate",
+        "verifiedpermissions:GetPolicyTemplate"
       ]
     },
     "list": {
@@ -31,27 +27,15 @@
         "required": ["PolicyStoreId"]
       },
       "permissions": [
-        "verifiedpermissions:CreatePolicyTemplate",
-        "verifiedpermissions:GetPolicyTemplate",
-        "verifiedpermissions:UpdatePolicyTemplate",
-        "verifiedpermissions:DeletePolicyTemplate",
-        "verifiedpermissions:ListPolicyTemplates"
+        "verifiedpermissions:ListPolicyTemplates",
+        "verifiedpermissions:GetPolicyTemplate"
       ]
     },
-    "read": {
-      "permissions": [
-        "verifiedpermissions:CreatePolicyTemplate",
-        "verifiedpermissions:GetPolicyTemplate",
-        "verifiedpermissions:UpdatePolicyTemplate",
-        "verifiedpermissions:DeletePolicyTemplate"
-      ]
-    },
+    "read": { "permissions": ["verifiedpermissions:GetPolicyTemplate"] },
     "update": {
       "permissions": [
-        "verifiedpermissions:CreatePolicyTemplate",
-        "verifiedpermissions:GetPolicyTemplate",
         "verifiedpermissions:UpdatePolicyTemplate",
-        "verifiedpermissions:DeletePolicyTemplate"
+        "verifiedpermissions:GetPolicyTemplate"
       ]
     }
   },
