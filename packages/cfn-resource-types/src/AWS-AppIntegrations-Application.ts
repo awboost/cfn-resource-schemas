@@ -33,6 +33,12 @@ export type AppIntegrationsApplicationProperties = {
    */
   Namespace?: string;
   /**
+   * The configuration of events or requests that the application has access to.
+   * @minLength `0`
+   * @maxLength `150`
+   */
+  Permissions?: string[];
+  /**
    * The tags (keys and values) associated with the application.
    * @minLength `0`
    * @maxLength `200`
@@ -48,6 +54,7 @@ export type AppIntegrationsApplicationAttributes = {
    * The Amazon Resource Name (ARN) of the application.
    * @minLength `1`
    * @maxLength `2048`
+   * @pattern `^arn:aws[-a-z0-9]*:app-integrations:[-a-z0-9]*:[0-9]{12}:application/[-a-zA-Z0-9]*`
    */
   ApplicationArn: string;
   /**

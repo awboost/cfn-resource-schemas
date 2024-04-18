@@ -1,5 +1,5 @@
 {
-  "$hash": "646116793e4ec9dd3573e5c072995204a66215f8",
+  "$hash": "09d921125932a599383ac9bb3b96265c801c6cb2",
   "$id": "aws-sqs-queuepolicy.json",
   "additionalProperties": false,
   "description": "The ``AWS::SQS::QueuePolicy`` type applies a policy to SQS queues. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sqs-policy) in the *User Guide*.",
@@ -18,7 +18,23 @@
     "Queues": {
       "description": "The URLs of the queues to which you want to add the policy. You can use the ``Ref`` function to specify an ``AWS::SQS::Queue`` resource.",
       "insertionOrder": false,
-      "items": { "type": "string" },
+      "items": {
+        "anyOf": [
+          {
+            "relationshipRef": {
+              "propertyPath": "/properties/QueueUrl",
+              "typeName": "AWS::SQS::Queue"
+            }
+          },
+          {
+            "relationshipRef": {
+              "propertyPath": "/properties/QueueName",
+              "typeName": "AWS::SQS::Queue"
+            }
+          }
+        ],
+        "type": "string"
+      },
       "type": "array",
       "uniqueItems": false
     }

@@ -10,6 +10,7 @@ export type OamLinkProperties = {
    * @maxLength `64`
    */
   LabelTemplate?: string;
+  LinkConfiguration?: LinkConfiguration;
   /**
    * @minLength `1`
    * @maxLength `50`
@@ -35,6 +36,25 @@ export type OamLinkAttributes = {
    */
   Arn: string;
   Label: string;
+};
+/**
+ * Type definition for `AWS::Oam::Link.LinkConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkconfiguration.html}
+ */
+export type LinkConfiguration = {
+  LogGroupConfiguration?: LinkFilter;
+  MetricConfiguration?: LinkFilter;
+};
+/**
+ * Type definition for `AWS::Oam::Link.LinkFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-oam-link-linkfilter.html}
+ */
+export type LinkFilter = {
+  /**
+   * @minLength `1`
+   * @maxLength `2000`
+   */
+  Filter: string;
 };
 /**
  * Type definition for `AWS::Oam::Link.ResourceType`.

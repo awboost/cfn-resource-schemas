@@ -37,9 +37,6 @@ export type S3BucketProperties = {
   /**
      * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*.
       If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
-     * @minLength `3`
-     * @maxLength `63`
-     * @pattern `^[a-z0-9][a-z0-9//.//-]*[a-z0-9]$`
      */
   BucketName?: string;
   /**
@@ -114,24 +111,12 @@ export type S3BucketProperties = {
  */
 export type S3BucketAttributes = {
   /**
-   * The Amazon Resource Name (ARN) of the specified bucket.
+   * the Amazon Resource Name (ARN) of the specified bucket.
    */
   Arn: string;
-  /**
-   * The IPv4 DNS name of the specified bucket.
-   */
   DomainName: string;
-  /**
-   * The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
-   */
   DualStackDomainName: string;
-  /**
-   * Returns the regional domain name of the specified bucket.
-   */
   RegionalDomainName: string;
-  /**
-   * The Amazon S3 website endpoint for the specified bucket.
-   */
   WebsiteURL: string;
 };
 /**

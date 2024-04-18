@@ -1,5 +1,5 @@
 {
-  "$hash": "f9323c55ec88b32366cc1cf6314287900a4353b7",
+  "$hash": "55952e4cae09fc2bf5669912cadf8bb93621c5d2",
   "$id": "aws-sns-topic.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TopicName", "/properties/FifoTopic"],
@@ -25,6 +25,20 @@
       "description": "``Subscription`` is an embedded property that describes the subscription endpoints of an SNS topic.\n  For full control over subscription behavior (for example, delivery policy, filtering, raw message delivery, and cross-region subscriptions), use the [AWS::SNS::Subscription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html) resource.",
       "properties": {
         "Endpoint": {
+          "anyOf": [
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/Arn",
+                "typeName": "AWS::Lambda::Function"
+              }
+            },
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/Arn",
+                "typeName": "AWS::SQS::Queue"
+              }
+            }
+          ],
           "description": "The endpoint that receives notifications from the SNS topic. The endpoint value depends on the protocol that you specify. For more information, see the ``Endpoint`` parameter of the ``Subscribe`` action in the *API Reference*.",
           "type": "string"
         },
@@ -123,6 +137,26 @@
       "type": "boolean"
     },
     "KmsMasterKeyId": {
+      "anyOf": [
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::KMS::Key"
+          }
+        },
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/KeyId",
+            "typeName": "AWS::KMS::Key"
+          }
+        },
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/AliasName",
+            "typeName": "AWS::KMS::Alias"
+          }
+        }
+      ],
       "description": "The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.\n This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).",
       "type": "string"
     },

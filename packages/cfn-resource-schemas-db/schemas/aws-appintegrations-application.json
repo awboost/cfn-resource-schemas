@@ -1,5 +1,5 @@
 {
-  "$hash": "78faddf7cc614786fbd3f51eddde1893dcaecfec",
+  "$hash": "c6d43f8823ef771120976f54395a2c698df1e392",
   "$id": "aws-appintegrations-application.json",
   "additionalProperties": false,
   "definitions": {
@@ -28,6 +28,12 @@
       },
       "required": ["AccessUrl", "ApprovedOrigins"],
       "type": "object"
+    },
+    "Permissions": {
+      "maxLength": 255,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9\\/\\._\\-\\*]+$",
+      "type": "string"
     },
     "Tag": {
       "additionalProperties": false,
@@ -82,6 +88,7 @@
       "description": "The Amazon Resource Name (ARN) of the application.",
       "maxLength": 2048,
       "minLength": 1,
+      "pattern": "^arn:aws[-a-z0-9]*:app-integrations:[-a-z0-9]*:[0-9]{12}:application/[-a-zA-Z0-9]*",
       "type": "string"
     },
     "ApplicationSourceConfig": {
@@ -119,6 +126,14 @@
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9/\\._\\-]+$",
       "type": "string"
+    },
+    "Permissions": {
+      "description": "The configuration of events or requests that the application has access to.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Permissions" },
+      "maxItems": 150,
+      "minItems": 0,
+      "type": "array"
     },
     "Tags": {
       "description": "The tags (keys and values) associated with the application.",
