@@ -1,5 +1,5 @@
 {
-  "$hash": "5033e6684ca305db29cf2c3b2e1c79937db94523",
+  "$hash": "1179d3555f898a5212c141e816f9fe3bcd2e9383",
   "$id": "aws-rum-appmonitor.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -226,6 +226,7 @@
   "handlers": {
     "create": {
       "permissions": [
+        "rum:GetAppMonitor",
         "rum:CreateAppMonitor",
         "dynamodb:GetItem",
         "dynamodb:PutItem",
@@ -242,15 +243,20 @@
         "logs:DescribeLogGroups",
         "logs:PutRetentionPolicy",
         "rum:TagResource",
+        "rum:ListTagsForResource",
         "cognito-identity:DescribeIdentityPool",
         "iam:GetRole",
         "iam:CreateServiceLinkedRole",
+        "iam:PassRole",
         "rum:PutRumMetricsDestination",
-        "rum:BatchCreateRumMetricDefinitions"
+        "rum:BatchCreateRumMetricDefinitions",
+        "rum:ListRumMetricsDestinations",
+        "rum:BatchGetRumMetricDefinitions"
       ]
     },
     "delete": {
       "permissions": [
+        "rum:GetAppMonitor",
         "rum:DeleteAppMonitor",
         "dynamodb:DeleteItem",
         "dynamodb:Query",
@@ -258,8 +264,11 @@
         "s3:DeleteObject",
         "s3:DoesObjectExist",
         "rum:UntagResource",
+        "rum:ListTagsForResource",
         "rum:DeleteRumMetricsDestination",
-        "rum:BatchDeleteRumMetricDefinitions"
+        "rum:BatchDeleteRumMetricDefinitions",
+        "rum:ListRumMetricsDestinations",
+        "rum:BatchGetRumMetricDefinitions"
       ]
     },
     "list": {
@@ -291,6 +300,7 @@
     },
     "update": {
       "permissions": [
+        "rum:GetAppMonitor",
         "rum:UpdateAppMonitor",
         "dynamodb:GetItem",
         "dynamodb:PutItem",
@@ -313,6 +323,7 @@
         "rum:ListTagsForResource",
         "iam:GetRole",
         "iam:CreateServiceLinkedRole",
+        "iam:PassRole",
         "rum:PutRumMetricsDestination",
         "rum:DeleteRumMetricsDestination",
         "rum:ListRumMetricsDestinations",
@@ -359,6 +370,6 @@
   "readOnlyProperties": ["/properties/Id"],
   "required": ["Name", "Domain"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable": true,
+  "tagging": { "taggable": true },
   "typeName": "AWS::RUM::AppMonitor"
 }

@@ -1,7 +1,8 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::DataZone::DataSource Resource Type
+ * Resource type definition for `AWS::DataZone::DataSource`.
+ * A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html}
  */
 export type DataZoneDataSourceProperties = {
@@ -207,6 +208,10 @@ export type FormInput = {
  */
 export type GlueRunConfigurationInput = {
   /**
+   * Specifies whether to automatically import data quality metrics as part of the data source run.
+   */
+  AutoImportDataQualityResult?: boolean;
+  /**
    * The data access role included in the configuration details of the AWS Glue data source.
    * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]{1,128}$`
    */
@@ -352,7 +357,8 @@ export type ScheduleConfiguration = {
   Timezone?: string;
 };
 /**
- * Definition of AWS::DataZone::DataSource Resource Type
+ * Resource type definition for `AWS::DataZone::DataSource`.
+ * A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-datasource.html}
  */
 export class DataZoneDataSource extends $Resource<

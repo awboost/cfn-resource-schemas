@@ -1,43 +1,38 @@
-- added `AWS::ECR::RepositoryCreationTemplate`
-- added `AWS::Timestream::InfluxDBInstance`
 - updated `AWS::AppIntegrations::Application`
-  - added definition `Permissions`
-  - added property `Permissions`
-  - updated property `ApplicationArn`
-- updated `AWS::KMS::Key`
-  - added property `RotationPeriodInDays`
-  - updated `writeOnlyProperties`
-  - updated property `EnableKeyRotation`
-  - updated property `KeyPolicy`
-  - updated property `KeySpec`
-  - updated property `KeyUsage`
-  - updated property `MultiRegion`
-  - updated property `PendingWindowInDays`
-- updated `AWS::Oam::Link`
-  - added definition `LinkConfiguration`
-  - added definition `LinkFilter`
-  - added property `LinkConfiguration`
-- updated `AWS::RedshiftServerless::Namespace`
-  - added definition `SnapshotCopyConfiguration`
-  - added property `SnapshotCopyConfigurations`
-  - updated handler permissions
-- updated `AWS::S3::Bucket`
-  - added `propertyTransform`
+  - updated definition `ExternalUrlConfig`
+  - updated property `Name`
+- updated `AWS::DataZone::DataSource`
+  - updated definition `GlueRunConfigurationInput`
+- updated `AWS::EC2::CustomerGateway`
+  - added property `BgpAsnExtended`
   - updated `createOnlyProperties`
-  - updated definition `CorsRule`
-  - updated definition `Destination`
-  - updated definition `ReplicaModifications`
-  - updated definition `S3KeyFilter`
-  - updated definition `ServerSideEncryptionByDefault`
-  - updated property `Arn`
-  - updated property `BucketName`
-  - updated property `DomainName`
-  - updated property `DualStackDomainName`
-  - updated property `RegionalDomainName`
-  - updated property `WebsiteURL`
-- updated `AWS::S3::BucketPolicy`
-- updated `AWS::SNS::Topic`
-  - updated definition `Subscription`
-  - updated property `KmsMasterKeyId`
-- updated `AWS::SQS::QueuePolicy`
-  - updated property `Queues`
+  - updated `required`
+- updated `AWS::Lambda::Alias`
+  - added `sourceUrl`
+  - added `tagging`
+  - added property `AliasArn`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `AliasRoutingConfiguration`
+  - updated definition `ProvisionedConcurrencyConfiguration`
+  - updated definition `VersionWeight`
+  - updated handler permissions
+  - updated property `Description`
+  - updated property `FunctionName`
+  - updated property `FunctionVersion`
+  - updated property `Name`
+  - updated property `ProvisionedConcurrencyConfig`
+  - updated property `RoutingConfig`
+- updated `AWS::M2::Environment`
+  - updated handler permissions
+- updated `AWS::RUM::AppMonitor`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::VpcLattice::Listener`
+  - updated definition `Forward`
+- updated `AWS::VpcLattice::Rule`
+  - updated definition `Forward`
+- updated `AWS::VpcLattice::TargetGroup`
+  - updated definition `HealthCheckConfig`

@@ -1,5 +1,5 @@
 {
-  "$hash": "8561e0632ff94007aa8bcf1cebae756952368b66",
+  "$hash": "8a2b8db9aac7e8017d8121c90d4705ead48d9629",
   "$id": "aws-datazone-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -117,6 +117,10 @@
     "GlueRunConfigurationInput": {
       "additionalProperties": false,
       "properties": {
+        "AutoImportDataQualityResult": {
+          "description": "Specifies whether to automatically import data quality metrics as part of the data source run.",
+          "type": "boolean"
+        },
         "DataAccessRole": {
           "$ref": "#/definitions/DataAccessRole",
           "description": "The data access role included in the configuration details of the AWS Glue data source."
@@ -306,7 +310,7 @@
       "type": "string"
     }
   },
-  "description": "Definition of AWS::DataZone::DataSource Resource Type",
+  "description": "A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone. ",
   "handlers": {
     "create": {
       "permissions": [

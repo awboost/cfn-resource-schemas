@@ -87,7 +87,7 @@ export type FixedResponse = {
 export type Forward = {
   /**
    * @minLength `1`
-   * @maxLength `2`
+   * @maxLength `10`
    */
   TargetGroups: WeightedTargetGroup[];
 };

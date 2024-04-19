@@ -85,7 +85,7 @@ export type HealthCheckConfig = {
    */
   Port?: number;
   Protocol?: "HTTP" | "HTTPS";
-  ProtocolVersion?: "HTTP1" | "HTTP2" | "GRPC";
+  ProtocolVersion?: "HTTP1" | "HTTP2";
   /**
    * @min `2`
    * @max `10`

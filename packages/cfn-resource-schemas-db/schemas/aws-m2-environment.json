@@ -1,5 +1,5 @@
 {
-  "$hash": "156ead3f7ef5b5eccee1eb1b3f4c76ee27668aba",
+  "$hash": "148ed7bc1389128230e8c10d8a83c4153306e427",
   "$id": "aws-m2-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -108,6 +108,7 @@
         "ec2:ModifyNetworkInterfaceAttribute",
         "elasticfilesystem:DescribeMountTargets",
         "elasticloadbalancing:CreateLoadBalancer",
+        "elasticloadbalancing:DeleteLoadBalancer",
         "elasticloadbalancing:AddTags",
         "fsx:DescribeFileSystems",
         "iam:CreateServiceLinkedRole",

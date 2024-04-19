@@ -1,5 +1,5 @@
 {
-  "$hash": "730149babfc7079c9e25f90f62edf0ab90a21fd6",
+  "$hash": "b22635f7d91ae3396c9b96d4f4a419a970ccaa03",
   "$id": "aws-vpclattice-listener.json",
   "additionalIdentifiers": [
     ["/properties/ServiceIdentifier", "/properties/Name", "/properties/Port"]
@@ -35,7 +35,7 @@
         "TargetGroups": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/WeightedTargetGroup" },
-          "maxItems": 2,
+          "maxItems": 10,
           "minItems": 1,
           "type": "array"
         }

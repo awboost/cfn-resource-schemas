@@ -1,5 +1,5 @@
 {
-  "$hash": "7e0c18af7226f019a1f008ef91b1951f1f6d5bde",
+  "$hash": "1a45687327a982045549137b929def9c440a20bb",
   "$id": "aws-vpclattice-rule.json",
   "additionalIdentifiers": [
     [
@@ -39,7 +39,7 @@
         "TargetGroups": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/WeightedTargetGroup" },
-          "maxItems": 2,
+          "maxItems": 10,
           "minItems": 1,
           "type": "array"
         }

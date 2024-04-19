@@ -1,10 +1,11 @@
 {
-  "$hash": "5c365303d24014ff3fa2d343152397cbbc7077fe",
+  "$hash": "2b0d0443cc0756d3764f7ae01fd781710e3bd511",
   "$id": "aws-ec2-customergateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/CertificateArn",
     "/properties/BgpAsn",
+    "/properties/BgpAsnExtended",
     "/properties/Type",
     "/properties/IpAddress",
     "/properties/DeviceName"
@@ -54,6 +55,13 @@
       "description": "For devices that support BGP, the customer gateway's BGP ASN.\n Default: 65000",
       "type": "integer"
     },
+    "BgpAsnExtended": {
+      "description": "",
+      "maximum": 4294967294,
+      "minimum": 2147483648,
+      "multipleOf": 1,
+      "type": "number"
+    },
     "CertificateArn": {
       "description": "",
       "pattern": "^arn:(aws[a-zA-Z-]*)?:acm:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:certificate\\/[a-zA-Z0-9-_]+$",
@@ -81,7 +89,7 @@
     }
   },
   "readOnlyProperties": ["/properties/CustomerGatewayId"],
-  "required": ["BgpAsn", "IpAddress", "Type"],
+  "required": ["IpAddress", "Type"],
   "tagging": {
     "cloudFormationSystemTags": true,
     "tagOnCreate": true,

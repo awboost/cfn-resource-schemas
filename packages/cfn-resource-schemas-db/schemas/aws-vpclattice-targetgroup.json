@@ -1,5 +1,5 @@
 {
-  "$hash": "ce7bf14775de03b33eef85a0a61ae69f0c3fec5d",
+  "$hash": "2ba02f3dd514ca6daa786ba011f03f24098ad56e",
   "$id": "aws-vpclattice-targetgroup.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/Name"]],
   "additionalProperties": false,
@@ -42,10 +42,7 @@
         },
         "Port": { "maximum": 65535, "minimum": 1, "type": "integer" },
         "Protocol": { "enum": ["HTTP", "HTTPS"], "type": "string" },
-        "ProtocolVersion": {
-          "enum": ["HTTP1", "HTTP2", "GRPC"],
-          "type": "string"
-        },
+        "ProtocolVersion": { "enum": ["HTTP1", "HTTP2"], "type": "string" },
         "UnhealthyThresholdCount": {
           "maximum": 10,
           "minimum": 2,

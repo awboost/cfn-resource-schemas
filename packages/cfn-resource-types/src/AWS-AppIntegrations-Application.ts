@@ -22,7 +22,7 @@ export type AppIntegrationsApplicationProperties = {
    * The name of the application.
    * @minLength `1`
    * @maxLength `255`
-   * @pattern `^[a-zA-Z0-9/\._\-]+$`
+   * @pattern `^[a-zA-Z0-9\/\._ \-]+$`
    */
   Name: string;
   /**
@@ -80,7 +80,7 @@ export type ExternalUrlConfig = {
    * @minLength `0`
    * @maxLength `50`
    */
-  ApprovedOrigins: string[];
+  ApprovedOrigins?: string[];
 };
 /**
  * Type definition for `AWS::AppIntegrations::Application.Tag`.
