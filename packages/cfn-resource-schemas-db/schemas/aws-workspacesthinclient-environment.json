@@ -1,5 +1,5 @@
 {
-  "$hash": "a6b87ddb74563daa5e4681f45d260e201f0946d1",
+  "$hash": "46fc5cc2f21ee5314e70c4be8cec25608a96d64c",
   "$id": "aws-workspacesthinclient-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn", "/properties/DesktopArn"],
@@ -127,10 +127,9 @@
         "workspaces-web:GetPortal",
         "workspaces-web:GetUserSettings",
         "thinclient:UpdateEnvironment",
-        "thinclient:GetEnvironment",
+        "thinclient:ListTagsForResource",
         "thinclient:TagResource",
         "thinclient:UntagResource",
-        "thinclient:ListTagsForResource",
         "kms:Decrypt",
         "kms:GenerateDataKey"
       ]
@@ -234,7 +233,7 @@
       "description": "An array of key-value pairs to apply to this resource.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
-      "maxItems": 20,
+      "maxItems": 50,
       "type": "array",
       "uniqueItems": true
     },

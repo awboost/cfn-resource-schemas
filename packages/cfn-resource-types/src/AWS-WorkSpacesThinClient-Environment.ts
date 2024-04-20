@@ -52,7 +52,7 @@ export type WorkSpacesThinClientEnvironmentProperties = {
   SoftwareSetUpdateSchedule?: "USE_MAINTENANCE_WINDOW" | "APPLY_IMMEDIATELY";
   /**
    * An array of key-value pairs to apply to this resource.
-   * @maxLength `20`
+   * @maxLength `50`
    */
   Tags?: Tag[];
 };

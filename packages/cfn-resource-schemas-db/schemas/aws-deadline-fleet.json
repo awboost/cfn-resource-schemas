@@ -1,5 +1,5 @@
 {
-  "$hash": "a49753890939cc81ad74e6b6c03e19ecde663313",
+  "$hash": "7431c39aa3b1988d4576acf3ade0c6d9d6a9f1b7",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -266,7 +266,7 @@
       "type": "object"
     },
     "ServiceManagedFleetOperatingSystemFamily": {
-      "enum": ["WINDOWS", "LINUX"],
+      "enum": ["LINUX"],
       "type": "string"
     },
     "VCpuCountRange": {

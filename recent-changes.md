@@ -1,38 +1,5 @@
-- updated `AWS::AppIntegrations::Application`
-  - updated definition `ExternalUrlConfig`
-  - updated property `Name`
-- updated `AWS::DataZone::DataSource`
-  - updated definition `GlueRunConfigurationInput`
-- updated `AWS::EC2::CustomerGateway`
-  - added property `BgpAsnExtended`
-  - updated `createOnlyProperties`
-  - updated `required`
-- updated `AWS::Lambda::Alias`
-  - added `sourceUrl`
-  - added `tagging`
-  - added property `AliasArn`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `AliasRoutingConfiguration`
-  - updated definition `ProvisionedConcurrencyConfiguration`
-  - updated definition `VersionWeight`
+- updated `AWS::Deadline::Fleet`
+  - updated definition `ServiceManagedFleetOperatingSystemFamily`
+- updated `AWS::WorkSpacesThinClient::Environment`
   - updated handler permissions
-  - updated property `Description`
-  - updated property `FunctionName`
-  - updated property `FunctionVersion`
-  - updated property `Name`
-  - updated property `ProvisionedConcurrencyConfig`
-  - updated property `RoutingConfig`
-- updated `AWS::M2::Environment`
-  - updated handler permissions
-- updated `AWS::RUM::AppMonitor`
-  - added `tagging`
-  - removed `taggable`
-  - updated handler permissions
-- updated `AWS::VpcLattice::Listener`
-  - updated definition `Forward`
-- updated `AWS::VpcLattice::Rule`
-  - updated definition `Forward`
-- updated `AWS::VpcLattice::TargetGroup`
-  - updated definition `HealthCheckConfig`
+  - updated property `Tags`

@@ -330,7 +330,7 @@ export type ServiceManagedEc2InstanceMarketOptions = {
  * Type definition for `AWS::Deadline::Fleet.ServiceManagedFleetOperatingSystemFamily`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedfleetoperatingsystemfamily.html}
  */
-export type ServiceManagedFleetOperatingSystemFamily = "WINDOWS" | "LINUX";
+export type ServiceManagedFleetOperatingSystemFamily = "LINUX";
 /**
  * Type definition for `AWS::Deadline::Fleet.VCpuCountRange`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-vcpucountrange.html}
