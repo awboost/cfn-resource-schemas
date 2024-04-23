@@ -1,5 +1,64 @@
-- updated `AWS::Deadline::Fleet`
-  - updated definition `ServiceManagedFleetOperatingSystemFamily`
-- updated `AWS::WorkSpacesThinClient::Environment`
+- updated `AWS::Lambda::Alias`
+  - added property `Id`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `AliasRoutingConfiguration`
+  - updated definition `ProvisionedConcurrencyConfiguration`
+  - updated definition `VersionWeight`
   - updated handler permissions
+  - updated property `AliasArn`
+  - updated property `Description`
+  - updated property `FunctionName`
+  - updated property `FunctionVersion`
+  - updated property `Name`
+  - updated property `ProvisionedConcurrencyConfig`
+  - updated property `RoutingConfig`
+- updated `AWS::RDS::DBCluster`
+  - updated definition `DBClusterRole`
+  - updated definition `MasterUserSecret`
+  - updated property `KmsKeyId`
+  - updated property `VpcSecurityGroupIds`
+- updated `AWS::RDS::DBInstance`
+  - updated definition `MasterUserSecret`
+  - updated property `AllocatedStorage`
+  - updated property `BackupRetentionPeriod`
+  - updated property `CertificateRotationRestart`
+  - updated property `DBClusterSnapshotIdentifier`
+  - updated property `DBInstanceClass`
+  - updated property `DBName`
+  - updated property `DBParameterGroupName`
+  - updated property `DBSecurityGroups`
+  - updated property `DBSnapshotIdentifier`
+  - updated property `DBSubnetGroupName`
+  - updated property `DeleteAutomatedBackups`
+  - updated property `EnableCloudwatchLogsExports`
+  - updated property `EngineVersion`
+  - updated property `Engine`
+  - updated property `Iops`
+  - updated property `KmsKeyId`
+  - updated property `LicenseModel`
+  - updated property `MasterUsername`
+  - updated property `PerformanceInsightsKMSKeyId`
+  - updated property `PreferredBackupWindow`
+  - updated property `ReplicaMode`
+  - updated property `SourceDBInstanceIdentifier`
+  - updated property `StorageEncrypted`
+  - updated property `StorageType`
+  - updated property `VPCSecurityGroups`
+- updated `AWS::RDS::DBParameterGroup`
+  - updated property `Family`
+  - updated property `Parameters`
   - updated property `Tags`
+- updated `AWS::WorkSpacesWeb::BrowserSettings`
+  - removed `writeOnlyProperties`
+- updated `AWS::WorkSpacesWeb::IpAccessSettings`
+  - removed `writeOnlyProperties`
+- updated `AWS::WorkSpacesWeb::Portal`
+  - added definition `InstanceType`
+  - added property `InstanceType`
+  - added property `MaxConcurrentSessions`
+  - removed `writeOnlyProperties`
+- updated `AWS::WorkSpacesWeb::UserSettings`
+  - removed `writeOnlyProperties`

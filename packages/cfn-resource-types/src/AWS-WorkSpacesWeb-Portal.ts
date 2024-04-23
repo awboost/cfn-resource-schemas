@@ -25,12 +25,18 @@ export type WorkSpacesWebPortalProperties = {
    * @pattern `^.+$`
    */
   DisplayName?: string;
+  InstanceType?: InstanceType;
   /**
    * @minLength `20`
    * @maxLength `2048`
    * @pattern `^arn:[\w+=\/,.@-]+:[a-zA-Z0-9\-]+:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\/[a-fA-F0-9\-]{36})+$`
    */
   IpAccessSettingsArn?: string;
+  /**
+   * @min `1`
+   * @max `5000`
+   */
+  MaxConcurrentSessions?: number;
   /**
    * @minLength `20`
    * @maxLength `2048`
@@ -110,6 +116,14 @@ export type BrowserType = "Chrome";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-portal-encryptioncontextmap.html}
  */
 export type EncryptionContextMap = Record<string, string>;
+/**
+ * Type definition for `AWS::WorkSpacesWeb::Portal.InstanceType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-portal-instancetype.html}
+ */
+export type InstanceType =
+  | "standard.regular"
+  | "standard.large"
+  | "standard.xlarge";
 /**
  * Type definition for `AWS::WorkSpacesWeb::Portal.PortalStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-portal-portalstatus.html}

@@ -1,5 +1,5 @@
 {
-  "$hash": "e9d99189f431789d4d6fa5bad9f1828ebb0b7a00",
+  "$hash": "61735e0ef40fcecbfbe7d04571e68ecb7ca89b4c",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -35,6 +35,10 @@
         },
         "RoleArn": {
           "description": "The Amazon Resource Name (ARN) of the IAM role that is associated with the DB cluster.",
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::IAM::Role"
+          },
           "type": "string"
         }
       },
@@ -59,6 +63,20 @@
       "additionalProperties": false,
       "properties": {
         "KmsKeyId": {
+          "anyOf": [
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/KeyId",
+                "typeName": "AWS::KMS::Key"
+              }
+            },
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/Arn",
+                "typeName": "AWS::KMS::Key"
+              }
+            }
+          ],
           "description": "The AWS KMS key identifier that is used to encrypt the secret.",
           "type": "string"
         },
@@ -335,6 +353,20 @@
       "type": "integer"
     },
     "KmsKeyId": {
+      "anyOf": [
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::KMS::Key"
+          }
+        },
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/KeyId",
+            "typeName": "AWS::KMS::Key"
+          }
+        }
+      ],
       "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default master key is used. If you specify this property, you must set the StorageEncrypted property to true.",
       "type": "string"
     },
@@ -457,7 +489,23 @@
     },
     "VpcSecurityGroupIds": {
       "description": "A list of EC2 VPC security groups to associate with this DB cluster.",
-      "items": { "type": "string" },
+      "items": {
+        "anyOf": [
+          {
+            "relationshipRef": {
+              "propertyPath": "/properties/GroupId",
+              "typeName": "AWS::EC2::SecurityGroup"
+            }
+          },
+          {
+            "relationshipRef": {
+              "propertyPath": "/properties/Id",
+              "typeName": "AWS::EC2::SecurityGroup"
+            }
+          }
+        ],
+        "type": "string"
+      },
       "type": "array",
       "uniqueItems": true
     }

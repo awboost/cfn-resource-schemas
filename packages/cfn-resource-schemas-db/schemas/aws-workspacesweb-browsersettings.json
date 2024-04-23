@@ -1,5 +1,5 @@
 {
-  "$hash": "401713023dcfbbdd888116d8ac4440f13b848163",
+  "$hash": "3ac71fb26b5562e02430bd882958e88da70253b0",
   "$id": "aws-workspacesweb-browsersettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -142,9 +142,5 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::WorkSpacesWeb::BrowserSettings",
-  "writeOnlyProperties": [
-    "/properties/AdditionalEncryptionContext",
-    "/properties/CustomerManagedKey"
-  ]
+  "typeName": "AWS::WorkSpacesWeb::BrowserSettings"
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "91f4b0279176cab1d10ffd6a1af118d1022e7ed0",
+  "$hash": "dfcd32d048bcc6bf583fac5466d76546841c80a9",
   "$id": "aws-workspacesweb-portal.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -23,6 +23,10 @@
         }
       },
       "type": "object"
+    },
+    "InstanceType": {
+      "enum": ["standard.regular", "standard.large", "standard.xlarge"],
+      "type": "string"
     },
     "PortalStatus": {
       "enum": ["Incomplete", "Pending", "Active"],
@@ -168,11 +172,17 @@
       "pattern": "^.+$",
       "type": "string"
     },
+    "InstanceType": { "$ref": "#/definitions/InstanceType" },
     "IpAccessSettingsArn": {
       "maxLength": 2048,
       "minLength": 20,
       "pattern": "^arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+$",
       "type": "string"
+    },
+    "MaxConcurrentSessions": {
+      "maximum": 5000,
+      "minimum": 1,
+      "type": "number"
     },
     "NetworkSettingsArn": {
       "maxLength": 2048,
@@ -249,9 +259,5 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::WorkSpacesWeb::Portal",
-  "writeOnlyProperties": [
-    "/properties/AdditionalEncryptionContext",
-    "/properties/CustomerManagedKey"
-  ]
+  "typeName": "AWS::WorkSpacesWeb::Portal"
 }

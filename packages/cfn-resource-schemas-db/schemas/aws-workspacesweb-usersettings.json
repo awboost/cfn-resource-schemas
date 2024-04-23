@@ -1,5 +1,5 @@
 {
-  "$hash": "342ccbab07e69e10e5a629d1aa81507a4302a2a6",
+  "$hash": "4cfec8093b56cd8ead4b3ff3e69376075e005090",
   "$id": "aws-workspacesweb-usersettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -211,9 +211,5 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::WorkSpacesWeb::UserSettings",
-  "writeOnlyProperties": [
-    "/properties/AdditionalEncryptionContext",
-    "/properties/CustomerManagedKey"
-  ]
+  "typeName": "AWS::WorkSpacesWeb::UserSettings"
 }

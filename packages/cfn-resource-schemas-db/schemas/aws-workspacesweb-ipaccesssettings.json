@@ -1,5 +1,5 @@
 {
-  "$hash": "899173909517c30f1433c80974c700f55be28460",
+  "$hash": "bc1bbfbc260e1e6667719c61f1f2386ad2676ab7",
   "$id": "aws-workspacesweb-ipaccesssettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -178,9 +178,5 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::WorkSpacesWeb::IpAccessSettings",
-  "writeOnlyProperties": [
-    "/properties/AdditionalEncryptionContext",
-    "/properties/CustomerManagedKey"
-  ]
+  "typeName": "AWS::WorkSpacesWeb::IpAccessSettings"
 }
