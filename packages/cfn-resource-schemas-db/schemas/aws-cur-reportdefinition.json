@@ -1,5 +1,5 @@
 {
-  "$hash": "b4fc1a675d1cca831d4b7cbdd9dab27ad6d1ee64",
+  "$hash": "e875b33b2ed3cbbe25a21bccd63eddff964bf11c",
   "$id": "aws-cur-reportdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,15 +9,26 @@
     "/properties/ReportVersioning",
     "/properties/BillingViewArn"
   ],
+  "definitions": {
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
+        "Value": { "maxLength": 256, "minLength": 0, "type": "string" }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    }
+  },
   "description": "The AWS::CUR::ReportDefinition resource creates a Cost & Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.",
   "handlers": {
-    "create": { "permissions": ["cur:PutReportDefinition"] },
-    "delete": {
+    "create": {
       "permissions": [
-        "cur:DescribeReportDefinitions",
-        "cur:DeleteReportDefinition"
+        "cur:PutReportDefinition",
+        "cur:DescribeReportDefinitions"
       ]
     },
+    "delete": { "permissions": ["cur:DeleteReportDefinition"] },
     "list": { "permissions": ["cur:DescribeReportDefinitions"] },
     "read": { "permissions": ["cur:DescribeReportDefinitions"] },
     "update": {
@@ -44,7 +55,11 @@
       "description": "A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.",
       "items": {
         "description": "Whether or not AWS includes resource IDs in the report.",
-        "enum": ["RESOURCES"],
+        "enum": [
+          "RESOURCES",
+          "SPLIT_COST_ALLOCATION_DATA",
+          "MANUAL_DISCOUNT_COMPATIBILITY"
+        ],
         "type": "string"
       },
       "type": "array"
@@ -119,5 +134,6 @@
     "ReportVersioning"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cur.git",
+  "tagging": { "taggable": false },
   "typeName": "AWS::CUR::ReportDefinition"
 }

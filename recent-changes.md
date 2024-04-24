@@ -1,7 +1,31 @@
-- updated `AWS::Lambda::Alias`
+- added `AWS::Bedrock::Guardrail`
+- added `AWS::PaymentCryptography::Alias`
+- added `AWS::PaymentCryptography::Key`
+- updated `AWS::ARCZonalShift::ZonalAutoshiftConfiguration`
+  - added `allOf`
+  - updated property `ZonalAutoshiftStatus`
+- updated `AWS::Bedrock::Agent`
+  - added property `TestAliasTags`
+- updated `AWS::CUR::ReportDefinition`
+  - added `tagging`
+  - updated definition `undefined`
+  - updated handler permissions
+  - updated property `AdditionalSchemaElements`
+- updated `AWS::EC2::TransitGatewayRouteTableAssociation`
+  - added `readOnlyProperties`
   - added property `Id`
+  - removed `replacementStrategy`
   - removed `sourceUrl`
   - removed `tagging`
+  - updated `primaryIdentifier`
+  - updated definition `undefined`
+  - updated handler permissions
+  - updated property `TransitGatewayAttachmentId`
+  - updated property `TransitGatewayRouteTableId`
+- updated `AWS::Lambda::Alias`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed property `Id`
   - updated `primaryIdentifier`
   - updated `readOnlyProperties`
   - updated definition `AliasRoutingConfiguration`
@@ -15,50 +39,337 @@
   - updated property `Name`
   - updated property `ProvisionedConcurrencyConfig`
   - updated property `RoutingConfig`
-- updated `AWS::RDS::DBCluster`
-  - updated definition `DBClusterRole`
-  - updated definition `MasterUserSecret`
-  - updated property `KmsKeyId`
-  - updated property `VpcSecurityGroupIds`
-- updated `AWS::RDS::DBInstance`
-  - updated definition `MasterUserSecret`
-  - updated property `AllocatedStorage`
-  - updated property `BackupRetentionPeriod`
-  - updated property `CertificateRotationRestart`
-  - updated property `DBClusterSnapshotIdentifier`
-  - updated property `DBInstanceClass`
-  - updated property `DBName`
-  - updated property `DBParameterGroupName`
-  - updated property `DBSecurityGroups`
-  - updated property `DBSnapshotIdentifier`
-  - updated property `DBSubnetGroupName`
-  - updated property `DeleteAutomatedBackups`
-  - updated property `EnableCloudwatchLogsExports`
-  - updated property `EngineVersion`
-  - updated property `Engine`
-  - updated property `Iops`
-  - updated property `KmsKeyId`
-  - updated property `LicenseModel`
-  - updated property `MasterUsername`
-  - updated property `PerformanceInsightsKMSKeyId`
-  - updated property `PreferredBackupWindow`
-  - updated property `ReplicaMode`
-  - updated property `SourceDBInstanceIdentifier`
-  - updated property `StorageEncrypted`
-  - updated property `StorageType`
-  - updated property `VPCSecurityGroups`
-- updated `AWS::RDS::DBParameterGroup`
-  - updated property `Family`
-  - updated property `Parameters`
-  - updated property `Tags`
-- updated `AWS::WorkSpacesWeb::BrowserSettings`
-  - removed `writeOnlyProperties`
-- updated `AWS::WorkSpacesWeb::IpAccessSettings`
-  - removed `writeOnlyProperties`
-- updated `AWS::WorkSpacesWeb::Portal`
-  - added definition `InstanceType`
-  - added property `InstanceType`
-  - added property `MaxConcurrentSessions`
-  - removed `writeOnlyProperties`
-- updated `AWS::WorkSpacesWeb::UserSettings`
-  - removed `writeOnlyProperties`
+- updated `AWS::QuickSight::Analysis`
+  - added definition `DefaultDateTimePickerControlOptions`
+  - added definition `DefaultFilterControlConfiguration`
+  - added definition `DefaultFilterControlOptions`
+  - added definition `DefaultFilterDropDownControlOptions`
+  - added definition `DefaultFilterListControlOptions`
+  - added definition `DefaultRelativeDateTimeControlOptions`
+  - added definition `DefaultSliderControlOptions`
+  - added definition `DefaultTextAreaControlOptions`
+  - added definition `DefaultTextFieldControlOptions`
+  - added definition `FilterCrossSheetControl`
+  - updated definition `AnalysisDefinition`
+  - updated definition `AnalysisError`
+  - updated definition `AnalysisSourceEntity`
+  - updated definition `AnalysisSourceTemplate`
+  - updated definition `BarChartVisual`
+  - updated definition `BodySectionConfiguration`
+  - updated definition `BoxPlotVisual`
+  - updated definition `CategoryFilter`
+  - updated definition `ComboChartVisual`
+  - updated definition `CurrencyDisplayFormatConfiguration`
+  - updated definition `CustomContentVisual`
+  - updated definition `DataSetReference`
+  - updated definition `DateTimeParameter`
+  - updated definition `DecimalParameter`
+  - updated definition `EmptyVisual`
+  - updated definition `Entity`
+  - updated definition `FilledMapVisual`
+  - updated definition `FilterControl`
+  - updated definition `FilterDateTimePickerControl`
+  - updated definition `FilterDropDownControl`
+  - updated definition `FilterGroup`
+  - updated definition `FilterListControl`
+  - updated definition `FilterOperationSelectedFieldsConfiguration`
+  - updated definition `FilterRelativeDateTimeControl`
+  - updated definition `FilterSliderControl`
+  - updated definition `FilterTextAreaControl`
+  - updated definition `FilterTextFieldControl`
+  - updated definition `ForecastComputation`
+  - updated definition `FreeFormLayoutElement`
+  - updated definition `FunnelChartVisual`
+  - updated definition `GaugeChartVisual`
+  - updated definition `GeospatialMapVisual`
+  - updated definition `GridLayoutElement`
+  - updated definition `GrowthRateComputation`
+  - updated definition `HeaderFooterSectionConfiguration`
+  - updated definition `HeatMapVisual`
+  - updated definition `HistogramVisual`
+  - updated definition `InsightVisual`
+  - updated definition `IntegerParameter`
+  - updated definition `KPIVisual`
+  - updated definition `LineChartVisual`
+  - updated definition `LocalNavigationConfiguration`
+  - updated definition `MaximumMinimumComputation`
+  - updated definition `MetricComparisonComputation`
+  - updated definition `NumericEqualityFilter`
+  - updated definition `NumericRangeFilter`
+  - updated definition `ParameterDateTimePickerControl`
+  - updated definition `ParameterDropDownControl`
+  - updated definition `ParameterListControl`
+  - updated definition `ParameterSliderControl`
+  - updated definition `ParameterTextAreaControl`
+  - updated definition `ParameterTextFieldControl`
+  - updated definition `Parameters`
+  - updated definition `PeriodOverPeriodComputation`
+  - updated definition `PeriodToDateComputation`
+  - updated definition `PieChartVisual`
+  - updated definition `PivotTableVisual`
+  - updated definition `RadarChartVisual`
+  - updated definition `ReferenceLineCustomLabelConfiguration`
+  - updated definition `RelativeDatesFilter`
+  - updated definition `ResourcePermission`
+  - updated definition `SameSheetTargetVisualConfiguration`
+  - updated definition `SankeyDiagramVisual`
+  - updated definition `ScatterPlotVisual`
+  - updated definition `SheetDefinition`
+  - updated definition `SheetTextBox`
+  - updated definition `SheetVisualScopingConfiguration`
+  - updated definition `Sheet`
+  - updated definition `StringParameter`
+  - updated definition `TableVisual`
+  - updated definition `Tag`
+  - updated definition `TimeEqualityFilter`
+  - updated definition `TimeRangeFilter`
+  - updated definition `TopBottomFilter`
+  - updated definition `TopBottomMoversComputation`
+  - updated definition `TopBottomRankedComputation`
+  - updated definition `TotalAggregationComputation`
+  - updated definition `TreeMapVisual`
+  - updated definition `UniqueValuesComputation`
+  - updated definition `ValidationStrategy`
+  - updated definition `VisualCustomAction`
+  - updated definition `WaterfallVisual`
+  - updated definition `WordCloudVisual`
+  - updated property `AnalysisId`
+  - updated property `Arn`
+  - updated property `CreatedTime`
+  - updated property `DataSetArns`
+  - updated property `Errors`
+  - updated property `LastUpdatedTime`
+  - updated property `Name`
+  - updated property `Sheets`
+  - updated property `ThemeArn`
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `DefaultDateTimePickerControlOptions`
+  - added definition `DefaultFilterControlConfiguration`
+  - added definition `DefaultFilterControlOptions`
+  - added definition `DefaultFilterDropDownControlOptions`
+  - added definition `DefaultFilterListControlOptions`
+  - added definition `DefaultRelativeDateTimeControlOptions`
+  - added definition `DefaultSliderControlOptions`
+  - added definition `DefaultTextAreaControlOptions`
+  - added definition `DefaultTextFieldControlOptions`
+  - added definition `FilterCrossSheetControl`
+  - updated definition `AdHocFilteringOption`
+  - updated definition `BarChartVisual`
+  - updated definition `BodySectionConfiguration`
+  - updated definition `BoxPlotVisual`
+  - updated definition `CategoryFilter`
+  - updated definition `ComboChartVisual`
+  - updated definition `CurrencyDisplayFormatConfiguration`
+  - updated definition `CustomContentVisual`
+  - updated definition `DashboardError`
+  - updated definition `DashboardPublishOptions`
+  - updated definition `DashboardSourceEntity`
+  - updated definition `DashboardSourceTemplate`
+  - updated definition `DashboardVersionDefinition`
+  - updated definition `DashboardVersion`
+  - updated definition `DashboardVisualPublishOptions`
+  - updated definition `DataPointDrillUpDownOption`
+  - updated definition `DataPointMenuLabelOption`
+  - updated definition `DataPointTooltipOption`
+  - updated definition `DataSetReference`
+  - updated definition `DateTimeParameter`
+  - updated definition `DecimalParameter`
+  - updated definition `EmptyVisual`
+  - updated definition `Entity`
+  - updated definition `ExportHiddenFieldsOption`
+  - updated definition `ExportToCSVOption`
+  - updated definition `ExportWithHiddenFieldsOption`
+  - updated definition `FilledMapVisual`
+  - updated definition `FilterControl`
+  - updated definition `FilterDateTimePickerControl`
+  - updated definition `FilterDropDownControl`
+  - updated definition `FilterGroup`
+  - updated definition `FilterListControl`
+  - updated definition `FilterOperationSelectedFieldsConfiguration`
+  - updated definition `FilterRelativeDateTimeControl`
+  - updated definition `FilterSliderControl`
+  - updated definition `FilterTextAreaControl`
+  - updated definition `FilterTextFieldControl`
+  - updated definition `ForecastComputation`
+  - updated definition `FreeFormLayoutElement`
+  - updated definition `FunnelChartVisual`
+  - updated definition `GaugeChartVisual`
+  - updated definition `GeospatialMapVisual`
+  - updated definition `GridLayoutElement`
+  - updated definition `GrowthRateComputation`
+  - updated definition `HeaderFooterSectionConfiguration`
+  - updated definition `HeatMapVisual`
+  - updated definition `HistogramVisual`
+  - updated definition `InsightVisual`
+  - updated definition `IntegerParameter`
+  - updated definition `KPIVisual`
+  - updated definition `LineChartVisual`
+  - updated definition `LocalNavigationConfiguration`
+  - updated definition `MaximumMinimumComputation`
+  - updated definition `MetricComparisonComputation`
+  - updated definition `NumericEqualityFilter`
+  - updated definition `NumericRangeFilter`
+  - updated definition `ParameterDateTimePickerControl`
+  - updated definition `ParameterDropDownControl`
+  - updated definition `ParameterListControl`
+  - updated definition `ParameterSliderControl`
+  - updated definition `ParameterTextAreaControl`
+  - updated definition `ParameterTextFieldControl`
+  - updated definition `Parameters`
+  - updated definition `PeriodOverPeriodComputation`
+  - updated definition `PeriodToDateComputation`
+  - updated definition `PieChartVisual`
+  - updated definition `PivotTableVisual`
+  - updated definition `RadarChartVisual`
+  - updated definition `ReferenceLineCustomLabelConfiguration`
+  - updated definition `RelativeDatesFilter`
+  - updated definition `ResourcePermission`
+  - updated definition `SameSheetTargetVisualConfiguration`
+  - updated definition `SankeyDiagramVisual`
+  - updated definition `ScatterPlotVisual`
+  - updated definition `SheetControlsOption`
+  - updated definition `SheetDefinition`
+  - updated definition `SheetLayoutElementMaximizationOption`
+  - updated definition `SheetTextBox`
+  - updated definition `SheetVisualScopingConfiguration`
+  - updated definition `Sheet`
+  - updated definition `StringParameter`
+  - updated definition `TableVisual`
+  - updated definition `Tag`
+  - updated definition `TimeEqualityFilter`
+  - updated definition `TimeRangeFilter`
+  - updated definition `TopBottomFilter`
+  - updated definition `TopBottomMoversComputation`
+  - updated definition `TopBottomRankedComputation`
+  - updated definition `TotalAggregationComputation`
+  - updated definition `TreeMapVisual`
+  - updated definition `UniqueValuesComputation`
+  - updated definition `ValidationStrategy`
+  - updated definition `VisualCustomAction`
+  - updated definition `WaterfallVisual`
+  - updated definition `WordCloudVisual`
+  - updated property `Arn`
+  - updated property `CreatedTime`
+  - updated property `DashboardId`
+  - updated property `LastPublishedTime`
+  - updated property `LastUpdatedTime`
+  - updated property `LinkEntities`
+- updated `AWS::QuickSight::Template`
+  - added definition `DefaultDateTimePickerControlOptions`
+  - added definition `DefaultFilterControlConfiguration`
+  - added definition `DefaultFilterControlOptions`
+  - added definition `DefaultFilterDropDownControlOptions`
+  - added definition `DefaultFilterListControlOptions`
+  - added definition `DefaultRelativeDateTimeControlOptions`
+  - added definition `DefaultSliderControlOptions`
+  - added definition `DefaultTextAreaControlOptions`
+  - added definition `DefaultTextFieldControlOptions`
+  - added definition `FilterCrossSheetControl`
+  - updated definition `BarChartVisual`
+  - updated definition `BodySectionConfiguration`
+  - updated definition `BoxPlotVisual`
+  - updated definition `CategoryFilter`
+  - updated definition `ColumnGroupColumnSchema`
+  - updated definition `ColumnGroupSchema`
+  - updated definition `ColumnSchema`
+  - updated definition `ComboChartVisual`
+  - updated definition `CurrencyDisplayFormatConfiguration`
+  - updated definition `CustomContentVisual`
+  - updated definition `DataSetConfiguration`
+  - updated definition `DataSetReference`
+  - updated definition `DataSetSchema`
+  - updated definition `EmptyVisual`
+  - updated definition `Entity`
+  - updated definition `FilledMapVisual`
+  - updated definition `FilterControl`
+  - updated definition `FilterDateTimePickerControl`
+  - updated definition `FilterDropDownControl`
+  - updated definition `FilterGroup`
+  - updated definition `FilterListControl`
+  - updated definition `FilterOperationSelectedFieldsConfiguration`
+  - updated definition `FilterRelativeDateTimeControl`
+  - updated definition `FilterSliderControl`
+  - updated definition `FilterTextAreaControl`
+  - updated definition `FilterTextFieldControl`
+  - updated definition `ForecastComputation`
+  - updated definition `FreeFormLayoutElement`
+  - updated definition `FunnelChartVisual`
+  - updated definition `GaugeChartVisual`
+  - updated definition `GeospatialMapVisual`
+  - updated definition `GridLayoutElement`
+  - updated definition `GrowthRateComputation`
+  - updated definition `HeaderFooterSectionConfiguration`
+  - updated definition `HeatMapVisual`
+  - updated definition `HistogramVisual`
+  - updated definition `InsightVisual`
+  - updated definition `KPIVisual`
+  - updated definition `LineChartVisual`
+  - updated definition `LocalNavigationConfiguration`
+  - updated definition `MaximumMinimumComputation`
+  - updated definition `MetricComparisonComputation`
+  - updated definition `NumericEqualityFilter`
+  - updated definition `NumericRangeFilter`
+  - updated definition `ParameterDateTimePickerControl`
+  - updated definition `ParameterDropDownControl`
+  - updated definition `ParameterListControl`
+  - updated definition `ParameterSliderControl`
+  - updated definition `ParameterTextAreaControl`
+  - updated definition `ParameterTextFieldControl`
+  - updated definition `PeriodOverPeriodComputation`
+  - updated definition `PeriodToDateComputation`
+  - updated definition `PieChartVisual`
+  - updated definition `PivotTableVisual`
+  - updated definition `RadarChartVisual`
+  - updated definition `ReferenceLineCustomLabelConfiguration`
+  - updated definition `RelativeDatesFilter`
+  - updated definition `ResourcePermission`
+  - updated definition `SameSheetTargetVisualConfiguration`
+  - updated definition `SankeyDiagramVisual`
+  - updated definition `ScatterPlotVisual`
+  - updated definition `SheetDefinition`
+  - updated definition `SheetTextBox`
+  - updated definition `SheetVisualScopingConfiguration`
+  - updated definition `Sheet`
+  - updated definition `TableVisual`
+  - updated definition `Tag`
+  - updated definition `TemplateError`
+  - updated definition `TemplateSourceAnalysis`
+  - updated definition `TemplateSourceEntity`
+  - updated definition `TemplateSourceTemplate`
+  - updated definition `TemplateVersionDefinition`
+  - updated definition `TemplateVersion`
+  - updated definition `TimeEqualityFilter`
+  - updated definition `TimeRangeFilter`
+  - updated definition `TopBottomFilter`
+  - updated definition `TopBottomMoversComputation`
+  - updated definition `TopBottomRankedComputation`
+  - updated definition `TotalAggregationComputation`
+  - updated definition `TreeMapVisual`
+  - updated definition `UniqueValuesComputation`
+  - updated definition `ValidationStrategy`
+  - updated definition `VisualCustomAction`
+  - updated definition `WaterfallVisual`
+  - updated definition `WordCloudVisual`
+  - updated property `Arn`
+  - updated property `CreatedTime`
+  - updated property `LastUpdatedTime`
+  - updated property `TemplateId`
+- updated `AWS::QuickSight::Theme`
+  - updated definition `BorderStyle`
+  - updated definition `DataColorPalette`
+  - updated definition `GutterStyle`
+  - updated definition `MarginStyle`
+  - updated definition `ResourcePermission`
+  - updated definition `SheetStyle`
+  - updated definition `Tag`
+  - updated definition `ThemeConfiguration`
+  - updated definition `ThemeError`
+  - updated definition `ThemeVersion`
+  - updated definition `TileLayoutStyle`
+  - updated definition `TileStyle`
+  - updated definition `UIColorPalette`
+  - updated property `Arn`
+  - updated property `BaseThemeId`
+  - updated property `CreatedTime`
+  - updated property `LastUpdatedTime`
+  - updated property `ThemeId`

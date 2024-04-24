@@ -72,6 +72,10 @@ export type BedrockAgentProperties = {
    * A map of tag keys and values
    */
   Tags?: TagsMap;
+  /**
+   * A map of tag keys and values
+   */
+  TestAliasTags?: TagsMap;
 };
 /**
  * Attribute type definition for `AWS::Bedrock::Agent`.

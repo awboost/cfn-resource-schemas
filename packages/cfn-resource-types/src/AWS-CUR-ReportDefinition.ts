@@ -12,7 +12,11 @@ export type CURReportDefinitionProperties = {
   /**
    * A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
    */
-  AdditionalSchemaElements?: "RESOURCES"[];
+  AdditionalSchemaElements?: (
+    | "RESOURCES"
+    | "SPLIT_COST_ALLOCATION_DATA"
+    | "MANUAL_DISCOUNT_COMPATIBILITY"
+  )[];
   /**
    * The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs.
    * @minLength `1`

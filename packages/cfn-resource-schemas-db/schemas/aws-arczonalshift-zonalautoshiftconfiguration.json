@@ -1,7 +1,16 @@
 {
-  "$hash": "787ba85b78e7cf590a6c616a2a189b81e40b5ce8",
+  "$hash": "fcc211ad19fe6b716edee44e90015986ea600248",
   "$id": "aws-arczonalshift-zonalautoshiftconfiguration.json",
   "additionalProperties": false,
+  "allOf": [
+    {
+      "allOf": [{ "required": ["ResourceIdentifier"] }],
+      "anyOf": [
+        { "required": ["ZonalAutoshiftStatus"] },
+        { "required": ["PracticeRunConfiguration"] }
+      ]
+    }
+  ],
   "createOnlyProperties": ["/properties/ResourceIdentifier"],
   "definitions": {
     "ControlCondition": {
@@ -105,10 +114,7 @@
       "minLength": 8,
       "type": "string"
     },
-    "ZonalAutoshiftStatus": {
-      "$ref": "#/definitions/ZonalAutoshiftStatus",
-      "dependencies": { "ZonalAutoshiftStatus": ["PracticeRunConfiguration"] }
-    }
+    "ZonalAutoshiftStatus": { "$ref": "#/definitions/ZonalAutoshiftStatus" }
   },
   "tagging": { "taggable": false },
   "typeName": "AWS::ARCZonalShift::ZonalAutoshiftConfiguration"

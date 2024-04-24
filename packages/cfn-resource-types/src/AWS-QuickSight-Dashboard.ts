@@ -14,9 +14,12 @@ export type QuickSightDashboardProperties = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   DashboardId: string;
+  /**
+   * <p>Dashboard publish options.</p>
+   */
   DashboardPublishOptions?: DashboardPublishOptions;
   Definition?: DashboardVersionDefinition;
   /**
@@ -30,12 +33,18 @@ export type QuickSightDashboardProperties = {
    * @maxLength `2048`
    */
   Name: string;
+  /**
+   * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
+   */
   Parameters?: Parameters;
   /**
    * @minLength `1`
    * @maxLength `64`
    */
   Permissions?: ResourcePermission[];
+  /**
+   * <p>Dashboard source entity.</p>
+   */
   SourceEntity?: DashboardSourceEntity;
   /**
    * @minLength `1`
@@ -43,6 +52,9 @@ export type QuickSightDashboardProperties = {
    */
   Tags?: Tag[];
   ThemeArn?: string;
+  /**
+   * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
+   */
   ValidationStrategy?: ValidationStrategy;
   /**
    * @minLength `1`
@@ -55,64 +67,102 @@ export type QuickSightDashboardProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#aws-resource-quicksight-dashboard-return-values}
  */
 export type QuickSightDashboardAttributes = {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
   Arn: string;
+  /**
+   * <p>The time that this dashboard was created.</p>
+   */
   CreatedTime: string;
+  /**
+   * <p>The last time that this dashboard was published.</p>
+   */
   LastPublishedTime: string;
+  /**
+   * <p>The last time that this dashboard was updated.</p>
+   */
   LastUpdatedTime: string;
+  /**
+   * <p>Dashboard version.</p>
+   */
   Version: {
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     */
     Arn: string;
+    /**
+     * <p>The time that this dashboard version was created.</p>
+     */
     CreatedTime: string;
     /**
-     * @minLength `0`
-     * @maxLength `100`
-     */
+         * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+                    version of the dashboard.</p>
+         * @minLength `0`
+         * @maxLength `100`
+         */
     DataSetArns: string[];
     /**
+     * <p>Description.</p>
      * @minLength `1`
      * @maxLength `512`
      */
     Description: string;
     /**
+     * <p>Errors associated with this dashboard version.</p>
      * @minLength `1`
      */
     Errors: {
       /**
-       * @pattern `.*\S.*`
+       * <p>Message.</p>
+       * @pattern `\S`
        */
       Message: string;
       Type: DashboardErrorType;
       /**
+       * <p>Lists the violated entities that caused the dashboard error.</p>
        * @minLength `0`
        * @maxLength `200`
        */
       ViolatedEntities: {
         /**
-         * @pattern `.*\S.*`
+         * @pattern `\S`
          */
         Path: string;
       }[];
     }[];
     /**
+     * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
      * @minLength `0`
      * @maxLength `20`
      */
     Sheets: {
       /**
-       * @minLength `1`
-       * @maxLength `2048`
-       */
+             * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+                        console.</p>
+             * @minLength `1`
+             * @maxLength `2048`
+             */
       Name: string;
       /**
+       * <p>The unique identifier associated with a sheet.</p>
        * @minLength `1`
        * @maxLength `512`
-       * @pattern `[\w\-]+`
+       * @pattern `^[\w\-]+$`
        */
       SheetId: string;
     }[];
+    /**
+     * <p>Source entity ARN.</p>
+     */
     SourceEntityArn: string;
     Status: ResourceStatus;
+    /**
+     * <p>The ARN of the theme associated with a version of the dashboard.</p>
+     */
     ThemeArn: string;
     /**
+     * <p>Version number for this version of the dashboard.</p>
      * @min `1`
      */
     VersionNumber: number;
@@ -120,6 +170,7 @@ export type QuickSightDashboardAttributes = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.AdHocFilteringOption`.
+ * <p>An ad hoc (one-time) filtering option.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html}
  */
 export type AdHocFilteringOption = {
@@ -445,7 +496,7 @@ export type BarChartVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -498,7 +549,7 @@ export type BodySectionConfiguration = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SectionId: string;
   Style?: SectionStyle;
@@ -608,7 +659,7 @@ export type BoxPlotVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -724,10 +775,11 @@ export type CategoryDrillDownFilter = {
 export type CategoryFilter = {
   Column: ColumnIdentifier;
   Configuration: CategoryFilterConfiguration;
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterId: string;
 };
@@ -969,7 +1021,7 @@ export type ComboChartVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -1163,7 +1215,7 @@ export type CurrencyDisplayFormatConfiguration = {
    */
   Suffix?: string;
   /**
-   * @pattern `[A-Z]{3}`
+   * @pattern `^[A-Z]{3}$`
    */
   Symbol?: string;
 };
@@ -1269,7 +1321,7 @@ export type CustomContentVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -1359,15 +1411,18 @@ export type CustomValuesConfiguration = {
 export type DashboardBehavior = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DashboardError`.
+ * <p>Dashboard error.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboarderror.html}
  */
 export type DashboardError = {
   /**
-   * @pattern `.*\S.*`
+   * <p>Message.</p>
+   * @pattern `\S`
    */
   Message?: string;
   Type?: DashboardErrorType;
   /**
+   * <p>Lists the violated entities that caused the dashboard error.</p>
    * @minLength `0`
    * @maxLength `200`
    */
@@ -1390,35 +1445,72 @@ export type DashboardErrorType =
   | "COLUMN_REPLACEMENT_MISSING";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DashboardPublishOptions`.
+ * <p>Dashboard publish options.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html}
  */
 export type DashboardPublishOptions = {
+  /**
+   * <p>An ad hoc (one-time) filtering option.</p>
+   */
   AdHocFilteringOption?: AdHocFilteringOption;
+  /**
+   * <p>The drill down options for data points in a dashbaord.</p>
+   */
   DataPointDrillUpDownOption?: DataPointDrillUpDownOption;
+  /**
+   * <p>The data point menu options of a dashboard.</p>
+   */
   DataPointMenuLabelOption?: DataPointMenuLabelOption;
+  /**
+   * <p>The data point tooltip options.</p>
+   */
   DataPointTooltipOption?: DataPointTooltipOption;
+  /**
+   * <p>Export to .csv option.</p>
+   */
   ExportToCSVOption?: ExportToCSVOption;
+  /**
+   * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
+   */
   ExportWithHiddenFieldsOption?: ExportWithHiddenFieldsOption;
+  /**
+   * <p>Sheet controls option.</p>
+   */
   SheetControlsOption?: SheetControlsOption;
+  /**
+   * <p>The sheet layout maximization options of a dashbaord.</p>
+   */
   SheetLayoutElementMaximizationOption?: SheetLayoutElementMaximizationOption;
   VisualAxisSortOption?: VisualAxisSortOption;
   VisualMenuOption?: VisualMenuOption;
+  /**
+   * <p>The visual publish options of a visual in a dashboard</p>
+   */
   VisualPublishOptions?: DashboardVisualPublishOptions;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DashboardSourceEntity`.
+ * <p>Dashboard source entity.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html}
  */
 export type DashboardSourceEntity = {
+  /**
+   * <p>Dashboard source template.</p>
+   */
   SourceTemplate?: DashboardSourceTemplate;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DashboardSourceTemplate`.
+ * <p>Dashboard source template.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html}
  */
 export type DashboardSourceTemplate = {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
   Arn: string;
   /**
+   * <p>Dataset references.</p>
    * @minLength `1`
    */
   DataSetReferences: DataSetReference[];
@@ -1430,34 +1522,53 @@ export type DashboardSourceTemplate = {
 export type DashboardUIState = "EXPANDED" | "COLLAPSED";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DashboardVersion`.
+ * <p>Dashboard version.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversion.html}
  */
 export type DashboardVersion = {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
   Arn?: string;
+  /**
+   * <p>The time that this dashboard version was created.</p>
+   */
   CreatedTime?: string;
   /**
-   * @minLength `0`
-   * @maxLength `100`
-   */
+     * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+                version of the dashboard.</p>
+     * @minLength `0`
+     * @maxLength `100`
+     */
   DataSetArns?: string[];
   /**
+   * <p>Description.</p>
    * @minLength `1`
    * @maxLength `512`
    */
   Description?: string;
   /**
+   * <p>Errors associated with this dashboard version.</p>
    * @minLength `1`
    */
   Errors?: DashboardError[];
   /**
+   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
    * @minLength `0`
    * @maxLength `20`
    */
   Sheets?: Sheet[];
+  /**
+   * <p>Source entity ARN.</p>
+   */
   SourceEntityArn?: string;
   Status?: ResourceStatus;
+  /**
+   * <p>The ARN of the theme associated with a version of the dashboard.</p>
+   */
   ThemeArn?: string;
   /**
+   * <p>Version number for this version of the dashboard.</p>
    * @min `1`
    */
   VersionNumber?: number;
@@ -1475,7 +1586,7 @@ export type DashboardVersionDefinition = {
   CalculatedFields?: CalculatedField[];
   /**
    * @minLength `0`
-   * @maxLength `200`
+   * @maxLength `2000`
    */
   ColumnConfigurations?: ColumnConfiguration[];
   /**
@@ -1502,9 +1613,13 @@ export type DashboardVersionDefinition = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DashboardVisualPublishOptions`.
+ * <p>The visual publish options of a visual in a dashboard</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardvisualpublishoptions.html}
  */
 export type DashboardVisualPublishOptions = {
+  /**
+   * <p>Determines if hidden fields are included in an exported dashboard.</p>
+   */
   ExportHiddenFieldsOption?: ExportHiddenFieldsOption;
 };
 /**
@@ -1673,6 +1788,7 @@ export type DataPathValue = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DataPointDrillUpDownOption`.
+ * <p>The drill down options for data points in a dashbaord.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapointdrillupdownoption.html}
  */
 export type DataPointDrillUpDownOption = {
@@ -1680,6 +1796,7 @@ export type DataPointDrillUpDownOption = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DataPointMenuLabelOption`.
+ * <p>The data point menu options of a dashboard.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapointmenulabeloption.html}
  */
 export type DataPointMenuLabelOption = {
@@ -1687,6 +1804,7 @@ export type DataPointMenuLabelOption = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DataPointTooltipOption`.
+ * <p>The data point tooltip options.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapointtooltipoption.html}
  */
 export type DataPointTooltipOption = {
@@ -1706,12 +1824,17 @@ export type DataSetIdentifierDeclaration = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DataSetReference`.
+ * <p>Dataset reference.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html}
  */
 export type DataSetReference = {
+  /**
+   * <p>Dataset Amazon Resource Name (ARN).</p>
+   */
   DataSetArn: string;
   /**
-   * @pattern `.*\S.*`
+   * <p>Dataset placeholder.</p>
+   * @pattern `\S`
    */
   DataSetPlaceholder: string;
 };
@@ -1808,13 +1931,18 @@ export type DateTimeHierarchy = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DateTimeParameter`.
+ * <p>A date-time parameter.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html}
  */
 export type DateTimeParameter = {
   /**
-   * @pattern `.*\S.*`
+   * <p>A display name for the date-time parameter.</p>
+   * @pattern `\S`
    */
   Name: string;
+  /**
+   * <p>The values for the date-time parameter.</p>
+   */
   Values: string[];
 };
 /**
@@ -1884,13 +2012,18 @@ export type DecimalDefaultValues = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DecimalParameter`.
+ * <p>A decimal parameter.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html}
  */
 export type DecimalParameter = {
   /**
-   * @pattern `.*\S.*`
+   * <p>A display name for the decimal parameter.</p>
+   * @pattern `\S`
    */
   Name: string;
+  /**
+   * <p>The values for the decimal parameter.</p>
+   */
   Values: number[];
 };
 /**
@@ -1933,6 +2066,57 @@ export type DecimalValueWhenUnsetConfiguration = {
   ValueWhenUnsetOption?: ValueWhenUnsetOption;
 };
 /**
+ * Type definition for `AWS::QuickSight::Dashboard.DefaultDateTimePickerControlOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultdatetimepickercontroloptions.html}
+ */
+export type DefaultDateTimePickerControlOptions = {
+  DisplayOptions?: DateTimePickerControlDisplayOptions;
+  Type?: SheetControlDateTimePickerType;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DefaultFilterControlConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultfiltercontrolconfiguration.html}
+ */
+export type DefaultFilterControlConfiguration = {
+  ControlOptions: DefaultFilterControlOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  Title: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DefaultFilterControlOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultfiltercontroloptions.html}
+ */
+export type DefaultFilterControlOptions = {
+  DefaultDateTimePickerOptions?: DefaultDateTimePickerControlOptions;
+  DefaultDropdownOptions?: DefaultFilterDropDownControlOptions;
+  DefaultListOptions?: DefaultFilterListControlOptions;
+  DefaultRelativeDateTimeOptions?: DefaultRelativeDateTimeControlOptions;
+  DefaultSliderOptions?: DefaultSliderControlOptions;
+  DefaultTextAreaOptions?: DefaultTextAreaControlOptions;
+  DefaultTextFieldOptions?: DefaultTextFieldControlOptions;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DefaultFilterDropDownControlOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultfilterdropdowncontroloptions.html}
+ */
+export type DefaultFilterDropDownControlOptions = {
+  DisplayOptions?: DropDownControlDisplayOptions;
+  SelectableValues?: FilterSelectableValues;
+  Type?: SheetControlListType;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DefaultFilterListControlOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultfilterlistcontroloptions.html}
+ */
+export type DefaultFilterListControlOptions = {
+  DisplayOptions?: ListControlDisplayOptions;
+  SelectableValues?: FilterSelectableValues;
+  Type?: SheetControlListType;
+};
+/**
  * Type definition for `AWS::QuickSight::Dashboard.DefaultFreeFormLayoutConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultfreeformlayoutconfiguration.html}
  */
@@ -1971,11 +2155,48 @@ export type DefaultPaginatedLayoutConfiguration = {
   SectionBased?: DefaultSectionBasedLayoutConfiguration;
 };
 /**
+ * Type definition for `AWS::QuickSight::Dashboard.DefaultRelativeDateTimeControlOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultrelativedatetimecontroloptions.html}
+ */
+export type DefaultRelativeDateTimeControlOptions = {
+  DisplayOptions?: RelativeDateTimeControlDisplayOptions;
+};
+/**
  * Type definition for `AWS::QuickSight::Dashboard.DefaultSectionBasedLayoutConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultsectionbasedlayoutconfiguration.html}
  */
 export type DefaultSectionBasedLayoutConfiguration = {
   CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptions;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DefaultSliderControlOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaultslidercontroloptions.html}
+ */
+export type DefaultSliderControlOptions = {
+  DisplayOptions?: SliderControlDisplayOptions;
+  MaximumValue: number;
+  MinimumValue: number;
+  StepSize: number;
+  Type?: SheetControlSliderType;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DefaultTextAreaControlOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaulttextareacontroloptions.html}
+ */
+export type DefaultTextAreaControlOptions = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  Delimiter?: string;
+  DisplayOptions?: TextAreaControlDisplayOptions;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DefaultTextFieldControlOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-defaulttextfieldcontroloptions.html}
+ */
+export type DefaultTextFieldControlOptions = {
+  DisplayOptions?: TextFieldControlDisplayOptions;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DestinationParameterValueConfiguration`.
@@ -2061,7 +2282,7 @@ export type EmptyVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -2071,7 +2292,7 @@ export type EmptyVisual = {
  */
 export type Entity = {
   /**
-   * @pattern `.*\S.*`
+   * @pattern `\S`
    */
   Path?: string;
 };
@@ -2107,6 +2328,7 @@ export type ExplicitHierarchy = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.ExportHiddenFieldsOption`.
+ * <p>Determines if hidden fields are included in an exported dashboard.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporthiddenfieldsoption.html}
  */
 export type ExportHiddenFieldsOption = {
@@ -2114,6 +2336,7 @@ export type ExportHiddenFieldsOption = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.ExportToCSVOption`.
+ * <p>Export to .csv option.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html}
  */
 export type ExportToCSVOption = {
@@ -2121,6 +2344,7 @@ export type ExportToCSVOption = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.ExportWithHiddenFieldsOption`.
+ * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exportwithhiddenfieldsoption.html}
  */
 export type ExportWithHiddenFieldsOption = {
@@ -2295,7 +2519,7 @@ export type FilledMapVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -2317,6 +2541,7 @@ export type Filter = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filtercontrol.html}
  */
 export type FilterControl = {
+  CrossSheet?: FilterCrossSheetControl;
   DateTimePicker?: FilterDateTimePickerControl;
   Dropdown?: FilterDropDownControl;
   List?: FilterListControl;
@@ -2324,6 +2549,25 @@ export type FilterControl = {
   Slider?: FilterSliderControl;
   TextArea?: FilterTextAreaControl;
   TextField?: FilterTextFieldControl;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.FilterCrossSheetControl`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filtercrosssheetcontrol.html}
+ */
+export type FilterCrossSheetControl = {
+  CascadingControlConfiguration?: CascadingControlConfiguration;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  FilterControlId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  SourceFilterId: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.FilterDateTimePickerControl`.
@@ -2334,13 +2578,13 @@ export type FilterDateTimePickerControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterControlId: string;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SourceFilterId: string;
   /**
@@ -2360,14 +2604,14 @@ export type FilterDropDownControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterControlId: string;
   SelectableValues?: FilterSelectableValues;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SourceFilterId: string;
   /**
@@ -2386,7 +2630,7 @@ export type FilterGroup = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterGroupId: string;
   /**
@@ -2421,14 +2665,14 @@ export type FilterListControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterControlId: string;
   SelectableValues?: FilterSelectableValues;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SourceFilterId: string;
   /**
@@ -2449,6 +2693,7 @@ export type FilterNullOption = "ALL_VALUES" | "NULLS_ONLY" | "NON_NULLS_ONLY";
  */
 export type FilterOperationSelectedFieldsConfiguration = {
   /**
+   * <p>The selected columns of a dataset.</p>
    * @minLength `0`
    * @maxLength `10`
    */
@@ -2476,13 +2721,13 @@ export type FilterRelativeDateTimeControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterControlId: string;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SourceFilterId: string;
   /**
@@ -2519,7 +2764,7 @@ export type FilterSliderControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterControlId: string;
   MaximumValue: number;
@@ -2527,7 +2772,7 @@ export type FilterSliderControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SourceFilterId: string;
   StepSize: number;
@@ -2552,13 +2797,13 @@ export type FilterTextAreaControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterControlId: string;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SourceFilterId: string;
   /**
@@ -2576,13 +2821,13 @@ export type FilterTextFieldControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterControlId: string;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SourceFilterId: string;
   /**
@@ -2647,7 +2892,7 @@ export type ForecastComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   /**
@@ -2736,7 +2981,7 @@ export type FreeFormLayoutElement = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ElementId: string;
   ElementType: LayoutElementType;
@@ -2903,7 +3148,7 @@ export type FunnelChartVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -2996,7 +3241,7 @@ export type GaugeChartVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -3123,7 +3368,7 @@ export type GeospatialMapVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -3217,7 +3462,7 @@ export type GridLayoutElement = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ElementId: string;
   ElementType: LayoutElementType;
@@ -3251,7 +3496,7 @@ export type GrowthRateComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   Name?: string;
@@ -3272,7 +3517,7 @@ export type HeaderFooterSectionConfiguration = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SectionId: string;
   Style?: SectionStyle;
@@ -3358,7 +3603,7 @@ export type HeatMapVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -3425,7 +3670,7 @@ export type HistogramVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -3498,7 +3743,7 @@ export type InsightVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -3516,13 +3761,18 @@ export type IntegerDefaultValues = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.IntegerParameter`.
+ * <p>An integer parameter.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html}
  */
 export type IntegerParameter = {
   /**
-   * @pattern `.*\S.*`
+   * <p>The name of the integer parameter.</p>
+   * @pattern `\S`
    */
   Name: string;
+  /**
+   * <p>The values for the integer parameter.</p>
+   */
   Values: number[];
 };
 /**
@@ -3709,7 +3959,7 @@ export type KPIVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -3968,7 +4218,7 @@ export type LineChartVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -4039,7 +4289,7 @@ export type LocalNavigationConfiguration = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   TargetSheetId: string;
 };
@@ -4096,7 +4346,7 @@ export type MaximumMinimumComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   Name?: string;
@@ -4127,7 +4377,7 @@ export type MetricComparisonComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   FromValue?: MeasureField;
@@ -4282,10 +4532,11 @@ export type NumericEqualityDrillDownFilter = {
 export type NumericEqualityFilter = {
   AggregationFunction?: AggregationFunction;
   Column: ColumnIdentifier;
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterId: string;
   MatchOperator: NumericEqualityMatchOperator;
@@ -4325,10 +4576,11 @@ export type NumericFormatConfiguration = {
 export type NumericRangeFilter = {
   AggregationFunction?: AggregationFunction;
   Column: ColumnIdentifier;
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterId: string;
   IncludeMaximum?: boolean;
@@ -4463,7 +4715,7 @@ export type ParameterDateTimePickerControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ParameterControlId: string;
   /**
@@ -4498,7 +4750,7 @@ export type ParameterDropDownControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ParameterControlId: string;
   SelectableValues?: ParameterSelectableValues;
@@ -4525,7 +4777,7 @@ export type ParameterListControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ParameterControlId: string;
   SelectableValues?: ParameterSelectableValues;
@@ -4544,25 +4796,30 @@ export type ParameterListControl = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.Parameters`.
+ * <p>A list of Amazon QuickSight parameters and the list's override values.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html}
  */
 export type Parameters = {
   /**
+   * <p>The parameters that have a data type of date-time.</p>
    * @minLength `0`
    * @maxLength `100`
    */
   DateTimeParameters?: DateTimeParameter[];
   /**
+   * <p>The parameters that have a data type of decimal.</p>
    * @minLength `0`
    * @maxLength `100`
    */
   DecimalParameters?: DecimalParameter[];
   /**
+   * <p>The parameters that have a data type of integer.</p>
    * @minLength `0`
    * @maxLength `100`
    */
   IntegerParameters?: IntegerParameter[];
   /**
+   * <p>The parameters that have a data type of string.</p>
    * @minLength `0`
    * @maxLength `100`
    */
@@ -4591,7 +4848,7 @@ export type ParameterSliderControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ParameterControlId: string;
   /**
@@ -4621,7 +4878,7 @@ export type ParameterTextAreaControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ParameterControlId: string;
   /**
@@ -4645,7 +4902,7 @@ export type ParameterTextFieldControl = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ParameterControlId: string;
   /**
@@ -4720,7 +4977,7 @@ export type PeriodOverPeriodComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   Name?: string;
@@ -4735,7 +4992,7 @@ export type PeriodToDateComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   Name?: string;
@@ -4831,7 +5088,7 @@ export type PieChartVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -5136,7 +5393,7 @@ export type PivotTableVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -5313,7 +5570,7 @@ export type RadarChartVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -5340,7 +5597,7 @@ export type ReferenceLine = {
  */
 export type ReferenceLineCustomLabelConfiguration = {
   /**
-   * @pattern `.*\S.*`
+   * @pattern `\S`
    */
   CustomLabel: string;
 };
@@ -5438,11 +5695,12 @@ export type ReferenceLineValueLabelRelativePosition =
 export type RelativeDatesFilter = {
   AnchorDateConfiguration: AnchorDateConfiguration;
   Column: ColumnIdentifier;
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
   ExcludePeriodConfiguration?: ExcludePeriodConfiguration;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterId: string;
   MinimumGranularity?: TimeGranularity;
@@ -5492,18 +5750,35 @@ export type RelativeFontSize =
 export type ResizeOption = "FIXED" | "RESPONSIVE";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.ResourcePermission`.
+ * <p>Permission for the resource.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html}
  */
 export type ResourcePermission = {
   /**
+   * <p>The IAM action to grant or revoke permissions on.</p>
    * @minLength `1`
    * @maxLength `20`
    */
   Actions: string[];
   /**
-   * @minLength `1`
-   * @maxLength `256`
-   */
+     * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                following:</p>
+             <ul>
+                <li>
+                   <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                </li>
+                <li>
+                   <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                </li>
+                <li>
+                   <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                        ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
+                        (This is less common.) </p>
+                </li>
+             </ul>
+     * @minLength `1`
+     * @maxLength `256`
+     */
   Principal: string;
 };
 /**
@@ -5625,7 +5900,7 @@ export type SankeyDiagramVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -5735,7 +6010,7 @@ export type ScatterPlotVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -5885,18 +6160,26 @@ export type ShapeConditionalFormat = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.Sheet`.
+ * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+            are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
+            contains at least one sheet. Each sheet contains at least one visualization widget, for
+            example a chart, pivot table, or narrative insight. Sheets can be associated with other
+            components, such as controls, filters, and so on.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheet.html}
  */
 export type Sheet = {
   /**
-   * @minLength `1`
-   * @maxLength `2048`
-   */
+     * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
+                console.</p>
+     * @minLength `1`
+     * @maxLength `2048`
+     */
   Name?: string;
   /**
+   * <p>The unique identifier associated with a sheet.</p>
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SheetId?: string;
 };
@@ -5948,6 +6231,7 @@ export type SheetControlListType = "MULTI_SELECT" | "SINGLE_SELECT";
 export type SheetControlSliderType = "SINGLE_POINT" | "RANGE";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.SheetControlsOption`.
+ * <p>Sheet controls option.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html}
  */
 export type SheetControlsOption = {
@@ -5992,7 +6276,7 @@ export type SheetDefinition = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SheetId: string;
   /**
@@ -6032,6 +6316,7 @@ export type SheetElementRenderingRule = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.SheetLayoutElementMaximizationOption`.
+ * <p>The sheet layout maximization options of a dashbaord.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetlayoutelementmaximizationoption.html}
  */
 export type SheetLayoutElementMaximizationOption = {
@@ -6050,7 +6335,7 @@ export type SheetTextBox = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SheetTextBoxId: string;
 };
@@ -6063,7 +6348,7 @@ export type SheetVisualScopingConfiguration = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   SheetId: string;
   /**
@@ -6229,13 +6514,18 @@ export type StringFormatConfiguration = {
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.StringParameter`.
+ * <p>A string parameter.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html}
  */
 export type StringParameter = {
   /**
-   * @pattern `.*\S.*`
+   * <p>A display name for a string parameter.</p>
+   * @pattern `\S`
    */
   Name: string;
+  /**
+   * <p>The values of a string parameter.</p>
+   */
   Values: string[];
 };
 /**
@@ -6630,21 +6920,25 @@ export type TableVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.Tag`.
+ * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+            resource.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tag.html}
  */
 export type Tag = {
   /**
+   * <p>Tag key.</p>
    * @minLength `1`
    * @maxLength `128`
    */
   Key: string;
   /**
+   * <p>Tag value.</p>
    * @minLength `1`
    * @maxLength `256`
    */
@@ -6736,10 +7030,11 @@ export type TimeBasedForecastProperties = {
  */
 export type TimeEqualityFilter = {
   Column: ColumnIdentifier;
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterId: string;
   /**
@@ -6782,11 +7077,12 @@ export type TimeRangeDrillDownFilter = {
  */
 export type TimeRangeFilter = {
   Column: ColumnIdentifier;
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
   ExcludePeriodConfiguration?: ExcludePeriodConfiguration;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterId: string;
   IncludeMaximum?: boolean;
@@ -6848,10 +7144,11 @@ export type TopBottomFilter = {
    */
   AggregationSortConfigurations: AggregationSortConfiguration[];
   Column: ColumnIdentifier;
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   FilterId: string;
   Limit?: number;
@@ -6872,7 +7169,7 @@ export type TopBottomMoversComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   /**
@@ -6895,7 +7192,7 @@ export type TopBottomRankedComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   Name?: string;
@@ -6920,7 +7217,7 @@ export type TotalAggregationComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   Name?: string;
@@ -7037,7 +7334,7 @@ export type TreeMapVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -7070,7 +7367,7 @@ export type UniqueValuesComputation = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   ComputationId: string;
   Name?: string;
@@ -7082,6 +7379,7 @@ export type UniqueValuesComputation = {
 export type URLTargetConfiguration = "NEW_TAB" | "NEW_WINDOW" | "SAME_TAB";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.ValidationStrategy`.
+ * <p>The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to <code>LENIENT</code>, validation is skipped for specific errors.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-validationstrategy.html}
  */
 export type ValidationStrategy = {
@@ -7163,7 +7461,7 @@ export type VisualCustomAction = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   CustomActionId: string;
   /**
@@ -7311,7 +7609,7 @@ export type WaterfallVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
@@ -7424,7 +7722,7 @@ export type WordCloudVisual = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `[\w\-]+`
+   * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };

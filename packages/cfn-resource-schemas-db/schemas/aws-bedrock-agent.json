@@ -1,5 +1,5 @@
 {
-  "$hash": "1f6f21d2a6d01991789a6cda960132b5ac26fc17",
+  "$hash": "bd75bdc6dacad7b1a9bcef4b50935685ebe72504",
   "$id": "aws-bedrock-agent.json",
   "additionalProperties": false,
   "definitions": {
@@ -430,6 +430,7 @@
       "type": "boolean"
     },
     "Tags": { "$ref": "#/definitions/TagsMap" },
+    "TestAliasTags": { "$ref": "#/definitions/TagsMap" },
     "UpdatedAt": {
       "description": "Time Stamp.",
       "format": "date-time",
