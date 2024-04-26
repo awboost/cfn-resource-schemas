@@ -356,7 +356,11 @@ export type TaskSchedule = {
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9\ \_\*\?\,\|\^\-\/\#\s\(\)\+]*$`
    */
-  ScheduleExpression: string;
+  ScheduleExpression?: string;
+  /**
+   * Specifies status of a schedule.
+   */
+  Status?: "ENABLED" | "DISABLED";
 };
 /**
  * Resource schema for AWS::DataSync::Task.

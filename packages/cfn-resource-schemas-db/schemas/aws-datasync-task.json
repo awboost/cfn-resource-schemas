@@ -1,5 +1,5 @@
 {
-  "$hash": "436cda11e376d2133a85e44a6c0651dc5b88fef5",
+  "$hash": "1d71e9b2ccdd26c84219593fa5c52f7ffd0a0f6e",
   "$id": "aws-datasync-task.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -333,9 +333,13 @@
           "maxLength": 256,
           "pattern": "^[a-zA-Z0-9\\ \\_\\*\\?\\,\\|\\^\\-\\/\\#\\s\\(\\)\\+]*$",
           "type": "string"
+        },
+        "Status": {
+          "description": "Specifies status of a schedule.",
+          "enum": ["ENABLED", "DISABLED"],
+          "type": "string"
         }
       },
-      "required": ["ScheduleExpression"],
       "type": "object"
     }
   },

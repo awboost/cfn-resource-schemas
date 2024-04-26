@@ -25,7 +25,11 @@ export type GameLiftFleetProperties = {
   /**
    * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
    */
-  ComputeType?: "EC2" | "ANYWHERE";
+  ComputeType?: "EC2" | "ANYWHERE" | "CONTAINER";
+  /**
+   * Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
+   */
+  ContainerGroupsConfiguration?: ContainerGroupsConfiguration;
   /**
    * A human-readable description of a fleet.
    * @minLength `1`
@@ -150,6 +154,22 @@ export type GameLiftFleetProperties = {
  */
 export type GameLiftFleetAttributes = {
   /**
+   * Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
+   */
+  ContainerGroupsConfiguration: {
+    /**
+     * The number of container groups per instance.
+     */
+    ContainerGroupsPerInstance: {
+      /**
+       * GameLift calculates the maximum number of replica container groups it can launch per instance based on instance properties such as CPU, memory, and connection ports.
+       * @min `1`
+       * @max `5000`
+       */
+      MaxReplicaContainerGroupsPerInstance: number;
+    };
+  };
+  /**
    * Unique fleet ID
    * @pattern `^fleet-\S+`
    */
@@ -176,6 +196,59 @@ export type AnywhereConfiguration = {
  */
 export type CertificateConfiguration = {
   CertificateType: "DISABLED" | "GENERATED";
+};
+/**
+ * Type definition for `AWS::GameLift::Fleet.ConnectionPortRange`.
+ * Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-connectionportrange.html}
+ */
+export type ConnectionPortRange = {
+  /**
+   * A starting value for a range of allowed port numbers.
+   * @min `1`
+   * @max `60000`
+   */
+  FromPort: number;
+  /**
+   * An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+   * @min `1`
+   * @max `60000`
+   */
+  ToPort: number;
+};
+/**
+ * Type definition for `AWS::GameLift::Fleet.ContainerGroupsConfiguration`.
+ * Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsconfiguration.html}
+ */
+export type ContainerGroupsConfiguration = {
+  /**
+   * Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+   */
+  ConnectionPortRange: ConnectionPortRange;
+  /**
+   * The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  ContainerGroupDefinitionNames: string[];
+  /**
+   * The number of container groups per instance.
+   */
+  ContainerGroupsPerInstance?: ContainerGroupsPerInstance;
+};
+/**
+ * Type definition for `AWS::GameLift::Fleet.ContainerGroupsPerInstance`.
+ * The number of container groups per instance.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsperinstance.html}
+ */
+export type ContainerGroupsPerInstance = {
+  /**
+   * Use this parameter to override the number of replica container groups GameLift will launch per instance with a number that is lower than that calculated maximum.
+   * @min `1`
+   * @max `5000`
+   */
+  DesiredReplicaContainerGroupsPerInstance?: number;
 };
 /**
  * Type definition for `AWS::GameLift::Fleet.IpPermission`.
