@@ -25,6 +25,9 @@ export type GroundStationDataflowEndpointGroupProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#aws-resource-groundstation-dataflowendpointgroup-return-values}
  */
 export type GroundStationDataflowEndpointGroupAttributes = {
+  /**
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
   Arn: string;
   Id: string;
 };
@@ -153,6 +156,9 @@ export type RangedSocketAddress = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html}
  */
 export type SecurityDetails = {
+  /**
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
   RoleArn?: string;
   SecurityGroupIds?: string[];
   SubnetIds?: string[];

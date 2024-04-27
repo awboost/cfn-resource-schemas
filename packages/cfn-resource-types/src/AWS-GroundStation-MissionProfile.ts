@@ -36,6 +36,9 @@ export type GroundStationMissionProfileProperties = {
    */
   StreamsKmsRole?: string;
   Tags?: Tag[];
+  /**
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
   TrackingConfigArn: string;
 };
 /**
@@ -43,6 +46,9 @@ export type GroundStationMissionProfileProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#aws-resource-groundstation-missionprofile-return-values}
  */
 export type GroundStationMissionProfileAttributes = {
+  /**
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
   Arn: string;
   Id: string;
   Region: string;
@@ -60,7 +66,13 @@ export type DataflowEdge = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-streamskmskey.html}
  */
 export type StreamsKmsKey = {
+  /**
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
   KmsAliasArn?: string;
+  /**
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
   KmsKeyArn?: string;
 };
 /**

@@ -1,32 +1,52 @@
-- added `AWS::GameLift::ContainerGroupDefinition`
-- added `AWS::Route53Profiles::Profile`
-- added `AWS::Route53Profiles::ProfileAssociation`
-- added `AWS::Route53Profiles::ProfileResourceAssociation`
-- updated `AWS::DataSync::Task`
-  - updated definition `TaskSchedule`
-- updated `AWS::EC2::TransitGatewayRouteTableAssociation`
-  - added `replacementStrategy`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated definition `undefined`
-  - updated handler permissions
-  - updated property `TransitGatewayAttachmentId`
-  - updated property `TransitGatewayRouteTableId`
-- updated `AWS::GameLift::Fleet`
-  - added definition `ConnectionPortRange`
-  - added definition `ContainerGroupsConfiguration`
-  - added definition `ContainerGroupsPerInstance`
-  - added property `ContainerGroupsConfiguration`
+- updated `AWS::ApplicationAutoScaling::ScalableTarget`
+  - updated definition `ScalableTargetAction`
+  - updated definition `ScheduledAction`
+  - updated definition `SuspendedState`
+  - updated property `Id`
+  - updated property `MaxCapacity`
+  - updated property `MinCapacity`
+  - updated property `ResourceId`
+  - updated property `RoleARN`
+  - updated property `ScalableDimension`
+  - updated property `ServiceNamespace`
+  - updated property `SuspendedState`
+- updated `AWS::ConnectCampaigns::Campaign`
+  - updated definition `AnswerMachineDetectionConfig`
+- updated `AWS::DMS::DataProvider`
+  - updated definition `DmsSslModeValue`
+  - updated property `Settings`
+- updated `AWS::EC2::CustomerGateway`
+  - removed property `BgpAsnExtended`
   - updated `createOnlyProperties`
+- updated `AWS::GroundStation::Config`
+  - updated definition `BucketArn`
+  - updated definition `RoleArn`
+  - updated definition `UplinkEchoConfig`
+  - updated property `Arn`
+- updated `AWS::GroundStation::DataflowEndpointGroup`
+  - updated definition `SecurityDetails`
+  - updated property `Arn`
+- updated `AWS::GroundStation::MissionProfile`
+  - updated definition `StreamsKmsKey`
+  - updated property `Arn`
+  - updated property `TrackingConfigArn`
+- updated `AWS::Lambda::Alias`
+  - added property `Id`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - updated `primaryIdentifier`
   - updated `readOnlyProperties`
-  - updated property `ComputeType`
-- updated `AWS::KMS::Key`
-  - updated property `EnableKeyRotation`
-  - updated property `KeyPolicy`
-  - updated property `KeySpec`
-  - updated property `MultiRegion`
-  - updated property `Origin`
-  - updated property `PendingWindowInDays`
+  - updated definition `AliasRoutingConfiguration`
+  - updated definition `ProvisionedConcurrencyConfiguration`
+  - updated definition `VersionWeight`
+  - updated handler permissions
+  - updated property `AliasArn`
+  - updated property `Description`
+  - updated property `FunctionName`
+  - updated property `FunctionVersion`
+  - updated property `Name`
+  - updated property `ProvisionedConcurrencyConfig`
+  - updated property `RoutingConfig`
+- updated `AWS::RDS::DBInstance`
+  - added property `AutomaticBackupReplicationKmsKeyId`
+  - updated `writeOnlyProperties`

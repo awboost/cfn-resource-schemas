@@ -18,6 +18,9 @@ export type GroundStationConfigProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#aws-resource-groundstation-config-return-values}
  */
 export type GroundStationConfigAttributes = {
+  /**
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
   Arn: string;
   Id: string;
   Type: string;
@@ -137,11 +140,17 @@ export type Polarization = "LEFT_HAND" | "RIGHT_HAND" | "NONE";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-s3recordingconfig.html}
  */
 export type S3RecordingConfig = {
+  /**
+   * @pattern `^arn:aws[A-Za-z0-9-]{0,64}:s3:::[A-Za-z0-9-]{1,64}$`
+   */
   BucketArn?: string;
   /**
    * @pattern `^([a-zA-Z0-9_\-=/]|\{satellite_id\}|\{config\-name}|\{s3\-config-id}|\{year\}|\{month\}|\{day\}){1,900}$`
    */
   Prefix?: string;
+  /**
+   * @pattern `^arn:[^:\n]+:iam::[^:\n]+:role\/.+$`
+   */
   RoleArn?: string;
 };
 /**
@@ -179,6 +188,9 @@ export type TrackingConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-uplinkechoconfig.html}
  */
 export type UplinkEchoConfig = {
+  /**
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
   AntennaUplinkConfigArn?: string;
   Enabled?: boolean;
 };

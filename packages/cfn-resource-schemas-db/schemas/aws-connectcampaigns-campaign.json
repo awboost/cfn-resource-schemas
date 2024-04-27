@@ -1,5 +1,5 @@
 {
-  "$hash": "68931be63b29bede638046c059d9f47f3cc3f412",
+  "$hash": "3cf2d6cbd6e20d65c939bf7aa12b995a0e65e804",
   "$id": "aws-connectcampaigns-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceArn"],
@@ -22,6 +22,10 @@
       "additionalProperties": false,
       "description": "The configuration used for answering machine detection during outbound calls",
       "properties": {
+        "AwaitAnswerMachinePrompt": {
+          "description": "Enables detection of prompts (e.g., beep after after a voicemail greeting)",
+          "type": "boolean"
+        },
         "EnableAnswerMachineDetection": {
           "description": "Flag to decided whether outbound calls should have answering machine detection enabled or not",
           "type": "boolean"

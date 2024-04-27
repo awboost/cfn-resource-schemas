@@ -1,11 +1,10 @@
 {
-  "$hash": "2b0d0443cc0756d3764f7ae01fd781710e3bd511",
+  "$hash": "db8e10f22ef00cd22cb2e4a2c52532a25556a738",
   "$id": "aws-ec2-customergateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/CertificateArn",
     "/properties/BgpAsn",
-    "/properties/BgpAsnExtended",
     "/properties/Type",
     "/properties/IpAddress",
     "/properties/DeviceName"
@@ -54,13 +53,6 @@
       "default": 65000,
       "description": "For devices that support BGP, the customer gateway's BGP ASN.\n Default: 65000",
       "type": "integer"
-    },
-    "BgpAsnExtended": {
-      "description": "",
-      "maximum": 4294967294,
-      "minimum": 2147483648,
-      "multipleOf": 1,
-      "type": "number"
     },
     "CertificateArn": {
       "description": "",

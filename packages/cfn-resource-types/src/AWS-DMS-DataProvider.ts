@@ -40,47 +40,52 @@ export type DMSDataProviderProperties = {
   /**
    * The property identifies the exact type of settings for the data provider.
    */
-  Settings?:
-    | {
-        PostgreSqlSettings?: {
-          CertificateArn?: string;
-          DatabaseName?: string;
-          Port?: number;
-          ServerName?: string;
-          SslMode?: DmsSslModeValue;
-        };
-      }
-    | {
-        MySqlSettings?: {
-          CertificateArn?: string;
-          Port?: number;
-          ServerName?: string;
-          SslMode?: DmsSslModeValue;
-        };
-      }
-    | {
-        OracleSettings?: {
-          AsmServer?: string;
-          CertificateArn?: string;
-          DatabaseName?: string;
-          Port?: number;
-          SecretsManagerOracleAsmAccessRoleArn?: string;
-          SecretsManagerOracleAsmSecretId?: string;
-          SecretsManagerSecurityDbEncryptionAccessRoleArn?: string;
-          SecretsManagerSecurityDbEncryptionSecretId?: string;
-          ServerName?: string;
-          SslMode?: DmsSslModeValue;
-        };
-      }
-    | {
-        MicrosoftSqlServerSettings?: {
-          CertificateArn?: string;
-          DatabaseName?: string;
-          Port?: number;
-          ServerName?: string;
-          SslMode?: DmsSslModeValue;
-        };
-      };
+  Settings?: {
+    /**
+     * MicrosoftSqlServerSettings property identifier.
+     */
+    MicrosoftSqlServerSettings?: {
+      CertificateArn?: string;
+      DatabaseName: string;
+      Port: number;
+      ServerName: string;
+      SslMode: DmsSslModeValue;
+    };
+    /**
+     * MySqlSettings property identifier.
+     */
+    MySqlSettings?: {
+      CertificateArn?: string;
+      Port: number;
+      ServerName: string;
+      SslMode: DmsSslModeValue;
+    };
+    /**
+     * OracleSettings property identifier.
+     */
+    OracleSettings?: {
+      AsmServer?: string;
+      CertificateArn?: string;
+      DatabaseName: string;
+      Port: number;
+      SecretsManagerOracleAsmAccessRoleArn?: string;
+      SecretsManagerOracleAsmSecretId?: string;
+      SecretsManagerSecurityDbEncryptionAccessRoleArn?: string;
+      SecretsManagerSecurityDbEncryptionSecretId?: string;
+      ServerName: string;
+      SslMode: DmsSslModeValue;
+    };
+    /**
+     * PostgreSqlSettings property identifier.
+     */
+    PostgreSqlSettings?: {
+      CertificateArn?: string;
+      DatabaseName: string;
+      Port: number;
+      ServerName: string;
+      SslMode: DmsSslModeValue;
+    };
+  };
   /**
    * An array of key-value pairs to apply to this resource.
    */
@@ -108,7 +113,7 @@ export type DMSDataProviderAttributes = {
  * Type definition for `AWS::DMS::DataProvider.DmsSslModeValue`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-dmssslmodevalue.html}
  */
-export type DmsSslModeValue = "none" | "require" | "verify_ca" | "verify_full";
+export type DmsSslModeValue = "none" | "require" | "verify-ca" | "verify-full";
 /**
  * Type definition for `AWS::DMS::DataProvider.Tag`.
  * A key-value pair to associate with a resource.

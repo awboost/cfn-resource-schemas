@@ -65,6 +65,10 @@ export type AgentlessDialerConfig = {
  */
 export type AnswerMachineDetectionConfig = {
   /**
+   * Enables detection of prompts (e.g., beep after after a voicemail greeting)
+   */
+  AwaitAnswerMachinePrompt?: boolean;
+  /**
    * Flag to decided whether outbound calls should have answering machine detection enabled or not
    */
   EnableAnswerMachineDetection: boolean;

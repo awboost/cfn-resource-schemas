@@ -1,5 +1,5 @@
 {
-  "$hash": "1bc31814f64d925c8c72d258c9a3f6894a09abe7",
+  "$hash": "fd4bce01ec7c3fbecd484afc4d8c39f48882953e",
   "$id": "aws-groundstation-dataflowendpointgroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -97,7 +97,10 @@
     "SecurityDetails": {
       "additionalProperties": false,
       "properties": {
-        "RoleArn": { "type": "string" },
+        "RoleArn": {
+          "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
+          "type": "string"
+        },
         "SecurityGroupIds": { "items": { "type": "string" }, "type": "array" },
         "SubnetIds": { "items": { "type": "string" }, "type": "array" }
       },
@@ -156,7 +159,10 @@
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
-    "Arn": { "type": "string" },
+    "Arn": {
+      "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
+      "type": "string"
+    },
     "ContactPostPassDurationSeconds": {
       "description": "Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.",
       "type": "integer"

@@ -12,11 +12,6 @@ export type EC2CustomerGatewayProperties = {
      */
   BgpAsn?: number;
   /**
-   * @min `2147483648`
-   * @max `4294967294`
-   */
-  BgpAsnExtended?: number;
-  /**
    * @pattern `^arn:(aws[a-zA-Z-]*)?:acm:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:\d{12}:certificate\/[a-zA-Z0-9-_]+$`
    */
   CertificateArn?: string;

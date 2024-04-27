@@ -1,5 +1,5 @@
 {
-  "$hash": "32278f49003a5074af831d80b4d9b9362b73408d",
+  "$hash": "6cc58003356fb9f6bfc0450f38e42abb96df9c12",
   "$id": "aws-groundstation-config.json",
   "additionalProperties": false,
   "definitions": {
@@ -29,7 +29,10 @@
       "type": "object"
     },
     "BandwidthUnits": { "enum": ["GHz", "MHz", "kHz"], "type": "string" },
-    "BucketArn": { "type": "string" },
+    "BucketArn": {
+      "pattern": "^arn:aws[A-Za-z0-9-]{0,64}:s3:::[A-Za-z0-9-]{1,64}$",
+      "type": "string"
+    },
     "ConfigData": {
       "additionalProperties": false,
       "maxProperties": 1,
@@ -107,7 +110,10 @@
       "enum": ["LEFT_HAND", "RIGHT_HAND", "NONE"],
       "type": "string"
     },
-    "RoleArn": { "type": "string" },
+    "RoleArn": {
+      "pattern": "^arn:[^:\\n]+:iam::[^:\\n]+:role\\/.+$",
+      "type": "string"
+    },
     "S3KeyPrefix": {
       "pattern": "^([a-zA-Z0-9_\\-=/]|\\{satellite_id\\}|\\{config\\-name}|\\{s3\\-config-id}|\\{year\\}|\\{month\\}|\\{day\\}){1,900}$",
       "type": "string"
@@ -157,7 +163,10 @@
     "UplinkEchoConfig": {
       "additionalProperties": false,
       "properties": {
-        "AntennaUplinkConfigArn": { "type": "string" },
+        "AntennaUplinkConfigArn": {
+          "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
+          "type": "string"
+        },
         "Enabled": { "type": "boolean" }
       },
       "type": "object"
@@ -200,7 +209,10 @@
   },
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
-    "Arn": { "type": "string" },
+    "Arn": {
+      "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
+      "type": "string"
+    },
     "ConfigData": { "$ref": "#/definitions/ConfigData" },
     "Id": { "type": "string" },
     "Name": { "pattern": "^[ a-zA-Z0-9_:-]{1,256}$", "type": "string" },

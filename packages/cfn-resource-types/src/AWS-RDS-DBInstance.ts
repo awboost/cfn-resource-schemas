@@ -90,6 +90,7 @@ export type RDSDBInstanceProperties = {
    * A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
    */
   AutoMinorVersionUpgrade?: boolean;
+  AutomaticBackupReplicationKmsKeyId?: string;
   /**
    * The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
    */
