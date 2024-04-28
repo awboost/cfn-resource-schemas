@@ -1,52 +1,32 @@
-- updated `AWS::ApplicationAutoScaling::ScalableTarget`
-  - updated definition `ScalableTargetAction`
-  - updated definition `ScheduledAction`
-  - updated definition `SuspendedState`
-  - updated property `Id`
-  - updated property `MaxCapacity`
-  - updated property `MinCapacity`
-  - updated property `ResourceId`
-  - updated property `RoleARN`
-  - updated property `ScalableDimension`
-  - updated property `ServiceNamespace`
-  - updated property `SuspendedState`
-- updated `AWS::ConnectCampaigns::Campaign`
-  - updated definition `AnswerMachineDetectionConfig`
-- updated `AWS::DMS::DataProvider`
-  - updated definition `DmsSslModeValue`
-  - updated property `Settings`
-- updated `AWS::EC2::CustomerGateway`
-  - removed property `BgpAsnExtended`
-  - updated `createOnlyProperties`
-- updated `AWS::GroundStation::Config`
-  - updated definition `BucketArn`
-  - updated definition `RoleArn`
-  - updated definition `UplinkEchoConfig`
-  - updated property `Arn`
-- updated `AWS::GroundStation::DataflowEndpointGroup`
-  - updated definition `SecurityDetails`
-  - updated property `Arn`
-- updated `AWS::GroundStation::MissionProfile`
-  - updated definition `StreamsKmsKey`
-  - updated property `Arn`
-  - updated property `TrackingConfigArn`
 - updated `AWS::Lambda::Alias`
-  - added property `Id`
-  - removed `sourceUrl`
-  - removed `tagging`
-  - updated `primaryIdentifier`
+  - removed property `AliasArn`
   - updated `readOnlyProperties`
-  - updated definition `AliasRoutingConfiguration`
-  - updated definition `ProvisionedConcurrencyConfiguration`
-  - updated definition `VersionWeight`
-  - updated handler permissions
-  - updated property `AliasArn`
-  - updated property `Description`
-  - updated property `FunctionName`
-  - updated property `FunctionVersion`
-  - updated property `Name`
-  - updated property `ProvisionedConcurrencyConfig`
-  - updated property `RoutingConfig`
-- updated `AWS::RDS::DBInstance`
-  - added property `AutomaticBackupReplicationKmsKeyId`
-  - updated `writeOnlyProperties`
+- updated `AWS::MediaLive::Channel`
+  - added definition `CmafIngestGroupSettings`
+  - added definition `CmafIngestOutputSettings`
+  - updated definition `AudioDescription`
+  - updated definition `CaptionDescription`
+  - updated definition `H265Settings`
+  - updated definition `OutputGroupSettings`
+  - updated definition `OutputSettings`
+- updated `AWS::QuickSight::Analysis`
+  - added definition `WaterfallChartColorConfiguration`
+  - added definition `WaterfallChartGroupColorConfiguration`
+  - updated definition `LineChartConfiguration`
+  - updated definition `PivotTableConditionalFormatting`
+  - updated definition `TableConditionalFormatting`
+  - updated definition `WaterfallChartConfiguration`
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `WaterfallChartColorConfiguration`
+  - added definition `WaterfallChartGroupColorConfiguration`
+  - updated definition `LineChartConfiguration`
+  - updated definition `PivotTableConditionalFormatting`
+  - updated definition `TableConditionalFormatting`
+  - updated definition `WaterfallChartConfiguration`
+- updated `AWS::QuickSight::Template`
+  - added definition `WaterfallChartColorConfiguration`
+  - added definition `WaterfallChartGroupColorConfiguration`
+  - updated definition `LineChartConfiguration`
+  - updated definition `PivotTableConditionalFormatting`
+  - updated definition `TableConditionalFormatting`
+  - updated definition `WaterfallChartConfiguration`

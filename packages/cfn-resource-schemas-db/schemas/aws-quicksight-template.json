@@ -1,5 +1,5 @@
 {
-  "$hash": "f047d8a3a40fd81da7c29dd1f9bcbdd8aff0bd7b",
+  "$hash": "02c64a9dd10eaf3ee6eb335fc8b0cbea7bd348ef",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -3891,7 +3891,7 @@
         },
         "Series": {
           "items": { "$ref": "#/definitions/SeriesItem" },
-          "maxItems": 10,
+          "maxItems": 2000,
           "minItems": 0,
           "type": "array"
         },
@@ -4957,7 +4957,7 @@
           "items": {
             "$ref": "#/definitions/PivotTableConditionalFormattingOption"
           },
-          "maxItems": 100,
+          "maxItems": 500,
           "minItems": 0,
           "type": "array"
         }
@@ -6457,7 +6457,7 @@
       "properties": {
         "ConditionalFormattingOptions": {
           "items": { "$ref": "#/definitions/TableConditionalFormattingOption" },
-          "maxItems": 100,
+          "maxItems": 500,
           "minItems": 0,
           "type": "array"
         }
@@ -7510,6 +7510,15 @@
       },
       "type": "object"
     },
+    "WaterfallChartColorConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "GroupColorConfiguration": {
+          "$ref": "#/definitions/WaterfallChartGroupColorConfiguration"
+        }
+      },
+      "type": "object"
+    },
     "WaterfallChartConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -7518,6 +7527,9 @@
         },
         "CategoryAxisLabelOptions": {
           "$ref": "#/definitions/ChartAxisLabelOptions"
+        },
+        "ColorConfiguration": {
+          "$ref": "#/definitions/WaterfallChartColorConfiguration"
         },
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/WaterfallChartFieldWells" },
@@ -7544,6 +7556,15 @@
         "WaterfallChartAggregatedFieldWells": {
           "$ref": "#/definitions/WaterfallChartAggregatedFieldWells"
         }
+      },
+      "type": "object"
+    },
+    "WaterfallChartGroupColorConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "NegativeBarColor": { "pattern": "^#[A-F0-9]{6}$", "type": "string" },
+        "PositiveBarColor": { "pattern": "^#[A-F0-9]{6}$", "type": "string" },
+        "TotalBarColor": { "pattern": "^#[A-F0-9]{6}$", "type": "string" }
       },
       "type": "object"
     },

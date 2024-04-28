@@ -17,7 +17,6 @@ export type LambdaAliasProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#aws-resource-lambda-alias-return-values}
  */
 export type LambdaAliasAttributes = {
-  AliasArn: string;
   Id: string;
 };
 /**

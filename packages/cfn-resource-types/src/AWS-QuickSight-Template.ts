@@ -3871,7 +3871,7 @@ export type LineChartConfiguration = {
   SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
   /**
    * @minLength `0`
-   * @maxLength `10`
+   * @maxLength `2000`
    */
   Series?: SeriesItem[];
   SmallMultiplesOptions?: SmallMultiplesOptions;
@@ -4885,7 +4885,7 @@ export type PivotTableCellConditionalFormatting = {
 export type PivotTableConditionalFormatting = {
   /**
    * @minLength `0`
-   * @maxLength `100`
+   * @maxLength `500`
    */
   ConditionalFormattingOptions?: PivotTableConditionalFormattingOption[];
 };
@@ -6378,7 +6378,7 @@ export type TableCellStyle = {
 export type TableConditionalFormatting = {
   /**
    * @minLength `0`
-   * @maxLength `100`
+   * @maxLength `500`
    */
   ConditionalFormattingOptions?: TableConditionalFormattingOption[];
 };
@@ -7396,12 +7396,20 @@ export type WaterfallChartAggregatedFieldWells = {
   Values?: MeasureField[];
 };
 /**
+ * Type definition for `AWS::QuickSight::Template.WaterfallChartColorConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartcolorconfiguration.html}
+ */
+export type WaterfallChartColorConfiguration = {
+  GroupColorConfiguration?: WaterfallChartGroupColorConfiguration;
+};
+/**
  * Type definition for `AWS::QuickSight::Template.WaterfallChartConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartconfiguration.html}
  */
 export type WaterfallChartConfiguration = {
   CategoryAxisDisplayOptions?: AxisDisplayOptions;
   CategoryAxisLabelOptions?: ChartAxisLabelOptions;
+  ColorConfiguration?: WaterfallChartColorConfiguration;
   DataLabels?: DataLabelOptions;
   FieldWells?: WaterfallChartFieldWells;
   Legend?: LegendOptions;
@@ -7417,6 +7425,24 @@ export type WaterfallChartConfiguration = {
  */
 export type WaterfallChartFieldWells = {
   WaterfallChartAggregatedFieldWells?: WaterfallChartAggregatedFieldWells;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.WaterfallChartGroupColorConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartgroupcolorconfiguration.html}
+ */
+export type WaterfallChartGroupColorConfiguration = {
+  /**
+   * @pattern `^#[A-F0-9]{6}$`
+   */
+  NegativeBarColor?: string;
+  /**
+   * @pattern `^#[A-F0-9]{6}$`
+   */
+  PositiveBarColor?: string;
+  /**
+   * @pattern `^#[A-F0-9]{6}$`
+   */
+  TotalBarColor?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.WaterfallChartOptions`.

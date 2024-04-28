@@ -1,5 +1,5 @@
 {
-  "$hash": "58da712c7c31791db02b4ad68306409c40458b48",
+  "$hash": "917af51725fb21a3b4821d3ca6e417a967350849",
   "$id": "aws-lambda-alias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/FunctionName"],
@@ -37,7 +37,6 @@
   "description": "Resource Type definition for AWS::Lambda::Alias",
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
-    "AliasArn": { "type": "string" },
     "Description": { "type": "string" },
     "FunctionName": { "type": "string" },
     "FunctionVersion": { "type": "string" },
@@ -48,7 +47,7 @@
     },
     "RoutingConfig": { "$ref": "#/definitions/AliasRoutingConfiguration" }
   },
-  "readOnlyProperties": ["/properties/Id", "/properties/AliasArn"],
+  "readOnlyProperties": ["/properties/Id"],
   "required": ["FunctionName", "FunctionVersion", "Name"],
   "typeName": "AWS::Lambda::Alias"
 }

@@ -139,12 +139,14 @@ export type AudioCodecSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodescription.html}
  */
 export type AudioDescription = {
+  AudioDashRoles?: string[];
   AudioNormalizationSettings?: AudioNormalizationSettings;
   AudioSelectorName?: string;
   AudioType?: string;
   AudioTypeControl?: string;
   AudioWatermarkingSettings?: AudioWatermarkSettings;
   CodecSettings?: AudioCodecSettings;
+  DvbDashAccessibility?: string;
   LanguageCode?: string;
   LanguageCodeControl?: string;
   Name?: string;
@@ -322,8 +324,10 @@ export type BurnInDestinationSettings = {
  */
 export type CaptionDescription = {
   Accessibility?: string;
+  CaptionDashRoles?: string[];
   CaptionSelectorName?: string;
   DestinationSettings?: CaptionDestinationSettings;
+  DvbDashAccessibility?: string;
   LanguageCode?: string;
   LanguageDescription?: string;
   Name?: string;
@@ -394,6 +398,25 @@ export type CaptionSelectorSettings = {
  */
 export type CdiInputSpecification = {
   Resolution?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.CmafIngestGroupSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html}
+ */
+export type CmafIngestGroupSettings = {
+  Destination?: OutputLocationRef;
+  NielsenId3Behavior?: string;
+  Scte35Type?: string;
+  SegmentLength?: number;
+  SegmentLengthUnits?: string;
+  SendDelayMs?: number;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.CmafIngestOutputSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestoutputsettings.html}
+ */
+export type CmafIngestOutputSettings = {
+  NameModifier?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.ColorCorrection`.
@@ -791,6 +814,8 @@ export type H265Settings = {
   LookAheadRateControl?: string;
   MaxBitrate?: number;
   MinIInterval?: number;
+  MvOverPictureBoundaries?: string;
+  MvTemporalPredictor?: string;
   ParDenominator?: number;
   ParNumerator?: number;
   Profile?: string;
@@ -800,8 +825,12 @@ export type H265Settings = {
   SceneChangeDetect?: string;
   Slices?: number;
   Tier?: string;
+  TileHeight?: number;
+  TilePadding?: string;
+  TileWidth?: number;
   TimecodeBurninSettings?: TimecodeBurninSettings;
   TimecodeInsertion?: string;
+  TreeblockSize?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.Hdr10Settings`.
@@ -1339,6 +1368,7 @@ export type OutputGroup = {
  */
 export type OutputGroupSettings = {
   ArchiveGroupSettings?: ArchiveGroupSettings;
+  CmafIngestGroupSettings?: CmafIngestGroupSettings;
   FrameCaptureGroupSettings?: FrameCaptureGroupSettings;
   HlsGroupSettings?: HlsGroupSettings;
   MediaPackageGroupSettings?: MediaPackageGroupSettings;
@@ -1368,6 +1398,7 @@ export type OutputLockingSettings = {
  */
 export type OutputSettings = {
   ArchiveOutputSettings?: ArchiveOutputSettings;
+  CmafIngestOutputSettings?: CmafIngestOutputSettings;
   FrameCaptureOutputSettings?: FrameCaptureOutputSettings;
   HlsOutputSettings?: HlsOutputSettings;
   MediaPackageOutputSettings?: MediaPackageOutputSettings;

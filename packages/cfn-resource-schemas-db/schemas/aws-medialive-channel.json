@@ -1,5 +1,5 @@
 {
-  "$hash": "937bbd66a6ca53325966851230b7b891b0dee584",
+  "$hash": "6dba17053e76322822a8e0145e70356581bbfb7c",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -111,6 +111,11 @@
     "AudioDescription": {
       "additionalProperties": false,
       "properties": {
+        "AudioDashRoles": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "AudioNormalizationSettings": {
           "$ref": "#/definitions/AudioNormalizationSettings"
         },
@@ -121,6 +126,7 @@
           "$ref": "#/definitions/AudioWatermarkSettings"
         },
         "CodecSettings": { "$ref": "#/definitions/AudioCodecSettings" },
+        "DvbDashAccessibility": { "type": "string" },
         "LanguageCode": { "type": "string" },
         "LanguageCodeControl": { "type": "string" },
         "Name": { "type": "string" },
@@ -306,10 +312,16 @@
       "additionalProperties": false,
       "properties": {
         "Accessibility": { "type": "string" },
+        "CaptionDashRoles": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "CaptionSelectorName": { "type": "string" },
         "DestinationSettings": {
           "$ref": "#/definitions/CaptionDestinationSettings"
         },
+        "DvbDashAccessibility": { "type": "string" },
         "LanguageCode": { "type": "string" },
         "LanguageDescription": { "type": "string" },
         "Name": { "type": "string" }
@@ -417,6 +429,23 @@
     "CdiInputSpecification": {
       "additionalProperties": false,
       "properties": { "Resolution": { "type": "string" } },
+      "type": "object"
+    },
+    "CmafIngestGroupSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "Destination": { "$ref": "#/definitions/OutputLocationRef" },
+        "NielsenId3Behavior": { "type": "string" },
+        "Scte35Type": { "type": "string" },
+        "SegmentLength": { "type": "integer" },
+        "SegmentLengthUnits": { "type": "string" },
+        "SendDelayMs": { "type": "integer" }
+      },
+      "type": "object"
+    },
+    "CmafIngestOutputSettings": {
+      "additionalProperties": false,
+      "properties": { "NameModifier": { "type": "string" } },
       "type": "object"
     },
     "ColorCorrection": {
@@ -862,6 +891,8 @@
         "LookAheadRateControl": { "type": "string" },
         "MaxBitrate": { "type": "integer" },
         "MinIInterval": { "type": "integer" },
+        "MvOverPictureBoundaries": { "type": "string" },
+        "MvTemporalPredictor": { "type": "string" },
         "ParDenominator": { "type": "integer" },
         "ParNumerator": { "type": "integer" },
         "Profile": { "type": "string" },
@@ -871,10 +902,14 @@
         "SceneChangeDetect": { "type": "string" },
         "Slices": { "type": "integer" },
         "Tier": { "type": "string" },
+        "TileHeight": { "type": "integer" },
+        "TilePadding": { "type": "string" },
+        "TileWidth": { "type": "integer" },
         "TimecodeBurninSettings": {
           "$ref": "#/definitions/TimecodeBurninSettings"
         },
-        "TimecodeInsertion": { "type": "string" }
+        "TimecodeInsertion": { "type": "string" },
+        "TreeblockSize": { "type": "string" }
       },
       "type": "object"
     },
@@ -1463,6 +1498,9 @@
         "ArchiveGroupSettings": {
           "$ref": "#/definitions/ArchiveGroupSettings"
         },
+        "CmafIngestGroupSettings": {
+          "$ref": "#/definitions/CmafIngestGroupSettings"
+        },
         "FrameCaptureGroupSettings": {
           "$ref": "#/definitions/FrameCaptureGroupSettings"
         },
@@ -1503,6 +1541,9 @@
       "properties": {
         "ArchiveOutputSettings": {
           "$ref": "#/definitions/ArchiveOutputSettings"
+        },
+        "CmafIngestOutputSettings": {
+          "$ref": "#/definitions/CmafIngestOutputSettings"
         },
         "FrameCaptureOutputSettings": {
           "$ref": "#/definitions/FrameCaptureOutputSettings"
