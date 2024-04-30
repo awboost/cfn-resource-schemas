@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type BedrockDataSourceProperties = {
   /**
+   * The deletion policy for the data source.
+   */
+  DataDeletionPolicy?: DataDeletionPolicy;
+  /**
    * Specifies a raw data source location to ingest.
    */
   DataSourceConfiguration: DataSourceConfiguration;
@@ -53,6 +57,11 @@ export type BedrockDataSourceAttributes = {
    */
   DataSourceStatus: DataSourceStatus;
   /**
+   * The details of the failure reasons related to the data source.
+   * @maxLength `2048`
+   */
+  FailureReasons: string[];
+  /**
    * The time at which the knowledge base was last updated.
    */
   UpdatedAt: string;
@@ -79,6 +88,12 @@ export type ChunkingConfiguration = {
  */
 export type ChunkingStrategy = "FIXED_SIZE" | "NONE";
 /**
+ * Type definition for `AWS::Bedrock::DataSource.DataDeletionPolicy`.
+ * The deletion policy for the data source.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datadeletionpolicy.html}
+ */
+export type DataDeletionPolicy = "RETAIN" | "DELETE";
+/**
  * Type definition for `AWS::Bedrock::DataSource.DataSourceConfiguration`.
  * Specifies a raw data source location to ingest.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html}
@@ -98,7 +113,7 @@ export type DataSourceConfiguration = {
  * The status of a data source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourcestatus.html}
  */
-export type DataSourceStatus = "AVAILABLE" | "DELETING";
+export type DataSourceStatus = "AVAILABLE" | "DELETING" | "DELETE_UNSUCCESSFUL";
 /**
  * Type definition for `AWS::Bedrock::DataSource.DataSourceType`.
  * The type of the data source location.
@@ -136,6 +151,13 @@ export type S3DataSourceConfiguration = {
    * @pattern `^arn:aws(|-cn|-us-gov):s3:::[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$`
    */
   BucketArn: string;
+  /**
+   * The account ID for the owner of the S3 bucket.
+   * @minLength `12`
+   * @maxLength `12`
+   * @pattern `^[0-9]{12}$`
+   */
+  BucketOwnerAccountId?: string;
   /**
    * A list of S3 prefixes that define the object containing the data sources.
    * @minLength `1`

@@ -1,32 +1,49 @@
-- updated `AWS::Lambda::Alias`
-  - removed property `AliasArn`
+- updated `AWS::ACMPCA::Certificate`
+  - added `tagging`
+  - updated `writeOnlyProperties`
+- updated `AWS::ACMPCA::CertificateAuthority`
+  - updated definition `CrlConfiguration`
+  - updated definition `EdiPartyName`
+  - updated definition `OcspConfiguration`
+  - updated definition `Tag`
+- updated `AWS::ACMPCA::CertificateAuthorityActivation`
+  - added `tagging`
+- updated `AWS::ACMPCA::Permission`
+  - added `tagging`
+- updated `AWS::AutoScaling::LaunchConfiguration`
+  - updated property `SecurityGroups`
+- updated `AWS::Bedrock::DataSource`
+  - added definition `DataDeletionPolicy`
+  - added property `DataDeletionPolicy`
+  - added property `FailureReasons`
   - updated `readOnlyProperties`
-- updated `AWS::MediaLive::Channel`
-  - added definition `CmafIngestGroupSettings`
-  - added definition `CmafIngestOutputSettings`
-  - updated definition `AudioDescription`
-  - updated definition `CaptionDescription`
-  - updated definition `H265Settings`
-  - updated definition `OutputGroupSettings`
-  - updated definition `OutputSettings`
-- updated `AWS::QuickSight::Analysis`
-  - added definition `WaterfallChartColorConfiguration`
-  - added definition `WaterfallChartGroupColorConfiguration`
-  - updated definition `LineChartConfiguration`
-  - updated definition `PivotTableConditionalFormatting`
-  - updated definition `TableConditionalFormatting`
-  - updated definition `WaterfallChartConfiguration`
-- updated `AWS::QuickSight::Dashboard`
-  - added definition `WaterfallChartColorConfiguration`
-  - added definition `WaterfallChartGroupColorConfiguration`
-  - updated definition `LineChartConfiguration`
-  - updated definition `PivotTableConditionalFormatting`
-  - updated definition `TableConditionalFormatting`
-  - updated definition `WaterfallChartConfiguration`
-- updated `AWS::QuickSight::Template`
-  - added definition `WaterfallChartColorConfiguration`
-  - added definition `WaterfallChartGroupColorConfiguration`
-  - updated definition `LineChartConfiguration`
-  - updated definition `PivotTableConditionalFormatting`
-  - updated definition `TableConditionalFormatting`
-  - updated definition `WaterfallChartConfiguration`
+  - updated definition `DataSourceStatus`
+  - updated definition `S3DataSourceConfiguration`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - updated definition `KnowledgeBaseStatus`
+- updated `AWS::EC2::KeyPair`
+  - updated definition `Tag`
+  - updated property `KeyFingerprint`
+  - updated property `KeyFormat`
+  - updated property `KeyName`
+  - updated property `KeyPairId`
+  - updated property `KeyType`
+  - updated property `PublicKeyMaterial`
+  - updated property `Tags`
+- updated `AWS::EC2::TransitGatewayRouteTablePropagation`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated definition `undefined`
+  - updated handler permissions
+  - updated property `TransitGatewayAttachmentId`
+  - updated property `TransitGatewayRouteTableId`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `FSxAuthorizationConfig`
+  - updated definition `FSxWindowsFileServerVolumeConfiguration`
+  - updated definition `Volume`
+- updated `AWS::StepFunctions::StateMachineAlias`
+  - updated handler permissions

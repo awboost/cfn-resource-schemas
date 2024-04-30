@@ -95,7 +95,7 @@ export type CrlConfiguration = {
    */
   CrlDistributionPointExtensionConfiguration?: CrlDistributionPointExtensionConfiguration;
   CustomCname?: string;
-  Enabled?: boolean;
+  Enabled: boolean;
   ExpirationInDays?: number;
   S3BucketName?: string;
   S3ObjectAcl?: string;
@@ -141,7 +141,7 @@ export type CustomAttribute = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html}
  */
 export type EdiPartyName = {
-  NameAssigner: string;
+  NameAssigner?: string;
   PartyName: string;
 };
 /**
@@ -205,7 +205,7 @@ export type KeyUsage = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html}
  */
 export type OcspConfiguration = {
-  Enabled?: boolean;
+  Enabled: boolean;
   OcspCustomCname?: string;
 };
 /**
@@ -265,7 +265,7 @@ export type Subject = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-tag.html}
  */
 export type Tag = {
-  Key?: string;
+  Key: string;
   Value?: string;
 };
 /**

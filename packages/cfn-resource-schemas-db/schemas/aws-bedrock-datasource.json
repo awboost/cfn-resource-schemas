@@ -1,5 +1,5 @@
 {
-  "$hash": "682a657fea8c463cb8fab3bd288af444bf16192e",
+  "$hash": "cb92260f318662a0a62b812fde9f0ee1a6db6f78",
   "$id": "aws-bedrock-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -24,6 +24,11 @@
       "enum": ["FIXED_SIZE", "NONE"],
       "type": "string"
     },
+    "DataDeletionPolicy": {
+      "description": "The deletion policy for the data source.",
+      "enum": ["RETAIN", "DELETE"],
+      "type": "string"
+    },
     "DataSourceConfiguration": {
       "additionalProperties": false,
       "description": "Specifies a raw data source location to ingest.",
@@ -38,7 +43,7 @@
     },
     "DataSourceStatus": {
       "description": "The status of a data source.",
-      "enum": ["AVAILABLE", "DELETING"],
+      "enum": ["AVAILABLE", "DELETING", "DELETE_UNSUCCESSFUL"],
       "type": "string"
     },
     "DataSourceType": {
@@ -74,6 +79,13 @@
           "maxLength": 2048,
           "minLength": 1,
           "pattern": "^arn:aws(|-cn|-us-gov):s3:::[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$",
+          "type": "string"
+        },
+        "BucketOwnerAccountId": {
+          "description": "The account ID for the owner of the S3 bucket.",
+          "maxLength": 12,
+          "minLength": 12,
+          "pattern": "^[0-9]{12}$",
           "type": "string"
         },
         "InclusionPrefixes": {
@@ -155,6 +167,7 @@
       "description": "The time at which the data source was created.",
       "type": "string"
     },
+    "DataDeletionPolicy": { "$ref": "#/definitions/DataDeletionPolicy" },
     "DataSourceConfiguration": {
       "$ref": "#/definitions/DataSourceConfiguration"
     },
@@ -169,6 +182,17 @@
       "maxLength": 200,
       "minLength": 1,
       "type": "string"
+    },
+    "FailureReasons": {
+      "description": "The details of the failure reasons related to the data source.",
+      "insertionOrder": false,
+      "items": {
+        "description": "Failure Reason for Error.",
+        "maxLength": 2048,
+        "type": "string"
+      },
+      "maxItems": 2048,
+      "type": "array"
     },
     "KnowledgeBaseId": {
       "description": "The unique identifier of the knowledge base to which to add the data source.",
@@ -195,7 +219,8 @@
     "/properties/DataSourceId",
     "/properties/DataSourceStatus",
     "/properties/CreatedAt",
-    "/properties/UpdatedAt"
+    "/properties/UpdatedAt",
+    "/properties/FailureReasons"
   ],
   "required": ["DataSourceConfiguration", "Name", "KnowledgeBaseId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-aps",

@@ -1,5 +1,5 @@
 {
-  "$hash": "d5ad4903f8825fae4e43c836ff3988f9934052bd",
+  "$hash": "400123a10a8d0aaca06d7336cc579e084bca4427",
   "$id": "aws-autoscaling-launchconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -194,7 +194,23 @@
     "SecurityGroups": {
       "description": "A list that contains the security groups to assign to the instances in the Auto Scaling group.",
       "insertionOrder": false,
-      "items": { "type": "string" },
+      "items": {
+        "anyOf": [
+          {
+            "relationshipRef": {
+              "propertyPath": "/properties/GroupId",
+              "typeName": "AWS::EC2::SecurityGroup"
+            }
+          },
+          {
+            "relationshipRef": {
+              "propertyPath": "/properties/Id",
+              "typeName": "AWS::EC2::SecurityGroup"
+            }
+          }
+        ],
+        "type": "string"
+      },
       "type": "array"
     },
     "SpotPrice": {

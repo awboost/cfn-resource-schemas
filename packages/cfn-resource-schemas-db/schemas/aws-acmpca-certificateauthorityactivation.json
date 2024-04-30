@@ -1,5 +1,5 @@
 {
-  "$hash": "5d502b917dfb17700683259c790f12c6dd11b1ff",
+  "$hash": "aeea1b1609b75a30cbc122653660366c1a64a2d0",
   "$id": "aws-acmpca-certificateauthorityactivation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CertificateAuthorityArn"],
@@ -51,6 +51,12 @@
   "readOnlyProperties": ["/properties/CompleteCertificateChain"],
   "required": ["CertificateAuthorityArn", "Certificate"],
   "sourceUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ACMPCA.html",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::ACMPCA::CertificateAuthorityActivation",
   "writeOnlyProperties": [
     "/properties/Certificate",

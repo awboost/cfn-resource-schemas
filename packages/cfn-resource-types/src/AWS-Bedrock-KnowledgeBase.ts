@@ -95,7 +95,8 @@ export type KnowledgeBaseStatus =
   | "ACTIVE"
   | "DELETING"
   | "UPDATING"
-  | "FAILED";
+  | "FAILED"
+  | "DELETE_UNSUCCESSFUL";
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KnowledgeBaseStorageType`.
  * The storage type of a knowledge base.

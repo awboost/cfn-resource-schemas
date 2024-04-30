@@ -1,5 +1,5 @@
 {
-  "$hash": "c93ae4d837688eb13b895fb82ea35d8e2db91ae1",
+  "$hash": "408c6c13c9974901779ea8d91563323d097f4214",
   "$id": "aws-acmpca-certificateauthority.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -51,6 +51,7 @@
         "S3BucketName": { "type": "string" },
         "S3ObjectAcl": { "type": "string" }
       },
+      "required": ["Enabled"],
       "type": "object"
     },
     "CrlDistributionPointExtensionConfiguration": {
@@ -101,7 +102,7 @@
         "NameAssigner": { "type": "string" },
         "PartyName": { "type": "string" }
       },
-      "required": ["PartyName", "NameAssigner"],
+      "required": ["PartyName"],
       "type": "object"
     },
     "GeneralName": {
@@ -148,6 +149,7 @@
         "Enabled": { "type": "boolean" },
         "OcspCustomCname": { "type": "string" }
       },
+      "required": ["Enabled"],
       "type": "object"
     },
     "OtherName": {
@@ -206,6 +208,7 @@
         "Key": { "type": "string" },
         "Value": { "type": "string" }
       },
+      "required": ["Key"],
       "type": "object"
     },
     "UniformResourceIdentifier": {

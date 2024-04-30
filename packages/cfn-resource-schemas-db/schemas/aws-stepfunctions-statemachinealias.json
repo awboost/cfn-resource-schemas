@@ -1,5 +1,5 @@
 {
-  "$hash": "b98cb9a7d3effc223107c1b2cb65aea1a876a5b3",
+  "$hash": "ed41b0b5b4f6992c8a77349efdaed68930c24c57",
   "$id": "aws-stepfunctions-statemachinealias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -103,7 +103,8 @@
         "cloudwatch:DescribeAlarms",
         "states:UpdateStateMachineAlias",
         "states:DescribeStateMachineAlias"
-      ]
+      ],
+      "timeoutInMinutes": 2160
     }
   },
   "oneOf": [

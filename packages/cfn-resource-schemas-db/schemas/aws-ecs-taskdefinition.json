@@ -1,5 +1,5 @@
 {
-  "$hash": "d4db063018851d6027f6c55341617ddd498ab8ae",
+  "$hash": "7ba58ade9f8d09994f122747f5abaaad17ad6f1a",
   "$id": "aws-ecs-taskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -375,21 +375,28 @@
       "additionalProperties": false,
       "description": "",
       "properties": {
-        "CredentialsParameter": { "type": "string" },
-        "Domain": { "type": "string" }
+        "CredentialsParameter": { "description": "", "type": "string" },
+        "Domain": { "description": "", "type": "string" }
       },
       "required": ["CredentialsParameter", "Domain"],
       "type": "object"
     },
     "FSxWindowsFileServerVolumeConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.\n For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.",
       "properties": {
         "AuthorizationConfig": {
-          "$ref": "#/definitions/FSxAuthorizationConfig"
+          "$ref": "#/definitions/FSxAuthorizationConfig",
+          "description": "The authorization configuration details for the Amazon FSx for Windows File Server file system."
         },
-        "FileSystemId": { "type": "string" },
-        "RootDirectory": { "type": "string" }
+        "FileSystemId": {
+          "description": "The Amazon FSx for Windows File Server file system ID to use.",
+          "type": "string"
+        },
+        "RootDirectory": {
+          "description": "The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.",
+          "type": "string"
+        }
       },
       "required": ["FileSystemId", "RootDirectory"],
       "type": "object"
@@ -813,7 +820,7 @@
         },
         "FSxWindowsFileServerVolumeConfiguration": {
           "$ref": "#/definitions/FSxWindowsFileServerVolumeConfiguration",
-          "description": ""
+          "description": "This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage."
         },
         "Host": {
           "$ref": "#/definitions/HostVolumeProperties",

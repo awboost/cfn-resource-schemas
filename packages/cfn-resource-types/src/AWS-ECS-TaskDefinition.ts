@@ -573,11 +573,22 @@ export type FSxAuthorizationConfig = {
 };
 /**
  * Type definition for `AWS::ECS::TaskDefinition.FSxWindowsFileServerVolumeConfiguration`.
+ * This parameter is specified when you're using [Amazon FSx for Windows File Server](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html) file system for task storage.
+ For more information and the input format, see [Amazon FSx for Windows File Server volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html) in the *Amazon Elastic Container Service Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration.html}
  */
 export type FSxWindowsFileServerVolumeConfiguration = {
+  /**
+   * The authorization configuration details for the Amazon FSx for Windows File Server file system.
+   */
   AuthorizationConfig?: FSxAuthorizationConfig;
+  /**
+   * The Amazon FSx for Windows File Server file system ID to use.
+   */
   FileSystemId: string;
+  /**
+   * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+   */
   RootDirectory: string;
 };
 /**
@@ -1070,6 +1081,9 @@ export type Volume = {
    * This parameter is specified when you use an Amazon Elastic File System file system for task storage.
    */
   EFSVolumeConfiguration?: EFSVolumeConfiguration;
+  /**
+   * This parameter is specified when you use Amazon FSx for Windows File Server file system for task storage.
+   */
   FSxWindowsFileServerVolumeConfiguration?: FSxWindowsFileServerVolumeConfiguration;
   /**
      * This parameter is specified when you use bind mount host volumes. The contents of the ``host`` parameter determine whether your bind mount host volume persists on the host container instance and where it's stored. If the ``host`` parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
