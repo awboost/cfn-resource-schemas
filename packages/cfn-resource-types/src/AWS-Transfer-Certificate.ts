@@ -10,28 +10,24 @@ export type TransferCertificateProperties = {
    */
   ActiveDate?: string;
   /**
-     * Specifies the certificate body to be imported.
-     * @minLength `1`
-     * @maxLength `16384`
-     * @pattern `^[
-    
-     -ÿ]*`
-     */
+   * Specifies the certificate body to be imported.
+   * @minLength `1`
+   * @maxLength `16384`
+   * @pattern `^[\t\n\r\u0020-\u00FF]+$`
+   */
   Certificate: string;
   /**
-     * Specifies the certificate chain to be imported.
-     * @minLength `1`
-     * @maxLength `2097152`
-     * @pattern `^[
-    
-     -ÿ]*`
-     */
+   * Specifies the certificate chain to be imported.
+   * @minLength `1`
+   * @maxLength `2097152`
+   * @pattern `^[\t\n\r\u0020-\u00FF]+$`
+   */
   CertificateChain?: string;
   /**
    * A textual description for the certificate.
    * @minLength `1`
    * @maxLength `200`
-   * @pattern `^[\w\- ]*$`
+   * @pattern `^[\u0021-\u007E]+$`
    */
   Description?: string;
   /**
@@ -39,13 +35,11 @@ export type TransferCertificateProperties = {
    */
   InactiveDate?: string;
   /**
-     * Specifies the private key for the certificate.
-     * @minLength `1`
-     * @maxLength `16384`
-     * @pattern `^[
-    
-     -ÿ]*`
-     */
+   * Specifies the private key for the certificate.
+   * @minLength `1`
+   * @maxLength `16384`
+   * @pattern `^[\t\n\r\u0020-\u00FF]+$`
+   */
   PrivateKey?: string;
   /**
    * Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
@@ -55,7 +49,7 @@ export type TransferCertificateProperties = {
   /**
    * Specifies the usage type for the certificate.
    */
-  Usage: "SIGNING" | "ENCRYPTION";
+  Usage: "SIGNING" | "ENCRYPTION" | "TLS";
 };
 /**
  * Attribute type definition for `AWS::Transfer::Certificate`.
@@ -88,7 +82,7 @@ export type TransferCertificateAttributes = {
    * Specifies Certificate's serial.
    * @minLength `0`
    * @maxLength `48`
-   * @pattern `^[\p{XDigit}{2}:?]*`
+   * @pattern `^[0-9a-fA-F{}:?]*$`
    */
   Serial: string;
   /**

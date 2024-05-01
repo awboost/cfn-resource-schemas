@@ -15,14 +15,14 @@ export type TransferAgreementProperties = {
   /**
    * Specifies the base directory for the agreement.
    * @maxLength `1024`
-   * @pattern `^$|/.*`
+   * @pattern `^(|/.*)$`
    */
   BaseDirectory: string;
   /**
    * A textual description for the agreement.
    * @minLength `1`
    * @maxLength `200`
-   * @pattern `^[\w\- ]*$`
+   * @pattern `^[\u0021-\u007E]+$`
    */
   Description?: string;
   /**

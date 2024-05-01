@@ -226,7 +226,7 @@ export type WorkflowStep = {
     /**
      * Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
      */
-    DestinationFileLocation?: InputFileLocation;
+    DestinationFileLocation: InputFileLocation;
     /**
      * The name of the step, used as an identifier.
      * @minLength `0`
@@ -248,7 +248,7 @@ export type WorkflowStep = {
     /**
      * Specifies which encryption method to use.
      */
-    Type?: "PGP";
+    Type: "PGP";
   };
   /**
    * Details for a step that deletes the file.

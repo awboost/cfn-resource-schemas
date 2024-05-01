@@ -29,7 +29,12 @@ export type TransferConnectorProperties = {
     /**
      * Encryption algorithm for this AS2 connector configuration.
      */
-    EncryptionAlgorithm?: "AES128_CBC" | "AES192_CBC" | "AES256_CBC" | "NONE";
+    EncryptionAlgorithm?:
+      | "AES128_CBC"
+      | "AES192_CBC"
+      | "AES256_CBC"
+      | "NONE"
+      | "DES_EDE3_CBC";
     /**
      * A unique identifier for the local profile.
      * @minLength `19`
@@ -55,7 +60,7 @@ export type TransferConnectorProperties = {
      * The message subject for this AS2 connector configuration.
      * @minLength `1`
      * @maxLength `1024`
-     * @pattern `^[\p{Print}\p{Blank}]+`
+     * @pattern `^[\u0020-\u007E\t]+$`
      */
     MessageSubject?: string;
     /**
@@ -77,6 +82,12 @@ export type TransferConnectorProperties = {
    * @pattern `arn:.*role/.*`
    */
   LoggingRole?: string;
+  /**
+   * Security policy for SFTP Connector
+   * @maxLength `50`
+   * @pattern `TransferSFTPConnectorSecurityPolicy-[A-Za-z0-9-]+`
+   */
+  SecurityPolicyName?: string;
   /**
    * Configuration for an SFTP connector.
    */
@@ -123,6 +134,10 @@ export type TransferConnectorAttributes = {
    * @pattern `^c-([0-9a-f]{17})$`
    */
   ConnectorId: string;
+  /**
+   * The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
+   */
+  ServiceManagedEgressIpAddresses: string[];
 };
 /**
  * Type definition for `AWS::Transfer::Connector.Tag`.

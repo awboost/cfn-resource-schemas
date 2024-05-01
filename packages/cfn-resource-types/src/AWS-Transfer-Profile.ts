@@ -9,6 +9,7 @@ export type TransferProfileProperties = {
    * AS2 identifier agreed with a trading partner.
    * @minLength `1`
    * @maxLength `128`
+   * @pattern `^[\u0020-\u007E\s]*$`
    */
   As2Id: string;
   /**

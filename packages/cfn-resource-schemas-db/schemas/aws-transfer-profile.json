@@ -1,5 +1,5 @@
 {
-  "$hash": "f7a9c9701e2ccdc0e9c3ab9e2710783d411401fd",
+  "$hash": "1576040dc314d30e3005fe5fc8a4fd8b37c9720c",
   "$id": "aws-transfer-profile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProfileType"],
@@ -61,6 +61,7 @@
       "description": "AS2 identifier agreed with a trading partner.",
       "maxLength": 128,
       "minLength": 1,
+      "pattern": "^[\\u0020-\\u007E\\s]*$",
       "type": "string"
     },
     "CertificateIds": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "5e357feba06305faa7602db3360abb8b98e0e63b",
+  "$hash": "12b8dfdaef3be50725e0522b375d1d0642e6cf0c",
   "$id": "aws-transfer-agreement.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServerId"],
@@ -80,14 +80,14 @@
     "BaseDirectory": {
       "description": "Specifies the base directory for the agreement.",
       "maxLength": 1024,
-      "pattern": "^$|/.*",
+      "pattern": "^(|/.*)$",
       "type": "string"
     },
     "Description": {
       "description": "A textual description for the agreement.",
       "maxLength": 200,
       "minLength": 1,
-      "pattern": "^[\\w\\- ]*$",
+      "pattern": "^[\\u0021-\\u007E]+$",
       "type": "string"
     },
     "LocalProfileId": {

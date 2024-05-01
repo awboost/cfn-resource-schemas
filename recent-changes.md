@@ -1,49 +1,25 @@
-- updated `AWS::ACMPCA::Certificate`
-  - added `tagging`
-  - updated `writeOnlyProperties`
-- updated `AWS::ACMPCA::CertificateAuthority`
-  - updated definition `CrlConfiguration`
-  - updated definition `EdiPartyName`
-  - updated definition `OcspConfiguration`
-  - updated definition `Tag`
-- updated `AWS::ACMPCA::CertificateAuthorityActivation`
-  - added `tagging`
-- updated `AWS::ACMPCA::Permission`
-  - added `tagging`
-- updated `AWS::AutoScaling::LaunchConfiguration`
-  - updated property `SecurityGroups`
-- updated `AWS::Bedrock::DataSource`
-  - added definition `DataDeletionPolicy`
-  - added property `DataDeletionPolicy`
-  - added property `FailureReasons`
+- added `AWS::QBusiness::Application`
+- added `AWS::QBusiness::DataSource`
+- added `AWS::QBusiness::Index`
+- added `AWS::QBusiness::Plugin`
+- added `AWS::QBusiness::Retriever`
+- added `AWS::QBusiness::WebExperience`
+- updated `AWS::Transfer::Agreement`
+  - updated property `BaseDirectory`
+  - updated property `Description`
+- updated `AWS::Transfer::Certificate`
+  - updated property `CertificateChain`
+  - updated property `Certificate`
+  - updated property `Description`
+  - updated property `PrivateKey`
+  - updated property `Serial`
+  - updated property `Usage`
+- updated `AWS::Transfer::Connector`
+  - added property `SecurityPolicyName`
+  - added property `ServiceManagedEgressIpAddresses`
   - updated `readOnlyProperties`
-  - updated definition `DataSourceStatus`
-  - updated definition `S3DataSourceConfiguration`
-- updated `AWS::Bedrock::KnowledgeBase`
-  - updated definition `KnowledgeBaseStatus`
-- updated `AWS::EC2::KeyPair`
-  - updated definition `Tag`
-  - updated property `KeyFingerprint`
-  - updated property `KeyFormat`
-  - updated property `KeyName`
-  - updated property `KeyPairId`
-  - updated property `KeyType`
-  - updated property `PublicKeyMaterial`
-  - updated property `Tags`
-- updated `AWS::EC2::TransitGatewayRouteTablePropagation`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated definition `undefined`
-  - updated handler permissions
-  - updated property `TransitGatewayAttachmentId`
-  - updated property `TransitGatewayRouteTableId`
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `FSxAuthorizationConfig`
-  - updated definition `FSxWindowsFileServerVolumeConfiguration`
-  - updated definition `Volume`
-- updated `AWS::StepFunctions::StateMachineAlias`
-  - updated handler permissions
+  - updated property `As2Config`
+- updated `AWS::Transfer::Profile`
+  - updated property `As2Id`
+- updated `AWS::Transfer::Workflow`
+  - updated definition `WorkflowStep`

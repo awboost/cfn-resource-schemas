@@ -1,5 +1,5 @@
 {
-  "$hash": "b7cc8ac62ed79f8abe644cdb89655d10c6f33a5b",
+  "$hash": "04279f708bb78753a8d99eaed0b33082c865f2b8",
   "$id": "aws-transfer-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -206,6 +206,7 @@
               "type": "string"
             }
           },
+          "required": ["DestinationFileLocation", "Type"],
           "type": "object"
         },
         "DeleteStepDetails": {
