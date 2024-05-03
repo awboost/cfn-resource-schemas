@@ -1,25 +1,13 @@
-- added `AWS::QBusiness::Application`
-- added `AWS::QBusiness::DataSource`
-- added `AWS::QBusiness::Index`
-- added `AWS::QBusiness::Plugin`
-- added `AWS::QBusiness::Retriever`
-- added `AWS::QBusiness::WebExperience`
-- updated `AWS::Transfer::Agreement`
-  - updated property `BaseDirectory`
-  - updated property `Description`
-- updated `AWS::Transfer::Certificate`
-  - updated property `CertificateChain`
-  - updated property `Certificate`
-  - updated property `Description`
-  - updated property `PrivateKey`
-  - updated property `Serial`
-  - updated property `Usage`
-- updated `AWS::Transfer::Connector`
-  - added property `SecurityPolicyName`
-  - added property `ServiceManagedEgressIpAddresses`
-  - updated `readOnlyProperties`
-  - updated property `As2Config`
-- updated `AWS::Transfer::Profile`
-  - updated property `As2Id`
-- updated `AWS::Transfer::Workflow`
-  - updated definition `WorkflowStep`
+- updated `AWS::DynamoDB::GlobalTable`
+  - added definition `ReadOnDemandThroughputSettings`
+  - added definition `WriteOnDemandThroughputSettings`
+  - added property `WriteOnDemandThroughputSettings`
+  - updated definition `GlobalSecondaryIndex`
+  - updated definition `ReplicaGlobalSecondaryIndexSpecification`
+  - updated definition `ReplicaSpecification`
+- updated `AWS::DynamoDB::Table`
+  - added definition `OnDemandThroughput`
+  - added property `OnDemandThroughput`
+  - updated definition `GlobalSecondaryIndex`
+- updated `AWS::Location::APIKey`
+  - updated definition `ApiKeyRestrictions`

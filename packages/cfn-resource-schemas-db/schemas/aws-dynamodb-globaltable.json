@@ -1,5 +1,5 @@
 {
-  "$hash": "f2f249da4f1eb55e37a6b02aec753a839ad006da",
+  "$hash": "b9b6808bcee7c58c8e9cdc71a2bfa9aade714eb7",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -53,6 +53,9 @@
           "uniqueItems": true
         },
         "Projection": { "$ref": "#/definitions/Projection" },
+        "WriteOnDemandThroughputSettings": {
+          "$ref": "#/definitions/WriteOnDemandThroughputSettings"
+        },
         "WriteProvisionedThroughputSettings": {
           "$ref": "#/definitions/WriteProvisionedThroughputSettings"
         }
@@ -121,6 +124,13 @@
       },
       "type": "object"
     },
+    "ReadOnDemandThroughputSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "MaxReadRequestUnits": { "minimum": 1, "type": "integer" }
+      },
+      "type": "object"
+    },
     "ReadProvisionedThroughputSettings": {
       "additionalProperties": false,
       "properties": {
@@ -138,6 +148,9 @@
           "$ref": "#/definitions/ContributorInsightsSpecification"
         },
         "IndexName": { "maxLength": 255, "minLength": 3, "type": "string" },
+        "ReadOnDemandThroughputSettings": {
+          "$ref": "#/definitions/ReadOnDemandThroughputSettings"
+        },
         "ReadProvisionedThroughputSettings": {
           "$ref": "#/definitions/ReadProvisionedThroughputSettings"
         }
@@ -195,6 +208,9 @@
         },
         "PointInTimeRecoverySpecification": {
           "$ref": "#/definitions/PointInTimeRecoverySpecification"
+        },
+        "ReadOnDemandThroughputSettings": {
+          "$ref": "#/definitions/ReadOnDemandThroughputSettings"
         },
         "ReadProvisionedThroughputSettings": {
           "$ref": "#/definitions/ReadProvisionedThroughputSettings"
@@ -272,6 +288,13 @@
         "Enabled": { "type": "boolean" }
       },
       "required": ["Enabled"],
+      "type": "object"
+    },
+    "WriteOnDemandThroughputSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "MaxWriteRequestUnits": { "minimum": 1, "type": "integer" }
+      },
       "type": "object"
     },
     "WriteProvisionedThroughputSettings": {
@@ -445,6 +468,9 @@
     "TableName": { "type": "string" },
     "TimeToLiveSpecification": {
       "$ref": "#/definitions/TimeToLiveSpecification"
+    },
+    "WriteOnDemandThroughputSettings": {
+      "$ref": "#/definitions/WriteOnDemandThroughputSettings"
     },
     "WriteProvisionedThroughputSettings": {
       "$ref": "#/definitions/WriteProvisionedThroughputSettings"

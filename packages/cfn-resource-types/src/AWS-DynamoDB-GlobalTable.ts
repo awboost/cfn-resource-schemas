@@ -25,6 +25,7 @@ export type DynamoDBGlobalTableProperties = {
   StreamSpecification?: StreamSpecification;
   TableName?: string;
   TimeToLiveSpecification?: TimeToLiveSpecification;
+  WriteOnDemandThroughputSettings?: WriteOnDemandThroughputSettings;
   WriteProvisionedThroughputSettings?: WriteProvisionedThroughputSettings;
 };
 /**
@@ -90,6 +91,7 @@ export type GlobalSecondaryIndex = {
    */
   KeySchema: KeySchema[];
   Projection: Projection;
+  WriteOnDemandThroughputSettings?: WriteOnDemandThroughputSettings;
   WriteProvisionedThroughputSettings?: WriteProvisionedThroughputSettings;
 };
 /**
@@ -147,6 +149,16 @@ export type Projection = {
   ProjectionType?: string;
 };
 /**
+ * Type definition for `AWS::DynamoDB::GlobalTable.ReadOnDemandThroughputSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readondemandthroughputsettings.html}
+ */
+export type ReadOnDemandThroughputSettings = {
+  /**
+   * @min `1`
+   */
+  MaxReadRequestUnits?: number;
+};
+/**
  * Type definition for `AWS::DynamoDB::GlobalTable.ReadProvisionedThroughputSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html}
  */
@@ -168,6 +180,7 @@ export type ReplicaGlobalSecondaryIndexSpecification = {
    * @maxLength `255`
    */
   IndexName: string;
+  ReadOnDemandThroughputSettings?: ReadOnDemandThroughputSettings;
   ReadProvisionedThroughputSettings?: ReadProvisionedThroughputSettings;
 };
 /**
@@ -180,6 +193,7 @@ export type ReplicaSpecification = {
   GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexSpecification[];
   KinesisStreamSpecification?: KinesisStreamSpecification;
   PointInTimeRecoverySpecification?: PointInTimeRecoverySpecification;
+  ReadOnDemandThroughputSettings?: ReadOnDemandThroughputSettings;
   ReadProvisionedThroughputSettings?: ReadProvisionedThroughputSettings;
   Region: string;
   ReplicaStreamSpecification?: ReplicaStreamSpecification;
@@ -255,6 +269,16 @@ export type TargetTrackingScalingPolicyConfiguration = {
 export type TimeToLiveSpecification = {
   AttributeName?: string;
   Enabled: boolean;
+};
+/**
+ * Type definition for `AWS::DynamoDB::GlobalTable.WriteOnDemandThroughputSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeondemandthroughputsettings.html}
+ */
+export type WriteOnDemandThroughputSettings = {
+  /**
+   * @min `1`
+   */
+  MaxWriteRequestUnits?: number;
 };
 /**
  * Type definition for `AWS::DynamoDB::GlobalTable.WriteProvisionedThroughputSettings`.

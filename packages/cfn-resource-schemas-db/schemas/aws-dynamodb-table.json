@@ -1,5 +1,5 @@
 {
-  "$hash": "1f2bbabce73ea1a50887ab49ab71c6fff46a06ac",
+  "$hash": "b1e2cbb8c5e4011813193f241f069595dab3b0eb",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -88,6 +88,10 @@
           "items": { "$ref": "#/definitions/KeySchema" },
           "type": "array",
           "uniqueItems": true
+        },
+        "OnDemandThroughput": {
+          "$ref": "#/definitions/OnDemandThroughput",
+          "description": ""
         },
         "Projection": {
           "$ref": "#/definitions/Projection",
@@ -193,6 +197,15 @@
         }
       },
       "required": ["IndexName", "Projection", "KeySchema"],
+      "type": "object"
+    },
+    "OnDemandThroughput": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "MaxReadRequestUnits": { "minimum": 1, "type": "integer" },
+        "MaxWriteRequestUnits": { "minimum": 1, "type": "integer" }
+      },
       "type": "object"
     },
     "PointInTimeRecoverySpecification": {
@@ -504,6 +517,10 @@
       "items": { "$ref": "#/definitions/LocalSecondaryIndex" },
       "type": "array",
       "uniqueItems": false
+    },
+    "OnDemandThroughput": {
+      "$ref": "#/definitions/OnDemandThroughput",
+      "description": ""
     },
     "PointInTimeRecoverySpecification": {
       "$ref": "#/definitions/PointInTimeRecoverySpecification",

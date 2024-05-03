@@ -58,6 +58,7 @@ export type DynamoDBTableProperties = {
    * Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
    */
   LocalSecondaryIndexes?: LocalSecondaryIndex[];
+  OnDemandThroughput?: OnDemandThroughput;
   /**
    * The settings used to enable point in time recovery.
    */
@@ -175,6 +176,7 @@ export type GlobalSecondaryIndex = {
      The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
      */
   KeySchema: KeySchema[];
+  OnDemandThroughput?: OnDemandThroughput;
   /**
    * Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
    */
@@ -280,6 +282,20 @@ export type LocalSecondaryIndex = {
    * Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
    */
   Projection: Projection;
+};
+/**
+ * Type definition for `AWS::DynamoDB::Table.OnDemandThroughput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ondemandthroughput.html}
+ */
+export type OnDemandThroughput = {
+  /**
+   * @min `1`
+   */
+  MaxReadRequestUnits?: number;
+  /**
+   * @min `1`
+   */
+  MaxWriteRequestUnits?: number;
 };
 /**
  * Type definition for `AWS::DynamoDB::Table.PointInTimeRecoverySpecification`.
