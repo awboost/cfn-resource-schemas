@@ -1,5 +1,5 @@
 {
-  "$hash": "7ba58ade9f8d09994f122747f5abaaad17ad6f1a",
+  "$hash": "0cae8c9510b42c39f57ab1a537af2a90c48a3621",
   "$id": "aws-ecs-taskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -951,7 +951,7 @@
     },
     "RuntimePlatform": {
       "$ref": "#/definitions/RuntimePlatform",
-      "description": "The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type. \n When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service."
+      "description": "The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type."
     },
     "Tags": {
       "description": "The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.\n The following basic restrictions apply to tags:\n  +  Maximum number of tags per resource - 50\n  +  For each resource, each tag key must be unique, and each tag key can have only one value.\n  +  Maximum key length - 128 Unicode characters in UTF-8\n  +  Maximum value length - 256 Unicode characters in UTF-8\n  +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.\n  +  Tag keys and values are case-sensitive.\n  +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.",

@@ -422,6 +422,7 @@ export type TopicCalculatedField = {
   ColumnDataRole?: ColumnDataRole;
   ComparativeOrder?: ComparativeOrder;
   DefaultFormatting?: DefaultFormatting;
+  DisableIndexing?: boolean;
   /**
    * @minLength `1`
    * @maxLength `4096`
@@ -484,6 +485,7 @@ export type TopicColumn = {
   ColumnSynonyms?: string[];
   ComparativeOrder?: ComparativeOrder;
   DefaultFormatting?: DefaultFormatting;
+  DisableIndexing?: boolean;
   IsIncludedInTopic?: boolean;
   NeverAggregateInFilter?: boolean;
   NonAdditive?: boolean;

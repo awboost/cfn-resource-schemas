@@ -106,9 +106,8 @@ export type ECSTaskDefinitionProperties = {
    */
   RequiresCompatibilities?: string[];
   /**
-     * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
-     When you specify a task definition in a service, this value must match the ``runtimePlatform`` value of the service.
-     */
+   * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+   */
   RuntimePlatform?: RuntimePlatform;
   /**
      * The metadata that you apply to the task definition to help you categorize and organize them. Each tag consists of a key and an optional value. You define both of them.

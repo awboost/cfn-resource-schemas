@@ -1,5 +1,5 @@
 {
-  "$hash": "304020d9b2f71a1412eb6a5b3b0133419cd07770",
+  "$hash": "8b21294646bd85829061d1bc19b3132f4936b070",
   "$id": "aws-apigateway-restapi.json",
   "additionalProperties": false,
   "definitions": {
@@ -15,7 +15,13 @@
         },
         "VpcEndpointIds": {
           "description": "A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.",
-          "items": { "type": "string" },
+          "items": {
+            "relationshipRef": {
+              "propertyPath": "/properties/Id",
+              "typeName": "AWS::EC2::VPCEndpoint"
+            },
+            "type": "string"
+          },
           "type": "array",
           "uniqueItems": true
         }
@@ -28,6 +34,10 @@
       "properties": {
         "Bucket": {
           "description": "The name of the S3 bucket where the OpenAPI file is stored.",
+          "relationshipRef": {
+            "propertyPath": "/properties/BucketName",
+            "typeName": "AWS::S3::Bucket"
+          },
           "type": "string"
         },
         "ETag": {

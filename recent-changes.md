@@ -1,13 +1,29 @@
-- updated `AWS::DynamoDB::GlobalTable`
-  - added definition `ReadOnDemandThroughputSettings`
-  - added definition `WriteOnDemandThroughputSettings`
-  - added property `WriteOnDemandThroughputSettings`
-  - updated definition `GlobalSecondaryIndex`
-  - updated definition `ReplicaGlobalSecondaryIndexSpecification`
-  - updated definition `ReplicaSpecification`
-- updated `AWS::DynamoDB::Table`
-  - added definition `OnDemandThroughput`
-  - added property `OnDemandThroughput`
-  - updated definition `GlobalSecondaryIndex`
-- updated `AWS::Location::APIKey`
-  - updated definition `ApiKeyRestrictions`
+- added `AWS::SSO::Application`
+- added `AWS::SSO::ApplicationAssignment`
+- updated `AWS::ApiGateway::RestApi`
+  - updated definition `EndpointConfiguration`
+  - updated definition `S3Location`
+- updated `AWS::DirectoryService::SimpleAD`
+  - updated handler permissions
+- updated `AWS::EC2::Instance`
+  - added definition `State`
+  - added property `State`
+  - updated `readOnlyProperties`
+- updated `AWS::ECS::TaskDefinition`
+  - updated property `RuntimePlatform`
+- updated `AWS::FMS::Policy`
+  - added definition `NetworkAclCommonPolicy`
+  - added definition `NetworkAclEntryList`
+  - added definition `NetworkAclEntrySet`
+  - added definition `NetworkAclEntry`
+  - updated definition `PolicyOption`
+  - updated definition `PolicyType`
+- updated `AWS::Location::GeofenceCollection`
+  - updated property `PricingPlanDataSource`
+- updated `AWS::QuickSight::Topic`
+  - updated definition `TopicCalculatedField`
+  - updated definition `TopicColumn`
+- updated `AWS::Route53::HostedZone`
+  - updated definition `QueryLoggingConfig`
+  - updated definition `VPC`
+  - updated property `QueryLoggingConfig`

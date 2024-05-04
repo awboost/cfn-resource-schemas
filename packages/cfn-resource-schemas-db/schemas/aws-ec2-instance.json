@@ -1,5 +1,5 @@
 {
-  "$hash": "ab7fc58b2a494f038ddfb2790ad0ac05ad91ee46",
+  "$hash": "5bd82011951e3da6777d3dfa921059c126c85a2f",
   "$id": "aws-ec2-instance.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -287,6 +287,21 @@
         }
       },
       "required": ["DocumentName"],
+      "type": "object"
+    },
+    "State": {
+      "additionalProperties": false,
+      "description": "The current state of the instance",
+      "properties": {
+        "Code": {
+          "description": "The state of the instance as a 16-bit unsigned integer.",
+          "type": "string"
+        },
+        "Name": {
+          "description": "The current state of the instance.",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "Tag": {
@@ -621,6 +636,11 @@
       "type": "array",
       "uniqueItems": false
     },
+    "State": {
+      "$ref": "#/definitions/State",
+      "description": "The current state of the instance.",
+      "type": "object"
+    },
     "SubnetId": {
       "description": "[EC2-VPC] The ID of the subnet to launch the instance into.\n\n",
       "type": "string"
@@ -658,7 +678,8 @@
     "/properties/PublicDnsName",
     "/properties/PublicIp",
     "/properties/PrivateDnsName",
-    "/properties/VpcId"
+    "/properties/VpcId",
+    "/properties/State"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2.git",
   "tagging": {

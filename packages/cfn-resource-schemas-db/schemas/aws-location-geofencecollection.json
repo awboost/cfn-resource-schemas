@@ -1,5 +1,5 @@
 {
-  "$hash": "6172c849aa969f1d85ac6e87ae55685163cf5233",
+  "$hash": "3f7ac180dfb1bce4588643392fb21654d0e3650c",
   "$id": "aws-location-geofencecollection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -109,7 +109,10 @@
     "Description": { "maxLength": 1000, "minLength": 0, "type": "string" },
     "KmsKeyId": { "maxLength": 2048, "minLength": 1, "type": "string" },
     "PricingPlan": { "$ref": "#/definitions/PricingPlan" },
-    "PricingPlanDataSource": { "type": "string" },
+    "PricingPlanDataSource": {
+      "description": "This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.",
+      "type": "string"
+    },
     "Tags": {
       "description": "An array of key-value pairs to apply to this resource.",
       "insertionOrder": false,

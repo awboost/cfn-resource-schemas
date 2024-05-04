@@ -1,5 +1,5 @@
 {
-  "$hash": "66f0c3f2556477c6f7a98441a6b5f78dfd9e918f",
+  "$hash": "a9eb0d40060f508322ed03d3d0408e3a731280ec",
   "$id": "aws-directoryservice-simplead.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -48,7 +48,9 @@
         "ec2:DescribeNetworkInterfaces",
         "ec2:AuthorizeSecurityGroupIngress",
         "ec2:AuthorizeSecurityGroupEgress",
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "ec2:RevokeSecurityGroupIngress",
+        "ec2:RevokeSecurityGroupEgress"
       ],
       "timeoutInMinutes": 60
     },

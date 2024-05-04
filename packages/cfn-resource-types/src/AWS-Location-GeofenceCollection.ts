@@ -22,6 +22,9 @@ export type LocationGeofenceCollectionProperties = {
    */
   KmsKeyId?: string;
   PricingPlan?: PricingPlan;
+  /**
+   * This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.
+   */
   PricingPlanDataSource?: string;
   /**
    * An array of key-value pairs to apply to this resource.

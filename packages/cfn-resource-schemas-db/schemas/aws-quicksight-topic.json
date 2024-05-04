@@ -1,5 +1,5 @@
 {
-  "$hash": "41670f223a2fa710c54dfcbc77a6471c7c13ea7d",
+  "$hash": "2c25b824b2e9b2a4de4e77c4524ab3fdf761514a",
   "$id": "aws-quicksight-topic.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/TopicId"],
@@ -339,6 +339,7 @@
         "ColumnDataRole": { "$ref": "#/definitions/ColumnDataRole" },
         "ComparativeOrder": { "$ref": "#/definitions/ComparativeOrder" },
         "DefaultFormatting": { "$ref": "#/definitions/DefaultFormatting" },
+        "DisableIndexing": { "type": "boolean" },
         "Expression": { "maxLength": 4096, "minLength": 1, "type": "string" },
         "IsIncludedInTopic": { "default": false, "type": "boolean" },
         "NeverAggregateInFilter": { "default": false, "type": "boolean" },
@@ -408,6 +409,7 @@
         },
         "ComparativeOrder": { "$ref": "#/definitions/ComparativeOrder" },
         "DefaultFormatting": { "$ref": "#/definitions/DefaultFormatting" },
+        "DisableIndexing": { "type": "boolean" },
         "IsIncludedInTopic": { "default": false, "type": "boolean" },
         "NeverAggregateInFilter": { "default": false, "type": "boolean" },
         "NonAdditive": { "default": false, "type": "boolean" },

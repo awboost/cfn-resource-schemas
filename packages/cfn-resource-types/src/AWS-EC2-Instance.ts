@@ -209,6 +209,19 @@ export type EC2InstanceAttributes = {
    */
   PublicIp: string;
   /**
+   * The current state of the instance.
+   */
+  State: {
+    /**
+     * The state of the instance as a 16-bit unsigned integer.
+     */
+    Code: string;
+    /**
+     * The current state of the instance.
+     */
+    Name: string;
+  };
+  /**
    * The ID of the VPC that the instance is running in.
    */
   VpcId: string;
@@ -443,6 +456,21 @@ export type SsmAssociation = {
    * The name of an SSM document to associate with the instance.
    */
   DocumentName: string;
+};
+/**
+ * Type definition for `AWS::EC2::Instance.State`.
+ * The current state of the instance
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-state.html}
+ */
+export type State = {
+  /**
+   * The state of the instance as a 16-bit unsigned integer.
+   */
+  Code?: string;
+  /**
+   * The current state of the instance.
+   */
+  Name?: string;
 };
 /**
  * Type definition for `AWS::EC2::Instance.Tag`.

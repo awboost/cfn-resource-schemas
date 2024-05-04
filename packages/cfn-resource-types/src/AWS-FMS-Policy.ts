@@ -83,6 +83,98 @@ export type IEMap = {
   ORGUNIT?: string[];
 };
 /**
+ * Type definition for `AWS::FMS::Policy.NetworkAclCommonPolicy`.
+ * Network ACL common policy.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclcommonpolicy.html}
+ */
+export type NetworkAclCommonPolicy = {
+  /**
+   * Network ACL entry set.
+   */
+  NetworkAclEntrySet: NetworkAclEntrySet;
+};
+/**
+ * Type definition for `AWS::FMS::Policy.NetworkAclEntry`.
+ * Network ACL entry.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html}
+ */
+export type NetworkAclEntry = {
+  /**
+   * CIDR block.
+   * @pattern `^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))$`
+   */
+  CidrBlock?: string;
+  /**
+   * Whether the entry is an egress entry.
+   */
+  Egress: boolean;
+  /**
+   * ICMP type and code.
+   */
+  IcmpTypeCode?: {
+    /**
+     * Code.
+     * @min `0`
+     * @max `255`
+     */
+    Code: number;
+    /**
+     * Type.
+     * @min `0`
+     * @max `255`
+     */
+    Type: number;
+  };
+  /**
+   * IPv6 CIDR block.
+   * @pattern `^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))(/(1[0-2]|[0-9]))?$`
+   */
+  Ipv6CidrBlock?: string;
+  /**
+   * Port range.
+   */
+  PortRange?: {
+    /**
+     * From Port.
+     * @min `0`
+     * @max `65535`
+     */
+    From: number;
+    /**
+     * To Port.
+     * @min `0`
+     * @max `65535`
+     */
+    To: number;
+  };
+  /**
+   * Protocol.
+   * @pattern `^(tcp|udp|icmp|([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))$`
+   */
+  Protocol: string;
+  /**
+   * Rule Action.
+   */
+  RuleAction: "allow" | "deny";
+};
+/**
+ * Type definition for `AWS::FMS::Policy.NetworkAclEntrySet`.
+ * Network ACL entry set.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentryset.html}
+ */
+export type NetworkAclEntrySet = {
+  /**
+   * NetworkAcl entry list.
+   */
+  FirstEntries?: NetworkAclEntry[];
+  ForceRemediateForFirstEntries: boolean;
+  ForceRemediateForLastEntries: boolean;
+  /**
+   * NetworkAcl entry list.
+   */
+  LastEntries?: NetworkAclEntry[];
+};
+/**
  * Type definition for `AWS::FMS::Policy.NetworkFirewallPolicy`.
  * Network firewall policy.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html}
@@ -99,6 +191,10 @@ export type NetworkFirewallPolicy = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html}
  */
 export type PolicyOption = {
+  /**
+   * Network ACL common policy.
+   */
+  NetworkAclCommonPolicy?: NetworkAclCommonPolicy;
   /**
    * Network firewall policy.
    */
@@ -141,7 +237,8 @@ export type PolicyType =
   | "NETWORK_FIREWALL"
   | "THIRD_PARTY_FIREWALL"
   | "DNS_FIREWALL"
-  | "IMPORT_NETWORK_FIREWALL";
+  | "IMPORT_NETWORK_FIREWALL"
+  | "NETWORK_ACL_COMMON";
 /**
  * Type definition for `AWS::FMS::Policy.ResourceTag`.
  * A resource tag.
