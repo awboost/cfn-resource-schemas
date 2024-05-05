@@ -120,6 +120,12 @@ export type FirewallRule = {
    */
   FirewallDomainListId: string;
   /**
+   * FirewallDomainRedirectionAction
+   */
+  FirewallDomainRedirectionAction?:
+    | "INSPECT_REDIRECTION_DOMAIN"
+    | "TRUST_REDIRECTION_DOMAIN";
+  /**
    * Rule Priority
    */
   Priority: number;

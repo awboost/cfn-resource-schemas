@@ -1,5 +1,5 @@
 {
-  "$hash": "35531af55ac27e84b751decb5cbef9a38d293471",
+  "$hash": "df47d0f90b95a0d07da425f92e089bf8e2279eee",
   "$id": "aws-route53resolver-firewallrulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -39,6 +39,11 @@
           "description": "ResourceId",
           "maxLength": 64,
           "minLength": 1,
+          "type": "string"
+        },
+        "FirewallDomainRedirectionAction": {
+          "description": "FirewallDomainRedirectionAction",
+          "enum": ["INSPECT_REDIRECTION_DOMAIN", "TRUST_REDIRECTION_DOMAIN"],
           "type": "string"
         },
         "Priority": { "description": "Rule Priority", "type": "integer" },

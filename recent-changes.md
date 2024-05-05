@@ -1,29 +1,3 @@
-- added `AWS::SSO::Application`
-- added `AWS::SSO::ApplicationAssignment`
-- updated `AWS::ApiGateway::RestApi`
-  - updated definition `EndpointConfiguration`
-  - updated definition `S3Location`
-- updated `AWS::DirectoryService::SimpleAD`
-  - updated handler permissions
-- updated `AWS::EC2::Instance`
-  - added definition `State`
-  - added property `State`
-  - updated `readOnlyProperties`
-- updated `AWS::ECS::TaskDefinition`
-  - updated property `RuntimePlatform`
-- updated `AWS::FMS::Policy`
-  - added definition `NetworkAclCommonPolicy`
-  - added definition `NetworkAclEntryList`
-  - added definition `NetworkAclEntrySet`
-  - added definition `NetworkAclEntry`
-  - updated definition `PolicyOption`
-  - updated definition `PolicyType`
-- updated `AWS::Location::GeofenceCollection`
-  - updated property `PricingPlanDataSource`
-- updated `AWS::QuickSight::Topic`
-  - updated definition `TopicCalculatedField`
-  - updated definition `TopicColumn`
-- updated `AWS::Route53::HostedZone`
-  - updated definition `QueryLoggingConfig`
-  - updated definition `VPC`
-  - updated property `QueryLoggingConfig`
+- added `AWS::SSO::Instance`
+- updated `AWS::Route53Resolver::FirewallRuleGroup`
+  - updated definition `FirewallRule`
