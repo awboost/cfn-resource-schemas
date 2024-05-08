@@ -1,3 +1,2 @@
-- added `AWS::SSO::Instance`
-- updated `AWS::Route53Resolver::FirewallRuleGroup`
-  - updated definition `FirewallRule`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `NetworkInterface`
