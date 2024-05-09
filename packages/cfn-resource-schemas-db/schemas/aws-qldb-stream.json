@@ -1,5 +1,5 @@
 {
-  "$hash": "7134fc02242e42239976571d9d4f8269115487bd",
+  "$hash": "f64b6e01641b076fead8482f445999f20895f2a6",
   "$id": "aws-qldb-stream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -101,5 +101,17 @@
     "KinesisConfiguration",
     "InclusiveStartTime"
   ],
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "qldb:TagResource",
+      "qldb:UntagResource",
+      "qldb:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::QLDB::Stream"
 }

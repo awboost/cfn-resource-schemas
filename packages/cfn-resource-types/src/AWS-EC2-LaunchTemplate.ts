@@ -920,7 +920,7 @@ export type NetworkInterface = {
    */
   Description?: string;
   /**
-   * The device index for the network interface attachment. Each network interface requires a device index. If the launch template includes network interfaces with a device index other than 0, you must add a primary network interface when you launch a instance using this launch template,
+   * The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
    */
   DeviceIndex?: number;
   /**

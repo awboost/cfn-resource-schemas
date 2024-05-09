@@ -12,27 +12,30 @@ export type QuickSightDataSetProperties = {
    */
   AwsAccountId?: string;
   /**
-   * <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+   * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    * @minLength `1`
    * @maxLength `8`
    */
   ColumnGroups?: ColumnGroup[];
   /**
-   * @minLength `1`
-   */
+     * <p>A set of one or more definitions of a <code>
+                   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html">ColumnLevelPermissionRule</a>
+                </code>.</p>
+     * @minLength `1`
+     */
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
   DataSetId?: string;
   /**
-   * <p>The dataset refresh properties for the dataset.</p>
+   * <p>The refresh properties of a dataset.</p>
    */
   DataSetRefreshProperties?: DataSetRefreshProperties;
   /**
-   * <p>The dataset usage configuration for the dataset.</p>
+   * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
    */
   DataSetUsageConfiguration?: DataSetUsageConfiguration;
   /**
-   * <p>The parameters declared in the dataset.</p>
-   * @minLength `1`
+   * <p>The parameter declarations of the dataset.</p>
+   * @minLength `0`
    * @maxLength `32`
    */
   DatasetParameters?: DatasetParameter[];
@@ -57,11 +60,16 @@ export type QuickSightDataSetProperties = {
   Permissions?: ResourcePermission[];
   PhysicalTableMap?: PhysicalTableMap;
   /**
-   * <p>The row-level security configuration for the dataset.</p>
-   */
+     * <p>Information about a dataset that contains permissions for row-level security (RLS).
+                The permissions dataset maps fields to users or groups. For more information, see
+                <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+                    Guide</i>.</p>
+             <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+                not supported for new RLS datasets.</p>
+     */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
   /**
-   * <p>The configuration of tags on a dataset to set row-level security.</p>
+   * <p>The configuration of tags on a dataset to set row-level security. </p>
    */
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
   /**
@@ -105,12 +113,12 @@ export type QuickSightDataSetAttributes = {
      */
     Description: string;
     /**
-     * <p>A display name for the dataset.</p>
+     * <p>The display name of the column..</p>
      * @minLength `1`
-     * @maxLength `128`
+     * @maxLength `127`
      */
     Name: string;
-    SubType: ColumnSubDataType;
+    SubType: ColumnDataSubType;
     Type: ColumnDataType;
   }[];
 };
@@ -131,7 +139,7 @@ export type CalculatedColumn = {
   /**
    * <p>Column name.</p>
    * @minLength `1`
-   * @maxLength `128`
+   * @maxLength `127`
    */
   ColumnName: string;
   /**
@@ -150,7 +158,7 @@ export type CastColumnTypeOperation = {
   /**
    * <p>Column name.</p>
    * @minLength `1`
-   * @maxLength `128`
+   * @maxLength `127`
    */
   ColumnName: string;
   /**
@@ -161,8 +169,13 @@ export type CastColumnTypeOperation = {
      */
   Format?: string;
   NewColumnType: ColumnDataType;
-  SubType?: ColumnSubDataType;
+  SubType?: ColumnDataSubType;
 };
+/**
+ * Type definition for `AWS::QuickSight::DataSet.ColumnDataSubType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndatasubtype.html}
+ */
+export type ColumnDataSubType = "FLOAT" | "FIXED";
 /**
  * Type definition for `AWS::QuickSight::DataSet.ColumnDataType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndatatype.html}
@@ -196,27 +209,34 @@ export type ColumnGroup = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.ColumnLevelPermissionRule`.
+ * <p>A rule defined to grant access on one or more restricted columns.
+            Each dataset can have multiple rules.
+            To create a restricted column, you add it to one or more rules.
+            Each rule must contain at least one column and at least one user or group.
+            To be able to see a restricted column, a user or group needs to be added
+            to a rule for that column.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html}
  */
 export type ColumnLevelPermissionRule = {
   /**
+   * <p>An array of column names.</p>
    * @minLength `1`
    */
   ColumnNames?: string[];
   /**
+   * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
    * @minLength `1`
    * @maxLength `100`
    */
   Principals?: string[];
 };
 /**
- * Type definition for `AWS::QuickSight::DataSet.ColumnSubDataType`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnsubdatatype.html}
- */
-export type ColumnSubDataType = "FIXED" | "FLOAT";
-/**
  * Type definition for `AWS::QuickSight::DataSet.ColumnTag`.
- * <p>A tag for a column in a <a>TagColumnOperation</a> structure. This is a
+ * <p>A tag for a column in a
+            <code>
+               <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html">TagColumnOperation</a>
+            </code>
+            structure. This is a
             variant type structure. For this structure to be valid, only one of the attributes can
             be non-null.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html}
@@ -228,6 +248,11 @@ export type ColumnTag = {
   ColumnDescription?: ColumnDescription;
   ColumnGeographicRole?: GeoSpatialDataRole;
 };
+/**
+ * Type definition for `AWS::QuickSight::DataSet.ColumnTagName`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntagname.html}
+ */
+export type ColumnTagName = "COLUMN_GEOGRAPHIC_ROLE" | "COLUMN_DESCRIPTION";
 /**
  * Type definition for `AWS::QuickSight::DataSet.CreateColumnsOperation`.
  * <p>A transform operation that creates calculated columns. Columns created in one such
@@ -267,7 +292,7 @@ export type CustomSql = {
   /**
    * <p>The SQL query.</p>
    * @minLength `1`
-   * @maxLength `65536`
+   * @maxLength `168000`
    */
   SqlQuery: string;
 };
@@ -278,149 +303,151 @@ export type CustomSql = {
 export type DataSetImportMode = "SPICE" | "DIRECT_QUERY";
 /**
  * Type definition for `AWS::QuickSight::DataSet.DatasetParameter`.
- * <p>A parameter created in the dataset that could be of any one data type such as string, integer, decimal or datetime.</p>
+ * <p>A dataset parameter.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html}
  */
 export type DatasetParameter = {
   /**
-   * <p>A parameter created in the dataset of date time data type.</p>
+   * <p>A date time parameter for a dataset.</p>
    */
   DateTimeDatasetParameter?: DateTimeDatasetParameter;
   /**
-   * <p>A parameter created in the dataset of decimal data type.</p>
+   * <p>A decimal parameter for a dataset.</p>
    */
   DecimalDatasetParameter?: DecimalDatasetParameter;
   /**
-   * <p>A parameter created in the dataset of integer data type.</p>
+   * <p>An integer parameter for a dataset.</p>
    */
   IntegerDatasetParameter?: IntegerDatasetParameter;
   /**
-   * <p>A parameter created in the dataset of string data type.</p>
+   * <p>A string parameter for a dataset.</p>
    */
   StringDatasetParameter?: StringDatasetParameter;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.DatasetParameterValueType`.
- * <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparametervaluetype.html}
  */
 export type DatasetParameterValueType = "MULTI_VALUED" | "SINGLE_VALUED";
 /**
  * Type definition for `AWS::QuickSight::DataSet.DataSetRefreshProperties`.
- * <p>The dataset refresh properties for the dataset.</p>
+ * <p>The refresh properties of a dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html}
  */
 export type DataSetRefreshProperties = {
   /**
-   * <p> Refresh Configuration.</p>
+   * <p>The refresh configuration of a dataset.</p>
    */
-  RefreshConfiguration?: RefreshConfiguration;
+  RefreshConfiguration: RefreshConfiguration;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.DataSetUsageConfiguration`.
- * <p>The dataset usage configuration for the dataset.</p>
+ * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html}
  */
 export type DataSetUsageConfiguration = {
+  /**
+   * <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
+   */
   DisableUseAsDirectQuerySource?: boolean;
+  /**
+   * <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
+   */
   DisableUseAsImportedSource?: boolean;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.DateTimeDatasetParameter`.
- * <p>A parameter created in the dataset of date time data type.</p>
+ * <p>A date time parameter for a dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html}
  */
 export type DateTimeDatasetParameter = {
   /**
-   * <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+   * <p>The default values of a date time parameter.</p>
    */
   DefaultValues?: DateTimeDatasetParameterDefaultValues;
   /**
-   * <p>Identifier of the parameter created in the dataset.</p>
+   * <p>An identifier for the parameter that is created in the dataset.</p>
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^[a-zA-Z0-9-]+$`
    */
   Id: string;
   /**
-   * <p>Name of the parameter created in the dataset.</p>
+   * <p>The name of the date time parameter that is created in the dataset.</p>
    * @minLength `1`
    * @maxLength `2048`
    * @pattern `^[a-zA-Z0-9]+$`
    */
   Name: string;
   TimeGranularity?: TimeGranularity;
-  /**
-   * <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
-   */
   ValueType: DatasetParameterValueType;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.DateTimeDatasetParameterDefaultValues`.
- * <p>List of default values defined for a given string date time parameter type. Currently only static values are supported.</p>
+ * <p>The default values of a date time parameter.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameterdefaultvalues.html}
  */
 export type DateTimeDatasetParameterDefaultValues = {
   /**
-   * <p>List of static default values defined for a given string date time parameter type.</p>
-   * @minLength `1`
+   * <p>A list of static default values for a given date time parameter.</p>
+   * @minLength `0`
    * @maxLength `32`
    */
   StaticValues?: string[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.DecimalDatasetParameter`.
- * <p>A parameter created in the dataset of decimal data type.</p>
+ * <p>A decimal parameter for a dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html}
  */
 export type DecimalDatasetParameter = {
   /**
-   * <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+   * <p>The default values of a decimal parameter.</p>
    */
   DefaultValues?: DecimalDatasetParameterDefaultValues;
   /**
-   * <p>Identifier of the parameter created in the dataset.</p>
+   * <p>An identifier for the decimal parameter created in the dataset.</p>
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^[a-zA-Z0-9-]+$`
    */
   Id: string;
   /**
-   * <p>Name of the parameter created in the dataset.</p>
+   * <p>The name of the decimal parameter that is created in the dataset.</p>
    * @minLength `1`
    * @maxLength `2048`
    * @pattern `^[a-zA-Z0-9]+$`
    */
   Name: string;
-  /**
-   * <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
-   */
   ValueType: DatasetParameterValueType;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.DecimalDatasetParameterDefaultValues`.
- * <p>List of default values defined for a given decimal dataset parameter type. Currently only static values are supported.</p>
+ * <p>The default values of a decimal parameter.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameterdefaultvalues.html}
  */
 export type DecimalDatasetParameterDefaultValues = {
   /**
-   * <p>List of static default values defined for a given decimal dataset parameter type.</p>
-   * @minLength `1`
+   * <p>A list of static default values for a given decimal parameter.</p>
+   * @minLength `0`
    * @maxLength `32`
    */
   StaticValues?: number[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.FieldFolder`.
+ * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html}
  */
 export type FieldFolder = {
   /**
+   * <p>A folder has a list of columns. A column can only be in one folder.</p>
    * @minLength `0`
    * @maxLength `5000`
    */
   Columns?: string[];
   /**
+   * <p>The description for a field folder.</p>
    * @minLength `0`
    * @maxLength `500`
    */
@@ -487,14 +514,20 @@ export type GeoSpatialDataRole =
   | "POSTCODE"
   | "LONGITUDE"
   | "LATITUDE"
-  | "POLITICAL1";
+  | "POLITICAL1"
+  | "CENSUS_TRACT"
+  | "CENSUS_BLOCK_GROUP"
+  | "CENSUS_BLOCK";
 /**
  * Type definition for `AWS::QuickSight::DataSet.IncrementalRefresh`.
- * <p>Incremental Refresh</p>
+ * <p>The incremental refresh configuration for a dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-incrementalrefresh.html}
  */
 export type IncrementalRefresh = {
-  LookbackWindow?: LookbackWindow;
+  /**
+   * <p>The lookback window setup of an incremental refresh configuration.</p>
+   */
+  LookbackWindow: LookbackWindow;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.IngestionWaitPolicy`.
@@ -524,10 +557,10 @@ export type InputColumn = {
   /**
    * <p>The name of this column in the underlying data source.</p>
    * @minLength `1`
-   * @maxLength `128`
+   * @maxLength `127`
    */
   Name: string;
-  SubType?: ColumnSubDataType;
+  SubType?: ColumnDataSubType;
   Type: InputColumnDataType;
 };
 /**
@@ -544,81 +577,89 @@ export type InputColumnDataType =
   | "JSON";
 /**
  * Type definition for `AWS::QuickSight::DataSet.IntegerDatasetParameter`.
- * <p>A parameter created in the dataset of integer data type.</p>
+ * <p>An integer parameter for a dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html}
  */
 export type IntegerDatasetParameter = {
   /**
-   * <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
+   * <p>The default values of an integer parameter.</p>
    */
   DefaultValues?: IntegerDatasetParameterDefaultValues;
   /**
-   * <p>Identifier of the parameter created in the dataset.</p>
+   * <p>An identifier for the integer parameter created in the dataset.</p>
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^[a-zA-Z0-9-]+$`
    */
   Id: string;
   /**
-   * <p>Name of the parameter created in the dataset.</p>
+   * <p>The name of the integer parameter that is created in the dataset.</p>
    * @minLength `1`
    * @maxLength `2048`
    * @pattern `^[a-zA-Z0-9]+$`
    */
   Name: string;
-  /**
-   * <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
-   */
   ValueType: DatasetParameterValueType;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.IntegerDatasetParameterDefaultValues`.
- * <p>List of default values defined for a given integer dataset parameter type. Currently only static values are supported.</p>
+ * <p>The default values of an integer parameter.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameterdefaultvalues.html}
  */
 export type IntegerDatasetParameterDefaultValues = {
   /**
-   * <p>List of static default values defined for a given integer dataset parameter type.</p>
-   * @minLength `1`
+   * <p>A list of static default values for a given integer parameter.</p>
+   * @minLength `0`
    * @maxLength `32`
    */
   StaticValues?: number[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.JoinInstruction`.
- * <p>Join instruction.</p>
+ * <p>The instructions associated with a join. </p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html}
  */
 export type JoinInstruction = {
+  /**
+   * <p>Properties associated with the columns participating in a join.</p>
+   */
   LeftJoinKeyProperties?: JoinKeyProperties;
   /**
-   * <p>Left operand.</p>
+   * <p>The operand on the left side of a join.</p>
    * @minLength `1`
    * @maxLength `64`
-   * @pattern `[0-9a-zA-Z-]*`
+   * @pattern `^[0-9a-zA-Z-]*$`
    */
   LeftOperand: string;
   /**
-   * <p>On Clause.</p>
+   * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
    * @minLength `1`
    * @maxLength `512`
    */
   OnClause: string;
+  /**
+   * <p>Properties associated with the columns participating in a join.</p>
+   */
   RightJoinKeyProperties?: JoinKeyProperties;
   /**
-   * <p>Right operand.</p>
+   * <p>The operand on the right side of a join.</p>
    * @minLength `1`
    * @maxLength `64`
-   * @pattern `[0-9a-zA-Z-]*`
+   * @pattern `^[0-9a-zA-Z-]*$`
    */
   RightOperand: string;
   Type: JoinType;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.JoinKeyProperties`.
+ * <p>Properties associated with the columns participating in a join.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html}
  */
 export type JoinKeyProperties = {
+  /**
+     * <p>A value that indicates that a row in a table is uniquely identified by the columns in
+                a join key. This is used by Amazon QuickSight to optimize query performance.</p>
+     */
   UniqueKey?: boolean;
 };
 /**
@@ -642,7 +683,7 @@ export type LogicalTable = {
    */
   Alias: string;
   /**
-   * <p>Transform operations that act on this logical table.</p>
+   * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
    * @minLength `1`
    * @maxLength `2048`
    */
@@ -666,59 +707,70 @@ export type LogicalTableMap = Record<string, LogicalTable>;
  */
 export type LogicalTableSource = {
   /**
-   * <p>The Amazon Resource Name (ARN) for the dataset.</p>
+   * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
    */
   DataSetArn?: string;
   /**
-   * <p>Join instruction.</p>
+   * <p>The instructions associated with a join. </p>
    */
   JoinInstruction?: JoinInstruction;
   /**
    * <p>Physical table ID.</p>
    * @minLength `1`
    * @maxLength `64`
-   * @pattern `[0-9a-zA-Z-]*`
+   * @pattern `^[0-9a-zA-Z-]*$`
    */
   PhysicalTableId?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.LookbackWindow`.
+ * <p>The lookback window setup of an incremental refresh configuration.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html}
  */
 export type LookbackWindow = {
   /**
-   * <p>Column Name</p>
+   * <p>The name of the lookback window column.</p>
    */
-  ColumnName?: string;
+  ColumnName: string;
   /**
-   * <p>Size</p>
+   * <p>The lookback window column size.</p>
    * @min `1`
    */
-  Size?: number;
-  SizeUnit?: SizeUnit;
+  Size: number;
+  SizeUnit: LookbackWindowSizeUnit;
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.LookbackWindowSizeUnit`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindowsizeunit.html}
+ */
+export type LookbackWindowSizeUnit = "HOUR" | "DAY" | "WEEK";
+/**
  * Type definition for `AWS::QuickSight::DataSet.NewDefaultValues`.
+ * <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html}
  */
 export type NewDefaultValues = {
   /**
-   * @minLength `1`
+   * <p>A list of static default values for a given date time parameter.</p>
+   * @minLength `0`
    * @maxLength `32`
    */
   DateTimeStaticValues?: string[];
   /**
-   * @minLength `1`
+   * <p>A list of static default values for a given decimal parameter.</p>
+   * @minLength `0`
    * @maxLength `32`
    */
   DecimalStaticValues?: number[];
   /**
-   * @minLength `1`
+   * <p>A list of static default values for a given integer parameter.</p>
+   * @minLength `0`
    * @maxLength `32`
    */
   IntegerStaticValues?: number[];
   /**
-   * @minLength `1`
+   * <p>A list of static default values for a given string parameter.</p>
+   * @minLength `0`
    * @maxLength `32`
    */
   StringStaticValues?: string[];
@@ -736,22 +788,22 @@ export type OutputColumn = {
    */
   Description?: string;
   /**
-   * <p>A display name for the dataset.</p>
+   * <p>The display name of the column..</p>
    * @minLength `1`
-   * @maxLength `128`
+   * @maxLength `127`
    */
   Name?: string;
-  SubType?: ColumnSubDataType;
+  SubType?: ColumnDataSubType;
   Type?: ColumnDataType;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.OverrideDatasetParameterOperation`.
- * <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>
+ * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html}
  */
 export type OverrideDatasetParameterOperation = {
   /**
-   * <p>The new default values for the parameter.</p>
+   * <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
    */
   NewDefaultValues?: NewDefaultValues;
   /**
@@ -786,7 +838,7 @@ export type PhysicalTable = {
    */
   RelationalTable?: RelationalTable;
   /**
-   * <p>A physical table type for as S3 data source.</p>
+   * <p>A physical table type for an S3 data source.</p>
    */
   S3Source?: S3Source;
 };
@@ -811,14 +863,14 @@ export type ProjectOperation = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.RefreshConfiguration`.
- * <p> Refresh Configuration.</p>
+ * <p>The refresh configuration of a dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshconfiguration.html}
  */
 export type RefreshConfiguration = {
   /**
-   * <p>Incremental Refresh</p>
+   * <p>The incremental refresh configuration for a dataset.</p>
    */
-  IncrementalRefresh?: IncrementalRefresh;
+  IncrementalRefresh: IncrementalRefresh;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.RelationalTable`.
@@ -845,13 +897,13 @@ export type RelationalTable = {
   /**
    * <p>The name of the relational table.</p>
    * @minLength `1`
-   * @maxLength `64`
+   * @maxLength `256`
    */
   Name: string;
   /**
    * <p>The schema name. This name applies to certain relational database engines.</p>
    * @minLength `0`
-   * @maxLength `64`
+   * @maxLength `256`
    */
   Schema?: string;
 };
@@ -864,13 +916,13 @@ export type RenameColumnOperation = {
   /**
    * <p>The name of the column to be renamed.</p>
    * @minLength `1`
-   * @maxLength `128`
+   * @maxLength `127`
    */
   ColumnName: string;
   /**
    * <p>The new name for the column.</p>
    * @minLength `1`
-   * @maxLength `128`
+   * @maxLength `127`
    */
   NewColumnName: string;
 };
@@ -889,16 +941,16 @@ export type ResourcePermission = {
   /**
      * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
                 following:</p>
-            <ul>
+             <ul>
                 <li>
-                    <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                   <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
                 </li>
                 <li>
-                    <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                   <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                 </li>
                 <li>
-                    <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                        ARN. Use this option only to share resources (templates) across AWS accounts.
+                   <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                        ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
                         (This is less common.) </p>
                 </li>
              </ul>
@@ -909,17 +961,22 @@ export type ResourcePermission = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.RowLevelPermissionDataSet`.
- * <p>The row-level security configuration for the dataset.</p>
+ * <p>Information about a dataset that contains permissions for row-level security (RLS).
+            The permissions dataset maps fields to users or groups. For more information, see
+            <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+                Guide</i>.</p>
+         <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+            not supported for new RLS datasets.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html}
  */
 export type RowLevelPermissionDataSet = {
   /**
-   * <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset that contains permissions for RLS.</p>
    */
   Arn: string;
   FormatVersion?: RowLevelPermissionFormatVersion;
   /**
-   * <p>The namespace associated with the row-level permissions dataset.</p>
+   * <p>The namespace associated with the dataset that contains permissions for RLS.</p>
    * @minLength `0`
    * @maxLength `64`
    * @pattern `^[a-zA-Z0-9._-]*$`
@@ -940,7 +997,7 @@ export type RowLevelPermissionFormatVersion = "VERSION_1" | "VERSION_2";
 export type RowLevelPermissionPolicy = "GRANT_ACCESS" | "DENY_ACCESS";
 /**
  * Type definition for `AWS::QuickSight::DataSet.RowLevelPermissionTagConfiguration`.
- * <p>The configuration of tags on a dataset to set row-level security.</p>
+ * <p>The configuration of tags on a dataset to set row-level security. </p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html}
  */
 export type RowLevelPermissionTagConfiguration = {
@@ -960,7 +1017,7 @@ export type RowLevelPermissionTagConfiguration = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.RowLevelPermissionTagRule`.
- * <p>Permission for the resource.</p>
+ * <p>A set of rules associated with a tag.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html}
  */
 export type RowLevelPermissionTagRule = {
@@ -982,25 +1039,29 @@ export type RowLevelPermissionTagRule = {
   TagKey: string;
   /**
    * <p>A string that you want to use to delimit the values when you pass the values at run time. For example, you can delimit the values with a comma.</p>
+   * @minLength `0`
    * @maxLength `10`
    */
   TagMultiValueDelimiter?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.S3Source`.
- * <p>A physical table type for as S3 data source.</p>
+ * <p>A physical table type for an S3 data source.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html}
  */
 export type S3Source = {
   /**
-   * <p>The amazon Resource Name (ARN) for the data source.</p>
+   * <p>The Amazon Resource Name (ARN) for the data source.</p>
    */
   DataSourceArn: string;
   /**
-   * <p>A physical table type for as S3 data source.</p>
-   * @minLength `1`
-   * @maxLength `2048`
-   */
+     * <p>A physical table type for an S3 data source.</p>
+             <note>
+                <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
+             </note>
+     * @minLength `1`
+     * @maxLength `2048`
+     */
   InputColumns: InputColumn[];
   /**
    * <p>Information about the format for a source file or files.</p>
@@ -1008,53 +1069,45 @@ export type S3Source = {
   UploadSettings?: UploadSettings;
 };
 /**
- * Type definition for `AWS::QuickSight::DataSet.SizeUnit`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-sizeunit.html}
- */
-export type SizeUnit = "HOUR" | "DAY" | "WEEK";
-/**
  * Type definition for `AWS::QuickSight::DataSet.Status`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-status.html}
  */
 export type Status = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::QuickSight::DataSet.StringDatasetParameter`.
- * <p>A parameter created in the dataset of string data type.</p>
+ * <p>A string parameter for a dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html}
  */
 export type StringDatasetParameter = {
   /**
-   * <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
+   * <p>The default values of a string parameter.</p>
    */
   DefaultValues?: StringDatasetParameterDefaultValues;
   /**
-   * <p>Identifier of the parameter created in the dataset.</p>
+   * <p>An identifier for the string parameter that is created in the dataset.</p>
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^[a-zA-Z0-9-]+$`
    */
   Id: string;
   /**
-   * <p>Name of the parameter created in the dataset.</p>
+   * <p>The name of the string parameter that is created in the dataset.</p>
    * @minLength `1`
    * @maxLength `2048`
    * @pattern `^[a-zA-Z0-9]+$`
    */
   Name: string;
-  /**
-   * <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
-   */
   ValueType: DatasetParameterValueType;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.StringDatasetParameterDefaultValues`.
- * <p>List of default values defined for a given string dataset parameter type. Currently only static values are supported.</p>
+ * <p>The default values of a string parameter.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameterdefaultvalues.html}
  */
 export type StringDatasetParameterDefaultValues = {
   /**
-   * <p>List of static default values defined for a given string dataset parameter type.</p>
-   * @minLength `1`
+   * <p>A list of static default values for a given string parameter.</p>
+   * @minLength `0`
    * @maxLength `32`
    */
   StaticValues?: string[];
@@ -1088,14 +1141,14 @@ export type TagColumnOperation = {
   /**
    * <p>The column that this operation acts on.</p>
    * @minLength `1`
-   * @maxLength `128`
+   * @maxLength `127`
    */
   ColumnName: string;
   /**
-     * <p>The dataset column tag, currently only used for geospatial type tagging. .</p>
-            <note>
-                <p>This is not tags for the AWS tagging feature. .</p>
-            </note>
+     * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
+             <note>
+                <p>This is not tags for the Amazon Web Services tagging feature.</p>
+             </note>
      * @minLength `1`
      * @maxLength `16`
      */
@@ -1141,7 +1194,7 @@ export type TransformOperation = {
    */
   FilterOperation?: FilterOperation;
   /**
-   * <p>A transform operation that overrides the dataset parameter values defined in another dataset.</p>
+   * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
    */
   OverrideDatasetParameterOperation?: OverrideDatasetParameterOperation;
   /**
@@ -1157,6 +1210,27 @@ export type TransformOperation = {
    * <p>A transform operation that tags a column with additional information.</p>
    */
   TagColumnOperation?: TagColumnOperation;
+  /**
+   * <p>A transform operation that removes tags associated with a column.</p>
+   */
+  UntagColumnOperation?: UntagColumnOperation;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.UntagColumnOperation`.
+ * <p>A transform operation that removes tags associated with a column.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-untagcolumnoperation.html}
+ */
+export type UntagColumnOperation = {
+  /**
+   * <p>The column that this operation acts on.</p>
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  ColumnName: string;
+  /**
+   * <p>The column tags to remove from this column.</p>
+   */
+  TagNames: ColumnTagName[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.UploadSettings`.

@@ -42,29 +42,26 @@ export type QuickSightDataSourceProperties = {
    */
   ErrorInfo?: DataSourceErrorInfo;
   /**
-   * <p>A display name for the data source.</p>
    * @minLength `1`
    * @maxLength `128`
    */
-  Name?: string;
+  Name: string;
   /**
-   * <p>A list of resource permissions on the data source.</p>
    * @minLength `1`
    * @maxLength `64`
    */
   Permissions?: ResourcePermission[];
   /**
-     * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+     * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
                 underlying data source.</p>
      */
   SslProperties?: SslProperties;
   /**
-   * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
    * @minLength `1`
    * @maxLength `200`
    */
   Tags?: Tag[];
-  Type?: DataSourceType;
+  Type: DataSourceType;
   /**
    * <p>VPC connection properties.</p>
    */
@@ -91,12 +88,12 @@ export type QuickSightDataSourceAttributes = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.AmazonElasticsearchParameters`.
- * <p>Amazon Elasticsearch Service parameters.</p>
+ * <p>The parameters for OpenSearch.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html}
  */
 export type AmazonElasticsearchParameters = {
   /**
-   * <p>The Amazon Elasticsearch Service domain.</p>
+   * <p>The OpenSearch domain.</p>
    * @minLength `1`
    * @maxLength `64`
    */
@@ -104,12 +101,12 @@ export type AmazonElasticsearchParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.AmazonOpenSearchParameters`.
- * <p>Amazon OpenSearch Service parameters.</p>
+ * <p>The parameters for OpenSearch.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonopensearchparameters.html}
  */
 export type AmazonOpenSearchParameters = {
   /**
-   * <p>The Amazon OpenSearch Service domain.</p>
+   * <p>The OpenSearch domain.</p>
    * @minLength `1`
    * @maxLength `64`
    */
@@ -117,7 +114,7 @@ export type AmazonOpenSearchParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.AthenaParameters`.
- * <p>Amazon Athena parameters.</p>
+ * <p>Parameters for Amazon Athena.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html}
  */
 export type AthenaParameters = {
@@ -136,7 +133,7 @@ export type AthenaParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.AuroraParameters`.
- * <p>Amazon Aurora parameters.</p>
+ * <p>Parameters for Amazon Aurora.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html}
  */
 export type AuroraParameters = {
@@ -161,24 +158,24 @@ export type AuroraParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.AuroraPostgreSqlParameters`.
- * <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
+ * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html}
  */
 export type AuroraPostgreSqlParameters = {
   /**
-   * <p>Database.</p>
+   * <p>The Amazon Aurora PostgreSQL database to connect to.</p>
    * @minLength `1`
    * @maxLength `128`
    */
   Database: string;
   /**
-   * <p>Host.</p>
+   * <p>The Amazon Aurora PostgreSQL-Compatible host to connect to.</p>
    * @minLength `1`
    * @maxLength `256`
    */
   Host: string;
   /**
-   * <p>Port.</p>
+   * <p>The port that Amazon Aurora PostgreSQL is listening on.</p>
    * @min `1`
    * @max `65535`
    */
@@ -219,24 +216,24 @@ export type CredentialPair = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.DatabricksParameters`.
- * <p>Databricks parameters.</p>
+ * <p>The parameters that are required to connect to a Databricks data source.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html}
  */
 export type DatabricksParameters = {
   /**
-   * <p>Host.</p>
+   * <p>The host name of the Databricks data source.</p>
    * @minLength `1`
    * @maxLength `256`
    */
   Host: string;
   /**
-   * <p>Port.</p>
+   * <p>The port for the Databricks data source.</p>
    * @min `1`
    * @max `65535`
    */
   Port: number;
   /**
-   * <p>The HTTP Path of the Databricks data source.</p>
+   * <p>The HTTP path of the Databricks data source.</p>
    * @minLength `1`
    * @maxLength `4096`
    */
@@ -254,7 +251,7 @@ export type DataSourceCredentials = {
                 want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
                 data source in the ARN is used as the credentials for the
                 <code>DataSourceCredentials</code> structure.</p>
-     * @pattern `^arn:[-a-z0-9]*:quicksight:[-a-z0-9]*:[0-9]{12}:datasource/.+`
+     * @pattern `^arn:[-a-z0-9]*:quicksight:[-a-z0-9]*:[0-9]{12}:datasource/.+$`
      */
   CopySourceArn?: string;
   /**
@@ -265,7 +262,7 @@ export type DataSourceCredentials = {
    * <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^arn:[-a-z0-9]*:secretsmanager:[-a-z0-9]*:[0-9]{12}:secret:.+`
+   * @pattern `^arn:[-a-z0-9]*:secretsmanager:[-a-z0-9]*:[0-9]{12}:secret:.+$`
    */
   SecretArn?: string;
 };
@@ -303,82 +300,84 @@ export type DataSourceErrorInfoType =
  */
 export type DataSourceParameters = {
   /**
-   * <p>Amazon Elasticsearch Service parameters.</p>
+   * <p>The parameters for OpenSearch.</p>
    */
   AmazonElasticsearchParameters?: AmazonElasticsearchParameters;
   /**
-   * <p>Amazon OpenSearch Service parameters.</p>
+   * <p>The parameters for OpenSearch.</p>
    */
   AmazonOpenSearchParameters?: AmazonOpenSearchParameters;
   /**
-   * <p>Amazon Athena parameters.</p>
+   * <p>Parameters for Amazon Athena.</p>
    */
   AthenaParameters?: AthenaParameters;
   /**
-   * <p>Amazon Aurora parameters.</p>
+   * <p>Parameters for Amazon Aurora.</p>
    */
   AuroraParameters?: AuroraParameters;
   /**
-   * <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
+   * <p>Parameters for Amazon Aurora PostgreSQL-Compatible Edition.</p>
    */
   AuroraPostgreSqlParameters?: AuroraPostgreSqlParameters;
   /**
-   * <p>Databricks parameters.</p>
+   * <p>The parameters that are required to connect to a Databricks data source.</p>
    */
   DatabricksParameters?: DatabricksParameters;
   /**
-   * <p>MariaDB parameters.</p>
+   * <p>The parameters for MariaDB.</p>
    */
   MariaDbParameters?: MariaDbParameters;
   /**
-   * <p>MySQL parameters.</p>
+   * <p>The parameters for MySQL.</p>
    */
   MySqlParameters?: MySqlParameters;
+  /**
+   * <p>The parameters for Oracle.</p>
+   */
   OracleParameters?: OracleParameters;
   /**
-   * <p>PostgreSQL parameters.</p>
+   * <p>The parameters for PostgreSQL.</p>
    */
   PostgreSqlParameters?: PostgreSqlParameters;
   /**
-   * <p>Presto parameters.</p>
+   * <p>The parameters for Presto.</p>
    */
   PrestoParameters?: PrestoParameters;
   /**
-   * <p>Amazon RDS parameters.</p>
+   * <p>The parameters for Amazon RDS.</p>
    */
   RdsParameters?: RdsParameters;
   /**
-     * <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
-                <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
-                <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+     * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
+                <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
      */
   RedshiftParameters?: RedshiftParameters;
   /**
-   * <p>S3 parameters.</p>
+   * <p>The parameters for S3.</p>
    */
   S3Parameters?: S3Parameters;
   /**
-   * <p>Snowflake parameters.</p>
+   * <p>The parameters for Snowflake.</p>
    */
   SnowflakeParameters?: SnowflakeParameters;
   /**
-   * <p>Spark parameters.</p>
+   * <p>The parameters for Spark.</p>
    */
   SparkParameters?: SparkParameters;
   /**
-   * <p>SQL Server parameters.</p>
+   * <p>The parameters for SQL Server.</p>
    */
   SqlServerParameters?: SqlServerParameters;
   /**
-   * <p>Starburst parameters.</p>
+   * <p>The parameters that are required to connect to a Starburst data source.</p>
    */
   StarburstParameters?: StarburstParameters;
   /**
-   * <p>Teradata parameters.</p>
+   * <p>The parameters for Teradata.</p>
    */
   TeradataParameters?: TeradataParameters;
   /**
-   * <p>Trino parameters.</p>
+   * <p>The parameters that are required to connect to a Trino data source.</p>
    */
   TrinoParameters?: TrinoParameters;
 };
@@ -395,6 +394,13 @@ export type DataSourceType =
   | "AURORA_POSTGRESQL"
   | "AWS_IOT_ANALYTICS"
   | "DATABRICKS"
+  | "DENODO"
+  | "DREMIO"
+  | "DYNAMODB"
+  | "SAPHANA"
+  | "DB2_AS400"
+  | "EXASOL"
+  | "FILE"
   | "GITHUB"
   | "JIRA"
   | "MARIADB"
@@ -410,10 +416,27 @@ export type DataSourceType =
   | "SPARK"
   | "SQLSERVER"
   | "TERADATA"
-  | "TWITTER"
   | "TIMESTREAM"
+  | "TWITTER"
+  | "BIGQUERY"
+  | "GOOGLE_ANALYTICS"
+  | "TRINO"
   | "STARBURST"
-  | "TRINO";
+  | "MONGO"
+  | "MONGO_ATLAS"
+  | "DOCUMENTDB"
+  | "APPFLOW";
+/**
+ * Type definition for `AWS::QuickSight::DataSource.IdentityCenterConfiguration`.
+ * <p>The parameters for an IAM Identity Center configuration.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-identitycenterconfiguration.html}
+ */
+export type IdentityCenterConfiguration = {
+  /**
+   * <p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>
+   */
+  EnableIdentityPropagation?: boolean;
+};
 /**
  * Type definition for `AWS::QuickSight::DataSource.ManifestFileLocation`.
  * <p>Amazon S3 manifest file location.</p>
@@ -435,7 +458,7 @@ export type ManifestFileLocation = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.MariaDbParameters`.
- * <p>MariaDB parameters.</p>
+ * <p>The parameters for MariaDB.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html}
  */
 export type MariaDbParameters = {
@@ -460,7 +483,7 @@ export type MariaDbParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.MySqlParameters`.
- * <p>MySQL parameters.</p>
+ * <p>The parameters for MySQL.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html}
  */
 export type MySqlParameters = {
@@ -485,20 +508,24 @@ export type MySqlParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.OracleParameters`.
+ * <p>The parameters for Oracle.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html}
  */
 export type OracleParameters = {
   /**
+   * <p>The database.</p>
    * @minLength `1`
    * @maxLength `128`
    */
   Database: string;
   /**
+   * <p>An Oracle host.</p>
    * @minLength `1`
    * @maxLength `256`
    */
   Host: string;
   /**
+   * <p>The port.</p>
    * @min `1`
    * @max `65535`
    */
@@ -506,7 +533,7 @@ export type OracleParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.PostgreSqlParameters`.
- * <p>PostgreSQL parameters.</p>
+ * <p>The parameters for PostgreSQL.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html}
  */
 export type PostgreSqlParameters = {
@@ -531,7 +558,7 @@ export type PostgreSqlParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.PrestoParameters`.
- * <p>Presto parameters.</p>
+ * <p>The parameters for Presto.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html}
  */
 export type PrestoParameters = {
@@ -556,7 +583,7 @@ export type PrestoParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.RdsParameters`.
- * <p>Amazon RDS parameters.</p>
+ * <p>The parameters for Amazon RDS.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html}
  */
 export type RdsParameters = {
@@ -575,9 +602,8 @@ export type RdsParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.RedshiftParameters`.
- * <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
-            <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
-            <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+ * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
+            <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html}
  */
 export type RedshiftParameters = {
@@ -601,6 +627,10 @@ export type RedshiftParameters = {
    */
   Host?: string;
   /**
+   * <p>The parameters for an IAM Identity Center configuration.</p>
+   */
+  IdentityCenterConfiguration?: IdentityCenterConfiguration;
+  /**
    * <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
    * @min `0`
    * @max `65535`
@@ -622,16 +652,16 @@ export type ResourcePermission = {
   /**
      * <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
                 following:</p>
-            <ul>
+             <ul>
                 <li>
-                    <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                   <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
                 </li>
                 <li>
-                    <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                   <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                 </li>
                 <li>
-                    <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
-                        ARN. Use this option only to share resources (templates) across AWS accounts.
+                   <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
+                        ARN. Use this option only to share resources (templates) across Amazon Web Services accounts.
                         (This is less common.) </p>
                 </li>
              </ul>
@@ -639,6 +669,7 @@ export type ResourcePermission = {
      * @maxLength `256`
      */
   Principal: string;
+  Resource?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.ResourceStatus`.
@@ -654,7 +685,7 @@ export type ResourceStatus =
   | "DELETED";
 /**
  * Type definition for `AWS::QuickSight::DataSource.S3Parameters`.
- * <p>S3 parameters.</p>
+ * <p>The parameters for S3.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html}
  */
 export type S3Parameters = {
@@ -671,7 +702,7 @@ export type S3Parameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.SnowflakeParameters`.
- * <p>Snowflake parameters.</p>
+ * <p>The parameters for Snowflake.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html}
  */
 export type SnowflakeParameters = {
@@ -696,7 +727,7 @@ export type SnowflakeParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.SparkParameters`.
- * <p>Spark parameters.</p>
+ * <p>The parameters for Spark.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html}
  */
 export type SparkParameters = {
@@ -715,7 +746,7 @@ export type SparkParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.SqlServerParameters`.
- * <p>SQL Server parameters.</p>
+ * <p>The parameters for SQL Server.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html}
  */
 export type SqlServerParameters = {
@@ -740,7 +771,7 @@ export type SqlServerParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.SslProperties`.
- * <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+ * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
             underlying data source.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html}
  */
@@ -752,24 +783,24 @@ export type SslProperties = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.StarburstParameters`.
- * <p>Starburst parameters.</p>
+ * <p>The parameters that are required to connect to a Starburst data source.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html}
  */
 export type StarburstParameters = {
   /**
-   * <p>Catalog.</p>
+   * <p>The catalog name for the Starburst data source.</p>
    * @minLength `0`
    * @maxLength `128`
    */
   Catalog: string;
   /**
-   * <p>Host.</p>
+   * <p>The host name of the Starburst data source.</p>
    * @minLength `1`
    * @maxLength `256`
    */
   Host: string;
   /**
-   * <p>Port.</p>
+   * <p>The port for the Starburst data source.</p>
    * @min `1`
    * @max `65535`
    */
@@ -803,7 +834,7 @@ export type Tag = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.TeradataParameters`.
- * <p>Teradata parameters.</p>
+ * <p>The parameters for Teradata.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html}
  */
 export type TeradataParameters = {
@@ -828,24 +859,24 @@ export type TeradataParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.TrinoParameters`.
- * <p>Trino parameters.</p>
+ * <p>The parameters that are required to connect to a Trino data source.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-trinoparameters.html}
  */
 export type TrinoParameters = {
   /**
-   * <p>Catalog.</p>
+   * <p>The catalog name for the Trino data source.</p>
    * @minLength `0`
    * @maxLength `128`
    */
   Catalog: string;
   /**
-   * <p>Host.</p>
+   * <p>The host name of the Trino data source.</p>
    * @minLength `1`
    * @maxLength `256`
    */
   Host: string;
   /**
-   * <p>Port.</p>
+   * <p>The port for the Trino data source.</p>
    * @min `1`
    * @max `65535`
    */

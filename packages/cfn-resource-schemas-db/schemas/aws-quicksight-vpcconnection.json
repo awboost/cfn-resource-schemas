@@ -1,5 +1,5 @@
 {
-  "$hash": "f12251901df687f4ad92fab33d0ca81f072a23e1",
+  "$hash": "bcc453d8aa895cc4271aa6bd582d3187dd77de8a",
   "$id": "aws-quicksight-vpcconnection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,100 +7,73 @@
     "/properties/VPCConnectionId"
   ],
   "definitions": {
-    "Arn": { "type": "string" },
-    "DnsResolvers": {
-      "insertionOrder": false,
-      "items": { "type": "string" },
-      "type": "array"
-    },
     "NetworkInterface": {
       "additionalProperties": false,
+      "description": "<p>The structure that contains information about a network interface.</p>",
       "properties": {
-        "AvailabilityZone": { "type": "string" },
-        "ErrorMessage": { "type": "string" },
-        "NetworkInterfaceId": { "$ref": "#/definitions/NetworkInterfaceId" },
-        "Status": {
-          "enum": [
-            "CREATING",
-            "AVAILABLE",
-            "CREATION_FAILED",
-            "UPDATING",
-            "UPDATE_FAILED",
-            "DELETING",
-            "DELETED",
-            "DELETION_FAILED",
-            "DELETION_SCHEDULED",
-            "ATTACHMENT_FAILED_ROLLBACK_FAILED"
-          ],
+        "AvailabilityZone": {
+          "description": "<p>The availability zone that the network interface resides in.</p>",
           "type": "string"
         },
-        "SubnetId": { "$ref": "#/definitions/SubnetId" }
+        "ErrorMessage": {
+          "description": "<p>An error message.</p>",
+          "type": "string"
+        },
+        "NetworkInterfaceId": {
+          "description": "<p>The network interface ID.</p>",
+          "maxLength": 255,
+          "minLength": 0,
+          "pattern": "^eni-[0-9a-z]*$",
+          "type": "string"
+        },
+        "Status": { "$ref": "#/definitions/NetworkInterfaceStatus" },
+        "SubnetId": {
+          "description": "<p>The subnet ID associated with the network interface.</p>",
+          "maxLength": 255,
+          "minLength": 1,
+          "pattern": "^subnet-[0-9a-z]*$",
+          "type": "string"
+        }
       },
-      "required": [],
       "type": "object"
     },
-    "NetworkInterfaceId": {
-      "maxLength": 255,
-      "pattern": "^eni-[0-9a-z]*$",
+    "NetworkInterfaceStatus": {
+      "enum": [
+        "CREATING",
+        "AVAILABLE",
+        "CREATION_FAILED",
+        "UPDATING",
+        "UPDATE_FAILED",
+        "DELETING",
+        "DELETED",
+        "DELETION_FAILED",
+        "DELETION_SCHEDULED",
+        "ATTACHMENT_FAILED_ROLLBACK_FAILED"
+      ],
       "type": "string"
-    },
-    "NetworkInterfaces": {
-      "insertionOrder": false,
-      "items": { "$ref": "#/definitions/NetworkInterface" },
-      "maxItems": 15,
-      "type": "array"
-    },
-    "RoleArn": { "type": "string" },
-    "SecurityGroupId": {
-      "maxItems": 255,
-      "minItems": 1,
-      "pattern": "^sg-[0-9a-z]*$",
-      "type": "string"
-    },
-    "SecurityGroupIds": {
-      "insertionOrder": false,
-      "items": { "$ref": "#/definitions/SecurityGroupId" },
-      "maxItems": 16,
-      "minItems": 1,
-      "type": "array"
-    },
-    "SubnetId": {
-      "maxLength": 255,
-      "minLength": 1,
-      "pattern": "^subnet-[0-9a-z]*$",
-      "type": "string"
-    },
-    "SubnetIds": {
-      "insertionOrder": false,
-      "items": { "$ref": "#/definitions/SubnetId" },
-      "maxItems": 15,
-      "minItems": 2,
-      "type": "array"
     },
     "Tag": {
       "additionalProperties": false,
+      "description": "<p>The key or keys of the key-value pairs for the resource tag or tags assigned to the\n            resource.</p>",
       "properties": {
-        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
-        "Value": { "maxLength": 256, "minLength": 1, "type": "string" }
+        "Key": {
+          "description": "<p>Tag key.</p>",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "<p>Tag value.</p>",
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
       },
       "required": ["Key", "Value"],
       "type": "object"
     },
-    "Tags": {
-      "insertionOrder": false,
-      "items": { "$ref": "#/definitions/Tag" },
-      "maxItems": 200,
-      "minItems": 1,
-      "type": "array"
-    },
     "VPCConnectionAvailabilityStatus": {
       "enum": ["AVAILABLE", "UNAVAILABLE", "PARTIALLY_AVAILABLE"],
-      "type": "string"
-    },
-    "VPCConnectionId": {
-      "maxLength": 1000,
-      "minLength": 1,
-      "pattern": "[\\w\\-]+",
       "type": "string"
     },
     "VPCConnectionResourceStatus": {
@@ -116,8 +89,7 @@
         "DELETED"
       ],
       "type": "string"
-    },
-    "VPCId": { "type": "string" }
+    }
   },
   "description": "Definition of the AWS::QuickSight::VPCConnection Resource Type.",
   "handlers": {
@@ -161,7 +133,10 @@
     "/properties/VPCConnectionId"
   ],
   "properties": {
-    "Arn": { "$ref": "#/definitions/Arn" },
+    "Arn": {
+      "description": "<p>The Amazon Resource Name (ARN) of the VPC connection.</p>",
+      "type": "string"
+    },
     "AvailabilityStatus": {
       "$ref": "#/definitions/VPCConnectionAvailabilityStatus"
     },
@@ -171,18 +146,73 @@
       "pattern": "^[0-9]{12}$",
       "type": "string"
     },
-    "CreatedTime": { "format": "date-time", "type": "string" },
-    "DnsResolvers": { "$ref": "#/definitions/DnsResolvers" },
-    "LastUpdatedTime": { "format": "date-time", "type": "string" },
+    "CreatedTime": {
+      "description": "<p>The time that the VPC connection was created.</p>",
+      "format": "date-time",
+      "type": "string"
+    },
+    "DnsResolvers": {
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array"
+    },
+    "LastUpdatedTime": {
+      "description": "<p>The time that the VPC connection was last updated.</p>",
+      "format": "date-time",
+      "type": "string"
+    },
     "Name": { "maxLength": 128, "minLength": 1, "type": "string" },
-    "NetworkInterfaces": { "$ref": "#/definitions/NetworkInterfaces" },
-    "RoleArn": { "$ref": "#/definitions/RoleArn" },
-    "SecurityGroupIds": { "$ref": "#/definitions/SecurityGroupIds" },
+    "NetworkInterfaces": {
+      "description": "<p>A list of network interfaces.</p>",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/NetworkInterface" },
+      "maxItems": 15,
+      "minItems": 0,
+      "type": "array"
+    },
+    "RoleArn": { "type": "string" },
+    "SecurityGroupIds": {
+      "insertionOrder": false,
+      "items": {
+        "maxLength": 255,
+        "minLength": 1,
+        "pattern": "^sg-[0-9a-z]*$",
+        "type": "string"
+      },
+      "maxItems": 16,
+      "minItems": 1,
+      "type": "array"
+    },
     "Status": { "$ref": "#/definitions/VPCConnectionResourceStatus" },
-    "SubnetIds": { "$ref": "#/definitions/SubnetIds" },
-    "Tags": { "$ref": "#/definitions/Tags" },
-    "VPCConnectionId": { "$ref": "#/definitions/VPCConnectionId" },
-    "VPCId": { "$ref": "#/definitions/VPCId" }
+    "SubnetIds": {
+      "insertionOrder": false,
+      "items": {
+        "maxLength": 255,
+        "minLength": 1,
+        "pattern": "^subnet-[0-9a-z]*$",
+        "type": "string"
+      },
+      "maxItems": 15,
+      "minItems": 2,
+      "type": "array"
+    },
+    "Tags": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 200,
+      "minItems": 1,
+      "type": "array"
+    },
+    "VPCConnectionId": {
+      "maxLength": 1000,
+      "minLength": 1,
+      "pattern": "[\\w\\-]+",
+      "type": "string"
+    },
+    "VPCId": {
+      "description": "<p>The Amazon EC2 VPC ID associated with the VPC connection.</p>",
+      "type": "string"
+    }
   },
   "readOnlyProperties": [
     "/properties/Arn",

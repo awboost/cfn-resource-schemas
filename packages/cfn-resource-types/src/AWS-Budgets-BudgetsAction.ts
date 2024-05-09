@@ -13,6 +13,7 @@ export type BudgetsBudgetsActionProperties = {
   Definition: Definition;
   ExecutionRoleArn: string;
   NotificationType: "ACTUAL" | "FORECASTED";
+  ResourceTags?: ResourceTag[];
   /**
    * @minLength `1`
    * @maxLength `11`
@@ -64,6 +65,14 @@ export type IamActionDefinition = {
    * @maxLength `100`
    */
   Users?: string[];
+};
+/**
+ * Type definition for `AWS::Budgets::BudgetsAction.ResourceTag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-resourcetag.html}
+ */
+export type ResourceTag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Type definition for `AWS::Budgets::BudgetsAction.ScpActionDefinition`.

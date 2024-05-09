@@ -1,5 +1,5 @@
 {
-  "$hash": "02a49fe951f224f94fc4264d529e5faf3fa54557",
+  "$hash": "97fb295b16ac5f45cde8bb73e1324a6dcb9c4593",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -740,7 +740,7 @@
           "type": "string"
         },
         "DeviceIndex": {
-          "description": "The device index for the network interface attachment. Each network interface requires a device index. If the launch template includes network interfaces with a device index other than 0, you must add a primary network interface when you launch a instance using this launch template,",
+          "description": "The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.",
           "type": "integer"
         },
         "EnaSrdSpecification": {

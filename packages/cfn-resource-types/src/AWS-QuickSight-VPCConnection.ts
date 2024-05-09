@@ -46,32 +46,42 @@ export type QuickSightVPCConnectionProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-vpcconnection.html#aws-resource-quicksight-vpcconnection-return-values}
  */
 export type QuickSightVPCConnectionAttributes = {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   */
   Arn: string;
+  /**
+   * <p>The time that the VPC connection was created.</p>
+   */
   CreatedTime: string;
+  /**
+   * <p>The time that the VPC connection was last updated.</p>
+   */
   LastUpdatedTime: string;
   /**
+   * <p>A list of network interfaces.</p>
+   * @minLength `0`
    * @maxLength `15`
    */
   NetworkInterfaces: {
+    /**
+     * <p>The availability zone that the network interface resides in.</p>
+     */
     AvailabilityZone: string;
+    /**
+     * <p>An error message.</p>
+     */
     ErrorMessage: string;
     /**
+     * <p>The network interface ID.</p>
+     * @minLength `0`
      * @maxLength `255`
      * @pattern `^eni-[0-9a-z]*$`
      */
     NetworkInterfaceId: string;
-    Status:
-      | "CREATING"
-      | "AVAILABLE"
-      | "CREATION_FAILED"
-      | "UPDATING"
-      | "UPDATE_FAILED"
-      | "DELETING"
-      | "DELETED"
-      | "DELETION_FAILED"
-      | "DELETION_SCHEDULED"
-      | "ATTACHMENT_FAILED_ROLLBACK_FAILED";
+    Status: NetworkInterfaceStatus;
     /**
+     * <p>The subnet ID associated with the network interface.</p>
      * @minLength `1`
      * @maxLength `255`
      * @pattern `^subnet-[0-9a-z]*$`
@@ -79,32 +89,35 @@ export type QuickSightVPCConnectionAttributes = {
     SubnetId: string;
   }[];
   Status: VPCConnectionResourceStatus;
+  /**
+   * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
+   */
   VPCId: string;
 };
 /**
  * Type definition for `AWS::QuickSight::VPCConnection.NetworkInterface`.
+ * <p>The structure that contains information about a network interface.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-vpcconnection-networkinterface.html}
  */
 export type NetworkInterface = {
+  /**
+   * <p>The availability zone that the network interface resides in.</p>
+   */
   AvailabilityZone?: string;
+  /**
+   * <p>An error message.</p>
+   */
   ErrorMessage?: string;
   /**
+   * <p>The network interface ID.</p>
+   * @minLength `0`
    * @maxLength `255`
    * @pattern `^eni-[0-9a-z]*$`
    */
   NetworkInterfaceId?: string;
-  Status?:
-    | "CREATING"
-    | "AVAILABLE"
-    | "CREATION_FAILED"
-    | "UPDATING"
-    | "UPDATE_FAILED"
-    | "DELETING"
-    | "DELETED"
-    | "DELETION_FAILED"
-    | "DELETION_SCHEDULED"
-    | "ATTACHMENT_FAILED_ROLLBACK_FAILED";
+  Status?: NetworkInterfaceStatus;
   /**
+   * <p>The subnet ID associated with the network interface.</p>
    * @minLength `1`
    * @maxLength `255`
    * @pattern `^subnet-[0-9a-z]*$`
@@ -112,16 +125,35 @@ export type NetworkInterface = {
   SubnetId?: string;
 };
 /**
+ * Type definition for `AWS::QuickSight::VPCConnection.NetworkInterfaceStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-vpcconnection-networkinterfacestatus.html}
+ */
+export type NetworkInterfaceStatus =
+  | "CREATING"
+  | "AVAILABLE"
+  | "CREATION_FAILED"
+  | "UPDATING"
+  | "UPDATE_FAILED"
+  | "DELETING"
+  | "DELETED"
+  | "DELETION_FAILED"
+  | "DELETION_SCHEDULED"
+  | "ATTACHMENT_FAILED_ROLLBACK_FAILED";
+/**
  * Type definition for `AWS::QuickSight::VPCConnection.Tag`.
+ * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+            resource.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-vpcconnection-tag.html}
  */
 export type Tag = {
   /**
+   * <p>Tag key.</p>
    * @minLength `1`
    * @maxLength `128`
    */
   Key: string;
   /**
+   * <p>Tag value.</p>
    * @minLength `1`
    * @maxLength `256`
    */

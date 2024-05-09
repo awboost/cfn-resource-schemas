@@ -1,5 +1,5 @@
 {
-  "$hash": "7c66746dbd6419af27b5ac0a005aa1a8fb4ee91a",
+  "$hash": "9b2da2828f31232a73aaeb96b57bf7e13376a0e4",
   "$id": "aws-redshift-endpointauthorization.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8,7 +8,14 @@
   ],
   "definitions": {
     "AwsAccount": { "pattern": "^\\d{12}$", "type": "string" },
-    "VpcId": { "pattern": "^vpc-[A-Za-z0-9]{1,17}$", "type": "string" }
+    "VpcId": {
+      "pattern": "^vpc-[A-Za-z0-9]{1,17}$",
+      "relationshipRef": {
+        "propertyPath": "/properties/VpcId",
+        "typeName": "AWS::EC2::VPC"
+      },
+      "type": "string"
+    }
   },
   "description": "Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.",
   "handlers": {

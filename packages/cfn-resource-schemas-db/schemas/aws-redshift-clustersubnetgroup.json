@@ -1,5 +1,5 @@
 {
-  "$hash": "55b07a38210b23f13fd19d900cf3ecc5f60c1907",
+  "$hash": "ea5103b64cd03da87520c61dff5b3dec55093498",
   "$id": "aws-redshift-clustersubnetgroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -127,7 +127,13 @@
     "SubnetIds": {
       "description": "The list of VPC subnet IDs",
       "insertionOrder": false,
-      "items": { "type": "string" },
+      "items": {
+        "relationshipRef": {
+          "propertyPath": "/properties/SubnetId",
+          "typeName": "AWS::EC2::Subnet"
+        },
+        "type": "string"
+      },
       "maxItems": 20,
       "type": "array"
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "94a0253acb90a43983ad6a25c29d46d7421b0946",
+  "$hash": "bb27f74fa5c8758842bb6a0d8dd8b3d28eb0ff20",
   "$id": "aws-redshift-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -23,7 +23,13 @@
     "LoggingProperties": {
       "additionalProperties": false,
       "properties": {
-        "BucketName": { "type": "string" },
+        "BucketName": {
+          "relationshipRef": {
+            "propertyPath": "/properties/BucketName",
+            "typeName": "AWS::S3::Bucket"
+          },
+          "type": "string"
+        },
         "S3KeyPrefix": { "type": "string" }
       },
       "type": "object"
@@ -189,7 +195,23 @@
     "ClusterSecurityGroups": {
       "description": "A list of security groups to be associated with this cluster.",
       "insertionOrder": false,
-      "items": { "type": "string" },
+      "items": {
+        "anyOf": [
+          {
+            "relationshipRef": {
+              "propertyPath": "/properties/Id",
+              "typeName": "AWS::EC2::SecurityGroup"
+            }
+          },
+          {
+            "relationshipRef": {
+              "propertyPath": "/properties/Id",
+              "typeName": "AWS::Redshift::ClusterSecurityGroup"
+            }
+          }
+        ],
+        "type": "string"
+      },
       "type": "array",
       "uniqueItems": false
     },
@@ -257,11 +279,31 @@
     "IamRoles": {
       "description": "A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request",
       "insertionOrder": false,
-      "items": { "type": "string" },
+      "items": {
+        "relationshipRef": {
+          "propertyPath": "/properties/Arn",
+          "typeName": "AWS::IAM::Role"
+        },
+        "type": "string"
+      },
       "maxItems": 50,
       "type": "array"
     },
     "KmsKeyId": {
+      "anyOf": [
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::KMS::Key"
+          }
+        },
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/KeyId",
+            "typeName": "AWS::KMS::Key"
+          }
+        }
+      ],
       "description": "The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.",
       "type": "string"
     },
@@ -283,6 +325,20 @@
       "type": "string"
     },
     "MasterPasswordSecretKmsKeyId": {
+      "anyOf": [
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::KMS::Key"
+          }
+        },
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/KeyId",
+            "typeName": "AWS::KMS::Key"
+          }
+        }
+      ],
       "description": "The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.",
       "type": "string"
     },
@@ -368,7 +424,13 @@
     "VpcSecurityGroupIds": {
       "description": "A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.",
       "insertionOrder": false,
-      "items": { "type": "string" },
+      "items": {
+        "relationshipRef": {
+          "propertyPath": "/properties/VpcId",
+          "typeName": "AWS::EC2::VPC"
+        },
+        "type": "string"
+      },
       "type": "array",
       "uniqueItems": false
     }

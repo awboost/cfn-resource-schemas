@@ -1,2 +1,156 @@
+- added `AWS::Bedrock::GuardrailVersion`
+- updated `AWS::Budgets::BudgetsAction`
+  - added `tagging`
+  - added definition `ResourceTag`
+  - added property `ResourceTags`
+  - updated handler permissions
 - updated `AWS::EC2::LaunchTemplate`
   - updated definition `NetworkInterface`
+- updated `AWS::KMS::Alias`
+- updated `AWS::QLDB::Stream`
+  - added `tagging`
+- updated `AWS::QuickSight::DataSet`
+  - added `tagging`
+  - added definition `ColumnDataSubType`
+  - added definition `ColumnTagName`
+  - added definition `LookbackWindowSizeUnit`
+  - added definition `UntagColumnOperation`
+  - removed definition `ColumnSubDataType`
+  - removed definition `DatasetParameterId`
+  - removed definition `DatasetParameterName`
+  - removed definition `DateTimeDatasetParameterValueList`
+  - removed definition `DecimalDatasetParameterValueList`
+  - removed definition `IntegerDatasetParameterValueList`
+  - removed definition `RowLevelPermissionTagRuleConfiguration`
+  - removed definition `SizeUnit`
+  - removed definition `StringDatasetParameterValueList`
+  - updated definition `CalculatedColumn`
+  - updated definition `CastColumnTypeOperation`
+  - updated definition `ColumnLevelPermissionRule`
+  - updated definition `ColumnTag`
+  - updated definition `CustomSql`
+  - updated definition `DataSetRefreshProperties`
+  - updated definition `DataSetUsageConfiguration`
+  - updated definition `DatasetParameterValueType`
+  - updated definition `DatasetParameter`
+  - updated definition `DateTimeDatasetParameterDefaultValues`
+  - updated definition `DateTimeDatasetParameter`
+  - updated definition `DecimalDatasetParameterDefaultValues`
+  - updated definition `DecimalDatasetParameter`
+  - updated definition `FieldFolder`
+  - updated definition `GeoSpatialColumnGroup`
+  - updated definition `GeoSpatialDataRole`
+  - updated definition `IncrementalRefresh`
+  - updated definition `InputColumn`
+  - updated definition `IntegerDatasetParameterDefaultValues`
+  - updated definition `IntegerDatasetParameter`
+  - updated definition `JoinInstruction`
+  - updated definition `JoinKeyProperties`
+  - updated definition `LogicalTableMap`
+  - updated definition `LogicalTableSource`
+  - updated definition `LogicalTable`
+  - updated definition `LookbackWindow`
+  - updated definition `NewDefaultValues`
+  - updated definition `OutputColumn`
+  - updated definition `OverrideDatasetParameterOperation`
+  - updated definition `PhysicalTableMap`
+  - updated definition `RefreshConfiguration`
+  - updated definition `RelationalTable`
+  - updated definition `RenameColumnOperation`
+  - updated definition `ResourcePermission`
+  - updated definition `RowLevelPermissionDataSet`
+  - updated definition `RowLevelPermissionTagConfiguration`
+  - updated definition `RowLevelPermissionTagRule`
+  - updated definition `S3Source`
+  - updated definition `StringDatasetParameterDefaultValues`
+  - updated definition `StringDatasetParameter`
+  - updated definition `TagColumnOperation`
+  - updated definition `TransformOperation`
+  - updated property `ColumnGroups`
+  - updated property `ColumnLevelPermissionRules`
+  - updated property `ConsumedSpiceCapacityInBytes`
+  - updated property `DatasetParameters`
+- updated `AWS::QuickSight::DataSource`
+  - added `required`
+  - added `sourceUrl`
+  - added definition `IdentityCenterConfiguration`
+  - updated definition `AmazonElasticsearchParameters`
+  - updated definition `AmazonOpenSearchParameters`
+  - updated definition `AthenaParameters`
+  - updated definition `AuroraParameters`
+  - updated definition `AuroraPostgreSqlParameters`
+  - updated definition `AwsIotAnalyticsParameters`
+  - updated definition `CredentialPair`
+  - updated definition `DataSourceCredentials`
+  - updated definition `DataSourceErrorInfo`
+  - updated definition `DataSourceParameters`
+  - updated definition `DataSourceType`
+  - updated definition `DatabricksParameters`
+  - updated definition `ManifestFileLocation`
+  - updated definition `MariaDbParameters`
+  - updated definition `MySqlParameters`
+  - updated definition `OracleParameters`
+  - updated definition `PostgreSqlParameters`
+  - updated definition `PrestoParameters`
+  - updated definition `RdsParameters`
+  - updated definition `RedshiftParameters`
+  - updated definition `ResourcePermission`
+  - updated definition `S3Parameters`
+  - updated definition `SnowflakeParameters`
+  - updated definition `SparkParameters`
+  - updated definition `SqlServerParameters`
+  - updated definition `SslProperties`
+  - updated definition `StarburstParameters`
+  - updated definition `Tag`
+  - updated definition `TeradataParameters`
+  - updated definition `TrinoParameters`
+  - updated definition `VpcConnectionProperties`
+  - updated property `Name`
+  - updated property `Permissions`
+  - updated property `Tags`
+- updated `AWS::QuickSight::VPCConnection`
+  - added definition `NetworkInterfaceStatus`
+  - removed definition `Arn`
+  - removed definition `DnsResolvers`
+  - removed definition `NetworkInterfaceId`
+  - removed definition `NetworkInterfaces`
+  - removed definition `RoleArn`
+  - removed definition `SecurityGroupId`
+  - removed definition `SecurityGroupIds`
+  - removed definition `SubnetId`
+  - removed definition `SubnetIds`
+  - removed definition `Tags`
+  - removed definition `VPCConnectionId`
+  - removed definition `VPCId`
+  - updated definition `NetworkInterface`
+  - updated definition `Tag`
+  - updated property `Arn`
+  - updated property `CreatedTime`
+  - updated property `DnsResolvers`
+  - updated property `LastUpdatedTime`
+  - updated property `NetworkInterfaces`
+  - updated property `RoleArn`
+  - updated property `SecurityGroupIds`
+  - updated property `SubnetIds`
+  - updated property `Tags`
+  - updated property `VPCConnectionId`
+  - updated property `VPCId`
+- updated `AWS::Redshift::Cluster`
+  - updated definition `LoggingProperties`
+  - updated property `ClusterSecurityGroups`
+  - updated property `IamRoles`
+  - updated property `KmsKeyId`
+  - updated property `MasterPasswordSecretKmsKeyId`
+  - updated property `VpcSecurityGroupIds`
+- updated `AWS::Redshift::ClusterSubnetGroup`
+  - updated property `SubnetIds`
+- updated `AWS::Redshift::EndpointAccess`
+  - updated definition `NetworkInterface`
+  - updated definition `VpcSecurityGroup`
+  - updated property `VpcEndpoint`
+- updated `AWS::Redshift::EndpointAuthorization`
+  - updated definition `VpcId`
+- updated `AWS::Redshift::ScheduledAction`
+  - updated definition `PauseClusterMessage`
+  - updated definition `ResizeClusterMessage`
+  - updated definition `ResumeClusterMessage`
