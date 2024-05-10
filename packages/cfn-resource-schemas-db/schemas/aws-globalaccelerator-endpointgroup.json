@@ -1,5 +1,5 @@
 {
-  "$hash": "76ffc76ffa1c3ee739f52d36f0e723b5c7ea80d7",
+  "$hash": "d4c379f087ac28970eab083b4d45c90cd33f1fbb",
   "$id": "aws-globalaccelerator-endpointgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -140,6 +140,7 @@
   "readOnlyProperties": ["/properties/EndpointGroupArn"],
   "required": ["ListenerArn", "EndpointGroupRegion"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-globalaccelerator",
+  "tagging": { "taggable": false },
   "typeName": "AWS::GlobalAccelerator::EndpointGroup",
   "writeOnlyProperties": ["/properties/EndpointConfigurations/*/AttachmentArn"]
 }

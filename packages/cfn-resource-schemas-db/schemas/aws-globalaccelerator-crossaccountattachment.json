@@ -1,5 +1,5 @@
 {
-  "$hash": "d7faba23ce3882e04fd21cb4906e7b3d25494033",
+  "$hash": "51418d2e29189cd6e6ce3b0f7a446773692d3739",
   "$id": "aws-globalaccelerator-crossaccountattachment.json",
   "additionalProperties": false,
   "definitions": {
@@ -92,6 +92,13 @@
   "readOnlyProperties": ["/properties/AttachmentArn"],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-globalaccelerator",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::GlobalAccelerator::CrossAccountAttachment",
   "writeOnlyProperties": ["/properties/Resources/*/Region"]
 }

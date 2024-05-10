@@ -1,5 +1,5 @@
 {
-  "$hash": "58f3576741919e3e99d06ead735ac89ae7f8e6f7",
+  "$hash": "a8f735a9e8cf46bbb162db105e8968122c52d378",
   "$id": "aws-globalaccelerator-accelerator.json",
   "additionalProperties": false,
   "definitions": {
@@ -123,5 +123,12 @@
   ],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-globalaccelerator",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::GlobalAccelerator::Accelerator"
 }

@@ -129,16 +129,24 @@ export type BedrockAgentAttributes = {
 };
 /**
  * Type definition for `AWS::Bedrock::Agent.ActionGroupExecutor`.
+ * Type of Executors for an Action Group
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-actiongroupexecutor.html}
  */
-export type ActionGroupExecutor = {
-  /**
-   * ARN of a Lambda.
-   * @maxLength `2048`
-   * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_\.]+(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
-   */
-  Lambda: string;
-};
+export type ActionGroupExecutor =
+  | {
+      /**
+       * ARN of a Lambda.
+       * @maxLength `2048`
+       * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_\.]+(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+       */
+      Lambda: string;
+    }
+  | {
+      /**
+       * Custom control of action execution
+       */
+      CustomControl: CustomControlMethod;
+    };
 /**
  * Type definition for `AWS::Bedrock::Agent.ActionGroupSignature`.
  * Action Group Signature for a BuiltIn Action
@@ -157,6 +165,9 @@ export type ActionGroupState = "ENABLED" | "DISABLED";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html}
  */
 export type AgentActionGroup = {
+  /**
+   * Type of Executors for an Action Group
+   */
   ActionGroupExecutor?: ActionGroupExecutor;
   /**
    * Name of the action group
@@ -177,6 +188,10 @@ export type AgentActionGroup = {
    * @maxLength `200`
    */
   Description?: string;
+  /**
+   * Schema of Functions
+   */
+  FunctionSchema?: FunctionSchema;
   /**
    * Action Group Signature for a BuiltIn Action
    */
@@ -247,6 +262,45 @@ export type APISchema =
  */
 export type CreationMode = "DEFAULT" | "OVERRIDDEN";
 /**
+ * Type definition for `AWS::Bedrock::Agent.CustomControlMethod`.
+ * Custom control of action execution
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-customcontrolmethod.html}
+ */
+export type CustomControlMethod = "RETURN_CONTROL";
+/**
+ * Type definition for `AWS::Bedrock::Agent.Function`.
+ * Function definition
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html}
+ */
+export type Function = {
+  /**
+   * Description of function
+   * @minLength `1`
+   * @maxLength `1200`
+   */
+  Description?: string;
+  /**
+   * Name for a resource.
+   * @pattern `^([0-9a-zA-Z][_-]?){1,100}$`
+   */
+  Name: string;
+  /**
+   * A map of parameter name and detail
+   */
+  Parameters?: ParameterMap;
+};
+/**
+ * Type definition for `AWS::Bedrock::Agent.FunctionSchema`.
+ * Schema of Functions
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-functionschema.html}
+ */
+export type FunctionSchema = {
+  /**
+   * List of Function definitions
+   */
+  Functions: Function[];
+};
+/**
  * Type definition for `AWS::Bedrock::Agent.InferenceConfiguration`.
  * Configuration for inference in prompt configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html}
@@ -289,6 +343,33 @@ export type InferenceConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-knowledgebasestate.html}
  */
 export type KnowledgeBaseState = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::Bedrock::Agent.ParameterDetail`.
+ * Parameter detail
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-parameterdetail.html}
+ */
+export type ParameterDetail = {
+  /**
+   * Description of function parameter.
+   * @minLength `1`
+   * @maxLength `500`
+   */
+  Description?: string;
+  /**
+   * Information about if a parameter is required for function call. Default to false.
+   */
+  Required?: boolean;
+  /**
+   * Parameter Type
+   */
+  Type: Type;
+};
+/**
+ * Type definition for `AWS::Bedrock::Agent.ParameterMap`.
+ * A map of parameter name and detail
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-parametermap.html}
+ */
+export type ParameterMap = Record<string, ParameterDetail>;
 /**
  * Type definition for `AWS::Bedrock::Agent.PromptConfiguration`.
  * BasePromptConfiguration per Prompt Type.
@@ -383,6 +464,12 @@ export type S3Identifier = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-tagsmap.html}
  */
 export type TagsMap = Record<string, string>;
+/**
+ * Type definition for `AWS::Bedrock::Agent.Type`.
+ * Parameter Type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-type.html}
+ */
+export type Type = "string" | "number" | "integer" | "boolean" | "array";
 /**
  * Definition of AWS::Bedrock::Agent Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html}

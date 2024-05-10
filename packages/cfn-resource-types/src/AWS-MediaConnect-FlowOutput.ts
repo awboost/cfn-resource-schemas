@@ -30,6 +30,10 @@ export type MediaConnectFlowOutputProperties = {
    */
   MaxLatency?: number;
   /**
+   * The definition for each media stream that is associated with the output.
+   */
+  MediaStreamOutputConfigurations?: MediaStreamOutputConfiguration[];
+  /**
    * The minimum latency in milliseconds.
    */
   MinLatency?: number;
@@ -52,7 +56,9 @@ export type MediaConnectFlowOutputProperties = {
     | "rist"
     | "fujitsu-qos"
     | "srt-listener"
-    | "srt-caller";
+    | "srt-caller"
+    | "st2110-jpegxs"
+    | "cdi";
   /**
    * The remote ID for the Zixi-pull stream.
    */
@@ -81,6 +87,40 @@ export type MediaConnectFlowOutputAttributes = {
   OutputArn: string;
 };
 /**
+ * Type definition for `AWS::MediaConnect::FlowOutput.DestinationConfiguration`.
+ * The definition of a media stream that is associated with the output.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html}
+ */
+export type DestinationConfiguration = {
+  /**
+   * The IP address where contents of the media stream will be sent.
+   */
+  DestinationIp: string;
+  /**
+   * The port to use when the content of the media stream is distributed to the output.
+   */
+  DestinationPort: number;
+  /**
+   * The VPC interface that is used for the media stream associated with the output.
+   */
+  Interface: Interface;
+};
+/**
+ * Type definition for `AWS::MediaConnect::FlowOutput.EncodingParameters`.
+ * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encodingparameters.html}
+ */
+export type EncodingParameters = {
+  /**
+   * A value that is used to calculate compression for an output. The bitrate of the output is calculated as follows: Output bitrate = (1 / compressionFactor) * (source bitrate) This property only applies to outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol. Valid values are in the range of 3.0 to 10.0, inclusive.
+   */
+  CompressionFactor: number;
+  /**
+   * A setting on the encoder that drives compression settings. This property only applies to video media streams associated with outputs that use the ST 2110 JPEG XS protocol, with a flow source that uses the CDI protocol.
+   */
+  EncoderProfile?: "main" | "high";
+};
+/**
  * Type definition for `AWS::MediaConnect::FlowOutput.Encryption`.
  * Information about the encryption of the flow.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encryption.html}
@@ -102,6 +142,40 @@ export type Encryption = {
    *  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
    */
   SecretArn: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::FlowOutput.Interface`.
+ * The VPC interface that you want to use for the media stream associated with the output.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-interface.html}
+ */
+export type Interface = {
+  /**
+   * The name of the VPC interface that you want to use for the media stream associated with the output.
+   */
+  Name: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::FlowOutput.MediaStreamOutputConfiguration`.
+ * The media stream that is associated with the output, and the parameters for that association.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html}
+ */
+export type MediaStreamOutputConfiguration = {
+  /**
+   * The media streams that you want to associate with the output.
+   */
+  DestinationConfigurations?: DestinationConfiguration[];
+  /**
+   * The format that will be used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video streams on sources or outputs that use the CDI protocol, set the encoding name to raw. For video streams on sources or outputs that use the ST 2110 JPEG XS protocol, set the encoding name to jxsv.
+   */
+  EncodingName: "jxsv" | "raw" | "smpte291" | "pcm";
+  /**
+   * A collection of parameters that determine how MediaConnect will convert the content. These fields only apply to outputs on flows that have a CDI source.
+   */
+  EncodingParameters?: EncodingParameters;
+  /**
+   * A name that helps you distinguish one media stream from another.
+   */
+  MediaStreamName: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::FlowOutput.VpcInterfaceAttachment`.

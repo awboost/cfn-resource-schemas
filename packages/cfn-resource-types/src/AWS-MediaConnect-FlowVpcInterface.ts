@@ -14,7 +14,7 @@ export type MediaConnectFlowVpcInterfaceProperties = {
    */
   Name: string;
   /**
-   * Role Arn MediaConnect can assumes to create ENIs in customer's account.
+   * Role Arn MediaConnect can assume to create ENIs in customer's account.
    */
   RoleArn: string;
   /**

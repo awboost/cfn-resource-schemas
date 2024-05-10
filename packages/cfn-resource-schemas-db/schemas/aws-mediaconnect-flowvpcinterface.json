@@ -1,5 +1,5 @@
 {
-  "$hash": "beba55b6d2dd26bf6ab08dd0a3ef5ec16bee4628",
+  "$hash": "e8ebfa706dddb27aa6b1f60e5a6e559959557032",
   "$id": "aws-mediaconnect-flowvpcinterface.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FlowArn", "/properties/Name"],
@@ -44,7 +44,7 @@
       "type": "array"
     },
     "RoleArn": {
-      "description": "Role Arn MediaConnect can assumes to create ENIs in customer's account.",
+      "description": "Role Arn MediaConnect can assume to create ENIs in customer's account.",
       "type": "string"
     },
     "SecurityGroupIds": {

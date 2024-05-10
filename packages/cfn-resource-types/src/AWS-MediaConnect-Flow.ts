@@ -10,6 +10,14 @@ export type MediaConnectFlowProperties = {
    */
   AvailabilityZone?: string;
   /**
+   * The maintenance settings you want to use for the flow.
+   */
+  Maintenance?: Maintenance;
+  /**
+   * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+   */
+  MediaStreams?: MediaStream[];
+  /**
    * The name of the flow.
    */
   Name: string;
@@ -21,12 +29,20 @@ export type MediaConnectFlowProperties = {
    * The source failover config of the flow.
    */
   SourceFailoverConfig?: FailoverConfig;
+  /**
+   * The VPC interfaces that you added to this flow.
+   */
+  VpcInterfaces?: VpcInterface[];
 };
 /**
  * Attribute type definition for `AWS::MediaConnect::Flow`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#aws-resource-mediaconnect-flow-return-values}
  */
 export type MediaConnectFlowAttributes = {
+  /**
+   * The IP address from which video will be sent to output destinations.
+   */
+  EgressIp: string;
   /**
    * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
    */
@@ -35,6 +51,15 @@ export type MediaConnectFlowAttributes = {
    * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
    */
   FlowAvailabilityZone: string;
+  /**
+   * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
+   */
+  MediaStreams: {
+    /**
+     * The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+     */
+    Fmt: number;
+  }[];
   /**
    * The source of the flow.
    */
@@ -52,6 +77,15 @@ export type MediaConnectFlowAttributes = {
      */
     SourceIngestPort: string;
   };
+  /**
+   * The VPC interfaces that you added to this flow.
+   */
+  VpcInterfaces: {
+    /**
+     * IDs of the network interfaces created in customer's account by MediaConnect.
+     */
+    NetworkInterfaceIds: string[];
+  }[];
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.Encryption`.
@@ -122,6 +156,57 @@ export type FailoverConfig = {
   State?: "ENABLED" | "DISABLED";
 };
 /**
+ * Type definition for `AWS::MediaConnect::Flow.Fmtp`.
+ * A set of parameters that define the media stream.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-fmtp.html}
+ */
+export type Fmtp = {
+  /**
+   * The format of the audio channel.
+   */
+  ChannelOrder?: string;
+  /**
+   * The format used for the representation of color.
+   */
+  Colorimetry?:
+    | "BT601"
+    | "BT709"
+    | "BT2020"
+    | "BT2100"
+    | "ST2065-1"
+    | "ST2065-3"
+    | "XYZ";
+  /**
+   * The frame rate for the video stream, in frames/second. For example: 60000/1001.
+   */
+  ExactFramerate?: string;
+  /**
+   * The pixel aspect ratio (PAR) of the video.
+   */
+  Par?: string;
+  /**
+   * The encoding range of the video.
+   */
+  Range?: "NARROW" | "FULL" | "FULLPROTECT";
+  /**
+   * The type of compression that was used to smooth the video's appearance.
+   */
+  ScanMode?: "progressive" | "interlace" | "progressive-segmented-frame";
+  /**
+   * The transfer characteristic system (TCS) that is used in the video.
+   */
+  Tcs?:
+    | "SDR"
+    | "PQ"
+    | "HLG"
+    | "LINEAR"
+    | "BT2100LINPQ"
+    | "BT2100LINHLG"
+    | "ST2065-1"
+    | "ST428-1"
+    | "DENSITY";
+};
+/**
  * Type definition for `AWS::MediaConnect::Flow.GatewayBridgeSource`.
  * The source configuration for cloud flows receiving a stream from a bridge.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-gatewaybridgesource.html}
@@ -135,6 +220,123 @@ export type GatewayBridgeSource = {
    * The name of the VPC interface attachment to use for this bridge source.
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.InputConfiguration`.
+ * The transport parameters associated with an incoming media stream.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-inputconfiguration.html}
+ */
+export type InputConfiguration = {
+  /**
+   * The port that the flow listens on for an incoming media stream.
+   */
+  InputPort: number;
+  /**
+   * The VPC interface where the media stream comes in from.
+   */
+  Interface: Interface;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.Interface`.
+ * The VPC interface that you want to use for the media stream associated with the output.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-interface.html}
+ */
+export type Interface = {
+  /**
+   * The name of the VPC interface that you want to use for the media stream associated with the output.
+   */
+  Name: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.Maintenance`.
+ * The maintenance setting of a flow.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-maintenance.html}
+ */
+export type Maintenance = {
+  /**
+   * A day of a week when the maintenance will happen. Use Monday/Tuesday/Wednesday/Thursday/Friday/Saturday/Sunday.
+   */
+  MaintenanceDay:
+    | "Monday"
+    | "Tuesday"
+    | "Wednesday"
+    | "Thursday"
+    | "Friday"
+    | "Saturday"
+    | "Sunday";
+  /**
+   * UTC time when the maintenance will happen. Use 24-hour HH:MM format. Minutes must be 00. Example: 13:00. The default value is 02:00.
+   */
+  MaintenanceStartHour: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.MediaStream`.
+ * A single track or stream of media that contains video, audio, or ancillary data. After you add a media stream to a flow, you can associate it with sources and outputs on that flow, as long as they use the CDI protocol or the ST 2110 JPEG XS protocol. Each source or output can consist of one or many media streams.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html}
+ */
+export type MediaStream = {
+  /**
+   * Attributes that are related to the media stream.
+   */
+  Attributes?: MediaStreamAttributes;
+  /**
+   * The sample rate for the stream. This value in measured in kHz.
+   */
+  ClockRate?: number;
+  /**
+   * A description that can help you quickly identify what your media stream is used for.
+   */
+  Description?: string;
+  /**
+   * A unique identifier for the media stream.
+   */
+  MediaStreamId: number;
+  /**
+   * A name that helps you distinguish one media stream from another.
+   */
+  MediaStreamName: string;
+  /**
+   * The type of media stream.
+   */
+  MediaStreamType: "video" | "audio" | "ancillary-data";
+  /**
+   * The resolution of the video.
+   */
+  VideoFormat?: "2160p" | "1080p" | "1080i" | "720p" | "480p";
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.MediaStreamAttributes`.
+ * Attributes that are related to the media stream.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html}
+ */
+export type MediaStreamAttributes = {
+  /**
+   * A set of parameters that define the media stream.
+   */
+  Fmtp?: Fmtp;
+  /**
+   * The audio language, in a format that is recognized by the receiver.
+   */
+  Lang?: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.MediaStreamSourceConfiguration`.
+ * The media stream that is associated with the source, and the parameters for that association.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamsourceconfiguration.html}
+ */
+export type MediaStreamSourceConfiguration = {
+  /**
+   * The format that was used to encode the data. For ancillary data streams, set the encoding name to smpte291. For audio streams, set the encoding name to pcm. For video, 2110 streams, set the encoding name to raw. For video, JPEG XS streams, set the encoding name to jxsv.
+   */
+  EncodingName: "jxsv" | "raw" | "smpte291" | "pcm";
+  /**
+   * The media streams that you want to associate with the source.
+   */
+  InputConfigurations?: InputConfiguration[];
+  /**
+   * A name that helps you distinguish one media stream from another.
+   */
+  MediaStreamName: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.Source`.
@@ -171,6 +373,14 @@ export type Source = {
    */
   MaxLatency?: number;
   /**
+   * The size of the buffer (in milliseconds) to use to sync incoming source data.
+   */
+  MaxSyncBuffer?: number;
+  /**
+   * The media stream that is associated with the source, and the parameters for that association.
+   */
+  MediaStreamSourceConfigurations?: MediaStreamSourceConfiguration[];
+  /**
    * The minimum latency in milliseconds.
    */
   MinLatency?: number;
@@ -188,7 +398,9 @@ export type Source = {
     | "rist"
     | "fujitsu-qos"
     | "srt-listener"
-    | "srt-caller";
+    | "srt-caller"
+    | "st2110-jpegxs"
+    | "cdi";
   /**
    * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
    */
@@ -217,6 +429,33 @@ export type Source = {
    * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
   WhitelistCidr?: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.VpcInterface`.
+ * The details of a VPC interface.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-vpcinterface.html}
+ */
+export type VpcInterface = {
+  /**
+   * Immutable and has to be a unique against other VpcInterfaces in this Flow.
+   */
+  Name: string;
+  /**
+   * The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
+   */
+  NetworkInterfaceType?: "ena" | "efa";
+  /**
+   * Role Arn MediaConnect can assume to create ENIs in customer's account.
+   */
+  RoleArn: string;
+  /**
+   * Security Group IDs to be used on ENI.
+   */
+  SecurityGroupIds: string[];
+  /**
+   * Subnet must be in the AZ of the Flow
+   */
+  SubnetId: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.VpcInterfaceAttachment`.
