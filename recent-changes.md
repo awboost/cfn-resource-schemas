@@ -1,43 +1,23 @@
-- updated `AWS::Bedrock::Agent`
-  - added definition `CustomControlMethod`
-  - added definition `FunctionSchema`
-  - added definition `Function`
-  - added definition `ParameterDetail`
-  - added definition `ParameterMap`
-  - added definition `Type`
-  - updated definition `ActionGroupExecutor`
-  - updated definition `AgentActionGroup`
-- updated `AWS::GlobalAccelerator::Accelerator`
-  - added `tagging`
-- updated `AWS::GlobalAccelerator::CrossAccountAttachment`
-  - added `tagging`
-- updated `AWS::GlobalAccelerator::EndpointGroup`
-  - added `tagging`
-- updated `AWS::GlobalAccelerator::Listener`
-  - added `tagging`
-- updated `AWS::MediaConnect::Flow`
-  - added `resourceLink`
-  - added definition `Fmtp`
-  - added definition `InputConfiguration`
-  - added definition `Interface`
-  - added definition `Maintenance`
-  - added definition `MediaStreamAttributes`
-  - added definition `MediaStreamSourceConfiguration`
-  - added definition `MediaStream`
-  - added definition `VpcInterface`
-  - added property `EgressIp`
-  - added property `Maintenance`
-  - added property `MediaStreams`
-  - added property `VpcInterfaces`
-  - updated `readOnlyProperties`
-  - updated definition `Source`
+- added `AWS::Neptune::EventSubscription`
+- updated `AWS::Budgets::Budget`
+  - added definition `ResourceTag`
+  - added property `ResourceTags`
+- updated `AWS::HealthLake::FHIRDatastore`
+  - updated `createOnlyProperties`
+- updated `AWS::Lambda::EventSourceMapping`
+  - updated definition `OnFailure`
+  - updated property `EventSourceArn`
+  - updated property `FunctionName`
+  - updated property `MaximumBatchingWindowInSeconds`
+  - updated property `StartingPosition`
+- updated `AWS::Lambda::Function`
+  - updated definition `Code`
+  - updated definition `DeadLetterConfig`
+  - updated definition `VpcConfig`
+  - updated property `Layers`
+- updated `AWS::Oam::Link`
+  - updated property `Tags`
+- updated `AWS::Oam::Sink`
+  - updated property `Tags`
+- updated `AWS::RedshiftServerless::Workgroup`
   - updated handler permissions
-- updated `AWS::MediaConnect::FlowOutput`
-  - added definition `DestinationConfiguration`
-  - added definition `EncodingParameters`
-  - added definition `Interface`
-  - added definition `MediaStreamOutputConfiguration`
-  - added property `MediaStreamOutputConfigurations`
-  - updated property `Protocol`
-- updated `AWS::MediaConnect::FlowVpcInterface`
-  - updated property `RoleArn`

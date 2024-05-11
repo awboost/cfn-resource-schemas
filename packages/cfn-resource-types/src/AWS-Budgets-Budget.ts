@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type BudgetsBudgetProperties = {
   Budget: BudgetData;
   NotificationsWithSubscribers?: NotificationWithSubscribers[];
+  ResourceTags?: ResourceTag[];
 };
 /**
  * Attribute type definition for `AWS::Budgets::Budget`.
@@ -79,6 +80,14 @@ export type Notification = {
 export type NotificationWithSubscribers = {
   Notification: Notification;
   Subscribers: Subscriber[];
+};
+/**
+ * Type definition for `AWS::Budgets::Budget.ResourceTag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-resourcetag.html}
+ */
+export type ResourceTag = {
+  Key: string;
+  Value?: string;
 };
 /**
  * Type definition for `AWS::Budgets::Budget.Spend`.

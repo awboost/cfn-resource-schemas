@@ -1,5 +1,5 @@
 {
-  "$hash": "1d3dc753d511d88de9aaadf3399c7632cf58d8c3",
+  "$hash": "347ee5ffb2cf7f9923b04a0289b9bf41073c5e98",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FunctionName"],
@@ -17,10 +17,6 @@
           "maxLength": 63,
           "minLength": 3,
           "pattern": "^[0-9A-Za-z\\.\\-_]*(?<!\\.)$",
-          "relationshipRef": {
-            "propertyPath": "/properties/BucketName",
-            "typeName": "AWS::S3::Bucket"
-          },
           "type": "string"
         },
         "S3Key": {
@@ -47,20 +43,6 @@
       "description": "The [dead-letter queue](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq) for failed asynchronous invocations.",
       "properties": {
         "TargetArn": {
-          "anyOf": [
-            {
-              "relationshipRef": {
-                "propertyPath": "/properties/Arn",
-                "typeName": "AWS::SQS::Queue"
-              }
-            },
-            {
-              "relationshipRef": {
-                "propertyPath": "/properties/TopicArn",
-                "typeName": "AWS::SNS::Topic"
-              }
-            }
-          ],
           "description": "The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.",
           "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
           "type": "string"
@@ -260,42 +242,14 @@
         },
         "SecurityGroupIds": {
           "description": "A list of VPC security group IDs.",
-          "items": {
-            "anyOf": [
-              {
-                "relationshipRef": {
-                  "propertyPath": "/properties/GroupId",
-                  "typeName": "AWS::EC2::SecurityGroup"
-                }
-              },
-              {
-                "relationshipRef": {
-                  "propertyPath": "/properties/Id",
-                  "typeName": "AWS::EC2::SecurityGroup"
-                }
-              },
-              {
-                "relationshipRef": {
-                  "propertyPath": "/properties/DefaultSecurityGroup",
-                  "typeName": "AWS::EC2::VPC"
-                }
-              }
-            ],
-            "type": "string"
-          },
+          "items": { "type": "string" },
           "maxItems": 5,
           "type": "array",
           "uniqueItems": false
         },
         "SubnetIds": {
           "description": "A list of VPC subnet IDs.",
-          "items": {
-            "relationshipRef": {
-              "propertyPath": "/properties/SubnetId",
-              "typeName": "AWS::EC2::Subnet"
-            },
-            "type": "string"
-          },
+          "items": { "type": "string" },
           "maxItems": 16,
           "type": "array",
           "uniqueItems": false
@@ -449,13 +403,7 @@
     },
     "Layers": {
       "description": "A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.",
-      "items": {
-        "relationshipRef": {
-          "propertyPath": "/properties/LayerVersionArn",
-          "typeName": "AWS::Lambda::LayerVersion"
-        },
-        "type": "string"
-      },
+      "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false
     },

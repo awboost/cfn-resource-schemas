@@ -1,5 +1,5 @@
 {
-  "$hash": "8214ae045b1e790db5d392ae488d2f796625743d",
+  "$hash": "a10a8f4ceffed0a8048d06f889deedc5fbb7837d",
   "$id": "aws-healthlake-fhirdatastore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,7 +7,6 @@
     "/properties/DatastoreTypeVersion",
     "/properties/PreloadDataConfig",
     "/properties/SseConfiguration",
-    "/properties/KmsEncryptionConfig",
     "/properties/IdentityProviderConfiguration"
   ],
   "definitions": {

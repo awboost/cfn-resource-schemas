@@ -1,5 +1,5 @@
 {
-  "$hash": "9e0d34b9fd92e58b131e78965c5f1b103ea54f45",
+  "$hash": "10c313b3688b6319057114107b465b9907985848",
   "$id": "aws-redshiftserverless-workgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -135,7 +135,8 @@
         "ec2:DescribeAvailabilityZones",
         "redshift-serverless:CreateNamespace",
         "redshift-serverless:CreateWorkgroup",
-        "redshift-serverless:GetWorkgroup"
+        "redshift-serverless:GetWorkgroup",
+        "redshift-serverless:GetNamespace"
       ]
     },
     "delete": {
@@ -148,6 +149,7 @@
         "ec2:DescribeAccountAttributes",
         "ec2:DescribeAvailabilityZones",
         "redshift-serverless:GetWorkgroup",
+        "redshift-serverless:GetNamespace",
         "redshift-serverless:DeleteWorkgroup"
       ]
     },
