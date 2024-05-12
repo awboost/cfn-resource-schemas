@@ -1,23 +1,15 @@
-- added `AWS::Neptune::EventSubscription`
-- updated `AWS::Budgets::Budget`
-  - added definition `ResourceTag`
-  - added property `ResourceTags`
-- updated `AWS::HealthLake::FHIRDatastore`
-  - updated `createOnlyProperties`
+- updated `AWS::Events::EventBus`
+  - added property `DeadLetterConfig`
+  - added property `Description`
+  - added property `KmsKeyIdentifier`
+  - updated handler permissions
 - updated `AWS::Lambda::EventSourceMapping`
   - updated definition `OnFailure`
   - updated property `EventSourceArn`
   - updated property `FunctionName`
   - updated property `MaximumBatchingWindowInSeconds`
   - updated property `StartingPosition`
-- updated `AWS::Lambda::Function`
-  - updated definition `Code`
-  - updated definition `DeadLetterConfig`
-  - updated definition `VpcConfig`
-  - updated property `Layers`
-- updated `AWS::Oam::Link`
-  - updated property `Tags`
-- updated `AWS::Oam::Sink`
-  - updated property `Tags`
-- updated `AWS::RedshiftServerless::Workgroup`
-  - updated handler permissions
+- updated `AWS::VpcLattice::Listener`
+  - updated property `Protocol`
+- updated `AWS::VpcLattice::TargetGroup`
+  - updated definition `TargetGroupConfig`

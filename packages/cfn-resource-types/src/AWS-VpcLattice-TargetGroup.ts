@@ -145,7 +145,7 @@ export type TargetGroupConfig = {
    * @max `65535`
    */
   Port?: number;
-  Protocol?: "HTTP" | "HTTPS";
+  Protocol?: "HTTP" | "HTTPS" | "TCP";
   ProtocolVersion?: "HTTP1" | "HTTP2" | "GRPC";
   /**
    * @minLength `5`

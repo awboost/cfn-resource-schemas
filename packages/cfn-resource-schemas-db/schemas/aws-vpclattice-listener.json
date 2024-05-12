@@ -1,5 +1,5 @@
 {
-  "$hash": "b22635f7d91ae3396c9b96d4f4a419a970ccaa03",
+  "$hash": "49d0cec7595038bddbc85a67fb799532fe0a0c17",
   "$id": "aws-vpclattice-listener.json",
   "additionalIdentifiers": [
     ["/properties/ServiceIdentifier", "/properties/Name", "/properties/Port"]
@@ -130,7 +130,10 @@
       "type": "string"
     },
     "Port": { "maximum": 65535, "minimum": 1, "type": "integer" },
-    "Protocol": { "enum": ["HTTP", "HTTPS"], "type": "string" },
+    "Protocol": {
+      "enum": ["HTTP", "HTTPS", "TLS_PASSTHROUGH"],
+      "type": "string"
+    },
     "ServiceArn": {
       "maxLength": 2048,
       "minLength": 21,

@@ -18,7 +18,7 @@ export type VpcLatticeListenerProperties = {
    * @max `65535`
    */
   Port?: number;
-  Protocol: "HTTP" | "HTTPS";
+  Protocol: "HTTP" | "HTTPS" | "TLS_PASSTHROUGH";
   /**
    * @minLength `21`
    * @maxLength `2048`

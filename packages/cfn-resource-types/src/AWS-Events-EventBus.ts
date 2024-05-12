@@ -6,9 +6,23 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type EventsEventBusProperties = {
   /**
+   * Dead Letter Queue for the event bus.
+   */
+  DeadLetterConfig?: {
+    Arn?: string;
+  };
+  /**
+   * The description of the event bus.
+   */
+  Description?: string;
+  /**
    * If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.
    */
   EventSourceName?: string;
+  /**
+   * Kms Key Identifier used to encrypt events at rest in the event bus.
+   */
+  KmsKeyIdentifier?: string;
   /**
    * The name of the event bus.
    */
