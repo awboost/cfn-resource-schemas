@@ -1,15 +1,20 @@
+- updated `AWS::Connect::RoutingProfile`
+  - updated property `QueueConfigs`
+- updated `AWS::DynamoDB::Table`
+  - updated definition `GlobalSecondaryIndex`
+  - updated definition `OnDemandThroughput`
+  - updated property `OnDemandThroughput`
 - updated `AWS::Events::EventBus`
-  - added property `DeadLetterConfig`
-  - added property `Description`
-  - added property `KmsKeyIdentifier`
+  - removed property `DeadLetterConfig`
+  - removed property `Description`
+  - removed property `KmsKeyIdentifier`
   - updated handler permissions
-- updated `AWS::Lambda::EventSourceMapping`
-  - updated definition `OnFailure`
-  - updated property `EventSourceArn`
-  - updated property `FunctionName`
-  - updated property `MaximumBatchingWindowInSeconds`
-  - updated property `StartingPosition`
-- updated `AWS::VpcLattice::Listener`
-  - updated property `Protocol`
-- updated `AWS::VpcLattice::TargetGroup`
-  - updated definition `TargetGroupConfig`
+- updated `AWS::RDS::DBInstance`
+  - updated property `AutomaticBackupReplicationKmsKeyId`
+  - updated property `Engine`
+  - updated property `KmsKeyId`
+  - updated property `StorageEncrypted`
+  - updated property `Timezone`
+- updated `AWS::Transfer::Workflow`
+  - added `tagging`
+  - removed `taggable`

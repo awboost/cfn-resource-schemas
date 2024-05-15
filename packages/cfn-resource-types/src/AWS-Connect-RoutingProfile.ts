@@ -40,7 +40,6 @@ export type ConnectRoutingProfileProperties = {
   /**
    * The queues to associate with this routing profile.
    * @minLength `1`
-   * @maxLength `10`
    */
   QueueConfigs?: RoutingProfileQueueConfig[];
   /**

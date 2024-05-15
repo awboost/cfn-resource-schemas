@@ -1,5 +1,5 @@
 {
-  "$hash": "04279f708bb78753a8d99eaed0b33082c865f2b8",
+  "$hash": "334e7c6b3ee7aeb1761d0c9ccd70829fa63498d9",
   "$id": "aws-transfer-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -329,6 +329,12 @@
   },
   "readOnlyProperties": ["/properties/WorkflowId", "/properties/Arn"],
   "required": ["Steps"],
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Transfer::Workflow"
 }

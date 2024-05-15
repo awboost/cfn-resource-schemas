@@ -58,6 +58,9 @@ export type DynamoDBTableProperties = {
    * Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
    */
   LocalSecondaryIndexes?: LocalSecondaryIndex[];
+  /**
+   * Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+   */
   OnDemandThroughput?: OnDemandThroughput;
   /**
    * The settings used to enable point in time recovery.
@@ -176,6 +179,9 @@ export type GlobalSecondaryIndex = {
      The sort key of an item is also known as its *range attribute*. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
      */
   KeySchema: KeySchema[];
+  /**
+   * The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+   */
   OnDemandThroughput?: OnDemandThroughput;
   /**
    * Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
@@ -285,16 +291,21 @@ export type LocalSecondaryIndex = {
 };
 /**
  * Type definition for `AWS::DynamoDB::Table.OnDemandThroughput`.
+ * Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ondemandthroughput.html}
  */
 export type OnDemandThroughput = {
   /**
-   * @min `1`
-   */
+     * Maximum number of read request units for the specified table.
+     To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxReadRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxReadRequestUnits`` to -1.
+     * @min `1`
+     */
   MaxReadRequestUnits?: number;
   /**
-   * @min `1`
-   */
+     * Maximum number of write request units for the specified table.
+     To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxWriteRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxWriteRequestUnits`` to -1.
+     * @min `1`
+     */
   MaxWriteRequestUnits?: number;
 };
 /**

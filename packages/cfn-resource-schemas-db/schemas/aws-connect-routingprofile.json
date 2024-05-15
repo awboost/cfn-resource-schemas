@@ -1,5 +1,5 @@
 {
-  "$hash": "ad14e4fe5937666014629e78eaec8dc4178ad02e",
+  "$hash": "d7cfa45c6e71d62ee956beb4cb00a0609a5d920b",
   "$id": "aws-connect-routingprofile.json",
   "additionalProperties": false,
   "definitions": {
@@ -182,7 +182,6 @@
       "description": "The queues to associate with this routing profile.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/RoutingProfileQueueConfig" },
-      "maxItems": 10,
       "minItems": 1,
       "type": "array"
     },

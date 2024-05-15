@@ -1,5 +1,5 @@
 {
-  "$hash": "a2208a0363158c211238b90976566742c05d413b",
+  "$hash": "2aa54ff232708487d39381f85fc8581d9e2b74f2",
   "$id": "aws-events-eventbus.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -22,21 +22,11 @@
         "events:DescribeEventBus",
         "events:PutPermission",
         "events:ListTagsForResource",
-        "events:TagResource",
-        "kms:DescribeKey",
-        "kms:GenerateDataKey",
-        "kms:Decrypt"
+        "events:TagResource"
       ]
     },
     "delete": {
-      "permissions": [
-        "events:DescribeEventBus",
-        "events:UpdateEventBus",
-        "events:ListTagsForResource",
-        "events:UntagResource",
-        "events:RemovePermission",
-        "events:DeleteEventBus"
-      ]
+      "permissions": ["events:DescribeEventBus", "events:DeleteEventBus"]
     },
     "list": {
       "permissions": ["events:ListEventBuses", "events:ListTagsForResource"]
@@ -49,11 +39,7 @@
         "events:TagResource",
         "events:UntagResource",
         "events:PutPermission",
-        "events:DescribeEventBus",
-        "events:UpdateEventBus",
-        "kms:DescribeKey",
-        "kms:GenerateDataKey",
-        "kms:Decrypt"
+        "events:DescribeEventBus"
       ]
     }
   },
@@ -63,22 +49,8 @@
       "description": "The Amazon Resource Name (ARN) for the event bus.",
       "type": "string"
     },
-    "DeadLetterConfig": {
-      "additionalProperties": false,
-      "description": "Dead Letter Queue for the event bus.",
-      "properties": { "Arn": { "type": "string" } },
-      "type": "object"
-    },
-    "Description": {
-      "description": "The description of the event bus.",
-      "type": "string"
-    },
     "EventSourceName": {
       "description": "If you are creating a partner event bus, this specifies the partner event source that the new event bus will be matched with.",
-      "type": "string"
-    },
-    "KmsKeyIdentifier": {
-      "description": "Kms Key Identifier used to encrypt events at rest in the event bus.",
       "type": "string"
     },
     "Name": { "description": "The name of the event bus.", "type": "string" },

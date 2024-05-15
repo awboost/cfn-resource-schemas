@@ -1,5 +1,5 @@
 {
-  "$hash": "b1e2cbb8c5e4011813193f241f069595dab3b0eb",
+  "$hash": "81f9884a9cfd8cf0faab95f86f43d6ea18b42d9d",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -91,7 +91,7 @@
         },
         "OnDemandThroughput": {
           "$ref": "#/definitions/OnDemandThroughput",
-          "description": ""
+          "description": "The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both."
         },
         "Projection": {
           "$ref": "#/definitions/Projection",
@@ -201,10 +201,18 @@
     },
     "OnDemandThroughput": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.",
       "properties": {
-        "MaxReadRequestUnits": { "minimum": 1, "type": "integer" },
-        "MaxWriteRequestUnits": { "minimum": 1, "type": "integer" }
+        "MaxReadRequestUnits": {
+          "description": "Maximum number of read request units for the specified table.\n To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxReadRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxReadRequestUnits`` to -1.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "MaxWriteRequestUnits": {
+          "description": "Maximum number of write request units for the specified table.\n To specify a maximum ``OnDemandThroughput`` on your table, set the value of ``MaxWriteRequestUnits`` as greater than or equal to 1. To remove the maximum ``OnDemandThroughput`` that is currently set on your table, set the value of ``MaxWriteRequestUnits`` to -1.",
+          "minimum": 1,
+          "type": "integer"
+        }
       },
       "type": "object"
     },
@@ -520,7 +528,7 @@
     },
     "OnDemandThroughput": {
       "$ref": "#/definitions/OnDemandThroughput",
-      "description": ""
+      "description": "Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both."
     },
     "PointInTimeRecoverySpecification": {
       "$ref": "#/definitions/PointInTimeRecoverySpecification",
