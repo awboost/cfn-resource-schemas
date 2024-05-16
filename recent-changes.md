@@ -1,20 +1,31 @@
-- updated `AWS::Connect::RoutingProfile`
-  - updated property `QueueConfigs`
-- updated `AWS::DynamoDB::Table`
-  - updated definition `GlobalSecondaryIndex`
-  - updated definition `OnDemandThroughput`
-  - updated property `OnDemandThroughput`
-- updated `AWS::Events::EventBus`
-  - removed property `DeadLetterConfig`
-  - removed property `Description`
-  - removed property `KmsKeyIdentifier`
-  - updated handler permissions
-- updated `AWS::RDS::DBInstance`
-  - updated property `AutomaticBackupReplicationKmsKeyId`
-  - updated property `Engine`
-  - updated property `KmsKeyId`
-  - updated property `StorageEncrypted`
-  - updated property `Timezone`
-- updated `AWS::Transfer::Workflow`
+- added `AWS::SecurityHub::SecurityControl`
+- updated `AWS::ElastiCache::ParameterGroup`
   - added `tagging`
-  - removed `taggable`
+  - added property `CacheParameterGroupName`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+  - updated property `CacheParameterGroupFamily`
+  - updated property `Description`
+  - updated property `Properties`
+  - updated property `Tags`
+- updated `AWS::Events::EventBus`
+  - added property `DeadLetterConfig`
+  - added property `Description`
+  - added property `KmsKeyIdentifier`
+  - updated handler permissions
+- updated `AWS::Lambda::Permission`
+  - updated property `FunctionName`
+- updated `AWS::Lambda::Version`
+  - added property `Policy`
+  - updated definition `RuntimePolicy`
+  - updated handler permissions
+  - updated property `FunctionArn`
+  - updated property `FunctionName`
+- updated `AWS::QBusiness::Index`
+  - updated handler permissions
+- updated `AWS::QBusiness::Plugin`
+  - updated handler permissions
+- updated `AWS::VerifiedPermissions::IdentitySource`
+  - updated definition `IdentitySourceConfiguration`

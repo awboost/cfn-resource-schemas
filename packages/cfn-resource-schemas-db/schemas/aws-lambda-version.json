@@ -1,5 +1,5 @@
 {
-  "$hash": "4575d1acc418303e8a0b34af7f088896b17fc6e7",
+  "$hash": "eb72f02bf93fddff4b8dd2d18a2e43b9bf99b24d",
   "$id": "aws-lambda-version.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -30,7 +30,7 @@
           "description": "The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.",
           "maxLength": 2048,
           "minLength": 26,
-          "pattern": "^arn:(aws[a-zA-Z-]*):lambda:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}::runtime:.+$",
+          "pattern": "^arn:(aws[a-zA-Z-]*):lambda:[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}::runtime:.+$",
           "type": "string"
         },
         "UpdateRuntimeOn": {
@@ -68,7 +68,7 @@
             "description": "The name of the Lambda function, version, or alias.",
             "maxLength": 140,
             "minLength": 1,
-            "pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
+            "pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
             "type": "string"
           }
         },
@@ -82,8 +82,7 @@
         "lambda:GetProvisionedConcurrencyConfig",
         "lambda:GetRuntimeManagementConfig"
       ]
-    },
-    "update": { "permissions": [] }
+    }
   },
   "primaryIdentifier": ["/properties/FunctionArn"],
   "properties": {
@@ -99,14 +98,33 @@
     },
     "FunctionArn": {
       "description": "The ARN of the version.",
+      "pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
       "type": "string"
     },
     "FunctionName": {
+      "anyOf": [
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/FunctionName",
+            "typeName": "AWS::Lambda::Function"
+          }
+        },
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::Lambda::Function"
+          }
+        }
+      ],
       "description": "The name of the Lambda function.",
       "maxLength": 140,
       "minLength": 1,
-      "pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
+      "pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
       "type": "string"
+    },
+    "Policy": {
+      "description": "The resource policy of your function",
+      "type": "object"
     },
     "ProvisionedConcurrencyConfig": {
       "$ref": "#/definitions/ProvisionedConcurrencyConfiguration",

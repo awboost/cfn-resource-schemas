@@ -1,5 +1,5 @@
 {
-  "$hash": "450a59779dd00f9e92f456c70434237d133ab3a3",
+  "$hash": "e817614ffa8ba7c6c9d0192fcf857ad2c5688fd8",
   "$id": "aws-qbusiness-index.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId", "/properties/Type"],
@@ -65,10 +65,10 @@
     "create": {
       "permissions": [
         "qbusiness:CreateIndex",
-        "qbusiness:UpdateIndex",
         "qbusiness:GetIndex",
         "qbusiness:ListTagsForResource",
-        "qbusiness:TagResource"
+        "qbusiness:TagResource",
+        "qbusiness:UpdateIndex"
       ]
     },
     "delete": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "26d329c8d999f454aaac1142fc4605a95fd41766",
+  "$hash": "30e91197fc01bcca3be7b92665506ddec0e8536d",
   "$id": "aws-verifiedpermissions-identitysource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyStoreId"],
@@ -46,15 +46,19 @@
       "type": "object"
     },
     "IdentitySourceConfiguration": {
-      "additionalProperties": false,
-      "properties": {
-        "CognitoUserPoolConfiguration": {
-          "$ref": "#/definitions/CognitoUserPoolConfiguration"
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "CognitoUserPoolConfiguration": {
+              "$ref": "#/definitions/CognitoUserPoolConfiguration"
+            }
+          },
+          "required": ["CognitoUserPoolConfiguration"],
+          "title": "CognitoUserPoolConfiguration",
+          "type": "object"
         }
-      },
-      "required": ["CognitoUserPoolConfiguration"],
-      "title": "CognitoUserPoolConfiguration",
-      "type": "object"
+      ]
     },
     "IdentitySourceDetails": {
       "additionalProperties": false,

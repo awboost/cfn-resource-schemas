@@ -19,9 +19,13 @@ export type LambdaVersionProperties = {
    * The name of the Lambda function.
    * @minLength `1`
    * @maxLength `140`
-   * @pattern `^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
    */
   FunctionName: string;
+  /**
+   * The resource policy of your function
+   */
+  Policy?: Record<string, any>;
   /**
    * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
    */
@@ -38,6 +42,7 @@ export type LambdaVersionProperties = {
 export type LambdaVersionAttributes = {
   /**
    * The ARN of the version.
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
    */
   FunctionArn: string;
   /**
@@ -66,7 +71,7 @@ export type RuntimePolicy = {
    * The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
    * @minLength `26`
    * @maxLength `2048`
-   * @pattern `^arn:(aws[a-zA-Z-]*):lambda:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}::runtime:.+$`
+   * @pattern `^arn:(aws[a-zA-Z-]*):lambda:[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}::runtime:.+$`
    */
   RuntimeVersionArn?: string;
   /**
