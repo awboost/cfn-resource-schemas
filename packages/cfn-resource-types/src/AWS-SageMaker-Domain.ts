@@ -212,12 +212,25 @@ export type DefaultEbsStorageSettings = {
  */
 export type DefaultSpaceSettings = {
   /**
+   * @minLength `0`
+   * @maxLength `2`
+   */
+  CustomFileSystemConfigs?: CustomFileSystemConfig[];
+  /**
+   * The Jupyter lab's custom posix user configurations.
+   */
+  CustomPosixUserConfig?: CustomPosixUserConfig;
+  /**
    * The execution role for the space.
    * @minLength `20`
    * @maxLength `2048`
    * @pattern `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
    */
   ExecutionRole: string;
+  /**
+   * The Jupyter lab's app settings.
+   */
+  JupyterLabAppSettings?: JupyterLabAppSettings;
   /**
    * The Jupyter server's app settings.
    */
@@ -232,6 +245,10 @@ export type DefaultSpaceSettings = {
    * @maxLength `5`
    */
   SecurityGroups?: string[];
+  /**
+   * The Jupyter lab's space storage settings.
+   */
+  SpaceStorageSettings?: DefaultSpaceStorageSettings;
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.DefaultSpaceStorageSettings`.

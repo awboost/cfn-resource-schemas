@@ -1,5 +1,5 @@
 {
-  "$hash": "e4b6eb90eea60838d1b2f8ebbca613020ca8e2a0",
+  "$hash": "1c32b4c58f0c59feee736212d3109f884f1b1ffd",
   "$id": "aws-lightsail-instance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -328,6 +328,12 @@
       "pattern": "^[a-zA-Z0-9][\\w\\-.]*[a-zA-Z0-9]$",
       "type": "string"
     },
+    "Ipv6Addresses": {
+      "description": "IPv6 addresses of the instance",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array"
+    },
     "IsStaticIp": {
       "description": "Is the IP Address of the Instance is the static IP",
       "type": "boolean"
@@ -383,6 +389,7 @@
     "/properties/IsStaticIp",
     "/properties/PrivateIpAddress",
     "/properties/PublicIpAddress",
+    "/properties/Ipv6Addresses",
     "/properties/Location/AvailabilityZone",
     "/properties/Location/RegionName",
     "/properties/Hardware/CpuCount",

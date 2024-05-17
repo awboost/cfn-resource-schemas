@@ -1,31 +1,12 @@
-- added `AWS::SecurityHub::SecurityControl`
-- updated `AWS::ElastiCache::ParameterGroup`
-  - added `tagging`
-  - added property `CacheParameterGroupName`
-  - removed property `Id`
-  - updated `primaryIdentifier`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated definition `Action`
+  - updated definition `AuthenticateCognitoConfig`
+  - updated definition `Certificate`
+  - updated definition `TargetGroupTuple`
+- updated `AWS::Lightsail::Instance`
+  - added property `Ipv6Addresses`
   - updated `readOnlyProperties`
-  - updated handler permissions
-  - updated property `CacheParameterGroupFamily`
-  - updated property `Description`
-  - updated property `Properties`
-  - updated property `Tags`
-- updated `AWS::Events::EventBus`
-  - added property `DeadLetterConfig`
-  - added property `Description`
-  - added property `KmsKeyIdentifier`
-  - updated handler permissions
-- updated `AWS::Lambda::Permission`
-  - updated property `FunctionName`
-- updated `AWS::Lambda::Version`
-  - added property `Policy`
-  - updated definition `RuntimePolicy`
-  - updated handler permissions
-  - updated property `FunctionArn`
-  - updated property `FunctionName`
-- updated `AWS::QBusiness::Index`
-  - updated handler permissions
-- updated `AWS::QBusiness::Plugin`
-  - updated handler permissions
-- updated `AWS::VerifiedPermissions::IdentitySource`
-  - updated definition `IdentitySourceConfiguration`
+- updated `AWS::SSM::ResourceDataSync`
+  - added `tagging`
+- updated `AWS::SageMaker::Domain`
+  - updated definition `DefaultSpaceSettings`

@@ -1,5 +1,5 @@
 {
-  "$hash": "78f066113de8fc90b292f785712448c024c27226",
+  "$hash": "a26a3786b99ce408d255b3779bbc13202926d265",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -112,12 +112,27 @@
       "additionalProperties": false,
       "description": "A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.",
       "properties": {
+        "CustomFileSystemConfigs": {
+          "items": { "$ref": "#/definitions/CustomFileSystemConfig" },
+          "maxItems": 2,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "CustomPosixUserConfig": {
+          "$ref": "#/definitions/CustomPosixUserConfig",
+          "description": "The Jupyter lab's custom posix user configurations."
+        },
         "ExecutionRole": {
           "description": "The execution role for the space.",
           "maxLength": 2048,
           "minLength": 20,
           "pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
           "type": "string"
+        },
+        "JupyterLabAppSettings": {
+          "$ref": "#/definitions/JupyterLabAppSettings",
+          "description": "The Jupyter lab's app settings."
         },
         "JupyterServerAppSettings": {
           "$ref": "#/definitions/JupyterServerAppSettings",
@@ -139,6 +154,10 @@
           "minItems": 0,
           "type": "array",
           "uniqueItems": false
+        },
+        "SpaceStorageSettings": {
+          "$ref": "#/definitions/DefaultSpaceStorageSettings",
+          "description": "The Jupyter lab's space storage settings."
         }
       },
       "required": ["ExecutionRole"],

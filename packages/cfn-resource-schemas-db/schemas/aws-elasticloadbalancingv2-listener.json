@@ -1,5 +1,5 @@
 {
-  "$hash": "a22e4ffaa58f57d8451914c5b4a0d29a8ddd09e9",
+  "$hash": "4d848a4a2a0e6831e4cc13643de5dc3c54b7c3d5",
   "$id": "aws-elasticloadbalancingv2-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoadBalancerArn"],
@@ -34,6 +34,10 @@
         },
         "TargetGroupArn": {
           "description": "The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.",
+          "relationshipRef": {
+            "propertyPath": "/properties/TargetGroupArn",
+            "typeName": "AWS::ElasticLoadBalancingV2::TargetGroup"
+          },
           "type": "string"
         },
         "Type": { "description": "The type of action.", "type": "string" }
@@ -68,14 +72,36 @@
         },
         "UserPoolArn": {
           "description": "The Amazon Resource Name (ARN) of the Amazon Cognito user pool.",
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::Cognito::UserPool"
+          },
           "type": "string"
         },
         "UserPoolClientId": {
+          "anyOf": [
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/UserPoolId",
+                "typeName": "AWS::Cognito::UserPoolClient"
+              }
+            },
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/ClientId",
+                "typeName": "AWS::Cognito::UserPoolClient"
+              }
+            }
+          ],
           "description": "The ID of the Amazon Cognito user pool client.",
           "type": "string"
         },
         "UserPoolDomain": {
           "description": "The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.",
+          "relationshipRef": {
+            "propertyPath": "/properties/Id",
+            "typeName": "AWS::Cognito::UserPoolDomain"
+          },
           "type": "string"
         }
       },
@@ -150,6 +176,20 @@
       "description": "Specifies an SSL server certificate to use as the default certificate for a secure listener.",
       "properties": {
         "CertificateArn": {
+          "anyOf": [
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/Id",
+                "typeName": "AWS::CertificateManager::Certificate"
+              }
+            },
+            {
+              "relationshipRef": {
+                "propertyPath": "/properties/Arn",
+                "typeName": "AWS::IAM::ServerCertificate"
+              }
+            }
+          ],
           "description": "The Amazon Resource Name (ARN) of the certificate.",
           "type": "string"
         }
@@ -262,6 +302,10 @@
       "properties": {
         "TargetGroupArn": {
           "description": "The Amazon Resource Name (ARN) of the target group.",
+          "relationshipRef": {
+            "propertyPath": "/properties/TargetGroupArn",
+            "typeName": "AWS::ElasticLoadBalancingV2::TargetGroup"
+          },
           "type": "string"
         },
         "Weight": {

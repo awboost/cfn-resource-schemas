@@ -75,6 +75,10 @@ export type LightsailInstanceAttributes = {
   };
   InstanceArn: string;
   /**
+   * IPv6 addresses of the instance
+   */
+  Ipv6Addresses: string[];
+  /**
    * Is the IP Address of the Instance is the static IP
    */
   IsStaticIp: boolean;
