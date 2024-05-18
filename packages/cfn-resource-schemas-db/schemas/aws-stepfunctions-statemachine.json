@@ -1,5 +1,5 @@
 {
-  "$hash": "f058b8a0a9b128d7d0f1b5e65bd6d64eedcfb01b",
+  "$hash": "92b0f86aca6be31245dce6b0b1bdb2db2ea0988c",
   "$id": "aws-stepfunctions-statemachine.json",
   "additionalIdentifiers": [["/properties/StateMachineName"]],
   "additionalProperties": false,
@@ -11,15 +11,7 @@
     "CloudWatchLogsLogGroup": {
       "additionalProperties": false,
       "properties": {
-        "LogGroupArn": {
-          "maxLength": 256,
-          "minLength": 1,
-          "relationshipRef": {
-            "propertyPath": "/properties/Arn",
-            "typeName": "AWS::Logs::LogGroup"
-          },
-          "type": "string"
-        }
+        "LogGroupArn": { "maxLength": 256, "minLength": 1, "type": "string" }
       },
       "type": "object"
     },

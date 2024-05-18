@@ -1,5 +1,5 @@
 {
-  "$hash": "176432e1a627846ca5ee4fbb24b71d40af84f63b",
+  "$hash": "064709cc95e6bcffc341272ba53ee67dce8041bb",
   "$id": "aws-mediatailor-playbackconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -19,9 +19,14 @@
       "additionalProperties": false,
       "description": "The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).",
       "properties": {
+        "FillPolicy": {
+          "description": "Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL",
+          "enum": ["PARTIAL_AVAIL", "FULL_AVAIL_ONLY"],
+          "type": "string"
+        },
         "Mode": {
-          "description": "Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.",
-          "enum": ["OFF", "BEHIND_LIVE_EDGE"],
+          "description": "Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.",
+          "enum": ["OFF", "BEHIND_LIVE_EDGE", "AFTER_LIVE_EDGE"],
           "type": "string"
         },
         "Value": {

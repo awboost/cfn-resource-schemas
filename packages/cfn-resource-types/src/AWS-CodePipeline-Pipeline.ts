@@ -86,6 +86,13 @@ export type EncryptionKey = {
   Type: string;
 };
 /**
+ * Type definition for `AWS::CodePipeline::Pipeline.FailureConditions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html}
+ */
+export type FailureConditions = {
+  Result: string;
+};
+/**
  * Type definition for `AWS::CodePipeline::Pipeline.GitBranchFilterCriteria`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html}
  */
@@ -166,6 +173,7 @@ export type StageDeclaration = {
   Actions: ActionDeclaration[];
   Blockers?: BlockerDeclaration[];
   Name: string;
+  OnFailure?: FailureConditions;
 };
 /**
  * Type definition for `AWS::CodePipeline::Pipeline.StageTransition`.

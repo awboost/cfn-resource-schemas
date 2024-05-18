@@ -1,12 +1,16 @@
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `Action`
-  - updated definition `AuthenticateCognitoConfig`
-  - updated definition `Certificate`
-  - updated definition `TargetGroupTuple`
-- updated `AWS::Lightsail::Instance`
-  - added property `Ipv6Addresses`
-  - updated `readOnlyProperties`
-- updated `AWS::SSM::ResourceDataSync`
-  - added `tagging`
-- updated `AWS::SageMaker::Domain`
-  - updated definition `DefaultSpaceSettings`
+- updated `AWS::CodePipeline::Pipeline`
+  - added definition `FailureConditions`
+  - updated definition `StageDeclaration`
+- updated `AWS::KMS::Key`
+  - updated `tagging`
+  - updated property `RotationPeriodInDays`
+- updated `AWS::Lambda::EventSourceMapping`
+  - updated definition `OnFailure`
+  - updated property `EventSourceArn`
+  - updated property `FunctionName`
+  - updated property `MaximumBatchingWindowInSeconds`
+  - updated property `StartingPosition`
+- updated `AWS::MediaTailor::PlaybackConfiguration`
+  - updated definition `AvailSuppression`
+- updated `AWS::StepFunctions::StateMachine`
+  - updated definition `CloudWatchLogsLogGroup`

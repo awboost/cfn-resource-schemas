@@ -1,5 +1,5 @@
 {
-  "$hash": "fe231cb143a6881133e8535e098f0d7f2a0e122e",
+  "$hash": "59b547e0baef4109f1053657a1ea1b741c01120d",
   "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -75,6 +75,12 @@
         "Type": { "type": "string" }
       },
       "required": ["Type", "Id"],
+      "type": "object"
+    },
+    "FailureConditions": {
+      "additionalProperties": false,
+      "properties": { "Result": { "type": "string" } },
+      "required": ["Result"],
       "type": "object"
     },
     "GitBranchFilterCriteria": {
@@ -199,7 +205,8 @@
           "type": "array",
           "uniqueItems": true
         },
-        "Name": { "type": "string" }
+        "Name": { "type": "string" },
+        "OnFailure": { "$ref": "#/definitions/FailureConditions" }
       },
       "required": ["Actions", "Name"],
       "type": "object"

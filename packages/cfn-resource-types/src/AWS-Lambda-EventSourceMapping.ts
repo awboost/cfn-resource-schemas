@@ -3,13 +3,13 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 /**
  * The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
  For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
-  +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
-  +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
-  +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
-  +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
-  +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
-  +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
-  +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+  +   [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+  +   [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+  +   [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+  +   [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+  +   [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+  +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+  +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html}
  */
 export type LambdaEventSourceMappingProperties = {
@@ -57,7 +57,7 @@ export type LambdaEventSourceMappingProperties = {
       +   *Amazon DocumentDB* – The ARN of the DocumentDB change stream.
      * @minLength `12`
      * @maxLength `1024`
-     * @pattern `arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?(-iso)?(-isob)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
+     * @pattern `arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
      */
   EventSourceArn?: string;
   /**
@@ -75,7 +75,7 @@ export type LambdaEventSourceMappingProperties = {
      The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
      * @minLength `1`
      * @maxLength `140`
-     * @pattern `(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?(-iso)?(-isob)?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?`
+     * @pattern `(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?`
      */
   FunctionName: string;
   /**
@@ -137,9 +137,9 @@ export type LambdaEventSourceMappingProperties = {
   SourceAccessConfigurations?: SourceAccessConfiguration[];
   /**
      * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB.
-      +  *LATEST* - Read only new records.
-      +  *TRIM_HORIZON* - Process all available records.
-      +  *AT_TIMESTAMP* - Specify a time from which to start reading records.
+      +   *LATEST* - Read only new records.
+      +   *TRIM_HORIZON* - Process all available records.
+      +   *AT_TIMESTAMP* - Specify a time from which to start reading records.
      * @minLength `6`
      * @maxLength `12`
      * @pattern `(LATEST|TRIM_HORIZON|AT_TIMESTAMP)+`
@@ -275,7 +275,7 @@ export type OnFailure = {
      To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
      * @minLength `12`
      * @maxLength `1024`
-     * @pattern `arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?(-iso)?(-isob)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
+     * @pattern `arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
      */
   Destination?: string;
 };
@@ -355,13 +355,13 @@ export type SourceAccessConfiguration = {
 /**
  * The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
  For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
-  +  [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
-  +  [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
-  +  [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
-  +  [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
-  +  [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
-  +  [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
-  +  [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
+  +   [Configuring a Dynamo DB stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping)
+  +   [Configuring a Kinesis stream as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping)
+  +   [Configuring an SQS queue as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource)
+  +   [Configuring an MQ broker as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping)
+  +   [Configuring MSK as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html)
+  +   [Configuring Self-Managed Apache Kafka as an event source](https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html)
+  +   [Configuring Amazon DocumentDB as an event source](https://docs.aws.amazon.com/lambda/latest/dg/with-documentdb.html)
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html}
  */
 export class LambdaEventSourceMapping extends $Resource<
