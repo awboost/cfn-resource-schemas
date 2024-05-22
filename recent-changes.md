@@ -1,16 +1,9 @@
-- updated `AWS::CodePipeline::Pipeline`
-  - added definition `FailureConditions`
-  - updated definition `StageDeclaration`
-- updated `AWS::KMS::Key`
-  - updated `tagging`
-  - updated property `RotationPeriodInDays`
-- updated `AWS::Lambda::EventSourceMapping`
-  - updated definition `OnFailure`
-  - updated property `EventSourceArn`
-  - updated property `FunctionName`
-  - updated property `MaximumBatchingWindowInSeconds`
-  - updated property `StartingPosition`
-- updated `AWS::MediaTailor::PlaybackConfiguration`
-  - updated definition `AvailSuppression`
-- updated `AWS::StepFunctions::StateMachine`
-  - updated definition `CloudWatchLogsLogGroup`
+- updated `AWS::EKS::Addon`
+  - updated handler permissions
+- updated `AWS::Location::Tracker`
+  - updated property `PricingPlanDataSource`
+- updated `AWS::OpenSearchService::Domain`
+  - updated handler permissions
+- updated `AWS::SSMIncidents::ReplicationSet`
+  - added `tagging`
+  - removed `taggable`

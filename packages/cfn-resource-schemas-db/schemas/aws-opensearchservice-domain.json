@@ -1,5 +1,5 @@
 {
-  "$hash": "b394d0f6dd990b16a19f906570af1d5ba943c813",
+  "$hash": "ca9b086eca2c000518e7587163d629bf8b7d8314",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -242,7 +242,7 @@
         "es:ListTags",
         "es:DescribeDomainChangeProgress"
       ],
-      "timeoutInMinutes": 780
+      "timeoutInMinutes": 2160
     }
   },
   "primaryIdentifier": ["/properties/DomainName"],

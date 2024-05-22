@@ -1,5 +1,5 @@
 {
-  "$hash": "7ccad9f11a01483d02e0711facea54701c06d283",
+  "$hash": "9b3dbca9f7718e6fff7f483bb2e505a9d17f7e48",
   "$id": "aws-ssmincidents-replicationset.json",
   "additionalProperties": false,
   "definitions": {
@@ -124,6 +124,12 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Regions"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ssm-incidents.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::SSMIncidents::ReplicationSet"
 }

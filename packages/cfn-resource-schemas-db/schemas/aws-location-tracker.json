@@ -1,5 +1,5 @@
 {
-  "$hash": "501acd4d734ef09ea2eabcf7d20d934bf9138cf3",
+  "$hash": "f9a4f875df5998fd5e23fff603e1946c66a54975",
   "$id": "aws-location-tracker.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyId", "/properties/TrackerName"],
@@ -95,7 +95,10 @@
     "KmsKeyId": { "maxLength": 2048, "minLength": 1, "type": "string" },
     "PositionFiltering": { "$ref": "#/definitions/PositionFiltering" },
     "PricingPlan": { "$ref": "#/definitions/PricingPlan" },
-    "PricingPlanDataSource": { "type": "string" },
+    "PricingPlanDataSource": {
+      "description": "This shape is deprecated since 2022-02-01: Deprecated. No longer allowed.",
+      "type": "string"
+    },
     "Tags": {
       "description": "An array of key-value pairs to apply to this resource.",
       "insertionOrder": false,
