@@ -1,9 +1,12 @@
-- updated `AWS::EKS::Addon`
-  - updated handler permissions
-- updated `AWS::Location::Tracker`
-  - updated property `PricingPlanDataSource`
-- updated `AWS::OpenSearchService::Domain`
-  - updated handler permissions
-- updated `AWS::SSMIncidents::ReplicationSet`
+- added `AWS::DataZone::GroupProfile`
+- added `AWS::DataZone::ProjectMembership`
+- added `AWS::DataZone::UserProfile`
+- updated `AWS::FIS::ExperimentTemplate`
+  - added `tagging`
+- updated `AWS::QuickSight::DataSource`
+  - added definition `RedshiftIAMParameters`
+  - updated definition `RedshiftParameters`
+- updated `AWS::SSMIncidents::ResponsePlan`
   - added `tagging`
   - removed `taggable`
+  - updated handler permissions

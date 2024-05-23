@@ -601,6 +601,37 @@ export type RdsParameters = {
   InstanceId: string;
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSource.RedshiftIAMParameters`.
+ * <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+               <code>GetClusterCredentials</code>
+            </a>.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftiamparameters.html}
+ */
+export type RedshiftIAMParameters = {
+  /**
+   * <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+   */
+  AutoCreateDatabaseUser?: boolean;
+  /**
+   * <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+   * @minLength `1`
+   * @maxLength `50`
+   */
+  DatabaseGroups?: string[];
+  /**
+   * <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  DatabaseUser?: string;
+  /**
+   * <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
+   * @minLength `20`
+   * @maxLength `2048`
+   */
+  RoleArn: string;
+};
+/**
  * Type definition for `AWS::QuickSight::DataSource.RedshiftParameters`.
  * <p>The parameters for Amazon Redshift. The <code>ClusterId</code> field can be blank if
             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
@@ -626,6 +657,12 @@ export type RedshiftParameters = {
    * @maxLength `256`
    */
   Host?: string;
+  /**
+     * <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+                   <code>GetClusterCredentials</code>
+                </a>.</p>
+     */
+  IAMParameters?: RedshiftIAMParameters;
   /**
    * <p>The parameters for an IAM Identity Center configuration.</p>
    */

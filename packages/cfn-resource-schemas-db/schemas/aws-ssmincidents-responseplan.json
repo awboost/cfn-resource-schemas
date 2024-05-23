@@ -1,5 +1,5 @@
 {
-  "$hash": "3c50169081b15c963a49564d61ade2c2e824d8dd",
+  "$hash": "3c9db7b0bfe74a0c93724da3f003ad903045b041",
   "$id": "aws-ssmincidents-responseplan.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -255,7 +255,10 @@
         "iam:PassRole",
         "secretsmanager:GetSecretValue",
         "kms:Decrypt",
-        "kms:GenerateDataKey*"
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyPair",
+        "kms:GenerateDataKeyPairWithoutPlaintext",
+        "kms:GenerateDataKeyWithoutPlaintext"
       ]
     },
     "delete": {
@@ -281,7 +284,10 @@
         "iam:PassRole",
         "secretsmanager:GetSecretValue",
         "kms:Decrypt",
-        "kms:GenerateDataKey*"
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyPair",
+        "kms:GenerateDataKeyPairWithoutPlaintext",
+        "kms:GenerateDataKeyWithoutPlaintext"
       ]
     }
   },
@@ -348,6 +354,12 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Name", "IncidentTemplate"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ssm-incidents.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::SSMIncidents::ResponsePlan"
 }
