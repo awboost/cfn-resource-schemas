@@ -68,10 +68,20 @@ export type MWAAEnvironmentProperties = {
    */
   LoggingConfiguration?: LoggingConfiguration;
   /**
+   * Maximum webserver compute units.
+   * @min `2`
+   */
+  MaxWebservers?: number;
+  /**
    * Maximum worker compute units.
    * @min `1`
    */
   MaxWorkers?: number;
+  /**
+   * Minimum webserver compute units.
+   * @min `2`
+   */
+  MinWebservers?: number;
   /**
    * Minimum worker compute units.
    * @min `1`

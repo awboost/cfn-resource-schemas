@@ -14,6 +14,7 @@ export type GlueJobProperties = {
   ExecutionProperty?: ExecutionProperty;
   GlueVersion?: string;
   LogUri?: string;
+  MaintenanceWindow?: string;
   MaxCapacity?: number;
   MaxRetries?: number;
   Name?: string;

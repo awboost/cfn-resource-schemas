@@ -1,5 +1,5 @@
 {
-  "$hash": "148ed7bc1389128230e8c10d8a83c4153306e427",
+  "$hash": "d5ea0598117c26ad84ddbd0d8878f605d1eb28f7",
   "$id": "aws-m2-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -135,7 +135,8 @@
         "m2:UntagResource",
         "m2:ListTagsForResource",
         "m2:GetEnvironment",
-        "m2:UpdateEnvironment"
+        "m2:UpdateEnvironment",
+        "kms:DescribeKey"
       ]
     }
   },

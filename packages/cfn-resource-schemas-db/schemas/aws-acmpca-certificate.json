@@ -1,5 +1,5 @@
 {
-  "$hash": "969a0c2e8f6f1cea424fbf882c92fffb113d5b1b",
+  "$hash": "ad7070fbca833fbd2da84176ee139b606a1694f2",
   "$id": "aws-acmpca-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -403,8 +403,7 @@
       "permissions": ["acm-pca:IssueCertificate", "acm-pca:GetCertificate"]
     },
     "delete": { "permissions": ["acm-pca:GetCertificate"] },
-    "read": { "permissions": ["acm-pca:GetCertificate"] },
-    "update": { "permissions": [] }
+    "read": { "permissions": ["acm-pca:GetCertificate"] }
   },
   "primaryIdentifier": [
     "/properties/Arn",

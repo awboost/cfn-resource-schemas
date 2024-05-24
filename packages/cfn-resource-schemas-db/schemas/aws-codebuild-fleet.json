@@ -1,5 +1,5 @@
 {
-  "$hash": "edded92f632a163a2d709ae66a9a5a950a90cdf5",
+  "$hash": "5569b1cfba6db5332df7c12b6093c825881aa1ae",
   "$id": "aws-codebuild-fleet.json",
   "additionalProperties": false,
   "definitions": {
@@ -23,12 +23,33 @@
       },
       "required": ["Value", "Key"],
       "type": "object"
+    },
+    "VpcConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "SecurityGroupIds": {
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "Subnets": {
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "VpcId": { "type": "string" }
+      },
+      "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::CodeBuild::Fleet",
   "handlers": {
     "create": {
-      "permissions": ["codebuild:BatchGetFleets", "codebuild:CreateFleet"]
+      "permissions": [
+        "codebuild:BatchGetFleets",
+        "codebuild:CreateFleet",
+        "iam:PassRole"
+      ]
     },
     "delete": {
       "permissions": ["codebuild:BatchGetFleets", "codebuild:DeleteFleet"]
@@ -36,7 +57,11 @@
     "list": { "permissions": ["codebuild:ListFleets"] },
     "read": { "permissions": ["codebuild:BatchGetFleets"] },
     "update": {
-      "permissions": ["codebuild:BatchGetFleets", "codebuild:UpdateFleet"]
+      "permissions": [
+        "codebuild:BatchGetFleets",
+        "codebuild:UpdateFleet",
+        "iam:PassRole"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/Arn"],
@@ -62,7 +87,13 @@
       ],
       "type": "string"
     },
+    "FleetServiceRole": {
+      "pattern": "^(?:arn:)[a-zA-Z+-=,._:/@]+$",
+      "type": "string"
+    },
+    "FleetVpcConfig": { "$ref": "#/definitions/VpcConfig" },
     "Name": { "maxLength": 128, "minLength": 2, "type": "string" },
+    "OverflowBehavior": { "enum": ["QUEUE", "ON_DEMAND"], "type": "string" },
     "Tags": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },

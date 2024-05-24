@@ -1,5 +1,5 @@
 {
-  "$hash": "7d21a0f64e3021ebae774715a65c22467f0df111",
+  "$hash": "5a41c7e6fd008e084e6821069a43f705f1427de6",
   "$id": "aws-mwaa-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -167,9 +167,19 @@
       "enum": ["CRITICAL", "ERROR", "WARNING", "INFO", "DEBUG"],
       "type": "string"
     },
+    "MaxWebservers": {
+      "description": "Maximum webserver compute units.",
+      "minimum": 2,
+      "type": "integer"
+    },
     "MaxWorkers": {
       "description": "Maximum worker compute units.",
       "minimum": 1,
+      "type": "integer"
+    },
+    "MinWebservers": {
+      "description": "Minimum webserver compute units.",
+      "minimum": 2,
       "type": "integer"
     },
     "MinWorkers": {
@@ -341,7 +351,9 @@
     "ExecutionRoleArn": { "$ref": "#/definitions/ExecutionRoleArn" },
     "KmsKey": { "$ref": "#/definitions/KmsKey" },
     "LoggingConfiguration": { "$ref": "#/definitions/LoggingConfiguration" },
+    "MaxWebservers": { "$ref": "#/definitions/MaxWebservers" },
     "MaxWorkers": { "$ref": "#/definitions/MaxWorkers" },
+    "MinWebservers": { "$ref": "#/definitions/MinWebservers" },
     "MinWorkers": { "$ref": "#/definitions/MinWorkers" },
     "Name": { "$ref": "#/definitions/EnvironmentName" },
     "NetworkConfiguration": { "$ref": "#/definitions/NetworkConfiguration" },

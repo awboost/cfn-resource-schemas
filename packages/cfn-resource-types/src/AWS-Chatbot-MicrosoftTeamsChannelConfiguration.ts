@@ -31,6 +31,10 @@ export type ChatbotMicrosoftTeamsChannelConfigurationProperties = {
    */
   SnsTopicArns?: string[];
   /**
+   * The tags to add to the configuration
+   */
+  Tags?: Tag[];
+  /**
    * The id of the Microsoft Teams team
    * @minLength `36`
    * @maxLength `36`
@@ -66,6 +70,14 @@ export type ChatbotMicrosoftTeamsChannelConfigurationAttributes = {
    * @pattern `^arn:(aws[a-zA-Z-]*)?:chatbot:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$`
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::Chatbot::MicrosoftTeamsChannelConfiguration.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-microsoftteamschannelconfiguration-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.

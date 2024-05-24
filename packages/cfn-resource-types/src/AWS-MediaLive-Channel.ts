@@ -274,6 +274,7 @@ export type AvailBlanking = {
  */
 export type AvailConfiguration = {
   AvailSettings?: AvailSettings;
+  Scte35SegmentationScope?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.AvailSettings`.

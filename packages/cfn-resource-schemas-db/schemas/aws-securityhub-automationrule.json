@@ -1,5 +1,5 @@
 {
-  "$hash": "6ea639e157f32ffc5d2e08159cbef64fa542efa2",
+  "$hash": "495f7efc18125e0e16089d335f4187cb5fde056e",
   "$id": "aws-securityhub-automationrule.json",
   "additionalProperties": false,
   "definitions": {
@@ -595,7 +595,7 @@
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-securityhub",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

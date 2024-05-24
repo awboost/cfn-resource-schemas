@@ -21,10 +21,16 @@ export type CodeBuildFleetProperties = {
     | "LINUX_GPU_CONTAINER"
     | "ARM_CONTAINER";
   /**
+   * @pattern `^(?:arn:)[a-zA-Z+-=,._:/@]+$`
+   */
+  FleetServiceRole?: string;
+  FleetVpcConfig?: VpcConfig;
+  /**
    * @minLength `2`
    * @maxLength `128`
    */
   Name?: string;
+  OverflowBehavior?: "QUEUE" | "ON_DEMAND";
   Tags?: Tag[];
 };
 /**
@@ -56,6 +62,15 @@ export type Tag = {
    * @pattern `[a-zA-Z+-=._:/]+$`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::CodeBuild::Fleet.VpcConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-vpcconfig.html}
+ */
+export type VpcConfig = {
+  SecurityGroupIds?: string[];
+  Subnets?: string[];
+  VpcId?: string;
 };
 /**
  * Resource Type definition for AWS::CodeBuild::Fleet

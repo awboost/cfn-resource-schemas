@@ -1,12 +1,37 @@
-- added `AWS::DataZone::GroupProfile`
-- added `AWS::DataZone::ProjectMembership`
-- added `AWS::DataZone::UserProfile`
-- updated `AWS::FIS::ExperimentTemplate`
-  - added `tagging`
-- updated `AWS::QuickSight::DataSource`
-  - added definition `RedshiftIAMParameters`
-  - updated definition `RedshiftParameters`
-- updated `AWS::SSMIncidents::ResponsePlan`
-  - added `tagging`
-  - removed `taggable`
+- updated `AWS::ACMPCA::Certificate`
   - updated handler permissions
+- updated `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`
+  - added property `Tags`
+  - updated `tagging`
+  - updated definition `undefined`
+  - updated handler permissions
+- updated `AWS::Chatbot::SlackChannelConfiguration`
+  - added `tagging`
+  - added property `Tags`
+  - updated definition `undefined`
+  - updated handler permissions
+- updated `AWS::CodeBuild::Fleet`
+  - added definition `VpcConfig`
+  - added property `FleetServiceRole`
+  - added property `FleetVpcConfig`
+  - added property `OverflowBehavior`
+  - updated handler permissions
+- updated `AWS::Glue::Job`
+  - added property `MaintenanceWindow`
+- updated `AWS::Location::APIKey`
+  - updated definition `ApiKeyRestrictions`
+- updated `AWS::M2::Environment`
+  - updated handler permissions
+- updated `AWS::MWAA::Environment`
+  - added definition `MaxWebservers`
+  - added definition `MinWebservers`
+  - added property `MaxWebservers`
+  - added property `MinWebservers`
+- updated `AWS::MediaConnect::Flow`
+  - updated definition `Source`
+- updated `AWS::MediaLive::Channel`
+  - updated definition `AvailConfiguration`
+- updated `AWS::SageMaker::ModelCard`
+  - updated handler permissions
+- updated `AWS::SecurityHub::AutomationRule`
+  - updated `tagging`
