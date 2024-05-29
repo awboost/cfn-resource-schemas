@@ -1,5 +1,5 @@
 {
-  "$hash": "67410d89562d506b44520f0bd597601b34f7a683",
+  "$hash": "7d45eeeab8441bc68d3936e21477ac1c9a3fbe63",
   "$id": "aws-stepfunctions-activity.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -16,8 +16,13 @@
   },
   "description": "Resource schema for Activity",
   "handlers": {
-    "create": { "permissions": ["states:CreateActivity"] },
-    "delete": { "permissions": ["states:DeleteActivity"] },
+    "create": {
+      "permissions": ["states:CreateActivity", "states:TagResource"]
+    },
+    "delete": {
+      "permissions": ["states:DescribeActivity", "states:DeleteActivity"]
+    },
+    "list": { "permissions": ["states:ListActivities"] },
     "read": {
       "permissions": ["states:DescribeActivity", "states:ListTagsForResource"]
     },
