@@ -1,4 +1,2 @@
 - updated `AWS::SecurityLake::DataLake`
-  - removed `createOnlyProperties`
-- updated `AWS::StepFunctions::Activity`
-  - updated handler permissions
+  - added `createOnlyProperties`
