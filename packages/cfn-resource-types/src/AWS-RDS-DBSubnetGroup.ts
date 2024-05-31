@@ -14,7 +14,6 @@ export type RDSDBSubnetGroupProperties = {
      * The name for the DB subnet group. This value is stored as a lowercase string.
      Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
      Example: ``mysubnetgroup``
-     * @pattern `^(?!default$)[a-zA-Z]{1}[a-zA-Z0-9-_\.\s]{0,254}$`
      */
   DBSubnetGroupName?: string;
   /**

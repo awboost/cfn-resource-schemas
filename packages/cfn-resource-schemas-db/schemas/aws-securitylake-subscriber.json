@@ -1,5 +1,5 @@
 {
-  "$hash": "ce8b3d9f9ed6458119b8d384f672c70c9674a4f7",
+  "$hash": "8cab309a7abe511dba82071a08505fedccccc8a2",
   "$id": "aws-securitylake-subscriber.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DataLakeArn"],
@@ -49,24 +49,15 @@
       "type": "object"
     },
     "Source": {
+      "additionalProperties": false,
       "oneOf": [
-        {
-          "additionalProperties": false,
-          "properties": {
-            "AwsLogSource": { "$ref": "#/definitions/AwsLogSource" }
-          },
-          "required": ["AwsLogSource"],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "CustomLogSource": { "$ref": "#/definitions/CustomLogSource" }
-          },
-          "required": ["CustomLogSource"],
-          "type": "object"
-        }
-      ]
+        { "required": ["AwsLogSource"] },
+        { "required": ["CustomLogSource"] }
+      ],
+      "properties": {
+        "AwsLogSource": { "$ref": "#/definitions/AwsLogSource" },
+        "CustomLogSource": { "$ref": "#/definitions/CustomLogSource" }
+      }
     },
     "Tag": {
       "additionalProperties": false,

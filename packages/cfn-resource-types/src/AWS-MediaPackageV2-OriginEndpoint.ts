@@ -20,6 +20,10 @@ export type MediaPackageV2OriginEndpointProperties = {
   ChannelName: string;
   ContainerType?: ContainerType;
   /**
+   * <p>A DASH manifest configuration.</p>
+   */
+  DashManifests?: DashManifestConfiguration[];
+  /**
    * <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
    * @minLength `0`
    * @maxLength `1024`
@@ -88,6 +92,11 @@ export type MediaPackageV2OriginEndpointAttributes = {
   ModifiedAt: string;
 };
 /**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.AdMarkerDash`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-admarkerdash.html}
+ */
+export type AdMarkerDash = "BINARY" | "XML";
+/**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.AdMarkerHls`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-admarkerhls.html}
  */
@@ -102,6 +111,100 @@ export type CmafEncryptionMethod = "CENC" | "CBCS";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-containertype.html}
  */
 export type ContainerType = "TS" | "CMAF";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashDrmSignaling`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashdrmsignaling.html}
+ */
+export type DashDrmSignaling = "INDIVIDUAL" | "REFERENCED";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashManifestConfiguration`.
+ * <p>Retrieve the DASH manifest configuration.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html}
+ */
+export type DashManifestConfiguration = {
+  DrmSignaling?: DashDrmSignaling;
+  /**
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
+  /**
+   * <p>A short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. </p>
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[a-zA-Z0-9_-]+$`
+   */
+  ManifestName: string;
+  /**
+   * <p>The total duration (in seconds) of the manifest's content.</p>
+   */
+  ManifestWindowSeconds?: number;
+  /**
+   * <p>Minimum amount of content (in seconds) that a player must keep available in the buffer.</p>
+   */
+  MinBufferTimeSeconds?: number;
+  /**
+   * <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest.</p>
+   */
+  MinUpdatePeriodSeconds?: number;
+  /**
+     * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
+             For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+     * @minLength `0`
+     * @maxLength `100`
+     */
+  PeriodTriggers?: DashPeriodTrigger[];
+  /**
+   * <p>The SCTE configuration.</p>
+   */
+  ScteDash?: ScteDash;
+  SegmentTemplateFormat?: DashSegmentTemplateFormat;
+  /**
+   * <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
+   */
+  SuggestedPresentationDelaySeconds?: number;
+  /**
+   * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+   */
+  UtcTiming?: DashUtcTiming;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashPeriodTrigger`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashperiodtrigger.html}
+ */
+export type DashPeriodTrigger =
+  | "AVAILS"
+  | "DRM_KEY_ROTATION"
+  | "SOURCE_CHANGES"
+  | "SOURCE_DISRUPTIONS"
+  | "NONE";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashSegmentTemplateFormat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashsegmenttemplateformat.html}
+ */
+export type DashSegmentTemplateFormat = "NUMBER_WITH_TIMELINE";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashUtcTiming`.
+ * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashutctiming.html}
+ */
+export type DashUtcTiming = {
+  TimingMode?: DashUtcTimingMode;
+  /**
+   * <p>The the method that the player uses to synchronize to coordinated universal time (UTC) wall clock time.</p>
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  TimingSource?: string;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashUtcTimingMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashutctimingmode.html}
+ */
+export type DashUtcTimingMode =
+  | "HTTP_HEAD"
+  | "HTTP_ISO"
+  | "HTTP_XSDATE"
+  | "UTC_DIRECT";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DrmSystem`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-drmsystem.html}
@@ -305,6 +408,14 @@ export type Scte = {
    * @maxLength `100`
    */
   ScteFilter?: ScteFilter[];
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ScteDash`.
+ * <p>The SCTE configuration.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctedash.html}
+ */
+export type ScteDash = {
+  AdMarkerDash?: AdMarkerDash;
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ScteFilter`.

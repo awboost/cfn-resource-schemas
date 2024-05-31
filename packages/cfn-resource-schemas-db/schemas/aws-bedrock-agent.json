@@ -1,5 +1,5 @@
 {
-  "$hash": "dd4f63836b8c079f579a3e9a76b56f958a0d57d1",
+  "$hash": "c4731df4db8683ae30bd2eadbf5a115ee9dd4c5e",
   "$id": "aws-bedrock-agent.json",
   "additionalProperties": false,
   "definitions": {
@@ -166,6 +166,7 @@
       "properties": {
         "Functions": {
           "description": "List of Function definitions",
+          "insertionOrder": false,
           "items": { "$ref": "#/definitions/Function" },
           "type": "array"
         }
@@ -423,7 +424,6 @@
     "AgentResourceRoleArn": {
       "description": "ARN of a IAM role.",
       "maxLength": 2048,
-      "pattern": "^arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/(service-role/)?AmazonBedrockExecutionRoleForAgents.+$",
       "type": "string"
     },
     "AgentStatus": { "$ref": "#/definitions/AgentStatus" },
@@ -483,7 +483,7 @@
     },
     "Instruction": {
       "description": "Instruction for the agent.",
-      "maxLength": 1200,
+      "maxLength": 4000,
       "minLength": 40,
       "type": "string"
     },

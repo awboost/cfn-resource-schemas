@@ -26,6 +26,10 @@ export type EKSAddonProperties = {
    */
   ConfigurationValues?: string;
   /**
+   * An array of pod identities to apply to this add-on.
+   */
+  PodIdentityAssociations?: PodIdentityAssociation[];
+  /**
    * PreserveOnDelete parameter value
    */
   PreserveOnDelete?: boolean;
@@ -53,6 +57,22 @@ export type EKSAddonAttributes = {
    * Amazon Resource Name (ARN) of the add-on
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::EKS::Addon.PodIdentityAssociation`.
+ * A pod identity to associate with an add-on.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-addon-podidentityassociation.html}
+ */
+export type PodIdentityAssociation = {
+  /**
+   * The IAM role ARN that the pod identity association is created for.
+   * @pattern `^arn:aws(-cn|-us-gov|-iso(-[a-z])?)?:iam::\d{12}:(role)\/*`
+   */
+  RoleArn: string;
+  /**
+   * The Kubernetes service account that the pod identity association is created for.
+   */
+  ServiceAccount: string;
 };
 /**
  * Type definition for `AWS::EKS::Addon.Tag`.

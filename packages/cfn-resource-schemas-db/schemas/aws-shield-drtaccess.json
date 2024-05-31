@@ -1,5 +1,5 @@
 {
-  "$hash": "114ed7e5ff79622f2b3559606417cf31a24378b9",
+  "$hash": "8899bdbd76ab38e0d22f0bd2f6b32d474dcd3ae1",
   "$id": "aws-shield-drtaccess.json",
   "additionalProperties": false,
   "description": "Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.",
@@ -29,7 +29,7 @@
         "s3:DeleteBucketPolicy"
       ]
     },
-    "list": { "permissions": [] },
+    "list": { "permissions": ["shield:DescribeDRTAccess"] },
     "read": { "permissions": ["shield:DescribeDRTAccess"] },
     "update": {
       "permissions": [

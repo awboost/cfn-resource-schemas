@@ -104,16 +104,13 @@ export type CustomLogSource = {
  * Type definition for `AWS::SecurityLake::Subscriber.Source`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-source.html}
  */
-export type Source =
-  | {
-      /**
-       * Amazon Security Lake supports log and event collection for natively supported AWS services.
-       */
-      AwsLogSource: AwsLogSource;
-    }
-  | {
-      CustomLogSource: CustomLogSource;
-    };
+export type Source = {
+  /**
+   * Amazon Security Lake supports log and event collection for natively supported AWS services.
+   */
+  AwsLogSource?: AwsLogSource;
+  CustomLogSource?: CustomLogSource;
+};
 /**
  * Type definition for `AWS::SecurityLake::Subscriber.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscriber-tag.html}

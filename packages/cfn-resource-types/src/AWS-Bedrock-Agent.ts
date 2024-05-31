@@ -17,7 +17,6 @@ export type BedrockAgentProperties = {
   /**
    * ARN of a IAM role.
    * @maxLength `2048`
-   * @pattern `^arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/(service-role/)?AmazonBedrockExecutionRoleForAgents.+$`
    */
   AgentResourceRoleArn?: string;
   /**
@@ -53,7 +52,7 @@ export type BedrockAgentProperties = {
   /**
    * Instruction for the agent.
    * @minLength `40`
-   * @maxLength `1200`
+   * @maxLength `4000`
    */
   Instruction?: string;
   /**

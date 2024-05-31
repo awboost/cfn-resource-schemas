@@ -1,9 +1,26 @@
 {
-  "$hash": "b65b188e6683b62a84501144b7ce9a68f7d998fa",
+  "$hash": "ce1bf4f0387b678363e541ec00936b5129487b17",
   "$id": "aws-eks-addon.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterName", "/properties/AddonName"],
   "definitions": {
+    "PodIdentityAssociation": {
+      "additionalProperties": false,
+      "description": "A pod identity to associate with an add-on.",
+      "properties": {
+        "RoleArn": {
+          "description": "The IAM role ARN that the pod identity association is created for.",
+          "pattern": "^arn:aws(-cn|-us-gov|-iso(-[a-z])?)?:iam::\\d{12}:(role)\\/*",
+          "type": "string"
+        },
+        "ServiceAccount": {
+          "description": "The Kubernetes service account that the pod identity association is created for.",
+          "type": "string"
+        }
+      },
+      "required": ["ServiceAccount", "RoleArn"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
@@ -97,6 +114,13 @@
       "minLength": 1,
       "type": "string"
     },
+    "PodIdentityAssociations": {
+      "description": "An array of pod identities to apply to this add-on.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/PodIdentityAssociation" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "PreserveOnDelete": {
       "description": "PreserveOnDelete parameter value",
       "type": "boolean"
@@ -133,6 +157,7 @@
   "typeName": "AWS::EKS::Addon",
   "writeOnlyProperties": [
     "/properties/ResolveConflicts",
-    "/properties/PreserveOnDelete"
+    "/properties/PreserveOnDelete",
+    "/properties/PodIdentityAssociations"
   ]
 }
