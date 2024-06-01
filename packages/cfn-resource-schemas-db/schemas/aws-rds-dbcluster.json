@@ -1,5 +1,5 @@
 {
-  "$hash": "3f08c4a0fd380fe0636f788f83d9727c7d960129",
+  "$hash": "61735e0ef40fcecbfbe7d04571e68ecb7ca89b4c",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -175,8 +175,6 @@
         "rds:CreateDBCluster",
         "rds:CreateDBInstance",
         "rds:DescribeDBClusters",
-        "rds:DescribeDBClusterSnapshots",
-        "rds:DescribeDBSnapshots",
         "rds:DescribeEvents",
         "rds:EnableHttpEndpoint",
         "rds:ModifyDBCluster",

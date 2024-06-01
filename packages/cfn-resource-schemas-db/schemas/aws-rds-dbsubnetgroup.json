@@ -1,5 +1,5 @@
 {
-  "$hash": "8a949f1d6b6427f34c5fe8b55505a4b51d44efb5",
+  "$hash": "2dfb234b8b94a2f52effdfb78673c2731239f224",
   "$id": "aws-rds-dbsubnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DBSubnetGroupName"],
@@ -66,6 +66,7 @@
     },
     "DBSubnetGroupName": {
       "description": "The name for the DB subnet group. This value is stored as a lowercase string.\n Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be \"Default\".\n Example: ``mysubnetgroup``",
+      "pattern": "^(?!default$)[a-zA-Z]{1}[a-zA-Z0-9-_\\.\\s]{0,254}$",
       "type": "string"
     },
     "SubnetIds": {
