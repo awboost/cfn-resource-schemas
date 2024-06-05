@@ -1,5 +1,5 @@
 {
-  "$hash": "67a5fdc604ee6a2c341a949508ff8ac9a0c58de7",
+  "$hash": "80bbfdddfb51e947b9f38b7b14e4e61335684177",
   "$id": "aws-apigateway-resource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -42,6 +42,6 @@
   "readOnlyProperties": ["/properties/ResourceId"],
   "required": ["ParentId", "PathPart", "RestApiId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::ApiGateway::Resource"
 }

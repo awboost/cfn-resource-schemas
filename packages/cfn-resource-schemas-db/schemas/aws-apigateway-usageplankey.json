@@ -1,5 +1,5 @@
 {
-  "$hash": "b670931d3a664a37299460e2c3d77cd119fa12b7",
+  "$hash": "7fd9d9793cf0aee652604f58f04a1654fdd37b12",
   "$id": "aws-apigateway-usageplankey.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -44,6 +44,6 @@
   "readOnlyProperties": ["/properties/Id"],
   "required": ["KeyType", "UsagePlanId", "KeyId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::ApiGateway::UsagePlanKey"
 }

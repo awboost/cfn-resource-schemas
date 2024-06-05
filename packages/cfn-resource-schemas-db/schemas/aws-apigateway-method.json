@@ -1,5 +1,5 @@
 {
-  "$hash": "687e4a804d0a439aef20d8149832021a5f0032fc",
+  "$hash": "d0dc3d643dc7ba09f7506eb5a196f62a63ce6ee6",
   "$id": "aws-apigateway-method.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -178,7 +178,6 @@
     },
     "AuthorizationType": {
       "description": "The method's authorization type. This parameter is required. For valid values, see [Method](https://docs.aws.amazon.com/apigateway/latest/api/API_Method.html) in the *API Gateway API Reference*.\n  If you specify the ``AuthorizerId`` property, specify ``CUSTOM`` or ``COGNITO_USER_POOLS`` for this property.",
-      "enum": ["NONE", "AWS_IAM", "CUSTOM", "COGNITO_USER_POOLS"],
       "type": "string"
     },
     "AuthorizerId": {

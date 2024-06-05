@@ -1,5 +1,5 @@
 {
-  "$hash": "782f6b9d29708feb4fdf800f1e60f5124da85b4e",
+  "$hash": "81d5e7a615f7917fb85d7085ba5081607f0c33ba",
   "$id": "aws-apigateway-documentationpart.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Location", "/properties/RestApiId"],
@@ -84,5 +84,6 @@
   "readOnlyProperties": ["/properties/DocumentationPartId"],
   "required": ["Location", "Properties", "RestApiId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",
+  "tagging": { "taggable": false },
   "typeName": "AWS::ApiGateway::DocumentationPart"
 }

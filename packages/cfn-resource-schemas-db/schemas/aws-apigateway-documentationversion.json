@@ -1,5 +1,5 @@
 {
-  "$hash": "e21eb316a3c1a9e465ffde9463618291a8e4ea85",
+  "$hash": "5820394e909117db068023580b21af0ee60a7ce5",
   "$id": "aws-apigateway-documentationversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -45,5 +45,6 @@
   },
   "required": ["DocumentationVersion", "RestApiId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",
+  "tagging": { "taggable": false },
   "typeName": "AWS::ApiGateway::DocumentationVersion"
 }

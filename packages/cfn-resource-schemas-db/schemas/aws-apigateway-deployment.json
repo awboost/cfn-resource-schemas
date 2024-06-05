@@ -1,5 +1,5 @@
 {
-  "$hash": "4823dd52a0727505788e82fa1c99ecc9305db2e1",
+  "$hash": "ef4225de12ff3f40f800f9d4105a63b047187c63",
   "$id": "aws-apigateway-deployment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -267,7 +267,7 @@
   "readOnlyProperties": ["/properties/DeploymentId"],
   "required": ["RestApiId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",
-  "taggable": true,
+  "tagging": { "taggable": false },
   "typeName": "AWS::ApiGateway::Deployment",
   "writeOnlyProperties": [
     "/properties/StageName",

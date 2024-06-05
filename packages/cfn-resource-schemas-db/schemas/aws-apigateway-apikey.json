@@ -1,5 +1,5 @@
 {
-  "$hash": "628b71a4a4512201afaa2b866c4c017a8029fd0b",
+  "$hash": "dd1ae80926f6e8f03d46c3c6012a3ad5c704448e",
   "$id": "aws-apigateway-apikey.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -103,6 +103,14 @@
   },
   "readOnlyProperties": ["/properties/APIKeyId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["apigateway:PUT", "apigateway:DELETE", "apigateway:GET"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ApiGateway::ApiKey",
   "writeOnlyProperties": ["/properties/GenerateDistinctId"]
 }

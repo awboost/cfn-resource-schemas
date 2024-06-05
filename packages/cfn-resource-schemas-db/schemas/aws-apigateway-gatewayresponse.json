@@ -1,5 +1,5 @@
 {
-  "$hash": "2f61d47de416b3cd0dcf021304fa3ad0e53105ea",
+  "$hash": "0fa32372afda997cd27c5421855fe8608c8c88be",
   "$id": "aws-apigateway-gatewayresponse.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResponseType", "/properties/RestApiId"],
@@ -7,7 +7,16 @@
   "handlers": {
     "create": { "permissions": ["apigateway:PUT", "apigateway:GET"] },
     "delete": { "permissions": ["apigateway:GET", "apigateway:DELETE"] },
-    "list": { "permissions": ["apigateway:GET"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "RestApiId": { "$ref": "resource-schema.json#/properties/RestApiId" }
+        },
+        "required": ["RestApiId"]
+      },
+      "permissions": ["apigateway:GET"]
+    },
+    "read": { "permissions": ["apigateway:GET"] },
     "update": { "permissions": ["apigateway:GET", "apigateway:PUT"] }
   },
   "primaryIdentifier": ["/properties/Id"],
@@ -41,6 +50,6 @@
   "readOnlyProperties": ["/properties/Id"],
   "required": ["ResponseType", "RestApiId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::ApiGateway::GatewayResponse"
 }

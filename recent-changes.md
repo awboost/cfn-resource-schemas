@@ -1,7 +1,36 @@
-- updated `AWS::RDS::DBCluster`
+- updated `AWS::ApiGateway::Account`
+  - added `tagging`
   - updated handler permissions
-- updated `AWS::RDS::DBInstance`
-  - updated property `KmsKeyId`
-  - updated property `StorageEncrypted`
-- updated `AWS::RDS::DBSubnetGroup`
-  - updated property `DBSubnetGroupName`
+- updated `AWS::ApiGateway::ApiKey`
+  - added `tagging`
+- updated `AWS::ApiGateway::ClientCertificate`
+  - added `tagging`
+- updated `AWS::ApiGateway::Deployment`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::ApiGateway::DocumentationPart`
+  - added `tagging`
+- updated `AWS::ApiGateway::DocumentationVersion`
+  - added `tagging`
+- updated `AWS::ApiGateway::GatewayResponse`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::ApiGateway::Method`
+  - updated property `AuthorizationType`
+- updated `AWS::ApiGateway::Model`
+  - added `tagging`
+- updated `AWS::ApiGateway::RequestValidator`
+  - added `tagging`
+- updated `AWS::ApiGateway::Resource`
+  - added `tagging`
+- updated `AWS::ApiGateway::RestApi`
+  - updated `tagging`
+- updated `AWS::ApiGateway::Stage`
+  - updated `tagging`
+- updated `AWS::ApiGateway::UsagePlan`
+  - updated `tagging`
+- updated `AWS::ApiGateway::UsagePlanKey`
+  - added `tagging`
+- updated `AWS::QuickSight::RefreshSchedule`
+  - added `sourceUrl`
+  - updated handler permissions

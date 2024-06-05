@@ -1,5 +1,5 @@
 {
-  "$hash": "8b21294646bd85829061d1bc19b3132f4936b070",
+  "$hash": "abdba75ed9e046a88463de69f7d3c1138e3dff3e",
   "$id": "aws-apigateway-restapi.json",
   "additionalProperties": false,
   "definitions": {
@@ -169,6 +169,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["apigateway:PUT", "apigateway:DELETE", "apigateway:GET"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

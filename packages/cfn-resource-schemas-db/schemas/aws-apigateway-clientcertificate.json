@@ -1,5 +1,5 @@
 {
-  "$hash": "1282b3f8053a66fdc6ee50ae4827af7b2d02de23",
+  "$hash": "851cac4c6c475927692b4d91b856c91fdaf55892",
   "$id": "aws-apigateway-clientcertificate.json",
   "additionalProperties": false,
   "definitions": {
@@ -47,5 +47,13 @@
   },
   "readOnlyProperties": ["/properties/ClientCertificateId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["apigateway:PUT", "apigateway:DELETE", "apigateway:GET"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ApiGateway::ClientCertificate"
 }

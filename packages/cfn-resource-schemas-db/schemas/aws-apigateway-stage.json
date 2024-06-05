@@ -1,5 +1,5 @@
 {
-  "$hash": "2a0428f5552a3e1b5baa2701e5fb7ad801188efa",
+  "$hash": "9af031d2c216c6793504311c756c01dad4461f3e",
   "$id": "aws-apigateway-stage.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RestApiId", "/properties/StageName"],
@@ -217,6 +217,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["apigateway:PUT", "apigateway:DELETE", "apigateway:GET"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

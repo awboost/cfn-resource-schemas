@@ -1,5 +1,5 @@
 {
-  "$hash": "2672d3095ccffae8226aea092854583d381bb569",
+  "$hash": "e5a0c0eb80836064550f01818a46f0f106963541",
   "$id": "aws-apigateway-model.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -48,5 +48,6 @@
   },
   "required": ["RestApiId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",
+  "tagging": { "taggable": false },
   "typeName": "AWS::ApiGateway::Model"
 }
