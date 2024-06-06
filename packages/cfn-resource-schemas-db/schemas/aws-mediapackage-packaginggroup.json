@@ -1,5 +1,5 @@
 {
-  "$hash": "2ddac3fefd380923a949d4156d1abe64763ea63f",
+  "$hash": "8598c337b856bca7def71a6f6dd6009faaed71c4",
   "$id": "aws-mediapackage-packaginggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Id", "/properties/Tags"],
@@ -108,5 +108,12 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/DomainName"],
   "required": ["Id"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediapackage.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::MediaPackage::PackagingGroup"
 }

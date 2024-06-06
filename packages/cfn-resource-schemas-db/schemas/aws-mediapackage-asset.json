@@ -1,5 +1,5 @@
 {
-  "$hash": "c6a032250a90fb4c7a0db2c40c6b78aa165ba273",
+  "$hash": "3b5e0287943db77c164d26c5ae4ade6af50953d7",
   "$id": "aws-mediapackage-asset.json",
   "additionalProperties": false,
   "definitions": {
@@ -100,5 +100,12 @@
   ],
   "required": ["Id", "PackagingGroupId", "SourceArn", "SourceRoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::MediaPackage::Asset"
 }

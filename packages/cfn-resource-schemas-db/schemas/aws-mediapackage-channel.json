@@ -1,5 +1,5 @@
 {
-  "$hash": "c84671be6b824a3e16b49fec38e79df25cf3ed92",
+  "$hash": "a5448287846d50948b2e3cc6233dc4dea47c43c2",
   "$id": "aws-mediapackage-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Id", "/properties/Tags"],
@@ -131,5 +131,12 @@
   ],
   "required": ["Id"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::MediaPackage::Channel"
 }

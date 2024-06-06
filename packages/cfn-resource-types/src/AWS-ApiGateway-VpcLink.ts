@@ -1,25 +1,24 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource type definition for `AWS::ApiGateway::VpcLink`.
- * Schema for AWS ApiGateway VpcLink
+ * The ``AWS::ApiGateway::VpcLink`` resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC). For more information, see [vpclink:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateVpcLink.html) in the ``Amazon API Gateway REST API Reference``.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html}
  */
 export type ApiGatewayVpcLinkProperties = {
   /**
-   * A description of the VPC link.
+   * The description of the VPC link.
    */
   Description?: string;
   /**
-   * A name for the VPC link.
+   * The name used to label and identify the VPC link.
    */
   Name: string;
   /**
-   * An array of arbitrary tags (key-value pairs) to associate with the stage.
+   * An array of arbitrary tags (key-value pairs) to associate with the VPC link.
    */
   Tags?: Tag[];
   /**
-   * The ARN of network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
+   * The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
    */
   TargetArns: string[];
 };
@@ -28,9 +27,6 @@ export type ApiGatewayVpcLinkProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html#aws-resource-apigateway-vpclink-return-values}
  */
 export type ApiGatewayVpcLinkAttributes = {
-  /**
-   * The ID of the instance that backs VPC link.
-   */
   VpcLinkId: string;
 };
 /**
@@ -42,8 +38,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource type definition for `AWS::ApiGateway::VpcLink`.
- * Schema for AWS ApiGateway VpcLink
+ * The ``AWS::ApiGateway::VpcLink`` resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC). For more information, see [vpclink:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateVpcLink.html) in the ``Amazon API Gateway REST API Reference``.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html}
  */
 export class ApiGatewayVpcLink extends $Resource<

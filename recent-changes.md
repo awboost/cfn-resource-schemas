@@ -1,36 +1,25 @@
-- updated `AWS::ApiGateway::Account`
+- updated `AWS::ApiGateway::VpcLink`
+  - updated definition `Tag`
+  - updated property `Description`
+  - updated property `Name`
+  - updated property `Tags`
+  - updated property `TargetArns`
+  - updated property `VpcLinkId`
+- updated `AWS::MediaPackage::Asset`
   - added `tagging`
-  - updated handler permissions
-- updated `AWS::ApiGateway::ApiKey`
+- updated `AWS::MediaPackage::Channel`
   - added `tagging`
-- updated `AWS::ApiGateway::ClientCertificate`
+- updated `AWS::MediaPackage::OriginEndpoint`
   - added `tagging`
-- updated `AWS::ApiGateway::Deployment`
+  - removed `oneOf`
+- updated `AWS::MediaPackage::PackagingConfiguration`
   - added `tagging`
-  - removed `taggable`
-- updated `AWS::ApiGateway::DocumentationPart`
+  - removed `oneOf`
+- updated `AWS::MediaPackage::PackagingGroup`
   - added `tagging`
-- updated `AWS::ApiGateway::DocumentationVersion`
-  - added `tagging`
-- updated `AWS::ApiGateway::GatewayResponse`
-  - added `tagging`
-  - updated handler permissions
-- updated `AWS::ApiGateway::Method`
-  - updated property `AuthorizationType`
-- updated `AWS::ApiGateway::Model`
-  - added `tagging`
-- updated `AWS::ApiGateway::RequestValidator`
-  - added `tagging`
-- updated `AWS::ApiGateway::Resource`
-  - added `tagging`
-- updated `AWS::ApiGateway::RestApi`
-  - updated `tagging`
-- updated `AWS::ApiGateway::Stage`
-  - updated `tagging`
-- updated `AWS::ApiGateway::UsagePlan`
-  - updated `tagging`
-- updated `AWS::ApiGateway::UsagePlanKey`
-  - added `tagging`
-- updated `AWS::QuickSight::RefreshSchedule`
-  - added `sourceUrl`
+- updated `AWS::RolesAnywhere::Profile`
+  - added definition `AttributeMapping`
+  - added definition `CertificateField`
+  - added definition `MappingRule`
+  - added property `AttributeMappings`
   - updated handler permissions

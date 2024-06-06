@@ -1,5 +1,5 @@
 {
-  "$hash": "5ca88c12cc96fe455586278d906cb7cbb1dc6cb1",
+  "$hash": "2512310b0697ebdbf77cd4628610f83c0e41cc23",
   "$id": "aws-mediapackage-originendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Id"],
@@ -475,12 +475,6 @@
       "permissions": ["mediapackage:UpdateOriginEndpoint", "iam:PassRole"]
     }
   },
-  "oneOf": [
-    { "required": ["HlsPackage"] },
-    { "required": ["DashPackage"] },
-    { "required": ["MssPackage"] },
-    { "required": ["CmafPackage"] }
-  ],
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
     "Arn": {
@@ -543,5 +537,12 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/Url"],
   "required": ["Id", "ChannelId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::MediaPackage::OriginEndpoint"
 }

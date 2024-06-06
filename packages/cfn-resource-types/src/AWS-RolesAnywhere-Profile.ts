@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html}
  */
 export type RolesAnywhereProfileProperties = {
+  AttributeMappings?: AttributeMapping[];
   /**
    * @min `900`
    * @max `43200`
@@ -32,6 +33,26 @@ export type RolesAnywhereProfileAttributes = {
    * @pattern `[a-f0-9]{8}-([a-z0-9]{4}-){3}[a-z0-9]{12}`
    */
   ProfileId: string;
+};
+/**
+ * Type definition for `AWS::RolesAnywhere::Profile.AttributeMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-attributemapping.html}
+ */
+export type AttributeMapping = {
+  CertificateField: CertificateField;
+  MappingRules: MappingRule[];
+};
+/**
+ * Type definition for `AWS::RolesAnywhere::Profile.CertificateField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-certificatefield.html}
+ */
+export type CertificateField = "x509Subject" | "x509Issuer" | "x509SAN";
+/**
+ * Type definition for `AWS::RolesAnywhere::Profile.MappingRule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-mappingrule.html}
+ */
+export type MappingRule = {
+  Specifier: string;
 };
 /**
  * Type definition for `AWS::RolesAnywhere::Profile.Tag`.

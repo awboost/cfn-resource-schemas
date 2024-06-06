@@ -1,8 +1,30 @@
 {
-  "$hash": "de0a02fcf0ed1ae59969b2ece7a74950f5080a7f",
+  "$hash": "7dec34db797d6f68067eea01e9bf9c5ef6a31321",
   "$id": "aws-rolesanywhere-profile.json",
   "additionalProperties": false,
   "definitions": {
+    "AttributeMapping": {
+      "additionalProperties": false,
+      "properties": {
+        "CertificateField": { "$ref": "#/definitions/CertificateField" },
+        "MappingRules": {
+          "items": { "$ref": "#/definitions/MappingRule" },
+          "type": "array"
+        }
+      },
+      "required": ["CertificateField", "MappingRules"],
+      "type": "object"
+    },
+    "CertificateField": {
+      "enum": ["x509Subject", "x509Issuer", "x509SAN"],
+      "type": "string"
+    },
+    "MappingRule": {
+      "additionalProperties": false,
+      "properties": { "Specifier": { "type": "string" } },
+      "required": ["Specifier"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -22,7 +44,9 @@
         "iam:PassRole",
         "rolesanywhere:CreateProfile",
         "rolesanywhere:TagResource",
-        "rolesanywhere:ListTagsForResource"
+        "rolesanywhere:ListTagsForResource",
+        "rolesanywhere:PutAttributeMapping",
+        "rolesanywhere:DeleteAttributeMapping"
       ]
     },
     "delete": { "permissions": ["rolesanywhere:DeleteProfile"] },
@@ -43,17 +67,24 @@
         "iam:GetRole",
         "iam:GetPolicy",
         "iam:PassRole",
+        "rolesanywhere:GetProfile",
         "rolesanywhere:UpdateProfile",
         "rolesanywhere:EnableProfile",
         "rolesanywhere:DisableProfile",
         "rolesanywhere:TagResource",
         "rolesanywhere:UntagResource",
-        "rolesanywhere:ListTagsForResource"
+        "rolesanywhere:ListTagsForResource",
+        "rolesanywhere:PutAttributeMapping",
+        "rolesanywhere:DeleteAttributeMapping"
       ]
     }
   },
   "primaryIdentifier": ["/properties/ProfileId"],
   "properties": {
+    "AttributeMappings": {
+      "items": { "$ref": "#/definitions/AttributeMapping" },
+      "type": "array"
+    },
     "DurationSeconds": { "maximum": 43200, "minimum": 900, "type": "number" },
     "Enabled": { "type": "boolean" },
     "ManagedPolicyArns": { "items": { "type": "string" }, "type": "array" },
