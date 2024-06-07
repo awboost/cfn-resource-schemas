@@ -1,5 +1,5 @@
 {
-  "$hash": "59b94becdcd386edd2cf0487d592145c2273a0b8",
+  "$hash": "07f4f0e49845f91925b5f4237c1cfe0dbb2837a8",
   "$id": "aws-transfer-connector.json",
   "additionalProperties": false,
   "definitions": {
@@ -154,6 +154,7 @@
     },
     "ServiceManagedEgressIpAddresses": {
       "description": "The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.",
+      "insertionOrder": false,
       "items": {
         "pattern": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$",
         "type": "string"

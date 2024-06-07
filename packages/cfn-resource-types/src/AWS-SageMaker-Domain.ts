@@ -113,7 +113,7 @@ export type CodeEditorAppSettings = {
   /**
    * A list of custom images for use for CodeEditor apps.
    * @minLength `0`
-   * @maxLength `30`
+   * @maxLength `200`
    */
   CustomImages?: CustomImage[];
   /**
@@ -332,7 +332,7 @@ export type JupyterLabAppSettings = {
   /**
    * A list of custom images for use for JupyterLab apps.
    * @minLength `0`
-   * @maxLength `30`
+   * @maxLength `200`
    */
   CustomImages?: CustomImage[];
   /**
@@ -363,7 +363,7 @@ export type KernelGatewayAppSettings = {
   /**
    * A list of custom SageMaker images that are configured to run as a KernelGateway app.
    * @minLength `0`
-   * @maxLength `30`
+   * @maxLength `200`
    */
   CustomImages?: CustomImage[];
   /**
@@ -471,7 +471,7 @@ export type RSessionAppSettings = {
   /**
    * A list of custom SageMaker images that are configured to run as a KernelGateway app.
    * @minLength `0`
-   * @maxLength `30`
+   * @maxLength `200`
    */
   CustomImages?: CustomImage[];
   DefaultResourceSpec?: ResourceSpec;

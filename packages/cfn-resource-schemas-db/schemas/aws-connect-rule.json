@@ -1,5 +1,5 @@
 {
-  "$hash": "8afda19f6ab84e3d68ead924dacdd1ce5a04f2c2",
+  "$hash": "c6c369fa33bbca6874f06dc142758b4ac0069369",
   "$id": "aws-connect-rule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -21,6 +21,9 @@
         "EventBridgeActions": { "$ref": "#/definitions/EventBridgeActions" },
         "SendNotificationActions": {
           "$ref": "#/definitions/SendNotificationActions"
+        },
+        "SubmitAutoEvaluationActions": {
+          "$ref": "#/definitions/SubmitAutoEvaluationActions"
         },
         "TaskActions": { "$ref": "#/definitions/TaskActions" },
         "UpdateCaseActions": { "$ref": "#/definitions/UpdateCaseActions" }
@@ -233,6 +236,28 @@
       "description": "The action will send notification when a rule is triggered.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/SendNotificationAction" },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "SubmitAutoEvaluationAction": {
+      "additionalProperties": false,
+      "description": "The definition of submit auto evaluation action.",
+      "properties": {
+        "EvaluationFormArn": {
+          "description": "The Amazon Resource Name (ARN) of the evaluation form.",
+          "pattern": "^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/evaluation-form/[-a-zA-Z0-9]*$",
+          "type": "string"
+        }
+      },
+      "required": ["EvaluationFormArn"],
+      "type": "object"
+    },
+    "SubmitAutoEvaluationActions": {
+      "description": "This action will submit an auto contact evaluation when a rule is triggered.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/SubmitAutoEvaluationAction" },
       "maxItems": 1,
       "minItems": 1,
       "type": "array",

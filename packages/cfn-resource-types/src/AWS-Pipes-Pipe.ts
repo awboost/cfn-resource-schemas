@@ -208,6 +208,28 @@ export type DeadLetterConfig = {
   Arn?: string;
 };
 /**
+ * Type definition for `AWS::Pipes::Pipe.DimensionMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-dimensionmapping.html}
+ */
+export type DimensionMapping = {
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  DimensionName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  DimensionValue: string;
+  DimensionValueType: DimensionValueType;
+};
+/**
+ * Type definition for `AWS::Pipes::Pipe.DimensionValueType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-dimensionvaluetype.html}
+ */
+export type DimensionValueType = "VARCHAR";
+/**
  * Type definition for `AWS::Pipes::Pipe.DynamoDBStreamStartPosition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-dynamodbstreamstartposition.html}
  */
@@ -303,6 +325,15 @@ export type EcsTaskOverride = {
   TaskRoleArn?: string;
 };
 /**
+ * Type definition for `AWS::Pipes::Pipe.EpochTimeUnit`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-epochtimeunit.html}
+ */
+export type EpochTimeUnit =
+  | "MILLISECONDS"
+  | "SECONDS"
+  | "MICROSECONDS"
+  | "NANOSECONDS";
+/**
  * Type definition for `AWS::Pipes::Pipe.Filter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filter.html}
  */
@@ -365,6 +396,16 @@ export type LaunchType = "EC2" | "FARGATE" | "EXTERNAL";
  */
 export type LogLevel = "OFF" | "ERROR" | "INFO" | "TRACE";
 /**
+ * Type definition for `AWS::Pipes::Pipe.MeasureValueType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-measurevaluetype.html}
+ */
+export type MeasureValueType =
+  | "DOUBLE"
+  | "BIGINT"
+  | "VARCHAR"
+  | "BOOLEAN"
+  | "TIMESTAMP";
+/**
  * Type definition for `AWS::Pipes::Pipe.MQBrokerAccessCredentials`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mqbrokeraccesscredentials.html}
  */
@@ -405,6 +446,39 @@ export type MSKAccessCredentials =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-mskstartposition.html}
  */
 export type MSKStartPosition = "TRIM_HORIZON" | "LATEST";
+/**
+ * Type definition for `AWS::Pipes::Pipe.MultiMeasureAttributeMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasureattributemapping.html}
+ */
+export type MultiMeasureAttributeMapping = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  MeasureValue: string;
+  MeasureValueType: MeasureValueType;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  MultiMeasureAttributeName: string;
+};
+/**
+ * Type definition for `AWS::Pipes::Pipe.MultiMeasureMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasuremapping.html}
+ */
+export type MultiMeasureMapping = {
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  MultiMeasureAttributeMappings: MultiMeasureAttributeMapping[];
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  MultiMeasureName: string;
+};
 /**
  * Type definition for `AWS::Pipes::Pipe.NetworkConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-networkconfiguration.html}
@@ -859,6 +933,7 @@ export type PipeTargetParameters = {
   SageMakerPipelineParameters?: PipeTargetSageMakerPipelineParameters;
   SqsQueueParameters?: PipeTargetSqsQueueParameters;
   StepFunctionStateMachineParameters?: PipeTargetStateMachineParameters;
+  TimestreamParameters?: PipeTargetTimestreamParameters;
 };
 /**
  * Type definition for `AWS::Pipes::Pipe.PipeTargetRedshiftDataParameters`.
@@ -931,6 +1006,44 @@ export type PipeTargetSqsQueueParameters = {
  */
 export type PipeTargetStateMachineParameters = {
   InvocationType?: PipeTargetInvocationType;
+};
+/**
+ * Type definition for `AWS::Pipes::Pipe.PipeTargetTimestreamParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargettimestreamparameters.html}
+ */
+export type PipeTargetTimestreamParameters = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  DimensionMappings: DimensionMapping[];
+  EpochTimeUnit?: EpochTimeUnit;
+  /**
+   * @minLength `0`
+   * @maxLength `1024`
+   */
+  MultiMeasureMappings?: MultiMeasureMapping[];
+  /**
+   * @minLength `0`
+   * @maxLength `8192`
+   */
+  SingleMeasureMappings?: SingleMeasureMapping[];
+  TimeFieldType?: TimeFieldType;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  TimeValue: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  TimestampFormat?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  VersionValue: string;
 };
 /**
  * Type definition for `AWS::Pipes::Pipe.PlacementConstraint`.
@@ -1078,6 +1191,23 @@ export type SelfManagedKafkaAccessConfigurationVpc = {
  */
 export type SelfManagedKafkaStartPosition = "TRIM_HORIZON" | "LATEST";
 /**
+ * Type definition for `AWS::Pipes::Pipe.SingleMeasureMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-singlemeasuremapping.html}
+ */
+export type SingleMeasureMapping = {
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  MeasureName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  MeasureValue: string;
+  MeasureValueType: MeasureValueType;
+};
+/**
  * Type definition for `AWS::Pipes::Pipe.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-tag.html}
  */
@@ -1098,6 +1228,11 @@ export type Tag = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-tagmap.html}
  */
 export type TagMap = Record<string, string>;
+/**
+ * Type definition for `AWS::Pipes::Pipe.TimeFieldType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-timefieldtype.html}
+ */
+export type TimeFieldType = "EPOCH" | "TIMESTAMP_FORMAT";
 /**
  * Definition of AWS::Pipes::Pipe Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pipes-pipe.html}

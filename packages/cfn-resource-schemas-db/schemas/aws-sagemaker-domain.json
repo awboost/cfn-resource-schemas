@@ -1,5 +1,5 @@
 {
-  "$hash": "a26a3786b99ce408d255b3779bbc13202926d265",
+  "$hash": "83eb9036db7a73b08b417a06a52e0d3e691f717c",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -18,7 +18,7 @@
         "CustomImages": {
           "description": "A list of custom images for use for CodeEditor apps.",
           "items": { "$ref": "#/definitions/CustomImage" },
-          "maxItems": 30,
+          "maxItems": 200,
           "minItems": 0,
           "type": "array",
           "uniqueItems": false
@@ -185,7 +185,12 @@
         "VpcOnlyTrustedAccounts": {
           "description": "A list of account id's that would be used to pull images from in VpcOnly mode",
           "insertionOrder": false,
-          "items": { "maxLength": 12, "pattern": "^[0-9]$", "type": "string" },
+          "items": {
+            "maxLength": 12,
+            "minLength": 12,
+            "pattern": "^\\d+$",
+            "type": "string"
+          },
           "maxItems": 10,
           "minItems": 0,
           "type": "array",
@@ -252,7 +257,7 @@
         "CustomImages": {
           "description": "A list of custom images for use for JupyterLab apps.",
           "items": { "$ref": "#/definitions/CustomImage" },
-          "maxItems": 30,
+          "maxItems": 200,
           "minItems": 0,
           "type": "array",
           "uniqueItems": false
@@ -288,7 +293,7 @@
           "description": "A list of custom SageMaker images that are configured to run as a KernelGateway app.",
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/CustomImage" },
-          "maxItems": 30,
+          "maxItems": 200,
           "minItems": 0,
           "type": "array",
           "uniqueItems": false
@@ -308,7 +313,7 @@
           "description": "A list of custom SageMaker images that are configured to run as a KernelGateway app.",
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/CustomImage" },
-          "maxItems": 30,
+          "maxItems": 200,
           "minItems": 0,
           "type": "array",
           "uniqueItems": false

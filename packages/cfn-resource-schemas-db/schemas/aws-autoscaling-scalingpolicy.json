@@ -1,5 +1,5 @@
 {
-  "$hash": "ddd813b05cd8c8d39d6cd63a452685d2b92286c2",
+  "$hash": "aabcd1da3a010e7eebbfa33e53fd677b61b18538",
   "$id": "aws-autoscaling-scalingpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AutoScalingGroupName"],
@@ -14,11 +14,17 @@
           "uniqueItems": true
         },
         "MetricName": { "type": "string" },
+        "Metrics": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/TargetTrackingMetricDataQuery" },
+          "type": "array",
+          "uniqueItems": true
+        },
         "Namespace": { "type": "string" },
         "Statistic": { "type": "string" },
         "Unit": { "type": "string" }
       },
-      "required": ["MetricName", "Statistic", "Namespace"],
+      "required": [],
       "type": "object"
     },
     "Metric": {
@@ -211,6 +217,28 @@
         "TargetValue": { "type": "number" }
       },
       "required": ["TargetValue"],
+      "type": "object"
+    },
+    "TargetTrackingMetricDataQuery": {
+      "additionalProperties": false,
+      "properties": {
+        "Expression": { "type": "string" },
+        "Id": { "type": "string" },
+        "Label": { "type": "string" },
+        "MetricStat": { "$ref": "#/definitions/TargetTrackingMetricStat" },
+        "ReturnData": { "type": "boolean" }
+      },
+      "required": ["Id"],
+      "type": "object"
+    },
+    "TargetTrackingMetricStat": {
+      "additionalProperties": false,
+      "properties": {
+        "Metric": { "$ref": "#/definitions/Metric" },
+        "Stat": { "type": "string" },
+        "Unit": { "type": "string" }
+      },
+      "required": ["Stat", "Metric"],
       "type": "object"
     }
   },

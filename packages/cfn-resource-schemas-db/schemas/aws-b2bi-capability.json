@@ -1,5 +1,5 @@
 {
-  "$hash": "96120b6860e1f8da90863a19b327355f148dc5df",
+  "$hash": "59083a04758e957a6414e9927fcc85e4b0bd2b9d",
   "$id": "aws-b2bi-capability.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
@@ -151,7 +151,12 @@
       "type": "string"
     },
     "X12Version": {
-      "enum": ["VERSION_4010", "VERSION_4030", "VERSION_5010"],
+      "enum": [
+        "VERSION_4010",
+        "VERSION_4030",
+        "VERSION_5010",
+        "VERSION_5010_HIPAA"
+      ],
       "type": "string"
     }
   },

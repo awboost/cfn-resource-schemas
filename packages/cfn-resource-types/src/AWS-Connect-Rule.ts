@@ -86,6 +86,12 @@ export type Actions = {
    */
   SendNotificationActions?: SendNotificationAction[];
   /**
+   * This action will submit an auto contact evaluation when a rule is triggered.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  SubmitAutoEvaluationActions?: SubmitAutoEvaluationAction[];
+  /**
    * This action will generate a task when a rule is triggered.
    * @minLength `1`
    * @maxLength `1`
@@ -255,6 +261,18 @@ export type SendNotificationAction = {
    * @maxLength `200`
    */
   Subject?: string;
+};
+/**
+ * Type definition for `AWS::Connect::Rule.SubmitAutoEvaluationAction`.
+ * The definition of submit auto evaluation action.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-submitautoevaluationaction.html}
+ */
+export type SubmitAutoEvaluationAction = {
+  /**
+   * The Amazon Resource Name (ARN) of the evaluation form.
+   * @pattern `^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*evaluation-form/[-a-zA-Z0-9]*$`
+   */
+  EvaluationFormArn: string;
 };
 /**
  * Type definition for `AWS::Connect::Rule.Tag`.

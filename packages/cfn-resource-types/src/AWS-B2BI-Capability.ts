@@ -200,7 +200,11 @@ export type X12TransactionSet =
  * Type definition for `AWS::B2BI::Capability.X12Version`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-x12version.html}
  */
-export type X12Version = "VERSION_4010" | "VERSION_4030" | "VERSION_5010";
+export type X12Version =
+  | "VERSION_4010"
+  | "VERSION_4030"
+  | "VERSION_5010"
+  | "VERSION_5010_HIPAA";
 /**
  * Definition of AWS::B2BI::Capability Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-capability.html}

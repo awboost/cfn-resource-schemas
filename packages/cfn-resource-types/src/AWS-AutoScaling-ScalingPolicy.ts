@@ -67,9 +67,10 @@ export type AutoScalingScalingPolicyAttributes = {
  */
 export type CustomizedMetricSpecification = {
   Dimensions?: MetricDimension[];
-  MetricName: string;
-  Namespace: string;
-  Statistic: string;
+  MetricName?: string;
+  Metrics?: TargetTrackingMetricDataQuery[];
+  Namespace?: string;
+  Statistic?: string;
   Unit?: string;
 };
 /**
@@ -204,6 +205,26 @@ export type TargetTrackingConfiguration = {
   DisableScaleIn?: boolean;
   PredefinedMetricSpecification?: PredefinedMetricSpecification;
   TargetValue: number;
+};
+/**
+ * Type definition for `AWS::AutoScaling::ScalingPolicy.TargetTrackingMetricDataQuery`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricdataquery.html}
+ */
+export type TargetTrackingMetricDataQuery = {
+  Expression?: string;
+  Id: string;
+  Label?: string;
+  MetricStat?: TargetTrackingMetricStat;
+  ReturnData?: boolean;
+};
+/**
+ * Type definition for `AWS::AutoScaling::ScalingPolicy.TargetTrackingMetricStat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingmetricstat.html}
+ */
+export type TargetTrackingMetricStat = {
+  Metric: Metric;
+  Stat: string;
+  Unit?: string;
 };
 /**
  * The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
