@@ -13,7 +13,7 @@ export type DataSyncAgentProperties = {
   ActivationKey?: string;
   /**
    * The name configured for the agent. Text reference used to identify the agent in the console.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9\s+=._:@/-]+$`
    */

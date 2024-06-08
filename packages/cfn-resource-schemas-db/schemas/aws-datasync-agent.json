@@ -1,5 +1,5 @@
 {
-  "$hash": "77b439e11a50aa3923c8ab3e9efce755f2daa2e1",
+  "$hash": "21d9ca2972daa25c4ddab1a8276b9778ad9b8200",
   "$id": "aws-datasync-agent.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -78,7 +78,7 @@
     "AgentName": {
       "description": "The name configured for the agent. Text reference used to identify the agent in the console.",
       "maxLength": 256,
-      "minLength": 1,
+      "minLength": 0,
       "pattern": "^[a-zA-Z0-9\\s+=._:@/-]+$",
       "type": "string"
     },

@@ -1,43 +1,6 @@
-- updated `AWS::AutoScaling::ScalingPolicy`
-  - added definition `TargetTrackingMetricDataQuery`
-  - added definition `TargetTrackingMetricStat`
-  - updated definition `CustomizedMetricSpecification`
-- updated `AWS::B2BI::Capability`
-  - updated definition `X12Version`
-- updated `AWS::Connect::Rule`
-  - added definition `SubmitAutoEvaluationAction`
-  - added definition `SubmitAutoEvaluationActions`
-  - updated definition `Actions`
-- updated `AWS::EC2::TransitGatewayRoute`
-  - added `replacementStrategy`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `required`
-  - updated definition `undefined`
+- updated `AWS::DataSync::Agent`
+  - updated property `AgentName`
+- updated `AWS::ECS::Cluster`
+  - added definition `ManagedStorageConfiguration`
+  - updated definition `ClusterConfiguration`
   - updated handler permissions
-  - updated property `Blackhole`
-  - updated property `DestinationCidrBlock`
-  - updated property `TransitGatewayAttachmentId`
-  - updated property `TransitGatewayRouteTableId`
-- updated `AWS::Pipes::Pipe`
-  - added definition `DimensionMapping`
-  - added definition `DimensionValueType`
-  - added definition `EpochTimeUnit`
-  - added definition `MeasureValueType`
-  - added definition `MultiMeasureAttributeMapping`
-  - added definition `MultiMeasureMapping`
-  - added definition `PipeTargetTimestreamParameters`
-  - added definition `SingleMeasureMapping`
-  - added definition `TimeFieldType`
-  - updated definition `PipeTargetParameters`
-- updated `AWS::SageMaker::Domain`
-  - updated definition `CodeEditorAppSettings`
-  - updated definition `DockerSettings`
-  - updated definition `JupyterLabAppSettings`
-  - updated definition `KernelGatewayAppSettings`
-  - updated definition `RSessionAppSettings`
-- updated `AWS::Transfer::Connector`
-  - updated property `ServiceManagedEgressIpAddresses`

@@ -84,6 +84,7 @@ export type ClusterConfiguration = {
    * The details of the execute command configuration.
    */
   ExecuteCommandConfiguration?: ExecuteCommandConfiguration;
+  ManagedStorageConfiguration?: ManagedStorageConfiguration;
 };
 /**
  * Type definition for `AWS::ECS::Cluster.ClusterSettings`.
@@ -151,6 +152,14 @@ export type ExecuteCommandLogConfiguration = {
    * An optional folder in the S3 bucket to place logs in.
    */
   S3KeyPrefix?: string;
+};
+/**
+ * Type definition for `AWS::ECS::Cluster.ManagedStorageConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-managedstorageconfiguration.html}
+ */
+export type ManagedStorageConfiguration = {
+  FargateEphemeralStorageKmsKeyId?: string;
+  KmsKeyId?: string;
 };
 /**
  * Type definition for `AWS::ECS::Cluster.ServiceConnectDefaults`.
