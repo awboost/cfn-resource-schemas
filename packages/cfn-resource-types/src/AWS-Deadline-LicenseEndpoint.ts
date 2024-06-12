@@ -16,6 +16,11 @@ export type DeadlineLicenseEndpointProperties = {
    */
   SubnetIds: string[];
   /**
+   * An array of key-value pairs to apply to this resource.
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
+  /**
    * @minLength `1`
    * @maxLength `32`
    */
@@ -51,6 +56,25 @@ export type LicenseEndpointStatus =
   | "DELETE_IN_PROGRESS"
   | "READY"
   | "NOT_READY";
+/**
+ * Type definition for `AWS::Deadline::LicenseEndpoint.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-licenseendpoint-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  Value: string;
+};
 /**
  * Definition of AWS::Deadline::LicenseEndpoint Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-licenseendpoint.html}

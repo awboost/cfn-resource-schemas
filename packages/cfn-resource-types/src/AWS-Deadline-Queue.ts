@@ -36,6 +36,11 @@ export type DeadlineQueueProperties = {
    * @pattern `^arn:(aws[a-zA-Z-]*):iam::\d{12}:role(/[!-.0-~]+)/‍*[\w+=,.@-]+$`
    */
   RoleArn?: string;
+  /**
+   * An array of key-value pairs to apply to this resource.
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::Deadline::Queue`.
@@ -108,6 +113,25 @@ export type PosixUser = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-runas.html}
  */
 export type RunAs = "QUEUE_CONFIGURED_USER" | "WORKER_AGENT_USER";
+/**
+ * Type definition for `AWS::Deadline::Queue.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  Value: string;
+};
 /**
  * Type definition for `AWS::Deadline::Queue.WindowsUser`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-windowsuser.html}

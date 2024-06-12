@@ -1,5 +1,5 @@
 {
-  "$hash": "7431c39aa3b1988d4576acf3ade0c6d9d6a9f1b7",
+  "$hash": "d94a21a18203c5f4ffbfa4974b92271840f5c2b4",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -269,6 +269,26 @@
       "enum": ["LINUX"],
       "type": "string"
     },
+    "Tag": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "properties": {
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "maxLength": 127,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "maxLength": 255,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
     "VCpuCountRange": {
       "additionalProperties": false,
       "properties": {
@@ -287,7 +307,9 @@
         "deadline:GetFleet",
         "iam:PassRole",
         "identitystore:ListGroupMembershipsForMember",
-        "logs:CreateLogGroup"
+        "logs:CreateLogGroup",
+        "deadline:TagResource",
+        "deadline:ListTagsForResource"
       ]
     },
     "delete": {
@@ -314,7 +336,8 @@
     "read": {
       "permissions": [
         "deadline:GetFleet",
-        "identitystore:ListGroupMembershipsForMember"
+        "identitystore:ListGroupMembershipsForMember",
+        "deadline:ListTagsForResource"
       ]
     },
     "update": {
@@ -322,7 +345,10 @@
         "deadline:UpdateFleet",
         "deadline:GetFleet",
         "iam:PassRole",
-        "identitystore:ListGroupMembershipsForMember"
+        "identitystore:ListGroupMembershipsForMember",
+        "deadline:TagResource",
+        "deadline:UntagResource",
+        "deadline:ListTagsForResource"
       ]
     }
   },
@@ -359,6 +385,14 @@
       "type": "string"
     },
     "Status": { "$ref": "#/definitions/FleetStatus" },
+    "Tags": {
+      "description": "An array of key-value pairs to apply to this resource.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 50,
+      "type": "array",
+      "uniqueItems": true
+    },
     "WorkerCount": { "type": "integer" }
   },
   "readOnlyProperties": [
@@ -371,10 +405,16 @@
   "required": ["Configuration", "DisplayName", "MaxWorkerCount", "RoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-deadline",
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "tagOnCreate": false,
-    "tagUpdatable": false,
-    "taggable": false
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "deadline:TagResource",
+      "deadline:UntagResource",
+      "deadline:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
   },
   "typeName": "AWS::Deadline::Fleet"
 }

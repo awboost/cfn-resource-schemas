@@ -1,5 +1,5 @@
 {
-  "$hash": "ead18e857303c69a2090507e1c760b58a37c7abc",
+  "$hash": "83e4398eebaaa5ab4384f9ab656b28bb011c5f1f",
   "$id": "aws-fsx-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -54,8 +54,19 @@
         "ExportPath": { "type": "string" },
         "ImportPath": { "type": "string" },
         "ImportedFileChunkSize": { "type": "integer" },
+        "MetadataConfiguration": {
+          "$ref": "#/definitions/MetadataConfiguration"
+        },
         "PerUnitStorageThroughput": { "type": "integer" },
         "WeeklyMaintenanceStartTime": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "MetadataConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Iops": { "type": "integer" },
+        "Mode": { "type": "string" }
       },
       "type": "object"
     },

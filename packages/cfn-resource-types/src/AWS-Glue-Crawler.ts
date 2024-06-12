@@ -71,6 +71,7 @@ export type IcebergTarget = {
  */
 export type JdbcTarget = {
   ConnectionName?: string;
+  EnableAdditionalMetadata?: string[];
   Exclusions?: string[];
   Path?: string;
 };

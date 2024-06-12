@@ -1,5 +1,5 @@
 {
-  "$hash": "3d5a6b11a11e6d9d52e803e2da6d5374dc237ca9",
+  "$hash": "c4d22b7e5c79b173dc1c4a4ac91c7c6484b90592",
   "$id": "aws-glue-crawler.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -60,6 +60,11 @@
       "additionalProperties": false,
       "properties": {
         "ConnectionName": { "type": "string" },
+        "EnableAdditionalMetadata": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "Exclusions": {
           "items": { "type": "string" },
           "type": "array",

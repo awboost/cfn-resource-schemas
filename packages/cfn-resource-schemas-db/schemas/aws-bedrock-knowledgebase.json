@@ -1,5 +1,5 @@
 {
-  "$hash": "a74fbfe79f1b55c744d7ffcbcad4b486faa3eb18",
+  "$hash": "bb295d80ac44e751b79331df5edd9fc043ca8a41",
   "$id": "aws-bedrock-knowledgebase.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -310,9 +310,9 @@
       "properties": {
         "EmbeddingModelArn": {
           "description": "The ARN of the model used to create vector embeddings for the knowledge base.",
-          "maxLength": 1011,
+          "maxLength": 2048,
           "minLength": 20,
-          "pattern": "^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}))$",
+          "pattern": "^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)$",
           "type": "string"
         }
       },

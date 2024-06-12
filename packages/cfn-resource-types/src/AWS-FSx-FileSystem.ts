@@ -70,8 +70,17 @@ export type LustreConfiguration = {
   ExportPath?: string;
   ImportPath?: string;
   ImportedFileChunkSize?: number;
+  MetadataConfiguration?: MetadataConfiguration;
   PerUnitStorageThroughput?: number;
   WeeklyMaintenanceStartTime?: string;
+};
+/**
+ * Type definition for `AWS::FSx::FileSystem.MetadataConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-metadataconfiguration.html}
+ */
+export type MetadataConfiguration = {
+  Iops?: number;
+  Mode?: string;
 };
 /**
  * Type definition for `AWS::FSx::FileSystem.NfsExports`.

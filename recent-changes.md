@@ -1,6 +1,31 @@
-- updated `AWS::DataSync::Agent`
-  - updated property `AgentName`
-- updated `AWS::ECS::Cluster`
-  - added definition `ManagedStorageConfiguration`
-  - updated definition `ClusterConfiguration`
+- added `AWS::Deadline::Monitor`
+- updated `AWS::Batch::JobDefinition`
+  - updated definition `NodeRangeProperty`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - updated definition `VectorKnowledgeBaseConfiguration`
+- updated `AWS::Deadline::Farm`
+  - added property `Tags`
+  - updated `tagging`
+  - updated definition `undefined`
   - updated handler permissions
+  - updated property `Arn`
+- updated `AWS::Deadline::Fleet`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Deadline::LicenseEndpoint`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Deadline::Queue`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::FSx::FileSystem`
+  - added definition `MetadataConfiguration`
+  - updated definition `LustreConfiguration`
+- updated `AWS::Glue::Crawler`
+  - updated definition `JdbcTarget`
