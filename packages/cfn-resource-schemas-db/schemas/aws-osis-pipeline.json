@@ -1,5 +1,5 @@
 {
-  "$hash": "4506637b2c7df865a83280947b88d85160a640d9",
+  "$hash": "464061871ab032d8a2819903c9a0c16e3fa38c79",
   "$id": "aws-osis-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PipelineName"],
@@ -114,6 +114,11 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "VpcEndpointManagement": {
+          "description": "Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.",
+          "enum": ["CUSTOMER", "SERVICE"],
+          "type": "string"
         }
       },
       "required": ["SubnetIds"],
@@ -212,6 +217,12 @@
       "type": "array",
       "uniqueItems": true
     },
+    "VpcEndpointService": {
+      "description": "The VPC endpoint service name for the pipeline.",
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
     "VpcEndpoints": {
       "description": "The VPC interface endpoints that have access to the pipeline.",
       "insertionOrder": false,
@@ -223,7 +234,8 @@
   "readOnlyProperties": [
     "/properties/PipelineArn",
     "/properties/IngestEndpointUrls",
-    "/properties/VpcEndpoints"
+    "/properties/VpcEndpoints",
+    "/properties/VpcEndpointService"
   ],
   "required": [
     "MaxUnits",

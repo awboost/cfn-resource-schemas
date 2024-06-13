@@ -69,6 +69,12 @@ export type OSISPipelineAttributes = {
    */
   PipelineArn: string;
   /**
+   * The VPC endpoint service name for the pipeline.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  VpcEndpointService: string;
+  /**
    * The VPC interface endpoints that have access to the pipeline.
    */
   VpcEndpoints: {
@@ -92,6 +98,10 @@ export type OSISPipelineAttributes = {
        * A list of subnet IDs associated with the VPC endpoint.
        */
       SubnetIds: string[];
+      /**
+       * Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+       */
+      VpcEndpointManagement: "CUSTOMER" | "SERVICE";
     };
   }[];
 };
@@ -191,6 +201,10 @@ export type VpcOptions = {
    * A list of subnet IDs associated with the VPC endpoint.
    */
   SubnetIds: string[];
+  /**
+   * Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
+   */
+  VpcEndpointManagement?: "CUSTOMER" | "SERVICE";
 };
 /**
  * Resource type definition for `AWS::OSIS::Pipeline`.

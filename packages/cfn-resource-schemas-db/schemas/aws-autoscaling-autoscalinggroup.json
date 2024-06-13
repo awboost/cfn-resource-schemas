@@ -1,5 +1,5 @@
 {
-  "$hash": "b186ef7246ed5c7f08daf33e9dee17cc28634216",
+  "$hash": "5cda9534e91806bb0a841e4829836c3728b2a368",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -516,7 +516,7 @@
         "managed-fleets:Get*",
         "managed-fleets:DeleteAutoScalingGroup"
       ],
-      "timeoutInMinutes": 180
+      "timeoutInMinutes": 240
     },
     "list": { "permissions": ["autoscaling:Describe*"] },
     "read": { "permissions": ["autoscaling:Describe*", "managed-fleets:Get*"] },

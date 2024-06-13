@@ -1,5 +1,5 @@
 {
-  "$hash": "c6e8a7cad3671229d48ea4858bf67add3e053a81",
+  "$hash": "c278b2a2decc32fd68e19a8e85b980eda4fb9c1d",
   "$id": "aws-ec2-verifiedaccessinstance.json",
   "additionalProperties": false,
   "definitions": {
@@ -129,6 +129,8 @@
         "ec2:ModifyVerifiedAccessInstanceLoggingConfiguration",
         "ec2:DescribeVerifiedAccessInstances",
         "ec2:DescribeVerifiedAccessInstanceLoggingConfigurations",
+        "ec2:DetachVerifiedAccessTrustProvider",
+        "ec2:DeleteVerifiedAccessInstance",
         "ec2:CreateTags",
         "ec2:DescribeTags",
         "logs:CreateLogDelivery",
