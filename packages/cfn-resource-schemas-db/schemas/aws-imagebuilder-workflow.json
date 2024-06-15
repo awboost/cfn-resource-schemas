@@ -1,5 +1,5 @@
 {
-  "$hash": "816588eb58de471c19f2807f90487fb7103e52b9",
+  "$hash": "b6de9862e996151c682d44d8ce6dd10b08590270",
   "$id": "aws-imagebuilder-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -18,7 +18,10 @@
     "create": {
       "permissions": [
         "iam:GetRole",
-        "kms:GenerateDataKey*",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyPair",
+        "kms:GenerateDataKeyPairWithoutPlaintext",
+        "kms:GenerateDataKeyWithoutPlaintext",
         "kms:Encrypt",
         "kms:Decrypt",
         "s3:GetObject",

@@ -1,5 +1,5 @@
 {
-  "$hash": "ee1b129ece3b02d549a0916ce40f911b08528680",
+  "$hash": "94266e15893634fe570bc76c89aa54fa1e0f9ae8",
   "$id": "aws-imagebuilder-containerrecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -167,7 +167,10 @@
         "kms:Decrypt",
         "kms:ReEncryptFrom",
         "kms:ReEncryptTo",
-        "kms:GenerateDataKey*",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyPair",
+        "kms:GenerateDataKeyPairWithoutPlaintext",
+        "kms:GenerateDataKeyWithoutPlaintext",
         "s3:GetObject",
         "s3:ListBucket",
         "ecr:DescribeRepositories",

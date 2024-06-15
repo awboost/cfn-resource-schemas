@@ -297,7 +297,6 @@ export type NodeProperties = {
 export type NodeRangeProperty = {
   Container?: ContainerProperties;
   EcsProperties?: EcsProperties;
-  EksProperties?: EksProperties;
   InstanceTypes?: string[];
   TargetNodes: string;
 };

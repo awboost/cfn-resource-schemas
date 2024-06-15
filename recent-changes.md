@@ -1,15 +1,33 @@
-- added `AWS::ApplicationSignals::ServiceLevelObjective`
-- added `AWS::GuardDuty::MalwareProtectionPlan`
-- updated `AWS::AutoScaling::AutoScalingGroup`
+- added `AWS::AppTest::TestCase`
+- updated `AWS::Batch::JobDefinition`
+  - updated definition `NodeRangeProperty`
+- updated `AWS::EC2::VPNGateway`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::EC2::VerifiedAccessInstance`
+  - updated property `VPNGatewayId`
+- updated `AWS::ImageBuilder::Component`
   - updated handler permissions
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - updated property `IpAddressType`
-- updated `AWS::OSIS::Pipeline`
-  - added property `VpcEndpointService`
-  - updated `readOnlyProperties`
-  - updated definition `VpcOptions`
-- updated `AWS::Synthetics::Canary`
-  - updated definition `Code`
-  - updated definition `VPCConfig`
+- updated `AWS::ImageBuilder::ContainerRecipe`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Workflow`
+  - updated handler permissions
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - added definition `SecretsManagerConfiguration`
+  - updated definition `AmazonOpenSearchServerlessDestinationConfiguration`
+  - updated definition `AmazonopensearchserviceDestinationConfiguration`
+  - updated definition `AuthenticationConfiguration`
+  - updated definition `CloudWatchLoggingOptions`
+  - updated definition `DeliveryStreamEncryptionConfigurationInput`
+  - updated definition `ElasticsearchDestinationConfiguration`
+  - updated definition `ExtendedS3DestinationConfiguration`
+  - updated definition `HttpEndpointDestinationConfiguration`
+  - updated definition `KMSEncryptionConfig`
+  - updated definition `KinesisStreamSourceConfiguration`
+  - updated definition `MSKSourceConfiguration`
+  - updated definition `ProcessorParameter`
+  - updated definition `RedshiftDestinationConfiguration`
+  - updated definition `S3DestinationConfiguration`
+  - updated definition `SchemaConfiguration`
+  - updated definition `SnowflakeDestinationConfiguration`
+  - updated definition `SplunkDestinationConfiguration`
+  - updated definition `VpcConfiguration`

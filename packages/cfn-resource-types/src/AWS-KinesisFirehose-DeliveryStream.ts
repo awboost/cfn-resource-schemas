@@ -429,6 +429,7 @@ export type HttpEndpointDestinationConfiguration = {
   RoleARN?: string;
   S3BackupMode?: string;
   S3Configuration: S3DestinationConfiguration;
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.HttpEndpointRequestConfiguration`.
@@ -583,7 +584,7 @@ export type RedshiftDestinationConfiguration = {
    * @minLength `6`
    * @maxLength `512`
    */
-  Password: string;
+  Password?: string;
   ProcessingConfiguration?: ProcessingConfiguration;
   RetryOptions?: RedshiftRetryOptions;
   /**
@@ -595,11 +596,12 @@ export type RedshiftDestinationConfiguration = {
   S3BackupConfiguration?: S3DestinationConfiguration;
   S3BackupMode?: "Disabled" | "Enabled";
   S3Configuration: S3DestinationConfiguration;
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
   /**
    * @minLength `1`
    * @maxLength `512`
    */
-  Username: string;
+  Username?: string;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.RedshiftRetryOptions`.
@@ -670,6 +672,25 @@ export type SchemaConfiguration = {
   VersionId?: string;
 };
 /**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.SecretsManagerConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html}
+ */
+export type SecretsManagerConfiguration = {
+  Enabled: boolean;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `arn:.*`
+   */
+  RoleARN?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `arn:.*`
+   */
+  SecretARN?: string;
+};
+/**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.Serializer`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-serializer.html}
  */
@@ -718,7 +739,7 @@ export type SnowflakeDestinationConfiguration = {
    * @maxLength `4096`
    * @pattern `^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$`
    */
-  PrivateKey: string;
+  PrivateKey?: string;
   ProcessingConfiguration?: ProcessingConfiguration;
   RetryOptions?: SnowflakeRetryOptions;
   /**
@@ -734,6 +755,7 @@ export type SnowflakeDestinationConfiguration = {
    * @maxLength `255`
    */
   Schema: string;
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
   SnowflakeRoleConfiguration?: SnowflakeRoleConfiguration;
   SnowflakeVpcConfiguration?: SnowflakeVpcConfiguration;
   /**
@@ -745,7 +767,7 @@ export type SnowflakeDestinationConfiguration = {
    * @minLength `1`
    * @maxLength `255`
    */
-  User: string;
+  User?: string;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.SnowflakeRetryOptions`.
@@ -808,11 +830,12 @@ export type SplunkDestinationConfiguration = {
    * @minLength `0`
    * @maxLength `2048`
    */
-  HECToken: string;
+  HECToken?: string;
   ProcessingConfiguration?: ProcessingConfiguration;
   RetryOptions?: SplunkRetryOptions;
   S3BackupMode?: string;
   S3Configuration: S3DestinationConfiguration;
+  SecretsManagerConfiguration?: SecretsManagerConfiguration;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.SplunkRetryOptions`.

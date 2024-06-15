@@ -1,5 +1,5 @@
 {
-  "$hash": "1ae5e25ef69a4eeee31d6c2dbc68bc88564b33d3",
+  "$hash": "1cb5b50ac66ef5e722b3432ae6eb80772031e4b9",
   "$id": "aws-imagebuilder-component.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -20,7 +20,10 @@
       "permissions": [
         "iam:CreateServiceLinkedRole",
         "iam:GetRole",
-        "kms:GenerateDataKey*",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyPair",
+        "kms:GenerateDataKeyPairWithoutPlaintext",
+        "kms:GenerateDataKeyWithoutPlaintext",
         "kms:Encrypt",
         "kms:Decrypt",
         "s3:GetObject",
