@@ -1,5 +1,5 @@
 {
-  "$hash": "f88d42a03a8325594dbeda5e1376825f46e0b9be",
+  "$hash": "c69198fda9648312ae74e972b5e16b7b23a6f44e",
   "$id": "aws-kms-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -111,7 +111,12 @@
     "KeyUsage": {
       "default": "ENCRYPT_DECRYPT",
       "description": "Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.\n  If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.\n  Select only one valid value.\n  +  For symmetric encryption KMS keys, omit the property or specify ``ENCRYPT_DECRYPT``.\n  +  For asymmetric KMS keys with RSA key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with ECC key material, specify ``SIGN_VERIFY``.\n  +  For asymmetric KMS keys with SM2 (China Regions only) key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.\n  +  For HMAC KMS keys, specify ``GENERATE_VERIFY_MAC``.",
-      "enum": ["ENCRYPT_DECRYPT", "SIGN_VERIFY", "GENERATE_VERIFY_MAC"],
+      "enum": [
+        "ENCRYPT_DECRYPT",
+        "SIGN_VERIFY",
+        "GENERATE_VERIFY_MAC",
+        "KEY_AGREEMENT"
+      ],
       "type": "string"
     },
     "MultiRegion": {

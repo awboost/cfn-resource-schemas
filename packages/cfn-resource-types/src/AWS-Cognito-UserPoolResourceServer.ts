@@ -11,13 +11,6 @@ export type CognitoUserPoolResourceServerProperties = {
   UserPoolId: string;
 };
 /**
- * Attribute type definition for `AWS::Cognito::UserPoolResourceServer`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolresourceserver.html#aws-resource-cognito-userpoolresourceserver-return-values}
- */
-export type CognitoUserPoolResourceServerAttributes = {
-  Id: string;
-};
-/**
  * Type definition for `AWS::Cognito::UserPoolResourceServer.ResourceServerScopeType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolresourceserver-resourceserverscopetype.html}
  */
@@ -32,7 +25,7 @@ export type ResourceServerScopeType = {
 export class CognitoUserPoolResourceServer extends $Resource<
   "AWS::Cognito::UserPoolResourceServer",
   CognitoUserPoolResourceServerProperties,
-  CognitoUserPoolResourceServerAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::Cognito::UserPoolResourceServer";
   constructor(

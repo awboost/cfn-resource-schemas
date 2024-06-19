@@ -112,7 +112,11 @@ export type KMSKeyProperties = {
       +  For asymmetric KMS keys with SM2 (China Regions only) key material, specify ``ENCRYPT_DECRYPT`` or ``SIGN_VERIFY``.
       +  For HMAC KMS keys, specify ``GENERATE_VERIFY_MAC``.
      */
-  KeyUsage?: "ENCRYPT_DECRYPT" | "SIGN_VERIFY" | "GENERATE_VERIFY_MAC";
+  KeyUsage?:
+    | "ENCRYPT_DECRYPT"
+    | "SIGN_VERIFY"
+    | "GENERATE_VERIFY_MAC"
+    | "KEY_AGREEMENT";
   /**
      * Creates a multi-Region primary key that you can replicate in other AWS-Regions. You can't change the ``MultiRegion`` value after the KMS key is created.
      For a list of AWS-Regions in which multi-Region keys are supported, see [Multi-Region keys in](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) in the **.

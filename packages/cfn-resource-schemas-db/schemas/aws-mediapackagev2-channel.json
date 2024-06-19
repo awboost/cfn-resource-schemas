@@ -1,5 +1,5 @@
 {
-  "$hash": "ca97bd731d28257ee512e848e3ef693eedabca67",
+  "$hash": "3181bcd4d0735c3777850b47cd5626e2ed923f69",
   "$id": "aws-mediapackagev2-channel.json",
   "additionalIdentifiers": [
     ["/properties/ChannelGroupName", "/properties/ChannelName"]
@@ -98,6 +98,7 @@
       "minLength": 0,
       "type": "string"
     },
+    "IngestEndpointUrls": { "items": { "type": "string" }, "type": "array" },
     "IngestEndpoints": {
       "description": "<p>The list of ingest endpoints.</p>",
       "items": { "$ref": "#/definitions/IngestEndpoint" },
@@ -118,6 +119,7 @@
     "/properties/Arn",
     "/properties/CreatedAt",
     "/properties/IngestEndpoints",
+    "/properties/IngestEndpointUrls",
     "/properties/ModifiedAt"
   ],
   "required": ["ChannelGroupName", "ChannelName"],

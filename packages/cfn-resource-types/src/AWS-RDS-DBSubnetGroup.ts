@@ -14,7 +14,6 @@ export type RDSDBSubnetGroupProperties = {
      * The name for the DB subnet group. This value is stored as a lowercase string.
      Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
      Example: ``mysubnetgroup``
-     * @pattern `^(?!default$)[a-zA-Z]{1}[a-zA-Z0-9-_\.\s]{0,254}$`
      */
   DBSubnetGroupName?: string;
   /**
@@ -30,7 +29,7 @@ export type RDSDBSubnetGroupProperties = {
 /**
  * Type definition for `AWS::RDS::DBSubnetGroup.Tag`.
  * Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
- For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
+ For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbsubnetgroup-tag.html}
  */
 export type Tag = {

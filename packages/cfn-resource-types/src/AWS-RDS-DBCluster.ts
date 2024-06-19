@@ -99,6 +99,10 @@ export type RDSDBClusterProperties = {
    */
   Engine?: string;
   /**
+   * The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+   */
+  EngineLifecycleSupport?: string;
+  /**
    * The DB engine mode of the DB cluster, either provisioned, serverless, parallelquery, global, or multimaster.
    */
   EngineMode?: string;

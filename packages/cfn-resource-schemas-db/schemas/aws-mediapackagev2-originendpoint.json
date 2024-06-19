@@ -1,5 +1,5 @@
 {
-  "$hash": "6031441728fba4ec23cd2bd92089bdb75e9e52c4",
+  "$hash": "152012f6e0e06c9ff90b61a3fe9b0767a4f9eb8a",
   "$id": "aws-mediapackagev2-originendpoint.json",
   "additionalIdentifiers": [
     [
@@ -470,6 +470,7 @@
       "format": "date-time",
       "type": "string"
     },
+    "DashManifestUrls": { "items": { "type": "string" }, "type": "array" },
     "DashManifests": {
       "description": "<p>A DASH manifest configuration.</p>",
       "items": { "$ref": "#/definitions/DashManifestConfiguration" },
@@ -481,9 +482,14 @@
       "minLength": 0,
       "type": "string"
     },
+    "HlsManifestUrls": { "items": { "type": "string" }, "type": "array" },
     "HlsManifests": {
       "description": "<p>An HTTP live streaming (HLS) manifest configuration.</p>",
       "items": { "$ref": "#/definitions/HlsManifestConfiguration" },
+      "type": "array"
+    },
+    "LowLatencyHlsManifestUrls": {
+      "items": { "type": "string" },
       "type": "array"
     },
     "LowLatencyHlsManifests": {
@@ -518,6 +524,9 @@
   "readOnlyProperties": [
     "/properties/Arn",
     "/properties/CreatedAt",
+    "/properties/DashManifestUrls",
+    "/properties/HlsManifestUrls",
+    "/properties/LowLatencyHlsManifestUrls",
     "/properties/ModifiedAt",
     "/properties/LowLatencyHlsManifests/*/Url",
     "/properties/HlsManifests/*/Url"

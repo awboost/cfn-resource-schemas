@@ -68,6 +68,8 @@ export type MediaPackageV2OriginEndpointAttributes = {
    * <p>The date and time the origin endpoint was created.</p>
    */
   CreatedAt: string;
+  DashManifestUrls: string[];
+  HlsManifestUrls: string[];
   /**
    * <p>An HTTP live streaming (HLS) manifest configuration.</p>
    */
@@ -77,6 +79,7 @@ export type MediaPackageV2OriginEndpointAttributes = {
      */
     Url: string;
   }[];
+  LowLatencyHlsManifestUrls: string[];
   /**
    * <p>A low-latency HLS manifest configuration.</p>
    */

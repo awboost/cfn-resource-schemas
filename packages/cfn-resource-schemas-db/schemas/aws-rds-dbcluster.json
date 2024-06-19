@@ -1,5 +1,5 @@
 {
-  "$hash": "61735e0ef40fcecbfbe7d04571e68ecb7ca89b4c",
+  "$hash": "5afbf4e326c909649f81556df2d7968ee47a3bca",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -331,6 +331,10 @@
     "Endpoint": { "$ref": "#/definitions/Endpoint" },
     "Engine": {
       "description": "The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql",
+      "type": "string"
+    },
+    "EngineLifecycleSupport": {
+      "description": "The life cycle type of the DB cluster. You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.",
       "type": "string"
     },
     "EngineMode": {

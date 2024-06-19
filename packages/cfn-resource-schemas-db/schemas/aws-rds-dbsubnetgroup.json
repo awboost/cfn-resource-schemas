@@ -1,12 +1,12 @@
 {
-  "$hash": "2dfb234b8b94a2f52effdfb78673c2731239f224",
+  "$hash": "398e2d9e038484eb06ba722256d704808fe2d85b",
   "$id": "aws-rds-dbsubnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DBSubnetGroupName"],
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Metadata assigned to an Amazon RDS resource consisting of a key-value pair.\n For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*",
+      "description": "Metadata assigned to an Amazon RDS resource consisting of a key-value pair.\n For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.",
       "properties": {
         "Key": {
           "description": "A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-@]*)$\").",
@@ -66,7 +66,6 @@
     },
     "DBSubnetGroupName": {
       "description": "The name for the DB subnet group. This value is stored as a lowercase string.\n Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be \"Default\".\n Example: ``mysubnetgroup``",
-      "pattern": "^(?!default$)[a-zA-Z]{1}[a-zA-Z0-9-_\\.\\s]{0,254}$",
       "type": "string"
     },
     "SubnetIds": {

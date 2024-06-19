@@ -1,33 +1,38 @@
-- added `AWS::AppTest::TestCase`
-- updated `AWS::Batch::JobDefinition`
-  - updated definition `NodeRangeProperty`
-- updated `AWS::EC2::VPNGateway`
+- updated `AWS::Cognito::UserPoolResourceServer`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated definition `ResourceServerScopeType`
+  - updated handler permissions
+  - updated property `Scopes`
+- updated `AWS::EC2::CustomerGateway`
+  - updated property `BgpAsnExtended`
+  - updated property `BgpAsn`
+  - updated property `CertificateArn`
+  - updated property `IpAddress`
+- updated `AWS::KMS::Key`
+  - updated property `KeyUsage`
+- updated `AWS::MediaPackageV2::Channel`
+  - added property `IngestEndpointUrls`
+  - updated `readOnlyProperties`
+- updated `AWS::MediaPackageV2::OriginEndpoint`
+  - added property `DashManifestUrls`
+  - added property `HlsManifestUrls`
+  - added property `LowLatencyHlsManifestUrls`
+  - updated `readOnlyProperties`
+- updated `AWS::RDS::DBCluster`
+  - added property `EngineLifecycleSupport`
+- updated `AWS::RDS::DBInstance`
+  - added property `EngineLifecycleSupport`
   - updated definition `Tag`
-  - updated handler permissions
-  - updated property `VPNGatewayId`
-- updated `AWS::ImageBuilder::Component`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::ContainerRecipe`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::Workflow`
-  - updated handler permissions
-- updated `AWS::KinesisFirehose::DeliveryStream`
-  - added definition `SecretsManagerConfiguration`
-  - updated definition `AmazonOpenSearchServerlessDestinationConfiguration`
-  - updated definition `AmazonopensearchserviceDestinationConfiguration`
-  - updated definition `AuthenticationConfiguration`
-  - updated definition `CloudWatchLoggingOptions`
-  - updated definition `DeliveryStreamEncryptionConfigurationInput`
-  - updated definition `ElasticsearchDestinationConfiguration`
-  - updated definition `ExtendedS3DestinationConfiguration`
-  - updated definition `HttpEndpointDestinationConfiguration`
-  - updated definition `KMSEncryptionConfig`
-  - updated definition `KinesisStreamSourceConfiguration`
-  - updated definition `MSKSourceConfiguration`
-  - updated definition `ProcessorParameter`
-  - updated definition `RedshiftDestinationConfiguration`
-  - updated definition `S3DestinationConfiguration`
-  - updated definition `SchemaConfiguration`
-  - updated definition `SnowflakeDestinationConfiguration`
-  - updated definition `SplunkDestinationConfiguration`
-  - updated definition `VpcConfiguration`
+  - updated property `KmsKeyId`
+  - updated property `SourceDBInstanceIdentifier`
+  - updated property `StorageEncrypted`
+- updated `AWS::RDS::DBParameterGroup`
+  - updated definition `Tag`
+- updated `AWS::RDS::DBSubnetGroup`
+  - updated definition `Tag`
+  - updated property `DBSubnetGroupName`

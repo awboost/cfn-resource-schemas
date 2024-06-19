@@ -39,6 +39,7 @@ export type MediaPackageV2ChannelAttributes = {
    * <p>The date and time the channel was created.</p>
    */
   CreatedAt: string;
+  IngestEndpointUrls: string[];
   /**
    * <p>The list of ingest endpoints.</p>
    */
