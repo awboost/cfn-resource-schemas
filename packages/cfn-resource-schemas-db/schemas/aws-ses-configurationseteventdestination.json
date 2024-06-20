@@ -1,5 +1,5 @@
 {
-  "$hash": "2d0820b0e37c857dcc9b6063a1601339851298d9",
+  "$hash": "27d15693884c7ebac70f81f64b7ceab728909c18",
   "$id": "aws-ses-configurationseteventdestination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConfigurationSetName"],
@@ -48,6 +48,20 @@
       ],
       "type": "object"
     },
+    "EventBridgeDestination": {
+      "additionalProperties": false,
+      "description": "An object that contains Event bus ARN associated with the event bridge destination.",
+      "properties": {
+        "EventBusArn": {
+          "maxLength": 1024,
+          "minLength": 36,
+          "pattern": "^arn:aws[a-z0-9-]*:events:[a-z0-9-]+:\\d{12}:event-bus/[^:]+$",
+          "type": "string"
+        }
+      },
+      "required": ["EventBusArn"],
+      "type": "object"
+    },
     "EventDestination": {
       "additionalProperties": false,
       "properties": {
@@ -58,6 +72,10 @@
         "Enabled": {
           "description": "Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.   ",
           "type": "boolean"
+        },
+        "EventBridgeDestination": {
+          "$ref": "#/definitions/EventBridgeDestination",
+          "description": "An object that contains Event bus ARN associated with the event bridge destination."
         },
         "KinesisFirehoseDestination": {
           "$ref": "#/definitions/KinesisFirehoseDestination",

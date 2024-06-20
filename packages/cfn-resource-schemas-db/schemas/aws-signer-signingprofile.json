@@ -1,5 +1,5 @@
 {
-  "$hash": "6a11873ac018b80cc1c5360e98b32d2a79d6ae05",
+  "$hash": "f8924e5b9a6ad6ccc4eb9d76dc6435547222dd08",
   "$id": "aws-signer-signingprofile.json",
   "additionalIdentifiers": [
     ["/properties/ProfileName"],
@@ -7,6 +7,7 @@
   ],
   "additionalProperties": false,
   "createOnlyProperties": [
+    "/properties/ProfileName",
     "/properties/PlatformId",
     "/properties/SignatureValidityPeriod"
   ],
@@ -17,6 +18,12 @@
     },
     "PlatformId": {
       "enum": ["AWSLambda-SHA384-ECDSA", "Notation-OCI-SHA384-ECDSA"],
+      "type": "string"
+    },
+    "ProfileName": {
+      "maxLength": 64,
+      "minLength": 2,
+      "pattern": "^[0-9a-zA-Z_]$",
       "type": "string"
     },
     "ProfileVersion": { "pattern": "^[0-9a-zA-Z]{10}$", "type": "string" },
@@ -71,8 +78,8 @@
       "description": "The ID of the target signing platform."
     },
     "ProfileName": {
-      "description": "A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. ",
-      "type": "string"
+      "$ref": "#/definitions/ProfileName",
+      "description": "A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. "
     },
     "ProfileVersion": {
       "$ref": "#/definitions/ProfileVersion",

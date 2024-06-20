@@ -1,38 +1,17 @@
-- updated `AWS::Cognito::UserPoolResourceServer`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated definition `ResourceServerScopeType`
+- updated `AWS::Bedrock::Agent`
+  - added definition `GuardrailConfiguration`
+  - added property `GuardrailConfiguration`
   - updated handler permissions
-  - updated property `Scopes`
-- updated `AWS::EC2::CustomerGateway`
-  - updated property `BgpAsnExtended`
-  - updated property `BgpAsn`
-  - updated property `CertificateArn`
-  - updated property `IpAddress`
-- updated `AWS::KMS::Key`
-  - updated property `KeyUsage`
-- updated `AWS::MediaPackageV2::Channel`
-  - added property `IngestEndpointUrls`
-  - updated `readOnlyProperties`
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - added property `DashManifestUrls`
-  - added property `HlsManifestUrls`
-  - added property `LowLatencyHlsManifestUrls`
-  - updated `readOnlyProperties`
-- updated `AWS::RDS::DBCluster`
-  - added property `EngineLifecycleSupport`
-- updated `AWS::RDS::DBInstance`
-  - added property `EngineLifecycleSupport`
-  - updated definition `Tag`
-  - updated property `KmsKeyId`
-  - updated property `SourceDBInstanceIdentifier`
-  - updated property `StorageEncrypted`
-- updated `AWS::RDS::DBParameterGroup`
-  - updated definition `Tag`
-- updated `AWS::RDS::DBSubnetGroup`
-  - updated definition `Tag`
-  - updated property `DBSubnetGroupName`
+- updated `AWS::GuardDuty::Filter`
+  - updated `required`
+- updated `AWS::Location::Map`
+  - updated definition `TagMap`
+- updated `AWS::SES::ConfigurationSetEventDestination`
+  - added definition `EventBridgeDestination`
+  - updated definition `EventDestination`
+- updated `AWS::Signer::ProfilePermission`
+  - updated property `ProfileName`
+- updated `AWS::Signer::SigningProfile`
+  - added definition `ProfileName`
+  - updated `createOnlyProperties`
+  - updated property `ProfileName`

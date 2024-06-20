@@ -58,6 +58,19 @@ export type DimensionConfiguration = {
   DimensionValueSource: string;
 };
 /**
+ * Type definition for `AWS::SES::ConfigurationSetEventDestination.EventBridgeDestination`.
+ * An object that contains Event bus ARN associated with the event bridge destination.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventbridgedestination.html}
+ */
+export type EventBridgeDestination = {
+  /**
+   * @minLength `36`
+   * @maxLength `1024`
+   * @pattern `^arn:aws[a-z0-9-]*:events:[a-z0-9-]+:\d{12}:event-bus/[^:]+$`
+   */
+  EventBusArn: string;
+};
+/**
  * Type definition for `AWS::SES::ConfigurationSetEventDestination.EventDestination`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html}
  */
@@ -70,6 +83,10 @@ export type EventDestination = {
    * Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to true to enable publishing to this destination; set to false to prevent publishing to this destination. The default value is false.
    */
   Enabled?: boolean;
+  /**
+   * An object that contains Event bus ARN associated with the event bridge destination.
+   */
+  EventBridgeDestination?: EventBridgeDestination;
   /**
    * An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
    */

@@ -44,6 +44,10 @@ export type BedrockAgentProperties = {
    */
   FoundationModel?: string;
   /**
+   * Configuration for a guardrail.
+   */
+  GuardrailConfiguration?: GuardrailConfiguration;
+  /**
    * Max Session Time.
    * @min `60`
    * @max `3600`
@@ -298,6 +302,24 @@ export type FunctionSchema = {
    * List of Function definitions
    */
   Functions: Function[];
+};
+/**
+ * Type definition for `AWS::Bedrock::Agent.GuardrailConfiguration`.
+ * Configuration for a guardrail.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-guardrailconfiguration.html}
+ */
+export type GuardrailConfiguration = {
+  /**
+   * Identifier for the guardrail, could be the id or the arn
+   * @maxLength `2048`
+   * @pattern `^(([a-z0-9]+)|(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:guardrail/[a-z0-9]+))$`
+   */
+  GuardrailIdentifier?: string;
+  /**
+   * Version of the guardrail
+   * @pattern `^(([0-9]{1,8})|(DRAFT))$`
+   */
+  GuardrailVersion?: string;
 };
 /**
  * Type definition for `AWS::Bedrock::Agent.InferenceConfiguration`.

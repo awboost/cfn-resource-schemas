@@ -11,13 +11,13 @@ export type GuardDutyFilterProperties = {
    * @minLength `1`
    * @maxLength `300`
    */
-  DetectorId?: string;
+  DetectorId: string;
   FindingCriteria: FindingCriteria;
   /**
    * @minLength `1`
    * @maxLength `64`
    */
-  Name?: string;
+  Name: string;
   /**
    * @min `1`
    * @max `100`

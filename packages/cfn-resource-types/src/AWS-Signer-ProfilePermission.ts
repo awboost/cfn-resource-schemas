@@ -8,6 +8,9 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type SignerProfilePermissionProperties = {
   Action: string;
   Principal: string;
+  /**
+   * @pattern `^[0-9a-zA-Z_]{2,64}$`
+   */
   ProfileName: string;
   /**
    * @pattern `^[0-9a-zA-Z]{10}$`

@@ -1,5 +1,5 @@
 {
-  "$hash": "bc5e8908fc99c8557c425a39ef466248e9ebb94c",
+  "$hash": "51c779f21825eb316c37d983fd43a582a46bfffc",
   "$id": "aws-location-map.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Configuration", "/properties/MapName"],
@@ -60,10 +60,10 @@
       "additionalProperties": false,
       "maxProperties": 50,
       "patternProperties": {
-        "^[a-zA-Z+-=._:/]+$": {
+        "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$": {
           "maxLength": 256,
           "minLength": 0,
-          "pattern": "^[A-Za-z0-9 _=@:.+-/]*$",
+          "pattern": "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$",
           "type": "string"
         }
       },

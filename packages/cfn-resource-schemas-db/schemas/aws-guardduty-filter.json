@@ -1,5 +1,5 @@
 {
-  "$hash": "a9a7cc6631dbd0921d7e4221cad7d920792a6cbd",
+  "$hash": "48b3c63a991e7bc4210bd8c6ec57d793a57d7f78",
   "$id": "aws-guardduty-filter.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DetectorId", "/properties/Name"],
@@ -101,7 +101,7 @@
     "Rank": { "maximum": 100, "minimum": 1, "type": "integer" },
     "Tags": { "items": { "$ref": "#/definitions/TagItem" }, "type": "array" }
   },
-  "required": ["FindingCriteria"],
+  "required": ["DetectorId", "Name", "FindingCriteria"],
   "tagging": {
     "cloudFormationSystemTags": false,
     "tagOnCreate": true,
