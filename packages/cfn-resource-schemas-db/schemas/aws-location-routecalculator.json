@@ -1,5 +1,5 @@
 {
-  "$hash": "1cc353c77fdf12932872ee311086175f1364c6bc",
+  "$hash": "7abe51dc724072174e020e0f11420e9fa2ac2a56",
   "$id": "aws-location-routecalculator.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -34,10 +34,10 @@
       "additionalProperties": false,
       "maxProperties": 50,
       "patternProperties": {
-        "^[a-zA-Z+-=._:/]+$": {
+        "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$": {
           "maxLength": 256,
           "minLength": 0,
-          "pattern": "^[A-Za-z0-9 _=@:.+-/]*$",
+          "pattern": "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$",
           "type": "string"
         }
       },

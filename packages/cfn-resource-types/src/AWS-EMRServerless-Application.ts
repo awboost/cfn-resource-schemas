@@ -81,6 +81,7 @@ export type EMRServerlessApplicationAttributes = {
   ApplicationId: string;
   /**
    * The Amazon Resource Name (ARN) of the EMR Serverless Application.
+   * @pattern `^arn:(aws[a-zA-Z0-9-]*):emr-serverless:.+:(\d{12}):\/applications\/[0-9a-zA-Z]+$`
    */
   Arn: string;
 };
@@ -366,6 +367,11 @@ export type WorkerConfiguration = {
    * @pattern `^[1-9][0-9]*(\s)?(GB|gb|gB|Gb)$`
    */
   Disk?: string;
+  /**
+   * Per worker DiskType resource. Shuffle optimized and Standard are only supported types and specifying diskType is optional
+   * @pattern `^(SHUFFLE_OPTIMIZED|[Ss]huffle_[Oo]ptimized|STANDARD|[Ss]tandard)$`
+   */
+  DiskType?: string;
   /**
    * Per worker memory resource. GB is the only supported unit and specifying GB is optional.
    * @minLength `1`

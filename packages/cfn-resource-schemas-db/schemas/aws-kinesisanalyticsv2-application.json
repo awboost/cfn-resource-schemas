@@ -1,5 +1,5 @@
 {
-  "$hash": "1a8e4b48a18a89ffdfff71caa8ec6353b56aadc0",
+  "$hash": "db048a7b0dca109a14a912b1f647d61b6c09f804",
   "$id": "aws-kinesisanalyticsv2-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -35,6 +35,10 @@
         "ApplicationSnapshotConfiguration": {
           "$ref": "#/definitions/ApplicationSnapshotConfiguration",
           "description": "Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application."
+        },
+        "ApplicationSystemRollbackConfiguration": {
+          "$ref": "#/definitions/ApplicationSystemRollbackConfiguration",
+          "description": "Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application."
         },
         "EnvironmentProperties": {
           "$ref": "#/definitions/EnvironmentProperties",
@@ -106,6 +110,18 @@
         }
       },
       "required": ["SnapshotsEnabled"],
+      "type": "object"
+    },
+    "ApplicationSystemRollbackConfiguration": {
+      "additionalProperties": false,
+      "description": "Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.",
+      "properties": {
+        "RollbackEnabled": {
+          "description": "Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.",
+          "type": "boolean"
+        }
+      },
+      "required": ["RollbackEnabled"],
       "type": "object"
     },
     "Arn": {

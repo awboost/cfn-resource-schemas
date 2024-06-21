@@ -83,6 +83,10 @@ export type ApplicationConfiguration = {
    */
   ApplicationSnapshotConfiguration?: ApplicationSnapshotConfiguration;
   /**
+   * Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+   */
+  ApplicationSystemRollbackConfiguration?: ApplicationSystemRollbackConfiguration;
+  /**
    * Describes execution properties for a Flink-based Kinesis Data Analytics application.
    */
   EnvironmentProperties?: EnvironmentProperties;
@@ -147,6 +151,17 @@ export type ApplicationSnapshotConfiguration = {
    * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
    */
   SnapshotsEnabled: boolean;
+};
+/**
+ * Type definition for `AWS::KinesisAnalyticsV2::Application.ApplicationSystemRollbackConfiguration`.
+ * Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsystemrollbackconfiguration.html}
+ */
+export type ApplicationSystemRollbackConfiguration = {
+  /**
+   * Describes whether system initiated rollbacks are enabled for a Flink-based Kinesis Data Analytics application.
+   */
+  RollbackEnabled: boolean;
 };
 /**
  * Type definition for `AWS::KinesisAnalyticsV2::Application.CatalogConfiguration`.

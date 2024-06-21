@@ -1,5 +1,5 @@
 {
-  "$hash": "a6ea67c8590dc8127ce68cafca6acfd24b39e5a6",
+  "$hash": "c711194144370f0543f9dcc309f05b2ebf9e8523",
   "$id": "aws-location-placeindex.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DataSource", "/properties/IndexName"],
@@ -37,10 +37,10 @@
       "additionalProperties": false,
       "maxProperties": 50,
       "patternProperties": {
-        "^[a-zA-Z+-=._:/]+$": {
+        "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$": {
           "maxLength": 256,
           "minLength": 0,
-          "pattern": "^[A-Za-z0-9 _=@:.+-/]*$",
+          "pattern": "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$",
           "type": "string"
         }
       },

@@ -95,6 +95,10 @@ export type RDSDBClusterProperties = {
    */
   EnableIAMDatabaseAuthentication?: boolean;
   /**
+   * Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.
+   */
+  EnableLocalWriteForwarding?: boolean;
+  /**
    * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
    */
   Engine?: string;

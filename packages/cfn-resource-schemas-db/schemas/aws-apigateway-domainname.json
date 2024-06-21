@@ -1,5 +1,5 @@
 {
-  "$hash": "077fbb3d0d5a55c4fd915665b7ac4adb0c08a885",
+  "$hash": "ae40452a9b83d1697930376b72b2d35ab80d48b2",
   "$id": "aws-apigateway-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -60,5 +60,12 @@
     "/properties/DistributionHostedZoneId"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ApiGateway::DomainName"
 }

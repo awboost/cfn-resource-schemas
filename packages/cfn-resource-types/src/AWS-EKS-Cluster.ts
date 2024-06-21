@@ -10,6 +10,10 @@ export type EKSClusterProperties = {
    * An object representing the Access Config to use for the cluster.
    */
   AccessConfig?: AccessConfig;
+  /**
+   * Set this value to false to avoid creating the default networking addons when the cluster is created.
+   */
+  BootstrapSelfManagedAddons?: boolean;
   EncryptionConfig?: EncryptionConfig[];
   /**
    * The Kubernetes network configuration for the cluster.

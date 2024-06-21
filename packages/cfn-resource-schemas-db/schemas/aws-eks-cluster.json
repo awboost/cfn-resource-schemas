@@ -1,5 +1,5 @@
 {
-  "$hash": "6294e48b38acb202dc7050735fa2fa5b14b2583b",
+  "$hash": "69b5435df4d7b79e12ee14adeb035146fb08f97c",
   "$id": "aws-eks-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8,7 +8,8 @@
     "/properties/KubernetesNetworkConfig",
     "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions",
     "/properties/Name",
-    "/properties/RoleArn"
+    "/properties/RoleArn",
+    "/properties/BootstrapSelfManagedAddons"
   ],
   "definitions": {
     "AccessConfig": {
@@ -251,6 +252,10 @@
       "description": "The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.",
       "type": "string"
     },
+    "BootstrapSelfManagedAddons": {
+      "description": "Set this value to false to avoid creating the default networking addons when the cluster is created.",
+      "type": "boolean"
+    },
     "CertificateAuthorityData": {
       "description": "The certificate-authority-data for your cluster.",
       "type": "string"
@@ -331,6 +336,7 @@
   },
   "typeName": "AWS::EKS::Cluster",
   "writeOnlyProperties": [
-    "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions"
+    "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions",
+    "/properties/BootstrapSelfManagedAddons"
   ]
 }

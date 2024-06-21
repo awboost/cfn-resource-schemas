@@ -1,5 +1,5 @@
 {
-  "$hash": "5afbf4e326c909649f81556df2d7968ee47a3bca",
+  "$hash": "f81259b0bbc850b06d57cc6270dc41471876bc6f",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -326,6 +326,10 @@
     },
     "EnableIAMDatabaseAuthentication": {
       "description": "A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.",
+      "type": "boolean"
+    },
+    "EnableLocalWriteForwarding": {
+      "description": "Specifies whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.",
       "type": "boolean"
     },
     "Endpoint": { "$ref": "#/definitions/Endpoint" },

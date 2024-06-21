@@ -1,5 +1,5 @@
 {
-  "$hash": "a3d79d9f11de18211768ce04427bd50560687918",
+  "$hash": "315dad55ece3a1c989a5121488ce156066c543b6",
   "$id": "aws-networkfirewall-firewall.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId", "/properties/FirewallName"],
@@ -66,7 +66,7 @@
     "read": {
       "permissions": [
         "network-firewall:DescribeFirewall",
-        "network-firewall:ListTagsForResources"
+        "network-firewall:ListTagsForResource"
       ]
     },
     "update": {

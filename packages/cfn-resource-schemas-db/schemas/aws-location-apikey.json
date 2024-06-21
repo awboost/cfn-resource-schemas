@@ -1,5 +1,5 @@
 {
-  "$hash": "db297b8218d892c31a05eba3770aafef95de27b6",
+  "$hash": "ebda7e65d0af4193bdb9e764071a27157f6b6000",
   "$id": "aws-location-apikey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KeyName"],
@@ -71,10 +71,10 @@
       "additionalProperties": false,
       "maxProperties": 50,
       "patternProperties": {
-        "^[a-zA-Z+-=._:/]+$": {
+        "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$": {
           "maxLength": 256,
           "minLength": 0,
-          "pattern": "^[A-Za-z0-9 _=@:.+-/]*$",
+          "pattern": "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$",
           "type": "string"
         }
       },
