@@ -16,7 +16,7 @@ export type CloudWatchMetricStreamProperties = {
    * @minLength `20`
    * @maxLength `2048`
    */
-  FirehoseArn: string;
+  FirehoseArn?: string;
   /**
    * Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
    * @maxLength `1000`
@@ -37,13 +37,13 @@ export type CloudWatchMetricStreamProperties = {
    * @minLength `1`
    * @maxLength `255`
    */
-  OutputFormat: string;
+  OutputFormat?: string;
   /**
    * The ARN of the role that provides access to the Kinesis Firehose.
    * @minLength `20`
    * @maxLength `2048`
    */
-  RoleArn: string;
+  RoleArn?: string;
   /**
    * By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
    * @maxLength `100`
@@ -149,7 +149,7 @@ export type Tag = {
   Key: string;
   /**
    * String which you can use to describe or define the tag.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;

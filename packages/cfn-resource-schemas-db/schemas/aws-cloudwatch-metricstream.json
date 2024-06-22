@@ -1,16 +1,10 @@
 {
-  "$hash": "b09417fc190a3907de5ef821ab6964578ab4d0a0",
+  "$hash": "4d131b8fc55473e6a2ca4aab0a2d3a2ac1da26bd",
   "$id": "aws-cloudwatch-metricstream.json",
   "additionalProperties": false,
-  "anyOf": [
+  "allOf": [
     { "required": ["FirehoseArn", "RoleArn", "OutputFormat"] },
-    { "allOf": [{ "required": ["FirehoseArn", "RoleArn", "OutputFormat"] }] },
-    {
-      "oneOf": [
-        { "required": ["IncludeFilters"] },
-        { "required": ["ExcludeFilters"] }
-      ]
-    }
+    { "oneOf": [{}, { "required": ["IncludeFilters", "ExcludeFilters"] }] }
   ],
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
@@ -89,7 +83,7 @@
         "Value": {
           "description": "String which you can use to describe or define the tag.",
           "maxLength": 256,
-          "minLength": 1,
+          "minLength": 0,
           "type": "string"
         }
       },
@@ -212,7 +206,6 @@
     "/properties/LastUpdateDate",
     "/properties/State"
   ],
-  "required": ["FirehoseArn", "RoleArn", "OutputFormat"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudwatch.git",
   "taggable": true,
   "typeName": "AWS::CloudWatch::MetricStream",
