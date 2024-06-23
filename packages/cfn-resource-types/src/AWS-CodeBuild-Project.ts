@@ -175,6 +175,7 @@ export type ProjectSourceVersion = {
 export type ProjectTriggers = {
   BuildType?: string;
   FilterGroups?: FilterGroup[];
+  ScopeConfiguration?: ScopeConfiguration;
   Webhook?: boolean;
 };
 /**
@@ -193,6 +194,13 @@ export type S3LogsConfig = {
   EncryptionDisabled?: boolean;
   Location?: string;
   Status: string;
+};
+/**
+ * Type definition for `AWS::CodeBuild::Project.ScopeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-scopeconfiguration.html}
+ */
+export type ScopeConfiguration = {
+  Name: string;
 };
 /**
  * Type definition for `AWS::CodeBuild::Project.Source`.

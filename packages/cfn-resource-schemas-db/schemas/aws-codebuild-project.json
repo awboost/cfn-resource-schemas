@@ -1,5 +1,5 @@
 {
-  "$hash": "f1e3955f8c318b479dd8c2341ee61d909508b767",
+  "$hash": "160eb7c98727085b2291175d19b21531ce458482",
   "$id": "aws-codebuild-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -155,6 +155,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "ScopeConfiguration": { "$ref": "#/definitions/ScopeConfiguration" },
         "Webhook": { "type": "boolean" }
       },
       "type": "object"
@@ -176,6 +177,12 @@
         "Status": { "type": "string" }
       },
       "required": ["Status"],
+      "type": "object"
+    },
+    "ScopeConfiguration": {
+      "additionalProperties": false,
+      "properties": { "Name": { "type": "string" } },
+      "required": ["Name"],
       "type": "object"
     },
     "Source": {

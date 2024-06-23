@@ -1,5 +1,6 @@
-- updated `AWS::CloudWatch::MetricStream`
-  - added `allOf`
-  - removed `anyOf`
-  - removed `required`
-  - updated definition `Tag`
+- added `AWS::SecretsManager::ResourcePolicy`
+- updated `AWS::CodeBuild::Project`
+  - added definition `ScopeConfiguration`
+  - updated definition `ProjectTriggers`
+- updated `AWS::ElasticBeanstalk::Environment`
+  - updated handler permissions
