@@ -1,6 +1,1 @@
-- added `AWS::SecretsManager::ResourcePolicy`
-- updated `AWS::CodeBuild::Project`
-  - added definition `ScopeConfiguration`
-  - updated definition `ProjectTriggers`
-- updated `AWS::ElasticBeanstalk::Environment`
-  - updated handler permissions
+- added `AWS::WorkSpaces::WorkspacesPool`
