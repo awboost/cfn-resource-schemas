@@ -1,1 +1,12 @@
-- added `AWS::WorkSpaces::WorkspacesPool`
+- updated `AWS::RDS::DBCluster`
+  - updated definition `DBClusterRole`
+  - updated definition `MasterUserSecret`
+  - updated handler permissions
+  - updated property `KmsKeyId`
+  - updated property `VpcSecurityGroupIds`
+- updated `AWS::RDS::DBInstance`
+  - updated definition `MasterUserSecret`
+  - updated property `DBSecurityGroups`
+  - updated property `KmsKeyId`
+  - updated property `PerformanceInsightsKMSKeyId`
+  - updated property `VPCSecurityGroups`
