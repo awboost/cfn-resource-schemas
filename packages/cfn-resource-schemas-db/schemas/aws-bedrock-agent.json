@@ -1,5 +1,5 @@
 {
-  "$hash": "9faadab7d6aa959043970a8b22284125cb840499",
+  "$hash": "41fff56408a4ec7242ea8d3304c8de3e7a8cb66e",
   "$id": "aws-bedrock-agent.json",
   "additionalProperties": false,
   "definitions": {
@@ -519,7 +519,6 @@
     },
     "Instruction": {
       "description": "Instruction for the agent.",
-      "maxLength": 4000,
       "minLength": 40,
       "type": "string"
     },

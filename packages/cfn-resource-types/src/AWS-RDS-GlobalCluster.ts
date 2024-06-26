@@ -15,6 +15,10 @@ export type RDSGlobalClusterProperties = {
      */
   Engine?: "aurora" | "aurora-mysql" | "aurora-postgresql";
   /**
+   * The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
+   */
+  EngineLifecycleSupport?: string;
+  /**
    * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
    */
   EngineVersion?: string;

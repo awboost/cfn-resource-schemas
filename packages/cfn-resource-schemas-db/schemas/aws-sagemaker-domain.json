@@ -1,5 +1,5 @@
 {
-  "$hash": "83eb9036db7a73b08b417a06a52e0d3e691f717c",
+  "$hash": "4a3b313f2708598ef09efcbfaa1cac5f5007f0f2",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -191,7 +191,7 @@
             "pattern": "^\\d+$",
             "type": "string"
           },
-          "maxItems": 10,
+          "maxItems": 20,
           "minItems": 0,
           "type": "array",
           "uniqueItems": false

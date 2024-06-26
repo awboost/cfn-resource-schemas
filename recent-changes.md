@@ -1,12 +1,15 @@
-- updated `AWS::RDS::DBCluster`
-  - updated definition `DBClusterRole`
-  - updated definition `MasterUserSecret`
-  - updated handler permissions
-  - updated property `KmsKeyId`
-  - updated property `VpcSecurityGroupIds`
-- updated `AWS::RDS::DBInstance`
-  - updated definition `MasterUserSecret`
-  - updated property `DBSecurityGroups`
-  - updated property `KmsKeyId`
-  - updated property `PerformanceInsightsKMSKeyId`
-  - updated property `VPCSecurityGroups`
+- updated `AWS::Bedrock::Agent`
+  - updated property `Instruction`
+- updated `AWS::Lambda::Function`
+  - updated property `Runtime`
+- updated `AWS::RDS::GlobalCluster`
+  - added property `EngineLifecycleSupport`
+- updated `AWS::SageMaker::Domain`
+  - updated definition `DockerSettings`
+- updated `AWS::VerifiedPermissions::IdentitySource`
+  - added definition `OpenIdConnectAccessTokenConfiguration`
+  - added definition `OpenIdConnectConfiguration`
+  - added definition `OpenIdConnectGroupConfiguration`
+  - added definition `OpenIdConnectIdentityTokenConfiguration`
+  - added definition `OpenIdConnectTokenSelection`
+  - updated definition `IdentitySourceConfiguration`

@@ -85,9 +85,13 @@ export type CognitoUserPoolConfiguration = {
  * Type definition for `AWS::VerifiedPermissions::IdentitySource.IdentitySourceConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html}
  */
-export type IdentitySourceConfiguration = {
-  CognitoUserPoolConfiguration: CognitoUserPoolConfiguration;
-};
+export type IdentitySourceConfiguration =
+  | {
+      CognitoUserPoolConfiguration: CognitoUserPoolConfiguration;
+    }
+  | {
+      OpenIdConnectConfiguration: OpenIdConnectConfiguration;
+    };
 /**
  * Type definition for `AWS::VerifiedPermissions::IdentitySource.IdentitySourceDetails`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourcedetails.html}
@@ -112,6 +116,82 @@ export type IdentitySourceDetails = {
    */
   UserPoolArn?: string;
 };
+/**
+ * Type definition for `AWS::VerifiedPermissions::IdentitySource.OpenIdConnectAccessTokenConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectaccesstokenconfiguration.html}
+ */
+export type OpenIdConnectAccessTokenConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  Audiences?: string[];
+  /**
+   * @minLength `1`
+   */
+  PrincipalIdClaim?: string;
+};
+/**
+ * Type definition for `AWS::VerifiedPermissions::IdentitySource.OpenIdConnectConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html}
+ */
+export type OpenIdConnectConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  EntityIdPrefix?: string;
+  GroupConfiguration?: OpenIdConnectGroupConfiguration;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^https://.*$`
+   */
+  Issuer: string;
+  TokenSelection: OpenIdConnectTokenSelection;
+};
+/**
+ * Type definition for `AWS::VerifiedPermissions::IdentitySource.OpenIdConnectGroupConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectgroupconfiguration.html}
+ */
+export type OpenIdConnectGroupConfiguration = {
+  /**
+   * @minLength `1`
+   */
+  GroupClaim: string;
+  /**
+   * @minLength `1`
+   * @maxLength `200`
+   * @pattern `^([_a-zA-Z][_a-zA-Z0-9]*::)*[_a-zA-Z][_a-zA-Z0-9]*$`
+   */
+  GroupEntityType: string;
+};
+/**
+ * Type definition for `AWS::VerifiedPermissions::IdentitySource.OpenIdConnectIdentityTokenConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectidentitytokenconfiguration.html}
+ */
+export type OpenIdConnectIdentityTokenConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `1000`
+   */
+  ClientIds?: string[];
+  /**
+   * @minLength `1`
+   */
+  PrincipalIdClaim?: string;
+};
+/**
+ * Type definition for `AWS::VerifiedPermissions::IdentitySource.OpenIdConnectTokenSelection`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnecttokenselection.html}
+ */
+export type OpenIdConnectTokenSelection =
+  | {
+      AccessTokenOnly: OpenIdConnectAccessTokenConfiguration;
+    }
+  | {
+      IdentityTokenOnly: OpenIdConnectIdentityTokenConfiguration;
+    };
 /**
  * Type definition for `AWS::VerifiedPermissions::IdentitySource.OpenIdIssuer`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidissuer.html}

@@ -56,7 +56,6 @@ export type BedrockAgentProperties = {
   /**
    * Instruction for the agent.
    * @minLength `40`
-   * @maxLength `4000`
    */
   Instruction?: string;
   /**

@@ -274,7 +274,7 @@ export type DockerSettings = {
   /**
    * A list of account id's that would be used to pull images from in VpcOnly mode
    * @minLength `0`
-   * @maxLength `10`
+   * @maxLength `20`
    */
   VpcOnlyTrustedAccounts?: string[];
 };
