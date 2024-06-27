@@ -1,15 +1,24 @@
-- updated `AWS::Bedrock::Agent`
-  - updated property `Instruction`
-- updated `AWS::Lambda::Function`
-  - updated property `Runtime`
-- updated `AWS::RDS::GlobalCluster`
-  - added property `EngineLifecycleSupport`
-- updated `AWS::SageMaker::Domain`
-  - updated definition `DockerSettings`
-- updated `AWS::VerifiedPermissions::IdentitySource`
-  - added definition `OpenIdConnectAccessTokenConfiguration`
-  - added definition `OpenIdConnectConfiguration`
-  - added definition `OpenIdConnectGroupConfiguration`
-  - added definition `OpenIdConnectIdentityTokenConfiguration`
-  - added definition `OpenIdConnectTokenSelection`
-  - updated definition `IdentitySourceConfiguration`
+- updated `AWS::ControlTower::EnabledControl`
+  - updated handler permissions
+- updated `AWS::DMS::ReplicationConfig`
+  - updated `readOnlyProperties`
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - updated handler permissions
+- updated `AWS::GuardDuty::MalwareProtectionPlan`
+  - updated definition `CFNActions`
+  - updated definition `CFNStatusReasons`
+  - updated definition `CFNTagging`
+  - updated property `Actions`
+  - updated property `ProtectedResource`
+  - updated property `Role`
+  - updated property `StatusReasons`
+  - updated property `Status`
+  - updated property `Tags`
+- updated `AWS::MediaConnect::Gateway`
+  - updated `createOnlyProperties`
+- updated `AWS::ResilienceHub::App`
+  - updated handler permissions
+- updated `AWS::RolesAnywhere::Profile`
+  - added `tagging`
+- updated `AWS::SES::ConfigurationSet`
+  - updated definition `TrackingOptions`

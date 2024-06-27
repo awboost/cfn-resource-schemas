@@ -1,5 +1,5 @@
 {
-  "$hash": "6f7889b20022d3a4d5dc56c0a59c48806a7244ff",
+  "$hash": "e200debb027907b2b63fa605b5da777774b9cf76",
   "$id": "aws-ses-configurationset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -93,6 +93,7 @@
           "type": "string"
         }
       },
+      "required": ["CustomRedirectDomain"],
       "type": "object"
     },
     "VdmOptions": {

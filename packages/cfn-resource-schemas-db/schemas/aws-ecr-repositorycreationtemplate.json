@@ -1,5 +1,5 @@
 {
-  "$hash": "fceb62c6c6a99b88245822806657076cdf516c68",
+  "$hash": "2e2edc47c1cc67aefd1be641e42b9e71e7884c0d",
   "$id": "aws-ecr-repositorycreationtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Prefix"],
@@ -57,7 +57,9 @@
       "permissions": [
         "ecr:CreateRepositoryCreationTemplate",
         "ecr:PutLifecyclePolicy",
-        "ecr:SetRepositoryPolicy"
+        "ecr:SetRepositoryPolicy",
+        "ecr:CreateRepository",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     "delete": { "permissions": ["ecr:DeleteRepositoryCreationTemplate"] },
@@ -68,7 +70,9 @@
         "ecr:DescribeRepositoryCreationTemplates",
         "ecr:UpdateRepositoryCreationTemplate",
         "ecr:PutLifecyclePolicy",
-        "ecr:SetRepositoryPolicy"
+        "ecr:SetRepositoryPolicy",
+        "ecr:CreateRepository",
+        "iam:CreateServiceLinkedRole"
       ]
     }
   },

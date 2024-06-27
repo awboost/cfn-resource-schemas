@@ -1,5 +1,5 @@
 {
-  "$hash": "03268818e39b95493af96101bbb16e267d115bbc",
+  "$hash": "fe965a7b77a779933e815dd7ec7005477158a509",
   "$id": "aws-dms-replicationconfig.json",
   "additionalIdentifiers": [["/properties/ReplicationConfigIdentifier"]],
   "additionalProperties": false,
@@ -142,7 +142,7 @@
       "type": "string"
     }
   },
-  "readOnlyProperties": ["/Properties/ReplicationConfigArn"],
+  "readOnlyProperties": ["/properties/ReplicationConfigArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-dms",
   "tagging": {
     "cloudFormationSystemTags": false,

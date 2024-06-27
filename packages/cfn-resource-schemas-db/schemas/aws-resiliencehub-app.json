@@ -1,5 +1,5 @@
 {
-  "$hash": "7742556e44dd03d0c11dcd3da069f137ef5d8566",
+  "$hash": "47eac6a08191734cb5574ea17e6cdde63968bf3b",
   "$id": "aws-resiliencehub-app.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -136,7 +136,8 @@
         "resiliencehub:DescribeApp",
         "resiliencehub:DescribeAppVersionTemplate",
         "resiliencehub:ListAppVersionResourceMappings",
-        "resiliencehub:ListTagsForResource"
+        "resiliencehub:ListTagsForResource",
+        "resiliencehub:ListAppVersions"
       ]
     },
     "update": {

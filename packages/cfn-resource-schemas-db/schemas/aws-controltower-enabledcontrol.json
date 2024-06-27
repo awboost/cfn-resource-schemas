@@ -1,5 +1,5 @@
 {
-  "$hash": "a37d9697a890fcaf2b8832cd45970c56bea6468c",
+  "$hash": "983223f1a2ff4809b34abff4cb41b864634622d5",
   "$id": "aws-controltower-enabledcontrol.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -73,7 +73,8 @@
         "organizations:ListPoliciesForTarget",
         "organizations:ListTargetsForPolicy",
         "organizations:DescribePolicy"
-      ]
+      ],
+      "timeoutInMinutes": 720
     },
     "delete": {
       "permissions": [
@@ -87,7 +88,8 @@
         "organizations:ListPoliciesForTarget",
         "organizations:ListTargetsForPolicy",
         "organizations:DescribePolicy"
-      ]
+      ],
+      "timeoutInMinutes": 720
     },
     "list": {
       "handlerSchema": {
@@ -122,7 +124,8 @@
         "organizations:ListPoliciesForTarget",
         "organizations:ListTargetsForPolicy",
         "organizations:DescribePolicy"
-      ]
+      ],
+      "timeoutInMinutes": 720
     }
   },
   "primaryIdentifier": [
