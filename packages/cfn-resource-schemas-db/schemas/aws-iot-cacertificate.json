@@ -1,5 +1,5 @@
 {
-  "$hash": "05facab230356e1c1dad32fdbde51953679229bf",
+  "$hash": "32d8dccf6b6e1e01a35357155951abf9a663bc5e",
   "$id": "aws-iot-cacertificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -110,7 +110,8 @@
       "description": "An array of key-value pairs to apply to this resource.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
-      "type": "array"
+      "type": "array",
+      "uniqueItems": true
     },
     "VerificationCertificatePem": {
       "description": "The private key verification certificate.",

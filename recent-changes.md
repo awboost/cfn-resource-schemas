@@ -1,24 +1,17 @@
-- updated `AWS::ControlTower::EnabledControl`
-  - updated handler permissions
-- updated `AWS::DMS::ReplicationConfig`
-  - updated `readOnlyProperties`
-- updated `AWS::ECR::RepositoryCreationTemplate`
-  - updated handler permissions
-- updated `AWS::GuardDuty::MalwareProtectionPlan`
-  - updated definition `CFNActions`
-  - updated definition `CFNStatusReasons`
-  - updated definition `CFNTagging`
-  - updated property `Actions`
-  - updated property `ProtectedResource`
-  - updated property `Role`
-  - updated property `StatusReasons`
-  - updated property `Status`
+- updated `AWS::IoT::Authorizer`
   - updated property `Tags`
-- updated `AWS::MediaConnect::Gateway`
-  - updated `createOnlyProperties`
-- updated `AWS::ResilienceHub::App`
-  - updated handler permissions
-- updated `AWS::RolesAnywhere::Profile`
-  - added `tagging`
-- updated `AWS::SES::ConfigurationSet`
-  - updated definition `TrackingOptions`
+- updated `AWS::IoT::CACertificate`
+  - updated property `Tags`
+- updated `AWS::IoT::CertificateProvider`
+  - updated property `Tags`
+- updated `AWS::IoT::DomainConfiguration`
+  - updated property `Tags`
+- updated `AWS::IoT::Policy`
+  - updated property `Tags`
+- updated `AWS::IoT::ProvisioningTemplate`
+  - updated definition `ProvisioningHook`
+  - updated property `Tags`
+- updated `AWS::IoT::RoleAlias`
+  - updated property `Tags`
+- updated `AWS::Location::Tracker`
+  - updated definition `TagMap`

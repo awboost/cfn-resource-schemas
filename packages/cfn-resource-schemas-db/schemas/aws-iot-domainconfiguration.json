@@ -1,5 +1,5 @@
 {
-  "$hash": "e15b62020015277f5fa851d48600c1cd543418a6",
+  "$hash": "f12ffb3d9b6849226ac6434cf96cf5079cd65be1",
   "$id": "aws-iot-domainconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -142,9 +142,10 @@
       "type": "string"
     },
     "Tags": {
-      "insertionOrder": true,
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
-      "type": "array"
+      "type": "array",
+      "uniqueItems": true
     },
     "TlsConfig": { "$ref": "#/definitions/TlsConfig" },
     "ValidationCertificateArn": {

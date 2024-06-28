@@ -1,5 +1,5 @@
 {
-  "$hash": "dedef13853f4c8a81c0bbf9ce21c8b93edcef563",
+  "$hash": "07492253561e79e1ed68d8fc4b01b2df740a1ce8",
   "$id": "aws-iot-provisioningtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8,6 +8,7 @@
   ],
   "definitions": {
     "ProvisioningHook": {
+      "additionalProperties": false,
       "properties": {
         "PayloadVersion": { "type": "string" },
         "TargetArn": { "type": "string" }
@@ -71,9 +72,10 @@
     "PreProvisioningHook": { "$ref": "#/definitions/ProvisioningHook" },
     "ProvisioningRoleArn": { "type": "string" },
     "Tags": {
-      "insertionOrder": true,
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
-      "type": "array"
+      "type": "array",
+      "uniqueItems": true
     },
     "TemplateArn": { "type": "string" },
     "TemplateBody": { "type": "string" },

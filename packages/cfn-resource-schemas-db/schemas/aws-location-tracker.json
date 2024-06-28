@@ -1,5 +1,5 @@
 {
-  "$hash": "f9a4f875df5998fd5e23fff603e1946c66a54975",
+  "$hash": "941929b065d5c1fe4e20bbc5b84259d9f78ae031",
   "$id": "aws-location-tracker.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyId", "/properties/TrackerName"],
@@ -35,10 +35,10 @@
       "additionalProperties": false,
       "maxProperties": 50,
       "patternProperties": {
-        "^[a-zA-Z+-=._:/]+$": {
+        "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$": {
           "maxLength": 256,
           "minLength": 0,
-          "pattern": "^[A-Za-z0-9 _=@:.+-/]*$",
+          "pattern": "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$",
           "type": "string"
         }
       },

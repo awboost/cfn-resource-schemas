@@ -1,5 +1,5 @@
 {
-  "$hash": "97589b133f70b76e8784974bbdb361ce97244c6e",
+  "$hash": "4b1d5fcb547deb9b6bbcfe18880cec44e2c208a8",
   "$id": "aws-iot-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName"],
@@ -58,9 +58,10 @@
     },
     "PolicyName": { "type": "string" },
     "Tags": {
-      "insertionOrder": true,
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
-      "type": "array"
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "readOnlyProperties": ["/properties/Arn", "/properties/Id"],

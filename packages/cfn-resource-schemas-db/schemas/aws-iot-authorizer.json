@@ -1,5 +1,5 @@
 {
-  "$hash": "4cf9486a0b7d179daafcbda89c6a81f4043ce6dd",
+  "$hash": "f84ca2fbb7d6b6c0f175424abcdb73765816970b",
   "$id": "aws-iot-authorizer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -62,9 +62,10 @@
     "SigningDisabled": { "type": "boolean" },
     "Status": { "enum": ["ACTIVE", "INACTIVE"], "type": "string" },
     "Tags": {
-      "insertionOrder": true,
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
-      "type": "array"
+      "type": "array",
+      "uniqueItems": true
     },
     "TokenKeyName": { "type": "string" },
     "TokenSigningPublicKeys": {

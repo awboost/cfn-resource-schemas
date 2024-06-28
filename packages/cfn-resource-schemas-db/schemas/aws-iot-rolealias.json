@@ -1,5 +1,5 @@
 {
-  "$hash": "c60ceb24ef609f34d59b4ff04a702bfa84d62c07",
+  "$hash": "7c25fbde5e9ff272f05ca2dc26deb5624e5ff151",
   "$id": "aws-iot-rolealias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RoleAlias"],
@@ -90,9 +90,10 @@
       "type": "string"
     },
     "Tags": {
-      "insertionOrder": true,
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
-      "type": "array"
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "readOnlyProperties": ["/properties/RoleAliasArn"],
