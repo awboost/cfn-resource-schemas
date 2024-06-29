@@ -1,5 +1,5 @@
 {
-  "$hash": "f389f9c97dcfe1023add2fa6007c79af95459953",
+  "$hash": "7ce817402f2143005d2cc14364683ef7783fab39",
   "$id": "aws-amazonmq-configuration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -42,6 +42,6 @@
     "/properties/Id",
     "/properties/Arn"
   ],
-  "required": ["EngineVersion", "EngineType", "Data", "Name"],
+  "required": ["EngineType", "Data", "Name"],
   "typeName": "AWS::AmazonMQ::Configuration"
 }

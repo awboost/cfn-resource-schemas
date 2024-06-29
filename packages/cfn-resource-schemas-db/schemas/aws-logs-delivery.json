@@ -1,5 +1,5 @@
 {
-  "$hash": "c12fb8efc17138b2e76ebff841b568be29637078",
+  "$hash": "161bb54f25b247aa66ebfeda8a3c2314ab7ab199",
   "$id": "aws-logs-delivery.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,7 +11,7 @@
       "description": "Amazon Resource Name (ARN) that uniquely identify AWS resource.",
       "maxLength": 2048,
       "minLength": 16,
-      "pattern": "^arn:(aws[a-zA-Z-]*)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
+      "pattern": "[\\w#+=/:,.@-]*\\*?",
       "type": "string"
     },
     "Tag": {

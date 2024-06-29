@@ -1,5 +1,5 @@
 {
-  "$hash": "4fc925988e61329eaddcf2bb247c4962d4f2a514",
+  "$hash": "a18fda57b4ff6cfb7df3492f64abed077dec97db",
   "$id": "aws-logs-deliverydestination.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,7 +11,7 @@
       "description": "The Amazon Resource Name (ARN) that uniquely identifies a resource.",
       "maxLength": 2048,
       "minLength": 16,
-      "pattern": "^arn:(aws[a-zA-Z-]*)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$",
+      "pattern": "[\\w#+=/:,.@-]*\\*?",
       "type": "string"
     },
     "DestinationPolicy": {

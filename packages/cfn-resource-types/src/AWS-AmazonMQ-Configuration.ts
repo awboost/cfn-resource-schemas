@@ -9,7 +9,7 @@ export type AmazonMQConfigurationProperties = {
   Data: string;
   Description?: string;
   EngineType: string;
-  EngineVersion: string;
+  EngineVersion?: string;
   Name: string;
   Tags?: TagsEntry[];
 };

@@ -1,5 +1,5 @@
 {
-  "$hash": "4a846c07932cd86bb0a12df103c461d570f02622",
+  "$hash": "d8b7a8758d0577314c9b2b2c9d1d46ef5d83d686",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FunctionName"],
@@ -281,12 +281,7 @@
         "lambda:GetLayerVersion",
         "lambda:GetRuntimeManagementConfig",
         "lambda:PutRuntimeManagementConfig",
-        "lambda:TagResource",
-        "lambda:GetPolicy",
-        "lambda:AddPermission",
-        "lambda:RemovePermission",
-        "lambda:GetResourcePolicy",
-        "lambda:PutResourcePolicy"
+        "lambda:TagResource"
       ]
     },
     "delete": {
@@ -328,13 +323,7 @@
         "lambda:PutFunctionCodeSigningConfig",
         "lambda:DeleteFunctionCodeSigningConfig",
         "lambda:GetCodeSigningConfig",
-        "lambda:GetFunctionCodeSigningConfig",
-        "lambda:GetPolicy",
-        "lambda:AddPermission",
-        "lambda:RemovePermission",
-        "lambda:GetResourcePolicy",
-        "lambda:PutResourcePolicy",
-        "lambda:DeleteResourcePolicy"
+        "lambda:GetFunctionCodeSigningConfig"
       ]
     }
   },

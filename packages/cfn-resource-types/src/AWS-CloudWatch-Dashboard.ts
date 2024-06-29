@@ -5,15 +5,14 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html}
  */
 export type CloudWatchDashboardProperties = {
+  /**
+   * The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
+   */
   DashboardBody: string;
+  /**
+   * The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
+   */
   DashboardName?: string;
-};
-/**
- * Attribute type definition for `AWS::CloudWatch::Dashboard`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html#aws-resource-cloudwatch-dashboard-return-values}
- */
-export type CloudWatchDashboardAttributes = {
-  Id: string;
 };
 /**
  * Resource Type definition for AWS::CloudWatch::Dashboard
@@ -22,7 +21,7 @@ export type CloudWatchDashboardAttributes = {
 export class CloudWatchDashboard extends $Resource<
   "AWS::CloudWatch::Dashboard",
   CloudWatchDashboardProperties,
-  CloudWatchDashboardAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::CloudWatch::Dashboard";
   constructor(

@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type AmazonMQBrokerProperties = {
   AuthenticationStrategy?: string;
-  AutoMinorVersionUpgrade: boolean;
+  AutoMinorVersionUpgrade?: boolean;
   BrokerName: string;
   Configuration?: ConfigurationId;
   DataReplicationMode?: string;
@@ -14,7 +14,7 @@ export type AmazonMQBrokerProperties = {
   DeploymentMode: string;
   EncryptionOptions?: EncryptionOptions;
   EngineType: string;
-  EngineVersion: string;
+  EngineVersion?: string;
   HostInstanceType: string;
   LdapServerMetadata?: LdapServerMetadata;
   Logs?: LogList;

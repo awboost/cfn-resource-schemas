@@ -26,7 +26,7 @@ export type LogsDeliverySourceProperties = {
    * The ARN of the resource that will be sending the logs.
    * @minLength `16`
    * @maxLength `2048`
-   * @pattern `^arn:(aws[a-zA-Z-]*)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$`
+   * @pattern `[\w#+=/:,.@-]*\*?`
    */
   ResourceArn?: string;
   /**
@@ -43,7 +43,7 @@ export type LogsDeliverySourceAttributes = {
    * The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
    * @minLength `16`
    * @maxLength `2048`
-   * @pattern `^arn:(aws[a-zA-Z-]*)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$`
+   * @pattern `[\w#+=/:,.@-]*\*?`
    */
   Arn: string;
   /**

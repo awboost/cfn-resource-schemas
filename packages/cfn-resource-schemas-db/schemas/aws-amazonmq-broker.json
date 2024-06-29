@@ -1,5 +1,5 @@
 {
-  "$hash": "1971e19f36004ba320eac6344516c5c560909b35",
+  "$hash": "d160357e3967939c641ff77b33627d042f683b74",
   "$id": "aws-amazonmq-broker.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -192,11 +192,9 @@
     "/properties/Arn"
   ],
   "required": [
-    "EngineVersion",
     "DeploymentMode",
     "HostInstanceType",
     "EngineType",
-    "AutoMinorVersionUpgrade",
     "Users",
     "PubliclyAccessible",
     "BrokerName"

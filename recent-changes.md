@@ -1,17 +1,23 @@
-- updated `AWS::IoT::Authorizer`
-  - updated property `Tags`
-- updated `AWS::IoT::CACertificate`
-  - updated property `Tags`
-- updated `AWS::IoT::CertificateProvider`
-  - updated property `Tags`
-- updated `AWS::IoT::DomainConfiguration`
-  - updated property `Tags`
-- updated `AWS::IoT::Policy`
-  - updated property `Tags`
-- updated `AWS::IoT::ProvisioningTemplate`
-  - updated definition `ProvisioningHook`
-  - updated property `Tags`
-- updated `AWS::IoT::RoleAlias`
-  - updated property `Tags`
-- updated `AWS::Location::Tracker`
-  - updated definition `TagMap`
+- updated `AWS::AmazonMQ::Broker`
+  - updated `required`
+- updated `AWS::AmazonMQ::Configuration`
+  - updated `required`
+- updated `AWS::CloudWatch::Dashboard`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated handler permissions
+  - updated property `DashboardBody`
+  - updated property `DashboardName`
+- updated `AWS::Lambda::Function`
+  - updated handler permissions
+- updated `AWS::Logs::Delivery`
+  - updated definition `Arn`
+- updated `AWS::Logs::DeliveryDestination`
+  - updated definition `Arn`
+- updated `AWS::Logs::DeliverySource`
+  - updated definition `Arn`
+- updated `AWS::SecretsManager::Secret`
+  - updated handler permissions
