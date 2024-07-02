@@ -1,12 +1,14 @@
 {
-  "$hash": "de110883ee27034e0c5cdcf4b8d1ba7b6849f478",
+  "$hash": "27856fd2e31de8d4ce1fe93f1ef53d9bcf1e4d57",
   "$id": "aws-route53recoverycontrol-safetyrule.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
+  "conditionalCreateOnlyProperties": [
     "/properties/ControlPanelArn",
     "/properties/RuleConfig",
-    "/properties/ControlPanelArn",
-    "/properties/Tags"
+    "/properties/Tags",
+    "/properties/AssertionRule/AssertedControls",
+    "/properties/GatingRule/GatingControls",
+    "/properties/GatingRule/TargetControls"
   ],
   "definitions": {
     "AssertionRule": {
@@ -165,7 +167,13 @@
   "readOnlyProperties": ["/properties/SafetyRuleArn", "/properties/Status"],
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53-recovery-control.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Route53RecoveryControl::SafetyRule",
   "writeOnlyProperties": ["/properties/Tags"]
 }

@@ -26,6 +26,7 @@ export type Route53RecoveryControlClusterAttributes = {
    * The Amazon Resource Name (ARN) of the cluster.
    * @minLength `1`
    * @maxLength `2048`
+   * @pattern `^[A-Za-z0-9:\/_-]*$`
    */
   ClusterArn: string;
   /**

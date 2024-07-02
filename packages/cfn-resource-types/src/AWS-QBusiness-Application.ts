@@ -25,6 +25,7 @@ export type QBusinessApplicationProperties = {
    * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$`
    */
   IdentityCenterInstanceArn?: string;
+  QAppsConfiguration?: QAppsConfiguration;
   /**
    * @minLength `0`
    * @maxLength `1284`
@@ -97,6 +98,18 @@ export type EncryptionConfiguration = {
    */
   KmsKeyId?: string;
 };
+/**
+ * Type definition for `AWS::QBusiness::Application.QAppsConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappsconfiguration.html}
+ */
+export type QAppsConfiguration = {
+  QAppsControlMode: QAppsControlMode;
+};
+/**
+ * Type definition for `AWS::QBusiness::Application.QAppsControlMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappscontrolmode.html}
+ */
+export type QAppsControlMode = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::QBusiness::Application.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-tag.html}

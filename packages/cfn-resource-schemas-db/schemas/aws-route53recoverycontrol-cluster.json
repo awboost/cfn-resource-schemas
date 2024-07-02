@@ -1,5 +1,5 @@
 {
-  "$hash": "583f6da250e063a3fdd33484bc40c446db4d5410",
+  "$hash": "b45f5f6f07c2d2fbdbde3374d899d71eb56726e3",
   "$id": "aws-route53recoverycontrol-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -52,6 +52,7 @@
       "description": "The Amazon Resource Name (ARN) of the cluster.",
       "maxLength": 2048,
       "minLength": 1,
+      "pattern": "^[A-Za-z0-9:\\/_-]*$",
       "type": "string"
     },
     "ClusterEndpoints": {
@@ -85,7 +86,13 @@
   ],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53-recovery-control.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::Route53RecoveryControl::Cluster",
   "writeOnlyProperties": ["/properties/Tags"]
 }

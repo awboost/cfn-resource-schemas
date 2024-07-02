@@ -1,5 +1,5 @@
 {
-  "$hash": "39b2796290db71bda37b59c16c615b4ca23432a7",
+  "$hash": "c71ae10df71b39930119e242faa2d008a53f2164",
   "$id": "aws-route53recoverycontrol-routingcontrol.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -49,10 +49,12 @@
   "properties": {
     "ClusterArn": {
       "description": "Arn associated with Control Panel",
+      "pattern": "^[A-Za-z0-9:\\/_-]*$",
       "type": "string"
     },
     "ControlPanelArn": {
       "description": "The Amazon Resource Name (ARN) of the control panel.",
+      "pattern": "^[A-Za-z0-9:\\/_-]*$",
       "type": "string"
     },
     "Name": {
@@ -63,6 +65,7 @@
     },
     "RoutingControlArn": {
       "description": "The Amazon Resource Name (ARN) of the routing control.",
+      "pattern": "^[A-Za-z0-9:\\/_-]*$",
       "type": "string"
     },
     "Status": {
@@ -74,7 +77,7 @@
   "readOnlyProperties": ["/properties/RoutingControlArn", "/properties/Status"],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53-recovery-control.git",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::Route53RecoveryControl::RoutingControl",
   "writeOnlyProperties": ["/properties/ClusterArn"]
 }

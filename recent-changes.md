@@ -1,23 +1,23 @@
-- updated `AWS::AmazonMQ::Broker`
-  - updated `required`
-- updated `AWS::AmazonMQ::Configuration`
-  - updated `required`
-- updated `AWS::CloudWatch::Dashboard`
-  - added `sourceUrl`
+- updated `AWS::QBusiness::Application`
+  - added definition `QAppsConfiguration`
+  - added definition `QAppsControlMode`
+  - added property `QAppsConfiguration`
+- updated `AWS::Route53RecoveryControl::Cluster`
   - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated handler permissions
-  - updated property `DashboardBody`
-  - updated property `DashboardName`
-- updated `AWS::Lambda::Function`
-  - updated handler permissions
-- updated `AWS::Logs::Delivery`
-  - updated definition `Arn`
-- updated `AWS::Logs::DeliveryDestination`
-  - updated definition `Arn`
-- updated `AWS::Logs::DeliverySource`
-  - updated definition `Arn`
-- updated `AWS::SecretsManager::Secret`
-  - updated handler permissions
+  - removed `taggable`
+  - updated property `ClusterArn`
+- updated `AWS::Route53RecoveryControl::ControlPanel`
+  - added `tagging`
+  - removed `taggable`
+  - updated property `ClusterArn`
+  - updated property `ControlPanelArn`
+- updated `AWS::Route53RecoveryControl::RoutingControl`
+  - added `tagging`
+  - updated property `ClusterArn`
+  - updated property `ControlPanelArn`
+  - updated property `RoutingControlArn`
+- updated `AWS::Route53RecoveryControl::SafetyRule`
+  - added `conditionalCreateOnlyProperties`
+  - added `tagging`
+  - removed `createOnlyProperties`
+  - removed `taggable`

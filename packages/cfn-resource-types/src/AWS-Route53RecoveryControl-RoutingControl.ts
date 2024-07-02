@@ -8,10 +8,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type Route53RecoveryControlRoutingControlProperties = {
   /**
    * Arn associated with Control Panel
+   * @pattern `^[A-Za-z0-9:\/_-]*$`
    */
   ClusterArn?: string;
   /**
    * The Amazon Resource Name (ARN) of the control panel.
+   * @pattern `^[A-Za-z0-9:\/_-]*$`
    */
   ControlPanelArn?: string;
   /**
@@ -28,6 +30,7 @@ export type Route53RecoveryControlRoutingControlProperties = {
 export type Route53RecoveryControlRoutingControlAttributes = {
   /**
    * The Amazon Resource Name (ARN) of the routing control.
+   * @pattern `^[A-Za-z0-9:\/_-]*$`
    */
   RoutingControlArn: string;
   /**

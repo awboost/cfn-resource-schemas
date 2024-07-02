@@ -1,5 +1,5 @@
 {
-  "$hash": "cf8fa36a90d49a5e13555ef3cd465cb58b5b29dd",
+  "$hash": "dffac7fabdfa85196da22c219456fca7c4e11f31",
   "$id": "aws-route53recoverycontrol-controlpanel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterArn", "/properties/Tags"],
@@ -54,10 +54,12 @@
   "properties": {
     "ClusterArn": {
       "description": "Cluster to associate with the Control Panel",
+      "pattern": "^[A-Za-z0-9:\\/_-]*$",
       "type": "string"
     },
     "ControlPanelArn": {
       "description": "The Amazon Resource Name (ARN) of the cluster.",
+      "pattern": "^[A-Za-z0-9:\\/_-]*$",
       "type": "string"
     },
     "DefaultControlPanel": {
@@ -94,7 +96,13 @@
   ],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53-recovery-control.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Route53RecoveryControl::ControlPanel",
   "writeOnlyProperties": ["/properties/Tags"]
 }

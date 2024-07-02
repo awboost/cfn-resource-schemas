@@ -1,5 +1,5 @@
 {
-  "$hash": "8318622a6538c9d0c59297c3033c5db7557f6ac1",
+  "$hash": "70ac701476b1563e12a9afb73678017a904d8486",
   "$id": "aws-qbusiness-application.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/EncryptionConfiguration"],
@@ -29,6 +29,15 @@
       },
       "type": "object"
     },
+    "QAppsConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "QAppsControlMode": { "$ref": "#/definitions/QAppsControlMode" }
+      },
+      "required": ["QAppsControlMode"],
+      "type": "object"
+    },
+    "QAppsControlMode": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -133,6 +142,7 @@
       "pattern": "^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$",
       "type": "string"
     },
+    "QAppsConfiguration": { "$ref": "#/definitions/QAppsConfiguration" },
     "RoleArn": {
       "maxLength": 1284,
       "minLength": 0,
