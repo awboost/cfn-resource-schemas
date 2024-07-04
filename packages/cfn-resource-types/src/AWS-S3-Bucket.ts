@@ -250,7 +250,7 @@ export type DataExport = {
 };
 /**
  * Type definition for `AWS::S3::Bucket.DefaultRetention`.
- * The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.
+ * The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
    +  The ``DefaultRetention`` settings require both a mode and a period.
   +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html}

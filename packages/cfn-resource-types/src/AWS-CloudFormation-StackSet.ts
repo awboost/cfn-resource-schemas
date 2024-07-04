@@ -118,6 +118,14 @@ export type Capability =
   | "CAPABILITY_NAMED_IAM"
   | "CAPABILITY_AUTO_EXPAND";
 /**
+ * Type definition for `AWS::CloudFormation::StackSet.ConcurrencyMode`.
+ * Specifies how the concurrency level behaves during the operation execution.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-concurrencymode.html}
+ */
+export type ConcurrencyMode =
+  | "STRICT_FAILURE_TOLERANCE"
+  | "SOFT_FAILURE_TOLERANCE";
+/**
  * Type definition for `AWS::CloudFormation::StackSet.DeploymentTargets`.
  *  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html}
@@ -151,6 +159,10 @@ export type DeploymentTargets = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html}
  */
 export type OperationPreferences = {
+  /**
+   * Specifies how the concurrency level behaves during the operation execution.
+   */
+  ConcurrencyMode?: ConcurrencyMode;
   /**
    * @min `0`
    */

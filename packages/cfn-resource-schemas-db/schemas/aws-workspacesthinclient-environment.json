@@ -1,5 +1,5 @@
 {
-  "$hash": "46fc5cc2f21ee5314e70c4be8cec25608a96d64c",
+  "$hash": "fe4cc7a02f276d8ee5cf39ea2931af4afc4328c4",
   "$id": "aws-workspacesthinclient-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn", "/properties/DesktopArn"],
@@ -176,6 +176,14 @@
       "description": "The type of VDI.",
       "enum": ["workspaces", "appstream", "workspaces-web"],
       "type": "string"
+    },
+    "DeviceCreationTags": {
+      "description": "An array of key-value pairs to apply to the newly created devices for this environment.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 50,
+      "type": "array",
+      "uniqueItems": true
     },
     "Id": {
       "description": "Unique identifier of the environment.",

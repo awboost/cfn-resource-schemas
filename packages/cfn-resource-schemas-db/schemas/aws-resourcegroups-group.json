@@ -1,5 +1,5 @@
 {
-  "$hash": "6daba75e0549e92779e1300b60f77f1218015b41",
+  "$hash": "69d6d7bb786ece7a8d25527e9f17a36fd0e4ecb6",
   "$id": "aws-resourcegroups-group.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -137,6 +137,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["resource-groups:Tag", "resource-groups:Untag"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

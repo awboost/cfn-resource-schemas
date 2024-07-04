@@ -1,5 +1,5 @@
 {
-  "$hash": "721e6b6b1d719593f5c0c9973e38a97388e75fc7",
+  "$hash": "37e7f89c9c74cf2a0fe1df824f11e1c4ebae227e",
   "$id": "aws-s3-bucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BucketName"],
@@ -172,7 +172,7 @@
     },
     "DefaultRetention": {
       "additionalProperties": false,
-      "description": "The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.\n   +  The ``DefaultRetention`` settings require both a mode and a period.\n  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.",
+      "description": "The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.\n   +  The ``DefaultRetention`` settings require both a mode and a period.\n  +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.",
       "properties": {
         "Days": {
           "description": "The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.",

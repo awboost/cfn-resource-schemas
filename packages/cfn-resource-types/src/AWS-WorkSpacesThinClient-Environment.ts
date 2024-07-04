@@ -25,6 +25,11 @@ export type WorkSpacesThinClientEnvironmentProperties = {
    */
   DesktopEndpoint?: string;
   /**
+   * An array of key-value pairs to apply to the newly created devices for this environment.
+   * @maxLength `50`
+   */
+  DeviceCreationTags?: Tag[];
+  /**
    * The Amazon Resource Name (ARN) of the AWS Key Management Service key used to encrypt the environment.
    * @minLength `20`
    * @maxLength `2048`

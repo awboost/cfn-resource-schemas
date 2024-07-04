@@ -1,23 +1,164 @@
-- updated `AWS::QBusiness::Application`
-  - added definition `QAppsConfiguration`
-  - added definition `QAppsControlMode`
-  - added property `QAppsConfiguration`
-- updated `AWS::Route53RecoveryControl::Cluster`
+- added `AWS::LaunchWizard::Deployment`
+- added `AWS::SES::MailManagerAddonInstance`
+- added `AWS::SES::MailManagerAddonSubscription`
+- added `AWS::SES::MailManagerArchive`
+- added `AWS::SES::MailManagerIngressPoint`
+- added `AWS::SES::MailManagerRelay`
+- added `AWS::SES::MailManagerRuleSet`
+- added `AWS::SES::MailManagerTrafficPolicy`
+- updated `AWS::CloudFormation::StackSet`
+  - added definition `ConcurrencyMode`
+  - updated definition `OperationPreferences`
+- updated `AWS::CodePipeline::Pipeline`
+  - added `sourceUrl`
   - added `tagging`
-  - removed `taggable`
-  - updated property `ClusterArn`
-- updated `AWS::Route53RecoveryControl::ControlPanel`
-  - added `tagging`
-  - removed `taggable`
-  - updated property `ClusterArn`
-  - updated property `ControlPanelArn`
-- updated `AWS::Route53RecoveryControl::RoutingControl`
-  - added `tagging`
-  - updated property `ClusterArn`
-  - updated property `ControlPanelArn`
-  - updated property `RoutingControlArn`
-- updated `AWS::Route53RecoveryControl::SafetyRule`
-  - added `conditionalCreateOnlyProperties`
-  - added `tagging`
-  - removed `createOnlyProperties`
-  - removed `taggable`
+  - added `writeOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `ActionDeclaration`
+  - updated definition `ActionTypeId`
+  - updated definition `ArtifactStoreMap`
+  - updated definition `ArtifactStore`
+  - updated definition `BlockerDeclaration`
+  - updated definition `EncryptionKey`
+  - updated definition `FailureConditions`
+  - updated definition `GitBranchFilterCriteria`
+  - updated definition `GitConfiguration`
+  - updated definition `GitFilePathFilterCriteria`
+  - updated definition `GitPullRequestFilter`
+  - updated definition `GitPushFilter`
+  - updated definition `GitTagFilterCriteria`
+  - updated definition `InputArtifact`
+  - updated definition `OutputArtifact`
+  - updated definition `PipelineTriggerDeclaration`
+  - updated definition `StageDeclaration`
+  - updated definition `StageTransition`
+  - updated definition `Tag`
+  - updated definition `VariableDeclaration`
+  - updated handler permissions
+  - updated property `ArtifactStore`
+  - updated property `ArtifactStores`
+  - updated property `DisableInboundStageTransitions`
+  - updated property `ExecutionMode`
+  - updated property `Name`
+  - updated property `PipelineType`
+  - updated property `RestartExecutionOnUpdate`
+  - updated property `RoleArn`
+  - updated property `Stages`
+  - updated property `Tags`
+  - updated property `Triggers`
+  - updated property `Variables`
+  - updated property `Version`
+- updated `AWS::Deadline::MeteredProduct`
+  - updated `readOnlyProperties`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `ContainerDefinition`
+  - updated definition `Ulimit`
+  - updated property `ExecutionRoleArn`
+  - updated property `TaskRoleArn`
+- updated `AWS::Neptune::DBCluster`
+  - updated handler permissions
+- updated `AWS::RDS::DBCluster`
+  - updated definition `DBClusterRole`
+  - updated definition `Endpoint`
+  - updated definition `MasterUserSecret`
+  - updated definition `ReadEndpoint`
+  - updated definition `ScalingConfiguration`
+  - updated definition `ServerlessV2ScalingConfiguration`
+  - updated definition `Tag`
+  - updated property `AllocatedStorage`
+  - updated property `AssociatedRoles`
+  - updated property `AutoMinorVersionUpgrade`
+  - updated property `AvailabilityZones`
+  - updated property `BacktrackWindow`
+  - updated property `BackupRetentionPeriod`
+  - updated property `CopyTagsToSnapshot`
+  - updated property `DBClusterArn`
+  - updated property `DBClusterIdentifier`
+  - updated property `DBClusterInstanceClass`
+  - updated property `DBClusterParameterGroupName`
+  - updated property `DBClusterResourceId`
+  - updated property `DBInstanceParameterGroupName`
+  - updated property `DBSubnetGroupName`
+  - updated property `DatabaseName`
+  - updated property `DeletionProtection`
+  - updated property `DomainIAMRoleName`
+  - updated property `Domain`
+  - updated property `EnableCloudwatchLogsExports`
+  - updated property `EnableGlobalWriteForwarding`
+  - updated property `EnableHttpEndpoint`
+  - updated property `EnableIAMDatabaseAuthentication`
+  - updated property `EnableLocalWriteForwarding`
+  - updated property `Endpoint`
+  - updated property `EngineLifecycleSupport`
+  - updated property `EngineMode`
+  - updated property `EngineVersion`
+  - updated property `Engine`
+  - updated property `GlobalClusterIdentifier`
+  - updated property `Iops`
+  - updated property `KmsKeyId`
+  - updated property `ManageMasterUserPassword`
+  - updated property `MasterUserPassword`
+  - updated property `MasterUserSecret`
+  - updated property `MasterUsername`
+  - updated property `MonitoringInterval`
+  - updated property `MonitoringRoleArn`
+  - updated property `NetworkType`
+  - updated property `PerformanceInsightsEnabled`
+  - updated property `PerformanceInsightsKmsKeyId`
+  - updated property `PerformanceInsightsRetentionPeriod`
+  - updated property `Port`
+  - updated property `PreferredBackupWindow`
+  - updated property `PreferredMaintenanceWindow`
+  - updated property `PubliclyAccessible`
+  - updated property `ReadEndpoint`
+  - updated property `ReplicationSourceIdentifier`
+  - updated property `RestoreToTime`
+  - updated property `RestoreType`
+  - updated property `ScalingConfiguration`
+  - updated property `ServerlessV2ScalingConfiguration`
+  - updated property `SnapshotIdentifier`
+  - updated property `SourceDBClusterIdentifier`
+  - updated property `SourceRegion`
+  - updated property `StorageEncrypted`
+  - updated property `StorageThroughput`
+  - updated property `StorageType`
+  - updated property `Tags`
+  - updated property `UseLatestRestorableTime`
+  - updated property `VpcSecurityGroupIds`
+- updated `AWS::RDS::DBClusterParameterGroup`
+  - updated definition `Tag`
+  - updated property `DBClusterParameterGroupName`
+  - updated property `Family`
+  - updated property `Parameters`
+  - updated property `Tags`
+- updated `AWS::RDS::DBInstance`
+  - updated definition `CertificateDetails`
+  - updated definition `ProcessorFeature`
+  - updated property `EngineLifecycleSupport`
+- updated `AWS::RDS::EventSubscription`
+  - updated definition `Tag`
+  - updated property `Enabled`
+  - updated property `EventCategories`
+  - updated property `SnsTopicArn`
+  - updated property `SourceIds`
+  - updated property `SourceType`
+  - updated property `SubscriptionName`
+  - updated property `Tags`
+- updated `AWS::RDS::OptionGroup`
+  - updated definition `OptionConfiguration`
+  - updated definition `OptionSetting`
+  - updated definition `Tag`
+  - updated property `EngineName`
+  - updated property `MajorEngineVersion`
+  - updated property `OptionConfigurations`
+  - updated property `OptionGroupDescription`
+  - updated property `OptionGroupName`
+  - updated property `Tags`
+- updated `AWS::ResourceGroups::Group`
+  - updated `tagging`
+- updated `AWS::S3::Bucket`
+  - updated definition `DefaultRetention`
+- updated `AWS::WorkSpacesThinClient::Environment`
+  - added property `DeviceCreationTags`

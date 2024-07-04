@@ -1,5 +1,5 @@
 {
-  "$hash": "3e7963f59bd606a5581c230b5263f7c74139e1cd",
+  "$hash": "727dee5af5e7b606ce6ed884d4d38a5f3c020478",
   "$id": "aws-neptune-dbcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -77,6 +77,7 @@
     "create": {
       "permissions": [
         "iam:PassRole",
+        "iam:CreateServiceLinkedRole",
         "rds:AddRoleToDBCluster",
         "rds:AddTagsToResource",
         "rds:CreateDBCluster",

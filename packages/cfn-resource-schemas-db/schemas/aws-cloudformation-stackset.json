@@ -1,5 +1,5 @@
 {
-  "$hash": "f645439db5c054b4b196725993784b22c42f8c3c",
+  "$hash": "cb4102785f3b1e38709f2c8f17085d5c2908e36c",
   "$id": "aws-cloudformation-stackset.json",
   "additionalIdentifiers": [["/properties/StackSetName"]],
   "additionalProperties": false,
@@ -37,6 +37,11 @@
         "CAPABILITY_NAMED_IAM",
         "CAPABILITY_AUTO_EXPAND"
       ],
+      "type": "string"
+    },
+    "ConcurrencyMode": {
+      "description": "Specifies how the concurrency level behaves during the operation execution.",
+      "enum": ["STRICT_FAILURE_TOLERANCE", "SOFT_FAILURE_TOLERANCE"],
       "type": "string"
     },
     "DeploymentTargets": {
@@ -78,6 +83,7 @@
       "additionalProperties": false,
       "description": "The user-specified preferences for how AWS CloudFormation performs a stack set operation.",
       "properties": {
+        "ConcurrencyMode": { "$ref": "#/definitions/ConcurrencyMode" },
         "FailureToleranceCount": { "minimum": 0, "type": "integer" },
         "FailureTolerancePercentage": {
           "maximum": 100,
