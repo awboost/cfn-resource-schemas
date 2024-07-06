@@ -60,12 +60,28 @@ export type EntityResolutionIdMappingWorkflowAttributes = {
   WorkflowArn: string;
 };
 /**
+ * Type definition for `AWS::EntityResolution::IdMappingWorkflow.IdMappingRuleBasedProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingrulebasedproperties.html}
+ */
+export type IdMappingRuleBasedProperties = {
+  AttributeMatchingModel: "ONE_TO_ONE" | "MANY_TO_MANY";
+  RecordMatchingModel: "ONE_SOURCE_TO_ONE_TARGET" | "MANY_SOURCE_TO_ONE_TARGET";
+  RuleDefinitionType?: "SOURCE" | "TARGET";
+  /**
+   * @minLength `1`
+   * @maxLength `25`
+   */
+  Rules?: Rule[];
+};
+/**
  * Type definition for `AWS::EntityResolution::IdMappingWorkflow.IdMappingTechniques`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingtechniques.html}
  */
 export type IdMappingTechniques = {
-  IdMappingType?: "PROVIDER";
+  IdMappingType?: "PROVIDER" | "RULE_BASED";
+  NormalizationVersion?: string;
   ProviderProperties?: ProviderProperties;
+  RuleBasedProperties?: IdMappingRuleBasedProperties;
 };
 /**
  * Type definition for `AWS::EntityResolution::IdMappingWorkflow.IdMappingWorkflowInputSource`.
@@ -73,8 +89,8 @@ export type IdMappingTechniques = {
  */
 export type IdMappingWorkflowInputSource = {
   /**
-   * An Glue table ARN for the input source table or IdNamespace ARN
-   * @pattern `arn:(aws|aws-us-gov|aws-cn):.*:.*:[0-9]+:.*$`
+   * An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN
+   * @pattern `^arn:(aws|aws-us-gov|aws-cn):entityresolution:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(idnamespace/[a-zA-Z_0-9-]{1,255})$|^arn:(aws|aws-us-gov|aws-cn):entityresolution:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(matchingworkflow/[a-zA-Z_0-9-]{1,255})$|^arn:(aws|aws-us-gov|aws-cn):glue:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(table/[a-zA-Z_0-9-]{1,255}/[a-zA-Z_0-9-]{1,255})$`
    */
   InputSourceARN: string;
   /**
@@ -124,6 +140,23 @@ export type ProviderProperties = {
    * @pattern `^arn:(aws|aws-us-gov|aws-cn):entityresolution:([A-Za-z0-9]+(-[A-Za-z0-9]+)+)::providerservice/[A-Za-z0-9]+/[A-Za-z0-9]+$`
    */
   ProviderServiceArn: string;
+};
+/**
+ * Type definition for `AWS::EntityResolution::IdMappingWorkflow.Rule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-rule.html}
+ */
+export type Rule = {
+  /**
+   * @minLength `1`
+   * @maxLength `15`
+   */
+  MatchingKeys: string[];
+  /**
+   * @minLength `0`
+   * @maxLength `255`
+   * @pattern `^[a-zA-Z_0-9- \t]*$`
+   */
+  RuleName: string;
 };
 /**
  * Type definition for `AWS::EntityResolution::IdMappingWorkflow.Tag`.

@@ -64,8 +64,9 @@ export type EntityResolutionIdNamespaceAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-idnamespaceidmappingworkflowproperties.html}
  */
 export type IdNamespaceIdMappingWorkflowProperties = {
-  IdMappingType: "PROVIDER";
+  IdMappingType: "PROVIDER" | "RULE_BASED";
   ProviderProperties?: NamespaceProviderProperties;
+  RuleBasedProperties?: NamespaceRuleBasedProperties;
 };
 /**
  * Type definition for `AWS::EntityResolution::IdNamespace.IdNamespaceInputSource`.
@@ -99,6 +100,49 @@ export type NamespaceProviderProperties = {
    */
   ProviderServiceArn: string;
 };
+/**
+ * Type definition for `AWS::EntityResolution::IdNamespace.NamespaceRuleBasedProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html}
+ */
+export type NamespaceRuleBasedProperties = {
+  AttributeMatchingModel?: "ONE_TO_ONE" | "MANY_TO_MANY";
+  RecordMatchingModels?: RecordMatchingModel[];
+  RuleDefinitionTypes?: RuleDefinitionType[];
+  /**
+   * @minLength `1`
+   * @maxLength `25`
+   */
+  Rules?: Rule[];
+};
+/**
+ * Type definition for `AWS::EntityResolution::IdNamespace.RecordMatchingModel`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-recordmatchingmodel.html}
+ */
+export type RecordMatchingModel =
+  | "ONE_SOURCE_TO_ONE_TARGET"
+  | "MANY_SOURCE_TO_ONE_TARGET";
+/**
+ * Type definition for `AWS::EntityResolution::IdNamespace.Rule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-rule.html}
+ */
+export type Rule = {
+  /**
+   * @minLength `1`
+   * @maxLength `25`
+   */
+  MatchingKeys: string[];
+  /**
+   * @minLength `0`
+   * @maxLength `255`
+   * @pattern `^[a-zA-Z_0-9- \t]*$`
+   */
+  RuleName: string;
+};
+/**
+ * Type definition for `AWS::EntityResolution::IdNamespace.RuleDefinitionType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-ruledefinitiontype.html}
+ */
+export type RuleDefinitionType = "SOURCE" | "TARGET";
 /**
  * Type definition for `AWS::EntityResolution::IdNamespace.Tag`.
  * A key-value pair to associate with a resource.

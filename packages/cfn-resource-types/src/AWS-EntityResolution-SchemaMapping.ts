@@ -96,6 +96,7 @@ export type SchemaInputAttribute = {
    * @pattern `^[a-zA-Z_0-9- \t]*$`
    */
   GroupName?: string;
+  Hashed?: boolean;
   /**
    * @minLength `0`
    * @maxLength `255`

@@ -141,9 +141,14 @@ export type ProviderProperties = {
  */
 export type ResolutionTechniques = {
   ProviderProperties?: ProviderProperties;
-  ResolutionType?: "RULE_MATCHING" | "ML_MATCHING" | "PROVIDER";
+  ResolutionType?: ResolutionType;
   RuleBasedProperties?: RuleBasedProperties;
 };
+/**
+ * Type definition for `AWS::EntityResolution::MatchingWorkflow.ResolutionType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontype.html}
+ */
+export type ResolutionType = "RULE_MATCHING" | "ML_MATCHING" | "PROVIDER";
 /**
  * Type definition for `AWS::EntityResolution::MatchingWorkflow.Rule`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rule.html}
@@ -167,6 +172,7 @@ export type Rule = {
  */
 export type RuleBasedProperties = {
   AttributeMatchingModel: "ONE_TO_ONE" | "MANY_TO_MANY";
+  MatchPurpose?: "IDENTIFIER_GENERATION" | "INDEXING";
   /**
    * @minLength `1`
    * @maxLength `15`

@@ -1,5 +1,5 @@
 {
-  "$hash": "6dfc3795db2405b3de8c993ec6e9f90dc700938a",
+  "$hash": "eb0cecda3dd3cd21955cb3f45a198f6eb73609b3",
   "$id": "aws-entityresolution-schemamapping.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SchemaName"],
@@ -25,6 +25,7 @@
       "description": "The boolean value that indicates whether or not a SchemaMapping has MatchingWorkflows that are associated with",
       "type": "boolean"
     },
+    "Hashed": { "type": "boolean" },
     "MappedInputFields": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/SchemaInputAttribute" },
@@ -62,6 +63,7 @@
       "properties": {
         "FieldName": { "$ref": "#/definitions/AttributeName" },
         "GroupName": { "$ref": "#/definitions/AttributeName" },
+        "Hashed": { "$ref": "#/definitions/Hashed" },
         "MatchKey": { "$ref": "#/definitions/AttributeName" },
         "SubType": {
           "description": "The subtype of the Attribute. Would be required only when type is PROVIDER_ID",

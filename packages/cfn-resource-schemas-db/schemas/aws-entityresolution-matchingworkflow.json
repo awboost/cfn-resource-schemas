@@ -1,5 +1,5 @@
 {
-  "$hash": "caf13ac982699c69a92d48c8fee96839483018e7",
+  "$hash": "f696b18e91259c108af06f52c99caf9b25f0af7f",
   "$id": "aws-entityresolution-matchingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
@@ -112,13 +112,14 @@
       "additionalProperties": false,
       "properties": {
         "ProviderProperties": { "$ref": "#/definitions/ProviderProperties" },
-        "ResolutionType": {
-          "enum": ["RULE_MATCHING", "ML_MATCHING", "PROVIDER"],
-          "type": "string"
-        },
+        "ResolutionType": { "$ref": "#/definitions/ResolutionType" },
         "RuleBasedProperties": { "$ref": "#/definitions/RuleBasedProperties" }
       },
       "type": "object"
+    },
+    "ResolutionType": {
+      "enum": ["RULE_MATCHING", "ML_MATCHING", "PROVIDER"],
+      "type": "string"
     },
     "Rule": {
       "additionalProperties": false,
@@ -145,6 +146,10 @@
       "properties": {
         "AttributeMatchingModel": {
           "enum": ["ONE_TO_ONE", "MANY_TO_MANY"],
+          "type": "string"
+        },
+        "MatchPurpose": {
+          "enum": ["IDENTIFIER_GENERATION", "INDEXING"],
           "type": "string"
         },
         "Rules": {

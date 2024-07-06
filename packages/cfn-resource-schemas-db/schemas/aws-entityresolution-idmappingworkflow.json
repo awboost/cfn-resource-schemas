@@ -1,5 +1,5 @@
 {
-  "$hash": "378213312cd999c0f239eb804b4de55ab5a4887a",
+  "$hash": "c4cc8c2708220367d700aba7689f1a57d75b2c35",
   "$id": "aws-entityresolution-idmappingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
@@ -21,11 +21,44 @@
       "pattern": "^[a-zA-Z_0-9-]*$",
       "type": "string"
     },
+    "IdMappingRuleBasedProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "AttributeMatchingModel": {
+          "enum": ["ONE_TO_ONE", "MANY_TO_MANY"],
+          "type": "string"
+        },
+        "RecordMatchingModel": {
+          "enum": ["ONE_SOURCE_TO_ONE_TARGET", "MANY_SOURCE_TO_ONE_TARGET"],
+          "type": "string"
+        },
+        "RuleDefinitionType": {
+          "enum": ["SOURCE", "TARGET"],
+          "type": "string"
+        },
+        "Rules": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/Rule" },
+          "maxItems": 25,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["AttributeMatchingModel", "RecordMatchingModel"],
+      "type": "object"
+    },
     "IdMappingTechniques": {
       "additionalProperties": false,
       "properties": {
-        "IdMappingType": { "enum": ["PROVIDER"], "type": "string" },
-        "ProviderProperties": { "$ref": "#/definitions/ProviderProperties" }
+        "IdMappingType": {
+          "enum": ["PROVIDER", "RULE_BASED"],
+          "type": "string"
+        },
+        "NormalizationVersion": { "type": "string" },
+        "ProviderProperties": { "$ref": "#/definitions/ProviderProperties" },
+        "RuleBasedProperties": {
+          "$ref": "#/definitions/IdMappingRuleBasedProperties"
+        }
       },
       "type": "object"
     },
@@ -38,8 +71,8 @@
       "additionalProperties": false,
       "properties": {
         "InputSourceARN": {
-          "description": "An Glue table ARN for the input source table or IdNamespace ARN",
-          "pattern": "arn:(aws|aws-us-gov|aws-cn):.*:.*:[0-9]+:.*$",
+          "description": "An Glue table ARN for the input source table, MatchingWorkflow arn or IdNamespace ARN",
+          "pattern": "^arn:(aws|aws-us-gov|aws-cn):entityresolution:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(idnamespace/[a-zA-Z_0-9-]{1,255})$|^arn:(aws|aws-us-gov|aws-cn):entityresolution:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(matchingworkflow/[a-zA-Z_0-9-]{1,255})$|^arn:(aws|aws-us-gov|aws-cn):glue:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(table/[a-zA-Z_0-9-]{1,255}/[a-zA-Z_0-9-]{1,255})$",
           "type": "string"
         },
         "SchemaArn": {
@@ -98,6 +131,26 @@
         }
       },
       "required": ["ProviderServiceArn"],
+      "type": "object"
+    },
+    "Rule": {
+      "additionalProperties": false,
+      "properties": {
+        "MatchingKeys": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/AttributeName" },
+          "maxItems": 15,
+          "minItems": 1,
+          "type": "array"
+        },
+        "RuleName": {
+          "maxLength": 255,
+          "minLength": 0,
+          "pattern": "^[a-zA-Z_0-9- \\t]*$",
+          "type": "string"
+        }
+      },
+      "required": ["RuleName", "MatchingKeys"],
       "type": "object"
     },
     "SchemaMappingArn": {
