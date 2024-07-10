@@ -1,19 +1,20 @@
-- updated `AWS::EntityResolution::IdMappingWorkflow`
-  - added definition `IdMappingRuleBasedProperties`
-  - added definition `Rule`
-  - updated definition `IdMappingTechniques`
-  - updated definition `IdMappingWorkflowInputSource`
-- updated `AWS::EntityResolution::IdNamespace`
-  - added definition `AttributeName`
-  - added definition `NamespaceRuleBasedProperties`
-  - added definition `RecordMatchingModel`
-  - added definition `RuleDefinitionType`
-  - added definition `Rule`
-  - updated definition `IdNamespaceIdMappingWorkflowProperties`
-- updated `AWS::EntityResolution::MatchingWorkflow`
-  - added definition `ResolutionType`
-  - updated definition `ResolutionTechniques`
-  - updated definition `RuleBasedProperties`
-- updated `AWS::EntityResolution::SchemaMapping`
-  - added definition `Hashed`
-  - updated definition `SchemaInputAttribute`
+- updated `AWS::Cognito::UserPoolUICustomizationAttachment`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `required`
+  - updated handler permissions
+- updated `AWS::SSO::Instance`
+  - updated `tagging`
+- updated `AWS::SageMaker::Domain`
+  - added definition `AppType`
+  - added definition `MlTools`
+  - added definition `StudioWebPortalSettings`
+  - updated definition `UserSettings`
+- updated `AWS::SageMaker::UserProfile`
+  - added definition `AppType`
+  - added definition `MlTools`
+  - added definition `StudioWebPortalSettings`
+  - updated definition `UserSettings`

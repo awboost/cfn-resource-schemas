@@ -10,20 +10,13 @@ export type CognitoUserPoolUICustomizationAttachmentProperties = {
   UserPoolId: string;
 };
 /**
- * Attribute type definition for `AWS::Cognito::UserPoolUICustomizationAttachment`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html#aws-resource-cognito-userpooluicustomizationattachment-return-values}
- */
-export type CognitoUserPoolUICustomizationAttachmentAttributes = {
-  Id: string;
-};
-/**
  * Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluicustomizationattachment.html}
  */
 export class CognitoUserPoolUICustomizationAttachment extends $Resource<
   "AWS::Cognito::UserPoolUICustomizationAttachment",
   CognitoUserPoolUICustomizationAttachmentProperties,
-  CognitoUserPoolUICustomizationAttachmentAttributes
+  Record<string, never>
 > {
   public static readonly Type =
     "AWS::Cognito::UserPoolUICustomizationAttachment";

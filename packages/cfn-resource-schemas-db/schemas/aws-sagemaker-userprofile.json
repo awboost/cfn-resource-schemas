@@ -1,5 +1,5 @@
 {
-  "$hash": "f8b3f2a6bee01f390f17e5a9d81f9f012165ec20",
+  "$hash": "af60340f15dfe466d5f90df51ca9da8ddebb5067",
   "$id": "aws-sagemaker-userprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -12,6 +12,18 @@
     "/properties/Tags"
   ],
   "definitions": {
+    "AppType": {
+      "enum": [
+        "JupyterServer",
+        "TensorBoard",
+        "RStudioServerPro",
+        "JupyterLab",
+        "CodeEditor",
+        "DetailedProfiler",
+        "Canvas"
+      ],
+      "type": "string"
+    },
     "CodeEditorAppSettings": {
       "additionalProperties": false,
       "description": "The CodeEditor app settings.",
@@ -200,6 +212,24 @@
       },
       "type": "object"
     },
+    "MlTools": {
+      "enum": [
+        "DataWrangler",
+        "FeatureStore",
+        "EmrClusters",
+        "AutoML",
+        "Experiments",
+        "Training",
+        "ModelEvaluation",
+        "Pipelines",
+        "Models",
+        "JumpStart",
+        "InferenceRecommender",
+        "Endpoints",
+        "Projects"
+      ],
+      "type": "string"
+    },
     "RStudioServerProAppSettings": {
       "additionalProperties": false,
       "description": "A collection of settings that configure user interaction with the RStudioServerPro app.",
@@ -339,6 +369,29 @@
       "pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:studio-lifecycle-config/.*",
       "type": "string"
     },
+    "StudioWebPortalSettings": {
+      "additionalProperties": false,
+      "description": "Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.",
+      "properties": {
+        "HiddenAppTypes": {
+          "description": "Applications supported in Studio that are hidden from the Studio left navigation pane.",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/AppType" },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "HiddenMlTools": {
+          "description": "The machine learning tools that are hidden from the Studio left navigation pane.",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/MlTools" },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -414,6 +467,9 @@
           "description": "Indicates whether the Studio experience is available to users. If not, users cannot access Studio.",
           "enum": ["ENABLED", "DISABLED"],
           "type": "string"
+        },
+        "StudioWebPortalSettings": {
+          "$ref": "#/definitions/StudioWebPortalSettings"
         }
       },
       "type": "object"

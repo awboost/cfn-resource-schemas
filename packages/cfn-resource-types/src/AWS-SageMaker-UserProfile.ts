@@ -52,6 +52,18 @@ export type SageMakerUserProfileAttributes = {
   UserProfileArn: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::UserProfile.AppType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-apptype.html}
+ */
+export type AppType =
+  | "JupyterServer"
+  | "TensorBoard"
+  | "RStudioServerPro"
+  | "JupyterLab"
+  | "CodeEditor"
+  | "DetailedProfiler"
+  | "Canvas";
+/**
  * Type definition for `AWS::SageMaker::UserProfile.CodeEditorAppSettings`.
  * The CodeEditor app settings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html}
@@ -236,6 +248,24 @@ export type KernelGatewayAppSettings = {
   DefaultResourceSpec?: ResourceSpec;
 };
 /**
+ * Type definition for `AWS::SageMaker::UserProfile.MlTools`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-mltools.html}
+ */
+export type MlTools =
+  | "DataWrangler"
+  | "FeatureStore"
+  | "EmrClusters"
+  | "AutoML"
+  | "Experiments"
+  | "Training"
+  | "ModelEvaluation"
+  | "Pipelines"
+  | "Models"
+  | "JumpStart"
+  | "InferenceRecommender"
+  | "Endpoints"
+  | "Projects";
+/**
  * Type definition for `AWS::SageMaker::UserProfile.ResourceSpec`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html}
  */
@@ -359,6 +389,23 @@ export type SharingSettings = {
   S3OutputPath?: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::UserProfile.StudioWebPortalSettings`.
+ * Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html}
+ */
+export type StudioWebPortalSettings = {
+  /**
+   * Applications supported in Studio that are hidden from the Studio left navigation pane.
+   * @minLength `0`
+   */
+  HiddenAppTypes?: AppType[];
+  /**
+   * The machine learning tools that are hidden from the Studio left navigation pane.
+   * @minLength `0`
+   */
+  HiddenMlTools?: MlTools[];
+};
+/**
  * Type definition for `AWS::SageMaker::UserProfile.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-tag.html}
  */
@@ -436,6 +483,10 @@ export type UserSettings = {
    * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
    */
   StudioWebPortal?: "ENABLED" | "DISABLED";
+  /**
+   * Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
+   */
+  StudioWebPortalSettings?: StudioWebPortalSettings;
 };
 /**
  * Resource Type definition for AWS::SageMaker::UserProfile
