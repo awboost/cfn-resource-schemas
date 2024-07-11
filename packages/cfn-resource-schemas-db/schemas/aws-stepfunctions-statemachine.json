@@ -1,5 +1,5 @@
 {
-  "$hash": "92b0f86aca6be31245dce6b0b1bdb2db2ea0988c",
+  "$hash": "3715962f9594c219a0bc75c05816c48533500f1d",
   "$id": "aws-stepfunctions-statemachine.json",
   "additionalIdentifiers": [["/properties/StateMachineName"]],
   "additionalProperties": false,
@@ -28,6 +28,23 @@
           ]
         }
       },
+      "type": "object"
+    },
+    "EncryptionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "KmsDataKeyReusePeriodSeconds": {
+          "maximum": 900,
+          "minimum": 60,
+          "type": "integer"
+        },
+        "KmsKeyId": { "maxLength": 2048, "minLength": 1, "type": "string" },
+        "Type": {
+          "enum": ["CUSTOMER_MANAGED_KMS_KEY", "AWS_OWNED_KEY"],
+          "type": "string"
+        }
+      },
+      "required": ["Type"],
       "type": "object"
     },
     "LogDestination": {
@@ -86,7 +103,9 @@
         "states:DescribeStateMachine",
         "states:TagResource",
         "iam:PassRole",
-        "s3:GetObject"
+        "s3:GetObject",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
       ]
     },
     "delete": {
@@ -99,7 +118,8 @@
     "read": {
       "permissions": [
         "states:DescribeStateMachine",
-        "states:ListTagsForResource"
+        "states:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "update": {
@@ -108,7 +128,9 @@
         "states:TagResource",
         "states:UntagResource",
         "states:ListTagsForResource",
-        "iam:PassRole"
+        "iam:PassRole",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
       ]
     }
   },
@@ -124,6 +146,9 @@
     },
     "DefinitionSubstitutions": {
       "$ref": "#/definitions/DefinitionSubstitutions"
+    },
+    "EncryptionConfiguration": {
+      "$ref": "#/definitions/EncryptionConfiguration"
     },
     "LoggingConfiguration": { "$ref": "#/definitions/LoggingConfiguration" },
     "Name": { "maxLength": 80, "minLength": 1, "type": "string" },

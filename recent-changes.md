@@ -1,20 +1,19 @@
-- updated `AWS::Cognito::UserPoolUICustomizationAttachment`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `required`
+- updated `AWS::EFS::FileSystem`
+  - updated definition `LifecyclePolicy`
+  - updated definition `ReplicationDestination`
+  - updated property `LifecyclePolicies`
+  - updated property `PerformanceMode`
+- updated `AWS::IAM::OIDCProvider`
+  - removed `required`
+- updated `AWS::MediaConnect::FlowSource`
+  - updated property `MaxLatency`
+  - updated property `MinLatency`
+- updated `AWS::StepFunctions::Activity`
+  - added definition `EncryptionConfiguration`
+  - added property `EncryptionConfiguration`
+  - updated `createOnlyProperties`
   - updated handler permissions
-- updated `AWS::SSO::Instance`
-  - updated `tagging`
-- updated `AWS::SageMaker::Domain`
-  - added definition `AppType`
-  - added definition `MlTools`
-  - added definition `StudioWebPortalSettings`
-  - updated definition `UserSettings`
-- updated `AWS::SageMaker::UserProfile`
-  - added definition `AppType`
-  - added definition `MlTools`
-  - added definition `StudioWebPortalSettings`
-  - updated definition `UserSettings`
+- updated `AWS::StepFunctions::StateMachine`
+  - added definition `EncryptionConfiguration`
+  - added property `EncryptionConfiguration`
+  - updated handler permissions

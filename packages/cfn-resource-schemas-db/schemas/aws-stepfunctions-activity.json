@@ -1,9 +1,29 @@
 {
-  "$hash": "7d45eeeab8441bc68d3936e21477ac1c9a3fbe63",
+  "$hash": "add1c4540632ec71426ba703d179940dc37a6695",
   "$id": "aws-stepfunctions-activity.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Name"],
+  "createOnlyProperties": [
+    "/properties/Name",
+    "/properties/EncryptionConfiguration"
+  ],
   "definitions": {
+    "EncryptionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "KmsDataKeyReusePeriodSeconds": {
+          "maximum": 900,
+          "minimum": 60,
+          "type": "integer"
+        },
+        "KmsKeyId": { "maxLength": 2048, "minLength": 1, "type": "string" },
+        "Type": {
+          "enum": ["CUSTOMER_MANAGED_KMS_KEY", "AWS_OWNED_KEY"],
+          "type": "string"
+        }
+      },
+      "required": ["Type"],
+      "type": "object"
+    },
     "TagsEntry": {
       "additionalProperties": false,
       "properties": {
@@ -17,7 +37,11 @@
   "description": "Resource schema for Activity",
   "handlers": {
     "create": {
-      "permissions": ["states:CreateActivity", "states:TagResource"]
+      "permissions": [
+        "states:CreateActivity",
+        "states:TagResource",
+        "kms:DescribeKey"
+      ]
     },
     "delete": {
       "permissions": ["states:DescribeActivity", "states:DeleteActivity"]
@@ -37,6 +61,9 @@
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
     "Arn": { "maxLength": 2048, "minLength": 1, "type": "string" },
+    "EncryptionConfiguration": {
+      "$ref": "#/definitions/EncryptionConfiguration"
+    },
     "Name": { "maxLength": 80, "minLength": 1, "type": "string" },
     "Tags": {
       "insertionOrder": false,

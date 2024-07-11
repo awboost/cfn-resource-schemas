@@ -10,7 +10,7 @@ export type IAMOIDCProviderProperties = {
   /**
    * @maxLength `5`
    */
-  ThumbprintList: string[];
+  ThumbprintList?: string[];
   /**
    * @minLength `1`
    * @maxLength `255`

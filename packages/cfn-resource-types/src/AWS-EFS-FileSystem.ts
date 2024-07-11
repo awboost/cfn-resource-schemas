@@ -47,14 +47,14 @@ export type EFSFileSystemProperties = {
   /**
      * An array of ``LifecyclePolicy`` objects that define the file system's ``LifecycleConfiguration`` object. A ``LifecycleConfiguration`` object informs Lifecycle management of the following:
       +  When to move files in the file system from primary storage to IA storage.
-      + When to move files in the file system from primary storage or IA storage to Archive storage.
-     +  When to move files that are in IA or Archive storage to primary storage.
+      +  When to move files in the file system from primary storage or IA storage to Archive storage.
+      +  When to move files that are in IA or Archive storage to primary storage.
       
-      EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+       EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
      */
   LifecyclePolicies?: LifecyclePolicy[];
   /**
-     * The Performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
+     * The performance mode of the file system. We recommend ``generalPurpose`` performance mode for all file systems. File systems using the ``maxIO`` performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created. The ``maxIO`` mode is not supported on One Zone file systems.
       Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.
       Default is ``generalPurpose``.
      */
@@ -128,8 +128,8 @@ export type FileSystemProtection = {
 /**
  * Type definition for `AWS::EFS::FileSystem.LifecyclePolicy`.
  * Describes a policy used by Lifecycle management that specifies when to transition files into and out of the EFS storage classes. For more information, see [Managing file system storage](https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html).
-  + Each ``LifecyclePolicy`` object can have only a single transition. This means that in a request body, ``LifecyclePolicies`` must be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive``, ``TransitionToPrimaryStorageClass``.
- + See the AWS::EFS::FileSystem examples for the correct ``LifecyclePolicy`` structure. Do not use the syntax shown on this page.
+   +  Each ``LifecyclePolicy`` object can have only a single transition. This means that in a request body, ``LifecyclePolicies`` must be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive``, ``TransitionToPrimaryStorageClass``.
+  +  See the AWS::EFS::FileSystem examples for the correct ``LifecyclePolicy`` structure. Do not use the syntax shown on this page.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html}
  */
 export type LifecyclePolicy = {
@@ -166,7 +166,7 @@ export type ReplicationConfiguration = {
  */
 export type ReplicationDestination = {
   /**
-     * The AWS For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.
+     * For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located.
      Use the format ``us-east-1a`` to specify the Availability Zone. For more information about One Zone file systems, see [EFS file system types](https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html) in the *Amazon EFS User Guide*.
       One Zone file system type is not available in all Availability Zones in AWS-Regions where Amazon EFS is available.
      */

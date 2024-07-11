@@ -14,6 +14,7 @@ export type StepFunctionsStateMachineProperties = {
    */
   DefinitionString?: string;
   DefinitionSubstitutions?: DefinitionSubstitutions;
+  EncryptionConfiguration?: EncryptionConfiguration;
   LoggingConfiguration?: LoggingConfiguration;
   /**
    * @minLength `1`
@@ -71,6 +72,23 @@ export type Definition = Record<string, any>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definitionsubstitutions.html}
  */
 export type DefinitionSubstitutions = Record<string, string | number | boolean>;
+/**
+ * Type definition for `AWS::StepFunctions::StateMachine.EncryptionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-encryptionconfiguration.html}
+ */
+export type EncryptionConfiguration = {
+  /**
+   * @min `60`
+   * @max `900`
+   */
+  KmsDataKeyReusePeriodSeconds?: number;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  KmsKeyId?: string;
+  Type: "CUSTOMER_MANAGED_KMS_KEY" | "AWS_OWNED_KEY";
+};
 /**
  * Type definition for `AWS::StepFunctions::StateMachine.LogDestination`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html}

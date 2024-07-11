@@ -1,5 +1,5 @@
 {
-  "$hash": "0d87125656d152628a662b02189964a752ef15fc",
+  "$hash": "daf7e23e8e057788fea067a8515e9fbc5ab0adb0",
   "$id": "aws-iam-oidcprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Url"],
@@ -87,7 +87,6 @@
     "Url": { "maxLength": 255, "minLength": 1, "type": "string" }
   },
   "readOnlyProperties": ["/properties/Arn"],
-  "required": ["ThumbprintList"],
   "tagging": {
     "cloudFormationSystemTags": false,
     "tagOnCreate": true,

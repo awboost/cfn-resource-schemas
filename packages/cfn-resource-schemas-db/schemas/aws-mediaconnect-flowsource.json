@@ -1,5 +1,5 @@
 {
-  "$hash": "6b31b5435ab0329b0b03943dd7f7f347ef475690",
+  "$hash": "75cbf748e8ec1513382ce292847b2c6fe55cd0b0",
   "$id": "aws-mediaconnect-flowsource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -136,12 +136,10 @@
       "type": "integer"
     },
     "MaxLatency": {
-      "default": 2000,
       "description": "The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.",
       "type": "integer"
     },
     "MinLatency": {
-      "default": 2000,
       "description": "The minimum latency in milliseconds.",
       "type": "integer"
     },

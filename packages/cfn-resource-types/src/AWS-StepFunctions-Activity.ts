@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html}
  */
 export type StepFunctionsActivityProperties = {
+  EncryptionConfiguration?: EncryptionConfiguration;
   /**
    * @minLength `1`
    * @maxLength `80`
@@ -23,6 +24,23 @@ export type StepFunctionsActivityAttributes = {
    * @maxLength `2048`
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::StepFunctions::Activity.EncryptionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-activity-encryptionconfiguration.html}
+ */
+export type EncryptionConfiguration = {
+  /**
+   * @min `60`
+   * @max `900`
+   */
+  KmsDataKeyReusePeriodSeconds?: number;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  KmsKeyId?: string;
+  Type: "CUSTOMER_MANAGED_KMS_KEY" | "AWS_OWNED_KEY";
 };
 /**
  * Type definition for `AWS::StepFunctions::Activity.TagsEntry`.
