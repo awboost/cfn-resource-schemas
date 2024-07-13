@@ -1,5 +1,5 @@
 {
-  "$hash": "5bd82011951e3da6777d3dfa921059c126c85a2f",
+  "$hash": "184f461a29e1f81eefffb229c55240a501a2a0af",
   "$id": "aws-ec2-instance.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -691,8 +691,8 @@
   },
   "typeName": "AWS::EC2::Instance",
   "writeOnlyProperties": [
-    "/properties/BlockDeviceMappings/*/BlockDeviceMapping/NoDevice",
-    "/properties/BlockDeviceMappings/*/BlockDeviceMapping/VirtualName",
+    "/properties/BlockDeviceMappings/*/NoDevice",
+    "/properties/BlockDeviceMappings/*/VirtualName",
     "/properties/LicenseSpecification",
     "/properties/AdditionalInfo",
     "/properties/Ipv6AddressCount",

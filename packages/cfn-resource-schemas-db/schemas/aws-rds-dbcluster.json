@@ -1,5 +1,5 @@
 {
-  "$hash": "b87827038b5ab7f99e8f1d124391ac8ab8eae3e0",
+  "$hash": "745a9fe378e83aae578981a783d3bc9e114ceee5",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -490,12 +490,19 @@
     "/properties/Endpoint",
     "/properties/Endpoint/Address",
     "/properties/Endpoint/Port",
-    "/properties/ReadEndpoint/Port",
     "/properties/ReadEndpoint/Address",
     "/properties/MasterUserSecret/SecretArn",
     "/properties/StorageThroughput"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-rds",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["rds:AddTagsToResource", "rds:RemoveTagsFromResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RDS::DBCluster",
   "writeOnlyProperties": [
     "/properties/DBInstanceParameterGroupName",

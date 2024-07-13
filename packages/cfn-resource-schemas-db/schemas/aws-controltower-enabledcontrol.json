@@ -1,5 +1,5 @@
 {
-  "$hash": "983223f1a2ff4809b34abff4cb41b864634622d5",
+  "$hash": "3054c918c1748ada816abce25166a02eac50b3ae",
   "$id": "aws-controltower-enabledcontrol.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -78,6 +78,8 @@
     },
     "delete": {
       "permissions": [
+        "controltower:ListEnabledControls",
+        "controltower:GetEnabledControl",
         "controltower:GetControlOperation",
         "controltower:DisableControl",
         "organizations:UpdatePolicy",
