@@ -1,16 +1,25 @@
 {
-  "$hash": "e8a09f846d223507cfd9612324deb3f5311d5a9c",
+  "$hash": "dd0c7751cb15463b630767dc414ab5bc274d4c2e",
   "$id": "aws-ec2-trafficmirrorfilterrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TrafficMirrorFilterId"],
   "definitions": {
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": { "type": "string" }
+      },
+      "required": ["Value", "Key"],
+      "type": "object"
+    },
     "TrafficMirrorPortRange": {
       "additionalProperties": false,
       "properties": {
         "FromPort": { "type": "integer" },
         "ToPort": { "type": "integer" }
       },
-      "required": ["ToPort", "FromPort"],
+      "required": ["FromPort", "ToPort"],
       "type": "object"
     }
   },
@@ -26,6 +35,11 @@
     "RuleNumber": { "type": "integer" },
     "SourceCidrBlock": { "type": "string" },
     "SourcePortRange": { "$ref": "#/definitions/TrafficMirrorPortRange" },
+    "Tags": {
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "TrafficDirection": { "type": "string" },
     "TrafficMirrorFilterId": { "type": "string" }
   },

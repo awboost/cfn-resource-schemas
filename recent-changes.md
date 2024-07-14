@@ -1,25 +1,4 @@
-- updated `AWS::ControlTower::EnabledControl`
-  - updated handler permissions
-- updated `AWS::EC2::Instance`
-  - updated `writeOnlyProperties`
-- updated `AWS::Lambda::Alias`
-  - added `propertyTransform`
-  - added `sourceUrl`
-  - added `tagging`
-  - added property `AliasArn`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `AliasRoutingConfiguration`
-  - updated definition `ProvisionedConcurrencyConfiguration`
-  - updated definition `VersionWeight`
-  - updated handler permissions
-  - updated property `Description`
-  - updated property `FunctionName`
-  - updated property `FunctionVersion`
-  - updated property `Name`
-  - updated property `ProvisionedConcurrencyConfig`
-  - updated property `RoutingConfig`
-- updated `AWS::RDS::DBCluster`
-  - added `tagging`
-  - updated `readOnlyProperties`
+- updated `AWS::EC2::TrafficMirrorFilterRule`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated definition `TrafficMirrorPortRange`

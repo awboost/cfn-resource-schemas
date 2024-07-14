@@ -13,6 +13,7 @@ export type EC2TrafficMirrorFilterRuleProperties = {
   RuleNumber: number;
   SourceCidrBlock: string;
   SourcePortRange?: TrafficMirrorPortRange;
+  Tags?: Tag[];
   TrafficDirection: string;
   TrafficMirrorFilterId: string;
 };
@@ -22,6 +23,14 @@ export type EC2TrafficMirrorFilterRuleProperties = {
  */
 export type EC2TrafficMirrorFilterRuleAttributes = {
   Id: string;
+};
+/**
+ * Type definition for `AWS::EC2::TrafficMirrorFilterRule.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilterrule-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Type definition for `AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorPortRange`.
