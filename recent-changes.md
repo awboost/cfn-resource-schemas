@@ -1,4 +1,3 @@
-- updated `AWS::EC2::TrafficMirrorFilterRule`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated definition `TrafficMirrorPortRange`
+- added `AWS::SageMaker::MlflowTrackingServer`
+- updated `AWS::Neptune::DBCluster`
+  - updated handler permissions

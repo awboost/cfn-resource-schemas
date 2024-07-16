@@ -1,5 +1,5 @@
 {
-  "$hash": "727dee5af5e7b606ce6ed884d4d38a5f3c020478",
+  "$hash": "205e9040d4b52ffceedc990c263fc6931bda1b25",
   "$id": "aws-neptune-dbcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -87,7 +87,8 @@
         "rds:ModifyDBCluster",
         "rds:RestoreDBClusterFromSnapshot",
         "rds:RestoreDBClusterToPointInTime",
-        "kms:*"
+        "kms:CreateGrant",
+        "kms:DescribeKey"
       ],
       "timeoutInMinutes": 2160
     },
@@ -100,7 +101,8 @@
         "rds:ListTagsForResource",
         "rds:RemoveFromGlobalCluster",
         "rds:CreateDBClusterSnapshot",
-        "kms:*"
+        "kms:CreateGrant",
+        "kms:DescribeKey"
       ],
       "timeoutInMinutes": 2160
     },
@@ -108,7 +110,8 @@
       "permissions": [
         "rds:DescribeDBClusters",
         "rds:ListTagsForResource",
-        "kms:*"
+        "kms:CreateGrant",
+        "kms:DescribeKey"
       ],
       "timeoutInMinutes": 2160
     },
@@ -116,7 +119,8 @@
       "permissions": [
         "rds:DescribeDBClusters",
         "rds:ListTagsForResource",
-        "kms:*"
+        "kms:CreateGrant",
+        "kms:DescribeKey"
       ],
       "timeoutInMinutes": 2160
     },
@@ -136,7 +140,8 @@
         "rds:RemoveFromGlobalCluster",
         "rds:RemoveRoleFromDBCluster",
         "rds:RemoveTagsFromResource",
-        "kms:*"
+        "kms:CreateGrant",
+        "kms:DescribeKey"
       ],
       "timeoutInMinutes": 2160
     }
