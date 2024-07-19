@@ -1,3 +1,15 @@
-- added `AWS::SageMaker::MlflowTrackingServer`
-- updated `AWS::Neptune::DBCluster`
+- added `AWS::Bedrock::Flow`
+- added `AWS::Bedrock::FlowAlias`
+- added `AWS::Bedrock::FlowVersion`
+- added `AWS::Bedrock::Prompt`
+- added `AWS::Bedrock::PromptVersion`
+- updated `AWS::DMS::ReplicationConfig`
+  - added `required`
+  - updated `tagging`
   - updated handler permissions
+- updated `AWS::EntityResolution::IdMappingWorkflow`
+  - updated definition `ProviderProperties`
+- updated `AWS::Organizations::Organization`
+  - updated handler permissions
+- updated `AWS::Shield::ProtectionGroup`
+  - updated `tagging`

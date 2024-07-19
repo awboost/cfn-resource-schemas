@@ -1,5 +1,5 @@
 {
-  "$hash": "fa0ac8ecae93fca728200ac39c2ade7bdd19acd8",
+  "$hash": "0b1bf74c62c5f4733b45a8ef9e76dfb7e726361d",
   "$id": "aws-organizations-organization.json",
   "additionalProperties": false,
   "description": "Resource schema for AWS::Organizations::Organization",
@@ -25,7 +25,7 @@
         "organizations:ListRoots"
       ]
     },
-    "update": { "permissions": [] }
+    "update": { "permissions": ["organizations:DescribeOrganization"] }
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {

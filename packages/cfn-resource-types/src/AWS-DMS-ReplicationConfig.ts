@@ -9,11 +9,11 @@ export type DMSReplicationConfigProperties = {
   /**
    * Configuration parameters for provisioning a AWS DMS Serverless replication
    */
-  ComputeConfig?: ComputeConfig;
+  ComputeConfig: ComputeConfig;
   /**
    * A unique identifier of replication configuration
    */
-  ReplicationConfigIdentifier?: string;
+  ReplicationConfigIdentifier: string;
   /**
    * JSON settings for Servereless replications that are provisioned using this replication configuration
    */
@@ -21,7 +21,7 @@ export type DMSReplicationConfigProperties = {
   /**
    * The type of AWS DMS Serverless replication to provision using this replication configuration
    */
-  ReplicationType?: "full-load" | "full-load-and-cdc" | "cdc";
+  ReplicationType: "full-load" | "full-load-and-cdc" | "cdc";
   /**
    * A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
    */
@@ -29,7 +29,7 @@ export type DMSReplicationConfigProperties = {
   /**
    * The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
    */
-  SourceEndpointArn?: string;
+  SourceEndpointArn: string;
   /**
    * JSON settings for specifying supplemental data
    */
@@ -37,7 +37,7 @@ export type DMSReplicationConfigProperties = {
   /**
    * JSON table mappings for AWS DMS Serverless replications that are provisioned using this replication configuration
    */
-  TableMappings?: Record<string, any>;
+  TableMappings: Record<string, any>;
   /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
    * @minLength `1`
@@ -47,7 +47,7 @@ export type DMSReplicationConfigProperties = {
   /**
    * The Amazon Resource Name (ARN) of the target endpoint for this AWS DMS Serverless replication configuration
    */
-  TargetEndpointArn?: string;
+  TargetEndpointArn: string;
 };
 /**
  * Attribute type definition for `AWS::DMS::ReplicationConfig`.
