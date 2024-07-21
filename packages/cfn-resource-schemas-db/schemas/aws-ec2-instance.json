@@ -1,5 +1,5 @@
 {
-  "$hash": "184f461a29e1f81eefffb229c55240a501a2a0af",
+  "$hash": "870c892735caa423e84b8c1360abfbb6ce51f13e",
   "$id": "aws-ec2-instance.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -697,6 +697,7 @@
     "/properties/AdditionalInfo",
     "/properties/Ipv6AddressCount",
     "/properties/Ipv6Addresses",
-    "/properties/PropagateTagsToVolumeOnCreation"
+    "/properties/PropagateTagsToVolumeOnCreation",
+    "/properties/LaunchTemplate"
   ]
 }

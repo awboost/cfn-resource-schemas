@@ -1,15 +1,8 @@
-- added `AWS::Bedrock::Flow`
-- added `AWS::Bedrock::FlowAlias`
-- added `AWS::Bedrock::FlowVersion`
-- added `AWS::Bedrock::Prompt`
-- added `AWS::Bedrock::PromptVersion`
-- updated `AWS::DMS::ReplicationConfig`
-  - added `required`
-  - updated `tagging`
+- updated `AWS::EC2::Instance`
+  - updated `writeOnlyProperties`
+- updated `AWS::RDS::DBCluster`
   - updated handler permissions
-- updated `AWS::EntityResolution::IdMappingWorkflow`
-  - updated definition `ProviderProperties`
-- updated `AWS::Organizations::Organization`
+- updated `AWS::RDS::DBInstance`
+  - updated definition `ProcessorFeature`
   - updated handler permissions
-- updated `AWS::Shield::ProtectionGroup`
-  - updated `tagging`
+  - updated property `AutomaticBackupReplicationRegion`

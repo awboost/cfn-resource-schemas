@@ -94,9 +94,6 @@ export type RDSDBInstanceProperties = {
    * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.
    */
   AutomaticBackupReplicationKmsKeyId?: string;
-  /**
-   * The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.
-   */
   AutomaticBackupReplicationRegion?: string;
   /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
@@ -858,7 +855,7 @@ export type MasterUserSecret = {
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.ProcessorFeature`.
- * The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.
+ * The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html}
  */
 export type ProcessorFeature = {

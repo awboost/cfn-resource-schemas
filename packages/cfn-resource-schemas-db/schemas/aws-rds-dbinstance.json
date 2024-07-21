@@ -1,5 +1,5 @@
 {
-  "$hash": "4bc3d742fe7b88549e75da5ac6d31f4b557e668f",
+  "$hash": "5c1e2897310369e3578876f9582e56e7f3ca356e",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -105,7 +105,7 @@
     },
     "ProcessorFeature": {
       "additionalProperties": false,
-      "description": "The ``ProcessorFeature`` property type specifies the processor features of a DB instance class status.",
+      "description": "The ``ProcessorFeature`` property type specifies the processor features of a DB instance class.",
       "properties": {
         "Name": {
           "description": "The name of the processor feature. Valid names are ``coreCount`` and ``threadsPerCore``.",
@@ -183,6 +183,7 @@
     },
     "delete": {
       "permissions": [
+        "rds:AddTagsToResource",
         "rds:CreateDBSnapshot",
         "rds:DeleteDBInstance",
         "rds:DescribeDBInstances"
@@ -261,10 +262,7 @@
       "description": "The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``.",
       "type": "string"
     },
-    "AutomaticBackupReplicationRegion": {
-      "description": "The destination region for the backup replication of the DB instance. For more info, see [Replicating automated backups to another Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html) in the *Amazon RDS User Guide*.",
-      "type": "string"
-    },
+    "AutomaticBackupReplicationRegion": { "description": "", "type": "string" },
     "AvailabilityZone": {
       "description": "The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).\n For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.\n Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.\n Constraints:\n  +  The ``AvailabilityZone`` parameter can't be specified if the DB instance is a Multi-AZ deployment.\n  +  The specified Availability Zone must be in the same AWS-Region as the current endpoint.\n  \n Example: ``us-east-1d``",
       "type": "string"
