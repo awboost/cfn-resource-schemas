@@ -1,5 +1,5 @@
 {
-  "$hash": "e8b97f3c17b84050c4cef2ea833d629c089a78d6",
+  "$hash": "603e4edc9b97475beb7877b53c0547c65e048baa",
   "$id": "aws-mediaconnect-flowoutput.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -179,6 +179,11 @@
       "type": "string"
     },
     "OutputArn": { "description": "The ARN of the output.", "type": "string" },
+    "OutputStatus": {
+      "description": "An indication of whether the output should transmit data or not.",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
     "Port": {
       "description": "The port to use when content is distributed to this output.",
       "type": "integer"

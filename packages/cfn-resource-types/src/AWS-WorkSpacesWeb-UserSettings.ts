@@ -14,6 +14,7 @@ export type WorkSpacesWebUserSettingsProperties = {
    * @pattern `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
    */
   CustomerManagedKey?: string;
+  DeepLinkAllowed?: EnabledType;
   /**
    * @min `1`
    * @max `600`

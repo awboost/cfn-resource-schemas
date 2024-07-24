@@ -1,5 +1,5 @@
 {
-  "$hash": "dfcd32d048bcc6bf583fac5466d76546841c80a9",
+  "$hash": "177c0ebc5293bf16a289fba92c9449ec492215a0",
   "$id": "aws-workspacesweb-portal.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -71,6 +71,7 @@
         "kms:CreateGrant",
         "kms:GenerateDataKey",
         "kms:Decrypt",
+        "kms:DescribeKey",
         "ec2:CreateNetworkInterface",
         "ec2:CreateNetworkInterfacePermission",
         "ec2:DeleteNetworkInterface",
@@ -94,16 +95,24 @@
         "workspaces-web:DisassociateUserAccessLoggingSettings",
         "workspaces-web:DisassociateUserSettings",
         "kms:Decrypt",
+        "kms:DescribeKey",
         "sso:DeleteManagedApplicationInstance"
       ]
     },
-    "list": { "permissions": ["workspaces-web:ListPortals", "kms:Decrypt"] },
+    "list": {
+      "permissions": [
+        "workspaces-web:ListPortals",
+        "kms:Decrypt",
+        "kms:DescribeKey"
+      ]
+    },
     "read": {
       "permissions": [
         "workspaces-web:GetPortal",
         "workspaces-web:GetPortalServiceProviderMetadata",
         "workspaces-web:ListTagsForResource",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:DescribeKey"
       ]
     },
     "update": {
@@ -130,6 +139,7 @@
         "kms:Encrypt",
         "kms:GenerateDataKey",
         "kms:Decrypt",
+        "kms:DescribeKey",
         "ec2:CreateNetworkInterface",
         "ec2:CreateNetworkInterfacePermission",
         "ec2:DeleteNetworkInterface",

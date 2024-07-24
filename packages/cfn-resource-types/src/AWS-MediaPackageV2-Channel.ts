@@ -24,6 +24,7 @@ export type MediaPackageV2ChannelProperties = {
    * @maxLength `1024`
    */
   Description?: string;
+  InputType?: InputType;
   Tags?: Tag[];
 };
 /**
@@ -73,6 +74,11 @@ export type IngestEndpoint = {
    */
   Url?: string;
 };
+/**
+ * Type definition for `AWS::MediaPackageV2::Channel.InputType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-inputtype.html}
+ */
+export type InputType = "HLS" | "CMAF";
 /**
  * Type definition for `AWS::MediaPackageV2::Channel.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-tag.html}

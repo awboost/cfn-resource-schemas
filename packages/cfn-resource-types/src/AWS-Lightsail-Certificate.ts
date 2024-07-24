@@ -1,8 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource type definition for `AWS::Lightsail::Certificate`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::Lightsail::Certificate.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html}
  */
 export type LightsailCertificateProperties = {
@@ -54,8 +53,7 @@ export type Tag = {
   Value?: string;
 };
 /**
- * Resource type definition for `AWS::Lightsail::Certificate`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::Lightsail::Certificate.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html}
  */
 export class LightsailCertificate extends $Resource<

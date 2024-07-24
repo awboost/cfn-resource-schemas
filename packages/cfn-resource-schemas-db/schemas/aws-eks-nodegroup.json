@@ -1,5 +1,5 @@
 {
-  "$hash": "2c670f04a17b38c9fee24ede61b7282c59e89cfd",
+  "$hash": "016114133c66cf04e5aac0452e517e7ecdf6f887",
   "$id": "aws-eks-nodegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -228,6 +228,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["eks:TagResource", "eks:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

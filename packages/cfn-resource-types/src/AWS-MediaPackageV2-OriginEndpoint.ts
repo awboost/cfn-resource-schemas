@@ -30,6 +30,10 @@ export type MediaPackageV2OriginEndpointProperties = {
    */
   Description?: string;
   /**
+   * <p>The failover settings for the endpoint.</p>
+   */
+  ForceEndpointErrorConfiguration?: ForceEndpointErrorConfiguration;
+  /**
    * <p>An HTTP live streaming (HLS) manifest configuration.</p>
    */
   HlsManifests?: HlsManifestConfiguration[];
@@ -266,6 +270,15 @@ export type EncryptionMethod = {
   TsEncryptionMethod?: TsEncryptionMethod;
 };
 /**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.EndpointErrorCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-endpointerrorcondition.html}
+ */
+export type EndpointErrorCondition =
+  | "STALE_MANIFEST"
+  | "INCOMPLETE_MANIFEST"
+  | "MISSING_DRM_KEY"
+  | "SLATE_INPUT";
+/**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.FilterConfiguration`.
  * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html}
@@ -291,6 +304,31 @@ export type FilterConfiguration = {
    * @max `1209600`
    */
   TimeDelaySeconds?: number;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ForceEndpointErrorConfiguration`.
+ * <p>The failover settings for the endpoint.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-forceendpointerrorconfiguration.html}
+ */
+export type ForceEndpointErrorConfiguration = {
+  /**
+     * <p>The failover settings for the endpoint. The options are:</p>
+             <ul>
+                <li>
+                   <p>
+                      <code>STALE_MANIFEST</code> - The manifest stalled and there a no new segments or parts.</p>
+                </li>
+                <li>
+                   <p>
+                      <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
+                </li>
+                <li>
+                   <p>
+                      <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
+                </li>
+             </ul>
+     */
+  EndpointErrorConditions?: EndpointErrorCondition[];
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.HlsManifestConfiguration`.

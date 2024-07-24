@@ -1,5 +1,5 @@
 {
-  "$hash": "ecabe2aa4c20aeb69a84e1d18b15a6765d23b85f",
+  "$hash": "9fbc178e75a6b2aa1565a8cb4b23582942f2b808",
   "$id": "aws-lightsail-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -29,7 +29,7 @@
       "type": "object"
     }
   },
-  "description": "An example resource schema demonstrating some basic constructs and validation rules.",
+  "description": "Resource Type definition for AWS::Lightsail::Certificate.",
   "handlers": {
     "create": {
       "permissions": [

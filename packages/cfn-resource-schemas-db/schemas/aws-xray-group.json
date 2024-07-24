@@ -1,5 +1,5 @@
 {
-  "$hash": "fbe23581777a02e6ab455ee95791d2c02dfe1d15",
+  "$hash": "d57050595685ffbaa35172123a995a9a30ef821c",
   "$id": "aws-xray-group.json",
   "additionalProperties": false,
   "definitions": {
@@ -72,5 +72,12 @@
   "readOnlyProperties": ["/properties/GroupARN"],
   "required": ["GroupName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::XRay::Group"
 }

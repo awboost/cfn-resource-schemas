@@ -1,5 +1,5 @@
 {
-  "$hash": "c428eff3b036bcf674e79b5b6b2eac5ba815bdd1",
+  "$hash": "b9e66ea60c0f56429409f410f127acaaa2feb8c6",
   "$id": "aws-xray-samplingrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SamplingRule/Version"],
@@ -222,5 +222,12 @@
   },
   "readOnlyProperties": ["/properties/RuleARN"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::XRay::SamplingRule"
 }

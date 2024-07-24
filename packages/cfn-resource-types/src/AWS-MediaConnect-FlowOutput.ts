@@ -42,6 +42,10 @@ export type MediaConnectFlowOutputProperties = {
    */
   Name?: string;
   /**
+   * An indication of whether the output should transmit data or not.
+   */
+  OutputStatus?: "ENABLED" | "DISABLED";
+  /**
    * The port to use when content is distributed to this output.
    */
   Port?: number;

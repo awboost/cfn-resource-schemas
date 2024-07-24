@@ -1,8 +1,51 @@
-- updated `AWS::EC2::Instance`
-  - updated `writeOnlyProperties`
-- updated `AWS::RDS::DBCluster`
+- updated `AWS::EC2::EIPAssociation`
+  - updated property `AllocationId`
+  - updated property `EIP`
+  - updated property `Id`
+  - updated property `InstanceId`
+  - updated property `NetworkInterfaceId`
+  - updated property `PrivateIpAddress`
+- updated `AWS::EC2::KeyPair`
+  - updated `tagging`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `ConnectionTrackingSpecification`
+  - updated definition `ElasticGpuSpecification`
+  - updated definition `InstanceRequirements`
+  - updated definition `Ipv4PrefixSpecification`
+  - updated definition `LaunchTemplateData`
+  - updated definition `LaunchTemplateTagSpecification`
+  - updated definition `NetworkInterface`
+  - updated definition `TagSpecification`
+- updated `AWS::EC2::NetworkInterfaceAttachment`
+  - updated definition `EnaSrdSpecification`
+  - updated property `AttachmentId`
+  - updated property `DeleteOnTermination`
+  - updated property `DeviceIndex`
+  - updated property `EnaSrdSpecification`
+- updated `AWS::ECR::Repository`
+  - updated definition `EncryptionConfiguration`
+- updated `AWS::EKS::Nodegroup`
+  - updated `tagging`
+- updated `AWS::Lightsail::Alarm`
+  - updated property `MonitoredResourceName`
+- updated `AWS::Lightsail::Certificate`
+- updated `AWS::MediaConnect::FlowOutput`
+  - added property `OutputStatus`
+- updated `AWS::MediaPackageV2::Channel`
+  - added definition `InputType`
+  - added property `InputType`
+  - updated `createOnlyProperties`
+- updated `AWS::MediaPackageV2::OriginEndpoint`
+  - added definition `EndpointErrorCondition`
+  - added definition `ForceEndpointErrorConfiguration`
+  - added property `ForceEndpointErrorConfiguration`
+- updated `AWS::S3Outposts::Bucket`
+  - updated `tagging`
+- updated `AWS::WorkSpacesWeb::Portal`
   - updated handler permissions
-- updated `AWS::RDS::DBInstance`
-  - updated definition `ProcessorFeature`
-  - updated handler permissions
-  - updated property `AutomaticBackupReplicationRegion`
+- updated `AWS::WorkSpacesWeb::UserSettings`
+  - added property `DeepLinkAllowed`
+- updated `AWS::XRay::Group`
+  - added `tagging`
+- updated `AWS::XRay::SamplingRule`
+  - added `tagging`

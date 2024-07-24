@@ -31,7 +31,7 @@ export type LightsailAlarmProperties = {
    */
   MetricName: string;
   /**
-   * The validation status of the SSL/TLS certificate.
+   * The name of the Lightsail resource that the alarm monitors.
    */
   MonitoredResourceName: string;
   /**
