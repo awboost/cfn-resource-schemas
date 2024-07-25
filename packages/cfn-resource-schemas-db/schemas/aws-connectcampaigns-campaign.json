@@ -1,5 +1,5 @@
 {
-  "$hash": "3cf2d6cbd6e20d65c939bf7aa12b995a0e65e804",
+  "$hash": "7c50f8e9bb4190f2820b32fbfbb215c2b7a9d212",
   "$id": "aws-connectcampaigns-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceArn"],
@@ -213,6 +213,10 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "connect-campaigns:UntagResource",
+      "connect-campaigns:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -10,6 +10,12 @@ export type ECRRepositoryCreationTemplateProperties = {
    */
   AppliedFor: AppliedForItem[];
   /**
+   * The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.
+   * @maxLength `2048`
+   * @pattern `^arn:aws[-a-z0-9]*:iam::[0-9]{12}:role/[A-Za-z0-9+=,-.@_]*$`
+   */
+  CustomRoleArn?: string;
+  /**
    * The description of the template.
    * @minLength `0`
    * @maxLength `256`

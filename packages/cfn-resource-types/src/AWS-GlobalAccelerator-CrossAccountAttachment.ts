@@ -38,7 +38,8 @@ export type GlobalAcceleratorCrossAccountAttachmentAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-crossaccountattachment-resource.html}
  */
 export type Resource = {
-  EndpointId: string;
+  Cidr?: string;
+  EndpointId?: string;
   Region?: string;
 };
 /**

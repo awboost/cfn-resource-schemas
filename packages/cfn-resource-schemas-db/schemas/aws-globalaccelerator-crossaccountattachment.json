@@ -1,5 +1,5 @@
 {
-  "$hash": "51418d2e29189cd6e6ce3b0f7a446773692d3739",
+  "$hash": "92c64e34b8a8bc72006c818c75c054c581879dfd",
   "$id": "aws-globalaccelerator-crossaccountattachment.json",
   "additionalProperties": false,
   "definitions": {
@@ -7,10 +7,10 @@
       "additionalProperties": false,
       "description": "ARN of resource to share.",
       "properties": {
+        "Cidr": { "type": "string" },
         "EndpointId": { "type": "string" },
         "Region": { "type": "string" }
       },
-      "required": ["EndpointId"],
       "type": "object"
     },
     "Tag": {

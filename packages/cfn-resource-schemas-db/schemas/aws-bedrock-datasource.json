@@ -1,5 +1,5 @@
 {
-  "$hash": "cb92260f318662a0a62b812fde9f0ee1a6db6f78",
+  "$hash": "1c9763045c4757e501e0ab7fecde09c5ae7f8124",
   "$id": "aws-bedrock-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -224,6 +224,6 @@
   ],
   "required": ["DataSourceConfiguration", "Name", "KnowledgeBaseId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-aps",
-  "tagging": { "cloudFormationSystemTags": true, "taggable": false },
+  "tagging": { "cloudFormationSystemTags": false, "taggable": false },
   "typeName": "AWS::Bedrock::DataSource"
 }

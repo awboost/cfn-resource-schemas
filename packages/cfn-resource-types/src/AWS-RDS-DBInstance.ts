@@ -270,7 +270,6 @@ export type RDSDBInstanceProperties = {
       +   ``DBClusterIdentifier``
       +   ``DBName``
       +   ``DeleteAutomatedBackups``
-      +   ``EnablePerformanceInsights``
       +   ``KmsKeyId``
       +   ``MasterUsername``
       +   ``MasterUserPassword``
@@ -821,7 +820,7 @@ export type RDSDBInstanceAttributes = {
      */
   MasterUserSecret: {
     /**
-     * The Amazon Resource Name (ARN) of the secret.
+     * The Amazon Resource Name (ARN) of the secret. This parameter is a return value that you can retrieve using the ``Fn::GetAtt`` intrinsic function. For more information, see [Return values](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values).
      */
     SecretArn: string;
   };

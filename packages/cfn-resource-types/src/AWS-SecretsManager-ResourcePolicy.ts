@@ -5,8 +5,19 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html}
  */
 export type SecretsManagerResourcePolicyProperties = {
+  /**
+   * Specifies whether to block resource-based policies that allow broad access to the secret.
+   */
   BlockPublicPolicy?: boolean;
-  ResourcePolicy: Record<string, any>;
+  /**
+   * A JSON-formatted string for an AWS resource-based policy.
+   */
+  ResourcePolicy: string | Record<string, any>;
+  /**
+   * The ARN or name of the secret to attach the resource-based policy.
+   * @minLength `1`
+   * @maxLength `2048`
+   */
   SecretId: string;
 };
 /**
@@ -14,6 +25,9 @@ export type SecretsManagerResourcePolicyProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#aws-resource-secretsmanager-resourcepolicy-return-values}
  */
 export type SecretsManagerResourcePolicyAttributes = {
+  /**
+   * The Arn of the secret.
+   */
   Id: string;
 };
 /**

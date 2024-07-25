@@ -71,6 +71,30 @@ export type BedrockKnowledgeBaseAttributes = {
   UpdatedAt: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.BedrockEmbeddingModelConfiguration`.
+ * The vector configuration details for the Bedrock embeddings model.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html}
+ */
+export type BedrockEmbeddingModelConfiguration = {
+  /**
+   * The dimensions details for the vector configuration used on the Bedrock embeddings model.
+   * @min `0`
+   * @max `4096`
+   */
+  Dimensions?: number;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.EmbeddingModelConfiguration`.
+ * The embeddings model configuration details for the vector model used in Knowledge Base.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html}
+ */
+export type EmbeddingModelConfiguration = {
+  /**
+   * The vector configuration details for the Bedrock embeddings model.
+   */
+  BedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration;
+};
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KnowledgeBaseConfiguration`.
  * Contains details about the embeddings model used for the knowledge base.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html}
@@ -105,13 +129,85 @@ export type KnowledgeBaseStatus =
 export type KnowledgeBaseStorageType =
   | "OPENSEARCH_SERVERLESS"
   | "PINECONE"
-  | "RDS";
+  | "RDS"
+  | "MONGO_DB_ATLAS";
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KnowledgeBaseType`.
  * The type of a knowledge base.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebasetype.html}
  */
 export type KnowledgeBaseType = "VECTOR";
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.MongoDbAtlasConfiguration`.
+ * Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasconfiguration.html}
+ */
+export type MongoDbAtlasConfiguration = {
+  /**
+   * Name of the collection within MongoDB Atlas.
+   * @maxLength `63`
+   * @pattern `^.*$`
+   */
+  CollectionName: string;
+  /**
+   * The ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon Mongo database.
+   * @pattern `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`
+   */
+  CredentialsSecretArn: string;
+  /**
+   * Name of the database within MongoDB Atlas.
+   * @maxLength `63`
+   * @pattern `^.*$`
+   */
+  DatabaseName: string;
+  /**
+   * MongoDB Atlas endpoint.
+   * @maxLength `2048`
+   * @pattern `^[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.mongodb\.net$`
+   */
+  Endpoint: string;
+  /**
+   * MongoDB Atlas endpoint service name.
+   * @maxLength `255`
+   * @pattern `^(?:arn:aws(?:-us-gov|-cn|-iso|-iso-[a-z])*:.+:.*:\d+:.+/.+$|[a-zA-Z0-9*]+[a-zA-Z0-9._-]*)$`
+   */
+  EndpointServiceName?: string;
+  /**
+   * Contains the names of the fields to which to map information about the vector store.
+   */
+  FieldMapping: MongoDbAtlasFieldMapping;
+  /**
+   * Name of a MongoDB Atlas index.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  VectorIndexName: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.MongoDbAtlasFieldMapping`.
+ * Contains the names of the fields to which to map information about the vector store.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-mongodbatlasfieldmapping.html}
+ */
+export type MongoDbAtlasFieldMapping = {
+  /**
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  MetadataField: string;
+  /**
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  TextField: string;
+  /**
+   * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  VectorField: string;
+};
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.OpenSearchServerlessConfiguration`.
  * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
@@ -278,6 +374,10 @@ export type RdsFieldMapping = {
  */
 export type StorageConfiguration = {
   /**
+   * Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
+   */
+  MongoDbAtlasConfiguration?: MongoDbAtlasConfiguration;
+  /**
    * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
    */
   OpensearchServerlessConfiguration?: OpenSearchServerlessConfiguration;
@@ -310,9 +410,13 @@ export type VectorKnowledgeBaseConfiguration = {
    * The ARN of the model used to create vector embeddings for the knowledge base.
    * @minLength `20`
    * @maxLength `2048`
-   * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)$`
+   * @pattern `^(arn:aws(-[^:]+)?:[a-z0-9-]+:[a-z0-9-]{1,20}:[0-9]{0,12}:[a-zA-Z0-9-:/._+]+)$`
    */
   EmbeddingModelArn: string;
+  /**
+   * The embeddings model configuration details for the vector model used in Knowledge Base.
+   */
+  EmbeddingModelConfiguration?: EmbeddingModelConfiguration;
 };
 /**
  * Definition of AWS::Bedrock::KnowledgeBase Resource Type

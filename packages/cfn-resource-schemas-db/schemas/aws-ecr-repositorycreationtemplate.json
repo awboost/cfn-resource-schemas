@@ -1,5 +1,5 @@
 {
-  "$hash": "2e2edc47c1cc67aefd1be641e42b9e71e7884c0d",
+  "$hash": "639821c98bb825a0a8bba6223b4ba497a354adfe",
   "$id": "aws-ecr-repositorycreationtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Prefix"],
@@ -59,7 +59,8 @@
         "ecr:PutLifecyclePolicy",
         "ecr:SetRepositoryPolicy",
         "ecr:CreateRepository",
-        "iam:CreateServiceLinkedRole"
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole"
       ]
     },
     "delete": { "permissions": ["ecr:DeleteRepositoryCreationTemplate"] },
@@ -72,7 +73,8 @@
         "ecr:PutLifecyclePolicy",
         "ecr:SetRepositoryPolicy",
         "ecr:CreateRepository",
-        "iam:CreateServiceLinkedRole"
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole"
       ]
     }
   },
@@ -87,6 +89,12 @@
     },
     "CreatedAt": {
       "description": "Create timestamp of the template.",
+      "type": "string"
+    },
+    "CustomRoleArn": {
+      "description": "The ARN of the role to be assumed by ECR. This role must be in the same account as the registry that you are configuring.",
+      "maxLength": 2048,
+      "pattern": "^arn:aws[-a-z0-9]*:iam::[0-9]{12}:role/[A-Za-z0-9+=,-.@_]*$",
       "type": "string"
     },
     "Description": {

@@ -47,6 +47,10 @@ export type EKSClusterProperties = {
    */
   Tags?: Tag[];
   /**
+   * An object representing the Upgrade Policy to use for the cluster.
+   */
+  UpgradePolicy?: UpgradePolicy;
+  /**
    * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
    * @pattern `1\.\d\d`
    */
@@ -258,6 +262,17 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.UpgradePolicy`.
+ * An object representing the Upgrade Policy to use for the cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-upgradepolicy.html}
+ */
+export type UpgradePolicy = {
+  /**
+   * Specify the support type for your cluster.
+   */
+  SupportType?: "STANDARD" | "EXTENDED";
 };
 /**
  * Resource type definition for `AWS::EKS::Cluster`.

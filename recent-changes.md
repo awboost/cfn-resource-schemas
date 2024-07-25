@@ -1,51 +1,57 @@
-- updated `AWS::EC2::EIPAssociation`
-  - updated property `AllocationId`
-  - updated property `EIP`
-  - updated property `Id`
-  - updated property `InstanceId`
-  - updated property `NetworkInterfaceId`
-  - updated property `PrivateIpAddress`
-- updated `AWS::EC2::KeyPair`
+- updated `AWS::ApplicationAutoScaling::ScalingPolicy`
+  - updated definition `CustomizedMetricSpecification`
+  - updated definition `MetricDimension`
+  - updated definition `PredefinedMetricSpecification`
+  - updated definition `StepAdjustment`
+  - updated definition `StepScalingPolicyConfiguration`
+  - updated definition `TargetTrackingMetricDataQuery`
+  - updated definition `TargetTrackingMetricDimension`
+  - updated definition `TargetTrackingMetricStat`
+  - updated definition `TargetTrackingMetric`
+  - updated definition `TargetTrackingScalingPolicyConfiguration`
+  - updated property `Arn`
+  - updated property `PolicyName`
+  - updated property `PolicyType`
+  - updated property `ResourceId`
+  - updated property `ScalableDimension`
+  - updated property `ScalingTargetId`
+  - updated property `ServiceNamespace`
+- updated `AWS::Bedrock::DataSource`
   - updated `tagging`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `ConnectionTrackingSpecification`
-  - updated definition `ElasticGpuSpecification`
-  - updated definition `InstanceRequirements`
-  - updated definition `Ipv4PrefixSpecification`
-  - updated definition `LaunchTemplateData`
-  - updated definition `LaunchTemplateTagSpecification`
-  - updated definition `NetworkInterface`
-  - updated definition `TagSpecification`
-- updated `AWS::EC2::NetworkInterfaceAttachment`
-  - updated definition `EnaSrdSpecification`
-  - updated property `AttachmentId`
-  - updated property `DeleteOnTermination`
-  - updated property `DeviceIndex`
-  - updated property `EnaSrdSpecification`
-- updated `AWS::ECR::Repository`
-  - updated definition `EncryptionConfiguration`
-- updated `AWS::EKS::Nodegroup`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - added definition `BedrockEmbeddingModelConfiguration`
+  - added definition `EmbeddingModelConfiguration`
+  - added definition `MongoDbAtlasConfiguration`
+  - added definition `MongoDbAtlasFieldMapping`
+  - updated definition `KnowledgeBaseStorageType`
+  - updated definition `StorageConfiguration`
+  - updated definition `VectorKnowledgeBaseConfiguration`
+- updated `AWS::ConnectCampaigns::Campaign`
   - updated `tagging`
-- updated `AWS::Lightsail::Alarm`
-  - updated property `MonitoredResourceName`
-- updated `AWS::Lightsail::Certificate`
-- updated `AWS::MediaConnect::FlowOutput`
-  - added property `OutputStatus`
-- updated `AWS::MediaPackageV2::Channel`
-  - added definition `InputType`
-  - added property `InputType`
-  - updated `createOnlyProperties`
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - added definition `EndpointErrorCondition`
-  - added definition `ForceEndpointErrorConfiguration`
-  - added property `ForceEndpointErrorConfiguration`
-- updated `AWS::S3Outposts::Bucket`
-  - updated `tagging`
-- updated `AWS::WorkSpacesWeb::Portal`
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - added property `CustomRoleArn`
   - updated handler permissions
-- updated `AWS::WorkSpacesWeb::UserSettings`
-  - added property `DeepLinkAllowed`
-- updated `AWS::XRay::Group`
+- updated `AWS::EKS::Cluster`
+  - added definition `RemoteNodeNetwork`
+  - added definition `RemoteNodeNetworks`
+  - added definition `RemotePodNetwork`
+  - added definition `RemotePodNetworks`
+  - added definition `UpgradePolicy`
+  - added property `UpgradePolicy`
+- updated `AWS::GlobalAccelerator::CrossAccountAttachment`
+  - updated definition `Resource`
+- updated `AWS::RDS::DBCluster`
+  - updated definition `MasterUserSecret`
+  - updated property `PubliclyAccessible`
+- updated `AWS::RDS::DBInstance`
+  - updated definition `MasterUserSecret`
+  - updated property `DBSnapshotIdentifier`
+- updated `AWS::SecretsManager::ResourcePolicy`
   - added `tagging`
-- updated `AWS::XRay::SamplingRule`
-  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated `required`
+  - updated handler permissions
+  - updated property `BlockPublicPolicy`
+  - updated property `Id`
+  - updated property `ResourcePolicy`
+  - updated property `SecretId`
