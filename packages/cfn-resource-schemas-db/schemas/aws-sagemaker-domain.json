@@ -1,5 +1,5 @@
 {
-  "$hash": "1bf492f03195f24ec3fe9c0c1afe75cd9e6ff3b7",
+  "$hash": "2b570db2b8f18fd5d04071e0e164a69c735cad66",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -293,7 +293,15 @@
       "additionalProperties": false,
       "description": "The JupyterServer app settings.",
       "properties": {
-        "DefaultResourceSpec": { "$ref": "#/definitions/ResourceSpec" }
+        "DefaultResourceSpec": { "$ref": "#/definitions/ResourceSpec" },
+        "LifecycleConfigArns": {
+          "description": "A list of LifecycleConfigArns available for use with JupyterServer apps.",
+          "items": { "$ref": "#/definitions/StudioLifecycleConfigArn" },
+          "maxItems": 30,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": false
+        }
       },
       "type": "object"
     },
@@ -313,6 +321,14 @@
         "DefaultResourceSpec": {
           "$ref": "#/definitions/ResourceSpec",
           "description": "The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app."
+        },
+        "LifecycleConfigArns": {
+          "description": "A list of LifecycleConfigArns available for use with KernelGateway apps.",
+          "items": { "$ref": "#/definitions/StudioLifecycleConfigArn" },
+          "maxItems": 30,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": false
         }
       },
       "type": "object"

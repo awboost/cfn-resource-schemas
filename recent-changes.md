@@ -1,57 +1,77 @@
-- updated `AWS::ApplicationAutoScaling::ScalingPolicy`
-  - updated definition `CustomizedMetricSpecification`
-  - updated definition `MetricDimension`
-  - updated definition `PredefinedMetricSpecification`
-  - updated definition `StepAdjustment`
-  - updated definition `StepScalingPolicyConfiguration`
-  - updated definition `TargetTrackingMetricDataQuery`
-  - updated definition `TargetTrackingMetricDimension`
-  - updated definition `TargetTrackingMetricStat`
-  - updated definition `TargetTrackingMetric`
-  - updated definition `TargetTrackingScalingPolicyConfiguration`
-  - updated property `Arn`
-  - updated property `PolicyName`
-  - updated property `PolicyType`
-  - updated property `ResourceId`
-  - updated property `ScalableDimension`
-  - updated property `ScalingTargetId`
-  - updated property `ServiceNamespace`
-- updated `AWS::Bedrock::DataSource`
+- added `AWS::ARCZonalShift::AutoshiftObserverNotificationStatus`
+- updated `AWS::ARCZonalShift::ZonalAutoshiftConfiguration`
+  - updated definition `ControlConditionType`
+  - updated definition `ControlCondition`
+- updated `AWS::Batch::JobDefinition`
+  - updated definition `NodeRangeProperty`
+- updated `AWS::CleanRoomsML::TrainingDataset`
   - updated `tagging`
-- updated `AWS::Bedrock::KnowledgeBase`
-  - added definition `BedrockEmbeddingModelConfiguration`
-  - added definition `EmbeddingModelConfiguration`
-  - added definition `MongoDbAtlasConfiguration`
-  - added definition `MongoDbAtlasFieldMapping`
-  - updated definition `KnowledgeBaseStorageType`
-  - updated definition `StorageConfiguration`
-  - updated definition `VectorKnowledgeBaseConfiguration`
-- updated `AWS::ConnectCampaigns::Campaign`
+- updated `AWS::CodeArtifact::PackageGroup`
   - updated `tagging`
-- updated `AWS::ECR::RepositoryCreationTemplate`
-  - added property `CustomRoleArn`
-  - updated handler permissions
-- updated `AWS::EKS::Cluster`
-  - added definition `RemoteNodeNetwork`
-  - added definition `RemoteNodeNetworks`
-  - added definition `RemotePodNetwork`
-  - added definition `RemotePodNetworks`
-  - added definition `UpgradePolicy`
-  - added property `UpgradePolicy`
-- updated `AWS::GlobalAccelerator::CrossAccountAttachment`
-  - updated definition `Resource`
-- updated `AWS::RDS::DBCluster`
-  - updated definition `MasterUserSecret`
-  - updated property `PubliclyAccessible`
-- updated `AWS::RDS::DBInstance`
-  - updated definition `MasterUserSecret`
-  - updated property `DBSnapshotIdentifier`
-- updated `AWS::SecretsManager::ResourcePolicy`
+- updated `AWS::EntityResolution::IdMappingWorkflow`
+  - added `writeOnlyProperties`
+  - updated definition `IdMappingTechniques`
+- updated `AWS::FMS::Policy`
+  - updated definition `ManagedServiceData`
+- updated `AWS::Glue::Trigger`
+  - added `sourceUrl`
   - added `tagging`
   - added `writeOnlyProperties`
-  - updated `required`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated definition `Action`
+  - updated definition `Condition`
+  - updated definition `EventBatchingCondition`
+  - updated definition `NotificationProperty`
+  - updated definition `Predicate`
   - updated handler permissions
-  - updated property `BlockPublicPolicy`
-  - updated property `Id`
-  - updated property `ResourcePolicy`
-  - updated property `SecretId`
+  - updated property `Actions`
+  - updated property `Description`
+  - updated property `EventBatchingCondition`
+  - updated property `Name`
+  - updated property `Predicate`
+  - updated property `Schedule`
+  - updated property `StartOnCreation`
+  - updated property `Tags`
+  - updated property `Type`
+  - updated property `WorkflowName`
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - added definition `CatalogConfiguration`
+  - added definition `DestinationTableConfigurationList`
+  - added definition `DestinationTableConfiguration`
+  - added definition `IcebergDestinationConfiguration`
+  - added definition `SnowflakeBufferingHints`
+  - added definition `UniqueKey`
+  - added property `IcebergDestinationConfiguration`
+  - updated `createOnlyProperties`
+  - updated definition `MSKSourceConfiguration`
+  - updated definition `SnowflakeDestinationConfiguration`
+- updated `AWS::RDS::Integration`
+  - updated `tagging`
+  - updated definition `Tag`
+  - updated property `AdditionalEncryptionContext`
+  - updated property `CreateTime`
+  - updated property `DataFilter`
+  - updated property `Description`
+  - updated property `IntegrationArn`
+  - updated property `KMSKeyId`
+  - updated property `SourceArn`
+  - updated property `Tags`
+- updated `AWS::SageMaker::App`
+  - updated definition `ResourceSpec`
+- updated `AWS::SageMaker::Domain`
+  - updated definition `JupyterServerAppSettings`
+  - updated definition `KernelGatewayAppSettings`
+- updated `AWS::SageMaker::Model`
+  - added definition `HubAccessConfig`
+  - updated definition `S3DataSource`
+- updated `AWS::SageMaker::Space`
+  - added definition `StudioLifecycleConfigArn`
+  - updated definition `JupyterServerAppSettings`
+  - updated definition `KernelGatewayAppSettings`
+  - updated definition `ResourceSpec`
+- updated `AWS::SageMaker::UserProfile`
+  - updated definition `JupyterServerAppSettings`
+  - updated definition `KernelGatewayAppSettings`
+  - updated definition `ResourceSpec`

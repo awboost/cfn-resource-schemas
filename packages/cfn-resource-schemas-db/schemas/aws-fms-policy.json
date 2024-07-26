@@ -1,5 +1,5 @@
 {
-  "$hash": "f583ad221a714e1db81559c5a38f5fc9bc69d676",
+  "$hash": "e38ec0ac4655201b26d81112755efcd921e48c86",
   "$id": "aws-fms-policy.json",
   "additionalProperties": false,
   "definitions": {
@@ -41,7 +41,7 @@
     },
     "ManagedServiceData": {
       "description": "Firewall managed service data.",
-      "maxLength": 8192,
+      "maxLength": 30000,
       "minLength": 1,
       "type": "string"
     },

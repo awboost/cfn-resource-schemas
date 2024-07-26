@@ -1,5 +1,5 @@
 {
-  "$hash": "ec2ddf1d876d0b79805eac17e7fb7204abfa6cf9",
+  "$hash": "e68eca3b5ff5287569f178922803f2903568d1ef",
   "$id": "aws-batch-jobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags", "/properties/JobDefinitionName"],
@@ -361,6 +361,7 @@
       "properties": {
         "Container": { "$ref": "#/definitions/ContainerProperties" },
         "EcsProperties": { "$ref": "#/definitions/EcsProperties" },
+        "EksProperties": { "$ref": "#/definitions/EksProperties" },
         "InstanceTypes": {
           "items": { "type": "string" },
           "type": "array",

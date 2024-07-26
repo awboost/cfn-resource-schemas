@@ -264,7 +264,7 @@ export type SecurityServicePolicyData = {
   /**
    * Firewall managed service data.
    * @minLength `1`
-   * @maxLength `8192`
+   * @maxLength `30000`
    */
   ManagedServiceData?: string;
   /**

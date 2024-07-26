@@ -131,6 +131,12 @@ export type ResourceSpec = {
     | "ml.trn1.32xlarge"
     | "ml.trn1n.32xlarge";
   /**
+   * The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+   * @maxLength `256`
+   * @pattern `arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:studio-lifecycle-config/.*`
+   */
+  LifecycleConfigArn?: string;
+  /**
    * The ARN of the SageMaker image that the image version belongs to.
    * @minLength `1`
    * @maxLength `256`

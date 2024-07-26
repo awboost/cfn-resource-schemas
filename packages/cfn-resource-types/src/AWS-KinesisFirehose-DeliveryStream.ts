@@ -18,6 +18,7 @@ export type KinesisFirehoseDeliveryStreamProperties = {
   ElasticsearchDestinationConfiguration?: ElasticsearchDestinationConfiguration;
   ExtendedS3DestinationConfiguration?: ExtendedS3DestinationConfiguration;
   HttpEndpointDestinationConfiguration?: HttpEndpointDestinationConfiguration;
+  IcebergDestinationConfiguration?: IcebergDestinationConfiguration;
   KinesisStreamSourceConfiguration?: KinesisStreamSourceConfiguration;
   MSKSourceConfiguration?: MSKSourceConfiguration;
   RedshiftDestinationConfiguration?: RedshiftDestinationConfiguration;
@@ -167,6 +168,18 @@ export type BufferingHints = {
   SizeInMBs?: number;
 };
 /**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.CatalogConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-catalogconfiguration.html}
+ */
+export type CatalogConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `arn:.*`
+   */
+  CatalogArn?: string;
+};
+/**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.CloudWatchLoggingOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-cloudwatchloggingoptions.html}
  */
@@ -226,6 +239,28 @@ export type DeliveryStreamEncryptionConfigurationInput = {
 export type Deserializer = {
   HiveJsonSerDe?: HiveJsonSerDe;
   OpenXJsonSerDe?: OpenXJsonSerDe;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.DestinationTableConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html}
+ */
+export type DestinationTableConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   */
+  DestinationDatabaseName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   */
+  DestinationTableName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  S3ErrorOutputPrefix?: string;
+  UniqueKeys?: string[];
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.DocumentIdOptions`.
@@ -444,6 +479,26 @@ export type HttpEndpointRequestConfiguration = {
   ContentEncoding?: "NONE" | "GZIP";
 };
 /**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.IcebergDestinationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html}
+ */
+export type IcebergDestinationConfiguration = {
+  BufferingHints?: BufferingHints;
+  CatalogConfiguration: CatalogConfiguration;
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+  DestinationTableConfigurationList?: DestinationTableConfiguration[];
+  ProcessingConfiguration?: ProcessingConfiguration;
+  RetryOptions?: RetryOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `arn:.*`
+   */
+  RoleARN: string;
+  S3Configuration: S3DestinationConfiguration;
+  s3BackupMode?: "AllData" | "FailedDataOnly";
+};
+/**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.InputFormatConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html}
  */
@@ -487,6 +542,7 @@ export type MSKSourceConfiguration = {
    * @pattern `arn:.*`
    */
   MSKClusterARN: string;
+  ReadFromTimestamp?: string;
   /**
    * @minLength `1`
    * @maxLength `255`
@@ -699,6 +755,14 @@ export type Serializer = {
   ParquetSerDe?: ParquetSerDe;
 };
 /**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.SnowflakeBufferingHints`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakebufferinghints.html}
+ */
+export type SnowflakeBufferingHints = {
+  IntervalInSeconds?: number;
+  SizeInMBs?: number;
+};
+/**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.SnowflakeDestinationConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html}
  */
@@ -709,6 +773,7 @@ export type SnowflakeDestinationConfiguration = {
    * @pattern `.+?\.snowflakecomputing\.com`
    */
   AccountUrl: string;
+  BufferingHints?: SnowflakeBufferingHints;
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
   /**
    * @minLength `1`

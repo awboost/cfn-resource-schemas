@@ -1,5 +1,5 @@
 {
-  "$hash": "fcc211ad19fe6b716edee44e90015986ea600248",
+  "$hash": "0e6325da15aacb421fb92489c5acb3caec9df4f3",
   "$id": "aws-arczonalshift-zonalautoshiftconfiguration.json",
   "additionalProperties": false,
   "allOf": [
@@ -19,7 +19,7 @@
         "AlarmIdentifier": {
           "maxLength": 1024,
           "minLength": 8,
-          "pattern": "^arn:.*$",
+          "pattern": "^.*$",
           "type": "string"
         },
         "Type": { "$ref": "#/definitions/ControlConditionType" }
@@ -27,7 +27,12 @@
       "required": ["AlarmIdentifier", "Type"],
       "type": "object"
     },
-    "ControlConditionType": { "enum": ["CLOUDWATCH"], "type": "string" },
+    "ControlConditionType": {
+      "maxLength": 10,
+      "minLength": 8,
+      "pattern": "^[a-zA-Z]*$",
+      "type": "string"
+    },
     "PracticeRunConfiguration": {
       "additionalProperties": false,
       "properties": {

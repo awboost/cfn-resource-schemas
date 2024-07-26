@@ -365,6 +365,12 @@ export type JupyterLabAppSettings = {
  */
 export type JupyterServerAppSettings = {
   DefaultResourceSpec?: ResourceSpec;
+  /**
+   * A list of LifecycleConfigArns available for use with JupyterServer apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  LifecycleConfigArns?: string[];
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.KernelGatewayAppSettings`.
@@ -382,6 +388,12 @@ export type KernelGatewayAppSettings = {
    * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
    */
   DefaultResourceSpec?: ResourceSpec;
+  /**
+   * A list of LifecycleConfigArns available for use with KernelGateway apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  LifecycleConfigArns?: string[];
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.MlTools`.

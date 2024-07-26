@@ -1,5 +1,5 @@
 {
-  "$hash": "9a18cf28495a92fed9fd80a94aabf6ef75538d1e",
+  "$hash": "18dbfeb100e3ede6d79436a7ea0a9ddda467f7d9",
   "$id": "aws-sagemaker-model.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -26,6 +26,12 @@
         "ModelPackageName": { "type": "string" },
         "MultiModelConfig": { "$ref": "#/definitions/MultiModelConfig" }
       },
+      "type": "object"
+    },
+    "HubAccessConfig": {
+      "additionalProperties": false,
+      "properties": { "HubContentArn": { "type": "string" } },
+      "required": ["HubContentArn"],
       "type": "object"
     },
     "ImageConfig": {
@@ -74,6 +80,7 @@
       "additionalProperties": false,
       "properties": {
         "CompressionType": { "type": "string" },
+        "HubAccessConfig": { "$ref": "#/definitions/HubAccessConfig" },
         "ModelAccessConfig": { "$ref": "#/definitions/ModelAccessConfig" },
         "S3DataType": { "type": "string" },
         "S3Uri": { "type": "string" }

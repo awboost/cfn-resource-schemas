@@ -21,16 +21,16 @@ export type ControlCondition = {
   /**
    * @minLength `8`
    * @maxLength `1024`
-   * @pattern `^arn:.*$`
+   * @pattern `^.*$`
    */
   AlarmIdentifier: string;
-  Type: ControlConditionType;
+  /**
+   * @minLength `8`
+   * @maxLength `10`
+   * @pattern `^[a-zA-Z]*$`
+   */
+  Type: string;
 };
-/**
- * Type definition for `AWS::ARCZonalShift::ZonalAutoshiftConfiguration.ControlConditionType`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-controlconditiontype.html}
- */
-export type ControlConditionType = "CLOUDWATCH";
 /**
  * Type definition for `AWS::ARCZonalShift::ZonalAutoshiftConfiguration.PracticeRunConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-practicerunconfiguration.html}

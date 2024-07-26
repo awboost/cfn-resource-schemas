@@ -229,6 +229,12 @@ export type JupyterLabAppSettings = {
  */
 export type JupyterServerAppSettings = {
   DefaultResourceSpec?: ResourceSpec;
+  /**
+   * A list of LifecycleConfigArns available for use with JupyterServer apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  LifecycleConfigArns?: string[];
 };
 /**
  * Type definition for `AWS::SageMaker::UserProfile.KernelGatewayAppSettings`.
@@ -246,6 +252,12 @@ export type KernelGatewayAppSettings = {
    * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
    */
   DefaultResourceSpec?: ResourceSpec;
+  /**
+   * A list of LifecycleConfigArns available for use with KernelGateway apps.
+   * @minLength `0`
+   * @maxLength `30`
+   */
+  LifecycleConfigArns?: string[];
 };
 /**
  * Type definition for `AWS::SageMaker::UserProfile.MlTools`.
@@ -337,6 +349,12 @@ export type ResourceSpec = {
     | "ml.trn1.2xlarge"
     | "ml.trn1.32xlarge"
     | "ml.trn1n.32xlarge";
+  /**
+   * The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
+   * @maxLength `256`
+   * @pattern `arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:studio-lifecycle-config/.*`
+   */
+  LifecycleConfigArn?: string;
   /**
    * The ARN of the SageMaker image that the image version belongs to.
    * @maxLength `256`

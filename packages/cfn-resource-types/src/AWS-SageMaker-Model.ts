@@ -38,6 +38,13 @@ export type ContainerDefinition = {
   MultiModelConfig?: MultiModelConfig;
 };
 /**
+ * Type definition for `AWS::SageMaker::Model.HubAccessConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-hubaccessconfig.html}
+ */
+export type HubAccessConfig = {
+  HubContentArn: string;
+};
+/**
  * Type definition for `AWS::SageMaker::Model.ImageConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-imageconfig.html}
  */
@@ -86,6 +93,7 @@ export type RepositoryAuthConfig = {
  */
 export type S3DataSource = {
   CompressionType: string;
+  HubAccessConfig?: HubAccessConfig;
   ModelAccessConfig?: ModelAccessConfig;
   S3DataType: string;
   S3Uri: string;

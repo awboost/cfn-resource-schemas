@@ -1,5 +1,5 @@
 {
-  "$hash": "ae779e4839f91022065f2f1ff62f63595ff911fb",
+  "$hash": "5facd8707e2cd42ebbe0f172dcbe4a46ea36c255",
   "$id": "aws-sagemaker-app.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -81,6 +81,12 @@
             "ml.trn1.32xlarge",
             "ml.trn1n.32xlarge"
           ],
+          "type": "string"
+        },
+        "LifecycleConfigArn": {
+          "description": "The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.",
+          "maxLength": 256,
+          "pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:studio-lifecycle-config/.*",
           "type": "string"
         },
         "SageMakerImageArn": {
