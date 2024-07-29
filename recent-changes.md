@@ -1,23 +1,28 @@
-- updated `AWS::Glue::Trigger`
-  - added `readOnlyProperties`
-  - added property `Id`
-  - removed `sourceUrl`
-  - removed `tagging`
-  - removed `writeOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated definition `Action`
-  - updated definition `Condition`
-  - updated definition `EventBatchingCondition`
-  - updated definition `NotificationProperty`
-  - updated definition `Predicate`
+- updated `AWS::CleanRooms::AnalysisTemplate`
+  - updated `tagging`
+- updated `AWS::CleanRooms::ConfiguredTable`
+  - added definition `AdditionalAnalyses`
+  - added definition `DisallowedOutputColumns`
+  - updated `tagging`
+  - updated definition `AnalysisRuleAggregation`
+  - updated definition `AnalysisRuleCustom`
+  - updated definition `AnalysisRuleList`
+- updated `AWS::CleanRooms::ConfiguredTableAssociation`
+  - added definition `AllowedAdditionalAnalyses`
+  - added definition `AllowedAdditionalAnalysis`
+  - added definition `AllowedResultReceiver`
+  - added definition `AllowedResultReceivers`
+  - added definition `ConfiguredTableAssociationAnalysisRuleAggregation`
+  - added definition `ConfiguredTableAssociationAnalysisRuleCustom`
+  - added definition `ConfiguredTableAssociationAnalysisRuleList`
+  - added definition `ConfiguredTableAssociationAnalysisRulePolicyV1`
+  - added definition `ConfiguredTableAssociationAnalysisRulePolicy`
+  - added definition `ConfiguredTableAssociationAnalysisRuleType`
+  - added definition `ConfiguredTableAssociationAnalysisRule`
+  - added property `ConfiguredTableAssociationAnalysisRules`
+  - updated `tagging`
   - updated handler permissions
-  - updated property `Actions`
-  - updated property `Description`
-  - updated property `EventBatchingCondition`
-  - updated property `Name`
-  - updated property `Predicate`
-  - updated property `Schedule`
-  - updated property `StartOnCreation`
-  - updated property `Tags`
-  - updated property `Type`
-  - updated property `WorkflowName`
+- updated `AWS::CleanRooms::Membership`
+  - updated `tagging`
+- updated `AWS::CleanRooms::PrivacyBudgetTemplate`
+  - updated `tagging`

@@ -1,5 +1,5 @@
 {
-  "$hash": "0e168717b97f2517172b1ad177584c1bb54c09de",
+  "$hash": "afdf83e69d3cfe831e4d537d9cbba88762093ec1",
   "$id": "aws-cleanrooms-membership.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CollaborationIdentifier"],
@@ -178,6 +178,11 @@
   "required": ["CollaborationIdentifier", "QueryLogStatus"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "cleanrooms:ListTagsForResource",
+      "cleanrooms:UntagResource",
+      "cleanrooms:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

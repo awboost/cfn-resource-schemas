@@ -1,5 +1,5 @@
 {
-  "$hash": "8a9a8f8fa8013b96fdb8c74c3a90d150a3e3d032",
+  "$hash": "39c56dd837c20d33c1db5e6b6416b770e0010273",
   "$id": "aws-cleanrooms-configuredtable.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8,6 +8,10 @@
     "/properties/TableReference"
   ],
   "definitions": {
+    "AdditionalAnalyses": {
+      "enum": ["ALLOWED", "REQUIRED", "NOT_ALLOWED"],
+      "type": "string"
+    },
     "AggregateColumn": {
       "additionalProperties": false,
       "properties": {
@@ -74,6 +78,7 @@
     "AnalysisRuleAggregation": {
       "additionalProperties": false,
       "properties": {
+        "AdditionalAnalyses": { "$ref": "#/definitions/AdditionalAnalyses" },
         "AggregateColumns": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/AggregateColumn" },
@@ -127,11 +132,15 @@
     "AnalysisRuleCustom": {
       "additionalProperties": false,
       "properties": {
+        "AdditionalAnalyses": { "$ref": "#/definitions/AdditionalAnalyses" },
         "AllowedAnalyses": { "$ref": "#/definitions/AllowedAnalyses" },
         "AllowedAnalysisProviders": {
           "$ref": "#/definitions/AllowedAnalysisProviders"
         },
-        "DifferentialPrivacy": { "$ref": "#/definitions/DifferentialPrivacy" }
+        "DifferentialPrivacy": { "$ref": "#/definitions/DifferentialPrivacy" },
+        "DisallowedOutputColumns": {
+          "$ref": "#/definitions/DisallowedOutputColumns"
+        }
       },
       "required": ["AllowedAnalyses"],
       "type": "object"
@@ -139,6 +148,7 @@
     "AnalysisRuleList": {
       "additionalProperties": false,
       "properties": {
+        "AdditionalAnalyses": { "$ref": "#/definitions/AdditionalAnalyses" },
         "AllowedJoinOperators": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/JoinOperator" },
@@ -222,6 +232,12 @@
       "properties": { "Name": { "type": "string" } },
       "required": ["Name"],
       "type": "object"
+    },
+    "DisallowedOutputColumns": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AnalysisRuleColumnName" },
+      "minItems": 0,
+      "type": "array"
     },
     "GlueTableReference": {
       "additionalProperties": false,
@@ -415,6 +431,11 @@
   "required": ["AllowedColumns", "AnalysisMethod", "Name", "TableReference"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "cleanrooms:ListTagsForResource",
+      "cleanrooms:UntagResource",
+      "cleanrooms:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

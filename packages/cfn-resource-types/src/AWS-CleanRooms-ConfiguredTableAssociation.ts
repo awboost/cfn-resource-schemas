@@ -7,6 +7,11 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CleanRoomsConfiguredTableAssociationProperties = {
   /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  ConfiguredTableAssociationAnalysisRules?: ConfiguredTableAssociationAnalysisRule[];
+  /**
    * @minLength `36`
    * @maxLength `36`
    * @pattern `[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`
@@ -54,6 +59,88 @@ export type CleanRoomsConfiguredTableAssociationAttributes = {
    */
   ConfiguredTableAssociationIdentifier: string;
 };
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrule.html}
+ */
+export type ConfiguredTableAssociationAnalysisRule = {
+  Policy: ConfiguredTableAssociationAnalysisRulePolicy;
+  Type: ConfiguredTableAssociationAnalysisRuleType;
+};
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRuleAggregation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisruleaggregation.html}
+ */
+export type ConfiguredTableAssociationAnalysisRuleAggregation = {
+  /**
+   * @minLength `0`
+   * @maxLength `25`
+   */
+  AllowedAdditionalAnalyses?: string[];
+  /**
+   * @minLength `0`
+   */
+  AllowedResultReceivers?: string[];
+};
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRuleCustom`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulecustom.html}
+ */
+export type ConfiguredTableAssociationAnalysisRuleCustom = {
+  /**
+   * @minLength `0`
+   * @maxLength `25`
+   */
+  AllowedAdditionalAnalyses?: string[];
+  /**
+   * @minLength `0`
+   */
+  AllowedResultReceivers?: string[];
+};
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRuleList`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulelist.html}
+ */
+export type ConfiguredTableAssociationAnalysisRuleList = {
+  /**
+   * @minLength `0`
+   * @maxLength `25`
+   */
+  AllowedAdditionalAnalyses?: string[];
+  /**
+   * @minLength `0`
+   */
+  AllowedResultReceivers?: string[];
+};
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRulePolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicy.html}
+ */
+export type ConfiguredTableAssociationAnalysisRulePolicy = {
+  V1: ConfiguredTableAssociationAnalysisRulePolicyV1;
+};
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRulePolicyV1`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisrulepolicyv1.html}
+ */
+export type ConfiguredTableAssociationAnalysisRulePolicyV1 =
+  | {
+      List: ConfiguredTableAssociationAnalysisRuleList;
+    }
+  | {
+      Aggregation: ConfiguredTableAssociationAnalysisRuleAggregation;
+    }
+  | {
+      Custom: ConfiguredTableAssociationAnalysisRuleCustom;
+    };
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRuleType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-configuredtableassociationanalysisruletype.html}
+ */
+export type ConfiguredTableAssociationAnalysisRuleType =
+  | "AGGREGATION"
+  | "LIST"
+  | "CUSTOM";
 /**
  * Type definition for `AWS::CleanRooms::ConfiguredTableAssociation.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtableassociation-tag.html}

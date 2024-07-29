@@ -51,6 +51,11 @@ export type CleanRoomsConfiguredTableAttributes = {
   ConfiguredTableIdentifier: string;
 };
 /**
+ * Type definition for `AWS::CleanRooms::ConfiguredTable.AdditionalAnalyses`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-additionalanalyses.html}
+ */
+export type AdditionalAnalyses = "ALLOWED" | "REQUIRED" | "NOT_ALLOWED";
+/**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.AggregateColumn`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-aggregatecolumn.html}
  */
@@ -112,6 +117,7 @@ export type AnalysisRule = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisruleaggregation.html}
  */
 export type AnalysisRuleAggregation = {
+  AdditionalAnalyses?: AdditionalAnalyses;
   /**
    * @minLength `1`
    */
@@ -134,6 +140,7 @@ export type AnalysisRuleAggregation = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html}
  */
 export type AnalysisRuleCustom = {
+  AdditionalAnalyses?: AdditionalAnalyses;
   /**
    * @minLength `0`
    */
@@ -143,12 +150,17 @@ export type AnalysisRuleCustom = {
    */
   AllowedAnalysisProviders?: string[];
   DifferentialPrivacy?: DifferentialPrivacy;
+  /**
+   * @minLength `0`
+   */
+  DisallowedOutputColumns?: string[];
 };
 /**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.AnalysisRuleList`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html}
  */
 export type AnalysisRuleList = {
+  AdditionalAnalyses?: AdditionalAnalyses;
   /**
    * @maxLength `2`
    */
