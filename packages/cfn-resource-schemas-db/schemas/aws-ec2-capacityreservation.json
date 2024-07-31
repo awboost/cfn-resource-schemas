@@ -1,10 +1,9 @@
 {
-  "$hash": "7541306eb66da2fa5c5ca93099487a0de4642ae8",
+  "$hash": "a127e9e6b2941a422b92351bd2dc8a9fe99202d3",
   "$id": "aws-ec2-capacityreservation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Tenancy",
-    "/properties/InstanceMatchCriteria",
     "/properties/InstancePlatform",
     "/properties/InstanceType",
     "/properties/AvailabilityZone",

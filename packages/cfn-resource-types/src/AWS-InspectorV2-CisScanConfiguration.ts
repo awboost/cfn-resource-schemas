@@ -10,14 +10,14 @@ export type InspectorV2CisScanConfigurationProperties = {
    * Name of the scan
    * @minLength `1`
    */
-  ScanName?: string;
+  ScanName: string;
   /**
    * Choose a Schedule cadence
    */
-  Schedule?: Schedule;
-  SecurityLevel?: CisSecurityLevel;
+  Schedule: Schedule;
+  SecurityLevel: CisSecurityLevel;
   Tags?: CisTagMap;
-  Targets?: CisTargets;
+  Targets: CisTargets;
 };
 /**
  * Attribute type definition for `AWS::InspectorV2::CisScanConfiguration`.

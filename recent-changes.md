@@ -1,28 +1,41 @@
-- updated `AWS::CleanRooms::AnalysisTemplate`
-  - updated `tagging`
-- updated `AWS::CleanRooms::ConfiguredTable`
-  - added definition `AdditionalAnalyses`
-  - added definition `DisallowedOutputColumns`
-  - updated `tagging`
-  - updated definition `AnalysisRuleAggregation`
-  - updated definition `AnalysisRuleCustom`
-  - updated definition `AnalysisRuleList`
-- updated `AWS::CleanRooms::ConfiguredTableAssociation`
-  - added definition `AllowedAdditionalAnalyses`
-  - added definition `AllowedAdditionalAnalysis`
-  - added definition `AllowedResultReceiver`
-  - added definition `AllowedResultReceivers`
-  - added definition `ConfiguredTableAssociationAnalysisRuleAggregation`
-  - added definition `ConfiguredTableAssociationAnalysisRuleCustom`
-  - added definition `ConfiguredTableAssociationAnalysisRuleList`
-  - added definition `ConfiguredTableAssociationAnalysisRulePolicyV1`
-  - added definition `ConfiguredTableAssociationAnalysisRulePolicy`
-  - added definition `ConfiguredTableAssociationAnalysisRuleType`
-  - added definition `ConfiguredTableAssociationAnalysisRule`
-  - added property `ConfiguredTableAssociationAnalysisRules`
-  - updated `tagging`
+- added `AWS::CleanRooms::IdMappingTable`
+- added `AWS::CleanRooms::IdNamespaceAssociation`
+- updated `AWS::DynamoDB::Table`
+  - updated `propertyTransform`
+- updated `AWS::EC2::CapacityReservation`
+  - updated `createOnlyProperties`
+- updated `AWS::Glue::Trigger`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated definition `Action`
+  - updated definition `Condition`
+  - updated definition `EventBatchingCondition`
+  - updated definition `NotificationProperty`
+  - updated definition `Predicate`
   - updated handler permissions
-- updated `AWS::CleanRooms::Membership`
+  - updated property `Actions`
+  - updated property `Description`
+  - updated property `EventBatchingCondition`
+  - updated property `Name`
+  - updated property `Predicate`
+  - updated property `Schedule`
+  - updated property `StartOnCreation`
+  - updated property `Tags`
+  - updated property `Type`
+  - updated property `WorkflowName`
+- updated `AWS::IVSChat::Room`
   - updated `tagging`
-- updated `AWS::CleanRooms::PrivacyBudgetTemplate`
-  - updated `tagging`
+- updated `AWS::InspectorV2::CisScanConfiguration`
+  - added `required`
+- updated `AWS::Route53::CidrCollection`
+  - updated handler permissions
+- updated `AWS::SageMaker::Domain`
+  - updated definition `MlTools`
+- updated `AWS::SageMaker::UserProfile`
+  - updated definition `MlTools`
+- updated `AWS::SecurityHub::SecurityControl`
+  - added `createOnlyProperties`

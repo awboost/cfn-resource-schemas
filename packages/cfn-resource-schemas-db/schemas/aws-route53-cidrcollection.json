@@ -1,5 +1,5 @@
 {
-  "$hash": "406e779c696146a99010f503337d0e627f746bdc",
+  "$hash": "c81c016c5742bad13ddb8c99a6298cf295479949",
   "$id": "aws-route53-cidrcollection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -36,7 +36,8 @@
     "delete": {
       "permissions": [
         "route53:DeleteCidrCollection",
-        "route53:ChangeCidrCollection"
+        "route53:ChangeCidrCollection",
+        "route53:ListCidrBlocks"
       ]
     },
     "list": {

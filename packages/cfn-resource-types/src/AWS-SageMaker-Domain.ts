@@ -403,7 +403,7 @@ export type MlTools =
   | "DataWrangler"
   | "FeatureStore"
   | "EmrClusters"
-  | "AutoML"
+  | "AutoMl"
   | "Experiments"
   | "Training"
   | "ModelEvaluation"

@@ -1,5 +1,5 @@
 {
-  "$hash": "80b8188ceb8093bbab324e67e12ae9ff4b85ea09",
+  "$hash": "60365632b032c2a51abe04c2fc281a1c432a6cf4",
   "$id": "aws-sagemaker-userprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -233,7 +233,7 @@
         "DataWrangler",
         "FeatureStore",
         "EmrClusters",
-        "AutoML",
+        "AutoMl",
         "Experiments",
         "Training",
         "ModelEvaluation",

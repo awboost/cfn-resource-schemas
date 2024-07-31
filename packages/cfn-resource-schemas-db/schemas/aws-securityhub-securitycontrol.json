@@ -1,5 +1,5 @@
 {
-  "$hash": "bae06faa104b1fc0f0e49c502c3eeba630d3a615",
+  "$hash": "2dda2564e5f8f2cd8bee00e89f3c155dedc78bb5",
   "$id": "aws-securityhub-securitycontrol.json",
   "additionalIdentifiers": [["/properties/SecurityControlArn"]],
   "additionalProperties": false,
@@ -7,6 +7,7 @@
     { "required": ["SecurityControlId"] },
     { "required": ["SecurityControlArn"] }
   ],
+  "createOnlyProperties": ["/properties/SecurityControlId"],
   "definitions": {
     "IntegerList": { "items": { "type": "integer" }, "type": "array" },
     "NonEmptyString": { "pattern": ".*\\S.*", "type": "string" },

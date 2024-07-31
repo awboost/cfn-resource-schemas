@@ -1,5 +1,5 @@
 {
-  "$hash": "e7a1779c1e4249572cec0e517eb6e6dc39a08ceb",
+  "$hash": "7324cbe50ea16c4fb6e4159f07079deee705a8ae",
   "$id": "aws-inspectorv2-cisscanconfiguration.json",
   "additionalProperties": false,
   "definitions": {
@@ -153,6 +153,7 @@
     "Targets": { "$ref": "#/definitions/CisTargets" }
   },
   "readOnlyProperties": ["/properties/Arn"],
+  "required": ["ScanName", "SecurityLevel", "Schedule", "Targets"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-inspector.git",
   "tagging": {
     "cloudFormationSystemTags": true,
