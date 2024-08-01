@@ -2,16 +2,20 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Panorama::Package`.
- * Schema for Package CloudFormation Resource
+ * Creates a package and storage location in an Amazon S3 access point.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html}
  */
 export type PanoramaPackageProperties = {
   /**
+   * A name for the package.
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^[a-zA-Z0-9\-\_]+$`
    */
   PackageName: string;
+  /**
+   * Tags for the package.
+   */
   Tags?: Tag[];
 };
 /**
@@ -31,11 +35,29 @@ export type PanoramaPackageAttributes = {
    * @pattern `^[a-zA-Z0-9\-\_\/]+$`
    */
   PackageId: string;
+  /**
+   * A storage location.
+   */
   StorageLocation: {
+    /**
+     * The location's binary prefix.
+     */
     BinaryPrefixLocation: string;
+    /**
+     * The location's bucket.
+     */
     Bucket: string;
+    /**
+     * The location's generated prefix.
+     */
     GeneratedPrefixLocation: string;
+    /**
+     * The location's manifest prefix.
+     */
     ManifestPrefixLocation: string;
+    /**
+     * The location's repo prefix.
+     */
     RepoPrefixLocation: string;
   };
 };
@@ -59,7 +81,7 @@ export type Tag = {
 };
 /**
  * Resource type definition for `AWS::Panorama::Package`.
- * Schema for Package CloudFormation Resource
+ * Creates a package and storage location in an Amazon S3 access point.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html}
  */
 export class PanoramaPackage extends $Resource<

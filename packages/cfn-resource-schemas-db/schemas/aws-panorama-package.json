@@ -1,5 +1,5 @@
 {
-  "$hash": "63fd8c8e42842d4d91db6a47a78945ba7ae3651f",
+  "$hash": "4ebd738b8940e11840d7629bb0b81347451d2b66",
   "$id": "aws-panorama-package.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PackageName"],
@@ -19,25 +19,41 @@
     },
     "StorageLocation": {
       "additionalProperties": false,
+      "description": "A storage location.",
       "properties": {
-        "BinaryPrefixLocation": { "type": "string" },
-        "Bucket": { "type": "string" },
-        "GeneratedPrefixLocation": { "type": "string" },
-        "ManifestPrefixLocation": { "type": "string" },
-        "RepoPrefixLocation": { "type": "string" }
+        "BinaryPrefixLocation": {
+          "description": "The location's binary prefix.",
+          "type": "string"
+        },
+        "Bucket": { "description": "The location's bucket.", "type": "string" },
+        "GeneratedPrefixLocation": {
+          "description": "The location's generated prefix.",
+          "type": "string"
+        },
+        "ManifestPrefixLocation": {
+          "description": "The location's manifest prefix.",
+          "type": "string"
+        },
+        "RepoPrefixLocation": {
+          "description": "The location's repo prefix.",
+          "type": "string"
+        }
       },
       "type": "object"
     },
     "Tag": {
       "additionalProperties": false,
+      "description": "",
       "properties": {
         "Key": {
+          "description": "",
           "maxLength": 128,
           "minLength": 1,
           "pattern": "^.+$",
           "type": "string"
         },
         "Value": {
+          "description": "",
           "maxLength": 256,
           "minLength": 0,
           "pattern": "^.+$",
@@ -55,7 +71,7 @@
     },
     "Timestamp": { "type": "integer" }
   },
-  "description": "Schema for Package CloudFormation Resource",
+  "description": "Creates a package and storage location in an Amazon S3 access point.",
   "handlers": {
     "create": {
       "permissions": [
@@ -115,12 +131,21 @@
   },
   "primaryIdentifier": ["/properties/PackageId"],
   "properties": {
-    "Arn": { "$ref": "#/definitions/NodePackageArn" },
-    "CreatedTime": { "$ref": "#/definitions/Timestamp" },
-    "PackageId": { "$ref": "#/definitions/NodePackageId" },
-    "PackageName": { "$ref": "#/definitions/NodePackageName" },
-    "StorageLocation": { "$ref": "#/definitions/StorageLocation" },
-    "Tags": { "$ref": "#/definitions/TagList" }
+    "Arn": { "$ref": "#/definitions/NodePackageArn", "description": "" },
+    "CreatedTime": { "$ref": "#/definitions/Timestamp", "description": "" },
+    "PackageId": { "$ref": "#/definitions/NodePackageId", "description": "" },
+    "PackageName": {
+      "$ref": "#/definitions/NodePackageName",
+      "description": "A name for the package."
+    },
+    "StorageLocation": {
+      "$ref": "#/definitions/StorageLocation",
+      "description": "A storage location."
+    },
+    "Tags": {
+      "$ref": "#/definitions/TagList",
+      "description": "Tags for the package."
+    }
   },
   "readOnlyProperties": [
     "/properties/PackageId",

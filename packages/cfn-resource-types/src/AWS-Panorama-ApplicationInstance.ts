@@ -2,44 +2,55 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Panorama::ApplicationInstance`.
- * Schema for ApplicationInstance CloudFormation Resource
+ * Creates an application instance and deploys it to a device.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html}
  */
 export type PanoramaApplicationInstanceProperties = {
   /**
+   * The ID of an application instance to replace with the new instance.
    * @minLength `1`
    * @maxLength `255`
    * @pattern `^[a-zA-Z0-9\-\_]+$`
    */
   ApplicationInstanceIdToReplace?: string;
   /**
+   * The device's ID.
    * @minLength `1`
    * @maxLength `255`
    * @pattern `^[a-zA-Z0-9\-\_]+$`
    */
   DefaultRuntimeContextDevice: string;
   /**
+   * A description for the application instance.
    * @minLength `0`
    * @maxLength `255`
    * @pattern `^.*$`
    */
   Description?: string;
+  /**
+   * Setting overrides for the application manifest.
+   */
   ManifestOverridesPayload?: ManifestOverridesPayload;
+  /**
+   * The application's manifest document.
+   */
   ManifestPayload: ManifestPayload;
   /**
+   * A name for the application instance.
    * @minLength `1`
    * @maxLength `255`
    * @pattern `^[a-zA-Z0-9\-\_]+$`
    */
   Name?: string;
   /**
+   * The ARN of a runtime role for the application instance.
    * @minLength `1`
    * @maxLength `255`
    * @pattern `^arn:[a-z0-9][-.a-z0-9]{0,62}:iam::[0-9]{12}:role/.+$`
    */
   RuntimeRoleArn?: string;
   /**
-   * List of tags
+   * Tags for the application instance.
    */
   Tags?: Tag[];
 };
@@ -100,10 +111,12 @@ export type ApplicationInstanceStatus =
   | "REMOVAL_SUCCEEDED";
 /**
  * Type definition for `AWS::Panorama::ApplicationInstance.ManifestOverridesPayload`.
+ * Parameter overrides for an application instance. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the overrides document.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestoverridespayload.html}
  */
 export type ManifestOverridesPayload = {
   /**
+   * The overrides document.
    * @minLength `0`
    * @maxLength `51200`
    * @pattern `^.+$`
@@ -112,10 +125,12 @@ export type ManifestOverridesPayload = {
 };
 /**
  * Type definition for `AWS::Panorama::ApplicationInstance.ManifestPayload`.
+ * A application verion's manifest file. This is a JSON document that has a single key (``PayloadData``) where the value is an escaped string representation of the application manifest (``graph.json``). This file is located in the ``graphs`` folder in your application source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-applicationinstance-manifestpayload.html}
  */
 export type ManifestPayload = {
   /**
+   * The application manifest.
    * @minLength `1`
    * @maxLength `51200`
    * @pattern `^.+$`
@@ -128,14 +143,12 @@ export type ManifestPayload = {
  */
 export type Tag = {
   /**
-   * A string used to identify this tag
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^.+$`
    */
   Key: string;
   /**
-   * A string containing the value for the tag
    * @minLength `0`
    * @maxLength `256`
    * @pattern `^.+$`
@@ -144,7 +157,7 @@ export type Tag = {
 };
 /**
  * Resource type definition for `AWS::Panorama::ApplicationInstance`.
- * Schema for ApplicationInstance CloudFormation Resource
+ * Creates an application instance and deploys it to a device.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-applicationinstance.html}
  */
 export class PanoramaApplicationInstance extends $Resource<

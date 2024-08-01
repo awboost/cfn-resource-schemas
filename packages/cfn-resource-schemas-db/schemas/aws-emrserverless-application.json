@@ -1,5 +1,5 @@
 {
-  "$hash": "fab112088f86dae429af55384786aa3daaffc622",
+  "$hash": "7f797ba8f193480fe7b14dc523eff0033706b884",
   "$id": "aws-emrserverless-application.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -13,7 +13,8 @@
     "/properties/NetworkConfiguration",
     "/properties/ImageConfiguration",
     "/properties/MonitoringConfiguration",
-    "/properties/RuntimeConfiguration"
+    "/properties/RuntimeConfiguration",
+    "/properties/InteractiveConfiguration"
   ],
   "createOnlyProperties": ["/properties/Name", "/properties/Type"],
   "definitions": {
@@ -195,6 +196,22 @@
       "items": { "$ref": "#/definitions/InitialCapacityConfigKeyValuePair" },
       "type": "array",
       "uniqueItems": true
+    },
+    "InteractiveConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "LivyEndpointEnabled": {
+          "default": false,
+          "description": "Enables an Apache Livy endpoint that you can connect to and run interactive jobs",
+          "type": "boolean"
+        },
+        "StudioEnabled": {
+          "default": false,
+          "description": "Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
     },
     "LogGroupName": {
       "maxLength": 512,
@@ -538,6 +555,9 @@
     "InitialCapacity": {
       "$ref": "#/definitions/InitialCapacityConfigMap",
       "description": "Initial capacity initialized when an Application is started."
+    },
+    "InteractiveConfiguration": {
+      "$ref": "#/definitions/InteractiveConfiguration"
     },
     "MaximumCapacity": {
       "$ref": "#/definitions/MaximumAllowedResources",

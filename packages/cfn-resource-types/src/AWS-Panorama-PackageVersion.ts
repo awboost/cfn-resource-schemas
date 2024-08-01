@@ -2,36 +2,44 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Panorama::PackageVersion`.
- * Schema for PackageVersion Resource Type
+ * Registers a package version.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html}
  */
 export type PanoramaPackageVersionProperties = {
+  /**
+   * Whether to mark the new version as the latest version.
+   */
   MarkLatest?: boolean;
   /**
+   * An owner account.
    * @minLength `1`
    * @maxLength `12`
    * @pattern `^[0-9a-z\_]+$`
    */
   OwnerAccount?: string;
   /**
+   * A package ID.
    * @minLength `1`
    * @maxLength `255`
    * @pattern `^[a-zA-Z0-9\-\_\/]+$`
    */
   PackageId: string;
   /**
+   * A package version.
    * @minLength `1`
    * @maxLength `255`
    * @pattern `^([0-9]+)\.([0-9]+)$`
    */
   PackageVersion: string;
   /**
+   * A patch version.
    * @minLength `1`
    * @maxLength `255`
    * @pattern `^[a-z0-9]+$`
    */
   PatchVersion: string;
   /**
+   * If the version was marked latest, the new version to maker as latest.
    * @minLength `1`
    * @maxLength `255`
    * @pattern `^[a-z0-9]+$`
@@ -74,7 +82,7 @@ export type PackageVersionStatus =
   | "DELETING";
 /**
  * Resource type definition for `AWS::Panorama::PackageVersion`.
- * Schema for PackageVersion Resource Type
+ * Registers a package version.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-packageversion.html}
  */
 export class PanoramaPackageVersion extends $Resource<

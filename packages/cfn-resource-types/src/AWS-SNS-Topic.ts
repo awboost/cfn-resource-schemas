@@ -25,6 +25,16 @@ export type SNSTopicProperties = {
      Length Constraints: Maximum length of 30,720.
      */
   DataProtectionPolicy?: Record<string, any>;
+  /**
+     * The ``DeliveryStatusLogging`` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+      +  HTTP
+      +  Amazon Kinesis Data Firehose
+      +   AWS Lambda
+      +  Platform application endpoint
+      +  Amazon Simple Queue Service
+      
+     Once configured, log entries are sent to Amazon CloudWatch Logs.
+     */
   DeliveryStatusLogging?: LoggingConfig[];
   /**
    * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
@@ -73,12 +83,26 @@ export type SNSTopicAttributes = {
 };
 /**
  * Type definition for `AWS::SNS::Topic.LoggingConfig`.
+ * The ``LoggingConfig`` property type specifies the ``Delivery`` status logging configuration for an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-loggingconfig.html}
  */
 export type LoggingConfig = {
+  /**
+   * The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch.
+   */
   FailureFeedbackRoleArn?: string;
+  /**
+     * Indicates one of the supported protocols for the Amazon SNS topic.
+      At least one of the other three ``LoggingConfig`` properties is recommend along with ``Protocol``.
+     */
   Protocol: "http/s" | "sqs" | "lambda" | "firehose" | "application";
+  /**
+   * The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch.
+   */
   SuccessFeedbackRoleArn?: string;
+  /**
+   * The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100.
+   */
   SuccessFeedbackSampleRate?: string;
 };
 /**

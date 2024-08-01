@@ -25,6 +25,7 @@ export type EMRServerlessApplicationProperties = {
    * Initial capacity initialized when an Application is started.
    */
   InitialCapacity?: InitialCapacityConfigKeyValuePair[];
+  InteractiveConfiguration?: InteractiveConfiguration;
   /**
    * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
    */
@@ -208,6 +209,20 @@ export type InitialCapacityConfigKeyValuePair = {
    */
   Key: string;
   Value: InitialCapacityConfig;
+};
+/**
+ * Type definition for `AWS::EMRServerless::Application.InteractiveConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-interactiveconfiguration.html}
+ */
+export type InteractiveConfiguration = {
+  /**
+   * Enables an Apache Livy endpoint that you can connect to and run interactive jobs
+   */
+  LivyEndpointEnabled?: boolean;
+  /**
+   * Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
+   */
+  StudioEnabled?: boolean;
 };
 /**
  * Type definition for `AWS::EMRServerless::Application.LogTypeMapKeyValuePair`.

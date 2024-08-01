@@ -1,5 +1,5 @@
 {
-  "$hash": "80d0605915b8bcf7ca4eec55064937a32a15578c",
+  "$hash": "9ed0c54d07a99423c586f0d20d6982f111a635b1",
   "$id": "aws-panorama-packageversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -51,7 +51,7 @@
     },
     "TimeStamp": { "type": "integer" }
   },
-  "description": "Schema for PackageVersion Resource Type",
+  "description": "Registers a package version.",
   "handlers": {
     "create": {
       "permissions": [
@@ -100,21 +100,44 @@
     "/properties/PatchVersion"
   ],
   "properties": {
-    "IsLatestPatch": { "type": "boolean" },
-    "MarkLatest": { "type": "boolean" },
-    "OwnerAccount": { "$ref": "#/definitions/PackageOwnerAccount" },
-    "PackageArn": { "$ref": "#/definitions/NodePackageArn" },
-    "PackageId": { "$ref": "#/definitions/NodePackageId" },
-    "PackageName": { "$ref": "#/definitions/NodePackageName" },
-    "PackageVersion": { "$ref": "#/definitions/NodePackageVersion" },
-    "PatchVersion": { "$ref": "#/definitions/NodePackagePatchVersion" },
-    "RegisteredTime": { "$ref": "#/definitions/TimeStamp" },
-    "Status": { "$ref": "#/definitions/PackageVersionStatus" },
+    "IsLatestPatch": { "description": "", "type": "boolean" },
+    "MarkLatest": {
+      "description": "Whether to mark the new version as the latest version.",
+      "type": "boolean"
+    },
+    "OwnerAccount": {
+      "$ref": "#/definitions/PackageOwnerAccount",
+      "description": "An owner account."
+    },
+    "PackageArn": { "$ref": "#/definitions/NodePackageArn", "description": "" },
+    "PackageId": {
+      "$ref": "#/definitions/NodePackageId",
+      "description": "A package ID."
+    },
+    "PackageName": {
+      "$ref": "#/definitions/NodePackageName",
+      "description": ""
+    },
+    "PackageVersion": {
+      "$ref": "#/definitions/NodePackageVersion",
+      "description": "A package version."
+    },
+    "PatchVersion": {
+      "$ref": "#/definitions/NodePackagePatchVersion",
+      "description": "A patch version."
+    },
+    "RegisteredTime": { "$ref": "#/definitions/TimeStamp", "description": "" },
+    "Status": {
+      "$ref": "#/definitions/PackageVersionStatus",
+      "description": ""
+    },
     "StatusDescription": {
-      "$ref": "#/definitions/PackageVersionStatusDescription"
+      "$ref": "#/definitions/PackageVersionStatusDescription",
+      "description": ""
     },
     "UpdatedLatestPatchVersion": {
-      "$ref": "#/definitions/NodePackagePatchVersion"
+      "$ref": "#/definitions/NodePackagePatchVersion",
+      "description": "If the version was marked latest, the new version to maker as latest."
     }
   },
   "readOnlyProperties": [

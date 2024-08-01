@@ -1,41 +1,69 @@
-- added `AWS::CleanRooms::IdMappingTable`
-- added `AWS::CleanRooms::IdNamespaceAssociation`
-- updated `AWS::DynamoDB::Table`
-  - updated `propertyTransform`
-- updated `AWS::EC2::CapacityReservation`
+- added `AWS::SageMaker::StudioLifecycleConfig`
+- updated `AWS::Bedrock::Guardrail`
+  - added definition `ContextualGroundingFilterConfig`
+  - added definition `ContextualGroundingFilterType`
+  - added definition `ContextualGroundingPolicyConfig`
+  - added property `ContextualGroundingPolicyConfig`
+- updated `AWS::EC2::VPNConnection`
+  - added property `EnableAcceleration`
   - updated `createOnlyProperties`
-- updated `AWS::Glue::Trigger`
-  - added `sourceUrl`
+  - updated definition `Tag`
+  - updated definition `VpnTunnelOptionsSpecification`
+  - updated handler permissions
+  - updated property `StaticRoutesOnly`
+  - updated property `TransitGatewayId`
+  - updated property `VpnConnectionId`
+  - updated property `VpnGatewayId`
+- updated `AWS::EC2::VPNConnectionRoute`
+- updated `AWS::EMRServerless::Application`
+  - added definition `InteractiveConfiguration`
+  - added property `InteractiveConfiguration`
+  - updated `conditionalCreateOnlyProperties`
+- updated `AWS::MWAA::Environment`
   - added `tagging`
-  - added `writeOnlyProperties`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated definition `Action`
-  - updated definition `Condition`
-  - updated definition `EventBatchingCondition`
-  - updated definition `NotificationProperty`
-  - updated definition `Predicate`
-  - updated handler permissions
-  - updated property `Actions`
+  - removed `taggable`
+- updated `AWS::Panorama::ApplicationInstance`
+  - updated definition `ManifestOverridesPayload`
+  - updated definition `ManifestPayload`
+  - updated definition `Tag`
+  - updated property `ApplicationInstanceIdToReplace`
+  - updated property `ApplicationInstanceId`
+  - updated property `Arn`
+  - updated property `CreatedTime`
+  - updated property `DefaultRuntimeContextDeviceName`
+  - updated property `DefaultRuntimeContextDevice`
   - updated property `Description`
-  - updated property `EventBatchingCondition`
+  - updated property `HealthStatus`
+  - updated property `LastUpdatedTime`
+  - updated property `ManifestOverridesPayload`
+  - updated property `ManifestPayload`
   - updated property `Name`
-  - updated property `Predicate`
-  - updated property `Schedule`
-  - updated property `StartOnCreation`
+  - updated property `RuntimeRoleArn`
+  - updated property `StatusDescription`
+  - updated property `Status`
   - updated property `Tags`
-  - updated property `Type`
-  - updated property `WorkflowName`
-- updated `AWS::IVSChat::Room`
-  - updated `tagging`
-- updated `AWS::InspectorV2::CisScanConfiguration`
-  - added `required`
-- updated `AWS::Route53::CidrCollection`
-  - updated handler permissions
-- updated `AWS::SageMaker::Domain`
-  - updated definition `MlTools`
-- updated `AWS::SageMaker::UserProfile`
-  - updated definition `MlTools`
-- updated `AWS::SecurityHub::SecurityControl`
-  - added `createOnlyProperties`
+- updated `AWS::Panorama::Package`
+  - updated definition `StorageLocation`
+  - updated definition `Tag`
+  - updated property `Arn`
+  - updated property `CreatedTime`
+  - updated property `PackageId`
+  - updated property `PackageName`
+  - updated property `StorageLocation`
+  - updated property `Tags`
+- updated `AWS::Panorama::PackageVersion`
+  - updated property `IsLatestPatch`
+  - updated property `MarkLatest`
+  - updated property `OwnerAccount`
+  - updated property `PackageArn`
+  - updated property `PackageId`
+  - updated property `PackageName`
+  - updated property `PackageVersion`
+  - updated property `PatchVersion`
+  - updated property `RegisteredTime`
+  - updated property `StatusDescription`
+  - updated property `Status`
+  - updated property `UpdatedLatestPatchVersion`
+- updated `AWS::SNS::Topic`
+  - updated definition `LoggingConfig`
+  - updated property `DeliveryStatusLogging`

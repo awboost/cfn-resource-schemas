@@ -22,6 +22,10 @@ export type BedrockGuardrailProperties = {
    */
   ContentPolicyConfig?: ContentPolicyConfig;
   /**
+   * Contextual grounding policy config for a guardrail.
+   */
+  ContextualGroundingPolicyConfig?: ContextualGroundingPolicyConfig;
+  /**
    * Description of the guardrail or its version
    * @minLength `1`
    * @maxLength `200`
@@ -148,6 +152,40 @@ export type ContentPolicyConfig = {
    * @maxLength `6`
    */
   FiltersConfig: ContentFilterConfig[];
+};
+/**
+ * Type definition for `AWS::Bedrock::Guardrail.ContextualGroundingFilterConfig`.
+ * A config for grounding filter.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html}
+ */
+export type ContextualGroundingFilterConfig = {
+  /**
+   * The threshold for this filter.
+   * @min `0`
+   */
+  Threshold: number;
+  /**
+   * Type of contextual grounding filter
+   */
+  Type: ContextualGroundingFilterType;
+};
+/**
+ * Type definition for `AWS::Bedrock::Guardrail.ContextualGroundingFilterType`.
+ * Type of contextual grounding filter
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfiltertype.html}
+ */
+export type ContextualGroundingFilterType = "GROUNDING" | "RELEVANCE";
+/**
+ * Type definition for `AWS::Bedrock::Guardrail.ContextualGroundingPolicyConfig`.
+ * Contextual grounding policy config for a guardrail.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingpolicyconfig.html}
+ */
+export type ContextualGroundingPolicyConfig = {
+  /**
+   * List of contextual grounding filter configs.
+   * @minLength `1`
+   */
+  FiltersConfig: ContextualGroundingFilterConfig[];
 };
 /**
  * Type definition for `AWS::Bedrock::Guardrail.FilterStrength`.
