@@ -26,7 +26,7 @@ export type RDSOptionGroupProperties = {
    */
   MajorEngineVersion: string;
   /**
-   * A list of options and the settings for each option.
+   * A list of all available options
    */
   OptionConfigurations?: OptionConfiguration[];
   /**
@@ -46,7 +46,7 @@ export type RDSOptionGroupProperties = {
      */
   OptionGroupName?: string;
   /**
-   * An optional array of key-value pairs to apply to this option group.
+   * Tags to assign to the option group.
    */
   Tags?: Tag[];
 };

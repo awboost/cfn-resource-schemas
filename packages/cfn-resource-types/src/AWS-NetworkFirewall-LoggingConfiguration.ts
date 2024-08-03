@@ -30,7 +30,7 @@ export type LogDestinationConfig = {
    */
   LogDestination: Record<string, string>;
   LogDestinationType: "S3" | "CloudWatchLogs" | "KinesisDataFirehose";
-  LogType: "ALERT" | "FLOW";
+  LogType: "ALERT" | "FLOW" | "TLS";
 };
 /**
  * Type definition for `AWS::NetworkFirewall::LoggingConfiguration.LoggingConfiguration`.

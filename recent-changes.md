@@ -1,69 +1,41 @@
-- added `AWS::SageMaker::StudioLifecycleConfig`
-- updated `AWS::Bedrock::Guardrail`
-  - added definition `ContextualGroundingFilterConfig`
-  - added definition `ContextualGroundingFilterType`
-  - added definition `ContextualGroundingPolicyConfig`
-  - added property `ContextualGroundingPolicyConfig`
-- updated `AWS::EC2::VPNConnection`
-  - added property `EnableAcceleration`
-  - updated `createOnlyProperties`
-  - updated definition `Tag`
-  - updated definition `VpnTunnelOptionsSpecification`
+- updated `AWS::CleanRooms::ConfiguredTableAssociation`
   - updated handler permissions
-  - updated property `StaticRoutesOnly`
-  - updated property `TransitGatewayId`
-  - updated property `VpnConnectionId`
-  - updated property `VpnGatewayId`
-- updated `AWS::EC2::VPNConnectionRoute`
-- updated `AWS::EMRServerless::Application`
-  - added definition `InteractiveConfiguration`
-  - added property `InteractiveConfiguration`
-  - updated `conditionalCreateOnlyProperties`
-- updated `AWS::MWAA::Environment`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Panorama::ApplicationInstance`
-  - updated definition `ManifestOverridesPayload`
-  - updated definition `ManifestPayload`
-  - updated definition `Tag`
-  - updated property `ApplicationInstanceIdToReplace`
-  - updated property `ApplicationInstanceId`
-  - updated property `Arn`
-  - updated property `CreatedTime`
-  - updated property `DefaultRuntimeContextDeviceName`
-  - updated property `DefaultRuntimeContextDevice`
+- updated `AWS::CodePipeline::Pipeline`
+  - updated `tagging`
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - updated definition `MSKSourceConfiguration`
+- updated `AWS::NetworkFirewall::LoggingConfiguration`
+  - updated definition `LogDestinationConfig`
+- updated `AWS::OSIS::Pipeline`
+  - updated definition `VpcOptions`
+- updated `AWS::RDS::DBCluster`
+  - updated property `BacktrackWindow`
+  - updated property `RestoreType`
+  - updated property `Tags`
+- updated `AWS::RDS::DBClusterParameterGroup`
+  - updated property `DBClusterParameterGroupName`
   - updated property `Description`
-  - updated property `HealthStatus`
-  - updated property `LastUpdatedTime`
-  - updated property `ManifestOverridesPayload`
-  - updated property `ManifestPayload`
-  - updated property `Name`
-  - updated property `RuntimeRoleArn`
-  - updated property `StatusDescription`
-  - updated property `Status`
+  - updated property `Family`
   - updated property `Tags`
-- updated `AWS::Panorama::Package`
-  - updated definition `StorageLocation`
-  - updated definition `Tag`
-  - updated property `Arn`
-  - updated property `CreatedTime`
-  - updated property `PackageId`
-  - updated property `PackageName`
-  - updated property `StorageLocation`
+- updated `AWS::RDS::DBInstance`
+  - updated property `DBClusterIdentifier`
+  - updated property `DBSubnetGroupName`
+  - updated property `DeletionProtection`
+  - updated property `MasterUsername`
+  - updated property `MonitoringInterval`
+  - updated property `MultiAZ`
+  - updated property `Port`
   - updated property `Tags`
-- updated `AWS::Panorama::PackageVersion`
-  - updated property `IsLatestPatch`
-  - updated property `MarkLatest`
-  - updated property `OwnerAccount`
-  - updated property `PackageArn`
-  - updated property `PackageId`
-  - updated property `PackageName`
-  - updated property `PackageVersion`
-  - updated property `PatchVersion`
-  - updated property `RegisteredTime`
-  - updated property `StatusDescription`
-  - updated property `Status`
-  - updated property `UpdatedLatestPatchVersion`
-- updated `AWS::SNS::Topic`
-  - updated definition `LoggingConfig`
-  - updated property `DeliveryStatusLogging`
+- updated `AWS::RDS::DBParameterGroup`
+  - updated property `Family`
+  - updated property `Parameters`
+  - updated property `Tags`
+- updated `AWS::RDS::DBSubnetGroup`
+  - updated property `DBSubnetGroupName`
+  - updated property `Tags`
+- updated `AWS::RDS::EventSubscription`
+  - updated property `SourceIds`
+  - updated property `SourceType`
+- updated `AWS::RDS::OptionGroup`
+  - updated property `OptionConfigurations`
+  - updated property `Tags`

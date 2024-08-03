@@ -12,8 +12,12 @@ export type RDSDBSubnetGroupProperties = {
   DBSubnetGroupDescription: string;
   /**
      * The name for the DB subnet group. This value is stored as a lowercase string.
-     Constraints: Must contain no more than 255 lowercase alphanumeric characters or hyphens. Must not be "Default".
-     Example: ``mysubnetgroup``
+     Constraints:
+      +  Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.
+      +  Must not be default.
+      +  First character must be a letter.
+      
+     Example: ``mydbsubnetgroup``
      */
   DBSubnetGroupName?: string;
   /**
@@ -21,7 +25,7 @@ export type RDSDBSubnetGroupProperties = {
    */
   SubnetIds: string[];
   /**
-   * An optional array of key-value pairs to apply to this DB subnet group.
+   * Tags to assign to the DB subnet group.
    * @maxLength `50`
    */
   Tags?: Tag[];

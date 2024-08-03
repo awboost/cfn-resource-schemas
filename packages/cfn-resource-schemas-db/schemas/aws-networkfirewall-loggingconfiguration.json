@@ -1,5 +1,5 @@
 {
-  "$hash": "150be3de0439a0ff542cbfd40dda0e31f30e061c",
+  "$hash": "8c8aad86cf011cb824ae85fbdfcf5b8fa03d51e7",
   "$id": "aws-networkfirewall-loggingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -27,7 +27,7 @@
           "enum": ["S3", "CloudWatchLogs", "KinesisDataFirehose"],
           "type": "string"
         },
-        "LogType": { "enum": ["ALERT", "FLOW"], "type": "string" }
+        "LogType": { "enum": ["ALERT", "FLOW", "TLS"], "type": "string" }
       },
       "required": ["LogType", "LogDestinationType", "LogDestination"],
       "type": "object"

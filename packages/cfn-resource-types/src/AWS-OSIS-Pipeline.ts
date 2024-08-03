@@ -99,6 +99,20 @@ export type OSISPipelineAttributes = {
        */
       SubnetIds: string[];
       /**
+       * Options for attaching a VPC to the pipeline.
+       */
+      VpcAttachmentOptions: {
+        /**
+         * Whether the pipeline should be attached to the provided VPC
+         */
+        AttachToVpc: boolean;
+        /**
+         * The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+         * @pattern `^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/(3[0-2]|[12]?[0-9])$`
+         */
+        CidrBlock: string;
+      };
+      /**
        * Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
        */
       VpcEndpointManagement: "CUSTOMER" | "SERVICE";
@@ -201,6 +215,20 @@ export type VpcOptions = {
    * A list of subnet IDs associated with the VPC endpoint.
    */
   SubnetIds: string[];
+  /**
+   * Options for attaching a VPC to the pipeline.
+   */
+  VpcAttachmentOptions?: {
+    /**
+     * Whether the pipeline should be attached to the provided VPC
+     */
+    AttachToVpc: boolean;
+    /**
+     * The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces (ENIs).
+     * @pattern `^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/(3[0-2]|[12]?[0-9])$`
+     */
+    CidrBlock: string;
+  };
   /**
    * Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC endpoint configured for the pipeline.
    */

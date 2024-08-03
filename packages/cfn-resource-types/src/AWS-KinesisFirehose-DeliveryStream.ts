@@ -542,7 +542,6 @@ export type MSKSourceConfiguration = {
    * @pattern `arn:.*`
    */
   MSKClusterARN: string;
-  ReadFromTimestamp?: string;
   /**
    * @minLength `1`
    * @maxLength `255`

@@ -5,11 +5,11 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  For more information about creating an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
  For more information about creating a Multi-AZ DB cluster, see [Creating a Multi-AZ DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html) in the *Amazon RDS User Guide*.
   You can only create this resource in AWS Regions where Amazon Aurora or Multi-AZ DB clusters are supported.
-    *Updating DB clusters*
+   *Updating DB clusters*
  When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster.
   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB cluster. To preserve your data, perform the following procedure:
   1.  Deactivate any applications that are using the DB cluster so that there's no activity on the DB instance.
-  1.  Create a snapshot of the DB cluster. For more information, see [Creating a DB Cluster Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
+  1.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
   1.  If you want to restore your DB cluster using a DB cluster snapshot, modify the updated template with your DB cluster changes and add the ``SnapshotIdentifier`` property with the ID of the DB cluster snapshot that you want to use.
  After you restore a DB cluster with a ``SnapshotIdentifier`` property, you must specify the same ``SnapshotIdentifier`` property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the DB cluster snapshot again, and the data in the database is not changed. However, if you don't specify the ``SnapshotIdentifier`` property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified ``SnapshotIdentifier`` property, and the original DB cluster is deleted.
   1.  Update the stack.
@@ -43,13 +43,11 @@ export type RDSDBClusterProperties = {
      */
   AvailabilityZones?: string[];
   /**
-     * The target backtrack window, in seconds. To disable backtracking, set this value to 0.
-      Currently, Backtrack is only supported for Aurora MySQL DB clusters.
-      Default: 0
+     * The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
+     Valid for Cluster Type: Aurora MySQL DB clusters only
+     Default: ``0``
      Constraints:
       +  If specified, this value must be set to a number from 0 to 259,200 (72 hours).
-      
-     Valid for: Aurora MySQL DB clusters only
      * @min `0`
      */
   BacktrackWindow?: number;
@@ -408,7 +406,7 @@ export type RDSDBClusterProperties = {
       +   ``full-copy`` - The new DB cluster is restored as a full copy of the source DB cluster.
       +   ``copy-on-write`` - The new DB cluster is restored as a clone of the source DB cluster.
       
-      If you don't specify a ``RestoreType`` value, then the new DB cluster is restored as a full copy of the source DB cluster.
+     If you don't specify a ``RestoreType`` value, then the new DB cluster is restored as a full copy of the source DB cluster.
      Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
   RestoreType?: string;
@@ -486,8 +484,8 @@ export type RDSDBClusterProperties = {
      */
   StorageType?: string;
   /**
-     * An optional array of key-value pairs to apply to this DB cluster.
-     Valid for: Aurora DB clusters and Multi-AZ DB clusters
+     * Tags to assign to the DB cluster.
+     Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      * @maxLength `50`
      */
   Tags?: Tag[];
@@ -668,11 +666,11 @@ export type Tag = {
  For more information about creating an Aurora DB cluster, see [Creating an Amazon Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.CreateInstance.html) in the *Amazon Aurora User Guide*.
  For more information about creating a Multi-AZ DB cluster, see [Creating a Multi-AZ DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html) in the *Amazon RDS User Guide*.
   You can only create this resource in AWS Regions where Amazon Aurora or Multi-AZ DB clusters are supported.
-    *Updating DB clusters*
+   *Updating DB clusters*
  When properties labeled "*Update requires:* [Replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement)" are updated, AWS CloudFormation first creates a replacement DB cluster, then changes references from other dependent resources to point to the replacement DB cluster, and finally deletes the old DB cluster.
   We highly recommend that you take a snapshot of the database before updating the stack. If you don't, you lose the data when AWS CloudFormation replaces your DB cluster. To preserve your data, perform the following procedure:
   1.  Deactivate any applications that are using the DB cluster so that there's no activity on the DB instance.
-  1.  Create a snapshot of the DB cluster. For more information, see [Creating a DB Cluster Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
+  1.  Create a snapshot of the DB cluster. For more information, see [Creating a DB cluster snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_CreateSnapshotCluster.html).
   1.  If you want to restore your DB cluster using a DB cluster snapshot, modify the updated template with your DB cluster changes and add the ``SnapshotIdentifier`` property with the ID of the DB cluster snapshot that you want to use.
  After you restore a DB cluster with a ``SnapshotIdentifier`` property, you must specify the same ``SnapshotIdentifier`` property for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the DB cluster snapshot again, and the data in the database is not changed. However, if you don't specify the ``SnapshotIdentifier`` property, an empty DB cluster is created, and the original DB cluster is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB cluster is restored from the specified ``SnapshotIdentifier`` property, and the original DB cluster is deleted.
   1.  Update the stack.

@@ -1,5 +1,5 @@
 {
-  "$hash": "b90a4487392dc7864899ace9157b923915b88fe9",
+  "$hash": "e2037c07422f0ed12a1f541c887c18bf969722b5",
   "$id": "aws-cleanrooms-configuredtableassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -153,6 +153,7 @@
         "cleanrooms:TagResource",
         "cleanrooms:GetConfiguredTableAssociation",
         "cleanrooms:ListConfiguredTableAssociations",
+        "cleanrooms:DeleteConfiguredTableAssociation",
         "cleanrooms:DeleteConfiguredTableAssociationAnalysisRule",
         "cleanrooms:CreateConfiguredTableAssociationAnalysisRule",
         "cleanrooms:GetConfiguredTableAssociationAnalysisRule"
