@@ -1,41 +1,12 @@
-- updated `AWS::CleanRooms::ConfiguredTableAssociation`
-  - updated handler permissions
 - updated `AWS::CodePipeline::Pipeline`
+  - added definition `BeforeEntryConditions`
+  - added definition `Condition`
+  - added definition `RuleDeclaration`
+  - added definition `RuleTypeId`
+  - added definition `SuccessConditions`
+  - updated definition `FailureConditions`
+  - updated definition `StageDeclaration`
+- updated `AWS::SES::ConfigurationSet`
+  - updated definition `TrackingOptions`
+- updated `AWS::StepFunctions::StateMachine`
   - updated `tagging`
-- updated `AWS::KinesisFirehose::DeliveryStream`
-  - updated definition `MSKSourceConfiguration`
-- updated `AWS::NetworkFirewall::LoggingConfiguration`
-  - updated definition `LogDestinationConfig`
-- updated `AWS::OSIS::Pipeline`
-  - updated definition `VpcOptions`
-- updated `AWS::RDS::DBCluster`
-  - updated property `BacktrackWindow`
-  - updated property `RestoreType`
-  - updated property `Tags`
-- updated `AWS::RDS::DBClusterParameterGroup`
-  - updated property `DBClusterParameterGroupName`
-  - updated property `Description`
-  - updated property `Family`
-  - updated property `Tags`
-- updated `AWS::RDS::DBInstance`
-  - updated property `DBClusterIdentifier`
-  - updated property `DBSubnetGroupName`
-  - updated property `DeletionProtection`
-  - updated property `MasterUsername`
-  - updated property `MonitoringInterval`
-  - updated property `MultiAZ`
-  - updated property `Port`
-  - updated property `Tags`
-- updated `AWS::RDS::DBParameterGroup`
-  - updated property `Family`
-  - updated property `Parameters`
-  - updated property `Tags`
-- updated `AWS::RDS::DBSubnetGroup`
-  - updated property `DBSubnetGroupName`
-  - updated property `Tags`
-- updated `AWS::RDS::EventSubscription`
-  - updated property `SourceIds`
-  - updated property `SourceType`
-- updated `AWS::RDS::OptionGroup`
-  - updated property `OptionConfigurations`
-  - updated property `Tags`

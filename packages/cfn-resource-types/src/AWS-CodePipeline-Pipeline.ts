@@ -165,6 +165,14 @@ export type ArtifactStoreMap = {
   Region: string;
 };
 /**
+ * Type definition for `AWS::CodePipeline::Pipeline.BeforeEntryConditions`.
+ * The configuration that specifies the rules to run before stage starts.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-beforeentryconditions.html}
+ */
+export type BeforeEntryConditions = {
+  Conditions?: Condition[];
+};
+/**
  * Type definition for `AWS::CodePipeline::Pipeline.BlockerDeclaration`.
  * Reserved for future use.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html}
@@ -178,6 +186,18 @@ export type BlockerDeclaration = {
    * Reserved for future use.
    */
   Type: "Schedule";
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.Condition`.
+ * Represents information about condition.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-condition.html}
+ */
+export type Condition = {
+  /**
+   * The specified result for when the failure conditions are met, such as rolling back the stage
+   */
+  Result?: string;
+  Rules?: RuleDeclaration[];
 };
 /**
  * Type definition for `AWS::CodePipeline::Pipeline.EncryptionKey`.
@@ -200,6 +220,7 @@ export type EncryptionKey = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html}
  */
 export type FailureConditions = {
+  Conditions?: Condition[];
   /**
    * The specified result for when the failure conditions are met, such as rolling back the stage
    */
@@ -345,12 +366,68 @@ export type PipelineTriggerDeclaration = {
   ProviderType: "CodeStarSourceConnection";
 };
 /**
+ * Type definition for `AWS::CodePipeline::Pipeline.RuleDeclaration`.
+ * Represents information about condition.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html}
+ */
+export type RuleDeclaration = {
+  /**
+   * The rule's configuration. These are key-value pairs that specify input values for a rule.
+   */
+  Configuration?: Record<string, any>;
+  InputArtifacts?: InputArtifact[];
+  /**
+   * The rule declaration's name.
+   */
+  Name?: string;
+  /**
+   * The rule declaration's AWS Region, such as us-east-1.
+   */
+  Region?: string;
+  /**
+   * The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
+   * @pattern `arn:aws(-[\w]+)*:iam::[0-9]{12}:role/.*`
+   */
+  RoleArn?: string;
+  /**
+   * Represents information about a rule type.
+   */
+  RuleTypeId?: RuleTypeId;
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.RuleTypeId`.
+ * Represents information about a rule type.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruletypeid.html}
+ */
+export type RuleTypeId = {
+  /**
+   * A category for the provider type for the rule.
+   */
+  Category?: string;
+  /**
+   * The creator of the rule being called. Only AWS is supported.
+   */
+  Owner?: string;
+  /**
+   * The provider of the service being called by the rule.
+   */
+  Provider?: string;
+  /**
+   * A string that describes the rule version.
+   */
+  Version?: string;
+};
+/**
  * Type definition for `AWS::CodePipeline::Pipeline.StageDeclaration`.
  * Represents information about a stage and its definition.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html}
  */
 export type StageDeclaration = {
   Actions: ActionDeclaration[];
+  /**
+   * The method to use before stage runs.
+   */
+  BeforeEntry?: BeforeEntryConditions;
   Blockers?: BlockerDeclaration[];
   /**
    * The name of the stage.
@@ -360,6 +437,10 @@ export type StageDeclaration = {
    * The method to use when a stage has not completed successfully
    */
   OnFailure?: FailureConditions;
+  /**
+   * The method to use when a stage has completed successfully
+   */
+  OnSuccess?: SuccessConditions;
 };
 /**
  * Type definition for `AWS::CodePipeline::Pipeline.StageTransition`.
@@ -375,6 +456,14 @@ export type StageTransition = {
    * The name of the stage where you want to disable the inbound or outbound transition of artifacts.
    */
   StageName: string;
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.SuccessConditions`.
+ * The configuration that specifies the result, such as rollback, to occur upon stage failure
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-successconditions.html}
+ */
+export type SuccessConditions = {
+  Conditions?: Condition[];
 };
 /**
  * Type definition for `AWS::CodePipeline::Pipeline.Tag`.
