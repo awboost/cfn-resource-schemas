@@ -1,12 +1,2 @@
-- updated `AWS::CodePipeline::Pipeline`
-  - added definition `BeforeEntryConditions`
-  - added definition `Condition`
-  - added definition `RuleDeclaration`
-  - added definition `RuleTypeId`
-  - added definition `SuccessConditions`
-  - updated definition `FailureConditions`
-  - updated definition `StageDeclaration`
-- updated `AWS::SES::ConfigurationSet`
-  - updated definition `TrackingOptions`
-- updated `AWS::StepFunctions::StateMachine`
+- updated `AWS::StepFunctions::Activity`
   - updated `tagging`
