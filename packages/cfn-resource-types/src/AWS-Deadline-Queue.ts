@@ -24,7 +24,7 @@ export type DeadlineQueueProperties = {
   /**
    * @pattern `^farm-[0-9a-f]{32}$`
    */
-  FarmId?: string;
+  FarmId: string;
   JobAttachmentSettings?: JobAttachmentSettings;
   JobRunAsUser?: JobRunAsUser;
   /**

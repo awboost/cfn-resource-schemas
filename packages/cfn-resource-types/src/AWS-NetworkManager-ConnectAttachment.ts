@@ -14,9 +14,17 @@ export type NetworkManagerConnectAttachmentProperties = {
    */
   EdgeLocation: string;
   /**
+   * The name of the network function group attachment.
+   */
+  NetworkFunctionGroupName?: string;
+  /**
    * Protocol options for connect attachment
    */
   Options: ConnectAttachmentOptions;
+  /**
+   * The attachment to move from one network function group to another.
+   */
+  ProposedNetworkFunctionGroupChange?: ProposedNetworkFunctionGroupChange;
   /**
    * The attachment to move from one segment to another.
    */
@@ -86,6 +94,25 @@ export type ConnectAttachmentOptions = {
    * Tunnel protocol for connect attachment
    */
   Protocol?: string;
+};
+/**
+ * Type definition for `AWS::NetworkManager::ConnectAttachment.ProposedNetworkFunctionGroupChange`.
+ * The attachment to move from one network function group to another.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectattachment-proposednetworkfunctiongroupchange.html}
+ */
+export type ProposedNetworkFunctionGroupChange = {
+  /**
+   * The rule number in the policy document that applies to this change.
+   */
+  AttachmentPolicyRuleNumber?: number;
+  /**
+   * The name of the network function group to change.
+   */
+  NetworkFunctionGroupName?: string;
+  /**
+   * The key-value tags that changed for the network function group.
+   */
+  Tags?: Tag[];
 };
 /**
  * Type definition for `AWS::NetworkManager::ConnectAttachment.ProposedSegmentChange`.

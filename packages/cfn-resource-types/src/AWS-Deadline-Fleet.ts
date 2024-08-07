@@ -19,7 +19,7 @@ export type DeadlineFleetProperties = {
   /**
    * @pattern `^farm-[0-9a-f]{32}$`
    */
-  FarmId?: string;
+  FarmId: string;
   /**
    * @min `0`
    * @max `2147483647`

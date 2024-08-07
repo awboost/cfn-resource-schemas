@@ -254,6 +254,11 @@ export type RedshiftClusterAttributes = {
  */
 export type LoggingProperties = {
   BucketName?: string;
+  LogDestinationType?: string;
+  /**
+   * @maxLength `3`
+   */
+  LogExports?: string[];
   S3KeyPrefix?: string;
 };
 /**

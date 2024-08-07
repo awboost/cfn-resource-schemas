@@ -1,5 +1,5 @@
 {
-  "$hash": "d8b7a8758d0577314c9b2b2c9d1d46ef5d83d686",
+  "$hash": "7b9a52e062b3e9cbe5b218a273b473b099d40d87",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FunctionName"],
@@ -29,6 +29,11 @@
           "description": "For versioned objects, the version of the deployment package object to use.",
           "maxLength": 1024,
           "minLength": 1,
+          "type": "string"
+        },
+        "SourceKMSKeyArn": {
+          "description": "",
+          "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
           "type": "string"
         },
         "ZipFile": {

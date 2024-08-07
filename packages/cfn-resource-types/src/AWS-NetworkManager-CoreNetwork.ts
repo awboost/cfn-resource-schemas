@@ -54,6 +54,20 @@ export type NetworkManagerCoreNetworkAttributes = {
     InsideCidrBlocks: string[];
   }[];
   /**
+   * The network function groups within a core network.
+   */
+  NetworkFunctionGroups: {
+    EdgeLocations: string[];
+    /**
+     * Name of network function group
+     */
+    Name: string;
+    Segments: {
+      SendTo: string[];
+      SendVia: string[];
+    };
+  }[];
+  /**
    * Owner of the core network
    */
   OwnerAccount: string;
@@ -87,6 +101,21 @@ export type CoreNetworkEdge = {
    */
   EdgeLocation?: string;
   InsideCidrBlocks?: string[];
+};
+/**
+ * Type definition for `AWS::NetworkManager::CoreNetwork.CoreNetworkNetworkFunctionGroup`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworknetworkfunctiongroup.html}
+ */
+export type CoreNetworkNetworkFunctionGroup = {
+  EdgeLocations?: string[];
+  /**
+   * Name of network function group
+   */
+  Name?: string;
+  Segments?: {
+    SendTo?: string[];
+    SendVia?: string[];
+  };
 };
 /**
  * Type definition for `AWS::NetworkManager::CoreNetwork.CoreNetworkSegment`.

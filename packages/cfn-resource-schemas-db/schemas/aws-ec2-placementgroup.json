@@ -1,5 +1,5 @@
 {
-  "$hash": "c4919ed4f6b825131a2601ea15dbe2d0ada55b48",
+  "$hash": "d92f05991aa65057bf6ae06f6fd31cc26e1a76f3",
   "$id": "aws-ec2-placementgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -72,6 +72,8 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["ec2:CreateTags"],
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": false,
     "taggable": true
   },

@@ -26,7 +26,7 @@ export type RDSOptionGroupProperties = {
    */
   MajorEngineVersion: string;
   /**
-   * A list of all available options
+   * A list of all available options for an option group.
    */
   OptionConfigurations?: OptionConfiguration[];
   /**
@@ -57,7 +57,7 @@ export type RDSOptionGroupProperties = {
  */
 export type OptionConfiguration = {
   /**
-   * A list of DBSecurityGroupMembership name strings used for this option.
+   * A list of DB security groups used for this option.
    */
   DBSecurityGroupMemberships?: string[];
   /**
@@ -77,7 +77,7 @@ export type OptionConfiguration = {
    */
   Port?: number;
   /**
-   * A list of VpcSecurityGroupMembership name strings used for this option.
+   * A list of VPC security group names used for this option.
    */
   VpcSecurityGroupMemberships?: string[];
 };
@@ -99,7 +99,7 @@ export type OptionSetting = {
 /**
  * Type definition for `AWS::RDS::OptionGroup.Tag`.
  * Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
- For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
+ For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-tag.html}
  */
 export type Tag = {

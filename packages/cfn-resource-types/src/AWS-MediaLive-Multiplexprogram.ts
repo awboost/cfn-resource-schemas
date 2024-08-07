@@ -6,10 +6,6 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type MediaLiveMultiplexprogramProperties = {
   /**
-   * The MediaLive channel associated with the program.
-   */
-  ChannelId?: string;
-  /**
    * The ID of the multiplex that the program belongs to.
    */
   MultiplexId?: string;
@@ -33,6 +29,16 @@ export type MediaLiveMultiplexprogramProperties = {
    * The name of the multiplex program.
    */
   ProgramName?: string;
+};
+/**
+ * Attribute type definition for `AWS::MediaLive::Multiplexprogram`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-multiplexprogram.html#aws-resource-medialive-multiplexprogram-return-values}
+ */
+export type MediaLiveMultiplexprogramAttributes = {
+  /**
+   * The MediaLive channel associated with the program.
+   */
+  ChannelId: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Multiplexprogram.MultiplexProgramPacketIdentifiersMap`.
@@ -186,7 +192,7 @@ export type PreferredChannelPipeline =
 export class MediaLiveMultiplexprogram extends $Resource<
   "AWS::MediaLive::Multiplexprogram",
   MediaLiveMultiplexprogramProperties,
-  Record<string, never>
+  MediaLiveMultiplexprogramAttributes
 > {
   public static readonly Type = "AWS::MediaLive::Multiplexprogram";
   constructor(

@@ -1,5 +1,5 @@
 {
-  "$hash": "e0ddcf87534674364820778748b9125b357a385f",
+  "$hash": "ba5e1969ee2b3c59a16fe01d7070ec61db6ce308",
   "$id": "aws-datazone-domain.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -71,7 +71,12 @@
       ]
     },
     "delete": {
-      "permissions": ["datazone:DeleteDomain", "datazone:GetDomain"]
+      "permissions": [
+        "datazone:DeleteDomain",
+        "datazone:GetDomain",
+        "sso:DeleteManagedApplicationInstance",
+        "sso:PutApplicationAssignmentConfiguration"
+      ]
     },
     "list": { "permissions": ["datazone:ListDomains"] },
     "read": { "permissions": ["datazone:GetDomain"] },
@@ -165,6 +170,7 @@
   "required": ["DomainExecutionRole", "Name"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["datazone:TagResource", "datazone:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

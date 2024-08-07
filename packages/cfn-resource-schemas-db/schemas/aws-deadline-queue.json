@@ -1,5 +1,5 @@
 {
-  "$hash": "47dd74d89961350228160851f7a61322fc2d0ff2",
+  "$hash": "7fc58b870d6e4da2bb758dee95f1cca7a91f646d",
   "$id": "aws-deadline-queue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -204,7 +204,7 @@
     }
   },
   "readOnlyProperties": ["/properties/QueueId", "/properties/Arn"],
-  "required": ["DisplayName"],
+  "required": ["DisplayName", "FarmId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-deadline",
   "tagging": {
     "cloudFormationSystemTags": true,

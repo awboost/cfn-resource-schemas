@@ -1,5 +1,5 @@
 {
-  "$hash": "912fa97fd4625ecb0fb8d2204adbd2f7033d8015",
+  "$hash": "45aafd275648c445ad3c793a55e41504ed1e43d0",
   "$id": "aws-route53resolver-resolverrule.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/DomainName"],
@@ -89,6 +89,12 @@
       "description": "The Amazon Resource Name (ARN) of the resolver rule.",
       "type": "string"
     },
+    "DelegationRecord": {
+      "description": "The name server domain for queries to be delegated to if a query matches the delegation record.",
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
     "DomainName": {
       "description": "DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps",
       "maxLength": 256,
@@ -113,7 +119,7 @@
     },
     "RuleType": {
       "description": "When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.",
-      "enum": ["FORWARD", "SYSTEM", "RECURSIVE"],
+      "enum": ["FORWARD", "SYSTEM", "RECURSIVE", "DELEGATE"],
       "type": "string"
     },
     "Tags": {
@@ -135,7 +141,7 @@
     "/properties/DomainName": "$join([DomainName, \".\"]) $OR DomainName"
   },
   "readOnlyProperties": ["/properties/Arn", "/properties/ResolverRuleId"],
-  "required": ["DomainName", "RuleType"],
+  "required": ["RuleType"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53resolver.git",
   "tagging": {
     "cloudFormationSystemTags": false,

@@ -6,11 +6,17 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type Route53ResolverResolverRuleProperties = {
   /**
+   * The name server domain for queries to be delegated to if a query matches the delegation record.
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  DelegationRecord?: string;
+  /**
    * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
    * @minLength `1`
    * @maxLength `256`
    */
-  DomainName: string;
+  DomainName?: string;
   /**
    * The name for the Resolver rule
    * @minLength `0`
@@ -26,7 +32,7 @@ export type Route53ResolverResolverRuleProperties = {
   /**
    * When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
    */
-  RuleType: "FORWARD" | "SYSTEM" | "RECURSIVE";
+  RuleType: "FORWARD" | "SYSTEM" | "RECURSIVE" | "DELEGATE";
   /**
    * An array of key-value pairs to apply to this resource.
    */

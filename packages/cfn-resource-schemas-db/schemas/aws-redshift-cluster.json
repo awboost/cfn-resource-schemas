@@ -1,5 +1,5 @@
 {
-  "$hash": "bb27f74fa5c8758842bb6a0d8dd8b3d28eb0ff20",
+  "$hash": "46441d18a2db0ec67ad4fa06e4bed5337d655b13",
   "$id": "aws-redshift-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -29,6 +29,13 @@
             "typeName": "AWS::S3::Bucket"
           },
           "type": "string"
+        },
+        "LogDestinationType": { "type": "string" },
+        "LogExports": {
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "maxItems": 3,
+          "type": "array"
         },
         "S3KeyPrefix": { "type": "string" }
       },

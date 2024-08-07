@@ -95,8 +95,11 @@ export type CrlConfiguration = {
    */
   CrlDistributionPointExtensionConfiguration?: CrlDistributionPointExtensionConfiguration;
   CustomCname?: string;
+  CustomPath?: string;
   Enabled: boolean;
   ExpirationInDays?: number;
+  PartitioningEnabled?: boolean;
+  RetainExpiredCertificates?: boolean;
   S3BucketName?: string;
   S3ObjectAcl?: string;
 };

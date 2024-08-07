@@ -1,5 +1,5 @@
 {
-  "$hash": "08414556d47ef1cd05e0297fc9f0c6304ec579d4",
+  "$hash": "a390ea53574b16512420a81b3da7da2913161345",
   "$id": "aws-medialive-multiplexprogram.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -229,6 +229,7 @@
       "type": "string"
     }
   },
+  "readOnlyProperties": ["/properties/ChannelId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-medialiveprogram.git",
   "tagging": { "taggable": false },
   "typeName": "AWS::MediaLive::Multiplexprogram",

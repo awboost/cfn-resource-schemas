@@ -1,5 +1,5 @@
 {
-  "$hash": "484218867bb20b34366f93320962bd1f63250ce2",
+  "$hash": "46e026d3d92ffa89d85060711db21fc9f4ea02b2",
   "$id": "aws-rds-optiongroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -14,7 +14,7 @@
       "description": "The ``OptionConfiguration`` property type specifies an individual option, and its settings, within an ``AWS::RDS::OptionGroup`` resource.",
       "properties": {
         "DBSecurityGroupMemberships": {
-          "description": "A list of DBSecurityGroupMembership name strings used for this option.",
+          "description": "A list of DB security groups used for this option.",
           "insertionOrder": false,
           "items": { "type": "string" },
           "type": "array",
@@ -39,7 +39,7 @@
           "type": "integer"
         },
         "VpcSecurityGroupMemberships": {
-          "description": "A list of VpcSecurityGroupMembership name strings used for this option.",
+          "description": "A list of VPC security group names used for this option.",
           "insertionOrder": false,
           "items": { "type": "string" },
           "type": "array",
@@ -66,7 +66,7 @@
     },
     "Tag": {
       "additionalProperties": false,
-      "description": "Metadata assigned to an Amazon RDS resource consisting of a key-value pair.\n For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.",
+      "description": "Metadata assigned to an Amazon RDS resource consisting of a key-value pair.\n For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.",
       "properties": {
         "Key": {
           "description": "A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:/=+\\\\-@]*)$\").",
@@ -132,7 +132,7 @@
     },
     "OptionConfigurations": {
       "arrayType": "AttributeList",
-      "description": "A list of all available options",
+      "description": "A list of all available options for an option group.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/OptionConfiguration" },
       "type": "array"

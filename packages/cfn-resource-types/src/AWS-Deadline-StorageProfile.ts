@@ -13,7 +13,7 @@ export type DeadlineStorageProfileProperties = {
   /**
    * @pattern `^farm-[0-9a-f]{32}$`
    */
-  FarmId?: string;
+  FarmId: string;
   /**
    * @minLength `0`
    * @maxLength `20`

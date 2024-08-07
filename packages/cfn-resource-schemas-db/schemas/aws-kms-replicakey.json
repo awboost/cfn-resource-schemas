@@ -1,5 +1,5 @@
 {
-  "$hash": "8881d00a1f7d63a583f33a37acc251b0679b11da",
+  "$hash": "6d1aa0941741cd8b93552c74d26356443600f3f5",
   "$id": "aws-kms-replicakey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PrimaryKeyArn"],
@@ -101,6 +101,7 @@
   "tagging": {
     "cloudFormationSystemTags": false,
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

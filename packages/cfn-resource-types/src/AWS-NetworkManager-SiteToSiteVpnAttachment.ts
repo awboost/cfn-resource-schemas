@@ -10,6 +10,14 @@ export type NetworkManagerSiteToSiteVpnAttachmentProperties = {
    */
   CoreNetworkId: string;
   /**
+   * The name of the network function group attachment.
+   */
+  NetworkFunctionGroupName?: string;
+  /**
+   * The attachment to move from one network function group to another.
+   */
+  ProposedNetworkFunctionGroupChange?: ProposedNetworkFunctionGroupChange;
+  /**
    * The attachment to move from one segment to another.
    */
   ProposedSegmentChange?: ProposedSegmentChange;
@@ -71,6 +79,25 @@ export type NetworkManagerSiteToSiteVpnAttachmentAttributes = {
    * Last update time of the attachment.
    */
   UpdatedAt: string;
+};
+/**
+ * Type definition for `AWS::NetworkManager::SiteToSiteVpnAttachment.ProposedNetworkFunctionGroupChange`.
+ * The attachment to move from one network function group to another.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-sitetositevpnattachment-proposednetworkfunctiongroupchange.html}
+ */
+export type ProposedNetworkFunctionGroupChange = {
+  /**
+   * The rule number in the policy document that applies to this change.
+   */
+  AttachmentPolicyRuleNumber?: number;
+  /**
+   * The name of the network function group to change.
+   */
+  NetworkFunctionGroupName?: string;
+  /**
+   * The key-value tags that changed for the network function group.
+   */
+  Tags?: Tag[];
 };
 /**
  * Type definition for `AWS::NetworkManager::SiteToSiteVpnAttachment.ProposedSegmentChange`.

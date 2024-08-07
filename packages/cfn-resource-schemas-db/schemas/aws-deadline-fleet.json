@@ -1,5 +1,5 @@
 {
-  "$hash": "d94a21a18203c5f4ffbfa4974b92271840f5c2b4",
+  "$hash": "5fbe445664e83c68902426401a0473792a7e493d",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -402,7 +402,13 @@
     "/properties/WorkerCount",
     "/properties/Arn"
   ],
-  "required": ["Configuration", "DisplayName", "MaxWorkerCount", "RoleArn"],
+  "required": [
+    "Configuration",
+    "DisplayName",
+    "FarmId",
+    "MaxWorkerCount",
+    "RoleArn"
+  ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-deadline",
   "tagging": {
     "cloudFormationSystemTags": true,

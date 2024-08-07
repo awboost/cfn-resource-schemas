@@ -63,6 +63,10 @@ export type SageMakerModelPackageProperties = {
    */
   ModelApprovalStatus?: ModelApprovalStatus;
   /**
+   * The model card associated with the model package.
+   */
+  ModelCard?: ModelCard;
+  /**
    * A structure that contains model metrics reports.
    */
   ModelMetrics?: ModelMetrics;
@@ -99,6 +103,10 @@ export type SageMakerModelPackageProperties = {
    */
   SamplePayloadUrl?: string;
   /**
+   * An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
+   */
+  SecurityConfig?: SecurityConfig;
+  /**
    * Indicates if you want to skip model validation.
    */
   SkipModelValidation?: SkipModelValidation;
@@ -106,6 +114,13 @@ export type SageMakerModelPackageProperties = {
    * Details about the algorithm that was used to create the model package.
    */
   SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
+  /**
+   * The URI of the source for the model package.
+   * @minLength `0`
+   * @maxLength `1024`
+   * @pattern `[\p{L}\p{M}\p{Z}\p{N}\p{P}]{0,1024}`
+   */
+  SourceUri?: string;
   /**
    * An array of key-value pairs to apply to this resource.
    * @maxLength `50`
@@ -436,6 +451,17 @@ export type MetricsSource = {
   S3Uri: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::ModelPackage.ModelAccessConfig`.
+ * Specifies the access configuration file for the ML model.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelaccessconfig.html}
+ */
+export type ModelAccessConfig = {
+  /**
+   * Specifies agreement to the model end-user license agreement (EULA).
+   */
+  AcceptEula: boolean;
+};
+/**
  * Type definition for `AWS::SageMaker::ModelPackage.ModelApprovalStatus`.
  * The approval status of the model package.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelapprovalstatus.html}
@@ -444,6 +470,24 @@ export type ModelApprovalStatus =
   | "Approved"
   | "Rejected"
   | "PendingManualApproval";
+/**
+ * Type definition for `AWS::SageMaker::ModelPackage.ModelCard`.
+ * The model card associated with the model package.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelcard.html}
+ */
+export type ModelCard = {
+  /**
+   * The content of the model card.
+   * @minLength `0`
+   * @maxLength `100000`
+   * @pattern `.*`
+   */
+  ModelCardContent: string;
+  /**
+   * The approval status of the model card within your organization.
+   */
+  ModelCardStatus: "Draft" | "PendingReview" | "Approved" | "Archived";
+};
 /**
  * Type definition for `AWS::SageMaker::ModelPackage.ModelDataQuality`.
  * Metrics that measure the quality of the input data for a model.
@@ -458,6 +502,17 @@ export type ModelDataQuality = {
    * Represents a Metric Source Object.
    */
   Statistics?: MetricsSource;
+};
+/**
+ * Type definition for `AWS::SageMaker::ModelPackage.ModelDataSource`.
+ * Specifies the location of ML model data to deploy during endpoint creation.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modeldatasource.html}
+ */
+export type ModelDataSource = {
+  /**
+   * Specifies the S3 location of ML model data to deploy.
+   */
+  S3DataSource?: S3ModelDataSource;
 };
 /**
  * Type definition for `AWS::SageMaker::ModelPackage.ModelMetrics`.
@@ -522,6 +577,10 @@ export type ModelPackageContainerDefinition = {
    * @pattern `^[Ss][Hh][Aa]256:[0-9a-fA-F]{64}$`
    */
   ImageDigest?: string;
+  /**
+   * Specifies the location of ML model data to deploy during endpoint creation.
+   */
+  ModelDataSource?: ModelDataSource;
   /**
    * A structure with Model Input details.
    * @maxLength `1024`
@@ -614,6 +673,44 @@ export type S3DataSource = {
    * @pattern `^(https|s3)://([^/]+)/?(.*)$`
    */
   S3Uri: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::ModelPackage.S3ModelDataSource`.
+ * Specifies the S3 location of ML model data to deploy.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html}
+ */
+export type S3ModelDataSource = {
+  /**
+   * Specifies how the ML model data is prepared.
+   */
+  CompressionType: "None" | "Gzip";
+  /**
+   * Specifies the access configuration file for the ML model.
+   */
+  ModelAccessConfig?: ModelAccessConfig;
+  /**
+   * Specifies the type of ML model data to deploy.
+   */
+  S3DataType: "S3Prefix" | "S3Object";
+  /**
+   * Specifies the S3 path of ML model data to deploy.
+   * @maxLength `1024`
+   * @pattern `^(https|s3)://([^/]+)/?(.*)$`
+   */
+  S3Uri: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::ModelPackage.SecurityConfig`.
+ * An optional AWS Key Management Service key to encrypt, decrypt, and re-encrypt model package information for regulated workloads with highly sensitive data.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-securityconfig.html}
+ */
+export type SecurityConfig = {
+  /**
+   * The AWS KMS Key ID (KMSKeyId) used for encryption of model package information.
+   * @maxLength `2048`
+   * @pattern `^[a-zA-Z0-9:/_-]*$`
+   */
+  KmsKeyId: string;
 };
 /**
  * Type definition for `AWS::SageMaker::ModelPackage.SkipModelValidation`.

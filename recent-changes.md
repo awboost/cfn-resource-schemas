@@ -1,2 +1,83 @@
-- updated `AWS::StepFunctions::Activity`
+- updated `AWS::ACMPCA::CertificateAuthority`
+  - updated definition `CrlConfiguration`
+- updated `AWS::CleanRooms::ConfiguredTableAssociation`
+  - updated definition `AllowedAdditionalAnalysis`
+- updated `AWS::DataZone::Domain`
   - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Deadline::Fleet`
+  - updated `required`
+- updated `AWS::Deadline::Queue`
+  - updated `required`
+- updated `AWS::Deadline::StorageProfile`
+  - updated `required`
+- updated `AWS::EC2::PlacementGroup`
+  - updated `tagging`
+- updated `AWS::EC2::Subnet`
+  - updated property `EnableDns64`
+- updated `AWS::KMS::Key`
+  - updated definition `Tag`
+  - updated property `KeySpec`
+  - updated property `KeyUsage`
+- updated `AWS::KMS::ReplicaKey`
+  - updated `tagging`
+- updated `AWS::Lambda::Function`
+  - updated definition `Code`
+- updated `AWS::MediaLive::Multiplex`
+  - updated `tagging`
+- updated `AWS::MediaLive::Multiplexprogram`
+  - added `readOnlyProperties`
+- updated `AWS::NetworkManager::ConnectAttachment`
+  - added definition `ProposedNetworkFunctionGroupChange`
+  - added property `NetworkFunctionGroupName`
+  - added property `ProposedNetworkFunctionGroupChange`
+- updated `AWS::NetworkManager::CoreNetwork`
+  - added definition `CoreNetworkNetworkFunctionGroup`
+  - added property `NetworkFunctionGroups`
+  - updated `readOnlyProperties`
+- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
+  - added definition `ProposedNetworkFunctionGroupChange`
+  - added property `NetworkFunctionGroupName`
+  - added property `ProposedNetworkFunctionGroupChange`
+- updated `AWS::NetworkManager::VpcAttachment`
+  - added definition `ProposedNetworkFunctionGroupChange`
+  - added property `NetworkFunctionGroupName`
+  - added property `ProposedNetworkFunctionGroupChange`
+  - updated `readOnlyProperties`
+- updated `AWS::RDS::DBCluster`
+  - updated definition `Tag`
+- updated `AWS::RDS::DBClusterParameterGroup`
+  - updated definition `Tag`
+- updated `AWS::RDS::DBInstance`
+  - updated definition `Tag`
+  - updated property `AutomaticBackupReplicationRegion`
+- updated `AWS::RDS::DBParameterGroup`
+  - updated definition `Tag`
+- updated `AWS::RDS::DBSubnetGroup`
+  - updated definition `Tag`
+- updated `AWS::RDS::EventSubscription`
+  - updated definition `Tag`
+- updated `AWS::RDS::OptionGroup`
+  - updated definition `OptionConfiguration`
+  - updated definition `Tag`
+  - updated property `OptionConfigurations`
+- updated `AWS::Redshift::Cluster`
+  - updated definition `LoggingProperties`
+- updated `AWS::Route53Resolver::ResolverRule`
+  - added property `DelegationRecord`
+  - updated `required`
+  - updated property `RuleType`
+- updated `AWS::SageMaker::ModelPackage`
+  - added `conditionalCreateOnlyProperties`
+  - added definition `ModelAccessConfig`
+  - added definition `ModelCard`
+  - added definition `ModelDataSource`
+  - added definition `S3ModelDataSource`
+  - added definition `SecurityConfig`
+  - added definition `SourceUri`
+  - added property `ModelCard`
+  - added property `SecurityConfig`
+  - added property `SourceUri`
+  - updated `createOnlyProperties`
+  - updated definition `ModelPackageContainerDefinition`
+  - updated handler permissions

@@ -1,5 +1,5 @@
 {
-  "$hash": "e981f5a9edf722f847c3ed44a253fd3b048773ee",
+  "$hash": "1c4c4123120edea29b7a7e7665d43be84235ed1d",
   "$id": "aws-deadline-storageprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -81,7 +81,7 @@
     "StorageProfileId": { "pattern": "^sp-[0-9a-f]{32}$", "type": "string" }
   },
   "readOnlyProperties": ["/properties/StorageProfileId"],
-  "required": ["DisplayName", "OsFamily"],
+  "required": ["DisplayName", "FarmId", "OsFamily"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-deadline",
   "tagging": {
     "cloudFormationSystemTags": false,
