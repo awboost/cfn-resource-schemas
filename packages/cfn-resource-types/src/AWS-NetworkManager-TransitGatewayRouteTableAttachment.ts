@@ -6,9 +6,17 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type NetworkManagerTransitGatewayRouteTableAttachmentProperties = {
   /**
+   * The name of the network function group attachment.
+   */
+  NetworkFunctionGroupName?: string;
+  /**
    * The Id of peering between transit gateway and core network.
    */
   PeeringId: string;
+  /**
+   * The attachment to move from one network function group to another.
+   */
+  ProposedNetworkFunctionGroupChange?: ProposedNetworkFunctionGroupChange;
   /**
    * The attachment to move from one segment to another.
    */
@@ -75,6 +83,25 @@ export type NetworkManagerTransitGatewayRouteTableAttachmentAttributes = {
    * Last update time of the attachment.
    */
   UpdatedAt: string;
+};
+/**
+ * Type definition for `AWS::NetworkManager::TransitGatewayRouteTableAttachment.ProposedNetworkFunctionGroupChange`.
+ * The attachment to move from one network function group to another.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-transitgatewayroutetableattachment-proposednetworkfunctiongroupchange.html}
+ */
+export type ProposedNetworkFunctionGroupChange = {
+  /**
+   * The rule number in the policy document that applies to this change.
+   */
+  AttachmentPolicyRuleNumber?: number;
+  /**
+   * The name of the network function group to change.
+   */
+  NetworkFunctionGroupName?: string;
+  /**
+   * The key-value tags that changed for the network function group.
+   */
+  Tags?: Tag[];
 };
 /**
  * Type definition for `AWS::NetworkManager::TransitGatewayRouteTableAttachment.ProposedSegmentChange`.
