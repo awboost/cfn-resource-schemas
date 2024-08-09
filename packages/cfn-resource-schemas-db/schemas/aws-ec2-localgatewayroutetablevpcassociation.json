@@ -1,5 +1,5 @@
 {
-  "$hash": "37a5db1b99ff92226446c78089351fa52b70dc3d",
+  "$hash": "85b625fa4f7c2a538e9853f161a2ecccbe2efc07",
   "$id": "aws-ec2-localgatewayroutetablevpcassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -95,7 +95,9 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-lgw.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["ec2:DeleteTags", "ec2:CreateTags"],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

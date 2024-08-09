@@ -1,5 +1,5 @@
 {
-  "$hash": "172c3107abb2713136020fb131c66c7cdf6b097e",
+  "$hash": "440afeed64be99d072ed0f439c9ea705f8c25a84",
   "$id": "aws-ec2-transitgatewayattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TransitGatewayId", "/properties/VpcId"],
@@ -98,17 +98,19 @@
         "Ipv6Support": {
           "description": "Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable",
           "type": "string"
-        },
-        "SecurityGroupReferencingSupport": {
-          "description": "Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid Values: enable | disable",
-          "type": "string"
         }
       },
       "type": "object"
     },
     "SubnetIds": {
       "insertionOrder": false,
-      "items": { "type": "string" },
+      "items": {
+        "relationshipRef": {
+          "propertyPath": "/properties/SubnetId",
+          "typeName": "AWS::EC2::Subnet"
+        },
+        "type": "string"
+      },
       "type": "array",
       "uniqueItems": false
     },

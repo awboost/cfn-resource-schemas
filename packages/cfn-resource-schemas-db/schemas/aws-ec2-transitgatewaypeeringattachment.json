@@ -1,5 +1,5 @@
 {
-  "$hash": "b09ff2f6a561a1759b6b874e7cc6e1c7386cb221",
+  "$hash": "a78a736dc2ce9b11412fde632a75da5c5652392f",
   "$id": "aws-ec2-transitgatewaypeeringattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -40,19 +40,25 @@
     "create": {
       "permissions": [
         "ec2:CreateTransitGatewayPeeringAttachment",
-        "ec2:DescribeTransitGatewayPeeringAttachments"
+        "ec2:DescribeTransitGatewayPeeringAttachments",
+        "ec2:CreateTags"
       ]
     },
     "delete": {
       "permissions": [
         "ec2:DeleteTransitGatewayPeeringAttachment",
-        "ec2:DescribeTransitGatewayPeeringAttachments"
+        "ec2:DescribeTransitGatewayPeeringAttachments",
+        "ec2:DeleteTags"
       ]
     },
     "list": { "permissions": ["ec2:DescribeTransitGatewayPeeringAttachments"] },
     "read": { "permissions": ["ec2:DescribeTransitGatewayPeeringAttachments"] },
     "update": {
-      "permissions": ["ec2:DescribeTransitGatewayPeeringAttachments"]
+      "permissions": [
+        "ec2:DescribeTransitGatewayPeeringAttachments",
+        "ec2:CreateTags",
+        "ec2:DeleteTags"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/TransitGatewayAttachmentId"],
@@ -106,5 +112,12 @@
     "PeerRegion"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-myservice",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EC2::TransitGatewayPeeringAttachment"
 }

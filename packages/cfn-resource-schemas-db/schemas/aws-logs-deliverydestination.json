@@ -1,5 +1,5 @@
 {
-  "$hash": "a18fda57b4ff6cfb7df3492f64abed077dec97db",
+  "$hash": "b4c81aad89fd9558673f1b556dc68859e0b42a27",
   "$id": "aws-logs-deliverydestination.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -119,7 +119,7 @@
     },
     "DestinationResourceArn": {
       "$ref": "#/definitions/Arn",
-      "description": "The ARN of the AWS resource that will receive the logs."
+      "description": "The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose."
     },
     "Name": {
       "description": "The name of this delivery destination.",

@@ -21,7 +21,7 @@ export type ECSClusterProperties = {
    */
   ClusterSettings?: ClusterSettings[];
   /**
-   * The execute command configuration for the cluster.
+   * The execute command and managed storage configuration for the cluster.
    */
   Configuration?: ClusterConfiguration;
   /**
@@ -76,7 +76,7 @@ export type CapacityProviderStrategyItem = {
 };
 /**
  * Type definition for `AWS::ECS::Cluster.ClusterConfiguration`.
- * The execute command configuration for the cluster.
+ * The execute command and managed storage configuration for the cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html}
  */
 export type ClusterConfiguration = {
@@ -84,6 +84,9 @@ export type ClusterConfiguration = {
    * The details of the execute command configuration.
    */
   ExecuteCommandConfiguration?: ExecuteCommandConfiguration;
+  /**
+   * The details of the managed storage configuration.
+   */
   ManagedStorageConfiguration?: ManagedStorageConfiguration;
 };
 /**
@@ -155,10 +158,17 @@ export type ExecuteCommandLogConfiguration = {
 };
 /**
  * Type definition for `AWS::ECS::Cluster.ManagedStorageConfiguration`.
+ * The managed storage configuration for the cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-managedstorageconfiguration.html}
  */
 export type ManagedStorageConfiguration = {
+  /**
+   * Specify the KMSlong key ID for the Fargate ephemeral storage.
+   */
   FargateEphemeralStorageKmsKeyId?: string;
+  /**
+   * Specify a KMSlong key ID to encrypt the managed storage.
+   */
   KmsKeyId?: string;
 };
 /**

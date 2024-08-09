@@ -1,5 +1,5 @@
 {
-  "$hash": "2bd39330d7c7ccd805fab0fe49af538126f15f2e",
+  "$hash": "b3106739721e01b9876ecb7930f09f70d2328765",
   "$id": "aws-scheduler-schedulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -106,6 +106,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "scheduler:UntagResource",
+      "scheduler:ListTagsForResource",
+      "scheduler:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

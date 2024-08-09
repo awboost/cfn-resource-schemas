@@ -1,5 +1,5 @@
 {
-  "$hash": "6e34b36e02e4f8695232463be8f6b2f997a15877",
+  "$hash": "b5abf25de4060b4f756fb78be86992ed46448ac8",
   "$id": "aws-iotfleetwise-decodermanifest.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ModelManifestArn"],
@@ -240,6 +240,11 @@
   "required": ["Name", "ModelManifestArn"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotfleetwise:UntagResource",
+      "iotfleetwise:TagResource",
+      "iotfleetwise:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

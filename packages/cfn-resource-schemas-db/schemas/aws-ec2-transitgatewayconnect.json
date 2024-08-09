@@ -1,5 +1,5 @@
 {
-  "$hash": "092af4c03ab94893265ca52ea223bbac4334d89a",
+  "$hash": "15a087081cf89896c2ac1aaf0b14af280aba37d1",
   "$id": "aws-ec2-transitgatewayconnect.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -92,5 +92,12 @@
   ],
   "required": ["TransportTransitGatewayAttachmentId", "Options"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-myservice",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EC2::TransitGatewayConnect"
 }

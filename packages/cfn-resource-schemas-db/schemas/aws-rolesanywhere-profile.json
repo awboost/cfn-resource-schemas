@@ -1,5 +1,5 @@
 {
-  "$hash": "1e4ce40233e3af5c90adfcec1e93cbc1338d1f3b",
+  "$hash": "5cc54c816d39626a297b4ccc1d0993087bb19235",
   "$id": "aws-rolesanywhere-profile.json",
   "additionalProperties": false,
   "definitions": {
@@ -81,6 +81,7 @@
   },
   "primaryIdentifier": ["/properties/ProfileId"],
   "properties": {
+    "AcceptRoleSessionName": { "type": "boolean" },
     "AttributeMappings": {
       "items": { "$ref": "#/definitions/AttributeMapping" },
       "type": "array"

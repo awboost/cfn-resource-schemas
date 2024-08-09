@@ -32,10 +32,6 @@ export type EC2TransitGatewayMulticastGroupSourceAttributes = {
    */
   GroupSource: boolean;
   /**
-   * The member type (for example, static).
-   */
-  MemberType: string;
-  /**
    * The ID of the resource.
    */
   ResourceId: string;

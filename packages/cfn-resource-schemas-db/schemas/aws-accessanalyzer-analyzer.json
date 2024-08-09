@@ -1,5 +1,5 @@
 {
-  "$hash": "49e92361da32a73322c95fa1973f92339b55fbb6",
+  "$hash": "4f438d323a5dd859060897ea4cc6961d48157e05",
   "$id": "aws-accessanalyzer-analyzer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -165,6 +165,10 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-accessanalyzer.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "access-analyzer:UntagResource",
+      "access-analyzer:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

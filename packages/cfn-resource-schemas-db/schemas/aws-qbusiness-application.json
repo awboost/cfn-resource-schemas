@@ -1,5 +1,5 @@
 {
-  "$hash": "70ac701476b1563e12a9afb73678017a904d8486",
+  "$hash": "15ca29f3785ed64d8568c56ff1c99b22f2917238",
   "$id": "aws-qbusiness-application.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/EncryptionConfiguration"],
@@ -63,7 +63,8 @@
         "sso:DeleteApplication",
         "sso:PutApplicationAccessScope",
         "sso:PutApplicationAuthenticationMethod",
-        "sso:PutApplicationGrant"
+        "sso:PutApplicationGrant",
+        "sso:DescribeInstance"
       ]
     },
     "delete": {
@@ -93,7 +94,8 @@
         "sso:DeleteApplication",
         "sso:PutApplicationAccessScope",
         "sso:PutApplicationAuthenticationMethod",
-        "sso:PutApplicationGrant"
+        "sso:PutApplicationGrant",
+        "sso:DescribeInstance"
       ]
     }
   },

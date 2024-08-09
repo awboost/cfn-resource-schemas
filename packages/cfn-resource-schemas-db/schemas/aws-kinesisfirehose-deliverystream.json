@@ -1,5 +1,5 @@
 {
-  "$hash": "f0eac6b0c0ce4f46cb63169fb11a81c6bfb137c0",
+  "$hash": "53b87b65b79885fe542caa3eae6334b74932a9b4",
   "$id": "aws-kinesisfirehose-deliverystream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -655,6 +655,7 @@
           },
           "type": "string"
         },
+        "ReadFromTimestamp": { "type": "string" },
         "TopicName": {
           "maxLength": 255,
           "minLength": 1,

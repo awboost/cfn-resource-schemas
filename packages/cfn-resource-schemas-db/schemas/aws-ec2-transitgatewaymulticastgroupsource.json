@@ -1,5 +1,5 @@
 {
-  "$hash": "b8d385b23248f6761d66afa03e30b2773240d00d",
+  "$hash": "bac5098603aeb52e9e18143292a7cde11ac9e07f",
   "$id": "aws-ec2-transitgatewaymulticastgroupsource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -21,7 +21,17 @@
         "ec2:SearchTransitGatewayMulticastGroups"
       ]
     },
-    "list": { "permissions": ["ec2:SearchTransitGatewayMulticastGroups"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "TransitGatewayMulticastDomainId": {
+            "$ref": "resource-schema.json#/properties/TransitGatewayMulticastDomainId"
+          }
+        },
+        "required": ["TransitGatewayMulticastDomainId"]
+      },
+      "permissions": ["ec2:SearchTransitGatewayMulticastGroups"]
+    },
     "read": { "permissions": ["ec2:SearchTransitGatewayMulticastGroups"] }
   },
   "primaryIdentifier": [
@@ -41,10 +51,6 @@
     "GroupSource": {
       "description": "Indicates that the resource is a transit gateway multicast group member.",
       "type": "boolean"
-    },
-    "MemberType": {
-      "description": "The member type (for example, static).",
-      "type": "string"
     },
     "NetworkInterfaceId": {
       "description": "The ID of the transit gateway attachment.",
@@ -75,7 +81,6 @@
     "/properties/ResourceType",
     "/properties/GroupSource",
     "/properties/GroupMember",
-    "/properties/MemberType",
     "/properties/SourceType",
     "/properties/TransitGatewayAttachmentId"
   ],
@@ -85,5 +90,11 @@
     "GroupIpAddress"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-transitgatewaymulticastdomain/aws-ec2-transitgatewaymulticastgroupsource",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::EC2::TransitGatewayMulticastGroupSource"
 }

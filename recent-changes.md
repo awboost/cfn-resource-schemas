@@ -1,4 +1,59 @@
-- updated `AWS::NetworkManager::TransitGatewayRouteTableAttachment`
-  - added definition `ProposedNetworkFunctionGroupChange`
-  - added property `NetworkFunctionGroupName`
-  - added property `ProposedNetworkFunctionGroupChange`
+- updated `AWS::AccessAnalyzer::Analyzer`
+  - updated `tagging`
+- updated `AWS::CodeArtifact::Domain`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::CodeArtifact::Repository`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::EC2::LocalGatewayRouteTable`
+  - updated `tagging`
+- updated `AWS::EC2::LocalGatewayRouteTableVPCAssociation`
+  - updated `tagging`
+- updated `AWS::EC2::TransitGateway`
+  - updated `tagging`
+- updated `AWS::EC2::TransitGatewayAttachment`
+  - updated property `Options`
+  - updated property `SubnetIds`
+- updated `AWS::EC2::TransitGatewayConnect`
+  - added `tagging`
+- updated `AWS::EC2::TransitGatewayMulticastDomain`
+  - added `tagging`
+- updated `AWS::EC2::TransitGatewayMulticastDomainAssociation`
+  - added `tagging`
+- updated `AWS::EC2::TransitGatewayMulticastGroupMember`
+  - added `tagging`
+  - removed property `SourceType`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::EC2::TransitGatewayMulticastGroupSource`
+  - added `tagging`
+  - removed property `MemberType`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::EC2::TransitGatewayPeeringAttachment`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::ECS::Cluster`
+  - added `propertyTransform`
+  - updated definition `ClusterConfiguration`
+  - updated definition `ManagedStorageConfiguration`
+  - updated property `Configuration`
+- updated `AWS::IoTFleetWise::DecoderManifest`
+  - updated `tagging`
+- updated `AWS::IoTFleetWise::Fleet`
+  - updated `tagging`
+- updated `AWS::IoTFleetWise::ModelManifest`
+  - updated `tagging`
+- updated `AWS::IoTFleetWise::Vehicle`
+  - updated `tagging`
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - updated definition `MSKSourceConfiguration`
+- updated `AWS::Logs::DeliveryDestination`
+  - updated property `DestinationResourceArn`
+- updated `AWS::QBusiness::Application`
+  - updated handler permissions
+- updated `AWS::RolesAnywhere::Profile`
+  - added property `AcceptRoleSessionName`
+- updated `AWS::Scheduler::ScheduleGroup`
+  - updated `tagging`

@@ -44,10 +44,6 @@ export type EC2TransitGatewayMulticastGroupMemberAttributes = {
    */
   ResourceType: string;
   /**
-   * The source type.
-   */
-  SourceType: string;
-  /**
    * The ID of the subnet.
    */
   SubnetId: string;

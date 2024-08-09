@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html}
  */
 export type RolesAnywhereProfileProperties = {
+  AcceptRoleSessionName?: boolean;
   AttributeMappings?: AttributeMapping[];
   /**
    * @min `900`

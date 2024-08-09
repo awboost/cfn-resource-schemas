@@ -1,5 +1,5 @@
 {
-  "$hash": "3a89d90e0569c365412d83954e2b159d6367b1fa",
+  "$hash": "69954525bd143bc694b12d0624e05cf5f9ce42a5",
   "$id": "aws-codeartifact-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -36,7 +36,8 @@
         "codeartifact:DescribeDomain",
         "codeartifact:PutDomainPermissionsPolicy",
         "codeartifact:GetDomainPermissionsPolicy",
-        "codeartifact:TagResource"
+        "codeartifact:TagResource",
+        "codeartifact:ListTagsForResource"
       ]
     },
     "delete": {
@@ -55,11 +56,13 @@
     },
     "update": {
       "permissions": [
+        "codeartifact:DescribeDomain",
         "codeartifact:PutDomainPermissionsPolicy",
         "codeartifact:DeleteDomainPermissionsPolicy",
         "codeartifact:GetDomainPermissionsPolicy",
         "codeartifact:TagResource",
-        "codeartifact:UntagResource"
+        "codeartifact:UntagResource",
+        "codeartifact:ListTagsForResource"
       ]
     }
   },
@@ -116,6 +119,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-codeartifact",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "codeartifact:ListTagsForResource",
+      "codeartifact:UntagResource",
+      "codeartifact:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,5 +1,5 @@
 {
-  "$hash": "6a9858da5734f22f8866d48d7c00fe468051c57a",
+  "$hash": "6c229979c711867e60dac63dcde02fd32169008c",
   "$id": "aws-ec2-transitgatewaymulticastdomainassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -70,5 +70,11 @@
     "SubnetId"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-myservice",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::EC2::TransitGatewayMulticastDomainAssociation"
 }
