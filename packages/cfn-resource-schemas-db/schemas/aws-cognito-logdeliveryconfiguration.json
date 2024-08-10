@@ -1,5 +1,5 @@
 {
-  "$hash": "806d544050d43750f22af62b667fc69ccc2756c8",
+  "$hash": "5d9c913cf622539b9c29b6249921214ec1266f74",
   "$id": "aws-cognito-logdeliveryconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserPoolId"],
@@ -9,6 +9,11 @@
       "properties": { "LogGroupArn": { "type": "string" } },
       "type": "object"
     },
+    "FirehoseConfiguration": {
+      "additionalProperties": false,
+      "properties": { "StreamArn": { "type": "string" } },
+      "type": "object"
+    },
     "LogConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -16,13 +21,22 @@
           "$ref": "#/definitions/CloudWatchLogsConfiguration"
         },
         "EventSource": { "type": "string" },
-        "LogLevel": { "type": "string" }
+        "FirehoseConfiguration": {
+          "$ref": "#/definitions/FirehoseConfiguration"
+        },
+        "LogLevel": { "type": "string" },
+        "S3Configuration": { "$ref": "#/definitions/S3Configuration" }
       },
       "type": "object"
     },
     "LogConfigurations": {
       "items": { "$ref": "#/definitions/LogConfiguration" },
       "type": "array"
+    },
+    "S3Configuration": {
+      "additionalProperties": false,
+      "properties": { "BucketArn": { "type": "string" } },
+      "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::Cognito::LogDeliveryConfiguration",
@@ -38,7 +52,14 @@
         "logs:ListLogDeliveries",
         "logs:PutResourcePolicy",
         "logs:DescribeResourcePolicies",
-        "logs:DescribeLogGroups"
+        "logs:DescribeLogGroups",
+        "s3:GetBucketPolicy",
+        "s3:PutBucketPolicy",
+        "s3:ListBucket",
+        "s3:PutObject",
+        "s3:GetBucketAcl",
+        "firehose:TagDeliveryStream",
+        "iam:CreateServiceLinkedRole"
       ],
       "timeoutInMinutes": 2
     },
@@ -53,7 +74,14 @@
         "logs:ListLogDeliveries",
         "logs:PutResourcePolicy",
         "logs:DescribeResourcePolicies",
-        "logs:DescribeLogGroups"
+        "logs:DescribeLogGroups",
+        "s3:GetBucketPolicy",
+        "s3:PutBucketPolicy",
+        "s3:ListBucket",
+        "s3:PutObject",
+        "s3:GetBucketAcl",
+        "firehose:TagDeliveryStream",
+        "iam:CreateServiceLinkedRole"
       ],
       "timeoutInMinutes": 2
     },
@@ -69,7 +97,14 @@
         "logs:ListLogDeliveries",
         "logs:PutResourcePolicy",
         "logs:DescribeResourcePolicies",
-        "logs:DescribeLogGroups"
+        "logs:DescribeLogGroups",
+        "s3:GetBucketPolicy",
+        "s3:PutBucketPolicy",
+        "s3:ListBucket",
+        "s3:PutObject",
+        "s3:GetBucketAcl",
+        "firehose:TagDeliveryStream",
+        "iam:CreateServiceLinkedRole"
       ],
       "timeoutInMinutes": 2
     }

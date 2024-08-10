@@ -1,5 +1,5 @@
 {
-  "$hash": "f96c71761d1d56e38b541faada800841fa00c352",
+  "$hash": "0151a3f02a55bcb91f252f4a49895a33741c9fb6",
   "$id": "aws-dms-instanceprofile.json",
   "additionalIdentifiers": [["/properties/InstanceProfileName"]],
   "additionalProperties": false,
@@ -141,7 +141,13 @@
     "/properties/InstanceProfileCreationTime"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-csf.git",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::DMS::InstanceProfile",
   "writeOnlyProperties": ["/properties/InstanceProfileIdentifier"]
 }

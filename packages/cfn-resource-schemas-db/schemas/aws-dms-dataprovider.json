@@ -1,5 +1,5 @@
 {
-  "$hash": "e29f5ec17558dca7df4b22ac006b84b303a80fc0",
+  "$hash": "54e446b082f3b7e9ef673d94294fe29fa7247dd2",
   "$id": "aws-dms-dataprovider.json",
   "additionalIdentifiers": [["/properties/DataProviderName"]],
   "additionalProperties": false,
@@ -37,7 +37,9 @@
         "dms:ListDataProviders",
         "dms:DescribeDataProviders",
         "dms:AddTagsToResource",
-        "dms:ListTagsForResource"
+        "dms:ListTagsForResource",
+        "iam:GetRole",
+        "iam:PassRole"
       ]
     },
     "delete": { "permissions": ["dms:DeleteDataProvider"] },
@@ -211,7 +213,13 @@
   ],
   "required": ["Engine"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-dms.git",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::DMS::DataProvider",
   "writeOnlyProperties": [
     "/properties/DataProviderIdentifier",

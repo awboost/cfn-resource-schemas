@@ -23,13 +23,29 @@ export type CloudWatchLogsConfiguration = {
   LogGroupArn?: string;
 };
 /**
+ * Type definition for `AWS::Cognito::LogDeliveryConfiguration.FirehoseConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-firehoseconfiguration.html}
+ */
+export type FirehoseConfiguration = {
+  StreamArn?: string;
+};
+/**
  * Type definition for `AWS::Cognito::LogDeliveryConfiguration.LogConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html}
  */
 export type LogConfiguration = {
   CloudWatchLogsConfiguration?: CloudWatchLogsConfiguration;
   EventSource?: string;
+  FirehoseConfiguration?: FirehoseConfiguration;
   LogLevel?: string;
+  S3Configuration?: S3Configuration;
+};
+/**
+ * Type definition for `AWS::Cognito::LogDeliveryConfiguration.S3Configuration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-s3configuration.html}
+ */
+export type S3Configuration = {
+  BucketArn?: string;
 };
 /**
  * Resource Type definition for AWS::Cognito::LogDeliveryConfiguration

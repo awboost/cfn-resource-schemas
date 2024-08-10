@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::Cognito::UserPool
+ * Definition of AWS::Cognito::UserPool Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html}
  */
 export type CognitoUserPoolProperties = {
@@ -75,6 +75,13 @@ export type AdminCreateUserConfig = {
   AllowAdminCreateUserOnly?: boolean;
   InviteMessageTemplate?: InviteMessageTemplate;
   UnusedAccountValidityDays?: number;
+};
+/**
+ * Type definition for `AWS::Cognito::UserPool.AdvancedSecurityAdditionalFlows`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-advancedsecurityadditionalflows.html}
+ */
+export type AdvancedSecurityAdditionalFlows = {
+  CustomAuthMode?: string;
 };
 /**
  * Type definition for `AWS::Cognito::UserPool.CustomEmailSender`.
@@ -154,6 +161,7 @@ export type NumberAttributeConstraints = {
  */
 export type PasswordPolicy = {
   MinimumLength?: number;
+  PasswordHistorySize?: number;
   RequireLowercase?: boolean;
   RequireNumbers?: boolean;
   RequireSymbols?: boolean;
@@ -232,6 +240,7 @@ export type UsernameConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html}
  */
 export type UserPoolAddOns = {
+  AdvancedSecurityAdditionalFlows?: AdvancedSecurityAdditionalFlows;
   AdvancedSecurityMode?: string;
 };
 /**
@@ -247,7 +256,7 @@ export type VerificationMessageTemplate = {
   SmsMessage?: string;
 };
 /**
- * Resource Type definition for AWS::Cognito::UserPool
+ * Definition of AWS::Cognito::UserPool Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html}
  */
 export class CognitoUserPool extends $Resource<
