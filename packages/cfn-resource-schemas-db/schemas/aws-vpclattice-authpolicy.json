@@ -1,5 +1,5 @@
 {
-  "$hash": "af3bd59d6bea04ef27271c91326a9967a79960c0",
+  "$hash": "0416448bfcff34b23a038d68d64cf7aa13341917",
   "$id": "aws-vpclattice-authpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceIdentifier"],
@@ -24,7 +24,7 @@
     "Policy": { "type": "object" },
     "ResourceIdentifier": {
       "maxLength": 200,
-      "minLength": 21,
+      "minLength": 17,
       "pattern": "^((((sn)|(svc))-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(service/svc))-[0-9a-z]{17}))$",
       "type": "string"
     },

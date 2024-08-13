@@ -1,5 +1,5 @@
 {
-  "$hash": "6d19c1020541f67faee34aee3400c6eb9c837c40",
+  "$hash": "47785b0120e0832a2a89d472b3bacc76d828be94",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -490,7 +490,7 @@
           "description": "The name or Amazon Resource Name (ARN) of an IAM instance profile."
         },
         "ImageId": {
-          "description": "The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.\n Valid formats:\n  +   ``ami-17characters00000`` \n  +   ``resolve:ssm:parameter-name`` \n  +   ``resolve:ssm:parameter-name:version-number`` \n  +   ``resolve:ssm:parameter-name:label`` \n  \n For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.",
+          "description": "The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.\n Valid formats:\n  +   ``ami-0ac394d6a3example`` \n  +   ``resolve:ssm:parameter-name`` \n  +   ``resolve:ssm:parameter-name:version-number`` \n  +   ``resolve:ssm:parameter-name:label`` \n  \n For more information, see [Use a Systems Manager parameter to find an AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#using-systems-manager-parameter-to-find-AMI) in the *Amazon Elastic Compute Cloud User Guide*.",
           "type": "string"
         },
         "InstanceInitiatedShutdownBehavior": {

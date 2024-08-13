@@ -639,7 +639,7 @@ export type LaunchTemplateData = {
   /**
      * The ID of the AMI. Alternatively, you can specify a Systems Manager parameter, which will resolve to an AMI ID on launch.
      Valid formats:
-      +   ``ami-17characters00000``
+      +   ``ami-0ac394d6a3example``
       +   ``resolve:ssm:parameter-name``
       +   ``resolve:ssm:parameter-name:version-number``
       +   ``resolve:ssm:parameter-name:label``

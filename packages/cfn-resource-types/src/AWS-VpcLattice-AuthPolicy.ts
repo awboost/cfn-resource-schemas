@@ -8,7 +8,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type VpcLatticeAuthPolicyProperties = {
   Policy: Record<string, any>;
   /**
-   * @minLength `21`
+   * @minLength `17`
    * @maxLength `200`
    * @pattern `^((((sn)|(svc))-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(service/svc))-[0-9a-z]{17}))$`
    */

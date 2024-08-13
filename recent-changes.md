@@ -1,20 +1,12 @@
-- updated `AWS::ACMPCA::CertificateAuthority`
-  - updated definition `CrlConfiguration`
-- updated `AWS::Cognito::LogDeliveryConfiguration`
-  - added definition `FirehoseConfiguration`
-  - added definition `S3Configuration`
-  - updated definition `LogConfiguration`
-  - updated handler permissions
-- updated `AWS::Cognito::UserPool`
-  - added definition `AdvancedSecurityAdditionalFlows`
-  - updated `tagging`
-  - updated definition `PasswordPolicy`
-  - updated definition `UserPoolAddOns`
-  - updated handler permissions
-- updated `AWS::DMS::DataProvider`
+- updated `AWS::Cognito::IdentityPool`
+  - added definition `Tag`
+  - added property `IdentityPoolTags`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::DMS::InstanceProfile`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `LaunchTemplateData`
+- updated `AWS::EC2::SecurityGroup`
   - updated `tagging`
-- updated `AWS::DMS::MigrationProject`
-  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::VpcLattice::AuthPolicy`
+  - updated property `ResourceIdentifier`
