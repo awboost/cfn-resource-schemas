@@ -1,5 +1,5 @@
 {
-  "$hash": "eb4c231e24cbcffae1d513024c38efd9c51d9b9a",
+  "$hash": "d627e8823c9cbb6666ed9ac0412fd0c71997f28c",
   "$id": "aws-route53-hostedzone.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -161,5 +161,16 @@
   "propertyTransform": { "/properties/Name": "Name $OR $join([Name, \".\"])" },
   "readOnlyProperties": ["/properties/Id", "/properties/NameServers"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "route53:ChangeTagsForResource",
+      "route53:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/HostedZoneTags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Route53::HostedZone"
 }

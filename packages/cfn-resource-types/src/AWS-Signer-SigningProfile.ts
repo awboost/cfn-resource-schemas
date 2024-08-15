@@ -33,7 +33,7 @@ export type SignerSigningProfileAttributes = {
    * A name for the signing profile. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
    * @minLength `2`
    * @maxLength `64`
-   * @pattern `^[0-9a-zA-Z_]$`
+   * @pattern `^[0-9a-zA-Z_]{2,64}$`
    */
   ProfileName: string;
   /**

@@ -84,6 +84,12 @@ export type LambdaEventSourceMappingProperties = {
      */
   FunctionResponseTypes?: "ReportBatchItemFailures"[];
   /**
+   * @minLength `12`
+   * @maxLength `2048`
+   * @pattern `(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()`
+   */
+  KmsKeyArn?: string;
+  /**
    * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *Default (, , event sources)*: 0
    *Default (, Kafka, , event sources)*: 500 ms

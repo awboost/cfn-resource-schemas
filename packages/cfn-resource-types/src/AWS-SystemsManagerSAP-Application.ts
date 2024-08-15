@@ -6,14 +6,19 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SystemsManagerSAPApplicationProperties = {
   /**
-   * @pattern `[\w\d]{1,50}`
+   * @pattern `[\w\d\.-]{1,60}`
    */
   ApplicationId: string;
-  ApplicationType: "HANA";
+  ApplicationType: "HANA" | "SAP_ABAP";
   /**
    * @minLength `1`
    */
   Credentials?: Credential[];
+  /**
+   * The ARN of the SAP HANA database
+   * @pattern `^arn:(.+:){2,4}.+$|^arn:(.+:){1,3}.+\/.+$`
+   */
+  DatabaseArn?: string;
   /**
    * @minLength `1`
    */
@@ -37,7 +42,7 @@ export type SystemsManagerSAPApplicationProperties = {
  */
 export type SystemsManagerSAPApplicationAttributes = {
   /**
-   * The ARN of the Helix application
+   * The ARN of the SSM-SAP application
    * @pattern `^arn:(.+:){2,4}.+$|^arn:(.+:){1,3}.+\/.+$`
    */
   Arn: string;

@@ -1,5 +1,5 @@
 {
-  "$hash": "0328084d5650d23f13d901c5535980b280ec655c",
+  "$hash": "141184cb314df42ec41f8232f2b3d3a17d1d3221",
   "$id": "aws-lambda-eventsourcemapping.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -201,21 +201,28 @@
     "create": {
       "permissions": [
         "lambda:CreateEventSourceMapping",
-        "lambda:GetEventSourceMapping"
+        "lambda:GetEventSourceMapping",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
       ]
     },
     "delete": {
       "permissions": [
         "lambda:DeleteEventSourceMapping",
-        "lambda:GetEventSourceMapping"
+        "lambda:GetEventSourceMapping",
+        "kms:Decrypt"
       ]
     },
     "list": { "permissions": ["lambda:ListEventSourceMappings"] },
-    "read": { "permissions": ["lambda:GetEventSourceMapping"] },
+    "read": { "permissions": ["lambda:GetEventSourceMapping", "kms:Decrypt"] },
     "update": {
       "permissions": [
         "lambda:UpdateEventSourceMapping",
-        "lambda:GetEventSourceMapping"
+        "lambda:GetEventSourceMapping",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
       ]
     }
   },
@@ -278,6 +285,13 @@
       "maxLength": 36,
       "minLength": 36,
       "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+      "type": "string"
+    },
+    "KmsKeyArn": {
+      "description": "",
+      "maxLength": 2048,
+      "minLength": 12,
+      "pattern": "(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()",
       "type": "string"
     },
     "MaximumBatchingWindowInSeconds": {

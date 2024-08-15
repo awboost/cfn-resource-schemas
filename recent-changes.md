@@ -1,12 +1,65 @@
-- updated `AWS::Cognito::IdentityPool`
-  - added definition `Tag`
-  - added property `IdentityPoolTags`
-  - updated `tagging`
+- updated `AWS::Bedrock::DataSource`
+  - added definition `BedrockFoundationModelConfiguration`
+  - added definition `ConfluenceCrawlerConfiguration`
+  - added definition `ConfluenceDataSourceConfiguration`
+  - added definition `ConfluenceSourceConfiguration`
+  - added definition `CrawlFilterConfiguration`
+  - added definition `CustomTransformationConfiguration`
+  - added definition `FilterList`
+  - added definition `HierarchicalChunkingConfiguration`
+  - added definition `HierarchicalChunkingLevelConfiguration`
+  - added definition `IntermediateStorage`
+  - added definition `ParsingConfiguration`
+  - added definition `ParsingPrompt`
+  - added definition `ParsingStrategy`
+  - added definition `PatternObjectFilterConfiguration`
+  - added definition `PatternObjectFilterList`
+  - added definition `PatternObjectFilter`
+  - added definition `S3Location`
+  - added definition `SalesforceCrawlerConfiguration`
+  - added definition `SalesforceDataSourceConfiguration`
+  - added definition `SalesforceSourceConfiguration`
+  - added definition `SeedUrl`
+  - added definition `SeedUrls`
+  - added definition `SemanticChunkingConfiguration`
+  - added definition `SharePointCrawlerConfiguration`
+  - added definition `SharePointDataSourceConfiguration`
+  - added definition `SharePointSourceConfiguration`
+  - added definition `TransformationFunction`
+  - added definition `TransformationLambdaConfiguration`
+  - added definition `Transformation`
+  - added definition `UrlConfiguration`
+  - added definition `WebCrawlerConfiguration`
+  - added definition `WebCrawlerLimits`
+  - added definition `WebDataSourceConfiguration`
+  - added definition `WebScopeType`
+  - added definition `WebSourceConfiguration`
+  - updated `createOnlyProperties`
+  - updated definition `ChunkingConfiguration`
+  - updated definition `ChunkingStrategy`
+  - updated definition `DataSourceConfiguration`
+  - updated definition `DataSourceType`
+  - updated definition `S3DataSourceConfiguration`
+  - updated definition `VectorIngestionConfiguration`
+- updated `AWS::EC2::SubnetCidrBlock`
+  - added property `IpSource`
+  - added property `Ipv6AddressAttribute`
+  - updated `readOnlyProperties`
+- updated `AWS::EC2::VPC`
+  - updated property `InstanceTenancy`
+- updated `AWS::Lambda::EventSourceMapping`
+  - added property `KmsKeyArn`
   - updated handler permissions
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `LaunchTemplateData`
-- updated `AWS::EC2::SecurityGroup`
+- updated `AWS::Route53::HostedZone`
+  - added `tagging`
+- updated `AWS::Signer::SigningProfile`
+  - updated definition `ProfileName`
+- updated `AWS::SystemsManagerSAP::Application`
+  - added property `DatabaseArn`
+  - updated `createOnlyProperties`
   - updated `tagging`
+  - updated `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::VpcLattice::AuthPolicy`
-  - updated property `ResourceIdentifier`
+  - updated property `ApplicationId`
+  - updated property `ApplicationType`
+  - updated property `Arn`

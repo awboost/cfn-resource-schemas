@@ -34,6 +34,14 @@ export type EC2SubnetCidrBlockAttributes = {
    * Information about the IPv6 association.
    */
   Id: string;
+  /**
+   * The IP Source of an IPv6 Subnet CIDR Block.
+   */
+  IpSource: string;
+  /**
+   * The value denoting whether an IPv6 Subnet CIDR Block is public or private.
+   */
+  Ipv6AddressAttribute: string;
 };
 /**
  * The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
