@@ -1,5 +1,5 @@
 {
-  "$hash": "34b3aca4e838e0764c47628b5926b9b057421396",
+  "$hash": "6d41069d48c1147a14c8419606940dbd1827edcf",
   "$id": "aws-ec2-ipam.json",
   "additionalProperties": false,
   "definitions": {
@@ -75,6 +75,10 @@
       "type": "string"
     },
     "Description": { "type": "string" },
+    "EnablePrivateGua": {
+      "description": "Enable provisioning of GUA space in private pools.",
+      "type": "boolean"
+    },
     "IpamId": { "description": "Id of the IPAM.", "type": "string" },
     "OperatingRegions": {
       "description": "The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring",

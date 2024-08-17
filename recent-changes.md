@@ -1,65 +1,49 @@
-- updated `AWS::Bedrock::DataSource`
-  - added definition `BedrockFoundationModelConfiguration`
-  - added definition `ConfluenceCrawlerConfiguration`
-  - added definition `ConfluenceDataSourceConfiguration`
-  - added definition `ConfluenceSourceConfiguration`
-  - added definition `CrawlFilterConfiguration`
-  - added definition `CustomTransformationConfiguration`
-  - added definition `FilterList`
-  - added definition `HierarchicalChunkingConfiguration`
-  - added definition `HierarchicalChunkingLevelConfiguration`
-  - added definition `IntermediateStorage`
-  - added definition `ParsingConfiguration`
-  - added definition `ParsingPrompt`
-  - added definition `ParsingStrategy`
-  - added definition `PatternObjectFilterConfiguration`
-  - added definition `PatternObjectFilterList`
-  - added definition `PatternObjectFilter`
-  - added definition `S3Location`
-  - added definition `SalesforceCrawlerConfiguration`
-  - added definition `SalesforceDataSourceConfiguration`
-  - added definition `SalesforceSourceConfiguration`
-  - added definition `SeedUrl`
-  - added definition `SeedUrls`
-  - added definition `SemanticChunkingConfiguration`
-  - added definition `SharePointCrawlerConfiguration`
-  - added definition `SharePointDataSourceConfiguration`
-  - added definition `SharePointSourceConfiguration`
-  - added definition `TransformationFunction`
-  - added definition `TransformationLambdaConfiguration`
-  - added definition `Transformation`
-  - added definition `UrlConfiguration`
-  - added definition `WebCrawlerConfiguration`
-  - added definition `WebCrawlerLimits`
-  - added definition `WebDataSourceConfiguration`
-  - added definition `WebScopeType`
-  - added definition `WebSourceConfiguration`
-  - updated `createOnlyProperties`
-  - updated definition `ChunkingConfiguration`
-  - updated definition `ChunkingStrategy`
-  - updated definition `DataSourceConfiguration`
-  - updated definition `DataSourceType`
-  - updated definition `S3DataSourceConfiguration`
-  - updated definition `VectorIngestionConfiguration`
-- updated `AWS::EC2::SubnetCidrBlock`
+- updated `AWS::ApiGatewayV2::Integration`
+  - added `sourceUrl`
+  - added `tagging`
+  - added definition `ResponseParameterList`
+  - added definition `ResponseParameter`
+  - added definition `Tag`
+  - added property `IntegrationId`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `TlsConfig`
+  - updated handler permissions
+  - updated property `ApiId`
+  - updated property `ConnectionId`
+  - updated property `ConnectionType`
+  - updated property `ContentHandlingStrategy`
+  - updated property `CredentialsArn`
+  - updated property `Description`
+  - updated property `IntegrationMethod`
+  - updated property `IntegrationSubtype`
+  - updated property `IntegrationType`
+  - updated property `IntegrationUri`
+  - updated property `PassthroughBehavior`
+  - updated property `PayloadFormatVersion`
+  - updated property `RequestParameters`
+  - updated property `RequestTemplates`
+  - updated property `ResponseParameters`
+  - updated property `TemplateSelectionExpression`
+  - updated property `TimeoutInMillis`
+  - updated property `TlsConfig`
+- updated `AWS::EC2::IPAM`
+  - added property `EnablePrivateGua`
+- updated `AWS::EC2::VPCCidrBlock`
   - added property `IpSource`
   - added property `Ipv6AddressAttribute`
   - updated `readOnlyProperties`
-- updated `AWS::EC2::VPC`
-  - updated property `InstanceTenancy`
-- updated `AWS::Lambda::EventSourceMapping`
-  - added property `KmsKeyArn`
+- updated `AWS::IAM::ManagedPolicy`
+  - added `replacementStrategy`
+- updated `AWS::Lambda::Function`
+  - added definition `RecursiveLoop`
+  - added property `RecursiveLoop`
   - updated handler permissions
-- updated `AWS::Route53::HostedZone`
-  - added `tagging`
-- updated `AWS::Signer::SigningProfile`
-  - updated definition `ProfileName`
-- updated `AWS::SystemsManagerSAP::Application`
-  - added property `DatabaseArn`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-  - updated property `ApplicationId`
-  - updated property `ApplicationType`
-  - updated property `Arn`
+- updated `AWS::S3::Bucket`
+  - updated definition `EncryptionConfiguration`
+  - updated definition `PartitionedPrefix`
+  - updated definition `ServerSideEncryptionByDefault`
+  - updated definition `ServerSideEncryptionRule`
+  - updated definition `VersioningConfiguration`
+  - updated property `VersioningConfiguration`

@@ -7,6 +7,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type EC2IPAMProperties = {
   Description?: string;
   /**
+   * Enable provisioning of GUA space in private pools.
+   */
+  EnablePrivateGua?: boolean;
+  /**
    * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
    */
   OperatingRegions?: IpamOperatingRegion[];

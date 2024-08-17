@@ -51,6 +51,14 @@ export type EC2VPCCidrBlockAttributes = {
    * The Id of the VPC associated CIDR Block.
    */
   Id: string;
+  /**
+   * The IP Source of an IPv6 VPC CIDR Block.
+   */
+  IpSource: string;
+  /**
+   * The value denoting whether an IPv6 VPC CIDR Block is public or private.
+   */
+  Ipv6AddressAttribute: string;
 };
 /**
  * Resource Type definition for AWS::EC2::VPCCidrBlock

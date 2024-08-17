@@ -86,6 +86,10 @@ export type LambdaFunctionProperties = {
    */
   PackageType?: "Image" | "Zip";
   /**
+   * The function recursion configuration.
+   */
+  RecursiveLoop?: RecursiveLoop;
+  /**
    * The number of simultaneous executions to reserve for the function.
    * @min `0`
    */
@@ -290,6 +294,12 @@ export type LoggingConfig = {
    */
   SystemLogLevel?: "DEBUG" | "INFO" | "WARN";
 };
+/**
+ * Type definition for `AWS::Lambda::Function.RecursiveLoop`.
+ * The function recursion configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-recursiveloop.html}
+ */
+export type RecursiveLoop = "Allow" | "Terminate";
 /**
  * Type definition for `AWS::Lambda::Function.RuntimeManagementConfig`.
  * Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).

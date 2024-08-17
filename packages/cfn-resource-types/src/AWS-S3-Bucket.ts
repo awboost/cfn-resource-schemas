@@ -97,8 +97,9 @@ export type S3BucketProperties = {
    */
   Tags?: Tag[];
   /**
-   * Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
-   */
+     * Enables multiple versions of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.
+      When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
+     */
   VersioningConfiguration?: VersioningConfiguration;
   /**
    * Information used to configure the bucket as a static website. For more information, see [Hosting Websites on Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
@@ -310,6 +311,7 @@ export type Destination = {
 /**
  * Type definition for `AWS::S3::Bucket.EncryptionConfiguration`.
  * Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+  If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html}
  */
 export type EncryptionConfiguration = {
@@ -655,8 +657,10 @@ export type OwnershipControlsRule = {
  */
 export type PartitionedPrefix = {
   /**
-   * Specifies the partition date source for the partitioned prefix. PartitionDateSource can be EventTime or DeliveryTime.
-   */
+     * Specifies the partition date source for the partitioned prefix. ``PartitionDateSource`` can be ``EventTime`` or ``DeliveryTime``.
+     For ``DeliveryTime``, the time in the log file names corresponds to the delivery time for the log files.
+      For ``EventTime``, The logs delivered are for a specific day only. The year, month, and day correspond to the day on which the event occurred, and the hour, minutes and seconds are set to 00 in the key.
+     */
   PartitionDateSource?: "EventTime" | "DeliveryTime";
 };
 /**
@@ -1065,6 +1069,7 @@ export type S3KeyFilter = {
 /**
  * Type definition for `AWS::S3::Bucket.ServerSideEncryptionByDefault`.
  * Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more information, see [PUT Bucket encryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html) in the *Amazon S3 API Reference*.
+  If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html}
  */
 export type ServerSideEncryptionByDefault = {
@@ -1088,6 +1093,7 @@ export type ServerSideEncryptionByDefault = {
 /**
  * Type definition for `AWS::S3::Bucket.ServerSideEncryptionRule`.
  * Specifies the default server-side encryption configuration.
+  If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html}
  */
 export type ServerSideEncryptionRule = {
@@ -1255,6 +1261,7 @@ export type Transition = {
 /**
  * Type definition for `AWS::S3::Bucket.VersioningConfiguration`.
  * Describes the versioning state of an Amazon S3 bucket. For more information, see [PUT Bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html) in the *Amazon S3 API Reference*.
+  When you enable versioning on a bucket for the first time, it might take a short amount of time for the change to be fully propagated. We recommend that you wait for 15 minutes after enabling versioning before issuing write operations (``PUT`` or ``DELETE``) on objects in the bucket.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfiguration.html}
  */
 export type VersioningConfiguration = {

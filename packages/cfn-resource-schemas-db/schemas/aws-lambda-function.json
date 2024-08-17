@@ -1,5 +1,5 @@
 {
-  "$hash": "7b9a52e062b3e9cbe5b218a273b473b099d40d87",
+  "$hash": "782179dd9f429af5159c26b9f1207b2a8d2607f3",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FunctionName"],
@@ -158,6 +158,11 @@
       },
       "type": "object"
     },
+    "RecursiveLoop": {
+      "description": "The function recursion configuration.",
+      "enum": ["Allow", "Terminate"],
+      "type": "string"
+    },
     "RuntimeManagementConfig": {
       "additionalProperties": false,
       "description": "Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).",
@@ -286,7 +291,9 @@
         "lambda:GetLayerVersion",
         "lambda:GetRuntimeManagementConfig",
         "lambda:PutRuntimeManagementConfig",
-        "lambda:TagResource"
+        "lambda:TagResource",
+        "lambda:PutFunctionRecursionConfig",
+        "lambda:GetFunctionRecursionConfig"
       ]
     },
     "delete": {
@@ -300,7 +307,8 @@
     "read": {
       "permissions": [
         "lambda:GetFunction",
-        "lambda:GetFunctionCodeSigningConfig"
+        "lambda:GetFunctionCodeSigningConfig",
+        "lambda:GetFunctionRecursionConfig"
       ]
     },
     "update": {
@@ -328,7 +336,9 @@
         "lambda:PutFunctionCodeSigningConfig",
         "lambda:DeleteFunctionCodeSigningConfig",
         "lambda:GetCodeSigningConfig",
-        "lambda:GetFunctionCodeSigningConfig"
+        "lambda:GetFunctionCodeSigningConfig",
+        "lambda:PutFunctionRecursionConfig",
+        "lambda:GetFunctionRecursionConfig"
       ]
     }
   },
@@ -413,6 +423,10 @@
       "description": "The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.",
       "enum": ["Image", "Zip"],
       "type": "string"
+    },
+    "RecursiveLoop": {
+      "$ref": "#/definitions/RecursiveLoop",
+      "description": ""
     },
     "ReservedConcurrentExecutions": {
       "description": "The number of simultaneous executions to reserve for the function.",
