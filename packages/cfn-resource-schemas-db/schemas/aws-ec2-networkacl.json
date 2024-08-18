@@ -1,12 +1,12 @@
 {
-  "$hash": "88858401f6e31b6f5f4016a602a640cc3e66365e",
+  "$hash": "8e4c7f10513ee740c66d49ce90c0726ad5507bcb",
   "$id": "aws-ec2-networkacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId"],
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
+      "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
         "Key": { "description": "The tag key.", "type": "string" },
         "Value": { "description": "The tag value.", "type": "string" }
