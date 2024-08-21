@@ -1,4 +1,2 @@
-- updated `AWS::EC2::NetworkAcl`
-  - updated definition `Tag`
-- updated `AWS::EC2::RouteTable`
+- updated `AWS::EC2::Subnet`
   - updated definition `Tag`
