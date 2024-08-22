@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type IVSStageProperties = {
   /**
+   * Configuration object for individual participant recording, to attach to the new stage.
+   */
+  AutoParticipantRecordingConfiguration?: AutoParticipantRecordingConfiguration;
+  /**
    * Stage name
    * @minLength `0`
    * @maxLength `128`
@@ -35,6 +39,26 @@ export type IVSStageAttributes = {
    * @pattern `^arn:aws[-a-z]*:ivs:[a-z0-9-]+:[0-9]+:stage/[a-zA-Z0-9-]+$`
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::IVS::Stage.AutoParticipantRecordingConfiguration`.
+ * Configuration object for individual participant recording, to attach to the new stage.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html}
+ */
+export type AutoParticipantRecordingConfiguration = {
+  /**
+   * Types of media to be recorded. Default: AUDIO_VIDEO.
+   * @minLength `0`
+   * @maxLength `1`
+   */
+  MediaTypes?: ("AUDIO_VIDEO" | "AUDIO_ONLY")[];
+  /**
+   * ARN of the StorageConfiguration resource to use for individual participant recording.
+   * @minLength `0`
+   * @maxLength `128`
+   * @pattern `^$|^arn:aws:ivs:[a-z0-9-]+:[0-9]+:storage-configuration/[a-zA-Z0-9-]+$`
+   */
+  StorageConfigurationArn: string;
 };
 /**
  * Type definition for `AWS::IVS::Stage.Tag`.

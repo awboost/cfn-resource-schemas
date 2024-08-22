@@ -1,2 +1,50 @@
-- updated `AWS::EC2::Subnet`
+- added `AWS::IVS::PublicKey`
+- updated `AWS::Deadline::Fleet`
+  - updated definition `ServiceManagedFleetOperatingSystemFamily`
+- updated `AWS::EC2::LaunchTemplate`
   - updated definition `Tag`
+  - updated property `TagSpecifications`
+- updated `AWS::Glue::Database`
+  - added `sourceUrl`
+  - added `tagging`
+  - added property `DatabaseName`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated definition `DataLakePrincipal`
+  - updated definition `DatabaseIdentifier`
+  - updated definition `DatabaseInput`
+  - updated definition `FederatedDatabase`
+  - updated definition `PrincipalPrivileges`
+  - updated handler permissions
+  - updated property `CatalogId`
+  - updated property `DatabaseInput`
+- updated `AWS::IVS::Channel`
+  - updated `tagging`
+  - updated handler permissions
+  - updated property `Preset`
+- updated `AWS::IVS::EncoderConfiguration`
+  - updated `tagging`
+- updated `AWS::IVS::PlaybackKeyPair`
+  - updated `tagging`
+- updated `AWS::IVS::PlaybackRestrictionPolicy`
+  - updated `tagging`
+- updated `AWS::IVS::RecordingConfiguration`
+  - updated `tagging`
+- updated `AWS::IVS::Stage`
+  - added definition `AutoParticipantRecordingConfiguration`
+  - added property `AutoParticipantRecordingConfiguration`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::IVS::StorageConfiguration`
+  - updated `tagging`
+- updated `AWS::IVS::StreamKey`
+  - updated `tagging`
+- updated `AWS::Location::APIKey`
+  - updated definition `ApiKeyRestrictions`
+- updated `AWS::MSK::Replicator`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+- updated `AWS::RDS::GlobalCluster`
+  - updated property `GlobalClusterIdentifier`

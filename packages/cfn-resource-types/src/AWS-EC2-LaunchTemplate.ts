@@ -22,7 +22,7 @@ export type EC2LaunchTemplateProperties = {
   LaunchTemplateName?: string;
   /**
      * The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
-     To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
+     To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
      */
   TagSpecifications?: LaunchTemplateTagSpecification[];
   /**
@@ -1120,7 +1120,7 @@ export type SpotOptions = {
 };
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.Tag`.
- * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+ * Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tag.html}
  */
 export type Tag = {

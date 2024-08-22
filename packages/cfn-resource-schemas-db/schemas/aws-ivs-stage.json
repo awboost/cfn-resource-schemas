@@ -1,8 +1,33 @@
 {
-  "$hash": "764adbbcda51b5c979b1df6a9fa6c3f6fb9f65a8",
+  "$hash": "a1016ee1262fde61c582ab3697a07aeef81644eb",
   "$id": "aws-ivs-stage.json",
   "additionalProperties": false,
   "definitions": {
+    "AutoParticipantRecordingConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration object for individual participant recording, to attach to the new stage.",
+      "properties": {
+        "MediaTypes": {
+          "default": ["AUDIO_VIDEO"],
+          "description": "Types of media to be recorded. Default: AUDIO_VIDEO.",
+          "insertionOrder": false,
+          "items": { "enum": ["AUDIO_VIDEO", "AUDIO_ONLY"], "type": "string" },
+          "maxItems": 1,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "StorageConfigurationArn": {
+          "description": "ARN of the StorageConfiguration resource to use for individual participant recording.",
+          "maxLength": 128,
+          "minLength": 0,
+          "pattern": "^$|^arn:aws:ivs:[a-z0-9-]+:[0-9]+:storage-configuration/[a-zA-Z0-9-]+$",
+          "type": "string"
+        }
+      },
+      "required": ["StorageConfigurationArn"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -23,7 +48,7 @@
         "ivs:ListTagsForResource"
       ]
     },
-    "delete": { "permissions": ["ivs:DeleteStage", "ivs:UnTagResource"] },
+    "delete": { "permissions": ["ivs:DeleteStage", "ivs:UntagResource"] },
     "list": { "permissions": ["ivs:ListStages", "ivs:ListTagsForResource"] },
     "read": { "permissions": ["ivs:GetStage", "ivs:ListTagsForResource"] },
     "update": {
@@ -31,7 +56,7 @@
         "ivs:GetStage",
         "ivs:UpdateStage",
         "ivs:TagResource",
-        "ivs:UnTagResource",
+        "ivs:UntagResource",
         "ivs:ListTagsForResource"
       ]
     }
@@ -52,6 +77,9 @@
       "pattern": "^arn:aws[-a-z]*:ivs:[a-z0-9-]+:[0-9]+:stage/[a-zA-Z0-9-]+$",
       "type": "string"
     },
+    "AutoParticipantRecordingConfiguration": {
+      "$ref": "#/definitions/AutoParticipantRecordingConfiguration"
+    },
     "Name": {
       "description": "Stage name",
       "maxLength": 128,
@@ -71,6 +99,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "ivs:TagResource",
+      "ivs:UntagResource",
+      "ivs:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

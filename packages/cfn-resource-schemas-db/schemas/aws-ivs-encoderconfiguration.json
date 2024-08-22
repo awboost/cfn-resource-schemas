@@ -1,5 +1,5 @@
 {
-  "$hash": "786475cf694bf975b9ec9e8b0e9477b1173c5634",
+  "$hash": "ab72e208a85349350a4872106e65148406adb5ba",
   "$id": "aws-ivs-encoderconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -123,6 +123,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "ivs:TagResource",
+      "ivs:UntagResource",
+      "ivs:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

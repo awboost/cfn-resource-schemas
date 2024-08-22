@@ -1,5 +1,5 @@
 {
-  "$hash": "cb8b54955143595c1867218b47ae85a1234e0824",
+  "$hash": "37a3904fd6df9820d8cf58619cd4e7bc87c139de",
   "$id": "aws-ivs-recordingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -211,6 +211,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "ivs:TagResource",
+      "ivs:UntagResource",
+      "ivs:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

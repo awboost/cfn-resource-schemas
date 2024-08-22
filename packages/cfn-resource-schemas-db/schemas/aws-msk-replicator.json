@@ -1,5 +1,5 @@
 {
-  "$hash": "67fd8135b2ded9bfa1edf6e7be181ddb51ff8218",
+  "$hash": "ad61ad747c1861f4ad32ed568aa132d20bb3cc21",
   "$id": "aws-msk-replicator.json",
   "additionalIdentifiers": [["/properties/ReplicatorName"]],
   "additionalProperties": false,
@@ -7,8 +7,7 @@
     "/properties/ReplicatorName",
     "/properties/Description",
     "/properties/KafkaClusters",
-    "/properties/ServiceExecutionRoleArn",
-    "/properties/ReplicationInfoList/-/TopicReplication/StartingPosition/Type"
+    "/properties/ServiceExecutionRoleArn"
   ],
   "definitions": {
     "AmazonMskCluster": {
@@ -307,6 +306,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-msk-replicator.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "kafka:UntagResource",
+      "kafka:ListTagsForResource",
+      "kafka:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -24,6 +24,8 @@ export type RDSGlobalClusterProperties = {
   EngineVersion?: string;
   /**
    * The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
+   * @minLength `1`
+   * @maxLength `63`
    * @pattern `^[a-zA-Z]{1}(?:-?[a-zA-Z0-9]){0,62}$`
    */
   GlobalClusterIdentifier?: string;

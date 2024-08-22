@@ -1,5 +1,5 @@
 {
-  "$hash": "57ccae625f864749d074bd7bcb646319bdca0c3e",
+  "$hash": "d948f880b74ced893a02989480176985324f6688",
   "$id": "aws-ivs-channel.json",
   "additionalProperties": false,
   "definitions": {
@@ -16,7 +16,7 @@
   "description": "Resource Type definition for AWS::IVS::Channel",
   "handlers": {
     "create": { "permissions": ["ivs:CreateChannel", "ivs:TagResource"] },
-    "delete": { "permissions": ["ivs:DeleteChannel", "ivs:UnTagResource"] },
+    "delete": { "permissions": ["ivs:DeleteChannel", "ivs:UntagResource"] },
     "list": { "permissions": ["ivs:ListChannels", "ivs:ListTagsForResource"] },
     "read": { "permissions": ["ivs:GetChannel", "ivs:ListTagsForResource"] },
     "update": {
@@ -24,7 +24,7 @@
         "ivs:GetChannel",
         "ivs:UpdateChannel",
         "ivs:TagResource",
-        "ivs:UnTagResource",
+        "ivs:UntagResource",
         "ivs:ListTagsForResource"
       ]
     }
@@ -69,7 +69,11 @@
     "PlaybackUrl": { "description": "Channel Playback URL.", "type": "string" },
     "Preset": {
       "description": "Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string (\"\").",
-      "enum": ["HIGHER_BANDWIDTH_DELIVERY", "CONSTRAINED_BANDWIDTH_DELIVERY"],
+      "enum": [
+        "",
+        "HIGHER_BANDWIDTH_DELIVERY",
+        "CONSTRAINED_BANDWIDTH_DELIVERY"
+      ],
       "type": "string"
     },
     "RecordingConfigurationArn": {
@@ -104,6 +108,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "ivs:TagResource",
+      "ivs:UntagResource",
+      "ivs:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

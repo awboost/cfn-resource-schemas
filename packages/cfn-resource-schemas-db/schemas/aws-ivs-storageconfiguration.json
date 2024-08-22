@@ -1,5 +1,5 @@
 {
-  "$hash": "8cc9fef73af772f4d0a2dbab1661eea320ee51f0",
+  "$hash": "26d02c24f0fab07457ad2b8e44d3688cb9b5aa42",
   "$id": "aws-ivs-storageconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -108,6 +108,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "ivs:TagResource",
+      "ivs:UntagResource",
+      "ivs:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

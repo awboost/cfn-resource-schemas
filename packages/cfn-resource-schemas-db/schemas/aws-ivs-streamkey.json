@@ -1,5 +1,5 @@
 {
-  "$hash": "0040b27b34a7ddf8814165a343f45efbd8d544cf",
+  "$hash": "9e8e9ef9bf89674bd5e388e32cb91f0589103517",
   "$id": "aws-ivs-streamkey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ChannelArn"],
@@ -75,6 +75,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "ivs:TagResource",
+      "ivs:UntagResource",
+      "ivs:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

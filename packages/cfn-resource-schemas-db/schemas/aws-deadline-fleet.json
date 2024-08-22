@@ -1,5 +1,5 @@
 {
-  "$hash": "5fbe445664e83c68902426401a0473792a7e493d",
+  "$hash": "edf914f158d2d6b4ba5e5b81db2ee73e1d443e81",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -266,7 +266,7 @@
       "type": "object"
     },
     "ServiceManagedFleetOperatingSystemFamily": {
-      "enum": ["LINUX"],
+      "enum": ["LINUX", "WINDOWS"],
       "type": "string"
     },
     "Tag": {

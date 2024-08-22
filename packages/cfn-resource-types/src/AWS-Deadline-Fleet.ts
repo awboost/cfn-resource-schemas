@@ -335,7 +335,7 @@ export type ServiceManagedEc2InstanceMarketOptions = {
  * Type definition for `AWS::Deadline::Fleet.ServiceManagedFleetOperatingSystemFamily`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedfleetoperatingsystemfamily.html}
  */
-export type ServiceManagedFleetOperatingSystemFamily = "LINUX";
+export type ServiceManagedFleetOperatingSystemFamily = "LINUX" | "WINDOWS";
 /**
  * Type definition for `AWS::Deadline::Fleet.Tag`.
  * A key-value pair to associate with a resource.

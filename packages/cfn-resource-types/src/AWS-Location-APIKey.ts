@@ -65,7 +65,7 @@ export type LocationAPIKeyAttributes = {
 export type ApiKeyRestrictions = {
   /**
    * @minLength `1`
-   * @maxLength `7`
+   * @maxLength `24`
    */
   AllowActions: string[];
   /**
@@ -75,7 +75,7 @@ export type ApiKeyRestrictions = {
   AllowReferers?: string[];
   /**
    * @minLength `1`
-   * @maxLength `5`
+   * @maxLength `8`
    */
   AllowResources: string[];
 };
