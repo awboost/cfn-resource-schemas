@@ -2,6 +2,7 @@ import {
   AnyTypeNode,
   ArrayTypeNode,
   BooleanTypeNode,
+  InvalidTypeNode,
   NullTypeNode,
   NumberTypeNodeBase,
   ObjectTypeNode,
@@ -258,6 +259,8 @@ export function createType(
     return ts.factory.createArrayTypeNode(items);
   } else if (node instanceof BooleanTypeNode) {
     return ts.factory.createKeywordTypeNode(ts.SyntaxKind.BooleanKeyword);
+  } else if (node instanceof InvalidTypeNode) {
+    return ts.factory.createKeywordTypeNode(ts.SyntaxKind.UnknownKeyword);
   } else if (node instanceof NullTypeNode) {
     return ts.factory.createLiteralTypeNode(ts.factory.createNull());
   } else if (node instanceof NumberTypeNodeBase) {

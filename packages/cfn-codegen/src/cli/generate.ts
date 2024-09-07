@@ -24,6 +24,10 @@ export function addGenerateCommand(program: Command): void {
     .argument("[input...]", "the schema file(s) to generate code for")
     .option("--download [url]", "download the resource schemas from AWS")
     .option(
+      "--ignore-broken-refs",
+      "output `unknown` for broken refs in schemas",
+    )
+    .option(
       "--input-file-names",
       "name the output files according to the input file names",
     )
@@ -42,6 +46,7 @@ export function addGenerateCommand(program: Command): void {
         input: string[],
         {
           download,
+          ignoreBrokenRefs,
           inputFileNames,
           model: generateModel,
           outputDir,
@@ -50,6 +55,7 @@ export function addGenerateCommand(program: Command): void {
           schemaValidationErrors,
         }: {
           download?: string | boolean;
+          ignoreBrokenRefs?: boolean;
           inputFileNames?: boolean;
           model?: boolean;
           outputDir?: string;
@@ -97,6 +103,7 @@ export function addGenerateCommand(program: Command): void {
           delete (schema as any)["$hash"];
 
           const schemaFile = new SchemaFileNode(schema, schema.$id, {
+            ignoreBrokenRefs,
             validationProblemLevel: schemaValidationErrors,
           });
 

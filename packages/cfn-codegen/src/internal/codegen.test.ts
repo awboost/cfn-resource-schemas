@@ -3,6 +3,7 @@ import {
   ArrayTypeNode,
   BooleanTypeNode,
   IntegerTypeNode,
+  InvalidTypeNode,
   NullTypeNode,
   NumberTypeNode,
   ObjectTypeNode,
@@ -130,6 +131,20 @@ describe("createType", () => {
       assert.ok(ts.isLiteralTypeNode(output.types[2]));
       assert.ok(ts.isNumericLiteral(output.types[2].literal));
       assert.strictEqual(output.types[2].literal.text, "256");
+    });
+  });
+
+  describe("when node is InvalidTypeNode", () => {
+    it("returns an unknown type", () => {
+      const input = new InvalidTypeNode(
+        { type: "null" },
+        new SchemaFileNode({} as any, "foo.json", { ignoreBrokenRefs: true }),
+        "",
+      );
+
+      const output = createType(input);
+
+      assert.strictEqual(output.kind, ts.SyntaxKind.UnknownKeyword);
     });
   });
 

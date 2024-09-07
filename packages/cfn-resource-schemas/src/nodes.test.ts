@@ -900,6 +900,42 @@ describe("TypeNode", () => {
           'invalid reference "#/definitions/Unknown"',
         );
       });
+
+      it("returns an InvalidTypeNode with only a warning if ignoreBrokenRefs is set", () => {
+        const file = new SchemaFileNode(
+          {
+            description: "the description",
+            primaryIdentifier: [],
+            properties: {},
+            typeName: "Acme::Service::Resource",
+            definitions: {
+              MyStringType: { type: "string" },
+            },
+          },
+          "file.json",
+          {
+            ignoreBrokenRefs: true,
+            validationProblemLevel: "silent",
+          },
+        );
+
+        const node = TypeNode.makeTypeNode(
+          {
+            $ref: "#/definitions/Unknown",
+          } satisfies JSONSchema7,
+          file,
+          "/path/to/node",
+        );
+
+        assert.ok(node instanceof InvalidTypeNode);
+
+        assert.strictEqual(file.problems.length, 1);
+        assert.strictEqual(file.problems[0].level, "warn");
+        assert.strictEqual(
+          file.problems[0].message,
+          'invalid reference "#/definitions/Unknown"',
+        );
+      });
     });
   });
 });

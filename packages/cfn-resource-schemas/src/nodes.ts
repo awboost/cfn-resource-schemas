@@ -24,6 +24,7 @@ export type TypeDocumentation = {
 };
 
 export type SchemaFileNodeOptions = {
+  ignoreBrokenRefs?: boolean;
   validationProblemLevel?: Problem["level"] | "silent";
 };
 
@@ -48,7 +49,7 @@ export class SchemaFileNode {
   constructor(
     public readonly schema: ResourceTypeSchema,
     public readonly fileName: string,
-    options: SchemaFileNodeOptions = {},
+    private readonly options: SchemaFileNodeOptions = {},
   ) {
     const { validationProblemLevel = "warn" } = options;
     this.description = schema.description;
@@ -111,11 +112,14 @@ export class SchemaFileNode {
 
     const prefix = "#/definitions/";
     if (!ref.startsWith(prefix)) {
+      if (this.options.ignoreBrokenRefs) {
+      }
       return new InvalidTypeNode(
         { $ref: ref },
         this,
         sourcePath,
         `invalid reference "${ref}"`,
+        this.options.ignoreBrokenRefs,
       );
     }
 
@@ -128,6 +132,7 @@ export class SchemaFileNode {
         this,
         sourcePath,
         `invalid reference "${ref}"`,
+        this.options.ignoreBrokenRefs,
       );
     }
 
@@ -344,9 +349,15 @@ export class InvalidTypeNode extends TypeNode {
     file: SchemaFileNode,
     path: string,
     error = `invalid schema node`,
+    warning = false,
   ) {
     super(schema, file, path);
-    this.error(error);
+
+    if (warning) {
+      this.warn(error);
+    } else {
+      this.error(error);
+    }
   }
 }
 
