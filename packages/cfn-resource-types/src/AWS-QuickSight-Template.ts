@@ -831,6 +831,15 @@ export type CategoryFilterMatchOperator =
  */
 export type CategoryFilterSelectAllOptions = "FILTER_ALL_VALUES";
 /**
+ * Type definition for `AWS::QuickSight::Template.CategoryInnerFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoryinnerfilter.html}
+ */
+export type CategoryInnerFilter = {
+  Column: ColumnIdentifier;
+  Configuration: CategoryFilterConfiguration;
+  DefaultFilterControlConfiguration?: DefaultFilterControlConfiguration;
+};
+/**
  * Type definition for `AWS::QuickSight::Template.ChartAxisLabelOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-chartaxislabeloptions.html}
  */
@@ -990,6 +999,7 @@ export type ColumnTooltipItem = {
   Aggregation?: AggregationFunction;
   Column: ColumnIdentifier;
   Label?: string;
+  TooltipTarget?: TooltipTarget;
   Visibility?: Visibility;
 };
 /**
@@ -1040,6 +1050,7 @@ export type ComboChartConfiguration = {
   ReferenceLines?: ReferenceLine[];
   SecondaryYAxisDisplayOptions?: AxisDisplayOptions;
   SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
+  SingleAxisOptions?: SingleAxisOptions;
   SortConfiguration?: ComboChartSortConfiguration;
   Tooltip?: TooltipOptions;
   VisualPalette?: VisualPalette;
@@ -2212,6 +2223,7 @@ export type FieldTooltipItem = {
    */
   FieldId: string;
   Label?: string;
+  TooltipTarget?: TooltipTarget;
   Visibility?: Visibility;
 };
 /**
@@ -2322,6 +2334,7 @@ export type FilledMapVisual = {
  */
 export type Filter = {
   CategoryFilter?: CategoryFilter;
+  NestedFilter?: NestedFilter;
   NumericEqualityFilter?: NumericEqualityFilter;
   NumericRangeFilter?: NumericRangeFilter;
   RelativeDatesFilter?: RelativeDatesFilter;
@@ -3504,6 +3517,13 @@ export type Icon =
   | "CHECKMARK"
   | "X";
 /**
+ * Type definition for `AWS::QuickSight::Template.InnerFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-innerfilter.html}
+ */
+export type InnerFilter = {
+  CategoryInnerFilter?: CategoryInnerFilter;
+};
+/**
  * Type definition for `AWS::QuickSight::Template.InsightConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-insightconfiguration.html}
  */
@@ -3874,6 +3894,7 @@ export type LineChartConfiguration = {
    * @maxLength `2000`
    */
   Series?: SeriesItem[];
+  SingleAxisOptions?: SingleAxisOptions;
   SmallMultiplesOptions?: SmallMultiplesOptions;
   SortConfiguration?: LineChartSortConfiguration;
   Tooltip?: TooltipOptions;
@@ -4185,6 +4206,21 @@ export type NegativeValueConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-negativevaluedisplaymode.html}
  */
 export type NegativeValueDisplayMode = "POSITIVE" | "NEGATIVE";
+/**
+ * Type definition for `AWS::QuickSight::Template.NestedFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-nestedfilter.html}
+ */
+export type NestedFilter = {
+  Column: ColumnIdentifier;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  FilterId: string;
+  IncludeInnerSet: boolean;
+  InnerFilter: InnerFilter;
+};
 /**
  * Type definition for `AWS::QuickSight::Template.NullValueFormatConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-nullvalueformatconfiguration.html}
@@ -6135,6 +6171,13 @@ export type SimpleTotalAggregationFunction =
   | "MAX"
   | "NONE";
 /**
+ * Type definition for `AWS::QuickSight::Template.SingleAxisOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-singleaxisoptions.html}
+ */
+export type SingleAxisOptions = {
+  YAxisOptions?: unknown;
+};
+/**
  * Type definition for `AWS::QuickSight::Template.SliderControlDisplayOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-slidercontroldisplayoptions.html}
  */
@@ -6986,6 +7029,11 @@ export type TooltipOptions = {
   SelectedTooltipType?: SelectedTooltipType;
   TooltipVisibility?: Visibility;
 };
+/**
+ * Type definition for `AWS::QuickSight::Template.TooltipTarget`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltiptarget.html}
+ */
+export type TooltipTarget = "BOTH" | "BAR" | "LINE";
 /**
  * Type definition for `AWS::QuickSight::Template.TooltipTitleType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltiptitletype.html}

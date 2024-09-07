@@ -18,7 +18,7 @@ export type MediaPackageV2OriginEndpointProperties = {
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
   ChannelName: string;
-  ContainerType?: ContainerType;
+  ContainerType: ContainerType;
   /**
    * <p>A DASH manifest configuration.</p>
    */
@@ -220,7 +220,8 @@ export type DrmSystem =
   | "CLEAR_KEY_AES_128"
   | "FAIRPLAY"
   | "PLAYREADY"
-  | "WIDEVINE";
+  | "WIDEVINE"
+  | "IRDETO";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.Encryption`.
  * <p>The parameters for encrypting content.</p>

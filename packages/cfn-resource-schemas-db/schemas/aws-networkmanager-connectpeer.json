@@ -1,5 +1,5 @@
 {
-  "$hash": "920addec6c097026a722503d4a216ff9ffffe597",
+  "$hash": "5e045b9abfda605df2db84a51ba5109c285a7513",
   "$id": "aws-networkmanager-connectpeer.json",
   "additionalIdentifiers": [
     [
@@ -192,6 +192,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-networkmanager/aws-networkmanager-connectpeer",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "networkmanager:TagResource",
+      "networkmanager:UntagResource",
+      "networkmanager:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

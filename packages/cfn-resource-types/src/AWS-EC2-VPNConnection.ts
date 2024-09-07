@@ -13,7 +13,16 @@ export type EC2VPNConnectionProperties = {
    * The ID of the customer gateway at your end of the VPN connection.
    */
   CustomerGatewayId: string;
+  /**
+     * Indicate whether to enable acceleration for the VPN connection.
+     Default: ``false``
+     */
   EnableAcceleration?: boolean;
+  LocalIpv4NetworkCidr?: string;
+  LocalIpv6NetworkCidr?: string;
+  OutsideIpAddressType?: string;
+  RemoteIpv4NetworkCidr?: string;
+  RemoteIpv6NetworkCidr?: string;
   /**
      * Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
      If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
@@ -28,6 +37,8 @@ export type EC2VPNConnectionProperties = {
      You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
      */
   TransitGatewayId?: string;
+  TransportTransitGatewayAttachmentId?: string;
+  TunnelInsideIpVersion?: string;
   /**
    * The type of VPN connection.
    */
@@ -51,7 +62,7 @@ export type EC2VPNConnectionAttributes = {
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.Tag`.
- * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+ * Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-tag.html}
  */
 export type Tag = {

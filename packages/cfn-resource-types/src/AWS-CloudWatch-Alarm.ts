@@ -77,7 +77,7 @@ export type CloudWatchAlarmProperties = {
   /**
      * The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
      For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-     *Minimum:* 10
+      *Minimum:* 10
      */
   Period?: number;
   /**
@@ -87,8 +87,10 @@ export type CloudWatchAlarmProperties = {
      */
   Statistic?: string;
   /**
-   * @maxLength `50`
-   */
+     * A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the ``cloudwatch:TagResource`` permission.
+     Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
+     * @maxLength `50`
+     */
   Tags?: Tag[];
   /**
    * The value to compare with the specified statistic.
@@ -221,11 +223,12 @@ export type MetricStat = {
 };
 /**
  * Type definition for `AWS::CloudWatch::Alarm.Tag`.
+ * One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-tag.html}
  */
 export type Tag = {
   /**
-   * A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+   * A string that you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
    * @minLength `1`
    * @maxLength `128`
    */

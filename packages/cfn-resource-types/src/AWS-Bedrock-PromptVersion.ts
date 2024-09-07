@@ -18,6 +18,10 @@ export type BedrockPromptVersionProperties = {
    * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:prompt/[0-9a-zA-Z]{10})$`
    */
   PromptArn: string;
+  /**
+   * A map of tag keys and values
+   */
+  Tags?: TagsMap;
 };
 /**
  * Attribute type definition for `AWS::Bedrock::PromptVersion`.
@@ -35,6 +39,13 @@ export type BedrockPromptVersionAttributes = {
    * Time Stamp.
    */
   CreatedAt: string;
+  /**
+   * A KMS key ARN
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
+   */
+  CustomerEncryptionKeyArn: string;
   /**
    * Name for a variant.
    * @pattern `^([0-9a-zA-Z][_-]?){1,100}$`
@@ -247,6 +258,12 @@ export type PromptVariant = {
    */
   TemplateType: PromptTemplateType;
 };
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.TagsMap`.
+ * A map of tag keys and values
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-tagsmap.html}
+ */
+export type TagsMap = Record<string, string>;
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.TextPromptTemplateConfiguration`.
  * Configuration for text prompt template

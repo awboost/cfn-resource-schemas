@@ -145,7 +145,7 @@ export type CalculatedColumn = {
   /**
    * <p>An expression that defines the calculated column.</p>
    * @minLength `1`
-   * @maxLength `4096`
+   * @maxLength `250000`
    */
   Expression: string;
 };
@@ -338,7 +338,7 @@ export type DataSetRefreshProperties = {
   /**
    * <p>The refresh configuration of a dataset.</p>
    */
-  RefreshConfiguration: RefreshConfiguration;
+  RefreshConfiguration?: RefreshConfiguration;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.DataSetUsageConfiguration`.

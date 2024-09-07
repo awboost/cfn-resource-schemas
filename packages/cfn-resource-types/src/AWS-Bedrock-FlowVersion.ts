@@ -27,6 +27,13 @@ export type BedrockFlowVersionAttributes = {
    */
   CreatedAt: string;
   /**
+   * A KMS key ARN
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
+   */
+  CustomerEncryptionKeyArn: string;
+  /**
    * Flow definition
    */
   Definition: {
@@ -141,6 +148,25 @@ export type BedrockFlowVersionAttributes = {
    */
   Version: string;
 };
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.AgentFlowNodeConfiguration`.
+ * Agent flow node configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-agentflownodeconfiguration.html}
+ */
+export type AgentFlowNodeConfiguration = {
+  /**
+   * Arn representation of the Agent Alias.
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:agent-alias/[0-9a-zA-Z]{10}/[0-9a-zA-Z]{10}$`
+   */
+  AgentAliasArn: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.CollectorFlowNodeConfiguration`.
+ * Collector flow node configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-collectorflownodeconfiguration.html}
+ */
+export type CollectorFlowNodeConfiguration = Record<string, any>;
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.ConditionFlowNodeConfiguration`.
  * Condition flow node configuration
@@ -349,6 +375,36 @@ export type FlowNodeConfiguration =
        * Lambda function flow node configuration
        */
       LambdaFunction: LambdaFunctionFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Agent flow node configuration
+       */
+      Agent: AgentFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Storage flow node configuration
+       */
+      Storage: StorageFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Retrieval flow node configuration
+       */
+      Retrieval: RetrievalFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Iterator flow node configuration
+       */
+      Iterator: IteratorFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Collector flow node configuration
+       */
+      Collector: CollectorFlowNodeConfiguration;
     };
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.FlowNodeInput`.
@@ -411,7 +467,12 @@ export type FlowNodeType =
   | "Condition"
   | "Lex"
   | "Prompt"
-  | "LambdaFunction";
+  | "LambdaFunction"
+  | "Agent"
+  | "Iterator"
+  | "Collector"
+  | "Storage"
+  | "Retrieval";
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.FlowStatus`.
  * Schema Type for Flow APIs
@@ -424,6 +485,12 @@ export type FlowStatus = "Failed" | "Prepared" | "Preparing" | "NotPrepared";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-inputflownodeconfiguration.html}
  */
 export type InputFlowNodeConfiguration = Record<string, any>;
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.IteratorFlowNodeConfiguration`.
+ * Iterator flow node configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-iteratorflownodeconfiguration.html}
+ */
+export type IteratorFlowNodeConfiguration = Record<string, any>;
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.KnowledgeBaseFlowNodeConfiguration`.
  * Knowledge base flow node configuration
@@ -618,6 +685,66 @@ export type PromptTemplateConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-prompttemplatetype.html}
  */
 export type PromptTemplateType = "TEXT";
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.RetrievalFlowNodeConfiguration`.
+ * Retrieval flow node configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodeconfiguration.html}
+ */
+export type RetrievalFlowNodeConfiguration = {
+  ServiceConfiguration: RetrievalFlowNodeServiceConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.RetrievalFlowNodeS3Configuration`.
+ * s3 Retrieval configuration for Retrieval node
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodes3configuration.html}
+ */
+export type RetrievalFlowNodeS3Configuration = {
+  /**
+   * bucket name of an s3 that will be used for Retrieval flow node configuration
+   * @pattern `^[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]$`
+   */
+  BucketName: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.RetrievalFlowNodeServiceConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodeserviceconfiguration.html}
+ */
+export type RetrievalFlowNodeServiceConfiguration = {
+  /**
+   * s3 Retrieval configuration for Retrieval node
+   */
+  S3?: RetrievalFlowNodeS3Configuration;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.StorageFlowNodeConfiguration`.
+ * Storage flow node configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodeconfiguration.html}
+ */
+export type StorageFlowNodeConfiguration = {
+  ServiceConfiguration: StorageFlowNodeServiceConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.StorageFlowNodeS3Configuration`.
+ * s3 storage configuration for storage node
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodes3configuration.html}
+ */
+export type StorageFlowNodeS3Configuration = {
+  /**
+   * bucket name of an s3 that will be used for storage flow node configuration
+   * @pattern `^[a-z0-9][\.\-a-z0-9]{1,61}[a-z0-9]$`
+   */
+  BucketName: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.StorageFlowNodeServiceConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodeserviceconfiguration.html}
+ */
+export type StorageFlowNodeServiceConfiguration = {
+  /**
+   * s3 storage configuration for storage node
+   */
+  S3?: StorageFlowNodeS3Configuration;
+};
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.TextPromptTemplateConfiguration`.
  * Configuration for text prompt template

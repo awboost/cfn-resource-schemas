@@ -1,5 +1,5 @@
 {
-  "$hash": "ebc1b432a1d3ed47546a7a802b40a82cb336d902",
+  "$hash": "77f37d96973d51d47201cb51c1324c79baf6914f",
   "$id": "aws-securityhub-standard.json",
   "additionalIdentifiers": [["/properties/StandardsArn"]],
   "additionalProperties": false,
@@ -55,7 +55,7 @@
   "primaryIdentifier": ["/properties/StandardsSubscriptionArn"],
   "properties": {
     "DisabledStandardsControls": {
-      "description": "Specifies which controls are to be disabled in a standard. \n *Maximum*: ``100``",
+      "description": "Specifies which controls are to be disabled in a standard. \n  *Maximum*: ``100``",
       "insertionOrder": true,
       "items": { "$ref": "#/definitions/StandardsControl" },
       "maxItems": 100,

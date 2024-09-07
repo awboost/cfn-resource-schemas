@@ -1,5 +1,5 @@
 {
-  "$hash": "5569b1cfba6db5332df7c12b6093c825881aa1ae",
+  "$hash": "c53194da1853d0dfe315f8b36df0c070f5f92c8b",
   "$id": "aws-codebuild-fleet.json",
   "additionalProperties": false,
   "definitions": {
@@ -73,6 +73,7 @@
         "BUILD_GENERAL1_SMALL",
         "BUILD_GENERAL1_MEDIUM",
         "BUILD_GENERAL1_LARGE",
+        "BUILD_GENERAL1_XLARGE",
         "BUILD_GENERAL1_2XLARGE"
       ],
       "type": "string"
@@ -83,7 +84,8 @@
         "WINDOWS_SERVER_2022_CONTAINER",
         "LINUX_CONTAINER",
         "LINUX_GPU_CONTAINER",
-        "ARM_CONTAINER"
+        "ARM_CONTAINER",
+        "MAC_ARM"
       ],
       "type": "string"
     },
@@ -92,6 +94,10 @@
       "type": "string"
     },
     "FleetVpcConfig": { "$ref": "#/definitions/VpcConfig" },
+    "ImageId": {
+      "pattern": "^((aws/codebuild/[A-Za-z-]+:[0-9]+(-[0-9._]+)?)|ami-[a-z0-9]{1,1020})$",
+      "type": "string"
+    },
     "Name": { "maxLength": 128, "minLength": 2, "type": "string" },
     "OverflowBehavior": { "enum": ["QUEUE", "ON_DEMAND"], "type": "string" },
     "Tags": {

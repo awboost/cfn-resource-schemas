@@ -31,7 +31,7 @@ export type AppIntegrationsApplicationProperties = {
    * @maxLength `255`
    * @pattern `^[a-zA-Z0-9/\._\-]+$`
    */
-  Namespace?: string;
+  Namespace: string;
   /**
    * The configuration of events or requests that the application has access to.
    * @minLength `0`

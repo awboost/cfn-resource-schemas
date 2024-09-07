@@ -21,9 +21,13 @@ export type ApplicationSignalsServiceLevelObjectiveProperties = {
    */
   Name: string;
   /**
+   * This structure contains information about the performance metric that a request-based SLO monitors.
+   */
+  RequestBasedSli?: RequestBasedSli;
+  /**
    * This structure contains information about the performance metric that an SLO monitors.
    */
-  Sli: Sli;
+  Sli?: Sli;
   /**
    * The list of tag keys and values associated with the resource you specified
    * @minLength `1`
@@ -46,6 +50,10 @@ export type ApplicationSignalsServiceLevelObjectiveAttributes = {
    * @min `946684800`
    */
   CreatedTime: number;
+  /**
+   * Displays whether this is a period-based SLO or a request-based SLO.
+   */
+  EvaluationType: "PeriodBased" | "RequestBased";
   /**
    * Epoch time in seconds of the time that this SLO was most recently updated
    * @min `946684800`
@@ -207,6 +215,73 @@ export type MetricStat = {
    * If you omit Unit then all data that was collected with any unit is returned, along with the corresponding units that were specified when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified. If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.
    */
   Unit?: string;
+};
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.MonitoredRequestCountMetric`.
+ * This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-monitoredrequestcountmetric.html}
+ */
+export type MonitoredRequestCountMetric = {
+  /**
+   * If you want to count "bad requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "bad requests" in this structure.
+   */
+  BadCountMetric?: MetricDataQuery[];
+  /**
+   * If you want to count "good requests" to determine the percentage of successful requests for this request-based SLO, specify the metric to use as "good requests" in this structure.
+   */
+  GoodCountMetric?: MetricDataQuery[];
+};
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.RequestBasedSli`.
+ * This structure contains information about the performance metric that a request-based SLO monitors.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html}
+ */
+export type RequestBasedSli = {
+  /**
+   * The arithmetic operation used when comparing the specified metric to the threshold.
+   */
+  ComparisonOperator?:
+    | "GreaterThanOrEqualTo"
+    | "LessThanOrEqualTo"
+    | "LessThan"
+    | "GreaterThan";
+  /**
+   * The value that the SLI metric is compared to.
+   */
+  MetricThreshold?: number;
+  /**
+   * This structure contains the information about the metric that is used for a request-based SLO.
+   */
+  RequestBasedSliMetric: RequestBasedSliMetric;
+};
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.RequestBasedSliMetric`.
+ * This structure contains the information about the metric that is used for a request-based SLO.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html}
+ */
+export type RequestBasedSliMetric = {
+  /**
+   * This is a string-to-string map that contains information about the type of object that this SLO is related to.
+   */
+  KeyAttributes?: KeyAttributes;
+  /**
+   * If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
+   */
+  MetricType?: "LATENCY" | "AVAILABILITY";
+  /**
+   * This structure defines the metric that is used as the "good request" or "bad request" value for a request-based SLO. This value observed for the metric defined in `TotalRequestCountMetric` is divided by the number found for `MonitoredRequestCountMetric` to determine the percentage of successful requests that this SLO tracks.
+   */
+  MonitoredRequestCountMetric?: MonitoredRequestCountMetric;
+  /**
+   * If the SLO monitors a specific operation of the service, this field displays that operation name.
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  OperationName?: string;
+  /**
+   * This structure defines the metric that is used as the "total requests" number for a request-based SLO. The number observed for this metric is divided by the number of "good requests" or "bad requests" that is observed for the metric defined in `MonitoredRequestCountMetric`.
+   */
+  TotalRequestCountMetric?: MetricDataQuery[];
 };
 /**
  * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.RollingInterval`.

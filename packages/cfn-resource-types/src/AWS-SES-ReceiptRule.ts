@@ -75,6 +75,7 @@ export type Rule = {
  */
 export type S3Action = {
   BucketName: string;
+  IamRoleArn?: string;
   KmsKeyArn?: string;
   ObjectKeyPrefix?: string;
   TopicArn?: string;

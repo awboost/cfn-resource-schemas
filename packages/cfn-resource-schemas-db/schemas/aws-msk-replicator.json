@@ -1,5 +1,5 @@
 {
-  "$hash": "ad61ad747c1861f4ad32ed568aa132d20bb3cc21",
+  "$hash": "a692c5543f3b7f5b4c6098e0484d4bcd8d43cf73",
   "$id": "aws-msk-replicator.json",
   "additionalIdentifiers": [["/properties/ReplicatorName"]],
   "additionalProperties": false,
@@ -150,6 +150,22 @@
       "enum": ["LATEST", "EARLIEST"],
       "type": "string"
     },
+    "ReplicationTopicNameConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.",
+      "properties": {
+        "Type": {
+          "$ref": "#/definitions/ReplicationTopicNameConfigurationType"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "ReplicationTopicNameConfigurationType": {
+      "description": "The type of replicated topic name.",
+      "enum": ["PREFIXED_WITH_SOURCE_CLUSTER_ALIAS", "IDENTICAL"],
+      "type": "string"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -177,6 +193,10 @@
         "StartingPosition": {
           "$ref": "#/definitions/ReplicationStartingPosition",
           "description": "Configuration for specifying the position in the topics to start replicating from."
+        },
+        "TopicNameConfiguration": {
+          "$ref": "#/definitions/ReplicationTopicNameConfiguration",
+          "description": "Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias."
         },
         "TopicsToExclude": {
           "description": "List of regular expression patterns indicating the topics that should not be replicated.",

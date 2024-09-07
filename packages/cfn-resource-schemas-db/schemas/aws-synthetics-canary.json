@@ -1,5 +1,5 @@
 {
-  "$hash": "8a02edb3e8d8024b3ee9fe0ac1571d918f3abd50",
+  "$hash": "52dfca09578e2067b103c9513363d1de279e3755",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -40,13 +40,7 @@
       ],
       "properties": {
         "Handler": { "type": "string" },
-        "S3Bucket": {
-          "relationshipRef": {
-            "propertyPath": "/properties/BucketName",
-            "typeName": "AWS::S3::Bucket"
-          },
-          "type": "string"
-        },
+        "S3Bucket": { "type": "string" },
         "S3Key": { "type": "string" },
         "S3ObjectVersion": { "type": "string" },
         "Script": { "type": "string" },
@@ -127,43 +121,9 @@
     "VPCConfig": {
       "additionalProperties": false,
       "properties": {
-        "SecurityGroupIds": {
-          "items": {
-            "anyOf": [
-              {
-                "relationshipRef": {
-                  "propertyPath": "/properties/GroupId",
-                  "typeName": "AWS::EC2::SecurityGroup"
-                }
-              },
-              {
-                "relationshipRef": {
-                  "propertyPath": "/properties/DefaultSecurityGroup",
-                  "typeName": "AWS::EC2::VPC"
-                }
-              }
-            ],
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "SubnetIds": {
-          "items": {
-            "relationshipRef": {
-              "propertyPath": "/properties/SubnetId",
-              "typeName": "AWS::EC2::Subnet"
-            },
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "VpcId": {
-          "relationshipRef": {
-            "propertyPath": "/properties/VpcId",
-            "typeName": "AWS::EC2::VPC"
-          },
-          "type": "string"
-        }
+        "SecurityGroupIds": { "items": { "type": "string" }, "type": "array" },
+        "SubnetIds": { "items": { "type": "string" }, "type": "array" },
+        "VpcId": { "type": "string" }
       },
       "required": ["SubnetIds", "SecurityGroupIds"],
       "type": "object"

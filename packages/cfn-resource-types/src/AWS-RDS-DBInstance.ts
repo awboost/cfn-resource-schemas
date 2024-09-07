@@ -680,7 +680,7 @@ export type RDSDBInstanceProperties = {
      */
   ReplicaMode?: string;
   /**
-     * The date and time to restore from.
+     * The date and time to restore from. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
      Constraints:
       +  Must be a time in Universal Coordinated Time (UTC) format.
       +  Must be before the latest restorable time for the DB instance.
@@ -763,7 +763,7 @@ export type RDSDBInstanceProperties = {
      */
   UseDefaultProcessorFeatures?: boolean;
   /**
-     * Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
+     * Specifies whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time. This parameter applies to point-in-time recovery. For more information, see [Restoring a DB instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the in the *Amazon RDS User Guide*.
      Constraints:
       +  Can't be specified if the ``RestoreTime`` parameter is provided.
      */

@@ -1,50 +1,360 @@
-- added `AWS::IVS::PublicKey`
-- updated `AWS::Deadline::Fleet`
-  - updated definition `ServiceManagedFleetOperatingSystemFamily`
-- updated `AWS::EC2::LaunchTemplate`
+- added `AWS::SSMQuickSetup::ConfigurationManager`
+- updated `AWS::ApiGatewayV2::Integration`
+  - added property `Id`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - removed definition `ResponseParameterList`
+  - removed definition `ResponseParameter`
+  - removed definition `Tag`
+  - removed property `IntegrationId`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `TlsConfig`
+  - updated handler permissions
+  - updated property `ApiId`
+  - updated property `ConnectionId`
+  - updated property `ConnectionType`
+  - updated property `ContentHandlingStrategy`
+  - updated property `CredentialsArn`
+  - updated property `Description`
+  - updated property `IntegrationMethod`
+  - updated property `IntegrationSubtype`
+  - updated property `IntegrationType`
+  - updated property `IntegrationUri`
+  - updated property `PassthroughBehavior`
+  - updated property `PayloadFormatVersion`
+  - updated property `RequestParameters`
+  - updated property `RequestTemplates`
+  - updated property `ResponseParameters`
+  - updated property `TemplateSelectionExpression`
+  - updated property `TimeoutInMillis`
+  - updated property `TlsConfig`
+- updated `AWS::AppIntegrations::Application`
+  - updated `required`
+- updated `AWS::ApplicationSignals::ServiceLevelObjective`
+  - added definition `MonitoredRequestCountMetric`
+  - added definition `RequestBasedSliMetric`
+  - added definition `RequestBasedSli`
+  - added property `EvaluationType`
+  - added property `RequestBasedSli`
+  - updated `readOnlyProperties`
+  - updated `required`
+  - updated `tagging`
+- updated `AWS::Backup::RestoreTestingPlan`
+  - added definition `RestoreTestingScheduleStatus`
+  - added property `ScheduleStatus`
+  - updated handler permissions
+- updated `AWS::Batch::ComputeEnvironment`
+  - added property `Context`
+- updated `AWS::Bedrock::Flow`
+  - added definition `AgentFlowNodeConfiguration`
+  - added definition `CollectorFlowNodeConfiguration`
+  - added definition `FlowValidation`
+  - added definition `FlowValidations`
+  - added definition `IteratorFlowNodeConfiguration`
+  - added definition `RetrievalFlowNodeConfiguration`
+  - added definition `RetrievalFlowNodeS3Configuration`
+  - added definition `RetrievalFlowNodeServiceConfiguration`
+  - added definition `StorageFlowNodeConfiguration`
+  - added definition `StorageFlowNodeS3Configuration`
+  - added definition `StorageFlowNodeServiceConfiguration`
+  - added property `Validations`
+  - updated `readOnlyProperties`
+  - updated definition `FlowNodeConfiguration`
+  - updated definition `FlowNodeType`
+- updated `AWS::Bedrock::FlowAlias`
+  - updated definition `FlowAliasRoutingConfigurationListItem`
+- updated `AWS::Bedrock::FlowVersion`
+  - added definition `AgentFlowNodeConfiguration`
+  - added definition `CollectorFlowNodeConfiguration`
+  - added definition `IteratorFlowNodeConfiguration`
+  - added definition `RetrievalFlowNodeConfiguration`
+  - added definition `RetrievalFlowNodeS3Configuration`
+  - added definition `RetrievalFlowNodeServiceConfiguration`
+  - added definition `StorageFlowNodeConfiguration`
+  - added definition `StorageFlowNodeS3Configuration`
+  - added definition `StorageFlowNodeServiceConfiguration`
+  - added property `CustomerEncryptionKeyArn`
+  - updated `readOnlyProperties`
+  - updated definition `FlowNodeConfiguration`
+  - updated definition `FlowNodeType`
+  - updated handler permissions
+- updated `AWS::Bedrock::PromptVersion`
+  - added definition `TagsMap`
+  - added property `CustomerEncryptionKeyArn`
+  - added property `Tags`
+  - updated `readOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::CleanRooms::ConfiguredTableAssociation`
+  - added `replacementStrategy`
+- updated `AWS::CloudWatch::Alarm`
   - updated definition `Tag`
-  - updated property `TagSpecifications`
-- updated `AWS::Glue::Database`
+  - updated property `Period`
+  - updated property `Tags`
+- updated `AWS::CodeBuild::Fleet`
+  - added property `ImageId`
+  - updated property `ComputeType`
+  - updated property `EnvironmentType`
+- updated `AWS::EC2::CustomerGateway`
+  - updated `tagging`
+  - updated definition `Tag`
+  - updated handler permissions
+- updated `AWS::EC2::DHCPOptions`
+  - updated `tagging`
+- updated `AWS::EC2::InternetGateway`
+  - updated `tagging`
+  - updated definition `Tag`
+- updated `AWS::EC2::KeyPair`
+  - updated definition `Tag`
+- updated `AWS::EC2::NatGateway`
+  - updated definition `Tag`
+- updated `AWS::EC2::NetworkAclEntry`
+  - added `tagging`
+- updated `AWS::EC2::PrefixList`
+  - updated `tagging`
+- updated `AWS::EC2::Subnet`
+  - updated `readOnlyProperties`
+  - updated `tagging`
+- updated `AWS::EC2::VPC`
+  - updated `tagging`
+- updated `AWS::EC2::VPCEndpoint`
+  - updated property `RouteTableIds`
+  - updated property `SecurityGroupIds`
+  - updated property `SubnetIds`
+- updated `AWS::EC2::VPCPeeringConnection`
+  - updated `tagging`
+- updated `AWS::EC2::VPNConnection`
+  - added property `LocalIpv4NetworkCidr`
+  - added property `LocalIpv6NetworkCidr`
+  - added property `OutsideIpAddressType`
+  - added property `RemoteIpv4NetworkCidr`
+  - added property `RemoteIpv6NetworkCidr`
+  - added property `TransportTransitGatewayAttachmentId`
+  - added property `TunnelInsideIpVersion`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated definition `Tag`
+  - updated property `EnableAcceleration`
+- updated `AWS::EC2::VPNGateway`
+  - updated `tagging`
+  - updated definition `Tag`
+  - updated handler permissions
+- updated `AWS::EC2::VPNGatewayRoutePropagation`
   - added `sourceUrl`
   - added `tagging`
-  - added property `DatabaseName`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated definition `DataLakePrincipal`
-  - updated definition `DatabaseIdentifier`
-  - updated definition `DatabaseInput`
-  - updated definition `FederatedDatabase`
-  - updated definition `PrincipalPrivileges`
   - updated handler permissions
-  - updated property `CatalogId`
-  - updated property `DatabaseInput`
-- updated `AWS::IVS::Channel`
+  - updated property `RouteTableIds`
+  - updated property `VpnGatewayId`
+- updated `AWS::EC2::Volume`
+  - updated property `Encrypted`
+  - updated property `Iops`
+  - updated property `MultiAttachEnabled`
+  - updated property `VolumeType`
+- updated `AWS::ECR::Repository`
   - updated `tagging`
+  - updated definition `EncryptionType`
+  - updated definition `KmsKey`
+- updated `AWS::ECS::TaskDefinition`
+  - added definition `RestartPolicy`
+  - updated definition `ContainerDefinition`
+  - updated definition `DockerVolumeConfiguration`
+  - updated definition `HealthCheck`
+  - updated definition `KernelCapabilities`
+  - updated definition `LinuxParameters`
+  - updated definition `LogConfiguration`
+  - updated definition `SystemControl`
+  - updated property `Cpu`
+  - updated property `IpcMode`
+  - updated property `NetworkMode`
+  - updated property `PidMode`
+  - updated property `TaskRoleArn`
+- updated `AWS::EKS::Addon`
+  - updated `tagging`
+- updated `AWS::EKS::PodIdentityAssociation`
+  - updated `tagging`
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - updated `tagging`
+  - updated property `IpAddressType`
+- updated `AWS::EntityResolution::MatchingWorkflow`
+  - added definition `IncrementalRunConfig`
+  - added property `IncrementalRunConfig`
   - updated handler permissions
-  - updated property `Preset`
-- updated `AWS::IVS::EncoderConfiguration`
-  - updated `tagging`
-- updated `AWS::IVS::PlaybackKeyPair`
-  - updated `tagging`
-- updated `AWS::IVS::PlaybackRestrictionPolicy`
-  - updated `tagging`
-- updated `AWS::IVS::RecordingConfiguration`
-  - updated `tagging`
-- updated `AWS::IVS::Stage`
-  - added definition `AutoParticipantRecordingConfiguration`
-  - added property `AutoParticipantRecordingConfiguration`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::IVS::StorageConfiguration`
-  - updated `tagging`
-- updated `AWS::IVS::StreamKey`
-  - updated `tagging`
-- updated `AWS::Location::APIKey`
-  - updated definition `ApiKeyRestrictions`
+- updated `AWS::EntityResolution::SchemaMapping`
+  - updated definition `MappedInputFields`
+- updated `AWS::IoTFleetWise::Campaign`
+  - added definition `MqttTopicConfig`
+  - updated definition `DataDestinationConfig`
+- updated `AWS::IoTFleetWise::DecoderManifest`
+  - updated property `NetworkInterfaces`
+  - updated property `SignalDecoders`
+- updated `AWS::Location::GeofenceCollection`
+  - updated definition `TagMap`
 - updated `AWS::MSK::Replicator`
+  - added definition `ReplicationTopicNameConfigurationType`
+  - added definition `ReplicationTopicNameConfiguration`
+  - updated definition `TopicReplication`
+- updated `AWS::MediaLive::Input`
+  - added definition `SrtCallerDecryptionRequest`
+  - added definition `SrtCallerSourceRequest`
+  - added definition `SrtSettingsRequest`
+  - added property `SrtSettings`
+- updated `AWS::MediaPackageV2::Channel`
+  - updated `tagging`
+- updated `AWS::MediaPackageV2::ChannelGroup`
+  - updated `tagging`
+- updated `AWS::MediaPackageV2::OriginEndpoint`
+  - updated `required`
+  - updated `tagging`
+  - updated definition `DrmSystem`
+- updated `AWS::Neptune::DBCluster`
+  - updated property `KmsKeyId`
+  - updated property `StorageEncrypted`
+- updated `AWS::NetworkManager::ConnectAttachment`
+  - updated `tagging`
+- updated `AWS::NetworkManager::ConnectPeer`
+  - updated `tagging`
+- updated `AWS::NetworkManager::CoreNetwork`
+  - updated `tagging`
+- updated `AWS::NetworkManager::Device`
+  - updated `tagging`
+- updated `AWS::NetworkManager::GlobalNetwork`
+  - updated `tagging`
+- updated `AWS::NetworkManager::Link`
+  - updated `tagging`
+- updated `AWS::NetworkManager::Site`
+  - updated `tagging`
+- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
+  - updated `tagging`
+- updated `AWS::NetworkManager::TransitGatewayPeering`
+  - updated `tagging`
+- updated `AWS::NetworkManager::TransitGatewayRouteTableAttachment`
+  - updated `tagging`
+- updated `AWS::NetworkManager::VpcAttachment`
+  - updated `tagging`
+- updated `AWS::Omics::ReferenceStore`
+  - updated handler permissions
+- updated `AWS::Omics::SequenceStore`
+  - updated handler permissions
+- updated `AWS::OpenSearchService::Domain`
+  - added definition `JWTOptions`
+  - added property `SkipShardMigrationWait`
+  - updated `writeOnlyProperties`
+  - updated definition `AdvancedSecurityOptionsInput`
+- updated `AWS::PaymentCryptography::Key`
+  - updated `tagging`
+  - updated definition `KeyAlgorithm`
+  - updated definition `Tag`
+- updated `AWS::Pipes::Pipe`
   - updated `createOnlyProperties`
   - updated `tagging`
-- updated `AWS::RDS::GlobalCluster`
-  - updated property `GlobalClusterIdentifier`
+  - updated handler permissions
+- updated `AWS::QBusiness::Application`
+  - added definition `AutoSubscriptionConfiguration`
+  - added definition `AutoSubscriptionStatus`
+  - added definition `IdentityType`
+  - added definition `PersonalizationConfiguration`
+  - added definition `PersonalizationControlMode`
+  - added definition `SubscriptionType`
+  - added property `AutoSubscriptionConfiguration`
+  - added property `ClientIdsForOIDC`
+  - added property `IamIdentityProviderArn`
+  - added property `IdentityType`
+  - added property `PersonalizationConfiguration`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::QBusiness::WebExperience`
+  - added definition `IdentityProviderConfiguration`
+  - added definition `OpenIDConnectProviderConfiguration`
+  - added definition `SamlProviderConfiguration`
+  - added property `IdentityProviderConfiguration`
+- updated `AWS::QuickSight::Analysis`
+  - added definition `CategoryInnerFilter`
+  - added definition `InnerFilter`
+  - added definition `NestedFilter`
+  - added definition `SingleAxisOptions`
+  - added definition `SingleYAxisOption`
+  - added definition `TooltipTarget`
+  - updated definition `ColumnTooltipItem`
+  - updated definition `ComboChartConfiguration`
+  - updated definition `FieldTooltipItem`
+  - updated definition `Filter`
+  - updated definition `LineChartConfiguration`
+  - updated handler permissions
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `CategoryInnerFilter`
+  - added definition `InnerFilter`
+  - added definition `NestedFilter`
+  - added definition `SingleAxisOptions`
+  - added definition `SingleYAxisOption`
+  - added definition `TooltipTarget`
+  - updated definition `ColumnTooltipItem`
+  - updated definition `ComboChartConfiguration`
+  - updated definition `FieldTooltipItem`
+  - updated definition `Filter`
+  - updated definition `LineChartConfiguration`
+  - updated handler permissions
+- updated `AWS::QuickSight::DataSet`
+  - updated definition `CalculatedColumn`
+  - updated definition `DataSetRefreshProperties`
+- updated `AWS::QuickSight::DataSource`
+  - updated definition `DataSourceType`
+- updated `AWS::QuickSight::Template`
+  - added definition `CategoryInnerFilter`
+  - added definition `InnerFilter`
+  - added definition `NestedFilter`
+  - added definition `SingleAxisOptions`
+  - added definition `SingleYAxisOption`
+  - added definition `TooltipTarget`
+  - updated definition `ColumnTooltipItem`
+  - updated definition `ComboChartConfiguration`
+  - updated definition `FieldTooltipItem`
+  - updated definition `Filter`
+  - updated definition `LineChartConfiguration`
+- updated `AWS::RDS::DBInstance`
+  - updated property `RestoreTime`
+  - updated property `UseLatestRestorableTime`
+- updated `AWS::SES::ReceiptRule`
+  - updated `required`
+  - updated definition `AddHeaderAction`
+  - updated definition `S3Action`
+- updated `AWS::SageMaker::Domain`
+  - updated definition `MlTools`
+- updated `AWS::SageMaker::UserProfile`
+  - updated definition `MlTools`
+- updated `AWS::SecurityHub::AutomationRule`
+  - added `required`
+  - updated definition `AutomationRulesAction`
+  - updated definition `AutomationRulesFindingFieldsUpdate`
+  - updated definition `AutomationRulesFindingFilters`
+  - updated definition `DateFilter`
+  - updated definition `DateRange`
+  - updated definition `MapFilter`
+  - updated definition `NoteUpdate`
+  - updated definition `NumberFilter`
+  - updated definition `RelatedFinding`
+  - updated definition `SeverityUpdate`
+  - updated definition `StringFilter`
+  - updated definition `WorkflowUpdate`
+  - updated property `Actions`
+  - updated property `Description`
+  - updated property `IsTerminal`
+  - updated property `RuleName`
+  - updated property `RuleOrder`
+  - updated property `Tags`
+- updated `AWS::SecurityHub::DelegatedAdmin`
+  - updated property `AdminAccountId`
+  - updated property `DelegatedAdminIdentifier`
+  - updated property `Status`
+- updated `AWS::SecurityHub::FindingAggregator`
+  - updated property `FindingAggregationRegion`
+  - updated property `FindingAggregatorArn`
+  - updated property `RegionLinkingMode`
+  - updated property `Regions`
+- updated `AWS::SecurityHub::Standard`
+  - updated property `DisabledStandardsControls`
+- updated `AWS::Synthetics::Canary`
+  - updated definition `Code`
+  - updated definition `VPCConfig`
+- updated `AWS::Synthetics::Group`
+  - updated definition `ResourceArn`

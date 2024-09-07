@@ -174,6 +174,25 @@ export type ReplicationStartingPosition = {
  */
 export type ReplicationStartingPositionType = "LATEST" | "EARLIEST";
 /**
+ * Type definition for `AWS::MSK::Replicator.ReplicationTopicNameConfiguration`.
+ * Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationtopicnameconfiguration.html}
+ */
+export type ReplicationTopicNameConfiguration = {
+  /**
+   * The type of replicated topic name.
+   */
+  Type?: ReplicationTopicNameConfigurationType;
+};
+/**
+ * Type definition for `AWS::MSK::Replicator.ReplicationTopicNameConfigurationType`.
+ * The type of replicated topic name.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationtopicnameconfigurationtype.html}
+ */
+export type ReplicationTopicNameConfigurationType =
+  | "PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"
+  | "IDENTICAL";
+/**
  * Type definition for `AWS::MSK::Replicator.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-tag.html}
  */
@@ -209,6 +228,10 @@ export type TopicReplication = {
    * Configuration for specifying the position in the topics to start replicating from.
    */
   StartingPosition?: ReplicationStartingPosition;
+  /**
+   * Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+   */
+  TopicNameConfiguration?: ReplicationTopicNameConfiguration;
   /**
    * List of regular expression patterns indicating the topics that should not be replicated.
    * @minLength `1`

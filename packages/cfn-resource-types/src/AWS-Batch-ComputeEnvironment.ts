@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type BatchComputeEnvironmentProperties = {
   ComputeEnvironmentName?: string;
   ComputeResources?: ComputeResources;
+  Context?: string;
   EksConfiguration?: EksConfiguration;
   ReplaceComputeEnvironment?: boolean;
   ServiceRole?: string;

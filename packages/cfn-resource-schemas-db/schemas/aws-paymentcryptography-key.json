@@ -1,5 +1,5 @@
 {
-  "$hash": "84b851d022c1f6339058403a09567c3abe039265",
+  "$hash": "52ffdc1a003c6b36694660c2f3adf3ee9ff6ef93",
   "$id": "aws-paymentcryptography-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -12,7 +12,9 @@
         "AES_256",
         "RSA_2048",
         "RSA_3072",
-        "RSA_4096"
+        "RSA_4096",
+        "ECC_NIST_P256",
+        "ECC_NIST_P384"
       ],
       "type": "string"
     },
@@ -102,9 +104,9 @@
       "additionalProperties": false,
       "properties": {
         "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
-        "Value": { "maxLength": 256, "minLength": 0, "type": "string" }
+        "Value": { "maxLength": 256, "minLength": 1, "type": "string" }
       },
-      "required": ["Key"],
+      "required": ["Key", "Value"],
       "type": "object"
     }
   },
@@ -173,6 +175,11 @@
   "required": ["Exportable", "KeyAttributes"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "payment-cryptography:ListTagsForResource",
+      "payment-cryptography:TagResource",
+      "payment-cryptography:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

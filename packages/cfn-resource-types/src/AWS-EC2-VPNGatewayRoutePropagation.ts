@@ -5,7 +5,13 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngatewayroutepropagation.html}
  */
 export type EC2VPNGatewayRoutePropagationProperties = {
+  /**
+   * The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to
+   */
   RouteTableIds: string[];
+  /**
+   * The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with
+   */
   VpnGatewayId: string;
 };
 /**

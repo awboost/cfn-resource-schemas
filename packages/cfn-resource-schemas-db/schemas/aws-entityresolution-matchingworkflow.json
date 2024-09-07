@@ -1,5 +1,5 @@
 {
-  "$hash": "f696b18e91259c108af06f52c99caf9b25f0af7f",
+  "$hash": "47526f3760de569a32359154edb1f9680ea930b5",
   "$id": "aws-entityresolution-matchingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
@@ -20,6 +20,14 @@
       "minLength": 0,
       "pattern": "^[a-zA-Z_0-9-]*$",
       "type": "string"
+    },
+    "IncrementalRunConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "IncrementalRunType": { "enum": ["IMMEDIATE"], "type": "string" }
+      },
+      "required": ["IncrementalRunType"],
+      "type": "object"
     },
     "InputSource": {
       "additionalProperties": false,
@@ -202,14 +210,23 @@
         "entityresolution:TagResource",
         "kms:CreateGrant",
         "kms:DescribeKey",
-        "iam:PassRole"
+        "iam:PassRole",
+        "events:PutRule",
+        "events:DeleteRule",
+        "events:PutTargets",
+        "events:ListTargetsByRule"
       ]
     },
     "delete": {
       "permissions": [
         "entityresolution:DeleteMatchingWorkflow",
         "entityresolution:GetMatchingWorkflow",
-        "entityresolution:UntagResource"
+        "entityresolution:UntagResource",
+        "events:PutRule",
+        "events:DeleteRule",
+        "events:PutTargets",
+        "events:RemoveTargets",
+        "events:ListTargetsByRule"
       ]
     },
     "list": { "permissions": ["entityresolution:ListMatchingWorkflows"] },
@@ -228,7 +245,12 @@
         "entityresolution:UntagResource",
         "iam:PassRole",
         "kms:CreateGrant",
-        "kms:DescribeKey"
+        "kms:DescribeKey",
+        "events:PutRule",
+        "events:DeleteRule",
+        "events:PutTargets",
+        "events:RemoveTargets",
+        "events:ListTargetsByRule"
       ]
     }
   },
@@ -239,6 +261,7 @@
       "$ref": "#/definitions/Description",
       "description": "The description of the MatchingWorkflow"
     },
+    "IncrementalRunConfig": { "$ref": "#/definitions/IncrementalRunConfig" },
     "InputSourceConfig": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/InputSource" },

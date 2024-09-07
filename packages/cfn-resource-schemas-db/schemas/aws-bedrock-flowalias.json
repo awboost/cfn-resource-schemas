@@ -1,5 +1,5 @@
 {
-  "$hash": "04e4dc0c91111d0654b7fc44034ed697b6790e81",
+  "$hash": "c7c39448986a58d5aa8aa03769d12691c5b6c94d",
   "$id": "aws-bedrock-flowalias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FlowArn"],
@@ -10,7 +10,7 @@
       "properties": {
         "FlowVersion": {
           "description": "Version.",
-          "maxLength": 1,
+          "maxLength": 5,
           "minLength": 1,
           "pattern": "^(DRAFT|[0-9]{0,4}[1-9][0-9]{0,4})$",
           "type": "string"

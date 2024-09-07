@@ -1,5 +1,5 @@
 {
-  "$hash": "22eea02f55817c5f76d350504a703c05d8a1ddd7",
+  "$hash": "e5cf79f96080efa7f5d9111e37a3332f5cba2de0",
   "$id": "aws-quicksight-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/DataSetId"],
@@ -22,7 +22,7 @@
         },
         "Expression": {
           "description": "<p>An expression that defines the calculated column.</p>",
-          "maxLength": 4096,
+          "maxLength": 250000,
           "minLength": 1,
           "type": "string"
         }
@@ -169,7 +169,6 @@
       "properties": {
         "RefreshConfiguration": { "$ref": "#/definitions/RefreshConfiguration" }
       },
-      "required": ["RefreshConfiguration"],
       "type": "object"
     },
     "DataSetUsageConfiguration": {

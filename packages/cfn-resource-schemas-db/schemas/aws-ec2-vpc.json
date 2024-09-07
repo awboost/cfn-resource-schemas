@@ -1,5 +1,5 @@
 {
-  "$hash": "d0301db2c298f8e3b76bbb6b3224bd0bc4007289",
+  "$hash": "e974f8a29af40e5eb6eb0b00493ee568f3829f22",
   "$id": "aws-ec2-vpc.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/InstanceTenancy"],
@@ -117,6 +117,7 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ec2:DeleteTags", "ec2:CreateTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

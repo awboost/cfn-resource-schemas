@@ -412,7 +412,8 @@ export type MlTools =
   | "JumpStart"
   | "InferenceRecommender"
   | "Endpoints"
-  | "Projects";
+  | "Projects"
+  | "InferenceOptimization";
 /**
  * Type definition for `AWS::SageMaker::Domain.ResourceSpec`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html}

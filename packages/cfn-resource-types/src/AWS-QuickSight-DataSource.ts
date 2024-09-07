@@ -425,7 +425,9 @@ export type DataSourceType =
   | "MONGO"
   | "MONGO_ATLAS"
   | "DOCUMENTDB"
-  | "APPFLOW";
+  | "APPFLOW"
+  | "IMPALA"
+  | "GLUE";
 /**
  * Type definition for `AWS::QuickSight::DataSource.IdentityCenterConfiguration`.
  * <p>The parameters for an IAM Identity Center configuration.</p>

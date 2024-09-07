@@ -1,5 +1,5 @@
 {
-  "$hash": "e92761606024371c09eacf7ed7d7aedac8fbe482",
+  "$hash": "7e61c1abf4d031857f6a72122392e0e43b6a690f",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -347,7 +347,8 @@
         "JumpStart",
         "InferenceRecommender",
         "Endpoints",
-        "Projects"
+        "Projects",
+        "InferenceOptimization"
       ],
       "type": "string"
     },

@@ -1,12 +1,12 @@
 {
-  "$hash": "2ced789c35ced519cfaba41dc241bd4aa227dd4c",
+  "$hash": "9634da6a39c264610feadc2ad651ec41d73dc4a8",
   "$id": "aws-ec2-vpngateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AmazonSideAsn", "/properties/Type"],
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
+      "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
         "Key": { "description": "The tag key.", "type": "string" },
         "Value": { "description": "The tag value.", "type": "string" }
@@ -25,11 +25,7 @@
       ]
     },
     "delete": {
-      "permissions": [
-        "ec2:DeleteVpnGateway",
-        "ec2:DescribeVpnGateways",
-        "ec2:DeleteTags"
-      ]
+      "permissions": ["ec2:DeleteVpnGateway", "ec2:DescribeVpnGateways"]
     },
     "list": { "permissions": ["ec2:DescribeVpnGateways"] },
     "read": { "permissions": ["ec2:DescribeVpnGateways"] },
@@ -66,6 +62,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

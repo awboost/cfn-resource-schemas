@@ -122,6 +122,9 @@ export type DataDestinationConfig =
     }
   | {
       TimestreamConfig: TimestreamConfig;
+    }
+  | {
+      MqttTopicConfig: MqttTopicConfig;
     };
 /**
  * Type definition for `AWS::IoTFleetWise::Campaign.DataFormat`.
@@ -133,6 +136,24 @@ export type DataFormat = "JSON" | "PARQUET";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-diagnosticsmode.html}
  */
 export type DiagnosticsMode = "OFF" | "SEND_ACTIVE_DTCS";
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.MqttTopicConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-mqtttopicconfig.html}
+ */
+export type MqttTopicConfig = {
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:(aws[a-zA-Z0-9-]*):iam::(\d{12})?:(role((\u002F)|(\u002F[\u0021-\u007F]+\u002F))[\w+=,.@-]+)$`
+   */
+  ExecutionRoleArn: string;
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:.*`
+   */
+  MqttTopicArn: string;
+};
 /**
  * Type definition for `AWS::IoTFleetWise::Campaign.S3Config`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html}

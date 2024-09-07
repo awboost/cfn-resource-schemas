@@ -1,5 +1,5 @@
 {
-  "$hash": "99d683d95679ede9da7dafd977effacaf1db369d",
+  "$hash": "f24e135b96a1539bf9662581548d1e8cbd46e886",
   "$id": "aws-ec2-prefixlist.json",
   "additionalProperties": false,
   "definitions": {
@@ -105,7 +105,9 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["EC2:DeleteTags", "EC2:CreateTags"],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

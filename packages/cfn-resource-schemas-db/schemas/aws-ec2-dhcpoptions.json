@@ -1,5 +1,5 @@
 {
-  "$hash": "15177da602e9df3481e6aa8e08f550acc7212684",
+  "$hash": "331e628ee64399d563a2803979bdcd9b1973d87a",
   "$id": "aws-ec2-dhcpoptions.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -91,6 +91,7 @@
   "readOnlyProperties": ["/properties/DhcpOptionsId"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

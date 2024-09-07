@@ -13,18 +13,24 @@ export type CodeBuildFleetProperties = {
     | "BUILD_GENERAL1_SMALL"
     | "BUILD_GENERAL1_MEDIUM"
     | "BUILD_GENERAL1_LARGE"
+    | "BUILD_GENERAL1_XLARGE"
     | "BUILD_GENERAL1_2XLARGE";
   EnvironmentType?:
     | "WINDOWS_SERVER_2019_CONTAINER"
     | "WINDOWS_SERVER_2022_CONTAINER"
     | "LINUX_CONTAINER"
     | "LINUX_GPU_CONTAINER"
-    | "ARM_CONTAINER";
+    | "ARM_CONTAINER"
+    | "MAC_ARM";
   /**
    * @pattern `^(?:arn:)[a-zA-Z+-=,._:/@]+$`
    */
   FleetServiceRole?: string;
   FleetVpcConfig?: VpcConfig;
+  /**
+   * @pattern `^((aws/codebuild/[A-Za-z-]+:[0-9]+(-[0-9._]+)?)|ami-[a-z0-9]{1,1020})$`
+   */
+  ImageId?: string;
   /**
    * @minLength `2`
    * @maxLength `128`

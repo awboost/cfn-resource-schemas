@@ -47,7 +47,9 @@ export type KeyAlgorithm =
   | "AES_256"
   | "RSA_2048"
   | "RSA_3072"
-  | "RSA_4096";
+  | "RSA_4096"
+  | "ECC_NIST_P256"
+  | "ECC_NIST_P384";
 /**
  * Type definition for `AWS::PaymentCryptography::Key.KeyAttributes`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html}
@@ -142,10 +144,10 @@ export type Tag = {
    */
   Key: string;
   /**
-   * @minLength `0`
+   * @minLength `1`
    * @maxLength `256`
    */
-  Value?: string;
+  Value: string;
 };
 /**
  * Definition of AWS::PaymentCryptography::Key Resource Type

@@ -1,5 +1,5 @@
 {
-  "$hash": "28aabf471d63d38747b069638ab0001047de14bd",
+  "$hash": "e00afc5492c242b99e6a6c997c63cbc36c8d00f1",
   "$id": "aws-medialive-input.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc", "/properties/Type"],
@@ -43,6 +43,36 @@
       "additionalProperties": false,
       "properties": { "FlowArn": { "type": "string" } },
       "type": "object"
+    },
+    "SrtCallerDecryptionRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "Algorithm": { "type": "string" },
+        "PassphraseSecretArn": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "SrtCallerSourceRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "Decryption": { "$ref": "#/definitions/SrtCallerDecryptionRequest" },
+        "MinimumLatency": { "type": "integer" },
+        "SrtListenerAddress": { "type": "string" },
+        "SrtListenerPort": { "type": "string" },
+        "StreamId": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "SrtSettingsRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "SrtCallerSources": {
+          "items": { "$ref": "#/definitions/SrtCallerSourceRequest" },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
+      "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::MediaLive::Input",
@@ -77,6 +107,7 @@
       "type": "array",
       "uniqueItems": false
     },
+    "SrtSettings": { "$ref": "#/definitions/SrtSettingsRequest" },
     "Tags": { "type": "object" },
     "Type": { "type": "string" },
     "Vpc": { "$ref": "#/definitions/InputVpcRequest" }

@@ -11,6 +11,7 @@ export type QBusinessWebExperienceProperties = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]{35}$`
    */
   ApplicationId: string;
+  IdentityProviderConfiguration?: IdentityProviderConfiguration;
   /**
    * @minLength `0`
    * @maxLength `1284`
@@ -67,6 +68,47 @@ export type QBusinessWebExperienceAttributes = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]*$`
    */
   WebExperienceId: string;
+};
+/**
+ * Type definition for `AWS::QBusiness::WebExperience.IdentityProviderConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-identityproviderconfiguration.html}
+ */
+export type IdentityProviderConfiguration =
+  | {
+      SamlConfiguration: SamlProviderConfiguration;
+    }
+  | {
+      OpenIDConnectConfiguration: OpenIDConnectProviderConfiguration;
+    };
+/**
+ * Type definition for `AWS::QBusiness::WebExperience.OpenIDConnectProviderConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-openidconnectproviderconfiguration.html}
+ */
+export type OpenIDConnectProviderConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `1284`
+   * @pattern `^arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
+   */
+  SecretsArn: string;
+  /**
+   * @minLength `0`
+   * @maxLength `1284`
+   * @pattern `^arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
+   */
+  SecretsRole: string;
+};
+/**
+ * Type definition for `AWS::QBusiness::WebExperience.SamlProviderConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-samlproviderconfiguration.html}
+ */
+export type SamlProviderConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `1284`
+   * @pattern `^https://.*$`
+   */
+  AuthenticationUrl: string;
 };
 /**
  * Type definition for `AWS::QBusiness::WebExperience.Tag`.

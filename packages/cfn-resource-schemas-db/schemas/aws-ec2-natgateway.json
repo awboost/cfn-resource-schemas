@@ -1,5 +1,5 @@
 {
-  "$hash": "59ccf15f9562f62b2e38d63f0660976378d58126",
+  "$hash": "7fdf394a9d3d7c8924f10c07ada6b7653f980206",
   "$id": "aws-ec2-natgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,7 +11,7 @@
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
+      "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
         "Key": { "description": "The tag key.", "type": "string" },
         "Value": { "description": "The tag value.", "type": "string" }

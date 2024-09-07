@@ -1,5 +1,5 @@
 {
-  "$hash": "10c228c08cd710628d12ef6d32fb65be74d4bbcc",
+  "$hash": "5634acaa65b147af313a2694f280fb5e7a934eca",
   "$id": "aws-pipes-pipe.json",
   "additionalIdentifiers": [["/properties/Arn"]],
   "additionalProperties": false,
@@ -15,10 +15,10 @@
     "/properties/SourceParameters/ManagedStreamingKafkaParameters/TopicName",
     "/properties/SourceParameters/ManagedStreamingKafkaParameters/StartingPosition",
     "/properties/SourceParameters/ManagedStreamingKafkaParameters/ConsumerGroupID",
-    "/properties/SourceParameters/SelfManagedApacheKafkaParameters/TopicName",
-    "/properties/SourceParameters/SelfManagedApacheKafkaParameters/StartingPosition",
-    "/properties/SourceParameters/SelfManagedApacheKafkaParameters/AdditionalBootstrapServers",
-    "/properties/SourceParameters/SelfManagedApacheKafkaParameters/ConsumerGroupID"
+    "/properties/SourceParameters/SelfManagedKafkaParameters/TopicName",
+    "/properties/SourceParameters/SelfManagedKafkaParameters/StartingPosition",
+    "/properties/SourceParameters/SelfManagedKafkaParameters/AdditionalBootstrapServers",
+    "/properties/SourceParameters/SelfManagedKafkaParameters/ConsumerGroupID"
   ],
   "definitions": {
     "AssignPublicIp": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
@@ -1278,7 +1278,10 @@
         "logs:ListLogDeliveries",
         "s3:PutBucketPolicy",
         "s3:GetBucketPolicy",
-        "firehose:TagDeliveryStream"
+        "firehose:TagDeliveryStream",
+        "kms:DescribeKey",
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
       ]
     },
     "delete": {
@@ -1293,7 +1296,7 @@
       ]
     },
     "list": { "permissions": ["pipes:ListPipes"] },
-    "read": { "permissions": ["pipes:DescribePipe"] },
+    "read": { "permissions": ["pipes:DescribePipe", "kms:Decrypt"] },
     "update": {
       "permissions": [
         "pipes:UpdatePipe",
@@ -1312,7 +1315,10 @@
         "logs:ListLogDeliveries",
         "s3:PutBucketPolicy",
         "s3:GetBucketPolicy",
-        "firehose:TagDeliveryStream"
+        "firehose:TagDeliveryStream",
+        "kms:DescribeKey",
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
       ]
     }
   },
@@ -1388,6 +1394,11 @@
   "required": ["RoleArn", "Source", "Target"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "pipes:TagResource",
+      "pipes:UntagResource",
+      "pipes:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

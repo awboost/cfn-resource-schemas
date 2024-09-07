@@ -12,6 +12,7 @@ export type MediaLiveInputProperties = {
   Name?: string;
   RoleArn?: string;
   Sources?: InputSourceRequest[];
+  SrtSettings?: SrtSettingsRequest;
   Tags?: Record<string, any>;
   Type?: string;
   Vpc?: InputVpcRequest;
@@ -61,6 +62,32 @@ export type InputVpcRequest = {
  */
 export type MediaConnectFlowRequest = {
   FlowArn?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.SrtCallerDecryptionRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallerdecryptionrequest.html}
+ */
+export type SrtCallerDecryptionRequest = {
+  Algorithm?: string;
+  PassphraseSecretArn?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.SrtCallerSourceRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallersourcerequest.html}
+ */
+export type SrtCallerSourceRequest = {
+  Decryption?: SrtCallerDecryptionRequest;
+  MinimumLatency?: number;
+  SrtListenerAddress?: string;
+  SrtListenerPort?: string;
+  StreamId?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.SrtSettingsRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html}
+ */
+export type SrtSettingsRequest = {
+  SrtCallerSources?: SrtCallerSourceRequest[];
 };
 /**
  * Resource Type definition for AWS::MediaLive::Input

@@ -12,6 +12,7 @@ export type EntityResolutionMatchingWorkflowProperties = {
    * @maxLength `255`
    */
   Description?: string;
+  IncrementalRunConfig?: IncrementalRunConfig;
   /**
    * @minLength `1`
    * @maxLength `20`
@@ -58,6 +59,13 @@ export type EntityResolutionMatchingWorkflowAttributes = {
    * @pattern `^arn:(aws|aws-us-gov|aws-cn):entityresolution:.*:[0-9]+:(matchingworkflow/.*)$`
    */
   WorkflowArn: string;
+};
+/**
+ * Type definition for `AWS::EntityResolution::MatchingWorkflow.IncrementalRunConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-incrementalrunconfig.html}
+ */
+export type IncrementalRunConfig = {
+  IncrementalRunType: "IMMEDIATE";
 };
 /**
  * Type definition for `AWS::EntityResolution::MatchingWorkflow.InputSource`.

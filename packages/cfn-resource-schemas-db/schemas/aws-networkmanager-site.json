@@ -1,5 +1,5 @@
 {
-  "$hash": "9232ed8e6fb38172f8cb3a134e883be50987b3fd",
+  "$hash": "3bcdc0bfa08eb7b9b170bc773a5a7e145278f60f",
   "$id": "aws-networkmanager-site.json",
   "additionalIdentifiers": [["/properties/SiteArn"]],
   "additionalProperties": false,
@@ -108,6 +108,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-networkmanager.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "networkmanager:TagResource",
+      "networkmanager:UntagResource",
+      "networkmanager:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

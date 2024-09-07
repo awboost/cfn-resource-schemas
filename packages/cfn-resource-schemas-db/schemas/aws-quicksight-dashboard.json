@@ -1,5 +1,5 @@
 {
-  "$hash": "f2a7451f50dc9acec734ea69602151902b99abce",
+  "$hash": "c7d86b95e62bbba579cbd9c66b5ccc1f269d935c",
   "$id": "aws-quicksight-dashboard.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -666,6 +666,20 @@
       "enum": ["FILTER_ALL_VALUES"],
       "type": "string"
     },
+    "CategoryInnerFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "Column": { "$ref": "#/definitions/ColumnIdentifier" },
+        "Configuration": {
+          "$ref": "#/definitions/CategoryFilterConfiguration"
+        },
+        "DefaultFilterControlConfiguration": {
+          "$ref": "#/definitions/DefaultFilterControlConfiguration"
+        }
+      },
+      "required": ["Column", "Configuration"],
+      "type": "object"
+    },
     "ChartAxisLabelOptions": {
       "additionalProperties": false,
       "properties": {
@@ -772,6 +786,7 @@
         "Aggregation": { "$ref": "#/definitions/AggregationFunction" },
         "Column": { "$ref": "#/definitions/ColumnIdentifier" },
         "Label": { "type": "string" },
+        "TooltipTarget": { "$ref": "#/definitions/TooltipTarget" },
         "Visibility": { "$ref": "#/definitions/Visibility" }
       },
       "required": ["Column"],
@@ -838,6 +853,7 @@
         "SecondaryYAxisLabelOptions": {
           "$ref": "#/definitions/ChartAxisLabelOptions"
         },
+        "SingleAxisOptions": { "$ref": "#/definitions/SingleAxisOptions" },
         "SortConfiguration": {
           "$ref": "#/definitions/ComboChartSortConfiguration"
         },
@@ -2296,6 +2312,7 @@
       "properties": {
         "FieldId": { "maxLength": 512, "minLength": 1, "type": "string" },
         "Label": { "type": "string" },
+        "TooltipTarget": { "$ref": "#/definitions/TooltipTarget" },
         "Visibility": { "$ref": "#/definitions/Visibility" }
       },
       "required": ["FieldId"],
@@ -2425,6 +2442,7 @@
       "additionalProperties": false,
       "properties": {
         "CategoryFilter": { "$ref": "#/definitions/CategoryFilter" },
+        "NestedFilter": { "$ref": "#/definitions/NestedFilter" },
         "NumericEqualityFilter": {
           "$ref": "#/definitions/NumericEqualityFilter"
         },
@@ -3705,6 +3723,13 @@
       ],
       "type": "string"
     },
+    "InnerFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "CategoryInnerFilter": { "$ref": "#/definitions/CategoryInnerFilter" }
+      },
+      "type": "object"
+    },
     "InsightConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -4141,6 +4166,7 @@
           "minItems": 0,
           "type": "array"
         },
+        "SingleAxisOptions": { "$ref": "#/definitions/SingleAxisOptions" },
         "SmallMultiplesOptions": {
           "$ref": "#/definitions/SmallMultiplesOptions"
         },
@@ -4470,6 +4496,22 @@
     "NegativeValueDisplayMode": {
       "enum": ["POSITIVE", "NEGATIVE"],
       "type": "string"
+    },
+    "NestedFilter": {
+      "additionalProperties": false,
+      "properties": {
+        "Column": { "$ref": "#/definitions/ColumnIdentifier" },
+        "FilterId": {
+          "maxLength": 512,
+          "minLength": 1,
+          "pattern": "^[\\w\\-]+$",
+          "type": "string"
+        },
+        "IncludeInnerSet": { "default": false, "type": "boolean" },
+        "InnerFilter": { "$ref": "#/definitions/InnerFilter" }
+      },
+      "required": ["Column", "FilterId", "IncludeInnerSet", "InnerFilter"],
+      "type": "object"
     },
     "NullValueFormatConfiguration": {
       "additionalProperties": false,
@@ -6547,6 +6589,14 @@
       "enum": ["DEFAULT", "SUM", "AVERAGE", "MIN", "MAX", "NONE"],
       "type": "string"
     },
+    "SingleAxisOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "YAxisOptions": { "$ref": "#/definitions/YAxisOptions" }
+      },
+      "type": "object"
+    },
+    "SingleYAxisOption": { "enum": ["PRIMARY_Y_AXIS"], "type": "string" },
     "SliderControlDisplayOptions": {
       "additionalProperties": false,
       "properties": {
@@ -7255,6 +7305,7 @@
       },
       "type": "object"
     },
+    "TooltipTarget": { "enum": ["BOTH", "BAR", "LINE"], "type": "string" },
     "TooltipTitleType": { "enum": ["NONE", "PRIMARY_VALUE"], "type": "string" },
     "TopBottomComputationType": { "enum": ["TOP", "BOTTOM"], "type": "string" },
     "TopBottomFilter": {
@@ -7984,6 +8035,9 @@
         "quicksight:DescribeTemplate",
         "quicksight:DescribeTheme",
         "quicksight:PassDataSet",
+        "quicksight:CreateFolderMembership",
+        "quicksight:DeleteFolderMembership",
+        "quicksight:ListFoldersForResource",
         "quicksight:TagResource",
         "quicksight:UntagResource",
         "quicksight:ListTagsForResource"

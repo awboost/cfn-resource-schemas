@@ -6,6 +6,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type QBusinessApplicationProperties = {
   AttachmentsConfiguration?: AttachmentsConfiguration;
+  AutoSubscriptionConfiguration?: AutoSubscriptionConfiguration;
+  ClientIdsForOIDC?: string[];
   /**
    * @minLength `0`
    * @maxLength `1000`
@@ -20,11 +22,19 @@ export type QBusinessApplicationProperties = {
   DisplayName: string;
   EncryptionConfiguration?: EncryptionConfiguration;
   /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:aws:iam::\d{12}:(oidc-provider|saml-provider)/[a-zA-Z0-9_\.\/@\-]+$`
+   */
+  IamIdentityProviderArn?: string;
+  /**
    * @minLength `10`
    * @maxLength `1224`
    * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$`
    */
   IdentityCenterInstanceArn?: string;
+  IdentityType?: IdentityType;
+  PersonalizationConfiguration?: PersonalizationConfiguration;
   QAppsConfiguration?: QAppsConfiguration;
   /**
    * @minLength `0`
@@ -88,6 +98,19 @@ export type AttachmentsConfiguration = {
  */
 export type AttachmentsControlMode = "ENABLED" | "DISABLED";
 /**
+ * Type definition for `AWS::QBusiness::Application.AutoSubscriptionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-autosubscriptionconfiguration.html}
+ */
+export type AutoSubscriptionConfiguration = {
+  AutoSubscribe: AutoSubscriptionStatus;
+  DefaultSubscriptionType?: SubscriptionType;
+};
+/**
+ * Type definition for `AWS::QBusiness::Application.AutoSubscriptionStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-autosubscriptionstatus.html}
+ */
+export type AutoSubscriptionStatus = "ENABLED" | "DISABLED";
+/**
  * Type definition for `AWS::QBusiness::Application.EncryptionConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-encryptionconfiguration.html}
  */
@@ -98,6 +121,26 @@ export type EncryptionConfiguration = {
    */
   KmsKeyId?: string;
 };
+/**
+ * Type definition for `AWS::QBusiness::Application.IdentityType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-identitytype.html}
+ */
+export type IdentityType =
+  | "AWS_IAM_IDP_SAML"
+  | "AWS_IAM_IDP_OIDC"
+  | "AWS_IAM_IDC";
+/**
+ * Type definition for `AWS::QBusiness::Application.PersonalizationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-personalizationconfiguration.html}
+ */
+export type PersonalizationConfiguration = {
+  PersonalizationControlMode: PersonalizationControlMode;
+};
+/**
+ * Type definition for `AWS::QBusiness::Application.PersonalizationControlMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-personalizationcontrolmode.html}
+ */
+export type PersonalizationControlMode = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::QBusiness::Application.QAppsConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappsconfiguration.html}
@@ -110,6 +153,11 @@ export type QAppsConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappscontrolmode.html}
  */
 export type QAppsControlMode = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::QBusiness::Application.SubscriptionType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-subscriptiontype.html}
+ */
+export type SubscriptionType = "Q_LITE" | "Q_BUSINESS";
 /**
  * Type definition for `AWS::QBusiness::Application.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-tag.html}

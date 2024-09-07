@@ -50,7 +50,7 @@ export type EC2CustomerGatewayAttributes = {
 };
 /**
  * Type definition for `AWS::EC2::CustomerGateway.Tag`.
- * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).
+ * Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-customergateway-tag.html}
  */
 export type Tag = {

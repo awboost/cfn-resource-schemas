@@ -6,36 +6,43 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SecurityHubAutomationRuleProperties = {
   /**
+   * One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
    * @minLength `1`
    * @maxLength `1`
    */
-  Actions?: AutomationRulesAction[];
+  Actions: AutomationRulesAction[];
   /**
    * A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
    */
-  Criteria?: AutomationRulesFindingFilters;
+  Criteria: AutomationRulesFindingFilters;
   /**
+   * A description of the rule.
    * @minLength `1`
    * @maxLength `1024`
    */
-  Description?: string;
+  Description: string;
+  /**
+   * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+   */
   IsTerminal?: boolean;
   /**
+   * The name of the rule.
    * @minLength `1`
    * @maxLength `256`
    */
-  RuleName?: string;
+  RuleName: string;
   /**
+   * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
    * @min `1`
    * @max `1000`
    */
-  RuleOrder?: number;
+  RuleOrder: number;
   /**
    * Whether the rule is active after it is created. If this parameter is equal to ``ENABLED``, ASH applies the rule to findings and finding updates after the rule is created.
    */
   RuleStatus?: "ENABLED" | "DISABLED";
   /**
-   * A key-value pair to associate with a resource.
+   * User-defined tags associated with an automation rule.
    */
   Tags?: Tags;
 };
@@ -72,29 +79,33 @@ export type SecurityHubAutomationRuleAttributes = {
 export type arnOrId = string | string;
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.AutomationRulesAction`.
+ * One or more actions to update finding fields if a finding matches the defined criteria of the rule.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html}
  */
 export type AutomationRulesAction = {
   /**
-   * The rule action will update the ``Note`` field of a finding.
+   * Specifies that the automation rule action is an update to a finding field.
    */
   FindingFieldsUpdate: AutomationRulesFindingFieldsUpdate;
+  /**
+   * Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+   */
   Type: "FINDING_FIELDS_UPDATE";
 };
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.AutomationRulesFindingFieldsUpdate`.
- * The rule action will update the ``Note`` field of a finding.
+ * Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfieldsupdate.html}
  */
 export type AutomationRulesFindingFieldsUpdate = {
   /**
-   * Integer from 0 to 100.
+   * The rule action updates the ``Confidence`` field of a finding.
    * @min `0`
    * @max `100`
    */
   Confidence?: number;
   /**
-   * Integer from 0 to 100.
+   * The rule action updates the ``Criticality`` field of a finding.
    * @min `0`
    * @max `100`
    */
@@ -114,13 +125,17 @@ export type AutomationRulesFindingFieldsUpdate = {
    */
   Severity?: SeverityUpdate;
   /**
+   * The rule action updates the ``Types`` field of a finding.
    * @maxLength `50`
    */
   Types?: string[];
   /**
-   * An object of user-defined name and value string pair added to a finding.
+   * The rule action updates the ``UserDefinedFields`` field of a finding.
    */
   UserDefinedFields?: map;
+  /**
+   * The rule action updates the ``VerificationState`` field of a finding.
+   */
   VerificationState?:
     | "UNKNOWN"
     | "TRUE_POSITIVE"
@@ -133,173 +148,302 @@ export type AutomationRulesFindingFieldsUpdate = {
 };
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.AutomationRulesFindingFilters`.
+ * The criteria that determine which findings a rule applies to.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesfindingfilters.html}
  */
 export type AutomationRulesFindingFilters = {
   /**
-   * @maxLength `100`
-   */
+     * The AWS-account ID in which a finding was generated.
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+     * @maxLength `100`
+     */
   AwsAccountId?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The name of the company for the product that generated the finding. For control-based findings, the company is AWS.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   CompanyName?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of the Amazon Resource Name (ARN) returned for a standard in the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API response.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   ComplianceAssociatedStandardsId?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The security control ID for which a finding was generated. Security control IDs are the same across standards.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   ComplianceSecurityControlId?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The result of a security check. This field is only used for findings generated from controls.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   ComplianceStatus?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. ``Confidence`` is scored on a 0–100 basis using a ratio scale. A value of ``0`` means 0 percent confidence, and a value of ``100`` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *User Guide*.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   Confidence?: NumberFilter[];
   /**
-   * @maxLength `20`
-   */
+     * A timestamp that indicates when this finding record was created.
+     This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+      +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+      +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+      
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   CreatedAt?: DateFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   Criticality?: NumberFilter[];
   /**
-   * @maxLength `20`
-   */
+     * A finding's description.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   Description?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
+     This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+      +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+      +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+      
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   FirstObservedAt?: DateFilter[];
   /**
-   * @maxLength `100`
-   */
+     * The identifier for the solution-specific component that generated a finding.
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+     * @maxLength `100`
+     */
   GeneratorId?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The product-specific identifier for a finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   Id?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
+     This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+      +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+      +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+      
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   LastObservedAt?: DateFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The text of a user-defined note that's added to a finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   NoteText?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The timestamp of when the note was updated.
+     This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+      +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+      +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+      
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   NoteUpdatedAt?: DateFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The principal that created a note.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   NoteUpdatedBy?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   ProductArn?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   ProductName?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * Provides the current state of a finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   RecordState?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The product-generated identifier for a related finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   RelatedFindingsId?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The ARN for the product that generated a related finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   RelatedFindingsProductArn?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * Custom fields and values about the resource that a finding pertains to.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   ResourceDetailsOther?: MapFilter[];
   /**
-   * @maxLength `100`
-   */
+     * The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS-service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource.
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+     * @maxLength `100`
+     */
   ResourceId?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The partition in which the resource that the finding pertains to is located. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   ResourcePartition?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The AWS-Region where the resource that a finding pertains to is located.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   ResourceRegion?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * A list of AWS tags associated with a resource at the time the finding was processed.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   ResourceTags?: MapFilter[];
   /**
-   * @maxLength `20`
-   */
+     * A finding's title.
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+     * @maxLength `20`
+     */
   ResourceType?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * The severity value of the finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   SeverityLabel?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * Provides a URL that links to a page about the current finding in the finding product.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   SourceUrl?: StringFilter[];
   /**
-   * @maxLength `100`
-   */
+     * A finding's title.
+      Array Members: Minimum number of 1 item. Maximum number of 100 items.
+     * @maxLength `100`
+     */
   Title?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * One or more finding types in the format of namespace/category/classifier that classify a finding. For a list of namespaces, classifiers, and categories, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   Type?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * A timestamp that indicates when the finding record was most recently updated.
+     This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+      +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+      +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+      
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   UpdatedAt?: DateFilter[];
   /**
-   * @maxLength `20`
-   */
+     * A list of user-defined name and value string pairs added to a finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   UserDefinedFields?: MapFilter[];
   /**
-   * @maxLength `20`
-   */
+     * Provides the veracity of a finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   VerificationState?: StringFilter[];
   /**
-   * @maxLength `20`
-   */
+     * Provides information about the status of the investigation into a finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     * @maxLength `20`
+     */
   WorkflowStatus?: StringFilter[];
 };
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.DateFilter`.
+ * A date filter for querying findings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-datefilter.html}
  */
 export type DateFilter = {
+  /**
+   * A date range for the date filter.
+   */
   DateRange?: DateRange;
   /**
-   * The date and time, in UTC and ISO 8601 format.
-   * @pattern `^(\d\d\d\d)-([0][1-9]|[1][0-2])-([0][1-9]|[1-2](\d)|[3][0-1])[T](?:([0-1](\d)|[2][0-3]):[0-5](\d):[0-5](\d)|23:59:60)(?:\.(\d)+)?([Z]|[+-](\d\d)(:?(\d\d))?)$`
-   */
+     * A timestamp that provides the end date for the date filter.
+     This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+      +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+      +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+     * @pattern `^(\d\d\d\d)-([0][1-9]|[1][0-2])-([0][1-9]|[1-2](\d)|[3][0-1])[T](?:([0-1](\d)|[2][0-3]):[0-5](\d):[0-5](\d)|23:59:60)(?:\.(\d)+)?([Z]|[+-](\d\d)(:?(\d\d))?)$`
+     */
   End?: string;
   /**
-   * The date and time, in UTC and ISO 8601 format.
-   * @pattern `^(\d\d\d\d)-([0][1-9]|[1][0-2])-([0][1-9]|[1-2](\d)|[3][0-1])[T](?:([0-1](\d)|[2][0-3]):[0-5](\d):[0-5](\d)|23:59:60)(?:\.(\d)+)?([Z]|[+-](\d\d)(:?(\d\d))?)$`
-   */
+     * A timestamp that provides the start date for the date filter.
+     This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+      +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
+      +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
+      +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
+      +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+     * @pattern `^(\d\d\d\d)-([0][1-9]|[1][0-2])-([0][1-9]|[1-2](\d)|[3][0-1])[T](?:([0-1](\d)|[2][0-3]):[0-5](\d):[0-5](\d)|23:59:60)(?:\.(\d)+)?([Z]|[+-](\d\d)(:?(\d\d))?)$`
+     */
   Start?: string;
 };
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.DateRange`.
+ * A date range for the date filter.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-daterange.html}
  */
 export type DateRange = {
+  /**
+   * A date range unit for the date filter.
+   */
   Unit: "DAYS";
+  /**
+   * A date range value for the date filter.
+   */
   Value: number;
 };
 /**
@@ -310,35 +454,70 @@ export type DateRange = {
 export type map = Record<string, string>;
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.MapFilter`.
+ * A map filter for filtering ASHlong findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-mapfilter.html}
  */
 export type MapFilter = {
+  /**
+     * The condition to apply to the key value when filtering Security Hub findings with a map filter.
+     To search for values that have the filter value, use one of the following comparison operators:
+      +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
+      +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
+      
+      ``CONTAINS`` and ``EQUALS`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Department CONTAINS Security OR Department CONTAINS Finance`` match a finding that includes either ``Security``, ``Finance``, or both values.
+     To search for values that don't have the filter value, use one of the following comparison operators:
+      +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_CONTAINS Finance`` matches findings that exclude the value ``Finance`` for the ``Department`` tag.
+      +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department NOT_EQUALS Finance`` matches findings that don’t have the value ``Finance`` for the ``Department`` tag.
+      
+      ``NOT_CONTAINS`` and ``NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Department NOT_CONTAINS Security AND Department NOT_CONTAINS Finance`` match a finding that excludes both the ``Security`` and ``Finance`` values.
+      ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+     You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can’t have both an ``EQUALS`` filter and a ``NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error.
+      ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+     */
   Comparison: "EQUALS" | "NOT_EQUALS" | "CONTAINS" | "NOT_CONTAINS";
+  /**
+   * The key of the map filter. For example, for ``ResourceTags``, ``Key`` identifies the name of the tag. For ``UserDefinedFields``, ``Key`` is the name of the field.
+   */
   Key: string;
+  /**
+   * The value for the key in the map filter. Filter values are case sensitive. For example, one of the values for a tag called ``Department`` might be ``Security``. If you provide ``security`` as the filter value, then there's no match.
+   */
   Value: string;
 };
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.NoteUpdate`.
+ * The updated note.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-noteupdate.html}
  */
 export type NoteUpdate = {
   /**
+   * The updated note text.
    * @minLength `1`
    * @maxLength `512`
    */
   Text: string;
   /**
-   * The Amazon Resource Name (ARN) or Id of the automation rule.
+   * The principal that updated the note.
    */
   UpdatedBy: arnOrId;
 };
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.NumberFilter`.
+ * A number filter for querying findings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-numberfilter.html}
  */
 export type NumberFilter = {
+  /**
+   * The equal-to condition to be applied to a single field when querying for findings.
+   */
   Eq?: number;
+  /**
+   * The greater-than-equal condition to be applied to a single field when querying for findings.
+   */
   Gte?: number;
+  /**
+   * The less-than-equal condition to be applied to a single field when querying for findings.
+   */
   Lte?: number;
 };
 /**
@@ -348,8 +527,9 @@ export type NumberFilter = {
  */
 export type RelatedFinding = {
   /**
-   * The Amazon Resource Name (ARN) or Id of the automation rule.
-   */
+     * The product-generated identifier for a related finding.
+      Array Members: Minimum number of 1 item. Maximum number of 20 items.
+     */
   Id: arnOrId;
   /**
    * The Amazon Resource Name (ARN) for the product that generated a related finding.
@@ -361,27 +541,70 @@ export type RelatedFinding = {
 };
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.SeverityUpdate`.
+ * Updates to the severity information for a finding.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-severityupdate.html}
  */
 export type SeverityUpdate = {
+  /**
+     * The severity value of the finding. The allowed values are the following.
+      +   ``INFORMATIONAL`` - No issue was found.
+      +   ``LOW`` - The issue does not require action on its own.
+      +   ``MEDIUM`` - The issue must be addressed but not urgently.
+      +   ``HIGH`` - The issue must be addressed as a priority.
+      +   ``CRITICAL`` - The issue must be remediated immediately to avoid it escalating.
+     */
   Label?: "INFORMATIONAL" | "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
   /**
-   * Integer from 0 to 100.
-   * @min `0`
-   * @max `100`
-   */
+     * The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
+     If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+      +  0 - ``INFORMATIONAL``
+      +  1–39 - ``LOW``
+      +  40–69 - ``MEDIUM``
+      +  70–89 - ``HIGH``
+      +  90–100 - ``CRITICAL``
+     * @min `0`
+     * @max `100`
+     */
   Normalized?: number;
+  /**
+   * The native severity as defined by the AWS service or integrated partner product that generated the finding.
+   */
   Product?: number;
 };
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.StringFilter`.
+ * A string filter for filtering ASHlong findings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-stringfilter.html}
  */
 export type StringFilter = {
   /**
-   * The condition to apply to a string value when filtering Security Hub findings.
-   */
+     * The condition to apply to a string value when filtering Security Hub findings.
+     To search for values that have the filter value, use one of the following comparison operators:
+      +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
+      +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
+      +  To search for values that start with the filter value, use ``PREFIX``. For example, the filter ``ResourceRegion PREFIX us`` matches findings that have a ``ResourceRegion`` that starts with ``us``. A ``ResourceRegion`` that starts with a different value, such as ``af``, ``ap``, or ``ca``, doesn't match.
+      
+      ``CONTAINS``, ``EQUALS``, and ``PREFIX`` filters on the same field are joined by ``OR``. A finding matches if it matches any one of those filters. For example, the filters ``Title CONTAINS CloudFront OR Title CONTAINS CloudWatch`` match a finding that includes either ``CloudFront``, ``CloudWatch``, or both strings in the title.
+     To search for values that don’t have the filter value, use one of the following comparison operators:
+      +  To search for values that exclude the filter value, use ``NOT_CONTAINS``. For example, the filter ``Title NOT_CONTAINS CloudFront`` matches findings that have a ``Title`` that excludes the string CloudFront.
+      +  To search for values other than the filter value, use ``NOT_EQUALS``. For example, the filter ``AwsAccountId NOT_EQUALS 123456789012`` only matches findings that have an account ID other than ``123456789012``.
+      +  To search for values that don't start with the filter value, use ``PREFIX_NOT_EQUALS``. For example, the filter ``ResourceRegion PREFIX_NOT_EQUALS us`` matches findings with a ``ResourceRegion`` that starts with a value other than ``us``.
+      
+      ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
+     You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
+     You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+     For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+      +   ``ResourceType PREFIX AwsIam``
+      +   ``ResourceType PREFIX AwsEc2``
+      +   ``ResourceType NOT_EQUALS AwsIamPolicy``
+      +   ``ResourceType NOT_EQUALS AwsEc2NetworkInterface``
+      
+      ``CONTAINS`` and ``NOT_CONTAINS`` operators can be used only with automation rules. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+     */
   Comparison: StringFilterComparison;
+  /**
+   * The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+   */
   Value: string;
 };
 /**
@@ -404,9 +627,22 @@ export type StringFilterComparison =
 export type Tags = Record<string, string>;
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.WorkflowUpdate`.
+ * Used to update information about the investigation into the finding.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-workflowupdate.html}
  */
 export type WorkflowUpdate = {
+  /**
+     * The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
+     The allowed values are the following.
+      +   ``NEW`` - The initial state of a finding, before it is reviewed.
+     Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+      +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
+      +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
+      
+      +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
+      +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
+      +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+     */
   Status: "NEW" | "NOTIFIED" | "RESOLVED" | "SUPPRESSED";
 };
 /**

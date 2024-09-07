@@ -1,5 +1,5 @@
 {
-  "$hash": "eb0cecda3dd3cd21955cb3f45a198f6eb73609b3",
+  "$hash": "35b5b9ddb4e4058b377d32bf4f552294c5c6f9e7",
   "$id": "aws-entityresolution-schemamapping.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SchemaName"],
@@ -29,7 +29,7 @@
     "MappedInputFields": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/SchemaInputAttribute" },
-      "maxItems": 25,
+      "maxItems": 35,
       "minItems": 2,
       "type": "array"
     },

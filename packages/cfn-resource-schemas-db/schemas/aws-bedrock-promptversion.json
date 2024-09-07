@@ -1,5 +1,5 @@
 {
-  "$hash": "7b237221b4cbff95098362e6acefd76aa7ddebf4",
+  "$hash": "bc87eb470606bf95d4412e1c1ec28ccde7891ec7",
   "$id": "aws-bedrock-promptversion.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PromptArn", "/properties/Description"],
@@ -117,6 +117,20 @@
       "required": ["Name", "TemplateType"],
       "type": "object"
     },
+    "TagsMap": {
+      "additionalProperties": false,
+      "description": "A map of tag keys and values",
+      "patternProperties": {
+        "^[a-zA-Z0-9\\s._:/=+@-]*$": {
+          "description": "Value of a tag",
+          "maxLength": 256,
+          "minLength": 0,
+          "pattern": "^[a-zA-Z0-9\\s._:/=+@-]*$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "TextPromptTemplateConfiguration": {
       "additionalProperties": false,
       "description": "Configuration for text prompt template",
@@ -143,7 +157,14 @@
   "description": "Definition of AWS::Bedrock::PromptVersion Resource Type",
   "handlers": {
     "create": {
-      "permissions": ["bedrock:CreatePromptVersion", "bedrock:GetPrompt"]
+      "permissions": [
+        "bedrock:CreatePromptVersion",
+        "bedrock:GetPrompt",
+        "bedrock:TagResource",
+        "bedrock:ListTagsForResource",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ]
     },
     "delete": { "permissions": ["bedrock:DeletePrompt", "bedrock:GetPrompt"] },
     "list": {
@@ -155,7 +176,13 @@
       },
       "permissions": ["bedrock:ListPrompts"]
     },
-    "read": { "permissions": ["bedrock:GetPrompt"] },
+    "read": {
+      "permissions": [
+        "bedrock:GetPrompt",
+        "bedrock:ListTagsForResource",
+        "kms:Decrypt"
+      ]
+    },
     "update": { "permissions": ["noservice:NoAction"] }
   },
   "primaryIdentifier": ["/properties/Arn"],
@@ -170,6 +197,13 @@
     "CreatedAt": {
       "description": "Time Stamp.",
       "format": "date-time",
+      "type": "string"
+    },
+    "CustomerEncryptionKeyArn": {
+      "description": "A KMS key ARN",
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$",
       "type": "string"
     },
     "DefaultVariant": {
@@ -200,6 +234,7 @@
       "pattern": "^[0-9a-zA-Z]{10}$",
       "type": "string"
     },
+    "Tags": { "$ref": "#/definitions/TagsMap" },
     "UpdatedAt": {
       "description": "Time Stamp.",
       "format": "date-time",
@@ -229,10 +264,18 @@
     "/properties/Version",
     "/properties/Name",
     "/properties/DefaultVariant",
-    "/properties/Variants"
+    "/properties/Variants",
+    "/properties/CustomerEncryptionKeyArn"
   ],
   "required": ["PromptArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-bedrock-prompts",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["bedrock:TagResource", "bedrock:ListTagsForResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::Bedrock::PromptVersion"
 }

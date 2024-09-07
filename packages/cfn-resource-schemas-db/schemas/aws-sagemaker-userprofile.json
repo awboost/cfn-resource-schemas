@@ -1,5 +1,5 @@
 {
-  "$hash": "60365632b032c2a51abe04c2fc281a1c432a6cf4",
+  "$hash": "6f8046d50515c32d4e182d32de48a12c18fead7a",
   "$id": "aws-sagemaker-userprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -242,7 +242,8 @@
         "JumpStart",
         "InferenceRecommender",
         "Endpoints",
-        "Projects"
+        "Projects",
+        "InferenceOptimization"
       ],
       "type": "string"
     },

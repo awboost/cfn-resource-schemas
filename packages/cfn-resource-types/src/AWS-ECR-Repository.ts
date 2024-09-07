@@ -78,7 +78,7 @@ export type EncryptionConfiguration = {
  * The encryption type to use.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptiontype.html}
  */
-export type EncryptionType = "AES256" | "KMS";
+export type EncryptionType = "AES256" | "KMS" | "KMS_DSSE";
 /**
  * Type definition for `AWS::ECR::Repository.ImageScanningConfiguration`.
  * The image scanning configuration for a repository.

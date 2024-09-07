@@ -1,5 +1,5 @@
 {
-  "$hash": "a7cf256cadbf5bd7041964d16c564e1ab92ac15d",
+  "$hash": "b66c220990e94c8e9e9c97db3789f87170a549d7",
   "$id": "aws-batch-computeenvironment.json",
   "additionalIdentifiers": [["/properties/ComputeEnvironmentName"]],
   "additionalProperties": false,
@@ -154,6 +154,7 @@
     "ComputeEnvironmentArn": { "type": "string" },
     "ComputeEnvironmentName": { "type": "string" },
     "ComputeResources": { "$ref": "#/definitions/ComputeResources" },
+    "Context": { "type": "string" },
     "EksConfiguration": { "$ref": "#/definitions/EksConfiguration" },
     "ReplaceComputeEnvironment": { "default": true, "type": "boolean" },
     "ServiceRole": { "type": "string" },

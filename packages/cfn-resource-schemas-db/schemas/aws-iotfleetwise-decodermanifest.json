@@ -1,5 +1,5 @@
 {
-  "$hash": "b5abf25de4060b4f756fb78be86992ed46448ac8",
+  "$hash": "edfcc03b9ef5bbf1788ddf4ca2f4c33720442140",
   "$id": "aws-iotfleetwise-decodermanifest.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ModelManifestArn"],
@@ -203,7 +203,8 @@
       "items": {
         "oneOf": [
           { "$ref": "#/definitions/CanNetworkInterface" },
-          { "$ref": "#/definitions/ObdNetworkInterface" }
+          { "$ref": "#/definitions/ObdNetworkInterface" },
+          { "$ref": "#/definitions/CustomDecodingNetworkInterface" }
         ]
       },
       "maxItems": 500,
@@ -215,7 +216,8 @@
       "items": {
         "oneOf": [
           { "$ref": "#/definitions/CanSignalDecoder" },
-          { "$ref": "#/definitions/ObdSignalDecoder" }
+          { "$ref": "#/definitions/ObdSignalDecoder" },
+          { "$ref": "#/definitions/CustomDecodingSignalDecoder" }
         ]
       },
       "maxItems": 500,

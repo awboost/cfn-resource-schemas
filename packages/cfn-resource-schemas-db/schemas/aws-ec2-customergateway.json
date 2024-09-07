@@ -1,5 +1,5 @@
 {
-  "$hash": "b84dba287a79919a2ced6d0fd89bec0eb49e1957",
+  "$hash": "45cc8425aaa63a72dc909800703f57f6cd8d2ee7",
   "$id": "aws-ec2-customergateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -13,7 +13,7 @@
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
+      "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
         "Key": { "description": "The tag key.", "type": "string" },
         "Value": { "description": "The tag value.", "type": "string" }
@@ -34,8 +34,7 @@
     "delete": {
       "permissions": [
         "ec2:DeleteCustomerGateway",
-        "ec2:DescribeCustomerGateways",
-        "ec2:DeleteTags"
+        "ec2:DescribeCustomerGateways"
       ]
     },
     "list": { "permissions": ["ec2:DescribeCustomerGateways"] },
@@ -92,6 +91,7 @@
   "required": ["IpAddress", "Type"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

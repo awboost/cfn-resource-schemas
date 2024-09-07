@@ -1,5 +1,5 @@
 {
-  "$hash": "0a91abc5c9e0f594c62331eebd8baba820d74eb4",
+  "$hash": "684312786473461158b7b6adbe68def9621a89a5",
   "$id": "aws-eks-podidentityassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -114,6 +114,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-eks.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["eks:TagResource", "sqs:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

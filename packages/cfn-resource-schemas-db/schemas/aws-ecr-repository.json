@@ -1,5 +1,5 @@
 {
-  "$hash": "5f1091b83073e6ef9a7a33ca14c0b7102d539bb0",
+  "$hash": "88d342bf97a1c2173df559bd4fbfa74671221dd0",
   "$id": "aws-ecr-repository.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -31,7 +31,7 @@
     },
     "EncryptionType": {
       "description": "The encryption type to use.",
-      "enum": ["AES256", "KMS"],
+      "enum": ["AES256", "KMS", "KMS_DSSE"],
       "type": "string"
     },
     "ImageScanningConfiguration": {
@@ -46,7 +46,7 @@
       "type": "object"
     },
     "KmsKey": {
-      "description": "If you use the KMS encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.",
+      "description": "If you use the KMS or KMS_DSSE encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.",
       "maxLength": 2048,
       "minLength": 1,
       "type": "string"
@@ -194,6 +194,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ecr.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ecr:TagResource", "ecr:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,5 +1,5 @@
 {
-  "$hash": "ca9b086eca2c000518e7587163d629bf8b7d8314",
+  "$hash": "9d46b0750c7e62918e2dbe1cd565e855b668e0b0",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -15,6 +15,7 @@
         "AnonymousAuthEnabled": { "type": "boolean" },
         "Enabled": { "type": "boolean" },
         "InternalUserDatabaseEnabled": { "type": "boolean" },
+        "JWTOptions": { "$ref": "#/definitions/JWTOptions" },
         "MasterUserOptions": { "$ref": "#/definitions/MasterUserOptions" },
         "SAMLOptions": { "$ref": "#/definitions/SAMLOptions" }
       },
@@ -94,6 +95,16 @@
         }
       },
       "required": ["MetadataContent", "EntityId"],
+      "type": "object"
+    },
+    "JWTOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "Enabled": { "type": "boolean" },
+        "PublicKey": { "type": "string" },
+        "RolesKey": { "type": "string" },
+        "SubjectKey": { "type": "string" }
+      },
       "type": "object"
     },
     "LogPublishingOption": {
@@ -290,6 +301,7 @@
     "ServiceSoftwareOptions": {
       "$ref": "#/definitions/ServiceSoftwareOptions"
     },
+    "SkipShardMigrationWait": { "type": "boolean" },
     "SnapshotOptions": { "$ref": "#/definitions/SnapshotOptions" },
     "SoftwareUpdateOptions": { "$ref": "#/definitions/SoftwareUpdateOptions" },
     "Tags": {
@@ -315,6 +327,7 @@
   "writeOnlyProperties": [
     "/properties/AdvancedSecurityOptions/MasterUserOptions",
     "/properties/AdvancedSecurityOptions/SAMLOptions/MasterUserName",
-    "/properties/AdvancedSecurityOptions/SAMLOptions/MasterBackendRole"
+    "/properties/AdvancedSecurityOptions/SAMLOptions/MasterBackendRole",
+    "/properties/AdvancedSecurityOptions/JWTOptions/PublicKey"
   ]
 }

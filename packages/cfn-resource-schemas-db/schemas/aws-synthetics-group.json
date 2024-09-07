@@ -1,12 +1,12 @@
 {
-  "$hash": "9e3545c728f928d8dd20ef7fe0de953a5070f415",
+  "$hash": "7adbf80874bc8ac2fffb8ba05763f68a496a87de",
   "$id": "aws-synthetics-group.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "ResourceArn": {
       "description": "Provide Canary Arn associated with the group.",
-      "pattern": "arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:canary:[0-9a-z_\\-]",
+      "pattern": "arn:(aws[a-zA-Z-]*)?:synthetics:[a-z]{2}((-gov)|(-iso(b|e|f?)))?-[a-z]+-\\d{1}:\\d{12}:canary:[0-9a-z_\\-]",
       "type": "string"
     },
     "Tag": {

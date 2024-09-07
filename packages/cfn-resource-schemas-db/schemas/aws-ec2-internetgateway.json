@@ -1,11 +1,11 @@
 {
-  "$hash": "e7449db54c48d708e2b43dd76f2fb7dddf4a2697",
+  "$hash": "9e5e6afda443d47dd21c3f12b8d4691e6db22e97",
   "$id": "aws-ec2-internetgateway.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
+      "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
         "Key": {
           "description": "The tag key.",
@@ -63,6 +63,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

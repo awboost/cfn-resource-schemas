@@ -15,7 +15,7 @@ export type EntityResolutionSchemaMappingProperties = {
   /**
    * The SchemaMapping attributes input
    * @minLength `2`
-   * @maxLength `25`
+   * @maxLength `35`
    */
   MappedInputFields: SchemaInputAttribute[];
   /**

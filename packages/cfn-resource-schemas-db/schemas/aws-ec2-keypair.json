@@ -1,5 +1,5 @@
 {
-  "$hash": "49df2c53af86a7cc3a49372b5ca5bd0c312bb276",
+  "$hash": "4f217c2006a1de5fa540ba8fc070cd41ae3c4d23",
   "$id": "aws-ec2-keypair.json",
   "additionalIdentifiers": [["/properties/KeyPairId"]],
   "additionalProperties": false,
@@ -13,7 +13,7 @@
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
+      "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
         "Key": {
           "description": "The tag key.",

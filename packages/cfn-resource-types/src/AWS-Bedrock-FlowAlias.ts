@@ -74,7 +74,7 @@ export type FlowAliasRoutingConfigurationListItem = {
   /**
    * Version.
    * @minLength `1`
-   * @maxLength `1`
+   * @maxLength `5`
    * @pattern `^(DRAFT|[0-9]{0,4}[1-9][0-9]{0,4})$`
    */
   FlowVersion?: string;

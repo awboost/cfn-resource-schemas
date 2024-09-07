@@ -20,6 +20,7 @@ export type OpenSearchServiceDomainProperties = {
   LogPublishingOptions?: Record<string, LogPublishingOption>;
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
   OffPeakWindowOptions?: OffPeakWindowOptions;
+  SkipShardMigrationWait?: boolean;
   SnapshotOptions?: SnapshotOptions;
   SoftwareUpdateOptions?: SoftwareUpdateOptions;
   /**
@@ -61,6 +62,7 @@ export type AdvancedSecurityOptionsInput = {
   AnonymousAuthEnabled?: boolean;
   Enabled?: boolean;
   InternalUserDatabaseEnabled?: boolean;
+  JWTOptions?: JWTOptions;
   MasterUserOptions?: MasterUserOptions;
   SAMLOptions?: SAMLOptions;
 };
@@ -140,6 +142,16 @@ export type Idp = {
    * @maxLength `1048576`
    */
   MetadataContent: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.JWTOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html}
+ */
+export type JWTOptions = {
+  Enabled?: boolean;
+  PublicKey?: string;
+  RolesKey?: string;
+  SubjectKey?: string;
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.LogPublishingOption`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "a67745e93dd8447b2b8c2ec36996a0c40c7054ad",
+  "$hash": "3ae1e3f12c6bae0ba72f2aaad13157dbc65494b3",
   "$id": "aws-appintegrations-application.json",
   "additionalProperties": false,
   "definitions": {
@@ -144,7 +144,7 @@
     }
   },
   "readOnlyProperties": ["/properties/ApplicationArn", "/properties/Id"],
-  "required": ["Name", "Description", "ApplicationSourceConfig"],
+  "required": ["Name", "Namespace", "Description", "ApplicationSourceConfig"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,

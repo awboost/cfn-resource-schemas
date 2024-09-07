@@ -1,5 +1,5 @@
 {
-  "$hash": "30819e1472149e851e25e6c9a411de310695e926",
+  "$hash": "7bfa94d21fd90c380acc1b9785cd73ead42ab11c",
   "$id": "aws-ec2-subnet.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/Ipv6CidrBlock"],
@@ -144,11 +144,13 @@
   },
   "readOnlyProperties": [
     "/properties/NetworkAclAssociationId",
-    "/properties/SubnetId"
+    "/properties/SubnetId",
+    "/properties/Ipv6CidrBlocks"
   ],
   "required": ["VpcId"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

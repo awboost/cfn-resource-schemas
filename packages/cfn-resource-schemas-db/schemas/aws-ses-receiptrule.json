@@ -1,5 +1,5 @@
 {
-  "$hash": "a1d456ac67e57d178fc51aaea8533985ea17a00b",
+  "$hash": "c561ce280fbd0172dcd8506c0221a85def4b9a81",
   "$id": "aws-ses-receiptrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleSetName"],
@@ -23,7 +23,7 @@
         "HeaderName": { "type": "string" },
         "HeaderValue": { "type": "string" }
       },
-      "required": ["HeaderName", "HeaderValue"],
+      "required": ["HeaderValue", "HeaderName"],
       "type": "object"
     },
     "BounceAction": {
@@ -72,6 +72,7 @@
       "additionalProperties": false,
       "properties": {
         "BucketName": { "type": "string" },
+        "IamRoleArn": { "type": "string" },
         "KmsKeyArn": { "type": "string" },
         "ObjectKeyPrefix": { "type": "string" },
         "TopicArn": { "type": "string" }
@@ -115,6 +116,6 @@
     "RuleSetName": { "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": ["RuleSetName", "Rule"],
+  "required": ["Rule", "RuleSetName"],
   "typeName": "AWS::SES::ReceiptRule"
 }

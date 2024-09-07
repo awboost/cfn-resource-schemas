@@ -1,5 +1,5 @@
 {
-  "$hash": "17a774ae25163ac7b3fece8a68aa85e4c4a50ef7",
+  "$hash": "bd8ef0c9877b113cbacde71fb37a50a8fca81cfd",
   "$id": "aws-quicksight-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -270,7 +270,9 @@
         "MONGO",
         "MONGO_ATLAS",
         "DOCUMENTDB",
-        "APPFLOW"
+        "APPFLOW",
+        "IMPALA",
+        "GLUE"
       ],
       "type": "string"
     },

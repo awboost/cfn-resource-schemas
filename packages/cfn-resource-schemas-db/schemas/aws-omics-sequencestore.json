@@ -1,5 +1,5 @@
 {
-  "$hash": "f2d7323aca161867cdd39edc3f35647194f52a60",
+  "$hash": "291c6157d09497504b19fd9eca6086479d01430d",
   "$id": "aws-omics-sequencestore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -38,7 +38,11 @@
   "description": "Definition of AWS::Omics::SequenceStore Resource Type",
   "handlers": {
     "create": {
-      "permissions": ["omics:CreateSequenceStore", "omics:TagResource"]
+      "permissions": [
+        "omics:CreateSequenceStore",
+        "omics:TagResource",
+        "kms:DescribeKey"
+      ]
     },
     "delete": { "permissions": ["omics:DeleteSequenceStore"] },
     "list": { "permissions": ["omics:ListSequenceStores"] },

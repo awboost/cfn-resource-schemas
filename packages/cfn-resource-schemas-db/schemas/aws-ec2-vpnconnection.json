@@ -1,5 +1,5 @@
 {
-  "$hash": "abea13c90fb73a83e2ffede6aaf81866311d7550",
+  "$hash": "19bc2b689fd56c58e19328046d1deb47e91ad7ab",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -9,13 +9,20 @@
     "/properties/VpnGatewayId",
     "/properties/TransitGatewayId",
     "/properties/EnableAcceleration",
-    "/properties/VpnTunnelOptionsSpecifications",
-    "/properties/StaticRoutesOnly"
+    "/properties/LocalIpv4NetworkCidr",
+    "/properties/LocalIpv6NetworkCidr",
+    "/properties/OutsideIpAddressType",
+    "/properties/RemoteIpv4NetworkCidr",
+    "/properties/RemoteIpv6NetworkCidr",
+    "/properties/StaticRoutesOnly",
+    "/properties/TransportTransitGatewayAttachmentId",
+    "/properties/TunnelInsideIpVersion",
+    "/properties/VpnTunnelOptionsSpecifications"
   ],
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
+      "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
         "Key": { "description": "The tag key.", "type": "string" },
         "Value": { "description": "The tag value.", "type": "string" }
@@ -67,7 +74,15 @@
       "description": "The ID of the customer gateway at your end of the VPN connection.",
       "type": "string"
     },
-    "EnableAcceleration": { "description": "", "type": "boolean" },
+    "EnableAcceleration": {
+      "description": "Indicate whether to enable acceleration for the VPN connection.\n Default: ``false``",
+      "type": "boolean"
+    },
+    "LocalIpv4NetworkCidr": { "description": "", "type": "string" },
+    "LocalIpv6NetworkCidr": { "description": "", "type": "string" },
+    "OutsideIpAddressType": { "description": "", "type": "string" },
+    "RemoteIpv4NetworkCidr": { "description": "", "type": "string" },
+    "RemoteIpv6NetworkCidr": { "description": "", "type": "string" },
     "StaticRoutesOnly": {
       "description": "Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.\n If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.",
       "type": "boolean"
@@ -83,6 +98,11 @@
       "description": "The ID of the transit gateway associated with the VPN connection.\n You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.",
       "type": "string"
     },
+    "TransportTransitGatewayAttachmentId": {
+      "description": "",
+      "type": "string"
+    },
+    "TunnelInsideIpVersion": { "description": "", "type": "string" },
     "Type": { "description": "The type of VPN connection.", "type": "string" },
     "VpnConnectionId": { "description": "", "type": "string" },
     "VpnGatewayId": {
@@ -101,6 +121,7 @@
   "required": ["Type", "CustomerGatewayId"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

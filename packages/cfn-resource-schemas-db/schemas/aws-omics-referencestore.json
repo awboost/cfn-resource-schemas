@@ -1,5 +1,5 @@
 {
-  "$hash": "47374d0f77ce3ef58ca7f203add5c759745617aa",
+  "$hash": "a65fc763bac3f2a41b146ad8f566f4210ed7a8d7",
   "$id": "aws-omics-referencestore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -37,7 +37,11 @@
   "description": "Definition of AWS::Omics::ReferenceStore Resource Type",
   "handlers": {
     "create": {
-      "permissions": ["omics:CreateReferenceStore", "omics:TagResource"]
+      "permissions": [
+        "omics:CreateReferenceStore",
+        "omics:TagResource",
+        "kms:DescribeKey"
+      ]
     },
     "delete": { "permissions": ["omics:DeleteReferenceStore"] },
     "list": { "permissions": ["omics:ListReferenceStores"] },

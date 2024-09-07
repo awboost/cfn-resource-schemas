@@ -1,5 +1,5 @@
 {
-  "$hash": "8ab2cdd83d3ef5c3ac8da18db20484a597368dea",
+  "$hash": "ea685822dd700479cd440d7e9bce34da06d2975e",
   "$id": "aws-networkmanager-vpcattachment.json",
   "additionalIdentifiers": [
     ["/properties/CoreNetworkId", "/properties/VpcArn"]
@@ -213,6 +213,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-networkmanager/aws-networkmanager-vpcattachment",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "networkmanager:TagResource",
+      "networkmanager:UntagResource",
+      "networkmanager:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

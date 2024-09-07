@@ -1,5 +1,5 @@
 {
-  "$hash": "3f7ac180dfb1bce4588643392fb21654d0e3650c",
+  "$hash": "56efde71eeaa6dc7b8530891bbb0793f8221496a",
   "$id": "aws-location-geofencecollection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -34,10 +34,10 @@
       "additionalProperties": false,
       "maxProperties": 50,
       "patternProperties": {
-        "^[a-zA-Z+-=._:/]+$": {
+        "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$": {
           "maxLength": 256,
           "minLength": 0,
-          "pattern": "^[A-Za-z0-9 _=@:.+-/]*$",
+          "pattern": "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$",
           "type": "string"
         }
       },

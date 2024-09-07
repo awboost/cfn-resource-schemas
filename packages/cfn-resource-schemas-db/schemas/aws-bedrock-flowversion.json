@@ -1,9 +1,28 @@
 {
-  "$hash": "096dfae416e9e5cdf4fc0433757d448235cfba97",
+  "$hash": "2b555a8919a87efa032c75c74386753aa9a52b83",
   "$id": "aws-bedrock-flowversion.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Description", "/properties/FlowArn"],
   "definitions": {
+    "AgentFlowNodeConfiguration": {
+      "additionalProperties": false,
+      "description": "Agent flow node configuration",
+      "properties": {
+        "AgentAliasArn": {
+          "description": "Arn representation of the Agent Alias.",
+          "maxLength": 2048,
+          "pattern": "^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:agent-alias/[0-9a-zA-Z]{10}/[0-9a-zA-Z]{10}$",
+          "type": "string"
+        }
+      },
+      "required": ["AgentAliasArn"],
+      "type": "object"
+    },
+    "CollectorFlowNodeConfiguration": {
+      "additionalProperties": false,
+      "description": "Collector flow node configuration",
+      "type": "object"
+    },
     "ConditionFlowNodeConfiguration": {
       "additionalProperties": false,
       "description": "Condition flow node configuration",
@@ -248,6 +267,57 @@
           "required": ["LambdaFunction"],
           "title": "LambdaFunction",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Agent": { "$ref": "#/definitions/AgentFlowNodeConfiguration" }
+          },
+          "required": ["Agent"],
+          "title": "Agent",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Storage": { "$ref": "#/definitions/StorageFlowNodeConfiguration" }
+          },
+          "required": ["Storage"],
+          "title": "Storage",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Retrieval": {
+              "$ref": "#/definitions/RetrievalFlowNodeConfiguration"
+            }
+          },
+          "required": ["Retrieval"],
+          "title": "Retrieval",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Iterator": {
+              "$ref": "#/definitions/IteratorFlowNodeConfiguration"
+            }
+          },
+          "required": ["Iterator"],
+          "title": "Iterator",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Collector": {
+              "$ref": "#/definitions/CollectorFlowNodeConfiguration"
+            }
+          },
+          "required": ["Collector"],
+          "title": "Collector",
+          "type": "object"
         }
       ]
     },
@@ -299,7 +369,12 @@
         "Condition",
         "Lex",
         "Prompt",
-        "LambdaFunction"
+        "LambdaFunction",
+        "Agent",
+        "Iterator",
+        "Collector",
+        "Storage",
+        "Retrieval"
       ],
       "type": "string"
     },
@@ -311,6 +386,11 @@
     "InputFlowNodeConfiguration": {
       "additionalProperties": false,
       "description": "Input flow node configuration",
+      "type": "object"
+    },
+    "IteratorFlowNodeConfiguration": {
+      "additionalProperties": false,
+      "description": "Iterator flow node configuration",
       "type": "object"
     },
     "KnowledgeBaseFlowNodeConfiguration": {
@@ -532,6 +612,80 @@
       "enum": ["TEXT"],
       "type": "string"
     },
+    "RetrievalFlowNodeConfiguration": {
+      "additionalProperties": false,
+      "description": "Retrieval flow node configuration",
+      "properties": {
+        "ServiceConfiguration": {
+          "$ref": "#/definitions/RetrievalFlowNodeServiceConfiguration"
+        }
+      },
+      "required": ["ServiceConfiguration"],
+      "type": "object"
+    },
+    "RetrievalFlowNodeS3Configuration": {
+      "additionalProperties": false,
+      "description": "s3 Retrieval configuration for Retrieval node",
+      "properties": {
+        "BucketName": {
+          "description": "bucket name of an s3 that will be used for Retrieval flow node configuration",
+          "pattern": "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$",
+          "type": "string"
+        }
+      },
+      "required": ["BucketName"],
+      "type": "object"
+    },
+    "RetrievalFlowNodeServiceConfiguration": {
+      "description": "Retrieval service configuration for Retrieval node",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "S3": { "$ref": "#/definitions/RetrievalFlowNodeS3Configuration" }
+          },
+          "title": "S3",
+          "type": "object"
+        }
+      ]
+    },
+    "StorageFlowNodeConfiguration": {
+      "additionalProperties": false,
+      "description": "Storage flow node configuration",
+      "properties": {
+        "ServiceConfiguration": {
+          "$ref": "#/definitions/StorageFlowNodeServiceConfiguration"
+        }
+      },
+      "required": ["ServiceConfiguration"],
+      "type": "object"
+    },
+    "StorageFlowNodeS3Configuration": {
+      "additionalProperties": false,
+      "description": "s3 storage configuration for storage node",
+      "properties": {
+        "BucketName": {
+          "description": "bucket name of an s3 that will be used for storage flow node configuration",
+          "pattern": "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$",
+          "type": "string"
+        }
+      },
+      "required": ["BucketName"],
+      "type": "object"
+    },
+    "StorageFlowNodeServiceConfiguration": {
+      "description": "storage service configuration for storage node",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "S3": { "$ref": "#/definitions/StorageFlowNodeS3Configuration" }
+          },
+          "title": "S3",
+          "type": "object"
+        }
+      ]
+    },
     "TextPromptTemplateConfiguration": {
       "additionalProperties": false,
       "description": "Configuration for text prompt template",
@@ -558,7 +712,12 @@
   "description": "Definition of AWS::Bedrock::FlowVersion Resource Type",
   "handlers": {
     "create": {
-      "permissions": ["bedrock:CreateFlowVersion", "bedrock:GetFlowVersion"]
+      "permissions": [
+        "bedrock:CreateFlowVersion",
+        "bedrock:GetFlowVersion",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ]
     },
     "delete": {
       "permissions": ["bedrock:DeleteFlowVersion", "bedrock:GetFlowVersion"]
@@ -572,7 +731,7 @@
       },
       "permissions": ["bedrock:ListFlowVersions"]
     },
-    "read": { "permissions": ["bedrock:GetFlowVersion"] },
+    "read": { "permissions": ["bedrock:GetFlowVersion", "kms:Decrypt"] },
     "update": { "permissions": ["noservice:NoAction"] }
   },
   "primaryIdentifier": ["/properties/FlowArn", "/properties/Version"],
@@ -580,6 +739,13 @@
     "CreatedAt": {
       "description": "Time Stamp.",
       "format": "date-time",
+      "type": "string"
+    },
+    "CustomerEncryptionKeyArn": {
+      "description": "A KMS key ARN",
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$",
       "type": "string"
     },
     "Definition": { "$ref": "#/definitions/FlowDefinition" },
@@ -624,7 +790,8 @@
     "/properties/FlowId",
     "/properties/Name",
     "/properties/Status",
-    "/properties/Version"
+    "/properties/Version",
+    "/properties/CustomerEncryptionKeyArn"
   ],
   "required": ["FlowArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-bedrock-flows",

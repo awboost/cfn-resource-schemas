@@ -1,5 +1,5 @@
 {
-  "$hash": "c140e5186b713c0011a2ad999ba26c52685b9066",
+  "$hash": "addf75449c1ae010dd64b5200f71e84858471bbc",
   "$id": "aws-backup-restoretestingplan.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RestoreTestingPlanName"],
@@ -38,6 +38,10 @@
       "enum": ["SNAPSHOT", "CONTINUOUS"],
       "type": "string"
     },
+    "RestoreTestingScheduleStatus": {
+      "enum": ["ACTIVE", "SUSPENDED"],
+      "type": "string"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -63,6 +67,7 @@
     "create": {
       "permissions": [
         "backup:CreateRestoreTestingPlan",
+        "backup:UpdateRestoreTestingPlanScheduleStatus",
         "backup:TagResource",
         "backup:GetRestoreTestingPlan",
         "backup:ListTags"
@@ -87,6 +92,7 @@
     "update": {
       "permissions": [
         "backup:UpdateRestoreTestingPlan",
+        "backup:UpdateRestoreTestingPlanScheduleStatus",
         "backup:TagResource",
         "backup:UntagResource",
         "backup:GetRestoreTestingPlan",
@@ -104,6 +110,7 @@
     "RestoreTestingPlanName": { "type": "string" },
     "ScheduleExpression": { "type": "string" },
     "ScheduleExpressionTimezone": { "type": "string" },
+    "ScheduleStatus": { "$ref": "#/definitions/RestoreTestingScheduleStatus" },
     "StartWindowHours": { "type": "integer" },
     "Tags": {
       "insertionOrder": false,
