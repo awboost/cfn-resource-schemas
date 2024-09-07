@@ -7,6 +7,9 @@
       "path": "scripts"
     },
     {
+      "path": "packages/cfntypes"
+    },
+    {
       "path": "packages/cfn-resource-types"
     },
     {
