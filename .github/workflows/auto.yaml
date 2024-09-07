@@ -34,7 +34,7 @@ jobs:
 
       - name: Generate Types
         if: steps.download.outcome == 'success'
-        run: npm run generate:cached
+        run: npm run generate:cached -- --ignore-broken-refs
 
       - name: Build with new types
         if: steps.download.outcome == 'success'
