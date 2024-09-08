@@ -12,10 +12,26 @@
       "program": "packages/cfn-codegen/lib/cli/main.js",
       "args": [
         "generate",
-        ".local/schemas",
+        "packages/cfn-resource-schemas-db/schemas",
         "--output-dir",
         "packages/cfn-resource-types/src",
         "--resource"
+      ],
+      "skipFiles": ["<node_internals>/**", "**/node_modules/typescript/**"],
+      "outFiles": ["${workspaceFolder}/**/*.js"]
+    },
+    {
+      "name": "Run cfn-codegen generate (legacy)",
+      "request": "launch",
+      "type": "node",
+      "runtimeArgs": ["--enable-source-maps"],
+      "program": "packages/cfn-codegen/lib/cli/main.js",
+      "args": [
+        "generate",
+        "packages/cfn-resource-schemas-db/schemas",
+        "--output-file",
+        "packages/cfntypes/src/resources.generated.ts",
+        "--legacy"
       ],
       "skipFiles": ["<node_internals>/**", "**/node_modules/typescript/**"],
       "outFiles": ["${workspaceFolder}/**/*.js"]

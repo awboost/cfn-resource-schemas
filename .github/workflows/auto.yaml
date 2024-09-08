@@ -36,6 +36,10 @@ jobs:
         if: steps.download.outcome == 'success'
         run: npm run generate:cached -- --ignore-broken-refs
 
+      - name: Generate Types (Legacy)
+        if: steps.download.outcome == 'success'
+        run: npm run generate:legacy -- --ignore-broken-refs
+
       - name: Build with new types
         if: steps.download.outcome == 'success'
         run: npm run build
@@ -66,3 +70,13 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish -w @awboost/cfn-resource-types
+
+      - name: Bump @awboost/cfntypes version
+        if: steps.download.outcome == 'success'
+        run: npm version -w @awboost/cfntypes patch
+
+      - name: Publish @awboost/cfntypes
+        if: steps.download.outcome == 'success'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish -w @awboost/cfntypes

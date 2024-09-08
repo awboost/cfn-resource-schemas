@@ -9,11 +9,20 @@ import { format } from "prettier";
 import ts from "typescript";
 import {
   generateDefinitionTypes,
+  generateLegacyAttributeNameConstant,
+  generateLegacyAttributeNameConstantType,
+  generateLegacyAttributeNameMapType,
+  generateLegacyAttributeTypeMap,
+  generateLegacyAttributeTypeUtility,
+  generateLegacyResourceTypeConstant,
+  generateLegacyResourceTypeConstantType,
+  generateLegacyResourceTypeMap,
   generateModelType,
   generateResourceAttributesType,
   generateResourceClass,
   generateResourceImports,
   generateResourcePropsType,
+  getAttributeNames,
   hasAttributes,
 } from "../internal/codegen.js";
 
@@ -31,6 +40,7 @@ export function addGenerateCommand(program: Command): void {
       "--input-file-names",
       "name the output files according to the input file names",
     )
+    .option("--legacy", "generate code in the previous structure")
     .option("--model", "generate the full model type")
     .option("--output-dir <path>", "the directory to output code to")
     .option("--output-file <path>", "the path to output code to")
@@ -48,6 +58,7 @@ export function addGenerateCommand(program: Command): void {
           download,
           ignoreBrokenRefs,
           inputFileNames,
+          legacy,
           model: generateModel,
           outputDir,
           outputFile,
@@ -57,6 +68,7 @@ export function addGenerateCommand(program: Command): void {
           download?: string | boolean;
           ignoreBrokenRefs?: boolean;
           inputFileNames?: boolean;
+          legacy?: boolean;
           model?: boolean;
           outputDir?: string;
           outputFile?: string;
@@ -64,7 +76,13 @@ export function addGenerateCommand(program: Command): void {
           schemaValidationErrors?: "error" | "silent" | "warn";
         },
       ) => {
-        if (generateResource === generateModel) {
+        if (legacy && (generateModel || outputDir)) {
+          console.error(
+            `can't specify --legacy with --generate-model or --output-dir`,
+          );
+          process.exit(2);
+        }
+        if ((generateResource || legacy) === generateModel) {
           console.error(`must specify --resource or --model`);
           process.exit(2);
         }
@@ -82,7 +100,7 @@ export function addGenerateCommand(program: Command): void {
 
         const paths = await collectInputs(input);
 
-        if (outputFile && (download || input.length > 1)) {
+        if (outputFile && !legacy && (download || input.length > 1)) {
           console.error(`option --output-file not valid with multiple inputs`);
           process.exit(2);
         }
@@ -96,79 +114,190 @@ export function addGenerateCommand(program: Command): void {
           schemas = readSchemas(paths);
         }
 
-        let totalErrorCount = 0;
-        let totalWarnCount = 0;
-
-        for await (const schema of schemas) {
-          delete (schema as any)["$hash"];
-
-          const schemaFile = new SchemaFileNode(schema, schema.$id, {
+        if (legacy) {
+          if (!outputFile) {
+            console.error(`must specify --output-file with --legacy`);
+            process.exit(2);
+          }
+          await legacyGenerate(schemas, {
+            outputFile,
             ignoreBrokenRefs,
             validationProblemLevel: schemaValidationErrors,
           });
-
-          const [errorCount, warnCount] = reportProblems(
-            schema.$id,
-            schemaFile.problems,
-          );
-          totalErrorCount += errorCount;
-          totalWarnCount += warnCount;
-
-          if (errorCount === 0) {
-            const statements: ts.Statement[] = [];
-
-            if (generateResource) {
-              statements.push(...generateResourceImports());
-              statements.push(generateResourcePropsType(schemaFile));
-
-              if (hasAttributes(schemaFile)) {
-                statements.push(generateResourceAttributesType(schemaFile));
-              }
-              statements.push(
-                ...generateDefinitionTypes(schemaFile, "resource"),
-              );
-              statements.push(generateResourceClass(schemaFile));
-            } else {
-              statements.push(generateModelType(schemaFile));
-              statements.push(...generateDefinitionTypes(schemaFile, "model"));
-            }
-
-            const printer = ts.createPrinter();
-
-            const output = printer.printFile(
-              ts.factory.createSourceFile(
-                statements,
-                ts.factory.createToken(ts.SyntaxKind.EndOfFileToken),
-                ts.NodeFlags.None,
-              ),
-            );
-
-            const outputBasename = inputFileNames
-              ? basename(schema.$id, extname(schema.$id))
-              : schemaFile.typeName.replace(/::/g, "-");
-
-            // we can bang this because we checked the options
-            const outputPath =
-              outputFile ?? join(outputDir!, outputBasename + ".ts");
-
-            await writeFile(
-              outputPath,
-              await format(output, { filepath: outputPath }),
-            );
-          }
-        }
-
-        console.error(
-          `\n\n` +
-            (totalErrorCount ? chalk.red("fail") : chalk.green("done")) +
-            ` processed ${paths.length} files with ${totalErrorCount} errors and ${totalWarnCount} warnings`,
-        );
-
-        if (totalErrorCount) {
-          process.exit(1);
+        } else {
+          await generate(schemas, {
+            generateResource,
+            ignoreBrokenRefs,
+            outputDir,
+            outputFile,
+            useSchemaFileName: inputFileNames,
+            validationProblemLevel: schemaValidationErrors,
+          });
         }
       },
     );
+}
+
+async function generate(
+  schemas: AsyncIterable<ResourceTypeSchema & { $id: string }>,
+  options: {
+    generateResource?: boolean;
+    ignoreBrokenRefs?: boolean;
+    outputDir?: string;
+    outputFile?: string;
+    useSchemaFileName?: boolean;
+    validationProblemLevel?: "error" | "silent" | "warn";
+  },
+): Promise<void> {
+  const {
+    generateResource,
+    ignoreBrokenRefs,
+    outputDir,
+    outputFile,
+    useSchemaFileName,
+    validationProblemLevel,
+  } = options;
+
+  let totalErrorCount = 0;
+  let totalWarnCount = 0;
+  let count = 0;
+
+  for await (const schema of schemas) {
+    ++count;
+    delete (schema as any)["$hash"];
+
+    const schemaFile = new SchemaFileNode(schema, schema.$id, {
+      ignoreBrokenRefs,
+      validationProblemLevel,
+    });
+
+    const [errorCount, warnCount] = reportProblems(
+      schema.$id,
+      schemaFile.problems,
+    );
+    totalErrorCount += errorCount;
+    totalWarnCount += warnCount;
+
+    if (errorCount === 0) {
+      const statements: ts.Statement[] = [];
+
+      if (generateResource) {
+        statements.push(...generateResourceImports());
+        statements.push(generateResourcePropsType(schemaFile));
+
+        if (hasAttributes(schemaFile)) {
+          statements.push(generateResourceAttributesType(schemaFile));
+        }
+        statements.push(...generateDefinitionTypes(schemaFile, "resource"));
+        statements.push(generateResourceClass(schemaFile));
+      } else {
+        statements.push(generateModelType(schemaFile));
+        statements.push(...generateDefinitionTypes(schemaFile, "model"));
+      }
+
+      let outputPath: string;
+      if (outputDir) {
+        if (outputFile) {
+          throw new Error(`must provide either outputDir or outputFile`);
+        }
+        const outputBasename = useSchemaFileName
+          ? basename(schemaFile.fileName, extname(schemaFile.fileName))
+          : schemaFile.typeName.replace(/::/g, "-");
+
+        outputPath = join(outputDir, outputBasename + ".ts");
+      } else if (outputFile) {
+        outputPath = outputFile;
+      } else {
+        throw new Error(`must provide either outputDir or outputFile`);
+      }
+
+      await printFile(outputPath, statements);
+    }
+  }
+
+  console.error(
+    `\n\n` +
+      (totalErrorCount ? chalk.red("fail") : chalk.green("done")) +
+      ` processed ${count} files with ${totalErrorCount} errors and ${totalWarnCount} warnings`,
+  );
+
+  if (totalErrorCount) {
+    process.exit(1);
+  }
+}
+
+async function legacyGenerate(
+  schemas: AsyncIterable<ResourceTypeSchema & { $id: string }>,
+  options: {
+    ignoreBrokenRefs?: boolean;
+    outputFile: string;
+    validationProblemLevel?: "error" | "silent" | "warn";
+  },
+): Promise<void> {
+  const { ignoreBrokenRefs, outputFile, validationProblemLevel } = options;
+
+  let count = 0;
+  let totalErrorCount = 0;
+  let totalWarnCount = 0;
+
+  const attributeMap: Record<string, ts.TypeAliasDeclaration> = {};
+  const attributeNameMap: Record<string, string[]> = {};
+  const resourceMap: Record<string, ts.TypeAliasDeclaration> = {};
+  const statements: ts.Statement[] = [];
+
+  for await (const schema of schemas) {
+    ++count;
+    delete (schema as any)["$hash"];
+
+    const schemaFile = new SchemaFileNode(schema, schema.$id, {
+      ignoreBrokenRefs,
+      validationProblemLevel,
+    });
+
+    const [errorCount, warnCount] = reportProblems(
+      schema.$id,
+      schemaFile.problems,
+    );
+    totalErrorCount += errorCount;
+    totalWarnCount += warnCount;
+
+    if (errorCount === 0) {
+      const result = generateLegacyResources(schemaFile);
+      statements.push(...result.statements);
+      resourceMap[schema.typeName] = result.propsType;
+      attributeNameMap[schema.typeName] = result.attributeNames;
+
+      if (result.attribsType) {
+        attributeMap[schema.typeName] = result.attribsType;
+      }
+    }
+  }
+
+  if (totalErrorCount > 0) {
+    console.error(
+      `\n\n` +
+        chalk.red("fail") +
+        ` processed ${count} files with ${totalErrorCount} errors and ${totalWarnCount} warnings`,
+    );
+    process.exit(1);
+  }
+
+  statements.push(generateLegacyResourceTypeMap(resourceMap));
+  statements.push(generateLegacyAttributeTypeMap(attributeMap));
+  statements.push(generateLegacyResourceTypeConstant(Object.keys(resourceMap)));
+  statements.push(generateLegacyResourceTypeConstantType());
+  statements.push(generateLegacyAttributeTypeUtility());
+  statements.push(generateLegacyAttributeNameMapType());
+  statements.push(generateLegacyAttributeNameConstantType());
+  statements.push(generateLegacyAttributeNameConstant(attributeNameMap));
+
+  await printFile(outputFile, statements);
+
+  console.error(
+    `\n\n` +
+      chalk.green("done") +
+      ` processed ${count} files with ${totalErrorCount} errors and ${totalWarnCount} warnings`,
+  );
 }
 
 async function collectInputs(paths: string[]): Promise<string[]> {
@@ -199,6 +328,43 @@ async function collectInputs(paths: string[]): Promise<string[]> {
   }
 
   return output;
+}
+
+function generateLegacyResources(schemaFile: SchemaFileNode): {
+  attribsType?: ts.TypeAliasDeclaration;
+  attributeNames: string[];
+  propsType: ts.TypeAliasDeclaration;
+  statements: ts.Statement[];
+} {
+  const statements: ts.Statement[] = [];
+
+  const propsType = generateResourcePropsType(schemaFile, {
+    legacySuffix: true,
+    prefixNames: true,
+  });
+  statements.push(propsType);
+
+  const attributeNames = getAttributeNames(schemaFile);
+  let attribsType: ts.TypeAliasDeclaration | undefined;
+
+  if (hasAttributes(schemaFile)) {
+    attribsType = generateResourceAttributesType(schemaFile, {
+      prefixNames: true,
+    });
+    statements.push(attribsType);
+  }
+
+  const defTypes = generateDefinitionTypes(schemaFile, "resource", {
+    prefixNames: true,
+  });
+  statements.push(...defTypes);
+
+  return {
+    attribsType,
+    attributeNames,
+    propsType,
+    statements,
+  };
 }
 
 async function* readSchemas(
@@ -267,4 +433,26 @@ function reportProblems(
   }
 
   return [errorCount, warnCount];
+}
+
+async function printFile(
+  outputPath: string,
+  statements: ts.Statement[],
+): Promise<void> {
+  const printer = ts.createPrinter();
+
+  const output = printer.printFile(
+    ts.factory.createSourceFile(
+      statements,
+      ts.factory.createToken(ts.SyntaxKind.EndOfFileToken),
+      ts.NodeFlags.None,
+    ),
+  );
+
+  await writeFile(
+    outputPath,
+    await format(output, {
+      filepath: outputPath,
+    }),
+  );
 }

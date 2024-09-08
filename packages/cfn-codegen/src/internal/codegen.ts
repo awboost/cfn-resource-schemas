@@ -34,6 +34,14 @@ const ResourceModelTypeSuffix = "Model";
 const ResourceOptionsLocalType = "$ResourceOptions";
 const ResourcePropsTypeSuffix = "Properties";
 
+const LegacyAttributesFor = "AttributesFor";
+const LegacyAttributeTypeFor = "AttributeTypeFor";
+const LegacyAttributeTypeMap = "AttributeTypes";
+const LegacyResourceAttributeMap = "ResourceAttributeMap";
+const LegacyResourceAttributes = "ResourceAttributes";
+const LegacyResourcePropsTypeSuffix = "Props";
+const LegacyResourceType = "ResourceType";
+
 export type ImportGenerationOptions = {
   resourceBuilderModule?: string;
   resourceBuilderClassName?: string;
@@ -44,6 +52,7 @@ export type ImportGenerationOptions = {
 export type TypeGenerationOptions = {
   inline?: boolean;
   mode?: "attributes" | "properties";
+  namePrefix?: string;
 };
 
 type DocumentationProps = TypeDocumentation & {
@@ -303,7 +312,8 @@ export function createType(
     ) {
       return createType(node.type, opts);
     }
-    return ts.factory.createTypeReferenceNode(node.typeName);
+    const typeName = (opts?.namePrefix ?? "") + node.typeName;
+    return ts.factory.createTypeReferenceNode(typeName);
   } else if (node instanceof UnionTypeNode) {
     return ts.factory.createUnionTypeNode(
       node.types.map((x) => createType(x, opts)),
@@ -315,7 +325,7 @@ export function createType(
 function generateDefinitionType(
   def: TypeDefinitionNode,
   opts?: TypeGenerationOptions,
-): ts.Statement {
+): ts.TypeAliasDeclaration {
   const awsTypeName = def.file.schema.typeName + "." + def.typeName;
 
   return attachComment(
@@ -327,23 +337,31 @@ function generateDefinitionType(
     },
     ts.factory.createTypeAliasDeclaration(
       [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
-      def.typeName,
+      opts?.namePrefix ? opts.namePrefix + def.typeName : def.typeName,
       undefined,
       createType(def.type, opts),
     ),
   );
 }
 
+export type GenerateDefinitionTypesOptions = {
+  prefixNames?: boolean;
+};
+
 export function generateDefinitionTypes(
   resource: SchemaFileNode,
   type: "model" | "resource",
-): ts.Statement[] {
+  options?: GenerateDefinitionTypesOptions,
+): ts.TypeAliasDeclaration[] {
   return [...resource.definitions]
     .filter((def) => !shouldInlineType(def) && !def.allChildrenReadOnly())
     .sort((a, b) => a.typeName.localeCompare(b.typeName))
     .map((def) =>
       generateDefinitionType(def, {
         mode: type === "resource" ? "properties" : undefined,
+        namePrefix: options?.prefixNames
+          ? mangleName(resource.typeName, "")
+          : undefined,
       }),
     );
 }
@@ -370,13 +388,25 @@ export function generateModelType(
   );
 }
 
+export type GenerateResourcePropsTypeOptions = {
+  legacySuffix?: boolean;
+  prefixNames?: boolean;
+};
+
 export function generateResourcePropsType(
   resource: SchemaFileNode,
+  opts?: GenerateResourcePropsTypeOptions,
 ): ts.TypeAliasDeclaration {
   const propertyTypeName = mangleName(
     resource.typeName,
-    ResourcePropsTypeSuffix,
+    opts?.legacySuffix
+      ? LegacyResourcePropsTypeSuffix
+      : ResourcePropsTypeSuffix,
   );
+
+  const namePrefix = opts?.prefixNames
+    ? mangleName(resource.typeName, "")
+    : undefined;
 
   return attachComment(
     {
@@ -390,17 +420,36 @@ export function generateResourcePropsType(
       [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
       propertyTypeName,
       undefined,
-      createObjectType(resource.model, { mode: "properties" }, true),
+      createObjectType(
+        resource.model,
+        { mode: "properties", namePrefix },
+        true,
+      ),
     ),
   );
 }
 
-function getAttributesTypeName(resource: SchemaFileNode): string {
+export function getAttributeNames(resource: SchemaFileNode): string[] {
+  return resource.readOnlyProperties.schema
+    .map((x) => /^\/properties\/([^/]+)$/.exec(x)?.[1])
+    .filter((x): x is string => !!x);
+}
+
+function getAttributesTypeName(
+  resource: SchemaFileNode,
+  opts?: GenerateResourceAttributesTypeOptions,
+): string {
+  const namePrefix = opts?.prefixNames ? mangleName(resource.typeName, "") : "";
+
+  const existingDefinitions = [...resource.definitions].map(
+    (x) => namePrefix + x.typeName,
+  );
+
   let attributeTypeName = mangleName(
     resource.typeName,
     ResourceAttribsTypeSuffix,
   );
-  if ([...resource.definitions].some((x) => x.typeName === attributeTypeName)) {
+  if (existingDefinitions.includes(attributeTypeName)) {
     attributeTypeName = mangleName(
       resource.typeName,
       ResourceAttribsTypeSuffixAlt,
@@ -413,10 +462,19 @@ export function hasAttributes(resource: SchemaFileNode): boolean {
   return resource.model.properties.some((x) => x.readOnly);
 }
 
+export type GenerateResourceAttributesTypeOptions = {
+  prefixNames?: boolean;
+};
+
 export function generateResourceAttributesType(
   resource: SchemaFileNode,
+  opts?: GenerateResourceAttributesTypeOptions,
 ): ts.TypeAliasDeclaration {
-  const attributeTypeName = getAttributesTypeName(resource);
+  const attributeTypeName = getAttributesTypeName(resource, opts);
+
+  const namePrefix = opts?.prefixNames
+    ? mangleName(resource.typeName, "")
+    : undefined;
 
   return attachComment(
     {
@@ -430,7 +488,7 @@ export function generateResourceAttributesType(
       [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
       attributeTypeName,
       undefined,
-      createType(resource.model, { mode: "attributes" }),
+      createType(resource.model, { mode: "attributes", namePrefix }),
     ),
   );
 }
@@ -588,6 +646,206 @@ export function generateResourceClass(resource: SchemaFileNode): ts.Statement {
           ]),
         ),
       ],
+    ),
+  );
+}
+
+export function generateLegacyAttributeTypeMap(
+  attributes: Record<string, ts.TypeAliasDeclaration>,
+): ts.Statement {
+  return ts.factory.createInterfaceDeclaration(
+    [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
+    LegacyAttributeTypeMap,
+    undefined,
+    undefined,
+    Object.entries(attributes).map(([name, type]) =>
+      ts.factory.createPropertySignature(
+        undefined,
+        ts.factory.createStringLiteral(name),
+        undefined,
+        ts.factory.createTypeReferenceNode(type.name),
+      ),
+    ),
+  );
+}
+
+export function generateLegacyResourceTypeMap(
+  resources: Record<string, ts.TypeAliasDeclaration>,
+): ts.Statement {
+  return ts.factory.createInterfaceDeclaration(
+    [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
+    "ResourceTypes",
+    undefined,
+    undefined,
+    Object.entries(resources).map(([name, def]) =>
+      ts.factory.createPropertySignature(
+        undefined,
+        ts.factory.createStringLiteral(name),
+        undefined,
+        ts.factory.createTypeReferenceNode(def.name),
+      ),
+    ),
+  );
+}
+
+export function generateLegacyResourceTypeConstant(
+  resources: string[],
+): ts.Statement {
+  return ts.factory.createVariableStatement(
+    [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
+    ts.factory.createVariableDeclarationList(
+      [
+        ts.factory.createVariableDeclaration(
+          LegacyResourceType,
+          undefined,
+          undefined,
+          ts.factory.createAsExpression(
+            ts.factory.createObjectLiteralExpression(
+              resources.map((typeName) =>
+                ts.factory.createPropertyAssignment(
+                  mangleName(typeName, ""),
+                  ts.factory.createStringLiteral(typeName),
+                ),
+              ),
+            ),
+            ts.factory.createTypeReferenceNode("const"),
+          ),
+        ),
+      ],
+      ts.NodeFlags.Const,
+    ),
+  );
+}
+
+export function generateLegacyResourceTypeConstantType(): ts.Statement {
+  return ts.factory.createTypeAliasDeclaration(
+    [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
+    LegacyResourceType,
+    undefined,
+    ts.factory.createIndexedAccessTypeNode(
+      ts.factory.createParenthesizedType(
+        ts.factory.createTypeQueryNode(
+          ts.factory.createIdentifier(LegacyResourceType),
+        ),
+      ),
+      ts.factory.createParenthesizedType(
+        ts.factory.createTypeOperatorNode(
+          ts.SyntaxKind.KeyOfKeyword,
+          ts.factory.createTypeQueryNode(
+            ts.factory.createIdentifier(LegacyResourceType),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+export function generateLegacyAttributeTypeUtility(): ts.Statement {
+  return ts.factory.createTypeAliasDeclaration(
+    [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
+    LegacyAttributeTypeFor,
+    [
+      ts.factory.createTypeParameterDeclaration(
+        undefined,
+        "T",
+        ts.factory.createTypeReferenceNode(LegacyResourceType),
+      ),
+    ],
+    ts.factory.createConditionalTypeNode(
+      ts.factory.createTypeReferenceNode("T"),
+      ts.factory.createTypeOperatorNode(
+        ts.SyntaxKind.KeyOfKeyword,
+        ts.factory.createTypeReferenceNode(LegacyAttributeTypeMap),
+      ),
+      ts.factory.createIndexedAccessTypeNode(
+        ts.factory.createTypeReferenceNode(LegacyAttributeTypeMap),
+        ts.factory.createTypeReferenceNode("T"),
+      ),
+      ts.factory.createKeywordTypeNode(ts.SyntaxKind.NeverKeyword),
+    ),
+  );
+}
+
+export function generateLegacyAttributeNameMapType(): ts.Statement {
+  return ts.factory.createTypeAliasDeclaration(
+    [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
+    LegacyAttributesFor,
+    [
+      ts.factory.createTypeParameterDeclaration(
+        undefined,
+        "T",
+        ts.factory.createTypeReferenceNode(LegacyResourceType),
+      ),
+    ],
+    ts.factory.createConditionalTypeNode(
+      ts.factory.createTypeReferenceNode("T"),
+      ts.factory.createTypeOperatorNode(
+        ts.SyntaxKind.KeyOfKeyword,
+        ts.factory.createTypeReferenceNode(LegacyAttributeTypeMap),
+      ),
+      ts.factory.createTypeOperatorNode(
+        ts.SyntaxKind.KeyOfKeyword,
+        ts.factory.createIndexedAccessTypeNode(
+          ts.factory.createTypeReferenceNode(LegacyAttributeTypeMap),
+          ts.factory.createTypeReferenceNode("T"),
+        ),
+      ),
+      ts.factory.createKeywordTypeNode(ts.SyntaxKind.NeverKeyword),
+    ),
+  );
+}
+
+export function generateLegacyAttributeNameConstantType(): ts.Statement {
+  return ts.factory.createTypeAliasDeclaration(
+    [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
+    LegacyResourceAttributeMap,
+    undefined,
+    ts.factory.createMappedTypeNode(
+      undefined,
+      ts.factory.createTypeParameterDeclaration(
+        undefined,
+        "K",
+        ts.factory.createTypeReferenceNode(LegacyResourceType),
+        undefined,
+      ),
+      undefined,
+      undefined,
+      ts.factory.createArrayTypeNode(
+        ts.factory.createParenthesizedType(
+          ts.factory.createTypeReferenceNode(LegacyAttributesFor, [
+            ts.factory.createTypeReferenceNode("K"),
+          ]),
+        ),
+      ),
+      undefined,
+    ),
+  );
+}
+
+export function generateLegacyAttributeNameConstant(
+  attributes: Record<string, string[]>,
+): ts.Statement {
+  return ts.factory.createVariableStatement(
+    [ts.factory.createToken(ts.SyntaxKind.ExportKeyword)],
+    ts.factory.createVariableDeclarationList(
+      [
+        ts.factory.createVariableDeclaration(
+          LegacyResourceAttributes,
+          undefined,
+          ts.factory.createTypeReferenceNode(LegacyResourceAttributeMap),
+          ts.factory.createObjectLiteralExpression(
+            Object.entries(attributes).map(([name, attributeNames]) =>
+              ts.factory.createPropertyAssignment(
+                ts.factory.createStringLiteral(name),
+                ts.factory.createArrayLiteralExpression(
+                  attributeNames.map((x) => ts.factory.createStringLiteral(x)),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+      ts.NodeFlags.Const,
     ),
   );
 }
