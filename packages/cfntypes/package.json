@@ -28,7 +28,6 @@
     "!lib/**/*.test.*"
   ],
   "scripts": {
-    "lint": "eslint src/ --ext=ts",
     "postpublish": "npm run tag-version && git push --follow-tags",
     "postversion": "npm --prefix=../.. run sync-versions && git commit -am ${npm_package_name}@${npm_package_version}",
     "preversion": "git diff-index --quiet HEAD -- || ! echo 'Uncommitted changes present'",
