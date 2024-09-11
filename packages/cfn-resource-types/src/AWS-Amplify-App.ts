@@ -18,6 +18,7 @@ export type AmplifyAppProperties = {
    * @pattern `(?s).+`
    */
   BuildSpec?: string;
+  CacheConfig?: CacheConfig;
   /**
    * @minLength `0`
    * @maxLength `25000`
@@ -134,6 +135,13 @@ export type BasicAuthConfig = {
    * @maxLength `255`
    */
   Username?: string;
+};
+/**
+ * Type definition for `AWS::Amplify::App.CacheConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-cacheconfig.html}
+ */
+export type CacheConfig = {
+  Type?: "AMPLIFY_MANAGED" | "AMPLIFY_MANAGED_NO_COOKIES";
 };
 /**
  * Type definition for `AWS::Amplify::App.CustomRule`.

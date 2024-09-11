@@ -5220,6 +5220,18 @@ export type ProgressBarOptions = {
   Visibility?: Visibility;
 };
 /**
+ * Type definition for `AWS::QuickSight::Template.QueryExecutionMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-queryexecutionmode.html}
+ */
+export type QueryExecutionMode = "AUTO" | "MANUAL";
+/**
+ * Type definition for `AWS::QuickSight::Template.QueryExecutionOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-queryexecutionoptions.html}
+ */
+export type QueryExecutionOptions = {
+  QueryExecutionMode?: QueryExecutionMode;
+};
+/**
  * Type definition for `AWS::QuickSight::Template.RadarChartAggregatedFieldWells`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartaggregatedfieldwells.html}
  */
@@ -6849,6 +6861,7 @@ export type TemplateVersionDefinition = {
    * @maxLength `200`
    */
   ParameterDeclarations?: ParameterDeclaration[];
+  QueryExecutionOptions?: QueryExecutionOptions;
   /**
    * @minLength `0`
    * @maxLength `20`

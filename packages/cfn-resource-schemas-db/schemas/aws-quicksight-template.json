@@ -1,5 +1,5 @@
 {
-  "$hash": "1f2b8b29110bc7faf9516c95a9a6357c3c4a891c",
+  "$hash": "9e311b9c21f6709172700d602c400fd159712135",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -5310,6 +5310,14 @@
       "properties": { "Visibility": { "$ref": "#/definitions/Visibility" } },
       "type": "object"
     },
+    "QueryExecutionMode": { "enum": ["AUTO", "MANUAL"], "type": "string" },
+    "QueryExecutionOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "QueryExecutionMode": { "$ref": "#/definitions/QueryExecutionMode" }
+      },
+      "type": "object"
+    },
     "RadarChartAggregatedFieldWells": {
       "additionalProperties": false,
       "properties": {
@@ -6957,6 +6965,9 @@
           "maxItems": 200,
           "minItems": 0,
           "type": "array"
+        },
+        "QueryExecutionOptions": {
+          "$ref": "#/definitions/QueryExecutionOptions"
         },
         "Sheets": {
           "items": { "$ref": "#/definitions/SheetDefinition" },

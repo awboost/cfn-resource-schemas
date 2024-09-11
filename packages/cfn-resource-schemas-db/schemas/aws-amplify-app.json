@@ -1,5 +1,5 @@
 {
-  "$hash": "38926400aa744a01aeb15425ab61f67b2416c001",
+  "$hash": "e89006dbd4cd026b16b522e303173127726d22a4",
   "$id": "aws-amplify-app.json",
   "additionalProperties": false,
   "definitions": {
@@ -51,6 +51,16 @@
         "EnableBasicAuth": { "type": "boolean" },
         "Password": { "maxLength": 255, "minLength": 1, "type": "string" },
         "Username": { "maxLength": 255, "minLength": 1, "type": "string" }
+      },
+      "type": "object"
+    },
+    "CacheConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "Type": {
+          "enum": ["AMPLIFY_MANAGED", "AMPLIFY_MANAGED_NO_COOKIES"],
+          "type": "string"
+        }
       },
       "type": "object"
     },
@@ -196,6 +206,7 @@
       "pattern": "(?s).+",
       "type": "string"
     },
+    "CacheConfig": { "$ref": "#/definitions/CacheConfig" },
     "CustomHeaders": {
       "maxLength": 25000,
       "minLength": 0,
@@ -246,6 +257,7 @@
     "/properties/DefaultDomain"
   ],
   "required": ["Name"],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-amplify",
   "typeName": "AWS::Amplify::App",
   "writeOnlyProperties": [
     "/properties/AccessToken",

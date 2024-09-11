@@ -1,5 +1,5 @@
 {
-  "$hash": "90c093f0bdb4570aebaa46cf5577ba96e2861a54",
+  "$hash": "8151d64a98b3f2e83105e87f73296b6e9d4f2a0e",
   "$id": "aws-eks-fargateprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -138,6 +138,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-eks.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["eks:TagResource", "eks:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

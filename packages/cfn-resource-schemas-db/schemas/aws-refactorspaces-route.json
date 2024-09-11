@@ -1,5 +1,5 @@
 {
-  "$hash": "4c0ac8e0c154cd37b19cb1d9b27ffb96bce42184",
+  "$hash": "a2be14da942c48f17df0ee33cfd64ed1cc25cd04",
   "$id": "aws-refactorspaces-route.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -240,7 +240,21 @@
     "RouteType"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-refactor-spaces",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "refactor-spaces:ListTagsForResource",
+      "tag:GetResources",
+      "elasticloadbalancing:AddTags",
+      "refactor-spaces:UntagResource",
+      "refactor-spaces:TagResource",
+      "elasticloadbalancing:DescribeTags"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RefactorSpaces::Route",
   "writeOnlyProperties": [
     "/properties/RouteType",

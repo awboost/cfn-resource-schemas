@@ -1,2 +1,65 @@
-- added `AWS::PCAConnectorSCEP::Challenge`
-- added `AWS::PCAConnectorSCEP::Connector`
+- added `AWS::MediaLive::ChannelPlacementGroup`
+- added `AWS::MediaLive::CloudWatchAlarmTemplate`
+- added `AWS::MediaLive::CloudWatchAlarmTemplateGroup`
+- added `AWS::MediaLive::Cluster`
+- added `AWS::MediaLive::EventBridgeRuleTemplate`
+- added `AWS::MediaLive::EventBridgeRuleTemplateGroup`
+- added `AWS::MediaLive::Network`
+- added `AWS::MediaLive::SdiSource`
+- added `AWS::MediaLive::SignalMap`
+- added `AWS::SageMaker::Cluster`
+- updated `AWS::Amplify::App`
+  - added `sourceUrl`
+  - added definition `CacheConfig`
+  - added property `CacheConfig`
+- updated `AWS::DataBrew::Ruleset`
+  - updated `createOnlyProperties`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `ContainerDefinition`
+  - updated definition `DockerVolumeConfiguration`
+  - updated definition `FSxAuthorizationConfig`
+  - updated definition `HealthCheck`
+  - updated definition `KernelCapabilities`
+  - updated definition `LinuxParameters`
+  - updated definition `RestartPolicy`
+  - updated definition `SystemControl`
+- updated `AWS::EKS::FargateProfile`
+  - updated `tagging`
+- updated `AWS::EKS::PodIdentityAssociation`
+  - updated `tagging`
+- updated `AWS::MediaConnect::Flow`
+  - added definition `SourceMonitoringConfig`
+  - added property `SourceMonitoringConfig`
+  - updated property `Maintenance`
+- updated `AWS::QuickSight::Analysis`
+  - added definition `QueryExecutionMode`
+  - added definition `QueryExecutionOptions`
+  - updated definition `AnalysisDefinition`
+- updated `AWS::QuickSight::Template`
+  - added definition `QueryExecutionMode`
+  - added definition `QueryExecutionOptions`
+  - updated definition `TemplateVersionDefinition`
+- updated `AWS::RefactorSpaces::Route`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::SNS::Subscription`
+  - added `conditionalCreateOnlyProperties`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - added property `Arn`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+  - updated property `DeliveryPolicy`
+  - updated property `Endpoint`
+  - updated property `FilterPolicyScope`
+  - updated property `FilterPolicy`
+  - updated property `Protocol`
+  - updated property `RawMessageDelivery`
+  - updated property `RedrivePolicy`
+  - updated property `Region`
+  - updated property `ReplayPolicy`
+  - updated property `SubscriptionRoleArn`
+  - updated property `TopicArn`

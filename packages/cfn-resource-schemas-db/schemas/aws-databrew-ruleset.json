@@ -1,8 +1,12 @@
 {
-  "$hash": "d7124c16cf12fd3cf05688c93ef22d68f5b6e1b7",
+  "$hash": "47eddf71fbe29a585cd5a72e59a8715024b00e56",
   "$id": "aws-databrew-ruleset.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Name", "/properties/TargetArn"],
+  "createOnlyProperties": [
+    "/properties/Name",
+    "/properties/TargetArn",
+    "/properties/Tags"
+  ],
   "definitions": {
     "ColumnSelector": {
       "additionalProperties": false,

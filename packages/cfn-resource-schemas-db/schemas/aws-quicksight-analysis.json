@@ -1,5 +1,5 @@
 {
-  "$hash": "2b3ca9d386fb84b818b2bd91df1d5fc125f4ca22",
+  "$hash": "b8ed9ea0d40fe5b514b9649f6c0e5f002f6b8895",
   "$id": "aws-quicksight-analysis.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -83,6 +83,9 @@
           "maxItems": 200,
           "minItems": 0,
           "type": "array"
+        },
+        "QueryExecutionOptions": {
+          "$ref": "#/definitions/QueryExecutionOptions"
         },
         "Sheets": {
           "items": { "$ref": "#/definitions/SheetDefinition" },
@@ -5431,6 +5434,14 @@
     "ProgressBarOptions": {
       "additionalProperties": false,
       "properties": { "Visibility": { "$ref": "#/definitions/Visibility" } },
+      "type": "object"
+    },
+    "QueryExecutionMode": { "enum": ["AUTO", "MANUAL"], "type": "string" },
+    "QueryExecutionOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "QueryExecutionMode": { "$ref": "#/definitions/QueryExecutionMode" }
+      },
       "type": "object"
     },
     "RadarChartAggregatedFieldWells": {

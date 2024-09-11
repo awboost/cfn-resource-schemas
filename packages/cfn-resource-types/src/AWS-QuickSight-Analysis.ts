@@ -150,6 +150,7 @@ export type AnalysisDefinition = {
    * @maxLength `200`
    */
   ParameterDeclarations?: ParameterDeclaration[];
+  QueryExecutionOptions?: QueryExecutionOptions;
   /**
    * @minLength `0`
    * @maxLength `20`
@@ -5216,6 +5217,18 @@ export type PrimaryValueDisplayType = "HIDDEN" | "COMPARISON" | "ACTUAL";
  */
 export type ProgressBarOptions = {
   Visibility?: Visibility;
+};
+/**
+ * Type definition for `AWS::QuickSight::Analysis.QueryExecutionMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-queryexecutionmode.html}
+ */
+export type QueryExecutionMode = "AUTO" | "MANUAL";
+/**
+ * Type definition for `AWS::QuickSight::Analysis.QueryExecutionOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-queryexecutionoptions.html}
+ */
+export type QueryExecutionOptions = {
+  QueryExecutionMode?: QueryExecutionMode;
 };
 /**
  * Type definition for `AWS::QuickSight::Analysis.RadarChartAggregatedFieldWells`.

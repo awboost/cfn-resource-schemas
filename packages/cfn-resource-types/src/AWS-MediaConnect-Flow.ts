@@ -30,6 +30,10 @@ export type MediaConnectFlowProperties = {
    */
   SourceFailoverConfig?: FailoverConfig;
   /**
+   * The source monitoring config of the flow.
+   */
+  SourceMonitoringConfig?: SourceMonitoringConfig;
+  /**
    * The VPC interfaces that you added to this flow.
    */
   VpcInterfaces?: VpcInterface[];
@@ -429,6 +433,17 @@ export type Source = {
    * The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
    */
   WhitelistCidr?: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.SourceMonitoringConfig`.
+ * The settings for source monitoring.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-sourcemonitoringconfig.html}
+ */
+export type SourceMonitoringConfig = {
+  /**
+   * The state of thumbnail monitoring.
+   */
+  ThumbnailState: "ENABLED" | "DISABLED";
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.VpcInterface`.
