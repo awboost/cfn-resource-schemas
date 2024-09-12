@@ -52,6 +52,13 @@ export type SageMakerUserProfileAttributes = {
   UserProfileArn: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::UserProfile.AppLifecycleManagement`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-applifecyclemanagement.html}
+ */
+export type AppLifecycleManagement = {
+  IdleSettings?: IdleSettings;
+};
+/**
  * Type definition for `AWS::SageMaker::UserProfile.AppType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-apptype.html}
  */
@@ -69,6 +76,7 @@ export type AppType =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html}
  */
 export type CodeEditorAppSettings = {
+  AppLifecycleManagement?: AppLifecycleManagement;
   /**
    * A list of custom images for use for CodeEditor apps.
    * @minLength `0`
@@ -194,11 +202,40 @@ export type EFSFileSystemConfig = {
   FileSystemPath?: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::UserProfile.IdleSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-idlesettings.html}
+ */
+export type IdleSettings = {
+  /**
+   * The idle timeout value set in minutes
+   * @min `60`
+   * @max `525600`
+   */
+  IdleTimeoutInMinutes?: number;
+  /**
+   * A flag to enable/disable AppLifecycleManagement settings
+   */
+  LifecycleManagement?: LifecycleManagement;
+  /**
+   * The maximum idle timeout value set in minutes
+   * @min `60`
+   * @max `525600`
+   */
+  MaxIdleTimeoutInMinutes?: number;
+  /**
+   * The minimum idle timeout value set in minutes
+   * @min `60`
+   * @max `525600`
+   */
+  MinIdleTimeoutInMinutes?: number;
+};
+/**
  * Type definition for `AWS::SageMaker::UserProfile.JupyterLabAppSettings`.
  * The JupyterLab app settings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html}
  */
 export type JupyterLabAppSettings = {
+  AppLifecycleManagement?: AppLifecycleManagement;
   /**
    * A list of CodeRepositories available for use with JupyterLab apps.
    * @minLength `0`
@@ -259,6 +296,12 @@ export type KernelGatewayAppSettings = {
    */
   LifecycleConfigArns?: string[];
 };
+/**
+ * Type definition for `AWS::SageMaker::UserProfile.LifecycleManagement`.
+ * A flag to enable/disable AppLifecycleManagement settings
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-lifecyclemanagement.html}
+ */
+export type LifecycleManagement = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::SageMaker::UserProfile.MlTools`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-mltools.html}

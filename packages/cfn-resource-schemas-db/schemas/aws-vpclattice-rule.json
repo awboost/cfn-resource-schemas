@@ -1,5 +1,5 @@
 {
-  "$hash": "1a45687327a982045549137b929def9c440a20bb",
+  "$hash": "79b1c5a3147c890a98f8e934a3908c6324f73f10",
   "$id": "aws-vpclattice-rule.json",
   "additionalIdentifiers": [
     [
@@ -160,7 +160,9 @@
         "vpc-lattice:TagResource"
       ]
     },
-    "delete": { "permissions": ["vpc-lattice:DeleteRule"] },
+    "delete": {
+      "permissions": ["vpc-lattice:DeleteRule", "vpc-lattice:UntagResource"]
+    },
     "list": {
       "handlerSchema": {
         "properties": {
@@ -189,7 +191,8 @@
         "vpc-lattice:UpdateRule",
         "vpc-lattice:GetRule",
         "vpc-lattice:TagResource",
-        "vpc-lattice:UntagResource"
+        "vpc-lattice:UntagResource",
+        "vpc-lattice:ListTagsForResource"
       ]
     }
   },
@@ -244,6 +247,11 @@
   "required": ["Action", "Match", "Priority"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "vpc-lattice:UntagResource",
+      "vpc-lattice:TagResource",
+      "vpc-lattice:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,5 +1,5 @@
 {
-  "$hash": "5634acaa65b147af313a2694f280fb5e7a934eca",
+  "$hash": "2f5bf3932335755fcbf779595315bfcefd3ee629",
   "$id": "aws-pipes-pipe.json",
   "additionalIdentifiers": [["/properties/Arn"]],
   "additionalProperties": false,
@@ -1288,11 +1288,15 @@
       "permissions": [
         "pipes:DeletePipe",
         "pipes:DescribePipe",
+        "pipes:UntagResource",
         "logs:CreateLogDelivery",
         "logs:UpdateLogDelivery",
         "logs:DeleteLogDelivery",
         "logs:GetLogDelivery",
-        "logs:ListLogDeliveries"
+        "logs:ListLogDeliveries",
+        "kms:DescribeKey",
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
       ]
     },
     "list": { "permissions": ["pipes:ListPipes"] },
@@ -1348,6 +1352,7 @@
     "EnrichmentParameters": {
       "$ref": "#/definitions/PipeEnrichmentParameters"
     },
+    "KmsKeyIdentifier": { "maxLength": 2048, "minLength": 0, "type": "string" },
     "LastModifiedTime": { "format": "date-time", "type": "string" },
     "LogConfiguration": { "$ref": "#/definitions/PipeLogConfiguration" },
     "Name": {

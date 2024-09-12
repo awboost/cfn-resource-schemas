@@ -20,6 +20,7 @@ export type ElasticLoadBalancingV2ListenerProperties = {
      To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
      */
   DefaultActions: Action[];
+  ListenerAttributes?: ListenerAttribute[];
   /**
    * The Amazon Resource Name (ARN) of the load balancer.
    */
@@ -236,6 +237,14 @@ export type ForwardConfig = {
    * Information about how traffic will be distributed between multiple target groups in a forward rule.
    */
   TargetGroups?: TargetGroupTuple[];
+};
+/**
+ * Type definition for `AWS::ElasticLoadBalancingV2::Listener.ListenerAttribute`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-listenerattribute.html}
+ */
+export type ListenerAttribute = {
+  Key?: string;
+  Value?: string;
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::Listener.MutualAuthentication`.

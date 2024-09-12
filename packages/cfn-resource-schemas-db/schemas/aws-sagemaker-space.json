@@ -1,5 +1,5 @@
 {
-  "$hash": "90261c6ca89a4efd0df4d6cfda499db1a12b737e",
+  "$hash": "0c80826de4994c8237cf96c835382da749fc28b6",
   "$id": "aws-sagemaker-space.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -246,10 +246,20 @@
       },
       "type": "object"
     },
+    "SpaceAppLifecycleManagement": {
+      "additionalProperties": false,
+      "properties": {
+        "IdleSettings": { "$ref": "#/definitions/SpaceIdleSettings" }
+      },
+      "type": "object"
+    },
     "SpaceCodeEditorAppSettings": {
       "additionalProperties": false,
       "description": "The CodeEditor app settings.",
       "properties": {
+        "AppLifecycleManagement": {
+          "$ref": "#/definitions/SpaceAppLifecycleManagement"
+        },
         "DefaultResourceSpec": { "$ref": "#/definitions/ResourceSpec" }
       },
       "type": "object"
@@ -259,10 +269,25 @@
       "minimum": 5,
       "type": "integer"
     },
+    "SpaceIdleSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "IdleTimeoutInMinutes": {
+          "description": "The space idle timeout value set in minutes",
+          "maximum": 525600,
+          "minimum": 60,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "SpaceJupyterLabAppSettings": {
       "additionalProperties": false,
       "description": "The JupyterServer app settings.",
       "properties": {
+        "AppLifecycleManagement": {
+          "$ref": "#/definitions/SpaceAppLifecycleManagement"
+        },
         "CodeRepositories": {
           "description": "A list of CodeRepositories available for use with JupyterLab apps.",
           "items": { "$ref": "#/definitions/CodeRepository" },

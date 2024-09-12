@@ -1,5 +1,5 @@
 {
-  "$hash": "d8e041f4cd0bb641c8f5cc9e3ab71a904ac277ce",
+  "$hash": "af091e896da866ba2954402a27f978c7407d3425",
   "$id": "aws-networkfirewall-firewallpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FirewallPolicyName"],
@@ -274,6 +274,17 @@
   ],
   "required": ["FirewallPolicyName", "FirewallPolicy"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-networkfirewall.git",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "network-firewall:TagResource",
+      "network-firewall:UntagResource",
+      "network-firewall:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::NetworkFirewall::FirewallPolicy"
 }

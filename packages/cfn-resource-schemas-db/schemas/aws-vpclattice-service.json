@@ -1,5 +1,5 @@
 {
-  "$hash": "ea37f6075bd3bbd09393b47cb7b049e2e0b83d9e",
+  "$hash": "dd86e1804119f7c786ac659eb77feaf7ac40f2fe",
   "$id": "aws-vpclattice-service.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/Name"]],
   "additionalProperties": false,
@@ -37,7 +37,11 @@
       ]
     },
     "delete": {
-      "permissions": ["vpc-lattice:DeleteService", "vpc-lattice:GetService"]
+      "permissions": [
+        "vpc-lattice:DeleteService",
+        "vpc-lattice:GetService",
+        "vpc-lattice:UntagResource"
+      ]
     },
     "list": { "permissions": ["vpc-lattice:ListServices"] },
     "read": {
@@ -120,6 +124,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "vpc-lattice:UntagResource",
+      "vpc-lattice:TagResource",
+      "vpc-lattice:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

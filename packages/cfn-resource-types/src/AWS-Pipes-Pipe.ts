@@ -19,6 +19,11 @@ export type PipesPipeProperties = {
    */
   Enrichment?: string;
   EnrichmentParameters?: PipeEnrichmentParameters;
+  /**
+   * @minLength `0`
+   * @maxLength `2048`
+   */
+  KmsKeyIdentifier?: string;
   LogConfiguration?: PipeLogConfiguration;
   /**
    * @minLength `1`

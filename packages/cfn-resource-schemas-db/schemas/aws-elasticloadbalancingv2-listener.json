@@ -1,5 +1,5 @@
 {
-  "$hash": "4d848a4a2a0e6831e4cc13643de5dc3c54b7c3d5",
+  "$hash": "e5860383a030c565f623733ce68dc95fe5f3c9bb",
   "$id": "aws-elasticloadbalancingv2-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoadBalancerArn"],
@@ -230,6 +230,15 @@
       },
       "type": "object"
     },
+    "ListenerAttribute": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": { "type": "string" }
+      },
+      "type": "object"
+    },
     "MutualAuthentication": {
       "additionalProperties": false,
       "description": "Specifies the configuration information for mutual authentication.",
@@ -322,7 +331,8 @@
       "permissions": [
         "elasticloadbalancing:CreateListener",
         "elasticloadbalancing:DescribeListeners",
-        "cognito-idp:DescribeUserPoolClient"
+        "cognito-idp:DescribeUserPoolClient",
+        "elasticloadbalancing:ModifyListenerAttributes"
       ]
     },
     "delete": {
@@ -350,12 +360,18 @@
       },
       "permissions": ["elasticloadbalancing:DescribeListeners"]
     },
-    "read": { "permissions": ["elasticloadbalancing:DescribeListeners"] },
+    "read": {
+      "permissions": [
+        "elasticloadbalancing:DescribeListeners",
+        "elasticloadbalancing:DescribeListenerAttributes"
+      ]
+    },
     "update": {
       "permissions": [
         "elasticloadbalancing:ModifyListener",
         "elasticloadbalancing:DescribeListeners",
-        "cognito-idp:DescribeUserPoolClient"
+        "cognito-idp:DescribeUserPoolClient",
+        "elasticloadbalancing:ModifyListenerAttributes"
       ]
     }
   },
@@ -379,6 +395,14 @@
       "uniqueItems": true
     },
     "ListenerArn": { "description": "", "type": "string" },
+    "ListenerAttributes": {
+      "arrayType": "AttributeList",
+      "description": "",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/ListenerAttribute" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "LoadBalancerArn": {
       "description": "The Amazon Resource Name (ARN) of the load balancer.",
       "type": "string"

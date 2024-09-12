@@ -1,5 +1,5 @@
 {
-  "$hash": "c82ef92468201f1761fd9f3cdc75b87930b4f51f",
+  "$hash": "86c6a9ddaaa913c798c58dad745538879cbe720b",
   "$id": "aws-networkfirewall-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -516,6 +516,17 @@
   "readOnlyProperties": ["/properties/RuleGroupArn", "/properties/RuleGroupId"],
   "required": ["Type", "Capacity", "RuleGroupName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-networkfirewall.git",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "network-firewall:TagResource",
+      "network-firewall:UntagResource",
+      "network-firewall:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::NetworkFirewall::RuleGroup"
 }

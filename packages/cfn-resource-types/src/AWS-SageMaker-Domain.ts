@@ -105,6 +105,13 @@ export type SageMakerDomainAttributes = {
   Url: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::Domain.AppLifecycleManagement`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-applifecyclemanagement.html}
+ */
+export type AppLifecycleManagement = {
+  IdleSettings?: IdleSettings;
+};
+/**
  * Type definition for `AWS::SageMaker::Domain.AppType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-apptype.html}
  */
@@ -122,6 +129,7 @@ export type AppType =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-codeeditorappsettings.html}
  */
 export type CodeEditorAppSettings = {
+  AppLifecycleManagement?: AppLifecycleManagement;
   /**
    * A list of custom images for use for CodeEditor apps.
    * @minLength `0`
@@ -330,11 +338,40 @@ export type EFSFileSystemConfig = {
   FileSystemPath?: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::Domain.IdleSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-idlesettings.html}
+ */
+export type IdleSettings = {
+  /**
+   * The idle timeout value set in minutes
+   * @min `60`
+   * @max `525600`
+   */
+  IdleTimeoutInMinutes?: number;
+  /**
+   * A flag to enable/disable AppLifecycleManagement settings
+   */
+  LifecycleManagement?: LifecycleManagement;
+  /**
+   * The maximum idle timeout value set in minutes
+   * @min `60`
+   * @max `525600`
+   */
+  MaxIdleTimeoutInMinutes?: number;
+  /**
+   * The minimum idle timeout value set in minutes
+   * @min `60`
+   * @max `525600`
+   */
+  MinIdleTimeoutInMinutes?: number;
+};
+/**
  * Type definition for `AWS::SageMaker::Domain.JupyterLabAppSettings`.
  * The JupyterLab app settings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterlabappsettings.html}
  */
 export type JupyterLabAppSettings = {
+  AppLifecycleManagement?: AppLifecycleManagement;
   /**
    * A list of CodeRepositories available for use with JupyterLab apps.
    * @minLength `0`
@@ -395,6 +432,12 @@ export type KernelGatewayAppSettings = {
    */
   LifecycleConfigArns?: string[];
 };
+/**
+ * Type definition for `AWS::SageMaker::Domain.LifecycleManagement`.
+ * A flag to enable/disable AppLifecycleManagement settings
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-lifecyclemanagement.html}
+ */
+export type LifecycleManagement = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::SageMaker::Domain.MlTools`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-mltools.html}

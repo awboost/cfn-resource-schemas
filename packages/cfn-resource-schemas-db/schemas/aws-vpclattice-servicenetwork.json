@@ -1,5 +1,5 @@
 {
-  "$hash": "8342682d10013b2e7a1fd0af38c9760a20bd7033",
+  "$hash": "fdfbac2ecf360829d5f1ef1596798a0e9df5be87",
   "$id": "aws-vpclattice-servicenetwork.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/Name"]],
   "additionalProperties": false,
@@ -26,7 +26,12 @@
         "iam:CreateServiceLinkedRole"
       ]
     },
-    "delete": { "permissions": ["vpc-lattice:DeleteServiceNetwork"] },
+    "delete": {
+      "permissions": [
+        "vpc-lattice:DeleteServiceNetwork",
+        "vpc-lattice:UntagResource"
+      ]
+    },
     "list": { "permissions": ["vpc-lattice:ListServiceNetworks"] },
     "read": {
       "permissions": [
@@ -39,7 +44,8 @@
         "vpc-lattice:GetServiceNetwork",
         "vpc-lattice:UpdateServiceNetwork",
         "vpc-lattice:TagResource",
-        "vpc-lattice:UntagResource"
+        "vpc-lattice:UntagResource",
+        "vpc-lattice:ListTagsForResource"
       ]
     }
   },
@@ -87,6 +93,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "vpc-lattice:UntagResource",
+      "vpc-lattice:TagResource",
+      "vpc-lattice:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

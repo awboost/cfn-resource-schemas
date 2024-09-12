@@ -271,12 +271,32 @@ export type ResourceSpec = {
   SageMakerImageVersionArn?: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::Space.SpaceAppLifecycleManagement`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceapplifecyclemanagement.html}
+ */
+export type SpaceAppLifecycleManagement = {
+  IdleSettings?: SpaceIdleSettings;
+};
+/**
  * Type definition for `AWS::SageMaker::Space.SpaceCodeEditorAppSettings`.
  * The CodeEditor app settings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html}
  */
 export type SpaceCodeEditorAppSettings = {
+  AppLifecycleManagement?: SpaceAppLifecycleManagement;
   DefaultResourceSpec?: ResourceSpec;
+};
+/**
+ * Type definition for `AWS::SageMaker::Space.SpaceIdleSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceidlesettings.html}
+ */
+export type SpaceIdleSettings = {
+  /**
+   * The space idle timeout value set in minutes
+   * @min `60`
+   * @max `525600`
+   */
+  IdleTimeoutInMinutes?: number;
 };
 /**
  * Type definition for `AWS::SageMaker::Space.SpaceJupyterLabAppSettings`.
@@ -284,6 +304,7 @@ export type SpaceCodeEditorAppSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html}
  */
 export type SpaceJupyterLabAppSettings = {
+  AppLifecycleManagement?: SpaceAppLifecycleManagement;
   /**
    * A list of CodeRepositories available for use with JupyterLab apps.
    * @minLength `0`

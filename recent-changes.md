@@ -1,65 +1,82 @@
-- added `AWS::MediaLive::ChannelPlacementGroup`
-- added `AWS::MediaLive::CloudWatchAlarmTemplate`
-- added `AWS::MediaLive::CloudWatchAlarmTemplateGroup`
-- added `AWS::MediaLive::Cluster`
-- added `AWS::MediaLive::EventBridgeRuleTemplate`
-- added `AWS::MediaLive::EventBridgeRuleTemplateGroup`
-- added `AWS::MediaLive::Network`
-- added `AWS::MediaLive::SdiSource`
-- added `AWS::MediaLive::SignalMap`
-- added `AWS::SageMaker::Cluster`
-- updated `AWS::Amplify::App`
-  - added `sourceUrl`
-  - added definition `CacheConfig`
-  - added property `CacheConfig`
-- updated `AWS::DataBrew::Ruleset`
-  - updated `createOnlyProperties`
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `ContainerDefinition`
-  - updated definition `DockerVolumeConfiguration`
-  - updated definition `FSxAuthorizationConfig`
-  - updated definition `HealthCheck`
-  - updated definition `KernelCapabilities`
-  - updated definition `LinuxParameters`
-  - updated definition `RestartPolicy`
-  - updated definition `SystemControl`
-- updated `AWS::EKS::FargateProfile`
+- updated `AWS::ECS::Service`
+  - updated definition `AwsVpcConfiguration`
+  - updated definition `DeploymentConfiguration`
+  - updated definition `EBSTagSpecification`
+  - updated definition `LogConfiguration`
+  - updated definition `NetworkConfiguration`
+  - updated definition `PlacementConstraint`
+  - updated definition `PlacementStrategy`
+  - updated definition `ServiceConnectConfiguration`
+  - updated definition `ServiceConnectTlsCertificateAuthority`
+  - updated definition `ServiceConnectTlsConfiguration`
+  - updated definition `ServiceManagedEBSVolumeConfiguration`
+  - updated definition `ServiceRegistry`
+  - updated definition `ServiceVolumeConfiguration`
+  - updated property `PropagateTags`
+- updated `AWS::EKS::Cluster`
   - updated `tagging`
-- updated `AWS::EKS::PodIdentityAssociation`
-  - updated `tagging`
-- updated `AWS::MediaConnect::Flow`
-  - added definition `SourceMonitoringConfig`
-  - added property `SourceMonitoringConfig`
-  - updated property `Maintenance`
-- updated `AWS::QuickSight::Analysis`
-  - added definition `QueryExecutionMode`
-  - added definition `QueryExecutionOptions`
-  - updated definition `AnalysisDefinition`
-- updated `AWS::QuickSight::Template`
-  - added definition `QueryExecutionMode`
-  - added definition `QueryExecutionOptions`
-  - updated definition `TemplateVersionDefinition`
-- updated `AWS::RefactorSpaces::Route`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::SNS::Subscription`
-  - added `conditionalCreateOnlyProperties`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - added property `Arn`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - added definition `ListenerAttribute`
+  - added property `ListenerAttributes`
   - updated handler permissions
-  - updated property `DeliveryPolicy`
-  - updated property `Endpoint`
-  - updated property `FilterPolicyScope`
-  - updated property `FilterPolicy`
-  - updated property `Protocol`
-  - updated property `RawMessageDelivery`
-  - updated property `RedrivePolicy`
-  - updated property `Region`
-  - updated property `ReplayPolicy`
-  - updated property `SubscriptionRoleArn`
-  - updated property `TopicArn`
+- updated `AWS::ElasticLoadBalancingV2::TrustStore`
+  - updated `tagging`
+- updated `AWS::IoTFleetWise::DecoderManifest`
+  - updated property `NetworkInterfaces`
+  - updated property `SignalDecoders`
+- updated `AWS::NetworkFirewall::Firewall`
+  - updated `tagging`
+- updated `AWS::NetworkFirewall::FirewallPolicy`
+  - updated `tagging`
+- updated `AWS::NetworkFirewall::RuleGroup`
+  - updated `tagging`
+- updated `AWS::NetworkFirewall::TLSInspectionConfiguration`
+  - updated `tagging`
+- updated `AWS::Pipes::Pipe`
+  - added property `KmsKeyIdentifier`
+  - updated handler permissions
+- updated `AWS::SageMaker::Domain`
+  - added definition `AppLifecycleManagement`
+  - added definition `IdleSettings`
+  - added definition `IdleTimeoutInMinutes`
+  - added definition `LifecycleManagement`
+  - added definition `MaxIdleTimeoutInMinutes`
+  - added definition `MinIdleTimeoutInMinutes`
+  - updated definition `CodeEditorAppSettings`
+  - updated definition `JupyterLabAppSettings`
+- updated `AWS::SageMaker::Space`
+  - added definition `SpaceAppLifecycleManagement`
+  - added definition `SpaceIdleSettings`
+  - updated definition `SpaceCodeEditorAppSettings`
+  - updated definition `SpaceJupyterLabAppSettings`
+- updated `AWS::SageMaker::UserProfile`
+  - added definition `AppLifecycleManagement`
+  - added definition `IdleSettings`
+  - added definition `IdleTimeoutInMinutes`
+  - added definition `LifecycleManagement`
+  - added definition `MaxIdleTimeoutInMinutes`
+  - added definition `MinIdleTimeoutInMinutes`
+  - updated definition `CodeEditorAppSettings`
+  - updated definition `JupyterLabAppSettings`
+- updated `AWS::VpcLattice::AccessLogSubscription`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::VpcLattice::Listener`
+  - updated `tagging`
+- updated `AWS::VpcLattice::Rule`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::VpcLattice::Service`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::VpcLattice::ServiceNetwork`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::VpcLattice::ServiceNetworkServiceAssociation`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::VpcLattice::ServiceNetworkVpcAssociation`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::VpcLattice::TargetGroup`
+  - updated `tagging`

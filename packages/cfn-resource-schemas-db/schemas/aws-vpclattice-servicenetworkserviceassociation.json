@@ -1,5 +1,5 @@
 {
-  "$hash": "42e4a3f993a88d4a96ef5f49b1c765cd2df42670",
+  "$hash": "c604aeda1c8ed8cc54986783049e8098eca44a53",
   "$id": "aws-vpclattice-servicenetworkserviceassociation.json",
   "additionalIdentifiers": [
     ["/properties/Id"],
@@ -42,7 +42,8 @@
     "delete": {
       "permissions": [
         "vpc-lattice:DeleteServiceNetworkServiceAssociation",
-        "vpc-lattice:GetServiceNetworkServiceAssociation"
+        "vpc-lattice:GetServiceNetworkServiceAssociation",
+        "vpc-lattice:UntagResource"
       ]
     },
     "list": {
@@ -179,6 +180,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "vpc-lattice:UntagResource",
+      "vpc-lattice:TagResource",
+      "vpc-lattice:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
