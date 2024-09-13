@@ -1,5 +1,5 @@
 {
-  "$hash": "46e026d3d92ffa89d85060711db21fc9f4ea02b2",
+  "$hash": "9e8073a54b7dd868816750145d40a21b5b189917",
   "$id": "aws-rds-optiongroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -157,5 +157,13 @@
   },
   "required": ["EngineName", "MajorEngineVersion", "OptionGroupDescription"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-rds",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["rds:AddTagsToResource", "rds:RemoveTagsFromResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RDS::OptionGroup"
 }

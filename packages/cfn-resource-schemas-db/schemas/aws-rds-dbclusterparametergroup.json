@@ -1,5 +1,5 @@
 {
-  "$hash": "0854e632bb047d1e8e1664137ac98bfe522e0ede",
+  "$hash": "18def55f30dd6d56c248ea75a4d5efecda2e099e",
   "$id": "aws-rds-dbclusterparametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -103,5 +103,13 @@
   },
   "required": ["Description", "Family", "Parameters"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-rds",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["rds:AddTagsToResource", "rds:RemoveTagsFromResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RDS::DBClusterParameterGroup"
 }

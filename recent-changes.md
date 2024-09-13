@@ -1,82 +1,17 @@
-- updated `AWS::ECS::Service`
-  - updated definition `AwsVpcConfiguration`
-  - updated definition `DeploymentConfiguration`
-  - updated definition `EBSTagSpecification`
-  - updated definition `LogConfiguration`
-  - updated definition `NetworkConfiguration`
-  - updated definition `PlacementConstraint`
-  - updated definition `PlacementStrategy`
-  - updated definition `ServiceConnectConfiguration`
-  - updated definition `ServiceConnectTlsCertificateAuthority`
-  - updated definition `ServiceConnectTlsConfiguration`
-  - updated definition `ServiceManagedEBSVolumeConfiguration`
-  - updated definition `ServiceRegistry`
-  - updated definition `ServiceVolumeConfiguration`
-  - updated property `PropagateTags`
-- updated `AWS::EKS::Cluster`
-  - updated `tagging`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - added definition `ListenerAttribute`
-  - added property `ListenerAttributes`
-  - updated handler permissions
-- updated `AWS::ElasticLoadBalancingV2::TrustStore`
-  - updated `tagging`
-- updated `AWS::IoTFleetWise::DecoderManifest`
-  - updated property `NetworkInterfaces`
-  - updated property `SignalDecoders`
-- updated `AWS::NetworkFirewall::Firewall`
-  - updated `tagging`
-- updated `AWS::NetworkFirewall::FirewallPolicy`
-  - updated `tagging`
-- updated `AWS::NetworkFirewall::RuleGroup`
-  - updated `tagging`
-- updated `AWS::NetworkFirewall::TLSInspectionConfiguration`
-  - updated `tagging`
-- updated `AWS::Pipes::Pipe`
-  - added property `KmsKeyIdentifier`
-  - updated handler permissions
-- updated `AWS::SageMaker::Domain`
-  - added definition `AppLifecycleManagement`
-  - added definition `IdleSettings`
-  - added definition `IdleTimeoutInMinutes`
-  - added definition `LifecycleManagement`
-  - added definition `MaxIdleTimeoutInMinutes`
-  - added definition `MinIdleTimeoutInMinutes`
-  - updated definition `CodeEditorAppSettings`
-  - updated definition `JupyterLabAppSettings`
-- updated `AWS::SageMaker::Space`
-  - added definition `SpaceAppLifecycleManagement`
-  - added definition `SpaceIdleSettings`
-  - updated definition `SpaceCodeEditorAppSettings`
-  - updated definition `SpaceJupyterLabAppSettings`
-- updated `AWS::SageMaker::UserProfile`
-  - added definition `AppLifecycleManagement`
-  - added definition `IdleSettings`
-  - added definition `IdleTimeoutInMinutes`
-  - added definition `LifecycleManagement`
-  - added definition `MaxIdleTimeoutInMinutes`
-  - added definition `MinIdleTimeoutInMinutes`
-  - updated definition `CodeEditorAppSettings`
-  - updated definition `JupyterLabAppSettings`
-- updated `AWS::VpcLattice::AccessLogSubscription`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::VpcLattice::Listener`
-  - updated `tagging`
-- updated `AWS::VpcLattice::Rule`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::VpcLattice::Service`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::VpcLattice::ServiceNetwork`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::VpcLattice::ServiceNetworkServiceAssociation`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::VpcLattice::ServiceNetworkVpcAssociation`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::VpcLattice::TargetGroup`
-  - updated `tagging`
+- updated `AWS::RDS::DBCluster`
+  - updated property `DBClusterParameterGroupName`
+  - updated property `MonitoringInterval`
+  - updated property `RestoreType`
+- updated `AWS::RDS::DBClusterParameterGroup`
+  - added `tagging`
+- updated `AWS::RDS::DBInstance`
+  - added `tagging`
+  - updated property `BackupRetentionPeriod`
+  - updated property `MonitoringInterval`
+  - updated property `PromotionTier`
+- updated `AWS::RDS::DBParameterGroup`
+  - added `tagging`
+- updated `AWS::RDS::EventSubscription`
+  - added `tagging`
+- updated `AWS::RDS::OptionGroup`
+  - added `tagging`

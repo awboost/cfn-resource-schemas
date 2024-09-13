@@ -1,5 +1,5 @@
 {
-  "$hash": "5177ad201d3afe309ed56de7083b7b0ca50d7cd3",
+  "$hash": "c544ea8d2d638a511afc13956303bb7613fe1943",
   "$id": "aws-rds-eventsubscription.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -112,5 +112,13 @@
   },
   "required": ["SnsTopicArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-rds",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["rds:AddTagsToResource", "rds:RemoveTagsFromResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RDS::EventSubscription"
 }

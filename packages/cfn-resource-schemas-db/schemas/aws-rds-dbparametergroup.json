@@ -1,5 +1,5 @@
 {
-  "$hash": "8e42b6f7c51afcb9ebea81cbd970df5dd101d79f",
+  "$hash": "18d355695025c162e292a91ad3a257ce202dedd3",
   "$id": "aws-rds-dbparametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -100,5 +100,13 @@
   },
   "required": ["Family", "Description"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-rds",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["rds:AddTagsToResource", "rds:RemoveTagsFromResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RDS::DBParameterGroup"
 }
