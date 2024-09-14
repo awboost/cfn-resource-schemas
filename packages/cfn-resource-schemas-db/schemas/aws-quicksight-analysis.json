@@ -1,5 +1,5 @@
 {
-  "$hash": "b8ed9ea0d40fe5b514b9649f6c0e5f002f6b8895",
+  "$hash": "8c5a4920d4928e2592047886bf715324eb10dced",
   "$id": "aws-quicksight-analysis.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7794,6 +7794,12 @@
     "WordCloudWordScaling": {
       "enum": ["EMPHASIZE", "NORMAL"],
       "type": "string"
+    },
+    "YAxisOptions": {
+      "additionalProperties": false,
+      "properties": { "YAxis": { "$ref": "#/definitions/SingleYAxisOption" } },
+      "required": ["YAxis"],
+      "type": "object"
     }
   },
   "description": "Definition of the AWS::QuickSight::Analysis Resource Type.",

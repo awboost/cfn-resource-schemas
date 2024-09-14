@@ -19,7 +19,7 @@ export type IoTFleetWiseSignalCatalogProperties = {
   Name?: string;
   /**
    * @minLength `1`
-   * @maxLength `500`
+   * @maxLength `5000`
    */
   Nodes?: Node[];
   /**

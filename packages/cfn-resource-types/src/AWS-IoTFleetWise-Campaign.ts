@@ -47,6 +47,11 @@ export type IoTFleetWiseCampaignProperties = {
    * @maxLength `1000`
    */
   SignalsToCollect?: SignalInformation[];
+  /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  SignalsToFetch?: SignalFetchInformation[];
   SpoolingMode?: SpoolingMode;
   StartTime?: string;
   /**
@@ -113,6 +118,18 @@ export type ConditionBasedCollectionScheme = {
   TriggerMode?: TriggerMode;
 };
 /**
+ * Type definition for `AWS::IoTFleetWise::Campaign.ConditionBasedSignalFetchConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedsignalfetchconfig.html}
+ */
+export type ConditionBasedSignalFetchConfig = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  ConditionExpression: string;
+  TriggerMode: TriggerMode;
+};
+/**
  * Type definition for `AWS::IoTFleetWise::Campaign.DataDestinationConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html}
  */
@@ -175,6 +192,40 @@ export type S3Config = {
   StorageCompressionFormat?: StorageCompressionFormat;
 };
 /**
+ * Type definition for `AWS::IoTFleetWise::Campaign.SignalFetchConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchconfig.html}
+ */
+export type SignalFetchConfig =
+  | {
+      TimeBased: TimeBasedSignalFetchConfig;
+    }
+  | {
+      ConditionBased: ConditionBasedSignalFetchConfig;
+    };
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.SignalFetchInformation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html}
+ */
+export type SignalFetchInformation = {
+  /**
+   * @minLength `1`
+   * @maxLength `5`
+   */
+  Actions: string[];
+  /**
+   * @min `1`
+   * @max `1`
+   */
+  ConditionLanguageVersion?: number;
+  /**
+   * @minLength `1`
+   * @maxLength `150`
+   * @pattern `^[a-zA-Z0-9_.]+$`
+   */
+  FullyQualifiedName: string;
+  SignalFetchConfig: SignalFetchConfig;
+};
+/**
  * Type definition for `AWS::IoTFleetWise::Campaign.SignalInformation`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html}
  */
@@ -229,9 +280,19 @@ export type Tag = {
 export type TimeBasedCollectionScheme = {
   /**
    * @min `10000`
-   * @max `60000`
+   * @max `86400000`
    */
   PeriodMs: number;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.TimeBasedSignalFetchConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedsignalfetchconfig.html}
+ */
+export type TimeBasedSignalFetchConfig = {
+  /**
+   * @min `1`
+   */
+  ExecutionFrequencyMs: number;
 };
 /**
  * Type definition for `AWS::IoTFleetWise::Campaign.TimestreamConfig`.

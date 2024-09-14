@@ -1,5 +1,5 @@
 {
-  "$hash": "b5abf25de4060b4f756fb78be86992ed46448ac8",
+  "$hash": "45c32b9961ef8fb9f1b217413777ff58bf7e069f",
   "$id": "aws-iotfleetwise-decodermanifest.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ModelManifestArn"],
@@ -206,7 +206,7 @@
           { "$ref": "#/definitions/ObdNetworkInterface" }
         ]
       },
-      "maxItems": 500,
+      "maxItems": 5000,
       "minItems": 1,
       "type": "array"
     },
@@ -218,7 +218,7 @@
           { "$ref": "#/definitions/ObdSignalDecoder" }
         ]
       },
-      "maxItems": 500,
+      "maxItems": 5000,
       "minItems": 1,
       "type": "array"
     },

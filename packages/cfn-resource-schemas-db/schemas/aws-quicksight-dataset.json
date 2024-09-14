@@ -1,5 +1,5 @@
 {
-  "$hash": "e5cf79f96080efa7f5d9111e37a3332f5cba2de0",
+  "$hash": "93bc0cd605870966ffb99575e1c112e47391410b",
   "$id": "aws-quicksight-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/DataSetId"],
@@ -546,7 +546,7 @@
         },
         "Source": { "$ref": "#/definitions/LogicalTableSource" }
       },
-      "required": ["Alias", "Source"],
+      "required": ["Alias"],
       "type": "object"
     },
     "LogicalTableMap": {
@@ -1149,6 +1149,9 @@
         "quicksight:DescribeIngestion",
         "quicksight:ListIngestions",
         "quicksight:CancelIngestion",
+        "quicksight:CreateFolderMembership",
+        "quicksight:DeleteFolderMembership",
+        "quicksight:ListFoldersForResource",
         "quicksight:TagResource",
         "quicksight:UntagResource",
         "quicksight:ListTagsForResource",
@@ -1208,6 +1211,13 @@
       "type": "array"
     },
     "FieldFolders": { "$ref": "#/definitions/FieldFolderMap" },
+    "FolderArns": {
+      "description": "<p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>",
+      "items": { "type": "string" },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
     "ImportMode": { "$ref": "#/definitions/DataSetImportMode" },
     "IngestionWaitPolicy": { "$ref": "#/definitions/IngestionWaitPolicy" },
     "LastUpdatedTime": {
@@ -1266,6 +1276,7 @@
   "typeName": "AWS::QuickSight::DataSet",
   "writeOnlyProperties": [
     "/properties/FieldFolders",
-    "/properties/IngestionWaitPolicy"
+    "/properties/IngestionWaitPolicy",
+    "/properties/FolderArns"
   ]
 }

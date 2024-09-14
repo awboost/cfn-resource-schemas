@@ -16,10 +16,24 @@ export type DataZoneEnvironmentProperties = {
    */
   DomainIdentifier: string;
   /**
-   * The ID of the environment profile with which the Amazon DataZone environment would be created.
-   * @pattern `^[a-zA-Z0-9_-]{1,36}$`
+   * The AWS account in which the Amazon DataZone environment is created.
+   * @pattern `^\d{12}$`
    */
-  EnvironmentProfileIdentifier: string;
+  EnvironmentAccountIdentifier?: string;
+  /**
+   * The AWS region in which the Amazon DataZone environment is created.
+   * @pattern `^[a-z]{2}-[a-z]{4,10}-\d$`
+   */
+  EnvironmentAccountRegion?: string;
+  /**
+   * The ID of the environment profile with which the Amazon DataZone environment would be created.
+   * @pattern `^[a-zA-Z0-9_-]{0,36}$`
+   */
+  EnvironmentProfileIdentifier?: string;
+  /**
+   * Environment role arn for custom aws environment permissions
+   */
+  EnvironmentRoleArn?: string;
   /**
    * The glossary terms that can be used in the Amazon DataZone environment.
    * @minLength `1`
@@ -78,7 +92,7 @@ export type DataZoneEnvironmentAttributes = {
   EnvironmentBlueprintId: string;
   /**
    * The ID of the environment profile with which the Amazon DataZone environment was created.
-   * @pattern `^[a-zA-Z0-9_-]{1,36}$`
+   * @pattern `^[a-zA-Z0-9_-]{0,36}$`
    */
   EnvironmentProfileId: string;
   /**

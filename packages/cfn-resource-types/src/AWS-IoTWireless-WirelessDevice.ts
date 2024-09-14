@@ -109,7 +109,7 @@ export type Application = {
   /**
    * Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
    */
-  Type?: "SemtechGeolocation";
+  Type?: "SemtechGeolocation" | "SemtechGNSS" | "SemtechGNSSNG" | "SemtechWiFi";
 };
 /**
  * Type definition for `AWS::IoTWireless::WirelessDevice.FPorts`.

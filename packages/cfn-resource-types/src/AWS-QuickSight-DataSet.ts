@@ -40,6 +40,12 @@ export type QuickSightDataSetProperties = {
    */
   DatasetParameters?: DatasetParameter[];
   FieldFolders?: FieldFolderMap;
+  /**
+   * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  FolderArns?: string[];
   ImportMode?: DataSetImportMode;
   /**
    * <p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p>
@@ -692,7 +698,7 @@ export type LogicalTable = {
      * <p>Information about the source of a logical table. This is a variant type structure. For
                 this structure to be valid, only one of the attributes can be non-null.</p>
      */
-  Source: LogicalTableSource;
+  Source?: LogicalTableSource;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.LogicalTableMap`.

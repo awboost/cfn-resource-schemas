@@ -1,5 +1,5 @@
 {
-  "$hash": "958eac5cb08b6428a616f6db47df276a80391c5b",
+  "$hash": "cfcb181b9d245e9a8ad00cde46116a9275d3207f",
   "$id": "aws-iotwireless-wirelessdevice.json",
   "additionalProperties": false,
   "definitions": {
@@ -39,7 +39,12 @@
         },
         "Type": {
           "description": "Application type, which can be specified to obtain real-time position information of your LoRaWAN device.",
-          "enum": ["SemtechGeolocation"],
+          "enum": [
+            "SemtechGeolocation",
+            "SemtechGNSS",
+            "SemtechGNSSNG",
+            "SemtechWiFi"
+          ],
           "type": "string"
         }
       },

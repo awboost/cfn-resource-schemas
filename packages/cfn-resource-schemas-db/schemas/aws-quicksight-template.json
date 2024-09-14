@@ -1,5 +1,5 @@
 {
-  "$hash": "9e311b9c21f6709172700d602c400fd159712135",
+  "$hash": "b9af27810fa0a8e60573b8d2c3fe44456cf5e3ed",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7818,6 +7818,12 @@
     "WordCloudWordScaling": {
       "enum": ["EMPHASIZE", "NORMAL"],
       "type": "string"
+    },
+    "YAxisOptions": {
+      "additionalProperties": false,
+      "properties": { "YAxis": { "$ref": "#/definitions/SingleYAxisOption" } },
+      "required": ["YAxis"],
+      "type": "object"
     }
   },
   "description": "Definition of the AWS::QuickSight::Template Resource Type.",

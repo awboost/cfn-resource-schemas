@@ -6186,8 +6186,13 @@ export type SimpleTotalAggregationFunction =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-singleaxisoptions.html}
  */
 export type SingleAxisOptions = {
-  YAxisOptions?: unknown;
+  YAxisOptions?: YAxisOptions;
 };
+/**
+ * Type definition for `AWS::QuickSight::Analysis.SingleYAxisOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-singleyaxisoption.html}
+ */
+export type SingleYAxisOption = "PRIMARY_Y_AXIS";
 /**
  * Type definition for `AWS::QuickSight::Analysis.SliderControlDisplayOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-slidercontroldisplayoptions.html}
@@ -7536,6 +7541,13 @@ export type WordCloudWordPadding = "NONE" | "SMALL" | "MEDIUM" | "LARGE";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-wordcloudwordscaling.html}
  */
 export type WordCloudWordScaling = "EMPHASIZE" | "NORMAL";
+/**
+ * Type definition for `AWS::QuickSight::Analysis.YAxisOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-yaxisoptions.html}
+ */
+export type YAxisOptions = {
+  YAxis: SingleYAxisOption;
+};
 /**
  * Definition of the AWS::QuickSight::Analysis Resource Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html}

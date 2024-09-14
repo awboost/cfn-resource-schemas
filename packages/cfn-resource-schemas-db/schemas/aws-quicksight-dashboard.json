@@ -1,5 +1,5 @@
 {
-  "$hash": "c7d86b95e62bbba579cbd9c66b5ccc1f269d935c",
+  "$hash": "80b96bbb9879d31f696018f72d40c2538be792c2",
   "$id": "aws-quicksight-dashboard.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7983,6 +7983,12 @@
     "WordCloudWordScaling": {
       "enum": ["EMPHASIZE", "NORMAL"],
       "type": "string"
+    },
+    "YAxisOptions": {
+      "additionalProperties": false,
+      "properties": { "YAxis": { "$ref": "#/definitions/SingleYAxisOption" } },
+      "required": ["YAxis"],
+      "type": "object"
     }
   },
   "description": "Definition of the AWS::QuickSight::Dashboard Resource Type.",

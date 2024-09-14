@@ -20,12 +20,12 @@ export type IoTFleetWiseDecoderManifestProperties = {
   Name: string;
   /**
    * @minLength `1`
-   * @maxLength `500`
+   * @maxLength `5000`
    */
   NetworkInterfaces?: (CanNetworkInterface | ObdNetworkInterface)[];
   /**
    * @minLength `1`
-   * @maxLength `500`
+   * @maxLength `5000`
    */
   SignalDecoders?: (CanSignalDecoder | ObdSignalDecoder)[];
   Status?: ManifestStatus;

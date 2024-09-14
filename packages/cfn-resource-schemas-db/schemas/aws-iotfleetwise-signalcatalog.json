@@ -1,5 +1,5 @@
 {
-  "$hash": "66ac987d416d664ccd73f67ad88a1c823fcaf4be",
+  "$hash": "4ea8d167020a74731151fe75354ec920117fb99b",
   "$id": "aws-iotfleetwise-signalcatalog.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -222,7 +222,7 @@
     "Nodes": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Node" },
-      "maxItems": 500,
+      "maxItems": 5000,
       "minItems": 1,
       "type": "array",
       "uniqueItems": true

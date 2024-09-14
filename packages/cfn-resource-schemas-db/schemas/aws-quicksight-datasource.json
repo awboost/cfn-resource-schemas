@@ -1,5 +1,5 @@
 {
-  "$hash": "bd8ef0c9877b113cbacde71fb37a50a8fca81cfd",
+  "$hash": "6ce56e9f39bcb75652d1a2012e1335298ad2b598",
   "$id": "aws-quicksight-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -853,6 +853,9 @@
         "quicksight:DescribeDataSourcePermissions",
         "quicksight:UpdateDataSource",
         "quicksight:UpdateDataSourcePermissions",
+        "quicksight:CreateFolderMembership",
+        "quicksight:DeleteFolderMembership",
+        "quicksight:ListFoldersForResource",
         "quicksight:TagResource",
         "quicksight:UntagResource",
         "quicksight:ListTagsForResource"

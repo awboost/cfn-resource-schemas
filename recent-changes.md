@@ -1,17 +1,49 @@
-- updated `AWS::RDS::DBCluster`
-  - updated property `DBClusterParameterGroupName`
-  - updated property `MonitoringInterval`
-  - updated property `RestoreType`
-- updated `AWS::RDS::DBClusterParameterGroup`
+- added `AWS::Connect::AgentStatus`
+- updated `AWS::DataZone::Environment`
+  - added property `EnvironmentAccountIdentifier`
+  - added property `EnvironmentAccountRegion`
+  - added property `EnvironmentRoleArn`
+  - updated `createOnlyProperties`
+  - updated `required`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+  - updated property `EnvironmentProfileId`
+  - updated property `EnvironmentProfileIdentifier`
+- updated `AWS::IoTFleetWise::Campaign`
+  - added definition `ConditionBasedSignalFetchConfig`
+  - added definition `SignalFetchConfig`
+  - added definition `SignalFetchInformation`
+  - added definition `TimeBasedSignalFetchConfig`
+  - added definition `TimePeriod`
+  - added definition `TimeUnit`
+  - added property `SignalsToFetch`
+  - updated definition `TimeBasedCollectionScheme`
+- updated `AWS::IoTFleetWise::DecoderManifest`
+  - updated property `NetworkInterfaces`
+  - updated property `SignalDecoders`
+- updated `AWS::IoTFleetWise::SignalCatalog`
+  - updated property `Nodes`
+- updated `AWS::IoTWireless::WirelessDevice`
+  - updated definition `Application`
+- updated `AWS::Lambda::CodeSigningConfig`
   - added `tagging`
-- updated `AWS::RDS::DBInstance`
-  - added `tagging`
-  - updated property `BackupRetentionPeriod`
-  - updated property `MonitoringInterval`
-  - updated property `PromotionTier`
-- updated `AWS::RDS::DBParameterGroup`
-  - added `tagging`
-- updated `AWS::RDS::EventSubscription`
-  - added `tagging`
-- updated `AWS::RDS::OptionGroup`
-  - added `tagging`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated handler permissions
+- updated `AWS::QuickSight::Analysis`
+  - added definition `YAxisOptions`
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `YAxisOptions`
+- updated `AWS::QuickSight::DataSet`
+  - added property `FolderArns`
+  - updated `writeOnlyProperties`
+  - updated definition `LogicalTable`
+  - updated handler permissions
+- updated `AWS::QuickSight::DataSource`
+  - updated handler permissions
+- updated `AWS::QuickSight::Template`
+  - added definition `YAxisOptions`
+- updated `AWS::XRay::Group`
+  - updated `tagging`
+- updated `AWS::XRay::SamplingRule`
+  - updated `tagging`
