@@ -1,5 +1,5 @@
 {
-  "$hash": "f9e4100a176fe0b1052e7e6987552ee0e85133db",
+  "$hash": "2d60c82621191a497e557cc55477e16c2fb35960",
   "$id": "aws-codeguruprofiler-profilinggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -76,7 +76,9 @@
     "read": {
       "permissions": [
         "codeguru-profiler:DescribeProfilingGroup",
-        "codeguru-profiler:ListTagsForResource"
+        "codeguru-profiler:ListTagsForResource",
+        "codeguru-profiler:GetNotificationConfiguration",
+        "codeguru-profiler:GetPolicy"
       ]
     },
     "update": {
