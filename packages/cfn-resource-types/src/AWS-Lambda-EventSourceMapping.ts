@@ -79,11 +79,12 @@ export type LambdaEventSourceMappingProperties = {
      */
   FunctionName: string;
   /**
-     * (Streams and SQS) A list of current response type enums applied to the event source mapping.
+     * (Kinesis, DynamoDB Streams, and SQS) A list of current response type enums applied to the event source mapping.
      Valid Values: ``ReportBatchItemFailures``
      */
   FunctionResponseTypes?: "ReportBatchItemFailures"[];
   /**
+   * The ARN of the KMSlong (KMS) customer managed key that Lambda uses to encrypt your function's [filter criteria](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics).
    * @minLength `12`
    * @maxLength `2048`
    * @pattern `(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()`
@@ -155,6 +156,7 @@ export type LambdaEventSourceMappingProperties = {
    * With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
    */
   StartingPositionTimestamp?: number;
+  Tags?: Tag[];
   /**
    * The name of the Kafka topic.
    * @minLength `1`
@@ -173,6 +175,12 @@ export type LambdaEventSourceMappingProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#aws-resource-lambda-eventsourcemapping-return-values}
  */
 export type LambdaEventSourceMappingAttributes = {
+  /**
+   * @minLength `85`
+   * @maxLength `120`
+   * @pattern `arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:event-source-mapping:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}`
+   */
+  EventSourceMappingArn: string;
   /**
    * @minLength `36`
    * @maxLength `36`
@@ -357,6 +365,24 @@ export type SourceAccessConfiguration = {
    * @pattern `[a-zA-Z0-9-\/*:_+=.@-]*`
    */
   URI?: string;
+};
+/**
+ * Type definition for `AWS::Lambda::EventSourceMapping.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value?: string;
 };
 /**
  * The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.

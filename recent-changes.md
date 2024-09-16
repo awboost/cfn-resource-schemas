@@ -1,3 +1,12 @@
-- added `AWS::Connect::UserHierarchyStructure`
-- updated `AWS::CodeGuruProfiler::ProfilingGroup`
+- updated `AWS::Lambda::EventSourceMapping`
+  - added definition `Tag`
+  - added property `EventSourceMappingArn`
+  - added property `Tags`
+  - updated `readOnlyProperties`
+  - updated `tagging`
   - updated handler permissions
+  - updated property `FunctionResponseTypes`
+  - updated property `KmsKeyArn`
+- updated `AWS::Rekognition::StreamProcessor`
+  - added `tagging`
+  - removed `taggable`

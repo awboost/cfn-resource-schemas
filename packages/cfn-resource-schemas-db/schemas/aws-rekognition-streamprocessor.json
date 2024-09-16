@@ -1,6 +1,6 @@
 {
   "$comment": "We explicitly specify the replacement strategy to be delete_then_create because we cannot create a new SP resource with the same name or same KVS input before deleting the old one",
-  "$hash": "91910b282aa3afc11b8a10c1e3482ca26a1501a4",
+  "$hash": "2ff747462073ce94b5cceecf7fdc60740f842e88",
   "$id": "aws-rekognition-streamprocessor.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -303,6 +303,17 @@
   "replacementStrategy": "delete_then_create",
   "required": ["RoleArn", "KinesisVideoStream"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "rekognition:TagResource",
+      "rekognition:UntagResource",
+      "rekognition:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Rekognition::StreamProcessor"
 }
