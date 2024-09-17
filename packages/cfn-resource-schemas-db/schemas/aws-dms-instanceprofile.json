@@ -1,5 +1,5 @@
 {
-  "$hash": "0151a3f02a55bcb91f252f4a49895a33741c9fb6",
+  "$hash": "e937fe94939c548bbdd97f040908649071a273eb",
   "$id": "aws-dms-instanceprofile.json",
   "additionalIdentifiers": [["/properties/InstanceProfileName"]],
   "additionalProperties": false,
@@ -107,7 +107,7 @@
     },
     "NetworkType": {
       "description": "The property describes a network type for the instance profile.",
-      "enum": ["IPV4", "IPV6", "DUAL"],
+      "enum": ["IPV4", "DUAL"],
       "type": "string"
     },
     "PubliclyAccessible": {

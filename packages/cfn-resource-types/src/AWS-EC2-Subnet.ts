@@ -97,9 +97,6 @@ export type EC2SubnetProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#aws-resource-ec2-subnet-return-values}
  */
 export type EC2SubnetAttributes = {
-  /**
-   * The IPv6 network ranges for the subnet, in CIDR notation.
-   */
   Ipv6CidrBlocks: string[];
   NetworkAclAssociationId: string;
   SubnetId: string;

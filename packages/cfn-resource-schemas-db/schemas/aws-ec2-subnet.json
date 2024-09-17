@@ -1,5 +1,5 @@
 {
-  "$hash": "7bfa94d21fd90c380acc1b9785cd73ead42ab11c",
+  "$hash": "913394b6a857006dffb80c3da698d90bb35605e6",
   "$id": "aws-ec2-subnet.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/Ipv6CidrBlock"],
@@ -94,7 +94,7 @@
       "type": "string"
     },
     "Ipv6CidrBlocks": {
-      "description": "The IPv6 network ranges for the subnet, in CIDR notation.",
+      "description": "",
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false

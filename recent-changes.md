@@ -1,12 +1,7 @@
-- updated `AWS::Lambda::EventSourceMapping`
-  - added definition `Tag`
-  - added property `EventSourceMappingArn`
-  - added property `Tags`
-  - updated `readOnlyProperties`
+- added `AWS::DataZone::EnvironmentActions`
+- updated `AWS::DMS::InstanceProfile`
+  - updated property `NetworkType`
+- updated `AWS::EC2::Subnet`
+  - updated property `Ipv6CidrBlocks`
+- updated `AWS::Location::APIKey`
   - updated `tagging`
-  - updated handler permissions
-  - updated property `FunctionResponseTypes`
-  - updated property `KmsKeyArn`
-- updated `AWS::Rekognition::StreamProcessor`
-  - added `tagging`
-  - removed `taggable`

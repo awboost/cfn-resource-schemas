@@ -38,7 +38,7 @@ export type DMSInstanceProfileProperties = {
   /**
    * The property describes a network type for the instance profile.
    */
-  NetworkType?: "IPV4" | "IPV6" | "DUAL";
+  NetworkType?: "IPV4" | "DUAL";
   /**
    * The property describes the publicly accessible of the instance profile
    */
