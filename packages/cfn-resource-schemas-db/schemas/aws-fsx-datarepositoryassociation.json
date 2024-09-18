@@ -1,5 +1,5 @@
 {
-  "$hash": "fe68dd760b31617002995c5d4dbeecb5f4074d73",
+  "$hash": "5589910c7bd9b81149a2015afdbf0ae4c2fd7299",
   "$id": "aws-fsx-datarepositoryassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -167,6 +167,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-fsx.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["fsx:TagResource", "fsx:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,5 +1,5 @@
 {
-  "$hash": "e16b44070bf475dff08919711b932e70a6339d2f",
+  "$hash": "1de5bf7f4e1fbec22c49558e8ff992e1fedb4210",
   "$id": "aws-rekognition-collection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CollectionId"],
@@ -81,6 +81,17 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["CollectionId"],
   "sourceUrl": "https://docs.aws.amazon.com/rekognition/latest/dg/collections.html",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "rekognition:ListTagsForResource",
+      "rekognition:TagResource",
+      "rekognition:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Rekognition::Collection"
 }

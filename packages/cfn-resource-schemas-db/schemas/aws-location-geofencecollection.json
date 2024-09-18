@@ -1,5 +1,5 @@
 {
-  "$hash": "56efde71eeaa6dc7b8530891bbb0793f8221496a",
+  "$hash": "044546d17130a13231c19935a9b2c808e52c6ae9",
   "$id": "aws-location-geofencecollection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -133,6 +133,7 @@
   "required": ["CollectionName"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["geo:TagResource", "geo:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

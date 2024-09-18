@@ -1,5 +1,5 @@
 {
-  "$hash": "c873776f08fbe6b1262dd9b664e821bc9b2055d7",
+  "$hash": "780da4a00e7bf2ee10b38162c2e3f5a32aed21bd",
   "$id": "aws-codestarconnections-repositorylink.json",
   "additionalIdentifiers": [["/properties/RepositoryLinkId"]],
   "additionalProperties": false,
@@ -129,6 +129,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-codestarconnections.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "codestar-connections:UntagResource",
+      "codestar-connections:ListTagsForResource",
+      "codestar-connections:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,5 +1,5 @@
 {
-  "$hash": "941929b065d5c1fe4e20bbc5b84259d9f78ae031",
+  "$hash": "4592e49ddf063b650a1ff4d6707bceaee60fa0bf",
   "$id": "aws-location-tracker.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyId", "/properties/TrackerName"],
@@ -130,6 +130,7 @@
   "required": ["TrackerName"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["geo:TagResource", "geo:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

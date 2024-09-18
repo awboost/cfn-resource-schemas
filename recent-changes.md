@@ -1,7 +1,13 @@
-- added `AWS::DataZone::EnvironmentActions`
-- updated `AWS::DMS::InstanceProfile`
-  - updated property `NetworkType`
-- updated `AWS::EC2::Subnet`
-  - updated property `Ipv6CidrBlocks`
-- updated `AWS::Location::APIKey`
+- updated `AWS::CodeStarConnections::RepositoryLink`
   - updated `tagging`
+- updated `AWS::FSx::DataRepositoryAssociation`
+  - updated `tagging`
+- updated `AWS::Location::GeofenceCollection`
+  - updated `tagging`
+- updated `AWS::Location::Map`
+  - updated `tagging`
+- updated `AWS::Location::Tracker`
+  - updated `tagging`
+- updated `AWS::Rekognition::Collection`
+  - added `tagging`
+  - removed `taggable`

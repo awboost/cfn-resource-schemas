@@ -1,5 +1,5 @@
 {
-  "$hash": "51c779f21825eb316c37d983fd43a582a46bfffc",
+  "$hash": "c15670ed91f67539ac7da131a5c82727a6ee031b",
   "$id": "aws-location-map.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Configuration", "/properties/MapName"],
@@ -140,6 +140,7 @@
   "required": ["Configuration", "MapName"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["geo:TagResource", "geo:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
