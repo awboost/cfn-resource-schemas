@@ -1,13 +1,22 @@
-- updated `AWS::CodeStarConnections::RepositoryLink`
-  - updated `tagging`
-- updated `AWS::FSx::DataRepositoryAssociation`
-  - updated `tagging`
-- updated `AWS::Location::GeofenceCollection`
-  - updated `tagging`
-- updated `AWS::Location::Map`
-  - updated `tagging`
-- updated `AWS::Location::Tracker`
-  - updated `tagging`
-- updated `AWS::Rekognition::Collection`
+- updated `AWS::ApplicationInsights::Application`
   - added `tagging`
   - removed `taggable`
+  - updated handler permissions
+- updated `AWS::Cognito::UserPool`
+  - added property `EmailAuthenticationMessage`
+  - added property `EmailAuthenticationSubject`
+- updated `AWS::Config::AggregationAuthorization`
+  - updated `tagging`
+- updated `AWS::Config::ConfigurationAggregator`
+  - updated `tagging`
+- updated `AWS::EC2::Instance`
+  - updated `tagging`
+- updated `AWS::EC2::Volume`
+  - updated definition `Tag`
+- updated `AWS::Glue::Job`
+  - added property `JobMode`
+- updated `AWS::S3Express::DirectoryBucket`
+  - added property `AvailabilityZoneName`
+  - added property `BucketEncryption`
+  - updated `readOnlyProperties`
+  - updated handler permissions

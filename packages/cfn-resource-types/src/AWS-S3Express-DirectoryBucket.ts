@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html}
  */
 export type S3ExpressDirectoryBucketProperties = {
+  BucketEncryption?: any;
   /**
    * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
    * @maxLength `63`
@@ -29,6 +30,10 @@ export type S3ExpressDirectoryBucketAttributes = {
    * Returns the Amazon Resource Name (ARN) of the specified bucket.
    */
   Arn: string;
+  /**
+   * Returns the code for the Availability Zone where the directory bucket was created.
+   */
+  AvailabilityZoneName: string;
 };
 /**
  * Resource Type definition for AWS::S3Express::DirectoryBucket.

@@ -1,5 +1,5 @@
 {
-  "$hash": "48a657e1c3cff7975bb937a0909caf83c4fe270a",
+  "$hash": "0c006fae0bfe619fca1fa39d5d240b6e2399df55",
   "$id": "aws-glue-job.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -48,6 +48,7 @@
     "ExecutionProperty": { "$ref": "#/definitions/ExecutionProperty" },
     "GlueVersion": { "type": "string" },
     "Id": { "type": "string" },
+    "JobMode": { "type": "string" },
     "LogUri": { "type": "string" },
     "MaintenanceWindow": { "type": "string" },
     "MaxCapacity": { "type": "number" },

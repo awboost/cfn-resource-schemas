@@ -1,5 +1,5 @@
 {
-  "$hash": "a19c0df951bfbc807f4ec2e48b88715cf349ef51",
+  "$hash": "4febe994e128e6da7e8235769c18f1fd3d279e7a",
   "$id": "aws-config-aggregationauthorization.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -93,6 +93,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-config.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "config:TagResource",
+      "config:UntagResource",
+      "config:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

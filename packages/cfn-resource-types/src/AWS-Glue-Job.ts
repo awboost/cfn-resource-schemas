@@ -13,6 +13,7 @@ export type GlueJobProperties = {
   ExecutionClass?: string;
   ExecutionProperty?: ExecutionProperty;
   GlueVersion?: string;
+  JobMode?: string;
   LogUri?: string;
   MaintenanceWindow?: string;
   MaxCapacity?: number;

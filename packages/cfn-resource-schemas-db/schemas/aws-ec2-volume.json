@@ -1,11 +1,11 @@
 {
-  "$hash": "d7ccba49741631387510b1e7e7e70eae7d1d8a60",
+  "$hash": "7c187aee749ae3aca82bedb1d95b23c3cd9f4955",
   "$id": "aws-ec2-volume.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
+      "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
         "Key": { "description": "The tag key.", "type": "string" },
         "Value": { "description": "The tag value.", "type": "string" }
