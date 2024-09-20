@@ -1,5 +1,5 @@
 {
-  "$hash": "52dfca09578e2067b103c9513363d1de279e3755",
+  "$hash": "15eb4e9223813964c4e2516727eb26a4fdcf7b89",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -48,6 +48,11 @@
       },
       "required": ["Handler"],
       "type": "object"
+    },
+    "ResourceToTag": {
+      "description": "Specifies which resources canary tags should be replicated to.",
+      "enum": ["lambda-function"],
+      "type": "string"
     },
     "RunConfig": {
       "additionalProperties": false,
@@ -168,6 +173,7 @@
         "lambda:GetLayerVersionByArn",
         "lambda:GetLayerVersion",
         "lambda:PublishLayerVersion",
+        "lambda:TagResource",
         "ec2:DescribeVpcs",
         "ec2:DescribeSubnets",
         "ec2:DescribeSecurityGroups",
@@ -208,6 +214,9 @@
         "lambda:GetLayerVersionByArn",
         "lambda:GetLayerVersion",
         "lambda:PublishLayerVersion",
+        "lambda:ListTags",
+        "lambda:TagResource",
+        "lambda:UntagResource",
         "iam:PassRole"
       ]
     }
@@ -242,8 +251,14 @@
     "Id": { "description": "Id of the canary", "type": "string" },
     "Name": {
       "description": "Name of the canary.",
-      "pattern": "^[0-9a-z_\\-]{1,21}$",
+      "pattern": "^[0-9a-z_\\-]{1,255}$",
       "type": "string"
+    },
+    "ResourcesToReplicateTags": {
+      "description": "List of resources which canary tags should be replicated to.",
+      "items": { "$ref": "#/definitions/ResourceToTag" },
+      "type": "array",
+      "uniqueItems": true
     },
     "RunConfig": {
       "$ref": "#/definitions/RunConfig",
@@ -303,6 +318,7 @@
     "/properties/Code/Script",
     "/properties/DeleteLambdaResourcesOnCanaryDeletion",
     "/properties/StartCanaryAfterCreation",
+    "/properties/ResourcesToReplicateTags",
     "/properties/RunConfig/EnvironmentVariables",
     "/properties/VisualReference"
   ]

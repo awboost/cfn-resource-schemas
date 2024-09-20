@@ -32,9 +32,13 @@ export type SyntheticsCanaryProperties = {
   FailureRetentionPeriod?: number;
   /**
    * Name of the canary.
-   * @pattern `^[0-9a-z_\-]{1,21}$`
+   * @pattern `^[0-9a-z_\-]{1,255}$`
    */
   Name: string;
+  /**
+   * List of resources which canary tags should be replicated to.
+   */
+  ResourcesToReplicateTags?: ResourceToTag[];
   /**
    * Provide canary run configuration
    */
@@ -120,6 +124,12 @@ export type Code = {
   S3ObjectVersion?: string;
   Script?: string;
 };
+/**
+ * Type definition for `AWS::Synthetics::Canary.ResourceToTag`.
+ * Specifies which resources canary tags should be replicated to.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-resourcetotag.html}
+ */
+export type ResourceToTag = "lambda-function";
 /**
  * Type definition for `AWS::Synthetics::Canary.RunConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html}

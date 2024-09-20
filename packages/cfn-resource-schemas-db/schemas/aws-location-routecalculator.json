@@ -1,5 +1,5 @@
 {
-  "$hash": "7abe51dc724072174e020e0f11420e9fa2ac2a56",
+  "$hash": "636824b663f1bbee3ac1f4202be349d44cda3bb3",
   "$id": "aws-location-routecalculator.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -119,6 +119,7 @@
   "required": ["DataSource", "CalculatorName"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["geo:TagResource", "geo:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,22 +1,44 @@
-- updated `AWS::ApplicationInsights::Application`
+- updated `AWS::ApiGatewayV2::Integration`
+  - added `sourceUrl`
   - added `tagging`
-  - removed `taggable`
-  - updated handler permissions
-- updated `AWS::Cognito::UserPool`
-  - added property `EmailAuthenticationMessage`
-  - added property `EmailAuthenticationSubject`
-- updated `AWS::Config::AggregationAuthorization`
-  - updated `tagging`
-- updated `AWS::Config::ConfigurationAggregator`
-  - updated `tagging`
-- updated `AWS::EC2::Instance`
-  - updated `tagging`
-- updated `AWS::EC2::Volume`
-  - updated definition `Tag`
-- updated `AWS::Glue::Job`
-  - added property `JobMode`
-- updated `AWS::S3Express::DirectoryBucket`
-  - added property `AvailabilityZoneName`
-  - added property `BucketEncryption`
+  - added definition `ResponseParameterList`
+  - added definition `ResponseParameterMap`
+  - added definition `ResponseParameter`
+  - added definition `Tag`
+  - added property `IntegrationId`
+  - removed property `Id`
+  - updated `primaryIdentifier`
   - updated `readOnlyProperties`
+  - updated definition `TlsConfig`
   - updated handler permissions
+  - updated property `ApiId`
+  - updated property `ConnectionId`
+  - updated property `ConnectionType`
+  - updated property `ContentHandlingStrategy`
+  - updated property `CredentialsArn`
+  - updated property `Description`
+  - updated property `IntegrationMethod`
+  - updated property `IntegrationSubtype`
+  - updated property `IntegrationType`
+  - updated property `IntegrationUri`
+  - updated property `PassthroughBehavior`
+  - updated property `PayloadFormatVersion`
+  - updated property `RequestParameters`
+  - updated property `RequestTemplates`
+  - updated property `ResponseParameters`
+  - updated property `TemplateSelectionExpression`
+  - updated property `TimeoutInMillis`
+  - updated property `TlsConfig`
+- updated `AWS::Cognito::UserPool`
+  - removed property `EmailAuthenticationMessage`
+  - removed property `EmailAuthenticationSubject`
+- updated `AWS::FMS::Policy`
+  - updated definition `NetworkAclEntry`
+- updated `AWS::Location::RouteCalculator`
+  - updated `tagging`
+- updated `AWS::Synthetics::Canary`
+  - added definition `ResourceToTag`
+  - added property `ResourcesToReplicateTags`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+  - updated property `Name`
