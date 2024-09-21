@@ -1,44 +1,23 @@
-- updated `AWS::ApiGatewayV2::Integration`
-  - added `sourceUrl`
-  - added `tagging`
-  - added definition `ResponseParameterList`
-  - added definition `ResponseParameterMap`
-  - added definition `ResponseParameter`
-  - added definition `Tag`
-  - added property `IntegrationId`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `TlsConfig`
+- updated `AWS::Cognito::UserPoolResourceServer`
   - updated handler permissions
-  - updated property `ApiId`
-  - updated property `ConnectionId`
-  - updated property `ConnectionType`
-  - updated property `ContentHandlingStrategy`
-  - updated property `CredentialsArn`
-  - updated property `Description`
-  - updated property `IntegrationMethod`
-  - updated property `IntegrationSubtype`
-  - updated property `IntegrationType`
-  - updated property `IntegrationUri`
-  - updated property `PassthroughBehavior`
-  - updated property `PayloadFormatVersion`
-  - updated property `RequestParameters`
-  - updated property `RequestTemplates`
-  - updated property `ResponseParameters`
-  - updated property `TemplateSelectionExpression`
-  - updated property `TimeoutInMillis`
-  - updated property `TlsConfig`
-- updated `AWS::Cognito::UserPool`
-  - removed property `EmailAuthenticationMessage`
-  - removed property `EmailAuthenticationSubject`
-- updated `AWS::FMS::Policy`
-  - updated definition `NetworkAclEntry`
-- updated `AWS::Location::RouteCalculator`
+- updated `AWS::Connect::Queue`
   - updated `tagging`
-- updated `AWS::Synthetics::Canary`
-  - added definition `ResourceToTag`
-  - added property `ResourcesToReplicateTags`
-  - updated `writeOnlyProperties`
   - updated handler permissions
-  - updated property `Name`
+- updated `AWS::CustomerProfiles::CalculatedAttributeDefinition`
+  - updated `tagging`
+- updated `AWS::CustomerProfiles::Domain`
+  - updated `tagging`
+- updated `AWS::CustomerProfiles::EventStream`
+  - updated `tagging`
+- updated `AWS::CustomerProfiles::Integration`
+  - updated `tagging`
+- updated `AWS::CustomerProfiles::ObjectType`
+  - updated `tagging`
+- updated `AWS::Events::EventBus`
+  - updated `tagging`
+- updated `AWS::Lightsail::Distribution`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::Lightsail::Instance`
+  - added `tagging`
+  - removed `taggable`

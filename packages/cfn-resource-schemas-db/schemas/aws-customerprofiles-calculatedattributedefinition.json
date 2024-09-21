@@ -1,5 +1,5 @@
 {
-  "$hash": "6089de6d1dfdc67ba2224ef6a316a149487bb10f",
+  "$hash": "7364d9aa581f4873e1ac03987f19cf26c3497826",
   "$id": "aws-customerprofiles-calculatedattributedefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -241,6 +241,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-customer-profiles",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "profile:TagResource",
+      "profile:UntagResource",
+      "profile:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

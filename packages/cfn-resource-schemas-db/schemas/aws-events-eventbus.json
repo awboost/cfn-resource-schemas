@@ -1,5 +1,5 @@
 {
-  "$hash": "a2208a0363158c211238b90976566742c05d413b",
+  "$hash": "665215bf9a2b8c4e4735d99ff35fa39f7b899b85",
   "$id": "aws-events-eventbus.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -98,6 +98,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-events",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "events:UntagResource",
+      "events:TagResource",
+      "events:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

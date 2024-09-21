@@ -1,5 +1,5 @@
 {
-  "$hash": "547631280d5d3806267402344ba149e514ceb296",
+  "$hash": "3809d7892ec7aaee27f0eb05f93e27c651d9c4ea",
   "$id": "aws-lightsail-distribution.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -278,6 +278,13 @@
     "Origin"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-lightsail.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["lightsail:TagResource", "lightsail:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Lightsail::Distribution"
 }

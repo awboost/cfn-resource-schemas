@@ -1,5 +1,5 @@
 {
-  "$hash": "cbbafcc2e3ff531fc4189a96cdcb2447067f3f2a",
+  "$hash": "ecf8fee86421ae0c39a65226275a1d6b4cd2575f",
   "$id": "aws-cognito-userpoolresourceserver.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserPoolId", "/properties/Identifier"],
@@ -17,7 +17,7 @@
   "description": "Resource Type definition for AWS::Cognito::UserPoolResourceServer",
   "handlers": {
     "create": {
-      "permissions": ["cognito-idp:CreateResourceServer", "iam:PassRole"],
+      "permissions": ["cognito-idp:CreateResourceServer"],
       "timeoutInMinutes": 2
     },
     "delete": {
@@ -37,7 +37,7 @@
     },
     "read": { "permissions": ["cognito-idp:DescribeResourceServer"] },
     "update": {
-      "permissions": ["cognito-idp:UpdateResourceServer", "iam:PassRole"],
+      "permissions": ["cognito-idp:UpdateResourceServer"],
       "timeoutInMinutes": 2
     }
   },

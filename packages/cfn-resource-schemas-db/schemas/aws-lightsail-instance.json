@@ -1,5 +1,5 @@
 {
-  "$hash": "1c32b4c58f0c59feee736212d3109f884f1b1ffd",
+  "$hash": "3ff5555036db1d16e85c7d767b4c26ec309c6727",
   "$id": "aws-lightsail-instance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -401,7 +401,14 @@
   ],
   "required": ["InstanceName", "BlueprintId", "BundleId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-lightsail.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["lightsail:TagResource", "lightsail:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Lightsail::Instance",
   "writeOnlyProperties": ["/properties/UserData"]
 }
