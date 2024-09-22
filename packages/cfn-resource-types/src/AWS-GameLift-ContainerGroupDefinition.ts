@@ -66,7 +66,7 @@ export type GameLiftContainerGroupDefinitionAttributes = {
    * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `^arn:.*:containergroupdefinition/containergroupdefinition-[a-zA-Z0-9-]+$`
+   * @pattern `^arn:.*:containergroupdefinition/containergroupdefinition-[a-zA-Z0-9-]+$|^arn:.*:containergroupdefinition/[a-zA-Z0-9-\:]+$`
    */
   ContainerGroupDefinitionArn: string;
   /**

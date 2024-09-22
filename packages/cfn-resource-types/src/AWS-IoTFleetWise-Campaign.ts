@@ -5,7 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-campaign.html}
  */
 export type IoTFleetWiseCampaignProperties = {
-  Action: UpdateCampaignAction;
+  Action?: UpdateCampaignAction;
   CollectionScheme: CollectionScheme;
   Compression?: Compression;
   /**

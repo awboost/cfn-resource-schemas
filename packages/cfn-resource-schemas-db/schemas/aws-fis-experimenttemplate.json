@@ -1,5 +1,5 @@
 {
-  "$hash": "da93aa0e84d766791fb10d0b44191df7eb84518c",
+  "$hash": "9c3f919206fbadc035731092c3a45cdf1b602d73",
   "$id": "aws-fis-experimenttemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -297,6 +297,7 @@
       "fis:ListTagsForResource"
     ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

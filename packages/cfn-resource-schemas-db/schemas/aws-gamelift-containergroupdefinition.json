@@ -1,5 +1,5 @@
 {
-  "$hash": "2fad80049267f4f3e12d689107ca57cd543a997d",
+  "$hash": "d1556f987fa7a9d48b7542533f664d16671e070d",
   "$id": "aws-gamelift-containergroupdefinition.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -331,7 +331,7 @@
       "description": "The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.",
       "maxLength": 512,
       "minLength": 1,
-      "pattern": "^arn:.*:containergroupdefinition/containergroupdefinition-[a-zA-Z0-9-]+$",
+      "pattern": "^arn:.*:containergroupdefinition/containergroupdefinition-[a-zA-Z0-9-]+$|^arn:.*:containergroupdefinition/[a-zA-Z0-9-\\:]+$",
       "type": "string"
     },
     "CreationTime": {
@@ -392,6 +392,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "gamelift:ListTagsForResource",
+      "gamelift:TagResource",
+      "gamelift:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

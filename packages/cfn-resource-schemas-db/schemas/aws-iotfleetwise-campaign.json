@@ -1,5 +1,5 @@
 {
-  "$hash": "7db5d98a22c4f9780d3a09a088bb6c5d8d1e9660",
+  "$hash": "2353492b89e617b164ca78a290fa5d582e3fba15",
   "$id": "aws-iotfleetwise-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -418,15 +418,14 @@
     "/properties/CreationTime",
     "/properties/LastModificationTime"
   ],
-  "required": [
-    "Name",
-    "Action",
-    "CollectionScheme",
-    "SignalCatalogArn",
-    "TargetArn"
-  ],
+  "required": ["Name", "CollectionScheme", "SignalCatalogArn", "TargetArn"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotfleetwise:UntagResource",
+      "iotfleetwise:TagResource",
+      "iotfleetwise:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

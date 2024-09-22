@@ -1,23 +1,8 @@
-- updated `AWS::Cognito::UserPoolResourceServer`
-  - updated handler permissions
-- updated `AWS::Connect::Queue`
+- updated `AWS::FIS::ExperimentTemplate`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::CustomerProfiles::CalculatedAttributeDefinition`
+- updated `AWS::GameLift::ContainerGroupDefinition`
   - updated `tagging`
-- updated `AWS::CustomerProfiles::Domain`
+  - updated property `ContainerGroupDefinitionArn`
+- updated `AWS::IoTFleetWise::Campaign`
+  - updated `required`
   - updated `tagging`
-- updated `AWS::CustomerProfiles::EventStream`
-  - updated `tagging`
-- updated `AWS::CustomerProfiles::Integration`
-  - updated `tagging`
-- updated `AWS::CustomerProfiles::ObjectType`
-  - updated `tagging`
-- updated `AWS::Events::EventBus`
-  - updated `tagging`
-- updated `AWS::Lightsail::Distribution`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Lightsail::Instance`
-  - added `tagging`
-  - removed `taggable`
