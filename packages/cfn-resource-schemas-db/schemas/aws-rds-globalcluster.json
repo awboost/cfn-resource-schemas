@@ -1,5 +1,5 @@
 {
-  "$hash": "15ebafe7ee2c96d372c34ba8a38fc1c114f48754",
+  "$hash": "4c22b1cc2e08e40bb428e8d44cb83b8983d3fda7",
   "$id": "aws-rds-globalcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8,6 +8,28 @@
     "/properties/StorageEncrypted",
     "/properties/Engine"
   ],
+  "definitions": {
+    "Tag": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "properties": {
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
+      },
+      "required": ["Key"],
+      "type": "object"
+    }
+  },
   "description": "Resource Type definition for AWS::RDS::GlobalCluster",
   "handlers": {
     "create": {
@@ -28,7 +50,12 @@
     "list": { "permissions": ["rds:DescribeGlobalClusters"] },
     "read": { "permissions": ["rds:DescribeGlobalClusters"] },
     "update": {
-      "permissions": ["rds:ModifyGlobalCluster", "rds:DescribeGlobalClusters"]
+      "permissions": [
+        "rds:ModifyGlobalCluster",
+        "rds:DescribeGlobalClusters",
+        "rds:AddTagsToResource",
+        "rds:RemoveTagsFromResource"
+      ]
     }
   },
   "oneOf": [
@@ -72,6 +99,14 @@
     "StorageEncrypted": {
       "description": " The storage encryption setting for the new global database cluster.\nIf you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.",
       "type": "boolean"
+    },
+    "Tags": {
+      "description": "An array of key-value pairs to apply to this resource.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 50,
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "propertyTransform": {

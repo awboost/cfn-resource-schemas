@@ -1,8 +1,33 @@
-- updated `AWS::FIS::ExperimentTemplate`
+- updated `AWS::AmazonMQ::Configuration`
+  - added `propertyTransform`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+  - updated property `Arn`
+  - updated property `AuthenticationStrategy`
+  - updated property `Data`
+  - updated property `Description`
+  - updated property `EngineType`
+  - updated property `EngineVersion`
+  - updated property `Id`
+  - updated property `Name`
+  - updated property `Revision`
+  - updated property `Tags`
+- updated `AWS::Connect::HoursOfOperation`
   - updated `tagging`
-- updated `AWS::GameLift::ContainerGroupDefinition`
+  - updated handler permissions
+- updated `AWS::Connect::PhoneNumber`
   - updated `tagging`
-  - updated property `ContainerGroupDefinitionArn`
-- updated `AWS::IoTFleetWise::Campaign`
-  - updated `required`
-  - updated `tagging`
+- updated `AWS::RDS::GlobalCluster`
+  - added property `Tags`
+  - updated definition `undefined`
+  - updated handler permissions
+- updated `AWS::SES::MailManagerRuleSet`
+  - updated definition `RuleStringToEvaluate`
+- updated `AWS::SageMaker::Cluster`
+  - updated definition `ClusterInstanceGroup`
+- updated `AWS::SecurityHub::PolicyAssociation`
+  - updated handler permissions

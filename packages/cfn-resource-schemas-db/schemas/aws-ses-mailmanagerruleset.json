@@ -1,5 +1,5 @@
 {
-  "$hash": "f38a0ee7751b5f6700fd2d9ccd6e0f94156a2bf0",
+  "$hash": "53803bc4f24e05199c1707f87d74f7b85079e515",
   "$id": "aws-ses-mailmanagerruleset.json",
   "additionalProperties": false,
   "definitions": {
@@ -429,6 +429,18 @@
           },
           "required": ["Attribute"],
           "title": "Attribute",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "MimeHeaderAttribute": {
+              "pattern": "^X-[a-zA-Z0-9-]{1,256}$",
+              "type": "string"
+            }
+          },
+          "required": ["MimeHeaderAttribute"],
+          "title": "MimeHeaderAttribute",
           "type": "object"
         }
       ]

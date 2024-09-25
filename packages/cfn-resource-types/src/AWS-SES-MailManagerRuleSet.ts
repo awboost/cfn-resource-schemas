@@ -370,9 +370,16 @@ export type RuleStringOperator =
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleStringToEvaluate`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html}
  */
-export type RuleStringToEvaluate = {
-  Attribute: RuleStringEmailAttribute;
-};
+export type RuleStringToEvaluate =
+  | {
+      Attribute: RuleStringEmailAttribute;
+    }
+  | {
+      /**
+       * @pattern `^X-[a-zA-Z0-9-]{1,256}$`
+       */
+      MimeHeaderAttribute: string;
+    };
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleVerdict`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleverdict.html}

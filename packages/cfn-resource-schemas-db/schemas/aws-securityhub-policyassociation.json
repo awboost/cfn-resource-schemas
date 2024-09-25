@@ -1,5 +1,5 @@
 {
-  "$hash": "ace8af12b200a41bb2b218e2c4066efcb07f3479",
+  "$hash": "0612c14dc1cb5dcbc2d782f23e45c2161ea2f4b4",
   "$id": "aws-securityhub-policyassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TargetId", "/properties/TargetType"],
@@ -9,7 +9,8 @@
       "permissions": [
         "securityhub:StartConfigurationPolicyAssociation",
         "securityhub:GetConfigurationPolicyAssociation"
-      ]
+      ],
+      "timeoutInMinutes": 1440
     },
     "delete": {
       "permissions": [
@@ -30,7 +31,8 @@
       "permissions": [
         "securityhub:StartConfigurationPolicyAssociation",
         "securityhub:GetConfigurationPolicyAssociation"
-      ]
+      ],
+      "timeoutInMinutes": 1440
     }
   },
   "primaryIdentifier": ["/properties/AssociationIdentifier"],

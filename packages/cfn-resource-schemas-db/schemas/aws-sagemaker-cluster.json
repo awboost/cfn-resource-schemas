@@ -1,5 +1,5 @@
 {
-  "$hash": "62116ebdc80829688f7b89d5ff5374c84a99b137",
+  "$hash": "9765306a621081a7ca9cf87e5a0b047c09d0ec45",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
@@ -38,7 +38,7 @@
         "ExecutionRole": { "$ref": "#/definitions/ExecutionRole" },
         "InstanceCount": {
           "description": "The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.",
-          "minimum": 1,
+          "minimum": 0,
           "type": "integer"
         },
         "InstanceGroupName": { "$ref": "#/definitions/InstanceGroupName" },

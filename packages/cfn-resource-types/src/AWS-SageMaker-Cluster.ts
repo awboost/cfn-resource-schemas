@@ -105,7 +105,7 @@ export type ClusterInstanceGroup = {
   ExecutionRole: string;
   /**
    * The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
-   * @min `1`
+   * @min `0`
    */
   InstanceCount: number;
   /**
