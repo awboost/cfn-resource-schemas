@@ -1,33 +1,44 @@
-- updated `AWS::AmazonMQ::Configuration`
-  - added `propertyTransform`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
+- updated `AWS::DataSync::Agent`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationEFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationFSxWindows`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationHDFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationNFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationObjectStorage`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationSMB`
+  - updated `tagging`
+- updated `AWS::DataSync::Task`
+  - updated `tagging`
+- updated `AWS::EC2::TransitGateway`
+  - added property `SecurityGroupReferencingSupport`
+- updated `AWS::ResourceExplorer2::Index`
+  - updated `tagging`
+- updated `AWS::ResourceExplorer2::View`
+  - updated `tagging`
+- updated `AWS::Route53Profiles::Profile`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Route53Profiles::ProfileAssociation`
+  - updated `tagging`
+  - updated `writeOnlyProperties`
   - updated handler permissions
   - updated property `Arn`
-  - updated property `AuthenticationStrategy`
-  - updated property `Data`
-  - updated property `Description`
-  - updated property `EngineType`
-  - updated property `EngineVersion`
-  - updated property `Id`
-  - updated property `Name`
-  - updated property `Revision`
-  - updated property `Tags`
-- updated `AWS::Connect::HoursOfOperation`
+- updated `AWS::Route53Resolver::FirewallDomainList`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::Connect::PhoneNumber`
+- updated `AWS::Route53Resolver::FirewallRuleGroup`
   - updated `tagging`
-- updated `AWS::RDS::GlobalCluster`
-  - added property `Tags`
-  - updated definition `undefined`
   - updated handler permissions
-- updated `AWS::SES::MailManagerRuleSet`
-  - updated definition `RuleStringToEvaluate`
-- updated `AWS::SageMaker::Cluster`
-  - updated definition `ClusterInstanceGroup`
-- updated `AWS::SecurityHub::PolicyAssociation`
+- updated `AWS::Route53Resolver::FirewallRuleGroupAssociation`
+  - updated `tagging`
   - updated handler permissions
+- updated `AWS::SecretsManager::Secret`
+  - updated `tagging`
+- updated `AWS::Wisdom::KnowledgeBase`
+  - updated definition `KnowledgeBaseType`

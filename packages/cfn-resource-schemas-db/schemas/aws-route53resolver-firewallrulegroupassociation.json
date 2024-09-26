@@ -1,5 +1,5 @@
 {
-  "$hash": "db366602387243591f6e98b70fc318ed8bba285b",
+  "$hash": "e35856e6da685513e2e435d857de27079c865596",
   "$id": "aws-route53resolver-firewallrulegroupassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -32,52 +32,40 @@
   "handlers": {
     "create": {
       "permissions": [
-        "route53resolver:*",
-        "ec2:*",
-        "logs:*",
-        "iam:*",
-        "lambda:*",
-        "s3:*"
+        "route53resolver:AssociateFirewallRuleGroup",
+        "route53resolver:GetFirewallRuleGroupAssociation",
+        "route53resolver:TagResource",
+        "route53resolver:ListTagsForResource",
+        "ec2:DescribeVpcs"
       ]
     },
     "delete": {
       "permissions": [
-        "route53resolver:*",
-        "ec2:*",
-        "logs:*",
-        "iam:*",
-        "lambda:*",
-        "s3:*"
+        "route53resolver:DisassociateFirewallRuleGroup",
+        "route53resolver:GetFirewallRuleGroupAssociation",
+        "route53resolver:UntagResource",
+        "route53resolver:ListTagsForResource"
       ]
     },
     "list": {
       "permissions": [
-        "route53resolver:*",
-        "ec2:*",
-        "logs:*",
-        "iam:*",
-        "lambda:*",
-        "s3:*"
+        "route53resolver:ListFirewallRuleGroupAssociations",
+        "route53resolver:ListTagsForResource"
       ]
     },
     "read": {
       "permissions": [
-        "route53resolver:*",
-        "ec2:*",
-        "logs:*",
-        "iam:*",
-        "lambda:*",
-        "s3:*"
+        "route53resolver:GetFirewallRuleGroupAssociation",
+        "route53resolver:ListTagsForResource"
       ]
     },
     "update": {
       "permissions": [
-        "route53resolver:*",
-        "ec2:*",
-        "logs:*",
-        "iam:*",
-        "lambda:*",
-        "s3:*"
+        "route53resolver:UpdateFirewallRuleGroupAssociation",
+        "route53resolver:GetFirewallRuleGroupAssociation",
+        "route53resolver:TagResource",
+        "route53resolver:UntagResource",
+        "route53resolver:ListTagsForResource"
       ]
     }
   },
@@ -179,6 +167,10 @@
   "required": ["FirewallRuleGroupId", "VpcId", "Priority"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "route53resolver:TagResource",
+      "route53resolver:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type Route53ProfilesProfileAssociationProperties = {
   /**
-   * The Amazon Resource Name (ARN) of the  profile association.
+   * The Amazon Resource Name (ARN) of the profile association.
    */
   Arn?: string;
   /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "f64c58dcba3e7c78b0501e1b0421e0be1fff9dd7",
+  "$hash": "37f3b75f294eb33e387d75ba3939852369651cec",
   "$id": "aws-route53profiles-profile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -38,7 +38,8 @@
       "permissions": [
         "route53profiles:DeleteProfile",
         "route53profiles:GetProfile",
-        "route53profiles:UntagResource"
+        "route53profiles:UntagResource",
+        "route53profiles:ListTagsForResource"
       ]
     },
     "list": {
@@ -97,11 +98,14 @@
   "required": ["Name"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "route53profiles:TagResource",
+      "route53profiles:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::Route53Profiles::Profile",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "typeName": "AWS::Route53Profiles::Profile"
 }

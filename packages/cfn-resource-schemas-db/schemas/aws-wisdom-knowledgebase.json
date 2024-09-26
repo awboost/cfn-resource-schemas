@@ -1,5 +1,5 @@
 {
-  "$hash": "2a6e7dbc056324336a99610aa2ad6ccf43f11fcb",
+  "$hash": "104df01eb031d3f04a9e906018f29834c193f533",
   "$id": "aws-wisdom-knowledgebase.json",
   "additionalIdentifiers": [["/properties/KnowledgeBaseArn"]],
   "additionalProperties": false,
@@ -32,7 +32,10 @@
       "required": ["AppIntegrationArn"],
       "type": "object"
     },
-    "KnowledgeBaseType": { "enum": ["EXTERNAL", "CUSTOM"], "type": "string" },
+    "KnowledgeBaseType": {
+      "enum": ["EXTERNAL", "CUSTOM", "MESSAGE_TEMPLATES"],
+      "type": "string"
+    },
     "RenderingConfiguration": {
       "additionalProperties": false,
       "properties": {

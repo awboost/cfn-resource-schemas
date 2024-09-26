@@ -1,5 +1,5 @@
 {
-  "$hash": "475dcb1c8c5406d27cf888cb2c34d9543c6d7109",
+  "$hash": "9716b2b40794c5574a49b41464e699d5c6f14cf3",
   "$id": "aws-ec2-transitgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -92,6 +92,7 @@
     "Id": { "type": "string" },
     "MulticastSupport": { "type": "string" },
     "PropagationDefaultRouteTableId": { "type": "string" },
+    "SecurityGroupReferencingSupport": { "type": "string" },
     "Tags": {
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",

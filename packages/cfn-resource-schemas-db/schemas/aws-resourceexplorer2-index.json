@@ -1,5 +1,5 @@
 {
-  "$hash": "59e81ab911f25f1dfa11d3dc086e03d0b28a8ba3",
+  "$hash": "278078af982d744af261005a33d4de515e67b68d",
   "$id": "aws-resourceexplorer2-index.json",
   "additionalProperties": false,
   "definitions": {
@@ -56,6 +56,11 @@
   "required": ["Type"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "resource-explorer-2:ListTagsForResource",
+      "resource-explorer-2:TagResource",
+      "resource-explorer-2:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

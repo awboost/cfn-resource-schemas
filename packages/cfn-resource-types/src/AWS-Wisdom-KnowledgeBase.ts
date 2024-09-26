@@ -56,7 +56,7 @@ export type AppIntegrationsConfiguration = {
  * Type definition for `AWS::Wisdom::KnowledgeBase.KnowledgeBaseType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-knowledgebasetype.html}
  */
-export type KnowledgeBaseType = "EXTERNAL" | "CUSTOM";
+export type KnowledgeBaseType = "EXTERNAL" | "CUSTOM" | "MESSAGE_TEMPLATES";
 /**
  * Type definition for `AWS::Wisdom::KnowledgeBase.RenderingConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html}

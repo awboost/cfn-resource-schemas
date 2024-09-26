@@ -1,5 +1,5 @@
 {
-  "$hash": "e234c188f4ae309527dfe3956340c51c553cad86",
+  "$hash": "8e100f9fd7d751200ff87e5913d040c2c7be22a7",
   "$id": "aws-datasync-locationhdfs.json",
   "additionalProperties": false,
   "definitions": {
@@ -196,6 +196,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datasync.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "datasync:TagResource",
+      "datasync:UntagResource",
+      "datasync:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
