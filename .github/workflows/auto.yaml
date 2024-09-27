@@ -5,9 +5,12 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  build:
-    name: Build
+  download:
+    name: Download
     runs-on: ubuntu-latest
+    continue-on-error: true
+    outputs:
+      outcome: ${{ steps.download.outcome }}
 
     steps:
       - name: Git Checkout
@@ -22,61 +25,84 @@ jobs:
       - name: NPM install
         run: npm ci
 
-      - name: First build
+      - name: Build
         run: npm run build
 
       - id: download
-        if: github.ref == 'refs/heads/main'
         name: Download latest
         run: npm run download
-        continue-on-error: true
-
-      - name: Generate Types
-        if: steps.download.outcome == 'success'
-        run: npm run generate:cached -- --ignore-broken-refs
-
-      - name: Generate Types (Legacy)
-        if: steps.download.outcome == 'success'
-        run: npm run generate:legacy -- --ignore-broken-refs
-
-      - name: Build with new types
-        if: steps.download.outcome == 'success'
-        run: npm run build
 
       - name: Configure Git
-        if: steps.download.outcome == 'success'
         shell: bash
         run: |
           git config user.email "actions@github.com"
           git config user.name "Github Actions"
 
       - name: Commit changes
-        if: steps.download.outcome == 'success'
+        run: git add -A && git commit -m "update schemas"
+
+      - name: Bump @awboost/cfn-resource-schemas-db
+        run: npm run -w @awboost/cfn-resource-schemas-db bump
+
+      - name: Push changes
+        run: git push --follow-tags
+        
+  build:
+      name: Build
+      runs-on: ubuntu-latest
+      needs:
+        - download
+      if: ${{ needs.download.outputs.outcome == 'success' || github.event_name == 'workflow_dispatch' }}
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: NPM install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Generate Types
+        run: npm run generate:cached -- --ignore-broken-refs
+
+      - name: Generate Types (Legacy)
+        run: npm run generate:legacy -- --ignore-broken-refs
+
+      - name: Build with new types
+        run: npm run build
+
+      - name: Configure Git
         shell: bash
         run: |
-          git add -A
-          git commit -m "update schemas"
+          git config user.email "actions@github.com"
+          git config user.name "Github Actions"
+
+      - name: Commit changes
+        run: git add -A && git commit -m "update types"
 
       - name: Bump @awboost/cfn-resource-types version
-        if: steps.download.outcome == 'success'
         run: npm run -w @awboost/cfn-resource-types bump
 
       - name: Bump @awboost/cfntypes version
-        if: steps.download.outcome == 'success'
         run: npm run -w @awboost/cfntypes bump
 
       - name: Publish @awboost/cfn-resource-types
-        if: steps.download.outcome == 'success'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish -w @awboost/cfn-resource-types
 
       - name: Publish @awboost/cfntypes
-        if: steps.download.outcome == 'success'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish -w @awboost/cfntypes
 
-      - name: Push commits
-        if: steps.download.outcome == 'success'
+      - name: Push changes
         run: git push --follow-tags
