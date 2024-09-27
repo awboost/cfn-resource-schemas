@@ -1,11 +1,7 @@
 {
-  "$hash": "285dac9742fcebdb1832f3d742724f3ef92860c9",
+  "$hash": "9b84bc0a29dd8c95e643e7e06a4383d3d3fa2240",
   "$id": "aws-workspacesweb-usersettings.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/AdditionalEncryptionContext",
-    "/properties/CustomerManagedKey"
-  ],
   "definitions": {
     "CookieSpecification": {
       "additionalProperties": false,
@@ -89,10 +85,12 @@
         "workspaces-web:GetUserSettings",
         "workspaces-web:ListTagsForResource",
         "workspaces-web:TagResource",
-        "kms:CreateGrant",
         "kms:DescribeKey",
         "kms:GenerateDataKey",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
       ]
     },
     "delete": {
@@ -207,6 +205,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "workspaces-web:UntagResource",
+      "workspaces-web:ListTagsForResource",
+      "workspaces-web:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

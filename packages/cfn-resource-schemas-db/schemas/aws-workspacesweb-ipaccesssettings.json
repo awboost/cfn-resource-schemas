@@ -1,5 +1,5 @@
 {
-  "$hash": "bc1bbfbc260e1e6667719c61f1f2386ad2676ab7",
+  "$hash": "705c0810bf0f4f764663ac635002f0371fb8762d",
   "$id": "aws-workspacesweb-ipaccesssettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -66,10 +66,12 @@
         "workspaces-web:ListIpAccessSettings",
         "workspaces-web:ListTagsForResource",
         "workspaces-web:TagResource",
-        "kms:CreateGrant",
         "kms:DescribeKey",
         "kms:GenerateDataKey",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
       ]
     },
     "delete": {
@@ -173,6 +175,11 @@
   "required": ["IpRules"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "workspaces-web:UntagResource",
+      "workspaces-web:ListTagsForResource",
+      "workspaces-web:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

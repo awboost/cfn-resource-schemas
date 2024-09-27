@@ -1,5 +1,5 @@
 {
-  "$hash": "3ac71fb26b5562e02430bd882958e88da70253b0",
+  "$hash": "5566390211d0d56fd8cf0ac8a1f62f5c35696964",
   "$id": "aws-workspacesweb-browsersettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -47,10 +47,12 @@
         "workspaces-web:GetBrowserSettings",
         "workspaces-web:ListTagsForResource",
         "workspaces-web:TagResource",
-        "kms:CreateGrant",
         "kms:DescribeKey",
         "kms:GenerateDataKey",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
       ]
     },
     "delete": {
@@ -137,6 +139,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "workspaces-web:UntagResource",
+      "workspaces-web:ListTagsForResource",
+      "workspaces-web:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

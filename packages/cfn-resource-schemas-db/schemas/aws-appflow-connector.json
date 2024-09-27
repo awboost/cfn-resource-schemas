@@ -1,5 +1,5 @@
 {
-  "$hash": "d14b5442f2759c78d3e61f1fa622a5e38288d237",
+  "$hash": "4c841786cf0847914a660826f5e993f3a042e8ea",
   "$id": "aws-appflow-connector.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectorLabel"],
@@ -50,7 +50,7 @@
     "ConnectorArn": {
       "description": " The arn of the connector. The arn is unique for each ConnectorRegistration in your AWS account.",
       "maxLength": 512,
-      "pattern": "arn:*:appflow:.*:[0-9]+:.*",
+      "pattern": "arn:.*:appflow:.*:[0-9]+:.*",
       "type": "string"
     },
     "ConnectorLabel": {

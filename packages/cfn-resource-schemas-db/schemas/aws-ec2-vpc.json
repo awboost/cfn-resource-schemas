@@ -1,5 +1,5 @@
 {
-  "$hash": "e974f8a29af40e5eb6eb0b00493ee568f3829f22",
+  "$hash": "228ed693d685a3b44cfcfb48fd3c8e8facf2b4d2",
   "$id": "aws-ec2-vpc.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/InstanceTenancy"],
@@ -11,7 +11,7 @@
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications).",
+      "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
         "Key": { "description": "The tag key.", "type": "string" },
         "Value": { "description": "The tag value.", "type": "string" }

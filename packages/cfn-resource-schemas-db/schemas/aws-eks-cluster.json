@@ -1,5 +1,5 @@
 {
-  "$hash": "4fbafb6647c668be7e7219aed42db750308b69a5",
+  "$hash": "df581e2f13e26f8b863405034a39b78bbc04a1b4",
   "$id": "aws-eks-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -256,6 +256,17 @@
         }
       },
       "type": "object"
+    },
+    "ZonalShiftConfig": {
+      "additionalProperties": false,
+      "description": "The current zonal shift configuration to use for the cluster.",
+      "properties": {
+        "Enabled": {
+          "description": "Set this value to true to enable zonal shift for the cluster.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
     }
   },
   "description": "An object representing an Amazon EKS cluster.",
@@ -305,7 +316,7 @@
       "type": "string"
     },
     "BootstrapSelfManagedAddons": {
-      "description": "Set this value to false to avoid creating the default networking addons when the cluster is created.",
+      "description": "Set this value to false to avoid creating the default networking add-ons when the cluster is created.",
       "type": "boolean"
     },
     "CertificateAuthorityData": {
@@ -366,7 +377,8 @@
       "description": "The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.",
       "pattern": "1\\.\\d\\d",
       "type": "string"
-    }
+    },
+    "ZonalShiftConfig": { "$ref": "#/definitions/ZonalShiftConfig" }
   },
   "readOnlyProperties": [
     "/properties/Id",

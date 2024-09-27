@@ -1,21 +1,66 @@
-- updated `AWS::AuditManager::Assessment`
-  - added `tagging`
+- updated `AWS::AppFlow::Connector`
+  - updated property `ConnectorArn`
+- updated `AWS::EC2::VPC`
+  - updated definition `Tag`
+- updated `AWS::EKS::Cluster`
+  - added definition `ZonalShiftConfig`
+  - added property `ZonalShiftConfig`
+  - updated property `BootstrapSelfManagedAddons`
+- updated `AWS::ElastiCache::ParameterGroup`
   - updated handler permissions
-- updated `AWS::Cognito::UserPool`
-  - added property `EmailAuthenticationMessage`
-  - added property `EmailAuthenticationSubject`
-- updated `AWS::DataSync::LocationAzureBlob`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationFSxLustre`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationFSxONTAP`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationFSxOpenZFS`
-  - updated `tagging`
-- updated `AWS::EC2::TransitGatewayAttachment`
-  - updated property `Options`
-- updated `AWS::EC2::TransitGatewayVpcAttachment`
-  - updated property `Options`
-- updated `AWS::IAM::InstanceProfile`
+- updated `AWS::Glue::Crawler`
+  - added `sourceUrl`
   - added `tagging`
-- updated `AWS::IAM::Policy`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated definition `CatalogTarget`
+  - updated definition `DeltaTarget`
+  - updated definition `DynamoDBTarget`
+  - updated definition `IcebergTarget`
+  - updated definition `JdbcTarget`
+  - updated definition `LakeFormationConfiguration`
+  - updated definition `MongoDBTarget`
+  - updated definition `RecrawlPolicy`
+  - updated definition `S3Target`
+  - updated definition `Schedule`
+  - updated definition `SchemaChangePolicy`
+  - updated definition `Targets`
+  - updated handler permissions
+  - updated property `Classifiers`
+  - updated property `Configuration`
+  - updated property `CrawlerSecurityConfiguration`
+  - updated property `DatabaseName`
+  - updated property `Description`
+  - updated property `Name`
+  - updated property `Role`
+  - updated property `TablePrefix`
+  - updated property `Tags`
+- updated `AWS::IAM::Role`
+  - updated property `Policies`
+  - updated property `RoleName`
+- updated `AWS::SageMaker::ImageVersion`
+  - updated `readOnlyProperties`
+- updated `AWS::WorkSpacesWeb::BrowserSettings`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::WorkSpacesWeb::IdentityProvider`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+- updated `AWS::WorkSpacesWeb::IpAccessSettings`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::WorkSpacesWeb::NetworkSettings`
+  - updated `tagging`
+- updated `AWS::WorkSpacesWeb::Portal`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::WorkSpacesWeb::TrustStore`
+  - updated `tagging`
+- updated `AWS::WorkSpacesWeb::UserAccessLoggingSettings`
+  - updated `tagging`
+- updated `AWS::WorkSpacesWeb::UserSettings`
+  - removed `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions

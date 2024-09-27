@@ -1,5 +1,5 @@
 {
-  "$hash": "6fdae4cd6ca05dea20bc6ec9b251cc4ec825c38f",
+  "$hash": "f259a0b706d4cfa02698513b147a5d8c0db2144c",
   "$id": "aws-elasticache-parametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CacheParameterGroupFamily"],
@@ -21,7 +21,9 @@
         "ElastiCache:CreateCacheParameterGroup",
         "ElastiCache:DescribeCacheParameterGroups",
         "ElastiCache:AddTagsToResource",
-        "ElastiCache:ModifyCacheParameterGroup"
+        "ElastiCache:ModifyCacheParameterGroup",
+        "iam:CreateServiceLinkedRole",
+        "iam:PutRolePolicy"
       ]
     },
     "delete": {
