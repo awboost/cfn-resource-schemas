@@ -46,13 +46,13 @@ jobs:
 
       - name: Push changes
         run: git push --follow-tags
-        
+
   build:
-      name: Build
-      runs-on: ubuntu-latest
-      needs:
-        - download
-      if: ${{ needs.download.outputs.outcome == 'success' || github.event_name == 'workflow_dispatch' }}
+    name: Build
+    runs-on: ubuntu-latest
+    needs:
+      - download
+    if: ${{ needs.download.outputs.outcome == 'success' || github.event_name == 'workflow_dispatch' }}
 
     steps:
       - name: Git Checkout
