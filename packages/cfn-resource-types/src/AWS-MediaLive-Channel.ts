@@ -754,6 +754,7 @@ export type H264Settings = {
   LookAheadRateControl?: string;
   MaxBitrate?: number;
   MinIInterval?: number;
+  MinQp?: number;
   NumRefFrames?: number;
   ParControl?: string;
   ParDenominator?: number;
@@ -815,6 +816,7 @@ export type H265Settings = {
   LookAheadRateControl?: string;
   MaxBitrate?: number;
   MinIInterval?: number;
+  MinQp?: number;
   MvOverPictureBoundaries?: string;
   MvTemporalPredictor?: string;
   ParDenominator?: number;

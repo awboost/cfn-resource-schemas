@@ -11,7 +11,7 @@ export type EKSClusterProperties = {
    */
   AccessConfig?: AccessConfig;
   /**
-   * Set this value to false to avoid creating the default networking addons when the cluster is created.
+   * Set this value to false to avoid creating the default networking add-ons when the cluster is created.
    */
   BootstrapSelfManagedAddons?: boolean;
   EncryptionConfig?: EncryptionConfig[];
@@ -55,6 +55,10 @@ export type EKSClusterProperties = {
    * @pattern `1\.\d\d`
    */
   Version?: string;
+  /**
+   * The current zonal shift configuration to use for the cluster.
+   */
+  ZonalShiftConfig?: ZonalShiftConfig;
 };
 /**
  * Attribute type definition for `AWS::EKS::Cluster`.
@@ -273,6 +277,17 @@ export type UpgradePolicy = {
    * Specify the support type for your cluster.
    */
   SupportType?: "STANDARD" | "EXTENDED";
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.ZonalShiftConfig`.
+ * The current zonal shift configuration to use for the cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-zonalshiftconfig.html}
+ */
+export type ZonalShiftConfig = {
+  /**
+   * Set this value to true to enable zonal shift for the cluster.
+   */
+  Enabled?: boolean;
 };
 /**
  * Resource type definition for `AWS::EKS::Cluster`.
