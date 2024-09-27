@@ -1,125 +1,121 @@
 // @ts-check
-import { readFile, writeFile } from "fs/promises";
+
+/**
+ * A script to sync the package versions across the workspace.
+ *
+ * At time of writing, performing a version bump using `npm version` does not
+ * affect the versions listed for the package in the package.json of dependant
+ * packages in the workspace. This script goes through each package in the
+ * workspace and ensures that the version for any other workspace packages it
+ * cross-references is up to date.
+ */
+
+import Arborist from "@npmcli/arborist";
+import PackageJson from "@npmcli/package-json";
 import { glob } from "glob";
-import { dirname, join, resolve } from "path";
-import Prettier, { format } from "prettier";
-import { fileURLToPath } from "url";
+import { resolve } from "path";
 
-/** @type {string[]} */
-const workspaces = [];
+const rootPkg = await PackageJson.load("./");
 
-const __filename = fileURLToPath(import.meta.url);
-const WORKSPACE_ROOT = resolve(dirname(__filename), "..");
-const PACKAGE_JSON = "package.json";
-const TS_CONFIG = "tsconfig.json";
+// normalize the workspaces entry
+const workspaceGlobs = Array.isArray(rootPkg.content.workspaces)
+  ? rootPkg.content.workspaces
+  : rootPkg.content.workspaces?.packages ?? [];
 
-const prettierConfig = await Prettier.resolveConfig(
-  join(WORKSPACE_ROOT, TS_CONFIG),
-);
-
-try {
-  const rootPkg = JSON.parse(
-    await readFile(join(WORKSPACE_ROOT, PACKAGE_JSON), "utf-8"),
-  );
-
-  if (rootPkg.workspaces && Array.isArray(rootPkg.workspaces)) {
-    workspaces.push(...rootPkg.workspaces);
-  }
-} catch (/** @type {any} */ err) {
-  if (err?.code !== "ENOENT") {
-    throw err;
-  }
-}
+// get a list of all candidate package directories
+const workspaces = (
+  await Promise.all(workspaceGlobs.map((x) => glob(resolve(rootPkg.path, x))))
+).flat();
 
 if (!workspaces.length) {
   console.error(`ERROR: no workspaces defined`);
   process.exit(1);
 }
 
-const packages = workspaces.flatMap(
-  /** @param {string} workspaceEntry */
-  (workspaceEntry) => glob.sync(workspaceEntry),
-);
-
-if (!packages.length) {
-  console.error(`ERROR: no packages found in workspaces [${workspaces}]`);
-  process.exit(1);
-}
-
-/** @typedef {{ path: string, packageJson: any }} RefInfo */
-/** @type {Record<string, RefInfo>} */
-const refs = {};
-
-for (const pkg of packages) {
-  const packageJsonPath = join(pkg, PACKAGE_JSON);
-  let packageJson;
-
-  try {
-    packageJson = JSON.parse(await readFile(packageJsonPath, "utf8"));
-  } catch (/** @type {any} */ err) {
-    if (err?.code === "ENOENT") {
-      continue;
-    }
-    throw err;
-  }
-
-  if (!packageJson.name || !packageJson.version) {
-    throw new Error(`expected every package to have a name and version`);
-  }
-
-  refs[packageJson.name] = {
-    path: packageJsonPath,
-    packageJson,
-  };
-}
-
-/**
- * @param {Record<string, string>|undefined} deps
- * @returns {boolean}
- */
-function updateDeps(deps) {
-  if (!deps) {
-    return false;
-  }
-  let changed = false;
-  for (const key of Object.keys(deps)) {
-    const crossRef = refs[key];
-    if (!crossRef) {
-      continue;
-    }
-    const version = /^([~^])?(.*)$/.exec(deps[key]);
-    if (!version) {
-      throw new Error(`unexpected version format "${deps[key]}"`);
-    }
-    if (version[2] === crossRef.packageJson.version) {
-      continue;
-    }
-    deps[key] = (version[1] ?? "") + crossRef.packageJson.version;
-    changed = true;
-  }
-  return changed;
-}
-
-/** @type {Set<RefInfo>} */
-const updated = new Set();
-
-for (const pkg of Object.values(refs)) {
-  const didUpdate =
-    updateDeps(pkg.packageJson.dependencies) ||
-    updateDeps(pkg.packageJson.devDependencies) ||
-    updateDeps(pkg.packageJson.peerDependencies);
-
-  if (didUpdate) {
-    updated.add(pkg);
-  }
-}
-
-for (const pkg of updated) {
-  await writeFile(
-    pkg.path,
-    await format(JSON.stringify(pkg.packageJson), {
-      filepath: pkg.path,
-      ...prettierConfig,
+// load all the package.json files that we can find
+const packages = (
+  await Promise.all(
+    workspaces.map(async (path) => {
+      try {
+        return await PackageJson.load(path);
+      } catch (/** @type {any} */ error) {
+        if (error?.code !== "ENOENT") {
+          throw error;
+        }
+      }
     }),
+  )
+).filter((p) => p !== undefined);
+
+const packageNames = packages
+  .map((x) => x.content.name)
+  .filter((x) => x !== undefined);
+
+// go through each package.json and update the versions for cross-references
+for (const sourcePackage of packages) {
+  if (!sourcePackage) {
+    continue;
+  }
+
+  // get all the keys of dependency sections
+  const deps = Object.keys(sourcePackage.content).filter(
+    /** @returns {key is 'dependencies'} */
+    (key) => /(^d|D)ependencies$/.test(key),
   );
+
+  /** @type {import('@npmcli/package-json').PackageJson} */
+  const update = {};
+
+  for (const key of deps) {
+    for (const targetPackageName of packageNames) {
+      const currentVersion = sourcePackage.content[key]?.[targetPackageName];
+      if (!currentVersion) {
+        // we haven't referenced this package
+        continue;
+      }
+
+      const versionMatch = /^([~^]?)([0-9.])+$/.exec(currentVersion);
+      if (!versionMatch) {
+        console.warn(
+          `warning: invalid version for ${key} ${targetPackageName}` +
+            ` in ${sourcePackage.content.name}: ${currentVersion}`,
+        );
+        continue;
+      }
+
+      const specifier = versionMatch[1];
+
+      const latestVersion = packages.find(
+        (x) => x.content.name === targetPackageName,
+      )?.content.version;
+
+      if (!latestVersion || `${specifier}${latestVersion}` === currentVersion) {
+        continue;
+      }
+
+      update[key] = {
+        ...sourcePackage.content[key],
+        ...update[key],
+        [targetPackageName]: `${specifier}${latestVersion}`,
+      };
+    }
+  }
+
+  if (Object.keys(update).length) {
+    // we made some changes, save them
+    sourcePackage.update(update);
+    await sourcePackage.save();
+  }
 }
+
+// update package-lock.json: minimalist reify, updating only the workspaces that
+// had version updates
+const arborist = new Arborist({
+  audit: false,
+  fund: false,
+  save: true,
+});
+
+await arborist.reify({
+  update: { names: packageNames },
+});

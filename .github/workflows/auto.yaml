@@ -1,6 +1,5 @@
 name: Schema update
 on:
-  push:
   workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
@@ -46,24 +45,25 @@ jobs:
 
       - name: Configure Git
         if: steps.download.outcome == 'success'
-        env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+        shell: bash
         run: |
-          set -e
           git config user.email "actions@github.com"
           git config user.name "Github Actions"
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
 
       - name: Commit changes
         if: steps.download.outcome == 'success'
+        shell: bash
         run: |
-          set -e
           git add -A
           git commit -m "update schemas"
 
       - name: Bump @awboost/cfn-resource-types version
         if: steps.download.outcome == 'success'
-        run: npm version -w @awboost/cfn-resource-types patch
+        run: npm run -w @awboost/cfn-resource-types bump
+
+      - name: Bump @awboost/cfntypes version
+        if: steps.download.outcome == 'success'
+        run: npm run -w @awboost/cfntypes bump
 
       - name: Publish @awboost/cfn-resource-types
         if: steps.download.outcome == 'success'
@@ -71,12 +71,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish -w @awboost/cfn-resource-types
 
-      - name: Bump @awboost/cfntypes version
-        if: steps.download.outcome == 'success'
-        run: npm version -w @awboost/cfntypes patch
-
       - name: Publish @awboost/cfntypes
         if: steps.download.outcome == 'success'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish -w @awboost/cfntypes
+
+      - name: Push commits
+        if: steps.download.outcome == 'success'
+        run: git push --follow-tags

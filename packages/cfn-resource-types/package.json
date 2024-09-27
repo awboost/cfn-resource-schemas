@@ -25,14 +25,14 @@
     "lib/**/*.d.ts"
   ],
   "scripts": {
+    "bump": "npm version patch && npm run commit-version && npm run tag-version",
+    "commit-version": "git add '../../**/package.json' '../../package-lock.json' && git commit -m \"chore: bump ${npm_package_name}@v${npm_package_version}\"",
     "lint": "eslint src/ --ext=ts",
-    "postpublish": "npm run tag-version && git push --follow-tags",
-    "postversion": "npm --prefix=../.. run sync-versions && git commit -am ${npm_package_name}@${npm_package_version}",
-    "preversion": "git diff-index --quiet HEAD -- || ! echo 'Uncommitted changes present'",
-    "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}"
+    "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}",
+    "version": "npm run --prefix=../.. sync-versions"
   },
   "devDependencies": {
-    "@awboost/cfn-codegen": "^0.2.2"
+    "@awboost/cfn-codegen": "^0.2.3"
   },
   "peerDependencies": {
     "@awboost/cfn-template-builder": "^0.3.1"

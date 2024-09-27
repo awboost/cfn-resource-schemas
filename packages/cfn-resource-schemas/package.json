@@ -42,13 +42,13 @@
   ],
   "scripts": {
     "build": "npm run clean && npm run compile && npm run lint",
+    "bump": "npm version patch && npm run commit-version && npm run tag-version",
+    "commit-version": "git add '../../**/package.json' '../../package-lock.json' && git commit -m \"chore: bump ${npm_package_name}@v${npm_package_version}\"",
     "clean": "rm -rf lib/",
     "compile": "tsc",
     "lint": "eslint src/ --ext=ts",
-    "postpublish": "npm run tag-version && git push --follow-tags",
-    "postversion": "npm --prefix=../.. run sync-versions && git commit -am ${npm_package_name}@${npm_package_version}",
-    "preversion": "git diff-index --quiet HEAD -- || ! echo 'Uncommitted changes present'",
-    "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}"
+    "tag-version": "git tag -a ${npm_package_name}@${npm_package_version} -m ${npm_package_name}@v${npm_package_version}",
+    "version": "npm run --prefix=../.. sync-versions"
   },
   "dependencies": {
     "@types/json-schema": "^7.0.13",
