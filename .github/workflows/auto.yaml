@@ -98,6 +98,10 @@ jobs:
         if: ${{ steps.commit.outcome == 'success' }}
         run: npm run -w @awboost/cfntypes bump
 
+      - name: Push changes
+        if: ${{ steps.commit.outcome == 'success' }}
+        run: git push --follow-tags
+
       - name: Publish @awboost/cfn-resource-types
         if: ${{ steps.commit.outcome == 'success' }}
         env:
@@ -109,7 +113,3 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish -w @awboost/cfntypes
-
-      - name: Push changes
-        if: ${{ steps.commit.outcome == 'success' }}
-        run: git push --follow-tags
