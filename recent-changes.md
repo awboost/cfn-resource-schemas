@@ -1,44 +1,21 @@
-- updated `AWS::DataSync::Agent`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationEFS`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationFSxWindows`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationHDFS`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationNFS`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationObjectStorage`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationSMB`
-  - updated `tagging`
-- updated `AWS::DataSync::Task`
-  - updated `tagging`
-- updated `AWS::EC2::TransitGateway`
-  - added property `SecurityGroupReferencingSupport`
-- updated `AWS::ResourceExplorer2::Index`
-  - updated `tagging`
-- updated `AWS::ResourceExplorer2::View`
-  - updated `tagging`
-- updated `AWS::Route53Profiles::Profile`
-  - removed `writeOnlyProperties`
-  - updated `tagging`
+- updated `AWS::AuditManager::Assessment`
+  - added `tagging`
   - updated handler permissions
-- updated `AWS::Route53Profiles::ProfileAssociation`
+- updated `AWS::Cognito::UserPool`
+  - added property `EmailAuthenticationMessage`
+  - added property `EmailAuthenticationSubject`
+- updated `AWS::DataSync::LocationAzureBlob`
   - updated `tagging`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-  - updated property `Arn`
-- updated `AWS::Route53Resolver::FirewallDomainList`
+- updated `AWS::DataSync::LocationFSxLustre`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Route53Resolver::FirewallRuleGroup`
+- updated `AWS::DataSync::LocationFSxONTAP`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Route53Resolver::FirewallRuleGroupAssociation`
+- updated `AWS::DataSync::LocationFSxOpenZFS`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::SecretsManager::Secret`
-  - updated `tagging`
-- updated `AWS::Wisdom::KnowledgeBase`
-  - updated definition `KnowledgeBaseType`
+- updated `AWS::EC2::TransitGatewayAttachment`
+  - updated property `Options`
+- updated `AWS::EC2::TransitGatewayVpcAttachment`
+  - updated property `Options`
+- updated `AWS::IAM::InstanceProfile`
+  - added `tagging`
+- updated `AWS::IAM::Policy`

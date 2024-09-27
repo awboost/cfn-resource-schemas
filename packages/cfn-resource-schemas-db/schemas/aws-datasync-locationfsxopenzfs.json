@@ -1,5 +1,5 @@
 {
-  "$hash": "6f965b2b00bdf18feebd85b4c300a428061b4eac",
+  "$hash": "1f525507b12c8a5ef439013a2e5fae4711118496",
   "$id": "aws-datasync-locationfsxopenzfs.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -144,6 +144,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datasync.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "datasync:TagResource",
+      "datasync:UntagResource",
+      "datasync:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

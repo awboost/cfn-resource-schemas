@@ -11,6 +11,16 @@ export type CognitoUserPoolProperties = {
   AutoVerifiedAttributes?: string[];
   DeletionProtection?: string;
   DeviceConfiguration?: DeviceConfiguration;
+  /**
+   * @minLength `6`
+   * @maxLength `20000`
+   */
+  EmailAuthenticationMessage?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `140`
+   */
+  EmailAuthenticationSubject?: string;
   EmailConfiguration?: EmailConfiguration;
   /**
    * @minLength `6`

@@ -1,5 +1,5 @@
 {
-  "$hash": "f7b7c41e65f3e32b93568a076b8a82d5046ff02b",
+  "$hash": "46ad9e9b69e89bb0deae3394878eb05176d0837c",
   "$id": "aws-iam-instanceprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -55,6 +55,10 @@
   },
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Roles"],
-  "taggable": false,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagProperty": "/properties/Tags",
+    "taggable": false
+  },
   "typeName": "AWS::IAM::InstanceProfile"
 }

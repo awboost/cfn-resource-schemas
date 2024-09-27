@@ -22,6 +22,10 @@ export type EC2TransitGatewayVpcAttachmentProperties = {
      * Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
      */
     Ipv6Support?: string;
+    /**
+     * Indicates whether to enable Security Group referencing support for Vpc Attachment. Valid values: enable | disable
+     */
+    SecurityGroupReferencingSupport?: string;
   };
   RemoveSubnetIds?: string[];
   SubnetIds: string[];
