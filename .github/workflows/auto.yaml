@@ -68,7 +68,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: npm run compile
 
       - name: Generate Types
         run: npm run generate:cached -- --ignore-broken-refs
@@ -77,7 +77,7 @@ jobs:
         run: npm run generate:legacy -- --ignore-broken-refs
 
       - name: Build with new types
-        run: npm run build
+        run: npm run compile && npm run lint
 
       - name: Configure Git
         shell: bash
@@ -85,24 +85,31 @@ jobs:
           git config user.email "actions@github.com"
           git config user.name "Github Actions"
 
-      - name: Commit changes
+      - id: commit
+        name: Commit changes
+        continue-on-error: true
         run: git add -A && git commit -m "update types"
 
       - name: Bump @awboost/cfn-resource-types version
+        if: ${{ steps.commit.outcome == 'success' }}
         run: npm run -w @awboost/cfn-resource-types bump
 
       - name: Bump @awboost/cfntypes version
+        if: ${{ steps.commit.outcome == 'success' }}
         run: npm run -w @awboost/cfntypes bump
 
       - name: Publish @awboost/cfn-resource-types
+        if: ${{ steps.commit.outcome == 'success' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish -w @awboost/cfn-resource-types
 
       - name: Publish @awboost/cfntypes
+        if: ${{ steps.commit.outcome == 'success' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish -w @awboost/cfntypes
 
       - name: Push changes
+        if: ${{ steps.commit.outcome == 'success' }}
         run: git push --follow-tags
