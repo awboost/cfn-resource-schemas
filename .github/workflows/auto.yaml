@@ -5,12 +5,9 @@ on:
     - cron: "0 0 * * *"
 
 jobs:
-  download:
-    name: Download
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    continue-on-error: true
-    outputs:
-      outcome: ${{ steps.download.outcome }}
 
     steps:
       - name: Git Checkout
@@ -30,56 +27,24 @@ jobs:
 
       - id: download
         name: Download latest
+        continue-on-error: true
         run: npm run download
 
-      - name: Configure Git
-        shell: bash
-        run: |
-          git config user.email "actions@github.com"
-          git config user.name "Github Actions"
-
-      - name: Commit changes
-        run: git add -A && git commit -m "update schemas"
-
-      - name: Bump @awboost/cfn-resource-schemas-db
-        run: npm run -w @awboost/cfn-resource-schemas-db bump
-
-      - name: Push changes
-        run: git push --follow-tags
-
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    needs:
-      - download
-    if: ${{ needs.download.outputs.outcome == 'success' || github.event_name == 'workflow_dispatch' }}
-
-    steps:
-      - name: Git Checkout
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-          cache: "npm"
-          registry-url: "https://registry.npmjs.org"
-
-      - name: NPM install
-        run: npm ci
-
-      - name: Build
-        run: npm run compile
-
-      - name: Generate Types
+      - id: generate
+        name: Generate Types
+        if: ${{ steps.download.outcome == 'success' || github.event_name == 'workflow_dispatch' }}
         run: npm run generate:cached -- --ignore-broken-refs
 
       - name: Generate Types (Legacy)
+        if: ${{ steps.generate.outcome == 'success' }}
         run: npm run generate:legacy -- --ignore-broken-refs
 
       - name: Build with new types
+        if: ${{ steps.generate.outcome == 'success' }}
         run: npm run compile && npm run lint
 
       - name: Configure Git
+        if: ${{ steps.generate.outcome == 'success' }}
         shell: bash
         run: |
           git config user.email "actions@github.com"
@@ -87,8 +52,13 @@ jobs:
 
       - id: commit
         name: Commit changes
+        if: ${{ steps.generate.outcome == 'success' }}
         continue-on-error: true
-        run: git add -A && git commit -m "update types"
+        run: git add -A && git commit -m "update schemas"
+
+      - name: Bump @awboost/cfn-resource-schemas-db
+        if: ${{ steps.commit.outcome == 'success' }}
+        run: npm run -w @awboost/cfn-resource-schemas-db bump
 
       - name: Bump @awboost/cfn-resource-types version
         if: ${{ steps.commit.outcome == 'success' }}
