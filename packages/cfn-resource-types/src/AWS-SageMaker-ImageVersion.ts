@@ -67,6 +67,11 @@ export type SageMakerImageVersionProperties = {
    * The availability of the image version specified by the maintainer.
    */
   VendorGuidance?: VendorGuidance;
+  /**
+   * The version number of the image version.
+   * @min `1`
+   */
+  Version?: number;
 };
 /**
  * Attribute type definition for `AWS::SageMaker::ImageVersion`.
@@ -94,11 +99,6 @@ export type SageMakerImageVersionAttributes = {
    * @pattern `^arn:aws(-[\w]+)*:sagemaker:[a-z0-9\-]*:[0-9]{12}:image-version\/[a-zA-Z0-9]([-.]?[a-zA-Z0-9])*\/[0-9]+$`
    */
   ImageVersionArn: string;
-  /**
-   * The version number of the image version.
-   * @min `1`
-   */
-  Version: number;
 };
 /**
  * Type definition for `AWS::SageMaker::ImageVersion.JobType`.
