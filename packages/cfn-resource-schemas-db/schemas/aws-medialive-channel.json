@@ -1,5 +1,5 @@
 {
-  "$hash": "099b38f3db3e093a6cf8f1af90e13e9603343be9",
+  "$hash": "9ef5f6d040a94c4258d645b7c4f7ea7bc48481cd",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -821,6 +821,7 @@
         "LookAheadRateControl": { "type": "string" },
         "MaxBitrate": { "type": "integer" },
         "MinIInterval": { "type": "integer" },
+        "MinQp": { "type": "integer" },
         "NumRefFrames": { "type": "integer" },
         "ParControl": { "type": "string" },
         "ParDenominator": { "type": "integer" },
@@ -892,6 +893,7 @@
         "LookAheadRateControl": { "type": "string" },
         "MaxBitrate": { "type": "integer" },
         "MinIInterval": { "type": "integer" },
+        "MinQp": { "type": "integer" },
         "MvOverPictureBoundaries": { "type": "string" },
         "MvTemporalPredictor": { "type": "string" },
         "ParDenominator": { "type": "integer" },
