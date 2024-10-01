@@ -1,5 +1,5 @@
 {
-  "$hash": "cc4a25cfaa9e0154419cf68a0dc94e9f4e9c0a39",
+  "$hash": "129786d8acc77705bcde40e68e9fb2a4acf44901",
   "$id": "aws-lightsail-loadbalancer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -118,6 +118,13 @@
   "readOnlyProperties": ["/properties/LoadBalancerArn"],
   "required": ["LoadBalancerName", "InstancePort"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-lightsail.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["lightsail:TagResource", "lightsail:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Lightsail::LoadBalancer"
 }

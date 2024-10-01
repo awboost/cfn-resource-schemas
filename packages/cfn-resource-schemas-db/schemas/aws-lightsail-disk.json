@@ -1,5 +1,5 @@
 {
-  "$hash": "e57164477e1ed5506cffd25ab75775ccaebf44fe",
+  "$hash": "f073aa399db774af3368ddaa10faba83a4bc38c4",
   "$id": "aws-lightsail-disk.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -194,6 +194,13 @@
   ],
   "required": ["DiskName", "SizeInGb"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-lightsail.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["lightsail:TagResource", "lightsail:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Lightsail::Disk"
 }

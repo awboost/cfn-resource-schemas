@@ -1,5 +1,5 @@
 {
-  "$hash": "2fe9a58af04f7cbe568423c64c2d95d5edbab3dc",
+  "$hash": "966ebde16b3f58484b10ffea776ea3654b64e119",
   "$id": "aws-lightsail-bucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BucketName"],
@@ -125,6 +125,13 @@
   ],
   "required": ["BucketName", "BundleId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-lightsail.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["lightsail:TagResource", "lightsail:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Lightsail::Bucket"
 }

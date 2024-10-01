@@ -1,5 +1,5 @@
 {
-  "$hash": "9fbc178e75a6b2aa1565a8cb4b23582942f2b808",
+  "$hash": "0fdcfde1b2ab9ebe5a19b5b49d3206f7f1b08c55",
   "$id": "aws-lightsail-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -88,6 +88,13 @@
   "readOnlyProperties": ["/properties/CertificateArn", "/properties/Status"],
   "required": ["CertificateName", "DomainName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["lightsail:TagResource", "lightsail:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Lightsail::Certificate"
 }
