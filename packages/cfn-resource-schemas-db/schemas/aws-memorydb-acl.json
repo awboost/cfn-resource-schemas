@@ -1,5 +1,5 @@
 {
-  "$hash": "80260b24c5c5e1867b4b04db3c1702f5caf10896",
+  "$hash": "a2fe92acca2af649d639f9952adfa840fb3162d0",
   "$id": "aws-memorydb-acl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ACLName"],
@@ -91,6 +91,17 @@
   "readOnlyProperties": ["/properties/Status", "/properties/Arn"],
   "required": ["ACLName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-memorydb",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "memorydb:TagResource",
+      "memorydb:ListTags",
+      "memorydb:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::MemoryDB::ACL"
 }

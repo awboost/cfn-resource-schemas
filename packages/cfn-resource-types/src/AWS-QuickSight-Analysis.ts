@@ -1048,6 +1048,11 @@ export type ComboChartVisual = {
   VisualId: string;
 };
 /**
+ * Type definition for `AWS::QuickSight::Analysis.CommitMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-commitmode.html}
+ */
+export type CommitMode = "AUTO" | "MANUAL";
+/**
  * Type definition for `AWS::QuickSight::Analysis.ComparisonConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-comparisonconfiguration.html}
  */
@@ -1850,6 +1855,7 @@ export type DecimalValueWhenUnsetConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-defaultdatetimepickercontroloptions.html}
  */
 export type DefaultDateTimePickerControlOptions = {
+  CommitMode?: CommitMode;
   DisplayOptions?: DateTimePickerControlDisplayOptions;
   Type?: SheetControlDateTimePickerType;
 };
@@ -1883,6 +1889,7 @@ export type DefaultFilterControlOptions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-defaultfilterdropdowncontroloptions.html}
  */
 export type DefaultFilterDropDownControlOptions = {
+  CommitMode?: CommitMode;
   DisplayOptions?: DropDownControlDisplayOptions;
   SelectableValues?: FilterSelectableValues;
   Type?: SheetControlListType;
@@ -1939,6 +1946,7 @@ export type DefaultPaginatedLayoutConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-defaultrelativedatetimecontroloptions.html}
  */
 export type DefaultRelativeDateTimeControlOptions = {
+  CommitMode?: CommitMode;
   DisplayOptions?: RelativeDateTimeControlDisplayOptions;
 };
 /**
@@ -2332,6 +2340,7 @@ export type FilterCrossSheetControl = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterdatetimepickercontrol.html}
  */
 export type FilterDateTimePickerControl = {
+  CommitMode?: CommitMode;
   DisplayOptions?: DateTimePickerControlDisplayOptions;
   /**
    * @minLength `1`
@@ -2358,6 +2367,7 @@ export type FilterDateTimePickerControl = {
  */
 export type FilterDropDownControl = {
   CascadingControlConfiguration?: CascadingControlConfiguration;
+  CommitMode?: CommitMode;
   DisplayOptions?: DropDownControlDisplayOptions;
   /**
    * @minLength `1`
@@ -2475,6 +2485,7 @@ export type FilterOperationTargetVisualsConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filterrelativedatetimecontrol.html}
  */
 export type FilterRelativeDateTimeControl = {
+  CommitMode?: CommitMode;
   DisplayOptions?: RelativeDateTimeControlDisplayOptions;
   /**
    * @minLength `1`
@@ -4516,6 +4527,7 @@ export type ParameterDeclaration = {
  */
 export type ParameterDropDownControl = {
   CascadingControlConfiguration?: CascadingControlConfiguration;
+  CommitMode?: CommitMode;
   DisplayOptions?: DropDownControlDisplayOptions;
   /**
    * @minLength `1`

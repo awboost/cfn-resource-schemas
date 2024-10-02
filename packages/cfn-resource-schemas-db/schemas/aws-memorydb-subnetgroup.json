@@ -1,5 +1,5 @@
 {
-  "$hash": "f363630e5385042c739721dc6440d0da00b2f7d7",
+  "$hash": "78990f0b3a0c7b5a7ef4a82ac85b90b9cfe0d6d4",
   "$id": "aws-memorydb-subnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubnetGroupName"],
@@ -91,6 +91,17 @@
   "readOnlyProperties": ["/properties/ARN"],
   "required": ["SubnetGroupName", "SubnetIds"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-memorydb",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "memorydb:TagResource",
+      "memorydb:ListTags",
+      "memorydb:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::MemoryDB::SubnetGroup"
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "8447c3efb7cb2fb55858b8a07df481be4339e079",
+  "$hash": "f7c9c14470599447425ad8ac63f8711883b08368",
   "$id": "aws-lightsail-container.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServiceName"],
@@ -276,6 +276,13 @@
   ],
   "required": ["ServiceName", "Power", "Scale"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-lightsail.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["lightsail:TagResource", "lightsail:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Lightsail::Container"
 }

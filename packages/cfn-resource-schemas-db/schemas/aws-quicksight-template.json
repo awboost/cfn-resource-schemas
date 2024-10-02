@@ -1,5 +1,5 @@
 {
-  "$hash": "b9af27810fa0a8e60573b8d2c3fe44456cf5e3ed",
+  "$hash": "e0528e4e674bcb13d59fc15221d66dec3e16e497",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -963,6 +963,7 @@
       "required": ["VisualId"],
       "type": "object"
     },
+    "CommitMode": { "enum": ["AUTO", "MANUAL"], "type": "string" },
     "ComparisonConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -1725,6 +1726,7 @@
     "DefaultDateTimePickerControlOptions": {
       "additionalProperties": false,
       "properties": {
+        "CommitMode": { "$ref": "#/definitions/CommitMode" },
         "DisplayOptions": {
           "$ref": "#/definitions/DateTimePickerControlDisplayOptions"
         },
@@ -1773,6 +1775,7 @@
     "DefaultFilterDropDownControlOptions": {
       "additionalProperties": false,
       "properties": {
+        "CommitMode": { "$ref": "#/definitions/CommitMode" },
         "DisplayOptions": {
           "$ref": "#/definitions/DropDownControlDisplayOptions"
         },
@@ -1845,6 +1848,7 @@
     "DefaultRelativeDateTimeControlOptions": {
       "additionalProperties": false,
       "properties": {
+        "CommitMode": { "$ref": "#/definitions/CommitMode" },
         "DisplayOptions": {
           "$ref": "#/definitions/RelativeDateTimeControlDisplayOptions"
         }
@@ -2269,6 +2273,7 @@
     "FilterDateTimePickerControl": {
       "additionalProperties": false,
       "properties": {
+        "CommitMode": { "$ref": "#/definitions/CommitMode" },
         "DisplayOptions": {
           "$ref": "#/definitions/DateTimePickerControlDisplayOptions"
         },
@@ -2296,6 +2301,7 @@
         "CascadingControlConfiguration": {
           "$ref": "#/definitions/CascadingControlConfiguration"
         },
+        "CommitMode": { "$ref": "#/definitions/CommitMode" },
         "DisplayOptions": {
           "$ref": "#/definitions/DropDownControlDisplayOptions"
         },
@@ -2431,6 +2437,7 @@
     "FilterRelativeDateTimeControl": {
       "additionalProperties": false,
       "properties": {
+        "CommitMode": { "$ref": "#/definitions/CommitMode" },
         "DisplayOptions": {
           "$ref": "#/definitions/RelativeDateTimeControlDisplayOptions"
         },
@@ -4599,6 +4606,7 @@
         "CascadingControlConfiguration": {
           "$ref": "#/definitions/CascadingControlConfiguration"
         },
+        "CommitMode": { "$ref": "#/definitions/CommitMode" },
         "DisplayOptions": {
           "$ref": "#/definitions/DropDownControlDisplayOptions"
         },

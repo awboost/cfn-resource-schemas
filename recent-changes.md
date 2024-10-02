@@ -1,21 +1,48 @@
-- updated `AWS::ElasticLoadBalancingV2::TargetGroup`
-  - updated `tagging`
-- updated `AWS::GuardDuty::Filter`
-  - updated `tagging`
+- added `AWS::Glue::UsageProfile`
+- updated `AWS::Lightsail::Container`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::MemoryDB::ACL`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::MemoryDB::ParameterGroup`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::MemoryDB::SubnetGroup`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::MemoryDB::User`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::QuickSight::Analysis`
+  - added definition `CommitMode`
+  - updated definition `DefaultDateTimePickerControlOptions`
+  - updated definition `DefaultFilterDropDownControlOptions`
+  - updated definition `DefaultRelativeDateTimeControlOptions`
+  - updated definition `FilterDateTimePickerControl`
+  - updated definition `FilterDropDownControl`
+  - updated definition `FilterRelativeDateTimeControl`
+  - updated definition `ParameterDropDownControl`
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `CommitMode`
+  - updated definition `DefaultDateTimePickerControlOptions`
+  - updated definition `DefaultFilterDropDownControlOptions`
+  - updated definition `DefaultRelativeDateTimeControlOptions`
+  - updated definition `FilterDateTimePickerControl`
+  - updated definition `FilterDropDownControl`
+  - updated definition `FilterRelativeDateTimeControl`
+  - updated definition `ParameterDropDownControl`
+- updated `AWS::QuickSight::Template`
+  - added definition `CommitMode`
+  - updated definition `DefaultDateTimePickerControlOptions`
+  - updated definition `DefaultFilterDropDownControlOptions`
+  - updated definition `DefaultRelativeDateTimeControlOptions`
+  - updated definition `FilterDateTimePickerControl`
+  - updated definition `FilterDropDownControl`
+  - updated definition `FilterRelativeDateTimeControl`
+  - updated definition `ParameterDropDownControl`
+- updated `AWS::SSMQuickSetup::ConfigurationManager`
+  - updated definition `TagsMap`
+- updated `AWS::SecretsManager::SecretTargetAttachment`
+  - added `tagging`
   - updated handler permissions
-  - updated property `Tags`
-- updated `AWS::Lightsail::Bucket`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Lightsail::Certificate`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Lightsail::Database`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Lightsail::Disk`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Lightsail::LoadBalancer`
-  - added `tagging`
-  - removed `taggable`
