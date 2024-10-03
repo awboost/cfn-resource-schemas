@@ -22,7 +22,7 @@ export type LakeFormationTagProperties = {
   /**
    * A list of possible values an attribute can take.
    * @minLength `1`
-   * @maxLength `50`
+   * @maxLength `1000`
    */
   TagValues: string[];
 };

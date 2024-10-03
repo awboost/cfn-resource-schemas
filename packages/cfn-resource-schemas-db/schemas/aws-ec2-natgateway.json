@@ -1,5 +1,5 @@
 {
-  "$hash": "7fdf394a9d3d7c8924f10c07ada6b7653f980206",
+  "$hash": "800614d6fc214b44a8790987f7de21def4a01305",
   "$id": "aws-ec2-natgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -66,7 +66,7 @@
       "type": "string"
     },
     "SecondaryAllocationIds": {
-      "description": "Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating) in the *Amazon VPC User Guide*.",
+      "description": "Secondary EIP allocation IDs. For more information, see [Create a NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html) in the *Amazon VPC User Guide*.",
       "insertionOrder": true,
       "items": { "type": "string" },
       "type": "array",
@@ -100,7 +100,9 @@
   "required": ["SubnetId"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ec2:DeleteTags", "ec2:CreateTags"],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

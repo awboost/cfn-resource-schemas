@@ -215,8 +215,9 @@ export type Permission =
   | "CREATE_DATABASE"
   | "CREATE_TABLE"
   | "DATA_LOCATION_ACCESS"
-  | "CREATE_TAG"
-  | "ASSOCIATE";
+  | "CREATE_LF_TAG"
+  | "ASSOCIATE"
+  | "GRANT_WITH_LF_TAG_EXPRESSION";
 /**
  * Type definition for `AWS::LakeFormation::PrincipalPermissions.Resource`.
  * A structure for the resource.

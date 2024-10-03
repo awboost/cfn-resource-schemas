@@ -1,5 +1,5 @@
 {
-  "$hash": "b9dda29457ce284a1d2fe8eb86f3abe376ab2239",
+  "$hash": "e75ed57eed9f527a0f0935daf3d3526014c2358e",
   "$id": "aws-lakeformation-tag.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CatalogId", "/properties/TagKey"],
@@ -20,7 +20,7 @@
     "TagValueList": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/LFTagValue" },
-      "maxItems": 50,
+      "maxItems": 1000,
       "minItems": 1,
       "type": "array"
     }

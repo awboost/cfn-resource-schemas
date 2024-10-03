@@ -1,5 +1,5 @@
 {
-  "$hash": "e6e205dd94a9f74b27a6541a77cf2503924d3800",
+  "$hash": "3c3a9b733d4aa8ec247c1d1d201c263c61247522",
   "$id": "aws-iottwinmaker-workspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkspaceId"],
@@ -109,6 +109,11 @@
   "required": ["WorkspaceId", "Role", "S3Location"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iottwinmaker:TagResource",
+      "iottwinmaker:UntagResource",
+      "iottwinmaker:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

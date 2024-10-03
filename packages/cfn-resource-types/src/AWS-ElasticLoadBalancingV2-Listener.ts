@@ -20,6 +20,9 @@ export type ElasticLoadBalancingV2ListenerProperties = {
      To create additional rules for an Application Load Balancer, use [AWS::ElasticLoadBalancingV2::ListenerRule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html).
      */
   DefaultActions: Action[];
+  /**
+   * The listener attributes.
+   */
   ListenerAttributes?: ListenerAttribute[];
   /**
    * The Amazon Resource Name (ARN) of the load balancer.
@@ -240,10 +243,19 @@ export type ForwardConfig = {
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::Listener.ListenerAttribute`.
+ * Information about a listener attribute.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-listenerattribute.html}
  */
 export type ListenerAttribute = {
+  /**
+     * The name of the attribute.
+     The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
+      +   ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+     */
   Key?: string;
+  /**
+   * The value of the attribute.
+   */
   Value?: string;
 };
 /**

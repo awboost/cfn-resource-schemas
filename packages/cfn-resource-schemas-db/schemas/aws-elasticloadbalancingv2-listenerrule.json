@@ -1,5 +1,5 @@
 {
-  "$hash": "64ee45d9d29420d896117e9e213a9c728b78fecd",
+  "$hash": "c1a36a847f7f6ec392eb574044cce2be7e277e9f",
   "$id": "aws-elasticloadbalancingv2-listenerrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ListenerArn"],
@@ -85,6 +85,10 @@
     },
     "AuthenticateOidcConfig": {
       "additionalProperties": false,
+      "anyOf": [
+        { "required": ["ClientSecret"] },
+        { "required": ["UseExistingClientSecret"] }
+      ],
       "description": "Specifies information required using an identity provide (IdP) that is compliant with OpenID Connect (OIDC) to authenticate users.",
       "properties": {
         "AuthenticationRequestExtraParams": {

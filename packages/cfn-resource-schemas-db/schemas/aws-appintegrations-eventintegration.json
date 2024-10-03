@@ -1,5 +1,5 @@
 {
-  "$hash": "925369fbade737ead6e06c2db5e55a62c9a85f85",
+  "$hash": "ab7b3a622801f1c8d88bdeed26a01330b0870111",
   "$id": "aws-appintegrations-eventintegration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -135,6 +135,10 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "app-integrations:TagResource",
+      "app-integrations:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

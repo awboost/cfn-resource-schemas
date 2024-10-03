@@ -1,5 +1,5 @@
 {
-  "$hash": "10512ee5822874115327de003d7d019d49e7f146",
+  "$hash": "431391c13d61cfa6e4aa1e369120b0f9504f4dba",
   "$id": "aws-lakeformation-principalpermissions.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -201,8 +201,9 @@
         "CREATE_DATABASE",
         "CREATE_TABLE",
         "DATA_LOCATION_ACCESS",
-        "CREATE_TAG",
-        "ASSOCIATE"
+        "CREATE_LF_TAG",
+        "ASSOCIATE",
+        "GRANT_WITH_LF_TAG_EXPRESSION"
       ],
       "type": "string"
     },

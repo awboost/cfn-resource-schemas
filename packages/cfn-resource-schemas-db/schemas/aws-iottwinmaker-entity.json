@@ -1,5 +1,5 @@
 {
-  "$hash": "e1ca7e1a0f39f50ff9dd1208efe9782100a13786",
+  "$hash": "369a3f5e2b37b838a5abfb1df8a79df0816d716d",
   "$id": "aws-iottwinmaker-entity.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkspaceId", "/properties/EntityId"],
@@ -539,6 +539,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iottwinmaker",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iottwinmaker:TagResource",
+      "iottwinmaker:UntagResource",
+      "iottwinmaker:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
