@@ -1,34 +1,8 @@
-- added `AWS::QuickSight::Folder`
-- updated `AWS::AppIntegrations::Application`
-  - updated `tagging`
-- updated `AWS::AppIntegrations::DataIntegration`
-  - updated `tagging`
-- updated `AWS::AppIntegrations::EventIntegration`
-  - updated `tagging`
-- updated `AWS::EC2::IPAM`
-  - updated `tagging`
-- updated `AWS::EC2::IPAMPool`
-  - updated `tagging`
-- updated `AWS::EC2::IPAMResourceDiscovery`
-  - updated `tagging`
-- updated `AWS::EC2::IPAMResourceDiscoveryAssociation`
-  - updated `tagging`
-- updated `AWS::EC2::IPAMScope`
-  - updated `tagging`
-- updated `AWS::EC2::NatGateway`
-  - updated `tagging`
-  - updated property `SecondaryAllocationIds`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `AuthenticateOidcConfig`
-  - updated definition `ListenerAttribute`
-  - updated property `ListenerAttributes`
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - updated definition `AuthenticateOidcConfig`
 - updated `AWS::Glue::Crawler`
-  - added `readOnlyProperties`
-  - added property `Id`
-  - removed `sourceUrl`
-  - removed `tagging`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
   - updated `primaryIdentifier`
   - updated definition `CatalogTarget`
   - updated definition `DeltaTarget`
@@ -52,60 +26,8 @@
   - updated property `Role`
   - updated property `TablePrefix`
   - updated property `Tags`
-- updated `AWS::Glue::Job`
-  - added `sourceUrl`
-  - added `tagging`
-  - added definition `DefaultArguments`
-  - added definition `NonOverridableArguments`
-  - added property `JobRunQueuingEnabled`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated definition `ConnectionsList`
-  - updated definition `ExecutionProperty`
-  - updated definition `JobCommand`
-  - updated definition `NotificationProperty`
-  - updated handler permissions
-  - updated property `AllocatedCapacity`
-  - updated property `Command`
-  - updated property `Connections`
-  - updated property `DefaultArguments`
-  - updated property `Description`
-  - updated property `ExecutionClass`
-  - updated property `ExecutionProperty`
-  - updated property `GlueVersion`
-  - updated property `JobMode`
-  - updated property `LogUri`
-  - updated property `MaintenanceWindow`
-  - updated property `MaxCapacity`
-  - updated property `MaxRetries`
-  - updated property `Name`
-  - updated property `NonOverridableArguments`
-  - updated property `NotificationProperty`
-  - updated property `NumberOfWorkers`
-  - updated property `Role`
-  - updated property `SecurityConfiguration`
-  - updated property `Tags`
-  - updated property `Timeout`
-  - updated property `WorkerType`
-- updated `AWS::GuardDuty::MalwareProtectionPlan`
-  - updated `tagging`
-- updated `AWS::IoTFleetWise::SignalCatalog`
-  - updated `tagging`
-- updated `AWS::IoTTwinMaker::ComponentType`
-  - updated `tagging`
-- updated `AWS::IoTTwinMaker::Entity`
-  - updated `tagging`
-- updated `AWS::IoTTwinMaker::Scene`
-  - updated `tagging`
-- updated `AWS::IoTTwinMaker::SyncJob`
-  - updated `tagging`
-- updated `AWS::IoTTwinMaker::Workspace`
-  - updated `tagging`
-- updated `AWS::LakeFormation::PrincipalPermissions`
-  - updated definition `Permission`
-- updated `AWS::LakeFormation::Tag`
-  - updated definition `TagValueList`
-- updated `AWS::SecretsManager::SecretTargetAttachment`
-  - removed `tagging`
-  - updated handler permissions
+- updated `AWS::S3Express::DirectoryBucket`
+  - added definition `BucketEncryption`
+  - added definition `ServerSideEncryptionByDefault`
+  - added definition `ServerSideEncryptionRule`
+  - updated property `BucketEncryption`
