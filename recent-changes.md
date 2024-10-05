@@ -1,33 +1,99 @@
-- updated `AWS::Glue::Crawler`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated definition `CatalogTarget`
-  - updated definition `DeltaTarget`
-  - updated definition `DynamoDBTarget`
-  - updated definition `IcebergTarget`
-  - updated definition `JdbcTarget`
-  - updated definition `LakeFormationConfiguration`
-  - updated definition `MongoDBTarget`
-  - updated definition `RecrawlPolicy`
-  - updated definition `S3Target`
-  - updated definition `Schedule`
-  - updated definition `SchemaChangePolicy`
-  - updated definition `Targets`
+- updated `AWS::AmplifyUIBuilder::Component`
+  - updated `tagging`
+- updated `AWS::AmplifyUIBuilder::Form`
+  - updated `tagging`
   - updated handler permissions
-  - updated property `Classifiers`
-  - updated property `Configuration`
-  - updated property `CrawlerSecurityConfiguration`
-  - updated property `DatabaseName`
-  - updated property `Description`
+- updated `AWS::AmplifyUIBuilder::Theme`
+  - updated `tagging`
+- updated `AWS::B2BI::Capability`
+  - added definition `CapabilityDirection`
+  - updated `tagging`
+  - updated definition `EdiConfiguration`
+- updated `AWS::B2BI::Partnership`
+  - added definition `CapabilityOptions`
+  - added definition `OutboundEdiOptions`
+  - added definition `X12Delimiters`
+  - added definition `X12Envelope`
+  - added definition `X12FunctionalGroupHeaders`
+  - added definition `X12InterchangeControlHeaders`
+  - added definition `X12OutboundEdiHeaders`
+  - added property `CapabilityOptions`
+  - updated `required`
+  - updated `tagging`
+- updated `AWS::B2BI::Profile`
+  - updated `tagging`
+- updated `AWS::B2BI::Transformer`
+  - added `deprecatedProperties`
+  - added definition `FormatOptions`
+  - added definition `FromFormat`
+  - added definition `InputConversion`
+  - added definition `MappingTemplateLanguage`
+  - added definition `Mapping`
+  - added definition `OutputConversion`
+  - added definition `SampleDocumentKeys`
+  - added definition `SampleDocuments`
+  - added definition `ToFormat`
+  - added property `InputConversion`
+  - added property `Mapping`
+  - added property `OutputConversion`
+  - added property `SampleDocuments`
+  - updated `required`
+  - updated `tagging`
+  - updated definition `FileFormat`
+  - updated property `MappingTemplate`
   - updated property `Name`
-  - updated property `Role`
-  - updated property `TablePrefix`
-  - updated property `Tags`
-- updated `AWS::S3Express::DirectoryBucket`
-  - added definition `BucketEncryption`
-  - added definition `ServerSideEncryptionByDefault`
-  - added definition `ServerSideEncryptionRule`
-  - updated property `BucketEncryption`
+  - updated property `SampleDocument`
+- updated `AWS::Cassandra::Keyspace`
+  - added `tagging`
+- updated `AWS::Cassandra::Table`
+  - added `tagging`
+- updated `AWS::CloudFormation::CustomResource`
+  - added property `ServiceTimeout`
+- updated `AWS::Connect::EvaluationForm`
+  - updated `tagging`
+- updated `AWS::DataBrew::Dataset`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::DataBrew::Job`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::DataBrew::Project`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::DataBrew::Recipe`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::DataBrew::Ruleset`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::DataBrew::Schedule`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::ECS::Cluster`
+  - updated `tagging`
+- updated `AWS::EMR::Cluster`
+  - added definition `InstanceFleetResizingSpecifications`
+  - added definition `OnDemandCapacityReservationOptions`
+  - added definition `OnDemandResizingSpecification`
+  - added definition `SpotResizingSpecification`
+  - updated definition `InstanceFleetConfig`
+  - updated definition `InstanceTypeConfig`
+  - updated definition `OnDemandProvisioningSpecification`
+- updated `AWS::EMR::InstanceFleetConfig`
+  - added definition `InstanceFleetResizingSpecifications`
+  - added definition `OnDemandCapacityReservationOptions`
+  - added definition `OnDemandResizingSpecification`
+  - added definition `SpotResizingSpecification`
+  - added property `ResizeSpecifications`
+  - updated `createOnlyProperties`
+  - updated definition `InstanceTypeConfig`
+  - updated definition `OnDemandProvisioningSpecification`
+- updated `AWS::ElastiCache::ReplicationGroup`
+  - updated `createOnlyProperties`
+- updated `AWS::IoT::DomainConfiguration`
+  - added definition `ClientCertificateConfig`
+  - added property `ApplicationProtocol`
+  - added property `AuthenticationType`
+  - added property `ClientCertificateConfig`
+- updated `AWS::S3::Bucket`
+  - updated definition `LifecycleConfiguration`

@@ -1,5 +1,5 @@
 {
-  "$hash": "80a786748c68957d5a03cbd20e5e3d8173c53a89",
+  "$hash": "5f3c39dd7105fa9e07d258844a8077b1d870df70",
   "$id": "aws-cassandra-keyspace.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -121,5 +121,18 @@
     }
   },
   "required": [],
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "cassandra:TagResource",
+      "cassandra:TagMultiRegionResource",
+      "cassandra:UntagResource",
+      "cassandra:UntagMultiRegionResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Cassandra::Keyspace"
 }

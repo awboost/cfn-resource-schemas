@@ -1,5 +1,5 @@
 {
-  "$hash": "09ef9d20586d26b4314e2e008b46f746ed7e73b3",
+  "$hash": "06ad40f704031f032732d11398cd902b5366a1b5",
   "$id": "aws-databrew-schedule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -77,6 +77,17 @@
   },
   "required": ["Name", "CronExpression"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-databrew.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "databrew:TagResource",
+      "databrew:UntagResource",
+      "databrew:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::DataBrew::Schedule"
 }

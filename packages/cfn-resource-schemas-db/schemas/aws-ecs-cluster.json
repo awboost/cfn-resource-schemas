@@ -1,5 +1,5 @@
 {
-  "$hash": "7febed09d310d971f5220c8fc4831febd9393952",
+  "$hash": "4066008cc2e2c86146095e0e022ff489210f9185",
   "$id": "aws-ecs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterName"],
@@ -228,7 +228,18 @@
     "/properties/Configuration/ManagedStorageConfiguration/FargateEphemeralStorageKmsKeyId": "$join([\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/\", FargateEphemeralStorageKmsKeyId])"
   },
   "readOnlyProperties": ["/properties/Arn"],
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "ecs:TagResource",
+      "ecs:UntagResource",
+      "ecs:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ECS::Cluster",
   "writeOnlyProperties": ["/properties/ServiceConnectDefaults"]
 }

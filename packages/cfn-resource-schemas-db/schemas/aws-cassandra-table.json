@@ -1,5 +1,5 @@
 {
-  "$hash": "32fd594895591b5d5b073f4b794cdf2142b92443",
+  "$hash": "a56d193bcdf352e35b73f389636f349281744c9d",
   "$id": "aws-cassandra-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -321,6 +321,19 @@
     }
   },
   "required": ["KeyspaceName", "PartitionKeyColumns"],
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "cassandra:TagResource",
+      "cassandra:TagMultiRegionResource",
+      "cassandra:UntagResource",
+      "cassandra:UntagMultiRegionResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Cassandra::Table",
   "writeOnlyProperties": [
     "/properties/AutoScalingSpecifications",

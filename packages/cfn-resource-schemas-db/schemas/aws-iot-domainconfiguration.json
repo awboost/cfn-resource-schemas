@@ -1,5 +1,5 @@
 {
-  "$hash": "f12ffb3d9b6849226ac6434cf96cf5079cd65be1",
+  "$hash": "24734884e188f1ffd6c2230f025c49d6d4388de9",
   "$id": "aws-iot-domainconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -18,6 +18,17 @@
           "maxLength": 128,
           "minLength": 1,
           "pattern": "^[\\w=,@-]+$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ClientCertificateConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "ClientCertificateCallbackArn": {
+          "maxLength": 170,
+          "minLength": 1,
           "type": "string"
         }
       },
@@ -100,8 +111,25 @@
   },
   "primaryIdentifier": ["/properties/DomainConfigurationName"],
   "properties": {
+    "ApplicationProtocol": {
+      "enum": ["SECURE_MQTT", "MQTT_WSS", "HTTPS", "DEFAULT"],
+      "type": "string"
+    },
     "Arn": { "type": "string" },
+    "AuthenticationType": {
+      "enum": [
+        "AWS_X509",
+        "CUSTOM_AUTH",
+        "AWS_SIGV4",
+        "CUSTOM_AUTH_X509",
+        "DEFAULT"
+      ],
+      "type": "string"
+    },
     "AuthorizerConfig": { "$ref": "#/definitions/AuthorizerConfig" },
+    "ClientCertificateConfig": {
+      "$ref": "#/definitions/ClientCertificateConfig"
+    },
     "DomainConfigurationName": {
       "maxLength": 128,
       "minLength": 1,

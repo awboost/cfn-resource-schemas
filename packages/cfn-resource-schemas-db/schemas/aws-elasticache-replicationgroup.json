@@ -1,11 +1,12 @@
 {
-  "$hash": "54d48813c530e4d5da8928f5bd64e54750d00110",
+  "$hash": "e35d734034974f9aebbec33c05800ece56cac8a2",
   "$id": "aws-elasticache-replicationgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KmsKeyId",
     "/properties/Port",
     "/properties/SnapshotArns",
+    "/properties/SnapshotName",
     "/properties/CacheSubnetGroupName",
     "/properties/NetworkType",
     "/properties/DataTieringEnabled",
@@ -13,9 +14,7 @@
     "/properties/ReplicationGroupId",
     "/properties/GlobalReplicationGroupId",
     "/properties/ReplicasPerNodeGroup",
-    "/properties/PreferredCacheClusterAZs",
-    "/properties/SnapshotName",
-    "/properties/Engine"
+    "/properties/PreferredCacheClusterAZs"
   ],
   "definitions": {
     "CloudWatchLogsDestinationDetails": {

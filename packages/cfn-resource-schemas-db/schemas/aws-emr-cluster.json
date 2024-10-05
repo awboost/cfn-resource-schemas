@@ -1,5 +1,5 @@
 {
-  "$hash": "c8b9c2984ecc835410fcd80e1b8b7fdb0b65b04b",
+  "$hash": "dd55adec0cde83e908445a324062f22f23cae524",
   "$id": "aws-emr-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -172,6 +172,9 @@
           "$ref": "#/definitions/InstanceFleetProvisioningSpecifications"
         },
         "Name": { "type": "string" },
+        "ResizeSpecifications": {
+          "$ref": "#/definitions/InstanceFleetResizingSpecifications"
+        },
         "TargetOnDemandCapacity": { "type": "integer" },
         "TargetSpotCapacity": { "type": "integer" }
       },
@@ -185,6 +188,18 @@
         },
         "SpotSpecification": {
           "$ref": "#/definitions/SpotProvisioningSpecification"
+        }
+      },
+      "type": "object"
+    },
+    "InstanceFleetResizingSpecifications": {
+      "additionalProperties": false,
+      "properties": {
+        "OnDemandResizeSpecification": {
+          "$ref": "#/definitions/OnDemandResizingSpecification"
+        },
+        "SpotResizeSpecification": {
+          "$ref": "#/definitions/SpotResizingSpecification"
         }
       },
       "type": "object"
@@ -222,6 +237,7 @@
         "CustomAmiId": { "type": "string" },
         "EbsConfiguration": { "$ref": "#/definitions/EbsConfiguration" },
         "InstanceType": { "type": "string" },
+        "Priority": { "type": "number" },
         "WeightedCapacity": { "type": "integer" }
       },
       "required": ["InstanceType"],
@@ -308,10 +324,35 @@
       "required": ["Value", "Key"],
       "type": "object"
     },
+    "OnDemandCapacityReservationOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "CapacityReservationPreference": { "type": "string" },
+        "CapacityReservationResourceGroupArn": { "type": "string" },
+        "UsageStrategy": { "type": "string" }
+      },
+      "type": "object"
+    },
     "OnDemandProvisioningSpecification": {
       "additionalProperties": false,
-      "properties": { "AllocationStrategy": { "type": "string" } },
+      "properties": {
+        "AllocationStrategy": { "type": "string" },
+        "CapacityReservationOptions": {
+          "$ref": "#/definitions/OnDemandCapacityReservationOptions"
+        }
+      },
       "required": ["AllocationStrategy"],
+      "type": "object"
+    },
+    "OnDemandResizingSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "AllocationStrategy": { "type": "string" },
+        "CapacityReservationOptions": {
+          "$ref": "#/definitions/OnDemandCapacityReservationOptions"
+        },
+        "TimeoutDurationMinutes": { "type": "integer" }
+      },
       "type": "object"
     },
     "PlacementGroupConfig": {
@@ -402,6 +443,14 @@
         "TimeoutDurationMinutes": { "type": "integer" }
       },
       "required": ["TimeoutDurationMinutes", "TimeoutAction"],
+      "type": "object"
+    },
+    "SpotResizingSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "AllocationStrategy": { "type": "string" },
+        "TimeoutDurationMinutes": { "type": "integer" }
+      },
       "type": "object"
     },
     "StepConfig": {

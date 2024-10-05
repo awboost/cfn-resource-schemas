@@ -1,5 +1,5 @@
 {
-  "$hash": "e8f6c20b81ae32a9e4f1613caba8b12e124b004b",
+  "$hash": "aef816fa6c8ac56396926ec9dd03cf1e08594654",
   "$id": "aws-databrew-recipe.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -295,6 +295,17 @@
   },
   "required": ["Name", "Steps"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-databrew.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "databrew:TagResource",
+      "databrew:UntagResource",
+      "databrew:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::DataBrew::Recipe"
 }

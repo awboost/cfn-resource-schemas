@@ -5,23 +5,30 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-transformer.html}
  */
 export type B2BITransformerProperties = {
-  EdiType: EdiType;
-  FileFormat: FileFormat;
+  EdiType?: EdiType;
+  FileFormat?: FileFormat;
+  InputConversion?: InputConversion;
+  Mapping?: Mapping;
   /**
+   * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
    * @minLength `0`
    * @maxLength `350000`
    */
-  MappingTemplate: string;
+  MappingTemplate?: string;
   /**
    * @minLength `1`
    * @maxLength `254`
+   * @pattern `^[a-zA-Z0-9_-]{1,512}$`
    */
   Name: string;
+  OutputConversion?: OutputConversion;
   /**
+   * This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.
    * @minLength `0`
    * @maxLength `1024`
    */
   SampleDocument?: string;
+  SampleDocuments?: SampleDocuments;
   Status: TransformerStatus;
   /**
    * @minLength `0`
@@ -59,7 +66,80 @@ export type EdiType = {
  * Type definition for `AWS::B2BI::Transformer.FileFormat`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-fileformat.html}
  */
-export type FileFormat = "XML" | "JSON";
+export type FileFormat = "XML" | "JSON" | "NOT_USED";
+/**
+ * Type definition for `AWS::B2BI::Transformer.FormatOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-formatoptions.html}
+ */
+export type FormatOptions = {
+  X12: X12Details;
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.FromFormat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-fromformat.html}
+ */
+export type FromFormat = "X12";
+/**
+ * Type definition for `AWS::B2BI::Transformer.InputConversion`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-inputconversion.html}
+ */
+export type InputConversion = {
+  FormatOptions?: FormatOptions;
+  FromFormat: FromFormat;
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.Mapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-mapping.html}
+ */
+export type Mapping = {
+  /**
+   * @minLength `0`
+   * @maxLength `350000`
+   */
+  Template?: string;
+  TemplateLanguage: MappingTemplateLanguage;
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.MappingTemplateLanguage`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-mappingtemplatelanguage.html}
+ */
+export type MappingTemplateLanguage = "XSLT" | "JSONATA";
+/**
+ * Type definition for `AWS::B2BI::Transformer.OutputConversion`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html}
+ */
+export type OutputConversion = {
+  FormatOptions?: FormatOptions;
+  ToFormat: ToFormat;
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.SampleDocumentKeys`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-sampledocumentkeys.html}
+ */
+export type SampleDocumentKeys = {
+  /**
+   * @minLength `0`
+   * @maxLength `1024`
+   */
+  Input?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `1024`
+   */
+  Output?: string;
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.SampleDocuments`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-sampledocuments.html}
+ */
+export type SampleDocuments = {
+  /**
+   * @minLength `3`
+   * @maxLength `63`
+   */
+  BucketName: string;
+  Keys: SampleDocumentKeys[];
+};
 /**
  * Type definition for `AWS::B2BI::Transformer.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-tag.html}
@@ -76,6 +156,11 @@ export type Tag = {
    */
   Value: string;
 };
+/**
+ * Type definition for `AWS::B2BI::Transformer.ToFormat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-toformat.html}
+ */
+export type ToFormat = "X12";
 /**
  * Type definition for `AWS::B2BI::Transformer.TransformerStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-transformerstatus.html}

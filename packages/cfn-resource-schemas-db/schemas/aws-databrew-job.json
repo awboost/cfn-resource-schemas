@@ -1,5 +1,5 @@
 {
-  "$hash": "efb0897f077d4de1c9603a226cd2dfd06112c26d",
+  "$hash": "5ee1865eb6a27eb9924db3e2fde14a26c991ce05",
   "$id": "aws-databrew-job.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -430,6 +430,17 @@
   },
   "required": ["Name", "RoleArn", "Type"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-databrew.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "databrew:TagResource",
+      "databrew:UntagResource",
+      "databrew:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::DataBrew::Job"
 }

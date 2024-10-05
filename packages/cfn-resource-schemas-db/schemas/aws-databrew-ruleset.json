@@ -1,5 +1,5 @@
 {
-  "$hash": "47eddf71fbe29a585cd5a72e59a8715024b00e56",
+  "$hash": "7829ce24465d45591226620fda67ccf7462e6a1c",
   "$id": "aws-databrew-ruleset.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -190,6 +190,17 @@
   },
   "required": ["Name", "TargetArn", "Rules"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-databrew.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "databrew:TagResource",
+      "databrew:UntagResource",
+      "databrew:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::DataBrew::Ruleset"
 }

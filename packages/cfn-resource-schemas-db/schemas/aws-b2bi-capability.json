@@ -1,5 +1,5 @@
 {
-  "$hash": "59083a04758e957a6414e9927fcc85e4b0bd2b9d",
+  "$hash": "77f8c490c827cfdf7e9aec395f043853b9ea7010",
   "$id": "aws-b2bi-capability.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
@@ -15,10 +15,15 @@
         }
       ]
     },
+    "CapabilityDirection": {
+      "enum": ["INBOUND", "OUTBOUND"],
+      "type": "string"
+    },
     "CapabilityType": { "enum": ["edi"], "type": "string" },
     "EdiConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "CapabilityDirection": { "$ref": "#/definitions/CapabilityDirection" },
         "InputLocation": { "$ref": "#/definitions/S3Location" },
         "OutputLocation": { "$ref": "#/definitions/S3Location" },
         "TransformerId": {
@@ -231,6 +236,11 @@
   "required": ["Configuration", "Name", "Type"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "b2bi:ListTagsForResource",
+      "b2bi:TagResource",
+      "b2bi:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

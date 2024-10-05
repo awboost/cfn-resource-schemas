@@ -1,5 +1,5 @@
 {
-  "$hash": "37df8171e96fc868818db0cc6a4eb9590bfe7a2a",
+  "$hash": "911149a6d8b48303ba0fb1ff3799f4937154ff6f",
   "$id": "aws-databrew-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -330,6 +330,17 @@
   },
   "required": ["Name", "Input"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-databrew.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "databrew:TagResource",
+      "databrew:UntagResource",
+      "databrew:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::DataBrew::Dataset"
 }

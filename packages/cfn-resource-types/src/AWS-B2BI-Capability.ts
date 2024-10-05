@@ -50,6 +50,11 @@ export type CapabilityConfiguration = {
   Edi: EdiConfiguration;
 };
 /**
+ * Type definition for `AWS::B2BI::Capability.CapabilityDirection`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-capabilitydirection.html}
+ */
+export type CapabilityDirection = "INBOUND" | "OUTBOUND";
+/**
  * Type definition for `AWS::B2BI::Capability.CapabilityType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-capabilitytype.html}
  */
@@ -59,6 +64,7 @@ export type CapabilityType = "edi";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-capability-ediconfiguration.html}
  */
 export type EdiConfiguration = {
+  CapabilityDirection?: CapabilityDirection;
   InputLocation: S3Location;
   OutputLocation: S3Location;
   /**

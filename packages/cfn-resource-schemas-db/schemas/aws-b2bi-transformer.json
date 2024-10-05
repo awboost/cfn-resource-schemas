@@ -1,5 +1,5 @@
 {
-  "$hash": "651d69e5630f534b39029aa53032487c10d054a6",
+  "$hash": "a1fac96715efb7dab22b2bf74a45e8290e507f5c",
   "$id": "aws-b2bi-transformer.json",
   "additionalProperties": false,
   "definitions": {
@@ -16,7 +16,70 @@
         }
       ]
     },
-    "FileFormat": { "enum": ["XML", "JSON"], "type": "string" },
+    "FileFormat": { "enum": ["XML", "JSON", "NOT_USED"], "type": "string" },
+    "FormatOptions": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": { "X12": { "$ref": "#/definitions/X12Details" } },
+          "required": ["X12"],
+          "title": "X12",
+          "type": "object"
+        }
+      ]
+    },
+    "FromFormat": { "enum": ["X12"], "type": "string" },
+    "InputConversion": {
+      "additionalProperties": false,
+      "properties": {
+        "FormatOptions": { "$ref": "#/definitions/FormatOptions" },
+        "FromFormat": { "$ref": "#/definitions/FromFormat" }
+      },
+      "required": ["FromFormat"],
+      "type": "object"
+    },
+    "Mapping": {
+      "additionalProperties": false,
+      "properties": {
+        "Template": { "maxLength": 350000, "minLength": 0, "type": "string" },
+        "TemplateLanguage": { "$ref": "#/definitions/MappingTemplateLanguage" }
+      },
+      "required": ["TemplateLanguage"],
+      "type": "object"
+    },
+    "MappingTemplateLanguage": {
+      "enum": ["XSLT", "JSONATA"],
+      "type": "string"
+    },
+    "OutputConversion": {
+      "additionalProperties": false,
+      "properties": {
+        "FormatOptions": { "$ref": "#/definitions/FormatOptions" },
+        "ToFormat": { "$ref": "#/definitions/ToFormat" }
+      },
+      "required": ["ToFormat"],
+      "type": "object"
+    },
+    "SampleDocumentKeys": {
+      "additionalProperties": false,
+      "properties": {
+        "Input": { "maxLength": 1024, "minLength": 0, "type": "string" },
+        "Output": { "maxLength": 1024, "minLength": 0, "type": "string" }
+      },
+      "type": "object"
+    },
+    "SampleDocuments": {
+      "additionalProperties": false,
+      "properties": {
+        "BucketName": { "maxLength": 63, "minLength": 3, "type": "string" },
+        "Keys": {
+          "items": { "$ref": "#/definitions/SampleDocumentKeys" },
+          "type": "array"
+        }
+      },
+      "required": ["BucketName", "Keys"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -26,6 +89,7 @@
       "required": ["Key", "Value"],
       "type": "object"
     },
+    "ToFormat": { "enum": ["X12"], "type": "string" },
     "TransformerStatus": { "enum": ["active", "inactive"], "type": "string" },
     "X12Details": {
       "additionalProperties": false,
@@ -125,6 +189,12 @@
       "type": "string"
     }
   },
+  "deprecatedProperties": [
+    "/properties/EdiType",
+    "/properties/FileFormat",
+    "/properties/MappingTemplate",
+    "/properties/SampleDocument"
+  ],
   "description": "Definition of AWS::B2BI::Transformer Resource Type",
   "handlers": {
     "create": {
@@ -167,14 +237,29 @@
     "CreatedAt": { "format": "date-time", "type": "string" },
     "EdiType": { "$ref": "#/definitions/EdiType" },
     "FileFormat": { "$ref": "#/definitions/FileFormat" },
+    "InputConversion": { "$ref": "#/definitions/InputConversion" },
+    "Mapping": { "$ref": "#/definitions/Mapping" },
     "MappingTemplate": {
+      "description": "This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.",
       "maxLength": 350000,
       "minLength": 0,
       "type": "string"
     },
     "ModifiedAt": { "format": "date-time", "type": "string" },
-    "Name": { "maxLength": 254, "minLength": 1, "type": "string" },
-    "SampleDocument": { "maxLength": 1024, "minLength": 0, "type": "string" },
+    "Name": {
+      "maxLength": 254,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_-]{1,512}$",
+      "type": "string"
+    },
+    "OutputConversion": { "$ref": "#/definitions/OutputConversion" },
+    "SampleDocument": {
+      "description": "This shape is deprecated: This is a legacy trait. Please use input-conversion or output-conversion.",
+      "maxLength": 1024,
+      "minLength": 0,
+      "type": "string"
+    },
+    "SampleDocuments": { "$ref": "#/definitions/SampleDocuments" },
     "Status": { "$ref": "#/definitions/TransformerStatus" },
     "Tags": {
       "items": { "$ref": "#/definitions/Tag" },
@@ -196,9 +281,14 @@
     "/properties/TransformerArn",
     "/properties/TransformerId"
   ],
-  "required": ["EdiType", "FileFormat", "MappingTemplate", "Name", "Status"],
+  "required": ["Name", "Status"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "b2bi:ListTagsForResource",
+      "b2bi:TagResource",
+      "b2bi:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

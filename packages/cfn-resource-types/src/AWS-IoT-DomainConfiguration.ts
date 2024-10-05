@@ -6,7 +6,15 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html}
  */
 export type IoTDomainConfigurationProperties = {
+  ApplicationProtocol?: "SECURE_MQTT" | "MQTT_WSS" | "HTTPS" | "DEFAULT";
+  AuthenticationType?:
+    | "AWS_X509"
+    | "CUSTOM_AUTH"
+    | "AWS_SIGV4"
+    | "CUSTOM_AUTH_X509"
+    | "DEFAULT";
   AuthorizerConfig?: AuthorizerConfig;
+  ClientCertificateConfig?: ClientCertificateConfig;
   /**
    * @minLength `1`
    * @maxLength `128`
@@ -63,6 +71,17 @@ export type AuthorizerConfig = {
    * @pattern `^[\w=,@-]+$`
    */
   DefaultAuthorizerName?: string;
+};
+/**
+ * Type definition for `AWS::IoT::DomainConfiguration.ClientCertificateConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-clientcertificateconfig.html}
+ */
+export type ClientCertificateConfig = {
+  /**
+   * @minLength `1`
+   * @maxLength `170`
+   */
+  ClientCertificateCallbackArn?: string;
 };
 /**
  * Type definition for `AWS::IoT::DomainConfiguration.ServerCertificateConfig`.

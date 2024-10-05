@@ -1,5 +1,5 @@
 {
-  "$hash": "5455ef46d63255836b65a83b238dcf108f2fa095",
+  "$hash": "fc4826dea83cd161dc9f16b48df300b521637ab3",
   "$id": "aws-s3-bucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BucketName"],
@@ -400,6 +400,11 @@
           "items": { "$ref": "#/definitions/Rule" },
           "type": "array",
           "uniqueItems": true
+        },
+        "TransitionDefaultMinimumObjectSize": {
+          "description": "",
+          "enum": ["varies_by_storage_class", "all_storage_classes_128K"],
+          "type": "string"
         }
       },
       "required": ["Rules"],

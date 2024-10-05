@@ -1,5 +1,5 @@
 {
-  "$hash": "89cf6df2822e9839f10594e611a49800039eeb80",
+  "$hash": "96b2f2fb93a8554e0f90c150459e123fd69a965d",
   "$id": "aws-cloudformation-customresource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ServiceToken"],
@@ -7,6 +7,7 @@
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
     "Id": { "type": "string" },
+    "ServiceTimeout": { "type": "integer" },
     "ServiceToken": { "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],

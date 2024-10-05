@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-customresource.html}
  */
 export type CloudFormationCustomResourceProperties = {
+  ServiceTimeout?: number;
   ServiceToken: string;
 };
 /**

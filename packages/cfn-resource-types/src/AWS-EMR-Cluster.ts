@@ -143,6 +143,7 @@ export type InstanceFleetConfig = {
   InstanceTypeConfigs?: InstanceTypeConfig[];
   LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
   Name?: string;
+  ResizeSpecifications?: InstanceFleetResizingSpecifications;
   TargetOnDemandCapacity?: number;
   TargetSpotCapacity?: number;
 };
@@ -153,6 +154,14 @@ export type InstanceFleetConfig = {
 export type InstanceFleetProvisioningSpecifications = {
   OnDemandSpecification?: OnDemandProvisioningSpecification;
   SpotSpecification?: SpotProvisioningSpecification;
+};
+/**
+ * Type definition for `AWS::EMR::Cluster.InstanceFleetResizingSpecifications`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-instancefleetresizingspecifications.html}
+ */
+export type InstanceFleetResizingSpecifications = {
+  OnDemandResizeSpecification?: OnDemandResizingSpecification;
+  SpotResizeSpecification?: SpotResizingSpecification;
 };
 /**
  * Type definition for `AWS::EMR::Cluster.InstanceGroupConfig`.
@@ -180,6 +189,7 @@ export type InstanceTypeConfig = {
   CustomAmiId?: string;
   EbsConfiguration?: EbsConfiguration;
   InstanceType: string;
+  Priority?: number;
   WeightedCapacity?: number;
 };
 /**
@@ -242,11 +252,30 @@ export type MetricDimension = {
   Value: string;
 };
 /**
+ * Type definition for `AWS::EMR::Cluster.OnDemandCapacityReservationOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-ondemandcapacityreservationoptions.html}
+ */
+export type OnDemandCapacityReservationOptions = {
+  CapacityReservationPreference?: string;
+  CapacityReservationResourceGroupArn?: string;
+  UsageStrategy?: string;
+};
+/**
  * Type definition for `AWS::EMR::Cluster.OnDemandProvisioningSpecification`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-ondemandprovisioningspecification.html}
  */
 export type OnDemandProvisioningSpecification = {
   AllocationStrategy: string;
+  CapacityReservationOptions?: OnDemandCapacityReservationOptions;
+};
+/**
+ * Type definition for `AWS::EMR::Cluster.OnDemandResizingSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-ondemandresizingspecification.html}
+ */
+export type OnDemandResizingSpecification = {
+  AllocationStrategy?: string;
+  CapacityReservationOptions?: OnDemandCapacityReservationOptions;
+  TimeoutDurationMinutes?: number;
 };
 /**
  * Type definition for `AWS::EMR::Cluster.PlacementGroupConfig`.
@@ -322,6 +351,14 @@ export type SpotProvisioningSpecification = {
   BlockDurationMinutes?: number;
   TimeoutAction: string;
   TimeoutDurationMinutes: number;
+};
+/**
+ * Type definition for `AWS::EMR::Cluster.SpotResizingSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-spotresizingspecification.html}
+ */
+export type SpotResizingSpecification = {
+  AllocationStrategy?: string;
+  TimeoutDurationMinutes?: number;
 };
 /**
  * Type definition for `AWS::EMR::Cluster.StepConfig`.

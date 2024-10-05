@@ -457,6 +457,9 @@ export type LifecycleConfiguration = {
    * A lifecycle rule for individual objects in an Amazon S3 bucket.
    */
   Rules: Rule[];
+  TransitionDefaultMinimumObjectSize?:
+    | "varies_by_storage_class"
+    | "all_storage_classes_128K";
 };
 /**
  * Type definition for `AWS::S3::Bucket.LoggingConfiguration`.
