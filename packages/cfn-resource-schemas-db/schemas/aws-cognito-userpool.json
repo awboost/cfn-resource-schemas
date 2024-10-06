@@ -1,5 +1,5 @@
 {
-  "$hash": "e282ddd5b9ed79061c9ac10e6b44ce00df76869e",
+  "$hash": "2ee2f43017e666eba0ecd0c7f3db7814429ba89a",
   "$id": "aws-cognito-userpool.json",
   "additionalProperties": false,
   "definitions": {
@@ -221,7 +221,8 @@
         "cognito-idp:SetUserPoolMfaConfig",
         "cognito-idp:DescribeUserPool",
         "kms:CreateGrant",
-        "iam:CreateServiceLinkedRole"
+        "iam:CreateServiceLinkedRole",
+        "cognito-idp:TagResource"
       ],
       "timeoutInMinutes": 2
     },

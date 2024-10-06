@@ -1,5 +1,5 @@
 {
-  "$hash": "46b3ad6bb3ae2ed0c9693f4c61aeb5cfd24c4a8a",
+  "$hash": "0cbf2be416ef20171cedef16e985d797ce1eabfd",
   "$id": "aws-ec2-vpcendpointservice.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::EC2::VPCEndpointService",
@@ -57,7 +57,13 @@
       "uniqueItems": false
     },
     "NetworkLoadBalancerArns": {
-      "items": { "type": "string" },
+      "items": {
+        "relationshipRef": {
+          "propertyPath": "/properties/LoadBalancerArn",
+          "typeName": "AWS::ElasticLoadBalancingV2::LoadBalancer"
+        },
+        "type": "string"
+      },
       "type": "array",
       "uniqueItems": false
     },

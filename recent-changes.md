@@ -1,99 +1,80 @@
-- updated `AWS::AmplifyUIBuilder::Component`
-  - updated `tagging`
-- updated `AWS::AmplifyUIBuilder::Form`
-  - updated `tagging`
+- updated `AWS::Cognito::UserPool`
   - updated handler permissions
-- updated `AWS::AmplifyUIBuilder::Theme`
-  - updated `tagging`
-- updated `AWS::B2BI::Capability`
-  - added definition `CapabilityDirection`
-  - updated `tagging`
-  - updated definition `EdiConfiguration`
-- updated `AWS::B2BI::Partnership`
-  - added definition `CapabilityOptions`
-  - added definition `OutboundEdiOptions`
-  - added definition `X12Delimiters`
-  - added definition `X12Envelope`
-  - added definition `X12FunctionalGroupHeaders`
-  - added definition `X12InterchangeControlHeaders`
-  - added definition `X12OutboundEdiHeaders`
-  - added property `CapabilityOptions`
-  - updated `required`
-  - updated `tagging`
-- updated `AWS::B2BI::Profile`
-  - updated `tagging`
-- updated `AWS::B2BI::Transformer`
-  - added `deprecatedProperties`
-  - added definition `FormatOptions`
-  - added definition `FromFormat`
-  - added definition `InputConversion`
-  - added definition `MappingTemplateLanguage`
-  - added definition `Mapping`
-  - added definition `OutputConversion`
-  - added definition `SampleDocumentKeys`
-  - added definition `SampleDocuments`
-  - added definition `ToFormat`
-  - added property `InputConversion`
-  - added property `Mapping`
-  - added property `OutputConversion`
-  - added property `SampleDocuments`
-  - updated `required`
-  - updated `tagging`
-  - updated definition `FileFormat`
-  - updated property `MappingTemplate`
-  - updated property `Name`
-  - updated property `SampleDocument`
-- updated `AWS::Cassandra::Keyspace`
+- updated `AWS::EC2::VPCEndpointService`
+  - updated property `NetworkLoadBalancerArns`
+- updated `AWS::IoTEvents::AlarmModel`
   - added `tagging`
-- updated `AWS::Cassandra::Table`
-  - added `tagging`
-- updated `AWS::CloudFormation::CustomResource`
-  - added property `ServiceTimeout`
-- updated `AWS::Connect::EvaluationForm`
-  - updated `tagging`
-- updated `AWS::DataBrew::Dataset`
+  - updated definition `AcknowledgeFlow`
+  - updated definition `AlarmAction`
+  - updated definition `AlarmCapabilities`
+  - updated definition `AlarmEventActions`
+  - updated definition `AlarmRule`
+  - updated definition `AssetPropertyTimestamp`
+  - updated definition `AssetPropertyValue`
+  - updated definition `AssetPropertyVariant`
+  - updated definition `DynamoDB`
+  - updated definition `DynamoDBv2`
+  - updated definition `Firehose`
+  - updated definition `InitializationConfiguration`
+  - updated definition `IotEvents`
+  - updated definition `IotSiteWise`
+  - updated definition `IotTopicPublish`
+  - updated definition `Lambda`
+  - updated definition `Payload`
+  - updated definition `SimpleRule`
+  - updated definition `Sns`
+  - updated definition `Sqs`
+  - updated definition `Tag`
+  - updated property `AlarmCapabilities`
+  - updated property `AlarmEventActions`
+  - updated property `AlarmModelDescription`
+  - updated property `AlarmRule`
+  - updated property `Key`
+  - updated property `RoleArn`
+  - updated property `Severity`
+  - updated property `Tags`
+- updated `AWS::IoTEvents::DetectorModel`
   - added `tagging`
   - removed `taggable`
-- updated `AWS::DataBrew::Job`
+  - updated definition `Action`
+  - updated definition `AssetPropertyTimestamp`
+  - updated definition `AssetPropertyValue`
+  - updated definition `AssetPropertyVariant`
+  - updated definition `ClearTimer`
+  - updated definition `DynamoDB`
+  - updated definition `DynamoDBv2`
+  - updated definition `Event`
+  - updated definition `Firehose`
+  - updated definition `IotEvents`
+  - updated definition `IotSiteWise`
+  - updated definition `IotTopicPublish`
+  - updated definition `Lambda`
+  - updated definition `OnEnter`
+  - updated definition `OnExit`
+  - updated definition `OnInput`
+  - updated definition `Payload`
+  - updated definition `SetTimer`
+  - updated definition `Sns`
+  - updated definition `Sqs`
+  - updated definition `State`
+  - updated definition `Tag`
+  - updated definition `TransitionEvent`
+  - updated property `DetectorModelDefinition`
+  - updated property `Key`
+  - updated property `RoleArn`
+  - updated property `Tags`
+- updated `AWS::IoTEvents::Input`
   - added `tagging`
   - removed `taggable`
-- updated `AWS::DataBrew::Project`
+  - updated definition `Attribute`
+  - updated definition `InputDefinition`
+  - updated definition `Tag`
+  - updated property `InputDefinition`
+  - updated property `Tags`
+- updated `AWS::Pinpoint::InAppTemplate`
   - added `tagging`
   - removed `taggable`
-- updated `AWS::DataBrew::Recipe`
+  - updated handler permissions
+- updated `AWS::SecretsManager::SecretTargetAttachment`
   - added `tagging`
-  - removed `taggable`
-- updated `AWS::DataBrew::Ruleset`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::DataBrew::Schedule`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::ECS::Cluster`
-  - updated `tagging`
-- updated `AWS::EMR::Cluster`
-  - added definition `InstanceFleetResizingSpecifications`
-  - added definition `OnDemandCapacityReservationOptions`
-  - added definition `OnDemandResizingSpecification`
-  - added definition `SpotResizingSpecification`
-  - updated definition `InstanceFleetConfig`
-  - updated definition `InstanceTypeConfig`
-  - updated definition `OnDemandProvisioningSpecification`
-- updated `AWS::EMR::InstanceFleetConfig`
-  - added definition `InstanceFleetResizingSpecifications`
-  - added definition `OnDemandCapacityReservationOptions`
-  - added definition `OnDemandResizingSpecification`
-  - added definition `SpotResizingSpecification`
-  - added property `ResizeSpecifications`
-  - updated `createOnlyProperties`
-  - updated definition `InstanceTypeConfig`
-  - updated definition `OnDemandProvisioningSpecification`
-- updated `AWS::ElastiCache::ReplicationGroup`
-  - updated `createOnlyProperties`
-- updated `AWS::IoT::DomainConfiguration`
-  - added definition `ClientCertificateConfig`
-  - added property `ApplicationProtocol`
-  - added property `AuthenticationType`
-  - added property `ClientCertificateConfig`
-- updated `AWS::S3::Bucket`
-  - updated definition `LifecycleConfiguration`
+  - updated handler permissions
