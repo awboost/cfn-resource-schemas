@@ -1,5 +1,5 @@
 {
-  "$hash": "cc7bf69901b043abcf6f9afb954f67dd45a4fd16",
+  "$hash": "d9e215dcb2ec81d14e0d5c025ed1002cd44f4080",
   "$id": "aws-guardduty-ipset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Format", "/properties/DetectorId"],
@@ -44,7 +44,9 @@
         "guardduty:UpdateIPSet",
         "guardduty:GetIPSet",
         "guardduty:ListIPSets",
-        "iam:PutRolePolicy"
+        "iam:PutRolePolicy",
+        "guardduty:TagResource",
+        "guardduty:UntagResource"
       ]
     }
   },
@@ -56,14 +58,24 @@
     "Id": { "type": "string" },
     "Location": { "maxLength": 300, "minLength": 1, "type": "string" },
     "Name": { "maxLength": 300, "minLength": 1, "type": "string" },
-    "Tags": { "items": { "$ref": "#/definitions/TagItem" }, "type": "array" }
+    "Tags": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/TagItem" },
+      "type": "array"
+    }
   },
   "readOnlyProperties": ["/properties/Id"],
   "required": ["Format", "Location"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "guardduty:TagResource",
+      "guardduty:UntagResource",
+      "guardduty:ListTagsForResource"
+    ],
     "tagOnCreate": true,
-    "tagUpdatable": false,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::GuardDuty::IPSet",
