@@ -1,7 +1,8 @@
-- updated `AWS::GuardDuty::IPSet`
+- updated `AWS::DataSync::StorageSystem`
   - updated `tagging`
+- updated `AWS::GuardDuty::Detector`
+  - updated `tagging`
+  - updated definition `CFNFeatureConfiguration`
   - updated handler permissions
+  - updated property `Features`
   - updated property `Tags`
-- updated `AWS::GuardDuty::ThreatIntelSet`
-  - updated `tagging`
-  - updated handler permissions

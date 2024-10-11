@@ -1,5 +1,5 @@
 {
-  "$hash": "b9e4bcdaefa204e217f979ebda32a31041c9eba1",
+  "$hash": "30daeec4df2ca910113b4d5d23b6b2161cd50cb5",
   "$id": "aws-guardduty-detector.json",
   "additionalProperties": false,
   "definitions": {
@@ -26,6 +26,7 @@
       "additionalProperties": false,
       "properties": {
         "AdditionalConfiguration": {
+          "insertionOrder": false,
           "items": {
             "$ref": "#/definitions/CFNFeatureAdditionalConfiguration"
           },
@@ -102,14 +103,18 @@
       ]
     },
     "list": { "permissions": ["guardduty:ListDetectors"] },
-    "read": { "permissions": ["guardduty:GetDetector"] },
+    "read": {
+      "permissions": ["guardduty:GetDetector", "guardduty:ListTagsForResource"]
+    },
     "update": {
       "permissions": [
         "guardduty:UpdateDetector",
         "guardduty:GetDetector",
         "guardduty:ListDetectors",
         "iam:CreateServiceLinkedRole",
-        "iam:GetRole"
+        "iam:GetRole",
+        "guardduty:TagResource",
+        "guardduty:UntagResource"
       ]
     }
   },
@@ -118,19 +123,25 @@
     "DataSources": { "$ref": "#/definitions/CFNDataSourceConfigurations" },
     "Enable": { "type": "boolean" },
     "Features": {
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/CFNFeatureConfiguration" },
       "type": "array"
     },
     "FindingPublishingFrequency": { "type": "string" },
     "Id": { "type": "string" },
-    "Tags": { "items": { "$ref": "#/definitions/TagItem" }, "type": "array" }
+    "Tags": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/TagItem" },
+      "type": "array"
+    }
   },
   "readOnlyProperties": ["/properties/Id"],
   "required": ["Enable"],
   "tagging": {
     "cloudFormationSystemTags": false,
     "tagOnCreate": true,
-    "tagUpdatable": false,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::GuardDuty::Detector"
