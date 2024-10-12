@@ -79,7 +79,7 @@ export type SecurityHubAutomationRuleAttributes = {
 export type arnOrId = string | string;
 /**
  * Type definition for `AWS::SecurityHub::AutomationRule.AutomationRulesAction`.
- * One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+ * One or more actions that ASHlong takes when a finding matches the defined criteria of a rule.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrule-automationrulesaction.html}
  */
 export type AutomationRulesAction = {
@@ -88,7 +88,7 @@ export type AutomationRulesAction = {
    */
   FindingFieldsUpdate: AutomationRulesFindingFieldsUpdate;
   /**
-   * Specifies that the rule action should update the ``Types`` finding field. The ``Types`` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *User Guide*.
+   * Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
    */
   Type: "FINDING_FIELDS_UPDATE";
 };
@@ -556,7 +556,7 @@ export type SeverityUpdate = {
   Label?: "INFORMATIONAL" | "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
   /**
      * The normalized severity for the finding. This attribute is to be deprecated in favor of ``Label``.
-     If you provide ``Normalized`` and do not provide ``Label``, ``Label`` is set automatically as follows.
+     If you provide ``Normalized`` and don't provide ``Label``, ``Label`` is set automatically as follows.
       +  0 - ``INFORMATIONAL``
       +  1–39 - ``LOW``
       +  40–69 - ``MEDIUM``
@@ -641,7 +641,7 @@ export type WorkflowUpdate = {
       
       +   ``NOTIFIED`` - Indicates that you notified the resource owner about the security issue. Used when the initial reviewer is not the resource owner, and needs intervention from the resource owner.
       +   ``RESOLVED`` - The finding was reviewed and remediated and is now considered resolved.
-      +   ``SUPPRESSED`` - Indicates that you reviewed the finding and do not believe that any action is needed. The finding is no longer updated.
+      +   ``SUPPRESSED`` - Indicates that you reviewed the finding and don't believe that any action is needed. The finding is no longer updated.
      */
   Status: "NEW" | "NOTIFIED" | "RESOLVED" | "SUPPRESSED";
 };

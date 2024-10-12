@@ -128,6 +128,13 @@ export type RuleVariables = Record<string, IPSet>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html}
  */
 export type StatefulEngineOptions = {
+  FlowTimeouts?: {
+    /**
+     * @min `60`
+     * @max `600`
+     */
+    TcpIdleTimeoutSeconds?: number;
+  };
   RuleOrder?: RuleOrder;
   StreamExceptionPolicy?: StreamExceptionPolicy;
 };

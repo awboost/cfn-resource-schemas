@@ -1,5 +1,5 @@
 {
-  "$hash": "294aa091187abc67d972b94cc3a92401d364c8d8",
+  "$hash": "ed41e64c3965b1e0c5cf262a7b41451299dd93c7",
   "$id": "aws-ecs-taskset.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,7 +11,8 @@
     "/properties/PlatformVersion",
     "/properties/Service",
     "/properties/ServiceRegistries",
-    "/properties/TaskDefinition"
+    "/properties/TaskDefinition",
+    "/properties/CapacityProviderStrategy"
   ],
   "definitions": {
     "AwsVpcConfiguration": {
@@ -37,6 +38,15 @@
         }
       },
       "required": ["Subnets"],
+      "type": "object"
+    },
+    "CapacityProviderStrategyItem": {
+      "additionalProperties": false,
+      "properties": {
+        "Base": { "type": "integer" },
+        "CapacityProvider": { "type": "string" },
+        "Weight": { "type": "integer" }
+      },
       "type": "object"
     },
     "LoadBalancer": {
@@ -140,6 +150,10 @@
     "/properties/Id"
   ],
   "properties": {
+    "CapacityProviderStrategy": {
+      "items": { "$ref": "#/definitions/CapacityProviderStrategyItem" },
+      "type": "array"
+    },
     "Cluster": {
       "description": "The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.",
       "type": "string"

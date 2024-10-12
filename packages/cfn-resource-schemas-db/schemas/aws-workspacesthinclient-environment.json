@@ -1,5 +1,5 @@
 {
-  "$hash": "fe4cc7a02f276d8ee5cf39ea2931af4afc4328c4",
+  "$hash": "6fb6d1ebbf26238a69af895482621a056c8d0dea",
   "$id": "aws-workspacesthinclient-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn", "/properties/DesktopArn"],
@@ -266,6 +266,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "thinclient:UntagResource",
+      "thinclient:ListTagsForResource",
+      "thinclient:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

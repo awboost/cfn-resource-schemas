@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html}
  */
 export type ECSTaskSetProperties = {
+  CapacityProviderStrategy?: CapacityProviderStrategyItem[];
   /**
    * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
    */
@@ -75,6 +76,15 @@ export type AwsVpcConfiguration = {
    * @maxLength `16`
    */
   Subnets: string[];
+};
+/**
+ * Type definition for `AWS::ECS::TaskSet.CapacityProviderStrategyItem`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-capacityproviderstrategyitem.html}
+ */
+export type CapacityProviderStrategyItem = {
+  Base?: number;
+  CapacityProvider?: string;
+  Weight?: number;
 };
 /**
  * Type definition for `AWS::ECS::TaskSet.LoadBalancer`.

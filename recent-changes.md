@@ -1,8 +1,20 @@
-- updated `AWS::DataSync::StorageSystem`
+- added `AWS::Kinesis::ResourcePolicy`
+- updated `AWS::ECS::Service`
+  - added `propertyTransform`
+- updated `AWS::ECS::TaskSet`
+  - added definition `CapacityProviderStrategyItem`
+  - added property `CapacityProviderStrategy`
+  - updated `createOnlyProperties`
+- updated `AWS::Kinesis::Stream`
+  - added `$comment`
   - updated `tagging`
-- updated `AWS::GuardDuty::Detector`
+- updated `AWS::NetworkFirewall::FirewallPolicy`
+  - updated definition `StatefulEngineOptions`
+- updated `AWS::SecurityHub::AutomationRule`
+  - updated definition `AutomationRulesAction`
+  - updated definition `SeverityUpdate`
+  - updated definition `WorkflowUpdate`
+- updated `AWS::SecurityHub::FindingAggregator`
+  - updated property `Regions`
+- updated `AWS::WorkSpacesThinClient::Environment`
   - updated `tagging`
-  - updated definition `CFNFeatureConfiguration`
-  - updated handler permissions
-  - updated property `Features`
-  - updated property `Tags`

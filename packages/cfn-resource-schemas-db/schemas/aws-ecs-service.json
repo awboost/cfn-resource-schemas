@@ -1,5 +1,5 @@
 {
-  "$hash": "332dcbd0124ff3dc599d2951d20a964b16f0a607",
+  "$hash": "fb9a0b09b5e15dd7f8657526dc72514b071ef453",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -615,6 +615,9 @@
       "items": { "$ref": "#/definitions/ServiceVolumeConfiguration" },
       "type": "array"
     }
+  },
+  "propertyTransform": {
+    "/properties/Role": "Role $OR $join([\"arn:(aws)[-]{0,1}[a-z]{0,2}[-]{0,1}[a-z]{0,3}:iam::[0-9]{12}[:]role/{1}\", Role])"
   },
   "readOnlyProperties": ["/properties/ServiceArn", "/properties/Name"],
   "tagging": {

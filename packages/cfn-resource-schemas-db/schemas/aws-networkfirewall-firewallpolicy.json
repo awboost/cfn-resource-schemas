@@ -1,5 +1,5 @@
 {
-  "$hash": "af091e896da866ba2954402a27f978c7407d3425",
+  "$hash": "64eca21b1af028f42977046bfefc8dff78fc21b2",
   "$id": "aws-networkfirewall-firewallpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FirewallPolicyName"],
@@ -143,6 +143,17 @@
     "StatefulEngineOptions": {
       "additionalProperties": false,
       "properties": {
+        "FlowTimeouts": {
+          "additionalProperties": false,
+          "properties": {
+            "TcpIdleTimeoutSeconds": {
+              "maximum": 600,
+              "minimum": 60,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
         "RuleOrder": { "$ref": "#/definitions/RuleOrder" },
         "StreamExceptionPolicy": {
           "$ref": "#/definitions/StreamExceptionPolicy"
