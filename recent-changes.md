@@ -1,20 +1,6 @@
-- added `AWS::Kinesis::ResourcePolicy`
-- updated `AWS::ECS::Service`
-  - added `propertyTransform`
-- updated `AWS::ECS::TaskSet`
-  - added definition `CapacityProviderStrategyItem`
-  - added property `CapacityProviderStrategy`
-  - updated `createOnlyProperties`
-- updated `AWS::Kinesis::Stream`
-  - added `$comment`
-  - updated `tagging`
-- updated `AWS::NetworkFirewall::FirewallPolicy`
-  - updated definition `StatefulEngineOptions`
-- updated `AWS::SecurityHub::AutomationRule`
-  - updated definition `AutomationRulesAction`
-  - updated definition `SeverityUpdate`
-  - updated definition `WorkflowUpdate`
-- updated `AWS::SecurityHub::FindingAggregator`
-  - updated property `Regions`
-- updated `AWS::WorkSpacesThinClient::Environment`
-  - updated `tagging`
+- updated `AWS::DMS::ReplicationInstance`
+  - added property `NetworkType`
+- updated `AWS::QLDB::Stream`
+  - updated handler permissions
+- updated `AWS::SageMaker::ImageVersion`
+  - updated `readOnlyProperties`

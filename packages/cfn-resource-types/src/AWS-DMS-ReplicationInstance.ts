@@ -12,6 +12,7 @@ export type DMSReplicationInstanceProperties = {
   EngineVersion?: string;
   KmsKeyId?: string;
   MultiAZ?: boolean;
+  NetworkType?: string;
   PreferredMaintenanceWindow?: string;
   PubliclyAccessible?: boolean;
   ReplicationInstanceClass: string;

@@ -1,5 +1,5 @@
 {
-  "$hash": "239522e5f7ef80187416b33eb7d5abbf6fc651d1",
+  "$hash": "63553d3e6fa077d65119d68cbe23b96918703d73",
   "$id": "aws-sagemaker-imageversion.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ImageName", "/properties/BaseImage"],
@@ -150,6 +150,7 @@
   "readOnlyProperties": [
     "/properties/ImageVersionArn",
     "/properties/ImageArn",
+    "/properties/Version",
     "/properties/ContainerImage"
   ],
   "required": ["ImageName", "BaseImage"],

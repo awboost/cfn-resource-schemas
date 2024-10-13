@@ -1,5 +1,5 @@
 {
-  "$hash": "f64b6e01641b076fead8482f445999f20895f2a6",
+  "$hash": "b6fc76e33ba72eb3bf7b09f27a518e09f6a03c43",
   "$id": "aws-qldb-stream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -59,7 +59,13 @@
         "qldb:DescribeJournalKinesisStream"
       ]
     },
-    "list": { "permissions": ["qldb:listJournalKinesisStreamsForLedger"] },
+    "list": {
+      "handlerSchema": {
+        "properties": { "LedgerName": { "type": "string" } },
+        "required": ["LedgerName"]
+      },
+      "permissions": ["qldb:listJournalKinesisStreamsForLedger"]
+    },
     "read": {
       "permissions": [
         "qldb:DescribeJournalKinesisStream",

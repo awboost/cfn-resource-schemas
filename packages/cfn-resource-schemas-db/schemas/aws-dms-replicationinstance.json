@@ -1,5 +1,5 @@
 {
-  "$hash": "054d21dae0efb8bb7eff41a6fc51c90b9e336228",
+  "$hash": "8c4c3e893d3b9eb29fb8ac48934c57bc441660f3",
   "$id": "aws-dms-replicationinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -30,6 +30,7 @@
     "Id": { "type": "string" },
     "KmsKeyId": { "type": "string" },
     "MultiAZ": { "type": "boolean" },
+    "NetworkType": { "type": "string" },
     "PreferredMaintenanceWindow": { "type": "string" },
     "PubliclyAccessible": { "type": "boolean" },
     "ReplicationInstanceClass": { "type": "string" },
