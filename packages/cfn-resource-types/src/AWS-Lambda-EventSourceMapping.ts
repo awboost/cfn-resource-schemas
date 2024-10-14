@@ -156,6 +156,10 @@ export type LambdaEventSourceMappingProperties = {
    * With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
    */
   StartingPositionTimestamp?: number;
+  /**
+     * A list of tags to add to the event source mapping.
+      You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+     */
   Tags?: Tag[];
   /**
    * The name of the Kafka topic.
@@ -368,17 +372,18 @@ export type SourceAccessConfiguration = {
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.Tag`.
+ * A [tag](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the event source mapping.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-tag.html}
  */
 export type Tag = {
   /**
-   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * The key for this tag.
    * @minLength `1`
    * @maxLength `128`
    */
   Key: string;
   /**
-   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * The value for this tag.
    * @minLength `0`
    * @maxLength `256`
    */

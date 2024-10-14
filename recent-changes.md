@@ -1,6 +1,3 @@
-- updated `AWS::DMS::ReplicationInstance`
-  - added property `NetworkType`
-- updated `AWS::QLDB::Stream`
-  - updated handler permissions
-- updated `AWS::SageMaker::ImageVersion`
-  - updated `readOnlyProperties`
+- updated `AWS::Lambda::EventSourceMapping`
+  - updated definition `Tag`
+  - updated property `Tags`
