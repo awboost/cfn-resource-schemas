@@ -1,5 +1,5 @@
 {
-  "$hash": "df581e2f13e26f8b863405034a39b78bbc04a1b4",
+  "$hash": "6cea829447e7cb37b2129603abf78f31f5528b1d",
   "$id": "aws-eks-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -25,6 +25,14 @@
           "description": "Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.",
           "type": "boolean"
         }
+      },
+      "type": "object"
+    },
+    "BlockStorage": {
+      "additionalProperties": false,
+      "description": "Todo: add description",
+      "properties": {
+        "Enabled": { "description": "Todo: add description", "type": "boolean" }
       },
       "type": "object"
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "c711194144370f0543f9dcc309f05b2ebf9e8523",
+  "$hash": "8c61eba4f9cdf8045f5d24be2cc81c84b48ba3a0",
   "$id": "aws-location-placeindex.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DataSource", "/properties/IndexName"],
@@ -122,6 +122,7 @@
   "required": ["DataSource", "IndexName"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["geo:TagResource", "geo:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

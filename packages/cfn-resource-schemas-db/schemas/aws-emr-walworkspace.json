@@ -1,5 +1,5 @@
 {
-  "$hash": "5f3a4514a889a42701e95c2109ebc7755399d8ac",
+  "$hash": "4a31916e0da31ed8f1d426dfa05a645c38f6bf5c",
   "$id": "aws-emr-walworkspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WALWorkspaceName"],
@@ -65,6 +65,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-emrwal",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "emrwal:TagResource",
+      "emrwal:UntagResource",
+      "emrwal:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -27,6 +27,17 @@ export type GameLiftContainerGroupDefinitionProperties = {
    */
   SchedulingStrategy?: "REPLICA" | "DAEMON";
   /**
+   * A specific ContainerGroupDefinition version to be updated
+   * @min `0`
+   */
+  SourceVersionNumber?: number;
+  /**
+   * A collection of support container definitions that define the containers in this group.
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  SupportContainerDefinitions?: any[];
+  /**
    * An array of key-value pairs to apply to this resource.
    * @minLength `0`
    * @maxLength `200`
@@ -73,6 +84,14 @@ export type GameLiftContainerGroupDefinitionAttributes = {
    * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
    */
   CreationTime: string;
+  /**
+   * A string indicating ContainerGroupDefinition status.
+   */
+  Status: "READY" | "COPYING" | "FAILED";
+  /**
+   * A string indicating the reason for ContainerGroupDefinition status.
+   */
+  StatusReason: string;
 };
 /**
  * Type definition for `AWS::GameLift::ContainerGroupDefinition.ContainerDefinition`.

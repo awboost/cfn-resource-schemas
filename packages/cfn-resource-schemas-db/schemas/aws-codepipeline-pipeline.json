@@ -1,5 +1,5 @@
 {
-  "$hash": "735f4307375dba4c8ddc85c16104298f877e6c14",
+  "$hash": "a3d58559a97421c2d30ef546f6c3afcaf8706fbc",
   "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -9,6 +9,12 @@
       "description": "Represents information about an action declaration.",
       "properties": {
         "ActionTypeId": { "$ref": "#/definitions/ActionTypeId" },
+        "Commands": {
+          "description": "The shell commands to run with your compute action in CodePipeline.",
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "Configuration": {
           "description": "The action's configuration. These are key-value pairs that specify input values for an action.",
           "type": "object"
@@ -28,6 +34,12 @@
         },
         "OutputArtifacts": {
           "items": { "$ref": "#/definitions/OutputArtifact" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "OutputVariables": {
+          "description": "The list of variables that are to be exported from the compute action.",
+          "items": { "type": "string" },
           "type": "array",
           "uniqueItems": true
         },
@@ -58,7 +70,15 @@
       "properties": {
         "Category": {
           "description": "A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.",
-          "enum": ["Source", "Build", "Test", "Deploy", "Invoke", "Approval"],
+          "enum": [
+            "Source",
+            "Build",
+            "Test",
+            "Deploy",
+            "Invoke",
+            "Approval",
+            "Compute"
+          ],
           "type": "string"
         },
         "Owner": {
@@ -305,6 +325,12 @@
       "additionalProperties": false,
       "description": "Represents information about the output of an action.",
       "properties": {
+        "Files": {
+          "description": "The files that you want to associate with the output artifact that will be exported from the compute action.",
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        },
         "Name": {
           "description": "The name of the output of an artifact, such as \"My App\".",
           "type": "string"

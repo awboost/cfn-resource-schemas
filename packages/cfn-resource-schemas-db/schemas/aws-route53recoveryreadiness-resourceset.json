@@ -1,5 +1,5 @@
 {
-  "$hash": "d5bc10907ac041c0b871d451f1797064102a5341",
+  "$hash": "e43c3f8bfb70f94c486ceb7989aeafdc52083de9",
   "$id": "aws-route53recoveryreadiness-resourceset.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -173,6 +173,17 @@
   "readOnlyProperties": ["/properties/ResourceSetArn"],
   "required": ["ResourceSetType", "Resources"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53-recovery-readiness.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "route53-recovery-readiness:TagResource",
+      "route53-recovery-readiness:UntagResource",
+      "route53-recovery-readiness:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Route53RecoveryReadiness::ResourceSet"
 }

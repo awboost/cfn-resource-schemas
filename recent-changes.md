@@ -1,3 +1,74 @@
-- updated `AWS::Lambda::EventSourceMapping`
-  - updated definition `Tag`
-  - updated property `Tags`
+- updated `AWS::CodePipeline::Pipeline`
+  - updated definition `ActionDeclaration`
+  - updated definition `ActionTypeId`
+  - updated definition `OutputArtifact`
+- updated `AWS::Connect::ContactFlow`
+  - updated `tagging`
+- updated `AWS::Connect::ContactFlowModule`
+  - updated `tagging`
+- updated `AWS::ControlTower::LandingZone`
+  - updated `tagging`
+- updated `AWS::EC2::TransitGatewayRouteTable`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::EC2::VPNConnection`
+  - added definition `CloudwatchLogOptionsSpecification`
+  - added definition `IKEVersionsRequestListValue`
+  - added definition `Phase1DHGroupNumbersRequestListValue`
+  - added definition `Phase1EncryptionAlgorithmsRequestListValue`
+  - added definition `Phase1IntegrityAlgorithmsRequestListValue`
+  - added definition `Phase2DHGroupNumbersRequestListValue`
+  - added definition `Phase2EncryptionAlgorithmsRequestListValue`
+  - added definition `Phase2IntegrityAlgorithmsRequestListValue`
+  - added definition `VpnTunnelLogOptionsSpecification`
+  - updated definition `VpnTunnelOptionsSpecification`
+  - updated property `LocalIpv4NetworkCidr`
+  - updated property `LocalIpv6NetworkCidr`
+  - updated property `OutsideIpAddressType`
+  - updated property `RemoteIpv4NetworkCidr`
+  - updated property `RemoteIpv6NetworkCidr`
+  - updated property `TransportTransitGatewayAttachmentId`
+  - updated property `TunnelInsideIpVersion`
+- updated `AWS::EKS::Cluster`
+  - added definition `BlockStorage`
+- updated `AWS::EMR::WALWorkspace`
+  - updated `tagging`
+- updated `AWS::GameLift::ContainerGroupDefinition`
+  - added definition `ContainerMountPoint`
+  - added property `SourceVersionNumber`
+  - added property `StatusReason`
+  - added property `Status`
+  - added property `SupportContainerDefinitions`
+  - updated `readOnlyProperties`
+- updated `AWS::Location::PlaceIndex`
+  - updated `tagging`
+- updated `AWS::RDS::DBCluster`
+  - updated `propertyTransform`
+- updated `AWS::RDS::DBInstance`
+  - updated property `DBSnapshotIdentifier`
+- updated `AWS::RDS::DBSubnetGroup`
+  - added `tagging`
+  - removed `writeOnlyProperties`
+  - updated property `SubnetIds`
+- updated `AWS::Route53RecoveryReadiness::Cell`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::Route53RecoveryReadiness::ReadinessCheck`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::Route53RecoveryReadiness::RecoveryGroup`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::Route53RecoveryReadiness::ResourceSet`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::Route53Resolver::ResolverRule`
+  - removed property `DelegationRecord`
+  - updated `tagging`
+  - updated definition `TargetAddress`
+- updated `AWS::SQS::Queue`
+  - updated property `RedriveAllowPolicy`
+  - updated property `RedrivePolicy`
+- updated `AWS::SQS::QueuePolicy`
+  - updated property `Queues`

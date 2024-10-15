@@ -6,12 +6,6 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type Route53ResolverResolverRuleProperties = {
   /**
-   * The name server domain for queries to be delegated to if a query matches the delegation record.
-   * @minLength `1`
-   * @maxLength `256`
-   */
-  DelegationRecord?: string;
-  /**
    * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
    * @minLength `1`
    * @maxLength `256`
@@ -97,6 +91,12 @@ export type TargetAddress = {
    * The protocol that you want to use to forward DNS queries.
    */
   Protocol?: "Do53" | "DoH";
+  /**
+   * The SNI of the target name servers for DoH/DoH-FIPS outbound endpoints
+   * @minLength `0`
+   * @maxLength `255`
+   */
+  ServerNameIndication?: string;
 };
 /**
  * Resource Type definition for AWS::Route53Resolver::ResolverRule

@@ -1,5 +1,5 @@
 {
-  "$hash": "96ea2f81992cbe2d952cb8fd90db6ffbe4eb0c74",
+  "$hash": "3e60b92a58bd56816fd62232909ee2c1923d8d40",
   "$id": "aws-controltower-landingzone.json",
   "additionalProperties": false,
   "definitions": {
@@ -163,6 +163,11 @@
   "required": ["Manifest", "Version"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "controltower:UntagResource",
+      "controltower:TagResource",
+      "controltower:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

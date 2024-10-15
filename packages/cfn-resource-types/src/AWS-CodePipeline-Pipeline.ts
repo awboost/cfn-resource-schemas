@@ -76,6 +76,10 @@ export type ActionDeclaration = {
    */
   ActionTypeId: ActionTypeId;
   /**
+   * The shell commands to run with your compute action in CodePipeline.
+   */
+  Commands?: string[];
+  /**
    * The action's configuration. These are key-value pairs that specify input values for an action.
    */
   Configuration?: Record<string, any>;
@@ -89,6 +93,10 @@ export type ActionDeclaration = {
    */
   Namespace?: string;
   OutputArtifacts?: OutputArtifact[];
+  /**
+   * The list of variables that are to be exported from the compute action.
+   */
+  OutputVariables?: string[];
   /**
    * The action declaration's AWS Region, such as us-east-1.
    */
@@ -116,7 +124,14 @@ export type ActionTypeId = {
   /**
    * A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Valid categories are limited to one of the values below.
    */
-  Category: "Source" | "Build" | "Test" | "Deploy" | "Invoke" | "Approval";
+  Category:
+    | "Source"
+    | "Build"
+    | "Test"
+    | "Deploy"
+    | "Invoke"
+    | "Approval"
+    | "Compute";
   /**
    * The creator of the action being called. There are three valid values for the Owner field in the action category section within your pipeline structure: AWS, ThirdParty, and Custom.
    */
@@ -345,6 +360,10 @@ export type InputArtifact = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html}
  */
 export type OutputArtifact = {
+  /**
+   * The files that you want to associate with the output artifact that will be exported from the compute action.
+   */
+  Files?: string[];
   /**
    * The name of the output of an artifact, such as "My App".
    */

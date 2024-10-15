@@ -273,16 +273,13 @@ export type RDSDBInstanceProperties = {
       +   ``CharacterSetName``
       +   ``DBClusterIdentifier``
       +   ``DBName``
-      +   ``DeleteAutomatedBackups``
       +   ``KmsKeyId``
       +   ``MasterUsername``
       +   ``MasterUserPassword``
-      +   ``PerformanceInsightsKMSKeyId``
-      +   ``PerformanceInsightsRetentionPeriod``
       +   ``PromotionTier``
       +   ``SourceDBInstanceIdentifier``
       +   ``SourceRegion``
-      +   ``StorageEncrypted`` (for an encrypted snapshot)
+      +   ``StorageEncrypted`` (for an unencrypted snapshot)
       +   ``Timezone``
       
       *Amazon Aurora*

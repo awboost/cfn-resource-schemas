@@ -1,5 +1,5 @@
 {
-  "$hash": "5ec2a4c02cd9d46e233824df755f2715be0153e6",
+  "$hash": "c88e4020d62503e94a7cc6617d66dcf188303ce5",
   "$id": "aws-rds-dbsubnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DBSubnetGroupName"],
@@ -70,6 +70,7 @@
     },
     "SubnetIds": {
       "description": "The EC2 Subnet IDs for the DB subnet group.",
+      "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false
@@ -88,6 +89,13 @@
   },
   "required": ["DBSubnetGroupDescription", "SubnetIds"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-rds",
-  "typeName": "AWS::RDS::DBSubnetGroup",
-  "writeOnlyProperties": ["/properties/SubnetIds"]
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["rds:AddTagsToResource", "rds:RemoveTagsFromResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::RDS::DBSubnetGroup"
 }
