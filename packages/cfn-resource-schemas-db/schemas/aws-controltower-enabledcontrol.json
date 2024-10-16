@@ -1,5 +1,5 @@
 {
-  "$hash": "3054c918c1748ada816abce25166a02eac50b3ae",
+  "$hash": "4bf3cf900dc0b09e32a9eeddbd59d1d176d753ed",
   "$id": "aws-controltower-enabledcontrol.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -169,6 +169,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-controltower",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "controltower:UntagResource",
+      "controltower:TagResource",
+      "controltower:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

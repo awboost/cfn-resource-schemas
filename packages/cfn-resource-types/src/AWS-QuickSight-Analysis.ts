@@ -24,6 +24,11 @@ export type QuickSightAnalysisProperties = {
    */
   Errors?: AnalysisError[];
   /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  FolderArns?: string[];
+  /**
    * <p>The descriptive name of the analysis.</p>
    * @minLength `1`
    * @maxLength `2048`

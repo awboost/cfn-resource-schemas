@@ -1,74 +1,94 @@
-- updated `AWS::CodePipeline::Pipeline`
-  - updated definition `ActionDeclaration`
-  - updated definition `ActionTypeId`
-  - updated definition `OutputArtifact`
-- updated `AWS::Connect::ContactFlow`
+- added `AWS::Wisdom::AIPrompt`
+- updated `AWS::AppSync::DataSource`
+  - added `deprecatedProperties`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `AuthorizationConfig`
+  - updated definition `AwsIamConfig`
+  - updated definition `DeltaSyncConfig`
+  - updated definition `DynamoDBConfig`
+  - updated definition `ElasticsearchConfig`
+  - updated definition `EventBridgeConfig`
+  - updated definition `HttpConfig`
+  - updated definition `LambdaConfig`
+  - updated definition `OpenSearchServiceConfig`
+  - updated definition `RdsHttpEndpointConfig`
+  - updated definition `RelationalDatabaseConfig`
+  - updated handler permissions
+  - updated property `ApiId`
+  - updated property `DataSourceArn`
+  - updated property `Description`
+  - updated property `DynamoDBConfig`
+  - updated property `ElasticsearchConfig`
+  - updated property `EventBridgeConfig`
+  - updated property `HttpConfig`
+  - updated property `LambdaConfig`
+  - updated property `MetricsConfig`
+  - updated property `Name`
+  - updated property `OpenSearchServiceConfig`
+  - updated property `RelationalDatabaseConfig`
+  - updated property `ServiceRoleArn`
+  - updated property `Type`
+- updated `AWS::ControlTower::EnabledControl`
   - updated `tagging`
-- updated `AWS::Connect::ContactFlowModule`
-  - updated `tagging`
-- updated `AWS::ControlTower::LandingZone`
-  - updated `tagging`
-- updated `AWS::EC2::TransitGatewayRouteTable`
-  - updated `createOnlyProperties`
+- updated `AWS::MediaPackage::OriginEndpoint`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::EC2::VPNConnection`
-  - added definition `CloudwatchLogOptionsSpecification`
-  - added definition `IKEVersionsRequestListValue`
-  - added definition `Phase1DHGroupNumbersRequestListValue`
-  - added definition `Phase1EncryptionAlgorithmsRequestListValue`
-  - added definition `Phase1IntegrityAlgorithmsRequestListValue`
-  - added definition `Phase2DHGroupNumbersRequestListValue`
-  - added definition `Phase2EncryptionAlgorithmsRequestListValue`
-  - added definition `Phase2IntegrityAlgorithmsRequestListValue`
-  - added definition `VpnTunnelLogOptionsSpecification`
-  - updated definition `VpnTunnelOptionsSpecification`
-  - updated property `LocalIpv4NetworkCidr`
-  - updated property `LocalIpv6NetworkCidr`
-  - updated property `OutsideIpAddressType`
-  - updated property `RemoteIpv4NetworkCidr`
-  - updated property `RemoteIpv6NetworkCidr`
-  - updated property `TransportTransitGatewayAttachmentId`
-  - updated property `TunnelInsideIpVersion`
-- updated `AWS::EKS::Cluster`
-  - added definition `BlockStorage`
-- updated `AWS::EMR::WALWorkspace`
-  - updated `tagging`
-- updated `AWS::GameLift::ContainerGroupDefinition`
-  - added definition `ContainerMountPoint`
-  - added property `SourceVersionNumber`
-  - added property `StatusReason`
-  - added property `Status`
-  - added property `SupportContainerDefinitions`
+- updated `AWS::QBusiness::WebExperience`
+  - added definition `Origin`
+  - added property `Origins`
+- updated `AWS::QuickSight::Analysis`
+  - added property `FolderArns`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::QuickSight::Dashboard`
+  - added property `FolderArns`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::RefactorSpaces::Route`
+  - added `taggable`
+  - removed `tagging`
+- updated `AWS::Transfer::Server`
+  - added `additionalIdentifiers`
+  - added `conditionalCreateOnlyProperties`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - added definition `DirectoryListingOptimization`
+  - added definition `Domain`
+  - added definition `EndpointType`
+  - added definition `IdentityProviderType`
+  - added definition `SetStatOption`
+  - added definition `SftpAuthenticationMethods`
+  - added definition `TlsSessionResumptionMode`
+  - added property `As2ServiceManagedEgressIpAddresses`
+  - removed definition `StructuredLogDestination`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
   - updated `readOnlyProperties`
-- updated `AWS::Location::PlaceIndex`
-  - updated `tagging`
-- updated `AWS::RDS::DBCluster`
-  - updated `propertyTransform`
-- updated `AWS::RDS::DBInstance`
-  - updated property `DBSnapshotIdentifier`
-- updated `AWS::RDS::DBSubnetGroup`
-  - added `tagging`
-  - removed `writeOnlyProperties`
-  - updated property `SubnetIds`
-- updated `AWS::Route53RecoveryReadiness::Cell`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Route53RecoveryReadiness::ReadinessCheck`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Route53RecoveryReadiness::RecoveryGroup`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Route53RecoveryReadiness::ResourceSet`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Route53Resolver::ResolverRule`
-  - removed property `DelegationRecord`
-  - updated `tagging`
-  - updated definition `TargetAddress`
-- updated `AWS::SQS::Queue`
-  - updated property `RedriveAllowPolicy`
-  - updated property `RedrivePolicy`
-- updated `AWS::SQS::QueuePolicy`
-  - updated property `Queues`
+  - updated definition `As2Transport`
+  - updated definition `EndpointDetails`
+  - updated definition `IdentityProviderDetails`
+  - updated definition `ProtocolDetails`
+  - updated definition `Protocol`
+  - updated definition `S3StorageOptions`
+  - updated definition `Tag`
+  - updated definition `WorkflowDetail`
+  - updated definition `WorkflowDetails`
+  - updated handler permissions
+  - updated property `Arn`
+  - updated property `Certificate`
+  - updated property `Domain`
+  - updated property `EndpointType`
+  - updated property `IdentityProviderType`
+  - updated property `LoggingRole`
+  - updated property `PostAuthenticationLoginBanner`
+  - updated property `PreAuthenticationLoginBanner`
+  - updated property `Protocols`
+  - updated property `SecurityPolicyName`
+  - updated property `ServerId`
+  - updated property `StructuredLogDestinations`
+  - updated property `Tags`

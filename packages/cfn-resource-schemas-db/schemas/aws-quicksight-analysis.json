@@ -1,5 +1,5 @@
 {
-  "$hash": "05c9acf2769c4dcbcae9c828f8add18ebca2623c",
+  "$hash": "c97d7cc704573b48925f6946efc1e34f19304d0b",
   "$id": "aws-quicksight-analysis.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7822,7 +7822,10 @@
         "quicksight:PassDataSet",
         "quicksight:TagResource",
         "quicksight:UntagResource",
-        "quicksight:ListTagsForResource"
+        "quicksight:ListTagsForResource",
+        "quicksight:CreateFolderMembership",
+        "quicksight:DeleteFolderMembership",
+        "quicksight:ListFoldersForResource"
       ]
     },
     "delete": {
@@ -7904,6 +7907,12 @@
       "minItems": 1,
       "type": "array"
     },
+    "FolderArns": {
+      "items": { "type": "string" },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
     "LastUpdatedTime": {
       "description": "<p>The time that the analysis was last updated.</p>",
       "format": "date-time",
@@ -7957,6 +7966,7 @@
     "/properties/Parameters",
     "/properties/SourceEntity",
     "/properties/Status",
-    "/properties/ValidationStrategy"
+    "/properties/ValidationStrategy",
+    "/properties/FolderArns"
   ]
 }

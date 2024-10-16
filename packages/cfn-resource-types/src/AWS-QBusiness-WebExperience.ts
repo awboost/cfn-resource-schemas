@@ -14,6 +14,11 @@ export type QBusinessWebExperienceProperties = {
   IdentityProviderConfiguration?: IdentityProviderConfiguration;
   /**
    * @minLength `0`
+   * @maxLength `10`
+   */
+  Origins?: string[];
+  /**
+   * @minLength `0`
    * @maxLength `1284`
    * @pattern `^arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
    */

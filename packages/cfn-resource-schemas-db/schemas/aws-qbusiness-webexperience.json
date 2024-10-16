@@ -1,5 +1,5 @@
 {
-  "$hash": "28a28d3fcd62b64a420e21be5755fc4d23467d68",
+  "$hash": "93d85bf769c46be1909bc18bf0b81a0f4e8ab7bd",
   "$id": "aws-qbusiness-webexperience.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
@@ -48,6 +48,12 @@
       },
       "required": ["SecretsArn", "SecretsRole"],
       "type": "object"
+    },
+    "Origin": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^(http:\\/\\/|https:\\/\\/)[a-zA-Z0-9-_.]+(?::[0-9]{1,5})?$",
+      "type": "string"
     },
     "SamlProviderConfiguration": {
       "additionalProperties": false,
@@ -155,6 +161,13 @@
     },
     "IdentityProviderConfiguration": {
       "$ref": "#/definitions/IdentityProviderConfiguration"
+    },
+    "Origins": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Origin" },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
     },
     "RoleArn": {
       "maxLength": 1284,

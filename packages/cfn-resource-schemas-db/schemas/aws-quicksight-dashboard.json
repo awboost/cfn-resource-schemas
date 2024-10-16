@@ -1,5 +1,5 @@
 {
-  "$hash": "2eca0e480fe20f0d84e7375172e6ecf860ca0b02",
+  "$hash": "452675eba58ec07e8a93f203b9f0f3f885512a90",
   "$id": "aws-quicksight-dashboard.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8011,7 +8011,10 @@
         "quicksight:PassDataSet",
         "quicksight:TagResource",
         "quicksight:UntagResource",
-        "quicksight:ListTagsForResource"
+        "quicksight:ListTagsForResource",
+        "quicksight:CreateFolderMembership",
+        "quicksight:DeleteFolderMembership",
+        "quicksight:ListFoldersForResource"
       ]
     },
     "delete": {
@@ -8085,6 +8088,12 @@
       "$ref": "#/definitions/DashboardPublishOptions"
     },
     "Definition": { "$ref": "#/definitions/DashboardVersionDefinition" },
+    "FolderArns": {
+      "items": { "type": "string" },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
     "LastPublishedTime": {
       "description": "<p>The last time that this dashboard was published.</p>",
       "format": "date-time",
@@ -8147,6 +8156,7 @@
     "/properties/SourceEntity",
     "/properties/ThemeArn",
     "/properties/VersionDescription",
-    "/properties/ValidationStrategy"
+    "/properties/ValidationStrategy",
+    "/properties/FolderArns"
   ]
 }

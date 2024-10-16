@@ -1,5 +1,5 @@
 {
-  "$hash": "99a552e76ff98e5d05375c385278ba2475c6f56f",
+  "$hash": "63d5f7e13a1c2c2415da6f2a11bbb6050b800a1a",
   "$id": "aws-appsync-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId", "/properties/Name"],
@@ -7,8 +7,14 @@
     "AuthorizationConfig": {
       "additionalProperties": false,
       "properties": {
-        "AuthorizationType": { "type": "string" },
-        "AwsIamConfig": { "$ref": "#/definitions/AwsIamConfig" }
+        "AuthorizationType": {
+          "description": "The authorization type that the HTTP endpoint requires.",
+          "type": "string"
+        },
+        "AwsIamConfig": {
+          "$ref": "#/definitions/AwsIamConfig",
+          "description": "The AWS Identity and Access Management settings."
+        }
       },
       "required": ["AuthorizationType"],
       "type": "object"
@@ -16,17 +22,32 @@
     "AwsIamConfig": {
       "additionalProperties": false,
       "properties": {
-        "SigningRegion": { "type": "string" },
-        "SigningServiceName": { "type": "string" }
+        "SigningRegion": {
+          "description": "The signing Region for AWS Identity and Access Management authorization.",
+          "type": "string"
+        },
+        "SigningServiceName": {
+          "description": "The signing service name for AWS Identity and Access Management authorization.",
+          "type": "string"
+        }
       },
       "type": "object"
     },
     "DeltaSyncConfig": {
       "additionalProperties": false,
       "properties": {
-        "BaseTableTTL": { "type": "string" },
-        "DeltaSyncTableName": { "type": "string" },
-        "DeltaSyncTableTTL": { "type": "string" }
+        "BaseTableTTL": {
+          "description": "The number of minutes that an Item is stored in the data source.",
+          "type": "string"
+        },
+        "DeltaSyncTableName": {
+          "description": "The Delta Sync table name.",
+          "type": "string"
+        },
+        "DeltaSyncTableTTL": {
+          "description": "The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.",
+          "type": "string"
+        }
       },
       "required": ["BaseTableTTL", "DeltaSyncTableTTL", "DeltaSyncTableName"],
       "type": "object"
@@ -34,11 +55,20 @@
     "DynamoDBConfig": {
       "additionalProperties": false,
       "properties": {
-        "AwsRegion": { "type": "string" },
-        "DeltaSyncConfig": { "$ref": "#/definitions/DeltaSyncConfig" },
-        "TableName": { "type": "string" },
-        "UseCallerCredentials": { "type": "boolean" },
-        "Versioned": { "type": "boolean" }
+        "AwsRegion": { "description": "The AWS Region.", "type": "string" },
+        "DeltaSyncConfig": {
+          "$ref": "#/definitions/DeltaSyncConfig",
+          "description": "The DeltaSyncConfig for a versioned datasource."
+        },
+        "TableName": { "description": "The table name.", "type": "string" },
+        "UseCallerCredentials": {
+          "description": "Set to TRUE to use AWS Identity and Access Management with this data source.",
+          "type": "boolean"
+        },
+        "Versioned": {
+          "description": "Set to TRUE to use Conflict Detection and Resolution with this data source.",
+          "type": "boolean"
+        }
       },
       "required": ["TableName", "AwsRegion"],
       "type": "object"
@@ -46,38 +76,51 @@
     "ElasticsearchConfig": {
       "additionalProperties": false,
       "properties": {
-        "AwsRegion": { "type": "string" },
-        "Endpoint": { "type": "string" }
+        "AwsRegion": { "description": "The AWS Region.", "type": "string" },
+        "Endpoint": { "description": "The endpoint.", "type": "string" }
       },
       "required": ["AwsRegion", "Endpoint"],
       "type": "object"
     },
     "EventBridgeConfig": {
       "additionalProperties": false,
-      "properties": { "EventBusArn": { "type": "string" } },
+      "properties": {
+        "EventBusArn": {
+          "description": "ARN for the EventBridge bus.",
+          "type": "string"
+        }
+      },
       "required": ["EventBusArn"],
       "type": "object"
     },
     "HttpConfig": {
       "additionalProperties": false,
       "properties": {
-        "AuthorizationConfig": { "$ref": "#/definitions/AuthorizationConfig" },
-        "Endpoint": { "type": "string" }
+        "AuthorizationConfig": {
+          "$ref": "#/definitions/AuthorizationConfig",
+          "description": "The authorization configuration."
+        },
+        "Endpoint": { "description": "The endpoint.", "type": "string" }
       },
       "required": ["Endpoint"],
       "type": "object"
     },
     "LambdaConfig": {
       "additionalProperties": false,
-      "properties": { "LambdaFunctionArn": { "type": "string" } },
+      "properties": {
+        "LambdaFunctionArn": {
+          "description": "The ARN for the Lambda function.",
+          "type": "string"
+        }
+      },
       "required": ["LambdaFunctionArn"],
       "type": "object"
     },
     "OpenSearchServiceConfig": {
       "additionalProperties": false,
       "properties": {
-        "AwsRegion": { "type": "string" },
-        "Endpoint": { "type": "string" }
+        "AwsRegion": { "description": "The AWS Region.", "type": "string" },
+        "Endpoint": { "description": "The endpoint.", "type": "string" }
       },
       "required": ["AwsRegion", "Endpoint"],
       "type": "object"
@@ -85,11 +128,23 @@
     "RdsHttpEndpointConfig": {
       "additionalProperties": false,
       "properties": {
-        "AwsRegion": { "type": "string" },
-        "AwsSecretStoreArn": { "type": "string" },
-        "DatabaseName": { "type": "string" },
-        "DbClusterIdentifier": { "type": "string" },
-        "Schema": { "type": "string" }
+        "AwsRegion": {
+          "description": "AWS Region for RDS HTTP endpoint.",
+          "type": "string"
+        },
+        "AwsSecretStoreArn": {
+          "description": "The ARN for database credentials stored in AWS Secrets Manager.",
+          "type": "string"
+        },
+        "DatabaseName": {
+          "description": "Logical database name.",
+          "type": "string"
+        },
+        "DbClusterIdentifier": {
+          "description": "Amazon RDS cluster Amazon Resource Name (ARN).",
+          "type": "string"
+        },
+        "Schema": { "description": "Logical schema name.", "type": "string" }
       },
       "required": ["AwsRegion", "DbClusterIdentifier", "AwsSecretStoreArn"],
       "type": "object"
@@ -98,38 +153,103 @@
       "additionalProperties": false,
       "properties": {
         "RdsHttpEndpointConfig": {
-          "$ref": "#/definitions/RdsHttpEndpointConfig"
+          "$ref": "#/definitions/RdsHttpEndpointConfig",
+          "description": "Information about the Amazon RDS resource."
         },
-        "RelationalDatabaseSourceType": { "type": "string" }
+        "RelationalDatabaseSourceType": {
+          "description": "The type of relational data source.",
+          "type": "string"
+        }
       },
       "required": ["RelationalDatabaseSourceType"],
       "type": "object"
     }
   },
+  "deprecatedProperties": ["/properties/ElasticsearchConfig"],
   "description": "Resource Type definition for AWS::AppSync::DataSource",
-  "primaryIdentifier": ["/properties/Id"],
+  "handlers": {
+    "create": {
+      "permissions": [
+        "appsync:CreateDataSource",
+        "appsync:GetDataSource",
+        "iam:PassRole"
+      ]
+    },
+    "delete": {
+      "permissions": ["appsync:DeleteDataSource", "appsync:GetDataSource"]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "ApiId": { "$ref": "resource-schema.json#/properties/ApiId" }
+        },
+        "required": ["ApiId"]
+      },
+      "permissions": ["appsync:ListDataSources"]
+    },
+    "read": { "permissions": ["appsync:GetDataSource"] },
+    "update": { "permissions": ["appsync:UpdateDataSource", "iam:PassRole"] }
+  },
+  "primaryIdentifier": ["/properties/DataSourceArn"],
   "properties": {
-    "ApiId": { "type": "string" },
-    "DataSourceArn": { "type": "string" },
-    "Description": { "type": "string" },
-    "DynamoDBConfig": { "$ref": "#/definitions/DynamoDBConfig" },
-    "ElasticsearchConfig": { "$ref": "#/definitions/ElasticsearchConfig" },
-    "EventBridgeConfig": { "$ref": "#/definitions/EventBridgeConfig" },
-    "HttpConfig": { "$ref": "#/definitions/HttpConfig" },
-    "Id": { "type": "string" },
-    "LambdaConfig": { "$ref": "#/definitions/LambdaConfig" },
-    "MetricsConfig": { "type": "string" },
-    "Name": { "type": "string" },
+    "ApiId": {
+      "description": "Unique AWS AppSync GraphQL API identifier where this data source will be created.",
+      "type": "string"
+    },
+    "DataSourceArn": {
+      "description": "The Amazon Resource Name (ARN) of the API key, such as arn:aws:appsync:us-east-1:123456789012:apis/graphqlapiid/datasources/datasourcename.",
+      "type": "string"
+    },
+    "Description": {
+      "description": "The description of the data source.",
+      "type": "string"
+    },
+    "DynamoDBConfig": {
+      "$ref": "#/definitions/DynamoDBConfig",
+      "description": "AWS Region and TableName for an Amazon DynamoDB table in your account."
+    },
+    "ElasticsearchConfig": {
+      "$ref": "#/definitions/ElasticsearchConfig",
+      "description": "AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account.\nAs of September 2021, Amazon Elasticsearch Service is Amazon OpenSearch Service. This property is deprecated. For new data sources, use OpenSearchServiceConfig to specify an OpenSearch Service data source."
+    },
+    "EventBridgeConfig": {
+      "$ref": "#/definitions/EventBridgeConfig",
+      "description": "ARN for the EventBridge bus."
+    },
+    "HttpConfig": {
+      "$ref": "#/definitions/HttpConfig",
+      "description": "Endpoints for an HTTP data source."
+    },
+    "LambdaConfig": {
+      "$ref": "#/definitions/LambdaConfig",
+      "description": "An ARN of a Lambda function in valid ARN format. This can be the ARN of a Lambda function that exists in the current account or in another account."
+    },
+    "MetricsConfig": {
+      "description": "",
+      "enum": ["DISABLED", "ENABLED"],
+      "type": "string"
+    },
+    "Name": {
+      "description": "Friendly name for you to identify your AppSync data source after creation.",
+      "type": "string"
+    },
     "OpenSearchServiceConfig": {
-      "$ref": "#/definitions/OpenSearchServiceConfig"
+      "$ref": "#/definitions/OpenSearchServiceConfig",
+      "description": "AWS Region and Endpoints for an Amazon OpenSearch Service domain in your account."
     },
     "RelationalDatabaseConfig": {
-      "$ref": "#/definitions/RelationalDatabaseConfig"
+      "$ref": "#/definitions/RelationalDatabaseConfig",
+      "description": "Relational Database configuration of the relational database data source."
     },
-    "ServiceRoleArn": { "type": "string" },
-    "Type": { "type": "string" }
+    "ServiceRoleArn": {
+      "description": "The AWS Identity and Access Management service role ARN for the data source. The system assumes this role when accessing the data source.",
+      "type": "string"
+    },
+    "Type": { "description": "The type of the data source.", "type": "string" }
   },
-  "readOnlyProperties": ["/properties/Id", "/properties/DataSourceArn"],
+  "readOnlyProperties": ["/properties/DataSourceArn"],
   "required": ["Type", "ApiId", "Name"],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appsync",
+  "tagging": { "taggable": false },
   "typeName": "AWS::AppSync::DataSource"
 }

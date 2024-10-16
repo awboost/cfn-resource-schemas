@@ -24,6 +24,11 @@ export type QuickSightDashboardProperties = {
   Definition?: DashboardVersionDefinition;
   /**
    * @minLength `0`
+   * @maxLength `10`
+   */
+  FolderArns?: string[];
+  /**
+   * @minLength `0`
    * @maxLength `5`
    */
   LinkEntities?: string[];
