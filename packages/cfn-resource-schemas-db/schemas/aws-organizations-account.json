@@ -1,5 +1,5 @@
 {
-  "$hash": "ff1f957ac3b136fe1fc6b31be372b348f36ed52e",
+  "$hash": "34e9cc89400c6cc41e437925e8cdf900a15da31b",
   "$id": "aws-organizations-account.json",
   "additionalProperties": false,
   "definitions": {
@@ -138,6 +138,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-organizations",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "organizations:TagResource",
+      "organizations:UntagResource",
+      "organizations:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

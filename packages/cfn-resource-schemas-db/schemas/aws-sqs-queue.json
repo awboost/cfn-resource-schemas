@@ -1,5 +1,5 @@
 {
-  "$hash": "82155a45caa8f7cae1f34d43df04cf558a202cde",
+  "$hash": "f50826d901dd164b78a501a937023f848b4813b8",
   "$id": "aws-sqs-queue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FifoQueue", "/properties/QueueName"],
@@ -21,7 +21,7 @@
       "type": "object"
     }
   },
-  "description": "The ``AWS::SQS::Queue`` resource creates an SQS standard or FIFO queue.\n Keep the following caveats in mind:\n  +  If you don't specify the ``FifoQueue`` property, SQS creates a standard queue.\n  You can't change the queue type after you create it and you can't convert an existing standard queue into a FIFO queue. You must either create a new FIFO queue for your application or delete your existing standard queue and recreate it as a FIFO queue. For more information, see [Moving from a standard queue to a FIFO queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-moving.html) in the *Developer Guide*. \n   +  If you don't provide a value for a property, the queue is created with the default value for the property.\n  +  If you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.\n  +  To successfully create a new queue, you must provide a queue name that adheres to the [limits related to queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html) and is unique within the scope of your queues.\n  \n For more information about creating FIFO (first-in-first-out) queues, see [Creating an queue ()](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/screate-queue-cloudformation.html) in the *Developer Guide*.",
+  "description": "The ``AWS::SQS::Queue`` resource creates an SQS standard or FIFO queue.\n Keep the following caveats in mind:\n  +  If you don't specify the ``FifoQueue`` property, SQS creates a standard queue.\n  You can't change the queue type after you create it and you can't convert an existing standard queue into a FIFO queue. You must either create a new FIFO queue for your application or delete your existing standard queue and recreate it as a FIFO queue. For more information, see [Moving from a standard queue to a FIFO queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-moving.html) in the *Developer Guide*. \n   +  If you don't provide a value for a property, the queue is created with the default value for the property.\n  +  If you delete a queue, you must wait at least 60 seconds before creating a queue with the same name.\n  +  To successfully create a new queue, you must provide a queue name that adheres to the [limits related to queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html) and is unique within the scope of your queues.\n  \n For more information about creating FIFO (first-in-first-out) queues, see [Creating an queue ()](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/create-queue-cloudformation.html) in the *Developer Guide*.",
   "handlers": {
     "create": {
       "permissions": [
@@ -61,7 +61,7 @@
       "type": "integer"
     },
     "FifoQueue": {
-      "description": "If set to true, creates a FIFO queue. If you don't specify this property, SQS creates a standard queue. For more information, see [FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html) in the *Developer Guide*.",
+      "description": "If set to true, creates a FIFO queue. If you don't specify this property, SQS creates a standard queue. For more information, see [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) in the *Developer Guide*.",
       "type": "boolean"
     },
     "FifoThroughputLimit": {
@@ -73,7 +73,7 @@
       "type": "integer"
     },
     "KmsMasterKeyId": {
-      "description": "The ID of an AWS Key Management Service (KMS) for SQS, or a custom KMS. To use the AWS managed KMS for SQS, specify a (default) alias ARN, alias name (e.g. ``alias/aws/sqs``), key ARN, or key ID. For more information, see the following:\n  +   [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Developer Guide* \n  +   [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) in the *API Reference* \n  +   [Request Parameters](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the *Key Management Service API Reference* \n  +   The Key Management Service (KMS) section of the [Best Practices](https://docs.aws.amazon.com/https://d0.awsstatic.com/whitepapers/aws-kms-best-practices.pdf) whitepaper",
+      "description": "The ID of an AWS Key Management Service (KMS) for SQS, or a custom KMS. To use the AWS managed KMS for SQS, specify a (default) alias ARN, alias name (for example ``alias/aws/sqs``), key ARN, or key ID. For more information, see the following:\n  +   [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html) in the *Developer Guide* \n  +   [CreateQueue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html) in the *API Reference* \n  +   [Request Parameters](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the *Key Management Service API Reference* \n  +   The Key Management Service (KMS) section of the [Security best practices for Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html) in the *Key Management Service Developer Guide*",
       "type": "string"
     },
     "MaximumMessageSize": {
@@ -85,7 +85,7 @@
       "type": "integer"
     },
     "QueueName": {
-      "description": "A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the ``.fifo`` suffix. For more information, see [FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html) in the *Developer Guide*.\n If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*. \n  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
+      "description": "A name for the queue. To create a FIFO queue, the name of your FIFO queue must end with the ``.fifo`` suffix. For more information, see [Amazon SQS FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) in the *Developer Guide*.\n If you don't specify a name, CFN generates a unique physical ID and uses that ID for the queue name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) in the *User Guide*. \n  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
       "type": "string"
     },
     "QueueUrl": { "description": "", "type": "string" },

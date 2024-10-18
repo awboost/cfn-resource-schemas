@@ -1,5 +1,5 @@
 {
-  "$hash": "daf7e23e8e057788fea067a8515e9fbc5ab0adb0",
+  "$hash": "56492a418924808b09e6ad0684670da00a7cc6c5",
   "$id": "aws-iam-oidcprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Url"],
@@ -89,7 +89,13 @@
   "readOnlyProperties": ["/properties/Arn"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "iam:TagOpenIDConnectProvider",
+      "iam:UntagOpenIDConnectProvider",
+      "iam:ListOpenIDConnectProviderTags"
+    ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

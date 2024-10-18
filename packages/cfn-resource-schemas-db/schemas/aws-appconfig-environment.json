@@ -1,5 +1,5 @@
 {
-  "$hash": "09a7a9484bd1239a1ddbe617f191a0dcab14107f",
+  "$hash": "0c51fc980ae651b1fe10ebc6a343f63aca7a6e9a",
   "$id": "aws-appconfig-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
@@ -41,7 +41,6 @@
           "description": "The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.",
           "maxLength": 128,
           "minLength": 1,
-          "pattern": "^(?!aws:.)[a-zA-Z1-9+=._:/-]*$",
           "type": "string"
         },
         "Value": {
@@ -143,6 +142,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appconfig.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "appconfig:TagResource",
+      "appconfig:UntagResource",
+      "appconfig:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

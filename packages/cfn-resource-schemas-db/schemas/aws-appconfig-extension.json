@@ -1,5 +1,5 @@
 {
-  "$hash": "2e5c6ea79bdffd7a57e66a0e3637b417599d18f5",
+  "$hash": "6036390e1b059c48e4e998baf7a249688e49c459",
   "$id": "aws-appconfig-extension.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -145,6 +145,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "appconfig:TagResource",
+      "appconfig:UntagResource",
+      "appconfig:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -47,7 +47,7 @@ export type GlueSchemaProperties = {
    * @minLength `1`
    * @maxLength `170000`
    */
-  SchemaDefinition: string;
+  SchemaDefinition?: string;
   /**
    * List of tags to tag the schema
    * @minLength `0`

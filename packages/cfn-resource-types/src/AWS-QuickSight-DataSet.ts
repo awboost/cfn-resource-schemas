@@ -284,7 +284,7 @@ export type CustomSql = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  Columns: InputColumn[];
+  Columns?: InputColumn[];
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
    */
@@ -899,7 +899,7 @@ export type RelationalTable = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  InputColumns: InputColumn[];
+  InputColumns?: InputColumn[];
   /**
    * <p>The name of the relational table.</p>
    * @minLength `1`

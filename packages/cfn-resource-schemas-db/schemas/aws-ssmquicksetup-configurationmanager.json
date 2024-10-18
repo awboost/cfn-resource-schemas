@@ -1,5 +1,5 @@
 {
-  "$hash": "bad52ee872c4b638aecd56c0f1858299329fab5c",
+  "$hash": "4765faa1b44f94576ec0a44590a8683ce0df2eca",
   "$id": "aws-ssmquicksetup-configurationmanager.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -70,10 +70,10 @@
     "TagsMap": {
       "additionalProperties": false,
       "patternProperties": {
-        "^[A-Za-z0-9+=@_\\/:-]+$": {
+        "^[A-Za-z0-9+=@_\\/:.-]+$": {
           "maxLength": 256,
           "minLength": 1,
-          "pattern": "^[A-Za-z0-9+=@_\\/:-]+$",
+          "pattern": "^[A-Za-z0-9+=@_\\/:.-]+$",
           "type": "string"
         }
       },

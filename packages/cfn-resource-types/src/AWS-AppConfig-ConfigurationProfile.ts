@@ -83,7 +83,6 @@ export type Tags = {
    * The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
    * @minLength `1`
    * @maxLength `128`
-   * @pattern `^(?!aws:.)[a-zA-Z0-9 +=._:/-]*$`
    */
   Key?: string;
   /**

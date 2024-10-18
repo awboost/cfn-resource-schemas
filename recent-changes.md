@@ -1,94 +1,61 @@
-- added `AWS::Wisdom::AIPrompt`
-- updated `AWS::AppSync::DataSource`
-  - added `deprecatedProperties`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `AuthorizationConfig`
-  - updated definition `AwsIamConfig`
-  - updated definition `DeltaSyncConfig`
-  - updated definition `DynamoDBConfig`
-  - updated definition `ElasticsearchConfig`
-  - updated definition `EventBridgeConfig`
-  - updated definition `HttpConfig`
-  - updated definition `LambdaConfig`
-  - updated definition `OpenSearchServiceConfig`
-  - updated definition `RdsHttpEndpointConfig`
-  - updated definition `RelationalDatabaseConfig`
-  - updated handler permissions
-  - updated property `ApiId`
-  - updated property `DataSourceArn`
-  - updated property `Description`
-  - updated property `DynamoDBConfig`
-  - updated property `ElasticsearchConfig`
-  - updated property `EventBridgeConfig`
-  - updated property `HttpConfig`
-  - updated property `LambdaConfig`
-  - updated property `MetricsConfig`
-  - updated property `Name`
-  - updated property `OpenSearchServiceConfig`
-  - updated property `RelationalDatabaseConfig`
-  - updated property `ServiceRoleArn`
-  - updated property `Type`
-- updated `AWS::ControlTower::EnabledControl`
+- updated `AWS::AppConfig::Application`
   - updated `tagging`
-- updated `AWS::MediaPackage::OriginEndpoint`
+  - updated definition `Tags`
+- updated `AWS::AppConfig::ConfigurationProfile`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::QBusiness::WebExperience`
-  - added definition `Origin`
-  - added property `Origins`
-- updated `AWS::QuickSight::Analysis`
-  - added property `FolderArns`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::QuickSight::Dashboard`
-  - added property `FolderArns`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::RefactorSpaces::Route`
-  - added `taggable`
-  - removed `tagging`
-- updated `AWS::Transfer::Server`
-  - added `additionalIdentifiers`
-  - added `conditionalCreateOnlyProperties`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - added definition `DirectoryListingOptimization`
-  - added definition `Domain`
-  - added definition `EndpointType`
-  - added definition `IdentityProviderType`
-  - added definition `SetStatOption`
-  - added definition `SftpAuthenticationMethods`
-  - added definition `TlsSessionResumptionMode`
-  - added property `As2ServiceManagedEgressIpAddresses`
-  - removed definition `StructuredLogDestination`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `As2Transport`
-  - updated definition `EndpointDetails`
-  - updated definition `IdentityProviderDetails`
-  - updated definition `ProtocolDetails`
-  - updated definition `Protocol`
-  - updated definition `S3StorageOptions`
+  - updated definition `Tags`
+- updated `AWS::AppConfig::Environment`
+  - updated `tagging`
   - updated definition `Tag`
-  - updated definition `WorkflowDetail`
-  - updated definition `WorkflowDetails`
+- updated `AWS::AppConfig::Extension`
+  - updated `tagging`
+- updated `AWS::AppConfig::ExtensionAssociation`
+  - updated `tagging`
+- updated `AWS::Glue::Registry`
+  - added `tagging`
   - updated handler permissions
-  - updated property `Arn`
-  - updated property `Certificate`
-  - updated property `Domain`
-  - updated property `EndpointType`
-  - updated property `IdentityProviderType`
-  - updated property `LoggingRole`
-  - updated property `PostAuthenticationLoginBanner`
-  - updated property `PreAuthenticationLoginBanner`
-  - updated property `Protocols`
-  - updated property `SecurityPolicyName`
-  - updated property `ServerId`
-  - updated property `StructuredLogDestinations`
-  - updated property `Tags`
+- updated `AWS::Glue::Schema`
+  - added `tagging`
+  - updated `required`
+  - updated handler permissions
+- updated `AWS::IAM::OIDCProvider`
+  - updated `tagging`
+- updated `AWS::IAM::Policy`
+- updated `AWS::IAM::SAMLProvider`
+  - updated `tagging`
+- updated `AWS::IAM::ServerCertificate`
+  - updated `tagging`
+- updated `AWS::MSK::Cluster`
+  - updated `tagging`
+- updated `AWS::MSK::VpcConnection`
+  - updated `tagging`
+- updated `AWS::Organizations::Account`
+  - updated `tagging`
+- updated `AWS::Organizations::OrganizationalUnit`
+  - updated `tagging`
+- updated `AWS::Organizations::Policy`
+  - updated `tagging`
+  - updated property `Type`
+- updated `AWS::Organizations::ResourcePolicy`
+  - updated `tagging`
+- updated `AWS::QuickSight::DataSet`
+  - updated definition `CustomSql`
+  - updated definition `RelationalTable`
+  - updated handler permissions
+- updated `AWS::QuickSight::DataSource`
+  - added property `FolderArns`
+  - updated `writeOnlyProperties`
+  - updated definition `DataSourceType`
+  - updated handler permissions
+- updated `AWS::SQS::Queue`
+  - updated property `FifoQueue`
+  - updated property `KmsMasterKeyId`
+  - updated property `QueueName`
+- updated `AWS::SSMQuickSetup::ConfigurationManager`
+  - updated definition `TagsMap`
+- updated `AWS::SecurityLake::DataLake`
+  - updated `tagging`
+  - updated definition `Regions`
+- updated `AWS::SecurityLake::Subscriber`
+  - updated `tagging`
+  - updated handler permissions

@@ -1,5 +1,5 @@
 {
-  "$hash": "42167876769448af790d7ac68b353eb333d3a949",
+  "$hash": "84393cfbb468f6c32316bb2889782bd7ac37f55f",
   "$id": "aws-msk-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -398,6 +398,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "kafka:TagResource",
+      "kafka:UntagResource",
+      "kafka:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

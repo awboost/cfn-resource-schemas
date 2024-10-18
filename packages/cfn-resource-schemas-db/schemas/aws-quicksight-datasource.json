@@ -1,5 +1,5 @@
 {
-  "$hash": "6ce56e9f39bcb75652d1a2012e1335298ad2b598",
+  "$hash": "d2709409375aa1eec30d55b84190783275218ffd",
   "$id": "aws-quicksight-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -255,6 +255,7 @@
         "PRESTO",
         "REDSHIFT",
         "S3",
+        "S3_TABLES",
         "SALESFORCE",
         "SERVICENOW",
         "SNOWFLAKE",
@@ -823,7 +824,10 @@
         "quicksight:DescribeDataSource",
         "quicksight:DescribeDataSourcePermissions",
         "quicksight:TagResource",
-        "quicksight:ListTagsForResource"
+        "quicksight:ListTagsForResource",
+        "quicksight:CreateFolderMembership",
+        "quicksight:DeleteFolderMembership",
+        "quicksight:ListFoldersForResource"
       ]
     },
     "delete": {
@@ -890,6 +894,12 @@
     "DataSourceId": { "type": "string" },
     "DataSourceParameters": { "$ref": "#/definitions/DataSourceParameters" },
     "ErrorInfo": { "$ref": "#/definitions/DataSourceErrorInfo" },
+    "FolderArns": {
+      "items": { "type": "string" },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
     "LastUpdatedTime": {
       "description": "<p>The last time that this data source was updated.</p>",
       "format": "date-time",
@@ -924,5 +934,5 @@
   "required": ["Name", "Type"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "typeName": "AWS::QuickSight::DataSource",
-  "writeOnlyProperties": ["/properties/Credentials"]
+  "writeOnlyProperties": ["/properties/Credentials", "/properties/FolderArns"]
 }

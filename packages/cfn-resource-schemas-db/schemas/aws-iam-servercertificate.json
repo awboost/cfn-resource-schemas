@@ -1,5 +1,5 @@
 {
-  "$hash": "6e80b688e8d198f6243b04ce62ffd4592ebcfbcc",
+  "$hash": "f72ecf1d7bcbbe01cfafca21731c425696348443",
   "$id": "aws-iam-servercertificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -101,7 +101,13 @@
   "readOnlyProperties": ["/properties/Arn"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "iam:TagServerCertificate",
+      "iam:UntagServerCertificate",
+      "iam:ListServerCertificateTags"
+    ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

@@ -1,5 +1,5 @@
 {
-  "$hash": "ff9f0ce6b6977339124f2226f8c1452ffc405a8d",
+  "$hash": "e192dbbdcdd67227cb09a50b8e7b43dd0a114952",
   "$id": "aws-glue-registry.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -27,7 +27,12 @@
   "description": "This resource creates a Registry for authoring schemas as part of Glue Schema Registry.",
   "handlers": {
     "create": {
-      "permissions": ["glue:CreateRegistry", "glue:GetRegistry", "glue:GetTags"]
+      "permissions": [
+        "glue:CreateRegistry",
+        "glue:GetRegistry",
+        "glue:GetTags",
+        "glue:TagResource"
+      ]
     },
     "delete": { "permissions": ["glue:GetRegistry", "glue:DeleteRegistry"] },
     "list": { "permissions": ["glue:ListRegistries"] },
@@ -72,5 +77,13 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-glue.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["glue:GetTags", "glue:TagResource", "glue:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Glue::Registry"
 }

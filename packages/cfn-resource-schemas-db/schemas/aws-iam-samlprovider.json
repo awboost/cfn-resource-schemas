@@ -1,5 +1,5 @@
 {
-  "$hash": "ef827a55dc305c1c18ab4ec4521183ff0713b786",
+  "$hash": "dee82be069f0d899da3fac79ec06333c8644805f",
   "$id": "aws-iam-samlprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -77,7 +77,13 @@
   "required": ["SamlMetadataDocument"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "iam:TagSAMLProvider",
+      "iam:ListSAMLProviderTags",
+      "iam:UntagSAMLProvider"
+    ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

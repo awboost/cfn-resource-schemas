@@ -1,5 +1,5 @@
 {
-  "$hash": "93bc0cd605870966ffb99575e1c112e47391410b",
+  "$hash": "bdf199cc7ab58589e85daf3d092b236255794584",
   "$id": "aws-quicksight-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/DataSetId"],
@@ -156,7 +156,7 @@
           "type": "string"
         }
       },
-      "required": ["Columns", "DataSourceArn", "Name", "SqlQuery"],
+      "required": ["DataSourceArn", "Name", "SqlQuery"],
       "type": "object"
     },
     "DataSetImportMode": {
@@ -772,7 +772,7 @@
           "type": "string"
         }
       },
-      "required": ["DataSourceArn", "InputColumns", "Name"],
+      "required": ["DataSourceArn", "Name"],
       "type": "object"
     },
     "RenameColumnOperation": {
@@ -1114,7 +1114,10 @@
         "quicksight:TagResource",
         "quicksight:ListTagsForResource",
         "quicksight:DescribeDataSetRefreshProperties",
-        "quicksight:PutDataSetRefreshProperties"
+        "quicksight:PutDataSetRefreshProperties",
+        "quicksight:CreateFolderMembership",
+        "quicksight:DeleteFolderMembership",
+        "quicksight:ListFoldersForResource"
       ]
     },
     "delete": {

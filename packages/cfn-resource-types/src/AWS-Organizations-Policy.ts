@@ -32,13 +32,14 @@ export type OrganizationsPolicyProperties = {
    */
   TargetIds?: string[];
   /**
-   * The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY
+   * The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY
    */
   Type:
     | "SERVICE_CONTROL_POLICY"
     | "AISERVICES_OPT_OUT_POLICY"
     | "BACKUP_POLICY"
-    | "TAG_POLICY";
+    | "TAG_POLICY"
+    | "CHATBOT_POLICY";
 };
 /**
  * Attribute type definition for `AWS::Organizations::Policy`.

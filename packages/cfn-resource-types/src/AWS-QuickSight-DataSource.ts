@@ -42,6 +42,11 @@ export type QuickSightDataSourceProperties = {
    */
   ErrorInfo?: DataSourceErrorInfo;
   /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  FolderArns?: string[];
+  /**
    * @minLength `1`
    * @maxLength `128`
    */
@@ -410,6 +415,7 @@ export type DataSourceType =
   | "PRESTO"
   | "REDSHIFT"
   | "S3"
+  | "S3_TABLES"
   | "SALESFORCE"
   | "SERVICENOW"
   | "SNOWFLAKE"
