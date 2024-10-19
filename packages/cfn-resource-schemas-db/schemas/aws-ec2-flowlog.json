@@ -1,5 +1,5 @@
 {
-  "$hash": "259d99a3f1eec2a03c7511fafa4e6abe2224d9ce",
+  "$hash": "fb75d8ed7d3f46d3009ad3efcf42ad673b404ee4",
   "$id": "aws-ec2-flowlog.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -134,6 +134,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-flowlog.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -22,7 +22,7 @@ export type LambdaFunctionProperties = {
   Code: Code;
   /**
    * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-   * @pattern `arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:\d{12}:code-signing-config:csc-[a-z0-9]{17}`
+   * @pattern `arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:code-signing-config:csc-[a-z0-9]{17}`
    */
   CodeSigningConfigArn?: string;
   /**
@@ -237,7 +237,7 @@ export type FileSystemConfig = {
   /**
    * The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
    * @maxLength `200`
-   * @pattern `^arn:aws[a-zA-Z-]*:elasticfilesystem:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:\d{12}:access-point/fsap-[a-f0-9]{17}$`
+   * @pattern `^arn:aws[a-zA-Z-]*:elasticfilesystem:[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:access-point/fsap-[a-f0-9]{17}$`
    */
   Arn: string;
   /**

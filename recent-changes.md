@@ -1,61 +1,9 @@
-- updated `AWS::AppConfig::Application`
+- added `AWS::Redshift::Integration`
+- updated `AWS::EC2::FlowLog`
   - updated `tagging`
-  - updated definition `Tags`
-- updated `AWS::AppConfig::ConfigurationProfile`
-  - updated `tagging`
-  - updated definition `Tags`
-- updated `AWS::AppConfig::Environment`
-  - updated `tagging`
-  - updated definition `Tag`
-- updated `AWS::AppConfig::Extension`
-  - updated `tagging`
-- updated `AWS::AppConfig::ExtensionAssociation`
-  - updated `tagging`
-- updated `AWS::Glue::Registry`
-  - added `tagging`
-  - updated handler permissions
-- updated `AWS::Glue::Schema`
-  - added `tagging`
-  - updated `required`
-  - updated handler permissions
-- updated `AWS::IAM::OIDCProvider`
-  - updated `tagging`
-- updated `AWS::IAM::Policy`
-- updated `AWS::IAM::SAMLProvider`
-  - updated `tagging`
-- updated `AWS::IAM::ServerCertificate`
-  - updated `tagging`
-- updated `AWS::MSK::Cluster`
-  - updated `tagging`
-- updated `AWS::MSK::VpcConnection`
-  - updated `tagging`
-- updated `AWS::Organizations::Account`
-  - updated `tagging`
-- updated `AWS::Organizations::OrganizationalUnit`
-  - updated `tagging`
-- updated `AWS::Organizations::Policy`
-  - updated `tagging`
-  - updated property `Type`
-- updated `AWS::Organizations::ResourcePolicy`
-  - updated `tagging`
-- updated `AWS::QuickSight::DataSet`
-  - updated definition `CustomSql`
-  - updated definition `RelationalTable`
-  - updated handler permissions
-- updated `AWS::QuickSight::DataSource`
-  - added property `FolderArns`
-  - updated `writeOnlyProperties`
-  - updated definition `DataSourceType`
-  - updated handler permissions
-- updated `AWS::SQS::Queue`
-  - updated property `FifoQueue`
-  - updated property `KmsMasterKeyId`
-  - updated property `QueueName`
-- updated `AWS::SSMQuickSetup::ConfigurationManager`
-  - updated definition `TagsMap`
-- updated `AWS::SecurityLake::DataLake`
-  - updated `tagging`
-  - updated definition `Regions`
-- updated `AWS::SecurityLake::Subscriber`
-  - updated `tagging`
-  - updated handler permissions
+- updated `AWS::Lambda::Function`
+  - updated definition `FileSystemConfig`
+  - updated property `CodeSigningConfigArn`
+- updated `AWS::Lambda::Version`
+  - removed property `Policy`
+  - updated property `FunctionName`
