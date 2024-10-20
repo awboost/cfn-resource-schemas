@@ -1,5 +1,5 @@
 {
-  "$hash": "930ca411d680076686c8e79b99224176d26dd726",
+  "$hash": "d1cff4b08ed69eb95646e42185842a7d1da5923a",
   "$id": "aws-ec2-carriergateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId"],
@@ -42,12 +42,15 @@
       "permissions": ["ec2:DeleteCarrierGateway", "ec2:DescribeCarrierGateways"]
     },
     "list": { "permissions": ["ec2:DescribeCarrierGateways"] },
-    "read": { "permissions": ["ec2:DescribeCarrierGateways"] },
+    "read": {
+      "permissions": ["ec2:DescribeCarrierGateways", "ec2:DescribeTags"]
+    },
     "update": {
       "permissions": [
         "ec2:DescribeCarrierGateways",
         "ec2:CreateTags",
-        "ec2:DeleteTags"
+        "ec2:DeleteTags",
+        "ec2:DescribeTags"
       ]
     }
   },
@@ -75,5 +78,13 @@
   ],
   "required": ["VpcId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags", "ec2:DescribeTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EC2::CarrierGateway"
 }

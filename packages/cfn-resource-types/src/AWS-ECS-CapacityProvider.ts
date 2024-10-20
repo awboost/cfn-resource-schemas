@@ -5,7 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-capacityprovider.html}
  */
 export type ECSCapacityProviderProperties = {
-  AutoScalingGroupProvider: AutoScalingGroupProvider;
+  AutoScalingGroupProvider?: AutoScalingGroupProvider;
   Name?: string;
   Tags?: Tag[];
 };

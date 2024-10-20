@@ -1,5 +1,5 @@
 {
-  "$hash": "e254a618725a34965f7692d01c6d3e67cd4b98cd",
+  "$hash": "749b99fe69411a86245d1c641e385a896de147ed",
   "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -84,7 +84,17 @@
   "propertyTransform": {
     "/properties/AutoScalingGroupProvider/AutoScalingGroupArn": "$split(AutoScalingGroupProvider.AutoScalingGroupArn, \"autoScalingGroupName/\")[-1] $OR $split(AutoScalingGroupArn, \"autoScalingGroupName/\")[-1]"
   },
-  "required": ["AutoScalingGroupProvider"],
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "ecs:TagResource",
+      "ecs:UntagResource",
+      "ecs:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ECS::CapacityProvider"
 }

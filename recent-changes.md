@@ -1,9 +1,13 @@
-- added `AWS::Redshift::Integration`
-- updated `AWS::EC2::FlowLog`
+- updated `AWS::ApiGatewayV2::DomainName`
+  - updated definition `DomainNameConfiguration`
+  - updated property `DomainName`
+- updated `AWS::EC2::CarrierGateway`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::ECS::CapacityProvider`
+  - removed `required`
   - updated `tagging`
-- updated `AWS::Lambda::Function`
-  - updated definition `FileSystemConfig`
-  - updated property `CodeSigningConfigArn`
-- updated `AWS::Lambda::Version`
-  - removed property `Policy`
-  - updated property `FunctionName`
+- updated `AWS::Oam::Link`
+  - updated `tagging`
+- updated `AWS::Oam::Sink`
+  - updated `tagging`

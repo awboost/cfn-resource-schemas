@@ -1,5 +1,5 @@
 {
-  "$hash": "9b698993a403bb28464ba04ab60814cf4bf54be4",
+  "$hash": "eba3806d823f5a30af8bb4c495a2c170e6866c9f",
   "$id": "aws-oam-link.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -99,7 +99,13 @@
   "required": ["ResourceTypes", "SinkIdentifier"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "oam:ListTagsForResource",
+      "oam:UntagResource",
+      "oam:TagResource"
+    ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

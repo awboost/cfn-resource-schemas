@@ -7,7 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ApiGatewayV2DomainNameProperties = {
   /**
-   * The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+   * The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
    */
   DomainName: string;
   /**
@@ -34,7 +34,7 @@ export type ApiGatewayV2DomainNameAttributes = {
 /**
  * Type definition for `AWS::ApiGatewayV2::DomainName.DomainNameConfiguration`.
  * The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
- ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+  ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html}
  */
 export type DomainNameConfiguration = {
