@@ -18,6 +18,7 @@ export type EC2CapacityReservationProperties = {
   PlacementGroupArn?: string;
   TagSpecifications?: TagSpecification[];
   Tenancy?: string;
+  UnusedReservationBillingOwnerId?: string;
 };
 /**
  * Attribute type definition for `AWS::EC2::CapacityReservation`.

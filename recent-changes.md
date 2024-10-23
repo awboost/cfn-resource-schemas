@@ -1,13 +1,23 @@
-- updated `AWS::ApiGatewayV2::DomainName`
-  - updated definition `DomainNameConfiguration`
-  - updated property `DomainName`
-- updated `AWS::EC2::CarrierGateway`
-  - added `tagging`
+- updated `AWS::EC2::CapacityReservation`
+  - added `writeOnlyProperties`
+  - added property `UnusedReservationBillingOwnerId`
   - updated handler permissions
-- updated `AWS::ECS::CapacityProvider`
-  - removed `required`
+- updated `AWS::ECS::Service`
+  - updated definition `LogConfiguration`
+- updated `AWS::InspectorV2::CisScanConfiguration`
+  - updated definition `CisTargets`
+- updated `AWS::Location::APIKey`
+  - updated handler permissions
+- updated `AWS::MemoryDB::Cluster`
+  - added `tagging`
+  - added property `Engine`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::Proton::EnvironmentAccountConnection`
   - updated `tagging`
-- updated `AWS::Oam::Link`
+- updated `AWS::Proton::EnvironmentTemplate`
   - updated `tagging`
-- updated `AWS::Oam::Sink`
+  - updated handler permissions
+- updated `AWS::Proton::ServiceTemplate`
   - updated `tagging`
+  - updated handler permissions

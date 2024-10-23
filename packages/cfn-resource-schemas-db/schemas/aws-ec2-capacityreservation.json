@@ -1,5 +1,5 @@
 {
-  "$hash": "a127e9e6b2941a422b92351bd2dc8a9fe99202d3",
+  "$hash": "8a1d7edc67733ebca1667f2a584b2a64acdd87dc",
   "$id": "aws-ec2-capacityreservation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -63,6 +63,7 @@
         "ec2:CreateCapacityReservation",
         "ec2:DescribeCapacityReservations",
         "ec2:CancelCapacityReservation",
+        "ec2:AssociateCapacityReservationBillingOwner",
         "ec2:CreateTags",
         "ec2:DeleteTags"
       ]
@@ -90,7 +91,8 @@
       "uniqueItems": false
     },
     "Tenancy": { "type": "string" },
-    "TotalInstanceCount": { "type": "integer" }
+    "TotalInstanceCount": { "type": "integer" },
+    "UnusedReservationBillingOwnerId": { "type": "string" }
   },
   "readOnlyProperties": [
     "/properties/Id",
@@ -103,5 +105,6 @@
     "InstancePlatform",
     "InstanceType"
   ],
-  "typeName": "AWS::EC2::CapacityReservation"
+  "typeName": "AWS::EC2::CapacityReservation",
+  "writeOnlyProperties": ["/properties/UnusedReservationBillingOwnerId"]
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "7324cbe50ea16c4fb6e4159f07079deee705a8ae",
+  "$hash": "d570d98331e1bd9ae9306ddf1155ac5a81a07267",
   "$id": "aws-inspectorv2-cisscanconfiguration.json",
   "additionalProperties": false,
   "definitions": {
@@ -16,7 +16,7 @@
       "properties": {
         "AccountIds": {
           "items": {
-            "pattern": "^\\d{12}|ALL_MEMBERS|SELF$",
+            "pattern": "^\\d{12}|ALL_ACCOUNTS|SELF$",
             "type": "string"
           },
           "maxItems": 10000,

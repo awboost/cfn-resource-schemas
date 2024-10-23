@@ -30,6 +30,10 @@ export type MemoryDBClusterProperties = {
    */
   Description?: string;
   /**
+   * The engine type used by the cluster.
+   */
+  Engine?: string;
+  /**
    * The Redis engine version used by the cluster.
    */
   EngineVersion?: string;
