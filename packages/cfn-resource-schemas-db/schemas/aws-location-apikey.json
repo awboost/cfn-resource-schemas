@@ -1,5 +1,5 @@
 {
-  "$hash": "c3e15a2111d80983422f03596b138f3298f686b3",
+  "$hash": "33398d3b86eb8f49f68933b1e7312ddf3692a444",
   "$id": "aws-location-apikey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KeyName"],
@@ -12,7 +12,7 @@
           "items": {
             "maxLength": 200,
             "minLength": 5,
-            "pattern": "^geo:\\w*\\*?$",
+            "pattern": "^(geo|geo-routes|geo-places|geo-maps):\\w*\\*?$",
             "type": "string"
           },
           "maxItems": 24,

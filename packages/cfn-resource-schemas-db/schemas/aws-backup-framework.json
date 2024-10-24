@@ -1,5 +1,5 @@
 {
-  "$hash": "a1baed951fa105ca65733826159e52cbd43f1f63",
+  "$hash": "cc2ccba579059e5744f991f9c1a98250fa9310c9",
   "$id": "aws-backup-framework.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FrameworkName"],
@@ -157,6 +157,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "backup:TagResource",
+      "backup:UntagResource",
+      "backup:ListTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/FrameworkTags",
     "tagUpdatable": true,

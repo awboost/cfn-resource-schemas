@@ -1,5 +1,5 @@
 {
-  "$hash": "addf75449c1ae010dd64b5200f71e84858471bbc",
+  "$hash": "163e0f0c2a68c8b3feb45886655fb10020aaef37",
   "$id": "aws-backup-restoretestingplan.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RestoreTestingPlanName"],
@@ -127,6 +127,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "backup:TagResource",
+      "backup:UntagResource",
+      "backup:ListTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

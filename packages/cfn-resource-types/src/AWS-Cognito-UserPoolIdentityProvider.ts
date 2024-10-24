@@ -5,19 +5,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html}
  */
 export type CognitoUserPoolIdentityProviderProperties = {
-  AttributeMapping?: Record<string, any>;
+  AttributeMapping?: Record<string, string>;
   IdpIdentifiers?: string[];
-  ProviderDetails?: Record<string, any>;
+  ProviderDetails: Record<string, string>;
   ProviderName: string;
   ProviderType: string;
   UserPoolId: string;
-};
-/**
- * Attribute type definition for `AWS::Cognito::UserPoolIdentityProvider`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolidentityprovider.html#aws-resource-cognito-userpoolidentityprovider-return-values}
- */
-export type CognitoUserPoolIdentityProviderAttributes = {
-  Id: string;
 };
 /**
  * Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
@@ -26,7 +19,7 @@ export type CognitoUserPoolIdentityProviderAttributes = {
 export class CognitoUserPoolIdentityProvider extends $Resource<
   "AWS::Cognito::UserPoolIdentityProvider",
   CognitoUserPoolIdentityProviderProperties,
-  CognitoUserPoolIdentityProviderAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::Cognito::UserPoolIdentityProvider";
   constructor(

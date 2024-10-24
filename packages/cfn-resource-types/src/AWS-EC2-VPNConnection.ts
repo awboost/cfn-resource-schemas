@@ -91,60 +91,100 @@ export type EC2VPNConnectionAttributes = {
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.CloudwatchLogOptionsSpecification`.
+ * Options for sending VPN tunnel logs to CloudWatch.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html}
  */
 export type CloudwatchLogOptionsSpecification = {
+  /**
+     * Enable or disable VPN tunnel logging feature. Default value is ``False``.
+     Valid values: ``True`` | ``False``
+     */
   LogEnabled?: boolean;
+  /**
+   * The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+   */
   LogGroupArn?: string;
+  /**
+     * Set log format. Default format is ``json``.
+     Valid values: ``json`` | ``text``
+     */
   LogOutputFormat?: "json" | "text";
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.IKEVersionsRequestListValue`.
+ * The IKE version that is permitted for the VPN tunnel.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-ikeversionsrequestlistvalue.html}
  */
 export type IKEVersionsRequestListValue = {
+  /**
+   * The IKE version.
+   */
   Value?: "ikev1" | "ikev2";
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.Phase1DHGroupNumbersRequestListValue`.
+ * Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1dhgroupnumbersrequestlistvalue.html}
  */
 export type Phase1DHGroupNumbersRequestListValue = {
+  /**
+   * The Diffie-Hellmann group number.
+   */
   Value?: 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24;
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.Phase1EncryptionAlgorithmsRequestListValue`.
+ * Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1encryptionalgorithmsrequestlistvalue.html}
  */
 export type Phase1EncryptionAlgorithmsRequestListValue = {
+  /**
+   * The value for the encryption algorithm.
+   */
   Value?: "AES128" | "AES256" | "AES128-GCM-16" | "AES256-GCM-16";
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.Phase1IntegrityAlgorithmsRequestListValue`.
+ * Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1integrityalgorithmsrequestlistvalue.html}
  */
 export type Phase1IntegrityAlgorithmsRequestListValue = {
+  /**
+   * The value for the integrity algorithm.
+   */
   Value?: "SHA1" | "SHA2-256" | "SHA2-384" | "SHA2-512";
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.Phase2DHGroupNumbersRequestListValue`.
+ * Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2dhgroupnumbersrequestlistvalue.html}
  */
 export type Phase2DHGroupNumbersRequestListValue = {
+  /**
+   * The Diffie-Hellmann group number.
+   */
   Value?: 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24;
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.Phase2EncryptionAlgorithmsRequestListValue`.
+ * Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2encryptionalgorithmsrequestlistvalue.html}
  */
 export type Phase2EncryptionAlgorithmsRequestListValue = {
+  /**
+   * The encryption algorithm.
+   */
   Value?: "AES128" | "AES256" | "AES128-GCM-16" | "AES256-GCM-16";
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.Phase2IntegrityAlgorithmsRequestListValue`.
+ * Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2integrityalgorithmsrequestlistvalue.html}
  */
 export type Phase2IntegrityAlgorithmsRequestListValue = {
+  /**
+   * The integrity algorithm.
+   */
   Value?: "SHA1" | "SHA2-256" | "SHA2-384" | "SHA2-512";
 };
 /**
@@ -164,9 +204,13 @@ export type Tag = {
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.VpnTunnelLogOptionsSpecification`.
+ * Options for logging VPN tunnel activity.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunnellogoptionsspecification.html}
  */
 export type VpnTunnelLogOptionsSpecification = {
+  /**
+   * Options for sending VPN tunnel logs to CloudWatch.
+   */
   CloudwatchLogOptions?: CloudwatchLogOptionsSpecification;
 };
 /**
@@ -175,29 +219,77 @@ export type VpnTunnelLogOptionsSpecification = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html}
  */
 export type VpnTunnelOptionsSpecification = {
+  /**
+     * The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
+     Valid Values: ``clear`` | ``none`` | ``restart``
+     Default: ``clear``
+     */
   DPDTimeoutAction?: "clear" | "none" | "restart";
   /**
-   * @min `30`
-   */
+     * The number of seconds after which a DPD timeout occurs.
+     Constraints: A value greater than or equal to 30.
+     Default: ``30``
+     * @min `30`
+     */
   DPDTimeoutSeconds?: number;
+  /**
+   * Turn on or off tunnel endpoint lifecycle control feature.
+   */
   EnableTunnelLifecycleControl?: boolean;
+  /**
+     * The IKE versions that are permitted for the VPN tunnel.
+     Valid values: ``ikev1`` | ``ikev2``
+     */
   IKEVersions?: IKEVersionsRequestListValue[];
+  /**
+   * Options for logging VPN tunnel activity.
+   */
   LogOptions?: VpnTunnelLogOptionsSpecification;
+  /**
+     * One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+     Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
+     */
   Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
+  /**
+     * One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+     Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
+     */
   Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
+  /**
+     * One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+     Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
+     */
   Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
   /**
-   * @min `900`
-   * @max `28800`
-   */
+     * The lifetime for phase 1 of the IKE negotiation, in seconds.
+     Constraints: A value between 900 and 28,800.
+     Default: ``28800``
+     * @min `900`
+     * @max `28800`
+     */
   Phase1LifetimeSeconds?: number;
+  /**
+     * One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+     Valid values: ``2`` | ``5`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
+     */
   Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
+  /**
+     * One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+     Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
+     */
   Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
+  /**
+     * One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+     Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
+     */
   Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
   /**
-   * @min `900`
-   * @max `3600`
-   */
+     * The lifetime for phase 2 of the IKE negotiation, in seconds.
+     Constraints: A value between 900 and 3,600. The value must be less than the value for ``Phase1LifetimeSeconds``.
+     Default: ``3600``
+     * @min `900`
+     * @max `3600`
+     */
   Phase2LifetimeSeconds?: number;
   /**
      * The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
@@ -205,19 +297,33 @@ export type VpnTunnelOptionsSpecification = {
      */
   PreSharedKey?: string;
   /**
-   * @min `0`
-   * @max `100`
-   */
+     * The percentage of the rekey window (determined by ``RekeyMarginTimeSeconds``) during which the rekey time is randomly selected.
+     Constraints: A value between 0 and 100.
+     Default: ``100``
+     * @min `0`
+     * @max `100`
+     */
   RekeyFuzzPercentage?: number;
   /**
-   * @min `60`
-   */
+     * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for ``RekeyFuzzPercentage``.
+     Constraints: A value between 60 and half of ``Phase2LifetimeSeconds``.
+     Default: ``270``
+     * @min `60`
+     */
   RekeyMarginTimeSeconds?: number;
   /**
-   * @min `64`
-   * @max `2048`
-   */
+     * The number of packets in an IKE replay window.
+     Constraints: A value between 64 and 2048.
+     Default: ``1024``
+     * @min `64`
+     * @max `2048`
+     */
   ReplayWindowSize?: number;
+  /**
+     * The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
+     Valid Values: ``add`` | ``start``
+     Default: ``add``
+     */
   StartupAction?: "add" | "start";
   /**
      * The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
@@ -231,6 +337,10 @@ export type VpnTunnelOptionsSpecification = {
       +   ``169.254.169.252/30``
      */
   TunnelInsideCidr?: string;
+  /**
+     * The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
+     Constraints: A size /126 CIDR block from the local ``fd00::/8`` range.
+     */
   TunnelInsideIpv6Cidr?: string;
 };
 /**

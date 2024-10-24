@@ -1,5 +1,5 @@
 {
-  "$hash": "979d880090f14906d7f970c15c0b08ac40a77ae8",
+  "$hash": "55bcdcffbbbc37e3cc5003300339df6ebe937ded",
   "$id": "aws-ec2-networkinterface.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -205,6 +205,13 @@
   ],
   "required": ["SubnetId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2/networkinterface",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EC2::NetworkInterface"
 }

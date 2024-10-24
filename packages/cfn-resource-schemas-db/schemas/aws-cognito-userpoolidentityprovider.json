@@ -1,5 +1,5 @@
 {
-  "$hash": "bd3fcb8ca51931179992d4823168deb793eb1f60",
+  "$hash": "ce9c5bece83593b2d74e4a60275e9ce50c7b9633",
   "$id": "aws-cognito-userpoolidentityprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8,21 +8,69 @@
     "/properties/ProviderType"
   ],
   "description": "Resource Type definition for AWS::Cognito::UserPoolIdentityProvider",
-  "primaryIdentifier": ["/properties/Id"],
-  "properties": {
-    "AttributeMapping": { "type": "object" },
-    "Id": { "type": "string" },
-    "IdpIdentifiers": {
-      "items": { "type": "string" },
-      "type": "array",
-      "uniqueItems": false
+  "handlers": {
+    "create": {
+      "permissions": [
+        "cognito-idp:CreateIdentityProvider",
+        "cognito-idp:DescribeIdentityProvider"
+      ],
+      "timeoutInMinutes": 2
     },
-    "ProviderDetails": { "type": "object" },
+    "delete": {
+      "permissions": [
+        "cognito-idp:DeleteIdentityProvider",
+        "cognito-idp:DescribeIdentityProvider"
+      ],
+      "timeoutInMinutes": 2
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "UserPoolId": {
+            "$ref": "resource-schema.json#/properties/UserPoolId"
+          }
+        },
+        "required": ["UserPoolId"]
+      },
+      "permissions": ["cognito-idp:ListIdentityProviders"]
+    },
+    "read": { "permissions": ["cognito-idp:DescribeIdentityProvider"] },
+    "update": {
+      "permissions": [
+        "cognito-idp:UpdateIdentityProvider",
+        "cognito-idp:DescribeIdentityProvider"
+      ],
+      "timeoutInMinutes": 2
+    }
+  },
+  "primaryIdentifier": ["/properties/UserPoolId", "/properties/ProviderName"],
+  "properties": {
+    "AttributeMapping": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "IdpIdentifiers": { "items": { "type": "string" }, "type": "array" },
+    "ProviderDetails": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$": { "type": "string" }
+      },
+      "type": "object"
+    },
     "ProviderName": { "type": "string" },
     "ProviderType": { "type": "string" },
     "UserPoolId": { "type": "string" }
   },
-  "readOnlyProperties": ["/properties/Id"],
-  "required": ["ProviderName", "UserPoolId", "ProviderType"],
+  "required": ["UserPoolId", "ProviderName", "ProviderType", "ProviderDetails"],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::Cognito::UserPoolIdentityProvider"
 }

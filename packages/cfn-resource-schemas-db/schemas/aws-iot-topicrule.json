@@ -1,5 +1,5 @@
 {
-  "$hash": "8c5b1ef0130bfbba730d5eb01db29ef2edb667e9",
+  "$hash": "06daa541e7d8861506ef6e32d8df1474a8715c15",
   "$id": "aws-iot-topicrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
@@ -541,6 +541,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:UntagResource",
+      "iot:TagResource",
+      "iot:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

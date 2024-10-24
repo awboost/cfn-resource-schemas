@@ -34,6 +34,10 @@ export type ImageBuilderInfrastructureConfigurationProperties = {
    */
   Name: string;
   /**
+   * The placement option settings for the infrastructure configuration.
+   */
+  Placement?: Placement;
+  /**
    * The tags attached to the resource created by Image Builder.
    */
   ResourceTags?: Record<string, string>;
@@ -93,6 +97,29 @@ export type Logging = {
    * The S3 path in which to store the logs.
    */
   S3Logs?: S3Logs;
+};
+/**
+ * Type definition for `AWS::ImageBuilder::InfrastructureConfiguration.Placement`.
+ * The placement options
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-placement.html}
+ */
+export type Placement = {
+  /**
+   * AvailabilityZone
+   */
+  AvailabilityZone?: string;
+  /**
+   * HostId
+   */
+  HostId?: string;
+  /**
+   * HostResourceGroupArn
+   */
+  HostResourceGroupArn?: string;
+  /**
+   * Tenancy
+   */
+  Tenancy?: "default" | "dedicated" | "host";
 };
 /**
  * Type definition for `AWS::ImageBuilder::InfrastructureConfiguration.S3Logs`.

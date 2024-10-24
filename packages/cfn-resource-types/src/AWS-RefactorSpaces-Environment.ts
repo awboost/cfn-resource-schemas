@@ -16,8 +16,8 @@ export type RefactorSpacesEnvironmentProperties = {
    * @maxLength `63`
    * @pattern `^(?!env-)[a-zA-Z0-9]+[a-zA-Z0-9-_ ]+$`
    */
-  Name: string;
-  NetworkFabricType: NetworkFabricType;
+  Name?: string;
+  NetworkFabricType?: NetworkFabricType;
   /**
    * Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
    */

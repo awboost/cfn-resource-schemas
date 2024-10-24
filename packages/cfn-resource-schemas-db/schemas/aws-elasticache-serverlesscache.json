@@ -1,11 +1,9 @@
 {
-  "$hash": "3d1b97df92cf930479a773f0df28560e3bd33a5f",
+  "$hash": "9aa6417839cdd5ae2eeff8084653dbe3e3cc52f9",
   "$id": "aws-elasticache-serverlesscache.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServerlessCacheName",
-    "/properties/Engine",
-    "/properties/MajorEngineVersion",
     "/properties/KmsKeyId",
     "/properties/SnapshotArnsToRestore",
     "/properties/SubnetIds"
@@ -231,6 +229,10 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-elasticache",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "elasticache:AddTagsToResource",
+      "elasticache:RemoveTagsFromResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,5 +1,5 @@
 {
-  "$hash": "3e183c50391aa4cb2b301dd89f79388b3ba98772",
+  "$hash": "2f9fc7656b3a45e7ab267ea7f80ee89c8640b7ab",
   "$id": "aws-pcaconnectorad-directoryregistration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DirectoryId"],
@@ -14,26 +14,28 @@
   "handlers": {
     "create": {
       "permissions": [
+        "ds:AuthorizeApplication",
+        "ds:DescribeDirectories",
         "pca-connector-ad:GetDirectoryRegistration",
         "pca-connector-ad:CreateDirectoryRegistration",
-        "ds:AuthorizeApplication",
-        "ds:DescribeDirectories"
+        "pca-connector-ad:TagResource"
       ]
     },
     "delete": {
       "permissions": [
-        "pca-connector-ad:GetDirectoryRegistration",
-        "pca-connector-ad:DeleteDirectoryRegistration",
         "ds:DescribeDirectories",
         "ds:UnauthorizeApplication",
-        "ds:UpdateAuthorizedApplication"
+        "ds:UpdateAuthorizedApplication",
+        "pca-connector-ad:GetDirectoryRegistration",
+        "pca-connector-ad:DeleteDirectoryRegistration",
+        "pca-connector-ad:UntagResource"
       ]
     },
     "list": { "permissions": ["pca-connector-ad:ListDirectoryRegistrations"] },
     "read": {
       "permissions": [
-        "pca-connector-ad:ListTagsForResource",
-        "pca-connector-ad:GetDirectoryRegistration"
+        "pca-connector-ad:GetDirectoryRegistration",
+        "pca-connector-ad:ListTagsForResource"
       ]
     },
     "update": {
@@ -59,11 +61,15 @@
   "required": ["DirectoryId"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "pca-connector-ad:ListTagsForResource",
+      "pca-connector-ad:TagResource",
+      "pca-connector-ad:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::PCAConnectorAD::DirectoryRegistration",
-  "writeOnlyProperties": ["/properties/DirectoryId", "/properties/Tags"]
+  "typeName": "AWS::PCAConnectorAD::DirectoryRegistration"
 }

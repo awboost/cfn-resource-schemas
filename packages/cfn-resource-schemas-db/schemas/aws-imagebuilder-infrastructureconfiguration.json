@@ -1,5 +1,5 @@
 {
-  "$hash": "0f4f01373c60fbc7e0498153cffe0a2b058dde88",
+  "$hash": "0a18afcefdf056df4d6e6e5467e930d5c3bff588",
   "$id": "aws-imagebuilder-infrastructureconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -24,6 +24,27 @@
       "additionalProperties": false,
       "description": "The logging configuration of the infrastructure configuration.",
       "properties": { "S3Logs": { "$ref": "#/definitions/S3Logs" } },
+      "type": "object"
+    },
+    "Placement": {
+      "additionalProperties": false,
+      "description": "The placement options",
+      "properties": {
+        "AvailabilityZone": {
+          "description": "AvailabilityZone",
+          "type": "string"
+        },
+        "HostId": { "description": "HostId", "type": "string" },
+        "HostResourceGroupArn": {
+          "description": "HostResourceGroupArn",
+          "type": "string"
+        },
+        "Tenancy": {
+          "description": "Tenancy",
+          "enum": ["default", "dedicated", "host"],
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "S3Logs": {
@@ -124,6 +145,10 @@
     "Name": {
       "description": "The name of the infrastructure configuration.",
       "type": "string"
+    },
+    "Placement": {
+      "$ref": "#/definitions/Placement",
+      "description": "The placement option settings for the infrastructure configuration."
     },
     "ResourceTags": {
       "additionalProperties": false,

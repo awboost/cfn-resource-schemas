@@ -30,7 +30,7 @@ export type ImageBuilderComponentProperties = {
   /**
    * The platform of the component.
    */
-  Platform: "Windows" | "Linux";
+  Platform: "Windows" | "Linux" | "macOS";
   /**
    * The operating system (OS) version supported by the component.
    */

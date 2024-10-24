@@ -1,5 +1,5 @@
 {
-  "$hash": "d4b7525ba8837db6851377b8048494cf213c01d9",
+  "$hash": "f177eb5674becf3fb3b35e94f0a4e7e69c62643f",
   "$id": "aws-pcaconnectorad-connector.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -46,15 +46,17 @@
         "ec2:CreateVpcEndpoint",
         "ec2:DescribeVpcEndpoints",
         "pca-connector-ad:CreateConnector",
-        "pca-connector-ad:GetConnector"
+        "pca-connector-ad:GetConnector",
+        "pca-connector-ad:TagResource"
       ]
     },
     "delete": {
       "permissions": [
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeVpcEndpoints",
         "pca-connector-ad:GetConnector",
         "pca-connector-ad:DeleteConnector",
-        "ec2:DeleteVpcEndpoints",
-        "ec2:DescribeVpcEndpoints"
+        "pca-connector-ad:UntagResource"
       ]
     },
     "list": { "permissions": ["pca-connector-ad:ListConnectors"] },
@@ -94,16 +96,15 @@
   "required": ["CertificateAuthorityArn", "DirectoryId", "VpcInformation"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "pca-connector-ad:ListTagsForResource",
+      "pca-connector-ad:TagResource",
+      "pca-connector-ad:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::PCAConnectorAD::Connector",
-  "writeOnlyProperties": [
-    "/properties/CertificateAuthorityArn",
-    "/properties/DirectoryId",
-    "/properties/Tags",
-    "/properties/VpcInformation"
-  ]
+  "typeName": "AWS::PCAConnectorAD::Connector"
 }

@@ -18,6 +18,10 @@ export type ElastiCacheGlobalReplicationGroupProperties = {
    */
   CacheParameterGroupName?: string;
   /**
+   * The engine of the Global Datastore.
+   */
+  Engine?: string;
+  /**
    * The engine version of the Global Datastore.
    */
   EngineVersion?: string;

@@ -1,5 +1,5 @@
 {
-  "$hash": "6c3809ef847bb35cf49ff6de2984c2183611ffe8",
+  "$hash": "5cb4b205da7e9bdd7bd3c41d18a339c1c2f3f0d5",
   "$id": "aws-omics-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -161,7 +161,13 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "omics:TagResource",
+      "omics:UntagResource",
+      "omics:ListTagsForResource"
+    ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

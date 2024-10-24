@@ -1,5 +1,5 @@
 {
-  "$hash": "d31520c136b7220b342fe2631a073ee47522c396",
+  "$hash": "a23cb817475111e6262d10b97dd96b8614a99295",
   "$id": "aws-apigateway-vpclink.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TargetArns"],
@@ -71,14 +71,8 @@
   },
   "primaryIdentifier": ["/properties/VpcLinkId"],
   "properties": {
-    "Description": {
-      "description": "The description of the VPC link.",
-      "type": "string"
-    },
-    "Name": {
-      "description": "The name used to label and identify the VPC link.",
-      "type": "string"
-    },
+    "Description": { "description": "", "type": "string" },
+    "Name": { "description": "", "type": "string" },
     "Tags": {
       "description": "An array of arbitrary tags (key-value pairs) to associate with the VPC link.",
       "insertionOrder": false,
@@ -87,7 +81,7 @@
       "uniqueItems": true
     },
     "TargetArns": {
-      "description": "The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.",
+      "description": "",
       "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",

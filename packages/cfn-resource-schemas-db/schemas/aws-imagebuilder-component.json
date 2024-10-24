@@ -1,5 +1,5 @@
 {
-  "$hash": "1cb5b50ac66ef5e722b3432ae6eb80772031e4b9",
+  "$hash": "60d973311794e07bc08bda2bcfab10fa6b6eb810",
   "$id": "aws-imagebuilder-component.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -84,7 +84,7 @@
     "Name": { "description": "The name of the component.", "type": "string" },
     "Platform": {
       "description": "The platform of the component.",
-      "enum": ["Windows", "Linux"],
+      "enum": ["Windows", "Linux", "macOS"],
       "type": "string"
     },
     "SupportedOsVersions": {

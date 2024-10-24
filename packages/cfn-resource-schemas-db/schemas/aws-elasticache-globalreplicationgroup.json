@@ -1,5 +1,5 @@
 {
-  "$hash": "2220d37be163a9562366d12c9c1b4146fd48be31",
+  "$hash": "baca143587c222ee0a9256fdd457eb3312c0075b",
   "$id": "aws-elasticache-globalreplicationgroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -100,6 +100,10 @@
     },
     "CacheParameterGroupName": {
       "description": "Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.",
+      "type": "string"
+    },
+    "Engine": {
+      "description": "The engine of the Global Datastore.",
       "type": "string"
     },
     "EngineVersion": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "41fff56408a4ec7242ea8d3304c8de3e7a8cb66e",
+  "$hash": "2c33a283b168bf3508dfb5751c0ed222a482a8f5",
   "$id": "aws-bedrock-agent.json",
   "additionalProperties": false,
   "definitions": {
@@ -57,7 +57,7 @@
     },
     "ActionGroupSignature": {
       "description": "Action Group Signature for a BuiltIn Action",
-      "enum": ["AMAZON.UserInput"],
+      "enum": ["AMAZON.UserInput", "AMAZON.CodeInterpreter"],
       "type": "string"
     },
     "ActionGroupState": {
@@ -505,7 +505,7 @@
       "description": "ARN or name of a Bedrock model.",
       "maxLength": 2048,
       "minLength": 1,
-      "pattern": "^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}(([:][a-z0-9-]{1,63}){0,2})?/[a-z0-9]{12})|(:foundation-model/([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2})))|(([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2}))|(([0-9a-zA-Z][_-]?)+)$",
+      "pattern": "^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}(([:][a-z0-9-]{1,63}){0,2})?/[a-z0-9]{12})|(:foundation-model/([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2}))|([0-9]{12}:(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+))|(([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2}))|(([0-9a-zA-Z][_-]?)+)$",
       "type": "string"
     },
     "GuardrailConfiguration": {

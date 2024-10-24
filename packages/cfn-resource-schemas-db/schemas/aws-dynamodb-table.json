@@ -1,5 +1,5 @@
 {
-  "$hash": "16910180b3708da31e0ed7de1dafd80a42a65f2e",
+  "$hash": "ed9da5c961f5385bb51982c5d36b8932f73eb584",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -577,6 +577,11 @@
   "required": ["KeySchema"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "dynamodb:TagResource",
+      "dynamodb:UntagResource",
+      "dynamodb:ListTagsOfResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

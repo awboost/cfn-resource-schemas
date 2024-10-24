@@ -1,23 +1,157 @@
-- updated `AWS::EC2::CapacityReservation`
-  - added `writeOnlyProperties`
-  - added property `UnusedReservationBillingOwnerId`
-  - updated handler permissions
-- updated `AWS::ECS::Service`
-  - updated definition `LogConfiguration`
-- updated `AWS::InspectorV2::CisScanConfiguration`
-  - updated definition `CisTargets`
-- updated `AWS::Location::APIKey`
-  - updated handler permissions
-- updated `AWS::MemoryDB::Cluster`
+- added `AWS::Backup::LogicallyAirGappedBackupVault`
+- updated `AWS::ApiGateway::VpcLink`
+  - updated property `Description`
+  - updated property `Name`
+  - updated property `TargetArns`
+- updated `AWS::AppSync::GraphQLApi`
   - added `tagging`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `AdditionalAuthenticationProvider`
+  - updated definition `CognitoUserPoolConfig`
+  - updated definition `EnhancedMetricsConfig`
+  - updated definition `LambdaAuthorizerConfig`
+  - updated definition `LogConfig`
+  - updated definition `OpenIDConnectConfig`
+  - updated definition `UserPoolConfig`
+  - updated handler permissions
+  - updated property `AdditionalAuthenticationProviders`
+  - updated property `ApiId`
+  - updated property `ApiType`
+  - updated property `Arn`
+  - updated property `AuthenticationType`
+  - updated property `EnhancedMetricsConfig`
+  - updated property `EnvironmentVariables`
+  - updated property `GraphQLDns`
+  - updated property `GraphQLEndpointArn`
+  - updated property `GraphQLUrl`
+  - updated property `IntrospectionConfig`
+  - updated property `LambdaAuthorizerConfig`
+  - updated property `LogConfig`
+  - updated property `MergedApiExecutionRoleArn`
+  - updated property `Name`
+  - updated property `OpenIDConnectConfig`
+  - updated property `OwnerContact`
+  - updated property `QueryDepthLimit`
+  - updated property `RealtimeDns`
+  - updated property `RealtimeUrl`
+  - updated property `ResolverCountLimit`
+  - updated property `Tags`
+  - updated property `UserPoolConfig`
+  - updated property `Visibility`
+  - updated property `XrayEnabled`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - added definition `TrafficSourceIdentifier`
+  - added property `TrafficSources`
+  - updated `conditionalCreateOnlyProperties`
+  - updated handler permissions
+  - updated property `HealthCheckType`
+- updated `AWS::AutoScaling::WarmPool`
+  - added `tagging`
+- updated `AWS::Backup::BackupPlan`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Backup::BackupVault`
+  - updated `tagging`
+- updated `AWS::Backup::Framework`
+  - updated `tagging`
+- updated `AWS::Backup::ReportPlan`
+  - updated `tagging`
+- updated `AWS::Backup::RestoreTestingPlan`
+  - updated `tagging`
+- updated `AWS::Bedrock::Agent`
+  - updated definition `ActionGroupSignature`
+  - updated property `FoundationModel`
+- updated `AWS::Cognito::UserPoolIdentityProvider`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `required`
+  - updated handler permissions
+  - updated property `AttributeMapping`
+  - updated property `IdpIdentifiers`
+  - updated property `ProviderDetails`
+- updated `AWS::DevOpsGuru::NotificationChannel`
+  - added `tagging`
+- updated `AWS::DynamoDB::Table`
+  - updated `tagging`
+- updated `AWS::EC2::NetworkInterface`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::EC2::VPCEndpoint`
+  - updated property `PolicyDocument`
+- updated `AWS::EC2::VPNConnection`
+  - updated definition `CloudwatchLogOptionsSpecification`
+  - updated definition `IKEVersionsRequestListValue`
+  - updated definition `Phase1DHGroupNumbersRequestListValue`
+  - updated definition `Phase1EncryptionAlgorithmsRequestListValue`
+  - updated definition `Phase1IntegrityAlgorithmsRequestListValue`
+  - updated definition `Phase2DHGroupNumbersRequestListValue`
+  - updated definition `Phase2EncryptionAlgorithmsRequestListValue`
+  - updated definition `Phase2IntegrityAlgorithmsRequestListValue`
+  - updated definition `VpnTunnelLogOptionsSpecification`
+  - updated definition `VpnTunnelOptionsSpecification`
+- updated `AWS::EC2::Volume`
+  - updated `tagging`
+- updated `AWS::ElastiCache::GlobalReplicationGroup`
   - added property `Engine`
+- updated `AWS::ElastiCache::ServerlessCache`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+- updated `AWS::IVS::EncoderConfiguration`
+  - updated property `Video`
+- updated `AWS::ImageBuilder::Component`
+  - updated property `Platform`
+- updated `AWS::ImageBuilder::InfrastructureConfiguration`
+  - added definition `Placement`
+  - added property `Placement`
+- updated `AWS::IoT::TopicRule`
+  - updated `tagging`
+- updated `AWS::Location::APIKey`
+  - updated definition `ApiKeyRestrictions`
+- updated `AWS::Omics::AnnotationStore`
+  - updated `tagging`
+- updated `AWS::Omics::ReferenceStore`
+  - updated `tagging`
+- updated `AWS::Omics::RunGroup`
+  - updated `tagging`
+- updated `AWS::Omics::SequenceStore`
+  - updated `tagging`
+- updated `AWS::Omics::VariantStore`
+  - updated `tagging`
+- updated `AWS::Omics::Workflow`
+  - updated `tagging`
+- updated `AWS::PCAConnectorAD::Connector`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::PCAConnectorAD::DirectoryRegistration`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::PCAConnectorAD::Template`
+  - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::RefactorSpaces::Environment`
+  - added `tagging`
+  - removed `required`
   - removed `taggable`
   - updated handler permissions
-- updated `AWS::Proton::EnvironmentAccountConnection`
+- updated `AWS::S3::AccessGrant`
   - updated `tagging`
-- updated `AWS::Proton::EnvironmentTemplate`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::S3::AccessGrantsInstance`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::Proton::ServiceTemplate`
+- updated `AWS::S3::AccessGrantsLocation`
+  - removed `writeOnlyProperties`
   - updated `tagging`
   - updated handler permissions
+- updated `AWS::S3::Bucket`
+  - updated definition `ServerSideEncryptionByDefault`
+  - updated definition `ServerSideEncryptionRule`

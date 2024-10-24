@@ -1,5 +1,5 @@
 {
-  "$hash": "a0fbd9aabb0391bfc5db3fb290efb1ca465277ae",
+  "$hash": "3cfc65345fbf512c192b544ef0fa1bb5c25b5bff",
   "$id": "aws-omics-rungroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -67,7 +67,13 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "omics:TagResource",
+      "omics:UntagResource",
+      "omics:ListTagsForResource"
+    ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

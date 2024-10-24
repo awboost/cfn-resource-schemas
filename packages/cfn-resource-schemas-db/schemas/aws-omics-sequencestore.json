@@ -1,5 +1,5 @@
 {
-  "$hash": "291c6157d09497504b19fd9eca6086479d01430d",
+  "$hash": "583dbd1c53630849d0ebf35bc068d3e004eedaef",
   "$id": "aws-omics-sequencestore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -101,7 +101,9 @@
   "required": ["Name"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["omics:TagResource", "omics:ListTagsForResource"],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": false,
     "taggable": true
   },

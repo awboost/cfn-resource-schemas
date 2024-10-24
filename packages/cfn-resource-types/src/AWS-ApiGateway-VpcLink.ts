@@ -5,21 +5,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html}
  */
 export type ApiGatewayVpcLinkProperties = {
-  /**
-   * The description of the VPC link.
-   */
   Description?: string;
-  /**
-   * The name used to label and identify the VPC link.
-   */
   Name: string;
   /**
    * An array of arbitrary tags (key-value pairs) to associate with the VPC link.
    */
   Tags?: Tag[];
-  /**
-   * The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
-   */
   TargetArns: string[];
 };
 /**
