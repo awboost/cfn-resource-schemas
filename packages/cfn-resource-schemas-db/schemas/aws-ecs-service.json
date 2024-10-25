@@ -1,5 +1,5 @@
 {
-  "$hash": "85635ebea806432196cf6e3e38b9e2c4c85d79c4",
+  "$hash": "8fd6e1d9191ed6a6f2011300a7227ae554cd4858",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -621,7 +621,12 @@
   },
   "readOnlyProperties": ["/properties/ServiceArn", "/properties/Name"],
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "ecs:TagResource",
+      "ecs:UntagResource",
+      "ecs:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
