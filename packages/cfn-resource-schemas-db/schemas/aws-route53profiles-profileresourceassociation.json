@@ -1,5 +1,5 @@
 {
-  "$hash": "8237a616e60cec0000ec10560449f5f17d0f4d48",
+  "$hash": "d40e24668c0396206d932ac5ce0ff68fcf0b4e9a",
   "$id": "aws-route53profiles-profileresourceassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -82,6 +82,7 @@
     }
   },
   "readOnlyProperties": ["/properties/Id", "/properties/ResourceType"],
+  "replacementStrategy": "delete_then_create",
   "required": ["ProfileId", "Name", "ResourceArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53profiles",
   "tagging": {

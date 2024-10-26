@@ -48,6 +48,10 @@ export type SageMakerDomainProperties = {
    */
   SubnetIds: string[];
   /**
+   * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+   */
+  TagPropagation?: "ENABLED" | "DISABLED";
+  /**
    * A list of tags to apply to the user profile.
    * @minLength `0`
    * @maxLength `50`
@@ -308,6 +312,10 @@ export type DomainSettings = {
    * A collection of settings that are required to start docker-proxy server.
    */
   DockerSettings?: DockerSettings;
+  /**
+   * The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+   */
+  ExecutionRoleIdentityConfig?: "USER_PROFILE_NAME" | "DISABLED";
   /**
    * A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
    */

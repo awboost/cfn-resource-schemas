@@ -1,5 +1,5 @@
 {
-  "$hash": "f542d1e72084ea92d010852e02044eca00336a52",
+  "$hash": "eb72f02bf93fddff4b8dd2d18a2e43b9bf99b24d",
   "$id": "aws-lambda-version.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -102,11 +102,29 @@
       "type": "string"
     },
     "FunctionName": {
+      "anyOf": [
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/FunctionName",
+            "typeName": "AWS::Lambda::Function"
+          }
+        },
+        {
+          "relationshipRef": {
+            "propertyPath": "/properties/Arn",
+            "typeName": "AWS::Lambda::Function"
+          }
+        }
+      ],
       "description": "The name of the Lambda function.",
       "maxLength": 140,
       "minLength": 1,
       "pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
       "type": "string"
+    },
+    "Policy": {
+      "description": "The resource policy of your function",
+      "type": "object"
     },
     "ProvisionedConcurrencyConfig": {
       "$ref": "#/definitions/ProvisionedConcurrencyConfiguration",

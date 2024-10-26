@@ -1,5 +1,5 @@
 {
-  "$hash": "9c3f919206fbadc035731092c3a45cdf1b602d73",
+  "$hash": "846f7d36c9875e334ff3fdb83c69ac13383e59ba",
   "$id": "aws-fis-experimenttemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,6 +11,18 @@
       "description": "The ID of the action.",
       "maxLength": 64,
       "type": "string"
+    },
+    "CloudWatchDashboard": {
+      "additionalProperties": false,
+      "properties": {
+        "DashboardIdentifier": {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["DashboardIdentifier"],
+      "type": "object"
     },
     "ExperimentTemplateAction": {
       "additionalProperties": false,

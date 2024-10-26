@@ -1,30 +1,44 @@
-- updated `AWS::EC2::NetworkInsightsAccessScope`
-  - added `tagging`
-- updated `AWS::EC2::NetworkInsightsPath`
-  - added `tagging`
-- updated `AWS::ECS::Service`
-  - updated `tagging`
-- updated `AWS::SageMaker::Endpoint`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - added property `EndpointArn`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `Alarm`
-  - updated definition `AutoRollbackConfig`
-  - updated definition `BlueGreenUpdatePolicy`
-  - updated definition `CapacitySize`
-  - updated definition `DeploymentConfig`
-  - updated definition `RollingUpdatePolicy`
-  - updated definition `Tag`
-  - updated definition `TrafficRoutingConfig`
-  - updated definition `VariantProperty`
+- updated `AWS::Backup::BackupPlan`
   - updated handler permissions
-  - updated property `DeploymentConfig`
-  - updated property `EndpointConfigName`
-  - updated property `EndpointName`
-  - updated property `ExcludeRetainedVariantProperties`
-  - updated property `RetainAllVariantProperties`
-  - updated property `RetainDeploymentConfig`
-  - updated property `Tags`
+- updated `AWS::Bedrock::Flow`
+  - added definition `GuardrailConfiguration`
+  - updated definition `KnowledgeBaseFlowNodeConfiguration`
+  - updated definition `PromptFlowNodeConfiguration`
+  - updated definition `PromptFlowNodeInlineConfiguration`
+  - updated definition `PromptModelInferenceConfiguration`
+  - updated handler permissions
+- updated `AWS::Bedrock::FlowVersion`
+  - added definition `GuardrailConfiguration`
+  - updated definition `KnowledgeBaseFlowNodeConfiguration`
+  - updated definition `PromptFlowNodeConfiguration`
+  - updated definition `PromptFlowNodeInlineConfiguration`
+  - updated definition `PromptModelInferenceConfiguration`
+  - updated handler permissions
+- updated `AWS::Bedrock::Prompt`
+  - updated definition `PromptModelInferenceConfiguration`
+  - updated definition `PromptVariant`
+  - updated property `Variants`
+- updated `AWS::Bedrock::PromptVersion`
+  - updated `createOnlyProperties`
+  - updated definition `PromptModelInferenceConfiguration`
+  - updated definition `PromptVariant`
+  - updated definition `TextPromptTemplateConfiguration`
+  - updated handler permissions
+  - updated property `Variants`
+- updated `AWS::EC2::Volume`
+  - updated handler permissions
+- updated `AWS::ECS::TaskSet`
+  - updated `tagging`
+- updated `AWS::FIS::ExperimentTemplate`
+  - added definition `CloudWatchDashboard`
+- updated `AWS::Lambda::Version`
+  - added property `Policy`
+  - updated property `FunctionName`
+- updated `AWS::Route53Profiles::ProfileResourceAssociation`
+  - added `replacementStrategy`
+- updated `AWS::SNS::Topic`
+  - updated definition `Subscription`
+  - updated property `KmsMasterKeyId`
+- updated `AWS::SageMaker::Domain`
+  - added property `TagPropagation`
+  - updated definition `DomainSettings`

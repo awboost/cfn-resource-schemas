@@ -23,6 +23,10 @@ export type LambdaVersionProperties = {
    */
   FunctionName: string;
   /**
+   * The resource policy of your function
+   */
+  Policy?: Record<string, any>;
+  /**
    * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
    */
   ProvisionedConcurrencyConfig?: ProvisionedConcurrencyConfiguration;

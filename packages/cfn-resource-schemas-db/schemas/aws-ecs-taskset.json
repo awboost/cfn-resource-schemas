@@ -1,5 +1,5 @@
 {
-  "$hash": "ed41e64c3965b1e0c5cf262a7b41451299dd93c7",
+  "$hash": "60918dce13fa77b3b8535c7b6f742ddb11a1ac63",
   "$id": "aws-ecs-taskset.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -201,7 +201,13 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ecs.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "ecs:TagResource",
+      "ecs:UntagResource",
+      "ecs:ListTagsForResource"
+    ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

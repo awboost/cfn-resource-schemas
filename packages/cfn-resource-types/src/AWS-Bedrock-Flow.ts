@@ -450,6 +450,24 @@ export type FlowValidation = {
   Message: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::Flow.GuardrailConfiguration`.
+ * Configuration for a guardrail
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-guardrailconfiguration.html}
+ */
+export type GuardrailConfiguration = {
+  /**
+   * Identifier for the guardrail, could be the id or the arn
+   * @maxLength `2048`
+   * @pattern `^(([a-z0-9]+)|(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:guardrail/[a-z0-9]+))$`
+   */
+  GuardrailIdentifier?: string;
+  /**
+   * Version of the guardrail
+   * @pattern `^(([0-9]{1,8})|(DRAFT))$`
+   */
+  GuardrailVersion?: string;
+};
+/**
  * Type definition for `AWS::Bedrock::Flow.InputFlowNodeConfiguration`.
  * Input flow node configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-inputflownodeconfiguration.html}
@@ -468,16 +486,20 @@ export type IteratorFlowNodeConfiguration = Record<string, any>;
  */
 export type KnowledgeBaseFlowNodeConfiguration = {
   /**
+   * Configuration for a guardrail
+   */
+  GuardrailConfiguration?: GuardrailConfiguration;
+  /**
    * Identifier of the KnowledgeBase
    * @maxLength `10`
    * @pattern `^[0-9a-zA-Z]+$`
    */
   KnowledgeBaseId: string;
   /**
-   * ARN or name of a Bedrock model.
+   * ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}(([:][a-z0-9-]{1,63}){0,2})?/[a-z0-9]{12})|(:foundation-model/([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2})))|(([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2}))|(([0-9a-zA-Z][_-]?)+)$`
+   * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:imported-model/[a-z0-9]{12})|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)|([a-zA-Z0-9-:.]+)$`
    */
   ModelId?: string;
 };
@@ -526,6 +548,10 @@ export type OutputFlowNodeConfiguration = Record<string, any>;
  */
 export type PromptFlowNodeConfiguration = {
   /**
+   * Configuration for a guardrail
+   */
+  GuardrailConfiguration?: GuardrailConfiguration;
+  /**
    * Prompt source configuration for prompt node
    */
   SourceConfiguration: PromptFlowNodeSourceConfiguration;
@@ -538,10 +564,10 @@ export type PromptFlowNodeConfiguration = {
 export type PromptFlowNodeInlineConfiguration = {
   InferenceConfiguration?: PromptInferenceConfiguration;
   /**
-   * ARN or name of a Bedrock model.
+   * ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)$`
+   * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:imported-model/[a-z0-9]{12})|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)|([a-zA-Z0-9-:.]+)$`
    */
   ModelId: string;
   TemplateConfiguration: PromptTemplateConfiguration;
@@ -626,12 +652,6 @@ export type PromptModelInferenceConfiguration = {
    * @max `1`
    */
   Temperature?: number;
-  /**
-   * Sample from the k most likely next tokens
-   * @min `0`
-   * @max `500`
-   */
-  TopK?: number;
   /**
    * Cumulative probability cutoff for token selection
    * @min `0`

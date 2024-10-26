@@ -1,5 +1,5 @@
 {
-  "$hash": "ad89db41c6566d4821bf2bf508c62ddd7355a468",
+  "$hash": "6fcad0a8c7a6e4e61a56a341aa7013d0e66c5a34",
   "$id": "aws-ec2-volume.json",
   "additionalProperties": false,
   "definitions": {
@@ -25,7 +25,8 @@
         "ec2:CreateTags",
         "kms:GenerateDataKeyWithoutPlaintext",
         "kms:CreateGrant"
-      ]
+      ],
+      "timeoutInMinutes": 725
     },
     "delete": {
       "permissions": [

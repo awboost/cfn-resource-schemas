@@ -1,5 +1,5 @@
 {
-  "$hash": "3dd9e7c6d582437e5eeaef13824fd61016035867",
+  "$hash": "b59504b5aa3b301d99fe47a4c7aea6015c04cebb",
   "$id": "aws-backup-backupplan.json",
   "additionalProperties": false,
   "definitions": {
@@ -84,7 +84,6 @@
     "create": {
       "permissions": [
         "backup:GetBackupPlan",
-        "backup:ListTags",
         "backup:TagResource",
         "backup:CreateBackupPlan"
       ]

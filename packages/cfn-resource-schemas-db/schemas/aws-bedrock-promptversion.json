@@ -1,8 +1,12 @@
 {
-  "$hash": "bc87eb470606bf95d4412e1c1ec28ccde7891ec7",
+  "$hash": "309df3cc0b8c11fdd341d689f3b3292cfd86cce8",
   "$id": "aws-bedrock-promptversion.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/PromptArn", "/properties/Description"],
+  "createOnlyProperties": [
+    "/properties/PromptArn",
+    "/properties/Description",
+    "/properties/Tags"
+  ],
   "definitions": {
     "PromptInferenceConfiguration": {
       "description": "Model inference configuration",
@@ -56,12 +60,6 @@
           "minimum": 0,
           "type": "number"
         },
-        "TopK": {
-          "description": "Sample from the k most likely next tokens",
-          "maximum": 500,
-          "minimum": 0,
-          "type": "number"
-        },
         "TopP": {
           "description": "Cumulative probability cutoff for token selection",
           "maximum": 1,
@@ -98,10 +96,10 @@
           "$ref": "#/definitions/PromptInferenceConfiguration"
         },
         "ModelId": {
-          "description": "ARN or name of a Bedrock model.",
+          "description": "ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.",
           "maxLength": 2048,
           "minLength": 1,
-          "pattern": "^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)$",
+          "pattern": "^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:imported-model/[a-z0-9]{12})|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)|([a-zA-Z0-9-:.]+)$",
           "type": "string"
         },
         "Name": {
@@ -114,7 +112,7 @@
         },
         "TemplateType": { "$ref": "#/definitions/PromptTemplateType" }
       },
-      "required": ["Name", "TemplateType"],
+      "required": ["Name", "TemplateType", "TemplateConfiguration"],
       "type": "object"
     },
     "TagsMap": {
@@ -140,7 +138,7 @@
           "insertionOrder": true,
           "items": { "$ref": "#/definitions/PromptInputVariable" },
           "maxItems": 5,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array"
         },
         "Text": {
@@ -182,8 +180,7 @@
         "bedrock:ListTagsForResource",
         "kms:Decrypt"
       ]
-    },
-    "update": { "permissions": ["noservice:NoAction"] }
+    }
   },
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
@@ -244,7 +241,7 @@
       "description": "List of prompt variants",
       "insertionOrder": true,
       "items": { "$ref": "#/definitions/PromptVariant" },
-      "maxItems": 3,
+      "maxItems": 1,
       "minItems": 1,
       "type": "array"
     },

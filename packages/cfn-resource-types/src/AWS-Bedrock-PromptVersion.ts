@@ -68,7 +68,7 @@ export type BedrockPromptVersionAttributes = {
   /**
    * List of prompt variants
    * @minLength `1`
-   * @maxLength `3`
+   * @maxLength `1`
    */
   Variants: {
     InferenceConfiguration: {
@@ -95,12 +95,6 @@ export type BedrockPromptVersionAttributes = {
          */
         Temperature: number;
         /**
-         * Sample from the k most likely next tokens
-         * @min `0`
-         * @max `500`
-         */
-        TopK: number;
-        /**
          * Cumulative probability cutoff for token selection
          * @min `0`
          * @max `1`
@@ -109,10 +103,10 @@ export type BedrockPromptVersionAttributes = {
       };
     };
     /**
-     * ARN or name of a Bedrock model.
+     * ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
      * @minLength `1`
      * @maxLength `2048`
-     * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)$`
+     * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:imported-model/[a-z0-9]{12})|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)|([a-zA-Z0-9-:.]+)$`
      */
     ModelId: string;
     /**
@@ -127,7 +121,7 @@ export type BedrockPromptVersionAttributes = {
       Text: {
         /**
          * List of input variables
-         * @minLength `1`
+         * @minLength `0`
          * @maxLength `5`
          */
         InputVariables: {
@@ -205,12 +199,6 @@ export type PromptModelInferenceConfiguration = {
    */
   Temperature?: number;
   /**
-   * Sample from the k most likely next tokens
-   * @min `0`
-   * @max `500`
-   */
-  TopK?: number;
-  /**
    * Cumulative probability cutoff for token selection
    * @min `0`
    * @max `1`
@@ -241,10 +229,10 @@ export type PromptTemplateType = "TEXT";
 export type PromptVariant = {
   InferenceConfiguration?: PromptInferenceConfiguration;
   /**
-   * ARN or name of a Bedrock model.
+   * ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)$`
+   * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:imported-model/[a-z0-9]{12})|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)|([a-zA-Z0-9-:.]+)$`
    */
   ModelId?: string;
   /**
@@ -252,7 +240,7 @@ export type PromptVariant = {
    * @pattern `^([0-9a-zA-Z][_-]?){1,100}$`
    */
   Name: string;
-  TemplateConfiguration?: PromptTemplateConfiguration;
+  TemplateConfiguration: PromptTemplateConfiguration;
   /**
    * Prompt template type
    */
@@ -272,7 +260,7 @@ export type TagsMap = Record<string, string>;
 export type TextPromptTemplateConfiguration = {
   /**
    * List of input variables
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `5`
    */
   InputVariables?: PromptInputVariable[];
