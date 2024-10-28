@@ -1,1 +1,2 @@
-- added `AWS::DMS::DataMigration`
+- updated `AWS::NetworkFirewall::FirewallPolicy`
+  - updated definition `StatefulEngineOptions`

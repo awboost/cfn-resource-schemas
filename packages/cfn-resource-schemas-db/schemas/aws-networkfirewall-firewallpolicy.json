@@ -1,5 +1,5 @@
 {
-  "$hash": "64eca21b1af028f42977046bfefc8dff78fc21b2",
+  "$hash": "2817399f9e10fc901cf03f16de6c63c4c22b2cca",
   "$id": "aws-networkfirewall-firewallpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FirewallPolicyName"],
@@ -147,7 +147,7 @@
           "additionalProperties": false,
           "properties": {
             "TcpIdleTimeoutSeconds": {
-              "maximum": 600,
+              "maximum": 6000,
               "minimum": 60,
               "type": "integer"
             }

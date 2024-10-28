@@ -131,7 +131,7 @@ export type StatefulEngineOptions = {
   FlowTimeouts?: {
     /**
      * @min `60`
-     * @max `600`
+     * @max `6000`
      */
     TcpIdleTimeoutSeconds?: number;
   };
