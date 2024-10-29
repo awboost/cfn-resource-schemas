@@ -1,2 +1,37 @@
-- updated `AWS::NetworkFirewall::FirewallPolicy`
-  - updated definition `StatefulEngineOptions`
+- updated `AWS::AppConfig::DeploymentStrategy`
+  - added `sourceUrl`
+  - added `tagging`
+  - added definition `Tag`
+  - removed definition `Tags`
+  - updated `required`
+  - updated handler permissions
+  - updated property `DeploymentDurationInMinutes`
+  - updated property `Description`
+  - updated property `FinalBakeTimeInMinutes`
+  - updated property `GrowthFactor`
+  - updated property `GrowthType`
+  - updated property `Id`
+  - updated property `Name`
+  - updated property `ReplicateTo`
+  - updated property `Tags`
+- updated `AWS::Batch::ComputeEnvironment`
+  - updated `tagging`
+- updated `AWS::Batch::JobQueue`
+  - updated `tagging`
+- updated `AWS::Connect::ContactFlow`
+  - updated property `Type`
+- updated `AWS::EC2::EIP`
+  - added property `Address`
+  - added property `IpamPoolId`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::EKS::AccessEntry`
+  - updated `tagging`
+- updated `AWS::RDS::DBCluster`
+  - updated `propertyTransform`
+- updated `AWS::RDS::DBInstance`
+  - updated `createOnlyProperties`
+  - updated `propertyTransform`
+  - updated `writeOnlyProperties`
+- updated `AWS::Route53Profiles::ProfileAssociation`
+  - added `replacementStrategy`

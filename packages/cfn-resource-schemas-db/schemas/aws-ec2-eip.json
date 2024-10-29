@@ -1,12 +1,14 @@
 {
-  "$hash": "8e8505756118c6884ed978b1a96d3c1410105d67",
+  "$hash": "f9988a975845ca91015b56e11edd66928eae4c5e",
   "$id": "aws-ec2-eip.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Domain",
     "/properties/NetworkBorderGroup",
-    "/properties/TransferAddress"
+    "/properties/TransferAddress",
+    "/properties/IpamPoolId",
+    "/properties/Address"
   ],
   "definitions": {
     "Tag": {
@@ -52,6 +54,7 @@
   },
   "primaryIdentifier": ["/properties/PublicIp", "/properties/AllocationId"],
   "properties": {
+    "Address": { "description": "", "type": "string" },
     "AllocationId": { "description": "", "type": "string" },
     "Domain": {
       "description": "The network (``vpc``).\n If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.",
@@ -61,6 +64,7 @@
       "description": "The ID of the instance.\n  Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.",
       "type": "string"
     },
+    "IpamPoolId": { "description": "", "type": "string" },
     "NetworkBorderGroup": {
       "description": "A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.\n Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.",
       "type": "string"
@@ -93,5 +97,9 @@
     "taggable": true
   },
   "typeName": "AWS::EC2::EIP",
-  "writeOnlyProperties": ["/properties/TransferAddress"]
+  "writeOnlyProperties": [
+    "/properties/TransferAddress",
+    "/properties/IpamPoolId",
+    "/properties/Address"
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "b66c220990e94c8e9e9c97db3789f87170a549d7",
+  "$hash": "ef87f2d828bd10e6108b3aa9cebe8c940c397d18",
   "$id": "aws-batch-computeenvironment.json",
   "additionalIdentifiers": [["/properties/ComputeEnvironmentName"]],
   "additionalProperties": false,
@@ -173,6 +173,7 @@
   "required": ["Type"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["Batch:TagResource", "Batch:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,

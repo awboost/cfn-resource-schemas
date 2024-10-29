@@ -1,5 +1,5 @@
 {
-  "$hash": "9c4faa39bdb86fc9ca54241437156bb65acebb10",
+  "$hash": "961f46a70393d88b706d9fe718c972d4a074f8db",
   "$id": "aws-route53profiles-profileassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -99,6 +99,7 @@
     }
   },
   "readOnlyProperties": ["/properties/Id"],
+  "replacementStrategy": "delete_then_create",
   "required": ["ResourceId", "ProfileId", "Name"],
   "tagging": {
     "cloudFormationSystemTags": false,

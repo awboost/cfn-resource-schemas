@@ -1,5 +1,5 @@
 {
-  "$hash": "f7ecdee591b062c270fc0e031034933f952e86db",
+  "$hash": "20866531ed9718154cb5fdede5d66cb08248622a",
   "$id": "aws-connect-contactflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
@@ -111,7 +111,8 @@
         "AGENT_WHISPER",
         "OUTBOUND_WHISPER",
         "AGENT_TRANSFER",
-        "QUEUE_TRANSFER"
+        "QUEUE_TRANSFER",
+        "CAMPAIGN"
       ],
       "type": "string"
     }

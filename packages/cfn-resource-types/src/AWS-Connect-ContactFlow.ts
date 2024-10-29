@@ -50,7 +50,8 @@ export type ConnectContactFlowProperties = {
     | "AGENT_WHISPER"
     | "OUTBOUND_WHISPER"
     | "AGENT_TRANSFER"
-    | "QUEUE_TRANSFER";
+    | "QUEUE_TRANSFER"
+    | "CAMPAIGN";
 };
 /**
  * Attribute type definition for `AWS::Connect::ContactFlow`.

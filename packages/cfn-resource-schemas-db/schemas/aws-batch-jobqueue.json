@@ -1,5 +1,5 @@
 {
-  "$hash": "69d5824725cd578e4fc396ce9bb1cdac27ba6e0b",
+  "$hash": "da6295054311ade22e2e5052b1e52c6fe9b27a5b",
   "$id": "aws-batch-jobqueue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags", "/properties/JobQueueName"],
@@ -90,6 +90,7 @@
   "required": ["ComputeEnvironmentOrder", "Priority"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["Batch:TagResource", "Batch:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,
