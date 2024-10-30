@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-application.html}
  */
 export type M2ApplicationProperties = {
-  Definition: Definition;
+  Definition?: Definition;
   /**
    * @minLength `0`
    * @maxLength `500`

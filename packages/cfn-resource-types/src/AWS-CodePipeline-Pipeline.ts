@@ -239,7 +239,16 @@ export type FailureConditions = {
   /**
    * The specified result for when the failure conditions are met, such as rolling back the stage
    */
-  Result?: "ROLLBACK";
+  Result?: "ROLLBACK" | "RETRY";
+  /**
+   * The configuration that specifies the retry configuration for a stage
+   */
+  RetryConfiguration?: {
+    /**
+     * The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
+     */
+    RetryMode?: "ALL_ACTIONS" | "FAILED_ACTIONS";
+  };
 };
 /**
  * Type definition for `AWS::CodePipeline::Pipeline.GitBranchFilterCriteria`.

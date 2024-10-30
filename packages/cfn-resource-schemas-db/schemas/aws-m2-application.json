@@ -1,5 +1,5 @@
 {
-  "$hash": "b44a8428d61409f01ef6f7f2b8b98adbece1d536",
+  "$hash": "4b33c8fd6c0d449229323788d9cdc8a1c002f24d",
   "$id": "aws-m2-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -109,7 +109,7 @@
     "/properties/ApplicationArn",
     "/properties/ApplicationId"
   ],
-  "required": ["Definition", "EngineType", "Name"],
+  "required": ["EngineType", "Name"],
   "tagging": {
     "cloudFormationSystemTags": false,
     "tagOnCreate": true,

@@ -1,37 +1,26 @@
-- updated `AWS::AppConfig::DeploymentStrategy`
-  - added `sourceUrl`
-  - added `tagging`
-  - added definition `Tag`
-  - removed definition `Tags`
+- added `AWS::OpenSearchService::Application`
+- updated `AWS::Bedrock::Flow`
+  - updated definition `KnowledgeBaseFlowNodeConfiguration`
+  - updated definition `PromptFlowNodeInlineConfiguration`
+- updated `AWS::Bedrock::FlowVersion`
+  - updated definition `KnowledgeBaseFlowNodeConfiguration`
+  - updated definition `PromptFlowNodeInlineConfiguration`
+- updated `AWS::Bedrock::Prompt`
+  - updated definition `PromptVariant`
+- updated `AWS::Bedrock::PromptVersion`
+  - updated definition `PromptVariant`
+- updated `AWS::CodePipeline::Pipeline`
+  - updated definition `FailureConditions`
+- updated `AWS::M2::Application`
   - updated `required`
+- updated `AWS::M2::Environment`
   - updated handler permissions
-  - updated property `DeploymentDurationInMinutes`
-  - updated property `Description`
-  - updated property `FinalBakeTimeInMinutes`
-  - updated property `GrowthFactor`
-  - updated property `GrowthType`
-  - updated property `Id`
-  - updated property `Name`
-  - updated property `ReplicateTo`
-  - updated property `Tags`
-- updated `AWS::Batch::ComputeEnvironment`
-  - updated `tagging`
-- updated `AWS::Batch::JobQueue`
-  - updated `tagging`
-- updated `AWS::Connect::ContactFlow`
-  - updated property `Type`
-- updated `AWS::EC2::EIP`
-  - added property `Address`
-  - added property `IpamPoolId`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::EKS::AccessEntry`
-  - updated `tagging`
-- updated `AWS::RDS::DBCluster`
-  - updated `propertyTransform`
-- updated `AWS::RDS::DBInstance`
-  - updated `createOnlyProperties`
-  - updated `propertyTransform`
-  - updated `writeOnlyProperties`
-- updated `AWS::Route53Profiles::ProfileAssociation`
-  - added `replacementStrategy`
+- updated `AWS::MediaPackageV2::OriginEndpoint`
+  - added definition `StartTag`
+  - updated definition `FilterConfiguration`
+  - updated definition `HlsManifestConfiguration`
+  - updated definition `LowLatencyHlsManifestConfiguration`
+- updated `AWS::SecretsManager::Secret`
+  - added `$comment`
+- updated `AWS::SecretsManager::SecretTargetAttachment`
+  - added `createOnlyProperties`

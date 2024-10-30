@@ -1,5 +1,5 @@
 {
-  "$hash": "d5ea0598117c26ad84ddbd0d8878f605d1eb28f7",
+  "$hash": "c0c1c821c65b9eff2d25e59ba6ad733a3757d3e3",
   "$id": "aws-m2-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -118,14 +118,16 @@
         "m2:GetEnvironment",
         "m2:ListTagsForResource",
         "m2:TagResource"
-      ]
+      ],
+      "timeoutInMinutes": 60
     },
     "delete": {
       "permissions": [
         "elasticloadbalancing:DeleteLoadBalancer",
         "m2:DeleteEnvironment",
         "m2:GetEnvironment"
-      ]
+      ],
+      "timeoutInMinutes": 60
     },
     "list": { "permissions": ["m2:ListEnvironments"] },
     "read": { "permissions": ["m2:ListTagsForResource", "m2:GetEnvironment"] },
@@ -137,7 +139,8 @@
         "m2:GetEnvironment",
         "m2:UpdateEnvironment",
         "kms:DescribeKey"
-      ]
+      ],
+      "timeoutInMinutes": 60
     }
   },
   "primaryIdentifier": ["/properties/EnvironmentArn"],

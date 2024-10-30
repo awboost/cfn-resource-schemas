@@ -1,5 +1,5 @@
 {
-  "$hash": "a3d58559a97421c2d30ef546f6c3afcaf8706fbc",
+  "$hash": "f071a011bfd7704c7f2b0e650800eb50d5edbd15",
   "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -197,8 +197,20 @@
         },
         "Result": {
           "description": "The specified result for when the failure conditions are met, such as rolling back the stage",
-          "enum": ["ROLLBACK"],
+          "enum": ["ROLLBACK", "RETRY"],
           "type": "string"
+        },
+        "RetryConfiguration": {
+          "additionalProperties": false,
+          "description": "The configuration that specifies the retry configuration for a stage",
+          "properties": {
+            "RetryMode": {
+              "description": "The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful",
+              "enum": ["ALL_ACTIONS", "FAILED_ACTIONS"],
+              "type": "string"
+            }
+          },
+          "type": "object"
         }
       },
       "type": "object"

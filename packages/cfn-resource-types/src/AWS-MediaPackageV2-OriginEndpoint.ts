@@ -286,6 +286,10 @@ export type EndpointErrorCondition =
  */
 export type FilterConfiguration = {
   /**
+   * <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+   */
+  ClipStartTime?: string;
+  /**
    * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
    */
   End?: string;
@@ -371,6 +375,10 @@ export type HlsManifestConfiguration = {
    * <p>The SCTE configuration.</p>
    */
   ScteHls?: ScteHls;
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   */
+  StartTag?: StartTag;
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.LowLatencyHlsManifestConfiguration`.
@@ -412,6 +420,10 @@ export type LowLatencyHlsManifestConfiguration = {
    * <p>The SCTE configuration.</p>
    */
   ScteHls?: ScteHls;
+  /**
+   * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+   */
+  StartTag?: StartTag;
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.PresetSpeke20Audio`.
@@ -562,6 +574,21 @@ export type SpekeKeyProvider = {
      * @maxLength `1024`
      */
   Url: string;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.StartTag`.
+ * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-starttag.html}
+ */
+export type StartTag = {
+  /**
+   * <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+   */
+  Precise?: boolean;
+  /**
+   * <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+   */
+  TimeOffset: number;
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.Tag`.
