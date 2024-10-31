@@ -17,6 +17,10 @@ export type OpenSearchServiceDomainProperties = {
   EncryptionAtRestOptions?: EncryptionAtRestOptions;
   EngineVersion?: string;
   IPAddressType?: string;
+  /**
+   * Options for configuring Identity Center
+   */
+  IdentityCenterOptions?: IdentityCenterOptions;
   LogPublishingOptions?: Record<string, LogPublishingOption>;
   NodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
   OffPeakWindowOptions?: OffPeakWindowOptions;
@@ -43,6 +47,19 @@ export type OpenSearchServiceDomainAttributes = {
   DomainEndpointV2: string;
   DomainEndpoints: Record<string, string>;
   Id: string;
+  /**
+   * Options for configuring Identity Center
+   */
+  IdentityCenterOptions: {
+    /**
+     * The ARN of the Identity Center application.
+     */
+    IdentityCenterApplicationARN: string;
+    /**
+     * The IdentityStoreId for Identity Center options.
+     */
+    IdentityStoreId: string;
+  };
   ServiceSoftwareOptions: {
     AutomatedUpdateDate: string;
     Cancellable: boolean;
@@ -132,6 +149,29 @@ export type EncryptionAtRestOptions = {
   KmsKeyId?: string;
 };
 /**
+ * Type definition for `AWS::OpenSearchService::Domain.IdentityCenterOptions`.
+ * Options for configuring Identity Center
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-identitycenteroptions.html}
+ */
+export type IdentityCenterOptions = {
+  /**
+   * Whether Identity Center is enabled.
+   */
+  EnabledAPIAccess?: boolean;
+  /**
+   * The ARN of the Identity Center instance.
+   */
+  IdentityCenterInstanceARN?: string;
+  /**
+   * The roles key for Identity Center options.
+   */
+  RolesKey?: RolesKeyIdcType;
+  /**
+   * The subject key for Identity Center options.
+   */
+  SubjectKey?: SubjectKeyIdcType;
+};
+/**
  * Type definition for `AWS::OpenSearchService::Domain.Idp`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-idp.html}
  */
@@ -193,6 +233,12 @@ export type OffPeakWindowOptions = {
   OffPeakWindow?: OffPeakWindow;
 };
 /**
+ * Type definition for `AWS::OpenSearchService::Domain.RolesKeyIdcType`.
+ * Roles Key Idc type values.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-roleskeyidctype.html}
+ */
+export type RolesKeyIdcType = "GroupName" | "GroupId";
+/**
  * Type definition for `AWS::OpenSearchService::Domain.SAMLOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-samloptions.html}
  */
@@ -233,6 +279,12 @@ export type SnapshotOptions = {
 export type SoftwareUpdateOptions = {
   AutoSoftwareUpdateEnabled?: boolean;
 };
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.SubjectKeyIdcType`.
+ * Subject Key Idc type values.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-subjectkeyidctype.html}
+ */
+export type SubjectKeyIdcType = "UserName" | "UserId" | "Email";
 /**
  * Type definition for `AWS::OpenSearchService::Domain.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-tag.html}

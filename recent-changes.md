@@ -1,26 +1,6 @@
-- added `AWS::OpenSearchService::Application`
-- updated `AWS::Bedrock::Flow`
-  - updated definition `KnowledgeBaseFlowNodeConfiguration`
-  - updated definition `PromptFlowNodeInlineConfiguration`
-- updated `AWS::Bedrock::FlowVersion`
-  - updated definition `KnowledgeBaseFlowNodeConfiguration`
-  - updated definition `PromptFlowNodeInlineConfiguration`
-- updated `AWS::Bedrock::Prompt`
-  - updated definition `PromptVariant`
-- updated `AWS::Bedrock::PromptVersion`
-  - updated definition `PromptVariant`
-- updated `AWS::CodePipeline::Pipeline`
-  - updated definition `FailureConditions`
-- updated `AWS::M2::Application`
-  - updated `required`
-- updated `AWS::M2::Environment`
-  - updated handler permissions
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - added definition `StartTag`
-  - updated definition `FilterConfiguration`
-  - updated definition `HlsManifestConfiguration`
-  - updated definition `LowLatencyHlsManifestConfiguration`
-- updated `AWS::SecretsManager::Secret`
-  - added `$comment`
-- updated `AWS::SecretsManager::SecretTargetAttachment`
-  - added `createOnlyProperties`
+- updated `AWS::OpenSearchService::Domain`
+  - added definition `IdentityCenterOptions`
+  - added definition `RolesKeyIdcType`
+  - added definition `SubjectKeyIdcType`
+  - added property `IdentityCenterOptions`
+  - updated `readOnlyProperties`

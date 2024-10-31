@@ -1,5 +1,5 @@
 {
-  "$hash": "9d46b0750c7e62918e2dbe1cd565e855b668e0b0",
+  "$hash": "1e0e351e396c21a41ba884e4dcc2408b0de216b8",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -84,6 +84,37 @@
       },
       "type": "object"
     },
+    "IdentityCenterOptions": {
+      "additionalProperties": false,
+      "description": "Options for configuring Identity Center",
+      "properties": {
+        "EnabledAPIAccess": {
+          "description": "Whether Identity Center is enabled.",
+          "type": "boolean"
+        },
+        "IdentityCenterApplicationARN": {
+          "description": "The ARN of the Identity Center application.",
+          "type": "string"
+        },
+        "IdentityCenterInstanceARN": {
+          "description": "The ARN of the Identity Center instance.",
+          "type": "string"
+        },
+        "IdentityStoreId": {
+          "description": "The IdentityStoreId for Identity Center options.",
+          "type": "string"
+        },
+        "RolesKey": {
+          "$ref": "#/definitions/RolesKeyIdcType",
+          "description": "The roles key for Identity Center options."
+        },
+        "SubjectKey": {
+          "$ref": "#/definitions/SubjectKeyIdcType",
+          "description": "The subject key for Identity Center options."
+        }
+      },
+      "type": "object"
+    },
     "Idp": {
       "additionalProperties": false,
       "properties": {
@@ -144,6 +175,11 @@
       },
       "type": "object"
     },
+    "RolesKeyIdcType": {
+      "description": "Roles Key Idc type values.",
+      "enum": ["GroupName", "GroupId"],
+      "type": "string"
+    },
     "SAMLOptions": {
       "additionalProperties": false,
       "properties": {
@@ -180,6 +216,11 @@
       "additionalProperties": false,
       "properties": { "AutoSoftwareUpdateEnabled": { "type": "boolean" } },
       "type": "object"
+    },
+    "SubjectKeyIdcType": {
+      "description": "Subject Key Idc type values.",
+      "enum": ["UserName", "UserId", "Email"],
+      "type": "string"
     },
     "Tag": {
       "additionalProperties": false,
@@ -287,6 +328,7 @@
     "EngineVersion": { "type": "string" },
     "IPAddressType": { "type": "string" },
     "Id": { "type": "string" },
+    "IdentityCenterOptions": { "$ref": "#/definitions/IdentityCenterOptions" },
     "LogPublishingOptions": {
       "additionalProperties": false,
       "patternProperties": {
@@ -320,7 +362,9 @@
     "/properties/DomainEndpointV2",
     "/properties/DomainEndpoints",
     "/properties/ServiceSoftwareOptions",
-    "/properties/AdvancedSecurityOptions/AnonymousAuthDisableDate"
+    "/properties/AdvancedSecurityOptions/AnonymousAuthDisableDate",
+    "/properties/IdentityCenterOptions/IdentityCenterApplicationARN",
+    "/properties/IdentityCenterOptions/IdentityStoreId"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "typeName": "AWS::OpenSearchService::Domain",
