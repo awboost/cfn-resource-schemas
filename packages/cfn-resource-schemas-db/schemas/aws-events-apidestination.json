@@ -1,5 +1,5 @@
 {
-  "$hash": "9e89686a2c8bff55c5c8818a24b1f1357c7ed2d2",
+  "$hash": "0f757604ef58034906b08f55a72b4e72d75aff33",
   "$id": "aws-events-apidestination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -30,10 +30,12 @@
   "properties": {
     "Arn": {
       "description": "The arn of the api destination.",
+      "pattern": "^arn:aws([a-z]|\\-)*:events:([a-z]|\\d|\\-)*:([0-9]{12})?:api-destination/[\\.\\-_A-Za-z0-9]+/[\\-A-Za-z0-9]+$",
       "type": "string"
     },
     "ConnectionArn": {
       "description": "The arn of the connection.",
+      "pattern": "^arn:aws([a-z]|\\-)*:events:([a-z]|\\d|\\-)*:([0-9]{12})?:connection/[\\.\\-_A-Za-z0-9]+/[\\-A-Za-z0-9]+$",
       "type": "string"
     },
     "Description": { "maxLength": 512, "type": "string" },
@@ -43,6 +45,7 @@
     },
     "InvocationEndpoint": {
       "description": "Url endpoint to invoke.",
+      "pattern": "^((%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@\\x26=+$,A-Za-z0-9])+)([).!';/?:,])?$",
       "type": "string"
     },
     "InvocationRateLimitPerSecond": { "minimum": 1, "type": "integer" },
@@ -50,11 +53,17 @@
       "description": "Name of the apiDestination.",
       "maxLength": 64,
       "minLength": 1,
+      "pattern": "[\\.\\-_A-Za-z0-9]+",
       "type": "string"
     }
   },
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["ConnectionArn", "InvocationEndpoint", "HttpMethod"],
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::Events::ApiDestination"
 }

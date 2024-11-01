@@ -1,5 +1,5 @@
 {
-  "$hash": "917cff02a369273fe636944449aebcac0a36986f",
+  "$hash": "734cdc096f78876157585da0447555128087a482",
   "$id": "aws-events-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -7,8 +7,14 @@
     "ApiKeyAuthParameters": {
       "additionalProperties": false,
       "properties": {
-        "ApiKeyName": { "type": "string" },
-        "ApiKeyValue": { "type": "string" }
+        "ApiKeyName": {
+          "pattern": "^[ \\t]*[^\\x00-\\x1F\\x7F]+([ \\t]+[^\\x00-\\x1F\\x7F]+)*[ \\t]*$",
+          "type": "string"
+        },
+        "ApiKeyValue": {
+          "pattern": "^[ \\t]*[^\\x00-\\x1F\\x7F]+([ \\t]+[^\\x00-\\x1F\\x7F]+)*[ \\t]*$",
+          "type": "string"
+        }
       },
       "required": ["ApiKeyName", "ApiKeyValue"],
       "type": "object"
@@ -37,8 +43,14 @@
     "BasicAuthParameters": {
       "additionalProperties": false,
       "properties": {
-        "Password": { "type": "string" },
-        "Username": { "type": "string" }
+        "Password": {
+          "pattern": "^[ \\t]*[^\\x00-\\x1F\\x7F]+([ \\t]+[^\\x00-\\x1F\\x7F]+)*[ \\t]*$",
+          "type": "string"
+        },
+        "Username": {
+          "pattern": "^[ \\t]*[^\\x00-\\x1F\\x7F]+([ \\t]+[^\\x00-\\x1F\\x7F]+)*[ \\t]*$",
+          "type": "string"
+        }
       },
       "required": ["Username", "Password"],
       "type": "object"
@@ -46,8 +58,14 @@
     "ClientParameters": {
       "additionalProperties": false,
       "properties": {
-        "ClientID": { "type": "string" },
-        "ClientSecret": { "type": "string" }
+        "ClientID": {
+          "pattern": "^[ \\t]*[^\\x00-\\x1F\\x7F]+([ \\t]+[^\\x00-\\x1F\\x7F]+)*[ \\t]*$",
+          "type": "string"
+        },
+        "ClientSecret": {
+          "pattern": "^[ \\t]*[^\\x00-\\x1F\\x7F]+([ \\t]+[^\\x00-\\x1F\\x7F]+)*[ \\t]*$",
+          "type": "string"
+        }
       },
       "required": ["ClientID", "ClientSecret"],
       "type": "object"
@@ -76,6 +94,7 @@
         "AuthorizationEndpoint": {
           "maxLength": 2048,
           "minLength": 1,
+          "pattern": "^((%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@\\x26=+$,A-Za-z0-9])+)([).!';/?:,])?$",
           "type": "string"
         },
         "ClientParameters": { "$ref": "#/definitions/ClientParameters" },
@@ -130,6 +149,7 @@
   "properties": {
     "Arn": {
       "description": "The arn of the connection resource.",
+      "pattern": "^arn:aws([a-z]|\\-)*:events:([a-z]|\\d|\\-)*:([0-9]{12})?:connection\\/[\\.\\-_A-Za-z0-9]+\\/[\\-A-Za-z0-9]+$",
       "type": "string"
     },
     "AuthParameters": { "$ref": "#/definitions/AuthParameters" },
@@ -146,15 +166,22 @@
       "description": "Name of the connection.",
       "maxLength": 64,
       "minLength": 1,
+      "pattern": "[\\.\\-_A-Za-z0-9]+",
       "type": "string"
     },
     "SecretArn": {
       "description": "The arn of the secrets manager secret created in the customer account.",
+      "pattern": "^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]|\\d|\\-)*:([0-9]{12})?:secret:[\\/_+=\\.@\\-A-Za-z0-9]+$",
       "type": "string"
     }
   },
   "readOnlyProperties": ["/properties/Arn", "/properties/SecretArn"],
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::Events::Connection",
   "writeOnlyProperties": ["/properties/AuthParameters"]
 }

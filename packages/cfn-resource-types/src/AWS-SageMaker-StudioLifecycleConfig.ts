@@ -14,7 +14,7 @@ export type SageMakerStudioLifecycleConfigProperties = {
     | "CodeEditor"
     | "JupyterLab";
   /**
-   * The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+   * The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
    * @minLength `1`
    * @maxLength `16384`
    * @pattern `[\S\s]+`
@@ -28,7 +28,7 @@ export type SageMakerStudioLifecycleConfigProperties = {
    */
   StudioLifecycleConfigName: string;
   /**
-   * Tags to be associated with the Lifecycle Configuration.
+   * Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
    * @minLength `0`
    * @maxLength `50`
    */

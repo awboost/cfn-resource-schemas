@@ -1,5 +1,5 @@
 {
-  "$hash": "be5e84c514903015730b624bac0e07adce61a49d",
+  "$hash": "090bf5ffe637bffb20c56eaac0adae255c6a0ef6",
   "$id": "aws-events-archive.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ArchiveName", "/properties/SourceArn"],
@@ -19,8 +19,16 @@
   },
   "primaryIdentifier": ["/properties/ArchiveName"],
   "properties": {
-    "ArchiveName": { "maxLength": 48, "minLength": 1, "type": "string" },
-    "Arn": { "type": "string" },
+    "ArchiveName": {
+      "maxLength": 48,
+      "minLength": 1,
+      "pattern": "[\\.\\-_A-Za-z0-9]+",
+      "type": "string"
+    },
+    "Arn": {
+      "pattern": "^arn:aws([a-z]|\\-)*:events:([a-z]|\\d|\\-)*:([0-9]{12})?:.+\\/.+$",
+      "type": "string"
+    },
     "Description": { "type": "string" },
     "EventPattern": { "type": "object" },
     "RetentionDays": { "type": "integer" },
@@ -28,5 +36,11 @@
   },
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["SourceArn"],
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::Events::Archive"
 }

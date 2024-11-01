@@ -775,7 +775,7 @@ export type RateBasedStatement = {
   EvaluationWindowSec?: EvaluationWindowSec;
   ForwardedIPConfig?: ForwardedIPConfiguration;
   /**
-   * @min `100`
+   * @min `10`
    * @max `2000000000`
    */
   Limit: number;

@@ -1,6 +1,58 @@
-- updated `AWS::OpenSearchService::Domain`
-  - added definition `IdentityCenterOptions`
-  - added definition `RolesKeyIdcType`
-  - added definition `SubjectKeyIdcType`
-  - added property `IdentityCenterOptions`
-  - updated `readOnlyProperties`
+- added `AWS::AppSync::Api`
+- added `AWS::AppSync::ChannelNamespace`
+- updated `AWS::Events::ApiDestination`
+  - updated `tagging`
+  - updated property `Arn`
+  - updated property `ConnectionArn`
+  - updated property `InvocationEndpoint`
+  - updated property `Name`
+- updated `AWS::Events::Archive`
+  - added `tagging`
+  - updated property `ArchiveName`
+  - updated property `Arn`
+- updated `AWS::Events::Connection`
+  - updated `tagging`
+  - updated definition `ApiKeyAuthParameters`
+  - updated definition `BasicAuthParameters`
+  - updated definition `ClientParameters`
+  - updated definition `OAuthParameters`
+  - updated property `Arn`
+  - updated property `Name`
+  - updated property `SecretArn`
+- updated `AWS::MWAA::Environment`
+  - updated definition `MaxWebservers`
+  - updated definition `MinWebservers`
+- updated `AWS::SageMaker::Space`
+  - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::SageMaker::StudioLifecycleConfig`
+  - updated property `StudioLifecycleConfigContent`
+  - updated property `Tags`
+- updated `AWS::SecretsManager::RotationSchedule`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated definition `HostedRotationLambda`
+  - updated definition `RotationRules`
+  - updated handler permissions
+  - updated property `HostedRotationLambda`
+  - updated property `Id`
+  - updated property `RotateImmediatelyOnUpdate`
+  - updated property `RotationLambdaARN`
+  - updated property `RotationRules`
+  - updated property `SecretId`
+- updated `AWS::WAFv2::IPSet`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::WAFv2::RegexPatternSet`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::WAFv2::RuleGroup`
+  - updated `tagging`
+  - updated definition `RateLimit`
+  - updated handler permissions
+- updated `AWS::WAFv2::WebACL`
+  - updated `tagging`
+  - updated definition `RateLimit`
+  - updated handler permissions

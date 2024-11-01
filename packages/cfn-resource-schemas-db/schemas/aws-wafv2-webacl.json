@@ -1,5 +1,5 @@
 {
-  "$hash": "de7802c9734085f8897ee9f75a19cff197c0a604",
+  "$hash": "ff631f5496f78e2fe6b12d4fb4bd8c34800841ae",
   "$id": "aws-wafv2-webacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -681,7 +681,7 @@
       },
       "type": "object"
     },
-    "RateLimit": { "maximum": 2000000000, "minimum": 100, "type": "integer" },
+    "RateLimit": { "maximum": 2000000000, "minimum": 10, "type": "integer" },
     "RateLimitCookie": {
       "additionalProperties": false,
       "description": "Specifies a cookie as an aggregate key for a rate-based rule.",
@@ -1310,7 +1310,9 @@
       "permissions": [
         "wafv2:UpdateWebACL",
         "wafv2:GetWebACL",
-        "wafv2:ListTagsForResource"
+        "wafv2:ListTagsForResource",
+        "wafv2:TagResource",
+        "wafv2:UntagResource"
       ]
     }
   },
@@ -1354,10 +1356,11 @@
   "required": ["DefaultAction", "Scope", "VisibilityConfig"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-wafv2.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "tagOnCreate": false,
-    "tagUpdatable": false,
-    "taggable": false
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
   },
   "typeName": "AWS::WAFv2::WebACL"
 }

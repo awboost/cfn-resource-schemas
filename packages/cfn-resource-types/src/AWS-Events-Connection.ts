@@ -16,6 +16,7 @@ export type EventsConnectionProperties = {
    * Name of the connection.
    * @minLength `1`
    * @maxLength `64`
+   * @pattern `[\.\-_A-Za-z0-9]+`
    */
   Name?: string;
 };
@@ -26,10 +27,12 @@ export type EventsConnectionProperties = {
 export type EventsConnectionAttributes = {
   /**
    * The arn of the connection resource.
+   * @pattern `^arn:aws([a-z]|\-)*:events:([a-z]|\d|\-)*:([0-9]{12})?:connection\/[\.\-_A-Za-z0-9]+\/[\-A-Za-z0-9]+$`
    */
   Arn: string;
   /**
    * The arn of the secrets manager secret created in the customer account.
+   * @pattern `^arn:aws([a-z]|\-)*:secretsmanager:([a-z]|\d|\-)*:([0-9]{12})?:secret:[\/_+=\.@\-A-Za-z0-9]+$`
    */
   SecretArn: string;
 };
@@ -38,7 +41,13 @@ export type EventsConnectionAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html}
  */
 export type ApiKeyAuthParameters = {
+  /**
+   * @pattern `^[ \t]*[^\x00-\x1F\x7F]+([ \t]+[^\x00-\x1F\x7F]+)*[ \t]*$`
+   */
   ApiKeyName: string;
+  /**
+   * @pattern `^[ \t]*[^\x00-\x1F\x7F]+([ \t]+[^\x00-\x1F\x7F]+)*[ \t]*$`
+   */
   ApiKeyValue: string;
 };
 /**
@@ -56,7 +65,13 @@ export type AuthParameters = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-basicauthparameters.html}
  */
 export type BasicAuthParameters = {
+  /**
+   * @pattern `^[ \t]*[^\x00-\x1F\x7F]+([ \t]+[^\x00-\x1F\x7F]+)*[ \t]*$`
+   */
   Password: string;
+  /**
+   * @pattern `^[ \t]*[^\x00-\x1F\x7F]+([ \t]+[^\x00-\x1F\x7F]+)*[ \t]*$`
+   */
   Username: string;
 };
 /**
@@ -64,7 +79,13 @@ export type BasicAuthParameters = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-clientparameters.html}
  */
 export type ClientParameters = {
+  /**
+   * @pattern `^[ \t]*[^\x00-\x1F\x7F]+([ \t]+[^\x00-\x1F\x7F]+)*[ \t]*$`
+   */
   ClientID: string;
+  /**
+   * @pattern `^[ \t]*[^\x00-\x1F\x7F]+([ \t]+[^\x00-\x1F\x7F]+)*[ \t]*$`
+   */
   ClientSecret: string;
 };
 /**
@@ -84,6 +105,7 @@ export type OAuthParameters = {
   /**
    * @minLength `1`
    * @maxLength `2048`
+   * @pattern `^((%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@\x26=+$,A-Za-z0-9])+)([).!';/?:,])?$`
    */
   AuthorizationEndpoint: string;
   ClientParameters: ClientParameters;

@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type EventsApiDestinationProperties = {
   /**
    * The arn of the connection.
+   * @pattern `^arn:aws([a-z]|\-)*:events:([a-z]|\d|\-)*:([0-9]{12})?:connection/[\.\-_A-Za-z0-9]+/[\-A-Za-z0-9]+$`
    */
   ConnectionArn: string;
   /**
@@ -16,6 +17,7 @@ export type EventsApiDestinationProperties = {
   HttpMethod: "GET" | "HEAD" | "POST" | "OPTIONS" | "PUT" | "DELETE" | "PATCH";
   /**
    * Url endpoint to invoke.
+   * @pattern `^((%[0-9A-Fa-f]{2}|[-()_.!~*';/?:@\x26=+$,A-Za-z0-9])+)([).!';/?:,])?$`
    */
   InvocationEndpoint: string;
   /**
@@ -26,6 +28,7 @@ export type EventsApiDestinationProperties = {
    * Name of the apiDestination.
    * @minLength `1`
    * @maxLength `64`
+   * @pattern `[\.\-_A-Za-z0-9]+`
    */
   Name?: string;
 };
@@ -36,6 +39,7 @@ export type EventsApiDestinationProperties = {
 export type EventsApiDestinationAttributes = {
   /**
    * The arn of the api destination.
+   * @pattern `^arn:aws([a-z]|\-)*:events:([a-z]|\d|\-)*:([0-9]{12})?:api-destination/[\.\-_A-Za-z0-9]+/[\-A-Za-z0-9]+$`
    */
   Arn: string;
 };

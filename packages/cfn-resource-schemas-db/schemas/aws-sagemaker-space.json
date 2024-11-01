@@ -1,5 +1,5 @@
 {
-  "$hash": "0c80826de4994c8237cf96c835382da749fc28b6",
+  "$hash": "b6b5032d4b68960a49ea7f5da900097451b00c2e",
   "$id": "aws-sagemaker-space.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -363,15 +363,32 @@
   "description": "Resource Type definition for AWS::SageMaker::Space",
   "handlers": {
     "create": {
-      "permissions": ["sagemaker:CreateSpace", "sagemaker:DescribeSpace"]
+      "permissions": [
+        "sagemaker:CreateSpace",
+        "sagemaker:DescribeSpace",
+        "sagemaker:ListTags",
+        "sagemaker:AddTags"
+      ]
     },
     "delete": {
-      "permissions": ["sagemaker:DeleteSpace", "sagemaker:DescribeSpace"]
+      "permissions": [
+        "sagemaker:DeleteSpace",
+        "sagemaker:DescribeSpace",
+        "sagemaker:DeleteTags"
+      ]
     },
-    "list": { "permissions": ["sagemaker:ListSpaces"] },
-    "read": { "permissions": ["sagemaker:DescribeSpace"] },
+    "list": { "permissions": ["sagemaker:ListSpaces", "sagemaker:ListTags"] },
+    "read": {
+      "permissions": ["sagemaker:DescribeSpace", "sagemaker:ListTags"]
+    },
     "update": {
-      "permissions": ["sagemaker:UpdateSpace", "sagemaker:DescribeSpace"]
+      "permissions": [
+        "sagemaker:UpdateSpace",
+        "sagemaker:DescribeSpace",
+        "sagemaker:AddTags",
+        "sagemaker:DeleteTags",
+        "sagemaker:ListTags"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/DomainId", "/properties/SpaceName"],
@@ -422,11 +439,16 @@
   "required": ["DomainId", "SpaceName"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:DeleteTags",
+      "sagemaker:ListTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::SageMaker::Space",
-  "writeOnlyProperties": ["/properties/SpaceSettings", "/properties/Tags"]
+  "writeOnlyProperties": ["/properties/SpaceSettings"]
 }

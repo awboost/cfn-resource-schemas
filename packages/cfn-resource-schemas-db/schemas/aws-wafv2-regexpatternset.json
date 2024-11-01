@@ -1,5 +1,5 @@
 {
-  "$hash": "9257d45cc7a4806a465129400467ad87d92831ce",
+  "$hash": "cdc10d6e987270fe4c403ac34391be94e5092d3e",
   "$id": "aws-wafv2-regexpatternset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -41,7 +41,9 @@
       "permissions": [
         "wafv2:UpdateRegexPatternSet",
         "wafv2:GetRegexPatternSet",
-        "wafv2:ListTagsForResource"
+        "wafv2:ListTagsForResource",
+        "wafv2:TagResource",
+        "wafv2:UntagResource"
       ]
     }
   },
@@ -83,10 +85,11 @@
   "required": ["Scope", "RegularExpressionList"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-wafv2.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "tagOnCreate": false,
-    "tagUpdatable": false,
-    "taggable": false
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
   },
   "typeName": "AWS::WAFv2::RegexPatternSet"
 }
