@@ -1,5 +1,5 @@
 {
-  "$hash": "deb17544ce9ff7a25ede7d7023a687bd2ac9d8d9",
+  "$hash": "4ddf64e8a2add55d113ad370a906f91f1374b53d",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -94,7 +94,7 @@
       "properties": {
         "Value": {
           "description": "The Diffie-Hellmann group number.",
-          "enum": [2, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+          "enum": [2, 5, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
           "type": "integer"
         }
       },

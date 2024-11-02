@@ -54,6 +54,12 @@ export type DashboardOptions = {
  */
 export type DeliveryOptions = {
   /**
+   * Specifies the maximum time until which SES will retry sending emails
+   * @min `300`
+   * @max `50400`
+   */
+  MaxDeliverySeconds?: number;
+  /**
    * The name of the dedicated IP pool to associate with the configuration set.
    */
   SendingPoolName?: string;

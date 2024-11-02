@@ -1,5 +1,5 @@
 {
-  "$hash": "4c22b1cc2e08e40bb428e8d44cb83b8983d3fda7",
+  "$hash": "870bd65759eac0b8b1340e4cf55a4bda2590e0e1",
   "$id": "aws-rds-globalcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -113,5 +113,6 @@
     "/properties/GlobalClusterIdentifier": "$lowercase(GlobalClusterIdentifier)"
   },
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-rds",
+  "tagging": { "taggable": true },
   "typeName": "AWS::RDS::GlobalCluster"
 }

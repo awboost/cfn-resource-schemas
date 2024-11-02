@@ -1,5 +1,5 @@
 {
-  "$hash": "6f7889b20022d3a4d5dc56c0a59c48806a7244ff",
+  "$hash": "30647a3b75009d417539f04f48b3a1ffcfc96362",
   "$id": "aws-ses-configurationset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -21,6 +21,12 @@
       "additionalProperties": false,
       "description": "An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.",
       "properties": {
+        "MaxDeliverySeconds": {
+          "description": "Specifies the maximum time until which SES will retry sending emails",
+          "maximum": 50400,
+          "minimum": 300,
+          "type": "number"
+        },
         "SendingPoolName": {
           "description": "The name of the dedicated IP pool to associate with the configuration set.",
           "type": "string"

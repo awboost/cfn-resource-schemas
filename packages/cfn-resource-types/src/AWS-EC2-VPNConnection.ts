@@ -163,7 +163,7 @@ export type Phase2DHGroupNumbersRequestListValue = {
   /**
    * The Diffie-Hellmann group number.
    */
-  Value?: 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24;
+  Value?: 2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24;
 };
 /**
  * Type definition for `AWS::EC2::VPNConnection.Phase2EncryptionAlgorithmsRequestListValue`.
