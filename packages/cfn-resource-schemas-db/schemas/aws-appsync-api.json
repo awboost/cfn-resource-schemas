@@ -1,5 +1,5 @@
 {
-  "$hash": "5de1631210205c72bfa67102d9b2457a4e7af5e0",
+  "$hash": "926d60d11fb3ac85b223477e5195e40afcd54abd",
   "$id": "aws-appsync-api.json",
   "additionalProperties": false,
   "definitions": {
@@ -69,7 +69,10 @@
     "DnsMap": {
       "additionalProperties": false,
       "description": "A map of DNS names for the AppSync API.",
-      "patternProperties": { "\\S+": { "type": "string" } },
+      "properties": {
+        "Http": { "type": "string" },
+        "Realtime": { "type": "string" }
+      },
       "type": "object"
     },
     "EventConfig": {
@@ -213,6 +216,8 @@
   "readOnlyProperties": [
     "/properties/ApiId",
     "/properties/Dns",
+    "/properties/Dns/Realtime",
+    "/properties/Dns/Http",
     "/properties/ApiArn"
   ],
   "required": ["Name"],

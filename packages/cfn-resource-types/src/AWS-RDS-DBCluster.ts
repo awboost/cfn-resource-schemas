@@ -61,6 +61,7 @@ export type RDSDBClusterProperties = {
      * @min `1`
      */
   BackupRetentionPeriod?: number;
+  ClusterScalabilityType?: string;
   /**
      * A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
      Valid for: Aurora DB clusters and Multi-AZ DB clusters

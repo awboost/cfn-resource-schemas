@@ -1,13 +1,11 @@
-- added `AWS::Bedrock::ApplicationInferenceProfile`
-- added `AWS::Wisdom::AIPromptVersion`
-- updated `AWS::Bedrock::DataSource`
-  - updated definition `BedrockFoundationModelConfiguration`
-- updated `AWS::EC2::VPNConnection`
-  - updated definition `Phase2DHGroupNumbersRequestListValue`
-- updated `AWS::Lambda::Version`
-  - removed property `Policy`
-  - updated property `FunctionName`
-- updated `AWS::RDS::GlobalCluster`
-  - added `tagging`
-- updated `AWS::SES::ConfigurationSet`
-  - updated definition `DeliveryOptions`
+- added `AWS::RDS::DBShardGroup`
+- updated `AWS::AppSync::Api`
+  - updated `readOnlyProperties`
+  - updated definition `DnsMap`
+- updated `AWS::DataSync::Task`
+  - added property `TaskMode`
+  - updated `createOnlyProperties`
+- updated `AWS::RDS::DBCluster`
+  - added property `ClusterScalabilityType`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`

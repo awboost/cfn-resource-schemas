@@ -45,7 +45,10 @@ export type AppSyncApiAttributes = {
   /**
    * A map of DNS names for the AppSync API.
    */
-  Dns: Record<string, string>;
+  Dns: {
+    Http: string;
+    Realtime: string;
+  };
 };
 /**
  * Type definition for `AWS::AppSync::Api.AuthenticationType`.
@@ -102,12 +105,6 @@ export type CognitoConfig = {
   AwsRegion: string;
   UserPoolId: string;
 };
-/**
- * Type definition for `AWS::AppSync::Api.DnsMap`.
- * A map of DNS names for the AppSync API.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-dnsmap.html}
- */
-export type DnsMap = Record<string, string>;
 /**
  * Type definition for `AWS::AppSync::Api.EventConfig`.
  * The configuration for an Event Api

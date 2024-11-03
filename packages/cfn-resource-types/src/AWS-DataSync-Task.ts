@@ -58,6 +58,10 @@ export type DataSyncTaskProperties = {
    */
   Tags?: Tag[];
   /**
+   * Specifies the task mode for the task.
+   */
+  TaskMode?: "BASIC" | "ENHANCED";
+  /**
    * Specifies how you want to configure a task report, which provides detailed information about for your Datasync transfer.
    */
   TaskReportConfig?: TaskReportConfig;
