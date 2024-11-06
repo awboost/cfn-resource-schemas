@@ -1,5 +1,5 @@
 {
-  "$hash": "b0c5ad1d71f41516f2c7519df4402e7fdbafd8b7",
+  "$hash": "a7a45c69890b9b981c3fe5b1bf6e41ed4bdce128",
   "$id": "aws-apigateway-account.json",
   "additionalProperties": false,
   "description": "The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.",
@@ -15,10 +15,7 @@
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
-    "CloudWatchRoleArn": {
-      "description": "The ARN of an Amazon CloudWatch role for the current Account.",
-      "type": "string"
-    },
+    "CloudWatchRoleArn": { "description": "", "type": "string" },
     "Id": { "description": "", "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],

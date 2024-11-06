@@ -5,38 +5,17 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html}
  */
 export type ApiGatewayApiKeyProperties = {
-  /**
-   * An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
-   */
   CustomerId?: string;
-  /**
-   * The description of the ApiKey.
-   */
   Description?: string;
-  /**
-   * Specifies whether the ApiKey can be used by callers.
-   */
   Enabled?: boolean;
-  /**
-   * Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
-   */
   GenerateDistinctId?: boolean;
   /**
      * A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
      If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
   Name?: string;
-  /**
-   * DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
-   */
   StageKeys?: StageKey[];
-  /**
-   * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
-   */
   Tags?: Tag[];
-  /**
-   * Specifies a value of the API key.
-   */
   Value?: string;
 };
 /**
@@ -52,13 +31,7 @@ export type ApiGatewayApiKeyAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html}
  */
 export type StageKey = {
-  /**
-   * The string identifier of the associated RestApi.
-   */
   RestApiId?: string;
-  /**
-   * The stage name associated with the stage key.
-   */
   StageName?: string;
 };
 /**

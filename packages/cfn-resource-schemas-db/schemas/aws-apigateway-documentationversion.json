@@ -1,5 +1,5 @@
 {
-  "$hash": "5820394e909117db068023580b21af0ee60a7ce5",
+  "$hash": "281004a4ef4f0dd01d321a8c5288564c4afebaf7",
   "$id": "aws-apigateway-documentationversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -28,20 +28,13 @@
     "/properties/RestApiId"
   ],
   "properties": {
-    "Description": {
-      "description": "A description about the new documentation snapshot.",
-      "type": "string"
-    },
+    "Description": { "description": "", "type": "string" },
     "DocumentationVersion": {
-      "description": "The version identifier of the to-be-updated documentation version.",
+      "description": "",
       "minLength": 1,
       "type": "string"
     },
-    "RestApiId": {
-      "description": "The string identifier of the associated RestApi.",
-      "minLength": 1,
-      "type": "string"
-    }
+    "RestApiId": { "description": "", "minLength": 1, "type": "string" }
   },
   "required": ["DocumentationVersion", "RestApiId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",

@@ -1,5 +1,5 @@
 {
-  "$hash": "15908869271cfc4d75188d31810dd97c883b7273",
+  "$hash": "12cd3d85f976877ad309daaedb69e56310e1d0b2",
   "$id": "aws-connect-hoursofoperation.json",
   "additionalProperties": false,
   "definitions": {
@@ -108,6 +108,7 @@
         "connect:CreateHoursOfOperationOverride",
         "connect:UpdateHoursOfOperationOverride",
         "connect:DeleteHoursOfOperationOverride",
+        "connect:ListHoursOfOperationOverrides",
         "connect:TagResource",
         "connect:UntagResource"
       ]

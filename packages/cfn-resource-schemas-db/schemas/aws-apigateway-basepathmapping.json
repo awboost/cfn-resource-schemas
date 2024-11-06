@@ -1,5 +1,5 @@
 {
-  "$hash": "7b679bcca71fb8aa6725ae7ea5e9db42aa897b59",
+  "$hash": "ca4693af66026fd4db64c9c79bde3c8036eee859",
   "$id": "aws-apigateway-basepathmapping.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName", "/properties/BasePath"],
@@ -25,22 +25,10 @@
   },
   "primaryIdentifier": ["/properties/DomainName", "/properties/BasePath"],
   "properties": {
-    "BasePath": {
-      "description": "The base path name that callers of the API must provide as part of the URL after the domain name.",
-      "type": "string"
-    },
-    "DomainName": {
-      "description": "The domain name of the BasePathMapping resource to be described.",
-      "type": "string"
-    },
-    "RestApiId": {
-      "description": "The string identifier of the associated RestApi.",
-      "type": "string"
-    },
-    "Stage": {
-      "description": "The name of the associated stage.",
-      "type": "string"
-    }
+    "BasePath": { "description": "", "type": "string" },
+    "DomainName": { "description": "", "type": "string" },
+    "RestApiId": { "description": "", "type": "string" },
+    "Stage": { "description": "", "type": "string" }
   },
   "required": ["DomainName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",

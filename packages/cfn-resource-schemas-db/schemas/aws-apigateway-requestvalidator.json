@@ -1,5 +1,5 @@
 {
-  "$hash": "752862713df5c3bb0b4c58b700e7856f8c3f25d1",
+  "$hash": "6efb674003fdd8c1237351947026472748ea06d2",
   "$id": "aws-apigateway-requestvalidator.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/RestApiId"],
@@ -24,23 +24,11 @@
     "/properties/RequestValidatorId"
   ],
   "properties": {
-    "Name": {
-      "description": "The name of this RequestValidator",
-      "type": "string"
-    },
+    "Name": { "description": "", "type": "string" },
     "RequestValidatorId": { "description": "", "type": "string" },
-    "RestApiId": {
-      "description": "The string identifier of the associated RestApi.",
-      "type": "string"
-    },
-    "ValidateRequestBody": {
-      "description": "A Boolean flag to indicate whether to validate a request body according to the configured Model schema.",
-      "type": "boolean"
-    },
-    "ValidateRequestParameters": {
-      "description": "A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).",
-      "type": "boolean"
-    }
+    "RestApiId": { "description": "", "type": "string" },
+    "ValidateRequestBody": { "description": "", "type": "boolean" },
+    "ValidateRequestParameters": { "description": "", "type": "boolean" }
   },
   "readOnlyProperties": ["/properties/RequestValidatorId"],
   "required": ["RestApiId"],

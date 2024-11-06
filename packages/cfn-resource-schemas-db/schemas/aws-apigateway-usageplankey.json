@@ -1,5 +1,5 @@
 {
-  "$hash": "7fd9d9793cf0aee652604f58f04a1654fdd37b12",
+  "$hash": "7a95650d837add262c59c97baf24978f2884b1ca",
   "$id": "aws-apigateway-usageplankey.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -31,11 +31,7 @@
       "description": "The Id of the UsagePlanKey resource.",
       "type": "string"
     },
-    "KeyType": {
-      "description": "The type of a UsagePlanKey resource for a plan customer.",
-      "enum": ["API_KEY"],
-      "type": "string"
-    },
+    "KeyType": { "description": "", "enum": ["API_KEY"], "type": "string" },
     "UsagePlanId": {
       "description": "The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.",
       "type": "string"

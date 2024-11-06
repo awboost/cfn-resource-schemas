@@ -5,17 +5,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html}
  */
 export type ApiGatewayDocumentationVersionProperties = {
-  /**
-   * A description about the new documentation snapshot.
-   */
   Description?: string;
   /**
-   * The version identifier of the to-be-updated documentation version.
    * @minLength `1`
    */
   DocumentationVersion: string;
   /**
-   * The string identifier of the associated RestApi.
    * @minLength `1`
    */
   RestApiId: string;

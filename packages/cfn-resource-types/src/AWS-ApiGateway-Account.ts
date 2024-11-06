@@ -5,9 +5,6 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html}
  */
 export type ApiGatewayAccountProperties = {
-  /**
-   * The ARN of an Amazon CloudWatch role for the current Account.
-   */
   CloudWatchRoleArn?: string;
 };
 /**

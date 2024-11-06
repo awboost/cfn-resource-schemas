@@ -1,5 +1,5 @@
 {
-  "$hash": "851cac4c6c475927692b4d91b856c91fdaf55892",
+  "$hash": "8476fa6ee48621962995a9403d9f12a7ce03b163",
   "$id": "aws-apigateway-clientcertificate.json",
   "additionalProperties": false,
   "definitions": {
@@ -34,12 +34,9 @@
   "primaryIdentifier": ["/properties/ClientCertificateId"],
   "properties": {
     "ClientCertificateId": { "description": "", "type": "string" },
-    "Description": {
-      "description": "The description of the client certificate.",
-      "type": "string"
-    },
+    "Description": { "description": "", "type": "string" },
     "Tags": {
-      "description": "The collection of tags. Each tag element is associated with a given resource.",
+      "description": "",
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false

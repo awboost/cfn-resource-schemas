@@ -5,25 +5,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html}
  */
 export type ApiGatewayGatewayResponseProperties = {
-  /**
-   * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
-   */
   ResponseParameters?: Record<string, string>;
-  /**
-   * Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
-   */
   ResponseTemplates?: Record<string, string>;
-  /**
-   * The response type of the associated GatewayResponse.
-   */
   ResponseType: string;
-  /**
-   * The string identifier of the associated RestApi.
-   */
   RestApiId: string;
-  /**
-   * The HTTP status code for this GatewayResponse.
-   */
   StatusCode?: string;
 };
 /**

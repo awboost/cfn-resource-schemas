@@ -5,13 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html}
  */
 export type ApiGatewayClientCertificateProperties = {
-  /**
-   * The description of the client certificate.
-   */
   Description?: string;
-  /**
-   * The collection of tags. Each tag element is associated with a given resource.
-   */
   Tags?: Tag[];
 };
 /**

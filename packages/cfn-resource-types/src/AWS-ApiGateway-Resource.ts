@@ -5,17 +5,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html}
  */
 export type ApiGatewayResourceProperties = {
-  /**
-   * The parent resource's identifier.
-   */
   ParentId: string;
-  /**
-   * The last path segment for this resource.
-   */
   PathPart: string;
-  /**
-   * The string identifier of the associated RestApi.
-   */
   RestApiId: string;
 };
 /**

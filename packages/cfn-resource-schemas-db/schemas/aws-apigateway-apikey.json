@@ -1,5 +1,5 @@
 {
-  "$hash": "dd1ae80926f6e8f03d46c3c6012a3ad5c704448e",
+  "$hash": "59096c1f18b2827741b6e47e9aff8351b4214cba",
   "$id": "aws-apigateway-apikey.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -12,14 +12,8 @@
       "additionalProperties": false,
       "description": "``StageKey`` is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.",
       "properties": {
-        "RestApiId": {
-          "description": "The string identifier of the associated RestApi.",
-          "type": "string"
-        },
-        "StageName": {
-          "description": "The stage name associated with the stage key.",
-          "type": "string"
-        }
+        "RestApiId": { "description": "", "type": "string" },
+        "StageName": { "description": "", "type": "string" }
       },
       "type": "object"
     },
@@ -63,43 +57,27 @@
   "primaryIdentifier": ["/properties/APIKeyId"],
   "properties": {
     "APIKeyId": { "description": "", "type": "string" },
-    "CustomerId": {
-      "description": "An MKT customer identifier, when integrating with the AWS SaaS Marketplace.",
-      "type": "string"
-    },
-    "Description": {
-      "description": "The description of the ApiKey.",
-      "type": "string"
-    },
-    "Enabled": {
-      "default": false,
-      "description": "Specifies whether the ApiKey can be used by callers.",
-      "type": "boolean"
-    },
-    "GenerateDistinctId": {
-      "description": "Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.",
-      "type": "boolean"
-    },
+    "CustomerId": { "description": "", "type": "string" },
+    "Description": { "description": "", "type": "string" },
+    "Enabled": { "default": false, "description": "", "type": "boolean" },
+    "GenerateDistinctId": { "description": "", "type": "boolean" },
     "Name": {
       "description": "A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).\n If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
       "type": "string"
     },
     "StageKeys": {
-      "description": "DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.",
+      "description": "",
       "items": { "$ref": "#/definitions/StageKey" },
       "type": "array",
       "uniqueItems": true
     },
     "Tags": {
-      "description": "The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.",
+      "description": "",
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
     },
-    "Value": {
-      "description": "Specifies a value of the API key.",
-      "type": "string"
-    }
+    "Value": { "description": "", "type": "string" }
   },
   "readOnlyProperties": ["/properties/APIKeyId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigateway",

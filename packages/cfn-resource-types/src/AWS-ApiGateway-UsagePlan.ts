@@ -6,29 +6,18 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html}
  */
 export type ApiGatewayUsagePlanProperties = {
-  /**
-   * The associated API stages of a usage plan.
-   */
   ApiStages?: ApiStage[];
-  /**
-   * The description of a usage plan.
-   */
   Description?: string;
   /**
-   * The target maximum number of permitted requests per a given unit time interval.
-   */
+     * ``QuotaSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
+     In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
+     */
   Quota?: QuotaSettings;
-  /**
-   * The collection of tags. Each tag element is associated with a given resource.
-   */
   Tags?: Tag[];
   /**
-   * A map containing method level throttling information for API stage in a usage plan.
+   * ``ThrottleSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
    */
   Throttle?: ThrottleSettings;
-  /**
-   * The name of a usage plan.
-   */
   UsagePlanName?: string;
 };
 /**
@@ -40,21 +29,11 @@ export type ApiGatewayUsagePlanAttributes = {
 };
 /**
  * Type definition for `AWS::ApiGateway::UsagePlan.ApiStage`.
- * API stage name of the associated API stage in a usage plan.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html}
  */
 export type ApiStage = {
-  /**
-   * API Id of the associated API stage in a usage plan.
-   */
   ApiId?: string;
-  /**
-   * API stage name of the associated API stage in a usage plan.
-   */
   Stage?: string;
-  /**
-   * Map containing method level throttling information for API stage in a usage plan.
-   */
   Throttle?: Record<string, ThrottleSettings>;
 };
 /**
@@ -65,18 +44,13 @@ export type ApiStage = {
  */
 export type QuotaSettings = {
   /**
-   * The target maximum number of requests that can be made in a given time period.
    * @min `0`
    */
   Limit?: number;
   /**
-   * The number of requests subtracted from the given limit in the initial time period.
    * @min `0`
    */
   Offset?: number;
-  /**
-   * The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
-   */
   Period?: string;
 };
 /**
@@ -104,12 +78,10 @@ export type Tag = {
  */
 export type ThrottleSettings = {
   /**
-   * The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
    * @min `0`
    */
   BurstLimit?: number;
   /**
-   * The API target request rate limit.
    * @min `0`
    */
   RateLimit?: number;

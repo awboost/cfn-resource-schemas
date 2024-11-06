@@ -9,9 +9,6 @@ export type ApiGatewayUsagePlanKeyProperties = {
    * The Id of the UsagePlanKey resource.
    */
   KeyId: string;
-  /**
-   * The type of a UsagePlanKey resource for a plan customer.
-   */
   KeyType: "API_KEY";
   /**
    * The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.

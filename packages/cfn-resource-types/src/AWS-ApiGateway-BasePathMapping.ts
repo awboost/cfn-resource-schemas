@@ -5,21 +5,9 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html}
  */
 export type ApiGatewayBasePathMappingProperties = {
-  /**
-   * The base path name that callers of the API must provide as part of the URL after the domain name.
-   */
   BasePath?: string;
-  /**
-   * The domain name of the BasePathMapping resource to be described.
-   */
   DomainName: string;
-  /**
-   * The string identifier of the associated RestApi.
-   */
   RestApiId?: string;
-  /**
-   * The name of the associated stage.
-   */
   Stage?: string;
 };
 /**

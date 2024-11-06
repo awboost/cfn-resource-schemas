@@ -1,5 +1,5 @@
 {
-  "$hash": "80bbfdddfb51e947b9f38b7b14e4e61335684177",
+  "$hash": "0bb2964a3a6e2d0f5bbdfc18d49b317af4cf0206",
   "$id": "aws-apigateway-resource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -25,19 +25,10 @@
   },
   "primaryIdentifier": ["/properties/RestApiId", "/properties/ResourceId"],
   "properties": {
-    "ParentId": {
-      "description": "The parent resource's identifier.",
-      "type": "string"
-    },
-    "PathPart": {
-      "description": "The last path segment for this resource.",
-      "type": "string"
-    },
+    "ParentId": { "description": "", "type": "string" },
+    "PathPart": { "description": "", "type": "string" },
     "ResourceId": { "description": "", "type": "string" },
-    "RestApiId": {
-      "description": "The string identifier of the associated RestApi.",
-      "type": "string"
-    }
+    "RestApiId": { "description": "", "type": "string" }
   },
   "readOnlyProperties": ["/properties/ResourceId"],
   "required": ["ParentId", "PathPart", "RestApiId"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "0fa32372afda997cd27c5421855fe8608c8c88be",
+  "$hash": "ea0adfa12aaf13f22bb671509ff7f95331423e59",
   "$id": "aws-apigateway-gatewayresponse.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResponseType", "/properties/RestApiId"],
@@ -24,28 +24,19 @@
     "Id": { "description": "", "type": "string" },
     "ResponseParameters": {
       "additionalProperties": false,
-      "description": "Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.",
+      "description": "",
       "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
       "type": "object"
     },
     "ResponseTemplates": {
       "additionalProperties": false,
-      "description": "Response templates of the GatewayResponse as a string-to-string map of key-value pairs.",
+      "description": "",
       "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
       "type": "object"
     },
-    "ResponseType": {
-      "description": "The response type of the associated GatewayResponse.",
-      "type": "string"
-    },
-    "RestApiId": {
-      "description": "The string identifier of the associated RestApi.",
-      "type": "string"
-    },
-    "StatusCode": {
-      "description": "The HTTP status code for this GatewayResponse.",
-      "type": "string"
-    }
+    "ResponseType": { "description": "", "type": "string" },
+    "RestApiId": { "description": "", "type": "string" },
+    "StatusCode": { "description": "", "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],
   "required": ["ResponseType", "RestApiId"],

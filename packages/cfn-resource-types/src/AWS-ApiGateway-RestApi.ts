@@ -6,13 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html}
  */
 export type ApiGatewayRestApiProperties = {
-  /**
-   * The source of the API key for metering requests according to a usage plan. Valid values are: ``HEADER`` to read the API key from the ``X-API-Key`` header of a request. ``AUTHORIZER`` to read the API key from the ``UsageIdentifierKey`` from a custom authorizer.
-   */
   ApiKeySourceType?: string;
-  /**
-   * The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.
-   */
   BinaryMediaTypes?: string[];
   /**
    * An OpenAPI specification that defines a set of RESTful APIs in JSON format. For YAML templates, you can also provide the specification in YAML format.
@@ -22,29 +16,14 @@ export type ApiGatewayRestApiProperties = {
    * The Amazon Simple Storage Service (Amazon S3) location that points to an OpenAPI file, which defines a set of RESTful APIs in JSON or YAML format.
    */
   BodyS3Location?: S3Location;
-  /**
-   * The ID of the RestApi that you want to clone from.
-   */
   CloneFrom?: string;
-  /**
-   * The description of the RestApi.
-   */
   Description?: string;
-  /**
-   * Specifies whether clients can invoke your API by using the default ``execute-api`` endpoint. By default, clients can invoke your API with the default ``https://{api_id}.execute-api.{region}.amazonaws.com`` endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint
-   */
   DisableExecuteApiEndpoint?: boolean;
   /**
    * A list of the endpoint types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
    */
   EndpointConfiguration?: EndpointConfiguration;
-  /**
-   * A query parameter to indicate whether to rollback the API update (``true``) or not (``false``) when a warning is encountered. The default value is ``false``.
-   */
   FailOnWarnings?: boolean;
-  /**
-   * A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.
-   */
   MinimumCompressionSize?: number;
   /**
      * This property applies only when you use OpenAPI to define your REST API. The ``Mode`` determines how API Gateway handles resource updates.
@@ -59,17 +38,11 @@ export type ApiGatewayRestApiProperties = {
    * The name of the RestApi. A name is required if the REST API is not based on an OpenAPI specification.
    */
   Name?: string;
-  /**
-   * Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set ``ignore=documentation`` as a ``parameters`` value, as in the AWS CLI command of ``aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'``.
-   */
   Parameters?: Record<string, string> | string;
   /**
    * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
    */
   Policy?: Record<string, any> | string;
-  /**
-   * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
-   */
   Tags?: Tag[];
 };
 /**
@@ -87,13 +60,7 @@ export type ApiGatewayRestApiAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html}
  */
 export type EndpointConfiguration = {
-  /**
-   * A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is ``"EDGE"``. For a regional API and its custom domain name, the endpoint type is ``REGIONAL``. For a private API, the endpoint type is ``PRIVATE``.
-   */
   Types?: string[];
-  /**
-   * A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for ``PRIVATE`` endpoint type.
-   */
   VpcEndpointIds?: string[];
 };
 /**
