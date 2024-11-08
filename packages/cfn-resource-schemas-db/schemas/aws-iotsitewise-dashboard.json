@@ -1,5 +1,5 @@
 {
-  "$hash": "299ac994b29ac5c24ab6c3dafa9ab13731a6bb58",
+  "$hash": "cf751d229984d631fe8f5ddb7deb193220beaa80",
   "$id": "aws-iotsitewise-dashboard.json",
   "additionalIdentifiers": [["/properties/DashboardArn"]],
   "additionalProperties": false,
@@ -36,7 +36,12 @@
         "iotsitewise:DeleteDashboard"
       ]
     },
-    "list": { "permissions": ["iotsitewise:ListDashboards"] },
+    "list": {
+      "permissions": [
+        "iotsitewise:ListDashboards",
+        "iotsitewise:ListTagsForResource"
+      ]
+    },
     "read": {
       "permissions": [
         "iotsitewise:DescribeDashboard",
@@ -94,6 +99,17 @@
   "readOnlyProperties": ["/properties/DashboardArn", "/properties/DashboardId"],
   "required": ["DashboardDefinition", "DashboardDescription", "DashboardName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iotsitewise.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotsitewise:TagResource",
+      "iotsitewise:UntagResource",
+      "iotsitewise:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoTSiteWise::Dashboard"
 }

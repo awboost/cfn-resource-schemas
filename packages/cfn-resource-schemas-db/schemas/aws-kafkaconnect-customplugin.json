@@ -1,5 +1,5 @@
 {
-  "$hash": "d4c5210aecc16ada230d15a46a088d33eefacbf1",
+  "$hash": "e4087a65f923d12e9e1799e38f31b0e2f2c8224e",
   "$id": "aws-kafkaconnect-customplugin.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -157,6 +157,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "kafkaconnect:ListTagsForResource",
+      "kafkaconnect:UntagResource",
+      "kafkaconnect:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

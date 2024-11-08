@@ -1,5 +1,5 @@
 {
-  "$hash": "606a722a50cdc42baf6d2215a669408346266f72",
+  "$hash": "3eb677899235ae14e3e978fc5a1e3f3b56db17fa",
   "$id": "aws-route53resolver-outpostresolver.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/OutpostArn"],
@@ -32,7 +32,8 @@
         "route53resolver:CreateOutpostResolver",
         "route53resolver:GetOutpostResolver",
         "route53resolver:ListTagsForResource",
-        "outposts:GetOutpost"
+        "outposts:GetOutpost",
+        "route53resolver:TagResource"
       ]
     },
     "delete": {
@@ -159,6 +160,10 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "route53resolver:TagResource",
+      "route53resolver:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

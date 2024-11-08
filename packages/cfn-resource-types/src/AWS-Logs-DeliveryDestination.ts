@@ -31,6 +31,13 @@ export type LogsDeliveryDestinationProperties = {
    */
   Name: string;
   /**
+   * The format of the logs that are sent to this delivery destination.
+   * @minLength `1`
+   * @maxLength `12`
+   * @pattern `^[0-9A-Za-z]+$`
+   */
+  OutputFormat?: string;
+  /**
    * The tags that have been assigned to this delivery destination.
    */
   Tags?: Tag[];

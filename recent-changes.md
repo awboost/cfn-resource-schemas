@@ -1,5 +1,54 @@
-- added `AWS::NimbleStudio::LaunchProfile`
-- added `AWS::NimbleStudio::StreamingImage`
-- added `AWS::NimbleStudio::Studio`
-- added `AWS::NimbleStudio::StudioComponent`
-- added `AWS::Wisdom::AIAgentVersion`
+- added `AWS::EC2::SecurityGroupVpcAssociation`
+- updated `AWS::Bedrock::Flow`
+  - updated definition `KnowledgeBaseFlowNodeConfiguration`
+  - updated definition `PromptFlowNodeInlineConfiguration`
+- updated `AWS::Bedrock::FlowVersion`
+  - updated definition `KnowledgeBaseFlowNodeConfiguration`
+  - updated definition `PromptFlowNodeInlineConfiguration`
+- updated `AWS::Bedrock::Prompt`
+  - updated definition `PromptVariant`
+- updated `AWS::Bedrock::PromptVersion`
+  - updated definition `PromptVariant`
+- updated `AWS::EC2::VerifiedAccessEndpoint`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::EC2::VerifiedAccessGroup`
+  - updated `tagging`
+- updated `AWS::EC2::VerifiedAccessInstance`
+  - updated `tagging`
+- updated `AWS::EC2::VerifiedAccessTrustProvider`
+  - updated `tagging`
+- updated `AWS::ECS::Service`
+  - updated definition `DeploymentConfiguration`
+  - updated definition `LoadBalancer`
+  - updated definition `ServiceManagedEBSVolumeConfiguration`
+  - updated property `DeploymentConfiguration`
+- updated `AWS::ElasticBeanstalk::Environment`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::IoTSiteWise::Dashboard`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::IoTSiteWise::Project`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::KafkaConnect::Connector`
+  - updated `tagging`
+- updated `AWS::KafkaConnect::CustomPlugin`
+  - updated `tagging`
+- updated `AWS::KafkaConnect::WorkerConfiguration`
+  - updated `tagging`
+- updated `AWS::Logs::Delivery`
+  - added definition `FieldHeader`
+  - added property `FieldDelimiter`
+  - added property `RecordFields`
+  - added property `S3EnableHiveCompatiblePath`
+  - added property `S3SuffixPath`
+- updated `AWS::Logs::DeliveryDestination`
+  - added property `OutputFormat`
+  - updated `createOnlyProperties`
+- updated `AWS::Route53Resolver::OutpostResolver`
+  - updated `tagging`
+  - updated handler permissions

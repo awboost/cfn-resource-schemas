@@ -18,7 +18,7 @@ export type ECSServiceProperties = {
    */
   Cluster?: string;
   /**
-   * Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+   * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
    */
   DeploymentConfiguration?: DeploymentConfiguration;
   /**
@@ -222,7 +222,7 @@ export type DeploymentCircuitBreaker = {
 };
 /**
  * Type definition for `AWS::ECS::Service.DeploymentConfiguration`.
- * Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
+ * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html}
  */
 export type DeploymentConfiguration = {
@@ -313,7 +313,7 @@ export type LoadBalancer = {
    */
   ContainerPort?: number;
   /**
-     * The name of the load balancer to associate with the Amazon ECS service or task set.
+     * The name of the load balancer to associate with the service or task set.
      If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
      */
   LoadBalancerName?: string;
@@ -554,7 +554,7 @@ export type ServiceConnectTlsConfiguration = {
 };
 /**
  * Type definition for `AWS::ECS::Service.ServiceManagedEBSVolumeConfiguration`.
- * The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+ * The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
  Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html}
  */
@@ -564,9 +564,10 @@ export type ServiceManagedEBSVolumeConfiguration = {
    */
   Encrypted?: boolean;
   /**
-     * The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-     The available filesystem types are
+     * The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+     The available Linux filesystem types are
      ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+     The available Windows filesystem types are ``NTFS``.
      */
   FilesystemType?: string;
   /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "e92bfc629d2ac903368c7baef11ed0502d807b9b",
+  "$hash": "c2c79d073a3f7296f207ead0a1aab98d6cd251ad",
   "$id": "aws-ec2-verifiedaccessgroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -169,6 +169,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-verified-access.aws-ec2-verifiedaccessgroup",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["ec2:CreateTags", "ec2:DescribeTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
