@@ -1,5 +1,5 @@
 {
-  "$hash": "5e643f0b530aee80519cc3ff533d6a40ec596be2",
+  "$hash": "bf64d9141d7765b01166c485624cce44e75d9139",
   "$id": "aws-cleanrooms-analysistemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -40,7 +40,20 @@
             "TIMESTAMPTZ",
             "TIME",
             "TIMETZ",
-            "VARBYTE"
+            "VARBYTE",
+            "BINARY",
+            "BYTE",
+            "CHARACTER",
+            "DOUBLE",
+            "FLOAT",
+            "INT",
+            "LONG",
+            "NUMERIC",
+            "SHORT",
+            "STRING",
+            "TIMESTAMP_LTZ",
+            "TIMESTAMP_NTZ",
+            "TINYINT"
           ],
           "type": "string"
         }

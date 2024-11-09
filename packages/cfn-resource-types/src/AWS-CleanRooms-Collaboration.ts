@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html}
  */
 export type CleanRoomsCollaborationProperties = {
+  AnalyticsEngine?: AnalyticsEngine;
   /**
    * @minLength `1`
    * @maxLength `100`
@@ -54,6 +55,11 @@ export type CleanRoomsCollaborationAttributes = {
    */
   CollaborationIdentifier: string;
 };
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.AnalyticsEngine`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-analyticsengine.html}
+ */
+export type AnalyticsEngine = "CLEAN_ROOMS_SQL" | "SPARK";
 /**
  * Type definition for `AWS::CleanRooms::Collaboration.CollaborationQueryLogStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-collaborationquerylogstatus.html}

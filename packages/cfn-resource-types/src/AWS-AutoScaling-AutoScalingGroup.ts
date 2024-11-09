@@ -14,6 +14,7 @@ export type AutoScalingAutoScalingGroupProperties = {
       You cannot use a colon (:) in the name.
      */
   AutoScalingGroupName?: string;
+  AvailabilityZoneDistribution?: AvailabilityZoneDistribution;
   /**
    * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
    */
@@ -151,6 +152,9 @@ export type AutoScalingAutoScalingGroupProperties = {
      Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
   TerminationPolicies?: string[];
+  /**
+   * The traffic sources associated with this Auto Scaling group.
+   */
   TrafficSources?: TrafficSourceIdentifier[];
   /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
@@ -189,6 +193,13 @@ export type AcceleratorTotalMemoryMiBRequest = {
    * The memory minimum in MiB.
    */
   Min?: number;
+};
+/**
+ * Type definition for `AWS::AutoScaling::AutoScalingGroup.AvailabilityZoneDistribution`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-availabilityzonedistribution.html}
+ */
+export type AvailabilityZoneDistribution = {
+  CapacityDistributionStrategy?: "balanced-best-effort" | "balanced-only";
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest`.
@@ -751,10 +762,31 @@ export type TotalLocalStorageGBRequest = {
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.TrafficSourceIdentifier`.
+ * Identifying information for a traffic source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-trafficsourceidentifier.html}
  */
 export type TrafficSourceIdentifier = {
+  /**
+     * Identifies the traffic source.
+     For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+     For example:
+      +  Application Load Balancer ARN: ``arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456``
+      +  Classic Load Balancer name: ``my-classic-load-balancer``
+      +  VPC Lattice ARN: ``arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456``
+      
+     To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) and [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operations.
+     To get the ARN of a target group for VPC Lattice, use the VPC Lattice [GetTargetGroup](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html) API operation.
+     */
   Identifier: string;
+  /**
+     * Provides additional context for the value of ``Identifier``.
+     The following lists the valid values:
+      +   ``elb`` if ``Identifier`` is the name of a Classic Load Balancer.
+      +   ``elbv2`` if ``Identifier`` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+      +   ``vpc-lattice`` if ``Identifier`` is the ARN of a VPC Lattice target group.
+      
+     Required if the identifier is the name of a Classic Load Balancer.
+     */
   Type: string;
 };
 /**

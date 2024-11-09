@@ -102,7 +102,20 @@ export type AnalysisParameter = {
     | "TIMESTAMPTZ"
     | "TIME"
     | "TIMETZ"
-    | "VARBYTE";
+    | "VARBYTE"
+    | "BINARY"
+    | "BYTE"
+    | "CHARACTER"
+    | "DOUBLE"
+    | "FLOAT"
+    | "INT"
+    | "LONG"
+    | "NUMERIC"
+    | "SHORT"
+    | "STRING"
+    | "TIMESTAMP_LTZ"
+    | "TIMESTAMP_NTZ"
+    | "TINYINT";
 };
 /**
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.AnalysisSchema`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "018c9e3add58bad5226948ee01f5a3b0d12822b1",
+  "$hash": "8a8746fd7ffdc1b5cb07fc58283d293f01581172",
   "$id": "aws-iotwireless-destination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -19,8 +19,7 @@
       "permissions": [
         "iam:PassRole",
         "iotwireless:CreateDestination",
-        "iotwireless:TagResource",
-        "iotwireless:ListTagsForResource"
+        "iotwireless:TagResource"
       ]
     },
     "delete": { "permissions": ["iotwireless:DeleteDestination"] },
@@ -39,9 +38,10 @@
     "update": {
       "permissions": [
         "iam:PassRole",
+        "iotwireless:GetDestination",
         "iotwireless:UpdateDestination",
         "iotwireless:UntagResource",
-        "iotwireless:ListTagsForResource"
+        "iotwireless:TagResource"
       ]
     }
   },
@@ -86,6 +86,17 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Name", "Expression", "ExpressionType"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotwireless:TagResource",
+      "iotwireless:UntagResource",
+      "iotwireless:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoTWireless::Destination"
 }

@@ -187,6 +187,11 @@ export type AuroraPostgreSqlParameters = {
   Port: number;
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSource.AuthenticationType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-authenticationtype.html}
+ */
+export type AuthenticationType = "PASSWORD" | "TOKEN" | "X509";
+/**
  * Type definition for `AWS::QuickSight::DataSource.CredentialPair`.
  * <p>The combination of user name and password that are used as credentials.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html}
@@ -515,6 +520,31 @@ export type MySqlParameters = {
   Port: number;
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSource.OAuthParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html}
+ */
+export type OAuthParameters = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  IdentityProviderResourceUri?: string;
+  /**
+   * <p>VPC connection properties.</p>
+   */
+  IdentityProviderVpcConnectionProperties?: VpcConnectionProperties;
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  OAuthScope?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  TokenProviderUrl: string;
+};
+/**
  * Type definition for `AWS::QuickSight::DataSource.OracleParameters`.
  * <p>The parameters for Oracle.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html}
@@ -751,6 +781,7 @@ export type S3Parameters = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html}
  */
 export type SnowflakeParameters = {
+  AuthenticationType?: AuthenticationType;
   /**
    * <p>Database.</p>
    * @minLength `1`
@@ -758,11 +789,17 @@ export type SnowflakeParameters = {
    */
   Database: string;
   /**
+   * @minLength `0`
+   * @maxLength `128`
+   */
+  DatabaseAccessControlRole?: string;
+  /**
    * <p>Host.</p>
    * @minLength `1`
    * @maxLength `256`
    */
   Host: string;
+  OAuthParameters?: OAuthParameters;
   /**
    * <p>Warehouse.</p>
    * @minLength `0`
@@ -832,6 +869,7 @@ export type SslProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-starburstparameters.html}
  */
 export type StarburstParameters = {
+  AuthenticationType?: AuthenticationType;
   /**
    * <p>The catalog name for the Starburst data source.</p>
    * @minLength `0`
@@ -839,11 +877,17 @@ export type StarburstParameters = {
    */
   Catalog: string;
   /**
+   * @minLength `0`
+   * @maxLength `128`
+   */
+  DatabaseAccessControlRole?: string;
+  /**
    * <p>The host name of the Starburst data source.</p>
    * @minLength `1`
    * @maxLength `256`
    */
   Host: string;
+  OAuthParameters?: OAuthParameters;
   /**
    * <p>The port for the Starburst data source.</p>
    * @min `1`

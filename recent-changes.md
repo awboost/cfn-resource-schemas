@@ -1,54 +1,113 @@
-- added `AWS::EC2::SecurityGroupVpcAssociation`
-- updated `AWS::Bedrock::Flow`
-  - updated definition `KnowledgeBaseFlowNodeConfiguration`
-  - updated definition `PromptFlowNodeInlineConfiguration`
-- updated `AWS::Bedrock::FlowVersion`
-  - updated definition `KnowledgeBaseFlowNodeConfiguration`
-  - updated definition `PromptFlowNodeInlineConfiguration`
-- updated `AWS::Bedrock::Prompt`
-  - updated definition `PromptVariant`
-- updated `AWS::Bedrock::PromptVersion`
-  - updated definition `PromptVariant`
-- updated `AWS::EC2::VerifiedAccessEndpoint`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::EC2::VerifiedAccessGroup`
-  - updated `tagging`
-- updated `AWS::EC2::VerifiedAccessInstance`
-  - updated `tagging`
-- updated `AWS::EC2::VerifiedAccessTrustProvider`
-  - updated `tagging`
-- updated `AWS::ECS::Service`
-  - updated definition `DeploymentConfiguration`
-  - updated definition `LoadBalancer`
-  - updated definition `ServiceManagedEBSVolumeConfiguration`
-  - updated property `DeploymentConfiguration`
-- updated `AWS::ElasticBeanstalk::Environment`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::IoTSiteWise::Dashboard`
-  - added `tagging`
-  - removed `taggable`
-  - updated handler permissions
-- updated `AWS::IoTSiteWise::Project`
-  - added `tagging`
-  - removed `taggable`
-  - updated handler permissions
-- updated `AWS::KafkaConnect::Connector`
-  - updated `tagging`
-- updated `AWS::KafkaConnect::CustomPlugin`
-  - updated `tagging`
-- updated `AWS::KafkaConnect::WorkerConfiguration`
-  - updated `tagging`
-- updated `AWS::Logs::Delivery`
-  - added definition `FieldHeader`
-  - added property `FieldDelimiter`
-  - added property `RecordFields`
-  - added property `S3EnableHiveCompatiblePath`
-  - added property `S3SuffixPath`
-- updated `AWS::Logs::DeliveryDestination`
-  - added property `OutputFormat`
+- updated `AWS::APS::Scraper`
   - updated `createOnlyProperties`
-- updated `AWS::Route53Resolver::OutpostResolver`
+  - updated handler permissions
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - added definition `AvailabilityZoneDistribution`
+  - added property `AvailabilityZoneDistribution`
+  - updated definition `TrafficSourceIdentifier`
+  - updated property `TrafficSources`
+- updated `AWS::CleanRooms::AnalysisTemplate`
+  - updated definition `AnalysisParameter`
+- updated `AWS::CleanRooms::Collaboration`
+  - added definition `AnalyticsEngine`
+  - added property `AnalyticsEngine`
+  - updated `createOnlyProperties`
+- updated `AWS::CleanRooms::Membership`
+  - updated definition `ProtectedQueryS3OutputConfiguration`
+- updated `AWS::EC2::LaunchTemplate`
+  - added definition `Cpu`
+  - added definition `Reference`
+  - added definition `References`
+  - updated definition `Ebs`
+  - updated definition `InstanceRequirements`
+  - updated definition `LaunchTemplateData`
+  - updated definition `LaunchTemplateTagSpecification`
+  - updated definition `NetworkInterface`
+  - updated definition `TagSpecification`
+  - updated property `TagSpecifications`
+- updated `AWS::EFS::AccessPoint`
+  - updated `tagging`
+- updated `AWS::EFS::FileSystem`
+  - updated `tagging`
+- updated `AWS::IoTWireless::Destination`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::IoTWireless::DeviceProfile`
+  - added `createOnlyProperties`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::IoTWireless::FuotaTask`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::IoTWireless::MulticastGroup`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::IoTWireless::NetworkAnalyzerConfiguration`
+  - updated `createOnlyProperties`
   - updated `tagging`
   - updated handler permissions
+- updated `AWS::IoTWireless::PartnerAccount`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::IoTWireless::ServiceProfile`
+  - added `createOnlyProperties`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::IoTWireless::TaskDefinition`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::IoTWireless::WirelessDevice`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::IoTWireless::WirelessDeviceImportTask`
+  - updated `tagging`
+  - updated handler permissions
+  - updated property `Sidewalk`
+- updated `AWS::IoTWireless::WirelessGateway`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::Lambda::Function`
+  - updated definition `Environment`
+  - updated definition `Tag`
+  - updated property `Code`
+  - updated property `KmsKeyArn`
+  - updated property `RecursiveLoop`
+  - updated property `Tags`
+- updated `AWS::QuickSight::DataSource`
+  - added definition `AuthenticationType`
+  - added definition `OAuthParameters`
+  - updated definition `SnowflakeParameters`
+  - updated definition `StarburstParameters`
+- updated `AWS::Transfer::User`
+  - added `additionalIdentifiers`
+  - added `sourceUrl`
+  - added `tagging`
+  - added definition `HomeDirectoryType`
+  - added definition `MapType`
+  - removed definition `SshPublicKey`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `HomeDirectoryMapEntry`
+  - updated definition `PosixProfile`
+  - updated definition `Tag`
+  - updated handler permissions
+  - updated property `Arn`
+  - updated property `HomeDirectoryMappings`
+  - updated property `HomeDirectoryType`
+  - updated property `HomeDirectory`
+  - updated property `Policy`
+  - updated property `Role`
+  - updated property `ServerId`
+  - updated property `SshPublicKeys`
+  - updated property `Tags`
+  - updated property `UserName`

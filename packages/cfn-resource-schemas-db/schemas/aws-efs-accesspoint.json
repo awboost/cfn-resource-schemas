@@ -1,5 +1,5 @@
 {
-  "$hash": "d1a23833b778c2b47b983e9ab8aeb4f3ee5ba3c9",
+  "$hash": "4abda3f5c7bb48d710728819d078aa9212f75d30",
   "$id": "aws-efs-accesspoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -155,7 +155,12 @@
   "required": ["FileSystemId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "elasticfilesystem:TagResource",
+      "elasticfilesystem:ListTagsForResource",
+      "elasticfilesystem:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/AccessPointTags",
     "tagUpdatable": true,

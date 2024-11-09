@@ -1,5 +1,5 @@
 {
-  "$hash": "2229237a1aa97a5c831fdddec604fede1eea942b",
+  "$hash": "cff86357c62d3696ed27349cca40deb8c62167f9",
   "$id": "aws-iotwireless-wirelessdeviceimporttask.json",
   "additionalProperties": false,
   "definitions": {
@@ -41,7 +41,6 @@
         "iotwireless:StartWirelessDeviceImportTask",
         "iotwireless:StartSingleWirelessDeviceImportTask",
         "iotwireless:TagResource",
-        "iotwireless:ListTagsForResource",
         "iam:PassRole"
       ]
     },
@@ -60,9 +59,10 @@
     },
     "update": {
       "permissions": [
+        "iotwireless:GetWirelessDeviceImportTask",
         "iotwireless:UpdateWirelessDeviceImportTask",
+        "iotwireless:TagResource",
         "iotwireless:UntagResource",
-        "iotwireless:ListTagsForResource",
         "iam:PassRole"
       ]
     }
@@ -108,15 +108,6 @@
     "Sidewalk": {
       "additionalProperties": false,
       "description": "sidewalk contain file for created device and role",
-      "oneOf": [
-        {
-          "allOf": [
-            { "required": ["DeviceCreationFile"] },
-            { "required": ["Role"] }
-          ]
-        },
-        { "required": ["SidewalkManufacturingSn"] }
-      ],
       "properties": {
         "DeviceCreationFile": { "maxLength": 1024, "type": "string" },
         "DeviceCreationFileList": {
@@ -166,10 +157,15 @@
   "required": ["DestinationName", "Sidewalk"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotwireless:TagResource",
+      "iotwireless:UntagResource",
+      "iotwireless:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::IoTWireless::WirelessDeviceImportTask",

@@ -1,13 +1,8 @@
 {
-  "$hash": "9c90e35eb9d41c2c0b428a6f73f29d0d4d65aae7",
+  "$hash": "2c45cbdbb4b1782f37f5295c6f66a4ec4c17e83c",
   "$id": "aws-aps-scraper.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/ScrapeConfiguration",
-    "/properties/Source",
-    "/properties/Destination",
-    "/properties/Alias"
-  ],
+  "createOnlyProperties": ["/properties/Source"],
   "definitions": {
     "Destination": {
       "additionalProperties": false,
@@ -140,7 +135,10 @@
     },
     "update": {
       "permissions": [
+        "aps:CreateScraper",
         "aps:DescribeScraper",
+        "aps:UpdateScraper",
+        "aps:DescribeWorkspace",
         "aps:TagResource",
         "aps:UntagResource",
         "aps:ListTagsForResource"

@@ -1,5 +1,5 @@
 {
-  "$hash": "d2709409375aa1eec30d55b84190783275218ffd",
+  "$hash": "a8c1d2e027ddce954ce2844a7b233326877d9fba",
   "$id": "aws-quicksight-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -108,6 +108,10 @@
       },
       "required": ["Database", "Host", "Port"],
       "type": "object"
+    },
+    "AuthenticationType": {
+      "enum": ["PASSWORD", "TOKEN", "X509"],
+      "type": "string"
     },
     "AwsIotAnalyticsParameters": {
       "additionalProperties": false,
@@ -390,6 +394,27 @@
       "required": ["Database", "Host", "Port"],
       "type": "object"
     },
+    "OAuthParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "IdentityProviderResourceUri": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "type": "string"
+        },
+        "IdentityProviderVpcConnectionProperties": {
+          "$ref": "#/definitions/VpcConnectionProperties"
+        },
+        "OAuthScope": { "maxLength": 128, "minLength": 1, "type": "string" },
+        "TokenProviderUrl": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["TokenProviderUrl"],
+      "type": "object"
+    },
     "OracleParameters": {
       "additionalProperties": false,
       "description": "<p>The parameters for Oracle.</p>",
@@ -615,10 +640,16 @@
       "additionalProperties": false,
       "description": "<p>The parameters for Snowflake.</p>",
       "properties": {
+        "AuthenticationType": { "$ref": "#/definitions/AuthenticationType" },
         "Database": {
           "description": "<p>Database.</p>",
           "maxLength": 128,
           "minLength": 1,
+          "type": "string"
+        },
+        "DatabaseAccessControlRole": {
+          "maxLength": 128,
+          "minLength": 0,
           "type": "string"
         },
         "Host": {
@@ -627,6 +658,7 @@
           "minLength": 1,
           "type": "string"
         },
+        "OAuthParameters": { "$ref": "#/definitions/OAuthParameters" },
         "Warehouse": {
           "description": "<p>Warehouse.</p>",
           "maxLength": 128,
@@ -701,8 +733,14 @@
       "additionalProperties": false,
       "description": "<p>The parameters that are required to connect to a Starburst data source.</p>",
       "properties": {
+        "AuthenticationType": { "$ref": "#/definitions/AuthenticationType" },
         "Catalog": {
           "description": "<p>The catalog name for the Starburst data source.</p>",
+          "maxLength": 128,
+          "minLength": 0,
+          "type": "string"
+        },
+        "DatabaseAccessControlRole": {
           "maxLength": 128,
           "minLength": 0,
           "type": "string"
@@ -713,6 +751,7 @@
           "minLength": 1,
           "type": "string"
         },
+        "OAuthParameters": { "$ref": "#/definitions/OAuthParameters" },
         "Port": {
           "default": 0,
           "description": "<p>The port for the Starburst data source.</p>",

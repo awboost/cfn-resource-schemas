@@ -96,6 +96,7 @@ export type ProtectedQueryS3OutputConfiguration = {
   Bucket: string;
   KeyPrefix?: string;
   ResultFormat: ResultFormat;
+  SingleFileOutput?: boolean;
 };
 /**
  * Type definition for `AWS::CleanRooms::Membership.ResultFormat`.

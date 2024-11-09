@@ -1,5 +1,5 @@
 {
-  "$hash": "afdf83e69d3cfe831e4d537d9cbba88762093ec1",
+  "$hash": "83bfa3bf44024f174043daab2903dbd03b27878c",
   "$id": "aws-cleanrooms-membership.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CollaborationIdentifier"],
@@ -52,7 +52,8 @@
       "properties": {
         "Bucket": { "maxLength": 63, "minLength": 3, "type": "string" },
         "KeyPrefix": { "type": "string" },
-        "ResultFormat": { "$ref": "#/definitions/ResultFormat" }
+        "ResultFormat": { "$ref": "#/definitions/ResultFormat" },
+        "SingleFileOutput": { "type": "boolean" }
       },
       "required": ["ResultFormat", "Bucket"],
       "type": "object"

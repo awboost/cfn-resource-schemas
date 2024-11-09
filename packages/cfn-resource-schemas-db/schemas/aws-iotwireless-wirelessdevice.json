@@ -1,5 +1,5 @@
 {
-  "$hash": "cfcb181b9d245e9a8ad00cde46116a9275d3207f",
+  "$hash": "fea6aab20530e356d64710dd6d118b140513c46d",
   "$id": "aws-iotwireless-wirelessdevice.json",
   "additionalProperties": false,
   "definitions": {
@@ -136,8 +136,7 @@
     "create": {
       "permissions": [
         "iotwireless:CreateWirelessDevice",
-        "iotwireless:TagResource",
-        "iotwireless:ListTagsForResource"
+        "iotwireless:TagResource"
       ]
     },
     "delete": {
@@ -161,9 +160,10 @@
     "update": {
       "permissions": [
         "iotwireless:UpdateWirelessDevice",
-        "iotwireless:UntagResource",
-        "iotwireless:ListTagsForResource",
-        "iotwireless:AssociateWirelessDeviceWithThing"
+        "iotwireless:GetWirelessDevice",
+        "iotwireless:AssociateWirelessDeviceWithThing",
+        "iotwireless:TagResource",
+        "iotwireless:UntagResource"
       ]
     }
   },
@@ -235,6 +235,17 @@
   ],
   "required": ["Type", "DestinationName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotwireless:TagResource",
+      "iotwireless:UntagResource",
+      "iotwireless:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoTWireless::WirelessDevice"
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "b5a5e9836928d662245ee345b661ee6590f8ce0b",
+  "$hash": "05f3696f1b3c97fcf8391f5e705e7a1fc8728c62",
   "$id": "aws-efs-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -246,7 +246,13 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/FileSystemId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "elasticfilesystem:TagResource",
+      "elasticfilesystem:ListTagsForResource",
+      "elasticfilesystem:UntagResource",
+      "elasticfilesystem:DeleteTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/FileSystemTags",
     "tagUpdatable": true,

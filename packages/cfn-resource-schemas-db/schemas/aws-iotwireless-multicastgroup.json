@@ -1,5 +1,5 @@
 {
-  "$hash": "665d7626c3b24f4a5ec12667d62c0d59f3292b76",
+  "$hash": "07c64d33bb01e69855f982b6d3789f62638f1e6c",
   "$id": "aws-iotwireless-multicastgroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -44,8 +44,7 @@
     "create": {
       "permissions": [
         "iotwireless:CreateMulticastGroup",
-        "iotwireless:TagResource",
-        "iotwireless:ListTagsForResource"
+        "iotwireless:TagResource"
       ]
     },
     "delete": { "permissions": ["iotwireless:DeleteMulticastGroup"] },
@@ -64,8 +63,9 @@
     "update": {
       "permissions": [
         "iotwireless:UpdateMulticastGroup",
+        "iotwireless:GetMulticastGroup",
+        "iotwireless:TagResource",
         "iotwireless:UntagResource",
-        "iotwireless:ListTagsForResource",
         "iotwireless:AssociateWirelessDeviceWithMulticastGroup",
         "iotwireless:DisassociateWirelessDeviceFromMulticastGroup"
       ]
@@ -128,6 +128,17 @@
   ],
   "required": ["LoRaWAN"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotwireless:TagResource",
+      "iotwireless:UntagResource",
+      "iotwireless:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoTWireless::MulticastGroup"
 }
