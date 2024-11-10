@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html}
  */
 export type ElasticLoadBalancingV2LoadBalancerProperties = {
+  EnablePrefixForIpv6SourceNat?: string;
   /**
    * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
    */
@@ -115,6 +116,7 @@ export type LoadBalancerAttribute = {
       
      The following attributes are supported by only Network Load Balancers:
       +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
+      +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
      */
   Key?: string;
   /**
@@ -140,6 +142,7 @@ export type SubnetMapping = {
    * [Network Load Balancers] The private IPv4 address for an internal load balancer.
    */
   PrivateIPv4Address?: string;
+  SourceNatIpv6Prefix?: string;
   /**
    * The ID of the subnet.
    */

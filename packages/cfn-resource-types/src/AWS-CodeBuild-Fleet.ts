@@ -22,6 +22,7 @@ export type CodeBuildFleetProperties = {
     | "LINUX_GPU_CONTAINER"
     | "ARM_CONTAINER"
     | "MAC_ARM";
+  FleetProxyConfiguration?: ProxyConfiguration;
   /**
    * @pattern `^(?:arn:)[a-zA-Z+-=,._:/@]+$`
    */
@@ -37,6 +38,7 @@ export type CodeBuildFleetProperties = {
    */
   Name?: string;
   OverflowBehavior?: "QUEUE" | "ON_DEMAND";
+  ScalingConfiguration?: ScalingConfigurationInput;
   Tags?: Tag[];
 };
 /**
@@ -48,6 +50,35 @@ export type CodeBuildFleetAttributes = {
    * @minLength `1`
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::CodeBuild::Fleet.FleetProxyRule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-fleetproxyrule.html}
+ */
+export type FleetProxyRule = {
+  Effect?: "ALLOW" | "DENY";
+  Entities?: string[];
+  Type?: "DOMAIN" | "IP";
+};
+/**
+ * Type definition for `AWS::CodeBuild::Fleet.ProxyConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-proxyconfiguration.html}
+ */
+export type ProxyConfiguration = {
+  DefaultBehavior?: "ALLOW_ALL" | "DENY_ALL";
+  OrderedProxyRules?: FleetProxyRule[];
+};
+/**
+ * Type definition for `AWS::CodeBuild::Fleet.ScalingConfigurationInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-scalingconfigurationinput.html}
+ */
+export type ScalingConfigurationInput = {
+  /**
+   * @min `1`
+   */
+  MaxCapacity?: number;
+  ScalingType?: "TARGET_TRACKING_SCALING";
+  TargetTrackingScalingConfigs?: TargetTrackingScalingConfiguration[];
 };
 /**
  * Type definition for `AWS::CodeBuild::Fleet.Tag`.
@@ -68,6 +99,14 @@ export type Tag = {
    * @pattern `[a-zA-Z+-=._:/]+$`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::CodeBuild::Fleet.TargetTrackingScalingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-targettrackingscalingconfiguration.html}
+ */
+export type TargetTrackingScalingConfiguration = {
+  MetricType?: "FLEET_UTILIZATION_RATE";
+  TargetValue?: number;
 };
 /**
  * Type definition for `AWS::CodeBuild::Fleet.VpcConfig`.

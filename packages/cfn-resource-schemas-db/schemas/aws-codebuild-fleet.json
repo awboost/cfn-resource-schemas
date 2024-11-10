@@ -1,8 +1,53 @@
 {
-  "$hash": "c53194da1853d0dfe315f8b36df0c070f5f92c8b",
+  "$hash": "8c0296f416893d62c50f4cf31ba0b2ae17d70846",
   "$id": "aws-codebuild-fleet.json",
   "additionalProperties": false,
   "definitions": {
+    "FleetProxyRule": {
+      "additionalProperties": false,
+      "properties": {
+        "Effect": { "enum": ["ALLOW", "DENY"], "type": "string" },
+        "Entities": {
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "Type": { "enum": ["DOMAIN", "IP"], "type": "string" }
+      },
+      "type": "object"
+    },
+    "ProxyConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "DefaultBehavior": {
+          "enum": ["ALLOW_ALL", "DENY_ALL"],
+          "type": "string"
+        },
+        "OrderedProxyRules": {
+          "insertionOrder": true,
+          "items": { "$ref": "#/definitions/FleetProxyRule" },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ScalingConfigurationInput": {
+      "additionalProperties": false,
+      "properties": {
+        "MaxCapacity": { "minimum": 1, "type": "integer" },
+        "ScalingType": {
+          "enum": ["TARGET_TRACKING_SCALING"],
+          "type": "string"
+        },
+        "TargetTrackingScalingConfigs": {
+          "items": {
+            "$ref": "#/definitions/TargetTrackingScalingConfiguration"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -22,6 +67,14 @@
         }
       },
       "required": ["Value", "Key"],
+      "type": "object"
+    },
+    "TargetTrackingScalingConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "MetricType": { "enum": ["FLEET_UTILIZATION_RATE"], "type": "string" },
+        "TargetValue": { "type": "number" }
+      },
       "type": "object"
     },
     "VpcConfig": {
@@ -89,6 +142,7 @@
       ],
       "type": "string"
     },
+    "FleetProxyConfiguration": { "$ref": "#/definitions/ProxyConfiguration" },
     "FleetServiceRole": {
       "pattern": "^(?:arn:)[a-zA-Z+-=,._:/@]+$",
       "type": "string"
@@ -100,6 +154,9 @@
     },
     "Name": { "maxLength": 128, "minLength": 2, "type": "string" },
     "OverflowBehavior": { "enum": ["QUEUE", "ON_DEMAND"], "type": "string" },
+    "ScalingConfiguration": {
+      "$ref": "#/definitions/ScalingConfigurationInput"
+    },
     "Tags": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
