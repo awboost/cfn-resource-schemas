@@ -9,12 +9,14 @@ export type CodeBuildFleetProperties = {
    * @min `1`
    */
   BaseCapacity?: number;
+  ComputeConfiguration?: ComputeConfiguration;
   ComputeType?:
     | "BUILD_GENERAL1_SMALL"
     | "BUILD_GENERAL1_MEDIUM"
     | "BUILD_GENERAL1_LARGE"
     | "BUILD_GENERAL1_XLARGE"
-    | "BUILD_GENERAL1_2XLARGE";
+    | "BUILD_GENERAL1_2XLARGE"
+    | "ATTRIBUTE_BASED_COMPUTE";
   EnvironmentType?:
     | "WINDOWS_SERVER_2019_CONTAINER"
     | "WINDOWS_SERVER_2022_CONTAINER"
@@ -50,6 +52,16 @@ export type CodeBuildFleetAttributes = {
    * @minLength `1`
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::CodeBuild::Fleet.ComputeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html}
+ */
+export type ComputeConfiguration = {
+  disk?: number;
+  machineType?: "GENERAL" | "NVME";
+  memory?: number;
+  vCpu?: number;
 };
 /**
  * Type definition for `AWS::CodeBuild::Fleet.FleetProxyRule`.

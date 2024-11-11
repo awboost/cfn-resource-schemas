@@ -1,11 +1,4 @@
 - updated `AWS::CodeBuild::Fleet`
-  - added definition `FleetProxyRule`
-  - added definition `ProxyConfiguration`
-  - added definition `ScalingConfigurationInput`
-  - added definition `TargetTrackingScalingConfiguration`
-  - added property `FleetProxyConfiguration`
-  - added property `ScalingConfiguration`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - added property `EnablePrefixForIpv6SourceNat`
-  - updated definition `LoadBalancerAttribute`
-  - updated definition `SubnetMapping`
+  - added definition `ComputeConfiguration`
+  - added property `ComputeConfiguration`
+  - updated property `ComputeType`

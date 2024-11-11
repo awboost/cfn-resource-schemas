@@ -1,8 +1,18 @@
 {
-  "$hash": "8c0296f416893d62c50f4cf31ba0b2ae17d70846",
+  "$hash": "66db800fb752743883b211c7d7e7f86ea833e611",
   "$id": "aws-codebuild-fleet.json",
   "additionalProperties": false,
   "definitions": {
+    "ComputeConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "disk": { "type": "integer" },
+        "machineType": { "enum": ["GENERAL", "NVME"], "type": "string" },
+        "memory": { "type": "integer" },
+        "vCpu": { "type": "integer" }
+      },
+      "type": "object"
+    },
     "FleetProxyRule": {
       "additionalProperties": false,
       "properties": {
@@ -121,13 +131,15 @@
   "properties": {
     "Arn": { "minLength": 1, "type": "string" },
     "BaseCapacity": { "minimum": 1, "type": "integer" },
+    "ComputeConfiguration": { "$ref": "#/definitions/ComputeConfiguration" },
     "ComputeType": {
       "enum": [
         "BUILD_GENERAL1_SMALL",
         "BUILD_GENERAL1_MEDIUM",
         "BUILD_GENERAL1_LARGE",
         "BUILD_GENERAL1_XLARGE",
-        "BUILD_GENERAL1_2XLARGE"
+        "BUILD_GENERAL1_2XLARGE",
+        "ATTRIBUTE_BASED_COMPUTE"
       ],
       "type": "string"
     },
