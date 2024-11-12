@@ -3823,7 +3823,8 @@ export type LayoutElementType =
   | "VISUAL"
   | "FILTER_CONTROL"
   | "PARAMETER_CONTROL"
-  | "TEXT_BOX";
+  | "TEXT_BOX"
+  | "IMAGE";
 /**
  * Type definition for `AWS::QuickSight::Template.LegendOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-legendoptions.html}

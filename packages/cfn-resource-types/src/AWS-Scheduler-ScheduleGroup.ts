@@ -27,7 +27,7 @@ export type SchedulerScheduleGroupAttributes = {
    * The Amazon Resource Name (ARN) of the schedule group.
    * @minLength `1`
    * @maxLength `1224`
-   * @pattern `^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\-]+:\d{12}:schedule-group\/[0-9a-zA-Z-_.]+$`
+   * @pattern `^arn:aws[a-z-]*:scheduler:[a-z0-9\-]+:\d{12}:schedule-group\/[0-9a-zA-Z-_.]+$`
    */
   Arn: string;
   /**

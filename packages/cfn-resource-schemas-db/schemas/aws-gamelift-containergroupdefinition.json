@@ -1,114 +1,10 @@
 {
-  "$hash": "657c752ef323ffa7a15d6a876512f7761983eb86",
+  "$hash": "b0d1b827db83f4f821995284a746e3320b8e1fa0",
   "$id": "aws-gamelift-containergroupdefinition.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/Name",
-    "/properties/SchedulingStrategy",
-    "/properties/TotalMemoryLimit",
-    "/properties/TotalCpuLimit",
-    "/properties/ContainerDefinitions",
-    "/properties/OperatingSystem"
-  ],
+  "createOnlyProperties": ["/properties/Name"],
   "definitions": {
-    "ContainerDefinition": {
-      "additionalProperties": false,
-      "description": "Details about a container that is used in a container fleet",
-      "properties": {
-        "Command": {
-          "description": "The command that's passed to the container.",
-          "insertionOrder": true,
-          "items": {
-            "maxLength": 255,
-            "minLength": 1,
-            "pattern": "^.*$",
-            "type": "string"
-          },
-          "maxItems": 20,
-          "minItems": 1,
-          "type": "array",
-          "uniqueItems": false
-        },
-        "ContainerName": {
-          "description": "A descriptive label for the container definition. Container definition names must be unique with a container group definition.",
-          "maxLength": 128,
-          "minLength": 1,
-          "pattern": "^[a-zA-Z0-9-]+$",
-          "type": "string"
-        },
-        "Cpu": {
-          "description": "The maximum number of CPU units reserved for this container. The value is expressed as an integer amount of CPU units. 1 vCPU is equal to 1024 CPU units",
-          "maximum": 10240,
-          "minimum": 1,
-          "type": "integer"
-        },
-        "DependsOn": {
-          "description": "A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.",
-          "insertionOrder": true,
-          "items": { "$ref": "#/definitions/ContainerDependency" },
-          "maxItems": 10,
-          "minItems": 1,
-          "type": "array",
-          "uniqueItems": true
-        },
-        "EntryPoint": {
-          "description": "The entry point that's passed to the container so that it will run as an executable. If there are multiple arguments, each argument is a string in the array.",
-          "insertionOrder": true,
-          "items": { "maxLength": 1024, "minLength": 1, "type": "string" },
-          "maxItems": 20,
-          "minItems": 1,
-          "type": "array",
-          "uniqueItems": false
-        },
-        "Environment": {
-          "description": "The environment variables to pass to a container.",
-          "insertionOrder": false,
-          "items": { "$ref": "#/definitions/ContainerEnvironment" },
-          "maxItems": 20,
-          "minItems": 1,
-          "type": "array",
-          "uniqueItems": true
-        },
-        "Essential": {
-          "description": "Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.",
-          "type": "boolean"
-        },
-        "HealthCheck": {
-          "$ref": "#/definitions/ContainerHealthCheck",
-          "description": "Specifies how the health of the containers will be checked."
-        },
-        "ImageUri": {
-          "description": "Specifies the image URI of this container.",
-          "maxLength": 255,
-          "minLength": 1,
-          "pattern": "^[a-zA-Z0-9-_\\.@\\/:]+$",
-          "type": "string"
-        },
-        "MemoryLimits": {
-          "$ref": "#/definitions/MemoryLimits",
-          "description": "Specifies how much memory is available to the container. You must specify at least this parameter or the TotalMemoryLimit parameter of the ContainerGroupDefinition."
-        },
-        "PortConfiguration": {
-          "$ref": "#/definitions/PortConfiguration",
-          "description": "Defines the ports on the container."
-        },
-        "ResolvedImageDigest": {
-          "description": "The digest of the container image.",
-          "pattern": "^sha256:[a-fA-F0-9]{64}$",
-          "type": "string"
-        },
-        "WorkingDirectory": {
-          "description": "The working directory to run commands inside the container in.",
-          "maxLength": 255,
-          "minLength": 1,
-          "pattern": "^.*$",
-          "type": "string"
-        }
-      },
-      "required": ["ContainerName", "ImageUri"],
-      "type": "object"
-    },
     "ContainerDependency": {
       "additionalProperties": false,
       "description": "A dependency that impacts a container's startup and shutdown.",
@@ -249,25 +145,6 @@
       "required": ["FromPort", "Protocol", "ToPort"],
       "type": "object"
     },
-    "MemoryLimits": {
-      "additionalProperties": false,
-      "description": "Specifies how much memory is available to the container.",
-      "properties": {
-        "HardLimit": {
-          "description": "The hard limit of memory to reserve for the container.",
-          "maximum": 1024000,
-          "minimum": 4,
-          "type": "integer"
-        },
-        "SoftLimit": {
-          "description": "The amount of memory that is reserved for the container.",
-          "maximum": 1024000,
-          "minimum": 4,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    },
     "PortConfiguration": {
       "additionalProperties": false,
       "description": "Defines the ports on a container.",
@@ -337,6 +214,7 @@
     },
     "update": {
       "permissions": [
+        "gamelift:UpdateContainerGroupDefinition",
         "gamelift:ListTagsForResource",
         "gamelift:TagResource",
         "gamelift:UntagResource"
@@ -345,15 +223,6 @@
   },
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
-    "ContainerDefinitions": {
-      "description": "A collection of container definitions that define the containers in this group.",
-      "insertionOrder": false,
-      "items": { "$ref": "#/definitions/ContainerDefinition" },
-      "maxItems": 10,
-      "minItems": 1,
-      "type": "array",
-      "uniqueItems": true
-    },
     "ContainerGroupDefinitionArn": {
       "description": "The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.",
       "maxLength": 512,
@@ -375,11 +244,6 @@
     "OperatingSystem": {
       "description": "The operating system of the container group",
       "enum": ["AMAZON_LINUX_2023"],
-      "type": "string"
-    },
-    "SchedulingStrategy": {
-      "description": "Specifies whether the container group includes replica or daemon containers.",
-      "enum": ["REPLICA", "DAEMON"],
       "type": "string"
     },
     "SourceVersionNumber": {
@@ -413,33 +277,19 @@
       "minItems": 0,
       "type": "array",
       "uniqueItems": true
-    },
-    "TotalCpuLimit": {
-      "description": "The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)",
-      "maximum": 10240,
-      "minimum": 128,
-      "type": "integer"
-    },
-    "TotalMemoryLimit": {
-      "description": "The maximum amount of memory (in MiB) to allocate for this container group.",
-      "maximum": 1024000,
-      "minimum": 4,
-      "type": "integer"
     }
   },
   "readOnlyProperties": [
     "/properties/ContainerGroupDefinitionArn",
     "/properties/CreationTime",
-    "/properties/ContainerDefinitions/*/ResolvedImageDigest",
     "/properties/Status",
     "/properties/StatusReason"
   ],
   "required": [
     "Name",
-    "TotalMemoryLimit",
-    "TotalCpuLimit",
-    "ContainerDefinitions",
-    "OperatingSystem"
+    "OperatingSystem",
+    "TotalMemoryLimitMebibytes",
+    "TotalVcpuLimit"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
   "tagging": {

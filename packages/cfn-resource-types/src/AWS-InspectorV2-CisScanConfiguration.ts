@@ -49,7 +49,7 @@ export type CisTargets = {
    * @maxLength `10000`
    */
   AccountIds: string[];
-  TargetResourceTags?: TargetResourceTags;
+  TargetResourceTags: TargetResourceTags;
 };
 /**
  * Type definition for `AWS::InspectorV2::CisScanConfiguration.DailySchedule`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "b3106739721e01b9876ecb7930f09f70d2328765",
+  "$hash": "efea56a970961882241830ffd51f3489cd1110e1",
   "$id": "aws-scheduler-schedulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -69,7 +69,7 @@
       "description": "The Amazon Resource Name (ARN) of the schedule group.",
       "maxLength": 1224,
       "minLength": 1,
-      "pattern": "^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\\-]+:\\d{12}:schedule-group\\/[0-9a-zA-Z-_.]+$",
+      "pattern": "^arn:aws[a-z-]*:scheduler:[a-z0-9\\-]+:\\d{12}:schedule-group\\/[0-9a-zA-Z-_.]+$",
       "type": "string"
     },
     "CreationDate": {

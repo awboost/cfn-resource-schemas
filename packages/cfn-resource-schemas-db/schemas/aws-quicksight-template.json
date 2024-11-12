@@ -1,5 +1,5 @@
 {
-  "$hash": "e0528e4e674bcb13d59fc15221d66dec3e16e497",
+  "$hash": "501e16e2a593a69148e93f4c7cea345afde3e4b2",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -3828,7 +3828,13 @@
       "type": "object"
     },
     "LayoutElementType": {
-      "enum": ["VISUAL", "FILTER_CONTROL", "PARAMETER_CONTROL", "TEXT_BOX"],
+      "enum": [
+        "VISUAL",
+        "FILTER_CONTROL",
+        "PARAMETER_CONTROL",
+        "TEXT_BOX",
+        "IMAGE"
+      ],
       "type": "string"
     },
     "LegendOptions": {

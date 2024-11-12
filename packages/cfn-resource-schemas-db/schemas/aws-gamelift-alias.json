@@ -1,5 +1,5 @@
 {
-  "$hash": "cf95ba9cd26ca8a61150ad9c0928dbb38cebd584",
+  "$hash": "b2d8446bb8c437a8d3294465c3c742968e6985ba",
   "$id": "aws-gamelift-alias.json",
   "additionalProperties": false,
   "definitions": {
@@ -9,7 +9,7 @@
       "properties": {
         "FleetId": {
           "description": "A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.",
-          "pattern": "^fleet-\\S+",
+          "pattern": "^[a-z]*fleet-[a-zA-Z0-9\\-]+",
           "type": "string"
         },
         "Message": {

@@ -40,7 +40,7 @@ export type GameLiftAliasAttributes = {
 export type RoutingStrategy = {
   /**
    * A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
-   * @pattern `^fleet-\S+`
+   * @pattern `^[a-z]*fleet-[a-zA-Z0-9\-]+`
    */
   FleetId?: string;
   /**

@@ -1,4 +1,36 @@
-- updated `AWS::CodeBuild::Fleet`
-  - added definition `ComputeConfiguration`
-  - added property `ComputeConfiguration`
+- updated `AWS::GameLift::Alias`
+  - updated definition `RoutingStrategy`
+- updated `AWS::GameLift::ContainerGroupDefinition`
+  - removed definition `ContainerDefinition`
+  - removed definition `MemoryLimits`
+  - removed property `ContainerDefinitions`
+  - removed property `SchedulingStrategy`
+  - removed property `TotalCpuLimit`
+  - removed property `TotalMemoryLimit`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated `required`
+  - updated handler permissions
+- updated `AWS::GameLift::Fleet`
+  - removed definition `ConnectionPortRange`
+  - removed definition `ContainerGroupsConfiguration`
+  - removed definition `ContainerGroupsPerInstance`
+  - removed property `ContainerGroupsConfiguration`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
   - updated property `ComputeType`
+- updated `AWS::InspectorV2::CisScanConfiguration`
+  - updated definition `CisTargets`
+- updated `AWS::QuickSight::Analysis`
+  - updated definition `LayoutElementType`
+- updated `AWS::QuickSight::Dashboard`
+  - updated definition `LayoutElementType`
+- updated `AWS::QuickSight::Template`
+  - updated definition `LayoutElementType`
+- updated `AWS::Scheduler::Schedule`
+  - updated definition `DeadLetterConfig`
+  - updated definition `Target`
+  - updated property `Arn`
+  - updated property `KmsKeyArn`
+- updated `AWS::Scheduler::ScheduleGroup`
+  - updated property `Arn`

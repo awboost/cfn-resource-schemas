@@ -1,5 +1,5 @@
 {
-  "$hash": "d570d98331e1bd9ae9306ddf1155ac5a81a07267",
+  "$hash": "0370f08b51a09d9e9272947e4ae1b34e367442b5",
   "$id": "aws-inspectorv2-cisscanconfiguration.json",
   "additionalProperties": false,
   "definitions": {
@@ -26,7 +26,7 @@
         },
         "TargetResourceTags": { "$ref": "#/definitions/TargetResourceTags" }
       },
-      "required": ["AccountIds"]
+      "required": ["AccountIds", "TargetResourceTags"]
     },
     "DailySchedule": {
       "additionalProperties": false,

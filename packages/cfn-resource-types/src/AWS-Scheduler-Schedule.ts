@@ -30,7 +30,7 @@ export type SchedulerScheduleProperties = {
    * The ARN for a KMS Key that will be used to encrypt customer data.
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^arn:aws(-[a-z]+)?:kms:[a-z0-9\-]+:\d{12}:(key|alias)\/[0-9a-zA-Z-_]*$`
+   * @pattern `^arn:aws[a-z-]*:kms:[a-z0-9\-]+:\d{12}:(key|alias)\/[0-9a-zA-Z-_]*$`
    */
   KmsKeyArn?: string;
   /**
@@ -73,7 +73,7 @@ export type SchedulerScheduleAttributes = {
    * The Amazon Resource Name (ARN) of the schedule.
    * @minLength `1`
    * @maxLength `1224`
-   * @pattern `^arn:aws(-[a-z]+)?:scheduler:[a-z0-9\-]+:\d{12}:schedule\/[0-9a-zA-Z-_.]+\/[0-9a-zA-Z-_.]+$`
+   * @pattern `^arn:aws[a-z-]*:scheduler:[a-z0-9\-]+:\d{12}:schedule\/[0-9a-zA-Z-_.]+\/[0-9a-zA-Z-_.]+$`
    */
   Arn: string;
 };
@@ -141,7 +141,7 @@ export type DeadLetterConfig = {
    * The ARN of the SQS queue specified as the target for the dead-letter queue.
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^arn:aws(-[a-z]+)?:sqs:[a-z0-9\-]+:\d{12}:[a-zA-Z0-9\-_]+$`
+   * @pattern `^arn:aws[a-z-]*:sqs:[a-z0-9\-]+:\d{12}:[a-zA-Z0-9\-_]+$`
    */
   Arn?: string;
 };
@@ -462,7 +462,7 @@ export type Target = {
    * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the schedule is triggered.
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^arn:aws(-[a-z]+)?:iam::\d{12}:role\/[\w+=,.@\/-]+$`
+   * @pattern `^arn:aws[a-z-]*:iam::\d{12}:role\/[\w+=,.@\/-]+$`
    */
   RoleArn: string;
   /**
