@@ -1,5 +1,5 @@
 {
-  "$hash": "734cdc096f78876157585da0447555128087a482",
+  "$hash": "981f18832409276465fbee96ec53f8e15e9520f3",
   "$id": "aws-events-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -171,7 +171,7 @@
     },
     "SecretArn": {
       "description": "The arn of the secrets manager secret created in the customer account.",
-      "pattern": "^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]|\\d|\\-)*:([0-9]{12})?:secret:[\\/_+=\\.@\\-A-Za-z0-9]+$",
+      "pattern": "^arn:aws([a-z]|\\-)*:secretsmanager:([a-z]|\\d|\\-)*:([0-9]{12})?:secret:([a-z]|\\d|\\-)*(!)*[\\/_+=\\.@\\-A-Za-z0-9]+$",
       "type": "string"
     }
   },

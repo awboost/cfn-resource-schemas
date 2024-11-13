@@ -1,36 +1,43 @@
-- updated `AWS::GameLift::Alias`
-  - updated definition `RoutingStrategy`
-- updated `AWS::GameLift::ContainerGroupDefinition`
-  - removed definition `ContainerDefinition`
-  - removed definition `MemoryLimits`
-  - removed property `ContainerDefinitions`
-  - removed property `SchedulingStrategy`
-  - removed property `TotalCpuLimit`
-  - removed property `TotalMemoryLimit`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated `required`
+- updated `AWS::ApplicationInsights::Application`
+  - added property `SNSNotificationArn`
+  - updated `writeOnlyProperties`
+- updated `AWS::CodeGuruProfiler::ProfilingGroup`
+  - added `tagging`
   - updated handler permissions
-- updated `AWS::GameLift::Fleet`
-  - removed definition `ConnectionPortRange`
-  - removed definition `ContainerGroupsConfiguration`
-  - removed definition `ContainerGroupsPerInstance`
-  - removed property `ContainerGroupsConfiguration`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated property `ComputeType`
-- updated `AWS::InspectorV2::CisScanConfiguration`
-  - updated definition `CisTargets`
-- updated `AWS::QuickSight::Analysis`
-  - updated definition `LayoutElementType`
-- updated `AWS::QuickSight::Dashboard`
-  - updated definition `LayoutElementType`
-- updated `AWS::QuickSight::Template`
-  - updated definition `LayoutElementType`
-- updated `AWS::Scheduler::Schedule`
-  - updated definition `DeadLetterConfig`
-  - updated definition `Target`
-  - updated property `Arn`
-  - updated property `KmsKeyArn`
-- updated `AWS::Scheduler::ScheduleGroup`
-  - updated property `Arn`
+- updated `AWS::EC2::EC2Fleet`
+  - added definition `BaselinePerformanceFactorsRequest`
+  - added definition `CpuPerformanceFactorRequest`
+  - added definition `PerformanceFactorReferenceRequest`
+  - updated definition `InstanceRequirementsRequest`
+- updated `AWS::EC2::LaunchTemplate`
+  - removed definition `Cpu`
+  - removed definition `Reference`
+  - removed definition `References`
+  - updated definition `Ebs`
+  - updated definition `InstanceRequirements`
+  - updated definition `LaunchTemplateData`
+  - updated definition `LaunchTemplateTagSpecification`
+  - updated definition `NetworkInterface`
+  - updated definition `TagSpecification`
+  - updated property `TagSpecifications`
+- updated `AWS::EC2::SpotFleet`
+  - added definition `BaselinePerformanceFactorsRequest`
+  - added definition `CpuPerformanceFactorRequest`
+  - added definition `PerformanceFactorReferenceRequest`
+  - updated definition `InstanceRequirementsRequest`
+- updated `AWS::ECS::Service`
+  - added definition `VpcLatticeConfiguration`
+  - added property `AvailabilityZoneRebalancing`
+  - added property `VpcLatticeConfigurations`
+  - updated `propertyTransform`
+  - updated definition `DeploymentConfiguration`
+  - updated definition `LoadBalancer`
+  - updated property `DeploymentConfiguration`
+- updated `AWS::EMRContainers::VirtualCluster`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::Events::Connection`
+  - updated property `SecretArn`
+- updated `AWS::HealthLake::FHIRDatastore`
+  - added `tagging`
+  - removed `taggable`

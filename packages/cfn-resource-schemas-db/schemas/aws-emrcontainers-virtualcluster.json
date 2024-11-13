@@ -1,5 +1,5 @@
 {
-  "$hash": "86c8cec4658fc247f95001c421b41b8d0b4a004b",
+  "$hash": "f4f54553e36bcc61e622b21de82712ed426888ac",
   "$id": "aws-emrcontainers-virtualcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ContainerProvider", "/properties/Name"],
@@ -68,7 +68,12 @@
         "iam:CreateServiceLinkedRole"
       ]
     },
-    "delete": { "permissions": ["emr-containers:DeleteVirtualCluster"] },
+    "delete": {
+      "permissions": [
+        "emr-containers:DeleteVirtualCluster",
+        "emr-containers:DescribeVirtualCluster"
+      ]
+    },
     "list": { "permissions": ["emr-containers:ListVirtualClusters"] },
     "read": { "permissions": ["emr-containers:DescribeVirtualCluster"] },
     "update": {
@@ -111,5 +116,16 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/Id"],
   "required": ["Name", "ContainerProvider"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "emr-containers:TagResource",
+      "emr-containers:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EMRContainers::VirtualCluster"
 }

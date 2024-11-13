@@ -1,5 +1,5 @@
 {
-  "$hash": "d76bf293135b6e0dcfadf9f3a2e2bc6a5e49aaba",
+  "$hash": "1858694450920291425113c07486098f99ef06fc",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -38,6 +38,13 @@
       },
       "type": "object"
     },
+    "BaselinePerformanceFactorsRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "Cpu": { "$ref": "#/definitions/CpuPerformanceFactorRequest" }
+      },
+      "type": "object"
+    },
     "CapacityRebalance": {
       "additionalProperties": false,
       "properties": {
@@ -55,6 +62,19 @@
         "UsageStrategy": {
           "enum": ["use-capacity-reservations-first"],
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CpuPerformanceFactorRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "References": {
+          "items": {
+            "$ref": "#/definitions/PerformanceFactorReferenceRequest"
+          },
+          "type": "array",
+          "uniqueItems": false
         }
       },
       "type": "object"
@@ -176,7 +196,7 @@
         },
         "CpuManufacturers": {
           "items": {
-            "enum": ["intel", "amd", "amazon-web-services"],
+            "enum": ["intel", "amd", "amazon-web-services", "apple"],
             "type": "string"
           },
           "type": "array",
@@ -276,6 +296,11 @@
         "SingleAvailabilityZone": { "type": "boolean" },
         "SingleInstanceType": { "type": "boolean" }
       },
+      "type": "object"
+    },
+    "PerformanceFactorReferenceRequest": {
+      "additionalProperties": false,
+      "properties": { "InstanceFamily": { "type": "string" } },
       "type": "object"
     },
     "Placement": {

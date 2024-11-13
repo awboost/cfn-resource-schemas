@@ -55,6 +55,13 @@ export type ApplicationInsightsApplicationProperties = {
    */
   ResourceGroupName: string;
   /**
+   * Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+   * @minLength `20`
+   * @maxLength `300`
+   * @pattern `^arn:aws(-[\w]+)*:[\w\d-]+:([\w\d-]*)?:[\w\d_-]*([:/].+)*$`
+   */
+  SNSNotificationArn?: string;
+  /**
    * The tags of Application Insights application.
    * @minLength `1`
    */

@@ -159,7 +159,7 @@ export type InstanceRequirementsRequest = {
   BareMetal?: "included" | "required" | "excluded";
   BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
   BurstablePerformance?: "included" | "required" | "excluded";
-  CpuManufacturers?: ("intel" | "amd" | "amazon-web-services")[];
+  CpuManufacturers?: ("intel" | "amd" | "amazon-web-services" | "apple")[];
   ExcludedInstanceTypes?: string[];
   InstanceGenerations?: ("current" | "previous")[];
   LocalStorage?: "included" | "required" | "excluded";

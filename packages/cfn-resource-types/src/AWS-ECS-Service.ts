@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html}
  */
 export type ECSServiceProperties = {
+  AvailabilityZoneRebalancing?: "ENABLED" | "DISABLED";
   /**
      * The capacity provider strategy to use for the service.
      If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -18,7 +19,7 @@ export type ECSServiceProperties = {
    */
   Cluster?: string;
   /**
-   * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+   * Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
    */
   DeploymentConfiguration?: DeploymentConfiguration;
   /**
@@ -127,6 +128,7 @@ export type ECSServiceProperties = {
    * The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
    */
   VolumeConfigurations?: ServiceVolumeConfiguration[];
+  VpcLatticeConfigurations?: VpcLatticeConfiguration[];
 };
 /**
  * Attribute type definition for `AWS::ECS::Service`.
@@ -222,7 +224,7 @@ export type DeploymentCircuitBreaker = {
 };
 /**
  * Type definition for `AWS::ECS::Service.DeploymentConfiguration`.
- * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+ * Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html}
  */
 export type DeploymentConfiguration = {
@@ -313,7 +315,7 @@ export type LoadBalancer = {
    */
   ContainerPort?: number;
   /**
-     * The name of the load balancer to associate with the service or task set.
+     * The name of the load balancer to associate with the Amazon ECS service or task set.
      If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
      */
   LoadBalancerName?: string;
@@ -704,6 +706,15 @@ export type TimeoutConfiguration = {
    * The amount of time waiting for the upstream to respond with a complete response per request. A value of ``0`` can be set to disable ``perRequestTimeout``. ``perRequestTimeout`` can only be set if Service Connect ``appProtocol`` isn't ``TCP``. Only ``idleTimeout`` is allowed for ``TCP`` ``appProtocol``.
    */
   PerRequestTimeoutSeconds?: number;
+};
+/**
+ * Type definition for `AWS::ECS::Service.VpcLatticeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html}
+ */
+export type VpcLatticeConfiguration = {
+  PortName: string;
+  RoleArn: string;
+  TargetGroupArn: string;
 };
 /**
  * The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.

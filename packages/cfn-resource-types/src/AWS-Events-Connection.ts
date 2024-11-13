@@ -32,7 +32,7 @@ export type EventsConnectionAttributes = {
   Arn: string;
   /**
    * The arn of the secrets manager secret created in the customer account.
-   * @pattern `^arn:aws([a-z]|\-)*:secretsmanager:([a-z]|\d|\-)*:([0-9]{12})?:secret:[\/_+=\.@\-A-Za-z0-9]+$`
+   * @pattern `^arn:aws([a-z]|\-)*:secretsmanager:([a-z]|\d|\-)*:([0-9]{12})?:secret:([a-z]|\d|\-)*(!)*[\/_+=\.@\-A-Za-z0-9]+$`
    */
   SecretArn: string;
 };
