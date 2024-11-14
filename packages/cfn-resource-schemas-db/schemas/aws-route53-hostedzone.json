@@ -1,5 +1,5 @@
 {
-  "$hash": "d627e8823c9cbb6666ed9ac0412fd0c71997f28c",
+  "$hash": "5b33b58ea452da3a9d5975e8d8b2a949f5a7c5c4",
   "$id": "aws-route53-hostedzone.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -95,7 +95,6 @@
       "permissions": [
         "route53:GetHostedZone",
         "route53:ListHostedZones",
-        "route53:ListHostedZonesByName",
         "route53:ListQueryLoggingConfigs",
         "route53:ListTagsForResource"
       ]
@@ -110,7 +109,9 @@
     "update": {
       "permissions": [
         "route53:GetChange",
+        "route53:GetHostedZone",
         "route53:ListTagsForResource",
+        "route53:ListQueryLoggingConfigs",
         "route53:UpdateHostedZoneComment",
         "route53:ChangeTagsForResource",
         "route53:AssociateVPCWithHostedZone",

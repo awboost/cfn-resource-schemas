@@ -25,6 +25,7 @@ export type DynamoDBGlobalTableProperties = {
   StreamSpecification?: StreamSpecification;
   TableName?: string;
   TimeToLiveSpecification?: TimeToLiveSpecification;
+  WarmThroughput?: WarmThroughput;
   WriteOnDemandThroughputSettings?: WriteOnDemandThroughputSettings;
   WriteProvisionedThroughputSettings?: WriteProvisionedThroughputSettings;
 };
@@ -91,6 +92,7 @@ export type GlobalSecondaryIndex = {
    */
   KeySchema: KeySchema[];
   Projection: Projection;
+  WarmThroughput?: WarmThroughput;
   WriteOnDemandThroughputSettings?: WriteOnDemandThroughputSettings;
   WriteProvisionedThroughputSettings?: WriteProvisionedThroughputSettings;
 };
@@ -269,6 +271,20 @@ export type TargetTrackingScalingPolicyConfiguration = {
 export type TimeToLiveSpecification = {
   AttributeName?: string;
   Enabled: boolean;
+};
+/**
+ * Type definition for `AWS::DynamoDB::GlobalTable.WarmThroughput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-warmthroughput.html}
+ */
+export type WarmThroughput = {
+  /**
+   * @min `1`
+   */
+  ReadUnitsPerSecond?: number;
+  /**
+   * @min `1`
+   */
+  WriteUnitsPerSecond?: number;
 };
 /**
  * Type definition for `AWS::DynamoDB::GlobalTable.WriteOnDemandThroughputSettings`.

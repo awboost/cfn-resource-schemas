@@ -15,6 +15,7 @@ export type FISExperimentTemplateProperties = {
    */
   Description: string;
   ExperimentOptions?: ExperimentTemplateExperimentOptions;
+  ExperimentReportConfiguration?: ExperimentTemplateExperimentReportConfiguration;
   LogConfiguration?: ExperimentTemplateLogConfiguration;
   /**
    * The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
@@ -37,6 +38,17 @@ export type FISExperimentTemplateProperties = {
  */
 export type FISExperimentTemplateAttributes = {
   Id: string;
+};
+/**
+ * Type definition for `AWS::FIS::ExperimentTemplate.CloudWatchDashboard`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-cloudwatchdashboard.html}
+ */
+export type CloudWatchDashboard = {
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   */
+  DashboardIdentifier: string;
 };
 /**
  * Type definition for `AWS::FIS::ExperimentTemplate.ExperimentTemplateAction`.
@@ -89,6 +101,31 @@ export type ExperimentTemplateExperimentOptions = {
    * The target resolution failure mode for the experiment template.
    */
   EmptyTargetResolutionMode?: "fail" | "skip";
+};
+/**
+ * Type definition for `AWS::FIS::ExperimentTemplate.ExperimentTemplateExperimentReportConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html}
+ */
+export type ExperimentTemplateExperimentReportConfiguration = {
+  DataSources: {
+    CloudWatchDashboards?: CloudWatchDashboard[];
+  };
+  Outputs: {
+    ExperimentReportS3Configuration: {
+      /**
+       * @minLength `3`
+       * @maxLength `63`
+       */
+      BucketName: string;
+      /**
+       * @minLength `1`
+       * @maxLength `1024`
+       */
+      Prefix?: string;
+    };
+  };
+  PostExperimentDuration?: string;
+  PreExperimentDuration?: string;
 };
 /**
  * Type definition for `AWS::FIS::ExperimentTemplate.ExperimentTemplateLogConfiguration`.

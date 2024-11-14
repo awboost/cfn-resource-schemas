@@ -1,5 +1,5 @@
 {
-  "$hash": "2d49e50c7a78c51d5b6d8e8d33ea14f64ee9cf07",
+  "$hash": "6ed0a8be213154eb16537b48ed02d7161748c540",
   "$id": "aws-iotcoredeviceadvisor-suitedefinition.json",
   "additionalProperties": false,
   "definitions": {
@@ -75,7 +75,6 @@
         "iot:ListAttachedPolicies",
         "iot:ListCertificates",
         "iot:ListPrincipalPolicies",
-        "iot:ListTagsForResource",
         "iot:ListThingPrincipals",
         "iot:ListThings",
         "iotdeviceadvisor:CreateSuiteDefinition",
@@ -93,7 +92,7 @@
     "read": {
       "permissions": [
         "iotdeviceadvisor:GetSuiteDefinition",
-        "iotdeviceadvisor:TagResource"
+        "iot:ListTagsForResource"
       ]
     },
     "update": {
@@ -104,7 +103,6 @@
         "iot:ListAttachedPolicies",
         "iot:ListCertificates",
         "iot:ListPrincipalPolicies",
-        "iot:ListTagsForResource",
         "iot:ListThingPrincipals",
         "iot:ListThings",
         "iotdeviceadvisor:UpdateSuiteDefinition",
@@ -166,5 +164,17 @@
   ],
   "required": ["SuiteDefinitionConfiguration"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-device-advisor.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotdeviceadvisor:TagResource",
+      "iotdeviceadvisor:UntagResource",
+      "iot:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoTCoreDeviceAdvisor::SuiteDefinition"
 }

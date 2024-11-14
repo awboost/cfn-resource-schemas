@@ -78,6 +78,17 @@ export type EksConfiguration = {
 export type LaunchTemplateSpecification = {
   LaunchTemplateId?: string;
   LaunchTemplateName?: string;
+  Overrides?: LaunchTemplateSpecificationOverride[];
+  Version?: string;
+};
+/**
+ * Type definition for `AWS::Batch::ComputeEnvironment.LaunchTemplateSpecificationOverride`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html}
+ */
+export type LaunchTemplateSpecificationOverride = {
+  LaunchTemplateId?: string;
+  LaunchTemplateName?: string;
+  TargetInstanceTypes?: string[];
   Version?: string;
 };
 /**

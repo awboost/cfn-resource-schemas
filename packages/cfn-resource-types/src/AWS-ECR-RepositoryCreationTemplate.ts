@@ -87,7 +87,7 @@ export type EncryptionConfiguration = {
    */
   EncryptionType: EncryptionType;
   /**
-   * If you use the KMS encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.
+   * If you use the KMS or KMS_DSSE encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.
    * @minLength `1`
    * @maxLength `2048`
    */
@@ -98,7 +98,7 @@ export type EncryptionConfiguration = {
  * The encryption type to use.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-encryptiontype.html}
  */
-export type EncryptionType = "AES256" | "KMS";
+export type EncryptionType = "AES256" | "KMS" | "KMS_DSSE";
 /**
  * Type definition for `AWS::ECR::RepositoryCreationTemplate.Tag`.
  * An array of key-value pairs to apply to this resource.

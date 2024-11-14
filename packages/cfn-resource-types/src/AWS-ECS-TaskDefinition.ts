@@ -226,7 +226,7 @@ export type ContainerDefinition = {
   DockerSecurityOptions?: string[];
   /**
      * Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.
-      The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in tthe docker container create command and the ``--entrypoint`` option to docker run.
+      The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in the docker container create command and the ``--entrypoint`` option to docker run.
      */
   EntryPoint?: string[];
   /**
@@ -259,7 +259,7 @@ export type ContainerDefinition = {
    */
   HealthCheck?: HealthCheck;
   /**
-     * The hostname to use for your container. This parameter maps to ``Hostname`` in thethe docker container create command and the ``--hostname`` option to docker run.
+     * The hostname to use for your container. This parameter maps to ``Hostname`` in the docker container create command and the ``--hostname`` option to docker run.
       The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
      */
   Hostname?: string;
@@ -318,7 +318,7 @@ export type ContainerDefinition = {
      */
   MountPoints?: MountPoint[];
   /**
-   * The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in tthe docker container create command and the ``--name`` option to docker run.
+   * The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in the docker container create command and the ``--name`` option to docker run.
    */
   Name: string;
   /**
@@ -335,7 +335,7 @@ export type ContainerDefinition = {
      */
   Privileged?: boolean;
   /**
-   * When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in tthe docker container create command and the ``--tty`` option to docker run.
+   * When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in the docker container create command and the ``--tty`` option to docker run.
    */
   PseudoTerminal?: boolean;
   /**
@@ -376,13 +376,13 @@ export type ContainerDefinition = {
       +  Linux platform version ``1.3.0`` or later.
       +  Windows platform version ``1.0.0`` or later.
       
-     The max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
+     For tasks that use the Fargate launch type, the max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
      For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
-     The valid values are 2-120 seconds.
+     The valid values for Fargate are 2-120 seconds.
      */
   StopTimeout?: number;
   /**
-   * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+   * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
    */
   SystemControls?: SystemControl[];
   /**
@@ -404,8 +404,9 @@ export type ContainerDefinition = {
       This parameter is not supported for Windows containers.
      */
   User?: string;
+  VersionConsistency?: "enabled" | "disabled";
   /**
-   * Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in tthe docker container create command and the ``--volumes-from`` option to docker run.
+   * Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the docker container create command and the ``--volumes-from`` option to docker run.
    */
   VolumesFrom?: VolumeFrom[];
   /**
@@ -621,7 +622,7 @@ export type HealthCheck = {
       ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``
      You don't include the double quotes and brackets when you use the AWS Management Console.
       ``CMD-SHELL, curl -f http://localhost/ || exit 1``
-     An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in tthe docker container create command
+     An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command
      */
   Command?: string[];
   /**
@@ -729,7 +730,7 @@ export type LinuxParameters = {
      */
   Capabilities?: KernelCapabilities;
   /**
-     * Any host devices to expose to the container. This parameter maps to ``Devices`` in tthe docker container create command and the ``--device`` option to docker run.
+     * Any host devices to expose to the container. This parameter maps to ``Devices`` in the docker container create command and the ``--device`` option to docker run.
       If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
      */
   Devices?: Device[];
@@ -777,8 +778,17 @@ export type LogConfiguration = {
      */
   LogDriver: string;
   /**
-   * The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
-   */
+     * The configuration options to send to the log driver.
+     The options you can specify depend on the log driver. Some of the options you can specify when you use the ``awslogs`` log driver to route logs to Amazon CloudWatch include the following:
+      + awslogs-create-group Required: No Specify whether you want the log group to be created automatically. If this option isn't specified, it defaults to false. Your IAM policy must include the logs:CreateLogGroup permission before you attempt to use awslogs-create-group. + awslogs-region Required: Yes Specify the Region that the awslogs log driver is to send your Docker logs to. You can choose to send all of your logs from clusters in different Regions to a single region in CloudWatch Logs. This is so that they're all visible in one location. Otherwise, you can separate them by Region for more granularity. Make sure that the specified log group exists in the Region that you specify with this option. + awslogs-group Required: Yes Make sure to specify a log group that the awslogs log driver sends its log streams to. + awslogs-stream-prefix Required: Yes, when using the Fargate launch type.Optional for the EC2 launch type, required for the Fargate launch type. Use the awslogs-stream-prefix option to associate a log stream with the specified prefix, the container name, and the ID of the Amazon ECS task that the container belongs to. If you specify a prefix with this option, then the log stream takes the format prefix-name/container-name/ecs-task-id. If you don't specify a prefix with this option, then the log stream is named after the container ID that's assigned by the Docker daemon on the container instance. Because it's difficult to trace logs back to the container that sent them with just the Docker container ID (which is only available on the container instance), we recommend that you specify a prefix with this option. For Amazon ECS services, you can use the service name as the prefix. Doing so, you can trace log streams to the service that the container belongs to, the name of the container that sent them, and the ID of the task that the container belongs to. You must specify a stream-prefix for your logs to have your logs appear in the Log pane when using the Amazon ECS console. + awslogs-datetime-format Required: No This option defines a multiline start pattern in Python strftime format. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. One example of a use case for using this format is for parsing output such as a stack dump, which might otherwise be logged in multiple entries. The correct pattern allows it to be captured in a single entry. For more information, see awslogs-datetime-format. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + awslogs-multiline-pattern Required: No This option defines a multiline start pattern that uses a regular expression. A log message consists of a line that matches the pattern and any following lines that don’t match the pattern. The matched line is the delimiter between log messages. For more information, see awslogs-multiline-pattern. This option is ignored if awslogs-datetime-format is also configured. You cannot configure both the awslogs-datetime-format and awslogs-multiline-pattern options. Multiline logging performs regular expression parsing and matching of all log messages. This might have a negative impact on logging performance. + mode Required: No Valid values: non-blocking | blocking This option defines the delivery mode of log messages from the container to CloudWatch Logs. The delivery mode you choose affects application availability when the flow of logs from container to CloudWatch is interrupted. If you use the blocking mode and the flow of logs to CloudWatch is interrupted, calls from container code to write to the stdout and stderr streams will block. The logging thread of the application will block as a result. This may cause the application to become unresponsive and lead to container healthcheck failure. If you use the non-blocking mode, the container's logs are instead stored in an in-memory intermediate buffer configured with the max-buffer-size option. This prevents the application from becoming unresponsive when logs cannot be sent to CloudWatch. We recommend using this mode if you want to ensure service availability and are okay with some log loss. For more information, see Preventing log loss with non-blocking mode in the awslogs container log driver. + max-buffer-size Required: No Default value: 1m When non-blocking mode is used, the max-buffer-size log option controls the size of the buffer that's used for intermediate message storage. Make sure to specify an adequate buffer size based on your application. When the buffer fills up, further logs cannot be stored. Logs that cannot be stored are lost.
+     To route logs using the ``splunk`` log router, you need to specify a ``splunk-token`` and a ``splunk-url``.
+     When you use the ``awsfirelens`` log router to route logs to an AWS Service or AWS Partner Network destination for log storage and analytics, you can set the ``log-driver-buffer-limit`` option to limit the number of events that are buffered in memory, before being sent to the log router container. It can help to resolve potential log loss issue because high throughput might result in memory running out for the buffer inside of Docker.
+     Other options you can specify when using ``awsfirelens`` to route logs depend on the destination. When you export logs to Amazon Data Firehose, you can specify the AWS Region with ``region`` and a name for the log stream with ``delivery_stream``.
+     When you export logs to Amazon Kinesis Data Streams, you can specify an AWS Region with ``region`` and a data stream name with ``stream``.
+      When you export logs to Amazon OpenSearch Service, you can specify options like ``Name``, ``Host`` (OpenSearch Service endpoint without protocol), ``Port``, ``Index``, ``Type``, ``Aws_auth``, ``Aws_region``, ``Suppress_Type_Name``, and ``tls``.
+     When you export logs to Amazon S3, you can specify the bucket using the ``bucket`` option. You can also specify ``region``, ``total_file_size``, ``upload_timeout``, and ``use_put_object`` as options.
+     This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: ``sudo docker version --format '{{.Server.APIVersion}}'``
+     */
   Options?: Record<string, string>;
   /**
    * The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -985,7 +995,7 @@ export type Secret = {
 };
 /**
  * Type definition for `AWS::ECS::TaskDefinition.SystemControl`.
- * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+ * A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
  We don't recommend that you specify network-related ``systemControls`` parameters for multiple containers in a single task that also uses either the ``awsvpc`` or ``host`` network mode. Doing this has the following disadvantages:
   +  For tasks that use the ``awsvpc`` network mode including Fargate, if you set ``systemControls`` for any container, it applies to all containers in the task. If you set different ``systemControls`` for multiple containers in a single task, the container that's started last determines which ``systemControls`` take effect.
   +  For tasks that use the ``host`` network mode, the network namespace ``systemControls`` aren't supported.
@@ -1079,7 +1089,7 @@ export type Tmpfs = {
  */
 export type Ulimit = {
   /**
-   * The hard limit for the ``ulimit`` type.
+   * The hard limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
    */
   HardLimit: number;
   /**
@@ -1087,7 +1097,7 @@ export type Ulimit = {
    */
   Name: string;
   /**
-   * The soft limit for the ``ulimit`` type.
+   * The soft limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
    */
   SoftLimit: number;
 };

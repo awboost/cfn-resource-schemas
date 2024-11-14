@@ -1,5 +1,5 @@
 {
-  "$hash": "639821c98bb825a0a8bba6223b4ba497a354adfe",
+  "$hash": "c7832dc20604a225f1fff28c87e67a71101398ea",
   "$id": "aws-ecr-repositorycreationtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Prefix"],
@@ -21,11 +21,11 @@
     },
     "EncryptionType": {
       "description": "The encryption type to use.",
-      "enum": ["AES256", "KMS"],
+      "enum": ["AES256", "KMS", "KMS_DSSE"],
       "type": "string"
     },
     "KmsKey": {
-      "description": "If you use the KMS encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.",
+      "description": "If you use the KMS or KMS_DSSE encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.",
       "maxLength": 2048,
       "minLength": 1,
       "type": "string"

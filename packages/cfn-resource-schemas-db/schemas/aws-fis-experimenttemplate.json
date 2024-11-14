@@ -1,5 +1,5 @@
 {
-  "$hash": "846f7d36c9875e334ff3fdb83c69ac13383e59ba",
+  "$hash": "e2c48924eaeaa2c47717f6e3d9166f8c589e6d23",
   "$id": "aws-fis-experimenttemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -107,6 +107,49 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "ExperimentTemplateExperimentReportConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "DataSources": {
+          "additionalProperties": false,
+          "properties": {
+            "CloudWatchDashboards": {
+              "items": { "$ref": "#/definitions/CloudWatchDashboard" },
+              "type": "array"
+            }
+          },
+          "type": "object"
+        },
+        "Outputs": {
+          "additionalProperties": false,
+          "properties": {
+            "ExperimentReportS3Configuration": {
+              "additionalProperties": false,
+              "properties": {
+                "BucketName": {
+                  "maxLength": 63,
+                  "minLength": 3,
+                  "type": "string"
+                },
+                "Prefix": {
+                  "maxLength": 1024,
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": ["BucketName"],
+              "type": "object"
+            }
+          },
+          "required": ["ExperimentReportS3Configuration"],
+          "type": "object"
+        },
+        "PostExperimentDuration": { "type": "string" },
+        "PreExperimentDuration": { "type": "string" }
+      },
+      "required": ["Outputs", "DataSources"],
       "type": "object"
     },
     "ExperimentTemplateId": { "type": "string" },
@@ -280,6 +323,9 @@
     "Description": { "$ref": "#/definitions/ExperimentTemplateDescription" },
     "ExperimentOptions": {
       "$ref": "#/definitions/ExperimentTemplateExperimentOptions"
+    },
+    "ExperimentReportConfiguration": {
+      "$ref": "#/definitions/ExperimentTemplateExperimentReportConfiguration"
     },
     "Id": { "$ref": "#/definitions/ExperimentTemplateId" },
     "LogConfiguration": {

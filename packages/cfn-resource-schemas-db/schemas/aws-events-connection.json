@@ -1,5 +1,5 @@
 {
-  "$hash": "981f18832409276465fbee96ec53f8e15e9520f3",
+  "$hash": "790a47420606fdb217b4bfc58229786f1eec5ac5",
   "$id": "aws-events-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -175,7 +175,11 @@
       "type": "string"
     }
   },
-  "readOnlyProperties": ["/properties/Arn", "/properties/SecretArn"],
+  "readOnlyProperties": [
+    "/properties/Arn",
+    "/properties/SecretArn",
+    "/properties/AuthParameters/ConnectivityParameters/ResourceParameters/ResourceAssociationIdentifier"
+  ],
   "tagging": {
     "cloudFormationSystemTags": false,
     "tagOnCreate": false,
@@ -183,5 +187,13 @@
     "taggable": false
   },
   "typeName": "AWS::Events::Connection",
-  "writeOnlyProperties": ["/properties/AuthParameters"]
+  "writeOnlyProperties": [
+    "/properties/AuthParameters/BasicAuthParameters/Password",
+    "/properties/AuthParameters/ApiKeyAuthParameters/ApiKeyValue",
+    "/properties/AuthParameters/OAuthParameters/ClientParameters/ClientSecret",
+    "/properties/AuthParameters/OAuthParameters/OAuthHttpParameters/HeaderParameters",
+    "/properties/AuthParameters/OAuthParameters/OAuthHttpParameters/QueryStringParameters",
+    "/properties/AuthParameters/OAuthParameters/OAuthHttpParameters/BodyParameters",
+    "/properties/AuthParameters/InvocationHttpParameters"
+  ]
 }

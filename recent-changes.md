@@ -1,43 +1,64 @@
-- updated `AWS::ApplicationInsights::Application`
-  - added property `SNSNotificationArn`
-  - updated `writeOnlyProperties`
-- updated `AWS::CodeGuruProfiler::ProfilingGroup`
-  - added `tagging`
-  - updated handler permissions
-- updated `AWS::EC2::EC2Fleet`
-  - added definition `BaselinePerformanceFactorsRequest`
-  - added definition `CpuPerformanceFactorRequest`
-  - added definition `PerformanceFactorReferenceRequest`
-  - updated definition `InstanceRequirementsRequest`
-- updated `AWS::EC2::LaunchTemplate`
-  - removed definition `Cpu`
-  - removed definition `Reference`
-  - removed definition `References`
-  - updated definition `Ebs`
-  - updated definition `InstanceRequirements`
-  - updated definition `LaunchTemplateData`
-  - updated definition `LaunchTemplateTagSpecification`
-  - updated definition `NetworkInterface`
-  - updated definition `TagSpecification`
-  - updated property `TagSpecifications`
-- updated `AWS::EC2::SpotFleet`
-  - added definition `BaselinePerformanceFactorsRequest`
-  - added definition `CpuPerformanceFactorRequest`
-  - added definition `PerformanceFactorReferenceRequest`
-  - updated definition `InstanceRequirementsRequest`
-- updated `AWS::ECS::Service`
-  - added definition `VpcLatticeConfiguration`
-  - added property `AvailabilityZoneRebalancing`
-  - added property `VpcLatticeConfigurations`
-  - updated `propertyTransform`
-  - updated definition `DeploymentConfiguration`
-  - updated definition `LoadBalancer`
-  - updated property `DeploymentConfiguration`
-- updated `AWS::EMRContainers::VirtualCluster`
-  - added `tagging`
-  - updated handler permissions
+- added `AWS::GameLift::ContainerFleet`
+- updated `AWS::Batch::ComputeEnvironment`
+  - added definition `LaunchTemplateSpecificationOverride`
+  - updated definition `LaunchTemplateSpecification`
+- updated `AWS::DynamoDB::GlobalTable`
+  - added definition `WarmThroughput`
+  - added property `WarmThroughput`
+  - updated definition `GlobalSecondaryIndex`
+- updated `AWS::DynamoDB::Table`
+  - added definition `WarmThroughput`
+  - added property `WarmThroughput`
+  - updated definition `GlobalSecondaryIndex`
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - updated definition `EncryptionType`
+  - updated definition `KmsKey`
+- updated `AWS::ECS::TaskDefinition`
+  - updated `tagging`
+  - updated definition `ContainerDefinition`
+  - updated definition `HealthCheck`
+  - updated definition `LinuxParameters`
+  - updated definition `LogConfiguration`
+  - updated definition `SystemControl`
+  - updated definition `Ulimit`
 - updated `AWS::Events::Connection`
-  - updated property `SecretArn`
-- updated `AWS::HealthLake::FHIRDatastore`
+  - updated `readOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::FIS::ExperimentTemplate`
+  - added definition `ExperimentTemplateExperimentReportConfiguration`
+  - added property `ExperimentReportConfiguration`
+- updated `AWS::GameLift::ContainerGroupDefinition`
+  - added definition `GameServerContainerDefinition`
+  - added definition `SupportContainerDefinition`
+  - added property `ContainerGroupType`
+  - added property `GameServerContainerDefinition`
+  - added property `TotalMemoryLimitMebibytes`
+  - added property `TotalVcpuLimit`
+  - added property `VersionDescription`
+  - added property `VersionNumber`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated property `ContainerGroupDefinitionArn`
+  - updated property `SupportContainerDefinitions`
+- updated `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`
   - added `tagging`
-  - removed `taggable`
+  - updated handler permissions
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - added definition `DatabaseColumnName`
+  - added definition `DatabaseColumns`
+  - added definition `DatabaseName`
+  - added definition `DatabaseSourceAuthenticationConfiguration`
+  - added definition `DatabaseSourceConfiguration`
+  - added definition `DatabaseSourceVPCConfiguration`
+  - added definition `DatabaseTableName`
+  - added definition `DatabaseTables`
+  - added definition `Databases`
+  - added definition `VpcEndpointServiceName`
+  - added property `DatabaseSourceConfiguration`
+  - updated `createOnlyProperties`
+  - updated definition `SecretsManagerConfiguration`
+  - updated property `DeliveryStreamType`
+- updated `AWS::M2::Environment`
+  - updated handler permissions
+- updated `AWS::Route53::HostedZone`
+  - updated handler permissions

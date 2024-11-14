@@ -1,5 +1,5 @@
 {
-  "$hash": "b9b6808bcee7c58c8e9cdc71a2bfa9aade714eb7",
+  "$hash": "117dc3b9f66a12800f43b01a504bcd3308357899",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -53,6 +53,7 @@
           "uniqueItems": true
         },
         "Projection": { "$ref": "#/definitions/Projection" },
+        "WarmThroughput": { "$ref": "#/definitions/WarmThroughput" },
         "WriteOnDemandThroughputSettings": {
           "$ref": "#/definitions/WriteOnDemandThroughputSettings"
         },
@@ -290,6 +291,18 @@
       "required": ["Enabled"],
       "type": "object"
     },
+    "WarmThroughput": {
+      "additionalProperties": false,
+      "anyOf": [
+        { "required": ["ReadUnitsPerSecond"] },
+        { "required": ["WriteUnitsPerSecond"] }
+      ],
+      "properties": {
+        "ReadUnitsPerSecond": { "minimum": 1, "type": "integer" },
+        "WriteUnitsPerSecond": { "minimum": 1, "type": "integer" }
+      },
+      "type": "object"
+    },
     "WriteOnDemandThroughputSettings": {
       "additionalProperties": false,
       "properties": {
@@ -469,6 +482,7 @@
     "TimeToLiveSpecification": {
       "$ref": "#/definitions/TimeToLiveSpecification"
     },
+    "WarmThroughput": { "$ref": "#/definitions/WarmThroughput" },
     "WriteOnDemandThroughputSettings": {
       "$ref": "#/definitions/WriteOnDemandThroughputSettings"
     },

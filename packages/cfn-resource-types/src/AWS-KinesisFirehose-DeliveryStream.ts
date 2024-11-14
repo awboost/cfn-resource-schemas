@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type KinesisFirehoseDeliveryStreamProperties = {
   AmazonOpenSearchServerlessDestinationConfiguration?: AmazonOpenSearchServerlessDestinationConfiguration;
   AmazonopensearchserviceDestinationConfiguration?: AmazonopensearchserviceDestinationConfiguration;
+  DatabaseSourceConfiguration?: DatabaseSourceConfiguration;
   DeliveryStreamEncryptionConfigurationInput?: DeliveryStreamEncryptionConfigurationInput;
   /**
    * @minLength `1`
@@ -14,7 +15,11 @@ export type KinesisFirehoseDeliveryStreamProperties = {
    * @pattern `[a-zA-Z0-9._-]+`
    */
   DeliveryStreamName?: string;
-  DeliveryStreamType?: "DirectPut" | "KinesisStreamAsSource" | "MSKAsSource";
+  DeliveryStreamType?:
+    | "DatabaseAsSource"
+    | "DirectPut"
+    | "KinesisStreamAsSource"
+    | "MSKAsSource";
   ElasticsearchDestinationConfiguration?: ElasticsearchDestinationConfiguration;
   ExtendedS3DestinationConfiguration?: ExtendedS3DestinationConfiguration;
   HttpEndpointDestinationConfiguration?: HttpEndpointDestinationConfiguration;
@@ -208,6 +213,92 @@ export type CopyCommand = {
    * @maxLength `512`
    */
   DataTableName: string;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.DatabaseColumns`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasecolumns.html}
+ */
+export type DatabaseColumns = {
+  Exclude?: string[];
+  Include?: string[];
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.Databases`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databases.html}
+ */
+export type Databases = {
+  Exclude?: string[];
+  Include?: string[];
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.DatabaseSourceAuthenticationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration.html}
+ */
+export type DatabaseSourceAuthenticationConfiguration = {
+  SecretsManagerConfiguration: SecretsManagerConfiguration;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.DatabaseSourceConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceconfiguration.html}
+ */
+export type DatabaseSourceConfiguration = {
+  Columns?: DatabaseColumns;
+  DatabaseSourceAuthenticationConfiguration: DatabaseSourceAuthenticationConfiguration;
+  DatabaseSourceVPCConfiguration: DatabaseSourceVPCConfiguration;
+  Databases: Databases;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `.*`
+   */
+  Digest?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   * @pattern `^(?!\s*$).+`
+   */
+  Endpoint: string;
+  /**
+   * @min `0`
+   * @max `65535`
+   */
+  Port: number;
+  /**
+   * @minLength `1`
+   * @maxLength `4096`
+   * @pattern `.*`
+   */
+  PublicCertificate?: string;
+  SSLMode?: "Disabled" | "Enabled";
+  /**
+   * @minLength `1`
+   * @maxLength `129`
+   * @pattern `[\u0001-\uFFFF]*`
+   */
+  SnapshotWatermarkTable: string;
+  SurrogateKeys?: string[];
+  Tables: DatabaseTables;
+  Type: "MySQL" | "PostgreSQL";
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.DatabaseSourceVPCConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourcevpcconfiguration.html}
+ */
+export type DatabaseSourceVPCConfiguration = {
+  /**
+   * @minLength `47`
+   * @maxLength `255`
+   * @pattern `([a-zA-Z0-9\-\_]+\.){2,3}vpce\.[a-zA-Z0-9\-]*\.vpce-svc\-[a-zA-Z0-9\-]{17}$`
+   */
+  VpcEndpointServiceName: string;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.DatabaseTables`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasetables.html}
+ */
+export type DatabaseTables = {
+  Exclude?: string[];
+  Include?: string[];
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.DataFormatConversionConfiguration`.
@@ -736,13 +827,13 @@ export type SecretsManagerConfiguration = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `arn:.*`
+   * @pattern `arn:.*:iam::\d{12}:role/[a-zA-Z_0-9+=,.@\-_/]+`
    */
   RoleARN?: string;
   /**
    * @minLength `1`
-   * @maxLength `512`
-   * @pattern `arn:.*`
+   * @maxLength `2048`
+   * @pattern `arn:.*:secretsmanager:[a-zA-Z0-9\-]+:\d{12}:secret:[a-zA-Z0-9\-/_+=.@]+`
    */
   SecretARN?: string;
 };
