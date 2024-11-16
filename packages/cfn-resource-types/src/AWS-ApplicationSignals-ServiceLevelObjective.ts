@@ -6,6 +6,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ApplicationSignalsServiceLevelObjectiveProperties = {
   /**
+   * Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  BurnRateConfigurations?: BurnRateConfiguration[];
+  /**
    * An optional description for this SLO. Default is 'No description'
    * @minLength `1`
    * @maxLength `1024`
@@ -59,6 +65,21 @@ export type ApplicationSignalsServiceLevelObjectiveAttributes = {
    * @min `946684800`
    */
   LastUpdatedTime: number;
+};
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.BurnRateConfiguration`.
+ * This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
+For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
+burn rate = error rate over the look-back window / (1 - attainment goal percentage)
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-burnrateconfiguration.html}
+ */
+export type BurnRateConfiguration = {
+  /**
+   * The number of minutes to use as the look-back window.
+   * @min `1`
+   * @max `10080`
+   */
+  LookBackWindowMinutes: number;
 };
 /**
  * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.CalendarInterval`.

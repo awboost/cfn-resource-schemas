@@ -1,64 +1,10 @@
-- added `AWS::GameLift::ContainerFleet`
-- updated `AWS::Batch::ComputeEnvironment`
-  - added definition `LaunchTemplateSpecificationOverride`
-  - updated definition `LaunchTemplateSpecification`
-- updated `AWS::DynamoDB::GlobalTable`
-  - added definition `WarmThroughput`
-  - added property `WarmThroughput`
-  - updated definition `GlobalSecondaryIndex`
-- updated `AWS::DynamoDB::Table`
-  - added definition `WarmThroughput`
-  - added property `WarmThroughput`
-  - updated definition `GlobalSecondaryIndex`
-- updated `AWS::ECR::RepositoryCreationTemplate`
-  - updated definition `EncryptionType`
-  - updated definition `KmsKey`
-- updated `AWS::ECS::TaskDefinition`
+- added `AWS::CloudFormation::GuardHook`
+- added `AWS::CloudFormation::LambdaHook`
+- updated `AWS::ApplicationSignals::ServiceLevelObjective`
+  - added definition `BurnRateConfiguration`
+  - added definition `BurnRateConfigurations`
+  - added property `BurnRateConfigurations`
+- updated `AWS::RDS::GlobalCluster`
   - updated `tagging`
-  - updated definition `ContainerDefinition`
-  - updated definition `HealthCheck`
-  - updated definition `LinuxParameters`
-  - updated definition `LogConfiguration`
-  - updated definition `SystemControl`
-  - updated definition `Ulimit`
-- updated `AWS::Events::Connection`
-  - updated `readOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::FIS::ExperimentTemplate`
-  - added definition `ExperimentTemplateExperimentReportConfiguration`
-  - added property `ExperimentReportConfiguration`
-- updated `AWS::GameLift::ContainerGroupDefinition`
-  - added definition `GameServerContainerDefinition`
-  - added definition `SupportContainerDefinition`
-  - added property `ContainerGroupType`
-  - added property `GameServerContainerDefinition`
-  - added property `TotalMemoryLimitMebibytes`
-  - added property `TotalVcpuLimit`
-  - added property `VersionDescription`
-  - added property `VersionNumber`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated property `ContainerGroupDefinitionArn`
-  - updated property `SupportContainerDefinitions`
-- updated `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`
-  - added `tagging`
-  - updated handler permissions
-- updated `AWS::KinesisFirehose::DeliveryStream`
-  - added definition `DatabaseColumnName`
-  - added definition `DatabaseColumns`
-  - added definition `DatabaseName`
-  - added definition `DatabaseSourceAuthenticationConfiguration`
-  - added definition `DatabaseSourceConfiguration`
-  - added definition `DatabaseSourceVPCConfiguration`
-  - added definition `DatabaseTableName`
-  - added definition `DatabaseTables`
-  - added definition `Databases`
-  - added definition `VpcEndpointServiceName`
-  - added property `DatabaseSourceConfiguration`
-  - updated `createOnlyProperties`
-  - updated definition `SecretsManagerConfiguration`
-  - updated property `DeliveryStreamType`
-- updated `AWS::M2::Environment`
-  - updated handler permissions
-- updated `AWS::Route53::HostedZone`
-  - updated handler permissions
+- updated `AWS::VpcLattice::AccessLogSubscription`
+  - added property `ServiceNetworkLogType`
