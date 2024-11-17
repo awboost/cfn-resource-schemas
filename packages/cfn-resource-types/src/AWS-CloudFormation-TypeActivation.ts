@@ -34,7 +34,7 @@ export type CloudFormationTypeActivationProperties = {
    * The publisher id assigned by CloudFormation for publishing in this region.
    * @minLength `1`
    * @maxLength `40`
-   * @pattern `[0-9a-zA-Z]{40}`
+   * @pattern `[0-9a-zA-Z-]{40}`
    */
   PublisherId?: string;
   /**

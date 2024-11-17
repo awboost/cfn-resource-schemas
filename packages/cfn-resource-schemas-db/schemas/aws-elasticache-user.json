@@ -1,12 +1,8 @@
 {
-  "$hash": "837421aaa866a161980dcc96a11c258c6f8a9217",
+  "$hash": "dee3074c00aac98e08560410203a03417719e1ad",
   "$id": "aws-elasticache-user.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/UserId",
-    "/properties/UserName",
-    "/properties/Engine"
-  ],
+  "createOnlyProperties": ["/properties/UserId", "/properties/UserName"],
   "definitions": {
     "Tag": {
       "additionalProperties": false,
@@ -97,8 +93,8 @@
       "type": "object"
     },
     "Engine": {
-      "description": "Must be redis.",
-      "enum": ["redis"],
+      "description": "The target cache engine for the user.",
+      "enum": ["redis", "valkey"],
       "type": "string"
     },
     "NoPasswordRequired": {

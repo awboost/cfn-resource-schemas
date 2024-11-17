@@ -1,5 +1,5 @@
 {
-  "$hash": "12fad289561399190eec786dfd803fbc7d84c3d0",
+  "$hash": "0496be3bb6a30bab27ad86ba7bddd9155bb8a444",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -119,6 +119,12 @@
           "type": "integer"
         }
       },
+      "type": "object"
+    },
+    "Cpu": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": { "References": { "$ref": "#/definitions/References" } },
       "type": "object"
     },
     "CpuOptions": {
@@ -911,6 +917,24 @@
         }
       },
       "type": "object"
+    },
+    "Reference": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "InstanceFamily": {
+          "description": "The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "References": {
+      "description": "A list of references to be used as baseline for the CPU performance. Currently, you can only specify a single reference across different instance type variations such as CPU manufacturers, architectures etc.",
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/Reference" },
+      "type": "array",
+      "uniqueItems": true
     },
     "SpotOptions": {
       "additionalProperties": false,

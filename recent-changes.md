@@ -1,10 +1,30 @@
-- added `AWS::CloudFormation::GuardHook`
-- added `AWS::CloudFormation::LambdaHook`
-- updated `AWS::ApplicationSignals::ServiceLevelObjective`
-  - added definition `BurnRateConfiguration`
-  - added definition `BurnRateConfigurations`
-  - added property `BurnRateConfigurations`
-- updated `AWS::RDS::GlobalCluster`
+- updated `AWS::AccessAnalyzer::Analyzer`
+  - added `conditionalCreateOnlyProperties`
+  - added definition `AnalysisRuleCriteria`
+  - added definition `Tags`
+  - updated `createOnlyProperties`
   - updated `tagging`
-- updated `AWS::VpcLattice::AccessLogSubscription`
-  - added property `ServiceNetworkLogType`
+  - updated definition `Tag`
+  - updated definition `UnusedAccessConfiguration`
+  - updated handler permissions
+- updated `AWS::CloudFormation::PublicTypeVersion`
+  - updated property `PublisherId`
+- updated `AWS::CloudFormation::Publisher`
+  - removed `writeOnlyProperties`
+  - updated property `PublisherId`
+- updated `AWS::CloudFormation::TypeActivation`
+  - removed `writeOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated property `PublisherId`
+- updated `AWS::CloudTrail::Trail`
+  - updated `tagging`
+- updated `AWS::EC2::LaunchTemplate`
+  - added definition `Cpu`
+  - added definition `Reference`
+  - added definition `References`
+- updated `AWS::EKS::Nodegroup`
+  - added definition `NodeRepairConfig`
+  - added property `NodeRepairConfig`
+- updated `AWS::ElastiCache::User`
+  - updated `createOnlyProperties`
+  - updated property `Engine`

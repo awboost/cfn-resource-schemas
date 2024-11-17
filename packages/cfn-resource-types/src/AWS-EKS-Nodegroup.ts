@@ -39,6 +39,10 @@ export type EKSNodegroupProperties = {
    */
   LaunchTemplate?: LaunchTemplateSpecification;
   /**
+   * The node auto repair configuration for node group.
+   */
+  NodeRepairConfig?: NodeRepairConfig;
+  /**
    * The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
    */
   NodeRole: string;
@@ -106,6 +110,17 @@ export type LaunchTemplateSpecification = {
    * @minLength `1`
    */
   Version?: string;
+};
+/**
+ * Type definition for `AWS::EKS::Nodegroup.NodeRepairConfig`.
+ * The node auto repair configuration for node group.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfig.html}
+ */
+export type NodeRepairConfig = {
+  /**
+   * Set this value to true to enable node auto repair for the node group.
+   */
+  Enabled?: boolean;
 };
 /**
  * Type definition for `AWS::EKS::Nodegroup.RemoteAccess`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "016114133c66cf04e5aac0452e517e7ecdf6f887",
+  "$hash": "210b78a5ac77eb51f50034a2dfbbea25058e69bc",
   "$id": "aws-eks-nodegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -21,6 +21,17 @@
         "Id": { "minLength": 1, "type": "string" },
         "Name": { "minLength": 1, "type": "string" },
         "Version": { "minLength": 1, "type": "string" }
+      },
+      "type": "object"
+    },
+    "NodeRepairConfig": {
+      "additionalProperties": false,
+      "description": "The node auto repair configuration for node group.",
+      "properties": {
+        "Enabled": {
+          "description": "Set this value to true to enable node auto repair for the node group.",
+          "type": "boolean"
+        }
       },
       "type": "object"
     },
@@ -173,6 +184,10 @@
     "LaunchTemplate": {
       "$ref": "#/definitions/LaunchTemplateSpecification",
       "description": "An object representing a node group's launch template specification."
+    },
+    "NodeRepairConfig": {
+      "$ref": "#/definitions/NodeRepairConfig",
+      "description": "The node auto repair configuration for node group."
     },
     "NodeRole": {
       "description": "The Amazon Resource Name (ARN) of the IAM role to associate with your node group.",

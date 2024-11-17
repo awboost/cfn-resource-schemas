@@ -1,5 +1,5 @@
 {
-  "$hash": "6a369b3973bafc2e4663a770e495344fb0c24403",
+  "$hash": "cc7a21bbee9ccd5e0c88c473017eb0021dd1229f",
   "$id": "aws-cloudformation-publisher.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -40,7 +40,7 @@
       "description": "The publisher id assigned by CloudFormation for publishing in this region.",
       "maxLength": 40,
       "minLength": 1,
-      "pattern": "[0-9a-zA-Z]{40}",
+      "pattern": "[0-9a-zA-Z-]{40}",
       "type": "string"
     },
     "PublisherProfile": {
@@ -63,6 +63,5 @@
   ],
   "required": ["AcceptTermsAndConditions"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudformation",
-  "typeName": "AWS::CloudFormation::Publisher",
-  "writeOnlyProperties": ["/properties/ConnectionArn"]
+  "typeName": "AWS::CloudFormation::Publisher"
 }

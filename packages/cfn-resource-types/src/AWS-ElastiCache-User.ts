@@ -20,9 +20,9 @@ export type ElastiCacheUserProperties = {
     Type: "password" | "no-password-required" | "iam";
   };
   /**
-   * Must be redis.
+   * The target cache engine for the user.
    */
-  Engine: "redis";
+  Engine: "redis" | "valkey";
   /**
    * Indicates a password is not required for this user account.
    */
