@@ -133,6 +133,10 @@ export type ClusterInstanceGroup = {
    */
   OnStartDeepHealthChecks?: DeepHealthCheckType[];
   /**
+   * Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+   */
+  OverrideVpcConfig?: VpcConfig;
+  /**
    * The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
    * @min `1`
    * @max `2`
