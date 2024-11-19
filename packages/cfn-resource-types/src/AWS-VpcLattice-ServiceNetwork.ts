@@ -13,6 +13,7 @@ export type VpcLatticeServiceNetworkProperties = {
    * @pattern `^(?!servicenetwork-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`
    */
   Name?: string;
+  SharingConfig?: SharingConfig;
   /**
    * @minLength `0`
    * @maxLength `50`
@@ -38,6 +39,13 @@ export type VpcLatticeServiceNetworkAttributes = {
    */
   Id: string;
   LastUpdatedAt: string;
+};
+/**
+ * Type definition for `AWS::VpcLattice::ServiceNetwork.SharingConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetwork-sharingconfig.html}
+ */
+export type SharingConfig = {
+  enabled: boolean;
 };
 /**
  * Type definition for `AWS::VpcLattice::ServiceNetwork.Tag`.

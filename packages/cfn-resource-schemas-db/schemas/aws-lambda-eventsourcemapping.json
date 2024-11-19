@@ -1,5 +1,5 @@
 {
-  "$hash": "e42b5fcd05a4ef90128d39ddf9cd23d489811729",
+  "$hash": "dfa675938df5d10cbfcfa994e1f030b2eb13c5e8",
   "$id": "aws-lambda-eventsourcemapping.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -119,6 +119,21 @@
       "maximum": 1000,
       "minimum": 2,
       "type": "integer"
+    },
+    "MetricsConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Metrics": {
+          "description": "Metric groups to enable.",
+          "items": { "enum": ["EventCount"], "type": "string" },
+          "maxItems": 1,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
     },
     "OnFailure": {
       "additionalProperties": false,
@@ -348,6 +363,10 @@
       "maximum": 10000,
       "minimum": -1,
       "type": "integer"
+    },
+    "MetricsConfig": {
+      "$ref": "#/definitions/MetricsConfig",
+      "description": ""
     },
     "ParallelizationFactor": {
       "description": "(Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.",

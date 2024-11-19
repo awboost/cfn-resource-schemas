@@ -1,5 +1,5 @@
 {
-  "$hash": "eb84fd89a5e9c617684215d6144a76e7f4a7b0c5",
+  "$hash": "670f2fb1df2078bd316efc474419242540db46a6",
   "$id": "aws-redshiftserverless-namespace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/NamespaceName", "/properties/Tags"],
@@ -70,6 +70,7 @@
   "handlers": {
     "create": {
       "permissions": [
+        "iam:CreateServiceLinkedRole",
         "iam:PassRole",
         "kms:TagResource",
         "kms:UntagResource",
@@ -88,6 +89,8 @@
         "redshift-serverless:GetNamespace",
         "redshift-serverless:ListSnapshotCopyConfigurations",
         "redshift-serverless:CreateSnapshotCopyConfiguration",
+        "redshift-serverless:ListTagsForResource",
+        "redshift-serverless:TagResource",
         "redshift:GetResourcePolicy",
         "redshift:PutResourcePolicy",
         "secretsmanager:CreateSecret",
@@ -101,6 +104,8 @@
         "iam:PassRole",
         "redshift-serverless:DeleteNamespace",
         "redshift-serverless:GetNamespace",
+        "redshift-serverless:ListTagsForResource",
+        "redshift-serverless:UntagResource",
         "kms:RetireGrant",
         "secretsmanager:DescribeSecret",
         "secretsmanager:DeleteSecret",
@@ -108,12 +113,17 @@
       ]
     },
     "list": {
-      "permissions": ["iam:PassRole", "redshift-serverless:ListNamespaces"]
+      "permissions": [
+        "iam:PassRole",
+        "redshift-serverless:ListNamespaces",
+        "redshift-serverless:ListTagsForResource"
+      ]
     },
     "read": {
       "permissions": [
         "iam:PassRole",
         "redshift-serverless:GetNamespace",
+        "redshift-serverless:ListTagsForResource",
         "redshift:GetResourcePolicy",
         "redshift-serverless:ListSnapshotCopyConfigurations"
       ]
@@ -140,6 +150,9 @@
         "redshift-serverless:CreateSnapshotCopyConfiguration",
         "redshift-serverless:UpdateSnapshotCopyConfiguration",
         "redshift-serverless:DeleteSnapshotCopyConfiguration",
+        "redshift-serverless:ListTagsForResource",
+        "redshift-serverless:TagResource",
+        "redshift-serverless:UntagResource",
         "redshift:GetResourcePolicy",
         "redshift:PutResourcePolicy",
         "redshift:DeleteResourcePolicy",
@@ -264,15 +277,23 @@
   ],
   "required": ["NamespaceName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-redshift-serverless",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "redshift-serverless:ListTagsForResource",
+      "redshift-serverless:TagResource",
+      "redshift-serverless:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RedshiftServerless::Namespace",
   "writeOnlyProperties": [
     "/properties/AdminUserPassword",
     "/properties/FinalSnapshotName",
     "/properties/FinalSnapshotRetentionPeriod",
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value",
     "/properties/ManageAdminPassword",
     "/properties/RedshiftIdcApplicationArn"
   ]

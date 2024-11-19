@@ -1,3 +1,17 @@
-- updated `AWS::SageMaker::Cluster`
-  - updated `createOnlyProperties`
-  - updated definition `ClusterInstanceGroup`
+- updated `AWS::Lambda::EventSourceMapping`
+  - added definition `MetricsConfig`
+  - added property `MetricsConfig`
+- updated `AWS::RedshiftServerless::Namespace`
+  - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::RedshiftServerless::Workgroup`
+  - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::VpcLattice::AccessLogSubscription`
+  - updated `additionalIdentifiers`
+  - updated property `ResourceIdentifier`
+- updated `AWS::VpcLattice::ServiceNetwork`
+  - added definition `SharingConfig`
+  - added property `SharingConfig`

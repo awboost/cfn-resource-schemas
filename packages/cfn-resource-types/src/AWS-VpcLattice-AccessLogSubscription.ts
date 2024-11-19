@@ -13,9 +13,9 @@ export type VpcLatticeAccessLogSubscriptionProperties = {
    */
   DestinationArn: string;
   /**
-   * @minLength `20`
+   * @minLength `17`
    * @maxLength `2048`
-   * @pattern `^((((sn)|(svc))-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(service/svc))-[0-9a-z]{17}))$`
+   * @pattern `^((((sn)|(svc)|(rcfg))-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(resourceconfiguration/rcfg)|(service/svc))-[0-9a-z]{17}))$`
    */
   ResourceIdentifier?: string;
   ServiceNetworkLogType?: "SERVICE" | "RESOURCE";

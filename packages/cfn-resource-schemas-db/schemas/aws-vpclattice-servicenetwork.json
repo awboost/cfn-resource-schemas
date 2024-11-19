@@ -1,10 +1,16 @@
 {
-  "$hash": "fdfbac2ecf360829d5f1ef1596798a0e9df5be87",
+  "$hash": "b267e0b55b432a7d8cf9de3eaa27f940a54aa261",
   "$id": "aws-vpclattice-servicenetwork.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/Name"]],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
+    "SharingConfig": {
+      "additionalProperties": false,
+      "properties": { "enabled": { "type": "boolean" } },
+      "required": ["enabled"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -76,6 +82,7 @@
       "pattern": "^(?!servicenetwork-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$",
       "type": "string"
     },
+    "SharingConfig": { "$ref": "#/definitions/SharingConfig" },
     "Tags": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },

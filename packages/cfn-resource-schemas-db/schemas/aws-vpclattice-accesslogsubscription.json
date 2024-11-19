@@ -1,9 +1,13 @@
 {
-  "$hash": "7c637a579538f1efa4266eba84191f42afd29d68",
+  "$hash": "f0ca86511f87fba861de8237344edd2b0dc530e5",
   "$id": "aws-vpclattice-accesslogsubscription.json",
   "additionalIdentifiers": [
     ["/properties/Id"],
-    ["/properties/ResourceIdentifier"]
+    [
+      "/properties/ResourceIdentifier",
+      "/properties/DestinationArn",
+      "/properties/ServiceNetworkLogType"
+    ]
   ],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceIdentifier"],
@@ -141,8 +145,8 @@
     },
     "ResourceIdentifier": {
       "maxLength": 2048,
-      "minLength": 20,
-      "pattern": "^((((sn)|(svc))-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(service/svc))-[0-9a-z]{17}))$",
+      "minLength": 17,
+      "pattern": "^((((sn)|(svc)|(rcfg))-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(resourceconfiguration/rcfg)|(service/svc))-[0-9a-z]{17}))$",
       "type": "string"
     },
     "ServiceNetworkLogType": {

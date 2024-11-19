@@ -1,5 +1,5 @@
 {
-  "$hash": "10c313b3688b6319057114107b465b9907985848",
+  "$hash": "da7527058c882a4d87e9b67effeec110daeab850",
   "$id": "aws-redshiftserverless-workgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -136,7 +136,9 @@
         "redshift-serverless:CreateNamespace",
         "redshift-serverless:CreateWorkgroup",
         "redshift-serverless:GetWorkgroup",
-        "redshift-serverless:GetNamespace"
+        "redshift-serverless:GetNamespace",
+        "redshift-serverless:ListTagsForResource",
+        "redshift-serverless:TagResource"
       ]
     },
     "delete": {
@@ -150,7 +152,9 @@
         "ec2:DescribeAvailabilityZones",
         "redshift-serverless:GetWorkgroup",
         "redshift-serverless:GetNamespace",
-        "redshift-serverless:DeleteWorkgroup"
+        "redshift-serverless:DeleteWorkgroup",
+        "redshift-serverless:ListTagsForResource",
+        "redshift-serverless:UntagResource"
       ]
     },
     "list": {
@@ -162,7 +166,8 @@
         "ec2:DescribeSubnets",
         "ec2:DescribeAccountAttributes",
         "ec2:DescribeAvailabilityZones",
-        "redshift-serverless:ListWorkgroups"
+        "redshift-serverless:ListWorkgroups",
+        "redshift-serverless:ListTagsForResource"
       ]
     },
     "read": {
@@ -174,7 +179,8 @@
         "ec2:DescribeSubnets",
         "ec2:DescribeAccountAttributes",
         "ec2:DescribeAvailabilityZones",
-        "redshift-serverless:GetWorkgroup"
+        "redshift-serverless:GetWorkgroup",
+        "redshift-serverless:ListTagsForResource"
       ]
     },
     "update": {
@@ -190,7 +196,10 @@
         "redshift-serverless:TagResource",
         "redshift-serverless:UntagResource",
         "redshift-serverless:GetWorkgroup",
-        "redshift-serverless:UpdateWorkgroup"
+        "redshift-serverless:UpdateWorkgroup",
+        "redshift-serverless:ListTagsForResource",
+        "redshift-serverless:TagResource",
+        "redshift-serverless:UntagResource"
       ]
     }
   },
@@ -306,16 +315,24 @@
   ],
   "required": ["WorkgroupName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-redshift-serverless",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "redshift-serverless:ListTagsForResource",
+      "redshift-serverless:TagResource",
+      "redshift-serverless:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RedshiftServerless::Workgroup",
   "writeOnlyProperties": [
     "/properties/BaseCapacity",
     "/properties/MaxCapacity",
     "/properties/ConfigParameters",
     "/properties/SecurityGroupIds",
-    "/properties/SubnetIds",
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value"
+    "/properties/SubnetIds"
   ]
 }

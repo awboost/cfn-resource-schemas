@@ -112,6 +112,7 @@ export type LambdaEventSourceMappingProperties = {
    * @max `10000`
    */
   MaximumRetryAttempts?: number;
+  MetricsConfig?: MetricsConfig;
   /**
    * (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
    * @min `1`
@@ -279,6 +280,18 @@ export type FilterCriteria = {
    * @maxLength `20`
    */
   Filters?: Filter[];
+};
+/**
+ * Type definition for `AWS::Lambda::EventSourceMapping.MetricsConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.html}
+ */
+export type MetricsConfig = {
+  /**
+   * Metric groups to enable.
+   * @minLength `0`
+   * @maxLength `1`
+   */
+  Metrics?: "EventCount"[];
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.OnFailure`.
