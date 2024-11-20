@@ -80,6 +80,20 @@ export type EFSFileSystemProperties = {
 export type EFSFileSystemAttributes = {
   Arn: string;
   FileSystemId: string;
+  /**
+   * Describes the replication configuration for a specific file system.
+   */
+  ReplicationConfiguration: {
+    /**
+     * An array of destination objects. Only one destination object is supported.
+     * @minLength `1`
+     * @maxLength `1`
+     */
+    Destinations: {
+      Status: string;
+      StatusMessage: string;
+    }[];
+  };
 };
 /**
  * Type definition for `AWS::EFS::FileSystem.BackupPolicy`.
@@ -173,6 +187,7 @@ export type ReplicationDestination = {
   AvailabilityZoneName?: string;
   /**
    * The ID of the destination Amazon EFS file system.
+   * @pattern `^(arn:aws[-a-z]*:elasticfilesystem:[0-9a-z-:]+:file-system/fs-[0-9a-f]{8,40}|fs-[0-9a-f]{8,40})$`
    */
   FileSystemId?: string;
   /**
@@ -184,6 +199,7 @@ export type ReplicationDestination = {
       For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
      */
   Region?: string;
+  RoleArn?: string;
 };
 /**
  * The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.

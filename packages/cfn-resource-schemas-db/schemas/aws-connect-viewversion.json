@@ -1,10 +1,9 @@
 {
-  "$hash": "2f07b423ac372fb2d7fe96ad0c5d1e5e227462a8",
+  "$hash": "301b86b45f66bd894050186f7ced6fcfccdeb2b0",
   "$id": "aws-connect-viewversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ViewArn",
-    "/properties/VersionDescription",
     "/properties/ViewContentSha256"
   ],
   "description": "Resource Type definition for AWS::Connect::ViewVersion",

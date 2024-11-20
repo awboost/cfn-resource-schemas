@@ -45,6 +45,17 @@ export type Route53ResolverFirewallRuleGroupAttributes = {
    */
   CreatorRequestId: string;
   /**
+   * FirewallRules
+   */
+  FirewallRules: {
+    /**
+     * ResourceId
+     * @minLength `1`
+     * @maxLength `64`
+     */
+    FirewallThreatProtectionId: string;
+  }[];
+  /**
    * ResourceId
    * @minLength `1`
    * @maxLength `64`
@@ -114,11 +125,19 @@ export type FirewallRule = {
    */
   BlockResponse?: "NODATA" | "NXDOMAIN" | "OVERRIDE";
   /**
+   * FirewallDomainRedirectionAction
+   */
+  ConfidenceThreshold?: "LOW" | "MEDIUM" | "HIGH";
+  /**
+   * FirewallDomainRedirectionAction
+   */
+  DnsThreatProtection?: "DGA" | "DNS_TUNNELING";
+  /**
    * ResourceId
    * @minLength `1`
    * @maxLength `64`
    */
-  FirewallDomainListId: string;
+  FirewallDomainListId?: string;
   /**
    * FirewallDomainRedirectionAction
    */

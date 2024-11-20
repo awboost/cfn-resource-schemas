@@ -1,5 +1,5 @@
 {
-  "$hash": "28b27f977d5f79b033e2f569ca183619761afcca",
+  "$hash": "31bd8316f95671fbe780b00991657acc8ce4816b",
   "$id": "aws-route53resolver-firewallrulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -35,6 +35,16 @@
           "enum": ["NODATA", "NXDOMAIN", "OVERRIDE"],
           "type": "string"
         },
+        "ConfidenceThreshold": {
+          "description": "FirewallDomainRedirectionAction",
+          "enum": ["LOW", "MEDIUM", "HIGH"],
+          "type": "string"
+        },
+        "DnsThreatProtection": {
+          "description": "FirewallDomainRedirectionAction",
+          "enum": ["DGA", "DNS_TUNNELING"],
+          "type": "string"
+        },
         "FirewallDomainListId": {
           "description": "ResourceId",
           "maxLength": 64,
@@ -46,6 +56,12 @@
           "enum": ["INSPECT_REDIRECTION_DOMAIN", "TRUST_REDIRECTION_DOMAIN"],
           "type": "string"
         },
+        "FirewallThreatProtectionId": {
+          "description": "ResourceId",
+          "maxLength": 64,
+          "minLength": 1,
+          "type": "string"
+        },
         "Priority": { "description": "Rule Priority", "type": "integer" },
         "Qtype": {
           "description": "Qtype",
@@ -54,7 +70,7 @@
           "type": "string"
         }
       },
-      "required": ["FirewallDomainListId", "Priority", "Action"],
+      "required": ["Priority", "Action"],
       "type": "object"
     },
     "Tag": {
@@ -217,7 +233,8 @@
     "/properties/ShareStatus",
     "/properties/CreatorRequestId",
     "/properties/CreationTime",
-    "/properties/ModificationTime"
+    "/properties/ModificationTime",
+    "/properties/FirewallRules/*/FirewallThreatProtectionId"
   ],
   "tagging": {
     "cloudFormationSystemTags": false,

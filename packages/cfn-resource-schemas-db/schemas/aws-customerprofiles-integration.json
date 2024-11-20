@@ -1,5 +1,5 @@
 {
-  "$hash": "2eea9c63dcceb020f87194c580a3149fa30c08ed",
+  "$hash": "4408bc5e8a272e188c38539cb3a142db677cbd21",
   "$id": "aws-customerprofiles-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName", "/properties/Uri"],
@@ -482,6 +482,19 @@
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9_-]+$",
       "type": "string"
+    },
+    "EventTriggerNames": {
+      "description": "A list of unique names for active event triggers associated with the integration.",
+      "insertionOrder": false,
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[a-zA-Z0-9_-]+$",
+        "type": "string"
+      },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
     },
     "FlowDefinition": { "$ref": "#/definitions/FlowDefinition" },
     "LastUpdatedAt": {

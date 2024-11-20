@@ -1,5 +1,5 @@
 {
-  "$hash": "05f3696f1b3c97fcf8391f5e705e7a1fc8728c62",
+  "$hash": "d73c1bb4568125b0a5249d7312e1d19ade5e0651",
   "$id": "aws-efs-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -95,6 +95,7 @@
         },
         "FileSystemId": {
           "description": "The ID of the destination Amazon EFS file system.",
+          "pattern": "^(arn:aws[-a-z]*:elasticfilesystem:[0-9a-z-:]+:file-system/fs-[0-9a-f]{8,40}|fs-[0-9a-f]{8,40})$",
           "type": "string"
         },
         "KmsKeyId": {
@@ -104,7 +105,10 @@
         "Region": {
           "description": "The AWS-Region in which the destination file system is located.\n  For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.",
           "type": "string"
-        }
+        },
+        "RoleArn": { "description": "", "type": "string" },
+        "Status": { "description": "", "type": "string" },
+        "StatusMessage": { "description": "", "type": "string" }
       },
       "type": "object"
     }
@@ -124,7 +128,9 @@
         "elasticfilesystem:UpdateFileSystemProtection",
         "kms:DescribeKey",
         "kms:GenerateDataKeyWithoutPlaintext",
-        "kms:CreateGrant"
+        "kms:CreateGrant",
+        "iam:PassRole",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     "delete": {
@@ -174,7 +180,9 @@
         "elasticfilesystem:UpdateFileSystemProtection",
         "kms:DescribeKey",
         "kms:GenerateDataKeyWithoutPlaintext",
-        "kms:CreateGrant"
+        "kms:CreateGrant",
+        "iam:PassRole",
+        "iam:CreateServiceLinkedRole"
       ]
     }
   },
@@ -241,9 +249,15 @@
   },
   "propertyTransform": {
     "/properties/FileSystemProtection/ReplicationOverwriteProtection": "$uppercase(FileSystemProtection.ReplicationOverwriteProtection)='DISABLED' ? 'REPLICATING' : $uppercase(FileSystemProtection.ReplicationOverwriteProtection)",
-    "/properties/KmsKeyId": "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\""
+    "/properties/KmsKeyId": "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\"",
+    "/properties/ReplicationConfiguration/Destinations/*/FileSystemId": "$split(FileSystemId, \"/\")[-1]"
   },
-  "readOnlyProperties": ["/properties/Arn", "/properties/FileSystemId"],
+  "readOnlyProperties": [
+    "/properties/Arn",
+    "/properties/FileSystemId",
+    "/properties/ReplicationConfiguration/Destinations/*/Status",
+    "/properties/ReplicationConfiguration/Destinations/*/StatusMessage"
+  ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,

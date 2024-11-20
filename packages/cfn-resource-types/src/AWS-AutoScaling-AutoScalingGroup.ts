@@ -15,6 +15,7 @@ export type AutoScalingAutoScalingGroupProperties = {
      */
   AutoScalingGroupName?: string;
   AvailabilityZoneDistribution?: AvailabilityZoneDistribution;
+  AvailabilityZoneImpairmentPolicy?: AvailabilityZoneImpairmentPolicy;
   /**
    * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
    */
@@ -139,6 +140,7 @@ export type AutoScalingAutoScalingGroupProperties = {
    * The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
    */
   ServiceLinkedRoleARN?: string;
+  SkipZonalShiftValidation?: boolean;
   /**
    * One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
    */
@@ -202,6 +204,14 @@ export type AvailabilityZoneDistribution = {
   CapacityDistributionStrategy?: "balanced-best-effort" | "balanced-only";
 };
 /**
+ * Type definition for `AWS::AutoScaling::AutoScalingGroup.AvailabilityZoneImpairmentPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy.html}
+ */
+export type AvailabilityZoneImpairmentPolicy = {
+  ImpairedZoneHealthCheckBehavior: "IgnoreUnhealthy" | "ReplaceUnhealthy";
+  ZonalShiftEnabled: boolean;
+};
+/**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.BaselineEbsBandwidthMbpsRequest`.
  * ``BaselineEbsBandwidthMbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineebsbandwidthmbpsrequest.html}
@@ -215,6 +225,20 @@ export type BaselineEbsBandwidthMbpsRequest = {
    * The minimum value in Mbps.
    */
   Min?: number;
+};
+/**
+ * Type definition for `AWS::AutoScaling::AutoScalingGroup.BaselinePerformanceFactorsRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineperformancefactorsrequest.html}
+ */
+export type BaselinePerformanceFactorsRequest = {
+  Cpu?: CpuPerformanceFactorRequest;
+};
+/**
+ * Type definition for `AWS::AutoScaling::AutoScalingGroup.CpuPerformanceFactorRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-cpuperformancefactorrequest.html}
+ */
+export type CpuPerformanceFactorRequest = {
+  References?: PerformanceFactorReferenceRequest[];
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.InstanceMaintenancePolicy`.
@@ -309,6 +333,7 @@ export type InstanceRequirements = {
      Default: No minimum or maximum limits
      */
   BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
+  BaselinePerformanceFactors?: BaselinePerformanceFactorsRequest;
   /**
      * Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
      Default: ``excluded``
@@ -720,6 +745,13 @@ export type NotificationConfiguration = {
    * The Amazon Resource Name (ARN) of the Amazon SNS topic.
    */
   TopicARN: string | string[];
+};
+/**
+ * Type definition for `AWS::AutoScaling::AutoScalingGroup.PerformanceFactorReferenceRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-performancefactorreferencerequest.html}
+ */
+export type PerformanceFactorReferenceRequest = {
+  InstanceFamily?: string;
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.TagProperty`.

@@ -90,6 +90,17 @@ export type DeadlineFleetAttributes = {
   WorkerCount: number;
 };
 /**
+ * Type definition for `AWS::Deadline::Fleet.AcceleratorCapabilities`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html}
+ */
+export type AcceleratorCapabilities = {
+  Count?: AcceleratorCountRange;
+  /**
+   * @minLength `1`
+   */
+  Selections: AcceleratorSelection[];
+};
+/**
  * Type definition for `AWS::Deadline::Fleet.AcceleratorCountRange`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcountrange.html}
  */
@@ -104,6 +115,18 @@ export type AcceleratorCountRange = {
    * @max `2147483647`
    */
   Min: number;
+};
+/**
+ * Type definition for `AWS::Deadline::Fleet.AcceleratorSelection`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html}
+ */
+export type AcceleratorSelection = {
+  Name: "t4" | "a10g" | "l4" | "l40s";
+  /**
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  Runtime?: string;
 };
 /**
  * Type definition for `AWS::Deadline::Fleet.AcceleratorTotalMemoryMiBRange`.
@@ -298,6 +321,7 @@ export type ServiceManagedEc2FleetConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2instancecapabilities.html}
  */
 export type ServiceManagedEc2InstanceCapabilities = {
+  AcceleratorCapabilities?: AcceleratorCapabilities;
   /**
    * @minLength `1`
    * @maxLength `100`

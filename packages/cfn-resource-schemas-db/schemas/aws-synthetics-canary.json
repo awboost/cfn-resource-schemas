@@ -1,5 +1,5 @@
 {
-  "$hash": "15eb4e9223813964c4e2516727eb26a4fdcf7b89",
+  "$hash": "53d121b9d5c5394aa4e4a72ae5bfbc3628687a93",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -181,7 +181,12 @@
       ]
     },
     "delete": {
-      "permissions": ["synthetics:DeleteCanary", "synthetics:GetCanary"]
+      "permissions": [
+        "synthetics:DeleteCanary",
+        "synthetics:GetCanary",
+        "lambda:DeleteFunction",
+        "lambda:DeleteLayerVersion"
+      ]
     },
     "list": { "permissions": ["synthetics:DescribeCanaries"] },
     "read": {

@@ -1,17 +1,66 @@
-- updated `AWS::Lambda::EventSourceMapping`
-  - added definition `MetricsConfig`
-  - added property `MetricsConfig`
-- updated `AWS::RedshiftServerless::Namespace`
-  - updated `tagging`
+- added `AWS::ConnectCampaignsV2::Campaign`
+- added `AWS::Rbin::Rule`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - added definition `AvailabilityZoneImpairmentPolicy`
+  - added definition `BaselinePerformanceFactorsRequest`
+  - added definition `CpuPerformanceFactorRequest`
+  - added definition `PerformanceFactorReferenceRequest`
+  - added definition `PerformanceFactorReferenceSetRequest`
+  - added property `AvailabilityZoneImpairmentPolicy`
+  - added property `SkipZonalShiftValidation`
   - updated `writeOnlyProperties`
+  - updated definition `InstanceRequirements`
+- updated `AWS::B2BI::Capability`
+  - updated definition `X12TransactionSet`
+  - updated definition `X12Version`
+- updated `AWS::B2BI::Transformer`
+  - updated definition `X12TransactionSet`
+  - updated definition `X12Version`
+- updated `AWS::Connect::ViewVersion`
+  - updated `createOnlyProperties`
+- updated `AWS::CustomerProfiles::Integration`
+  - added property `EventTriggerNames`
+- updated `AWS::Deadline::Fleet`
+  - added definition `AcceleratorCapabilities`
+  - added definition `AcceleratorSelection`
+  - updated definition `ServiceManagedEc2InstanceCapabilities`
+- updated `AWS::EFS::FileSystem`
+  - updated `propertyTransform`
+  - updated `readOnlyProperties`
+  - updated definition `ReplicationDestination`
   - updated handler permissions
-- updated `AWS::RedshiftServerless::Workgroup`
+- updated `AWS::IAM::ManagedPolicy`
+  - removed `replacementStrategy`
+- updated `AWS::IoT::ThingType`
+  - added definition `PropagatingAttribute`
+  - updated `createOnlyProperties`
+  - updated property `ThingTypeProperties`
+- updated `AWS::IoTFleetWise::Campaign`
+  - added definition `DataPartitionId`
+  - added definition `DataPartitionStorageOptions`
+  - added definition `DataPartitionUploadOptions`
+  - added definition `DataPartition`
+  - added definition `EventExpression`
+  - added definition `LanguageVersion`
+  - added definition `StorageLocation`
+  - added definition `StorageMaximumSizeUnit`
+  - added definition `StorageMaximumSizeValue`
+  - added definition `StorageMaximumSize`
+  - added definition `StorageMinimumTimeToLiveUnit`
+  - added definition `StorageMinimumTimeToLiveValue`
+  - added definition `StorageMinimumTimeToLive`
+  - added property `DataPartitions`
+  - updated `createOnlyProperties`
+  - updated definition `ConditionBasedCollectionScheme`
+  - updated definition `SignalInformation`
+- updated `AWS::Lambda::Permission`
+  - updated property `Principal`
+- updated `AWS::Route53Resolver::FirewallRuleGroup`
+  - updated `readOnlyProperties`
+  - updated definition `FirewallRule`
+- updated `AWS::SageMaker::ModelCard`
   - updated `tagging`
-  - updated `writeOnlyProperties`
+- updated `AWS::Synthetics::Canary`
   - updated handler permissions
-- updated `AWS::VpcLattice::AccessLogSubscription`
-  - updated `additionalIdentifiers`
-  - updated property `ResourceIdentifier`
-- updated `AWS::VpcLattice::ServiceNetwork`
-  - added definition `SharingConfig`
-  - added property `SharingConfig`
+- updated `AWS::WorkSpacesThinClient::Environment`
+  - updated handler permissions

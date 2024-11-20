@@ -19,6 +19,11 @@ export type IoTFleetWiseCampaignProperties = {
    */
   DataExtraDimensions?: string[];
   /**
+   * @minLength `0`
+   * @maxLength `20`
+   */
+  DataPartitions?: DataPartition[];
+  /**
    * @minLength `1`
    * @maxLength `2048`
    * @pattern `^[^\u0000-\u001F\u007F]+$`
@@ -149,6 +154,48 @@ export type DataDestinationConfig =
  */
 export type DataFormat = "JSON" | "PARQUET";
 /**
+ * Type definition for `AWS::IoTFleetWise::Campaign.DataPartition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html}
+ */
+export type DataPartition = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[a-zA-Z0-9]+$`
+   */
+  Id: string;
+  StorageOptions: DataPartitionStorageOptions;
+  UploadOptions?: DataPartitionUploadOptions;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.DataPartitionStorageOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionstorageoptions.html}
+ */
+export type DataPartitionStorageOptions = {
+  MaximumSize: StorageMaximumSize;
+  MinimumTimeToLive: StorageMinimumTimeToLive;
+  /**
+   * @minLength `1`
+   * @maxLength `4096`
+   */
+  StorageLocation: string;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.DataPartitionUploadOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionuploadoptions.html}
+ */
+export type DataPartitionUploadOptions = {
+  /**
+   * @min `1`
+   */
+  ConditionLanguageVersion?: number;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  Expression: string;
+};
+/**
  * Type definition for `AWS::IoTFleetWise::Campaign.DiagnosticsMode`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-diagnosticsmode.html}
  */
@@ -231,6 +278,12 @@ export type SignalFetchInformation = {
  */
 export type SignalInformation = {
   /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[a-zA-Z0-9]+$`
+   */
+  DataPartitionId?: string;
+  /**
    * @min `1`
    * @max `4294967295`
    */
@@ -257,6 +310,40 @@ export type SpoolingMode = "OFF" | "TO_DISK";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storagecompressionformat.html}
  */
 export type StorageCompressionFormat = "NONE" | "GZIP";
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.StorageMaximumSize`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storagemaximumsize.html}
+ */
+export type StorageMaximumSize = {
+  Unit: StorageMaximumSizeUnit;
+  /**
+   * @min `1`
+   * @max `1073741824`
+   */
+  Value: number;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.StorageMaximumSizeUnit`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storagemaximumsizeunit.html}
+ */
+export type StorageMaximumSizeUnit = "MB" | "GB" | "TB";
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.StorageMinimumTimeToLive`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storageminimumtimetolive.html}
+ */
+export type StorageMinimumTimeToLive = {
+  Unit: StorageMinimumTimeToLiveUnit;
+  /**
+   * @min `1`
+   * @max `10000`
+   */
+  Value: number;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::Campaign.StorageMinimumTimeToLiveUnit`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storageminimumtimetoliveunit.html}
+ */
+export type StorageMinimumTimeToLiveUnit = "HOURS" | "DAYS" | "WEEKS";
 /**
  * Type definition for `AWS::IoTFleetWise::Campaign.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-tag.html}

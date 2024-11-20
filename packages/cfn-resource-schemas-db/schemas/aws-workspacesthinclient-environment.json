@@ -1,5 +1,5 @@
 {
-  "$hash": "6fb6d1ebbf26238a69af895482621a056c8d0dea",
+  "$hash": "e688a7c205019eb34c1ca7217294ec758edba72a",
   "$id": "aws-workspacesthinclient-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn", "/properties/DesktopArn"],
@@ -108,7 +108,7 @@
     },
     "list": {
       "permissions": [
-        "thinclient:ListEnvironment",
+        "thinclient:ListEnvironments",
         "thinclient:ListTagsForResource",
         "kms:Decrypt"
       ]

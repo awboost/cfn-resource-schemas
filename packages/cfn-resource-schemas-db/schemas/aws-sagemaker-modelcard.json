@@ -1,5 +1,5 @@
 {
-  "$hash": "ffc3d3cc9a8574cb84fec1678204637dc1e1649c",
+  "$hash": "4a6ec99e61aebfbfdcc12bb300bb8ceea3fe416e",
   "$id": "aws-sagemaker-modelcard.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -774,6 +774,11 @@
   "required": ["ModelCardName", "Content", "ModelCardStatus"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:ListTags",
+      "sagemaker:DeleteTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,12 +1,30 @@
 {
-  "$hash": "9a2ff0f4fe5bbe317748a8b1a10b144c521d9ee2",
+  "$hash": "d2fc0f69b5b0d01b61cffc902f7f0eea8fcc54fc",
   "$id": "aws-iot-thingtype.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/ThingTypeName",
-    "/properties/ThingTypeProperties"
-  ],
+  "createOnlyProperties": ["/properties/ThingTypeName"],
   "definitions": {
+    "PropagatingAttribute": {
+      "additionalProperties": false,
+      "properties": {
+        "ConnectionAttribute": {
+          "enum": ["iot:ClientId", "iot:Thing.ThingName"],
+          "type": "string"
+        },
+        "ThingAttribute": {
+          "maxLength": 128,
+          "pattern": "[a-zA-Z0-9_.,@/:#-]+",
+          "type": "string"
+        },
+        "UserPropertyKey": {
+          "maxLength": 128,
+          "pattern": "[a-zA-Z0-9:$.]+",
+          "type": "string"
+        }
+      },
+      "required": ["UserPropertyKey"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
@@ -86,6 +104,17 @@
     "ThingTypeProperties": {
       "additionalProperties": false,
       "properties": {
+        "Mqtt5Configuration": {
+          "additionalProperties": false,
+          "properties": {
+            "PropagatingAttributes": {
+              "items": { "$ref": "#/definitions/PropagatingAttribute" },
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "type": "object"
+        },
         "SearchableAttributes": {
           "insertionOrder": true,
           "items": {

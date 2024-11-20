@@ -13,6 +13,12 @@ export type CustomerProfilesIntegrationProperties = {
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
   DomainName: string;
+  /**
+   * A list of unique names for active event triggers associated with the integration.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  EventTriggerNames?: string[];
   FlowDefinition?: FlowDefinition;
   /**
    * The name of the ObjectType defined for the 3rd party data in Profile Service

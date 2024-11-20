@@ -40,7 +40,7 @@ export type LambdaPermissionProperties = {
    */
   FunctionUrlAuthType?: "AWS_IAM" | "NONE";
   /**
-   * The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+   * The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
    * @minLength `1`
    * @maxLength `256`
    * @pattern `^.*$`

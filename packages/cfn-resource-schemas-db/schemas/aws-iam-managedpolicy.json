@@ -1,5 +1,5 @@
 {
-  "$hash": "b7bc858652fea988486193650804245804cfd5ae",
+  "$hash": "3330fc8aafe8c59334e12174d7dcd2ea91517748",
   "$id": "aws-iam-managedpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -111,7 +111,6 @@
     "/properties/PolicyId",
     "/properties/UpdateDate"
   ],
-  "replacementStrategy": "delete_then_create",
   "required": ["PolicyDocument"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iam",
   "tagging": {

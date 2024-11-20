@@ -18,6 +18,9 @@ export type IoTThingTypeProperties = {
    */
   ThingTypeName?: string;
   ThingTypeProperties?: {
+    Mqtt5Configuration?: {
+      PropagatingAttributes?: PropagatingAttribute[];
+    };
     /**
      * @maxLength `3`
      */
@@ -36,6 +39,23 @@ export type IoTThingTypeProperties = {
 export type IoTThingTypeAttributes = {
   Arn: string;
   Id: string;
+};
+/**
+ * Type definition for `AWS::IoT::ThingType.PropagatingAttribute`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-propagatingattribute.html}
+ */
+export type PropagatingAttribute = {
+  ConnectionAttribute?: "iot:ClientId" | "iot:Thing.ThingName";
+  /**
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9_.,@/:#-]+`
+   */
+  ThingAttribute?: string;
+  /**
+   * @maxLength `128`
+   * @pattern `[a-zA-Z0-9:$.]+`
+   */
+  UserPropertyKey: string;
 };
 /**
  * Type definition for `AWS::IoT::ThingType.Tag`.
