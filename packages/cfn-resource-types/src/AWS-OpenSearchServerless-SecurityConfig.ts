@@ -13,6 +13,10 @@ export type OpenSearchServerlessSecurityConfigProperties = {
    */
   Description?: string;
   /**
+   * Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+   */
+  IamIdentityCenterOptions?: IamIdentityCenterConfigOptions;
+  /**
    * The friendly name of the security config
    * @minLength `3`
    * @maxLength `32`
@@ -34,11 +38,47 @@ export type OpenSearchServerlessSecurityConfigProperties = {
  */
 export type OpenSearchServerlessSecurityConfigAttributes = {
   /**
+   * Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+   */
+  IamIdentityCenterOptions: {
+    /**
+     * The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless
+     */
+    ApplicationArn: string;
+    /**
+     * The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+     */
+    ApplicationDescription: string;
+    /**
+     * The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+     */
+    ApplicationName: string;
+  };
+  /**
    * The identifier of the security config
    * @minLength `1`
    * @maxLength `100`
    */
   Id: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchServerless::SecurityConfig.IamIdentityCenterConfigOptions`.
+ * Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html}
+ */
+export type IamIdentityCenterConfigOptions = {
+  /**
+   * Group attribute for this IAM Identity Center integration
+   */
+  GroupAttribute?: string;
+  /**
+   * The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless
+   */
+  InstanceArn: string;
+  /**
+   * User attribute for this IAM Identity Center integration
+   */
+  UserAttribute?: string;
 };
 /**
  * Type definition for `AWS::OpenSearchServerless::SecurityConfig.SamlConfigOptions`.
@@ -77,7 +117,7 @@ export type SamlConfigOptions = {
  * Config type for security config
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-securityconfigtype.html}
  */
-export type SecurityConfigType = "saml";
+export type SecurityConfigType = "saml" | "iamidentitycenter";
 /**
  * Resource type definition for `AWS::OpenSearchServerless::SecurityConfig`.
  * Amazon OpenSearchServerless security config resource

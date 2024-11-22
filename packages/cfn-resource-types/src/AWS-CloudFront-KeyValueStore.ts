@@ -1,12 +1,22 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::CloudFront::KeyValueStore
+ * Resource type definition for `AWS::CloudFront::KeyValueStore`.
+ * The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html}
  */
 export type CloudFrontKeyValueStoreProperties = {
+  /**
+   * A comment for the key value store.
+   */
   Comment?: string;
+  /**
+   * The import source for the key value store.
+   */
   ImportSource?: ImportSource;
+  /**
+   * The name of the key value store.
+   */
   Name: string;
 };
 /**
@@ -20,14 +30,22 @@ export type CloudFrontKeyValueStoreAttributes = {
 };
 /**
  * Type definition for `AWS::CloudFront::KeyValueStore.ImportSource`.
+ * The import source for the key value store.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keyvaluestore-importsource.html}
  */
 export type ImportSource = {
+  /**
+   * The Amazon Resource Name (ARN) of the import source for the key value store.
+   */
   SourceArn: string;
+  /**
+   * The source type of the import source for the key value store.
+   */
   SourceType: string;
 };
 /**
- * Resource Type definition for AWS::CloudFront::KeyValueStore
+ * Resource type definition for `AWS::CloudFront::KeyValueStore`.
+ * The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html}
  */
 export class CloudFrontKeyValueStore extends $Resource<

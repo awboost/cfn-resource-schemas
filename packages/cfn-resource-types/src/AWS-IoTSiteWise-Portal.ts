@@ -39,6 +39,14 @@ export type IoTSiteWisePortalProperties = {
    */
   PortalName: string;
   /**
+   * The type of portal
+   */
+  PortalType?: "SITEWISE_PORTAL_V1" | "SITEWISE_PORTAL_V2";
+  /**
+   * Map to associate detail of configuration related with a PortalType.
+   */
+  PortalTypeConfiguration?: PortalTypeConfiguration;
+  /**
    * The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
    */
   RoleArn: string;
@@ -68,6 +76,23 @@ export type IoTSiteWisePortalAttributes = {
    * The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
    */
   PortalStartUrl: string;
+};
+/**
+ * Type definition for `AWS::IoTSiteWise::Portal.PortalTypeConfiguration`.
+ * Map to associate detail of configuration related with a PortalType.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portaltypeconfiguration.html}
+ */
+export type PortalTypeConfiguration = Record<string, PortalTypeEntry>;
+/**
+ * Type definition for `AWS::IoTSiteWise::Portal.PortalTypeEntry`.
+ * Container associated a certain PortalType.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portaltypeentry.html}
+ */
+export type PortalTypeEntry = {
+  /**
+   * List of enabled Tools for a certain portal.
+   */
+  PortalTools: string[];
 };
 /**
  * Type definition for `AWS::IoTSiteWise::Portal.Tag`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "27856fd2e31de8d4ce1fe93f1ef53d9bcf1e4d57",
+  "$hash": "353a0a803dfbfa4e729bfaf3950f50c1e9d9662f",
   "$id": "aws-route53recoverycontrol-safetyrule.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -169,11 +169,15 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53-recovery-control.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "route53-recovery-control-config:TagResource",
+      "route53-recovery-control-config:UntagResource",
+      "route53-recovery-control-config:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::Route53RecoveryControl::SafetyRule",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "typeName": "AWS::Route53RecoveryControl::SafetyRule"
 }

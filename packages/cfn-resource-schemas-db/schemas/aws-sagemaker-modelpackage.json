@@ -1,5 +1,5 @@
 {
-  "$hash": "9cca4fc59b76d0cc8ede491abafe2c36c0a5bd9b",
+  "$hash": "1748b033f2df5713e66fa3f5ac991c46485755fe",
   "$id": "aws-sagemaker-modelpackage.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -427,7 +427,7 @@
       "description": "The Amazon Resource Name (ARN) of the model package group.",
       "maxLength": 2048,
       "minLength": 1,
-      "pattern": "^arn:aws(-cn|-us-gov)?:sagemaker:[a-z0-9\\-]{9,16}:[0-9]{12}:model-package/[\\S]{1,2048}$",
+      "pattern": "^arn:aws(-cn|-us-gov|-iso-f)?:sagemaker:[a-z0-9\\-]{9,16}:[0-9]{12}:model-package/[\\S]{1,2048}$",
       "type": "string"
     },
     "ModelPackageContainerDefinition": {
@@ -994,6 +994,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sagemaker",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:ListTags",
+      "sagemaker:DeleteTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

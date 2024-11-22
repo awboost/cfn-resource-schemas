@@ -1,5 +1,5 @@
 {
-  "$hash": "4b2e111c243c2003ac18a0a24d3aeb5e224c48ef",
+  "$hash": "6d0fd8cba4963adb5953a76425d6b18ec7937353",
   "$id": "aws-ecs-clustercapacityproviderassociations.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Cluster"],
@@ -43,7 +43,11 @@
   "description": "Associate a set of ECS Capacity Providers with a specified ECS Cluster",
   "handlers": {
     "create": {
-      "permissions": ["ecs:DescribeClusters", "ecs:PutClusterCapacityProviders"]
+      "permissions": [
+        "ecs:DescribeClusters",
+        "ecs:PutClusterCapacityProviders",
+        "ecs:DescribeCapacityProviders"
+      ]
     },
     "delete": {
       "permissions": ["ecs:PutClusterCapacityProviders", "ecs:DescribeClusters"]

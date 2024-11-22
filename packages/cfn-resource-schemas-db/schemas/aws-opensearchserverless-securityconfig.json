@@ -1,10 +1,56 @@
 {
-  "$hash": "9252813df6bcfe746c3b015e28d5da3c6bce753f",
+  "$hash": "e801840342dc6dd0fdb52741fd67d49ecbf0f323",
   "$id": "aws-opensearchserverless-securityconfig.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Type", "/properties/Name"],
+  "createOnlyProperties": [
+    "/properties/Type",
+    "/properties/Name",
+    "/properties/IamIdentityCenterOptions/InstanceArn"
+  ],
   "definitions": {
+    "IamIdentityCenterApplicationArn": {
+      "description": "The ARN of the IAM Identity Center application used to integrate with OpenSearch Serverless",
+      "type": "string"
+    },
+    "IamIdentityCenterConfigOptions": {
+      "additionalProperties": false,
+      "description": "Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map",
+      "properties": {
+        "ApplicationArn": {
+          "$ref": "#/definitions/IamIdentityCenterApplicationArn"
+        },
+        "ApplicationDescription": {
+          "description": "The description of the IAM Identity Center application used to integrate with OpenSearch Serverless",
+          "type": "string"
+        },
+        "ApplicationName": {
+          "description": "The name of the IAM Identity Center application used to integrate with OpenSearch Serverless",
+          "type": "string"
+        },
+        "GroupAttribute": {
+          "$ref": "#/definitions/IamIdentityCenterGroupAttribute"
+        },
+        "InstanceArn": { "$ref": "#/definitions/IamIdentityCenterInstanceArn" },
+        "UserAttribute": {
+          "$ref": "#/definitions/IamIdentityCenterUserAttribute"
+        }
+      },
+      "required": ["InstanceArn"],
+      "type": "object"
+    },
+    "IamIdentityCenterGroupAttribute": {
+      "description": "Group attribute for this IAM Identity Center integration",
+      "type": "string"
+    },
+    "IamIdentityCenterInstanceArn": {
+      "description": "The ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless",
+      "type": "string"
+    },
+    "IamIdentityCenterUserAttribute": {
+      "description": "User attribute for this IAM Identity Center integration",
+      "type": "string"
+    },
     "SamlConfigOptions": {
       "additionalProperties": false,
       "description": "Describes saml options in form of key value map",
@@ -40,14 +86,31 @@
     },
     "SecurityConfigType": {
       "description": "Config type for security config",
-      "enum": ["saml"],
+      "enum": ["saml", "iamidentitycenter"],
       "type": "string"
     }
   },
   "description": "Amazon OpenSearchServerless security config resource",
   "handlers": {
-    "create": { "permissions": ["aoss:CreateSecurityConfig"] },
-    "delete": { "permissions": ["aoss:DeleteSecurityConfig"] },
+    "create": {
+      "permissions": [
+        "aoss:CreateSecurityConfig",
+        "sso:CreateApplication",
+        "sso:ListApplications",
+        "sso:DeleteApplication",
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationGrant"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "aoss:DeleteSecurityConfig",
+        "sso:ListApplicationAssignments",
+        "sso:DeleteApplicationAssignment",
+        "sso:DeleteApplication"
+      ]
+    },
     "list": {
       "handlerSchema": {
         "properties": {
@@ -70,6 +133,9 @@
       "minLength": 1,
       "type": "string"
     },
+    "IamIdentityCenterOptions": {
+      "$ref": "#/definitions/IamIdentityCenterConfigOptions"
+    },
     "Id": {
       "description": "The identifier of the security config",
       "maxLength": 100,
@@ -86,7 +152,12 @@
     "SamlOptions": { "$ref": "#/definitions/SamlConfigOptions" },
     "Type": { "$ref": "#/definitions/SecurityConfigType" }
   },
-  "readOnlyProperties": ["/properties/Id"],
+  "readOnlyProperties": [
+    "/properties/Id",
+    "/properties/IamIdentityCenterOptions/ApplicationArn",
+    "/properties/IamIdentityCenterOptions/ApplicationName",
+    "/properties/IamIdentityCenterOptions/ApplicationDescription"
+  ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-opensearchserverless",
   "tagging": {
     "cloudFormationSystemTags": false,

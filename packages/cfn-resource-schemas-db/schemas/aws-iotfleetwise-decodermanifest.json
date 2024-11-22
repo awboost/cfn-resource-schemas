@@ -1,5 +1,5 @@
 {
-  "$hash": "45c32b9961ef8fb9f1b217413777ff58bf7e069f",
+  "$hash": "e8b0ea1878135a07c2fee8af0c2438c3b5c21eab",
   "$id": "aws-iotfleetwise-decodermanifest.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ModelManifestArn"],
@@ -61,6 +61,70 @@
       },
       "required": ["FullyQualifiedName", "InterfaceId", "Type", "CanSignal"],
       "type": "object"
+    },
+    "CustomDecodingInterface": {
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z\\d\\-_:]+$",
+          "type": "string"
+        }
+      },
+      "required": ["Name"],
+      "type": "object"
+    },
+    "CustomDecodingNetworkInterface": {
+      "additionalProperties": false,
+      "properties": {
+        "CustomDecodingInterface": {
+          "$ref": "#/definitions/CustomDecodingInterface"
+        },
+        "InterfaceId": { "maxLength": 50, "minLength": 1, "type": "string" },
+        "Type": { "enum": ["CUSTOM_DECODING_INTERFACE"], "type": "string" }
+      },
+      "required": ["InterfaceId", "Type", "CustomDecodingInterface"],
+      "type": "object"
+    },
+    "CustomDecodingSignal": {
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "maxLength": 150,
+          "minLength": 1,
+          "pattern": "^(?!.*\\.\\.)[a-zA-Z0-9_\\-#:.]+$",
+          "type": "string"
+        }
+      },
+      "required": ["Id"],
+      "type": "object"
+    },
+    "CustomDecodingSignalDecoder": {
+      "additionalProperties": false,
+      "properties": {
+        "CustomDecodingSignal": {
+          "$ref": "#/definitions/CustomDecodingSignal"
+        },
+        "FullyQualifiedName": {
+          "maxLength": 150,
+          "minLength": 1,
+          "type": "string"
+        },
+        "InterfaceId": { "maxLength": 50, "minLength": 1, "type": "string" },
+        "Type": { "enum": ["CUSTOM_DECODING_SIGNAL"], "type": "string" }
+      },
+      "required": [
+        "FullyQualifiedName",
+        "InterfaceId",
+        "Type",
+        "CustomDecodingSignal"
+      ],
+      "type": "object"
+    },
+    "DefaultForUnmappedSignalsType": {
+      "enum": ["CUSTOM_DECODING"],
+      "type": "string"
     },
     "ManifestStatus": {
       "default": "DRAFT",
@@ -184,6 +248,9 @@
   "properties": {
     "Arn": { "type": "string" },
     "CreationTime": { "format": "date-time", "type": "string" },
+    "DefaultForUnmappedSignals": {
+      "$ref": "#/definitions/DefaultForUnmappedSignalsType"
+    },
     "Description": {
       "maxLength": 2048,
       "minLength": 1,
@@ -203,7 +270,8 @@
       "items": {
         "oneOf": [
           { "$ref": "#/definitions/CanNetworkInterface" },
-          { "$ref": "#/definitions/ObdNetworkInterface" }
+          { "$ref": "#/definitions/ObdNetworkInterface" },
+          { "$ref": "#/definitions/CustomDecodingNetworkInterface" }
         ]
       },
       "maxItems": 5000,
@@ -215,7 +283,8 @@
       "items": {
         "oneOf": [
           { "$ref": "#/definitions/CanSignalDecoder" },
-          { "$ref": "#/definitions/ObdSignalDecoder" }
+          { "$ref": "#/definitions/ObdSignalDecoder" },
+          { "$ref": "#/definitions/CustomDecodingSignalDecoder" }
         ]
       },
       "maxItems": 5000,
@@ -250,5 +319,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::IoTFleetWise::DecoderManifest"
+  "typeName": "AWS::IoTFleetWise::DecoderManifest",
+  "writeOnlyProperties": ["/properties/DefaultForUnmappedSignals"]
 }

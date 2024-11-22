@@ -36,6 +36,10 @@ export type SyntheticsCanaryProperties = {
    */
   Name: string;
   /**
+   * Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+   */
+  ProvisionedResourceCleanup?: "AUTOMATIC" | "OFF";
+  /**
    * List of resources which canary tags should be replicated to.
    */
   ResourcesToReplicateTags?: ResourceToTag[];

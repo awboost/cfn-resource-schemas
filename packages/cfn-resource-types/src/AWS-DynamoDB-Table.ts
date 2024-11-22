@@ -103,6 +103,9 @@ export type DynamoDBTableProperties = {
       For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
      */
   TimeToLiveSpecification?: TimeToLiveSpecification;
+  /**
+   * Represents the warm throughput (in read units per second and write units per second) for creating a table.
+   */
   WarmThroughput?: WarmThroughput;
 };
 /**
@@ -193,6 +196,9 @@ export type GlobalSecondaryIndex = {
      For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
      */
   ProvisionedThroughput?: ProvisionedThroughput;
+  /**
+   * Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
+   */
   WarmThroughput?: WarmThroughput;
 };
 /**
@@ -474,14 +480,17 @@ export type TimeToLiveSpecification = {
 };
 /**
  * Type definition for `AWS::DynamoDB::Table.WarmThroughput`.
+ * Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-warmthroughput.html}
  */
 export type WarmThroughput = {
   /**
+   * Represents the number of read operations your base table can instantaneously support.
    * @min `1`
    */
   ReadUnitsPerSecond?: number;
   /**
+   * Represents the number of write operations your base table can instantaneously support.
    * @min `1`
    */
   WriteUnitsPerSecond?: number;

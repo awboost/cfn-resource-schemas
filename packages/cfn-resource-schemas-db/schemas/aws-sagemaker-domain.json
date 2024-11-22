@@ -1,5 +1,5 @@
 {
-  "$hash": "cfcb9ac22d2e5c086d8b5c05653fd82425ea8a03",
+  "$hash": "d3f6a63e014a79c205fad69d01abafba1c5736fe",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -405,7 +405,12 @@
         "InferenceRecommender",
         "Endpoints",
         "Projects",
-        "InferenceOptimization"
+        "InferenceOptimization",
+        "HyperPodClusters",
+        "Comet",
+        "DeepchecksLLMEvaluation",
+        "Fiddler",
+        "LakeraGuard"
       ],
       "type": "string"
     },

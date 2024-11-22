@@ -119,6 +119,7 @@ export type LambdaEventSourceMappingProperties = {
    * @max `10`
    */
   ParallelizationFactor?: number;
+  ProvisionedPollerConfig?: ProvisionedPollerConfig;
   /**
    * (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
    * @minLength `1`
@@ -309,6 +310,24 @@ export type OnFailure = {
      * @pattern `arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
      */
   Destination?: string;
+};
+/**
+ * Type definition for `AWS::Lambda::EventSourceMapping.ProvisionedPollerConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html}
+ */
+export type ProvisionedPollerConfig = {
+  /**
+   * The maximum number of event pollers this event source can scale up to.
+   * @min `1`
+   * @max `2000`
+   */
+  MaximumPollers?: number;
+  /**
+   * The minimum number of event pollers this event source can scale down to.
+   * @min `1`
+   * @max `200`
+   */
+  MinimumPollers?: number;
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.ScalingConfig`.

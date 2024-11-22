@@ -1,16 +1,22 @@
 {
-  "$hash": "3a0ed1a496ace8b22134d1225b859a6651861505",
+  "$hash": "58fa622431eab82c3e28f2072ab3922f34322940",
   "$id": "aws-cloudfront-cloudfrontoriginaccessidentity.json",
   "additionalProperties": false,
   "definitions": {
     "CloudFrontOriginAccessIdentityConfig": {
       "additionalProperties": false,
-      "properties": { "Comment": { "type": "string" } },
+      "description": "Origin access identity configuration. Send a ``GET`` request to the ``/CloudFront API version/CloudFront/identity ID/config`` resource.",
+      "properties": {
+        "Comment": {
+          "description": "A comment to describe the origin access identity. The comment cannot be longer than 128 characters.",
+          "type": "string"
+        }
+      },
       "required": ["Comment"],
       "type": "object"
     }
   },
-  "description": "Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity",
+  "description": "The request to create a new origin access identity (OAI). An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content. For more information, see [Restricting Access to Amazon S3 Content by Using an Origin Access Identity](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html) in the *Amazon CloudFront Developer Guide*.",
   "handlers": {
     "create": {
       "permissions": ["cloudfront:CreateCloudFrontOriginAccessIdentity"]
@@ -35,10 +41,11 @@
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
     "CloudFrontOriginAccessIdentityConfig": {
-      "$ref": "#/definitions/CloudFrontOriginAccessIdentityConfig"
+      "$ref": "#/definitions/CloudFrontOriginAccessIdentityConfig",
+      "description": "The current configuration information for the identity."
     },
-    "Id": { "type": "string" },
-    "S3CanonicalUserId": { "type": "string" }
+    "Id": { "description": "", "type": "string" },
+    "S3CanonicalUserId": { "description": "", "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id", "/properties/S3CanonicalUserId"],
   "required": ["CloudFrontOriginAccessIdentityConfig"],

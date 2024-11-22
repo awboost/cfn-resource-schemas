@@ -1,5 +1,5 @@
 {
-  "$hash": "3ef535b542bb27485c74fedefc56e5e603eb0730",
+  "$hash": "093f9635727811c478e2b8e3b76d169ca833c4b8",
   "$id": "aws-sagemaker-modelpackagegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -126,5 +126,17 @@
     "/properties/ModelPackageGroupStatus"
   ],
   "required": ["ModelPackageGroupName"],
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:ListTags",
+      "sagemaker:DeleteTags"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::SageMaker::ModelPackageGroup"
 }

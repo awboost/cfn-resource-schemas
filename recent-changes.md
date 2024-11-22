@@ -1,66 +1,265 @@
-- added `AWS::ConnectCampaignsV2::Campaign`
-- added `AWS::Rbin::Rule`
+- added `AWS::ApiGateway::BasePathMappingV2`
+- added `AWS::ApiGateway::DomainNameAccessAssociation`
+- added `AWS::ApiGateway::DomainNameV2`
+- added `AWS::CloudTrail::Dashboard`
+- added `AWS::Connect::EmailAddress`
+- added `AWS::CustomerProfiles::SegmentDefinition`
+- added `AWS::IVS::IngestConfiguration`
+- added `AWS::IoTFleetWise::StateTemplate`
+- added `AWS::M2::Deployment`
+- added `AWS::ResourceGroups::TagSyncTask`
+- added `AWS::Wisdom::MessageTemplate`
+- added `AWS::Wisdom::MessageTemplateVersion`
+- added `AWS::WorkSpacesWeb::DataProtectionSettings`
+- updated `AWS::ApplicationAutoScaling::ScalingPolicy`
+  - added definition `PredictiveScalingCustomizedCapacityMetric`
+  - added definition `PredictiveScalingCustomizedLoadMetric`
+  - added definition `PredictiveScalingCustomizedScalingMetric`
+  - added definition `PredictiveScalingMetricDataQuery`
+  - added definition `PredictiveScalingMetricDimension`
+  - added definition `PredictiveScalingMetricSpecification`
+  - added definition `PredictiveScalingMetricStat`
+  - added definition `PredictiveScalingMetric`
+  - added definition `PredictiveScalingPolicyConfiguration`
+  - added definition `PredictiveScalingPredefinedLoadMetric`
+  - added definition `PredictiveScalingPredefinedMetricPair`
+  - added definition `PredictiveScalingPredefinedScalingMetric`
+  - added property `PredictiveScalingPolicyConfiguration`
+  - updated handler permissions
 - updated `AWS::AutoScaling::AutoScalingGroup`
-  - added definition `AvailabilityZoneImpairmentPolicy`
-  - added definition `BaselinePerformanceFactorsRequest`
-  - added definition `CpuPerformanceFactorRequest`
-  - added definition `PerformanceFactorReferenceRequest`
-  - added definition `PerformanceFactorReferenceSetRequest`
-  - added property `AvailabilityZoneImpairmentPolicy`
-  - added property `SkipZonalShiftValidation`
-  - updated `writeOnlyProperties`
-  - updated definition `InstanceRequirements`
-- updated `AWS::B2BI::Capability`
-  - updated definition `X12TransactionSet`
-  - updated definition `X12Version`
-- updated `AWS::B2BI::Transformer`
-  - updated definition `X12TransactionSet`
-  - updated definition `X12Version`
-- updated `AWS::Connect::ViewVersion`
-  - updated `createOnlyProperties`
-- updated `AWS::CustomerProfiles::Integration`
-  - added property `EventTriggerNames`
-- updated `AWS::Deadline::Fleet`
-  - added definition `AcceleratorCapabilities`
-  - added definition `AcceleratorSelection`
-  - updated definition `ServiceManagedEc2InstanceCapabilities`
-- updated `AWS::EFS::FileSystem`
-  - updated `propertyTransform`
-  - updated `readOnlyProperties`
-  - updated definition `ReplicationDestination`
-  - updated handler permissions
-- updated `AWS::IAM::ManagedPolicy`
-  - removed `replacementStrategy`
-- updated `AWS::IoT::ThingType`
-  - added definition `PropagatingAttribute`
-  - updated `createOnlyProperties`
-  - updated property `ThingTypeProperties`
-- updated `AWS::IoTFleetWise::Campaign`
-  - added definition `DataPartitionId`
-  - added definition `DataPartitionStorageOptions`
-  - added definition `DataPartitionUploadOptions`
-  - added definition `DataPartition`
-  - added definition `EventExpression`
-  - added definition `LanguageVersion`
-  - added definition `StorageLocation`
-  - added definition `StorageMaximumSizeUnit`
-  - added definition `StorageMaximumSizeValue`
-  - added definition `StorageMaximumSize`
-  - added definition `StorageMinimumTimeToLiveUnit`
-  - added definition `StorageMinimumTimeToLiveValue`
-  - added definition `StorageMinimumTimeToLive`
-  - added property `DataPartitions`
-  - updated `createOnlyProperties`
-  - updated definition `ConditionBasedCollectionScheme`
-  - updated definition `SignalInformation`
-- updated `AWS::Lambda::Permission`
-  - updated property `Principal`
-- updated `AWS::Route53Resolver::FirewallRuleGroup`
-  - updated `readOnlyProperties`
-  - updated definition `FirewallRule`
-- updated `AWS::SageMaker::ModelCard`
+  - added definition `CapacityReservationIds`
+  - added definition `CapacityReservationResourceGroupArns`
+  - added definition `CapacityReservationSpecification`
+  - added definition `CapacityReservationTarget`
+  - added property `CapacityReservationSpecification`
+- updated `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`
   - updated `tagging`
-- updated `AWS::Synthetics::Canary`
+- updated `AWS::Chatbot::SlackChannelConfiguration`
+  - updated `tagging`
+- updated `AWS::CloudFront::CachePolicy`
+  - updated definition `CachePolicyConfig`
+  - updated definition `CookiesConfig`
+  - updated definition `HeadersConfig`
+  - updated definition `ParametersInCacheKeyAndForwardedToOrigin`
+  - updated definition `QueryStringsConfig`
+  - updated property `CachePolicyConfig`
+  - updated property `Id`
+  - updated property `LastModifiedTime`
+- updated `AWS::CloudFront::CloudFrontOriginAccessIdentity`
+  - updated definition `CloudFrontOriginAccessIdentityConfig`
+  - updated property `CloudFrontOriginAccessIdentityConfig`
+  - updated property `Id`
+  - updated property `S3CanonicalUserId`
+- updated `AWS::CloudFront::ContinuousDeploymentPolicy`
+  - updated definition `ContinuousDeploymentPolicyConfig`
+  - updated definition `SessionStickinessConfig`
+  - updated definition `SingleHeaderConfig`
+  - updated definition `SingleWeightConfig`
+  - updated definition `TrafficConfig`
+  - updated property `ContinuousDeploymentPolicyConfig`
+  - updated property `Id`
+  - updated property `LastModifiedTime`
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `CacheBehavior`
+  - updated definition `DefaultCacheBehavior`
+  - updated definition `DistributionConfig`
+  - updated definition `LegacyCustomOrigin`
+  - updated definition `LegacyS3Origin`
+  - updated definition `S3OriginConfig`
+- updated `AWS::CloudFront::Function`
+  - updated definition `FunctionConfig`
+  - updated definition `FunctionMetadata`
+  - updated definition `KeyValueStoreAssociation`
+  - updated property `AutoPublish`
+  - updated property `FunctionARN`
+  - updated property `FunctionCode`
+  - updated property `FunctionConfig`
+  - updated property `FunctionMetadata`
+  - updated property `Name`
+  - updated property `Stage`
+- updated `AWS::CloudFront::KeyGroup`
+  - updated definition `KeyGroupConfig`
+  - updated property `Id`
+  - updated property `KeyGroupConfig`
+  - updated property `LastModifiedTime`
+- updated `AWS::CloudFront::KeyValueStore`
+  - updated definition `ImportSource`
+  - updated property `Arn`
+  - updated property `Comment`
+  - updated property `Id`
+  - updated property `ImportSource`
+  - updated property `Name`
+  - updated property `Status`
+- updated `AWS::CloudFront::MonitoringSubscription`
+  - updated definition `MonitoringSubscription`
+  - updated definition `RealtimeMetricsSubscriptionConfig`
+  - updated property `DistributionId`
+  - updated property `MonitoringSubscription`
+- updated `AWS::CloudFront::OriginAccessControl`
+  - updated definition `OriginAccessControlConfig`
+  - updated property `Id`
+  - updated property `OriginAccessControlConfig`
+- updated `AWS::CloudFront::OriginRequestPolicy`
+  - updated definition `CookiesConfig`
+  - updated definition `HeadersConfig`
+  - updated definition `OriginRequestPolicyConfig`
+  - updated definition `QueryStringsConfig`
+  - updated property `Id`
+  - updated property `LastModifiedTime`
+  - updated property `OriginRequestPolicyConfig`
+- updated `AWS::CloudFront::PublicKey`
+  - updated definition `PublicKeyConfig`
+  - updated property `CreatedTime`
+  - updated property `Id`
+  - updated property `PublicKeyConfig`
+- updated `AWS::CloudFront::RealtimeLogConfig`
+  - updated definition `EndPoint`
+  - updated definition `KinesisStreamConfig`
+  - updated property `Arn`
+  - updated property `EndPoints`
+  - updated property `Fields`
+  - updated property `Name`
+  - updated property `SamplingRate`
+- updated `AWS::CloudFront::ResponseHeadersPolicy`
+  - updated definition `AccessControlAllowHeaders`
+  - updated definition `AccessControlAllowMethods`
+  - updated definition `AccessControlAllowOrigins`
+  - updated definition `AccessControlExposeHeaders`
+  - updated definition `ContentSecurityPolicy`
+  - updated definition `ContentTypeOptions`
+  - updated definition `CorsConfig`
+  - updated definition `CustomHeader`
+  - updated definition `CustomHeadersConfig`
+  - updated definition `FrameOptions`
+  - updated definition `ReferrerPolicy`
+  - updated definition `RemoveHeader`
+  - updated definition `RemoveHeadersConfig`
+  - updated definition `ResponseHeadersPolicyConfig`
+  - updated definition `SecurityHeadersConfig`
+  - updated definition `ServerTimingHeadersConfig`
+  - updated definition `StrictTransportSecurity`
+  - updated definition `XSSProtection`
+  - updated property `Id`
+  - updated property `LastModifiedTime`
+  - updated property `ResponseHeadersPolicyConfig`
+- updated `AWS::Connect::HoursOfOperation`
+  - added definition `EffectiveFrom`
+  - added definition `EffectiveTill`
+  - added definition `HoursOfOperationOverrideConfig`
+  - added definition `HoursOfOperationOverrideId`
+  - added definition `HoursOfOperationOverride`
+  - added definition `OverrideConfig`
+  - added definition `OverrideDescription`
+  - added definition `OverrideName`
+  - added definition `OverrideTimeSlice`
+  - added property `HoursOfOperationOverrides`
+- updated `AWS::DMS::DataProvider`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::WorkSpacesThinClient::Environment`
+- updated `AWS::DMS::InstanceProfile`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DMS::MigrationProject`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DynamoDB::Table`
+  - added `conditionalCreateOnlyProperties`
+  - updated definition `GlobalSecondaryIndex`
+  - updated definition `WarmThroughput`
+  - updated property `WarmThroughput`
+- updated `AWS::EC2::LaunchTemplate`
+  - added definition `BaselinePerformanceFactors`
+  - updated definition `InstanceRequirements`
+- updated `AWS::ECS::ClusterCapacityProviderAssociations`
+  - updated handler permissions
+- updated `AWS::EntityResolution::IdMappingWorkflow`
+  - updated `tagging`
+- updated `AWS::EntityResolution::IdNamespace`
+  - updated `tagging`
+- updated `AWS::EntityResolution::MatchingWorkflow`
+  - updated `tagging`
+- updated `AWS::EntityResolution::SchemaMapping`
+  - updated `tagging`
+- updated `AWS::GroundStation::Config`
+  - added `tagging`
+- updated `AWS::GroundStation::DataflowEndpointGroup`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::GroundStation::MissionProfile`
+  - added `tagging`
+- updated `AWS::IoTFleetWise::DecoderManifest`
+  - added `writeOnlyProperties`
+  - added definition `CustomDecodingInterface`
+  - added definition `CustomDecodingNetworkInterface`
+  - added definition `CustomDecodingSignalDecoder`
+  - added definition `CustomDecodingSignal`
+  - added definition `DefaultForUnmappedSignalsType`
+  - added property `DefaultForUnmappedSignals`
+  - updated property `NetworkInterfaces`
+  - updated property `SignalDecoders`
+- updated `AWS::IoTSiteWise::AccessPolicy`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::IoTSiteWise::Portal`
+  - added `tagging`
+  - added definition `PortalTools`
+  - added definition `PortalTypeConfiguration`
+  - added definition `PortalTypeEntry`
+  - added property `PortalTypeConfiguration`
+  - added property `PortalType`
+  - removed `taggable`
+  - removed `writeOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Lambda::EventSourceMapping`
+  - added definition `ProvisionedPollerConfig`
+  - added property `ProvisionedPollerConfig`
+- updated `AWS::OpenSearchServerless::SecurityConfig`
+  - added definition `IamIdentityCenterApplicationArn`
+  - added definition `IamIdentityCenterConfigOptions`
+  - added definition `IamIdentityCenterGroupAttribute`
+  - added definition `IamIdentityCenterInstanceArn`
+  - added definition `IamIdentityCenterUserAttribute`
+  - added property `IamIdentityCenterOptions`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated definition `SecurityConfigType`
+  - updated handler permissions
+- updated `AWS::RDS::GlobalCluster`
+  - added definition `GlobalEndpoint`
+  - added property `GlobalEndpoint`
+- updated `AWS::Route53RecoveryControl::Cluster`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+- updated `AWS::Route53RecoveryControl::ControlPanel`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+- updated `AWS::Route53RecoveryControl::SafetyRule`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+- updated `AWS::S3Express::DirectoryBucket`
+  - added definition `AbortIncompleteMultipartUpload`
+  - added definition `LifecycleConfiguration`
+  - added definition `Rule`
+  - added property `LifecycleConfiguration`
+  - updated handler permissions
+- updated `AWS::SageMaker::Cluster`
+  - updated definition `ClusterInstanceGroup`
+- updated `AWS::SageMaker::Domain`
+  - updated definition `MlTools`
+- updated `AWS::SageMaker::ModelPackage`
+  - updated `tagging`
+  - updated definition `ModelPackageArn`
+- updated `AWS::SageMaker::ModelPackageGroup`
+  - added `tagging`
+- updated `AWS::SageMaker::Project`
+  - added `tagging`
+- updated `AWS::SageMaker::UserProfile`
+  - updated definition `MlTools`
+- updated `AWS::Synthetics::Canary`
+  - added property `ProvisionedResourceCleanup`
+  - updated handler permissions
+- updated `AWS::WorkSpacesWeb::Portal`
+  - added property `DataProtectionSettingsArn`
+  - updated `tagging`
   - updated handler permissions

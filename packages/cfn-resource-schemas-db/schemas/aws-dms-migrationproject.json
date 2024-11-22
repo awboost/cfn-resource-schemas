@@ -1,5 +1,5 @@
 {
-  "$hash": "d0403663c43cc3796e1c1749568155fdb316ccc5",
+  "$hash": "24bc6188e3fd7b7240d654956ecf8c48e33b8310",
   "$id": "aws-dms-migrationproject.json",
   "additionalIdentifiers": [["/properties/MigrationProjectName"]],
   "additionalProperties": false,
@@ -70,7 +70,7 @@
         "dms:UpdateMigrationProject",
         "dms:ModifyMigrationProject",
         "dms:AddTagsToResource",
-        "dms:RemoveTagsToResource",
+        "dms:RemoveTagsFromResource",
         "dms:ListTagsForResource",
         "iam:PassRole"
       ]
@@ -165,6 +165,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-csf.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "dms:AddTagsToResource",
+      "dms:RemoveTagsFromResource",
+      "dms:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

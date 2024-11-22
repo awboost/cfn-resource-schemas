@@ -1,29 +1,43 @@
 {
-  "$hash": "92acd33cf720729b7c64939064cea465a9e5668f",
+  "$hash": "6c62fa3491843049544b6b111ec76628e67d72db",
   "$id": "aws-cloudfront-realtimelogconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "EndPoint": {
       "additionalProperties": false,
+      "description": "Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.",
       "properties": {
-        "KinesisStreamConfig": { "$ref": "#/definitions/KinesisStreamConfig" },
-        "StreamType": { "type": "string" }
+        "KinesisStreamConfig": {
+          "$ref": "#/definitions/KinesisStreamConfig",
+          "description": "Contains information about the Amazon Kinesis data stream where you are sending real-time log data."
+        },
+        "StreamType": {
+          "description": "The type of data stream where you are sending real-time log data. The only valid value is ``Kinesis``.",
+          "type": "string"
+        }
       },
       "required": ["KinesisStreamConfig", "StreamType"],
       "type": "object"
     },
     "KinesisStreamConfig": {
       "additionalProperties": false,
+      "description": "Contains information about the Amazon Kinesis data stream where you are sending real-time log data.",
       "properties": {
-        "RoleArn": { "type": "string" },
-        "StreamArn": { "type": "string" }
+        "RoleArn": {
+          "description": "The Amazon Resource Name (ARN) of an IAMlong (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.\n For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide*.",
+          "type": "string"
+        },
+        "StreamArn": {
+          "description": "The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.",
+          "type": "string"
+        }
       },
       "required": ["RoleArn", "StreamArn"],
       "type": "object"
     }
   },
-  "description": "Resource Type definition for AWS::CloudFront::RealtimeLogConfig",
+  "description": "A real-time log configuration.",
   "handlers": {
     "create": {
       "permissions": ["cloudfront:CreateRealtimeLogConfig", "iam:PassRole"]
@@ -46,21 +60,27 @@
   },
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
-    "Arn": { "type": "string" },
+    "Arn": { "description": "", "type": "string" },
     "EndPoints": {
+      "description": "Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.",
       "items": { "$ref": "#/definitions/EndPoint" },
       "minItems": 1,
       "type": "array",
       "uniqueItems": false
     },
     "Fields": {
+      "description": "A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.\n For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.",
       "items": { "type": "string" },
       "minItems": 1,
       "type": "array",
       "uniqueItems": false
     },
-    "Name": { "type": "string" },
+    "Name": {
+      "description": "The unique name of this real-time log configuration.",
+      "type": "string"
+    },
     "SamplingRate": {
+      "description": "The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. The sampling rate is an integer between 1 and 100, inclusive.",
       "maximum": 100,
       "minimum": 1,
       "multipleOf": 1,

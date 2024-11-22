@@ -1,10 +1,33 @@
 {
-  "$hash": "707ed5801c3d702a5d05a294a2751c581f8ca9d4",
+  "$hash": "8e45a240c7b157be05ddebbf9e15070cee8dbe8a",
   "$id": "aws-iotsitewise-portal.json",
   "additionalIdentifiers": [["/properties/PortalArn"]],
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/PortalAuthMode"],
+  "createOnlyProperties": [
+    "/properties/PortalAuthMode",
+    "/properties/PortalType"
+  ],
   "definitions": {
+    "PortalTools": {
+      "description": "List of enabled Tools for a certain portal.",
+      "items": { "type": "string" },
+      "type": "array"
+    },
+    "PortalTypeConfiguration": {
+      "additionalProperties": false,
+      "description": "Map to associate detail of configuration related with a PortalType.",
+      "patternProperties": {
+        "^[a-z][a-zA-Z0-9_]*$": { "$ref": "#/definitions/PortalTypeEntry" }
+      },
+      "type": "object"
+    },
+    "PortalTypeEntry": {
+      "additionalProperties": false,
+      "description": "Container associated a certain PortalType.",
+      "properties": { "PortalTools": { "$ref": "#/definitions/PortalTools" } },
+      "required": ["PortalTools"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.",
@@ -36,7 +59,12 @@
         "sso:DeleteManagedApplicationInstance"
       ]
     },
-    "list": { "permissions": ["iotsitewise:ListPortals"] },
+    "list": {
+      "permissions": [
+        "iotsitewise:ListPortals",
+        "iotsitewise:ListTagsForResource"
+      ]
+    },
     "read": {
       "permissions": [
         "iotsitewise:DescribePortal",
@@ -106,6 +134,14 @@
       "description": "The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.",
       "type": "string"
     },
+    "PortalType": {
+      "description": "The type of portal",
+      "enum": ["SITEWISE_PORTAL_V1", "SITEWISE_PORTAL_V2"],
+      "type": "string"
+    },
+    "PortalTypeConfiguration": {
+      "$ref": "#/definitions/PortalTypeConfiguration"
+    },
     "RoleArn": {
       "description": "The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.",
       "type": "string"
@@ -126,7 +162,17 @@
   ],
   "required": ["PortalContactEmail", "PortalName", "RoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iotsitewise.git",
-  "taggable": true,
-  "typeName": "AWS::IoTSiteWise::Portal",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotsitewise:TagResource",
+      "iotsitewise:UntagResource",
+      "iotsitewise:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::IoTSiteWise::Portal"
 }

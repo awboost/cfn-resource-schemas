@@ -1,5 +1,5 @@
 {
-  "$hash": "88dfc4cd9c9597611b61a8cbc9a4a437b7a251d0",
+  "$hash": "a3d4e39eee1e83f58f4d2d05da1b6efea7d43bbd",
   "$id": "aws-chatbot-slackchannelconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -120,6 +120,11 @@
   "sourceUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "chatbot:TagResource",
+      "chatbot:ListTagsForResource",
+      "chatbot:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

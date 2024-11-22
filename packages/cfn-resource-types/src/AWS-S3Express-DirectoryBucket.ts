@@ -20,6 +20,10 @@ export type S3ExpressDirectoryBucketProperties = {
    */
   DataRedundancy: "SingleAvailabilityZone";
   /**
+   * Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+   */
+  LifecycleConfiguration?: LifecycleConfiguration;
+  /**
    * Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
    */
   LocationName: string;
@@ -39,6 +43,18 @@ export type S3ExpressDirectoryBucketAttributes = {
   AvailabilityZoneName: string;
 };
 /**
+ * Type definition for `AWS::S3Express::DirectoryBucket.AbortIncompleteMultipartUpload`.
+ * Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-abortincompletemultipartupload.html}
+ */
+export type AbortIncompleteMultipartUpload = {
+  /**
+   * Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+   * @min `0`
+   */
+  DaysAfterInitiation: number;
+};
+/**
  * Type definition for `AWS::S3Express::DirectoryBucket.BucketEncryption`.
  * Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-bucketencryption.html}
@@ -48,6 +64,44 @@ export type BucketEncryption = {
    * Specifies the default server-side-encryption configuration.
    */
   ServerSideEncryptionConfiguration: ServerSideEncryptionRule[];
+};
+/**
+ * Type definition for `AWS::S3Express::DirectoryBucket.LifecycleConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-lifecycleconfiguration.html}
+ */
+export type LifecycleConfiguration = {
+  /**
+   * A lifecycle rule for individual objects in an Amazon S3 Express bucket.
+   */
+  Rules: Rule[];
+};
+/**
+ * Type definition for `AWS::S3Express::DirectoryBucket.Rule`.
+ * You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html}
+ */
+export type Rule = {
+  /**
+   * Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+   */
+  AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
+  ExpirationInDays?: number;
+  /**
+   * @maxLength `255`
+   */
+  Id?: string;
+  /**
+   * @maxLength `20`
+   * @pattern `[0-9]+`
+   */
+  ObjectSizeGreaterThan?: string;
+  /**
+   * @maxLength `20`
+   * @pattern `[0-9]+`
+   */
+  ObjectSizeLessThan?: string;
+  Prefix?: string;
+  Status: "Enabled" | "Disabled";
 };
 /**
  * Type definition for `AWS::S3Express::DirectoryBucket.ServerSideEncryptionByDefault`.

@@ -18,6 +18,7 @@ export type ApplicationAutoScalingScalingPolicyProperties = {
       ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
      */
   PolicyType: string;
+  PredictiveScalingPolicyConfiguration?: PredictiveScalingPolicyConfiguration;
   /**
      * The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
       +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -169,6 +170,151 @@ export type PredefinedMetricSpecification = {
       
      To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
      */
+  ResourceLabel?: string;
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingCustomizedCapacityMetric`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html}
+ */
+export type PredictiveScalingCustomizedCapacityMetric = {
+  MetricDataQueries: PredictiveScalingMetricDataQuery[];
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingCustomizedLoadMetric`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html}
+ */
+export type PredictiveScalingCustomizedLoadMetric = {
+  MetricDataQueries: PredictiveScalingMetricDataQuery[];
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingCustomizedScalingMetric`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html}
+ */
+export type PredictiveScalingCustomizedScalingMetric = {
+  MetricDataQueries: PredictiveScalingMetricDataQuery[];
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingMetric`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html}
+ */
+export type PredictiveScalingMetric = {
+  /**
+   * The dimensions for the metric.
+   */
+  Dimensions?: PredictiveScalingMetricDimension[];
+  /**
+   * The name of the metric.
+   */
+  MetricName?: string;
+  /**
+   * The namespace of the metric.
+   */
+  Namespace?: string;
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingMetricDataQuery`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricdataquery.html}
+ */
+export type PredictiveScalingMetricDataQuery = {
+  /**
+   * The math expression to perform on the returned data, if this object is performing a math expression.
+   */
+  Expression?: string;
+  /**
+   * A short name that identifies the object's results in the response.
+   */
+  Id?: string;
+  /**
+   * A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+   */
+  Label?: string;
+  /**
+   * Information about the metric data to return.
+   */
+  MetricStat?: PredictiveScalingMetricStat;
+  /**
+   * Indicates whether to return the timestamps and raw data values of this metric.
+   */
+  ReturnData?: boolean;
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingMetricDimension`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricdimension.html}
+ */
+export type PredictiveScalingMetricDimension = {
+  /**
+   * The name of the dimension.
+   */
+  Name?: string;
+  /**
+   * The value of the dimension.
+   */
+  Value?: string;
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingMetricSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricspecification.html}
+ */
+export type PredictiveScalingMetricSpecification = {
+  CustomizedCapacityMetricSpecification?: PredictiveScalingCustomizedCapacityMetric;
+  CustomizedLoadMetricSpecification?: PredictiveScalingCustomizedLoadMetric;
+  CustomizedScalingMetricSpecification?: PredictiveScalingCustomizedScalingMetric;
+  PredefinedLoadMetricSpecification?: PredictiveScalingPredefinedLoadMetric;
+  PredefinedMetricPairSpecification?: PredictiveScalingPredefinedMetricPair;
+  PredefinedScalingMetricSpecification?: PredictiveScalingPredefinedScalingMetric;
+  TargetValue: number;
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingMetricStat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricstat.html}
+ */
+export type PredictiveScalingMetricStat = {
+  /**
+   * The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+   */
+  Metric?: PredictiveScalingMetric;
+  /**
+   * The statistic to return. It can include any CloudWatch statistic or extended statistic.
+   */
+  Stat?: string;
+  /**
+   * The unit to use for the returned data points.
+   */
+  Unit?: string;
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingPolicyConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpolicyconfiguration.html}
+ */
+export type PredictiveScalingPolicyConfiguration = {
+  MaxCapacityBreachBehavior?: string;
+  MaxCapacityBuffer?: number;
+  MetricSpecifications: PredictiveScalingMetricSpecification[];
+  Mode?: string;
+  SchedulingBufferTime?: number;
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingPredefinedLoadMetric`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedloadmetric.html}
+ */
+export type PredictiveScalingPredefinedLoadMetric = {
+  PredefinedMetricType: string;
+  ResourceLabel?: string;
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingPredefinedMetricPair`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedmetricpair.html}
+ */
+export type PredictiveScalingPredefinedMetricPair = {
+  PredefinedMetricType: string;
+  ResourceLabel?: string;
+};
+/**
+ * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingPredefinedScalingMetric`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric.html}
+ */
+export type PredictiveScalingPredefinedScalingMetric = {
+  PredefinedMetricType: string;
   ResourceLabel?: string;
 };
 /**

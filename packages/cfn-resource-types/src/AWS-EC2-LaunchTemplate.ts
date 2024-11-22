@@ -85,6 +85,13 @@ export type BaselineEbsBandwidthMbps = {
   Min?: number;
 };
 /**
+ * Type definition for `AWS::EC2::LaunchTemplate.BaselinePerformanceFactors`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineperformancefactors.html}
+ */
+export type BaselinePerformanceFactors = {
+  Cpu?: Cpu;
+};
+/**
  * Type definition for `AWS::EC2::LaunchTemplate.BlockDeviceMapping`.
  * Specifies a block device mapping for a launch template. You must specify ``DeviceName`` plus exactly one of the following properties: ``Ebs``, ``NoDevice``, or ``VirtualName``.
   ``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
@@ -160,6 +167,16 @@ export type ConnectionTrackingSpecification = {
    * Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
    */
   UdpTimeout?: number;
+};
+/**
+ * Type definition for `AWS::EC2::LaunchTemplate.Cpu`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpu.html}
+ */
+export type Cpu = {
+  /**
+   * A list of references to be used as baseline for the CPU performance. Currently, you can only specify a single reference across different instance type variations such as CPU manufacturers, architectures etc.
+   */
+  References?: Reference[];
 };
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.CpuOptions`.
@@ -430,6 +447,7 @@ export type InstanceRequirements = {
      Default: No minimum or maximum limits
      */
   BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbps;
+  BaselinePerformanceFactors?: BaselinePerformanceFactors;
   /**
      * Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
       +  To include burstable performance instance types, specify ``included``.
@@ -1083,6 +1101,16 @@ export type PrivateIpAdd = {
    * The private IPv4 address.
    */
   PrivateIpAddress?: string;
+};
+/**
+ * Type definition for `AWS::EC2::LaunchTemplate.Reference`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-reference.html}
+ */
+export type Reference = {
+  /**
+   * The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+   */
+  InstanceFamily?: string;
 };
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.SpotOptions`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "b76422c515c6304a13e8438b2444bdfb6d2b2bba",
+  "$hash": "2f82d85671b50b3c1bf367114f7df96c8fad4889",
   "$id": "aws-groundstation-missionprofile.json",
   "additionalProperties": false,
   "definitions": {
@@ -139,5 +139,17 @@
     "TrackingConfigArn"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ground-station.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "groundstation:TagResource",
+      "groundstation:UntagResource",
+      "groundstation:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::GroundStation::MissionProfile"
 }

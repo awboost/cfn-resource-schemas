@@ -96,6 +96,7 @@ export type ClusterEbsVolumeConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html}
  */
 export type ClusterInstanceGroup = {
+  CustomMetadata?: unknown;
   /**
    * The execution role for the instance group to assume.
    * @minLength `20`

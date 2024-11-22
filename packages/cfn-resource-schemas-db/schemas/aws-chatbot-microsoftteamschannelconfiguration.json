@@ -1,5 +1,5 @@
 {
-  "$hash": "c04154f7c34ccd591a177251ac33bc41b41f0f06",
+  "$hash": "9a6639632816b088dab393a35aa4f3c4700c4004",
   "$id": "aws-chatbot-microsoftteamschannelconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -138,6 +138,11 @@
   "sourceUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "chatbot:TagResource",
+      "chatbot:ListTagsForResource",
+      "chatbot:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

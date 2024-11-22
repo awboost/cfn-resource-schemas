@@ -148,7 +148,7 @@ export type SageMakerModelPackageAttributes = {
    * The Amazon Resource Name (ARN) of the model package group.
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^arn:aws(-cn|-us-gov)?:sagemaker:[a-z0-9\-]{9,16}:[0-9]{12}:model-package/[\S]{1,2048}$`
+   * @pattern `^arn:aws(-cn|-us-gov|-iso-f)?:sagemaker:[a-z0-9\-]{9,16}:[0-9]{12}:model-package/[\S]{1,2048}$`
    */
   ModelPackageArn: string;
   /**

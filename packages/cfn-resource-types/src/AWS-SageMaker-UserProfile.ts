@@ -320,7 +320,12 @@ export type MlTools =
   | "InferenceRecommender"
   | "Endpoints"
   | "Projects"
-  | "InferenceOptimization";
+  | "InferenceOptimization"
+  | "HyperPodClusters"
+  | "Comet"
+  | "DeepchecksLLMEvaluation"
+  | "Fiddler"
+  | "LakeraGuard";
 /**
  * Type definition for `AWS::SageMaker::UserProfile.ResourceSpec`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html}

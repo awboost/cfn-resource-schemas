@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html}
  */
 export type IoTFleetWiseDecoderManifestProperties = {
+  DefaultForUnmappedSignals?: DefaultForUnmappedSignalsType;
   /**
    * @minLength `1`
    * @maxLength `2048`
@@ -22,12 +23,20 @@ export type IoTFleetWiseDecoderManifestProperties = {
    * @minLength `1`
    * @maxLength `5000`
    */
-  NetworkInterfaces?: (CanNetworkInterface | ObdNetworkInterface)[];
+  NetworkInterfaces?: (
+    | CanNetworkInterface
+    | ObdNetworkInterface
+    | CustomDecodingNetworkInterface
+  )[];
   /**
    * @minLength `1`
    * @maxLength `5000`
    */
-  SignalDecoders?: (CanSignalDecoder | ObdSignalDecoder)[];
+  SignalDecoders?: (
+    | CanSignalDecoder
+    | ObdSignalDecoder
+    | CustomDecodingSignalDecoder
+  )[];
   Status?: ManifestStatus;
   /**
    * @minLength `0`
@@ -114,6 +123,66 @@ export type CanSignalDecoder = {
   InterfaceId: string;
   Type: "CAN_SIGNAL";
 };
+/**
+ * Type definition for `AWS::IoTFleetWise::DecoderManifest.CustomDecodingInterface`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodinginterface.html}
+ */
+export type CustomDecodingInterface = {
+  /**
+   * @minLength `1`
+   * @maxLength `100`
+   * @pattern `^[a-zA-Z\d\-_:]+$`
+   */
+  Name: string;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::DecoderManifest.CustomDecodingNetworkInterface`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodingnetworkinterface.html}
+ */
+export type CustomDecodingNetworkInterface = {
+  CustomDecodingInterface: CustomDecodingInterface;
+  /**
+   * @minLength `1`
+   * @maxLength `50`
+   */
+  InterfaceId: string;
+  Type: "CUSTOM_DECODING_INTERFACE";
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::DecoderManifest.CustomDecodingSignal`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodingsignal.html}
+ */
+export type CustomDecodingSignal = {
+  /**
+   * @minLength `1`
+   * @maxLength `150`
+   * @pattern `^(?!.*\.\.)[a-zA-Z0-9_\-#:.]+$`
+   */
+  Id: string;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::DecoderManifest.CustomDecodingSignalDecoder`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodingsignaldecoder.html}
+ */
+export type CustomDecodingSignalDecoder = {
+  CustomDecodingSignal: CustomDecodingSignal;
+  /**
+   * @minLength `1`
+   * @maxLength `150`
+   */
+  FullyQualifiedName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `50`
+   */
+  InterfaceId: string;
+  Type: "CUSTOM_DECODING_SIGNAL";
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::DecoderManifest.DefaultForUnmappedSignalsType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-defaultforunmappedsignalstype.html}
+ */
+export type DefaultForUnmappedSignalsType = "CUSTOM_DECODING";
 /**
  * Type definition for `AWS::IoTFleetWise::DecoderManifest.ManifestStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-manifeststatus.html}

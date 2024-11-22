@@ -1,7 +1,8 @@
 {
-  "$hash": "520cae7eba2b0e37730e1e0741d43ab7d855ba8b",
+  "$hash": "35c62d10345a611dd173fb94612350df31db66a5",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
+  "conditionalCreateOnlyProperties": ["/properties/KeySchema"],
   "createOnlyProperties": [
     "/properties/TableName",
     "/properties/ImportSourceSpecification"
@@ -103,7 +104,7 @@
         },
         "WarmThroughput": {
           "$ref": "#/definitions/WarmThroughput",
-          "description": ""
+          "description": "Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both."
         }
       },
       "required": ["IndexName", "Projection", "KeySchema"],
@@ -394,10 +395,18 @@
         { "required": ["ReadUnitsPerSecond"] },
         { "required": ["WriteUnitsPerSecond"] }
       ],
-      "description": "",
+      "description": "Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.",
       "properties": {
-        "ReadUnitsPerSecond": { "minimum": 1, "type": "integer" },
-        "WriteUnitsPerSecond": { "minimum": 1, "type": "integer" }
+        "ReadUnitsPerSecond": {
+          "description": "Represents the number of read operations your base table can instantaneously support.",
+          "minimum": 1,
+          "type": "integer"
+        },
+        "WriteUnitsPerSecond": {
+          "description": "Represents the number of write operations your base table can instantaneously support.",
+          "minimum": 1,
+          "type": "integer"
+        }
       },
       "type": "object"
     }
@@ -588,7 +597,7 @@
     },
     "WarmThroughput": {
       "$ref": "#/definitions/WarmThroughput",
-      "description": ""
+      "description": "Represents the warm throughput (in read units per second and write units per second) for creating a table."
     }
   },
   "propertyTransform": {

@@ -29,6 +29,7 @@ export type RDSGlobalClusterProperties = {
    * @pattern `^[a-zA-Z]{1}(?:-?[a-zA-Z0-9]){0,62}$`
    */
   GlobalClusterIdentifier?: string;
+  GlobalEndpoint?: GlobalEndpoint;
   /**
    * The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
    */
@@ -43,6 +44,16 @@ export type RDSGlobalClusterProperties = {
    * @maxLength `50`
    */
   Tags?: Tag[];
+};
+/**
+ * Type definition for `AWS::RDS::GlobalCluster.GlobalEndpoint`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-globalcluster-globalendpoint.html}
+ */
+export type GlobalEndpoint = {
+  /**
+   * The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+   */
+  Address?: string;
 };
 /**
  * Type definition for `AWS::RDS::GlobalCluster.Tag`.

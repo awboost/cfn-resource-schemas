@@ -1,5 +1,5 @@
 {
-  "$hash": "6cc58003356fb9f6bfc0450f38e42abb96df9c12",
+  "$hash": "08c6a3a95a2f86bf364e4b69632ec8f128fb6ee5",
   "$id": "aws-groundstation-config.json",
   "additionalProperties": false,
   "definitions": {
@@ -226,5 +226,17 @@
   ],
   "required": ["Name", "ConfigData"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ground-station.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "groundstation:TagResource",
+      "groundstation:UntagResource",
+      "groundstation:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::GroundStation::Config"
 }

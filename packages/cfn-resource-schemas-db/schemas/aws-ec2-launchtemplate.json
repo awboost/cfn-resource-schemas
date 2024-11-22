@@ -1,5 +1,5 @@
 {
-  "$hash": "0496be3bb6a30bab27ad86ba7bddd9155bb8a444",
+  "$hash": "15ba0b22cc23e724fc6b01fa2e097c21532df90b",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -47,6 +47,12 @@
           "type": "integer"
         }
       },
+      "type": "object"
+    },
+    "BaselinePerformanceFactors": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": { "Cpu": { "$ref": "#/definitions/Cpu" } },
       "type": "object"
     },
     "BlockDeviceMapping": {
@@ -326,6 +332,10 @@
         "BaselineEbsBandwidthMbps": {
           "$ref": "#/definitions/BaselineEbsBandwidthMbps",
           "description": "The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.\n Default: No minimum or maximum limits"
+        },
+        "BaselinePerformanceFactors": {
+          "$ref": "#/definitions/BaselinePerformanceFactors",
+          "description": ""
         },
         "BurstablePerformance": {
           "description": "Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).\n  +  To include burstable performance instance types, specify ``included``.\n  +  To require only burstable performance instance types, specify ``required``.\n  +  To exclude burstable performance instance types, specify ``excluded``.\n  \n Default: ``excluded``",

@@ -1,5 +1,5 @@
 {
-  "$hash": "fd4bce01ec7c3fbecd484afc4d8c39f48882953e",
+  "$hash": "d400dc32a18d84369f6d4a4854baa667e2879750",
   "$id": "aws-groundstation-dataflowendpointgroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -155,6 +155,13 @@
         "groundstation:GetDataflowEndpointGroup",
         "groundstation:ListTagsForResource"
       ]
+    },
+    "update": {
+      "permissions": [
+        "groundstation:ListTagsForResource",
+        "groundstation:TagResource",
+        "groundstation:UntagResource"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/Id"],
@@ -182,5 +189,17 @@
   "readOnlyProperties": ["/properties/Id", "/properties/Arn"],
   "required": ["EndpointDetails"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ground-station.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "groundstation:TagResource",
+      "groundstation:UntagResource",
+      "groundstation:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::GroundStation::DataflowEndpointGroup"
 }

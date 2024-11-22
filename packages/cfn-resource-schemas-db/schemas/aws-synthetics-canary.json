@@ -1,5 +1,5 @@
 {
-  "$hash": "53d121b9d5c5394aa4e4a72ae5bfbc3628687a93",
+  "$hash": "fd5195cf24ea0c077916b93ee880d36b372c1bf4",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -168,6 +168,7 @@
         "lambda:CreateFunction",
         "lambda:AddPermission",
         "lambda:PublishVersion",
+        "lambda:UpdateFunctionCode",
         "lambda:UpdateFunctionConfiguration",
         "lambda:GetFunctionConfiguration",
         "lambda:GetLayerVersionByArn",
@@ -214,6 +215,7 @@
         "s3:GetBucketLocation",
         "lambda:AddPermission",
         "lambda:PublishVersion",
+        "lambda:UpdateFunctionCode",
         "lambda:UpdateFunctionConfiguration",
         "lambda:GetFunctionConfiguration",
         "lambda:GetLayerVersionByArn",
@@ -257,6 +259,11 @@
     "Name": {
       "description": "Name of the canary.",
       "pattern": "^[0-9a-z_\\-]{1,255}$",
+      "type": "string"
+    },
+    "ProvisionedResourceCleanup": {
+      "description": "Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.",
+      "enum": ["AUTOMATIC", "OFF"],
       "type": "string"
     },
     "ResourcesToReplicateTags": {

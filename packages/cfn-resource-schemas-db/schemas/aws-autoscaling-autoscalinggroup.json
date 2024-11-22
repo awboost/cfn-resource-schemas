@@ -1,5 +1,5 @@
 {
-  "$hash": "1a4b78c555c8dc35eebc80edc97af32d057e8ab2",
+  "$hash": "3b7c08b13599b53f668adb422607ffcb90a5dcaf",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -81,6 +81,43 @@
       "description": "",
       "properties": {
         "Cpu": { "$ref": "#/definitions/CpuPerformanceFactorRequest" }
+      },
+      "type": "object"
+    },
+    "CapacityReservationIds": {
+      "insertionOrder": true,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "CapacityReservationResourceGroupArns": {
+      "insertionOrder": true,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "CapacityReservationSpecification": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "CapacityReservationPreference": { "type": "string" },
+        "CapacityReservationTarget": {
+          "$ref": "#/definitions/CapacityReservationTarget"
+        }
+      },
+      "required": ["CapacityReservationPreference"],
+      "type": "object"
+    },
+    "CapacityReservationTarget": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "CapacityReservationIds": {
+          "$ref": "#/definitions/CapacityReservationIds"
+        },
+        "CapacityReservationResourceGroupArns": {
+          "$ref": "#/definitions/CapacityReservationResourceGroupArns"
+        }
       },
       "type": "object"
     },
@@ -659,6 +696,10 @@
     "CapacityRebalance": {
       "description": "Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.",
       "type": "boolean"
+    },
+    "CapacityReservationSpecification": {
+      "$ref": "#/definitions/CapacityReservationSpecification",
+      "description": ""
     },
     "Context": { "description": "Reserved.", "type": "string" },
     "Cooldown": {

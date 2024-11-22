@@ -1,5 +1,5 @@
 {
-  "$hash": "c55573ca5bb361941c2cb7df2e4bc77f8c95972c",
+  "$hash": "52048c69097380650b83bbd4599a87acd8790b5b",
   "$id": "aws-rds-globalcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,6 +9,16 @@
     "/properties/Engine"
   ],
   "definitions": {
+    "GlobalEndpoint": {
+      "additionalProperties": false,
+      "properties": {
+        "Address": {
+          "description": "The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
@@ -88,6 +98,7 @@
       "pattern": "^[a-zA-Z]{1}(?:-?[a-zA-Z0-9]){0,62}$",
       "type": "string"
     },
+    "GlobalEndpoint": { "$ref": "#/definitions/GlobalEndpoint" },
     "SourceDBClusterIdentifier": {
       "description": "The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.",
       "oneOf": [

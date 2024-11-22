@@ -28,7 +28,7 @@ export type CloudFrontDistributionAttributes = {
  * A complex type that describes how CloudFront processes requests.
  You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.
  For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.
- If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element because this is invalid.
+ If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't specify an empty individual ``CacheBehavior`` element, because this is invalid. For more information, see [CacheBehaviors](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html).
  To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
  To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
  For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
@@ -298,7 +298,7 @@ export type DefaultCacheBehavior = {
      */
   ForwardedValues?: ForwardedValues;
   /**
-   * A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+   * A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
    */
   FunctionAssociations?: FunctionAssociation[];
   /**
@@ -368,6 +368,10 @@ export type DistributionConfig = {
    * A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
    */
   Aliases?: string[];
+  /**
+     * An alias for the CF distribution's domain name.
+      This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+     */
   CNAMEs?: string[];
   /**
    * A complex type that contains zero or more ``CacheBehavior`` elements.
@@ -389,6 +393,10 @@ export type DistributionConfig = {
      For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
      */
   CustomErrorResponses?: CustomErrorResponse[];
+  /**
+     * The user-defined HTTP server that serves as the origin for content that CF distributes.
+      This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+     */
   CustomOrigin?: LegacyCustomOrigin;
   /**
    * A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
@@ -408,7 +416,7 @@ export type DistributionConfig = {
    */
   Enabled: boolean;
   /**
-     * (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
+     * (Optional) Specify the HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
      For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
      For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
      */
@@ -430,12 +438,14 @@ export type DistributionConfig = {
      */
   Logging?: Logging;
   /**
-   * A complex type that contains information about origin groups for this distribution.
-   */
+     * A complex type that contains information about origin groups for this distribution.
+     Specify a value for either the ``Origins`` or ``OriginGroups`` property.
+     */
   OriginGroups?: OriginGroups;
   /**
-   * A complex type that contains information about origins for this distribution.
-   */
+     * A complex type that contains information about origins for this distribution.
+     Specify a value for either the ``Origins`` or ``OriginGroups`` property.
+     */
   Origins?: Origin[];
   /**
      * The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
@@ -447,6 +457,10 @@ export type DistributionConfig = {
    * A complex type that identifies ways in which you want to restrict distribution of your content.
    */
   Restrictions?: Restrictions;
+  /**
+     * The origin as an S3 bucket.
+      This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+     */
   S3Origin?: LegacyS3Origin;
   /**
    * A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
@@ -457,7 +471,7 @@ export type DistributionConfig = {
    */
   ViewerCertificate?: ViewerCertificate;
   /**
-     * A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
+     * A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
       WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
      */
   WebACLId?: string;
@@ -566,21 +580,48 @@ export type LambdaFunctionAssociation = {
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.LegacyCustomOrigin`.
+ * A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+  This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html}
  */
 export type LegacyCustomOrigin = {
+  /**
+   * The domain name assigned to your CF distribution.
+   */
   DNSName: string;
+  /**
+   * The HTTP port that CF uses to connect to the origin. Specify the HTTP port that the origin listens on.
+   */
   HTTPPort?: number;
+  /**
+   * The HTTPS port that CF uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+   */
   HTTPSPort?: number;
+  /**
+   * Specifies the protocol (HTTP or HTTPS) that CF uses to connect to the origin.
+   */
   OriginProtocolPolicy: string;
+  /**
+     * The minimum SSL/TLS protocol version that CF uses when communicating with your origin server over HTTPs.
+     For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Developer Guide*.
+     */
   OriginSSLProtocols: string[];
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.LegacyS3Origin`.
+ * The origin as an S3 bucket.
+  This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html}
  */
 export type LegacyS3Origin = {
+  /**
+   * The domain name assigned to your CF distribution.
+   */
   DNSName: string;
+  /**
+     * The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
+      This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+     */
   OriginAccessIdentity?: string;
 };
 /**
@@ -792,9 +833,10 @@ export type Restrictions = {
  */
 export type S3OriginConfig = {
   /**
-     * The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
-     origin-access-identity/cloudfront/*ID-of-origin-access-identity*
-     where ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
+     * If you're using origin access control (OAC) instead of origin access identity, specify an empty ``OriginAccessIdentity`` element. For more information, see [Restricting access to an](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
+      The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
+      ``origin-access-identity/cloudfront/ID-of-origin-access-identity``
+     The ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
      If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
      To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
      To replace the origin access identity, update the distribution configuration and specify the new origin access identity.

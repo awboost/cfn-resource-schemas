@@ -20,6 +20,12 @@ export type WorkSpacesWebPortalProperties = {
    */
   CustomerManagedKey?: string;
   /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:[\w+=\/,.@-]+:[a-zA-Z0-9\-]+:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\/[a-fA-F0-9\-]{36})+$`
+   */
+  DataProtectionSettingsArn?: string;
+  /**
    * @minLength `1`
    * @maxLength `64`
    * @pattern `^.+$`
