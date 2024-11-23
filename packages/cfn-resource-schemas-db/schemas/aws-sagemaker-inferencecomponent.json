@@ -1,8 +1,14 @@
 {
-  "$hash": "937778486fd70cbc80d1ff437ea67f5fb1f9559e",
+  "$hash": "5afcfacc2dab4427757bf5bbf734a17d4a89f779",
   "$id": "aws-sagemaker-inferencecomponent.json",
   "additionalProperties": false,
   "definitions": {
+    "BaseInferenceComponentName": {
+      "description": "The name of the base inference component",
+      "maxLength": 63,
+      "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
+      "type": "string"
+    },
     "ContainerImage": {
       "description": "The image to use for the container that will be materialized for the inference component",
       "maxLength": 255,
@@ -108,6 +114,9 @@
       "additionalProperties": false,
       "description": "The specification for the inference component",
       "properties": {
+        "BaseInferenceComponentName": {
+          "$ref": "#/definitions/BaseInferenceComponentName"
+        },
         "ComputeResourceRequirements": {
           "$ref": "#/definitions/InferenceComponentComputeResourceRequirements"
         },
@@ -119,7 +128,6 @@
           "$ref": "#/definitions/InferenceComponentStartupParameters"
         }
       },
-      "required": ["ComputeResourceRequirements"],
       "type": "object"
     },
     "InferenceComponentStartupParameters": {
@@ -266,7 +274,7 @@
     "/properties/FailureReason",
     "/properties/InferenceComponentStatus"
   ],
-  "required": ["EndpointName", "VariantName", "Specification", "RuntimeConfig"],
+  "required": ["EndpointName", "Specification"],
   "tagging": {
     "cloudFormationSystemTags": false,
     "tagOnCreate": true,

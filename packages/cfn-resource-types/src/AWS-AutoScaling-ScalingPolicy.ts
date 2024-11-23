@@ -70,6 +70,7 @@ export type CustomizedMetricSpecification = {
   MetricName?: string;
   Metrics?: TargetTrackingMetricDataQuery[];
   Namespace?: string;
+  Period?: number;
   Statistic?: string;
   Unit?: string;
 };
@@ -215,6 +216,7 @@ export type TargetTrackingMetricDataQuery = {
   Id: string;
   Label?: string;
   MetricStat?: TargetTrackingMetricStat;
+  Period?: number;
   ReturnData?: boolean;
 };
 /**
@@ -223,6 +225,7 @@ export type TargetTrackingMetricDataQuery = {
  */
 export type TargetTrackingMetricStat = {
   Metric: Metric;
+  Period?: number;
   Stat: string;
   Unit?: string;
 };

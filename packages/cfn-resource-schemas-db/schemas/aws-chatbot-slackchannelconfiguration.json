@@ -1,5 +1,5 @@
 {
-  "$hash": "a3d4e39eee1e83f58f4d2d05da1b6efea7d43bbd",
+  "$hash": "3b8da40c844f165ce6e4572c54a184774ec4ad21",
   "$id": "aws-chatbot-slackchannelconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -23,19 +23,40 @@
       "permissions": [
         "chatbot:CreateSlackChannelConfiguration",
         "chatbot:TagResource",
+        "chatbot:AssociateToConfiguration",
+        "chatbot:ListAssociations",
         "iam:PassRole",
         "iam:CreateServiceLinkedRole"
       ]
     },
-    "delete": { "permissions": ["chatbot:DeleteSlackChannelConfiguration"] },
-    "list": { "permissions": ["chatbot:DescribeSlackChannelConfigurations"] },
-    "read": { "permissions": ["chatbot:DescribeSlackChannelConfigurations"] },
+    "delete": {
+      "permissions": [
+        "chatbot:DeleteSlackChannelConfiguration",
+        "chatbot:DisassociateFromConfiguration",
+        "chatbot:ListAssociations"
+      ]
+    },
+    "list": {
+      "permissions": [
+        "chatbot:DescribeSlackChannelConfigurations",
+        "chatbot:ListAssociations"
+      ]
+    },
+    "read": {
+      "permissions": [
+        "chatbot:DescribeSlackChannelConfigurations",
+        "chatbot:ListAssociations"
+      ]
+    },
     "update": {
       "permissions": [
         "chatbot:UpdateSlackChannelConfiguration",
         "chatbot:TagResource",
         "chatbot:UntagResource",
         "chatbot:ListTagsForResource",
+        "chatbot:AssociateToConfiguration",
+        "chatbot:DisassociateFromConfiguration",
+        "chatbot:ListAssociations",
         "iam:PassRole"
       ]
     }
@@ -53,6 +74,15 @@
       "minLength": 1,
       "pattern": "^[A-Za-z0-9-_]+$",
       "type": "string"
+    },
+    "CustomizationResourceArns": {
+      "description": "ARNs of Custom Actions to associate with notifications in the provided chat channel.",
+      "insertionOrder": false,
+      "items": {
+        "pattern": "^arn:aws:chatbot:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:custom-action/[a-zA-Z0-9_-]{1,64}$",
+        "type": "string"
+      },
+      "type": "array"
     },
     "GuardrailPolicies": {
       "description": "The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.",

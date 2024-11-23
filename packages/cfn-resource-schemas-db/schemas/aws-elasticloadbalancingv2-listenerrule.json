@@ -1,5 +1,5 @@
 {
-  "$hash": "c1a36a847f7f6ec392eb574044cce2be7e277e9f",
+  "$hash": "beaa2429f338e50bb7630ab1a2482eff85cf26dc",
   "$id": "aws-elasticloadbalancingv2-listenerrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ListenerArn"],
@@ -289,7 +289,7 @@
           "type": "string"
         },
         "Protocol": {
-          "description": "The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.",
+          "description": "The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.",
           "type": "string"
         },
         "Query": {

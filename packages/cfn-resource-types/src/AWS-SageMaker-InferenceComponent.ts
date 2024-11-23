@@ -26,7 +26,7 @@ export type SageMakerInferenceComponentProperties = {
   /**
    * The runtime config for the inference component
    */
-  RuntimeConfig: InferenceComponentRuntimeConfig;
+  RuntimeConfig?: InferenceComponentRuntimeConfig;
   /**
    * The specification for the inference component
    */
@@ -41,7 +41,7 @@ export type SageMakerInferenceComponentProperties = {
    * @maxLength `63`
    * @pattern `^[a-zA-Z0-9](-*[a-zA-Z0-9])*$`
    */
-  VariantName: string;
+  VariantName?: string;
 };
 /**
  * Attribute type definition for `AWS::SageMaker::InferenceComponent`.
@@ -186,7 +186,13 @@ export type InferenceComponentRuntimeConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html}
  */
 export type InferenceComponentSpecification = {
-  ComputeResourceRequirements: InferenceComponentComputeResourceRequirements;
+  /**
+   * The name of the base inference component
+   * @maxLength `63`
+   * @pattern `^[a-zA-Z0-9](-*[a-zA-Z0-9])*$`
+   */
+  BaseInferenceComponentName?: string;
+  ComputeResourceRequirements?: InferenceComponentComputeResourceRequirements;
   Container?: InferenceComponentContainerSpecification;
   /**
    * The name of the model to use with the inference component

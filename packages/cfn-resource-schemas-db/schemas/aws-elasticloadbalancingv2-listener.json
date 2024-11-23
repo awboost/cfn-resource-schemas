@@ -1,5 +1,5 @@
 {
-  "$hash": "f138895380baa29e14339e6eae1a2351ea280ebf",
+  "$hash": "1d2535b75ec5d40fa38d602c393c3800fa9d82ad",
   "$id": "aws-elasticloadbalancingv2-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoadBalancerArn"],
@@ -285,7 +285,7 @@
           "type": "string"
         },
         "Protocol": {
-          "description": "The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.",
+          "description": "The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.",
           "type": "string"
         },
         "Query": {
@@ -422,11 +422,11 @@
       "description": "The mutual authentication configuration information."
     },
     "Port": {
-      "description": "The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.",
+      "description": "The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.",
       "type": "integer"
     },
     "Protocol": {
-      "description": "The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.",
+      "description": "The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.",
       "type": "string"
     },
     "SslPolicy": {
