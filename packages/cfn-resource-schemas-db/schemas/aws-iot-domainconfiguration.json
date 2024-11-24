@@ -1,5 +1,5 @@
 {
-  "$hash": "24734884e188f1ffd6c2230f025c49d6d4388de9",
+  "$hash": "4c5ea9c7ba04189eecb23eec1b468e29ffe67783",
   "$id": "aws-iot-domainconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -36,7 +36,16 @@
     },
     "ServerCertificateConfig": {
       "additionalProperties": false,
-      "properties": { "EnableOCSPCheck": { "type": "boolean" } },
+      "properties": {
+        "EnableOCSPCheck": { "type": "boolean" },
+        "OcspAuthorizedResponderArn": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "pattern": "^arn:aws(-cn|-us-gov|-iso-b|-iso)?:acm:[a-z]{2}-(gov-|iso-|isob-)?[a-z]{4,9}-\\d{1}:\\d{12}:certificate/[a-zA-Z0-9/-]+$",
+          "type": "string"
+        },
+        "OcspLambdaArn": { "maxLength": 170, "minLength": 1, "type": "string" }
+      },
       "type": "object"
     },
     "ServerCertificateSummary": {
@@ -190,6 +199,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:ListTagsForResource",
+      "iot:TagResource",
+      "iot:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

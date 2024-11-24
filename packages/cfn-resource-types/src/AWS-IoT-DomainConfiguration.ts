@@ -89,6 +89,17 @@ export type ClientCertificateConfig = {
  */
 export type ServerCertificateConfig = {
   EnableOCSPCheck?: boolean;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-cn|-us-gov|-iso-b|-iso)?:acm:[a-z]{2}-(gov-|iso-|isob-)?[a-z]{4,9}-\d{1}:\d{12}:certificate/[a-zA-Z0-9/-]+$`
+   */
+  OcspAuthorizedResponderArn?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `170`
+   */
+  OcspLambdaArn?: string;
 };
 /**
  * Type definition for `AWS::IoT::DomainConfiguration.ServerCertificateSummary`.

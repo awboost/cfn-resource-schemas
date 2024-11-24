@@ -1,25 +1,18 @@
-- added `AWS::Chatbot::CustomAction`
-- added `AWS::EC2::VPCBlockPublicAccessExclusion`
-- added `AWS::EC2::VPCBlockPublicAccessOptions`
-- updated `AWS::AutoScaling::ScalingPolicy`
-  - updated definition `CustomizedMetricSpecification`
-  - updated definition `TargetTrackingMetricDataQuery`
-  - updated definition `TargetTrackingMetricStat`
-- updated `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`
-  - added property `CustomizationResourceArns`
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - added definition `MinimumLoadBalancerCapacity`
+  - added property `MinimumLoadBalancerCapacity`
+  - updated definition `LoadBalancerAttribute`
+  - updated definition `SubnetMapping`
   - updated handler permissions
-- updated `AWS::Chatbot::SlackChannelConfiguration`
-  - added property `CustomizationResourceArns`
-  - updated handler permissions
-- updated `AWS::EC2::EnclaveCertificateIamRoleAssociation`
-  - updated handler permissions
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `RedirectConfig`
-  - updated property `Port`
-  - updated property `Protocol`
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - updated definition `RedirectConfig`
-- updated `AWS::SageMaker::InferenceComponent`
-  - added definition `BaseInferenceComponentName`
-  - updated `required`
-  - updated definition `InferenceComponentSpecification`
+  - updated property `EnablePrefixForIpv6SourceNat`
+  - updated property `IpAddressType`
+  - updated property `Scheme`
+  - updated property `SubnetMappings`
+  - updated property `Subnets`
+- updated `AWS::IoT::DomainConfiguration`
+  - updated `tagging`
+  - updated definition `ServerCertificateConfig`
+- updated `AWS::Organizations::Policy`
+  - updated property `Type`
+- updated `AWS::QBusiness::Application`
+  - updated `tagging`

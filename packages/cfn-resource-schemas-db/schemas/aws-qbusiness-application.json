@@ -1,5 +1,5 @@
 {
-  "$hash": "936ee48182db237d0003086ab46c882ec4e57129",
+  "$hash": "4a3138a9b7a7332f7b1201199fb55082fcaaa06a",
   "$id": "aws-qbusiness-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -232,7 +232,18 @@
     "/properties/UpdatedAt"
   ],
   "required": ["DisplayName"],
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "qbusiness:UntagResource",
+      "qbusiness:TagResource",
+      "qbusiness:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::QBusiness::Application",
   "writeOnlyProperties": ["/properties/IdentityCenterInstanceArn"]
 }
