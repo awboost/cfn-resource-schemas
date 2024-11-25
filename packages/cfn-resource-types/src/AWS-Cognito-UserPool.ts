@@ -56,9 +56,20 @@ export type CognitoUserPoolProperties = {
    */
   UserPoolName?: string;
   UserPoolTags?: Record<string, string>;
+  UserPoolTier?: "LITE" | "ESSENTIALS" | "PLUS";
   UsernameAttributes?: string[];
   UsernameConfiguration?: UsernameConfiguration;
   VerificationMessageTemplate?: VerificationMessageTemplate;
+  /**
+   * @minLength `1`
+   * @maxLength `63`
+   */
+  WebAuthnRelyingPartyID?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `9`
+   */
+  WebAuthnUserVerification?: string;
 };
 /**
  * Attribute type definition for `AWS::Cognito::UserPool`.
@@ -184,6 +195,7 @@ export type PasswordPolicy = {
  */
 export type Policies = {
   PasswordPolicy?: PasswordPolicy;
+  SignInPolicy?: SignInPolicy;
 };
 /**
  * Type definition for `AWS::Cognito::UserPool.PreTokenGenerationConfig`.
@@ -213,6 +225,13 @@ export type SchemaAttribute = {
   NumberAttributeConstraints?: NumberAttributeConstraints;
   Required?: boolean;
   StringAttributeConstraints?: StringAttributeConstraints;
+};
+/**
+ * Type definition for `AWS::Cognito::UserPool.SignInPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-signinpolicy.html}
+ */
+export type SignInPolicy = {
+  AllowedFirstAuthFactors?: string[];
 };
 /**
  * Type definition for `AWS::Cognito::UserPool.SmsConfiguration`.

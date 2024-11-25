@@ -167,6 +167,154 @@ export type QuickSightTemplateAttributes = {
      */
     Sheets: {
       /**
+       * @minLength `0`
+       * @maxLength `10`
+       */
+      Images: {
+        /**
+         * @minLength `0`
+         * @maxLength `10`
+         */
+        Actions: {
+          /**
+           * @minLength `1`
+           * @maxLength `2`
+           */
+          ActionOperations: {
+            NavigationOperation: {
+              LocalNavigationConfiguration: {
+                /**
+                 * @minLength `1`
+                 * @maxLength `512`
+                 * @pattern `^[\w\-]+$`
+                 */
+                TargetSheetId: string;
+              };
+            };
+            SetParametersOperation: {
+              /**
+               * @minLength `1`
+               * @maxLength `200`
+               */
+              ParameterValueConfigurations: {
+                /**
+                 * @minLength `1`
+                 * @maxLength `2048`
+                 * @pattern `^[a-zA-Z0-9]+$`
+                 */
+                DestinationParameterName: string;
+                Value: {
+                  CustomValuesConfiguration: {
+                    CustomValues: {
+                      /**
+                       * @minLength `0`
+                       * @maxLength `50000`
+                       */
+                      DateTimeValues: string[];
+                      /**
+                       * @minLength `0`
+                       * @maxLength `50000`
+                       */
+                      DecimalValues: number[];
+                      /**
+                       * @minLength `0`
+                       * @maxLength `50000`
+                       */
+                      IntegerValues: number[];
+                      /**
+                       * @minLength `0`
+                       * @maxLength `50000`
+                       */
+                      StringValues: string[];
+                    };
+                    IncludeNullValue: boolean;
+                  };
+                  SelectAllValueOptions: SelectAllValueOptions;
+                  SourceColumn: {
+                    /**
+                     * @minLength `1`
+                     * @maxLength `127`
+                     */
+                    ColumnName: string;
+                    /**
+                     * @minLength `1`
+                     * @maxLength `2048`
+                     */
+                    DataSetIdentifier: string;
+                  };
+                  /**
+                   * @minLength `1`
+                   * @maxLength `512`
+                   */
+                  SourceField: string;
+                  SourceParameterName: string;
+                };
+              }[];
+            };
+            URLOperation: {
+              URLTarget: URLTargetConfiguration;
+              /**
+               * @minLength `1`
+               * @maxLength `2048`
+               */
+              URLTemplate: string;
+            };
+          }[];
+          /**
+           * @minLength `1`
+           * @maxLength `512`
+           * @pattern `^[\w\-]+$`
+           */
+          CustomActionId: string;
+          /**
+           * @minLength `1`
+           * @maxLength `256`
+           */
+          Name: string;
+          Status: WidgetStatus;
+          Trigger: ImageCustomActionTrigger;
+        }[];
+        /**
+         * @minLength `1`
+         * @maxLength `1024`
+         */
+        ImageContentAltText: string;
+        Interactions: {
+          ImageMenuOption: {
+            AvailabilityStatus: unknown;
+          };
+        };
+        Scaling: {
+          ScalingType: SheetImageScalingType;
+        };
+        /**
+         * @minLength `1`
+         * @maxLength `512`
+         * @pattern `^[\w\-]+$`
+         */
+        SheetImageId: string;
+        Source: {
+          SheetImageStaticFileSource: {
+            /**
+             * @minLength `1`
+             * @maxLength `512`
+             * @pattern `^[\w\-]+$`
+             */
+            StaticFileId: string;
+          };
+        };
+        Tooltip: {
+          TooltipText: {
+            /**
+             * @minLength `1`
+             * @maxLength `1024`
+             */
+            PlainText: string;
+          };
+          Visibility: Visibility;
+        };
+      }[];
+      /**
              * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
                         console.</p>
              * @minLength `1`
@@ -517,6 +665,11 @@ export type BarChartVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -678,6 +831,11 @@ export type BoxPlotVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -1100,6 +1258,11 @@ export type ComboChartVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -1403,6 +1566,11 @@ export type CustomContentVisual = {
   DataSetIdentifier: string;
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -2331,6 +2499,11 @@ export type FilledMapVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -2964,6 +3137,11 @@ export type FunnelChartVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -3055,6 +3233,11 @@ export type GaugeChartVisual = {
   ConditionalFormatting?: GaugeChartConditionalFormatting;
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -3182,6 +3365,11 @@ export type GeospatialMapVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -3419,6 +3607,11 @@ export type HeatMapVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -3486,6 +3679,11 @@ export type HistogramVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -3528,6 +3726,58 @@ export type Icon =
   | "CHECKMARK"
   | "X";
 /**
+ * Type definition for `AWS::QuickSight::Template.ImageCustomAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomaction.html}
+ */
+export type ImageCustomAction = {
+  /**
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  ActionOperations: ImageCustomActionOperation[];
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  CustomActionId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Name: string;
+  Status?: WidgetStatus;
+  Trigger: ImageCustomActionTrigger;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.ImageCustomActionOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomactionoperation.html}
+ */
+export type ImageCustomActionOperation = {
+  NavigationOperation?: CustomActionNavigationOperation;
+  SetParametersOperation?: CustomActionSetParametersOperation;
+  URLOperation?: CustomActionURLOperation;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.ImageCustomActionTrigger`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomactiontrigger.html}
+ */
+export type ImageCustomActionTrigger = "CLICK" | "MENU";
+/**
+ * Type definition for `AWS::QuickSight::Template.ImageInteractionOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imageinteractionoptions.html}
+ */
+export type ImageInteractionOptions = {
+  ImageMenuOption?: ImageMenuOption;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.ImageMenuOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagemenuoption.html}
+ */
+export type ImageMenuOption = {
+  AvailabilityStatus?: unknown;
+};
+/**
  * Type definition for `AWS::QuickSight::Template.InnerFilter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-innerfilter.html}
  */
@@ -3564,6 +3814,11 @@ export type InsightVisual = {
   InsightConfiguration?: InsightConfiguration;
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -3766,6 +4021,11 @@ export type KPIVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -3836,6 +4096,7 @@ export type LegendOptions = {
   Height?: string;
   Position?: LegendPosition;
   Title?: LabelOptions;
+  ValueFontConfiguration?: FontConfiguration;
   Visibility?: Visibility;
   /**
    * String based length that is composed of value and unit in px
@@ -4025,6 +4286,11 @@ export type LineChartVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -4871,6 +5137,11 @@ export type PieChartVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -5176,6 +5447,11 @@ export type PivotTableVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -5198,6 +5474,108 @@ export type PivotTotalOptions = {
   TotalCellStyle?: TableCellStyle;
   TotalsVisibility?: Visibility;
   ValueCellStyle?: TableCellStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.PluginVisual`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisual.html}
+ */
+export type PluginVisual = {
+  ChartConfiguration?: PluginVisualConfiguration;
+  PluginArn: string;
+  Subtitle?: VisualSubtitleLabelOptions;
+  Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  VisualId: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.PluginVisualAxisName`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualaxisname.html}
+ */
+export type PluginVisualAxisName = "GROUP_BY" | "VALUE";
+/**
+ * Type definition for `AWS::QuickSight::Template.PluginVisualConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualconfiguration.html}
+ */
+export type PluginVisualConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  FieldWells?: PluginVisualFieldWell[];
+  SortConfiguration?: PluginVisualSortConfiguration;
+  VisualOptions?: PluginVisualOptions;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.PluginVisualFieldWell`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualfieldwell.html}
+ */
+export type PluginVisualFieldWell = {
+  AxisName?: PluginVisualAxisName;
+  /**
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  Dimensions?: DimensionField[];
+  /**
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  Measures?: MeasureField[];
+  /**
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  Unaggregated?: UnaggregatedField[];
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.PluginVisualItemsLimitConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualitemslimitconfiguration.html}
+ */
+export type PluginVisualItemsLimitConfiguration = {
+  ItemsLimit?: number;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.PluginVisualOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualoptions.html}
+ */
+export type PluginVisualOptions = {
+  VisualProperties?: PluginVisualProperty[];
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.PluginVisualProperty`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualproperty.html}
+ */
+export type PluginVisualProperty = {
+  Name?: string;
+  Value?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.PluginVisualSortConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualsortconfiguration.html}
+ */
+export type PluginVisualSortConfiguration = {
+  PluginVisualTableQuerySort?: PluginVisualTableQuerySort;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.PluginVisualTableQuerySort`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualtablequerysort.html}
+ */
+export type PluginVisualTableQuerySort = {
+  ItemsLimitConfiguration?: PluginVisualItemsLimitConfiguration;
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  RowSort?: FieldSortOptions[];
 };
 /**
  * Type definition for `AWS::QuickSight::Template.PredefinedHierarchy`.
@@ -5363,6 +5741,11 @@ export type RadarChartVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -5695,6 +6078,11 @@ export type SankeyDiagramVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -5803,6 +6191,11 @@ export type ScatterPlotVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -5965,6 +6358,11 @@ export type ShapeConditionalFormat = {
  */
 export type Sheet = {
   /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Images?: SheetImage[];
+  /**
      * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
                 console.</p>
      * @minLength `1`
@@ -6042,6 +6440,11 @@ export type SheetDefinition = {
    */
   FilterControls?: FilterControl[];
   /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Images?: SheetImage[];
+  /**
    * @minLength `1`
    * @maxLength `1`
    */
@@ -6101,6 +6504,86 @@ export type SheetElementRenderingRule = {
    * @maxLength `4096`
    */
   Expression: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.SheetImage`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimage.html}
+ */
+export type SheetImage = {
+  /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Actions?: ImageCustomAction[];
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  ImageContentAltText?: string;
+  Interactions?: ImageInteractionOptions;
+  Scaling?: SheetImageScalingConfiguration;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  SheetImageId: string;
+  Source: SheetImageSource;
+  Tooltip?: SheetImageTooltipConfiguration;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.SheetImageScalingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagescalingconfiguration.html}
+ */
+export type SheetImageScalingConfiguration = {
+  ScalingType?: SheetImageScalingType;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.SheetImageScalingType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagescalingtype.html}
+ */
+export type SheetImageScalingType =
+  | "SCALE_TO_WIDTH"
+  | "SCALE_TO_HEIGHT"
+  | "SCALE_TO_CONTAINER"
+  | "SCALE_NONE";
+/**
+ * Type definition for `AWS::QuickSight::Template.SheetImageSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagesource.html}
+ */
+export type SheetImageSource = {
+  SheetImageStaticFileSource?: SheetImageStaticFileSource;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.SheetImageStaticFileSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagestaticfilesource.html}
+ */
+export type SheetImageStaticFileSource = {
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  StaticFileId: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.SheetImageTooltipConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagetooltipconfiguration.html}
+ */
+export type SheetImageTooltipConfiguration = {
+  TooltipText?: SheetImageTooltipText;
+  Visibility?: Visibility;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.SheetImageTooltipText`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagetooltiptext.html}
+ */
+export type SheetImageTooltipText = {
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  PlainText?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.SheetTextBox`.
@@ -6695,6 +7178,11 @@ export type TableVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -7275,6 +7763,11 @@ export type TreeMapVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -7375,6 +7868,7 @@ export type Visual = {
   LineChartVisual?: LineChartVisual;
   PieChartVisual?: PieChartVisual;
   PivotTableVisual?: PivotTableVisual;
+  PluginVisual?: PluginVisual;
   RadarChartVisual?: RadarChartVisual;
   SankeyDiagramVisual?: SankeyDiagramVisual;
   ScatterPlotVisual?: ScatterPlotVisual;
@@ -7562,6 +8056,11 @@ export type WaterfallVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -7673,6 +8172,11 @@ export type WordCloudVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`

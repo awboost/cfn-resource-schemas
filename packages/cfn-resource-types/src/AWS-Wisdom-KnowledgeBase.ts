@@ -20,6 +20,7 @@ export type WisdomKnowledgeBaseProperties = {
   ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
   SourceConfiguration?: SourceConfiguration;
   Tags?: Tag[];
+  VectorIngestionConfiguration?: VectorIngestionConfiguration;
 };
 /**
  * Attribute type definition for `AWS::Wisdom::KnowledgeBase`.
@@ -53,10 +54,81 @@ export type AppIntegrationsConfiguration = {
   ObjectFields?: string[];
 };
 /**
+ * Type definition for `AWS::Wisdom::KnowledgeBase.BedrockFoundationModelConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-bedrockfoundationmodelconfiguration.html}
+ */
+export type BedrockFoundationModelConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}::foundation-model\/anthropic.claude-3-haiku-20240307-v1:0$`
+   */
+  ModelArn: string;
+  ParsingPrompt?: {
+    /**
+     * @minLength `1`
+     * @maxLength `10000`
+     */
+    ParsingPromptText: string;
+  };
+};
+/**
+ * Type definition for `AWS::Wisdom::KnowledgeBase.FixedSizeChunkingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-fixedsizechunkingconfiguration.html}
+ */
+export type FixedSizeChunkingConfiguration = {
+  /**
+   * @min `1`
+   */
+  MaxTokens: number;
+  /**
+   * @min `1`
+   * @max `99`
+   */
+  OverlapPercentage: number;
+};
+/**
+ * Type definition for `AWS::Wisdom::KnowledgeBase.HierarchicalChunkingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkingconfiguration.html}
+ */
+export type HierarchicalChunkingConfiguration = {
+  /**
+   * @minLength `2`
+   * @maxLength `2`
+   */
+  LevelConfigurations: HierarchicalChunkingLevelConfiguration[];
+  /**
+   * @min `1`
+   */
+  OverlapTokens: number;
+};
+/**
+ * Type definition for `AWS::Wisdom::KnowledgeBase.HierarchicalChunkingLevelConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-hierarchicalchunkinglevelconfiguration.html}
+ */
+export type HierarchicalChunkingLevelConfiguration = {
+  /**
+   * @min `1`
+   * @max `8192`
+   */
+  MaxTokens: number;
+};
+/**
  * Type definition for `AWS::Wisdom::KnowledgeBase.KnowledgeBaseType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-knowledgebasetype.html}
  */
-export type KnowledgeBaseType = "EXTERNAL" | "CUSTOM" | "MESSAGE_TEMPLATES";
+export type KnowledgeBaseType =
+  | "EXTERNAL"
+  | "CUSTOM"
+  | "MESSAGE_TEMPLATES"
+  | "MANAGED";
+/**
+ * Type definition for `AWS::Wisdom::KnowledgeBase.ManagedSourceConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-managedsourceconfiguration.html}
+ */
+export type ManagedSourceConfiguration = {
+  WebCrawlerConfiguration: WebCrawlerConfiguration;
+};
 /**
  * Type definition for `AWS::Wisdom::KnowledgeBase.RenderingConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-renderingconfiguration.html}
@@ -67,6 +139,36 @@ export type RenderingConfiguration = {
    * @maxLength `4096`
    */
   TemplateUri?: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::KnowledgeBase.SeedUrl`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-seedurl.html}
+ */
+export type SeedUrl = {
+  /**
+   * @pattern `^https?://[A-Za-z0-9][^\s]*$`
+   */
+  Url?: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::KnowledgeBase.SemanticChunkingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-semanticchunkingconfiguration.html}
+ */
+export type SemanticChunkingConfiguration = {
+  /**
+   * @min `50`
+   * @max `99`
+   */
+  BreakpointPercentileThreshold: number;
+  /**
+   * @min `0`
+   * @max `1`
+   */
+  BufferSize: number;
+  /**
+   * @min `1`
+   */
+  MaxTokens: number;
 };
 /**
  * Type definition for `AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration`.
@@ -83,9 +185,13 @@ export type ServerSideEncryptionConfiguration = {
  * Type definition for `AWS::Wisdom::KnowledgeBase.SourceConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-sourceconfiguration.html}
  */
-export type SourceConfiguration = {
-  AppIntegrations?: AppIntegrationsConfiguration;
-};
+export type SourceConfiguration =
+  | {
+      AppIntegrations: AppIntegrationsConfiguration;
+    }
+  | {
+      ManagedSourceConfiguration: ManagedSourceConfiguration;
+    };
 /**
  * Type definition for `AWS::Wisdom::KnowledgeBase.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-tag.html}
@@ -102,6 +208,53 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::KnowledgeBase.VectorIngestionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-vectoringestionconfiguration.html}
+ */
+export type VectorIngestionConfiguration = {
+  ChunkingConfiguration?: {
+    ChunkingStrategy: "FIXED_SIZE" | "NONE" | "HIERARCHICAL" | "SEMANTIC";
+    FixedSizeChunkingConfiguration?: FixedSizeChunkingConfiguration;
+    HierarchicalChunkingConfiguration?: HierarchicalChunkingConfiguration;
+    SemanticChunkingConfiguration?: SemanticChunkingConfiguration;
+  };
+  ParsingConfiguration?: {
+    BedrockFoundationModelConfiguration?: BedrockFoundationModelConfiguration;
+    ParsingStrategy: "BEDROCK_FOUNDATION_MODEL";
+  };
+};
+/**
+ * Type definition for `AWS::Wisdom::KnowledgeBase.WebCrawlerConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-webcrawlerconfiguration.html}
+ */
+export type WebCrawlerConfiguration = {
+  CrawlerLimits?: {
+    /**
+     * @min `1`
+     * @max `3000`
+     */
+    RateLimit?: number;
+  };
+  /**
+   * @minLength `1`
+   * @maxLength `25`
+   */
+  ExclusionFilters?: string[];
+  /**
+   * @minLength `1`
+   * @maxLength `25`
+   */
+  InclusionFilters?: string[];
+  Scope?: "HOST_ONLY" | "SUBDOMAINS";
+  UrlConfiguration: {
+    /**
+     * @minLength `1`
+     * @maxLength `100`
+     */
+    SeedUrls?: SeedUrl[];
+  };
 };
 /**
  * Definition of AWS::Wisdom::KnowledgeBase Resource Type

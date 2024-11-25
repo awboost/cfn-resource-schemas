@@ -1,5 +1,5 @@
 {
-  "$hash": "2ee2f43017e666eba0ecd0c7f3db7814429ba89a",
+  "$hash": "9c1e9c73041221b9b98027a777b638f4a58ef82c",
   "$id": "aws-cognito-userpool.json",
   "additionalProperties": false,
   "definitions": {
@@ -119,7 +119,8 @@
     "Policies": {
       "additionalProperties": false,
       "properties": {
-        "PasswordPolicy": { "$ref": "#/definitions/PasswordPolicy" }
+        "PasswordPolicy": { "$ref": "#/definitions/PasswordPolicy" },
+        "SignInPolicy": { "$ref": "#/definitions/SignInPolicy" }
       },
       "type": "object"
     },
@@ -152,6 +153,16 @@
         "Required": { "type": "boolean" },
         "StringAttributeConstraints": {
           "$ref": "#/definitions/StringAttributeConstraints"
+        }
+      },
+      "type": "object"
+    },
+    "SignInPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "AllowedFirstAuthFactors": {
+          "items": { "type": "string" },
+          "type": "array"
         }
       },
       "type": "object"
@@ -321,10 +332,24 @@
       },
       "type": "object"
     },
+    "UserPoolTier": {
+      "enum": ["LITE", "ESSENTIALS", "PLUS"],
+      "type": "string"
+    },
     "UsernameAttributes": { "items": { "type": "string" }, "type": "array" },
     "UsernameConfiguration": { "$ref": "#/definitions/UsernameConfiguration" },
     "VerificationMessageTemplate": {
       "$ref": "#/definitions/VerificationMessageTemplate"
+    },
+    "WebAuthnRelyingPartyID": {
+      "maxLength": 63,
+      "minLength": 1,
+      "type": "string"
+    },
+    "WebAuthnUserVerification": {
+      "maxLength": 9,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "propertyTransform": { "/properties/Schema/*/Name": "'custom:' & '' & Name" },

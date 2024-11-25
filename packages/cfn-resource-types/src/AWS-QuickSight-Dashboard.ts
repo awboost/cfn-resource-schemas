@@ -143,6 +143,154 @@ export type QuickSightDashboardAttributes = {
      */
     Sheets: {
       /**
+       * @minLength `0`
+       * @maxLength `10`
+       */
+      Images: {
+        /**
+         * @minLength `0`
+         * @maxLength `10`
+         */
+        Actions: {
+          /**
+           * @minLength `1`
+           * @maxLength `2`
+           */
+          ActionOperations: {
+            NavigationOperation: {
+              LocalNavigationConfiguration: {
+                /**
+                 * @minLength `1`
+                 * @maxLength `512`
+                 * @pattern `^[\w\-]+$`
+                 */
+                TargetSheetId: string;
+              };
+            };
+            SetParametersOperation: {
+              /**
+               * @minLength `1`
+               * @maxLength `200`
+               */
+              ParameterValueConfigurations: {
+                /**
+                 * @minLength `1`
+                 * @maxLength `2048`
+                 * @pattern `^[a-zA-Z0-9]+$`
+                 */
+                DestinationParameterName: string;
+                Value: {
+                  CustomValuesConfiguration: {
+                    CustomValues: {
+                      /**
+                       * @minLength `0`
+                       * @maxLength `50000`
+                       */
+                      DateTimeValues: string[];
+                      /**
+                       * @minLength `0`
+                       * @maxLength `50000`
+                       */
+                      DecimalValues: number[];
+                      /**
+                       * @minLength `0`
+                       * @maxLength `50000`
+                       */
+                      IntegerValues: number[];
+                      /**
+                       * @minLength `0`
+                       * @maxLength `50000`
+                       */
+                      StringValues: string[];
+                    };
+                    IncludeNullValue: boolean;
+                  };
+                  SelectAllValueOptions: SelectAllValueOptions;
+                  SourceColumn: {
+                    /**
+                     * @minLength `1`
+                     * @maxLength `127`
+                     */
+                    ColumnName: string;
+                    /**
+                     * @minLength `1`
+                     * @maxLength `2048`
+                     */
+                    DataSetIdentifier: string;
+                  };
+                  /**
+                   * @minLength `1`
+                   * @maxLength `512`
+                   */
+                  SourceField: string;
+                  SourceParameterName: string;
+                };
+              }[];
+            };
+            URLOperation: {
+              URLTarget: URLTargetConfiguration;
+              /**
+               * @minLength `1`
+               * @maxLength `2048`
+               */
+              URLTemplate: string;
+            };
+          }[];
+          /**
+           * @minLength `1`
+           * @maxLength `512`
+           * @pattern `^[\w\-]+$`
+           */
+          CustomActionId: string;
+          /**
+           * @minLength `1`
+           * @maxLength `256`
+           */
+          Name: string;
+          Status: WidgetStatus;
+          Trigger: ImageCustomActionTrigger;
+        }[];
+        /**
+         * @minLength `1`
+         * @maxLength `1024`
+         */
+        ImageContentAltText: string;
+        Interactions: {
+          ImageMenuOption: {
+            AvailabilityStatus: DashboardBehavior;
+          };
+        };
+        Scaling: {
+          ScalingType: SheetImageScalingType;
+        };
+        /**
+         * @minLength `1`
+         * @maxLength `512`
+         * @pattern `^[\w\-]+$`
+         */
+        SheetImageId: string;
+        Source: {
+          SheetImageStaticFileSource: {
+            /**
+             * @minLength `1`
+             * @maxLength `512`
+             * @pattern `^[\w\-]+$`
+             */
+            StaticFileId: string;
+          };
+        };
+        Tooltip: {
+          TooltipText: {
+            /**
+             * @minLength `1`
+             * @maxLength `1024`
+             */
+            PlainText: string;
+          };
+          Visibility: Visibility;
+        };
+      }[];
+      /**
              * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
                         console.</p>
              * @minLength `1`
@@ -500,6 +648,11 @@ export type BarChartVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -661,6 +814,11 @@ export type BoxPlotVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -1036,6 +1194,11 @@ export type ComboChartVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -1341,6 +1504,11 @@ export type CustomContentVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -1631,6 +1799,11 @@ export type DashboardVersionDefinition = {
    * @maxLength `20`
    */
   Sheets?: SheetDefinition[];
+  /**
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  StaticFiles?: StaticFile[];
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DashboardVisualPublishOptions`.
@@ -2543,6 +2716,11 @@ export type FilledMapVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -2894,6 +3072,10 @@ export type FontDecoration = "UNDERLINE" | "NONE";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-fontsize.html}
  */
 export type FontSize = {
+  /**
+   * String based length that is composed of value and unit in px
+   */
+  Absolute?: string;
   Relative?: RelativeFontSize;
 };
 /**
@@ -3176,6 +3358,11 @@ export type FunnelChartVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -3269,11 +3456,79 @@ export type GaugeChartVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
   VisualId: string;
 };
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialCategoricalColor`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricalcolor.html}
+ */
+export type GeospatialCategoricalColor = {
+  CategoryDataColors: GeospatialCategoricalDataColor[];
+  /**
+   * @min `0`
+   * @max `1`
+   */
+  DefaultOpacity?: number;
+  NullDataSettings?: GeospatialNullDataSettings;
+  NullDataVisibility?: Visibility;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialCategoricalDataColor`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricaldatacolor.html}
+ */
+export type GeospatialCategoricalDataColor = {
+  /**
+   * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
+   */
+  Color: string;
+  DataValue: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialCircleRadius`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcircleradius.html}
+ */
+export type GeospatialCircleRadius = {
+  /**
+   * @min `0`
+   */
+  Radius?: number;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialCircleSymbolStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcirclesymbolstyle.html}
+ */
+export type GeospatialCircleSymbolStyle = {
+  CircleRadius?: GeospatialCircleRadius;
+  FillColor?: GeospatialColor;
+  StrokeColor?: GeospatialColor;
+  StrokeWidth?: GeospatialLineWidth;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialColor`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcolor.html}
+ */
+export type GeospatialColor = {
+  Categorical?: GeospatialCategoricalColor;
+  Gradient?: GeospatialGradientColor;
+  /**
+   * Describes the properties for a solid color
+   */
+  Solid?: GeospatialSolidColor;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialColorState`.
+ * Defines view state of the color
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcolorstate.html}
+ */
+export type GeospatialColorState = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.GeospatialCoordinateBounds`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcoordinatebounds.html}
@@ -3299,6 +3554,42 @@ export type GeospatialCoordinateBounds = {
    * @max `1800`
    */
   West: number;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialDataSourceItem`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialdatasourceitem.html}
+ */
+export type GeospatialDataSourceItem = {
+  StaticFileDataSource?: GeospatialStaticFileSource;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialGradientColor`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialgradientcolor.html}
+ */
+export type GeospatialGradientColor = {
+  /**
+   * @min `0`
+   * @max `1`
+   */
+  DefaultOpacity?: number;
+  NullDataSettings?: GeospatialNullDataSettings;
+  NullDataVisibility?: Visibility;
+  /**
+   * @minLength `2`
+   * @maxLength `3`
+   */
+  StepColors: GeospatialGradientStepColor[];
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialGradientStepColor`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialgradientstepcolor.html}
+ */
+export type GeospatialGradientStepColor = {
+  /**
+   * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
+   */
+  Color: string;
+  DataValue: number;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.GeospatialHeatmapColorScale`.
@@ -3329,6 +3620,107 @@ export type GeospatialHeatmapDataColor = {
   Color: string;
 };
 /**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLayerColorField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayercolorfield.html}
+ */
+export type GeospatialLayerColorField = {
+  /**
+   * @minLength `0`
+   * @maxLength `1`
+   */
+  ColorDimensionsFields?: DimensionField[];
+  /**
+   * @minLength `0`
+   * @maxLength `1`
+   */
+  ColorValuesFields?: MeasureField[];
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLayerDefinition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerdefinition.html}
+ */
+export type GeospatialLayerDefinition = {
+  LineLayer?: GeospatialLineLayer;
+  PointLayer?: GeospatialPointLayer;
+  PolygonLayer?: GeospatialPolygonLayer;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLayerItem`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayeritem.html}
+ */
+export type GeospatialLayerItem = {
+  /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Actions?: LayerCustomAction[];
+  DataSource?: GeospatialDataSourceItem;
+  JoinDefinition?: GeospatialLayerJoinDefinition;
+  Label?: string;
+  LayerDefinition?: GeospatialLayerDefinition;
+  LayerId: string;
+  LayerType?: GeospatialLayerType;
+  Tooltip?: TooltipOptions;
+  Visibility?: Visibility;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLayerJoinDefinition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerjoindefinition.html}
+ */
+export type GeospatialLayerJoinDefinition = {
+  ColorField?: GeospatialLayerColorField;
+  DatasetKeyField?: UnaggregatedField;
+  ShapeKeyField?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLayerMapConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayermapconfiguration.html}
+ */
+export type GeospatialLayerMapConfiguration = {
+  Interactions?: unknown;
+  Legend?: LegendOptions;
+  MapLayers?: GeospatialLayerItem[];
+  MapState?: GeospatialMapState;
+  MapStyle?: GeospatialMapStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLayerType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayertype.html}
+ */
+export type GeospatialLayerType = "POINT" | "LINE" | "POLYGON";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLineLayer`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinelayer.html}
+ */
+export type GeospatialLineLayer = {
+  Style: GeospatialLineStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLineStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinestyle.html}
+ */
+export type GeospatialLineStyle = {
+  LineSymbolStyle?: GeospatialLineSymbolStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLineSymbolStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinesymbolstyle.html}
+ */
+export type GeospatialLineSymbolStyle = {
+  FillColor?: GeospatialColor;
+  LineWidth?: GeospatialLineWidth;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialLineWidth`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinewidth.html}
+ */
+export type GeospatialLineWidth = {
+  /**
+   * @min `0`
+   */
+  LineWidth?: number;
+};
+/**
  * Type definition for `AWS::QuickSight::Dashboard.GeospatialMapAggregatedFieldWells`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapaggregatedfieldwells.html}
  */
@@ -3355,6 +3747,7 @@ export type GeospatialMapAggregatedFieldWells = {
  */
 export type GeospatialMapConfiguration = {
   FieldWells?: GeospatialMapFieldWells;
+  Interactions?: unknown;
   Legend?: LegendOptions;
   MapStyleOptions?: GeospatialMapStyleOptions;
   PointStyleOptions?: GeospatialPointStyleOptions;
@@ -3368,6 +3761,31 @@ export type GeospatialMapConfiguration = {
  */
 export type GeospatialMapFieldWells = {
   GeospatialMapAggregatedFieldWells?: GeospatialMapAggregatedFieldWells;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialMapNavigation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapnavigation.html}
+ */
+export type GeospatialMapNavigation = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialMapState`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapstate.html}
+ */
+export type GeospatialMapState = {
+  Bounds?: GeospatialCoordinateBounds;
+  MapNavigation?: GeospatialMapNavigation;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialMapStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapstyle.html}
+ */
+export type GeospatialMapStyle = {
+  /**
+   * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
+   */
+  BackgroundColor?: string;
+  BaseMapStyle?: BaseMapStyleType;
+  BaseMapVisibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.GeospatialMapStyleOptions`.
@@ -3396,10 +3814,54 @@ export type GeospatialMapVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
   VisualId: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialNullDataSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialnulldatasettings.html}
+ */
+export type GeospatialNullDataSettings = {
+  SymbolStyle: GeospatialNullSymbolStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialNullSymbolStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialnullsymbolstyle.html}
+ */
+export type GeospatialNullSymbolStyle = {
+  /**
+   * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
+   */
+  FillColor?: string;
+  /**
+   * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
+   */
+  StrokeColor?: string;
+  /**
+   * @min `0`
+   */
+  StrokeWidth?: number;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialPointLayer`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpointlayer.html}
+ */
+export type GeospatialPointLayer = {
+  Style: GeospatialPointStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialPointStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpointstyle.html}
+ */
+export type GeospatialPointStyle = {
+  CircleSymbolStyle?: GeospatialCircleSymbolStyle;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.GeospatialPointStyleOptions`.
@@ -3411,10 +3873,60 @@ export type GeospatialPointStyleOptions = {
   SelectedPointStyle?: GeospatialSelectedPointStyle;
 };
 /**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialPolygonLayer`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpolygonlayer.html}
+ */
+export type GeospatialPolygonLayer = {
+  Style: GeospatialPolygonStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialPolygonStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpolygonstyle.html}
+ */
+export type GeospatialPolygonStyle = {
+  PolygonSymbolStyle?: GeospatialPolygonSymbolStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialPolygonSymbolStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpolygonsymbolstyle.html}
+ */
+export type GeospatialPolygonSymbolStyle = {
+  FillColor?: GeospatialColor;
+  StrokeColor?: GeospatialColor;
+  StrokeWidth?: GeospatialLineWidth;
+};
+/**
  * Type definition for `AWS::QuickSight::Dashboard.GeospatialSelectedPointStyle`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialselectedpointstyle.html}
  */
 export type GeospatialSelectedPointStyle = "POINT" | "CLUSTER" | "HEATMAP";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialSolidColor`.
+ * Describes the properties for a solid color
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialsolidcolor.html}
+ */
+export type GeospatialSolidColor = {
+  /**
+   * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
+   */
+  Color: string;
+  /**
+   * Defines view state of the color
+   */
+  State?: GeospatialColorState;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GeospatialStaticFileSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialstaticfilesource.html}
+ */
+export type GeospatialStaticFileSource = {
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  StaticFileId: string;
+};
 /**
  * Type definition for `AWS::QuickSight::Dashboard.GeospatialWindowOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialwindowoptions.html}
@@ -3631,6 +4143,11 @@ export type HeatMapVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -3698,6 +4215,11 @@ export type HistogramVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -3740,6 +4262,71 @@ export type Icon =
   | "CHECKMARK"
   | "X";
 /**
+ * Type definition for `AWS::QuickSight::Dashboard.ImageCustomAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagecustomaction.html}
+ */
+export type ImageCustomAction = {
+  /**
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  ActionOperations: ImageCustomActionOperation[];
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  CustomActionId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Name: string;
+  Status?: WidgetStatus;
+  Trigger: ImageCustomActionTrigger;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.ImageCustomActionOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagecustomactionoperation.html}
+ */
+export type ImageCustomActionOperation = {
+  NavigationOperation?: CustomActionNavigationOperation;
+  SetParametersOperation?: CustomActionSetParametersOperation;
+  URLOperation?: CustomActionURLOperation;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.ImageCustomActionTrigger`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagecustomactiontrigger.html}
+ */
+export type ImageCustomActionTrigger = "CLICK" | "MENU";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.ImageInteractionOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imageinteractionoptions.html}
+ */
+export type ImageInteractionOptions = {
+  ImageMenuOption?: ImageMenuOption;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.ImageMenuOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagemenuoption.html}
+ */
+export type ImageMenuOption = {
+  AvailabilityStatus?: DashboardBehavior;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.ImageStaticFile`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagestaticfile.html}
+ */
+export type ImageStaticFile = {
+  Source?: StaticFileSource;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  StaticFileId: string;
+};
+/**
  * Type definition for `AWS::QuickSight::Dashboard.InnerFilter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-innerfilter.html}
  */
@@ -3776,6 +4363,11 @@ export type InsightVisual = {
   InsightConfiguration?: InsightConfiguration;
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -3994,6 +4586,11 @@ export type KPIVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -4026,6 +4623,70 @@ export type LabelOptions = {
   CustomLabel?: string;
   FontConfiguration?: FontConfiguration;
   Visibility?: Visibility;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.LayerCustomAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomaction.html}
+ */
+export type LayerCustomAction = {
+  /**
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  ActionOperations: LayerCustomActionOperation[];
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  CustomActionId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Name: string;
+  Status?: WidgetStatus;
+  Trigger: LayerCustomActionTrigger;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.LayerCustomActionOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomactionoperation.html}
+ */
+export type LayerCustomActionOperation = {
+  FilterOperation?: CustomActionFilterOperation;
+  NavigationOperation?: CustomActionNavigationOperation;
+  SetParametersOperation?: CustomActionSetParametersOperation;
+  URLOperation?: CustomActionURLOperation;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.LayerCustomActionTrigger`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomactiontrigger.html}
+ */
+export type LayerCustomActionTrigger = "DATA_POINT_CLICK" | "DATA_POINT_MENU";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.LayerMapVisual`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layermapvisual.html}
+ */
+export type LayerMapVisual = {
+  ChartConfiguration?: GeospatialLayerMapConfiguration;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  DataSetIdentifier: string;
+  Subtitle?: VisualSubtitleLabelOptions;
+  Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  VisualId: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.Layout`.
@@ -4064,6 +4725,7 @@ export type LegendOptions = {
   Height?: string;
   Position?: LegendPosition;
   Title?: LabelOptions;
+  ValueFontConfiguration?: FontConfiguration;
   Visibility?: Visibility;
   /**
    * String based length that is composed of value and unit in px
@@ -4253,6 +4915,11 @@ export type LineChartVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -5141,6 +5808,11 @@ export type PieChartVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -5446,6 +6118,11 @@ export type PivotTableVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -5468,6 +6145,108 @@ export type PivotTotalOptions = {
   TotalCellStyle?: TableCellStyle;
   TotalsVisibility?: Visibility;
   ValueCellStyle?: TableCellStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.PluginVisual`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisual.html}
+ */
+export type PluginVisual = {
+  ChartConfiguration?: PluginVisualConfiguration;
+  PluginArn: string;
+  Subtitle?: VisualSubtitleLabelOptions;
+  Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  VisualId: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.PluginVisualAxisName`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualaxisname.html}
+ */
+export type PluginVisualAxisName = "GROUP_BY" | "VALUE";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.PluginVisualConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualconfiguration.html}
+ */
+export type PluginVisualConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  FieldWells?: PluginVisualFieldWell[];
+  SortConfiguration?: PluginVisualSortConfiguration;
+  VisualOptions?: PluginVisualOptions;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.PluginVisualFieldWell`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualfieldwell.html}
+ */
+export type PluginVisualFieldWell = {
+  AxisName?: PluginVisualAxisName;
+  /**
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  Dimensions?: DimensionField[];
+  /**
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  Measures?: MeasureField[];
+  /**
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  Unaggregated?: UnaggregatedField[];
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.PluginVisualItemsLimitConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualitemslimitconfiguration.html}
+ */
+export type PluginVisualItemsLimitConfiguration = {
+  ItemsLimit?: number;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.PluginVisualOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualoptions.html}
+ */
+export type PluginVisualOptions = {
+  VisualProperties?: PluginVisualProperty[];
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.PluginVisualProperty`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualproperty.html}
+ */
+export type PluginVisualProperty = {
+  Name?: string;
+  Value?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.PluginVisualSortConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualsortconfiguration.html}
+ */
+export type PluginVisualSortConfiguration = {
+  PluginVisualTableQuerySort?: PluginVisualTableQuerySort;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.PluginVisualTableQuerySort`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-pluginvisualtablequerysort.html}
+ */
+export type PluginVisualTableQuerySort = {
+  ItemsLimitConfiguration?: PluginVisualItemsLimitConfiguration;
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  RowSort?: FieldSortOptions[];
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.PredefinedHierarchy`.
@@ -5621,6 +6400,11 @@ export type RadarChartVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -5953,6 +6737,11 @@ export type SankeyDiagramVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -6061,6 +6850,11 @@ export type ScatterPlotVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -6223,6 +7017,11 @@ export type ShapeConditionalFormat = {
  */
 export type Sheet = {
   /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Images?: SheetImage[];
+  /**
      * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
                 console.</p>
      * @minLength `1`
@@ -6308,6 +7107,11 @@ export type SheetDefinition = {
    */
   FilterControls?: FilterControl[];
   /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Images?: SheetImage[];
+  /**
    * @minLength `1`
    * @maxLength `1`
    */
@@ -6367,6 +7171,86 @@ export type SheetElementRenderingRule = {
    * @maxLength `4096`
    */
   Expression: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.SheetImage`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetimage.html}
+ */
+export type SheetImage = {
+  /**
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Actions?: ImageCustomAction[];
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  ImageContentAltText?: string;
+  Interactions?: ImageInteractionOptions;
+  Scaling?: SheetImageScalingConfiguration;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  SheetImageId: string;
+  Source: SheetImageSource;
+  Tooltip?: SheetImageTooltipConfiguration;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.SheetImageScalingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetimagescalingconfiguration.html}
+ */
+export type SheetImageScalingConfiguration = {
+  ScalingType?: SheetImageScalingType;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.SheetImageScalingType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetimagescalingtype.html}
+ */
+export type SheetImageScalingType =
+  | "SCALE_TO_WIDTH"
+  | "SCALE_TO_HEIGHT"
+  | "SCALE_TO_CONTAINER"
+  | "SCALE_NONE";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.SheetImageSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetimagesource.html}
+ */
+export type SheetImageSource = {
+  SheetImageStaticFileSource?: SheetImageStaticFileSource;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.SheetImageStaticFileSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetimagestaticfilesource.html}
+ */
+export type SheetImageStaticFileSource = {
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  StaticFileId: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.SheetImageTooltipConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetimagetooltipconfiguration.html}
+ */
+export type SheetImageTooltipConfiguration = {
+  TooltipText?: SheetImageTooltipText;
+  Visibility?: Visibility;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.SheetImageTooltipText`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetimagetooltiptext.html}
+ */
+export type SheetImageTooltipText = {
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  PlainText?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.SheetLayoutElementMaximizationOption`.
@@ -6554,10 +7438,55 @@ export type Spacing = {
   Top?: string;
 };
 /**
+ * Type definition for `AWS::QuickSight::Dashboard.SpatialStaticFile`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-spatialstaticfile.html}
+ */
+export type SpatialStaticFile = {
+  Source?: StaticFileSource;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^[\w\-]+$`
+   */
+  StaticFileId: string;
+};
+/**
  * Type definition for `AWS::QuickSight::Dashboard.SpecialValue`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-specialvalue.html}
  */
 export type SpecialValue = "EMPTY" | "NULL" | "OTHER";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.StaticFile`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfile.html}
+ */
+export type StaticFile = {
+  ImageStaticFile?: ImageStaticFile;
+  SpatialStaticFile?: SpatialStaticFile;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.StaticFileS3SourceOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfiles3sourceoptions.html}
+ */
+export type StaticFileS3SourceOptions = {
+  BucketName: string;
+  ObjectKey: string;
+  Region: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.StaticFileSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfilesource.html}
+ */
+export type StaticFileSource = {
+  S3Options?: StaticFileS3SourceOptions;
+  UrlOptions?: StaticFileUrlSourceOptions;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.StaticFileUrlSourceOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfileurlsourceoptions.html}
+ */
+export type StaticFileUrlSourceOptions = {
+  Url: string;
+};
 /**
  * Type definition for `AWS::QuickSight::Dashboard.StringDefaultValues`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringdefaultvalues.html}
@@ -6985,6 +7914,11 @@ export type TableVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -7404,6 +8338,11 @@ export type TreeMapVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -7501,9 +8440,11 @@ export type Visual = {
   HistogramVisual?: HistogramVisual;
   InsightVisual?: InsightVisual;
   KPIVisual?: KPIVisual;
+  LayerMapVisual?: LayerMapVisual;
   LineChartVisual?: LineChartVisual;
   PieChartVisual?: PieChartVisual;
   PivotTableVisual?: PivotTableVisual;
+  PluginVisual?: PluginVisual;
   RadarChartVisual?: RadarChartVisual;
   SankeyDiagramVisual?: SankeyDiagramVisual;
   ScatterPlotVisual?: ScatterPlotVisual;
@@ -7705,6 +8646,11 @@ export type WaterfallVisual = {
   Title?: VisualTitleLabelOptions;
   /**
    * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
+  /**
+   * @minLength `1`
    * @maxLength `512`
    * @pattern `^[\w\-]+$`
    */
@@ -7816,6 +8762,11 @@ export type WordCloudVisual = {
   ColumnHierarchies?: ColumnHierarchy[];
   Subtitle?: VisualSubtitleLabelOptions;
   Title?: VisualTitleLabelOptions;
+  /**
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  VisualContentAltText?: string;
   /**
    * @minLength `1`
    * @maxLength `512`
