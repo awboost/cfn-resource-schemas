@@ -155,7 +155,9 @@ export type FieldType =
   | "DATE_TIME"
   | "BOOLEAN"
   | "SINGLE_SELECT"
-  | "EMAIL";
+  | "EMAIL"
+  | "EXPIRY_DURATION"
+  | "SELF_ASSIGN";
 /**
  * Type definition for `AWS::Connect::TaskTemplate.InvisibleFieldInfo`.
  * Invisible field info

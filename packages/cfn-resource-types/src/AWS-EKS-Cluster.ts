@@ -14,6 +14,10 @@ export type EKSClusterProperties = {
    * Set this value to false to avoid creating the default networking add-ons when the cluster is created.
    */
   BootstrapSelfManagedAddons?: boolean;
+  /**
+   * Todo: add description
+   */
+  ComputeConfig?: ComputeConfig;
   EncryptionConfig?: EncryptionConfig[];
   /**
    * The Kubernetes network configuration for the cluster.
@@ -35,6 +39,10 @@ export type EKSClusterProperties = {
    */
   OutpostConfig?: OutpostConfig;
   /**
+   * Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
+   */
+  RemoteNetworkConfig?: RemoteNetworkConfig;
+  /**
    * An object representing the VPC configuration to use for an Amazon EKS cluster.
    */
   ResourcesVpcConfig: ResourcesVpcConfig;
@@ -42,6 +50,10 @@ export type EKSClusterProperties = {
    * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
    */
   RoleArn: string;
+  /**
+   * Todo: add description
+   */
+  StorageConfig?: StorageConfig;
   /**
    * An array of key-value pairs to apply to this resource.
    */
@@ -119,6 +131,17 @@ export type AccessConfig = {
   BootstrapClusterCreatorAdminPermissions?: boolean;
 };
 /**
+ * Type definition for `AWS::EKS::Cluster.BlockStorage`.
+ * Todo: add description
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-blockstorage.html}
+ */
+export type BlockStorage = {
+  /**
+   * Todo: add description
+   */
+  Enabled?: boolean;
+};
+/**
  * Type definition for `AWS::EKS::Cluster.ClusterLogging`.
  * The cluster control plane logging configuration for your cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-clusterlogging.html}
@@ -130,6 +153,25 @@ export type ClusterLogging = {
   EnabledTypes?: LoggingTypeConfig[];
 };
 /**
+ * Type definition for `AWS::EKS::Cluster.ComputeConfig`.
+ * Todo: add description
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-computeconfig.html}
+ */
+export type ComputeConfig = {
+  /**
+   * Todo: add description
+   */
+  Enabled?: boolean;
+  /**
+   * Todo: add description
+   */
+  NodePools?: string[];
+  /**
+   * Todo: add description
+   */
+  NodeRoleArn?: string;
+};
+/**
  * Type definition for `AWS::EKS::Cluster.ControlPlanePlacement`.
  * Specify the placement group of the control plane machines for your cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html}
@@ -139,6 +181,17 @@ export type ControlPlanePlacement = {
    * Specify the placement group name of the control place machines for your cluster.
    */
   GroupName?: string;
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.ElasticLoadBalancing`.
+ * Todo: add description
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-elasticloadbalancing.html}
+ */
+export type ElasticLoadBalancing = {
+  /**
+   * Todo: add description
+   */
+  Enabled?: boolean;
 };
 /**
  * Type definition for `AWS::EKS::Cluster.EncryptionConfig`.
@@ -161,6 +214,10 @@ export type EncryptionConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html}
  */
 export type KubernetesNetworkConfig = {
+  /**
+   * Todo: add description
+   */
+  ElasticLoadBalancing?: ElasticLoadBalancing;
   /**
    * Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
    */
@@ -222,6 +279,43 @@ export type Provider = {
   KeyArn?: string;
 };
 /**
+ * Type definition for `AWS::EKS::Cluster.RemoteNetworkConfig`.
+ * Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenetworkconfig.html}
+ */
+export type RemoteNetworkConfig = {
+  /**
+   * Network configuration of nodes run on-premises with EKS Hybrid Nodes.
+   */
+  RemoteNodeNetworks: RemoteNodeNetwork[];
+  /**
+   * Network configuration of pods run on-premises with EKS Hybrid Nodes.
+   */
+  RemotePodNetworks?: RemotePodNetwork[];
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.RemoteNodeNetwork`.
+ * Network configuration of nodes run on-premises with EKS Hybrid Nodes.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenodenetwork.html}
+ */
+export type RemoteNodeNetwork = {
+  /**
+   * Specifies the list of remote node CIDRs.
+   */
+  Cidrs: string[];
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.RemotePodNetwork`.
+ * Network configuration of pods run on-premises with EKS Hybrid Nodes.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotepodnetwork.html}
+ */
+export type RemotePodNetwork = {
+  /**
+   * Specifies the list of remote pod CIDRs.
+   */
+  Cidrs: string[];
+};
+/**
  * Type definition for `AWS::EKS::Cluster.ResourcesVpcConfig`.
  * An object representing the VPC configuration to use for an Amazon EKS cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html}
@@ -247,6 +341,17 @@ export type ResourcesVpcConfig = {
    * Specify subnets for your Amazon EKS nodes. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your nodes and the Kubernetes control plane.
    */
   SubnetIds: string[];
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.StorageConfig`.
+ * Todo: add description
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-storageconfig.html}
+ */
+export type StorageConfig = {
+  /**
+   * Todo: add description
+   */
+  BlockStorage?: BlockStorage;
 };
 /**
  * Type definition for `AWS::EKS::Cluster.Tag`.
