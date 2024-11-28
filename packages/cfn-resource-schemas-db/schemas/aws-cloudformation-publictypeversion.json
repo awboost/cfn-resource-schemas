@@ -1,5 +1,5 @@
 {
-  "$hash": "b2bae2fe215a75af95a031c07f69ad26687668f1",
+  "$hash": "f89846b361065a2ae5faec92a49c7981cada0534",
   "$id": "aws-cloudformation-publictypeversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -19,7 +19,8 @@
         "cloudformation:DescribePublisher",
         "s3:GetObject",
         "s3:PutObject"
-      ]
+      ],
+      "timeoutInMinutes": 2160
     },
     "delete": { "permissions": [] },
     "list": { "permissions": ["cloudformation:ListTypes"] },

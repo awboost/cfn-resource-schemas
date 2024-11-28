@@ -1,13 +1,4 @@
-- updated `AWS::Connect::TaskTemplate`
-  - updated definition `FieldType`
-- updated `AWS::EKS::Cluster`
-  - added definition `ComputeConfig`
-  - added definition `ElasticLoadBalancing`
-  - added definition `RemoteNetworkConfig`
-  - added definition `StorageConfig`
-  - added property `ComputeConfig`
-  - added property `RemoteNetworkConfig`
-  - added property `StorageConfig`
-  - updated `createOnlyProperties`
-  - updated definition `KubernetesNetworkConfig`
+- updated `AWS::CloudFormation::PublicTypeVersion`
   - updated handler permissions
+- updated `AWS::SageMaker::Cluster`
+  - updated definition `ClusterInstanceGroup`
