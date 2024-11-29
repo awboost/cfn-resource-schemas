@@ -8,7 +8,6 @@ export type ApiGatewayDomainNameV2Properties = {
   CertificateArn?: string;
   DomainName?: string;
   EndpointConfiguration?: EndpointConfiguration;
-  ManagementPolicy?: Record<string, any> | string;
   Policy?: Record<string, any> | string;
   SecurityPolicy?: string;
   Tags?: Tag[];

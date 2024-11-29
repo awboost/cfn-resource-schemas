@@ -1,4 +1,3 @@
-- updated `AWS::CloudFormation::PublicTypeVersion`
+- updated `AWS::ApiGateway::DomainNameV2`
+  - removed property `ManagementPolicy`
   - updated handler permissions
-- updated `AWS::SageMaker::Cluster`
-  - updated definition `ClusterInstanceGroup`

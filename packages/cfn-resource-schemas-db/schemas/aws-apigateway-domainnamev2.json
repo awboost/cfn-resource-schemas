@@ -1,5 +1,5 @@
 {
-  "$hash": "5fc67e3c13b61e16f48a7c427f566415601c45fb",
+  "$hash": "c9a5c4ad1f85238e80949c4a4ef67a0b80606189",
   "$id": "aws-apigateway-domainnamev2.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -30,16 +30,14 @@
       "permissions": [
         "apigateway:POST",
         "apigateway:GET",
-        "apigateway:UpdateDomainNamePolicy",
-        "apigateway:UpdateDomainNameManagementPolicy"
+        "apigateway:UpdateDomainNamePolicy"
       ]
     },
     "delete": {
       "permissions": [
         "apigateway:DELETE",
         "apigateway:GET",
-        "apigateway:UpdateDomainNamePolicy",
-        "apigateway:UpdateDomainNameManagementPolicy"
+        "apigateway:UpdateDomainNamePolicy"
       ]
     },
     "list": { "permissions": ["apigateway:GET"] },
@@ -49,8 +47,7 @@
         "apigateway:GET",
         "apigateway:PUT",
         "apigateway:PATCH",
-        "apigateway:UpdateDomainNamePolicy",
-        "apigateway:UpdateDomainNameManagementPolicy"
+        "apigateway:UpdateDomainNamePolicy"
       ]
     }
   },
@@ -64,7 +61,6 @@
     },
     "DomainNameId": { "type": "string" },
     "EndpointConfiguration": { "$ref": "#/definitions/EndpointConfiguration" },
-    "ManagementPolicy": { "type": ["object", "string"] },
     "Policy": { "type": ["object", "string"] },
     "SecurityPolicy": { "type": "string" },
     "Tags": { "items": { "$ref": "#/definitions/Tag" }, "type": "array" }
