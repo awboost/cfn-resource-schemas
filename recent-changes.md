@@ -1,3 +1,3 @@
-- updated `AWS::ApiGateway::DomainNameV2`
-  - removed property `ManagementPolicy`
-  - updated handler permissions
+- updated `AWS::CloudFormation::TypeActivation`
+  - added `writeOnlyProperties`
+  - updated `createOnlyProperties`

@@ -1,16 +1,8 @@
 {
-  "$hash": "eec493be08cbdf88fcf2edcb74b941748d740833",
+  "$hash": "41e1750b97c0de89875cb386dccffd918d3f9d1c",
   "$id": "aws-cloudformation-typeactivation.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/ExecutionRoleArn",
-    "/properties/LoggingConfig",
-    "/properties/TypeNameAlias",
-    "/properties/TypeName",
-    "/properties/Type",
-    "/properties/PublisherId",
-    "/properties/PublicTypeArn"
-  ],
+  "createOnlyProperties": ["/properties/LoggingConfig"],
   "definitions": {
     "LoggingConfig": {
       "additionalProperties": false,
@@ -124,5 +116,13 @@
   },
   "readOnlyProperties": ["/properties/Arn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudformation",
-  "typeName": "AWS::CloudFormation::TypeActivation"
+  "typeName": "AWS::CloudFormation::TypeActivation",
+  "writeOnlyProperties": [
+    "/properties/ExecutionRoleArn",
+    "/properties/Type",
+    "/properties/LoggingConfig",
+    "/properties/VersionBump",
+    "/properties/AutoUpdate",
+    "/properties/MajorVersion"
+  ]
 }
