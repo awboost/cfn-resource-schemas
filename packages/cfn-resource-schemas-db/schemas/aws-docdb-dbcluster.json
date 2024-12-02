@@ -1,10 +1,10 @@
 {
-  "$hash": "e66870f3b9a55847e21b9b8f66532a7f110b2ae4",
+  "$hash": "aa80587cca0ea14f9c34bf4c095b3f4c7bc0fcad",
   "$id": "aws-docdb-dbcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
-    "/properties/KmsKeyId",
     "/properties/SnapshotIdentifier",
+    "/properties/KmsKeyId",
     "/properties/MasterUsername",
     "/properties/SourceDBClusterIdentifier",
     "/properties/DBClusterIdentifier",
@@ -13,6 +13,15 @@
     "/properties/StorageEncrypted"
   ],
   "definitions": {
+    "ServerlessV2ScalingConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "MaxCapacity": { "type": "number" },
+        "MinCapacity": { "type": "number" }
+      },
+      "required": ["MinCapacity", "MaxCapacity"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -55,6 +64,9 @@
     "ReadEndpoint": { "type": "string" },
     "RestoreToTime": { "type": "string" },
     "RestoreType": { "type": "string" },
+    "ServerlessV2ScalingConfiguration": {
+      "$ref": "#/definitions/ServerlessV2ScalingConfiguration"
+    },
     "SnapshotIdentifier": { "type": "string" },
     "SourceDBClusterIdentifier": { "type": "string" },
     "StorageEncrypted": { "type": "boolean" },

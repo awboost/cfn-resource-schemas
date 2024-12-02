@@ -11,6 +11,7 @@ export type ServiceDiscoveryServiceProperties = {
   HealthCheckCustomConfig?: HealthCheckCustomConfig;
   Name?: string;
   NamespaceId?: string;
+  ServiceAttributes?: Record<string, any>;
   Tags?: Tag[];
   Type?: string;
 };

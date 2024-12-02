@@ -22,6 +22,7 @@ export type DocDBDBClusterProperties = {
   PreferredMaintenanceWindow?: string;
   RestoreToTime?: string;
   RestoreType?: string;
+  ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
   SnapshotIdentifier?: string;
   SourceDBClusterIdentifier?: string;
   StorageEncrypted?: boolean;
@@ -39,6 +40,14 @@ export type DocDBDBClusterAttributes = {
   Endpoint: string;
   Id: string;
   ReadEndpoint: string;
+};
+/**
+ * Type definition for `AWS::DocDB::DBCluster.ServerlessV2ScalingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-docdb-dbcluster-serverlessv2scalingconfiguration.html}
+ */
+export type ServerlessV2ScalingConfiguration = {
+  MaxCapacity: number;
+  MinCapacity: number;
 };
 /**
  * Type definition for `AWS::DocDB::DBCluster.Tag`.

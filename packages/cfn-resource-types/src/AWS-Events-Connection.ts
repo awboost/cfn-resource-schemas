@@ -13,6 +13,12 @@ export type EventsConnectionProperties = {
    */
   Description?: string;
   /**
+   * The private resource the HTTP request will be sent to.
+   */
+  InvocationConnectivityParameters?: {
+    ResourceParameters: ResourceParameters;
+  };
+  /**
    * Name of the connection.
    * @minLength `1`
    * @maxLength `64`
@@ -30,6 +36,31 @@ export type EventsConnectionAttributes = {
    * @pattern `^arn:aws([a-z]|\-)*:events:([a-z]|\d|\-)*:([0-9]{12})?:connection\/[\.\-_A-Za-z0-9]+\/[\-A-Za-z0-9]+$`
    */
   Arn: string;
+  AuthParameters: {
+    ConnectivityParameters: {
+      ResourceParameters: {
+        /**
+         * @minLength `20`
+         * @maxLength `2048`
+         * @pattern `^arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:servicenetworkresourceassociation/snra-[0-9a-z]{17}$`
+         */
+        ResourceAssociationArn: string;
+      };
+    };
+  };
+  /**
+   * The private resource the HTTP request will be sent to.
+   */
+  InvocationConnectivityParameters: {
+    ResourceParameters: {
+      /**
+       * @minLength `20`
+       * @maxLength `2048`
+       * @pattern `^arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:servicenetworkresourceassociation/snra-[0-9a-z]{17}$`
+       */
+      ResourceAssociationArn: string;
+    };
+  };
   /**
    * The arn of the secrets manager secret created in the customer account.
    * @pattern `^arn:aws([a-z]|\-)*:secretsmanager:([a-z]|\d|\-)*:([0-9]{12})?:secret:([a-z]|\d|\-)*(!)*[\/_+=\.@\-A-Za-z0-9]+$`
@@ -57,6 +88,7 @@ export type ApiKeyAuthParameters = {
 export type AuthParameters = {
   ApiKeyAuthParameters?: ApiKeyAuthParameters;
   BasicAuthParameters?: BasicAuthParameters;
+  ConnectivityParameters?: ConnectivityParameters;
   InvocationHttpParameters?: ConnectionHttpParameters;
   OAuthParameters?: OAuthParameters;
 };
@@ -98,6 +130,13 @@ export type ConnectionHttpParameters = {
   QueryStringParameters?: Parameter[];
 };
 /**
+ * Type definition for `AWS::Events::Connection.ConnectivityParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectivityparameters.html}
+ */
+export type ConnectivityParameters = {
+  ResourceParameters: ResourceParameters;
+};
+/**
  * Type definition for `AWS::Events::Connection.OAuthParameters`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html}
  */
@@ -120,6 +159,17 @@ export type Parameter = {
   IsValueSecret?: boolean;
   Key: string;
   Value: string;
+};
+/**
+ * Type definition for `AWS::Events::Connection.ResourceParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-resourceparameters.html}
+ */
+export type ResourceParameters = {
+  /**
+   * @maxLength `2048`
+   * @pattern `^arn:[a-z0-9f\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}$`
+   */
+  ResourceConfigurationArn: string;
 };
 /**
  * Resource Type definition for AWS::Events::Connection.

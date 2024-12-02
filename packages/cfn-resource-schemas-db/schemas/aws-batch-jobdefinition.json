@@ -1,8 +1,8 @@
 {
-  "$hash": "e68eca3b5ff5287569f178922803f2903568d1ef",
+  "$hash": "3f4f06b0ed739ddd792bc4c465e9b2de152b4beb",
   "$id": "aws-batch-jobdefinition.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Tags", "/properties/JobDefinitionName"],
+  "createOnlyProperties": ["/properties/JobDefinitionName"],
   "definitions": {
     "AuthorizationConfig": {
       "additionalProperties": false,

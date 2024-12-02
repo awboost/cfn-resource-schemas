@@ -1,3 +1,54 @@
-- updated `AWS::CloudFormation::TypeActivation`
-  - added `writeOnlyProperties`
+- added `AWS::Invoicing::InvoiceUnit`
+- added `AWS::Logs::Integration`
+- added `AWS::MemoryDB::MultiRegionCluster`
+- updated `AWS::Batch::JobDefinition`
   - updated `createOnlyProperties`
+- updated `AWS::CodeBuild::Project`
+  - added property `AutoRetryLimit`
+- updated `AWS::Cognito::UserPoolDomain`
+  - added property `ManagedLoginVersion`
+- updated `AWS::DocDB::DBCluster`
+  - added definition `ServerlessV2ScalingConfiguration`
+  - added property `ServerlessV2ScalingConfiguration`
+  - updated `createOnlyProperties`
+- updated `AWS::Events::Connection`
+  - added definition `ConnectivityParameters`
+  - added definition `ResourceParameters`
+  - added property `InvocationConnectivityParameters`
+  - updated `readOnlyProperties`
+  - updated definition `AuthParameters`
+- updated `AWS::MediaLive::Channel`
+  - added definition `AnywhereSettings`
+  - added definition `Av1ColorSpaceSettings`
+  - added definition `Av1Settings`
+  - added definition `BandwidthReductionFilterSettings`
+  - added definition `MulticastInputSettings`
+  - added definition `MultiplexContainerSettings`
+  - added definition `MultiplexM2tsSettings`
+  - added definition `SrtGroupSettings`
+  - added definition `SrtOutputDestinationSettings`
+  - added definition `SrtOutputSettings`
+  - added property `AnywhereSettings`
+  - updated `createOnlyProperties`
+  - updated definition `H264FilterSettings`
+  - updated definition `H265FilterSettings`
+  - updated definition `InputAttachment`
+  - updated definition `MultiplexOutputSettings`
+  - updated definition `NetworkInputSettings`
+  - updated definition `OutputDestination`
+  - updated definition `OutputGroupSettings`
+  - updated definition `OutputSettings`
+  - updated definition `VideoCodecSettings`
+- updated `AWS::MediaLive::Input`
+  - added definition `InputRequestDestinationRoute`
+  - added definition `MulticastSettingsCreateRequest`
+  - added definition `MulticastSourceCreateRequest`
+  - added property `InputNetworkLocation`
+  - added property `MulticastSettings`
+  - updated `createOnlyProperties`
+  - updated definition `InputDestinationRequest`
+- updated `AWS::SES::ReceiptRule`
+  - added definition `ConnectAction`
+  - updated definition `Action`
+- updated `AWS::ServiceDiscovery::Service`
+  - added property `ServiceAttributes`

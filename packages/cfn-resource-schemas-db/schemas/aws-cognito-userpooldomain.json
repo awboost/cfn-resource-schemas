@@ -1,5 +1,5 @@
 {
-  "$hash": "63ef9ba1bde293274c82bd46ed05afa5456ee371",
+  "$hash": "989d373704dd032fe11d36d738ff81e094078844",
   "$id": "aws-cognito-userpooldomain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserPoolId", "/properties/Domain"],
@@ -17,6 +17,7 @@
     "CustomDomainConfig": { "$ref": "#/definitions/CustomDomainConfigType" },
     "Domain": { "type": "string" },
     "Id": { "type": "string" },
+    "ManagedLoginVersion": { "type": "integer" },
     "UserPoolId": { "type": "string" }
   },
   "readOnlyProperties": [

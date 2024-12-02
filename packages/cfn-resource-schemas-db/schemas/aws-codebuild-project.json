@@ -1,5 +1,5 @@
 {
-  "$hash": "160eb7c98727085b2291175d19b21531ce458482",
+  "$hash": "4ce68b090f474737b8621a6d139200aac1fa5136",
   "$id": "aws-codebuild-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -243,6 +243,7 @@
   "properties": {
     "Arn": { "type": "string" },
     "Artifacts": { "$ref": "#/definitions/Artifacts" },
+    "AutoRetryLimit": { "type": "integer" },
     "BadgeEnabled": { "type": "boolean" },
     "BuildBatchConfig": { "$ref": "#/definitions/ProjectBuildBatchConfig" },
     "Cache": { "$ref": "#/definitions/ProjectCache" },

@@ -23,6 +23,7 @@ export type SESReceiptRuleAttributes = {
 export type Action = {
   AddHeaderAction?: AddHeaderAction;
   BounceAction?: BounceAction;
+  ConnectAction?: ConnectAction;
   LambdaAction?: LambdaAction;
   S3Action?: S3Action;
   SNSAction?: SNSAction;
@@ -47,6 +48,14 @@ export type BounceAction = {
   SmtpReplyCode: string;
   StatusCode?: string;
   TopicArn?: string;
+};
+/**
+ * Type definition for `AWS::SES::ReceiptRule.ConnectAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-connectaction.html}
+ */
+export type ConnectAction = {
+  IAMRoleARN: string;
+  InstanceARN: string;
 };
 /**
  * Type definition for `AWS::SES::ReceiptRule.LambdaAction`.

@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html}
  */
 export type MediaLiveChannelProperties = {
+  AnywhereSettings?: AnywhereSettings;
   CdiInputSpecification?: CdiInputSpecification;
   ChannelClass?: string;
   Destinations?: OutputDestination[];
@@ -62,6 +63,14 @@ export type Ac3Settings = {
  */
 export type AncillarySourceSettings = {
   SourceAncillaryChannelNumber?: number;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.AnywhereSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-anywheresettings.html}
+ */
+export type AnywhereSettings = {
+  ChannelPlacementGroupId?: string;
+  ClusterId?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.ArchiveCdnSettings`.
@@ -261,6 +270,39 @@ export type AutomaticInputFailoverSettings = {
   SecondaryInputId?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.Av1ColorSpaceSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1colorspacesettings.html}
+ */
+export type Av1ColorSpaceSettings = {
+  ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
+  Hdr10Settings?: Hdr10Settings;
+  Rec601Settings?: Rec601Settings;
+  Rec709Settings?: Rec709Settings;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.Av1Settings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-av1settings.html}
+ */
+export type Av1Settings = {
+  AfdSignaling?: string;
+  BufSize?: number;
+  ColorSpaceSettings?: Av1ColorSpaceSettings;
+  FixedAfd?: string;
+  FramerateDenominator?: number;
+  FramerateNumerator?: number;
+  GopSize?: number;
+  GopSizeUnits?: string;
+  Level?: string;
+  LookAheadRateControl?: string;
+  MaxBitrate?: number;
+  MinIInterval?: number;
+  ParDenominator?: number;
+  ParNumerator?: number;
+  QvbrQualityLevel?: number;
+  SceneChangeDetect?: string;
+  TimecodeBurninSettings?: TimecodeBurninSettings;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.AvailBlanking`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-availblanking.html}
  */
@@ -284,6 +326,14 @@ export type AvailSettings = {
   Esam?: Esam;
   Scte35SpliceInsert?: Scte35SpliceInsert;
   Scte35TimeSignalApos?: Scte35TimeSignalApos;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.BandwidthReductionFilterSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-bandwidthreductionfiltersettings.html}
+ */
+export type BandwidthReductionFilterSettings = {
+  PostFilterSharpening?: string;
+  Strength?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.BlackoutSlate`.
@@ -723,6 +773,7 @@ export type H264ColorSpaceSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h264filtersettings.html}
  */
 export type H264FilterSettings = {
+  BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings;
   TemporalFilterSettings?: TemporalFilterSettings;
 };
 /**
@@ -790,6 +841,7 @@ export type H265ColorSpaceSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html}
  */
 export type H265FilterSettings = {
+  BandwidthReductionFilterSettings?: BandwidthReductionFilterSettings;
   TemporalFilterSettings?: TemporalFilterSettings;
 };
 /**
@@ -1000,6 +1052,7 @@ export type InputAttachment = {
   InputAttachmentName?: string;
   InputId?: string;
   InputSettings?: InputSettings;
+  LogicalInterfaceNames?: string[];
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.InputChannelLevel`.
@@ -1263,15 +1316,50 @@ export type MsSmoothOutputSettings = {
   NameModifier?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.MulticastInputSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multicastinputsettings.html}
+ */
+export type MulticastInputSettings = {
+  SourceIpAddress?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.MultiplexContainerSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexcontainersettings.html}
+ */
+export type MultiplexContainerSettings = {
+  MultiplexM2tsSettings?: MultiplexM2tsSettings;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.MultiplexGroupSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexgroupsettings.html}
  */
 export type MultiplexGroupSettings = Record<string, any>;
 /**
+ * Type definition for `AWS::MediaLive::Channel.MultiplexM2tsSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexm2tssettings.html}
+ */
+export type MultiplexM2tsSettings = {
+  AbsentInputAudioBehavior?: string;
+  Arib?: string;
+  AudioBufferModel?: string;
+  AudioFramesPerPes?: number;
+  AudioStreamType?: string;
+  CcDescriptor?: string;
+  Ebif?: string;
+  EsRateInPes?: string;
+  Klv?: string;
+  NielsenId3Behavior?: string;
+  PcrControl?: string;
+  PcrPeriod?: number;
+  Scte35Control?: string;
+  Scte35PrerollPullupMilliseconds?: number;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.MultiplexOutputSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html}
  */
 export type MultiplexOutputSettings = {
+  ContainerSettings?: MultiplexContainerSettings;
   Destination?: OutputLocationRef;
 };
 /**
@@ -1288,6 +1376,7 @@ export type MultiplexProgramChannelDestinationSettings = {
  */
 export type NetworkInputSettings = {
   HlsInputSettings?: HlsInputSettings;
+  MulticastInputSettings?: MulticastInputSettings;
   ServerValidation?: string;
 };
 /**
@@ -1345,6 +1434,7 @@ export type OutputDestination = {
   MediaPackageSettings?: MediaPackageOutputDestinationSettings[];
   MultiplexSettings?: MultiplexProgramChannelDestinationSettings;
   Settings?: OutputDestinationSettings[];
+  SrtSettings?: SrtOutputDestinationSettings[];
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.OutputDestinationSettings`.
@@ -1378,6 +1468,7 @@ export type OutputGroupSettings = {
   MsSmoothGroupSettings?: MsSmoothGroupSettings;
   MultiplexGroupSettings?: MultiplexGroupSettings;
   RtmpGroupSettings?: RtmpGroupSettings;
+  SrtGroupSettings?: SrtGroupSettings;
   UdpGroupSettings?: UdpGroupSettings;
 };
 /**
@@ -1408,6 +1499,7 @@ export type OutputSettings = {
   MsSmoothOutputSettings?: MsSmoothOutputSettings;
   MultiplexOutputSettings?: MultiplexOutputSettings;
   RtmpOutputSettings?: RtmpOutputSettings;
+  SrtOutputSettings?: SrtOutputSettings;
   UdpOutputSettings?: UdpOutputSettings;
 };
 /**
@@ -1523,6 +1615,33 @@ export type Scte35TimeSignalApos = {
  */
 export type SmpteTtDestinationSettings = Record<string, any>;
 /**
+ * Type definition for `AWS::MediaLive::Channel.SrtGroupSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtgroupsettings.html}
+ */
+export type SrtGroupSettings = {
+  InputLossAction?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.SrtOutputDestinationSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputdestinationsettings.html}
+ */
+export type SrtOutputDestinationSettings = {
+  EncryptionPassphraseSecretArn?: string;
+  StreamId?: string;
+  Url?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.SrtOutputSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputsettings.html}
+ */
+export type SrtOutputSettings = {
+  BufferMsec?: number;
+  ContainerSettings?: UdpContainerSettings;
+  Destination?: OutputLocationRef;
+  EncryptionType?: string;
+  Latency?: number;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.StandardHlsSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-standardhlssettings.html}
  */
@@ -1629,6 +1748,7 @@ export type VideoBlackFailoverSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html}
  */
 export type VideoCodecSettings = {
+  Av1Settings?: Av1Settings;
   FrameCaptureSettings?: FrameCaptureSettings;
   H264Settings?: H264Settings;
   H265Settings?: H265Settings;

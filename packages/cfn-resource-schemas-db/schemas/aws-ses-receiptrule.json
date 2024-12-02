@@ -1,5 +1,5 @@
 {
-  "$hash": "c561ce280fbd0172dcd8506c0221a85def4b9a81",
+  "$hash": "4f61f32a224bd12a6970f41450eda3aeed5c5f70",
   "$id": "aws-ses-receiptrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleSetName"],
@@ -9,6 +9,7 @@
       "properties": {
         "AddHeaderAction": { "$ref": "#/definitions/AddHeaderAction" },
         "BounceAction": { "$ref": "#/definitions/BounceAction" },
+        "ConnectAction": { "$ref": "#/definitions/ConnectAction" },
         "LambdaAction": { "$ref": "#/definitions/LambdaAction" },
         "S3Action": { "$ref": "#/definitions/S3Action" },
         "SNSAction": { "$ref": "#/definitions/SNSAction" },
@@ -36,6 +37,15 @@
         "TopicArn": { "type": "string" }
       },
       "required": ["Sender", "SmtpReplyCode", "Message"],
+      "type": "object"
+    },
+    "ConnectAction": {
+      "additionalProperties": false,
+      "properties": {
+        "IAMRoleARN": { "type": "string" },
+        "InstanceARN": { "type": "string" }
+      },
+      "required": ["InstanceARN", "IAMRoleARN"],
       "type": "object"
     },
     "LambdaAction": {

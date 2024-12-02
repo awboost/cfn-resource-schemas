@@ -7,8 +7,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type MediaLiveInputProperties = {
   Destinations?: InputDestinationRequest[];
   InputDevices?: InputDeviceSettings[];
+  InputNetworkLocation?: string;
   InputSecurityGroups?: string[];
   MediaConnectFlows?: MediaConnectFlowRequest[];
+  MulticastSettings?: MulticastSettingsCreateRequest;
   Name?: string;
   RoleArn?: string;
   Sources?: InputSourceRequest[];
@@ -30,6 +32,9 @@ export type MediaLiveInputAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdestinationrequest.html}
  */
 export type InputDestinationRequest = {
+  Network?: string;
+  NetworkRoutes?: InputRequestDestinationRoute[];
+  StaticIpAddress?: string;
   StreamName?: string;
 };
 /**
@@ -38,6 +43,14 @@ export type InputDestinationRequest = {
  */
 export type InputDeviceSettings = {
   Id?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.InputRequestDestinationRoute`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputrequestdestinationroute.html}
+ */
+export type InputRequestDestinationRoute = {
+  Cidr?: string;
+  Gateway?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Input.InputSourceRequest`.
@@ -62,6 +75,21 @@ export type InputVpcRequest = {
  */
 export type MediaConnectFlowRequest = {
   FlowArn?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.MulticastSettingsCreateRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsettingscreaterequest.html}
+ */
+export type MulticastSettingsCreateRequest = {
+  Sources?: MulticastSourceCreateRequest[];
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.MulticastSourceCreateRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-multicastsourcecreaterequest.html}
+ */
+export type MulticastSourceCreateRequest = {
+  SourceIp?: string;
+  Url?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Input.SrtCallerDecryptionRequest`.

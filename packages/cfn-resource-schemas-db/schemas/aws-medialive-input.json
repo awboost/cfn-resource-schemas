@@ -1,17 +1,38 @@
 {
-  "$hash": "e00afc5492c242b99e6a6c997c63cbc36c8d00f1",
+  "$hash": "e0b6e1c71a47f72aa1bda3692a43b02f3499e1b5",
   "$id": "aws-medialive-input.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Vpc", "/properties/Type"],
+  "createOnlyProperties": [
+    "/properties/Vpc",
+    "/properties/Type",
+    "/properties/InputNetworkLocation"
+  ],
   "definitions": {
     "InputDestinationRequest": {
       "additionalProperties": false,
-      "properties": { "StreamName": { "type": "string" } },
+      "properties": {
+        "Network": { "type": "string" },
+        "NetworkRoutes": {
+          "items": { "$ref": "#/definitions/InputRequestDestinationRoute" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "StaticIpAddress": { "type": "string" },
+        "StreamName": { "type": "string" }
+      },
       "type": "object"
     },
     "InputDeviceSettings": {
       "additionalProperties": false,
       "properties": { "Id": { "type": "string" } },
+      "type": "object"
+    },
+    "InputRequestDestinationRoute": {
+      "additionalProperties": false,
+      "properties": {
+        "Cidr": { "type": "string" },
+        "Gateway": { "type": "string" }
+      },
       "type": "object"
     },
     "InputSourceRequest": {
@@ -42,6 +63,25 @@
     "MediaConnectFlowRequest": {
       "additionalProperties": false,
       "properties": { "FlowArn": { "type": "string" } },
+      "type": "object"
+    },
+    "MulticastSettingsCreateRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "Sources": {
+          "items": { "$ref": "#/definitions/MulticastSourceCreateRequest" },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
+      "type": "object"
+    },
+    "MulticastSourceCreateRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "SourceIp": { "type": "string" },
+        "Url": { "type": "string" }
+      },
       "type": "object"
     },
     "SrtCallerDecryptionRequest": {
@@ -90,6 +130,7 @@
       "type": "array",
       "uniqueItems": false
     },
+    "InputNetworkLocation": { "type": "string" },
     "InputSecurityGroups": {
       "items": { "type": "string" },
       "type": "array",
@@ -99,6 +140,9 @@
       "items": { "$ref": "#/definitions/MediaConnectFlowRequest" },
       "type": "array",
       "uniqueItems": false
+    },
+    "MulticastSettings": {
+      "$ref": "#/definitions/MulticastSettingsCreateRequest"
     },
     "Name": { "type": "string" },
     "RoleArn": { "type": "string" },

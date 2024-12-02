@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CodeBuildProjectProperties = {
   Artifacts: Artifacts;
+  AutoRetryLimit?: number;
   BadgeEnabled?: boolean;
   BuildBatchConfig?: ProjectBuildBatchConfig;
   Cache?: ProjectCache;

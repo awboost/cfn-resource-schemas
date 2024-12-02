@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type CognitoUserPoolDomainProperties = {
   CustomDomainConfig?: CustomDomainConfigType;
   Domain: string;
+  ManagedLoginVersion?: number;
   UserPoolId: string;
 };
 /**
