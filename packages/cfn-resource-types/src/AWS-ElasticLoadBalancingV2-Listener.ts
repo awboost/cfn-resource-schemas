@@ -264,6 +264,7 @@ export type ListenerAttribute = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-mutualauthentication.html}
  */
 export type MutualAuthentication = {
+  AdvertiseTrustStoreCaNames?: string;
   /**
    * Indicates whether expired client certificates are ignored.
    */

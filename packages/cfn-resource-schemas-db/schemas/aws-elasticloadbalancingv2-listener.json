@@ -1,5 +1,5 @@
 {
-  "$hash": "1d2535b75ec5d40fa38d602c393c3800fa9d82ad",
+  "$hash": "f978d302b594030f575a60444e57fce1a0abbb2c",
   "$id": "aws-elasticloadbalancingv2-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoadBalancerArn"],
@@ -253,6 +253,7 @@
       "additionalProperties": false,
       "description": "Specifies the configuration information for mutual authentication.",
       "properties": {
+        "AdvertiseTrustStoreCaNames": { "description": "", "type": "string" },
         "IgnoreClientCertificateExpiry": {
           "description": "Indicates whether expired client certificates are ignored.",
           "type": "boolean"
