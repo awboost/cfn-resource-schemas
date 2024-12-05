@@ -1,12 +1,8 @@
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `MutualAuthentication`
-- updated `AWS::Lambda::EventSourceMapping`
-  - updated definition `MetricsConfig`
-  - updated definition `OnFailure`
-  - updated definition `ProvisionedPollerConfig`
-  - updated property `MetricsConfig`
-  - updated property `ProvisionedPollerConfig`
-- updated `AWS::MemoryDB::Cluster`
-  - added property `MultiRegionClusterName`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
+- updated `AWS::FSx::FileSystem`
+  - added definition `ReadCacheConfiguration`
+  - updated definition `LustreConfiguration`
+  - updated definition `OpenZFSConfiguration`
+- updated `AWS::IoTSiteWise::Gateway`
+  - added `tagging`
+  - removed `taggable`
+  - updated handler permissions

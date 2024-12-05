@@ -1,5 +1,5 @@
 {
-  "$hash": "83e4398eebaaa5ab4384f9ab656b28bb011c5f1f",
+  "$hash": "8dd9a32936135c485bac932f82b8c94ade424158",
   "$id": "aws-fsx-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -51,6 +51,7 @@
         "DataCompressionType": { "type": "string" },
         "DeploymentType": { "type": "string" },
         "DriveCacheType": { "type": "string" },
+        "EfaEnabled": { "type": "boolean" },
         "ExportPath": { "type": "string" },
         "ImportPath": { "type": "string" },
         "ImportedFileChunkSize": { "type": "integer" },
@@ -124,6 +125,9 @@
           "uniqueItems": false
         },
         "PreferredSubnetId": { "type": "string" },
+        "ReadCacheConfiguration": {
+          "$ref": "#/definitions/ReadCacheConfiguration"
+        },
         "RootVolumeConfiguration": {
           "$ref": "#/definitions/RootVolumeConfiguration"
         },
@@ -136,6 +140,14 @@
         "WeeklyMaintenanceStartTime": { "type": "string" }
       },
       "required": ["DeploymentType"],
+      "type": "object"
+    },
+    "ReadCacheConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "SizeGiB": { "type": "integer" },
+        "SizingMode": { "type": "string" }
+      },
       "type": "object"
     },
     "RootVolumeConfiguration": {

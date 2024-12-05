@@ -67,6 +67,7 @@ export type LustreConfiguration = {
   DataCompressionType?: string;
   DeploymentType?: string;
   DriveCacheType?: string;
+  EfaEnabled?: boolean;
   ExportPath?: string;
   ImportPath?: string;
   ImportedFileChunkSize?: number;
@@ -121,10 +122,19 @@ export type OpenZFSConfiguration = {
   EndpointIpAddressRange?: string;
   Options?: string[];
   PreferredSubnetId?: string;
+  ReadCacheConfiguration?: ReadCacheConfiguration;
   RootVolumeConfiguration?: RootVolumeConfiguration;
   RouteTableIds?: string[];
   ThroughputCapacity?: number;
   WeeklyMaintenanceStartTime?: string;
+};
+/**
+ * Type definition for `AWS::FSx::FileSystem.ReadCacheConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-readcacheconfiguration.html}
+ */
+export type ReadCacheConfiguration = {
+  SizeGiB?: number;
+  SizingMode?: string;
 };
 /**
  * Type definition for `AWS::FSx::FileSystem.RootVolumeConfiguration`.

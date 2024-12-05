@@ -1,5 +1,5 @@
 {
-  "$hash": "b8628e4d8492e4b8559039365c4e36451342e276",
+  "$hash": "7abda2eaa270d628cdec538c7a2b334d17c664ca",
   "$id": "aws-iotsitewise-gateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayPlatform"],
@@ -118,7 +118,12 @@
         "iotsitewise:DeleteGateway"
       ]
     },
-    "list": { "permissions": ["iotsitewise:ListGateways"] },
+    "list": {
+      "permissions": [
+        "iotsitewise:ListGateways",
+        "iotsitewise:ListTagsForResource"
+      ]
+    },
     "read": {
       "permissions": [
         "iotsitewise:DescribeGateway",
@@ -170,6 +175,17 @@
   "readOnlyProperties": ["/properties/GatewayId"],
   "required": ["GatewayName", "GatewayPlatform"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-IoTSiteWise.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iotsitewise:TagResource",
+      "iotsitewise:UntagResource",
+      "iotsitewise:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoTSiteWise::Gateway"
 }
