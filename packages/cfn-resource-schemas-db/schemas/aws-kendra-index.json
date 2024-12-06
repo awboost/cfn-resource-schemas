@@ -1,5 +1,5 @@
 {
-  "$hash": "b2ee3474a2e0034c7ce90e420838affde33e1dc1",
+  "$hash": "1c1befd6a07adc84c79cff228190037489d65f1e",
   "$id": "aws-kendra-index.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -52,7 +52,11 @@
     },
     "Edition": {
       "description": "Edition of index",
-      "enum": ["DEVELOPER_EDITION", "ENTERPRISE_EDITION"],
+      "enum": [
+        "DEVELOPER_EDITION",
+        "ENTERPRISE_EDITION",
+        "GEN_AI_ENTERPRISE_EDITION"
+      ],
       "type": "string"
     },
     "Freshness": { "type": "boolean" },

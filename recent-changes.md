@@ -1,8 +1,4 @@
-- updated `AWS::FSx::FileSystem`
-  - added definition `ReadCacheConfiguration`
-  - updated definition `LustreConfiguration`
-  - updated definition `OpenZFSConfiguration`
-- updated `AWS::IoTSiteWise::Gateway`
-  - added `tagging`
-  - removed `taggable`
-  - updated handler permissions
+- added `AWS::Wisdom::AIGuardrail`
+- added `AWS::Wisdom::AIGuardrailVersion`
+- updated `AWS::Kendra::Index`
+  - updated definition `Edition`

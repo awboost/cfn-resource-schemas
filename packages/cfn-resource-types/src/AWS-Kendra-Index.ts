@@ -110,7 +110,10 @@ export type DocumentMetadataConfiguration = {
  * Edition of index
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-edition.html}
  */
-export type Edition = "DEVELOPER_EDITION" | "ENTERPRISE_EDITION";
+export type Edition =
+  | "DEVELOPER_EDITION"
+  | "ENTERPRISE_EDITION"
+  | "GEN_AI_ENTERPRISE_EDITION";
 /**
  * Type definition for `AWS::Kendra::Index.JsonTokenTypeConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-jsontokentypeconfiguration.html}
