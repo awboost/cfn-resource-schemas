@@ -1,12 +1,13 @@
 {
-  "$hash": "4a3138a9b7a7332f7b1201199fb55082fcaaa06a",
+  "$hash": "e8d2b6214e54f565535543beae3dacca751f7241",
   "$id": "aws-qbusiness-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ClientIdsForOIDC",
     "/properties/EncryptionConfiguration",
     "/properties/IamIdentityProviderArn",
-    "/properties/IdentityType"
+    "/properties/IdentityType",
+    "/properties/QuickSightConfiguration"
   ],
   "definitions": {
     "ApplicationStatus": {
@@ -48,7 +49,12 @@
       "type": "object"
     },
     "IdentityType": {
-      "enum": ["AWS_IAM_IDP_SAML", "AWS_IAM_IDP_OIDC", "AWS_IAM_IDC"],
+      "enum": [
+        "AWS_IAM_IDP_SAML",
+        "AWS_IAM_IDP_OIDC",
+        "AWS_IAM_IDC",
+        "AWS_QUICKSIGHT_IDP"
+      ],
       "type": "string"
     },
     "PersonalizationConfiguration": {
@@ -74,6 +80,19 @@
       "type": "object"
     },
     "QAppsControlMode": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
+    "QuickSightConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ClientNamespace": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9._-]*$",
+          "type": "string"
+        }
+      },
+      "required": ["ClientNamespace"],
+      "type": "object"
+    },
     "SubscriptionType": { "enum": ["Q_LITE", "Q_BUSINESS"], "type": "string" },
     "Tag": {
       "additionalProperties": false,
@@ -95,9 +114,11 @@
         "kms:DescribeKey",
         "qbusiness:CreateApplication",
         "qbusiness:GetApplication",
-        "qbusiness:UpdateApplication",
         "qbusiness:ListTagsForResource",
         "qbusiness:TagResource",
+        "qbusiness:UpdateApplication",
+        "quicksight:DescribeAccountSubscription",
+        "quicksight:ListNamespaces",
         "sso:CreateApplication",
         "sso:DeleteApplication",
         "sso:DescribeInstance",
@@ -159,7 +180,6 @@
       "$ref": "#/definitions/AutoSubscriptionConfiguration"
     },
     "ClientIdsForOIDC": {
-      "insertionOrder": false,
       "items": {
         "maxLength": 255,
         "minLength": 1,
@@ -207,6 +227,9 @@
       "$ref": "#/definitions/PersonalizationConfiguration"
     },
     "QAppsConfiguration": { "$ref": "#/definitions/QAppsConfiguration" },
+    "QuickSightConfiguration": {
+      "$ref": "#/definitions/QuickSightConfiguration"
+    },
     "RoleArn": {
       "maxLength": 1284,
       "minLength": 0,
@@ -215,7 +238,6 @@
     },
     "Status": { "$ref": "#/definitions/ApplicationStatus" },
     "Tags": {
-      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "maxItems": 200,
       "minItems": 0,

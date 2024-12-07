@@ -10,7 +10,7 @@ export type QBusinessPluginProperties = {
    * @maxLength `36`
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]{35}$`
    */
-  ApplicationId: string;
+  ApplicationId?: string;
   AuthConfiguration: PluginAuthConfiguration;
   CustomPluginConfiguration?: CustomPluginConfiguration;
   /**
@@ -112,6 +112,12 @@ export type NoAuthConfiguration = Record<string, any>;
  */
 export type OAuth2ClientCredentialConfiguration = {
   /**
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^(https?|ftp|file)://([^\s]*)$`
+   */
+  AuthorizationUrl?: string;
+  /**
    * @minLength `0`
    * @maxLength `1284`
    * @pattern `^arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
@@ -123,6 +129,12 @@ export type OAuth2ClientCredentialConfiguration = {
    * @pattern `^arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
    */
   SecretArn: string;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^(https?|ftp|file)://([^\s]*)$`
+   */
+  TokenUrl?: string;
 };
 /**
  * Type definition for `AWS::QBusiness::Plugin.PluginAuthConfiguration`.
@@ -164,7 +176,19 @@ export type PluginType =
   | "SALESFORCE"
   | "JIRA"
   | "ZENDESK"
-  | "CUSTOM";
+  | "CUSTOM"
+  | "QUICKSIGHT"
+  | "SERVICENOW_NOW_PLATFORM"
+  | "JIRA_CLOUD"
+  | "SALESFORCE_CRM"
+  | "ZENDESK_SUITE"
+  | "ATLASSIAN_CONFLUENCE"
+  | "GOOGLE_CALENDAR"
+  | "MICROSOFT_TEAMS"
+  | "MICROSOFT_EXCHANGE"
+  | "PAGERDUTY_ADVANCE"
+  | "SMARTSHEET"
+  | "ASANA";
 /**
  * Type definition for `AWS::QBusiness::Plugin.S3`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-plugin-s3.html}

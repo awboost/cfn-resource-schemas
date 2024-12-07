@@ -36,6 +36,7 @@ export type QBusinessApplicationProperties = {
   IdentityType?: IdentityType;
   PersonalizationConfiguration?: PersonalizationConfiguration;
   QAppsConfiguration?: QAppsConfiguration;
+  QuickSightConfiguration?: QuickSightConfiguration;
   /**
    * @minLength `0`
    * @maxLength `1284`
@@ -128,7 +129,8 @@ export type EncryptionConfiguration = {
 export type IdentityType =
   | "AWS_IAM_IDP_SAML"
   | "AWS_IAM_IDP_OIDC"
-  | "AWS_IAM_IDC";
+  | "AWS_IAM_IDC"
+  | "AWS_QUICKSIGHT_IDP";
 /**
  * Type definition for `AWS::QBusiness::Application.PersonalizationConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-personalizationconfiguration.html}
@@ -153,6 +155,18 @@ export type QAppsConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-qappscontrolmode.html}
  */
 export type QAppsControlMode = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::QBusiness::Application.QuickSightConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-quicksightconfiguration.html}
+ */
+export type QuickSightConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[a-zA-Z0-9._-]*$`
+   */
+  ClientNamespace: string;
+};
 /**
  * Type definition for `AWS::QBusiness::Application.SubscriptionType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-subscriptiontype.html}

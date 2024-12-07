@@ -1,5 +1,5 @@
 {
-  "$hash": "ce079c8a5fcbcd63bb780165ffcc4953039039af",
+  "$hash": "24dbfe0b5291cc85514b2048fe1fe3ce27e2be17",
   "$id": "aws-wisdom-aiprompt.json",
   "additionalIdentifiers": [
     ["/properties/AIPromptArn", "/properties/AssistantArn"]
@@ -43,7 +43,9 @@
       "enum": [
         "ANSWER_GENERATION",
         "INTENT_LABELING_GENERATION",
-        "QUERY_REFORMULATION"
+        "QUERY_REFORMULATION",
+        "SELF_SERVICE_PRE_PROCESSING",
+        "SELF_SERVICE_ANSWER_GENERATION"
       ],
       "type": "string"
     },

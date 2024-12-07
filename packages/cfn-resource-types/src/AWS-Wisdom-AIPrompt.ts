@@ -76,7 +76,9 @@ export type AIPromptTemplateType = "TEXT";
 export type AIPromptType =
   | "ANSWER_GENERATION"
   | "INTENT_LABELING_GENERATION"
-  | "QUERY_REFORMULATION";
+  | "QUERY_REFORMULATION"
+  | "SELF_SERVICE_PRE_PROCESSING"
+  | "SELF_SERVICE_ANSWER_GENERATION";
 /**
  * Type definition for `AWS::Wisdom::AIPrompt.Tags`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-tags.html}

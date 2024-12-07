@@ -11,6 +11,7 @@ export type QBusinessWebExperienceProperties = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]{35}$`
    */
   ApplicationId: string;
+  CustomizationConfiguration?: CustomizationConfiguration;
   IdentityProviderConfiguration?: IdentityProviderConfiguration;
   /**
    * @minLength `0`
@@ -73,6 +74,36 @@ export type QBusinessWebExperienceAttributes = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]*$`
    */
   WebExperienceId: string;
+};
+/**
+ * Type definition for `AWS::QBusiness::WebExperience.CustomizationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-customizationconfiguration.html}
+ */
+export type CustomizationConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `1284`
+   * @pattern `^(https?://[a-zA-Z0-9-_.+%/]+\.css)?$`
+   */
+  CustomCSSUrl?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `1284`
+   * @pattern `^(https?://[a-zA-Z0-9-_.+%/]+\.(svg|ico))?$`
+   */
+  FaviconUrl?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `1284`
+   * @pattern `^(https?://[a-zA-Z0-9-_.+%/]+\.(ttf|woff|woff2|otf))?$`
+   */
+  FontUrl?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `1284`
+   * @pattern `^(https?://[a-zA-Z0-9-_.+%/]+\.(svg|png))?$`
+   */
+  LogoUrl?: string;
 };
 /**
  * Type definition for `AWS::QBusiness::WebExperience.IdentityProviderConfiguration`.

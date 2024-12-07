@@ -1,4 +1,32 @@
-- added `AWS::Wisdom::AIGuardrail`
-- added `AWS::Wisdom::AIGuardrailVersion`
-- updated `AWS::Kendra::Index`
-  - updated definition `Edition`
+- added `AWS::QBusiness::DataAccessor`
+- added `AWS::QBusiness::Permission`
+- added `AWS::VpcLattice::ResourceConfiguration`
+- added `AWS::VpcLattice::ResourceGateway`
+- updated `AWS::AmazonMQ::Configuration`
+  - updated `required`
+- updated `AWS::QBusiness::Application`
+  - added definition `QuickSightConfiguration`
+  - added property `QuickSightConfiguration`
+  - updated `createOnlyProperties`
+  - updated definition `IdentityType`
+  - updated handler permissions
+  - updated property `ClientIdsForOIDC`
+  - updated property `Tags`
+- updated `AWS::QBusiness::Plugin`
+  - updated `required`
+  - updated `tagging`
+  - updated definition `OAuth2ClientCredentialConfiguration`
+  - updated definition `PluginType`
+  - updated handler permissions
+  - updated property `Tags`
+- updated `AWS::QBusiness::WebExperience`
+  - added definition `CustomizationConfiguration`
+  - added property `CustomizationConfiguration`
+- updated `AWS::Wisdom::AIAgent`
+  - added definition `SelfServiceAIAgentConfiguration`
+  - updated definition `AIAgentConfiguration`
+  - updated definition `AIAgentType`
+  - updated definition `AnswerRecommendationAIAgentConfiguration`
+  - updated definition `ManualSearchAIAgentConfiguration`
+- updated `AWS::Wisdom::AIPrompt`
+  - updated definition `AIPromptType`

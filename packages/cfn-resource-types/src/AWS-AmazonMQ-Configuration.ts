@@ -12,7 +12,7 @@ export type AmazonMQConfigurationProperties = {
   /**
    * The base64-encoded XML configuration.
    */
-  Data: string;
+  Data?: string;
   /**
    * The description of the configuration.
    */

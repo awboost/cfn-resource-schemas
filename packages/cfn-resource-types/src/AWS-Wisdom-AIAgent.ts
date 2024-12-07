@@ -58,17 +58,27 @@ export type AIAgentConfiguration =
     }
   | {
       AnswerRecommendationAIAgentConfiguration: AnswerRecommendationAIAgentConfiguration;
+    }
+  | {
+      SelfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration;
     };
 /**
  * Type definition for `AWS::Wisdom::AIAgent.AIAgentType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagenttype.html}
  */
-export type AIAgentType = "MANUAL_SEARCH" | "ANSWER_RECOMMENDATION";
+export type AIAgentType =
+  | "MANUAL_SEARCH"
+  | "ANSWER_RECOMMENDATION"
+  | "SELF_SERVICE";
 /**
  * Type definition for `AWS::Wisdom::AIAgent.AnswerRecommendationAIAgentConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html}
  */
 export type AnswerRecommendationAIAgentConfiguration = {
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  AnswerGenerationAIGuardrailId?: string;
   /**
    * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
    */
@@ -128,6 +138,10 @@ export type ManualSearchAIAgentConfiguration = {
   /**
    * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
    */
+  AnswerGenerationAIGuardrailId?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
   AnswerGenerationAIPromptId?: string;
   AssociationConfigurations?: AssociationConfiguration[];
 };
@@ -142,6 +156,25 @@ export type OrCondition =
   | {
       TagCondition: TagCondition;
     };
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.SelfServiceAIAgentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-selfserviceaiagentconfiguration.html}
+ */
+export type SelfServiceAIAgentConfiguration = {
+  AssociationConfigurations?: AssociationConfiguration[];
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  SelfServiceAIGuardrailId?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  SelfServiceAnswerGenerationAIPromptId?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  SelfServicePreProcessingAIPromptId?: string;
+};
 /**
  * Type definition for `AWS::Wisdom::AIAgent.TagCondition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tagcondition.html}

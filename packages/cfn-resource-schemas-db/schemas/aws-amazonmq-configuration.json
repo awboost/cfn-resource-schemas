@@ -1,5 +1,5 @@
 {
-  "$hash": "59806d3bca5ce38ee4f2a96e1189bf9820716ce6",
+  "$hash": "ab4788f2797a7016455ba2a92cc6457feb1596d4",
   "$id": "aws-amazonmq-configuration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -93,7 +93,7 @@
     "/properties/Id",
     "/properties/Revision"
   ],
-  "required": ["EngineType", "Data", "Name"],
+  "required": ["EngineType", "Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,

@@ -1,5 +1,5 @@
 {
-  "$hash": "2c2da238481bc62362731e682a42ac4be987e202",
+  "$hash": "d97b7520640b347595d822161f0816408ff427b3",
   "$id": "aws-wisdom-aiagent.json",
   "additionalIdentifiers": [
     ["/properties/AIAgentArn", "/properties/AssistantArn"]
@@ -39,16 +39,31 @@
           "required": ["AnswerRecommendationAIAgentConfiguration"],
           "title": "AnswerRecommendationAIAgentConfiguration",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "SelfServiceAIAgentConfiguration": {
+              "$ref": "#/definitions/SelfServiceAIAgentConfiguration"
+            }
+          },
+          "required": ["SelfServiceAIAgentConfiguration"],
+          "title": "SelfServiceAIAgentConfiguration",
+          "type": "object"
         }
       ]
     },
     "AIAgentType": {
-      "enum": ["MANUAL_SEARCH", "ANSWER_RECOMMENDATION"],
+      "enum": ["MANUAL_SEARCH", "ANSWER_RECOMMENDATION", "SELF_SERVICE"],
       "type": "string"
     },
     "AnswerRecommendationAIAgentConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "AnswerGenerationAIGuardrailId": {
+          "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
+          "type": "string"
+        },
         "AnswerGenerationAIPromptId": {
           "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
           "type": "string"
@@ -117,6 +132,10 @@
     "ManualSearchAIAgentConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "AnswerGenerationAIGuardrailId": {
+          "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
+          "type": "string"
+        },
         "AnswerGenerationAIPromptId": {
           "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
           "type": "string"
@@ -152,6 +171,28 @@
           "type": "object"
         }
       ]
+    },
+    "SelfServiceAIAgentConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "AssociationConfigurations": {
+          "items": { "$ref": "#/definitions/AssociationConfiguration" },
+          "type": "array"
+        },
+        "SelfServiceAIGuardrailId": {
+          "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
+          "type": "string"
+        },
+        "SelfServiceAnswerGenerationAIPromptId": {
+          "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
+          "type": "string"
+        },
+        "SelfServicePreProcessingAIPromptId": {
+          "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "TagCondition": {
       "additionalProperties": false,
