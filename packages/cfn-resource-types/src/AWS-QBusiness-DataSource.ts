@@ -31,6 +31,7 @@ export type QBusinessDataSourceProperties = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]{35}$`
    */
   IndexId: string;
+  MediaExtractionConfiguration?: MediaExtractionConfiguration;
   /**
    * @minLength `0`
    * @maxLength `1284`
@@ -211,6 +212,18 @@ export type HookConfiguration = {
   S3BucketName?: string;
 };
 /**
+ * Type definition for `AWS::QBusiness::DataSource.ImageExtractionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-imageextractionconfiguration.html}
+ */
+export type ImageExtractionConfiguration = {
+  ImageExtractionStatus: ImageExtractionStatus;
+};
+/**
+ * Type definition for `AWS::QBusiness::DataSource.ImageExtractionStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-imageextractionstatus.html}
+ */
+export type ImageExtractionStatus = "ENABLED" | "DISABLED";
+/**
  * Type definition for `AWS::QBusiness::DataSource.InlineDocumentEnrichmentConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-inlinedocumentenrichmentconfiguration.html}
  */
@@ -218,6 +231,13 @@ export type InlineDocumentEnrichmentConfiguration = {
   Condition?: DocumentAttributeCondition;
   DocumentContentOperator?: DocumentContentOperator;
   Target?: DocumentAttributeTarget;
+};
+/**
+ * Type definition for `AWS::QBusiness::DataSource.MediaExtractionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html}
+ */
+export type MediaExtractionConfiguration = {
+  ImageExtractionConfiguration?: ImageExtractionConfiguration;
 };
 /**
  * Type definition for `AWS::QBusiness::DataSource.Tag`.

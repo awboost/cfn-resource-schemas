@@ -1,5 +1,5 @@
 {
-  "$hash": "1f3c82d4a50ab3cc4ff0e10a925402fe0f5a268d",
+  "$hash": "048f77c74b74a00aab459e116fa9cdb28af3f6ec",
   "$id": "aws-qbusiness-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId", "/properties/IndexId"],
@@ -186,6 +186,20 @@
       },
       "type": "object"
     },
+    "ImageExtractionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ImageExtractionStatus": {
+          "$ref": "#/definitions/ImageExtractionStatus"
+        }
+      },
+      "required": ["ImageExtractionStatus"],
+      "type": "object"
+    },
+    "ImageExtractionStatus": {
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
     "InlineDocumentEnrichmentConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -194,6 +208,15 @@
           "$ref": "#/definitions/DocumentContentOperator"
         },
         "Target": { "$ref": "#/definitions/DocumentAttributeTarget" }
+      },
+      "type": "object"
+    },
+    "MediaExtractionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ImageExtractionConfiguration": {
+          "$ref": "#/definitions/ImageExtractionConfiguration"
+        }
       },
       "type": "object"
     },
@@ -296,6 +319,9 @@
       "minLength": 36,
       "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{35}$",
       "type": "string"
+    },
+    "MediaExtractionConfiguration": {
+      "$ref": "#/definitions/MediaExtractionConfiguration"
     },
     "RoleArn": {
       "maxLength": 1284,
