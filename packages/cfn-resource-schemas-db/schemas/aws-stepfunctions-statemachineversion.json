@@ -1,10 +1,11 @@
 {
-  "$hash": "8e61a9430761c90831e6f00c27ff242384a76181",
+  "$hash": "fd7cb0ab910c0db6003149d9e89e36ac0c702dcc",
   "$id": "aws-stepfunctions-statemachineversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/StateMachineArn",
-    "/properties/StateMachineRevisionId"
+    "/properties/StateMachineRevisionId",
+    "/properties/Description"
   ],
   "definitions": {},
   "description": "Resource schema for StateMachineVersion",

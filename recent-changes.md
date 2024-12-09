@@ -1,18 +1,2 @@
-- added `AWS::VpcLattice::ServiceNetworkResourceAssociation`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `BaselinePerformanceFactors`
-  - updated definition `CapacityReservationSpecification`
-  - updated definition `Cpu`
-  - updated definition `Ebs`
-  - updated definition `InstanceRequirements`
-  - updated definition `LaunchTemplateData`
-  - updated definition `LaunchTemplateTagSpecification`
-  - updated definition `NetworkInterface`
-  - updated definition `Reference`
-  - updated definition `TagSpecification`
-  - updated property `TagSpecifications`
-- updated `AWS::QBusiness::DataSource`
-  - added definition `ImageExtractionConfiguration`
-  - added definition `ImageExtractionStatus`
-  - added definition `MediaExtractionConfiguration`
-  - added property `MediaExtractionConfiguration`
+- updated `AWS::StepFunctions::StateMachineVersion`
+  - updated `createOnlyProperties`
