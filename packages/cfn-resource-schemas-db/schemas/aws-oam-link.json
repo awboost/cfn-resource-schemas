@@ -1,5 +1,5 @@
 {
-  "$hash": "eba3806d823f5a30af8bb4c495a2c170e6866c9f",
+  "$hash": "ca8e516b6f3d80566a231096bec983be6d80c628",
   "$id": "aws-oam-link.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -40,6 +40,8 @@
       "permissions": [
         "oam:CreateLink",
         "oam:GetLink",
+        "oam:TagResource",
+        "oam:ListTagsForResource",
         "cloudwatch:Link",
         "logs:Link",
         "xray:Link",
@@ -49,7 +51,7 @@
     },
     "delete": { "permissions": ["oam:DeleteLink", "oam:GetLink"] },
     "list": { "permissions": ["oam:ListLinks"] },
-    "read": { "permissions": ["oam:GetLink"] },
+    "read": { "permissions": ["oam:GetLink", "oam:ListTagsForResource"] },
     "update": {
       "permissions": [
         "oam:GetLink",
@@ -60,7 +62,8 @@
         "applicationinsights:Link",
         "internetmonitor:Link",
         "oam:TagResource",
-        "oam:UntagResource"
+        "oam:UntagResource",
+        "oam:ListTagsForResource"
       ]
     }
   },

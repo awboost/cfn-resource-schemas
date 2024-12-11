@@ -37,6 +37,10 @@ export type ConnectQueueProperties = {
    */
   OutboundCallerConfig?: OutboundCallerConfig;
   /**
+   * The outbound email address ID.
+   */
+  OutboundEmailConfig?: OutboundEmailConfig;
+  /**
    * The quick connects available to agents who are working the queue.
    * @minLength `1`
    * @maxLength `50`
@@ -91,6 +95,18 @@ export type OutboundCallerConfig = {
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*contact-flow/[-a-zA-Z0-9]*$`
    */
   OutboundFlowArn?: string;
+};
+/**
+ * Type definition for `AWS::Connect::Queue.OutboundEmailConfig`.
+ * The outbound email address ID.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundemailconfig.html}
+ */
+export type OutboundEmailConfig = {
+  /**
+   * The email address connect resource ID.
+   * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*email-address/[-a-zA-Z0-9]*$`
+   */
+  OutboundEmailAddressId?: string;
 };
 /**
  * Type definition for `AWS::Connect::Queue.Tag`.

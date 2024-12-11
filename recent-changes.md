@@ -1,2 +1,25 @@
-- updated `AWS::StepFunctions::StateMachineVersion`
-  - updated `createOnlyProperties`
+- added `AWS::S3Tables::TableBucket`
+- added `AWS::S3Tables::TableBucketPolicy`
+- updated `AWS::Connect::Queue`
+  - added definition `OutboundEmailAddressId`
+  - added definition `OutboundEmailConfig`
+  - added property `OutboundEmailConfig`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `BaselinePerformanceFactors`
+  - updated definition `CapacityReservationSpecification`
+  - updated definition `Cpu`
+  - updated definition `Ebs`
+  - updated definition `InstanceRequirements`
+  - updated definition `LaunchTemplateData`
+  - updated definition `LaunchTemplateTagSpecification`
+  - updated definition `NetworkInterface`
+  - updated definition `Reference`
+  - updated definition `TagSpecification`
+  - updated property `TagSpecifications`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `HealthCheck`
+  - updated definition `PortMapping`
+- updated `AWS::Oam::Link`
+  - updated handler permissions
+- updated `AWS::Oam::Sink`
+  - updated handler permissions

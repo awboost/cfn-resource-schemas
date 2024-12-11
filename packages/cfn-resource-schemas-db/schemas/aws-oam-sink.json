@@ -1,5 +1,5 @@
 {
-  "$hash": "4b00c1616d94435b97cab8b2429f9840f0cccd8a",
+  "$hash": "be0115057d58d4dea019ab3896b3fe3f9c50cf78",
   "$id": "aws-oam-sink.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -10,21 +10,30 @@
         "oam:CreateSink",
         "oam:PutSinkPolicy",
         "oam:GetSinkPolicy",
-        "oam:GetSink"
+        "oam:GetSink",
+        "oam:TagResource",
+        "oam:ListTagsForResource"
       ]
     },
     "delete": {
       "permissions": ["oam:DeleteSink", "oam:GetSinkPolicy", "oam:GetSink"]
     },
     "list": { "permissions": ["oam:ListSinks"] },
-    "read": { "permissions": ["oam:GetSinkPolicy", "oam:GetSink"] },
+    "read": {
+      "permissions": [
+        "oam:GetSinkPolicy",
+        "oam:GetSink",
+        "oam:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "oam:PutSinkPolicy",
         "oam:GetSinkPolicy",
         "oam:GetSink",
         "oam:TagResource",
-        "oam:UntagResource"
+        "oam:UntagResource",
+        "oam:ListTagsForResource"
       ]
     }
   },

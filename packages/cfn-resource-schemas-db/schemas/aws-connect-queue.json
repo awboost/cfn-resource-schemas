@@ -1,5 +1,5 @@
 {
-  "$hash": "297bb8ff83279f27795193e60d760b8ea215c37c",
+  "$hash": "0074d63da3ced73b009a47f79a8df3f5f11cdb48",
   "$id": "aws-connect-queue.json",
   "additionalProperties": false,
   "definitions": {
@@ -34,6 +34,21 @@
       "description": "The caller ID number.",
       "pattern": "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:phone-number/[-a-zA-Z0-9]*$",
       "type": "string"
+    },
+    "OutboundEmailAddressId": {
+      "description": "The email address connect resource ID.",
+      "pattern": "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/email-address/[-a-zA-Z0-9]*$",
+      "type": "string"
+    },
+    "OutboundEmailConfig": {
+      "additionalProperties": false,
+      "description": "The outbound email address ID.",
+      "properties": {
+        "OutboundEmailAddressId": {
+          "$ref": "#/definitions/OutboundEmailAddressId"
+        }
+      },
+      "type": "object"
     },
     "OutboundFlowArn": {
       "description": "The outbound whisper flow to be used during an outbound call.",
@@ -131,6 +146,10 @@
     "OutboundCallerConfig": {
       "$ref": "#/definitions/OutboundCallerConfig",
       "description": "The outbound caller ID name, number, and outbound whisper flow."
+    },
+    "OutboundEmailConfig": {
+      "$ref": "#/definitions/OutboundEmailConfig",
+      "description": "The outbound email address ID."
     },
     "QueueArn": {
       "description": "The Amazon Resource Name (ARN) for the queue.",

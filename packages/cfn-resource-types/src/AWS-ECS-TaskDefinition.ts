@@ -622,7 +622,7 @@ export type HealthCheck = {
       ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``
      You don't include the double quotes and brackets when you use the AWS Management Console.
       ``CMD-SHELL, curl -f http://localhost/ || exit 1``
-     An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command
+     An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
      */
   Command?: string[];
   /**
@@ -871,9 +871,8 @@ export type PortMapping = {
      */
   HostPort?: number;
   /**
-     * The name that's used for the port mapping. This parameter only applies to Service Connect. This parameter is the name that you use in the ``serviceConnectConfiguration`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
-     For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
-     */
+   * The name that's used for the port mapping. This parameter is the name that you use in the ``serviceConnectConfiguration`` and the ``vpcLatticeConfigurations`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
+   */
   Name?: string;
   /**
    * The protocol used for the port mapping. Valid values are ``tcp`` and ``udp``. The default is ``tcp``. ``protocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.

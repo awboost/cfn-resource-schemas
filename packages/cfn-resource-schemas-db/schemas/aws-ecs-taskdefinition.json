@@ -1,5 +1,5 @@
 {
-  "$hash": "f5d13691f830f74a0a821a2d0440241b8f8eed76",
+  "$hash": "650433569e33b4d0475f73478a3ee91c077ab105",
   "$id": "aws-ecs-taskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -439,7 +439,7 @@
       "description": "The ``HealthCheck`` property specifies an object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile). This configuration maps to the ``HEALTHCHECK`` parameter of docker run.\n  The Amazon ECS container agent only monitors and reports on the health checks specified in the task definition. Amazon ECS does not monitor Docker health checks that are embedded in a container image and not specified in the container definition. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image.\n  If a task is run manually, and not as part of a service, the task will continue its lifecycle regardless of its health status. For tasks that are part of a service, if the task reports as unhealthy then the task will be stopped and the service scheduler will replace it.\n The following are notes about container health check support:\n  +  Container health checks require version 1.17.0 or greater of the Amazon ECS container agent. For more information, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html).\n  +  Container health checks are supported for Fargate tasks if you are using platform version 1.1.0 or greater. For more information, see [Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).\n  +  Container health checks are not supported for tasks that are part of a service that is configured to use a Classic Load Balancer.",
       "properties": {
         "Command": {
-          "description": "A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. \n  When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.\n  ``[ \"CMD-SHELL\", \"curl -f http://localhost/ || exit 1\" ]`` \n You don't include the double quotes and brackets when you use the AWS Management Console.\n  ``CMD-SHELL, curl -f http://localhost/ || exit 1`` \n An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command",
+          "description": "A string array representing the command that the container runs to determine if it is healthy. The string array must start with ``CMD`` to run the command arguments directly, or ``CMD-SHELL`` to run the command with the container's default shell. \n  When you use the AWS Management Console JSON panel, the CLIlong, or the APIs, enclose the list of commands in double quotes and brackets.\n  ``[ \"CMD-SHELL\", \"curl -f http://localhost/ || exit 1\" ]`` \n You don't include the double quotes and brackets when you use the AWS Management Console.\n  ``CMD-SHELL, curl -f http://localhost/ || exit 1`` \n An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.",
           "insertionOrder": true,
           "items": { "type": "string" },
           "type": "array"
@@ -642,7 +642,7 @@
           "type": "integer"
         },
         "Name": {
-          "description": "The name that's used for the port mapping. This parameter only applies to Service Connect. This parameter is the name that you use in the ``serviceConnectConfiguration`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.\n For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.",
+          "description": "The name that's used for the port mapping. This parameter is the name that you use in the ``serviceConnectConfiguration`` and the ``vpcLatticeConfigurations`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.",
           "type": "string"
         },
         "Protocol": {
