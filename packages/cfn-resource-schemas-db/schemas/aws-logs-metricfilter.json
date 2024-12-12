@@ -1,5 +1,5 @@
 {
-  "$hash": "af31f67ff594fa314e1ce8cb2230a92886885f36",
+  "$hash": "826de5db6a2678ad8a41a6deb6890f2e1723cd48",
   "$id": "aws-logs-metricfilter.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -118,6 +118,7 @@
   },
   "primaryIdentifier": ["/properties/LogGroupName", "/properties/FilterName"],
   "properties": {
+    "ApplyOnTransformedLogs": { "description": "", "type": "boolean" },
     "FilterName": {
       "description": "The name of the metric filter.",
       "maxLength": 512,

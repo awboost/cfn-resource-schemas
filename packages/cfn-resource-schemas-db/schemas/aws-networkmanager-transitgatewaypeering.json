@@ -1,5 +1,5 @@
 {
-  "$hash": "88d6be013fb29fd0476e081e9ad5b6b45d1ea9fe",
+  "$hash": "647b09000519addabd1f7981bcb7181cf93b0430",
   "$id": "aws-networkmanager-transitgatewaypeering.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -51,12 +51,7 @@
       "timeoutInMinutes": 60
     },
     "list": { "permissions": ["networkmanager:ListPeerings"] },
-    "read": {
-      "permissions": [
-        "networkmanager:GetTransitGatewayPeering",
-        "networkmanager:TagResource"
-      ]
-    },
+    "read": { "permissions": ["networkmanager:GetTransitGatewayPeering"] },
     "update": {
       "permissions": [
         "networkmanager:TagResource",

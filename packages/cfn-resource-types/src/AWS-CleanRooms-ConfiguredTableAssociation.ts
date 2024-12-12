@@ -49,7 +49,7 @@ export type CleanRoomsConfiguredTableAssociationProperties = {
  */
 export type CleanRoomsConfiguredTableAssociationAttributes = {
   /**
-   * @maxLength `100`
+   * @maxLength `256`
    */
   Arn: string;
   /**

@@ -62,6 +62,11 @@ export type ConnectTaskTemplateProperties = {
    */
   Name?: string;
   /**
+   * The identifier of the contact flow.
+   * @pattern `^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*contact-flow/[-a-zA-Z0-9]*$`
+   */
+  SelfAssignContactFlowArn?: string;
+  /**
    * The status of the task template
    */
   Status?: Status;

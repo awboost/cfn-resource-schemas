@@ -1,5 +1,5 @@
 {
-  "$hash": "abe34d221163a83eeb0ef0a870936ae51231eeec",
+  "$hash": "ae8dd777911a2f50bcb4fae13e9950dfca30493e",
   "$id": "aws-logs-querydefinition.json",
   "additionalProperties": false,
   "definitions": {
@@ -39,6 +39,12 @@
       "description": "Unique identifier of a query definition",
       "maxLength": 256,
       "minLength": 0,
+      "type": "string"
+    },
+    "QueryLanguage": {
+      "default": "CWLI",
+      "description": "Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.",
+      "enum": ["CWLI", "SQL", "PPL"],
       "type": "string"
     },
     "QueryString": {

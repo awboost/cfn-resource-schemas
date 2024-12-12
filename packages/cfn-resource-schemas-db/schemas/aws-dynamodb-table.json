@@ -1,5 +1,5 @@
 {
-  "$hash": "35c62d10345a611dd173fb94612350df31db66a5",
+  "$hash": "b7031962f5fb822d55baf8bfb1765340ad571fdd",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/KeySchema"],
@@ -529,7 +529,7 @@
     },
     "ImportSourceSpecification": {
       "$ref": "#/definitions/ImportSourceSpecification",
-      "description": "Specifies the properties of data being imported from the S3 bucket source to the table.\n  If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission."
+      "description": "Specifies the properties of data being imported from the S3 bucket source to the\" table.\n  If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission."
     },
     "KeySchema": {
       "description": "Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.",

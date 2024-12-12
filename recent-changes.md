@@ -1,25 +1,74 @@
-- added `AWS::S3Tables::TableBucket`
-- added `AWS::S3Tables::TableBucketPolicy`
-- updated `AWS::Connect::Queue`
-  - added definition `OutboundEmailAddressId`
-  - added definition `OutboundEmailConfig`
-  - added property `OutboundEmailConfig`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `BaselinePerformanceFactors`
-  - updated definition `CapacityReservationSpecification`
-  - updated definition `Cpu`
-  - updated definition `Ebs`
-  - updated definition `InstanceRequirements`
-  - updated definition `LaunchTemplateData`
-  - updated definition `LaunchTemplateTagSpecification`
-  - updated definition `NetworkInterface`
-  - updated definition `Reference`
-  - updated definition `TagSpecification`
-  - updated property `TagSpecifications`
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `HealthCheck`
-  - updated definition `PortMapping`
-- updated `AWS::Oam::Link`
+- added `AWS::IoT::Command`
+- added `AWS::Logs::Transformer`
+- added `AWS::NetworkManager::DirectConnectGatewayAttachment`
+- updated `AWS::ApplicationAutoScaling::ScalingPolicy`
+  - updated definition `PredictiveScalingCustomizedCapacityMetric`
+  - updated definition `PredictiveScalingCustomizedLoadMetric`
+  - updated definition `PredictiveScalingCustomizedScalingMetric`
+  - updated definition `PredictiveScalingMetricDataQuery`
+  - updated definition `PredictiveScalingMetricDimension`
+  - updated definition `PredictiveScalingMetricSpecification`
+  - updated definition `PredictiveScalingMetricStat`
+  - updated definition `PredictiveScalingMetric`
+  - updated definition `PredictiveScalingPolicyConfiguration`
+  - updated definition `PredictiveScalingPredefinedLoadMetric`
+  - updated definition `PredictiveScalingPredefinedMetricPair`
+  - updated definition `PredictiveScalingPredefinedScalingMetric`
+  - updated property `PredictiveScalingPolicyConfiguration`
+- updated `AWS::CleanRooms::ConfiguredTable`
+  - added definition `AthenaTableReference`
+  - added definition `SnowflakeTableReference`
+  - added definition `SnowflakeTableSchemaV1`
+  - added definition `SnowflakeTableSchema`
+  - updated definition `TableReference`
   - updated handler permissions
-- updated `AWS::Oam::Sink`
+- updated `AWS::CleanRooms::ConfiguredTableAssociation`
+  - updated property `Arn`
+- updated `AWS::Connect::TaskTemplate`
+  - added property `SelfAssignContactFlowArn`
+- updated `AWS::DynamoDB::Table`
+  - updated property `ImportSourceSpecification`
+- updated `AWS::ECS::TaskDefinition`
+  - added property `EnableFaultInjection`
+  - updated `createOnlyProperties`
+- updated `AWS::EMRServerless::Application`
+  - added definition `SchedulerConfiguration`
+  - added property `SchedulerConfiguration`
+  - updated `conditionalCreateOnlyProperties`
+  - updated `tagging`
+- updated `AWS::Logs::LogGroup`
+  - added property `FieldIndexPolicies`
+  - updated handler permissions
+- updated `AWS::Logs::MetricFilter`
+  - added property `ApplyOnTransformedLogs`
+- updated `AWS::Logs::QueryDefinition`
+  - added property `QueryLanguage`
+- updated `AWS::Logs::SubscriptionFilter`
+  - added property `ApplyOnTransformedLogs`
+- updated `AWS::NetworkManager::TransitGatewayPeering`
+  - updated handler permissions
+- updated `AWS::RDS::CustomDBEngineVersion`
+  - updated `propertyTransform`
+  - updated `tagging`
+  - updated definition `Tag`
+  - updated property `DBEngineVersionArn`
+  - updated property `DatabaseInstallationFilesS3BucketName`
+  - updated property `DatabaseInstallationFilesS3Prefix`
+  - updated property `EngineVersion`
+  - updated property `Engine`
+  - updated property `ImageId`
+  - updated property `KMSKeyId`
+  - updated property `Manifest`
+  - updated property `SourceCustomDbEngineVersionIdentifier`
+  - updated property `Status`
+  - updated property `Tags`
+  - updated property `UseAwsProvidedLatestImage`
+- updated `AWS::RedshiftServerless::Workgroup`
+  - added definition `PerformanceTargetStatus`
+  - added definition `PerformanceTarget`
+  - added property `PricePerformanceTarget`
+  - updated definition `Workgroup`
+- updated `AWS::WorkSpaces::WorkspacesPool`
+  - removed `writeOnlyProperties`
+  - updated `deprecatedProperties`
   - updated handler permissions

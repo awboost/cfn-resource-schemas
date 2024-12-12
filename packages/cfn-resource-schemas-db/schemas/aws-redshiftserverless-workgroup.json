@@ -1,5 +1,5 @@
 {
-  "$hash": "da7527058c882a4d87e9b67effeec110daeab850",
+  "$hash": "4fa160bf784687b3603f4884e578aa633caba428",
   "$id": "aws-redshiftserverless-workgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -41,6 +41,18 @@
         "SubnetId": { "type": "string" }
       },
       "type": "object"
+    },
+    "PerformanceTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "Level": { "maximum": 100, "minimum": 1, "type": "integer" },
+        "Status": { "$ref": "#/definitions/PerformanceTargetStatus" }
+      },
+      "type": "object"
+    },
+    "PerformanceTargetStatus": {
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
     },
     "Tag": {
       "additionalProperties": false,
@@ -84,6 +96,7 @@
           "pattern": "^[a-z0-9-]+$",
           "type": "string"
         },
+        "PricePerformanceTarget": { "$ref": "#/definitions/PerformanceTarget" },
         "PubliclyAccessible": { "type": "boolean" },
         "SecurityGroupIds": {
           "insertionOrder": false,
@@ -236,6 +249,11 @@
     "Port": {
       "description": "The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.",
       "type": "integer"
+    },
+    "PricePerformanceTarget": {
+      "$ref": "#/definitions/PerformanceTarget",
+      "description": "A property that represents the price performance target settings for the workgroup.",
+      "type": "object"
     },
     "PubliclyAccessible": {
       "default": false,

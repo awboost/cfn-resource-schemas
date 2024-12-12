@@ -57,6 +57,10 @@ export type EMRServerlessApplicationProperties = {
    */
   RuntimeConfiguration?: ConfigurationObject[];
   /**
+   * The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+   */
+  SchedulerConfiguration?: SchedulerConfiguration;
+  /**
    * Tag map with key and value
    */
   Tags?: Tag[];
@@ -341,6 +345,21 @@ export type S3MonitoringConfiguration = {
    * @pattern `[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDBFF-\uDC00\uDFFF\r\n\t]*`
    */
   LogUri?: string;
+};
+/**
+ * Type definition for `AWS::EMRServerless::Application.SchedulerConfiguration`.
+ * The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-schedulerconfiguration.html}
+ */
+export type SchedulerConfiguration = {
+  /**
+   * The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.
+   */
+  MaxConcurrentRuns?: number;
+  /**
+   * The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.
+   */
+  QueueTimeoutMinutes?: number;
 };
 /**
  * Type definition for `AWS::EMRServerless::Application.Tag`.

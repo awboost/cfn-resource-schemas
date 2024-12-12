@@ -1,5 +1,5 @@
 {
-  "$hash": "e42f948acabcf20a8b37e71f78e56b94dad637f3",
+  "$hash": "46d2923119ba960ee4df4ca23e370c89dfdbe46f",
   "$id": "aws-workspaces-workspacespool.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PoolName"],
@@ -62,6 +62,7 @@
     }
   },
   "deprecatedProperties": [
+    "/properties/Tags",
     "/properties/Tags/TagKey",
     "/properties/Tags/TagValue"
   ],
@@ -70,8 +71,7 @@
     "create": {
       "permissions": [
         "workspaces:CreateWorkspacesPool",
-        "workspaces:DescribeWorkspacesPools",
-        "workspaces:CreateTags"
+        "workspaces:DescribeWorkspacesPools"
       ]
     },
     "delete": {
@@ -132,6 +132,5 @@
     "tagUpdatable": false,
     "taggable": true
   },
-  "typeName": "AWS::WorkSpaces::WorkspacesPool",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "typeName": "AWS::WorkSpaces::WorkspacesPool"
 }

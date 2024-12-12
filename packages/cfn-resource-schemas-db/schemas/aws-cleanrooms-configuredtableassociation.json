@@ -1,5 +1,5 @@
 {
-  "$hash": "c00fd56ceb5baf623b202de3c92347798729e293",
+  "$hash": "2b86061783b111c03a08da75ff6ad5321c77d8cf",
   "$id": "aws-cleanrooms-configuredtableassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -204,7 +204,7 @@
     "/properties/MembershipIdentifier"
   ],
   "properties": {
-    "Arn": { "maxLength": 100, "type": "string" },
+    "Arn": { "maxLength": 256, "type": "string" },
     "ConfiguredTableAssociationAnalysisRules": {
       "insertionOrder": false,
       "items": {

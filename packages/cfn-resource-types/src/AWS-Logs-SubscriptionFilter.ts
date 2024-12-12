@@ -11,6 +11,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html}
  */
 export type LogsSubscriptionFilterProperties = {
+  ApplyOnTransformedLogs?: boolean;
   /**
    * The Amazon Resource Name (ARN) of the destination.
    */

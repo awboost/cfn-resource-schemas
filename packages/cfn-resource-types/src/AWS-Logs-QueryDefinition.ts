@@ -17,6 +17,10 @@ export type LogsQueryDefinitionProperties = {
    */
   Name: string;
   /**
+   * Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+   */
+  QueryLanguage?: "CWLI" | "SQL" | "PPL";
+  /**
    * The query string to use for this definition
    * @minLength `1`
    * @maxLength `10000`

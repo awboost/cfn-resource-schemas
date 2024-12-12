@@ -42,8 +42,8 @@ export type DynamoDBTableProperties = {
      */
   GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
   /**
-     * Specifies the properties of data being imported from the S3 bucket source to the table.
-      If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+     * Specifies the properties of data being imported from the S3 bucket source to the" table.
+      If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
      */
   ImportSourceSpecification?: ImportSourceSpecification;
   /**

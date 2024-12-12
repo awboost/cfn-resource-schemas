@@ -29,6 +29,10 @@ export type RedshiftServerlessWorkgroupProperties = {
    */
   Port?: number;
   /**
+   * A property that represents the price performance target settings for the workgroup.
+   */
+  PricePerformanceTarget?: PerformanceTarget;
+  /**
    * A value that specifies whether the workgroup can be accessible from a public network.
    */
   PubliclyAccessible?: boolean;
@@ -119,6 +123,14 @@ export type RedshiftServerlessWorkgroupAttributes = {
      * @pattern `^[a-z0-9-]+$`
      */
     NamespaceName: string;
+    PricePerformanceTarget: {
+      /**
+       * @min `1`
+       * @max `100`
+       */
+      Level: number;
+      Status: PerformanceTargetStatus;
+    };
     PubliclyAccessible: boolean;
     SecurityGroupIds: string[];
     Status: WorkgroupStatus;
@@ -134,6 +146,23 @@ export type RedshiftServerlessWorkgroupAttributes = {
   };
 };
 /**
+ * Type definition for `AWS::RedshiftServerless::Workgroup.PerformanceTarget`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-performancetarget.html}
+ */
+export type PerformanceTarget = {
+  /**
+   * @min `1`
+   * @max `100`
+   */
+  Level?: number;
+  Status?: PerformanceTargetStatus;
+};
+/**
+ * Type definition for `AWS::RedshiftServerless::Workgroup.PerformanceTargetStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-performancetargetstatus.html}
+ */
+export type PerformanceTargetStatus = "ENABLED" | "DISABLED";
+/**
  * Type definition for `AWS::RedshiftServerless::Workgroup.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-tag.html}
  */
@@ -148,6 +177,13 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::RedshiftServerless::Workgroup.Workgroup`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html}
+ */
+export type Workgroup = {
+  PricePerformanceTarget?: PerformanceTarget;
 };
 /**
  * Type definition for `AWS::RedshiftServerless::Workgroup.WorkgroupStatus`.

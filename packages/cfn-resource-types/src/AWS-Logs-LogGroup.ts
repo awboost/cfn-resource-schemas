@@ -14,6 +14,7 @@ export type LogsLogGroupProperties = {
      For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      */
   DataProtectionPolicy?: Record<string, any>;
+  FieldIndexPolicies?: Record<string, any>[];
   /**
      * The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
      To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.

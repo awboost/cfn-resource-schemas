@@ -1,5 +1,5 @@
 {
-  "$hash": "278279c63f663f748e7f374c43dc0449de617b35",
+  "$hash": "e507b3eb9b5c8d64710d8439eebda104ce44b29a",
   "$id": "aws-connect-tasktemplate.json",
   "additionalProperties": false,
   "definitions": {
@@ -238,6 +238,11 @@
       "description": "The name of the task template.",
       "maxLength": 100,
       "minLength": 1,
+      "type": "string"
+    },
+    "SelfAssignContactFlowArn": {
+      "description": "The identifier of the contact flow.",
+      "pattern": "^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/contact-flow/[-a-zA-Z0-9]*$",
       "type": "string"
     },
     "Status": { "$ref": "#/definitions/Status" },

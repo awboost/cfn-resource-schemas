@@ -29,6 +29,7 @@ export type ECSTaskDefinitionProperties = {
      This option requires Linux platform ``1.4.0`` or later.
      */
   Cpu?: string;
+  EnableFaultInjection?: boolean;
   /**
    * The ephemeral storage settings to use for tasks run with the task definition.
    */

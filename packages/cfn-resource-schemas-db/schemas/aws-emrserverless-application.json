@@ -1,5 +1,5 @@
 {
-  "$hash": "7f797ba8f193480fe7b14dc523eff0033706b884",
+  "$hash": "58dbe4fee62c3c3a3e4d9341a5504169df768d64",
   "$id": "aws-emrserverless-application.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -14,7 +14,8 @@
     "/properties/ImageConfiguration",
     "/properties/MonitoringConfiguration",
     "/properties/RuntimeConfiguration",
-    "/properties/InteractiveConfiguration"
+    "/properties/InteractiveConfiguration",
+    "/properties/SchedulerConfiguration"
   ],
   "createOnlyProperties": ["/properties/Name", "/properties/Type"],
   "definitions": {
@@ -343,6 +344,21 @@
         "LogUri": { "$ref": "#/definitions/UriString" }
       }
     },
+    "SchedulerConfiguration": {
+      "additionalProperties": false,
+      "description": "The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.",
+      "properties": {
+        "MaxConcurrentRuns": {
+          "description": "The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.",
+          "type": "integer"
+        },
+        "QueueTimeoutMinutes": {
+          "description": "The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "SecurityGroupId": {
       "description": "Identifier of a security group",
       "maxLength": 32,
@@ -585,6 +601,10 @@
       "type": "string"
     },
     "RuntimeConfiguration": { "$ref": "#/definitions/ConfigurationList" },
+    "SchedulerConfiguration": {
+      "$ref": "#/definitions/SchedulerConfiguration",
+      "description": "The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above."
+    },
     "Tags": {
       "description": "Tag map with key and value",
       "insertionOrder": false,
@@ -603,6 +623,12 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "emr-serverless:TagResource",
+      "emr-serverless:UntagResource",
+      "kms:TagResource",
+      "kms:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

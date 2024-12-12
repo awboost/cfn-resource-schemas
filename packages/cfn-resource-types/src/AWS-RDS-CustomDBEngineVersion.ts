@@ -1,18 +1,19 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
+ * Resource type definition for `AWS::RDS::CustomDBEngineVersion`.
+ * Creates a custom DB engine version (CEV).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html}
  */
 export type RDSCustomDBEngineVersionProperties = {
   /**
-   * The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
+   * The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
    * @minLength `3`
    * @maxLength `63`
    */
   DatabaseInstallationFilesS3BucketName?: string;
   /**
-   * The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
+   * The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
    * @minLength `1`
    * @maxLength `255`
    */
@@ -24,47 +25,57 @@ export type RDSCustomDBEngineVersionProperties = {
    */
   Description?: string;
   /**
-   * The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
-   * @minLength `1`
-   * @maxLength `35`
-   */
+     * The database engine to use for your custom engine version (CEV).
+     Valid values:
+      +   ``custom-oracle-ee``
+      +   ``custom-oracle-ee-cdb``
+     * @minLength `1`
+     * @maxLength `35`
+     */
   Engine: string;
   /**
-   * The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+   * The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+   *Constraints:* Minimum length is 1. Maximum length is 60.
+   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
    * @minLength `1`
    * @maxLength `60`
    */
   EngineVersion: string;
   /**
-   * The identifier of Amazon Machine Image (AMI) used for CEV.
+   * A value that indicates the ID of the AMI.
    */
   ImageId?: string;
   /**
-   * The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
-   * @minLength `1`
-   * @maxLength `2048`
-   */
+     * The AWS KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
+     If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *Key Management Service Developer Guide*.
+     You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.
+     * @minLength `1`
+     * @maxLength `2048`
+     */
   KMSKeyId?: string;
   /**
-   * The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
-   * @minLength `1`
-   * @maxLength `51000`
-   */
+     * The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
+     The following JSON fields are valid:
+      + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.
+     For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
+     * @minLength `1`
+     * @maxLength `51000`
+     */
   Manifest?: string;
   /**
-   * The identifier of the source custom engine version.
+   * The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either ``Source`` or ``UseAwsProvidedLatestImage``. You can't specify a different JSON manifest when you specify ``SourceCustomDbEngineVersionIdentifier``.
    */
   SourceCustomDbEngineVersionIdentifier?: string;
   /**
-   * The availability status to be assigned to the CEV.
+   * A value that indicates the status of a custom engine version (CEV).
    */
   Status?: "available" | "inactive" | "inactive-except-restore";
   /**
-   * An array of key-value pairs to apply to this resource.
+   * A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
    */
   Tags?: Tag[];
   /**
-   * A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+   * Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify ``UseAwsProvidedLatestImage``, you can't also specify ``ImageId``.
    */
   UseAwsProvidedLatestImage?: boolean;
 };
@@ -73,32 +84,31 @@ export type RDSCustomDBEngineVersionProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html#aws-resource-rds-customdbengineversion-return-values}
  */
 export type RDSCustomDBEngineVersionAttributes = {
-  /**
-   * The ARN of the custom engine version.
-   */
   DBEngineVersionArn: string;
 };
 /**
  * Type definition for `AWS::RDS::CustomDBEngineVersion.Tag`.
- * A key-value pair to associate with a resource.
+ * Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
+ For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-customdbengineversion-tag.html}
  */
 export type Tag = {
   /**
-   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * A key is the required name of the tag. The string value can be from 1 to 128 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
    * @minLength `1`
    * @maxLength `128`
    */
   Key: string;
   /**
-   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * A value is the optional value of the tag. The string value can be from 1 to 256 Unicode characters in length and can't be prefixed with ``aws:`` or ``rds:``. The string can only contain only the set of Unicode letters, digits, white-space, '_', '.', ':', '/', '=', '+', '-', '@' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$").
    * @minLength `0`
    * @maxLength `256`
    */
   Value?: string;
 };
 /**
- * The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
+ * Resource type definition for `AWS::RDS::CustomDBEngineVersion`.
+ * Creates a custom DB engine version (CEV).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html}
  */
 export class RDSCustomDBEngineVersion extends $Resource<

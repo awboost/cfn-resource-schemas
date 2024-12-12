@@ -172,6 +172,30 @@ export type AnalysisRuleList = {
   ListColumns: string[];
 };
 /**
+ * Type definition for `AWS::CleanRooms::ConfiguredTable.AthenaTableReference`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html}
+ */
+export type AthenaTableReference = {
+  /**
+   * @maxLength `128`
+   */
+  DatabaseName: string;
+  /**
+   * @minLength `8`
+   * @maxLength `1024`
+   */
+  OutputLocation?: string;
+  /**
+   * @maxLength `128`
+   */
+  TableName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  WorkGroup: string;
+};
+/**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.ConfiguredTableAnalysisRulePolicy`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-configuredtableanalysisrulepolicy.html}
  */
@@ -270,12 +294,75 @@ export type ScalarFunctions =
   | "TO_TIMESTAMP"
   | "TRIM";
 /**
+ * Type definition for `AWS::CleanRooms::ConfiguredTable.SnowflakeTableReference`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketablereference.html}
+ */
+export type SnowflakeTableReference = {
+  /**
+   * @minLength `3`
+   * @maxLength `256`
+   */
+  AccountIdentifier: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  DatabaseName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  SchemaName: string;
+  /**
+   * @maxLength `256`
+   */
+  SecretArn: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  TableName: string;
+  TableSchema: SnowflakeTableSchema;
+};
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTable.SnowflakeTableSchema`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketableschema.html}
+ */
+export type SnowflakeTableSchema = {
+  /**
+   * @minLength `1`
+   * @maxLength `250`
+   */
+  V1: SnowflakeTableSchemaV1[];
+};
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTable.SnowflakeTableSchemaV1`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketableschemav1.html}
+ */
+export type SnowflakeTableSchemaV1 = {
+  /**
+   * @maxLength `128`
+   */
+  ColumnName: string;
+  /**
+   * @maxLength `255`
+   */
+  ColumnType: string;
+};
+/**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.TableReference`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html}
  */
-export type TableReference = {
-  Glue: GlueTableReference;
-};
+export type TableReference =
+  | {
+      Glue: GlueTableReference;
+    }
+  | {
+      Snowflake: SnowflakeTableReference;
+    }
+  | {
+      Athena: AthenaTableReference;
+    };
 /**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tag.html}

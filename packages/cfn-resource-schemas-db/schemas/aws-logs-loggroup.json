@@ -1,5 +1,5 @@
 {
-  "$hash": "c81ee97738d22f9125be6d607462dea26ec318b6",
+  "$hash": "22640fbcfda4e3cff818f57680ea83533d35331a",
   "$id": "aws-logs-loggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupName"],
@@ -39,7 +39,9 @@
         "s3:REST.PUT.OBJECT",
         "firehose:TagDeliveryStream",
         "logs:PutResourcePolicy",
-        "logs:DescribeResourcePolicies"
+        "logs:DescribeResourcePolicies",
+        "logs:PutIndexPolicy",
+        "logs:DescribeIndexPolicies"
       ]
     },
     "delete": {
@@ -64,7 +66,8 @@
       "permissions": [
         "logs:DescribeLogGroups",
         "logs:ListTagsForResource",
-        "logs:GetDataProtectionPolicy"
+        "logs:GetDataProtectionPolicy",
+        "logs:DescribeIndexPolicies"
       ]
     },
     "update": {
@@ -80,7 +83,9 @@
         "logs:PutDataProtectionPolicy",
         "logs:CreateLogDelivery",
         "s3:REST.PUT.OBJECT",
-        "firehose:TagDeliveryStream"
+        "firehose:TagDeliveryStream",
+        "logs:PutIndexPolicy",
+        "logs:DeleteIndexPolicy"
       ]
     }
   },
@@ -90,6 +95,16 @@
     "DataProtectionPolicy": {
       "description": "Creates a data protection policy and assigns it to the log group. A data protection policy can help safeguard sensitive data that's ingested by the log group by auditing and masking the sensitive log data. When a user who does not have permission to view masked data views a log event that includes masked data, the sensitive data is replaced by asterisks.\n For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).",
       "type": "object"
+    },
+    "FieldIndexPolicies": {
+      "description": "",
+      "insertionOrder": false,
+      "items": {
+        "description": "Index policy for log group in JSON format",
+        "type": "object"
+      },
+      "type": "array",
+      "uniqueItems": true
     },
     "KmsKeyId": {
       "description": "The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.\n To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.\n If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an ``InvalidParameterException`` error.\n Log group data is always encrypted in CWL. If you omit this key, the encryption does not use KMS. For more information, see [Encrypt log data in using](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html)",
