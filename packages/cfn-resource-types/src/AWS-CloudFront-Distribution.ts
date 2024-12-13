@@ -82,6 +82,7 @@ export type CacheBehavior = {
    * A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
    */
   FunctionAssociations?: FunctionAssociation[];
+  GrpcConfig?: GrpcConfig;
   /**
    * A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
    */
@@ -301,6 +302,7 @@ export type DefaultCacheBehavior = {
    * A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
    */
   FunctionAssociations?: FunctionAssociation[];
+  GrpcConfig?: GrpcConfig;
   /**
    * A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
    */
@@ -555,6 +557,13 @@ export type GeoRestriction = {
   RestrictionType: string;
 };
 /**
+ * Type definition for `AWS::CloudFront::Distribution.GrpcConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-grpcconfig.html}
+ */
+export type GrpcConfig = {
+  Enabled: boolean;
+};
+/**
  * Type definition for `AWS::CloudFront::Distribution.LambdaFunctionAssociation`.
  * A complex type that contains a Lambda@Edge function association.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html}
@@ -633,7 +642,7 @@ export type Logging = {
   /**
    * The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
    */
-  Bucket: string;
+  Bucket?: string;
   /**
    * Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
    */
@@ -743,6 +752,7 @@ export type OriginGroup = {
    * A complex type that contains information about the origins in an origin group.
    */
   Members: OriginGroupMembers;
+  SelectionCriteria?: OriginGroupSelectionCriteria;
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.OriginGroupFailoverCriteria`.
@@ -796,6 +806,11 @@ export type OriginGroups = {
    */
   Quantity: number;
 };
+/**
+ * Type definition for `AWS::CloudFront::Distribution.OriginGroupSelectionCriteria`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupselectioncriteria.html}
+ */
+export type OriginGroupSelectionCriteria = "default" | "media-quality-based";
 /**
  * Type definition for `AWS::CloudFront::Distribution.OriginShield`.
  * CloudFront Origin Shield.

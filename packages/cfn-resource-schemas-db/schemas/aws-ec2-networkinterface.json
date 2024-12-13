@@ -1,5 +1,5 @@
 {
-  "$hash": "55bcdcffbbbc37e3cc5003300339df6ebe937ded",
+  "$hash": "2ee5915bc52ae3029b9608a0a4933605004c5dd9",
   "$id": "aws-ec2-networkinterface.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -67,7 +67,8 @@
         "ec2:CreateNetworkInterface",
         "ec2:DescribeNetworkInterfaces",
         "ec2:CreateTags",
-        "ec2:ModifyNetworkInterfaceAttribute"
+        "ec2:ModifyNetworkInterfaceAttribute",
+        "ec2:ModifyPublicIpDnsNameOptions"
       ]
     },
     "delete": {
@@ -87,7 +88,8 @@
         "ec2:DeleteTags",
         "ec2:CreateTags",
         "ec2:UnassignPrivateIpAddresses",
-        "ec2:AssignPrivateIpAddresses"
+        "ec2:AssignPrivateIpAddresses",
+        "ec2:ModifyPublicIpDnsNameOptions"
       ]
     }
   },

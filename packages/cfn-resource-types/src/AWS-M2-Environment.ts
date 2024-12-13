@@ -40,6 +40,7 @@ export type M2EnvironmentProperties = {
    * @pattern `^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$`
    */
   Name: string;
+  NetworkType?: NetworkType;
   /**
    * Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
    * @pattern `^\S{1,50}$`
@@ -134,6 +135,11 @@ export type HighAvailabilityConfig = {
    */
   DesiredCapacity: number;
 };
+/**
+ * Type definition for `AWS::M2::Environment.NetworkType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-environment-networktype.html}
+ */
+export type NetworkType = "ipv4" | "dual";
 /**
  * Type definition for `AWS::M2::Environment.StorageConfiguration`.
  * Defines the storage configuration for an environment.

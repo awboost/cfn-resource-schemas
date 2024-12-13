@@ -2,16 +2,16 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Connect::Rule`.
- * Resource Type definition for AWS:Connect::Rule
+ * Creates a rule for the specified CON instance.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html}
  */
 export type ConnectRuleProperties = {
   /**
-   * The list of actions that will be executed when a rule is triggered.
+   * A list of actions to be run when the rule is triggered.
    */
   Actions: Actions;
   /**
-   * The conditions of a rule.
+   * The conditions of the rule.
    */
   Function: string;
   /**
@@ -25,16 +25,17 @@ export type ConnectRuleProperties = {
    */
   Name: string;
   /**
-   * The publish status of a rule, either draft or published.
+   * The publish status of the rule.
+   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
    */
   PublishStatus: "DRAFT" | "PUBLISHED";
   /**
-   * One or more tags.
+   * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
    * @maxLength `50`
    */
   Tags?: Tag[];
   /**
-   * The event source that triggers the rule.
+   * The event source to trigger the rule.
    */
   TriggerEventSource: RuleTriggerEventSource;
 };
@@ -44,19 +45,18 @@ export type ConnectRuleProperties = {
  */
 export type ConnectRuleAttributes = {
   /**
-   * The Amazon Resource Name (ARN) of the rule.
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*rule/[-a-zA-Z0-9]*$`
    */
   RuleArn: string;
 };
 /**
  * Type definition for `AWS::Connect::Rule.Actions`.
- * The list of actions that will be executed when a rule is triggered.
+ * A list of actions to be run when the rule is triggered.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html}
  */
 export type Actions = {
   /**
-   * This action will assign contact category when a rule is triggered.
+   * Information about the contact category action. The syntax can be empty, for example, ``{}``.
    * @minLength `1`
    * @maxLength `1`
    */
@@ -74,13 +74,13 @@ export type Actions = {
    */
   EndAssociatedTasksActions?: EndAssociatedTasksAction[];
   /**
-   * This action will send event bridge notification when a rule is triggered.
+   * Information about the EV action.
    * @minLength `1`
    * @maxLength `1`
    */
   EventBridgeActions?: EventBridgeAction[];
   /**
-   * The action will send notification when a rule is triggered.
+   * Information about the send notification action.
    * @minLength `1`
    * @maxLength `1`
    */
@@ -92,7 +92,7 @@ export type Actions = {
    */
   SubmitAutoEvaluationActions?: SubmitAutoEvaluationAction[];
   /**
-   * This action will generate a task when a rule is triggered.
+   * Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
    * @minLength `1`
    * @maxLength `1`
    */
@@ -112,7 +112,6 @@ export type Actions = {
 export type AssignContactCategoryAction = Record<string, any>;
 /**
  * Type definition for `AWS::Connect::Rule.CreateCaseAction`.
- * The definition for create case action.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html}
  */
 export type CreateCaseAction = {
@@ -123,7 +122,6 @@ export type CreateCaseAction = {
    */
   Fields: Field[];
   /**
-   * The Id of template.
    * @minLength `1`
    * @maxLength `500`
    */
@@ -137,36 +135,34 @@ export type CreateCaseAction = {
 export type EndAssociatedTasksAction = Record<string, any>;
 /**
  * Type definition for `AWS::Connect::Rule.EventBridgeAction`.
- * The definition for event bridge action.
+ * The EV action definition.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html}
  */
 export type EventBridgeAction = {
   /**
-   * The name of the event bridge action.
+   * The name.
    * @pattern `^[a-zA-Z0-9._-]{1,100}$`
    */
   Name: string;
 };
 /**
  * Type definition for `AWS::Connect::Rule.Field`.
- * The field of the case.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-field.html}
  */
 export type Field = {
   /**
-   * The Id of the field
    * @minLength `1`
    * @maxLength `500`
    */
   Id: string;
   /**
-   * The value of the field.
+   * Object for case field values.
    */
   Value: FieldValue;
 };
 /**
  * Type definition for `AWS::Connect::Rule.FieldValue`.
- * The value of the field.
+ * Object for case field values.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html}
  */
 export type FieldValue = {
@@ -182,36 +178,41 @@ export type FieldValue = {
  */
 export type NotificationRecipientType = {
   /**
-   * The list of recipients by user arns.
+   * The Amazon Resource Name (ARN) of the user account.
    * @minLength `1`
    * @maxLength `5`
    */
   UserArns?: string[];
   /**
-   * The collection of recipients who are identified by user tags
+   * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
    */
   UserTags?: Record<string, string>;
 };
 /**
  * Type definition for `AWS::Connect::Rule.Reference`.
- * A contact reference.
+ * Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-reference.html}
  */
 export type Reference = {
+  /**
+   * The type of the reference. ``DATE`` must be of type Epoch timestamp.
+   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+   */
   Type: "URL" | "ATTACHMENT" | "NUMBER" | "STRING" | "DATE" | "EMAIL";
   /**
+   * A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
    * @pattern `^(/|https:)`
    */
   Value: string;
 };
 /**
  * Type definition for `AWS::Connect::Rule.RuleTriggerEventSource`.
- * The event source that will trigger the rule.
+ * The name of the event source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-ruletriggereventsource.html}
  */
 export type RuleTriggerEventSource = {
   /**
-   * The name of event source.
+   * The name of the event source.
    */
   EventSourceName:
     | "OnContactEvaluationSubmit"
@@ -226,37 +227,39 @@ export type RuleTriggerEventSource = {
     | "OnCaseCreate"
     | "OnCaseUpdate";
   /**
-   * The Amazon Resource Name (ARN) for the AppIntegration association.
+   * The Amazon Resource Name (ARN) of the integration association. ``IntegrationAssociationArn`` is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
    * @pattern `^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*integration-association/[-a-zA-Z0-9]*$`
    */
   IntegrationAssociationArn?: string;
 };
 /**
  * Type definition for `AWS::Connect::Rule.SendNotificationAction`.
- * The definition for sending notification action.
+ * Information about the send notification action.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html}
  */
 export type SendNotificationAction = {
   /**
-   * The content of notification.
+   * Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
    * @minLength `1`
    * @maxLength `1024`
    */
   Content: string;
   /**
-   * The type of content.
+   * Content type format.
+   *Allowed value*: ``PLAIN_TEXT``
    */
   ContentType: "PLAIN_TEXT";
   /**
-   * The means of delivery.
+   * Notification delivery method.
+   *Allowed value*: ``EMAIL``
    */
   DeliveryMethod: "EMAIL";
   /**
-   * The type of notification recipient.
+   * Notification recipient.
    */
   Recipient: NotificationRecipientType;
   /**
-   * The subject of notification.
+   * The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
    * @minLength `1`
    * @maxLength `200`
    */
@@ -264,12 +267,10 @@ export type SendNotificationAction = {
 };
 /**
  * Type definition for `AWS::Connect::Rule.SubmitAutoEvaluationAction`.
- * The definition of submit auto evaluation action.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-submitautoevaluationaction.html}
  */
 export type SubmitAutoEvaluationAction = {
   /**
-   * The Amazon Resource Name (ARN) of the evaluation form.
    * @pattern `^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*evaluation-form/[-a-zA-Z0-9]*$`
    */
   EvaluationFormArn: string;
@@ -281,49 +282,48 @@ export type SubmitAutoEvaluationAction = {
  */
 export type Tag = {
   /**
-   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^(?!aws:)[a-zA-Z+-=._:/]+$`
    */
   Key: string;
   /**
-   * The value for the tag. You can specify a value that's 1 to 256 characters in length.
+   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
    * @maxLength `256`
    */
   Value: string;
 };
 /**
  * Type definition for `AWS::Connect::Rule.TaskAction`.
- * The definition of task action.
+ * Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-taskaction.html}
  */
 export type TaskAction = {
   /**
-   * The Amazon Resource Name (ARN) of the contact flow.
+   * The Amazon Resource Name (ARN) of the flow.
    * @pattern `^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*contact-flow/[-a-zA-Z0-9]*$`
    */
   ContactFlowArn: string;
   /**
-   * The description which appears in the agent's Contact Control Panel (CCP).
+   * The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
    * @minLength `0`
    * @maxLength `4096`
    */
   Description?: string;
   /**
-   * The name which appears in the agent's Contact Control Panel (CCP).
+   * The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
    * @minLength `1`
    * @maxLength `512`
    */
   Name: string;
   /**
-   * A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+   * Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. ``URL`` is the only accepted type. (Supports variable injection in the ``Value`` field.)
    */
   References?: Record<string, Reference>;
 };
 /**
  * Type definition for `AWS::Connect::Rule.UpdateCaseAction`.
- * The definition for update case action.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-updatecaseaction.html}
  */
 export type UpdateCaseAction = {
@@ -336,7 +336,7 @@ export type UpdateCaseAction = {
 };
 /**
  * Resource type definition for `AWS::Connect::Rule`.
- * Resource Type definition for AWS:Connect::Rule
+ * Creates a rule for the specified CON instance.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html}
  */
 export class ConnectRule extends $Resource<

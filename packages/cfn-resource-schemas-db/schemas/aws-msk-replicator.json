@@ -1,5 +1,5 @@
 {
-  "$hash": "a692c5543f3b7f5b4c6098e0484d4bcd8d43cf73",
+  "$hash": "17f5f93fc8f08b81147c649a11a76a4e1ac517dd",
   "$id": "aws-msk-replicator.json",
   "additionalIdentifiers": [["/properties/ReplicatorName"]],
   "additionalProperties": false,
@@ -7,7 +7,12 @@
     "/properties/ReplicatorName",
     "/properties/Description",
     "/properties/KafkaClusters",
-    "/properties/ServiceExecutionRoleArn"
+    "/properties/ServiceExecutionRoleArn",
+    "/properties/ReplicationInfoList/*/SourceKafkaClusterArn",
+    "/properties/ReplicationInfoList/*/TargetKafkaClusterArn",
+    "/properties/ReplicationInfoList/*/TargetCompressionType",
+    "/properties/ReplicationInfoList/*/TopicReplication/StartingPosition",
+    "/properties/ReplicationInfoList/*/TopicReplication/TopicNameConfiguration"
   ],
   "definitions": {
     "AmazonMskCluster": {

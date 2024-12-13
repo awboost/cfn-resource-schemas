@@ -1,74 +1,76 @@
-- added `AWS::IoT::Command`
-- added `AWS::Logs::Transformer`
-- added `AWS::NetworkManager::DirectConnectGatewayAttachment`
-- updated `AWS::ApplicationAutoScaling::ScalingPolicy`
-  - updated definition `PredictiveScalingCustomizedCapacityMetric`
-  - updated definition `PredictiveScalingCustomizedLoadMetric`
-  - updated definition `PredictiveScalingCustomizedScalingMetric`
-  - updated definition `PredictiveScalingMetricDataQuery`
-  - updated definition `PredictiveScalingMetricDimension`
-  - updated definition `PredictiveScalingMetricSpecification`
-  - updated definition `PredictiveScalingMetricStat`
-  - updated definition `PredictiveScalingMetric`
-  - updated definition `PredictiveScalingPolicyConfiguration`
-  - updated definition `PredictiveScalingPredefinedLoadMetric`
-  - updated definition `PredictiveScalingPredefinedMetricPair`
-  - updated definition `PredictiveScalingPredefinedScalingMetric`
-  - updated property `PredictiveScalingPolicyConfiguration`
-- updated `AWS::CleanRooms::ConfiguredTable`
-  - added definition `AthenaTableReference`
-  - added definition `SnowflakeTableReference`
-  - added definition `SnowflakeTableSchemaV1`
-  - added definition `SnowflakeTableSchema`
-  - updated definition `TableReference`
+- updated `AWS::Backup::BackupSelection`
   - updated handler permissions
-- updated `AWS::CleanRooms::ConfiguredTableAssociation`
-  - updated property `Arn`
-- updated `AWS::Connect::TaskTemplate`
-  - added property `SelfAssignContactFlowArn`
-- updated `AWS::DynamoDB::Table`
-  - updated property `ImportSourceSpecification`
-- updated `AWS::ECS::TaskDefinition`
-  - added property `EnableFaultInjection`
-  - updated `createOnlyProperties`
-- updated `AWS::EMRServerless::Application`
-  - added definition `SchedulerConfiguration`
-  - added property `SchedulerConfiguration`
-  - updated `conditionalCreateOnlyProperties`
+- updated `AWS::Backup::RestoreTestingSelection`
+  - updated handler permissions
+- updated `AWS::CloudFront::Distribution`
+  - added definition `GrpcConfig`
+  - added definition `OriginGroupSelectionCriteria`
+  - updated definition `CacheBehavior`
+  - updated definition `DefaultCacheBehavior`
+  - updated definition `Logging`
+  - updated definition `OriginGroup`
+- updated `AWS::CodeDeploy::Application`
   - updated `tagging`
-- updated `AWS::Logs::LogGroup`
-  - added property `FieldIndexPolicies`
-  - updated handler permissions
-- updated `AWS::Logs::MetricFilter`
-  - added property `ApplyOnTransformedLogs`
-- updated `AWS::Logs::QueryDefinition`
-  - added property `QueryLanguage`
-- updated `AWS::Logs::SubscriptionFilter`
-  - added property `ApplyOnTransformedLogs`
-- updated `AWS::NetworkManager::TransitGatewayPeering`
-  - updated handler permissions
-- updated `AWS::RDS::CustomDBEngineVersion`
-  - updated `propertyTransform`
-  - updated `tagging`
+- updated `AWS::Connect::Rule`
+  - updated definition `Actions`
+  - updated definition `CreateCaseAction`
+  - updated definition `EventBridgeAction`
+  - updated definition `FieldValue`
+  - updated definition `Field`
+  - updated definition `NotificationRecipientType`
+  - updated definition `Reference`
+  - updated definition `RuleTriggerEventSource`
+  - updated definition `SendNotificationAction`
+  - updated definition `SubmitAutoEvaluationAction`
   - updated definition `Tag`
-  - updated property `DBEngineVersionArn`
-  - updated property `DatabaseInstallationFilesS3BucketName`
-  - updated property `DatabaseInstallationFilesS3Prefix`
-  - updated property `EngineVersion`
-  - updated property `Engine`
-  - updated property `ImageId`
-  - updated property `KMSKeyId`
-  - updated property `Manifest`
-  - updated property `SourceCustomDbEngineVersionIdentifier`
-  - updated property `Status`
+  - updated definition `TaskAction`
+  - updated definition `UpdateCaseAction`
+  - updated property `Actions`
+  - updated property `Function`
+  - updated property `PublishStatus`
+  - updated property `RuleArn`
   - updated property `Tags`
-  - updated property `UseAwsProvidedLatestImage`
-- updated `AWS::RedshiftServerless::Workgroup`
-  - added definition `PerformanceTargetStatus`
-  - added definition `PerformanceTarget`
-  - added property `PricePerformanceTarget`
-  - updated definition `Workgroup`
-- updated `AWS::WorkSpaces::WorkspacesPool`
-  - removed `writeOnlyProperties`
-  - updated `deprecatedProperties`
+  - updated property `TriggerEventSource`
+- updated `AWS::ConnectCampaignsV2::Campaign`
+  - added definition `EventTrigger`
+  - updated definition `Source`
+- updated `AWS::EC2::CustomerGateway`
+  - updated property `CertificateArn`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `LaunchTemplateData`
+- updated `AWS::EC2::NetworkInterface`
   - updated handler permissions
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `ContainerDefinition`
+- updated `AWS::HealthLake::FHIRDatastore`
+  - updated definition `IdentityProviderConfiguration`
+  - updated definition `SseConfiguration`
+- updated `AWS::M2::Environment`
+  - added definition `NetworkType`
+  - added property `NetworkType`
+  - updated `createOnlyProperties`
+- updated `AWS::MSK::Replicator`
+  - updated `createOnlyProperties`
+- updated `AWS::Organizations::Policy`
+  - updated property `Type`
+- updated `AWS::RAM::ResourceShare`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `Tag`
+  - updated handler permissions
+  - updated property `AllowExternalPrincipals`
+  - updated property `Name`
+  - updated property `PermissionArns`
+  - updated property `Principals`
+  - updated property `ResourceArns`
+  - updated property `Sources`
+  - updated property `Tags`
+- updated `AWS::S3Express::DirectoryBucket`
+  - updated property `AvailabilityZoneName`
+  - updated property `BucketName`
+  - updated property `DataRedundancy`
+  - updated property `LocationName`

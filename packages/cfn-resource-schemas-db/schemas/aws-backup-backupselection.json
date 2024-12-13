@@ -1,5 +1,5 @@
 {
-  "$hash": "61b1a99d9fb056367244e8d75846ad4ef22e291c",
+  "$hash": "11e9bfe6b0eb042c7bf33c8b5e31f9403fa4d81f",
   "$id": "aws-backup-backupselection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -99,7 +99,9 @@
         "backup:DeleteBackupSelection"
       ]
     },
-    "list": { "permissions": ["backup:ListBackupSelections"] },
+    "list": {
+      "permissions": ["backup:ListBackupSelections", "backup:ListBackupPlans"]
+    },
     "read": { "permissions": ["backup:GetBackupSelection"] }
   },
   "primaryIdentifier": ["/properties/Id"],

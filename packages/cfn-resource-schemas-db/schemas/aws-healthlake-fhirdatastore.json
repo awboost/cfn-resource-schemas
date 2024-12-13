@@ -1,5 +1,5 @@
 {
-  "$hash": "063c3b216f10aa89a03b6cf481cacfc8306b47f4",
+  "$hash": "50a8bf99a25fb2d1f8c3303f5c37650b26b11f4d",
   "$id": "aws-healthlake-fhirdatastore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -54,6 +54,10 @@
     },
     "IdentityProviderConfiguration": {
       "additionalProperties": false,
+      "default": {
+        "AuthorizationStrategy": "AWS_AUTH",
+        "FineGrainedAuthorizationEnabled": false
+      },
       "description": "The identity provider configuration for the datastore",
       "properties": {
         "AuthorizationStrategy": {
@@ -115,6 +119,7 @@
     },
     "SseConfiguration": {
       "additionalProperties": false,
+      "default": { "KmsEncryptionConfig": { "CmkType": "AWS_OWNED_KMS_KEY" } },
       "description": "The server-side encryption key configuration for a customer provided encryption key.",
       "properties": {
         "KmsEncryptionConfig": { "$ref": "#/definitions/KmsEncryptionConfig" }

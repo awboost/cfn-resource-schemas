@@ -1,5 +1,5 @@
 {
-  "$hash": "e886ac86f4034ae333cbe5ba6fa65a465a0c6056",
+  "$hash": "d76406b4f67dd17efb5ff7acb292057f532ce750",
   "$id": "aws-codedeploy-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -60,6 +60,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["codedeploy:TagResource", "codedeploy:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

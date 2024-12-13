@@ -1,5 +1,5 @@
 {
-  "$hash": "e2051607758896dfb3c8f810229dce3f736d225b",
+  "$hash": "a3c4bb53e2e414b474dcdc3c4d9eba2d5c573ba4",
   "$id": "aws-connectcampaignsv2-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceId"],
@@ -193,6 +193,14 @@
       },
       "type": "object"
     },
+    "EventTrigger": {
+      "additionalProperties": false,
+      "description": "The event trigger of the campaign",
+      "properties": {
+        "CustomerProfilesDomainArn": { "$ref": "#/definitions/Arn" }
+      },
+      "type": "object"
+    },
     "InstanceId": {
       "description": "Amazon Connect Instance Id",
       "maxLength": 256,
@@ -341,10 +349,14 @@
     },
     "Source": {
       "additionalProperties": false,
-      "description": "The possible types of channel config parameters",
-      "oneOf": [{ "required": ["CustomerProfilesSegmentArn"] }],
+      "description": "The possible source of the campaign",
+      "oneOf": [
+        { "required": ["CustomerProfilesSegmentArn"] },
+        { "required": ["EventTrigger"] }
+      ],
       "properties": {
-        "CustomerProfilesSegmentArn": { "$ref": "#/definitions/Arn" }
+        "CustomerProfilesSegmentArn": { "$ref": "#/definitions/Arn" },
+        "EventTrigger": { "$ref": "#/definitions/EventTrigger" }
       },
       "type": "object"
     },

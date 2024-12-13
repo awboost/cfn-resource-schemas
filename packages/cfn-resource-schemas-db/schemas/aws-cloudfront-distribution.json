@@ -1,5 +1,5 @@
 {
-  "$hash": "bcf55d20cb02f2f7f278cd87637969374f610d7e",
+  "$hash": "64f095560ef9ecfed8e261f60000fd86ea97370f",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -50,6 +50,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "GrpcConfig": { "$ref": "#/definitions/GrpcConfig", "description": "" },
         "LambdaFunctionAssociations": {
           "description": "A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.",
           "items": { "$ref": "#/definitions/LambdaFunctionAssociation" },
@@ -241,6 +242,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "GrpcConfig": { "$ref": "#/definitions/GrpcConfig", "description": "" },
         "LambdaFunctionAssociations": {
           "description": "A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.",
           "items": { "$ref": "#/definitions/LambdaFunctionAssociation" },
@@ -473,6 +475,13 @@
       "required": ["RestrictionType"],
       "type": "object"
     },
+    "GrpcConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": { "Enabled": { "type": "boolean" } },
+      "required": ["Enabled"],
+      "type": "object"
+    },
     "LambdaFunctionAssociation": {
       "additionalProperties": false,
       "description": "A complex type that contains a Lambda@Edge function association.",
@@ -560,7 +569,6 @@
           "type": "string"
         }
       },
-      "required": ["Bucket"],
       "type": "object"
     },
     "Origin": {
@@ -642,6 +650,10 @@
         "Members": {
           "$ref": "#/definitions/OriginGroupMembers",
           "description": "A complex type that contains information about the origins in an origin group."
+        },
+        "SelectionCriteria": {
+          "$ref": "#/definitions/OriginGroupSelectionCriteria",
+          "description": ""
         }
       },
       "required": ["Id", "FailoverCriteria", "Members"],
@@ -688,6 +700,10 @@
       },
       "required": ["Quantity", "Items"],
       "type": "object"
+    },
+    "OriginGroupSelectionCriteria": {
+      "enum": ["default", "media-quality-based"],
+      "type": "string"
     },
     "OriginGroups": {
       "additionalProperties": false,

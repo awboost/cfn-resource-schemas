@@ -42,7 +42,7 @@ export type ConnectCampaignsV2CampaignProperties = {
    */
   Schedule?: Schedule;
   /**
-   * The possible types of channel config parameters
+   * The possible source of the campaign
    */
   Source?: Source;
   /**
@@ -262,6 +262,20 @@ export type EmailOutboundMode = {
   AgentlessConfig?: AgentlessConfig;
 };
 /**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.EventTrigger`.
+ * The event trigger of the campaign
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-eventtrigger.html}
+ */
+export type EventTrigger = {
+  /**
+   * Arn
+   * @minLength `20`
+   * @maxLength `500`
+   * @pattern `^arn:.*$`
+   */
+  CustomerProfilesDomainArn?: string;
+};
+/**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.LocalTimeZoneConfig`.
  * Local time zone config
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-localtimezoneconfig.html}
@@ -431,7 +445,7 @@ export type SmsOutboundMode = {
 };
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.Source`.
- * The possible types of channel config parameters
+ * The possible source of the campaign
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-source.html}
  */
 export type Source = {
@@ -442,6 +456,10 @@ export type Source = {
    * @pattern `^arn:.*$`
    */
   CustomerProfilesSegmentArn?: string;
+  /**
+   * The event trigger of the campaign
+   */
+  EventTrigger?: EventTrigger;
 };
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.Tag`.

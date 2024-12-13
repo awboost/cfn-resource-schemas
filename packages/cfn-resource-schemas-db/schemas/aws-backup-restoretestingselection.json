@@ -1,5 +1,5 @@
 {
-  "$hash": "4a972927b56c71ea166cdd5066a07ee5b9ef929b",
+  "$hash": "95777f79225819fd64f4d5bf9e6da6f97ce5d1e7",
   "$id": "aws-backup-restoretestingselection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -57,7 +57,10 @@
       "timeoutInMinutes": 5
     },
     "list": {
-      "permissions": ["backup:ListRestoreTestingSelections"],
+      "permissions": [
+        "backup:ListRestoreTestingSelections",
+        "backup:ListRestoreTestingPlans"
+      ],
       "timeoutInMinutes": 5
     },
     "read": {

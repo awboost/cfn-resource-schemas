@@ -1,5 +1,5 @@
 {
-  "$hash": "b9bf5560485b11a1e9c26816eb72e84c293feff2",
+  "$hash": "1c75865f1591117f9fd17c6a50cfbcc074fbaf1e",
   "$id": "aws-m2-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,6 +7,7 @@
     "/properties/EngineType",
     "/properties/KmsKeyId",
     "/properties/Name",
+    "/properties/NetworkType",
     "/properties/PubliclyAccessible",
     "/properties/SecurityGroupIds",
     "/properties/StorageConfigurations",
@@ -63,6 +64,7 @@
       "required": ["DesiredCapacity"],
       "type": "object"
     },
+    "NetworkType": { "enum": ["ipv4", "dual"], "type": "string" },
     "StorageConfiguration": {
       "description": "Defines the storage configuration for an environment.",
       "oneOf": [
@@ -185,6 +187,7 @@
       "pattern": "^[A-Za-z0-9][A-Za-z0-9_\\-]{1,59}$",
       "type": "string"
     },
+    "NetworkType": { "$ref": "#/definitions/NetworkType" },
     "PreferredMaintenanceWindow": {
       "description": "Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.",
       "pattern": "^\\S{1,50}$",

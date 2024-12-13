@@ -1,5 +1,5 @@
 {
-  "$hash": "45cc8425aaa63a72dc909800703f57f6cd8d2ee7",
+  "$hash": "5bd1ab6495f1b9a72677d2abbc356c12a7ac369a",
   "$id": "aws-ec2-customergateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -63,7 +63,7 @@
     },
     "CertificateArn": {
       "description": "The Amazon Resource Name (ARN) for the customer gateway certificate.",
-      "pattern": "^arn:(aws[a-zA-Z-]*)?:acm:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1}:\\d{12}:certificate\\/[a-zA-Z0-9-_]+$",
+      "pattern": "^arn:(aws[a-zA-Z-]*)?:acm:[a-z]{2}((-gov)|(-iso([a-z]{1})?))?-[a-z]+-\\d{1}:\\d{12}:certificate\\/[a-zA-Z0-9-_]+$",
       "type": "string"
     },
     "CustomerGatewayId": { "description": "", "type": "string" },
