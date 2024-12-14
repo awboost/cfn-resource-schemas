@@ -27,7 +27,11 @@ export type LogsAccountPolicyProperties = {
   /**
    * Type of the policy.
    */
-  PolicyType: "DATA_PROTECTION_POLICY" | "SUBSCRIPTION_FILTER_POLICY";
+  PolicyType:
+    | "DATA_PROTECTION_POLICY"
+    | "SUBSCRIPTION_FILTER_POLICY"
+    | "FIELD_INDEX_POLICY"
+    | "TRANSFORMER_POLICY";
   /**
    * Scope for policy application
    */

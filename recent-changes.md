@@ -1,76 +1,91 @@
-- updated `AWS::Backup::BackupSelection`
-  - updated handler permissions
-- updated `AWS::Backup::RestoreTestingSelection`
-  - updated handler permissions
-- updated `AWS::CloudFront::Distribution`
-  - added definition `GrpcConfig`
-  - added definition `OriginGroupSelectionCriteria`
-  - updated definition `CacheBehavior`
-  - updated definition `DefaultCacheBehavior`
-  - updated definition `Logging`
-  - updated definition `OriginGroup`
-- updated `AWS::CodeDeploy::Application`
-  - updated `tagging`
-- updated `AWS::Connect::Rule`
-  - updated definition `Actions`
-  - updated definition `CreateCaseAction`
-  - updated definition `EventBridgeAction`
-  - updated definition `FieldValue`
-  - updated definition `Field`
-  - updated definition `NotificationRecipientType`
-  - updated definition `Reference`
-  - updated definition `RuleTriggerEventSource`
-  - updated definition `SendNotificationAction`
-  - updated definition `SubmitAutoEvaluationAction`
-  - updated definition `Tag`
-  - updated definition `TaskAction`
-  - updated definition `UpdateCaseAction`
-  - updated property `Actions`
-  - updated property `Function`
-  - updated property `PublishStatus`
-  - updated property `RuleArn`
-  - updated property `Tags`
-  - updated property `TriggerEventSource`
-- updated `AWS::ConnectCampaignsV2::Campaign`
-  - added definition `EventTrigger`
-  - updated definition `Source`
-- updated `AWS::EC2::CustomerGateway`
-  - updated property `CertificateArn`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `LaunchTemplateData`
-- updated `AWS::EC2::NetworkInterface`
-  - updated handler permissions
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `ContainerDefinition`
-- updated `AWS::HealthLake::FHIRDatastore`
-  - updated definition `IdentityProviderConfiguration`
-  - updated definition `SseConfiguration`
-- updated `AWS::M2::Environment`
-  - added definition `NetworkType`
-  - added property `NetworkType`
-  - updated `createOnlyProperties`
-- updated `AWS::MSK::Replicator`
-  - updated `createOnlyProperties`
-- updated `AWS::Organizations::Policy`
-  - updated property `Type`
-- updated `AWS::RAM::ResourceShare`
+- updated `AWS::Batch::JobDefinition`
   - added `sourceUrl`
   - added `tagging`
-  - added `writeOnlyProperties`
+  - added definition `EFSAuthorizationConfig`
+  - added definition `EFSVolumeConfiguration`
+  - added definition `EksMetadata`
+  - added definition `EksPodProperties`
+  - added definition `Host`
+  - added definition `JobTimeout`
+  - added definition `MountPoint`
+  - added definition `MultiNodeContainerProperties`
+  - added definition `MultiNodeEcsProperties`
+  - added definition `MultiNodeEcsTaskProperties`
+  - added definition `Volume`
+  - removed `readOnlyProperties`
+  - removed definition `AuthorizationConfig`
+  - removed definition `EfsVolumeConfiguration`
+  - removed definition `FargatePlatformConfiguration`
+  - removed definition `Metadata`
+  - removed definition `MountPoints`
+  - removed definition `PodProperties`
+  - removed definition `Timeout`
+  - removed definition `VolumesHost`
+  - removed definition `Volumes`
   - removed property `Id`
   - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `Tag`
+  - updated definition `ContainerProperties`
+  - updated definition `Device`
+  - updated definition `EcsProperties`
+  - updated definition `EcsTaskProperties`
+  - updated definition `EksContainerResourceRequirements`
+  - updated definition `EksContainer`
+  - updated definition `EksProperties`
+  - updated definition `ImagePullSecret`
+  - updated definition `LinuxParameters`
+  - updated definition `LogConfiguration`
+  - updated definition `NodeProperties`
+  - updated definition `NodeRangeProperty`
+  - updated definition `RetryStrategy`
+  - updated definition `Secret`
+  - updated definition `TaskContainerDependency`
+  - updated definition `TaskContainerProperties`
+  - updated definition `Tmpfs`
+  - updated definition `Ulimit`
   - updated handler permissions
-  - updated property `AllowExternalPrincipals`
-  - updated property `Name`
-  - updated property `PermissionArns`
-  - updated property `Principals`
-  - updated property `ResourceArns`
-  - updated property `Sources`
+  - updated property `JobDefinitionName`
+  - updated property `Parameters`
+  - updated property `PlatformCapabilities`
   - updated property `Tags`
-- updated `AWS::S3Express::DirectoryBucket`
-  - updated property `AvailabilityZoneName`
-  - updated property `BucketName`
-  - updated property `DataRedundancy`
-  - updated property `LocationName`
+  - updated property `Timeout`
+- updated `AWS::Comprehend::DocumentClassifier`
+  - updated `tagging`
+- updated `AWS::Config::StoredQuery`
+  - updated `tagging`
+- updated `AWS::ECS::Service`
+  - updated `propertyTransform`
+  - updated definition `AwsVpcConfiguration`
+  - updated definition `DeploymentController`
+  - updated definition `VpcLatticeConfiguration`
+  - updated property `AvailabilityZoneRebalancing`
+  - updated property `HealthCheckGracePeriodSeconds`
+  - updated property `VpcLatticeConfigurations`
+- updated `AWS::IoT::SoftwarePackageVersion`
+  - updated `tagging`
+  - updated property `PackageVersionArn`
+- updated `AWS::Logs::AccountPolicy`
+  - updated handler permissions
+  - updated property `PolicyType`
+- updated `AWS::Logs::Integration`
+  - updated property `IntegrationName`
+- updated `AWS::MediaLive::ChannelPlacementGroup`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::MediaLive::Cluster`
+  - updated handler permissions
+- updated `AWS::MediaLive::Network`
+  - updated handler permissions
+- updated `AWS::MediaLive::SdiSource`
+  - updated handler permissions
+- updated `AWS::SageMaker::DataQualityJobDefinition`
+  - added `tagging`
+- updated `AWS::SageMaker::ModelBiasJobDefinition`
+  - added `tagging`
+- updated `AWS::SageMaker::ModelExplainabilityJobDefinition`
+  - added `tagging`
+- updated `AWS::SageMaker::ModelQualityJobDefinition`
+  - added `tagging`
+- updated `AWS::Transfer::Server`
+  - added definition `State`
+  - added property `State`
+  - updated `readOnlyProperties`

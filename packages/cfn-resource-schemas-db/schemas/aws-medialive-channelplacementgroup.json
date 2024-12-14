@@ -1,5 +1,5 @@
 {
-  "$hash": "11aff22a8bb5208c8f886194d0f1998b60d67773",
+  "$hash": "068f832e69e6991dbd25b93f652b5f95a6534916",
   "$id": "aws-medialive-channelplacementgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterId"],
@@ -32,7 +32,8 @@
       "permissions": [
         "medialive:CreateChannelPlacementGroup",
         "medialive:DescribeChannelPlacementGroup",
-        "medialive:CreateTags"
+        "medialive:CreateTags",
+        "medialive:ListTagsForResource"
       ]
     },
     "delete": {
@@ -50,13 +51,19 @@
       },
       "permissions": ["medialive:ListChannelPlacementGroups"]
     },
-    "read": { "permissions": ["medialive:DescribeChannelPlacementGroup"] },
+    "read": {
+      "permissions": [
+        "medialive:DescribeChannelPlacementGroup",
+        "medialive:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "medialive:UpdateChannelPlacementGroup",
         "medialive:DescribeChannelPlacementGroup",
         "medialive:CreateTags",
-        "medialive:DeleteTags"
+        "medialive:DeleteTags",
+        "medialive:ListTagsForResource"
       ]
     }
   },
@@ -105,9 +112,9 @@
   "tagging": {
     "cloudFormationSystemTags": false,
     "permissions": ["medialive:CreateTags", "medialive:DeleteTags"],
-    "tagOnCreate": false,
+    "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::MediaLive::ChannelPlacementGroup"

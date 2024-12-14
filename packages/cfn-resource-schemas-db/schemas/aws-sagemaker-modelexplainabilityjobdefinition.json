@@ -1,5 +1,5 @@
 {
-  "$hash": "a9325c0cc502c856a260be43d42b98b06120dd59",
+  "$hash": "06abf3a326f7917c228c33d398f8742ed4690d5d",
   "$id": "aws-sagemaker-modelexplainabilityjobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -482,6 +482,14 @@
     "JobResources",
     "RoleArn"
   ],
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["sagemaker:AddTags", "sagemaker:ListTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::SageMaker::ModelExplainabilityJobDefinition",
   "writeOnlyProperties": [
     "/properties/EndpointName",

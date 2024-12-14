@@ -1,5 +1,5 @@
 {
-  "$hash": "c7f24e3d9bcfa0db00daba1e425de4ce6ca0e884",
+  "$hash": "bd1ee42cb03cd0405cc52410a2ab54c07e47f3e6",
   "$id": "aws-iot-softwarepackageversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -93,7 +93,7 @@
       "pattern": "^[a-zA-Z0-9-_.]+$",
       "type": "string"
     },
-    "PackageVersionArn": { "type": "string" },
+    "PackageVersionArn": { "pattern": "^arn:[!-~]+$", "type": "string" },
     "Status": { "$ref": "#/definitions/PackageVersionStatus" },
     "Tags": {
       "description": "An array of key-value pairs to apply to this resource.",
@@ -118,6 +118,11 @@
   "required": ["PackageName"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:TagResource",
+      "iot:UntagResource",
+      "iot:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

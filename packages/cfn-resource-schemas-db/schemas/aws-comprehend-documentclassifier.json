@@ -1,5 +1,5 @@
 {
-  "$hash": "acfb9d28f11efbf04416719e07759c0c97d798c6",
+  "$hash": "21d01e140a23bc08e6bb0b565306621b495b17b8",
   "$id": "aws-comprehend-documentclassifier.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -265,6 +265,7 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["comprehend:TagResource", "comprehend:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

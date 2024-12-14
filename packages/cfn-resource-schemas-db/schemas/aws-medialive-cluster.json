@@ -1,5 +1,5 @@
 {
-  "$hash": "237971e5449654cf692a5866304972d9cb4b6ad1",
+  "$hash": "20614ff54874e9a8ef71e9356783ce8311a5d1e5",
   "$id": "aws-medialive-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -85,20 +85,31 @@
         "ecs:RegisterTaskDefinition",
         "ecs:TagResource",
         "ecs:CreateService",
-        "iam:PassRole"
+        "iam:PassRole",
+        "medialive:ListTagsForResource"
       ]
     },
     "delete": {
-      "permissions": ["medialive:DeleteCluster", "medialive:DescribeCluster"]
+      "permissions": [
+        "medialive:DeleteCluster",
+        "medialive:DescribeCluster",
+        "ecs:DeleteService"
+      ]
     },
     "list": { "permissions": ["medialive:ListClusters"] },
-    "read": { "permissions": ["medialive:DescribeCluster"] },
+    "read": {
+      "permissions": [
+        "medialive:DescribeCluster",
+        "medialive:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "medialive:UpdateCluster",
         "medialive:DescribeCluster",
         "medialive:CreateTags",
-        "medialive:DeleteTags"
+        "medialive:DeleteTags",
+        "medialive:ListTagsForResource"
       ]
     }
   },

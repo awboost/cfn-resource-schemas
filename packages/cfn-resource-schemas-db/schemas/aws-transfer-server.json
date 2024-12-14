@@ -1,5 +1,5 @@
 {
-  "$hash": "3da9ffb88fe6b367f461fb1232608e2d4ce27715",
+  "$hash": "7c2edb9f28b22b4da1832d69bcef9955384be8e3",
   "$id": "aws-transfer-server.json",
   "additionalIdentifiers": [["/properties/ServerId"]],
   "additionalProperties": false,
@@ -128,6 +128,17 @@
         "PUBLIC_KEY",
         "PUBLIC_KEY_OR_PASSWORD",
         "PUBLIC_KEY_AND_PASSWORD"
+      ],
+      "type": "string"
+    },
+    "State": {
+      "enum": [
+        "OFFLINE",
+        "ONLINE",
+        "STARTING",
+        "STOPPING",
+        "START_FAILED",
+        "STOP_FAILED"
       ],
       "type": "string"
     },
@@ -325,6 +336,7 @@
       "pattern": "^s-([0-9a-f]{17})$",
       "type": "string"
     },
+    "State": { "$ref": "#/definitions/State" },
     "StructuredLogDestinations": {
       "insertionOrder": false,
       "items": {
@@ -349,7 +361,8 @@
   "readOnlyProperties": [
     "/properties/Arn",
     "/properties/As2ServiceManagedEgressIpAddresses",
-    "/properties/ServerId"
+    "/properties/ServerId",
+    "/properties/State"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-transfer",
   "tagging": {

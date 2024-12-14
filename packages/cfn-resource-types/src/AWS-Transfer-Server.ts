@@ -79,6 +79,7 @@ export type TransferServerAttributes = {
    * @pattern `^s-([0-9a-f]{17})$`
    */
   ServerId: string;
+  State: State;
 };
 /**
  * Type definition for `AWS::Transfer::Server.As2Transport`.
@@ -203,6 +204,17 @@ export type SftpAuthenticationMethods =
   | "PUBLIC_KEY"
   | "PUBLIC_KEY_OR_PASSWORD"
   | "PUBLIC_KEY_AND_PASSWORD";
+/**
+ * Type definition for `AWS::Transfer::Server.State`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-state.html}
+ */
+export type State =
+  | "OFFLINE"
+  | "ONLINE"
+  | "STARTING"
+  | "STOPPING"
+  | "START_FAILED"
+  | "STOP_FAILED";
 /**
  * Type definition for `AWS::Transfer::Server.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-tag.html}

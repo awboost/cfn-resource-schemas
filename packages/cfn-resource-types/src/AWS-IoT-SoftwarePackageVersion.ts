@@ -37,6 +37,9 @@ export type IoTSoftwarePackageVersionProperties = {
  */
 export type IoTSoftwarePackageVersionAttributes = {
   ErrorReason: string;
+  /**
+   * @pattern `^arn:[!-~]+$`
+   */
   PackageVersionArn: string;
   Status: PackageVersionStatus;
 };

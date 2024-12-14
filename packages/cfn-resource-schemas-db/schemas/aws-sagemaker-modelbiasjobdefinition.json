@@ -1,5 +1,5 @@
 {
-  "$hash": "41fde4aa97e1c31a9be3fc9c0bae0389e42b9b12",
+  "$hash": "739a77cac838a269364e7ab4309fad631209594f",
   "$id": "aws-sagemaker-modelbiasjobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -518,6 +518,14 @@
     "JobResources",
     "RoleArn"
   ],
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["sagemaker:AddTags", "sagemaker:ListTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::SageMaker::ModelBiasJobDefinition",
   "writeOnlyProperties": [
     "/properties/EndpointName",

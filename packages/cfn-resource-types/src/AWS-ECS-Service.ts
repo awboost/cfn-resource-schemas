@@ -7,6 +7,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html}
  */
 export type ECSServiceProperties = {
+  /**
+     * Indicates whether to use Availability Zone rebalancing for the service.
+     For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
+     */
   AvailabilityZoneRebalancing?: "ENABLED" | "DISABLED";
   /**
      * The capacity provider strategy to use for the service.
@@ -42,9 +46,8 @@ export type ECSServiceProperties = {
    */
   EnableExecuteCommand?: boolean;
   /**
-     * The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started. This is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of ``0`` is used.
-     If you do not use an Elastic Load Balancing, we recommend that you use the ``startPeriod`` in the task definition health check parameters. For more information, see [Health check](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html).
-     If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
+     * The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.
+     If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.
      */
   HealthCheckGracePeriodSeconds?: number;
   /**
@@ -128,6 +131,9 @@ export type ECSServiceProperties = {
    * The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
    */
   VolumeConfigurations?: ServiceVolumeConfiguration[];
+  /**
+   * The VPC Lattice configuration for the service being created.
+   */
   VpcLatticeConfigurations?: VpcLatticeConfiguration[];
 };
 /**
@@ -145,7 +151,7 @@ export type ECSServiceAttributes = {
  */
 export type AwsVpcConfiguration = {
   /**
-   * Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+   * Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
    */
   AssignPublicIp?: "DISABLED" | "ENABLED";
   /**
@@ -265,7 +271,7 @@ export type DeploymentConfiguration = {
 };
 /**
  * Type definition for `AWS::ECS::Service.DeploymentController`.
- * The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
+ * The deployment controller to use for the service.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html}
  */
 export type DeploymentController = {
@@ -709,11 +715,22 @@ export type TimeoutConfiguration = {
 };
 /**
  * Type definition for `AWS::ECS::Service.VpcLatticeConfiguration`.
+ * The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html}
  */
 export type VpcLatticeConfiguration = {
+  /**
+   * The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
+   */
   PortName: string;
+  /**
+     * The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
+     infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+     */
   RoleArn: string;
+  /**
+   * The full Amazon Resource Name (ARN) of the target group or groups associated with the VPC Lattice configuration that the Amazon ECS tasks will be registered to.
+   */
   TargetGroupArn: string;
 };
 /**

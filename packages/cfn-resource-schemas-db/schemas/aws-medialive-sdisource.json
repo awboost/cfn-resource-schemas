@@ -1,5 +1,5 @@
 {
-  "$hash": "2ccc6486061818872224fc67740f562af10ee491",
+  "$hash": "45101e18d627a37f0b604b24a787684dccab9de3",
   "$id": "aws-medialive-sdisource.json",
   "additionalProperties": false,
   "definitions": {
@@ -31,7 +31,12 @@
   "description": "Definition of AWS::MediaLive::SdiSource Resource Type",
   "handlers": {
     "create": {
-      "permissions": ["medialive:CreateSdiSource", "medialive:CreateTags"]
+      "permissions": [
+        "medialive:CreateSdiSource",
+        "medialive:CreateTags",
+        "medialive:DescribeSdiSource",
+        "medialive:ListTagsForResource"
+      ]
     },
     "delete": {
       "permissions": [
@@ -40,13 +45,19 @@
       ]
     },
     "list": { "permissions": ["medialive:ListSdiSources"] },
-    "read": { "permissions": ["medialive:DescribeSdiSource"] },
+    "read": {
+      "permissions": [
+        "medialive:DescribeSdiSource",
+        "medialive:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "medialive:UpdateSdiSource",
         "medialive:DescribeSdiSource",
         "medialive:CreateTags",
-        "medialive:DeleteTags"
+        "medialive:DeleteTags",
+        "medialive:ListTagsForResource"
       ]
     }
   },

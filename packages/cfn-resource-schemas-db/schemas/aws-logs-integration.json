@@ -1,5 +1,5 @@
 {
-  "$hash": "2e842e46b87c17a2c45f08921ad9dcbe2f1777b6",
+  "$hash": "d121fe5c5e71d9df213c15471f371c673dc02c61",
   "$id": "aws-logs-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -84,7 +84,7 @@
   "properties": {
     "IntegrationName": {
       "description": "User provided identifier for integration, unique to the user account.",
-      "maxLength": 256,
+      "maxLength": 50,
       "minLength": 1,
       "pattern": "[\\.\\-_/#A-Za-z0-9]+",
       "type": "string"

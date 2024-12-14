@@ -1,5 +1,5 @@
 {
-  "$hash": "34009573da1e2aa155ec4ae2b8c268b0d8b5f5d5",
+  "$hash": "9acc4dd9dc2af9ca6175b69bde0ba1107b68a451",
   "$id": "aws-logs-accountpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName", "/properties/PolicyType"],
@@ -8,6 +8,7 @@
     "create": {
       "permissions": [
         "logs:PutAccountPolicy",
+        "logs:PutIndexPolicy",
         "logs:PutDataProtectionPolicy",
         "logs:DescribeAccountPolicies",
         "logs:CreateLogDelivery",
@@ -15,15 +16,18 @@
         "firehose:TagDeliveryStream",
         "logs:PutSubscriptionFilter",
         "logs:DeleteSubscriptionFilter",
+        "logs:PutTransformer",
         "iam:PassRole"
       ]
     },
     "delete": {
       "permissions": [
         "logs:DeleteAccountPolicy",
+        "logs:DeleteIndexPolicy",
         "logs:DeleteDataProtectionPolicy",
         "logs:DescribeAccountPolicies",
         "logs:DeleteSubscriptionFilter",
+        "logs:DeleteTransformer",
         "iam:PassRole"
       ]
     },
@@ -36,19 +40,25 @@
         },
         "required": ["PolicyType"]
       },
-      "permissions": ["logs:DescribeAccountPolicies"]
+      "permissions": ["logs:DescribeAccountPolicies", "logs:GetTransformer"]
     },
-    "read": { "permissions": ["logs:DescribeAccountPolicies"] },
+    "read": {
+      "permissions": ["logs:DescribeAccountPolicies", "logs:GetTransformer"]
+    },
     "update": {
       "permissions": [
         "logs:PutAccountPolicy",
+        "logs:PutIndexPolicy",
         "logs:PutDataProtectionPolicy",
         "logs:DescribeAccountPolicies",
         "logs:DeleteAccountPolicy",
+        "logs:DeleteIndexPolicy",
         "logs:DeleteDataProtectionPolicy",
         "logs:CreateLogDelivery",
         "logs:PutSubscriptionFilter",
         "logs:DeleteSubscriptionFilter",
+        "logs:PutTransformer",
+        "logs:DeleteTransformer",
         "s3:REST.PUT.OBJECT",
         "firehose:TagDeliveryStream",
         "iam:PassRole"
@@ -81,7 +91,12 @@
     },
     "PolicyType": {
       "description": "Type of the policy.",
-      "enum": ["DATA_PROTECTION_POLICY", "SUBSCRIPTION_FILTER_POLICY"],
+      "enum": [
+        "DATA_PROTECTION_POLICY",
+        "SUBSCRIPTION_FILTER_POLICY",
+        "FIELD_INDEX_POLICY",
+        "TRANSFORMER_POLICY"
+      ],
       "type": "string"
     },
     "Scope": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "e842a2d86fd0d3acaa86c8619b571880d4420f09",
+  "$hash": "d69aaada360d3e4e91f56e3df6916c6bd21030db",
   "$id": "aws-sagemaker-modelqualityjobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -534,6 +534,14 @@
     "JobResources",
     "RoleArn"
   ],
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["sagemaker:AddTags", "sagemaker:ListTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::SageMaker::ModelQualityJobDefinition",
   "writeOnlyProperties": [
     "/properties/EndpointName",

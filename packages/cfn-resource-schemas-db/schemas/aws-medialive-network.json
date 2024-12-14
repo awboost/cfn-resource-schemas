@@ -1,5 +1,5 @@
 {
-  "$hash": "794af87d89f6fb1b3ccc70f49425646939e59c8c",
+  "$hash": "00bbd01a22a482bb2d50dedc260b480678050b05",
   "$id": "aws-medialive-network.json",
   "additionalProperties": false,
   "definitions": {
@@ -49,19 +49,30 @@
   "description": "Resource schema for AWS::MediaLive::Network.",
   "handlers": {
     "create": {
-      "permissions": ["medialive:CreateNetwork", "medialive:CreateTags"]
+      "permissions": [
+        "medialive:CreateNetwork",
+        "medialive:CreateTags",
+        "medialive:DescribeNetwork",
+        "medialive:ListTagsForResource"
+      ]
     },
     "delete": {
       "permissions": ["medialive:DeleteNetwork", "medialive:DescribeNetwork"]
     },
     "list": { "permissions": ["medialive:ListNetworks"] },
-    "read": { "permissions": ["medialive:DescribeNetwork"] },
+    "read": {
+      "permissions": [
+        "medialive:DescribeNetwork",
+        "medialive:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "medialive:UpdateNetwork",
         "medialive:CreateTags",
         "medialive:DeleteTags",
-        "medialive:DescribeNetwork"
+        "medialive:DescribeNetwork",
+        "medialive:ListTagsForResource"
       ]
     }
   },

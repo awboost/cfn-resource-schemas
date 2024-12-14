@@ -9,7 +9,7 @@ export type LogsIntegrationProperties = {
   /**
    * User provided identifier for integration, unique to the user account.
    * @minLength `1`
-   * @maxLength `256`
+   * @maxLength `50`
    * @pattern `[\.\-_/#A-Za-z0-9]+`
    */
   IntegrationName: string;
