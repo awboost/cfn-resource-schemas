@@ -107,7 +107,7 @@ export type ExperimentTemplateExperimentOptions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html}
  */
 export type ExperimentTemplateExperimentReportConfiguration = {
-  DataSources: {
+  DataSources?: {
     CloudWatchDashboards?: CloudWatchDashboard[];
   };
   Outputs: {

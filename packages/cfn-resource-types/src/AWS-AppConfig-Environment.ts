@@ -11,6 +11,10 @@ export type AppConfigEnvironmentProperties = {
    */
   ApplicationId: string;
   /**
+   * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+   */
+  DeletionProtectionCheck?: "ACCOUNT_DEFAULT" | "APPLY" | "BYPASS";
+  /**
    * A description of the environment.
    * @minLength `0`
    * @maxLength `1024`

@@ -1,5 +1,5 @@
 {
-  "$hash": "e2c48924eaeaa2c47717f6e3d9166f8c589e6d23",
+  "$hash": "b1cc069e779cf1041a6f5fe281c03d34128bf94e",
   "$id": "aws-fis-experimenttemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -149,7 +149,7 @@
         "PostExperimentDuration": { "type": "string" },
         "PreExperimentDuration": { "type": "string" }
       },
-      "required": ["Outputs", "DataSources"],
+      "required": ["Outputs"],
       "type": "object"
     },
     "ExperimentTemplateId": { "type": "string" },

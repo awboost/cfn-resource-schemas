@@ -294,6 +294,10 @@ export type RDSDBInstanceProperties = {
      */
   DBSubnetGroupName?: string;
   /**
+   * The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
+   */
+  DBSystemId?: string;
+  /**
    * Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
    */
   DedicatedLogVolume?: boolean;
@@ -799,10 +803,6 @@ export type RDSDBInstanceAttributes = {
     ValidTill: string;
   };
   DBInstanceArn: string;
-  /**
-   * The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
-   */
-  DBSystemId: string;
   DbiResourceId: string;
   /**
      * The connection endpoint for the DB instance.

@@ -1,11 +1,8 @@
 {
-  "$hash": "5f3c39dd7105fa9e07d258844a8077b1d870df70",
+  "$hash": "67b89a4a8faa9228db3965a3977f1d23ed16947f",
   "$id": "aws-cassandra-keyspace.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/ReplicationSpecification",
-    "/properties/KeyspaceName"
-  ],
+  "createOnlyProperties": ["/properties/KeyspaceName"],
   "definitions": {
     "RegionList": {
       "insertionOrder": false,
@@ -93,17 +90,32 @@
       "permissions": [
         "cassandra:Alter",
         "cassandra:AlterMultiRegionResource",
+        "cassandra:Modify",
+        "cassandra:ModifyMultiRegionResource",
         "cassandra:Select",
         "cassandra:SelectMultiRegionResource",
         "cassandra:TagResource",
         "cassandra:TagMultiRegionResource",
         "cassandra:UntagResource",
-        "cassandra:UntagMultiRegionResource"
+        "cassandra:UntagMultiRegionResource",
+        "application-autoscaling:RegisterScalableTarget",
+        "application-autoscaling:DeregisterScalableTarget",
+        "application-autoscaling:DescribeScalableTargets",
+        "application-autoscaling:DescribeScalingPolicies",
+        "application-autoscaling:PutScalingPolicy",
+        "cloudwatch:DeleteAlarms",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:PutMetricAlarm",
+        "iam:CreateServiceLinkedRole"
       ]
     }
   },
   "primaryIdentifier": ["/properties/KeyspaceName"],
   "properties": {
+    "ClientSideTimestampsEnabled": {
+      "description": "Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.",
+      "type": "boolean"
+    },
     "KeyspaceName": {
       "description": "Name for Cassandra keyspace",
       "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$",

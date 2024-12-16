@@ -1,91 +1,17 @@
-- updated `AWS::Batch::JobDefinition`
-  - added `sourceUrl`
-  - added `tagging`
-  - added definition `EFSAuthorizationConfig`
-  - added definition `EFSVolumeConfiguration`
-  - added definition `EksMetadata`
-  - added definition `EksPodProperties`
-  - added definition `Host`
-  - added definition `JobTimeout`
-  - added definition `MountPoint`
-  - added definition `MultiNodeContainerProperties`
-  - added definition `MultiNodeEcsProperties`
-  - added definition `MultiNodeEcsTaskProperties`
-  - added definition `Volume`
-  - removed `readOnlyProperties`
-  - removed definition `AuthorizationConfig`
-  - removed definition `EfsVolumeConfiguration`
-  - removed definition `FargatePlatformConfiguration`
-  - removed definition `Metadata`
-  - removed definition `MountPoints`
-  - removed definition `PodProperties`
-  - removed definition `Timeout`
-  - removed definition `VolumesHost`
-  - removed definition `Volumes`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated definition `ContainerProperties`
-  - updated definition `Device`
-  - updated definition `EcsProperties`
-  - updated definition `EcsTaskProperties`
-  - updated definition `EksContainerResourceRequirements`
-  - updated definition `EksContainer`
-  - updated definition `EksProperties`
-  - updated definition `ImagePullSecret`
-  - updated definition `LinuxParameters`
-  - updated definition `LogConfiguration`
-  - updated definition `NodeProperties`
-  - updated definition `NodeRangeProperty`
-  - updated definition `RetryStrategy`
-  - updated definition `Secret`
-  - updated definition `TaskContainerDependency`
-  - updated definition `TaskContainerProperties`
-  - updated definition `Tmpfs`
-  - updated definition `Ulimit`
+- added `AWS::Cassandra::Type`
+- updated `AWS::AppConfig::ConfigurationProfile`
+  - added `writeOnlyProperties`
+  - added property `DeletionProtectionCheck`
+- updated `AWS::AppConfig::Environment`
+  - added `writeOnlyProperties`
+  - added property `DeletionProtectionCheck`
+- updated `AWS::Cassandra::Keyspace`
+  - added property `ClientSideTimestampsEnabled`
+  - updated `createOnlyProperties`
   - updated handler permissions
-  - updated property `JobDefinitionName`
-  - updated property `Parameters`
-  - updated property `PlatformCapabilities`
-  - updated property `Tags`
-  - updated property `Timeout`
-- updated `AWS::Comprehend::DocumentClassifier`
-  - updated `tagging`
-- updated `AWS::Config::StoredQuery`
-  - updated `tagging`
-- updated `AWS::ECS::Service`
+- updated `AWS::FIS::ExperimentTemplate`
+  - updated definition `ExperimentTemplateExperimentReportConfiguration`
+- updated `AWS::RDS::DBInstance`
+  - updated `createOnlyProperties`
   - updated `propertyTransform`
-  - updated definition `AwsVpcConfiguration`
-  - updated definition `DeploymentController`
-  - updated definition `VpcLatticeConfiguration`
-  - updated property `AvailabilityZoneRebalancing`
-  - updated property `HealthCheckGracePeriodSeconds`
-  - updated property `VpcLatticeConfigurations`
-- updated `AWS::IoT::SoftwarePackageVersion`
-  - updated `tagging`
-  - updated property `PackageVersionArn`
-- updated `AWS::Logs::AccountPolicy`
-  - updated handler permissions
-  - updated property `PolicyType`
-- updated `AWS::Logs::Integration`
-  - updated property `IntegrationName`
-- updated `AWS::MediaLive::ChannelPlacementGroup`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::MediaLive::Cluster`
-  - updated handler permissions
-- updated `AWS::MediaLive::Network`
-  - updated handler permissions
-- updated `AWS::MediaLive::SdiSource`
-  - updated handler permissions
-- updated `AWS::SageMaker::DataQualityJobDefinition`
-  - added `tagging`
-- updated `AWS::SageMaker::ModelBiasJobDefinition`
-  - added `tagging`
-- updated `AWS::SageMaker::ModelExplainabilityJobDefinition`
-  - added `tagging`
-- updated `AWS::SageMaker::ModelQualityJobDefinition`
-  - added `tagging`
-- updated `AWS::Transfer::Server`
-  - added definition `State`
-  - added property `State`
   - updated `readOnlyProperties`

@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CassandraKeyspaceProperties = {
   /**
+   * Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+   */
+  ClientSideTimestampsEnabled?: boolean;
+  /**
    * Name for Cassandra keyspace
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9_]{1,47}$`
    */

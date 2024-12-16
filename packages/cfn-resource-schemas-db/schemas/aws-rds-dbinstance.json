@@ -1,5 +1,5 @@
 {
-  "$hash": "96b7a635d3561e632582cba0e40dbfbd8f59c0b4",
+  "$hash": "4bfe5f8cad45521139634e98da75715b383a38f6",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -28,6 +28,7 @@
     "/properties/DBInstanceIdentifier",
     "/properties/DBName",
     "/properties/DBSubnetGroupName",
+    "/properties/DBSystemId",
     "/properties/KmsKeyId",
     "/properties/MasterUsername",
     "/properties/NcharCharacterSetName",
@@ -582,6 +583,7 @@
     "/properties/DBParameterGroupName": "$lowercase(DBParameterGroupName)",
     "/properties/DBSnapshotIdentifier": "$lowercase(DBSnapshotIdentifier)",
     "/properties/DBSubnetGroupName": "$lowercase(DBSubnetGroupName)",
+    "/properties/DBSystemId": "$uppercase(DBSystemId)",
     "/properties/Engine": "$lowercase(Engine)",
     "/properties/EngineVersion": "$join([$string(EngineVersion), \".*\"])",
     "/properties/KmsKeyId": "$join([\"arn:.+?:kms:.+?:.+?:key\\/\", KmsKeyId])",
@@ -600,7 +602,6 @@
     "/properties/Endpoint/HostedZoneId",
     "/properties/DbiResourceId",
     "/properties/DBInstanceArn",
-    "/properties/DBSystemId",
     "/properties/MasterUserSecret/SecretArn",
     "/properties/CertificateDetails/CAIdentifier",
     "/properties/CertificateDetails/ValidTill"
