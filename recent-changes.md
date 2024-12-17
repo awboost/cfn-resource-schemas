@@ -1,17 +1,4 @@
-- added `AWS::Cassandra::Type`
-- updated `AWS::AppConfig::ConfigurationProfile`
-  - added `writeOnlyProperties`
-  - added property `DeletionProtectionCheck`
-- updated `AWS::AppConfig::Environment`
-  - added `writeOnlyProperties`
-  - added property `DeletionProtectionCheck`
-- updated `AWS::Cassandra::Keyspace`
-  - added property `ClientSideTimestampsEnabled`
-  - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::FIS::ExperimentTemplate`
-  - updated definition `ExperimentTemplateExperimentReportConfiguration`
-- updated `AWS::RDS::DBInstance`
-  - updated `createOnlyProperties`
-  - updated `propertyTransform`
-  - updated `readOnlyProperties`
+- updated `AWS::RDS::DBCluster`
+  - updated definition `ServerlessV2ScalingConfiguration`
+  - updated property `ClusterScalabilityType`
+  - updated property `EngineLifecycleSupport`
