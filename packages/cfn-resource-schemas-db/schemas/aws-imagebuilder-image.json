@@ -1,5 +1,5 @@
 {
-  "$hash": "28f5231fbc57f266f01eae62d81a561730fe5cab",
+  "$hash": "c4c63548c8cc3e998e0509e828b2aaf68e7e3801",
   "$id": "aws-imagebuilder-image.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -141,7 +141,10 @@
         },
         "required": ["Arn"]
       },
-      "permissions": ["imagebuilder:ListImages"]
+      "permissions": [
+        "imagebuilder:ListImages",
+        "imagebuilder:ListImageBuildVersions"
+      ]
     },
     "read": { "permissions": ["imagebuilder:GetImage"] }
   },

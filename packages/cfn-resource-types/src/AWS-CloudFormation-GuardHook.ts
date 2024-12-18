@@ -8,7 +8,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type CloudFormationGuardHookProperties = {
   /**
    * The typename alias for the hook.
-   * @pattern `^[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}$`
+   * @pattern `^(?!(?i)aws)[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}::[A-Za-z0-9]{2,64}$`
    */
   Alias: string;
   /**
@@ -184,7 +184,11 @@ export type S3Location = {
  * Which operations should this Hook run against? Resource changes, stacks or change sets.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-targetoperation.html}
  */
-export type TargetOperation = "RESOURCE" | "STACK" | "CHANGE_SET";
+export type TargetOperation =
+  | "RESOURCE"
+  | "STACK"
+  | "CHANGE_SET"
+  | "CLOUD_CONTROL";
 /**
  * Resource type definition for `AWS::CloudFormation::GuardHook`.
  * This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.

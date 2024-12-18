@@ -1,5 +1,5 @@
 {
-  "$hash": "94266e15893634fe570bc76c89aa54fa1e0f9ae8",
+  "$hash": "d2213413e383534f30f1a59613e05f9e1475c6fd",
   "$id": "aws-imagebuilder-containerrecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -185,7 +185,9 @@
       ]
     },
     "list": { "permissions": ["imagebuilder:ListContainerRecipes"] },
-    "read": { "permissions": ["imagebuilder:GetContainerRecipe"] }
+    "read": {
+      "permissions": ["imagebuilder:GetContainerRecipe", "kms:Decrypt"]
+    }
   },
   "oneOf": [
     {

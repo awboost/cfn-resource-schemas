@@ -1,5 +1,5 @@
 {
-  "$hash": "85223fbf3cf7a585b55451913c577aa112efd4c5",
+  "$hash": "4350e8409d10d55be68606fc7679054a03f60a14",
   "$id": "aws-redshift-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -122,7 +122,7 @@
       "type": "string"
     },
     "SourceArn": {
-      "description": "The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable",
+      "description": "The Amazon Resource Name (ARN) of the database to use as the source for replication",
       "type": "string"
     },
     "Tags": {
@@ -134,7 +134,7 @@
       "uniqueItems": true
     },
     "TargetArn": {
-      "description": "The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf",
+      "description": "The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication",
       "type": "string"
     }
   },

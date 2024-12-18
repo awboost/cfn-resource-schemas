@@ -1,5 +1,5 @@
 {
-  "$hash": "ba5e1969ee2b3c59a16fe01d7070ec61db6ce308",
+  "$hash": "200a3e3da6df1fa6e46a226060c34621bf15fdc5",
   "$id": "aws-datazone-domain.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -67,7 +67,9 @@
         "datazone:TagResource",
         "sso:CreateManagedApplicationInstance",
         "sso:DeleteManagedApplicationInstance",
-        "sso:PutApplicationAssignmentConfiguration"
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:ListInstances",
+        "iam:PassRole"
       ]
     },
     "delete": {
@@ -75,7 +77,8 @@
         "datazone:DeleteDomain",
         "datazone:GetDomain",
         "sso:DeleteManagedApplicationInstance",
-        "sso:PutApplicationAssignmentConfiguration"
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:ListInstances"
       ]
     },
     "list": { "permissions": ["datazone:ListDomains"] },
@@ -88,7 +91,9 @@
         "datazone:UntagResource",
         "sso:CreateManagedApplicationInstance",
         "sso:DeleteManagedApplicationInstance",
-        "sso:PutApplicationAssignmentConfiguration"
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:ListInstances",
+        "iam:PassRole"
       ]
     }
   },

@@ -9,6 +9,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html}
  */
 export type EC2VPCEndpointProperties = {
+  DnsOptions?: DnsOptionsSpecification;
+  IpAddressType?: "ipv4" | "ipv6" | "dualstack" | "not-specified";
   /**
      * An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
      For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:
@@ -22,6 +24,7 @@ export type EC2VPCEndpointProperties = {
      Default: ``false``
      */
   PrivateDnsEnabled?: boolean;
+  ResourceConfigurationArn?: string;
   /**
    * The IDs of the route tables. Routing is supported only for gateway endpoints.
    */
@@ -33,7 +36,8 @@ export type EC2VPCEndpointProperties = {
   /**
    * The name of the endpoint service.
    */
-  ServiceName: string;
+  ServiceName?: string;
+  ServiceNetworkArn?: string;
   /**
    * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
    */
@@ -42,7 +46,12 @@ export type EC2VPCEndpointProperties = {
      * The type of endpoint.
      Default: Gateway
      */
-  VpcEndpointType?: "Interface" | "Gateway" | "GatewayLoadBalancer";
+  VpcEndpointType?:
+    | "Interface"
+    | "Gateway"
+    | "GatewayLoadBalancer"
+    | "ServiceNetwork"
+    | "Resource";
   /**
    * The ID of the VPC.
    */
@@ -57,6 +66,22 @@ export type EC2VPCEndpointAttributes = {
   DnsEntries: string[];
   Id: string;
   NetworkInterfaceIds: string[];
+};
+/**
+ * Type definition for `AWS::EC2::VPCEndpoint.DnsOptionsSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html}
+ */
+export type DnsOptionsSpecification = {
+  DnsRecordIpType?:
+    | "ipv4"
+    | "ipv6"
+    | "dualstack"
+    | "service-defined"
+    | "not-specified";
+  PrivateDnsOnlyForInboundResolverEndpoint?:
+    | "OnlyInboundResolver"
+    | "AllResolvers"
+    | "NotSpecified";
 };
 /**
  * Resource type definition for `AWS::EC2::VPCEndpoint`.

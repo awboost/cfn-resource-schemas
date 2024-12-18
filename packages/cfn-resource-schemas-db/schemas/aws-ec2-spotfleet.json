@@ -1,5 +1,5 @@
 {
-  "$hash": "de98bb8260fc664d08f84e93d443ad598c781dfb",
+  "$hash": "2d3c30739f93a43c930e3db8f49da3a00a546981",
   "$id": "aws-ec2-spotfleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -236,6 +236,9 @@
         },
         "BaselineEbsBandwidthMbps": {
           "$ref": "#/definitions/BaselineEbsBandwidthMbpsRequest"
+        },
+        "BaselinePerformanceFactors": {
+          "$ref": "#/definitions/BaselinePerformanceFactorsRequest"
         },
         "BurstablePerformance": {
           "enum": ["included", "required", "excluded"],

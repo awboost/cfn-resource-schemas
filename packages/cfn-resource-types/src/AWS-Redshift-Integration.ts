@@ -21,7 +21,7 @@ export type RedshiftIntegrationProperties = {
    */
   KMSKeyId?: string;
   /**
-   * The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+   * The Amazon Resource Name (ARN) of the database to use as the source for replication
    */
   SourceArn: string;
   /**
@@ -30,7 +30,7 @@ export type RedshiftIntegrationProperties = {
    */
   Tags?: Tag[];
   /**
-   * The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+   * The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
    */
   TargetArn: string;
 };

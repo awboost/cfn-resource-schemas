@@ -24,7 +24,7 @@ export type EMRStudioProperties = {
   Description?: string;
   /**
    * The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
-   * @pattern `^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
+   * @pattern `^arn:aws(-(cn|us-gov|iso-f|iso-e))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
    */
   EncryptionKeyArn?: string;
   /**
@@ -65,7 +65,7 @@ export type EMRStudioProperties = {
   Name: string;
   /**
    * The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
-   * @pattern `^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
+   * @pattern `^arn:aws(-(cn|us-gov|iso-f|iso-e))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
    */
   ServiceRole: string;
   /**
@@ -83,7 +83,7 @@ export type EMRStudioProperties = {
   TrustedIdentityPropagationEnabled?: boolean;
   /**
    * The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
-   * @pattern `^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
+   * @pattern `^arn:aws(-(cn|us-gov|iso-f|iso-e))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
    */
   UserRole?: string;
   /**
@@ -104,7 +104,7 @@ export type EMRStudioProperties = {
 export type EMRStudioAttributes = {
   /**
    * The Amazon Resource Name (ARN) of the EMR Studio.
-   * @pattern `^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
+   * @pattern `^arn:aws(-(cn|us-gov|iso-f|iso-e))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
    */
   Arn: string;
   /**

@@ -27,6 +27,10 @@ export type DataBrewDatasetProperties = {
    * PathOptions
    */
   PathOptions?: PathOptions;
+  /**
+   * Source type of the dataset
+   */
+  Source?: "S3" | "DATA-CATALOG" | "DATABASE";
   Tags?: Tag[];
 };
 /**
@@ -281,6 +285,12 @@ export type PathParameter = {
  */
 export type S3Location = {
   Bucket: string;
+  /**
+   * Bucket owner
+   * @minLength `12`
+   * @maxLength `12`
+   */
+  BucketOwner?: string;
   Key?: string;
 };
 /**

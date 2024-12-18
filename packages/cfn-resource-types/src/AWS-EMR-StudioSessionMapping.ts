@@ -16,7 +16,7 @@ export type EMRStudioSessionMappingProperties = {
   IdentityType: "USER" | "GROUP";
   /**
    * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
-   * @pattern `^arn:aws(-(cn|us-gov))?:iam::([0-9]{12})?:policy\/[^.]+$`
+   * @pattern `^arn:aws(-(cn|us-gov|iso-f|iso-e))?:iam::([0-9]{12})?:policy\/[^.]+$`
    */
   SessionPolicyArn: string;
   /**

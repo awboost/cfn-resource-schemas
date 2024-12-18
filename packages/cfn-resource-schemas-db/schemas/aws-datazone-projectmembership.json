@@ -1,5 +1,5 @@
 {
-  "$hash": "1743cc0b3ccb300a47c65b85f80d5f4df82047a2",
+  "$hash": "7f29b74c59eeb6b81dc5e54365b10d5f722141bb",
   "$id": "aws-datazone-projectmembership.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -31,7 +31,13 @@
       "type": "string"
     },
     "UserDesignation": {
-      "enum": ["PROJECT_OWNER", "PROJECT_CONTRIBUTOR"],
+      "enum": [
+        "PROJECT_OWNER",
+        "PROJECT_CONTRIBUTOR",
+        "PROJECT_CATALOG_VIEWER",
+        "PROJECT_CATALOG_CONSUMER",
+        "PROJECT_CATALOG_STEWARD"
+      ],
       "type": "string"
     }
   },

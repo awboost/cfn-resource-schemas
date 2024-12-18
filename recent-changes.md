@@ -1,4 +1,78 @@
-- updated `AWS::RDS::DBCluster`
-  - updated definition `ServerlessV2ScalingConfiguration`
-  - updated property `ClusterScalabilityType`
-  - updated property `EngineLifecycleSupport`
+- added `AWS::PCS::Cluster`
+- added `AWS::PCS::ComputeNodeGroup`
+- added `AWS::PCS::Queue`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - updated definition `AvailabilityZoneDistribution`
+  - updated definition `AvailabilityZoneImpairmentPolicy`
+  - updated definition `BaselinePerformanceFactorsRequest`
+  - updated definition `CpuPerformanceFactorRequest`
+  - updated definition `PerformanceFactorReferenceRequest`
+  - updated property `AvailabilityZoneDistribution`
+  - updated property `AvailabilityZoneImpairmentPolicy`
+- updated `AWS::CloudFormation::GuardHook`
+  - updated definition `TargetOperation`
+  - updated property `Alias`
+- updated `AWS::CloudFormation::LambdaHook`
+  - updated definition `TargetOperation`
+  - updated property `Alias`
+- updated `AWS::DataBrew::Dataset`
+  - added definition `BucketOwner`
+  - added property `Source`
+  - updated definition `S3Location`
+- updated `AWS::DataZone::Domain`
+  - updated handler permissions
+- updated `AWS::DataZone::ProjectMembership`
+  - updated definition `UserDesignation`
+- updated `AWS::DataZone::SubscriptionTarget`
+  - updated `required`
+- updated `AWS::EC2::EC2Fleet`
+  - added definition `BlockDeviceMapping`
+  - added definition `EbsBlockDevice`
+  - updated definition `InstanceRequirementsRequest`
+- updated `AWS::EC2::SpotFleet`
+  - updated definition `InstanceRequirementsRequest`
+- updated `AWS::EC2::VPCEndpoint`
+  - added property `DnsOptions`
+  - added property `IpAddressType`
+  - added property `ResourceConfigurationArn`
+  - added property `ServiceNetworkArn`
+  - updated `createOnlyProperties`
+  - updated `required`
+  - updated definition `undefined`
+  - updated handler permissions
+  - updated property `VpcEndpointType`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `EphemeralStorage`
+- updated `AWS::EMR::Studio`
+  - added `tagging`
+  - updated definition `Arn`
+- updated `AWS::EMR::StudioSessionMapping`
+  - added `tagging`
+  - updated definition `IamPolicyArn`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Component`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::ContainerRecipe`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Image`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Workflow`
+  - updated handler permissions
+- updated `AWS::InternetMonitor::Monitor`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Lambda::EventInvokeConfig`
+  - updated definition `OnFailure`
+  - updated definition `OnSuccess`
+  - updated property `FunctionName`
+- updated `AWS::Logs::Integration`
+  - updated handler permissions
+- updated `AWS::QuickSight::DataSet`
+  - added definition `PerformanceConfiguration`
+  - added definition `UniqueKey`
+  - added property `PerformanceConfiguration`
+- updated `AWS::Redshift::Integration`
+  - updated property `SourceArn`
+  - updated property `TargetArn`
+- updated `AWS::SSM::ResourcePolicy`
+  - updated handler permissions

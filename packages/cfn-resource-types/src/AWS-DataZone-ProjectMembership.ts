@@ -31,7 +31,12 @@ export type Member =
  * Type definition for `AWS::DataZone::ProjectMembership.UserDesignation`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectmembership-userdesignation.html}
  */
-export type UserDesignation = "PROJECT_OWNER" | "PROJECT_CONTRIBUTOR";
+export type UserDesignation =
+  | "PROJECT_OWNER"
+  | "PROJECT_CONTRIBUTOR"
+  | "PROJECT_CATALOG_VIEWER"
+  | "PROJECT_CATALOG_CONSUMER"
+  | "PROJECT_CATALOG_STEWARD";
 /**
  * Definition of AWS::DataZone::ProjectMembership Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html}

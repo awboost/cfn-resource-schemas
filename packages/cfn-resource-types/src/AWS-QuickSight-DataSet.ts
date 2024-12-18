@@ -58,6 +58,7 @@ export type QuickSightDataSetProperties = {
    * @maxLength `128`
    */
   Name?: string;
+  PerformanceConfiguration?: PerformanceConfiguration;
   /**
    * <p>A list of resource permissions on the dataset.</p>
    * @minLength `1`
@@ -828,6 +829,17 @@ export type OverrideDatasetParameterOperation = {
   ParameterName: string;
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.PerformanceConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-performanceconfiguration.html}
+ */
+export type PerformanceConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  UniqueKeys?: UniqueKey[];
+};
+/**
  * Type definition for `AWS::QuickSight::DataSet.PhysicalTable`.
  * <p>A view of a data source that contains information about the shape of the data in the
             underlying source. This is a variant type structure. For this structure to be valid,
@@ -1220,6 +1232,17 @@ export type TransformOperation = {
    * <p>A transform operation that removes tags associated with a column.</p>
    */
   UntagColumnOperation?: UntagColumnOperation;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.UniqueKey`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uniquekey.html}
+ */
+export type UniqueKey = {
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  ColumnNames: string[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.UntagColumnOperation`.

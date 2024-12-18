@@ -1,26 +1,85 @@
 {
-  "$hash": "5865c69fba5dd27a7102d44d79b72f8fe723e77c",
+  "$hash": "734812725d3e9e2176d2dc8f621f6ac65d6f0bca",
   "$id": "aws-ec2-vpcendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceName",
     "/properties/VpcEndpointType",
-    "/properties/VpcId"
+    "/properties/VpcId",
+    "/properties/ServiceNetworkArn",
+    "/properties/ResourceConfigurationArn"
   ],
+  "definitions": {
+    "DnsOptionsSpecification": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "DnsRecordIpType": {
+          "enum": [
+            "ipv4",
+            "ipv6",
+            "dualstack",
+            "service-defined",
+            "not-specified"
+          ],
+          "type": "string"
+        },
+        "PrivateDnsOnlyForInboundResolverEndpoint": {
+          "enum": ["OnlyInboundResolver", "AllResolvers", "NotSpecified"],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
   "description": "Specifies a VPC endpoint. A VPC endpoint provides a private connection between your VPC and an endpoint service. You can use an endpoint service provided by AWS, an MKT Partner, or another AWS accounts in your organization. For more information, see the [User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/).\n An endpoint of type ``Interface`` establishes connections between the subnets in your VPC and an AWS-service, your own service, or a service hosted by another AWS-account. With an interface VPC endpoint, you specify the subnets in which to create the endpoint and the security groups to associate with the endpoint network interfaces.\n An endpoint of type ``gateway`` serves as a target for a route in your route table for traffic destined for S3 or DDB. You can specify an endpoint policy for the endpoint, which controls access to the service from your VPC. You can also specify the VPC route tables that use the endpoint. For more information about connectivity to S3, see [Why can't I connect to an S3 bucket using a gateway VPC endpoint?](https://docs.aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint) \n An endpoint of type ``GatewayLoadBalancer`` provides private connectivity between your VPC and virtual appliances from a service provider.",
   "handlers": {
     "create": {
-      "permissions": ["ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints"],
+      "permissions": [
+        "ec2:CreateVpcEndpoint",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "vpc-lattice:CreateServiceNetworkVpcEndpointAssociation",
+        "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation"
+      ],
       "timeoutInMinutes": 210
     },
     "delete": {
-      "permissions": ["ec2:DeleteVpcEndpoints", "ec2:DescribeVpcEndpoints"],
+      "permissions": [
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation"
+      ],
       "timeoutInMinutes": 210
     },
-    "list": { "permissions": ["ec2:DescribeVpcEndpoints"] },
-    "read": { "permissions": ["ec2:DescribeVpcEndpoints"] },
+    "list": {
+      "permissions": [
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation"
+      ]
+    },
+    "read": {
+      "permissions": [
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation"
+      ]
+    },
     "update": {
-      "permissions": ["ec2:ModifyVpcEndpoint", "ec2:DescribeVpcEndpoints"],
+      "permissions": [
+        "ec2:ModifyVpcEndpoint",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "vpc-lattice:CreateServiceNetworkVpcEndpointAssociation",
+        "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation"
+      ],
       "timeoutInMinutes": 210
     }
   },
@@ -34,7 +93,16 @@
       "type": "array",
       "uniqueItems": false
     },
+    "DnsOptions": {
+      "$ref": "#/definitions/DnsOptionsSpecification",
+      "description": ""
+    },
     "Id": { "description": "", "type": "string" },
+    "IpAddressType": {
+      "description": "",
+      "enum": ["ipv4", "ipv6", "dualstack", "not-specified"],
+      "type": "string"
+    },
     "NetworkInterfaceIds": {
       "description": "",
       "insertionOrder": false,
@@ -50,6 +118,7 @@
       "description": "Indicate whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, ``kinesis.us-east-1.amazonaws.com``), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.\n To use a private hosted zone, you must set the following VPC attributes to ``true``: ``enableDnsHostnames`` and ``enableDnsSupport``.\n This property is supported only for interface endpoints.\n Default: ``false``",
       "type": "boolean"
     },
+    "ResourceConfigurationArn": { "description": "", "type": "string" },
     "RouteTableIds": {
       "description": "The IDs of the route tables. Routing is supported only for gateway endpoints.",
       "insertionOrder": false,
@@ -96,6 +165,7 @@
       "description": "The name of the endpoint service.",
       "type": "string"
     },
+    "ServiceNetworkArn": { "description": "", "type": "string" },
     "SubnetIds": {
       "description": "The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.",
       "insertionOrder": false,
@@ -111,7 +181,13 @@
     },
     "VpcEndpointType": {
       "description": "The type of endpoint.\n Default: Gateway",
-      "enum": ["Interface", "Gateway", "GatewayLoadBalancer"],
+      "enum": [
+        "Interface",
+        "Gateway",
+        "GatewayLoadBalancer",
+        "ServiceNetwork",
+        "Resource"
+      ],
       "type": "string"
     },
     "VpcId": { "description": "The ID of the VPC.", "type": "string" }
@@ -122,7 +198,7 @@
     "/properties/DnsEntries",
     "/properties/Id"
   ],
-  "required": ["VpcId", "ServiceName"],
+  "required": ["VpcId"],
   "tagging": {
     "cloudFormationSystemTags": false,
     "tagOnCreate": false,

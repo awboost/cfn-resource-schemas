@@ -1,5 +1,5 @@
 {
-  "$hash": "d6271018a9fe3450dec598b9664bafd8ba15e31a",
+  "$hash": "68707ea2fed8a6ca3f9e0e8e0272db130b99469a",
   "$id": "aws-datazone-subscriptiontarget.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -174,7 +174,6 @@
     "AuthorizedPrincipals",
     "DomainIdentifier",
     "EnvironmentIdentifier",
-    "ManageAccessRole",
     "Name",
     "SubscriptionTargetConfig",
     "Type"

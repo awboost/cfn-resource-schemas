@@ -29,7 +29,7 @@ export type DataZoneSubscriptionTargetProperties = {
   /**
    * The manage access role that is used to create the subscription target.
    */
-  ManageAccessRole: string;
+  ManageAccessRole?: string;
   /**
    * The name of the subscription target.
    * @minLength `1`

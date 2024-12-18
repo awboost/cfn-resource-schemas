@@ -1,5 +1,5 @@
 {
-  "$hash": "bdf199cc7ab58589e85daf3d092b236255794584",
+  "$hash": "39961e2693779354b7bf37c34d9450cf366ffd36",
   "$id": "aws-quicksight-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/DataSetId"],
@@ -695,6 +695,18 @@
       "required": ["ParameterName"],
       "type": "object"
     },
+    "PerformanceConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "UniqueKeys": {
+          "items": { "$ref": "#/definitions/UniqueKey" },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "PhysicalTable": {
       "additionalProperties": false,
       "description": "<p>A view of a data source that contains information about the shape of the data in the\n            underlying source. This is a variant type structure. For this structure to be valid,\n            only one of the attributes can be non-null.</p>",
@@ -1056,6 +1068,19 @@
       },
       "type": "object"
     },
+    "UniqueKey": {
+      "additionalProperties": false,
+      "properties": {
+        "ColumnNames": {
+          "items": { "maxLength": 127, "minLength": 1, "type": "string" },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["ColumnNames"],
+      "type": "object"
+    },
     "UntagColumnOperation": {
       "additionalProperties": false,
       "description": "<p>A transform operation that removes tags associated with a column.</p>",
@@ -1239,6 +1264,9 @@
       "description": "<p>The list of columns after all transforms. These columns are available in templates,\n            analyses, and dashboards.</p>",
       "items": { "$ref": "#/definitions/OutputColumn" },
       "type": "array"
+    },
+    "PerformanceConfiguration": {
+      "$ref": "#/definitions/PerformanceConfiguration"
     },
     "Permissions": {
       "description": "<p>A list of resource permissions on the dataset.</p>",

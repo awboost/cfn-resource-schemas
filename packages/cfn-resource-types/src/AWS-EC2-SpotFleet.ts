@@ -39,6 +39,13 @@ export type BaselineEbsBandwidthMbpsRequest = {
   Min?: number;
 };
 /**
+ * Type definition for `AWS::EC2::SpotFleet.BaselinePerformanceFactorsRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-baselineperformancefactorsrequest.html}
+ */
+export type BaselinePerformanceFactorsRequest = {
+  Cpu?: CpuPerformanceFactorRequest;
+};
+/**
  * Type definition for `AWS::EC2::SpotFleet.BlockDeviceMapping`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-blockdevicemapping.html}
  */
@@ -61,6 +68,13 @@ export type ClassicLoadBalancer = {
  */
 export type ClassicLoadBalancersConfig = {
   ClassicLoadBalancers: ClassicLoadBalancer[];
+};
+/**
+ * Type definition for `AWS::EC2::SpotFleet.CpuPerformanceFactorRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-cpuperformancefactorrequest.html}
+ */
+export type CpuPerformanceFactorRequest = {
+  References?: PerformanceFactorReferenceRequest[];
 };
 /**
  * Type definition for `AWS::EC2::SpotFleet.EbsBlockDevice`.
@@ -158,6 +172,7 @@ export type InstanceRequirementsRequest = {
   AllowedInstanceTypes?: string[];
   BareMetal?: "included" | "required" | "excluded";
   BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
+  BaselinePerformanceFactors?: BaselinePerformanceFactorsRequest;
   BurstablePerformance?: "included" | "required" | "excluded";
   CpuManufacturers?: ("intel" | "amd" | "amazon-web-services" | "apple")[];
   ExcludedInstanceTypes?: string[];
@@ -235,6 +250,13 @@ export type NetworkBandwidthGbpsRequest = {
 export type NetworkInterfaceCountRequest = {
   Max?: number;
   Min?: number;
+};
+/**
+ * Type definition for `AWS::EC2::SpotFleet.PerformanceFactorReferenceRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-performancefactorreferencerequest.html}
+ */
+export type PerformanceFactorReferenceRequest = {
+  InstanceFamily?: string;
 };
 /**
  * Type definition for `AWS::EC2::SpotFleet.PrivateIpAddressSpecification`.

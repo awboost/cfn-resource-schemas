@@ -1,5 +1,5 @@
 {
-  "$hash": "842e72bdf844def7e5ae1fb2bc8a6bd178996b80",
+  "$hash": "c1a33ddc0c0db87bc7f60c37df53590b540d0e96",
   "$id": "aws-lambda-eventinvokeconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FunctionName", "/properties/Qualifier"],
@@ -21,7 +21,7 @@
           "description": "The Amazon Resource Name (ARN) of the destination resource.",
           "maxLength": 350,
           "minLength": 0,
-          "pattern": "^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+          "pattern": "^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
           "type": "string"
         }
       },
@@ -36,7 +36,7 @@
           "description": "The Amazon Resource Name (ARN) of the destination resource.",
           "maxLength": 350,
           "minLength": 0,
-          "pattern": "^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+          "pattern": "^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
           "type": "string"
         }
       },
@@ -67,7 +67,7 @@
     "DestinationConfig": { "$ref": "#/definitions/DestinationConfig" },
     "FunctionName": {
       "description": "The name of the Lambda function.",
-      "pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
+      "pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
       "type": "string"
     },
     "MaximumEventAgeInSeconds": {

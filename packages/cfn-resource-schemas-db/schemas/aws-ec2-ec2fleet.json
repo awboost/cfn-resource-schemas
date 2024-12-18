@@ -1,5 +1,5 @@
 {
-  "$hash": "1858694450920291425113c07486098f99ef06fc",
+  "$hash": "36cfb04adffd44064f24b8d0940fb0169ac41256",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -45,6 +45,16 @@
       },
       "type": "object"
     },
+    "BlockDeviceMapping": {
+      "additionalProperties": false,
+      "properties": {
+        "DeviceName": { "type": "string" },
+        "Ebs": { "$ref": "#/definitions/EbsBlockDevice" },
+        "NoDevice": { "type": "string" },
+        "VirtualName": { "type": "string" }
+      },
+      "type": "object"
+    },
     "CapacityRebalance": {
       "additionalProperties": false,
       "properties": {
@@ -75,6 +85,22 @@
           },
           "type": "array",
           "uniqueItems": false
+        }
+      },
+      "type": "object"
+    },
+    "EbsBlockDevice": {
+      "additionalProperties": false,
+      "properties": {
+        "DeleteOnTermination": { "type": "boolean" },
+        "Encrypted": { "type": "boolean" },
+        "Iops": { "type": "integer" },
+        "KmsKeyId": { "type": "string" },
+        "SnapshotId": { "type": "string" },
+        "VolumeSize": { "type": "integer" },
+        "VolumeType": {
+          "enum": ["gp2", "gp3", "io1", "io2", "sc1", "st1", "standard"],
+          "type": "string"
         }
       },
       "type": "object"
@@ -189,6 +215,9 @@
         },
         "BaselineEbsBandwidthMbps": {
           "$ref": "#/definitions/BaselineEbsBandwidthMbpsRequest"
+        },
+        "BaselinePerformanceFactors": {
+          "$ref": "#/definitions/BaselinePerformanceFactorsRequest"
         },
         "BurstablePerformance": {
           "enum": ["included", "required", "excluded"],

@@ -11,7 +11,7 @@ export type LambdaEventInvokeConfigProperties = {
   DestinationConfig?: DestinationConfig;
   /**
    * The name of the Lambda function.
-   * @pattern `^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:lambda:)?([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\d{1}:)?(\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
    */
   FunctionName: string;
   /**
@@ -57,7 +57,7 @@ export type OnFailure = {
    * The Amazon Resource Name (ARN) of the destination resource.
    * @minLength `0`
    * @maxLength `350`
-   * @pattern `^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
+   * @pattern `^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
    */
   Destination: string;
 };
@@ -71,7 +71,7 @@ export type OnSuccess = {
    * The Amazon Resource Name (ARN) of the destination resource.
    * @minLength `0`
    * @maxLength `350`
-   * @pattern `^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
+   * @pattern `^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
    */
   Destination: string;
 };

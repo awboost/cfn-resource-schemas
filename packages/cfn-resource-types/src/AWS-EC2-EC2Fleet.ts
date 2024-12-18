@@ -53,6 +53,13 @@ export type BaselineEbsBandwidthMbpsRequest = {
   Min?: number;
 };
 /**
+ * Type definition for `AWS::EC2::EC2Fleet.BaselinePerformanceFactorsRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-baselineperformancefactorsrequest.html}
+ */
+export type BaselinePerformanceFactorsRequest = {
+  Cpu?: CpuPerformanceFactorRequest;
+};
+/**
  * Type definition for `AWS::EC2::EC2Fleet.CapacityRebalance`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityrebalance.html}
  */
@@ -66,6 +73,13 @@ export type CapacityRebalance = {
  */
 export type CapacityReservationOptionsRequest = {
   UsageStrategy?: "use-capacity-reservations-first";
+};
+/**
+ * Type definition for `AWS::EC2::EC2Fleet.CpuPerformanceFactorRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-cpuperformancefactorrequest.html}
+ */
+export type CpuPerformanceFactorRequest = {
+  References?: PerformanceFactorReferenceRequest[];
 };
 /**
  * Type definition for `AWS::EC2::EC2Fleet.FleetLaunchTemplateConfigRequest`.
@@ -135,6 +149,7 @@ export type InstanceRequirementsRequest = {
   AllowedInstanceTypes?: string[];
   BareMetal?: "included" | "required" | "excluded";
   BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
+  BaselinePerformanceFactors?: BaselinePerformanceFactorsRequest;
   BurstablePerformance?: "included" | "required" | "excluded";
   CpuManufacturers?: ("intel" | "amd" | "amazon-web-services" | "apple")[];
   ExcludedInstanceTypes?: string[];
@@ -202,6 +217,13 @@ export type OnDemandOptionsRequest = {
   MinTargetCapacity?: number;
   SingleAvailabilityZone?: boolean;
   SingleInstanceType?: boolean;
+};
+/**
+ * Type definition for `AWS::EC2::EC2Fleet.PerformanceFactorReferenceRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-performancefactorreferencerequest.html}
+ */
+export type PerformanceFactorReferenceRequest = {
+  InstanceFamily?: string;
 };
 /**
  * Type definition for `AWS::EC2::EC2Fleet.Placement`.

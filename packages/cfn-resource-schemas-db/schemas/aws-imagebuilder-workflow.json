@@ -1,5 +1,5 @@
 {
-  "$hash": "b6de9862e996151c682d44d8ce6dd10b08590270",
+  "$hash": "50ab076dfc7727159f180e209bed9769ad860634",
   "$id": "aws-imagebuilder-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -46,9 +46,12 @@
         },
         "required": ["Arn"]
       },
-      "permissions": ["imagebuilder:ListWorkflows"]
+      "permissions": [
+        "imagebuilder:ListWorkflows",
+        "imagebuilder:ListWorkflowBuildVersions"
+      ]
     },
-    "read": { "permissions": ["imagebuilder:GetWorkflow"] }
+    "read": { "permissions": ["imagebuilder:GetWorkflow", "kms:Decrypt"] }
   },
   "oneOf": [{ "required": ["Data"] }, { "required": ["Uri"] }],
   "primaryIdentifier": ["/properties/Arn"],

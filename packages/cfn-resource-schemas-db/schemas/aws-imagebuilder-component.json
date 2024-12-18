@@ -1,5 +1,5 @@
 {
-  "$hash": "60d973311794e07bc08bda2bcfab10fa6b6eb810",
+  "$hash": "71a37bbcb0929bd755182a2a507c2d20c20c4a93",
   "$id": "aws-imagebuilder-component.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -48,9 +48,12 @@
         },
         "required": ["Arn"]
       },
-      "permissions": ["imagebuilder:ListComponents"]
+      "permissions": [
+        "imagebuilder:ListComponents",
+        "imagebuilder:ListComponentBuildVersions"
+      ]
     },
-    "read": { "permissions": ["imagebuilder:GetComponent"] }
+    "read": { "permissions": ["imagebuilder:GetComponent", "kms:Decrypt"] }
   },
   "oneOf": [{ "required": ["Data"] }, { "required": ["Uri"] }],
   "primaryIdentifier": ["/properties/Arn"],

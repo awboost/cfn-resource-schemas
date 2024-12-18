@@ -14,7 +14,13 @@ export type AutoScalingAutoScalingGroupProperties = {
       You cannot use a colon (:) in the name.
      */
   AutoScalingGroupName?: string;
+  /**
+   * The instance capacity distribution across Availability Zones.
+   */
   AvailabilityZoneDistribution?: AvailabilityZoneDistribution;
+  /**
+   * The Availability Zone impairment policy.
+   */
   AvailabilityZoneImpairmentPolicy?: AvailabilityZoneImpairmentPolicy;
   /**
    * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
@@ -199,17 +205,30 @@ export type AcceleratorTotalMemoryMiBRequest = {
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.AvailabilityZoneDistribution`.
+ * ``AvailabilityZoneDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-availabilityzonedistribution.html}
  */
 export type AvailabilityZoneDistribution = {
+  /**
+     * If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``.
+      +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+      +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+     */
   CapacityDistributionStrategy?: "balanced-best-effort" | "balanced-only";
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.AvailabilityZoneImpairmentPolicy`.
+ * Describes an Availability Zone impairment policy.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy.html}
  */
 export type AvailabilityZoneImpairmentPolicy = {
+  /**
+   * Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select ``Replace unhealthy``, instances that appear unhealthy will be replaced in all Availability Zones. If you select ``Ignore unhealthy``, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide*.
+   */
   ImpairedZoneHealthCheckBehavior: "IgnoreUnhealthy" | "ReplaceUnhealthy";
+  /**
+   * If ``true``, enable zonal shift for your Auto Scaling group.
+   */
   ZonalShiftEnabled: boolean;
 };
 /**

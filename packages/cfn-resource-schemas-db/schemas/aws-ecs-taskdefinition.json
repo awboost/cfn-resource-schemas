@@ -1,5 +1,5 @@
 {
-  "$hash": "eb2699d85d660d87e30dcc23f9e81f9aac16c900",
+  "$hash": "af2d1a1d14cba3d2d4bb00662f33b26518559257",
   "$id": "aws-ecs-taskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -376,7 +376,7 @@
       "description": "The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on FARGATElong. For more information, see [Using data volumes in tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html) in the *Amazon ECS Developer Guide;*.\n  For tasks using the Fargate launch type, the task requires the following platforms:\n  +  Linux platform version ``1.4.0`` or later.\n  +  Windows platform version ``1.0.0`` or later.",
       "properties": {
         "SizeInGiB": {
-          "description": "The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.",
+          "description": "The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.",
           "type": "integer"
         }
       },

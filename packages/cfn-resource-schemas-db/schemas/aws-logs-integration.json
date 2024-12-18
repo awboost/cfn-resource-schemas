@@ -1,5 +1,5 @@
 {
-  "$hash": "d121fe5c5e71d9df213c15471f371c673dc02c61",
+  "$hash": "48d6806596ab0599dcf64ef324b13930726dea7d",
   "$id": "aws-logs-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -74,7 +74,8 @@
         "es:GetDirectQueryDataSource",
         "es:AddTags",
         "es:ListApplications"
-      ]
+      ],
+      "timeoutInMinutes": 30
     },
     "delete": { "permissions": ["logs:DeleteIntegration"] },
     "list": { "permissions": ["logs:ListIntegrations"] },

@@ -1,9 +1,15 @@
 {
-  "$hash": "911149a6d8b48303ba0fb1ff3799f4937154ff6f",
+  "$hash": "a28ab6dfccf0a5afcc6f7a6a733eae88c53864b8",
   "$id": "aws-databrew-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
   "definitions": {
+    "BucketOwner": {
+      "description": "Bucket owner",
+      "maxLength": 12,
+      "minLength": 12,
+      "type": "string"
+    },
     "CsvOptions": {
       "additionalProperties": false,
       "description": "Csv options",
@@ -248,6 +254,7 @@
       "description": "Input location",
       "properties": {
         "Bucket": { "type": "string" },
+        "BucketOwner": { "$ref": "#/definitions/BucketOwner" },
         "Key": { "type": "string" }
       },
       "required": ["Bucket"],
@@ -320,6 +327,11 @@
     "PathOptions": {
       "$ref": "#/definitions/PathOptions",
       "description": "PathOptions"
+    },
+    "Source": {
+      "description": "Source type of the dataset",
+      "enum": ["S3", "DATA-CATALOG", "DATABASE"],
+      "type": "string"
     },
     "Tags": {
       "insertionOrder": false,

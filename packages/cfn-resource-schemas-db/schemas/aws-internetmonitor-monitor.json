@@ -1,5 +1,5 @@
 {
-  "$hash": "b8629fe3f9b6d5c6650d49b4aaa71fddb5bf3105",
+  "$hash": "83e6d65eb6916f3f3f72ad64a5f9374483368f79",
   "$id": "aws-internetmonitor-monitor.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MonitorName"],
@@ -114,6 +114,7 @@
       "permissions": [
         "internetmonitor:ListMonitors",
         "internetmonitor:GetMonitor",
+        "internetmonitor:ListTagsForResource",
         "logs:GetLogDelivery"
       ]
     },
@@ -219,6 +220,11 @@
   "required": ["MonitorName"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "internetmonitor:TagResource",
+      "internetmonitor:UntagResource",
+      "internetmonitor:ListTagsForResource"
+    ],
     "tagOnCreate": false,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
