@@ -1,8 +1,8 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource type definition for `AWS::EC2::NetworkAcl`.
  * Specifies a network ACL for your VPC.
+ To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html}
  */
 export type EC2NetworkAclProperties = {
@@ -38,8 +38,8 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource type definition for `AWS::EC2::NetworkAcl`.
  * Specifies a network ACL for your VPC.
+ To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkacl.html}
  */
 export class EC2NetworkAcl extends $Resource<

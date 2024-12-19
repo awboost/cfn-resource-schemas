@@ -1,5 +1,5 @@
 {
-  "$hash": "1e0e351e396c21a41ba884e4dcc2408b0de216b8",
+  "$hash": "c415e4ddf77f37c441e7449dd7c895e0d23d05c6",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -31,6 +31,10 @@
         "InstanceCount": { "type": "integer" },
         "InstanceType": { "type": "string" },
         "MultiAZWithStandbyEnabled": { "type": "boolean" },
+        "NodeOptions": {
+          "items": { "$ref": "#/definitions/NodeOption" },
+          "type": "array"
+        },
         "WarmCount": { "type": "integer" },
         "WarmEnabled": { "type": "boolean" },
         "WarmType": { "type": "string" },
@@ -152,6 +156,23 @@
         "MasterUserARN": { "type": "string" },
         "MasterUserName": { "type": "string" },
         "MasterUserPassword": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "NodeConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "Count": { "type": "integer" },
+        "Enabled": { "type": "boolean" },
+        "Type": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "NodeOption": {
+      "additionalProperties": false,
+      "properties": {
+        "NodeConfig": { "$ref": "#/definitions/NodeConfig" },
+        "NodeType": { "enum": ["coordinator"], "type": "string" }
       },
       "type": "object"
     },

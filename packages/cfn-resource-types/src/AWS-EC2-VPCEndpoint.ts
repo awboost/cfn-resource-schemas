@@ -42,6 +42,7 @@ export type EC2VPCEndpointProperties = {
    * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
    */
   SubnetIds?: string[];
+  Tags?: Tag[];
   /**
      * The type of endpoint.
      Default: Gateway
@@ -82,6 +83,14 @@ export type DnsOptionsSpecification = {
     | "OnlyInboundResolver"
     | "AllResolvers"
     | "NotSpecified";
+};
+/**
+ * Type definition for `AWS::EC2::VPCEndpoint.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Resource type definition for `AWS::EC2::VPCEndpoint`.

@@ -95,6 +95,7 @@ export type ClusterConfig = {
   InstanceCount?: number;
   InstanceType?: string;
   MultiAZWithStandbyEnabled?: boolean;
+  NodeOptions?: NodeOption[];
   WarmCount?: number;
   WarmEnabled?: boolean;
   WarmType?: string;
@@ -209,6 +210,23 @@ export type MasterUserOptions = {
   MasterUserARN?: string;
   MasterUserName?: string;
   MasterUserPassword?: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.NodeConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodeconfig.html}
+ */
+export type NodeConfig = {
+  Count?: number;
+  Enabled?: boolean;
+  Type?: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.NodeOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodeoption.html}
+ */
+export type NodeOption = {
+  NodeConfig?: NodeConfig;
+  NodeType?: "coordinator";
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.NodeToNodeEncryptionOptions`.
