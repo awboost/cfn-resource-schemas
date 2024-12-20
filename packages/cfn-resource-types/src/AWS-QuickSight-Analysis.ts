@@ -3274,7 +3274,7 @@ export type GeospatialLayerJoinDefinition = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatiallayermapconfiguration.html}
  */
 export type GeospatialLayerMapConfiguration = {
-  Interactions?: unknown;
+  Interactions?: any;
   Legend?: LegendOptions;
   MapLayers?: GeospatialLayerItem[];
   MapState?: GeospatialMapState;
@@ -3344,7 +3344,7 @@ export type GeospatialMapAggregatedFieldWells = {
  */
 export type GeospatialMapConfiguration = {
   FieldWells?: GeospatialMapFieldWells;
-  Interactions?: unknown;
+  Interactions?: any;
   Legend?: LegendOptions;
   MapStyleOptions?: GeospatialMapStyleOptions;
   PointStyleOptions?: GeospatialPointStyleOptions;
@@ -3908,7 +3908,7 @@ export type ImageInteractionOptions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-imagemenuoption.html}
  */
 export type ImageMenuOption = {
-  AvailabilityStatus?: unknown;
+  AvailabilityStatus?: any;
 };
 /**
  * Type definition for `AWS::QuickSight::Analysis.ImageStaticFile`.

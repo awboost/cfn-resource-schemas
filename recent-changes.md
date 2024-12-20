@@ -1,24 +1,102 @@
-- added `AWS::QuickSight::CustomPermissions`
-- added `AWS::SageMaker::PartnerApp`
-- updated `AWS::CloudWatch::Alarm`
-  - updated `tagging`
-- updated `AWS::CloudWatch::CompositeAlarm`
-  - updated `tagging`
-- updated `AWS::EC2::NetworkAcl`
-- updated `AWS::EC2::VPCEndpoint`
-  - added definition `Tag`
-  - added property `Tags`
+- updated `AWS::Bedrock::Agent`
+  - added definition `RequireConfirmation`
+  - updated definition `Function`
+- updated `AWS::Bedrock::Prompt`
+  - added definition `AnyToolChoice`
+  - added definition `AutoToolChoice`
+  - added definition `ChatPromptTemplateConfiguration`
+  - added definition `ContentBlock`
+  - added definition `ConversationRole`
+  - added definition `Message`
+  - added definition `PromptAgentResource`
+  - added definition `PromptGenAiResource`
+  - added definition `SpecificToolChoice`
+  - added definition `SystemContentBlock`
+  - added definition `ToolChoice`
+  - added definition `ToolConfiguration`
+  - added definition `ToolInputSchema`
+  - added definition `ToolSpecification`
+  - added definition `Tool`
+  - updated definition `PromptTemplateConfiguration`
+  - updated definition `PromptTemplateType`
+  - updated definition `PromptVariant`
+- updated `AWS::DataZone::DataSource`
+  - added definition `SageMakerRunConfigurationInput`
+  - added definition `TrackingAssets`
+  - updated definition `DataSourceConfigurationInput`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `LaunchTemplateData`
+- updated `AWS::Macie::CustomDataIdentifier`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::OpenSearchService::Domain`
-  - added definition `NodeConfig`
-  - added definition `NodeOption`
-  - updated definition `ClusterConfig`
-- updated `AWS::RDS::DBCluster`
-  - updated property `AutoMinorVersionUpgrade`
-  - updated property `MasterUserSecret`
-  - updated property `MonitoringInterval`
-  - updated property `MonitoringRoleArn`
-  - updated property `PerformanceInsightsEnabled`
-  - updated property `PerformanceInsightsKmsKeyId`
-  - updated property `PerformanceInsightsRetentionPeriod`
+- updated `AWS::QuickSight::Analysis`
+  - updated definition `GeospatialLayerMapConfiguration`
+  - updated definition `GeospatialMapConfiguration`
+  - updated definition `ImageMenuOption`
+- updated `AWS::QuickSight::Dashboard`
+  - updated definition `DashboardPublishOptions`
+  - updated definition `GeospatialLayerMapConfiguration`
+  - updated definition `GeospatialMapConfiguration`
+- updated `AWS::QuickSight::DataSet`
+  - updated definition `S3Source`
+- updated `AWS::QuickSight::Template`
+  - updated definition `AxisDisplayOptions`
+  - updated definition `BoxPlotOptions`
+  - updated definition `ChartAxisLabelOptions`
+  - updated definition `ColumnTooltipItem`
+  - updated definition `DataLabelOptions`
+  - updated definition `DataPathLabelType`
+  - updated definition `DateAxisOptions`
+  - updated definition `DonutCenterOptions`
+  - updated definition `FieldBasedTooltip`
+  - updated definition `FieldLabelType`
+  - updated definition `FieldTooltipItem`
+  - updated definition `FreeFormLayoutElementBackgroundStyle`
+  - updated definition `FreeFormLayoutElementBorderStyle`
+  - updated definition `FreeFormLayoutElement`
+  - updated definition `FunnelChartDataLabelOptions`
+  - updated definition `GeospatialPointStyle`
+  - updated definition `GeospatialPolygonSymbolStyle`
+  - updated definition `GeospatialSolidColor`
+  - updated definition `ImageMenuOption`
+  - updated definition `KPISparklineOptions`
+  - updated definition `LabelOptions`
+  - updated definition `LayerMapVisual`
+  - updated definition `LegendOptions`
+  - updated definition `LineChartLineStyleSettings`
+  - updated definition `LineChartMarkerStyleSettings`
+  - updated definition `ListControlSearchOptions`
+  - updated definition `ListControlSelectAllOptions`
+  - updated definition `LoadingAnimation`
+  - updated definition `MaximumLabelType`
+  - updated definition `MinimumLabelType`
+  - updated definition `PanelConfiguration`
+  - updated definition `PanelTitleOptions`
+  - updated definition `PivotTableFieldOption`
+  - updated definition `PivotTableOptions`
+  - updated definition `PivotTablePaginatedReportOptions`
+  - updated definition `PivotTableRowsLabelOptions`
+  - updated definition `PivotTotalOptions`
+  - updated definition `ProgressBarOptions`
+  - updated definition `RadarChartAreaStyleSettings`
+  - updated definition `RadarChartConfiguration`
+  - updated definition `RangeEndsLabelType`
+  - updated definition `ScrollBarOptions`
+  - updated definition `SecondaryValueOptions`
+  - updated definition `SheetControlInfoIconLabelOptions`
+  - updated definition `SheetElementConfigurationOverrides`
+  - updated definition `SheetImageTooltipConfiguration`
+  - updated definition `SubtotalOptions`
+  - updated definition `TableCellStyle`
+  - updated definition `TableFieldOption`
+  - updated definition `TablePaginatedReportOptions`
+  - updated definition `TextControlPlaceholderOptions`
+  - updated definition `ThousandSeparatorOptions`
+  - updated definition `TooltipOptions`
+  - updated definition `TotalOptions`
+  - updated definition `TrendArrowOptions`
+  - updated definition `VisualSubtitleLabelOptions`
+  - updated definition `VisualTitleLabelOptions`
+- updated `AWS::SES::MailManagerRuleSet`
+  - added definition `DeliverToQBusinessAction`
+  - updated definition `RuleAction`

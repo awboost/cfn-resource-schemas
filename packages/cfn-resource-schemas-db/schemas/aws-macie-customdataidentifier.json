@@ -1,5 +1,5 @@
 {
-  "$hash": "47f0b09585ecbdf98870ea36aa9d00f66b89c165",
+  "$hash": "f5ffc0d6a11966fc678e36e022984d3779d75b88",
   "$id": "aws-macie-customdataidentifier.json",
   "additionalIdentifiers": [["/properties/Arn"]],
   "additionalProperties": false,
@@ -35,7 +35,13 @@
     "delete": { "permissions": ["macie2:DeleteCustomDataIdentifier"] },
     "list": { "permissions": ["macie2:ListCustomDataIdentifiers"] },
     "read": { "permissions": ["macie2:GetCustomDataIdentifier"] },
-    "update": { "permissions": ["macie2:TagResource", "macie2:UntagResource"] }
+    "update": {
+      "permissions": [
+        "macie2:TagResource",
+        "macie2:UntagResource",
+        "macie2:GetCustomDataIdentifier"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
@@ -79,6 +85,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-macie.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["macie2:TagResource", "macie2:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

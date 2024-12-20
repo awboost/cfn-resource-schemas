@@ -115,7 +115,7 @@ export type DataZoneDataSourceAttributes = {
 };
 /**
  * Type definition for `AWS::DataZone::DataSource.DataSourceConfigurationInput`.
- * Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+ * Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html}
  */
 export type DataSourceConfigurationInput =
@@ -127,6 +127,12 @@ export type DataSourceConfigurationInput =
        * The configuration details of the Amazon Redshift data source.
        */
       RedshiftRunConfiguration?: RedshiftRunConfigurationInput;
+    }
+  | {
+      /**
+       * The configuration details of the Amazon SageMaker data source.
+       */
+      SageMakerRunConfiguration?: SageMakerRunConfigurationInput;
     };
 /**
  * Type definition for `AWS::DataZone::DataSource.DataSourceStatus`.
@@ -339,6 +345,17 @@ export type RelationalFilterConfiguration = {
   SchemaName?: string;
 };
 /**
+ * Type definition for `AWS::DataZone::DataSource.SageMakerRunConfigurationInput`.
+ * The configuration details of the Amazon SageMaker data source.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-sagemakerrunconfigurationinput.html}
+ */
+export type SageMakerRunConfigurationInput = {
+  /**
+   * The tracking assets of the Amazon SageMaker run.
+   */
+  TrackingAssets: TrackingAssets;
+};
+/**
  * Type definition for `AWS::DataZone::DataSource.ScheduleConfiguration`.
  * The schedule of the data source runs.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-scheduleconfiguration.html}
@@ -356,6 +373,12 @@ export type ScheduleConfiguration = {
    */
   Timezone?: string;
 };
+/**
+ * Type definition for `AWS::DataZone::DataSource.TrackingAssets`.
+ * The tracking assets of the Amazon SageMaker run.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-trackingassets.html}
+ */
+export type TrackingAssets = Record<string, string[]>;
 /**
  * Resource type definition for `AWS::DataZone::DataSource`.
  * A data source is used to import technical metadata of assets (data) from the source databases or data warehouses into Amazon DataZone.

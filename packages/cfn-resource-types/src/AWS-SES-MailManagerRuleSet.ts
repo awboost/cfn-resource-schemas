@@ -105,6 +105,31 @@ export type DeliverToMailboxAction = {
   RoleArn: string;
 };
 /**
+ * Type definition for `AWS::SES::MailManagerRuleSet.DeliverToQBusinessAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertoqbusinessaction.html}
+ */
+export type DeliverToQBusinessAction = {
+  ActionFailurePolicy?: ActionFailurePolicy;
+  /**
+   * @minLength `36`
+   * @maxLength `36`
+   * @pattern `^[a-z0-9-]+$`
+   */
+  ApplicationId: string;
+  /**
+   * @minLength `36`
+   * @maxLength `36`
+   * @pattern `^[a-z0-9-]+$`
+   */
+  IndexId: string;
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^[a-zA-Z0-9:_/+=,@.#-]+$`
+   */
+  RoleArn: string;
+};
+/**
  * Type definition for `AWS::SES::MailManagerRuleSet.DropAction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-dropaction.html}
  */
@@ -194,6 +219,9 @@ export type RuleAction =
     }
   | {
       DeliverToMailbox: DeliverToMailboxAction;
+    }
+  | {
+      DeliverToQBusiness: DeliverToQBusinessAction;
     };
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleBooleanEmailAttribute`.

@@ -292,6 +292,10 @@ export type Function = {
    * A map of parameter name and detail
    */
   Parameters?: ParameterMap;
+  /**
+   * ENUM to check if action requires user confirmation
+   */
+  RequireConfirmation?: RequireConfirmation;
 };
 /**
  * Type definition for `AWS::Bedrock::Agent.FunctionSchema`.
@@ -459,6 +463,12 @@ export type PromptType =
   | "ORCHESTRATION"
   | "POST_PROCESSING"
   | "KNOWLEDGE_BASE_RESPONSE_GENERATION";
+/**
+ * Type definition for `AWS::Bedrock::Agent.RequireConfirmation`.
+ * ENUM to check if action requires user confirmation
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-requireconfirmation.html}
+ */
+export type RequireConfirmation = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::Bedrock::Agent.S3Identifier`.
  * The identifier for the S3 resource.

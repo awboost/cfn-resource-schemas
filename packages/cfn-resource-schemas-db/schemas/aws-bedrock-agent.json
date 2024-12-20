@@ -1,5 +1,5 @@
 {
-  "$hash": "2c33a283b168bf3508dfb5751c0ed222a482a8f5",
+  "$hash": "4f67e0e99e4d37686d8a0e5b3757a711162f1703",
   "$id": "aws-bedrock-agent.json",
   "additionalProperties": false,
   "definitions": {
@@ -155,7 +155,8 @@
           "pattern": "^([0-9a-zA-Z][_-]?){1,100}$",
           "type": "string"
         },
-        "Parameters": { "$ref": "#/definitions/ParameterMap" }
+        "Parameters": { "$ref": "#/definitions/ParameterMap" },
+        "RequireConfirmation": { "$ref": "#/definitions/RequireConfirmation" }
       },
       "required": ["Name"],
       "type": "object"
@@ -320,6 +321,11 @@
         "POST_PROCESSING",
         "KNOWLEDGE_BASE_RESPONSE_GENERATION"
       ],
+      "type": "string"
+    },
+    "RequireConfirmation": {
+      "description": "ENUM to check if action requires user confirmation",
+      "enum": ["ENABLED", "DISABLED"],
       "type": "string"
     },
     "S3Identifier": {

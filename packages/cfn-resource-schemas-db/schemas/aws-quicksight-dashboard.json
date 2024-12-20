@@ -1,5 +1,5 @@
 {
-  "$hash": "3ba121c1982d8582e594c198af2dea4d8b2b33cf",
+  "$hash": "6a12888fe3bfc5b9003148caf4b4bc30bf033462",
   "$id": "aws-quicksight-dashboard.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -1395,7 +1395,7 @@
         "VisualAxisSortOption": {
           "$ref": "#/definitions/VisualAxisSortOption"
         },
-        "VisualMenuOption": { "$ref": "#/definitions/VisualMenuOption" },
+        "VisualMenuOption": {},
         "VisualPublishOptions": {
           "$ref": "#/definitions/DashboardVisualPublishOptions"
         }
@@ -3488,7 +3488,7 @@
     "GeospatialLayerMapConfiguration": {
       "additionalProperties": false,
       "properties": {
-        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
+        "Interactions": {},
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "MapLayers": {
           "items": { "$ref": "#/definitions/GeospatialLayerItem" },
@@ -3559,7 +3559,7 @@
       "additionalProperties": false,
       "properties": {
         "FieldWells": { "$ref": "#/definitions/GeospatialMapFieldWells" },
-        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
+        "Interactions": {},
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "MapStyleOptions": {
           "$ref": "#/definitions/GeospatialMapStyleOptions"
