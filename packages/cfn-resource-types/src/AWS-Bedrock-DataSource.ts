@@ -67,6 +67,17 @@ export type BedrockDataSourceAttributes = {
   UpdatedAt: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::DataSource.BedrockDataAutomationConfiguration`.
+ * Settings for a Bedrock Data Automation used to parse documents for a data source.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockdataautomationconfiguration.html}
+ */
+export type BedrockDataAutomationConfiguration = {
+  /**
+   * Determine how will parsed content be stored.
+   */
+  ParsingModality?: ParsingModality;
+};
+/**
  * Type definition for `AWS::Bedrock::DataSource.BedrockFoundationModelConfiguration`.
  * Settings for a foundation model used to parse documents for a data source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html}
@@ -79,6 +90,10 @@ export type BedrockFoundationModelConfiguration = {
    * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}::foundation-model/([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2})|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)$`
    */
   ModelArn: string;
+  /**
+   * Determine how will parsed content be stored.
+   */
+  ParsingModality?: ParsingModality;
   /**
    * Instructions for interpreting the contents of a document.
    */
@@ -255,7 +270,8 @@ export type DataSourceType =
   | "CONFLUENCE"
   | "SALESFORCE"
   | "SHAREPOINT"
-  | "WEB";
+  | "WEB"
+  | "CUSTOM";
 /**
  * Type definition for `AWS::Bedrock::DataSource.FixedSizeChunkingConfiguration`.
  * Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.
@@ -323,6 +339,10 @@ export type IntermediateStorage = {
  */
 export type ParsingConfiguration = {
   /**
+   * Settings for a Bedrock Data Automation used to parse documents for a data source.
+   */
+  BedrockDataAutomationConfiguration?: BedrockDataAutomationConfiguration;
+  /**
    * Settings for a foundation model used to parse documents for a data source.
    */
   BedrockFoundationModelConfiguration?: BedrockFoundationModelConfiguration;
@@ -331,6 +351,12 @@ export type ParsingConfiguration = {
    */
   ParsingStrategy: ParsingStrategy;
 };
+/**
+ * Type definition for `AWS::Bedrock::DataSource.ParsingModality`.
+ * Determine how will parsed content be stored.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingmodality.html}
+ */
+export type ParsingModality = "MULTIMODAL";
 /**
  * Type definition for `AWS::Bedrock::DataSource.ParsingPrompt`.
  * Instructions for interpreting the contents of a document.
@@ -349,7 +375,9 @@ export type ParsingPrompt = {
  * The parsing strategy for the data source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingstrategy.html}
  */
-export type ParsingStrategy = "BEDROCK_FOUNDATION_MODEL";
+export type ParsingStrategy =
+  | "BEDROCK_FOUNDATION_MODEL"
+  | "BEDROCK_DATA_AUTOMATION";
 /**
  * Type definition for `AWS::Bedrock::DataSource.PatternObjectFilter`.
  * The specific filters applied to your data source content. You can filter out or include certain content.

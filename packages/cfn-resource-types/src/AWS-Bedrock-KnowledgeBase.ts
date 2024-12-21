@@ -29,7 +29,7 @@ export type BedrockKnowledgeBaseProperties = {
   /**
    * The vector store service in which the knowledge base is stored.
    */
-  StorageConfiguration: StorageConfiguration;
+  StorageConfiguration?: StorageConfiguration;
   /**
    * A map of tag keys and values
    */
@@ -95,11 +95,27 @@ export type EmbeddingModelConfiguration = {
   BedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.KendraKnowledgeBaseConfiguration`.
+ * Configurations for a Kendra knowledge base
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-kendraknowledgebaseconfiguration.html}
+ */
+export type KendraKnowledgeBaseConfiguration = {
+  /**
+   * Arn of a Kendra index
+   * @pattern `^arn:aws(|-cn|-us-gov):kendra:[a-z0-9-]{1,20}:([0-9]{12}|):index/([a-zA-Z0-9][a-zA-Z0-9-]{35}|[a-zA-Z0-9][a-zA-Z0-9-]{35}-[a-zA-Z0-9][a-zA-Z0-9-]{35})$`
+   */
+  KendraIndexArn: string;
+};
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KnowledgeBaseConfiguration`.
  * Contains details about the embeddings model used for the knowledge base.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html}
  */
 export type KnowledgeBaseConfiguration = {
+  /**
+   * Configurations for a Kendra knowledge base
+   */
+  KendraKnowledgeBaseConfiguration?: KendraKnowledgeBaseConfiguration;
   /**
    * The type of a knowledge base.
    */
@@ -107,7 +123,7 @@ export type KnowledgeBaseConfiguration = {
   /**
    * Contains details about the model used to create vector embeddings for the knowledge base.
    */
-  VectorKnowledgeBaseConfiguration: VectorKnowledgeBaseConfiguration;
+  VectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration;
 };
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KnowledgeBaseStatus`.
@@ -136,7 +152,7 @@ export type KnowledgeBaseStorageType =
  * The type of a knowledge base.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebasetype.html}
  */
-export type KnowledgeBaseType = "VECTOR";
+export type KnowledgeBaseType = "VECTOR" | "KENDRA";
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.MongoDbAtlasConfiguration`.
  * Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
@@ -368,6 +384,20 @@ export type RdsFieldMapping = {
   VectorField: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.S3Location`.
+ * An Amazon S3 location.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3location.html}
+ */
+export type S3Location = {
+  /**
+   * The location's URI
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^s3://.{1,128}$`
+   */
+  URI: string;
+};
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.StorageConfiguration`.
  * The vector store service in which the knowledge base is stored.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html}
@@ -395,6 +425,40 @@ export type StorageConfiguration = {
   Type: KnowledgeBaseStorageType;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.SupplementalDataStorageConfiguration`.
+ * Configurations for supplemental data storage.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastorageconfiguration.html}
+ */
+export type SupplementalDataStorageConfiguration = {
+  /**
+   * List of supplemental data storage locations.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  SupplementalDataStorageLocations: SupplementalDataStorageLocation[];
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.SupplementalDataStorageLocation`.
+ * Supplemental data storage location.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastoragelocation.html}
+ */
+export type SupplementalDataStorageLocation = {
+  /**
+   * An Amazon S3 location.
+   */
+  S3Location?: S3Location;
+  /**
+   * Supplemental data storage location type.
+   */
+  SupplementalDataStorageLocationType: SupplementalDataStorageLocationType;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.SupplementalDataStorageLocationType`.
+ * Supplemental data storage location type.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastoragelocationtype.html}
+ */
+export type SupplementalDataStorageLocationType = "S3";
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.TagsMap`.
  * A map of tag keys and values
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-tagsmap.html}
@@ -417,6 +481,10 @@ export type VectorKnowledgeBaseConfiguration = {
    * The embeddings model configuration details for the vector model used in Knowledge Base.
    */
   EmbeddingModelConfiguration?: EmbeddingModelConfiguration;
+  /**
+   * Configurations for supplemental data storage.
+   */
+  SupplementalDataStorageConfiguration?: SupplementalDataStorageConfiguration;
 };
 /**
  * Definition of AWS::Bedrock::KnowledgeBase Resource Type

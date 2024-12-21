@@ -722,7 +722,7 @@ export type LaunchTemplateData = {
    * The network interfaces for the instance.
    */
   NetworkInterfaces?: NetworkInterface[];
-  NetworkPerformanceOptions?: any;
+  NetworkPerformanceOptions?: unknown;
   /**
    * The placement for the instance.
    */

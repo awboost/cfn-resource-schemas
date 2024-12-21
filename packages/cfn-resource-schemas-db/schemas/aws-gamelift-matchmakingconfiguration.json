@@ -1,5 +1,5 @@
 {
-  "$hash": "290cc9a5f7fb62433659c242797562ab6d746f08",
+  "$hash": "7575299c7ec1a68a9a7c29781cd24c6d9df95472",
   "$id": "aws-gamelift-matchmakingconfiguration.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -199,7 +199,14 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "gamelift:ListTagsForResource",
+      "gamelift:TagResource",
+      "gamelift:UntagResource"
+    ],
+    "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::GameLift::MatchmakingConfiguration"

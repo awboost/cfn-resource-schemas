@@ -10,6 +10,10 @@ export type EC2VPCEndpointServiceProperties = {
   GatewayLoadBalancerArns?: string[];
   NetworkLoadBalancerArns?: string[];
   PayerResponsibility?: string;
+  /**
+   * The tags to add to the VPC endpoint service.
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::EC2::VPCEndpointService`.
@@ -17,6 +21,14 @@ export type EC2VPCEndpointServiceProperties = {
  */
 export type EC2VPCEndpointServiceAttributes = {
   ServiceId: string;
+};
+/**
+ * Type definition for `AWS::EC2::VPCEndpointService.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpointservice-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::EC2::VPCEndpointService

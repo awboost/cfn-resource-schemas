@@ -1,5 +1,5 @@
 {
-  "$hash": "9fe80bdb0076db26ada546a6f10f4eddf1e1818d",
+  "$hash": "0a0f3b213127c7344c68915e0995990f26e9e651",
   "$id": "aws-bedrock-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,6 +9,14 @@
     "/properties/DataSourceConfiguration/Type"
   ],
   "definitions": {
+    "BedrockDataAutomationConfiguration": {
+      "additionalProperties": false,
+      "description": "Settings for a Bedrock Data Automation used to parse documents for a data source.",
+      "properties": {
+        "ParsingModality": { "$ref": "#/definitions/ParsingModality" }
+      },
+      "type": "object"
+    },
     "BedrockFoundationModelConfiguration": {
       "additionalProperties": false,
       "description": "Settings for a foundation model used to parse documents for a data source.",
@@ -20,6 +28,7 @@
           "pattern": "^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}::foundation-model/([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2})|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)$",
           "type": "string"
         },
+        "ParsingModality": { "$ref": "#/definitions/ParsingModality" },
         "ParsingPrompt": { "$ref": "#/definitions/ParsingPrompt" }
       },
       "required": ["ModelArn"],
@@ -143,13 +152,6 @@
     "DataSourceConfiguration": {
       "additionalProperties": false,
       "description": "Specifies a raw data source location to ingest.",
-      "oneOf": [
-        { "required": ["S3Configuration"] },
-        { "required": ["ConfluenceConfiguration"] },
-        { "required": ["SalesforceConfiguration"] },
-        { "required": ["SharePointConfiguration"] },
-        { "required": ["WebConfiguration"] }
-      ],
       "properties": {
         "ConfluenceConfiguration": {
           "$ref": "#/definitions/ConfluenceDataSourceConfiguration"
@@ -178,7 +180,7 @@
     },
     "DataSourceType": {
       "description": "The type of the data source location.",
-      "enum": ["S3", "CONFLUENCE", "SALESFORCE", "SHAREPOINT", "WEB"],
+      "enum": ["S3", "CONFLUENCE", "SALESFORCE", "SHAREPOINT", "WEB", "CUSTOM"],
       "type": "string"
     },
     "FilterList": {
@@ -260,6 +262,9 @@
       "additionalProperties": false,
       "description": "Settings for parsing document contents",
       "properties": {
+        "BedrockDataAutomationConfiguration": {
+          "$ref": "#/definitions/BedrockDataAutomationConfiguration"
+        },
         "BedrockFoundationModelConfiguration": {
           "$ref": "#/definitions/BedrockFoundationModelConfiguration"
         },
@@ -267,6 +272,11 @@
       },
       "required": ["ParsingStrategy"],
       "type": "object"
+    },
+    "ParsingModality": {
+      "description": "Determine how will parsed content be stored.",
+      "enum": ["MULTIMODAL"],
+      "type": "string"
     },
     "ParsingPrompt": {
       "additionalProperties": false,
@@ -284,7 +294,7 @@
     },
     "ParsingStrategy": {
       "description": "The parsing strategy for the data source.",
-      "enum": ["BEDROCK_FOUNDATION_MODEL"],
+      "enum": ["BEDROCK_FOUNDATION_MODEL", "BEDROCK_DATA_AUTOMATION"],
       "type": "string"
     },
     "PatternObjectFilter": {

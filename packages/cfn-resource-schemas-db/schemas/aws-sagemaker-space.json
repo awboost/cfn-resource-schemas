@@ -1,5 +1,5 @@
 {
-  "$hash": "b6b5032d4b68960a49ea7f5da900097451b00c2e",
+  "$hash": "b63d21827a1db0e685de2eecb97fc20bf18edd81",
   "$id": "aws-sagemaker-space.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -37,7 +37,8 @@
     "CustomFileSystem": {
       "additionalProperties": false,
       "properties": {
-        "EFSFileSystem": { "$ref": "#/definitions/EFSFileSystem" }
+        "EFSFileSystem": { "$ref": "#/definitions/EFSFileSystem" },
+        "FSxLustreFileSystem": { "$ref": "#/definitions/FSxLustreFileSystem" }
       },
       "type": "object"
     },
@@ -96,6 +97,19 @@
         }
       },
       "required": ["EbsVolumeSizeInGb"],
+      "type": "object"
+    },
+    "FSxLustreFileSystem": {
+      "additionalProperties": false,
+      "properties": {
+        "FileSystemId": {
+          "maxLength": 21,
+          "minLength": 11,
+          "pattern": "^(fs-[0-9a-f]{8,})$",
+          "type": "string"
+        }
+      },
+      "required": ["FileSystemId"],
       "type": "object"
     },
     "JupyterServerAppSettings": {

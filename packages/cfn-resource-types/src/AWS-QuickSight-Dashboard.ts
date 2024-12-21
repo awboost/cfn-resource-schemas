@@ -1671,7 +1671,7 @@ export type DashboardPublishOptions = {
    */
   SheetLayoutElementMaximizationOption?: SheetLayoutElementMaximizationOption;
   VisualAxisSortOption?: VisualAxisSortOption;
-  VisualMenuOption?: any;
+  VisualMenuOption?: VisualMenuOption;
   /**
    * <p>The visual publish options of a visual in a dashboard</p>
    */
@@ -3677,7 +3677,7 @@ export type GeospatialLayerJoinDefinition = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayermapconfiguration.html}
  */
 export type GeospatialLayerMapConfiguration = {
-  Interactions?: any;
+  Interactions?: unknown;
   Legend?: LegendOptions;
   MapLayers?: GeospatialLayerItem[];
   MapState?: GeospatialMapState;
@@ -3747,7 +3747,7 @@ export type GeospatialMapAggregatedFieldWells = {
  */
 export type GeospatialMapConfiguration = {
   FieldWells?: GeospatialMapFieldWells;
-  Interactions?: any;
+  Interactions?: unknown;
   Legend?: LegendOptions;
   MapStyleOptions?: GeospatialMapStyleOptions;
   PointStyleOptions?: GeospatialPointStyleOptions;
@@ -8499,6 +8499,13 @@ export type VisualCustomActionOperation = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualcustomactiontrigger.html}
  */
 export type VisualCustomActionTrigger = "DATA_POINT_CLICK" | "DATA_POINT_MENU";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.VisualMenuOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualmenuoption.html}
+ */
+export type VisualMenuOption = {
+  AvailabilityStatus?: DashboardBehavior;
+};
 /**
  * Type definition for `AWS::QuickSight::Dashboard.VisualPalette`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualpalette.html}

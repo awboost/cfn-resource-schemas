@@ -1,34 +1,36 @@
-- updated `AWS::Bedrock::Agent`
-  - added definition `RequireConfirmation`
-  - updated definition `Function`
-- updated `AWS::Bedrock::Prompt`
-  - added definition `AnyToolChoice`
-  - added definition `AutoToolChoice`
-  - added definition `ChatPromptTemplateConfiguration`
-  - added definition `ContentBlock`
-  - added definition `ConversationRole`
-  - added definition `Message`
-  - added definition `PromptAgentResource`
-  - added definition `PromptGenAiResource`
-  - added definition `SpecificToolChoice`
-  - added definition `SystemContentBlock`
-  - added definition `ToolChoice`
-  - added definition `ToolConfiguration`
-  - added definition `ToolInputSchema`
-  - added definition `ToolSpecification`
-  - added definition `Tool`
-  - updated definition `PromptTemplateConfiguration`
-  - updated definition `PromptTemplateType`
-  - updated definition `PromptVariant`
-- updated `AWS::DataZone::DataSource`
-  - added definition `SageMakerRunConfigurationInput`
-  - added definition `TrackingAssets`
-  - updated definition `DataSourceConfigurationInput`
+- updated `AWS::Bedrock::DataSource`
+  - added definition `BedrockDataAutomationConfiguration`
+  - added definition `ParsingModality`
+  - updated definition `BedrockFoundationModelConfiguration`
+  - updated definition `DataSourceConfiguration`
+  - updated definition `DataSourceType`
+  - updated definition `ParsingConfiguration`
+  - updated definition `ParsingStrategy`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - added definition `KendraIndexArn`
+  - added definition `KendraKnowledgeBaseConfiguration`
+  - added definition `S3Location`
+  - added definition `SupplementalDataStorageConfiguration`
+  - added definition `SupplementalDataStorageLocationType`
+  - added definition `SupplementalDataStorageLocation`
+  - added definition `SupplementalDataStorageLocations`
+  - updated `required`
+  - updated definition `KnowledgeBaseConfiguration`
+  - updated definition `KnowledgeBaseType`
+  - updated definition `VectorKnowledgeBaseConfiguration`
 - updated `AWS::EC2::LaunchTemplate`
   - updated definition `LaunchTemplateData`
-- updated `AWS::Macie::CustomDataIdentifier`
+- updated `AWS::EC2::VPCEndpointService`
+  - added property `Tags`
   - updated `tagging`
+  - updated definition `undefined`
   - updated handler permissions
+- updated `AWS::GameLift::Location`
+  - updated `tagging`
+- updated `AWS::GameLift::MatchmakingConfiguration`
+  - updated `tagging`
+- updated `AWS::GameLift::MatchmakingRuleSet`
+  - updated `tagging`
 - updated `AWS::QuickSight::Analysis`
   - updated definition `GeospatialLayerMapConfiguration`
   - updated definition `GeospatialMapConfiguration`
@@ -97,6 +99,12 @@
   - updated definition `TrendArrowOptions`
   - updated definition `VisualSubtitleLabelOptions`
   - updated definition `VisualTitleLabelOptions`
-- updated `AWS::SES::MailManagerRuleSet`
-  - added definition `DeliverToQBusinessAction`
-  - updated definition `RuleAction`
+- updated `AWS::SageMaker::Domain`
+  - added definition `FSxLustreFileSystemConfig`
+  - updated definition `CustomFileSystemConfig`
+- updated `AWS::SageMaker::Space`
+  - added definition `FSxLustreFileSystem`
+  - updated definition `CustomFileSystem`
+- updated `AWS::SageMaker::UserProfile`
+  - added definition `FSxLustreFileSystemConfig`
+  - updated definition `CustomFileSystemConfig`

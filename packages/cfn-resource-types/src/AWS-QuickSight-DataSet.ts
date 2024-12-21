@@ -466,6 +466,11 @@ export type FieldFolder = {
  */
 export type FieldFolderMap = Record<string, FieldFolder>;
 /**
+ * Type definition for `AWS::QuickSight::DataSet.FileFormat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fileformat.html}
+ */
+export type FileFormat = "CSV" | "TSV" | "CLF" | "ELF" | "XLSX" | "JSON";
+/**
  * Type definition for `AWS::QuickSight::DataSet.FilterOperation`.
  * <p>A transform operation that filters rows based on a condition.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html}
@@ -1076,7 +1081,10 @@ export type S3Source = {
      * @maxLength `2048`
      */
   InputColumns: InputColumn[];
-  UploadSettings?: any;
+  /**
+   * <p>Information about the format for a source file or files.</p>
+   */
+  UploadSettings?: UploadSettings;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.Status`.
@@ -1165,6 +1173,11 @@ export type TagColumnOperation = {
   Tags: ColumnTag[];
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.TextQualifier`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-textqualifier.html}
+ */
+export type TextQualifier = "DOUBLE_QUOTE" | "SINGLE_QUOTE";
+/**
  * Type definition for `AWS::QuickSight::DataSet.TimeGranularity`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-timegranularity.html}
  */
@@ -1247,6 +1260,30 @@ export type UntagColumnOperation = {
    * <p>The column tags to remove from this column.</p>
    */
   TagNames: ColumnTagName[];
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.UploadSettings`.
+ * <p>Information about the format for a source file or files.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html}
+ */
+export type UploadSettings = {
+  /**
+   * <p>Whether the file has a header row, or the files each have a header row.</p>
+   */
+  ContainsHeader?: boolean;
+  /**
+   * <p>The delimiter between values in the file.</p>
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  Delimiter?: string;
+  Format?: FileFormat;
+  /**
+   * <p>A row number to start reading data from.</p>
+   * @min `1`
+   */
+  StartFromRow?: number;
+  TextQualifier?: TextQualifier;
 };
 /**
  * Definition of the AWS::QuickSight::DataSet Resource Type.

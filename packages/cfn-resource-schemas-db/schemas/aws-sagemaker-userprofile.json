@@ -1,5 +1,5 @@
 {
-  "$hash": "8a6cf76d50a3c233ca9debface8069a842488270",
+  "$hash": "80fff8a09a977bc54683200b089fea050c07b629",
   "$id": "aws-sagemaker-userprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -77,7 +77,10 @@
     "CustomFileSystemConfig": {
       "additionalProperties": false,
       "properties": {
-        "EFSFileSystemConfig": { "$ref": "#/definitions/EFSFileSystemConfig" }
+        "EFSFileSystemConfig": { "$ref": "#/definitions/EFSFileSystemConfig" },
+        "FSxLustreFileSystemConfig": {
+          "$ref": "#/definitions/FSxLustreFileSystemConfig"
+        }
       },
       "type": "object"
     },
@@ -142,6 +145,25 @@
       "type": "object"
     },
     "EFSFileSystemConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "FileSystemId": {
+          "maxLength": 21,
+          "minLength": 11,
+          "pattern": "^(fs-[0-9a-f]{8,})$",
+          "type": "string"
+        },
+        "FileSystemPath": {
+          "maxLength": 256,
+          "minLength": 1,
+          "pattern": "^\\/\\S*$",
+          "type": "string"
+        }
+      },
+      "required": ["FileSystemId"],
+      "type": "object"
+    },
+    "FSxLustreFileSystemConfig": {
       "additionalProperties": false,
       "properties": {
         "FileSystemId": {

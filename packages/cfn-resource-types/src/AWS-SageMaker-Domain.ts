@@ -169,6 +169,7 @@ export type CodeRepository = {
  */
 export type CustomFileSystemConfig = {
   EFSFileSystemConfig?: EFSFileSystemConfig;
+  FSxLustreFileSystemConfig?: FSxLustreFileSystemConfig;
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.CustomImage`.
@@ -332,6 +333,24 @@ export type DomainSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-efsfilesystemconfig.html}
  */
 export type EFSFileSystemConfig = {
+  /**
+   * @minLength `11`
+   * @maxLength `21`
+   * @pattern `^(fs-[0-9a-f]{8,})$`
+   */
+  FileSystemId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^\/\S*$`
+   */
+  FileSystemPath?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.FSxLustreFileSystemConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-fsxlustrefilesystemconfig.html}
+ */
+export type FSxLustreFileSystemConfig = {
   /**
    * @minLength `11`
    * @maxLength `21`

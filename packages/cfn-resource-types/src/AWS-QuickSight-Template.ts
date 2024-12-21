@@ -281,7 +281,7 @@ export type QuickSightTemplateAttributes = {
         ImageContentAltText: string;
         Interactions: {
           ImageMenuOption: {
-            AvailabilityStatus: any;
+            AvailabilityStatus: unknown;
           };
         };
         Scaling: {
@@ -311,7 +311,7 @@ export type QuickSightTemplateAttributes = {
              */
             PlainText: string;
           };
-          Visibility: any;
+          Visibility: Visibility;
         };
       }[];
       /**
@@ -483,13 +483,13 @@ export type AxisDisplayMinMaxRange = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-axisdisplayoptions.html}
  */
 export type AxisDisplayOptions = {
-  AxisLineVisibility?: any;
+  AxisLineVisibility?: Visibility;
   /**
    * String based length that is composed of value and unit in px
    */
   AxisOffset?: string;
   DataOptions?: AxisDataOptions;
-  GridLineVisibility?: any;
+  GridLineVisibility?: Visibility;
   ScrollbarOptions?: ScrollBarOptions;
   TickLabelOptions?: AxisTickLabelOptions;
 };
@@ -790,8 +790,8 @@ export type BoxPlotFillStyle = "SOLID" | "TRANSPARENT";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotoptions.html}
  */
 export type BoxPlotOptions = {
-  AllDataPointsVisibility?: any;
-  OutlierVisibility?: any;
+  AllDataPointsVisibility?: Visibility;
+  OutlierVisibility?: Visibility;
   StyleOptions?: BoxPlotStyleOptions;
 };
 /**
@@ -1007,8 +1007,8 @@ export type ChartAxisLabelOptions = {
    * @maxLength `100`
    */
   AxisLabelOptions?: AxisLabelOptions[];
-  SortIconVisibility?: any;
-  Visibility?: any;
+  SortIconVisibility?: Visibility;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.ClusterMarker`.
@@ -1158,7 +1158,7 @@ export type ColumnTooltipItem = {
   Column: ColumnIdentifier;
   Label?: string;
   TooltipTarget?: TooltipTarget;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.ComboChartAggregatedFieldWells`.
@@ -1711,7 +1711,7 @@ export type DataLabelContent = "VALUE" | "PERCENT" | "VALUE_AND_PERCENT";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datalabeloptions.html}
  */
 export type DataLabelOptions = {
-  CategoryLabelVisibility?: any;
+  CategoryLabelVisibility?: Visibility;
   /**
    * @minLength `0`
    * @maxLength `100`
@@ -1723,11 +1723,11 @@ export type DataLabelOptions = {
   LabelColor?: string;
   LabelContent?: DataLabelContent;
   LabelFontConfiguration?: FontConfiguration;
-  MeasureLabelVisibility?: any;
+  MeasureLabelVisibility?: Visibility;
   Overlap?: DataLabelOverlap;
   Position?: DataLabelPosition;
-  TotalsVisibility?: any;
-  Visibility?: any;
+  TotalsVisibility?: Visibility;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.DataLabelOverlap`.
@@ -1783,7 +1783,7 @@ export type DataPathLabelType = {
    * @maxLength `2048`
    */
   FieldValue?: string;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.DataPathSort`.
@@ -1885,7 +1885,7 @@ export type DateAggregationFunction =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dateaxisoptions.html}
  */
 export type DateAxisOptions = {
-  MissingDateVisibility?: any;
+  MissingDateVisibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.DateDimensionField`.
@@ -2231,7 +2231,7 @@ export type DimensionField = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-donutcenteroptions.html}
  */
 export type DonutCenterOptions = {
-  LabelVisibility?: any;
+  LabelVisibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.DonutOptions`.
@@ -2335,7 +2335,7 @@ export type ExplicitHierarchy = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fieldbasedtooltip.html}
  */
 export type FieldBasedTooltip = {
-  AggregationVisibility?: any;
+  AggregationVisibility?: Visibility;
   /**
    * @minLength `0`
    * @maxLength `100`
@@ -2353,7 +2353,7 @@ export type FieldLabelType = {
    * @maxLength `512`
    */
   FieldId?: string;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.FieldSeriesItem`.
@@ -2400,7 +2400,7 @@ export type FieldTooltipItem = {
   FieldId: string;
   Label?: string;
   TooltipTarget?: TooltipTarget;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.FilledMapAggregatedFieldWells`.
@@ -2986,7 +2986,7 @@ export type FreeFormLayoutElement = {
    */
   RenderingRules?: SheetElementRenderingRule[];
   SelectedBorderStyle?: FreeFormLayoutElementBorderStyle;
-  Visibility?: any;
+  Visibility?: Visibility;
   /**
    * String based length that is composed of value and unit in px
    */
@@ -3009,7 +3009,7 @@ export type FreeFormLayoutElementBackgroundStyle = {
    * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
    */
   Color?: string;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.FreeFormLayoutElementBorderStyle`.
@@ -3020,7 +3020,7 @@ export type FreeFormLayoutElementBorderStyle = {
    * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
    */
   Color?: string;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.FreeFormLayoutScreenCanvasSizeOptions`.
@@ -3077,16 +3077,16 @@ export type FunnelChartConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-funnelchartdatalabeloptions.html}
  */
 export type FunnelChartDataLabelOptions = {
-  CategoryLabelVisibility?: any;
+  CategoryLabelVisibility?: Visibility;
   /**
    * @pattern `^#[A-F0-9]{6}$`
    */
   LabelColor?: string;
   LabelFontConfiguration?: FontConfiguration;
   MeasureDataLabelStyle?: FunnelChartMeasureDataLabelStyle;
-  MeasureLabelVisibility?: any;
+  MeasureLabelVisibility?: Visibility;
   Position?: DataLabelPosition;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.FunnelChartFieldWells`.
@@ -3775,7 +3775,7 @@ export type ImageInteractionOptions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagemenuoption.html}
  */
 export type ImageMenuOption = {
-  AvailabilityStatus?: any;
+  AvailabilityStatus?: unknown;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.InnerFilter`.
@@ -3991,9 +3991,9 @@ export type KPISparklineOptions = {
    * @pattern `^#[A-F0-9]{6}$`
    */
   Color?: string;
-  TooltipVisibility?: any;
+  TooltipVisibility?: Visibility;
   Type: KPISparklineType;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.KPISparklineType`.
@@ -4057,7 +4057,7 @@ export type KPIVisualStandardLayoutType = "CLASSIC" | "VERTICAL";
 export type LabelOptions = {
   CustomLabel?: string;
   FontConfiguration?: FontConfiguration;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.Layout`.
@@ -4097,7 +4097,7 @@ export type LegendOptions = {
   Position?: LegendPosition;
   Title?: LabelOptions;
   ValueFontConfiguration?: FontConfiguration;
-  Visibility?: any;
+  Visibility?: Visibility;
   /**
    * String based length that is composed of value and unit in px
    */
@@ -4204,7 +4204,7 @@ export type LineChartLineStyle = "SOLID" | "DOTTED" | "DASHED";
 export type LineChartLineStyleSettings = {
   LineInterpolation?: LineInterpolation;
   LineStyle?: LineChartLineStyle;
-  LineVisibility?: any;
+  LineVisibility?: Visibility;
   /**
    * String based length that is composed of value and unit in px
    */
@@ -4234,7 +4234,7 @@ export type LineChartMarkerStyleSettings = {
    * String based length that is composed of value and unit in px
    */
   MarkerSize?: string;
-  MarkerVisibility?: any;
+  MarkerVisibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.LineChartSeriesSettings`.
@@ -4330,21 +4330,21 @@ export type ListControlDisplayOptions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontrolsearchoptions.html}
  */
 export type ListControlSearchOptions = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.ListControlSelectAllOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontrolselectalloptions.html}
  */
 export type ListControlSelectAllOptions = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.LoadingAnimation`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-loadinganimation.html}
  */
 export type LoadingAnimation = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.LocalNavigationConfiguration`.
@@ -4401,7 +4401,7 @@ export type MapZoomMode = "AUTO" | "MANUAL";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-maximumlabeltype.html}
  */
 export type MaximumLabelType = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.MaximumMinimumComputation`.
@@ -4455,7 +4455,7 @@ export type MetricComparisonComputation = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-minimumlabeltype.html}
  */
 export type MinimumLabelType = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.MissingDataConfiguration`.
@@ -4726,7 +4726,7 @@ export type PanelConfiguration = {
    * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
    */
   BackgroundColor?: string;
-  BackgroundVisibility?: any;
+  BackgroundVisibility?: Visibility;
   /**
    * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
    */
@@ -4736,12 +4736,12 @@ export type PanelConfiguration = {
    * String based length that is composed of value and unit in px
    */
   BorderThickness?: string;
-  BorderVisibility?: any;
+  BorderVisibility?: Visibility;
   /**
    * String based length that is composed of value and unit in px
    */
   GutterSpacing?: string;
-  GutterVisibility?: any;
+  GutterVisibility?: Visibility;
   Title?: PanelTitleOptions;
 };
 /**
@@ -4751,7 +4751,7 @@ export type PanelConfiguration = {
 export type PanelTitleOptions = {
   FontConfiguration?: FontConfiguration;
   HorizontalTextAlignment?: HorizontalTextAlignment;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.PaperOrientation`.
@@ -5307,7 +5307,7 @@ export type PivotTableFieldOption = {
    * @maxLength `512`
    */
   FieldId: string;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.PivotTableFieldOptions`.
@@ -5355,9 +5355,9 @@ export type PivotTableMetricPlacement = "ROW" | "COLUMN";
  */
 export type PivotTableOptions = {
   CellStyle?: TableCellStyle;
-  CollapsedRowDimensionsVisibility?: any;
+  CollapsedRowDimensionsVisibility?: Visibility;
   ColumnHeaderStyle?: TableCellStyle;
-  ColumnNamesVisibility?: any;
+  ColumnNamesVisibility?: Visibility;
   /**
    * String based length that is composed of value and unit in px
    */
@@ -5368,16 +5368,16 @@ export type PivotTableOptions = {
   RowHeaderStyle?: TableCellStyle;
   RowsLabelOptions?: PivotTableRowsLabelOptions;
   RowsLayout?: PivotTableRowsLayout;
-  SingleMetricVisibility?: any;
-  ToggleButtonsVisibility?: any;
+  SingleMetricVisibility?: Visibility;
+  ToggleButtonsVisibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.PivotTablePaginatedReportOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablepaginatedreportoptions.html}
  */
 export type PivotTablePaginatedReportOptions = {
-  OverflowColumnHeaderVisibility?: any;
-  VerticalOverflowVisibility?: any;
+  OverflowColumnHeaderVisibility?: Visibility;
+  VerticalOverflowVisibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.PivotTableRowsLabelOptions`.
@@ -5389,7 +5389,7 @@ export type PivotTableRowsLabelOptions = {
    * @maxLength `1024`
    */
   CustomLabel?: string;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.PivotTableRowsLayout`.
@@ -5472,7 +5472,7 @@ export type PivotTotalOptions = {
    */
   TotalAggregationOptions?: TotalAggregationOption[];
   TotalCellStyle?: TableCellStyle;
-  TotalsVisibility?: any;
+  TotalsVisibility?: Visibility;
   ValueCellStyle?: TableCellStyle;
 };
 /**
@@ -5608,7 +5608,7 @@ export type PrimaryValueDisplayType = "HIDDEN" | "COMPARISON" | "ACTUAL";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-progressbaroptions.html}
  */
 export type ProgressBarOptions = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.QueryExecutionMode`.
@@ -5648,7 +5648,7 @@ export type RadarChartAggregatedFieldWells = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartareastylesettings.html}
  */
 export type RadarChartAreaStyleSettings = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.RadarChartAxesRangeScale`.
@@ -5660,7 +5660,7 @@ export type RadarChartAxesRangeScale = "AUTO" | "INDEPENDENT" | "SHARED";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartconfiguration.html}
  */
 export type RadarChartConfiguration = {
-  AlternateBandColorsVisibility?: any;
+  AlternateBandColorsVisibility?: Visibility;
   /**
    * @pattern `^#[A-F0-9]{6}$`
    */
@@ -5758,7 +5758,7 @@ export type RadarChartVisual = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rangeendslabeltype.html}
  */
 export type RangeEndsLabelType = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.ReferenceLine`.
@@ -6208,7 +6208,7 @@ export type ScatterPlotVisual = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scrollbaroptions.html}
  */
 export type ScrollBarOptions = {
-  Visibility?: any;
+  Visibility?: Visibility;
   VisibleRange?: VisibleRangeOptions;
 };
 /**
@@ -6216,7 +6216,7 @@ export type ScrollBarOptions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-secondaryvalueoptions.html}
  */
 export type SecondaryValueOptions = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.SectionAfterPageBreak`.
@@ -6397,7 +6397,7 @@ export type SheetControlInfoIconLabelOptions = {
    * @maxLength `100`
    */
   InfoIconText?: string;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.SheetControlLayout`.
@@ -6491,7 +6491,7 @@ export type SheetDefinition = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetelementconfigurationoverrides.html}
  */
 export type SheetElementConfigurationOverrides = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.SheetElementRenderingRule`.
@@ -6572,7 +6572,7 @@ export type SheetImageStaticFileSource = {
  */
 export type SheetImageTooltipConfiguration = {
   TooltipText?: SheetImageTooltipText;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.SheetImageTooltipText`.
@@ -6839,7 +6839,7 @@ export type SubtotalOptions = {
    */
   StyleTargets?: TableStyleTarget[];
   TotalCellStyle?: TableCellStyle;
-  TotalsVisibility?: any;
+  TotalsVisibility?: Visibility;
   ValueCellStyle?: TableCellStyle;
 };
 /**
@@ -6925,7 +6925,7 @@ export type TableCellStyle = {
   HorizontalTextAlignment?: HorizontalTextAlignment;
   TextWrap?: TextWrap;
   VerticalTextAlignment?: VerticalTextAlignment;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.TableConditionalFormatting`.
@@ -7022,7 +7022,7 @@ export type TableFieldOption = {
    */
   FieldId: string;
   URLStyling?: TableFieldURLConfiguration;
-  Visibility?: any;
+  Visibility?: Visibility;
   /**
    * String based length that is composed of value and unit in px
    */
@@ -7088,8 +7088,8 @@ export type TableOrientation = "VERTICAL" | "HORIZONTAL";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablepaginatedreportoptions.html}
  */
 export type TablePaginatedReportOptions = {
-  OverflowColumnHeaderVisibility?: any;
-  VerticalOverflowVisibility?: any;
+  OverflowColumnHeaderVisibility?: Visibility;
+  VerticalOverflowVisibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.TablePinnedFieldOptions`.
@@ -7397,7 +7397,7 @@ export type TextConditionalFormat = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textcontrolplaceholderoptions.html}
  */
 export type TextControlPlaceholderOptions = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.TextFieldControlDisplayOptions`.
@@ -7419,7 +7419,7 @@ export type TextWrap = "NONE" | "WRAP";
  */
 export type ThousandSeparatorOptions = {
   Symbol?: NumericSeparatorSymbol;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.TimeBasedForecastProperties`.
@@ -7546,7 +7546,7 @@ export type TooltipItem = {
 export type TooltipOptions = {
   FieldBasedTooltip?: FieldBasedTooltip;
   SelectedTooltipType?: SelectedTooltipType;
-  TooltipVisibility?: any;
+  TooltipVisibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.TooltipTarget`.
@@ -7686,7 +7686,7 @@ export type TotalOptions = {
    */
   TotalAggregationOptions?: TotalAggregationOption[];
   TotalCellStyle?: TableCellStyle;
-  TotalsVisibility?: any;
+  TotalsVisibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.TreeMapAggregatedFieldWells`.
@@ -7778,7 +7778,7 @@ export type TreeMapVisual = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-trendarrowoptions.html}
  */
 export type TrendArrowOptions = {
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.UnaggregatedField`.
@@ -7835,6 +7835,11 @@ export type ValueWhenUnsetOption = "RECOMMENDED_VALUE" | "NULL";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-verticaltextalignment.html}
  */
 export type VerticalTextAlignment = "TOP" | "MIDDLE" | "BOTTOM" | "AUTO";
+/**
+ * Type definition for `AWS::QuickSight::Template.Visibility`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visibility.html}
+ */
+export type Visibility = "HIDDEN" | "VISIBLE";
 /**
  * Type definition for `AWS::QuickSight::Template.VisibleRangeOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visiblerangeoptions.html}
@@ -7932,7 +7937,7 @@ export type VisualPalette = {
  */
 export type VisualSubtitleLabelOptions = {
   FormatText?: LongFormatText;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.VisualTitleLabelOptions`.
@@ -7940,7 +7945,7 @@ export type VisualSubtitleLabelOptions = {
  */
 export type VisualTitleLabelOptions = {
   FormatText?: ShortFormatText;
-  Visibility?: any;
+  Visibility?: Visibility;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.WaterfallChartAggregatedFieldWells`.

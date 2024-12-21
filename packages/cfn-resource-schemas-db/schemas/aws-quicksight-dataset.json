@@ -1,5 +1,5 @@
 {
-  "$hash": "817504d8c53404bb7e86f16a42be1ab623d7e1fe",
+  "$hash": "39961e2693779354b7bf37c34d9450cf366ffd36",
   "$id": "aws-quicksight-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/DataSetId"],
@@ -935,7 +935,7 @@
           "minItems": 1,
           "type": "array"
         },
-        "UploadSettings": {}
+        "UploadSettings": { "$ref": "#/definitions/UploadSettings" }
       },
       "required": ["DataSourceArn", "InputColumns"],
       "type": "object"

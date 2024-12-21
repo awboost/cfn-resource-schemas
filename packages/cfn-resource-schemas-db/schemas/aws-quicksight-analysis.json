@@ -1,5 +1,5 @@
 {
-  "$hash": "cdf7222280aa6ae76b0ac027cf0a6bd37a356ae1",
+  "$hash": "92143b3da9a19300093c9c418634efde0f6e7052",
   "$id": "aws-quicksight-analysis.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -3333,7 +3333,7 @@
     "GeospatialLayerMapConfiguration": {
       "additionalProperties": false,
       "properties": {
-        "Interactions": {},
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "MapLayers": {
           "items": { "$ref": "#/definitions/GeospatialLayerItem" },
@@ -3404,7 +3404,7 @@
       "additionalProperties": false,
       "properties": {
         "FieldWells": { "$ref": "#/definitions/GeospatialMapFieldWells" },
-        "Interactions": {},
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "MapStyleOptions": {
           "$ref": "#/definitions/GeospatialMapStyleOptions"
@@ -4000,7 +4000,9 @@
     },
     "ImageMenuOption": {
       "additionalProperties": false,
-      "properties": { "AvailabilityStatus": {} },
+      "properties": {
+        "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
+      },
       "type": "object"
     },
     "ImageStaticFile": {
