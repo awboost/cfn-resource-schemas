@@ -48,6 +48,10 @@ export type BridgeNetworkSource = {
    */
   MulticastIp: string;
   /**
+   * The settings related to the multicast source.
+   */
+  MulticastSourceSettings?: MulticastSourceSettings;
+  /**
    * The network source's gateway network name.
    */
   NetworkName: string;
@@ -59,6 +63,17 @@ export type BridgeNetworkSource = {
    * The network source protocol.
    */
   Protocol: ProtocolEnum;
+};
+/**
+ * Type definition for `AWS::MediaConnect::BridgeSource.MulticastSourceSettings`.
+ * The settings related to the multicast source.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-multicastsourcesettings.html}
+ */
+export type MulticastSourceSettings = {
+  /**
+   * The IP address of the source for source-specific multicast (SSM).
+   */
+  MulticastSourceIp?: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::BridgeSource.ProtocolEnum`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "8ea481e1e2b5a398d503ba337e198697d869f2af",
+  "$hash": "8ae60d404bd52b67157b8a6c996e577504694af3",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -126,7 +126,10 @@
           "description": "The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0. For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.",
           "type": "number"
         },
-        "SecondsUntilAutoPause": { "description": "", "type": "integer" }
+        "SecondsUntilAutoPause": {
+          "description": "Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it. \n Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.",
+          "type": "integer"
+        }
       },
       "type": "object"
     },

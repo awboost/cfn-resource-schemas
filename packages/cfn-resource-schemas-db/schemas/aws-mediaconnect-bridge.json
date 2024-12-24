@@ -1,5 +1,5 @@
 {
-  "$hash": "51a1995ba486edd80de8e643acbe598060de7f74",
+  "$hash": "45ce64d528a3bdd65f9eb61e302e4463842d2e5f",
   "$id": "aws-mediaconnect-bridge.json",
   "additionalProperties": false,
   "definitions": {
@@ -63,6 +63,10 @@
         "MulticastIp": {
           "description": "The network source multicast IP.",
           "type": "string"
+        },
+        "MulticastSourceSettings": {
+          "$ref": "#/definitions/MulticastSourceSettings",
+          "description": "The settings related to the multicast source."
         },
         "Name": {
           "description": "The name of the network source.",
@@ -163,6 +167,17 @@
         }
       },
       "required": ["MaxBitrate", "MaxOutputs"],
+      "type": "object"
+    },
+    "MulticastSourceSettings": {
+      "additionalProperties": false,
+      "description": "The settings related to the multicast source.",
+      "properties": {
+        "MulticastSourceIp": {
+          "description": "The IP address of the source for source-specific multicast (SSM).",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "ProtocolEnum": { "enum": ["rtp-fec", "rtp", "udp"], "type": "string" },

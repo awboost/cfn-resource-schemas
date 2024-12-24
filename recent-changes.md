@@ -1,5 +1,33 @@
-- updated `AWS::PCS::Cluster`
-  - updated handler permissions
-- updated `AWS::Redshift::Integration`
-  - updated handler permissions
-  - updated property `KMSKeyId`
+- added `AWS::CloudFront::AnycastIpList`
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `CacheBehavior`
+  - updated definition `DefaultCacheBehavior`
+  - updated definition `DistributionConfig`
+  - updated definition `GrpcConfig`
+  - updated definition `Logging`
+  - updated definition `OriginGroup`
+- updated `AWS::Connect::Queue`
+  - updated property `QuickConnectArns`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `BaselinePerformanceFactors`
+  - updated definition `CapacityReservationSpecification`
+  - updated definition `Cpu`
+  - updated definition `Ebs`
+  - updated definition `InstanceRequirements`
+  - updated definition `LaunchTemplateData`
+  - updated definition `LaunchTemplateTagSpecification`
+  - updated definition `NetworkInterface`
+  - updated definition `Reference`
+  - updated definition `TagSpecification`
+  - updated property `TagSpecifications`
+- updated `AWS::MediaConnect::Bridge`
+  - added definition `MulticastSourceSettings`
+  - updated definition `BridgeNetworkSource`
+- updated `AWS::MediaConnect::BridgeSource`
+  - added definition `MulticastSourceSettings`
+  - updated definition `BridgeNetworkSource`
+- updated `AWS::RDS::DBCluster`
+  - updated definition `ServerlessV2ScalingConfiguration`
+- updated `AWS::RDS::DBInstance`
+  - added property `DatabaseInsightsMode`
+  - updated `readOnlyProperties`

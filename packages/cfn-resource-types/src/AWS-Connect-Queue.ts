@@ -43,7 +43,6 @@ export type ConnectQueueProperties = {
   /**
    * The quick connects available to agents who are working the queue.
    * @minLength `1`
-   * @maxLength `50`
    */
   QuickConnectArns?: string[];
   /**

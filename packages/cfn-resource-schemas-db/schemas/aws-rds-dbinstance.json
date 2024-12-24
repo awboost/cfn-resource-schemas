@@ -1,5 +1,5 @@
 {
-  "$hash": "4bfe5f8cad45521139634e98da75715b383a38f6",
+  "$hash": "d7751ef324a185f91651ca7bcb34208a6ea79fac",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -345,6 +345,7 @@
       "description": "The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term \"Oracle database instance\" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.",
       "type": "string"
     },
+    "DatabaseInsightsMode": { "description": "", "type": "string" },
     "DbiResourceId": { "description": "", "type": "string" },
     "DedicatedLogVolume": {
       "description": "Indicates whether the DB instance has a dedicated log volume (DLV) enabled.",
@@ -604,7 +605,8 @@
     "/properties/DBInstanceArn",
     "/properties/MasterUserSecret/SecretArn",
     "/properties/CertificateDetails/CAIdentifier",
-    "/properties/CertificateDetails/ValidTill"
+    "/properties/CertificateDetails/ValidTill",
+    "/properties/DatabaseInsightsMode"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {

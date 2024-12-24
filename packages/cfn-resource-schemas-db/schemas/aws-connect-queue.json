@@ -1,5 +1,5 @@
 {
-  "$hash": "0074d63da3ced73b009a47f79a8df3f5f11cdb48",
+  "$hash": "0c38eea67f28c672366e605521207b203f5a0f00",
   "$id": "aws-connect-queue.json",
   "additionalProperties": false,
   "definitions": {
@@ -160,7 +160,6 @@
       "description": "The quick connects available to agents who are working the queue.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/QuickConnectArn" },
-      "maxItems": 50,
       "minItems": 1,
       "type": "array"
     },

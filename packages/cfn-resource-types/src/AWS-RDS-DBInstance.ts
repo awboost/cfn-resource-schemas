@@ -803,6 +803,7 @@ export type RDSDBInstanceAttributes = {
     ValidTill: string;
   };
   DBInstanceArn: string;
+  DatabaseInsightsMode: string;
   DbiResourceId: string;
   /**
      * The connection endpoint for the DB instance.
