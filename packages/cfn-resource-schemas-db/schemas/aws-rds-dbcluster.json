@@ -1,5 +1,5 @@
 {
-  "$hash": "8ae60d404bd52b67157b8a6c996e577504694af3",
+  "$hash": "639589c8f43e84855b94233f77f2732cb0bdc872",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -283,6 +283,7 @@
       "description": "Reserved for future use.",
       "type": "string"
     },
+    "DatabaseInsightsMode": { "description": "", "type": "string" },
     "DatabaseName": {
       "description": "The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. \n Valid for: Aurora DB clusters and Multi-AZ DB clusters",
       "type": "string"

@@ -120,6 +120,7 @@ export type RDSDBClusterProperties = {
    * Reserved for future use.
    */
   DBSystemId?: string;
+  DatabaseInsightsMode?: string;
   /**
      * The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*.
      Valid for: Aurora DB clusters and Multi-AZ DB clusters

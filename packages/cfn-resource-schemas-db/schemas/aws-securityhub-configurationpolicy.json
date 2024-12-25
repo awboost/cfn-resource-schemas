@@ -1,5 +1,5 @@
 {
-  "$hash": "353bda5f92434107e0838f10dc5dddb07332949f",
+  "$hash": "1f01f092737bf3bb0a57c3f5244c7b6cbdf7d444",
   "$id": "aws-securityhub-configurationpolicy.json",
   "additionalProperties": false,
   "definitions": {
@@ -160,7 +160,7 @@
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
       "patternProperties": {
-        "^[a-zA-Z0-9]{1,128}$": {
+        "^(?!aws:)[a-zA-Z+-=._:/]{1,128}$": {
           "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
           "maxLength": 256,
           "minLength": 0,
