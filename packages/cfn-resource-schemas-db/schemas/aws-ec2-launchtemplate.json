@@ -1,5 +1,5 @@
 {
-  "$hash": "83912b0f113787ebc74ddf339395f1740d2578e6",
+  "$hash": "f35e20dbc767fd6d06f081ef8982b337a4f2207d",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -567,10 +567,7 @@
           "type": "array",
           "uniqueItems": false
         },
-        "NetworkPerformanceOptions": {
-          "$ref": "#/definitions/NetworkPerformanceOptions",
-          "description": ""
-        },
+        "NetworkPerformanceOptions": { "description": "" },
         "Placement": {
           "$ref": "#/definitions/Placement",
           "description": "The placement for the instance."

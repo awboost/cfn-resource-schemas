@@ -1,5 +1,5 @@
 {
-  "$hash": "f86ff221c49d1b9afce0466de7a8bd15f771e32d",
+  "$hash": "58c59a92a57eecfdaac05f81a458b321b5715484",
   "$id": "aws-ec2-vpccidrblock.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,7 +11,8 @@
     "/properties/Ipv4IpamPoolId",
     "/properties/Ipv4NetmaskLength",
     "/properties/Ipv6IpamPoolId",
-    "/properties/Ipv6NetmaskLength"
+    "/properties/Ipv6NetmaskLength",
+    "/properties/Ipv6CidrBlockNetworkBorderGroup"
   ],
   "description": "Resource Type definition for AWS::EC2::VPCCidrBlock",
   "handlers": {
@@ -68,6 +69,10 @@
     },
     "Ipv6CidrBlock": {
       "description": "An IPv6 CIDR block from the IPv6 address pool.",
+      "type": "string"
+    },
+    "Ipv6CidrBlockNetworkBorderGroup": {
+      "description": "The name of the location from which we advertise the IPV6 CIDR block.",
       "type": "string"
     },
     "Ipv6IpamPoolId": {

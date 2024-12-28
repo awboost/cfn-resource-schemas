@@ -26,6 +26,10 @@ export type EC2VPCCidrBlockProperties = {
    */
   Ipv6CidrBlock?: string;
   /**
+   * The name of the location from which we advertise the IPV6 CIDR block.
+   */
+  Ipv6CidrBlockNetworkBorderGroup?: string;
+  /**
    * The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
    */
   Ipv6IpamPoolId?: string;
