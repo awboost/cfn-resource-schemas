@@ -19,7 +19,7 @@ export type QBusinessPermissionProperties = {
   /**
    * @minLength `1`
    * @maxLength `1284`
-   * @pattern `^arn:aws:iam::[0-9]{12}:role/.+`
+   * @pattern `^arn:aws:iam::[0-9]{12}:role/[a-zA-Z0-9_/+=,.@-]+$`
    */
   Principal: string;
   /**

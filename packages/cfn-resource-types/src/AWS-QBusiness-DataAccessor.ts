@@ -15,17 +15,17 @@ export type QBusinessDataAccessorProperties = {
    * @maxLength `36`
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]{35}$`
    */
-  ApplicationId?: string;
+  ApplicationId: string;
   /**
    * @minLength `1`
-   * @maxLength `1000`
+   * @maxLength `100`
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9_-]*$`
    */
   DisplayName: string;
   /**
    * @minLength `1`
    * @maxLength `1284`
-   * @pattern `^arn:aws:iam::[0-9]{12}:role/.+`
+   * @pattern `^arn:aws:iam::[0-9]{12}:role/[a-zA-Z0-9_/+=,.@-]+$`
    */
   Principal: string;
   /**

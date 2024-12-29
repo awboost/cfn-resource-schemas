@@ -1,5 +1,5 @@
 {
-  "$hash": "0e38def4992243ec81e528daea0bd599ade904d5",
+  "$hash": "bce6bc0780911789f59bde2858458a2b346c2113",
   "$id": "aws-qbusiness-permission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -52,7 +52,7 @@
     "Principal": {
       "maxLength": 1284,
       "minLength": 1,
-      "pattern": "^arn:aws:iam::[0-9]{12}:role/.+",
+      "pattern": "^arn:aws:iam::[0-9]{12}:role/[a-zA-Z0-9_/+=,.@-]+$",
       "type": "string"
     },
     "StatementId": {
