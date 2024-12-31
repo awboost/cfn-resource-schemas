@@ -216,6 +216,10 @@ export type VisualReference = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html}
  */
 export type VPCConfig = {
+  /**
+   * Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true
+   */
+  Ipv6AllowedForDualStack?: boolean;
   SecurityGroupIds: string[];
   SubnetIds: string[];
   VpcId?: string;

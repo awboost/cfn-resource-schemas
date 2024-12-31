@@ -326,6 +326,11 @@ export type PointInTimeRecoverySpecification = {
    * Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
    */
   PointInTimeRecoveryEnabled?: boolean;
+  /**
+   * @min `1`
+   * @max `35`
+   */
+  RecoveryPeriodInDays?: number;
 };
 /**
  * Type definition for `AWS::DynamoDB::Table.Projection`.

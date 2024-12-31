@@ -1,5 +1,5 @@
 {
-  "$hash": "112a02132032f96d3fccfd08f5abfed8ddc79204",
+  "$hash": "88b11647f17bc053b603504fc85b6a0c63260e9a",
   "$id": "aws-logs-subscriptionfilter.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-cli/master/src/rpdk/core/data/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -39,7 +39,10 @@
   },
   "primaryIdentifier": ["/properties/FilterName", "/properties/LogGroupName"],
   "properties": {
-    "ApplyOnTransformedLogs": { "description": "", "type": "boolean" },
+    "ApplyOnTransformedLogs": {
+      "description": "This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).\n If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.",
+      "type": "boolean"
+    },
     "DestinationArn": {
       "description": "The Amazon Resource Name (ARN) of the destination.",
       "type": "string"

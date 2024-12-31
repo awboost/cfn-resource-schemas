@@ -1,5 +1,5 @@
 {
-  "$hash": "117dc3b9f66a12800f43b01a504bcd3308357899",
+  "$hash": "3bf22e2423554e542af0198628f6833200d38664",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -108,6 +108,9 @@
     },
     "PointInTimeRecoverySpecification": {
       "additionalProperties": false,
+      "dependencies": {
+        "RecoveryPeriodInDays": ["PointInTimeRecoveryEnabled"]
+      },
       "properties": { "PointInTimeRecoveryEnabled": { "type": "boolean" } },
       "type": "object"
     },
@@ -466,6 +469,9 @@
       "items": { "$ref": "#/definitions/LocalSecondaryIndex" },
       "type": "array",
       "uniqueItems": true
+    },
+    "PointInTimeRecoverySpecification": {
+      "$ref": "#/definitions/PointInTimeRecoverySpecification"
     },
     "Replicas": {
       "insertionOrder": false,

@@ -1,5 +1,5 @@
 {
-  "$hash": "826de5db6a2678ad8a41a6deb6890f2e1723cd48",
+  "$hash": "a1ee314d33672d0f2e7ba8adb0e671dabc8e2575",
   "$id": "aws-logs-metricfilter.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -118,7 +118,10 @@
   },
   "primaryIdentifier": ["/properties/LogGroupName", "/properties/FilterName"],
   "properties": {
-    "ApplyOnTransformedLogs": { "description": "", "type": "boolean" },
+    "ApplyOnTransformedLogs": {
+      "description": "This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).\n If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.",
+      "type": "boolean"
+    },
     "FilterName": {
       "description": "The name of the metric filter.",
       "maxLength": 512,

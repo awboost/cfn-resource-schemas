@@ -1,5 +1,5 @@
 {
-  "$hash": "fd5195cf24ea0c077916b93ee880d36b372c1bf4",
+  "$hash": "4a23debb70e980cc92afca616ed3e7ac422be6cf",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -126,6 +126,10 @@
     "VPCConfig": {
       "additionalProperties": false,
       "properties": {
+        "Ipv6AllowedForDualStack": {
+          "description": "Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true",
+          "type": "boolean"
+        },
         "SecurityGroupIds": { "items": { "type": "string" }, "type": "array" },
         "SubnetIds": { "items": { "type": "string" }, "type": "array" },
         "VpcId": { "type": "string" }
@@ -224,7 +228,10 @@
         "lambda:ListTags",
         "lambda:TagResource",
         "lambda:UntagResource",
-        "iam:PassRole"
+        "iam:PassRole",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups"
       ]
     }
   },
