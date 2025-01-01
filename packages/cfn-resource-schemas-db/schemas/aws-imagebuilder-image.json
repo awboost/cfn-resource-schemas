@@ -1,5 +1,5 @@
 {
-  "$hash": "c4c63548c8cc3e998e0509e828b2aaf68e7e3801",
+  "$hash": "be022dfb3af1526831b4ca0bc17b65e8e5629aaa",
   "$id": "aws-imagebuilder-image.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -150,7 +150,8 @@
   },
   "oneOf": [
     { "required": ["ContainerRecipeArn", "InfrastructureConfigurationArn"] },
-    { "required": ["ImageRecipeArn", "InfrastructureConfigurationArn"] }
+    { "required": ["ImageRecipeArn", "InfrastructureConfigurationArn"] },
+    { "required": ["ImportDiskImageSettings"] }
   ],
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {

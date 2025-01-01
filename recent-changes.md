@@ -1,18 +1,2 @@
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `CustomOriginConfig`
-- updated `AWS::DynamoDB::GlobalTable`
-  - added property `PointInTimeRecoverySpecification`
-  - updated definition `PointInTimeRecoverySpecification`
-- updated `AWS::DynamoDB::Table`
-  - updated definition `PointInTimeRecoverySpecification`
-- updated `AWS::ECS::Service`
-  - updated definition `LogConfiguration`
-- updated `AWS::Logs::MetricFilter`
-  - updated property `ApplyOnTransformedLogs`
-- updated `AWS::Logs::SubscriptionFilter`
-  - updated property `ApplyOnTransformedLogs`
-- updated `AWS::Macie::FindingsFilter`
-  - updated `tagging`
-- updated `AWS::Synthetics::Canary`
-  - updated definition `VPCConfig`
-  - updated handler permissions
+- updated `AWS::ImageBuilder::Image`
+  - updated `oneOf`
