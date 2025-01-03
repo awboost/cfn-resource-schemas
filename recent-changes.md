@@ -1,2 +1,11 @@
-- updated `AWS::ImageBuilder::Image`
-  - updated `oneOf`
+- updated `AWS::DMS::DataProvider`
+  - added definition `MongoDbAuthMechanism`
+  - added definition `MongoDbAuthType`
+  - added definition `MongoDbSslModeValue`
+  - updated property `Engine`
+  - updated property `Settings`
+- updated `AWS::Logs::LogGroup`
+  - updated definition `Tag`
+  - updated property `FieldIndexPolicies`
+- updated `AWS::SSMQuickSetup::ConfigurationManager`
+  - updated definition `TagsMap`

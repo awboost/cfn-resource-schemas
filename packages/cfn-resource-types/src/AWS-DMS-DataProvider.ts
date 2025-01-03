@@ -27,12 +27,16 @@ export type DMSDataProviderProperties = {
    * The property describes a data engine for the data provider.
    */
   Engine:
-    | "postgres"
+    | "aurora"
+    | "aurora_postgresql"
     | "mysql"
     | "oracle"
+    | "postgres"
     | "sqlserver"
-    | "aurora"
-    | "aurora_postgresql";
+    | "redshift"
+    | "mariadb"
+    | "mongodb"
+    | "docdb";
   /**
    * The property describes the exact settings which can be modified
    */
@@ -42,6 +46,25 @@ export type DMSDataProviderProperties = {
    */
   Settings?: {
     /**
+     * DocDbSettings property identifier.
+     */
+    DocDbSettings?: {
+      CertificateArn?: string;
+      DatabaseName: string;
+      Port: number;
+      ServerName: string;
+      SslMode?: MongoDbSslModeValue;
+    };
+    /**
+     * MariaDbSettings property identifier.
+     */
+    MariaDbSettings?: {
+      CertificateArn?: string;
+      Port: number;
+      ServerName: string;
+      SslMode: DmsSslModeValue;
+    };
+    /**
      * MicrosoftSqlServerSettings property identifier.
      */
     MicrosoftSqlServerSettings?: {
@@ -50,6 +73,19 @@ export type DMSDataProviderProperties = {
       Port: number;
       ServerName: string;
       SslMode: DmsSslModeValue;
+    };
+    /**
+     * MongoDbSettings property identifier.
+     */
+    MongoDbSettings?: {
+      AuthMechanism?: MongoDbAuthMechanism;
+      AuthSource?: string;
+      AuthType?: MongoDbAuthType;
+      CertificateArn?: string;
+      DatabaseName?: string;
+      Port: number;
+      ServerName: string;
+      SslMode?: MongoDbSslModeValue;
     };
     /**
      * MySqlSettings property identifier.
@@ -85,6 +121,14 @@ export type DMSDataProviderProperties = {
       ServerName: string;
       SslMode: DmsSslModeValue;
     };
+    /**
+     * RedshiftSettings property identifier.
+     */
+    RedshiftSettings?: {
+      DatabaseName: string;
+      Port: number;
+      ServerName: string;
+    };
   };
   /**
    * An array of key-value pairs to apply to this resource.
@@ -114,6 +158,21 @@ export type DMSDataProviderAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-dmssslmodevalue.html}
  */
 export type DmsSslModeValue = "none" | "require" | "verify-ca" | "verify-full";
+/**
+ * Type definition for `AWS::DMS::DataProvider.MongoDbAuthMechanism`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mongodbauthmechanism.html}
+ */
+export type MongoDbAuthMechanism = "default" | "mongodb_cr" | "scram_sha_1";
+/**
+ * Type definition for `AWS::DMS::DataProvider.MongoDbAuthType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mongodbauthtype.html}
+ */
+export type MongoDbAuthType = "no" | "password";
+/**
+ * Type definition for `AWS::DMS::DataProvider.MongoDbSslModeValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mongodbsslmodevalue.html}
+ */
+export type MongoDbSslModeValue = "none" | "require" | "verify-full";
 /**
  * Type definition for `AWS::DMS::DataProvider.Tag`.
  * A key-value pair to associate with a resource.

@@ -14,6 +14,11 @@ export type LogsLogGroupProperties = {
      For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      */
   DataProtectionPolicy?: Record<string, any>;
+  /**
+     * Creates or updates a *field index policy* for the specified log group. Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html).
+     You can use field index policies to create *field indexes* on fields found in log events in the log group. Creating field indexes lowers the costs for CWL Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields that have high cardinality of values Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html).
+     Currently, this array supports only one field index policy object.
+     */
   FieldIndexPolicies?: Record<string, any>[];
   /**
      * The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
@@ -81,6 +86,7 @@ export type LogsLogGroupAttributes = {
 };
 /**
  * Type definition for `AWS::Logs::LogGroup.Tag`.
+ * The value of this key-value pair.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-loggroup-tag.html}
  */
 export type Tag = {
@@ -90,6 +96,7 @@ export type Tag = {
    */
   Key: string;
   /**
+   * The value of this key-value pair.
    * @minLength `0`
    * @maxLength `256`
    */
