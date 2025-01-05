@@ -1,5 +1,5 @@
 {
-  "$hash": "d160357e3967939c641ff77b33627d042f683b74",
+  "$hash": "3e2f0ab007720a6e45998fd1dddbd28792dd6b80",
   "$id": "aws-amazonmq-broker.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -97,6 +97,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "JolokiaApiAccess": { "type": "string" },
         "Password": { "type": "string" },
         "ReplicationUser": { "type": "boolean" },
         "Username": { "type": "string" }

@@ -1,5 +1,5 @@
 {
-  "$hash": "414feae9d5638fa5450f37de3ce2c0bc58ff1c06",
+  "$hash": "462630e2723bebf6ab7eea4a64321ef68861bc27",
   "$id": "aws-sagemaker-endpointconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -195,7 +195,6 @@
     "ProductionVariant": {
       "additionalProperties": false,
       "properties": {
-        "AcceleratorType": { "type": "string" },
         "ContainerStartupHealthCheckTimeoutInSeconds": { "type": "integer" },
         "EnableSSMAccess": { "type": "boolean" },
         "InitialInstanceCount": { "type": "integer" },

@@ -1,5 +1,5 @@
 {
-  "$hash": "d8f39ac9b8b81032bbefef3d27fd45ddceb88527",
+  "$hash": "477a89a7bbf834d0068481cacf0cb8ded4851e5b",
   "$id": "aws-mediaconvert-queue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -7,6 +7,7 @@
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
     "Arn": { "type": "string" },
+    "ConcurrentJobs": { "type": "integer" },
     "Description": { "type": "string" },
     "Id": { "type": "string" },
     "Name": { "type": "string" },

@@ -170,7 +170,6 @@ export type ManagedInstanceScaling = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html}
  */
 export type ProductionVariant = {
-  AcceleratorType?: string;
   ContainerStartupHealthCheckTimeoutInSeconds?: number;
   EnableSSMAccess?: boolean;
   InitialInstanceCount?: number;

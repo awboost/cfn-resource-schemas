@@ -15,13 +15,16 @@ export type DocDBDBClusterProperties = {
   EnableCloudwatchLogsExports?: string[];
   EngineVersion?: string;
   KmsKeyId?: string;
+  ManageMasterUserPassword?: boolean;
   MasterUserPassword?: string;
+  MasterUserSecretKmsKeyId?: string;
   MasterUsername?: string;
   Port?: number;
   PreferredBackupWindow?: string;
   PreferredMaintenanceWindow?: string;
   RestoreToTime?: string;
   RestoreType?: string;
+  RotateMasterUserPassword?: boolean;
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfiguration;
   SnapshotIdentifier?: string;
   SourceDBClusterIdentifier?: string;

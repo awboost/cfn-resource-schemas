@@ -1,5 +1,5 @@
 {
-  "$hash": "aa80587cca0ea14f9c34bf4c095b3f4c7bc0fcad",
+  "$hash": "670c151562711c1f0dded4581868971ae4815fec",
   "$id": "aws-docdb-dbcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -56,7 +56,9 @@
     "EngineVersion": { "type": "string" },
     "Id": { "type": "string" },
     "KmsKeyId": { "type": "string" },
+    "ManageMasterUserPassword": { "type": "boolean" },
     "MasterUserPassword": { "type": "string" },
+    "MasterUserSecretKmsKeyId": { "type": "string" },
     "MasterUsername": { "type": "string" },
     "Port": { "type": "integer" },
     "PreferredBackupWindow": { "type": "string" },
@@ -64,6 +66,7 @@
     "ReadEndpoint": { "type": "string" },
     "RestoreToTime": { "type": "string" },
     "RestoreType": { "type": "string" },
+    "RotateMasterUserPassword": { "type": "boolean" },
     "ServerlessV2ScalingConfiguration": {
       "$ref": "#/definitions/ServerlessV2ScalingConfiguration"
     },

@@ -1,11 +1,10 @@
-- updated `AWS::DMS::DataProvider`
-  - added definition `MongoDbAuthMechanism`
-  - added definition `MongoDbAuthType`
-  - added definition `MongoDbSslModeValue`
-  - updated property `Engine`
-  - updated property `Settings`
-- updated `AWS::Logs::LogGroup`
-  - updated definition `Tag`
-  - updated property `FieldIndexPolicies`
-- updated `AWS::SSMQuickSetup::ConfigurationManager`
-  - updated definition `TagsMap`
+- updated `AWS::AmazonMQ::Broker`
+  - updated definition `User`
+- updated `AWS::DocDB::DBCluster`
+  - added property `ManageMasterUserPassword`
+  - added property `MasterUserSecretKmsKeyId`
+  - added property `RotateMasterUserPassword`
+- updated `AWS::MediaConvert::Queue`
+  - added property `ConcurrentJobs`
+- updated `AWS::SageMaker::EndpointConfig`
+  - updated definition `ProductionVariant`
