@@ -47,10 +47,33 @@ export type CleanRoomsMembershipAttributes = {
   MembershipIdentifier: string;
 };
 /**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipMLPaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html}
+ */
+export type MembershipMLPaymentConfig = {
+  ModelInference?: MembershipModelInferencePaymentConfig;
+  ModelTraining?: MembershipModelTrainingPaymentConfig;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipModelInferencePaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmodelinferencepaymentconfig.html}
+ */
+export type MembershipModelInferencePaymentConfig = {
+  IsResponsible: boolean;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipModelTrainingPaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmodeltrainingpaymentconfig.html}
+ */
+export type MembershipModelTrainingPaymentConfig = {
+  IsResponsible: boolean;
+};
+/**
  * Type definition for `AWS::CleanRooms::Membership.MembershipPaymentConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html}
  */
 export type MembershipPaymentConfiguration = {
+  MachineLearning?: MembershipMLPaymentConfig;
   QueryCompute: MembershipQueryComputePaymentConfig;
 };
 /**

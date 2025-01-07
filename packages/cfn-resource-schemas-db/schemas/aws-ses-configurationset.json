@@ -1,5 +1,5 @@
 {
-  "$hash": "30647a3b75009d417539f04f48b3a1ffcfc96362",
+  "$hash": "ce6ea7c14f307974a1be3b860e6668067e41b394",
   "$id": "aws-ses-configurationset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -96,6 +96,11 @@
       "properties": {
         "CustomRedirectDomain": {
           "description": "The domain to use for tracking open and click events.",
+          "type": "string"
+        },
+        "HttpsPolicy": {
+          "description": "The https policy to use for tracking open and click events.",
+          "pattern": "REQUIRE|REQUIRE_OPEN_ONLY|OPTIONAL",
           "type": "string"
         }
       },

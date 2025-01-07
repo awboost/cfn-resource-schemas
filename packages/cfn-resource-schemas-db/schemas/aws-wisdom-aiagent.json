@@ -1,5 +1,5 @@
 {
-  "$hash": "d97b7520640b347595d822161f0816408ff427b3",
+  "$hash": "9e38cde462280de8a91982648bb8d4f5dfd7f238",
   "$id": "aws-wisdom-aiagent.json",
   "additionalIdentifiers": [
     ["/properties/AIAgentArn", "/properties/AssistantArn"]
@@ -300,6 +300,7 @@
       "pattern": "^[a-zA-Z0-9\\s_.,-]+",
       "type": "string"
     },
+    "ModifiedTimeSeconds": { "type": "number" },
     "Name": {
       "maxLength": 255,
       "minLength": 1,
@@ -312,7 +313,8 @@
   "readOnlyProperties": [
     "/properties/AIAgentArn",
     "/properties/AIAgentId",
-    "/properties/AssistantArn"
+    "/properties/AssistantArn",
+    "/properties/ModifiedTimeSeconds"
   ],
   "required": ["AssistantId", "Configuration", "Type"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",

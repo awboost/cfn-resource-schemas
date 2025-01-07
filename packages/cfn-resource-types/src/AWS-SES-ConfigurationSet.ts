@@ -121,6 +121,11 @@ export type TrackingOptions = {
    * The domain to use for tracking open and click events.
    */
   CustomRedirectDomain?: string;
+  /**
+   * The https policy to use for tracking open and click events.
+   * @pattern `REQUIRE|REQUIRE_OPEN_ONLY|OPTIONAL`
+   */
+  HttpsPolicy?: string;
 };
 /**
  * Type definition for `AWS::SES::ConfigurationSet.VdmOptions`.

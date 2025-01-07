@@ -1,12 +1,39 @@
 {
-  "$hash": "83bfa3bf44024f174043daab2903dbd03b27878c",
+  "$hash": "d3785f15e24779d2f9b7bb809f62286f47db74d8",
   "$id": "aws-cleanrooms-membership.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CollaborationIdentifier"],
   "definitions": {
+    "MembershipMLPaymentConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "ModelInference": {
+          "$ref": "#/definitions/MembershipModelInferencePaymentConfig"
+        },
+        "ModelTraining": {
+          "$ref": "#/definitions/MembershipModelTrainingPaymentConfig"
+        }
+      },
+      "type": "object"
+    },
+    "MembershipModelInferencePaymentConfig": {
+      "additionalProperties": false,
+      "properties": { "IsResponsible": { "type": "boolean" } },
+      "required": ["IsResponsible"],
+      "type": "object"
+    },
+    "MembershipModelTrainingPaymentConfig": {
+      "additionalProperties": false,
+      "properties": { "IsResponsible": { "type": "boolean" } },
+      "required": ["IsResponsible"],
+      "type": "object"
+    },
     "MembershipPaymentConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "MachineLearning": {
+          "$ref": "#/definitions/MembershipMLPaymentConfig"
+        },
         "QueryCompute": {
           "$ref": "#/definitions/MembershipQueryComputePaymentConfig"
         }

@@ -1,10 +1,29 @@
-- updated `AWS::AmazonMQ::Broker`
-  - updated definition `User`
-- updated `AWS::DocDB::DBCluster`
-  - added property `ManageMasterUserPassword`
-  - added property `MasterUserSecretKmsKeyId`
-  - added property `RotateMasterUserPassword`
-- updated `AWS::MediaConvert::Queue`
-  - added property `ConcurrentJobs`
-- updated `AWS::SageMaker::EndpointConfig`
-  - updated definition `ProductionVariant`
+- updated `AWS::CleanRooms::Collaboration`
+  - added definition `CustomMLMemberAbilities`
+  - added definition `CustomMLMemberAbility`
+  - added definition `MLMemberAbilities`
+  - added definition `MLPaymentConfig`
+  - added definition `ModelInferencePaymentConfig`
+  - added definition `ModelTrainingPaymentConfig`
+  - added property `CreatorMLMemberAbilities`
+  - updated `createOnlyProperties`
+  - updated definition `MemberSpecification`
+  - updated definition `PaymentConfiguration`
+- updated `AWS::CleanRooms::Membership`
+  - added definition `MembershipMLPaymentConfig`
+  - added definition `MembershipModelInferencePaymentConfig`
+  - added definition `MembershipModelTrainingPaymentConfig`
+  - updated definition `MembershipPaymentConfiguration`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `LogConfiguration`
+  - updated property `EnableFaultInjection`
+- updated `AWS::RDS::DBCluster`
+  - updated property `DatabaseInsightsMode`
+- updated `AWS::SES::ConfigurationSet`
+  - updated definition `TrackingOptions`
+- updated `AWS::Wisdom::AIAgent`
+  - added property `ModifiedTimeSeconds`
+  - updated `readOnlyProperties`
+- updated `AWS::Wisdom::AIPrompt`
+  - added property `ModifiedTimeSeconds`
+  - updated `readOnlyProperties`

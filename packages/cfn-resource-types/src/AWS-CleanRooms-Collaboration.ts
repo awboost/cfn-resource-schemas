@@ -13,6 +13,7 @@ export type CleanRoomsCollaborationProperties = {
    * @pattern `^(?!\s*$)[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDBFF-\uDC00\uDFFF\t]*$`
    */
   CreatorDisplayName: string;
+  CreatorMLMemberAbilities?: MLMemberAbilities;
   CreatorMemberAbilities: MemberAbility[];
   CreatorPaymentConfiguration?: PaymentConfiguration;
   DataEncryptionMetadata?: DataEncryptionMetadata;
@@ -66,6 +67,13 @@ export type AnalyticsEngine = "CLEAN_ROOMS_SQL" | "SPARK";
  */
 export type CollaborationQueryLogStatus = "ENABLED" | "DISABLED";
 /**
+ * Type definition for `AWS::CleanRooms::Collaboration.CustomMLMemberAbility`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-custommlmemberability.html}
+ */
+export type CustomMLMemberAbility =
+  | "CAN_RECEIVE_MODEL_OUTPUT"
+  | "CAN_RECEIVE_INFERENCE_OUTPUT";
+/**
  * Type definition for `AWS::CleanRooms::Collaboration.DataEncryptionMetadata`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html}
  */
@@ -97,14 +105,45 @@ export type MemberSpecification = {
    * @pattern `^(?!\s*$)[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDBFF-\uDC00\uDFFF\t]*$`
    */
   DisplayName: string;
+  MLMemberAbilities?: MLMemberAbilities;
   MemberAbilities: MemberAbility[];
   PaymentConfiguration?: PaymentConfiguration;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.MLMemberAbilities`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlmemberabilities.html}
+ */
+export type MLMemberAbilities = {
+  CustomMLMemberAbilities: CustomMLMemberAbility[];
+};
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.MLPaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html}
+ */
+export type MLPaymentConfig = {
+  ModelInference?: ModelInferencePaymentConfig;
+  ModelTraining?: ModelTrainingPaymentConfig;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.ModelInferencePaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-modelinferencepaymentconfig.html}
+ */
+export type ModelInferencePaymentConfig = {
+  IsResponsible: boolean;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.ModelTrainingPaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-modeltrainingpaymentconfig.html}
+ */
+export type ModelTrainingPaymentConfig = {
+  IsResponsible: boolean;
 };
 /**
  * Type definition for `AWS::CleanRooms::Collaboration.PaymentConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html}
  */
 export type PaymentConfiguration = {
+  MachineLearning?: MLPaymentConfig;
   QueryCompute: QueryComputePaymentConfig;
 };
 /**

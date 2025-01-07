@@ -1,5 +1,5 @@
 {
-  "$hash": "24dbfe0b5291cc85514b2048fe1fe3ce27e2be17",
+  "$hash": "5642a1eaa176635e761036d72f4d24d70ebba33c",
   "$id": "aws-wisdom-aiprompt.json",
   "additionalIdentifiers": [
     ["/properties/AIPromptArn", "/properties/AssistantArn"]
@@ -115,6 +115,7 @@
       "type": "string"
     },
     "ModelId": { "maxLength": 2048, "minLength": 1, "type": "string" },
+    "ModifiedTimeSeconds": { "type": "number" },
     "Name": {
       "maxLength": 255,
       "minLength": 1,
@@ -131,7 +132,8 @@
   "readOnlyProperties": [
     "/properties/AIPromptArn",
     "/properties/AIPromptId",
-    "/properties/AssistantArn"
+    "/properties/AssistantArn",
+    "/properties/ModifiedTimeSeconds"
   ],
   "required": [
     "ApiFormat",

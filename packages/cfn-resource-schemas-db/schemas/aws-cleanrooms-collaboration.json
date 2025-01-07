@@ -1,10 +1,11 @@
 {
-  "$hash": "31c6830cfeff75c3b0133bf0cfe1e4a159944ebc",
+  "$hash": "8599b3e434901033871062bcadea2dc3313a7b39",
   "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/CreatorDisplayName",
     "/properties/CreatorMemberAbilities",
+    "/properties/CreatorMLMemberAbilities",
     "/properties/DataEncryptionMetadata",
     "/properties/QueryLogStatus",
     "/properties/Members",
@@ -18,6 +19,16 @@
     },
     "CollaborationQueryLogStatus": {
       "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
+    "CustomMLMemberAbilities": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/CustomMLMemberAbility" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "CustomMLMemberAbility": {
+      "enum": ["CAN_RECEIVE_MODEL_OUTPUT", "CAN_RECEIVE_INFERENCE_OUTPUT"],
       "type": "string"
     },
     "DataEncryptionMetadata": {
@@ -34,6 +45,26 @@
         "AllowJoinsOnColumnsWithDifferentNames",
         "PreserveNulls"
       ],
+      "type": "object"
+    },
+    "MLMemberAbilities": {
+      "additionalProperties": false,
+      "properties": {
+        "CustomMLMemberAbilities": {
+          "$ref": "#/definitions/CustomMLMemberAbilities"
+        }
+      },
+      "required": ["CustomMLMemberAbilities"],
+      "type": "object"
+    },
+    "MLPaymentConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "ModelInference": {
+          "$ref": "#/definitions/ModelInferencePaymentConfig"
+        },
+        "ModelTraining": { "$ref": "#/definitions/ModelTrainingPaymentConfig" }
+      },
       "type": "object"
     },
     "MemberAbilities": {
@@ -56,6 +87,7 @@
           "type": "string"
         },
         "DisplayName": { "$ref": "#/definitions/Name" },
+        "MLMemberAbilities": { "$ref": "#/definitions/MLMemberAbilities" },
         "MemberAbilities": { "$ref": "#/definitions/MemberAbilities" },
         "PaymentConfiguration": { "$ref": "#/definitions/PaymentConfiguration" }
       },
@@ -66,6 +98,18 @@
       "enum": ["INVITED", "ACTIVE", "LEFT", "REMOVED"],
       "type": "string"
     },
+    "ModelInferencePaymentConfig": {
+      "additionalProperties": false,
+      "properties": { "IsResponsible": { "type": "boolean" } },
+      "required": ["IsResponsible"],
+      "type": "object"
+    },
+    "ModelTrainingPaymentConfig": {
+      "additionalProperties": false,
+      "properties": { "IsResponsible": { "type": "boolean" } },
+      "required": ["IsResponsible"],
+      "type": "object"
+    },
     "Name": {
       "maxLength": 100,
       "minLength": 1,
@@ -75,6 +119,7 @@
     "PaymentConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "MachineLearning": { "$ref": "#/definitions/MLPaymentConfig" },
         "QueryCompute": { "$ref": "#/definitions/QueryComputePaymentConfig" }
       },
       "required": ["QueryCompute"],
@@ -150,6 +195,7 @@
       "type": "string"
     },
     "CreatorDisplayName": { "$ref": "#/definitions/Name" },
+    "CreatorMLMemberAbilities": { "$ref": "#/definitions/MLMemberAbilities" },
     "CreatorMemberAbilities": { "$ref": "#/definitions/MemberAbilities" },
     "CreatorPaymentConfiguration": {
       "$ref": "#/definitions/PaymentConfiguration"
