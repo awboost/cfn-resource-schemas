@@ -48,6 +48,10 @@ export type LexBotProperties = {
    */
   Name: string;
   /**
+   * Parameter used to create a replication of the source bot in the secondary region.
+   */
+  Replication?: Replication;
+  /**
    * The Amazon Resource Name (ARN) of an IAM role that has permission to access the bot.
    * @minLength `32`
    * @maxLength `2048`
@@ -1235,6 +1239,19 @@ export type PromptSpecification = {
    * Specifies the advanced settings on each attempt of the prompt.
    */
   PromptAttemptsSpecification?: Record<string, PromptAttemptSpecification>;
+};
+/**
+ * Type definition for `AWS::Lex::Bot.Replication`.
+ * Parameter used to create a replication of the source bot in the secondary region.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-replication.html}
+ */
+export type Replication = {
+  /**
+   * List of secondary regions for bot replication.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  ReplicaRegions: string[];
 };
 /**
  * Type definition for `AWS::Lex::Bot.ResponseSpecification`.

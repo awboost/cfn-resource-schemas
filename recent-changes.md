@@ -1,29 +1,80 @@
-- updated `AWS::CleanRooms::Collaboration`
-  - added definition `CustomMLMemberAbilities`
-  - added definition `CustomMLMemberAbility`
-  - added definition `MLMemberAbilities`
-  - added definition `MLPaymentConfig`
-  - added definition `ModelInferencePaymentConfig`
-  - added definition `ModelTrainingPaymentConfig`
-  - added property `CreatorMLMemberAbilities`
+- added `AWS::CustomerProfiles::EventTrigger`
+- removed `AWS::IoT1Click::Device`
+- removed `AWS::IoT1Click::Placement`
+- removed `AWS::IoT1Click::Project`
+- updated `AWS::AppConfig::Deployment`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - added definition `Tag`
+  - added property `DeploymentNumber`
+  - removed definition `Tags`
+  - removed property `Id`
   - updated `createOnlyProperties`
-  - updated definition `MemberSpecification`
-  - updated definition `PaymentConfiguration`
-- updated `AWS::CleanRooms::Membership`
-  - added definition `MembershipMLPaymentConfig`
-  - added definition `MembershipModelInferencePaymentConfig`
-  - added definition `MembershipModelTrainingPaymentConfig`
-  - updated definition `MembershipPaymentConfiguration`
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `LogConfiguration`
-  - updated property `EnableFaultInjection`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated `required`
+  - updated handler permissions
+  - updated property `ApplicationId`
+  - updated property `ConfigurationProfileId`
+  - updated property `ConfigurationVersion`
+  - updated property `DeploymentStrategyId`
+  - updated property `Description`
+  - updated property `EnvironmentId`
+  - updated property `KmsKeyIdentifier`
+  - updated property `Tags`
+- updated `AWS::Backup::LogicallyAirGappedBackupVault`
+  - updated `readOnlyProperties`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - updated definition `OpenSearchServerlessConfiguration`
+- updated `AWS::DynamoDB::GlobalTable`
+  - updated definition `PointInTimeRecoverySpecification`
+- updated `AWS::EFS::FileSystem`
+  - updated definition `FileSystemProtection`
+  - updated definition `ReplicationDestination`
+- updated `AWS::Lex::Bot`
+  - added definition `ReplicaRegion`
+  - added definition `Replication`
+  - added property `Replication`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Pipes::Pipe`
+  - updated definition `CloudwatchLogsLogDestination`
+  - updated definition `DeadLetterConfig`
+  - updated definition `EcsTaskOverride`
+  - updated definition `FirehoseLogDestination`
+  - updated definition `MQBrokerAccessCredentials`
+  - updated definition `MSKAccessCredentials`
+  - updated definition `PipeSourceSelfManagedKafkaParameters`
+  - updated definition `PipeTargetEcsTaskParameters`
+  - updated definition `PipeTargetEventBridgeEventBusParameters`
+  - updated definition `PipeTargetRedshiftDataParameters`
+  - updated definition `SelfManagedKafkaAccessConfigurationCredentials`
+  - updated property `Enrichment`
+  - updated property `Source`
+  - updated property `Target`
 - updated `AWS::RDS::DBCluster`
-  - updated property `DatabaseInsightsMode`
-- updated `AWS::SES::ConfigurationSet`
-  - updated definition `TrackingOptions`
-- updated `AWS::Wisdom::AIAgent`
-  - added property `ModifiedTimeSeconds`
-  - updated `readOnlyProperties`
-- updated `AWS::Wisdom::AIPrompt`
-  - added property `ModifiedTimeSeconds`
-  - updated `readOnlyProperties`
+  - updated property `EnableHttpEndpoint`
+- updated `AWS::RefactorSpaces::Application`
+  - updated handler permissions
+- updated `AWS::RefactorSpaces::Service`
+  - updated handler permissions
+- updated `AWS::ResilienceHub::App`
+  - added property `RegulatoryPolicyArn`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ResilienceHub::ResiliencyPolicy`
+  - updated `tagging`
+- updated `AWS::RolesAnywhere::CRL`
+  - updated `tagging`
+- updated `AWS::RolesAnywhere::Profile`
+  - added `createOnlyProperties`
+  - added `writeOnlyProperties`
+  - updated `tagging`
+- updated `AWS::RolesAnywhere::TrustAnchor`
+  - updated `tagging`
+- updated `AWS::S3::AccessPoint`
+  - added `tagging`
+- updated `AWS::VoiceID::Domain`
+  - removed `writeOnlyProperties`
+  - updated `tagging`

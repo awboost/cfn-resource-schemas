@@ -14,8 +14,6 @@ export type BackupLogicallyAirGappedBackupVaultProperties = {
   MaxRetentionDays: number;
   MinRetentionDays: number;
   Notifications?: NotificationObjectType;
-  VaultState?: string;
-  VaultType?: string;
 };
 /**
  * Attribute type definition for `AWS::Backup::LogicallyAirGappedBackupVault`.
@@ -24,6 +22,8 @@ export type BackupLogicallyAirGappedBackupVaultProperties = {
 export type BackupLogicallyAirGappedBackupVaultAttributes = {
   BackupVaultArn: string;
   EncryptionKeyArn: string;
+  VaultState: string;
+  VaultType: string;
 };
 /**
  * Type definition for `AWS::Backup::LogicallyAirGappedBackupVault.NotificationObjectType`.

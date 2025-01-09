@@ -1,5 +1,5 @@
 {
-  "$hash": "bc8b142df17cc9f92e7732ccec87127fd808c2e6",
+  "$hash": "5a61efe911142979ee12e05bb4ce40e2f5ed9421",
   "$id": "aws-rolesanywhere-crl.json",
   "additionalProperties": false,
   "definitions": {
@@ -70,6 +70,11 @@
   "required": ["Name", "CrlData"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "rolesanywhere:UntagResource",
+      "rolesanywhere:TagResource",
+      "rolesanywhere:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

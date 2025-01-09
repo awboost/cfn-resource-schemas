@@ -1,5 +1,5 @@
 {
-  "$hash": "68dbbfffe13202a42710251eb9944a30dd442491",
+  "$hash": "a125f849214596a88fb7b465d374bdbebf0c587b",
   "$id": "aws-refactorspaces-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -71,10 +71,6 @@
         "apigateway:POST",
         "apigateway:PUT",
         "apigateway:UpdateRestApiPolicy",
-        "apigateway:Update*",
-        "apigateway:Delete*",
-        "apigateway:Get*",
-        "apigateway:Put*",
         "elasticloadbalancing:CreateLoadBalancer",
         "elasticloadbalancing:DescribeLoadBalancers",
         "elasticloadbalancing:DescribeTags",
@@ -96,10 +92,10 @@
         "ec2:DeleteTags",
         "ec2:RevokeSecurityGroupIngress",
         "elasticloadbalancing:DeleteLoadBalancer",
-        "apigateway:Update*",
-        "apigateway:Delete*",
-        "apigateway:Get*",
-        "apigateway:Put*"
+        "apigateway:DELETE",
+        "apigateway:GET",
+        "apigateway:PUT",
+        "apigateway:UpdateRestApiPolicy"
       ]
     },
     "list": {

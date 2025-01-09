@@ -139,6 +139,11 @@ export type LocalSecondaryIndex = {
  */
 export type PointInTimeRecoverySpecification = {
   PointInTimeRecoveryEnabled?: boolean;
+  /**
+   * @min `1`
+   * @max `35`
+   */
+  RecoveryPeriodInDays?: number;
 };
 /**
  * Type definition for `AWS::DynamoDB::GlobalTable.Projection`.

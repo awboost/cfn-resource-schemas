@@ -1,5 +1,5 @@
 {
-  "$hash": "190a3342c71d61d84ba4122b4902c337d3c097b0",
+  "$hash": "c2095eb250e5cf6beb4cd8f454c794228c06eddd",
   "$id": "aws-voiceid-domain.json",
   "additionalProperties": false,
   "definitions": {
@@ -107,15 +107,11 @@
   "required": ["Name", "ServerSideEncryptionConfiguration"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["voiceid:TagResource", "voiceid:UntagResource"],
     "tagOnCreate": true,
-    "tagProperty": "#/properties/Tags",
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::VoiceID::Domain",
-  "writeOnlyProperties": [
-    "/properties/Description",
-    "/properties/Name",
-    "/properties/ServerSideEncryptionConfiguration"
-  ]
+  "typeName": "AWS::VoiceID::Domain"
 }

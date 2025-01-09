@@ -1,5 +1,5 @@
 {
-  "$hash": "04dab291d56492afa38a38bd587755b8862cfb08",
+  "$hash": "1326d0704221689d36d264d33fbb332a301d76e8",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -314,7 +314,7 @@
       "type": "boolean"
     },
     "EnableHttpEndpoint": {
-      "description": "Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled.\n When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor.\n RDS Data API is supported with the following DB clusters:\n  +  Aurora PostgreSQL Serverless v2 and provisioned\n  +  Aurora PostgreSQL and Aurora MySQL Serverless v1\n  \n For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide*.\n Valid for Cluster Type: Aurora DB clusters only",
+      "description": "Specifies whether to enable the HTTP endpoint for the DB cluster. By default, the HTTP endpoint isn't enabled.\n When enabled, the HTTP endpoint provides a connectionless web service API (RDS Data API) for running SQL queries on the DB cluster. You can also query your database from inside the RDS console with the RDS query editor.\n For more information, see [Using RDS Data API](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html) in the *Amazon Aurora User Guide*.\n Valid for Cluster Type: Aurora DB clusters only",
       "type": "boolean"
     },
     "EnableIAMDatabaseAuthentication": {

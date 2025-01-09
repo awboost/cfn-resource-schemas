@@ -233,7 +233,7 @@ export type OpenSearchServerlessConfiguration = {
   /**
    * The ARN of the OpenSearch Service vector store.
    * @maxLength `2048`
-   * @pattern `^arn:aws:aoss:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:collection/[a-z0-9-]{3,32}$`
+   * @pattern `^arn:aws(|-cn|-us-gov|-iso):aoss:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:collection/[a-z0-9-]{3,32}$`
    */
   CollectionArn: string;
   /**

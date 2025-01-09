@@ -1,5 +1,5 @@
 {
-  "$hash": "579d95d8b3843e46d802ff4928d967c0798637a8",
+  "$hash": "88b9c017c5cb275b9d32734ea5b23a42b34461f0",
   "$id": "aws-resiliencehub-resiliencypolicy.json",
   "additionalProperties": false,
   "definitions": {
@@ -104,6 +104,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-resiliencehub",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "resiliencehub:TagResource",
+      "resiliencehub:ListTagsForResource",
+      "resiliencehub:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

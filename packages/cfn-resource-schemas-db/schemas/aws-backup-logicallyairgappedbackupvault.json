@@ -1,5 +1,5 @@
 {
-  "$hash": "84586ede196e694a0b1b4fbf00d6038970c70fb8",
+  "$hash": "cd02cd9d297d181be7b6364c0aa7df5362d7471a",
   "$id": "aws-backup-logicallyairgappedbackupvault.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -85,7 +85,9 @@
   },
   "readOnlyProperties": [
     "/properties/BackupVaultArn",
-    "/properties/EncryptionKeyArn"
+    "/properties/EncryptionKeyArn",
+    "/properties/VaultState",
+    "/properties/VaultType"
   ],
   "required": ["BackupVaultName", "MinRetentionDays", "MaxRetentionDays"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",

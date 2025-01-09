@@ -1,5 +1,5 @@
 {
-  "$hash": "7fe5773834276be8857e059decbf27de953a20df",
+  "$hash": "b8a7c297b3167ca9ca9ecec0cbf08a44925532b8",
   "$id": "aws-refactorspaces-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -123,7 +123,7 @@
     },
     "read": {
       "permissions": [
-        "refactor-spacess:GetService",
+        "refactor-spaces:GetService",
         "refactor-spaces:ListTagsForResource"
       ]
     }

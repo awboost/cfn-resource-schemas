@@ -1,7 +1,8 @@
 {
-  "$hash": "5cc54c816d39626a297b4ccc1d0993087bb19235",
+  "$hash": "7837baddd7b08a4d00cd27b48bbaa1266afa2ee9",
   "$id": "aws-rolesanywhere-profile.json",
   "additionalProperties": false,
+  "createOnlyProperties": ["/properties/RequireInstanceProperties"],
   "definitions": {
     "AttributeMapping": {
       "additionalProperties": false,
@@ -112,10 +113,16 @@
   "required": ["Name", "RoleArns"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "rolesanywhere:UntagResource",
+      "rolesanywhere:TagResource",
+      "rolesanywhere:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::RolesAnywhere::Profile"
+  "typeName": "AWS::RolesAnywhere::Profile",
+  "writeOnlyProperties": ["/properties/RequireInstanceProperties"]
 }

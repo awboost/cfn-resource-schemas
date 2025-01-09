@@ -15,7 +15,7 @@ export type PipesPipeProperties = {
   /**
    * @minLength `0`
    * @maxLength `1600`
-   * @pattern `^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)$`
+   * @pattern `^$|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)$`
    */
   Enrichment?: string;
   EnrichmentParameters?: PipeEnrichmentParameters;
@@ -40,7 +40,7 @@ export type PipesPipeProperties = {
   /**
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^smk://(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9]):[0-9]{1,5}|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)$`
+   * @pattern `^smk://(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9]):[0-9]{1,5}|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)$`
    */
   Source: string;
   SourceParameters?: PipeSourceParameters;
@@ -48,7 +48,7 @@ export type PipesPipeProperties = {
   /**
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)$`
+   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)$`
    */
   Target: string;
   TargetParameters?: PipeTargetParameters;
@@ -196,7 +196,7 @@ export type CloudwatchLogsLogDestination = {
   /**
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^(^arn:aws([a-z]|\-)*:logs:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):log-group:.+)$`
+   * @pattern `^(^arn:aws([a-z]|\-)*:logs:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):log-group:.+)$`
    */
   LogGroupArn?: string;
 };
@@ -208,7 +208,7 @@ export type DeadLetterConfig = {
   /**
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)$`
+   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)$`
    */
   Arn?: string;
 };
@@ -317,7 +317,7 @@ export type EcsTaskOverride = {
   /**
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)|(\$(\.[\w/_-]+(\[(\d+|\*)\])*)*)$`
+   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)|(\$(\.[\w/_-]+(\[(\d+|\*)\])*)*)$`
    */
   ExecutionRoleArn?: string;
   InferenceAcceleratorOverrides?: EcsInferenceAcceleratorOverride[];
@@ -325,7 +325,7 @@ export type EcsTaskOverride = {
   /**
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)|(\$(\.[\w/_-]+(\[(\d+|\*)\])*)*)$`
+   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)|(\$(\.[\w/_-]+(\[(\d+|\*)\])*)*)$`
    */
   TaskRoleArn?: string;
 };
@@ -368,7 +368,7 @@ export type FirehoseLogDestination = {
   /**
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^(^arn:aws([a-z]|\-)*:firehose:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):deliverystream/.+)$`
+   * @pattern `^(^arn:aws([a-z]|\-)*:firehose:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):deliverystream/.+)$`
    */
   DeliveryStreamArn?: string;
 };
@@ -419,7 +419,7 @@ export type MQBrokerAccessCredentials = {
    * Optional SecretManager ARN which stores the database credentials
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+   * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
    */
   BasicAuth: string;
 };
@@ -433,7 +433,7 @@ export type MSKAccessCredentials =
        * Optional SecretManager ARN which stores the database credentials
        * @minLength `1`
        * @maxLength `1600`
-       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
        */
       SaslScram512Auth: string;
     }
@@ -442,7 +442,7 @@ export type MSKAccessCredentials =
        * Optional SecretManager ARN which stores the database credentials
        * @minLength `1`
        * @maxLength `1600`
-       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
        */
       ClientCertificateTlsAuth: string;
     };
@@ -724,7 +724,7 @@ export type PipeSourceSelfManagedKafkaParameters = {
    * Optional SecretManager ARN which stores the database credentials
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+   * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
    */
   ServerRootCaCertificate?: string;
   StartingPosition?: SelfManagedKafkaStartPosition;
@@ -847,7 +847,7 @@ export type PipeTargetEcsTaskParameters = {
   /**
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)|(\$(\.[\w/_-]+(\[(\d+|\*)\])*)*)$`
+   * @pattern `^arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-]+):([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:(.+)|(\$(\.[\w/_-]+(\[(\d+|\*)\])*)*)$`
    */
   TaskDefinitionArn: string;
 };
@@ -961,7 +961,7 @@ export type PipeTargetRedshiftDataParameters = {
    * Optional SecretManager ARN which stores the database credentials
    * @minLength `1`
    * @maxLength `1600`
-   * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)|(\$(\.[\w/_-]+(\[(\d+|\*)\])*)*)$`
+   * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)|(\$(\.[\w/_-]+(\[(\d+|\*)\])*)*)$`
    */
   SecretManagerArn?: string;
   /**
@@ -1141,7 +1141,7 @@ export type SelfManagedKafkaAccessConfigurationCredentials =
        * Optional SecretManager ARN which stores the database credentials
        * @minLength `1`
        * @maxLength `1600`
-       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
        */
       BasicAuth: string;
     }
@@ -1150,7 +1150,7 @@ export type SelfManagedKafkaAccessConfigurationCredentials =
        * Optional SecretManager ARN which stores the database credentials
        * @minLength `1`
        * @maxLength `1600`
-       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
        */
       SaslScram512Auth: string;
     }
@@ -1159,7 +1159,7 @@ export type SelfManagedKafkaAccessConfigurationCredentials =
        * Optional SecretManager ARN which stores the database credentials
        * @minLength `1`
        * @maxLength `1600`
-       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
        */
       SaslScram256Auth: string;
     }
@@ -1168,7 +1168,7 @@ export type SelfManagedKafkaAccessConfigurationCredentials =
        * Optional SecretManager ARN which stores the database credentials
        * @minLength `1`
        * @maxLength `1600`
-       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
+       * @pattern `^(^arn:aws([a-z]|\-)*:secretsmanager:([a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}):(\d{12}):secret:.+)$`
        */
       ClientCertificateTlsAuth: string;
     };
