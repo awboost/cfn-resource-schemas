@@ -1,5 +1,5 @@
 {
-  "$hash": "2054584e435dfc30ee3722f8e5b99eebb75ca463",
+  "$hash": "bee8362ec9e99378e45d694d1c5297ad007f9ca5",
   "$id": "aws-pcs-queue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ClusterId"],
@@ -47,9 +47,13 @@
         "pcs:GetQueue",
         "pcs:ListTagsForResource",
         "pcs:TagResource"
-      ]
+      ],
+      "timeoutInMinutes": 60
     },
-    "delete": { "permissions": ["pcs:DeleteQueue", "pcs:GetQueue"] },
+    "delete": {
+      "permissions": ["pcs:DeleteQueue", "pcs:GetQueue"],
+      "timeoutInMinutes": 60
+    },
     "list": {
       "handlerSchema": {
         "properties": {
