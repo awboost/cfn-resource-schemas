@@ -1,2 +1,4 @@
-- updated `AWS::PCS::Queue`
-  - updated handler permissions
+- updated `AWS::EKS::Cluster`
+  - updated `createOnlyProperties`
+- updated `AWS::VpcLattice::ResourceConfiguration`
+  - updated definition `ArnResource`

@@ -27,7 +27,7 @@ export type VpcLatticeResourceConfigurationProperties = {
     | {
         /**
          * @maxLength `1224`
-         * @pattern `^arn:[a-z0-9][-.a-z0-9]{0,62}:vpc-lattice:([a-z0-9][-.a-z0-9]{0,62})?:\d{12}?:[^/].{0,1023}$`
+         * @pattern `^arn.*`
          */
         ArnResource: string;
       }

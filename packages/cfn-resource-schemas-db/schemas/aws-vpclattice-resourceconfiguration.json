@@ -1,5 +1,5 @@
 {
-  "$hash": "a9dfa3e4680736ad7751ec764c733f6c9947bc29",
+  "$hash": "ff1b9f196543a752b3df7555f67d650b78f0bcae",
   "$id": "aws-vpclattice-resourceconfiguration.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -10,11 +10,7 @@
     "/properties/ResourceConfigurationAuthType"
   ],
   "definitions": {
-    "ArnResource": {
-      "maxLength": 1224,
-      "pattern": "^arn:[a-z0-9][-.a-z0-9]{0,62}:vpc-lattice:([a-z0-9][-.a-z0-9]{0,62})?:\\d{12}?:[^/].{0,1023}$",
-      "type": "string"
-    },
+    "ArnResource": { "maxLength": 1224, "pattern": "^arn.*", "type": "string" },
     "DnsResource": {
       "additionalProperties": false,
       "properties": {
