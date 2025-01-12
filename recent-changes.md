@@ -1,4 +1,5 @@
-- updated `AWS::EKS::Cluster`
+- updated `AWS::ECS::Service`
+  - updated definition `ServiceManagedEBSVolumeConfiguration`
+- updated `AWS::KafkaConnect::Connector`
   - updated `createOnlyProperties`
-- updated `AWS::VpcLattice::ResourceConfiguration`
-  - updated definition `ArnResource`
+  - updated handler permissions

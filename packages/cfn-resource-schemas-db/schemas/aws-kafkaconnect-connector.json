@@ -1,10 +1,9 @@
 {
-  "$hash": "135368bc907415f7c1aa05e9604b799986ea7282",
+  "$hash": "79ce37dfe220b06c8eedaac9a71fab10237ab5c7",
   "$id": "aws-kafkaconnect-connector.json",
   "additionalIdentifiers": [["/properties/ConnectorName"]],
   "additionalProperties": false,
   "createOnlyProperties": [
-    "/properties/ConnectorConfiguration",
     "/properties/ConnectorDescription",
     "/properties/ConnectorName",
     "/properties/KafkaCluster",
@@ -353,7 +352,9 @@
     "update": {
       "permissions": [
         "kafkaconnect:UpdateConnector",
+        "kafkaconnect:UpdateConnectorConfiguration",
         "kafkaconnect:DescribeConnector",
+        "kafkaconnect:DescribeConnectorOperation",
         "kafkaconnect:TagResource",
         "kafkaconnect:ListTagsForResource",
         "kafkaconnect:UntagResource",
