@@ -186,6 +186,10 @@ export type UpdateConfig = {
    * @max `100`
    */
   MaxUnavailablePercentage?: number;
+  /**
+   * The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
+   */
+  UpdateStrategy?: string;
 };
 /**
  * Resource schema for AWS::EKS::Nodegroup

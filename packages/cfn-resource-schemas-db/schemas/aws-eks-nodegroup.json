@@ -1,5 +1,5 @@
 {
-  "$hash": "210b78a5ac77eb51f50034a2dfbbea25058e69bc",
+  "$hash": "5024e9c00a5869ecde852d2f8c56cd9c79f9cf08",
   "$id": "aws-eks-nodegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -84,6 +84,10 @@
           "maximum": 100,
           "minimum": 1,
           "type": "number"
+        },
+        "UpdateStrategy": {
+          "description": "The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.",
+          "type": "string"
         }
       },
       "type": "object"

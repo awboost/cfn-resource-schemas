@@ -1,5 +1,5 @@
 {
-  "$hash": "ae40452a9b83d1697930376b72b2d35ab80d48b2",
+  "$hash": "16fa8bc16d8efaf9a75a5416d7dc37648da85e6e",
   "$id": "aws-apigateway-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -30,11 +30,15 @@
   },
   "description": "Resource Type definition for AWS::ApiGateway::DomainName.",
   "handlers": {
-    "create": { "permissions": ["apigateway:*"] },
-    "delete": { "permissions": ["apigateway:*"] },
-    "list": { "permissions": ["apigateway:*"] },
-    "read": { "permissions": ["apigateway:*"] },
-    "update": { "permissions": ["apigateway:*"] }
+    "create": {
+      "permissions": ["apigateway:POST", "apigateway:PUT", "apigateway:GET"]
+    },
+    "delete": { "permissions": ["apigateway:GET", "apigateway:DELETE"] },
+    "list": { "permissions": ["apigateway:GET"] },
+    "read": { "permissions": ["apigateway:GET"] },
+    "update": {
+      "permissions": ["apigateway:GET", "apigateway:PUT", "apigateway:PATCH"]
+    }
   },
   "primaryIdentifier": ["/properties/DomainName"],
   "properties": {

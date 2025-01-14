@@ -1,5 +1,14 @@
-- updated `AWS::ECS::Service`
-  - updated definition `ServiceManagedEBSVolumeConfiguration`
-- updated `AWS::KafkaConnect::Connector`
-  - updated `createOnlyProperties`
+- updated `AWS::ApiGateway::DomainName`
+  - updated handler permissions
+- updated `AWS::EKS::Nodegroup`
+  - updated definition `UpdateConfig`
+- updated `AWS::SecurityHub::AutomationRule`
+  - updated definition `AutomationRulesFindingFilters`
+  - updated definition `DateFilter`
+- updated `AWS::SecurityHub::FindingAggregator`
+  - updated property `RegionLinkingMode`
+  - updated property `Regions`
+- updated `AWS::WorkSpacesWeb::BrowserSettings`
+  - updated handler permissions
+- updated `AWS::WorkSpacesWeb::IpAccessSettings`
   - updated handler permissions

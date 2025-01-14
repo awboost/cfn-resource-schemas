@@ -1,5 +1,5 @@
 {
-  "$hash": "705c0810bf0f4f764663ac635002f0371fb8762d",
+  "$hash": "5b27bac45411c7faa9455fde5a3ce1973a8f4ee7",
   "$id": "aws-workspacesweb-ipaccesssettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -85,7 +85,13 @@
         "kms:Decrypt"
       ]
     },
-    "list": { "permissions": ["workspaces-web:ListIpAccessSettings"] },
+    "list": {
+      "permissions": [
+        "workspaces-web:ListIpAccessSettings",
+        "kms:Decrypt",
+        "kms:DescribeKey"
+      ]
+    },
     "read": {
       "permissions": [
         "workspaces-web:GetIpAccessSettings",
