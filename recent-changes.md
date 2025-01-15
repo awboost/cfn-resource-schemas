@@ -1,14 +1,11 @@
-- updated `AWS::ApiGateway::DomainName`
-  - updated handler permissions
-- updated `AWS::EKS::Nodegroup`
-  - updated definition `UpdateConfig`
-- updated `AWS::SecurityHub::AutomationRule`
-  - updated definition `AutomationRulesFindingFilters`
-  - updated definition `DateFilter`
-- updated `AWS::SecurityHub::FindingAggregator`
-  - updated property `RegionLinkingMode`
-  - updated property `Regions`
-- updated `AWS::WorkSpacesWeb::BrowserSettings`
-  - updated handler permissions
-- updated `AWS::WorkSpacesWeb::IpAccessSettings`
-  - updated handler permissions
+- added `AWS::NotificationsContacts::EmailContact`
+- updated `AWS::CodePipeline::Pipeline`
+  - updated definition `RuleDeclaration`
+- updated `AWS::RDS::DBShardGroup`
+  - updated `tagging`
+  - updated definition `Tag`
+  - updated property `ComputeRedundancy`
+  - updated property `DBShardGroupResourceId`
+  - updated property `Endpoint`
+  - updated property `PubliclyAccessible`
+  - updated property `Tags`

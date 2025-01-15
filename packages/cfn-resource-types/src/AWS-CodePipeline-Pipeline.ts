@@ -400,6 +400,10 @@ export type PipelineTriggerDeclaration = {
  */
 export type RuleDeclaration = {
   /**
+   * The shell commands to run with your compute action in CodePipeline.
+   */
+  Commands?: string[];
+  /**
    * The rule's configuration. These are key-value pairs that specify input values for a rule.
    */
   Configuration?: Record<string, any>;
