@@ -1,5 +1,5 @@
 {
-  "$hash": "5acdae464c75f04aee10462b7901feb2ed2e2fb7",
+  "$hash": "56346287b2a352b9e134b55515120b5f35aba81c",
   "$id": "aws-workspaces-connectionalias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectionString", "/properties/Tags"],
@@ -45,9 +45,28 @@
   },
   "description": "Resource Type definition for AWS::WorkSpaces::ConnectionAlias",
   "handlers": {
-    "create": { "permissions": ["workspaces:CreateConnectionAlias"] },
-    "delete": { "permissions": ["workspaces:DeleteConnectionAlias"] },
-    "read": { "permissions": ["workspaces:DescribeConnectionAliases"] }
+    "create": {
+      "permissions": [
+        "workspaces:CreateConnectionAlias",
+        "workspaces:CreateTags",
+        "workspaces:DescribeConnectionAliases",
+        "workspaces:DescribeTags"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "workspaces:DeleteConnectionAlias",
+        "workspaces:DeleteTags",
+        "workspaces:DescribeTags",
+        "workspaces:DescribeConnectionAliases"
+      ]
+    },
+    "read": {
+      "permissions": [
+        "workspaces:DescribeConnectionAliases",
+        "workspaces:DescribeTags"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/AliasId"],
   "properties": {
@@ -58,6 +77,7 @@
       "type": "string"
     },
     "Associations": {
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/ConnectionAliasAssociation" },
       "maxLength": 25,
       "minLength": 1,
@@ -74,6 +94,7 @@
       "type": "string"
     },
     "Tags": {
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false

@@ -1,5 +1,5 @@
 {
-  "$hash": "0a0f3b213127c7344c68915e0995990f26e9e651",
+  "$hash": "03dca9d96cd6fe398c95451da661bcbc14205e00",
   "$id": "aws-bedrock-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -180,7 +180,15 @@
     },
     "DataSourceType": {
       "description": "The type of the data source location.",
-      "enum": ["S3", "CONFLUENCE", "SALESFORCE", "SHAREPOINT", "WEB", "CUSTOM"],
+      "enum": [
+        "S3",
+        "CONFLUENCE",
+        "SALESFORCE",
+        "SHAREPOINT",
+        "WEB",
+        "CUSTOM",
+        "REDSHIFT_METADATA"
+      ],
       "type": "string"
     },
     "FilterList": {

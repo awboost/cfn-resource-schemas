@@ -1,5 +1,5 @@
 {
-  "$hash": "6ef1e41246a8331fb22f42875725bbaf789d4dc9",
+  "$hash": "41dfc5ce8bb163b09d56c51c1e79b2bbd2986335",
   "$id": "aws-detective-graph.json",
   "additionalProperties": false,
   "definitions": {
@@ -71,5 +71,17 @@
   },
   "readOnlyProperties": ["/properties/Arn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-detective.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "detective:UntagResource",
+      "detective:TagResource",
+      "detective:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Detective::Graph"
 }

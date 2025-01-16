@@ -70,7 +70,7 @@ export type BehaviorType = "ROUTE_CURRENT_CHANNEL_ONLY" | "ROUTE_ANY_CHANNEL";
  * The channels that agents can handle in the Contact Control Panel (CCP).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-channel.html}
  */
-export type Channel = "VOICE" | "CHAT" | "TASK";
+export type Channel = "VOICE" | "CHAT" | "TASK" | "EMAIL";
 /**
  * Type definition for `AWS::Connect::RoutingProfile.CrossChannelBehavior`.
  * Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.

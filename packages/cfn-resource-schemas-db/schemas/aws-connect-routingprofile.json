@@ -1,5 +1,5 @@
 {
-  "$hash": "d7cfa45c6e71d62ee956beb4cb00a0609a5d920b",
+  "$hash": "f58cba8fc3fa6e6e3f97ea47e6786098f5c6e516",
   "$id": "aws-connect-routingprofile.json",
   "additionalProperties": false,
   "definitions": {
@@ -10,7 +10,7 @@
     },
     "Channel": {
       "description": "The channels that agents can handle in the Contact Control Panel (CCP).",
-      "enum": ["VOICE", "CHAT", "TASK"],
+      "enum": ["VOICE", "CHAT", "TASK", "EMAIL"],
       "type": "string"
     },
     "Concurrency": {

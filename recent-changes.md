@@ -1,11 +1,76 @@
-- added `AWS::NotificationsContacts::EmailContact`
-- updated `AWS::CodePipeline::Pipeline`
-  - updated definition `RuleDeclaration`
-- updated `AWS::RDS::DBShardGroup`
-  - updated `tagging`
+- added `AWS::Notifications::ChannelAssociation`
+- added `AWS::Notifications::EventRule`
+- added `AWS::Notifications::NotificationConfiguration`
+- added `AWS::Notifications::NotificationHub`
+- updated `AWS::Bedrock::DataSource`
+  - updated definition `DataSourceType`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - added definition `AwsDataCatalogTableName`
+  - added definition `AwsDataCatalogTableNames`
+  - added definition `CuratedQueries`
+  - added definition `CuratedQuery`
+  - added definition `DescriptionString`
+  - added definition `InclusionType`
+  - added definition `NaturalLanguageString`
+  - added definition `QueryEngineType`
+  - added definition `QueryExecutionTimeoutSeconds`
+  - added definition `QueryGenerationColumnName`
+  - added definition `QueryGenerationColumn`
+  - added definition `QueryGenerationColumns`
+  - added definition `QueryGenerationConfiguration`
+  - added definition `QueryGenerationContext`
+  - added definition `QueryGenerationTableName`
+  - added definition `QueryGenerationTable`
+  - added definition `QueryGenerationTables`
+  - added definition `RedshiftClusterIdentifier`
+  - added definition `RedshiftConfiguration`
+  - added definition `RedshiftDatabase`
+  - added definition `RedshiftProvisionedAuthConfiguration`
+  - added definition `RedshiftProvisionedAuthType`
+  - added definition `RedshiftProvisionedConfiguration`
+  - added definition `RedshiftQueryEngineAwsDataCatalogStorageConfiguration`
+  - added definition `RedshiftQueryEngineConfiguration`
+  - added definition `RedshiftQueryEngineRedshiftStorageConfiguration`
+  - added definition `RedshiftQueryEngineStorageConfiguration`
+  - added definition `RedshiftQueryEngineStorageConfigurations`
+  - added definition `RedshiftQueryEngineStorageType`
+  - added definition `RedshiftQueryEngineType`
+  - added definition `RedshiftServerlessAuthConfiguration`
+  - added definition `RedshiftServerlessAuthType`
+  - added definition `RedshiftServerlessConfiguration`
+  - added definition `SecretArn`
+  - added definition `SqlKnowledgeBaseConfiguration`
+  - added definition `SqlString`
+  - added definition `WorkgroupArn`
+  - updated `createOnlyProperties`
+  - updated definition `KnowledgeBaseConfiguration`
+  - updated definition `KnowledgeBaseType`
+- updated `AWS::Connect::RoutingProfile`
+  - updated definition `Channel`
+- updated `AWS::DataBrew::Dataset`
+  - updated handler permissions
+- updated `AWS::DataBrew::Job`
+  - updated handler permissions
+- updated `AWS::DataBrew::Project`
+  - updated handler permissions
+- updated `AWS::DataBrew::Recipe`
+  - updated handler permissions
+- updated `AWS::DataBrew::Ruleset`
+  - updated handler permissions
+- updated `AWS::DataBrew::Schedule`
+  - updated handler permissions
+- updated `AWS::Detective::Graph`
+  - added `tagging`
+- updated `AWS::Detective::MemberInvitation`
+  - added `tagging`
+- updated `AWS::ElastiCache::UserGroup`
+  - updated `createOnlyProperties`
+  - updated property `Engine`
+- updated `AWS::IoT::ThingType`
   - updated definition `Tag`
-  - updated property `ComputeRedundancy`
-  - updated property `DBShardGroupResourceId`
-  - updated property `Endpoint`
-  - updated property `PubliclyAccessible`
+- updated `AWS::SNS::Topic`
+  - added property `FifoThroughputScope`
+- updated `AWS::WorkSpaces::ConnectionAlias`
+  - updated handler permissions
+  - updated property `Associations`
   - updated property `Tags`

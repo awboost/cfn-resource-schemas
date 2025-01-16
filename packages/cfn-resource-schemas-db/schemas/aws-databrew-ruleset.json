@@ -1,5 +1,5 @@
 {
-  "$hash": "7829ce24465d45591226620fda67ccf7462e6a1c",
+  "$hash": "bbea146438c975285f2e634331cfbafa599398e1",
   "$id": "aws-databrew-ruleset.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -133,6 +133,7 @@
     "create": {
       "permissions": [
         "databrew:CreateRuleset",
+        "databrew:DescribeRuleset",
         "databrew:TagResource",
         "databrew:UntagResource",
         "iam:PassRole"

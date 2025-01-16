@@ -1,5 +1,5 @@
 {
-  "$hash": "d2fc0f69b5b0d01b61cffc902f7f0eea8fcc54fc",
+  "$hash": "80bda80e3f48f6c58f60c96a87fa5251d856cd33",
   "$id": "aws-iot-thingtype.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ThingTypeName"],
@@ -30,14 +30,14 @@
       "description": "A key-value pair to associate with a resource.",
       "properties": {
         "Key": {
-          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "description": "Tag key (1-128 chars). No 'aws:' prefix. Allows: [A-Za-z0-9 _.:/=+-]",
           "maxLength": 128,
           "minLength": 1,
           "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
           "type": "string"
         },
         "Value": {
-          "description": "The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
+          "description": "Tag value (1-256 chars). No 'aws:' prefix. Allows: [A-Za-z0-9 _.:/=+-]",
           "maxLength": 256,
           "minLength": 1,
           "type": "string"

@@ -84,6 +84,25 @@ export type BedrockEmbeddingModelConfiguration = {
   Dimensions?: number;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.CuratedQuery`.
+ * Curated query or question and answer pair
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-curatedquery.html}
+ */
+export type CuratedQuery = {
+  /**
+   * Question for the curated query
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  NaturalLanguage: string;
+  /**
+   * Answer for the curated query
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  Sql: string;
+};
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.EmbeddingModelConfiguration`.
  * The embeddings model configuration details for the vector model used in Knowledge Base.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodelconfiguration.html}
@@ -94,6 +113,12 @@ export type EmbeddingModelConfiguration = {
    */
   BedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration;
 };
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.InclusionType`.
+ * Include or Exclude status for an entity
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-inclusiontype.html}
+ */
+export type InclusionType = "INCLUDE" | "EXCLUDE";
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KendraKnowledgeBaseConfiguration`.
  * Configurations for a Kendra knowledge base
@@ -116,6 +141,10 @@ export type KnowledgeBaseConfiguration = {
    * Configurations for a Kendra knowledge base
    */
   KendraKnowledgeBaseConfiguration?: KendraKnowledgeBaseConfiguration;
+  /**
+   * Configurations for a SQL knowledge base
+   */
+  SqlKnowledgeBaseConfiguration?: SqlKnowledgeBaseConfiguration;
   /**
    * The type of a knowledge base.
    */
@@ -152,7 +181,7 @@ export type KnowledgeBaseStorageType =
  * The type of a knowledge base.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebasetype.html}
  */
-export type KnowledgeBaseType = "VECTOR" | "KENDRA";
+export type KnowledgeBaseType = "VECTOR" | "KENDRA" | "SQL";
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.MongoDbAtlasConfiguration`.
  * Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
@@ -320,6 +349,95 @@ export type PineconeFieldMapping = {
   TextField: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.QueryEngineType`.
+ * SQL query engine type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-queryenginetype.html}
+ */
+export type QueryEngineType = "REDSHIFT";
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.QueryGenerationColumn`.
+ * Redshift query generation column
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationcolumn.html}
+ */
+export type QueryGenerationColumn = {
+  /**
+   * Description for the attached entity
+   * @minLength `1`
+   * @maxLength `200`
+   */
+  Description?: string;
+  /**
+   * Include or Exclude status for an entity
+   */
+  Inclusion?: InclusionType;
+  /**
+   * Query generation column name
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  Name?: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.QueryGenerationConfiguration`.
+ * Configurations for generating Redshift engine queries
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationconfiguration.html}
+ */
+export type QueryGenerationConfiguration = {
+  /**
+   * Max query execution timeout
+   * @min `1`
+   * @max `200`
+   */
+  ExecutionTimeoutSeconds?: number;
+  /**
+   * Context used to improve query generation
+   */
+  GenerationContext?: QueryGenerationContext;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.QueryGenerationContext`.
+ * Context used to improve query generation
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationcontext.html}
+ */
+export type QueryGenerationContext = {
+  /**
+   * List of example queries and results
+   * @maxLength `10`
+   */
+  CuratedQueries?: CuratedQuery[];
+  /**
+   * List of tables used for Redshift query generation context
+   * @maxLength `50`
+   */
+  Tables?: QueryGenerationTable[];
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.QueryGenerationTable`.
+ * Tables used for Redshift query generation context
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-querygenerationtable.html}
+ */
+export type QueryGenerationTable = {
+  /**
+   * List of Redshift query generation columns
+   */
+  Columns?: QueryGenerationColumn[];
+  /**
+   * Description for the attached entity
+   * @minLength `1`
+   * @maxLength `200`
+   */
+  Description?: string;
+  /**
+   * Include or Exclude status for an entity
+   */
+  Inclusion?: InclusionType;
+  /**
+   * Query generation table name. Must follow three-part notation
+   * @pattern `^.*\..*\..*$`
+   */
+  Name: string;
+};
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.RdsConfiguration`.
  * Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsconfiguration.html}
@@ -384,6 +502,187 @@ export type RdsFieldMapping = {
   VectorField: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftConfiguration`.
+ * Configurations for a Redshift knowledge base
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftconfiguration.html}
+ */
+export type RedshiftConfiguration = {
+  /**
+   * Configurations for Redshift query engine
+   */
+  QueryEngineConfiguration: RedshiftQueryEngineConfiguration;
+  /**
+   * Configurations for generating Redshift engine queries
+   */
+  QueryGenerationConfiguration?: QueryGenerationConfiguration;
+  /**
+   * List of configurations for available Redshift query engine storage types
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  StorageConfigurations: RedshiftQueryEngineStorageConfiguration[];
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftProvisionedAuthConfiguration`.
+ * Configurations for Redshift query engine provisioned auth setup
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftprovisionedauthconfiguration.html}
+ */
+export type RedshiftProvisionedAuthConfiguration = {
+  /**
+   * Redshift database user
+   */
+  DatabaseUser?: string;
+  /**
+   * Provisioned Redshift auth type
+   */
+  Type: RedshiftProvisionedAuthType;
+  /**
+   * Arn of a SecretsManager Secret
+   * @pattern `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`
+   */
+  UsernamePasswordSecretArn?: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftProvisionedAuthType`.
+ * Provisioned Redshift auth type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftprovisionedauthtype.html}
+ */
+export type RedshiftProvisionedAuthType =
+  | "IAM"
+  | "USERNAME_PASSWORD"
+  | "USERNAME";
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftProvisionedConfiguration`.
+ * Configurations for provisioned Redshift query engine
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftprovisionedconfiguration.html}
+ */
+export type RedshiftProvisionedConfiguration = {
+  /**
+   * Configurations for Redshift query engine provisioned auth setup
+   */
+  AuthConfiguration: RedshiftProvisionedAuthConfiguration;
+  /**
+   * Redshift cluster identifier
+   * @minLength `1`
+   * @maxLength `63`
+   */
+  ClusterIdentifier: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftQueryEngineAwsDataCatalogStorageConfiguration`.
+ * Configurations for Redshift query engine AWS Data Catalog backed storage
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryengineawsdatacatalogstorageconfiguration.html}
+ */
+export type RedshiftQueryEngineAwsDataCatalogStorageConfiguration = {
+  /**
+   * List of table names in AWS Data Catalog. Must follow two part notation
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  TableNames: string[];
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftQueryEngineConfiguration`.
+ * Configurations for Redshift query engine
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryengineconfiguration.html}
+ */
+export type RedshiftQueryEngineConfiguration = {
+  /**
+   * Configurations for provisioned Redshift query engine
+   */
+  ProvisionedConfiguration?: RedshiftProvisionedConfiguration;
+  /**
+   * Configurations for serverless Redshift query engine
+   */
+  ServerlessConfiguration?: RedshiftServerlessConfiguration;
+  /**
+   * Redshift query engine type
+   */
+  Type: RedshiftQueryEngineType;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftQueryEngineRedshiftStorageConfiguration`.
+ * Configurations for Redshift query engine Redshift backed storage
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryengineredshiftstorageconfiguration.html}
+ */
+export type RedshiftQueryEngineRedshiftStorageConfiguration = {
+  /**
+   * Redshift database name
+   * @minLength `1`
+   * @maxLength `200`
+   */
+  DatabaseName: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftQueryEngineStorageConfiguration`.
+ * Configurations for available Redshift query engine storage types
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryenginestorageconfiguration.html}
+ */
+export type RedshiftQueryEngineStorageConfiguration = {
+  /**
+   * Configurations for Redshift query engine AWS Data Catalog backed storage
+   */
+  AwsDataCatalogConfiguration?: RedshiftQueryEngineAwsDataCatalogStorageConfiguration;
+  /**
+   * Configurations for Redshift query engine Redshift backed storage
+   */
+  RedshiftConfiguration?: RedshiftQueryEngineRedshiftStorageConfiguration;
+  /**
+   * Redshift query engine storage type
+   */
+  Type: RedshiftQueryEngineStorageType;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftQueryEngineStorageType`.
+ * Redshift query engine storage type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryenginestoragetype.html}
+ */
+export type RedshiftQueryEngineStorageType = "REDSHIFT" | "AWS_DATA_CATALOG";
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftQueryEngineType`.
+ * Redshift query engine type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftqueryenginetype.html}
+ */
+export type RedshiftQueryEngineType = "SERVERLESS" | "PROVISIONED";
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftServerlessAuthConfiguration`.
+ * Configurations for Redshift query engine serverless auth setup
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftserverlessauthconfiguration.html}
+ */
+export type RedshiftServerlessAuthConfiguration = {
+  /**
+   * Serverless Redshift auth type
+   */
+  Type: RedshiftServerlessAuthType;
+  /**
+   * Arn of a SecretsManager Secret
+   * @pattern `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`
+   */
+  UsernamePasswordSecretArn?: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftServerlessAuthType`.
+ * Serverless Redshift auth type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftserverlessauthtype.html}
+ */
+export type RedshiftServerlessAuthType = "IAM" | "USERNAME_PASSWORD";
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.RedshiftServerlessConfiguration`.
+ * Configurations for serverless Redshift query engine
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-redshiftserverlessconfiguration.html}
+ */
+export type RedshiftServerlessConfiguration = {
+  /**
+   * Configurations for Redshift query engine serverless auth setup
+   */
+  AuthConfiguration: RedshiftServerlessAuthConfiguration;
+  /**
+   * Workgroup arn
+   * @pattern `^(arn:(aws(-[a-z]+)*):redshift-serverless:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:workgroup/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$`
+   */
+  WorkgroupArn: string;
+};
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.S3Location`.
  * An Amazon S3 location.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3location.html}
@@ -396,6 +695,21 @@ export type S3Location = {
    * @pattern `^s3://.{1,128}$`
    */
   URI: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.SqlKnowledgeBaseConfiguration`.
+ * Configurations for a SQL knowledge base
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-sqlknowledgebaseconfiguration.html}
+ */
+export type SqlKnowledgeBaseConfiguration = {
+  /**
+   * Configurations for a Redshift knowledge base
+   */
+  RedshiftConfiguration?: RedshiftConfiguration;
+  /**
+   * SQL query engine type
+   */
+  Type: QueryEngineType;
 };
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.StorageConfiguration`.

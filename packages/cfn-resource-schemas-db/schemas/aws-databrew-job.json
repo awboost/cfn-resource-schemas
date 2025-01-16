@@ -1,5 +1,5 @@
 {
-  "$hash": "5ee1865eb6a27eb9924db3e2fde14a26c991ce05",
+  "$hash": "4b5b06863f26b8ef05d0662e41c0f6826678d59b",
   "$id": "aws-databrew-job.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -314,6 +314,7 @@
       "permissions": [
         "databrew:CreateProfileJob",
         "databrew:CreateRecipeJob",
+        "databrew:DescribeJob",
         "databrew:TagResource",
         "databrew:UntagResource",
         "iam:PassRole"

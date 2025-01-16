@@ -40,6 +40,7 @@ export type SNSTopicProperties = {
    * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
    */
   DisplayName?: string;
+  FifoThroughputScope?: string;
   /**
    * Set to true to create a FIFO topic.
    */

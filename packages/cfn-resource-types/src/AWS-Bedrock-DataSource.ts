@@ -271,7 +271,8 @@ export type DataSourceType =
   | "SALESFORCE"
   | "SHAREPOINT"
   | "WEB"
-  | "CUSTOM";
+  | "CUSTOM"
+  | "REDSHIFT_METADATA";
 /**
  * Type definition for `AWS::Bedrock::DataSource.FixedSizeChunkingConfiguration`.
  * Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.

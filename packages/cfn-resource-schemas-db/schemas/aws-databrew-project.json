@@ -1,5 +1,5 @@
 {
-  "$hash": "416ae58b9165cb53ffe57f4bad5a92eb430b0c1f",
+  "$hash": "55d0d36873deb1e1994c5ca104fcf1fe1ce7ba74",
   "$id": "aws-databrew-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -37,6 +37,7 @@
     "create": {
       "permissions": [
         "databrew:CreateProject",
+        "databrew:DescribeProject",
         "databrew:TagResource",
         "databrew:UntagResource",
         "iam:PassRole"

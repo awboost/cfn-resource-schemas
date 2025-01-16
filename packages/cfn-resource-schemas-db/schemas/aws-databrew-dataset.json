@@ -1,5 +1,5 @@
 {
-  "$hash": "a28ab6dfccf0a5afcc6f7a6a733eae88c53864b8",
+  "$hash": "57bd2f9654dfb8278198c95e371bf7b26e1543cd",
   "$id": "aws-databrew-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -276,6 +276,7 @@
     "create": {
       "permissions": [
         "databrew:CreateDataset",
+        "databrew:DescribeDataset",
         "databrew:TagResource",
         "databrew:UntagResource",
         "glue:GetConnection",

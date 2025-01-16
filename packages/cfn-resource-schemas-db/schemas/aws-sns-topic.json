@@ -1,5 +1,5 @@
 {
-  "$hash": "776b783b93d218b9700e2c36fb4d6f6948065259",
+  "$hash": "0c38cb8cfdd67c001ae4d5ee650562918bc6041c",
   "$id": "aws-sns-topic.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TopicName", "/properties/FifoTopic"],
@@ -127,6 +127,7 @@
       "description": "The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.",
       "type": "string"
     },
+    "FifoThroughputScope": { "description": "", "type": "string" },
     "FifoTopic": {
       "description": "Set to true to create a FIFO topic.",
       "type": "boolean"

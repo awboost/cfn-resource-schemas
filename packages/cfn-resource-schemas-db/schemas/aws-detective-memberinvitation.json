@@ -1,5 +1,5 @@
 {
-  "$hash": "a9700196c7370b89471d8d3f458b93d6049d4bfb",
+  "$hash": "52486b3cbb4482016be3f4941767ed056667d088",
   "$id": "aws-detective-memberinvitation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GraphArn", "/properties/MemberId"],
@@ -46,6 +46,7 @@
   },
   "required": ["GraphArn", "MemberId", "MemberEmailAddress"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-detective.git",
+  "tagging": { "taggable": false },
   "typeName": "AWS::Detective::MemberInvitation",
   "writeOnlyProperties": [
     "/properties/Message",

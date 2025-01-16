@@ -1,5 +1,5 @@
 {
-  "$hash": "06ad40f704031f032732d11398cd902b5366a1b5",
+  "$hash": "a49f85414da0dab0092eec7f9722c49ebacd6435",
   "$id": "aws-databrew-schedule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -26,6 +26,7 @@
     "create": {
       "permissions": [
         "databrew:CreateSchedule",
+        "databrew:DescribeSchedule",
         "databrew:TagResource",
         "databrew:UntagResource",
         "iam:PassRole"

@@ -6,9 +6,9 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ElastiCacheUserGroupProperties = {
   /**
-   * Must be redis.
+   * The target cache engine for the user group.
    */
-  Engine: "redis";
+  Engine: "redis" | "valkey";
   /**
    * An array of key-value pairs to apply to this user.
    * @maxLength `50`

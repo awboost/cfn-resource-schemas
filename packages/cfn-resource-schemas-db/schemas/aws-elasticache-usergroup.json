@@ -1,8 +1,8 @@
 {
-  "$hash": "bb8ae53fd2df713e82c8d759ae4e9a89d5a4e522",
+  "$hash": "55883e7331ee5e4a353921ae60feb71b8a1b1f4d",
   "$id": "aws-elasticache-usergroup.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/UserGroupId", "/properties/Engine"],
+  "createOnlyProperties": ["/properties/UserGroupId"],
   "definitions": {
     "Tag": {
       "additionalProperties": false,
@@ -74,8 +74,8 @@
       "type": "string"
     },
     "Engine": {
-      "description": "Must be redis.",
-      "enum": ["redis"],
+      "description": "The target cache engine for the user group.",
+      "enum": ["redis", "valkey"],
       "type": "string"
     },
     "Status": {
