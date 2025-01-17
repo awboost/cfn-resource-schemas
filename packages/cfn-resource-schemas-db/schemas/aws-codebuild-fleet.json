@@ -1,5 +1,5 @@
 {
-  "$hash": "66db800fb752743883b211c7d7e7f86ea833e611",
+  "$hash": "0adc8672244256f8acc74a450e61e7ce96faf3cd",
   "$id": "aws-codebuild-fleet.json",
   "additionalProperties": false,
   "definitions": {
@@ -150,7 +150,10 @@
         "LINUX_CONTAINER",
         "LINUX_GPU_CONTAINER",
         "ARM_CONTAINER",
-        "MAC_ARM"
+        "MAC_ARM",
+        "LINUX_EC2",
+        "ARM_EC2",
+        "WINDOWS_EC2"
       ],
       "type": "string"
     },

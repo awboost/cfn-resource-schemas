@@ -305,6 +305,10 @@ export type MonitoringConfiguration = {
    */
   ManagedPersistenceMonitoringConfiguration?: ManagedPersistenceMonitoringConfiguration;
   /**
+   * Prometheus monitoring configurations for a JobRun.
+   */
+  PrometheusMonitoringConfiguration?: PrometheusMonitoringConfiguration;
+  /**
    * S3 monitoring configurations for a JobRun.
    */
   S3MonitoringConfiguration?: S3MonitoringConfiguration;
@@ -326,6 +330,19 @@ export type NetworkConfiguration = {
    * @maxLength `16`
    */
   SubnetIds?: string[];
+};
+/**
+ * Type definition for `AWS::EMRServerless::Application.PrometheusMonitoringConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-prometheusmonitoringconfiguration.html}
+ */
+export type PrometheusMonitoringConfiguration = {
+  /**
+   * The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+   * @minLength `1`
+   * @maxLength `10280`
+   * @pattern `^https://aps-workspaces.([a-z]{2}-[a-z-]{1,20}-[1-9]).amazonaws(.[0-9A-Za-z]{2,4})+/workspaces/[-_.0-9A-Za-z]{1,100}/api/v1/remote_write$`
+   */
+  RemoteWriteUrl?: string;
 };
 /**
  * Type definition for `AWS::EMRServerless::Application.S3MonitoringConfiguration`.

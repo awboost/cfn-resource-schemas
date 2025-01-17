@@ -1,5 +1,5 @@
 {
-  "$hash": "408c6c13c9974901779ea8d91563323d097f4214",
+  "$hash": "42497f83c8c028508ee2fa156424d35fc94f6b86",
   "$id": "aws-acmpca-certificateauthority.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -307,6 +307,10 @@
   "sourceUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ACMPCA.html",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "acm-pca:TagCertificateAuthority",
+      "acm-pca:UntagCertificateAuthority"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,5 +1,5 @@
 {
-  "$hash": "50da2b6871c4103cc5483af54bd97186ce208b9b",
+  "$hash": "70c54016730267e9f5fb338f8b27c80b5d75ccb4",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -432,7 +432,8 @@
         "Comet",
         "DeepchecksLLMEvaluation",
         "Fiddler",
-        "LakeraGuard"
+        "LakeraGuard",
+        "PerformanceEvaluation"
       ],
       "type": "string"
     },

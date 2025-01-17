@@ -71,6 +71,19 @@ export type BedrockPromptVersionAttributes = {
    * @maxLength `1`
    */
   Variants: {
+    GenAiResource: {
+      /**
+       * Target Agent to invoke with Prompt
+       */
+      Agent: {
+        /**
+         * Arn representation of the Agent Alias.
+         * @maxLength `2048`
+         * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:agent-alias/[0-9a-zA-Z]{10}/[0-9a-zA-Z]{10}$`
+         */
+        AgentIdentifier: string;
+      };
+    };
     InferenceConfiguration: {
       /**
        * Prompt model inference configuration
@@ -114,31 +127,10 @@ export type BedrockPromptVersionAttributes = {
      * @pattern `^([0-9a-zA-Z][_-]?){1,100}$`
      */
     Name: string;
-    TemplateConfiguration: {
-      /**
-       * Configuration for text prompt template
-       */
-      Text: {
-        /**
-         * List of input variables
-         * @minLength `0`
-         * @maxLength `5`
-         */
-        InputVariables: {
-          /**
-           * Name for an input variable
-           * @pattern `^([0-9a-zA-Z][_-]?){1,100}$`
-           */
-          Name: string;
-        }[];
-        /**
-         * Prompt content for String prompt template
-         * @minLength `1`
-         * @maxLength `200000`
-         */
-        Text: string;
-      };
-    };
+    /**
+     * Prompt template configuration
+     */
+    TemplateConfiguration: PromptTemplateConfiguration;
     /**
      * Prompt template type
      */
@@ -151,6 +143,101 @@ export type BedrockPromptVersionAttributes = {
    * @pattern `^(DRAFT|[0-9]{0,4}[1-9][0-9]{0,4})$`
    */
   Version: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.AnyToolChoice`.
+ * Any Tool choice
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-anytoolchoice.html}
+ */
+export type AnyToolChoice = Record<string, any>;
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.AutoToolChoice`.
+ * Auto Tool choice
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-autotoolchoice.html}
+ */
+export type AutoToolChoice = Record<string, any>;
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.ChatPromptTemplateConfiguration`.
+ * Configuration for chat prompt template
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-chatprompttemplateconfiguration.html}
+ */
+export type ChatPromptTemplateConfiguration = {
+  /**
+   * List of input variables
+   * @minLength `0`
+   * @maxLength `5`
+   */
+  InputVariables?: PromptInputVariable[];
+  /**
+   * List of messages for chat prompt template
+   * @minLength `0`
+   */
+  Messages: Message[];
+  /**
+   * Configuration for chat prompt template
+   * @minLength `0`
+   */
+  System?: SystemContentBlock[];
+  /**
+   * Tool configuration
+   */
+  ToolConfiguration?: ToolConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.ContentBlock`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-contentblock.html}
+ */
+export type ContentBlock = {
+  /**
+   * Configuration for chat prompt template
+   * @minLength `1`
+   */
+  Text: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.ConversationRole`.
+ * Conversation roles for the chat prompt
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-conversationrole.html}
+ */
+export type ConversationRole = "user" | "assistant";
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.Message`.
+ * Chat prompt Message
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-message.html}
+ */
+export type Message = {
+  /**
+   * List of Content Blocks
+   * @minLength `1`
+   */
+  Content: ContentBlock[];
+  /**
+   * Conversation roles for the chat prompt
+   */
+  Role: ConversationRole;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.PromptAgentResource`.
+ * Target Agent to invoke with Prompt
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptagentresource.html}
+ */
+export type PromptAgentResource = {
+  /**
+   * Arn representation of the Agent Alias.
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:agent-alias/[0-9a-zA-Z]{10}/[0-9a-zA-Z]{10}$`
+   */
+  AgentIdentifier: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.PromptGenAiResource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptgenairesource.html}
+ */
+export type PromptGenAiResource = {
+  /**
+   * Target Agent to invoke with Prompt
+   */
+  Agent: PromptAgentResource;
 };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.PromptInferenceConfiguration`.
@@ -207,26 +294,35 @@ export type PromptModelInferenceConfiguration = {
 };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.PromptTemplateConfiguration`.
+ * Prompt template configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-prompttemplateconfiguration.html}
  */
-export type PromptTemplateConfiguration = {
-  /**
-   * Configuration for text prompt template
-   */
-  Text: TextPromptTemplateConfiguration;
-};
+export type PromptTemplateConfiguration =
+  | {
+      /**
+       * Configuration for text prompt template
+       */
+      Text: TextPromptTemplateConfiguration;
+    }
+  | {
+      /**
+       * Configuration for chat prompt template
+       */
+      Chat: ChatPromptTemplateConfiguration;
+    };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.PromptTemplateType`.
  * Prompt template type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-prompttemplatetype.html}
  */
-export type PromptTemplateType = "TEXT";
+export type PromptTemplateType = "TEXT" | "CHAT";
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.PromptVariant`.
  * Prompt variant
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptvariant.html}
  */
 export type PromptVariant = {
+  GenAiResource?: PromptGenAiResource;
   InferenceConfiguration?: PromptInferenceConfiguration;
   /**
    * ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
@@ -240,11 +336,39 @@ export type PromptVariant = {
    * @pattern `^([0-9a-zA-Z][_-]?){1,100}$`
    */
   Name: string;
+  /**
+   * Prompt template configuration
+   */
   TemplateConfiguration: PromptTemplateConfiguration;
   /**
    * Prompt template type
    */
   TemplateType: PromptTemplateType;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.SpecificToolChoice`.
+ * Specific Tool choice
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-specifictoolchoice.html}
+ */
+export type SpecificToolChoice = {
+  /**
+   * Tool name
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[a-zA-Z][a-zA-Z0-9_]*$`
+   */
+  Name: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.SystemContentBlock`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-systemcontentblock.html}
+ */
+export type SystemContentBlock = {
+  /**
+   * Configuration for chat prompt template
+   * @minLength `1`
+   */
+  Text: string;
 };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.TagsMap`.
@@ -270,6 +394,86 @@ export type TextPromptTemplateConfiguration = {
    * @maxLength `200000`
    */
   Text: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.Tool`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-tool.html}
+ */
+export type Tool = {
+  /**
+   * Tool specification
+   */
+  ToolSpec: ToolSpecification;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.ToolChoice`.
+ * Tool choice
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolchoice.html}
+ */
+export type ToolChoice =
+  | {
+      /**
+       * Auto Tool choice
+       */
+      Auto: AutoToolChoice;
+    }
+  | {
+      /**
+       * Any Tool choice
+       */
+      Any: AnyToolChoice;
+    }
+  | {
+      /**
+       * Specific Tool choice
+       */
+      Tool: SpecificToolChoice;
+    };
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.ToolConfiguration`.
+ * Tool configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolconfiguration.html}
+ */
+export type ToolConfiguration = {
+  /**
+   * Tool choice
+   */
+  ToolChoice?: ToolChoice;
+  /**
+   * List of Tools
+   * @minLength `1`
+   */
+  Tools: Tool[];
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.ToolInputSchema`.
+ * Tool input schema json
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolinputschema.html}
+ */
+export type ToolInputSchema = {
+  Json: Record<string, any>;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.ToolSpecification`.
+ * Tool specification
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-toolspecification.html}
+ */
+export type ToolSpecification = {
+  /**
+   * @minLength `1`
+   */
+  Description?: string;
+  /**
+   * Tool input schema json
+   */
+  InputSchema: ToolInputSchema;
+  /**
+   * Tool name
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[a-zA-Z][a-zA-Z0-9_]*$`
+   */
+  Name: string;
 };
 /**
  * Definition of AWS::Bedrock::PromptVersion Resource Type

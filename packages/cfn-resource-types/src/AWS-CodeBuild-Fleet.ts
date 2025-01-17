@@ -23,7 +23,10 @@ export type CodeBuildFleetProperties = {
     | "LINUX_CONTAINER"
     | "LINUX_GPU_CONTAINER"
     | "ARM_CONTAINER"
-    | "MAC_ARM";
+    | "MAC_ARM"
+    | "LINUX_EC2"
+    | "ARM_EC2"
+    | "WINDOWS_EC2";
   FleetProxyConfiguration?: ProxyConfiguration;
   /**
    * @pattern `^(?:arn:)[a-zA-Z+-=,._:/@]+$`
