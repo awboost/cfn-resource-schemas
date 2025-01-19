@@ -1,14 +1,10 @@
 {
-  "$hash": "508f1d274da0dd0ac1c36c703cf20166fe5a6662",
+  "$hash": "76d104cd74e386ffcf50993c5e9c9a6d0487d9f9",
   "$id": "aws-datasync-locationfsxwindows.json",
   "additionalProperties": false,
   "createOnlyProperties": [
-    "/properties/Domain",
     "/properties/FsxFilesystemArn",
-    "/properties/Password",
-    "/properties/SecurityGroupArns",
-    "/properties/Subdirectory",
-    "/properties/User"
+    "/properties/SecurityGroupArns"
   ],
   "definitions": {
     "Tag": {
@@ -59,9 +55,12 @@
     "update": {
       "permissions": [
         "datasync:DescribeLocationFsxWindows",
+        "datasync:UpdateLocationFsxWindows",
         "datasync:ListTagsForResource",
         "datasync:TagResource",
-        "datasync:UntagResource"
+        "datasync:UntagResource",
+        "fsx:DescribeFileSystems",
+        "ec2:DescribeNetworkInterfaces"
       ]
     }
   },

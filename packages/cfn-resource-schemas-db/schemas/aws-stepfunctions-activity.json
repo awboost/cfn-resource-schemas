@@ -1,5 +1,5 @@
 {
-  "$hash": "949236fdb9b042111e2026d5913121e206d440ee",
+  "$hash": "82498f13b90b9d894eed0a5225901ee7b6a30be8",
   "$id": "aws-stepfunctions-activity.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -39,6 +39,7 @@
     "create": {
       "permissions": [
         "states:CreateActivity",
+        "states:DescribeActivity",
         "states:TagResource",
         "kms:DescribeKey"
       ]

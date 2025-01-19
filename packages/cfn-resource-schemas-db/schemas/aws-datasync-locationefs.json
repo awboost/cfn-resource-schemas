@@ -1,14 +1,10 @@
 {
-  "$hash": "733137eaa9d4ebcc248a6ced67c18ac4731b1ff9",
+  "$hash": "dcd092cd2e095e2f533fb8d057011fd8a519eae9",
   "$id": "aws-datasync-locationefs.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Ec2Config",
-    "/properties/EfsFilesystemArn",
-    "/properties/Subdirectory",
-    "/properties/FileSystemAccessRoleArn",
-    "/properties/InTransitEncryption",
-    "/properties/AccessPointArn"
+    "/properties/EfsFilesystemArn"
   ],
   "definitions": {
     "Ec2Config": {
@@ -86,10 +82,13 @@
     },
     "update": {
       "permissions": [
+        "datasync:UpdateLocationEfs",
         "datasync:DescribeLocationEfs",
         "datasync:ListTagsForResource",
         "datasync:TagResource",
-        "datasync:UntagResource"
+        "datasync:UntagResource",
+        "elasticfilesystem:DescribeFileSystems",
+        "elasticfilesystem:DescribeAccessPoints"
       ]
     }
   },

@@ -1,37 +1,28 @@
-- updated `AWS::ACMPCA::CertificateAuthority`
+- added `AWS::Notifications::ManagedNotificationAccountContactAssociation`
+- added `AWS::Notifications::ManagedNotificationAdditionalChannelAssociation`
+- updated `AWS::DataSync::LocationEFS`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::DataSync::LocationFSxLustre`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::DataSync::LocationFSxONTAP`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::DataSync::LocationFSxOpenZFS`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::DataSync::LocationFSxWindows`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::DataSync::LocationS3`
+  - updated `createOnlyProperties`
   - updated `tagging`
-- updated `AWS::Bedrock::PromptVersion`
-  - added definition `AnyToolChoice`
-  - added definition `AutoToolChoice`
-  - added definition `ChatPromptTemplateConfiguration`
-  - added definition `ContentBlock`
-  - added definition `ConversationRole`
-  - added definition `Message`
-  - added definition `PromptAgentResource`
-  - added definition `PromptGenAiResource`
-  - added definition `SpecificToolChoice`
-  - added definition `SystemContentBlock`
-  - added definition `ToolChoice`
-  - added definition `ToolConfiguration`
-  - added definition `ToolInputSchema`
-  - added definition `ToolSpecification`
-  - added definition `Tool`
-  - updated definition `PromptTemplateConfiguration`
-  - updated definition `PromptTemplateType`
-  - updated definition `PromptVariant`
-- updated `AWS::CodeBuild::Fleet`
-  - updated property `EnvironmentType`
-- updated `AWS::EMRServerless::Application`
-  - added definition `PrometheusMonitoringConfiguration`
-  - added definition `RemoteWriteUrl`
-  - updated definition `MonitoringConfiguration`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `ListenerAttribute`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - updated definition `LoadBalancerAttribute`
-  - updated definition `MinimumLoadBalancerCapacity`
-  - updated property `MinimumLoadBalancerCapacity`
-- updated `AWS::SageMaker::Domain`
-  - updated definition `MlTools`
-- updated `AWS::SageMaker::UserProfile`
-  - updated definition `MlTools`
+  - updated handler permissions
+- updated `AWS::NetworkFirewall::Firewall`
+  - added definition `EnabledAnalysisType`
+  - updated handler permissions
+- updated `AWS::Route53Profiles::ProfileResourceAssociation`
+  - removed `replacementStrategy`
+- updated `AWS::StepFunctions::Activity`
+  - updated handler permissions

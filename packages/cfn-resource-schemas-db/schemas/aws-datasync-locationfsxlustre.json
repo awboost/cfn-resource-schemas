@@ -1,11 +1,10 @@
 {
-  "$hash": "24c050b55837c161aed75ef7d40f088c72ff1d6f",
+  "$hash": "f0ff63f314a597d5b428185b0951794128da6cd0",
   "$id": "aws-datasync-locationfsxlustre.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/FsxFilesystemArn",
-    "/properties/SecurityGroupArns",
-    "/properties/Subdirectory"
+    "/properties/SecurityGroupArns"
   ],
   "definitions": {
     "Tag": {
@@ -57,8 +56,11 @@
       "permissions": [
         "datasync:DescribeLocationFsxLustre",
         "datasync:ListTagsForResource",
+        "datasync:UpdateLocationFsxLustre",
         "datasync:TagResource",
-        "datasync:UntagResource"
+        "datasync:UntagResource",
+        "fsx:DescribeFileSystems",
+        "ec2:DescribeNetworkInterfaces"
       ]
     }
   },

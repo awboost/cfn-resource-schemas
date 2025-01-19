@@ -1,9 +1,14 @@
 {
-  "$hash": "1d67c0692cd565995abd2550616cc569dbad20cb",
+  "$hash": "b660178456b5634af5da42a893de68e75cfed039",
   "$id": "aws-networkfirewall-firewall.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId", "/properties/FirewallName"],
   "definitions": {
+    "EnabledAnalysisType": {
+      "description": "An analysis type.",
+      "enum": ["TLS_SNI", "HTTP_HOST"],
+      "type": "string"
+    },
     "EndpointId": { "description": "An endpoint Id.", "type": "string" },
     "ResourceArn": {
       "description": "A resource ARN.",
@@ -80,7 +85,8 @@
         "network-firewall:AssociateFirewallPolicy",
         "network-firewall:TagResource",
         "network-firewall:UntagResource",
-        "network-firewall:DescribeFirewall"
+        "network-firewall:DescribeFirewall",
+        "network-firewall:UpdateFirewallAnalysisSettings"
       ]
     }
   },

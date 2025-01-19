@@ -1,12 +1,10 @@
 {
-  "$hash": "cec43bbb52c5ae85467bfe32e091218be90a1ad9",
+  "$hash": "6026b4b14bc6ea6e21b2089257e23c2c40612d8d",
   "$id": "aws-datasync-locationfsxontap.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/StorageVirtualMachineArn",
-    "/properties/SecurityGroupArns",
-    "/properties/Protocol",
-    "/properties/Subdirectory"
+    "/properties/SecurityGroupArns"
   ],
   "definitions": {
     "NFS": {
@@ -126,10 +124,14 @@
     },
     "update": {
       "permissions": [
+        "datasync:UpdateLocationFsxOntap",
         "datasync:DescribeLocationFsxOntap",
         "datasync:ListTagsForResource",
         "datasync:TagResource",
-        "datasync:UntagResource"
+        "datasync:UntagResource",
+        "fsx:DescribeFileSystems",
+        "fsx:DescribeStorageVirtualMachines",
+        "ec2:DescribeNetworkInterfaces"
       ]
     }
   },
