@@ -11,6 +11,7 @@ export type EC2ClientVpnEndpointProperties = {
   ClientLoginBannerOptions?: ClientLoginBannerOptions;
   ConnectionLogOptions: ConnectionLogOptions;
   Description?: string;
+  DisconnectOnSessionTimeout?: boolean;
   DnsServers?: string[];
   SecurityGroupIds?: string[];
   SelfServicePortal?: string;

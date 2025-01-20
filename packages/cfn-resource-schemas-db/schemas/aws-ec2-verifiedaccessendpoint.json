@@ -1,5 +1,5 @@
 {
-  "$hash": "43cd7ec4c995be3c74cf200e63f50099ad31a7ad",
+  "$hash": "d5a6566416ef2c1f2ab677b2840c861e7f8c639d",
   "$id": "aws-ec2-verifiedaccessendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -133,7 +133,7 @@
         "kms:GenerateDataKey",
         "kms:Decrypt"
       ],
-      "timeoutInMinutes": 60
+      "timeoutInMinutes": 600
     },
     "delete": {
       "permissions": [

@@ -1,5 +1,5 @@
 {
-  "$hash": "4c919a2f7ae06a78f68f5b2b1c97c346ade4286e",
+  "$hash": "fdf039c2bdc5a35999fa371988ca0bbd206375a5",
   "$id": "aws-ec2-verifiedaccesstrustprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -20,6 +20,42 @@
         },
         "TenantId": {
           "description": "The ID of the tenant application with the device-identity provider.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NativeApplicationOidcOptions": {
+      "additionalProperties": false,
+      "description": "The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.",
+      "properties": {
+        "AuthorizationEndpoint": {
+          "description": "The OIDC authorization endpoint.",
+          "type": "string"
+        },
+        "ClientId": {
+          "description": "The client identifier.",
+          "type": "string"
+        },
+        "ClientSecret": {
+          "description": "The client secret.",
+          "type": "string"
+        },
+        "Issuer": { "description": "The OIDC issuer.", "type": "string" },
+        "PublicSigningKeyEndpoint": {
+          "description": "The public signing key for endpoint",
+          "type": "string"
+        },
+        "Scope": {
+          "description": "OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.",
+          "type": "string"
+        },
+        "TokenEndpoint": {
+          "description": "The OIDC token endpoint.",
+          "type": "string"
+        },
+        "UserInfoEndpoint": {
+          "description": "The OIDC user info endpoint.",
           "type": "string"
         }
       },
@@ -160,6 +196,9 @@
       "description": "The last updated time.",
       "type": "string"
     },
+    "NativeApplicationOidcOptions": {
+      "$ref": "#/definitions/NativeApplicationOidcOptions"
+    },
     "OidcOptions": { "$ref": "#/definitions/OidcOptions" },
     "PolicyReferenceName": {
       "description": "The identifier to be used when working with policy rules.",
@@ -215,5 +254,8 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::EC2::VerifiedAccessTrustProvider"
+  "typeName": "AWS::EC2::VerifiedAccessTrustProvider",
+  "writeOnlyProperties": [
+    "/properties/NativeApplicationOidcOptions/ClientSecret"
+  ]
 }

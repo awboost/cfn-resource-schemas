@@ -1,5 +1,5 @@
 {
-  "$hash": "9efeec7a6f06fe483000de0281c0baa693842df4",
+  "$hash": "9e900dc4cdcf1bb8dbdc2c7ee8bf822b063b6918",
   "$id": "aws-ec2-clientvpnendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -113,6 +113,7 @@
     },
     "ConnectionLogOptions": { "$ref": "#/definitions/ConnectionLogOptions" },
     "Description": { "type": "string" },
+    "DisconnectOnSessionTimeout": { "type": "boolean" },
     "DnsServers": {
       "items": { "type": "string" },
       "type": "array",

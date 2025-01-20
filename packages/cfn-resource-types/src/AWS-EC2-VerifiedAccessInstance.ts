@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type EC2VerifiedAccessInstanceProperties = {
   /**
+   * Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+   */
+  CidrEndpointsCustomSubDomain?: string;
+  /**
    * A description for the AWS Verified Access instance.
    */
   Description?: string;
@@ -35,6 +39,10 @@ export type EC2VerifiedAccessInstanceProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#aws-resource-ec2-verifiedaccessinstance-return-values}
  */
 export type EC2VerifiedAccessInstanceAttributes = {
+  /**
+   * Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+   */
+  CidrEndpointsCustomSubDomainNameServers: string[];
   /**
    * Time this Verified Access Instance was created.
    */

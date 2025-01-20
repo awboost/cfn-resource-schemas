@@ -18,6 +18,10 @@ export type EC2VerifiedAccessTrustProviderProperties = {
    */
   DeviceTrustProviderType?: string;
   /**
+   * The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
+   */
+  NativeApplicationOidcOptions?: NativeApplicationOidcOptions;
+  /**
    * The OpenID Connect details for an oidc -type, user-identity based trust provider.
    */
   OidcOptions?: OidcOptions;
@@ -83,6 +87,45 @@ export type DeviceOptions = {
    * The ID of the tenant application with the device-identity provider.
    */
   TenantId?: string;
+};
+/**
+ * Type definition for `AWS::EC2::VerifiedAccessTrustProvider.NativeApplicationOidcOptions`.
+ * The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-nativeapplicationoidcoptions.html}
+ */
+export type NativeApplicationOidcOptions = {
+  /**
+   * The OIDC authorization endpoint.
+   */
+  AuthorizationEndpoint?: string;
+  /**
+   * The client identifier.
+   */
+  ClientId?: string;
+  /**
+   * The client secret.
+   */
+  ClientSecret?: string;
+  /**
+   * The OIDC issuer.
+   */
+  Issuer?: string;
+  /**
+   * The public signing key for endpoint
+   */
+  PublicSigningKeyEndpoint?: string;
+  /**
+   * OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+   */
+  Scope?: string;
+  /**
+   * The OIDC token endpoint.
+   */
+  TokenEndpoint?: string;
+  /**
+   * The OIDC user info endpoint.
+   */
+  UserInfoEndpoint?: string;
 };
 /**
  * Type definition for `AWS::EC2::VerifiedAccessTrustProvider.OidcOptions`.

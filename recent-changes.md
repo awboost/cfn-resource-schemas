@@ -1,28 +1,13 @@
-- added `AWS::Notifications::ManagedNotificationAccountContactAssociation`
-- added `AWS::Notifications::ManagedNotificationAdditionalChannelAssociation`
-- updated `AWS::DataSync::LocationEFS`
-  - updated `createOnlyProperties`
+- updated `AWS::EC2::ClientVpnEndpoint`
+  - added property `DisconnectOnSessionTimeout`
+- updated `AWS::EC2::VerifiedAccessEndpoint`
   - updated handler permissions
-- updated `AWS::DataSync::LocationFSxLustre`
-  - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::DataSync::LocationFSxONTAP`
-  - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::DataSync::LocationFSxOpenZFS`
-  - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::DataSync::LocationFSxWindows`
-  - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::DataSync::LocationS3`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::NetworkFirewall::Firewall`
-  - added definition `EnabledAnalysisType`
-  - updated handler permissions
-- updated `AWS::Route53Profiles::ProfileResourceAssociation`
-  - removed `replacementStrategy`
-- updated `AWS::StepFunctions::Activity`
-  - updated handler permissions
+- updated `AWS::EC2::VerifiedAccessInstance`
+  - added definition `Nameserver`
+  - added property `CidrEndpointsCustomSubDomainNameServers`
+  - added property `CidrEndpointsCustomSubDomain`
+  - updated `readOnlyProperties`
+- updated `AWS::EC2::VerifiedAccessTrustProvider`
+  - added `writeOnlyProperties`
+  - added definition `NativeApplicationOidcOptions`
+  - added property `NativeApplicationOidcOptions`
