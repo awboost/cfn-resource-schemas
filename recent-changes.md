@@ -1,13 +1,2 @@
-- updated `AWS::EC2::ClientVpnEndpoint`
-  - added property `DisconnectOnSessionTimeout`
-- updated `AWS::EC2::VerifiedAccessEndpoint`
-  - updated handler permissions
-- updated `AWS::EC2::VerifiedAccessInstance`
-  - added definition `Nameserver`
-  - added property `CidrEndpointsCustomSubDomainNameServers`
-  - added property `CidrEndpointsCustomSubDomain`
-  - updated `readOnlyProperties`
-- updated `AWS::EC2::VerifiedAccessTrustProvider`
-  - added `writeOnlyProperties`
-  - added definition `NativeApplicationOidcOptions`
-  - added property `NativeApplicationOidcOptions`
+- updated `AWS::ECR::PublicRepository`
+  - added `tagging`

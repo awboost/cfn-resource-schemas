@@ -1,5 +1,5 @@
 {
-  "$hash": "fbb4d900bfd0fc897a6c302564de1f8e8814e964",
+  "$hash": "c8a5572f0801913cede97bee7b6328582591c6ff",
   "$id": "aws-ecr-publicrepository.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RepositoryName"],
@@ -144,5 +144,12 @@
   },
   "readOnlyProperties": ["/properties/Arn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ecr.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ECR::PublicRepository"
 }
