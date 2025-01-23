@@ -11,12 +11,21 @@ export type QuickSightTopicProperties = {
    * @pattern `^[0-9]{12}$`
    */
   AwsAccountId?: string;
+  /**
+   * Model for configuration of a Topic
+   */
+  ConfigOptions?: TopicConfigOptions;
   DataSets?: DatasetMetadata[];
   /**
    * @minLength `0`
    * @maxLength `256`
    */
   Description?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `20`
+   */
+  FolderArns?: string[];
   /**
    * @minLength `1`
    * @maxLength `128`
@@ -335,7 +344,9 @@ export type NumberScale =
   | "THOUSANDS"
   | "MILLIONS"
   | "BILLIONS"
-  | "TRILLIONS";
+  | "TRILLIONS"
+  | "LAKHS"
+  | "CRORES";
 /**
  * Type definition for `AWS::QuickSight::Topic.PropertyRole`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-propertyrole.html}
@@ -492,6 +503,14 @@ export type TopicColumn = {
   NotAllowedAggregations?: AuthorSpecifiedAggregation[];
   SemanticType?: SemanticType;
   TimeGranularity?: TopicTimeGranularity;
+};
+/**
+ * Type definition for `AWS::QuickSight::Topic.TopicConfigOptions`.
+ * Model for configuration of a Topic
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicconfigoptions.html}
+ */
+export type TopicConfigOptions = {
+  QBusinessInsightsEnabled?: boolean;
 };
 /**
  * Type definition for `AWS::QuickSight::Topic.TopicDateRangeFilter`.

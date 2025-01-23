@@ -1,8 +1,12 @@
 {
-  "$hash": "2c25b824b2e9b2a4de4e77c4524ab3fdf761514a",
+  "$hash": "dd90d2c957027fdc941d05f409cac8a16eca5671",
   "$id": "aws-quicksight-topic.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/AwsAccountId", "/properties/TopicId"],
+  "createOnlyProperties": [
+    "/properties/AwsAccountId",
+    "/properties/FolderArns",
+    "/properties/TopicId"
+  ],
   "definitions": {
     "AggregationFunctionParameters": {
       "additionalProperties": false,
@@ -265,7 +269,9 @@
         "THOUSANDS",
         "MILLIONS",
         "BILLIONS",
-        "TRILLIONS"
+        "TRILLIONS",
+        "LAKHS",
+        "CRORES"
       ],
       "type": "string"
     },
@@ -423,6 +429,12 @@
       "required": ["ColumnName"],
       "type": "object"
     },
+    "TopicConfigOptions": {
+      "additionalProperties": false,
+      "description": "Model for configuration of a Topic",
+      "properties": { "QBusinessInsightsEnabled": { "type": "boolean" } },
+      "type": "object"
+    },
     "TopicDateRangeFilter": {
       "additionalProperties": false,
       "properties": {
@@ -434,6 +446,7 @@
     "TopicDetails": {
       "additionalProperties": false,
       "properties": {
+        "ConfigOptions": { "$ref": "#/definitions/TopicConfigOptions" },
         "DataSets": {
           "items": { "$ref": "#/definitions/DatasetMetadata" },
           "type": "array"
@@ -617,11 +630,18 @@
       "pattern": "^[0-9]{12}$",
       "type": "string"
     },
+    "ConfigOptions": { "$ref": "#/definitions/TopicConfigOptions" },
     "DataSets": {
       "items": { "$ref": "#/definitions/DatasetMetadata" },
       "type": "array"
     },
     "Description": { "maxLength": 256, "minLength": 0, "type": "string" },
+    "FolderArns": {
+      "items": { "type": "string" },
+      "maxItems": 20,
+      "minItems": 0,
+      "type": "array"
+    },
     "Name": { "maxLength": 128, "minLength": 1, "type": "string" },
     "TopicId": {
       "maxLength": 256,
@@ -640,5 +660,6 @@
     "tagUpdatable": false,
     "taggable": false
   },
-  "typeName": "AWS::QuickSight::Topic"
+  "typeName": "AWS::QuickSight::Topic",
+  "writeOnlyProperties": ["/properties/FolderArns"]
 }

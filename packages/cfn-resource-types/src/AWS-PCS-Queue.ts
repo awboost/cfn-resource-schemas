@@ -15,7 +15,6 @@ export type PCSQueueProperties = {
   ComputeNodeGroupConfigurations?: ComputeNodeGroupConfiguration[];
   /**
    * The name that identifies the queue.
-   * @pattern `^(?!pcs_)^(?![A-Za-z0-9]{10}$)[A-Za-z][A-Za-z0-9-]+$`
    */
   Name?: string;
   /**

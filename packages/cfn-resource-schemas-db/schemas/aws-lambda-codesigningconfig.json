@@ -1,5 +1,5 @@
 {
-  "$hash": "9ce42bc0cfbae31c61cdbe2b983cfdcb7fc3c950",
+  "$hash": "43fd04fb4785d5580d1e27e20dbf3995d4780789",
   "$id": "aws-lambda-codesigningconfig.json",
   "additionalProperties": false,
   "definitions": {
@@ -117,6 +117,11 @@
   "required": ["AllowedPublishers"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "lambda:ListTags",
+      "lambda:TagResource",
+      "lambda:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

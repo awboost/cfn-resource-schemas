@@ -1,5 +1,5 @@
 {
-  "$hash": "bee8362ec9e99378e45d694d1c5297ad007f9ca5",
+  "$hash": "bf30a7213166fdd99ec7db7f30d0644c9cf09352",
   "$id": "aws-pcs-queue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ClusterId"],
@@ -104,7 +104,6 @@
     },
     "Name": {
       "description": "The name that identifies the queue.",
-      "pattern": "^(?!pcs_)^(?![A-Za-z0-9]{10}$)[A-Za-z][A-Za-z0-9-]+$",
       "type": "string"
     },
     "Status": {

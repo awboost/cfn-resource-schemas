@@ -1,5 +1,5 @@
 {
-  "$hash": "42497f83c8c028508ee2fa156424d35fc94f6b86",
+  "$hash": "547d43894e7e2528787886be675f27e34eb9f2fc",
   "$id": "aws-acmpca-certificateauthority.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -248,7 +248,6 @@
     },
     "update": {
       "permissions": [
-        "acm-pca:ListTags",
         "acm-pca:TagCertificateAuthority",
         "acm-pca:UntagCertificateAuthority",
         "acm-pca:UpdateCertificateAuthority"
@@ -321,7 +320,6 @@
     "/properties/Subject",
     "/properties/Subject",
     "/properties/CsrExtensions",
-    "/properties/Tags",
     "/properties/RevocationConfiguration",
     "/properties/KeyStorageSecurityStandard"
   ]

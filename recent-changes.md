@@ -1,2 +1,27 @@
-- updated `AWS::ECR::PublicRepository`
-  - added `tagging`
+- updated `AWS::ACMPCA::CertificateAuthority`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Connect::Instance`
+  - updated `tagging`
+- updated `AWS::HealthImaging::Datastore`
+  - updated `tagging`
+- updated `AWS::Lambda::CodeSigningConfig`
+  - updated `tagging`
+- updated `AWS::M2::Application`
+  - updated `tagging`
+- updated `AWS::M2::Environment`
+  - updated `tagging`
+- updated `AWS::PCS::ComputeNodeGroup`
+  - updated property `Name`
+- updated `AWS::PCS::Queue`
+  - updated property `Name`
+- updated `AWS::QuickSight::Topic`
+  - added `writeOnlyProperties`
+  - added definition `TopicConfigOptions`
+  - added property `ConfigOptions`
+  - added property `FolderArns`
+  - updated `createOnlyProperties`
+  - updated definition `NumberScale`
+  - updated definition `TopicDetails`
+- updated `AWS::SecurityHub::Hub`
+  - updated `tagging`

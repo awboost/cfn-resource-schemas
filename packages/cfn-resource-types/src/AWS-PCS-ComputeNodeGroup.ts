@@ -38,7 +38,6 @@ export type PCSComputeNodeGroupProperties = {
   InstanceConfigs: InstanceConfig[];
   /**
    * The name that identifies the compute node group.
-   * @pattern `^(?!pcs_)^(?![A-Za-z0-9]{10}$)[A-Za-z][A-Za-z0-9-]+$`
    */
   Name?: string;
   /**

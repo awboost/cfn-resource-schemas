@@ -1,5 +1,5 @@
 {
-  "$hash": "1c75865f1591117f9fd17c6a50cfbcc074fbaf1e",
+  "$hash": "99230c5517af38f933514251d8fa7a1dd4ebea54",
   "$id": "aws-m2-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -227,7 +227,13 @@
   "required": ["EngineType", "InstanceType", "Name"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "m2:TagResource",
+      "m2:UntagResource",
+      "m2:ListTagsForResource"
+    ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

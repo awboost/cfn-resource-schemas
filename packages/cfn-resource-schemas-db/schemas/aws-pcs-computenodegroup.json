@@ -1,5 +1,5 @@
 {
-  "$hash": "d1a71baef819698c5d2309aa8bccf051dbd678e9",
+  "$hash": "0fc7e4fdc0f9c859aac3e535ae5ace3cd37a9554",
   "$id": "aws-pcs-computenodegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -189,7 +189,6 @@
     },
     "Name": {
       "description": "The name that identifies the compute node group.",
-      "pattern": "^(?!pcs_)^(?![A-Za-z0-9]{10}$)[A-Za-z][A-Za-z0-9-]+$",
       "type": "string"
     },
     "PurchaseOption": {
