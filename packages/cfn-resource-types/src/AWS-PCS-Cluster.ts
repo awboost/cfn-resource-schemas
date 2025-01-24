@@ -7,7 +7,6 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type PCSClusterProperties = {
   /**
    * The name that identifies the cluster.
-   * @pattern `^(?!pcs_)^(?![A-Za-z0-9]{10}$)[A-Za-z][A-Za-z0-9-]+$`
    */
   Name?: string;
   /**

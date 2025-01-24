@@ -1,5 +1,5 @@
 {
-  "$hash": "a3c5f958d83edae6cefa26d16033ba3b76233f09",
+  "$hash": "ce3eec403b2a0b830954278b38c88478438d83ef",
   "$id": "aws-codeconnections-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -111,6 +111,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-codeconnections.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "codeconnections:TagResource",
+      "codeconnections:ListTagsForResource",
+      "codeconnections:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

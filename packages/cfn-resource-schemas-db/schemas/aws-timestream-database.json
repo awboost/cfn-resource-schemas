@@ -1,5 +1,5 @@
 {
-  "$hash": "0a643f740a14c72a17a97a23b71c749c247d92c7",
+  "$hash": "d67adb99222f93d8b09bdf5c89c52d523409afa2",
   "$id": "aws-timestream-database.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DatabaseName"],
@@ -79,5 +79,17 @@
   },
   "readOnlyProperties": ["/properties/Arn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-timestream.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "timestream:TagResource",
+      "timestream:ListTagsForResource",
+      "timestream:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Timestream::Database"
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "9b3dbca9f7718e6fff7f483bb2e505a9d17f7e48",
+  "$hash": "172457c112cbcd5773f88fa3aa46e654288d7bba",
   "$id": "aws-ssmincidents-replicationset.json",
   "additionalProperties": false,
   "definitions": {
@@ -16,7 +16,13 @@
     "RegionConfiguration": {
       "additionalProperties": false,
       "description": "The ReplicationSet regional configuration.",
-      "properties": { "SseKmsKeyId": { "$ref": "#/definitions/Arn" } },
+      "properties": {
+        "SseKmsKeyId": {
+          "description": "The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.",
+          "maxLength": 2048,
+          "type": "string"
+        }
+      },
       "required": ["SseKmsKeyId"],
       "type": "object"
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "5a43ac3d0e6dd9c51b9c04ca68e11091b921d328",
+  "$hash": "fe47e6eba787e18156f5d28a05879a8ce7a634b8",
   "$id": "aws-ec2-ipamresourcediscovery.json",
   "additionalProperties": false,
   "definitions": {
@@ -42,7 +42,9 @@
       "permissions": [
         "ec2:CreateIpamResourceDiscovery",
         "ec2:DescribeIpamResourceDiscoveries",
-        "ec2:CreateTags"
+        "ec2:ModifyIpamResourceDiscovery",
+        "ec2:CreateTags",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     "delete": {

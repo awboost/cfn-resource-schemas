@@ -1,5 +1,5 @@
 {
-  "$hash": "892fd95704ee2b56a2db58ee4110fcd325bd5bf6",
+  "$hash": "059cc29f1f8034982b4e952ef588f1ffaf88db0c",
   "$id": "aws-sagemaker-image.json",
   "additionalIdentifiers": [["/properties/ImageName"]],
   "additionalProperties": false,
@@ -107,6 +107,11 @@
   "required": ["ImageName", "ImageRoleArn"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:ListTags",
+      "sagemaker:DeleteTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

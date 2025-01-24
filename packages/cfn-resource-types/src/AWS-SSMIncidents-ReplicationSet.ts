@@ -40,9 +40,8 @@ export type SSMIncidentsReplicationSetAttributes = {
  */
 export type RegionConfiguration = {
   /**
-   * The ARN of the ReplicationSet.
-   * @maxLength `1000`
-   * @pattern `^arn:aws(-(cn|us-gov|iso(-b)?))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
+   * The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
+   * @maxLength `2048`
    */
   SseKmsKeyId: string;
 };

@@ -1,5 +1,5 @@
 {
-  "$hash": "ca3a59cbd1a112b8971cb37ac6d034be2ee167a1",
+  "$hash": "dadd40f17338bcf2a4d154cb298265a3fcd39b29",
   "$id": "aws-budgets-budgetsaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ActionType", "/properties/BudgetName"],
@@ -168,6 +168,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "budgets:TagResource",
+      "budgets:UntagResource",
+      "budgets:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/ResourceTags",
     "tagUpdatable": true,

@@ -92,6 +92,32 @@ export type MediaConnectFlowAttributes = {
   }[];
 };
 /**
+ * Type definition for `AWS::MediaConnect::Flow.AudioMonitoringSetting`.
+ * Specifies the configuration for audio stream metrics monitoring.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-audiomonitoringsetting.html}
+ */
+export type AudioMonitoringSetting = {
+  /**
+   * Configures settings for the SilentAudio metric.
+   */
+  SilentAudio?: SilentAudio;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.BlackFrames`.
+ * Configures settings for the BlackFrames metric.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-blackframes.html}
+ */
+export type BlackFrames = {
+  /**
+   * Indicates whether the BlackFrames metric is enabled or disabled.
+   */
+  State?: "ENABLED" | "DISABLED";
+  /**
+   * Specifies the number of consecutive seconds of black frames that triggers an event or alert.
+   */
+  ThresholdSeconds?: number;
+};
+/**
  * Type definition for `AWS::MediaConnect::Flow.Encryption`.
  * Information about the encryption of the flow.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html}
@@ -209,6 +235,21 @@ export type Fmtp = {
     | "ST2065-1"
     | "ST428-1"
     | "DENSITY";
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.FrozenFrames`.
+ * Configures settings for the FrozenFrames metric.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-frozenframes.html}
+ */
+export type FrozenFrames = {
+  /**
+   * Indicates whether the FrozenFrames metric is enabled or disabled.
+   */
+  State?: "ENABLED" | "DISABLED";
+  /**
+   * Specifies the number of consecutive seconds of a static image that triggers an event or alert.
+   */
+  ThresholdSeconds?: number;
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.GatewayBridgeSource`.
@@ -343,6 +384,21 @@ export type MediaStreamSourceConfiguration = {
   MediaStreamName: string;
 };
 /**
+ * Type definition for `AWS::MediaConnect::Flow.SilentAudio`.
+ * Configures settings for the SilentAudio metric.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-silentaudio.html}
+ */
+export type SilentAudio = {
+  /**
+   * Indicates whether the SilentAudio metric is enabled or disabled.
+   */
+  State?: "ENABLED" | "DISABLED";
+  /**
+   * Specifies the number of consecutive seconds of silence that triggers an event or alert.
+   */
+  ThresholdSeconds?: number;
+};
+/**
  * Type definition for `AWS::MediaConnect::Flow.Source`.
  * The settings for the source of the flow.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html}
@@ -441,9 +497,36 @@ export type Source = {
  */
 export type SourceMonitoringConfig = {
   /**
+   * Contains the settings for audio stream metrics monitoring.
+   */
+  AudioMonitoringSettings?: AudioMonitoringSetting[];
+  /**
+   * Indicates whether content quality analysis is enabled or disabled.
+   */
+  ContentQualityAnalysisState?: "ENABLED" | "DISABLED";
+  /**
    * The state of thumbnail monitoring.
    */
-  ThumbnailState: "ENABLED" | "DISABLED";
+  ThumbnailState?: "ENABLED" | "DISABLED";
+  /**
+   * Contains the settings for video stream metrics monitoring.
+   */
+  VideoMonitoringSettings?: VideoMonitoringSetting[];
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.VideoMonitoringSetting`.
+ * Specifies the configuration for video stream metrics monitoring.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-videomonitoringsetting.html}
+ */
+export type VideoMonitoringSetting = {
+  /**
+   * Configures settings for the BlackFrames metric.
+   */
+  BlackFrames?: BlackFrames;
+  /**
+   * Configures settings for the FrozenFrames metric.
+   */
+  FrozenFrames?: FrozenFrames;
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.VpcInterface`.

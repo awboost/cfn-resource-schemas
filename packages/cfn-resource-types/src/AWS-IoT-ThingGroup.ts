@@ -58,14 +58,14 @@ export type AttributePayload = {
  */
 export type Tag = {
   /**
-   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * Tag key (1-128 chars). No 'aws:' prefix. Allows: [A-Za-z0-9 _.:/=+-]
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
   Key: string;
   /**
-   * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * Tag value (1-256 chars). No 'aws:' prefix. Allows: [A-Za-z0-9 _.:/=+-]
    * @minLength `1`
    * @maxLength `256`
    */

@@ -1,5 +1,5 @@
 {
-  "$hash": "738c9a340bc2a7c9d76a478252d2112aec6454d1",
+  "$hash": "d07ed91e1068f22d43fc0f9e13a8b438f3c32908",
   "$id": "aws-timestream-scheduledquery.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -442,5 +442,17 @@
     "ErrorReportConfiguration"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-timestream.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "timestream:TagResource",
+      "timestream:ListTagsForResource",
+      "timestream:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Timestream::ScheduledQuery"
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "80bda80e3f48f6c58f60c96a87fa5251d856cd33",
+  "$hash": "ab8183f2e4b4bde96f5e7d0237dca140264c560b",
   "$id": "aws-iot-thingtype.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ThingTypeName"],
@@ -138,6 +138,11 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/Id"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:ListTagsForResource",
+      "iot:TagResource",
+      "iot:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

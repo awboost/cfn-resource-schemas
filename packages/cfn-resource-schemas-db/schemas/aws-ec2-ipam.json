@@ -1,5 +1,5 @@
 {
-  "$hash": "17d5e2fb8f8afa91509df2e28a8103e3efd7ee58",
+  "$hash": "5d7ef5507b31650c66aeffeb7c3c5d79f62fc0ed",
   "$id": "aws-ec2-ipam.json",
   "additionalProperties": false,
   "definitions": {
@@ -43,20 +43,29 @@
         "ec2:CreateIpam",
         "iam:CreateServiceLinkedRole",
         "ec2:CreateTags",
-        "ec2:DescribeIpams"
+        "ec2:DescribeIpams",
+        "ec2:DescribeIpamResourceDiscoveries",
+        "ec2:ModifyIpamResourceDiscovery"
       ]
     },
     "delete": {
       "permissions": ["ec2:DeleteIpam", "ec2:DeleteTags", "ec2:DescribeIpams"]
     },
     "list": { "permissions": ["ec2:DescribeIpams"] },
-    "read": { "permissions": ["ec2:DescribeIpams"] },
+    "read": {
+      "permissions": [
+        "ec2:DescribeIpams",
+        "ec2:DescribeIpamResourceDiscoveries"
+      ]
+    },
     "update": {
       "permissions": [
         "ec2:ModifyIpam",
         "ec2:CreateTags",
         "ec2:DeleteTags",
-        "ec2:DescribeIpams"
+        "ec2:DescribeIpams",
+        "ec2:DescribeIpamResourceDiscoveries",
+        "ec2:ModifyIpamResourceDiscovery"
       ]
     }
   },

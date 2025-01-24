@@ -1,27 +1,38 @@
-- updated `AWS::ACMPCA::CertificateAuthority`
-  - updated `writeOnlyProperties`
+- updated `AWS::Budgets::BudgetsAction`
+  - updated `tagging`
+- updated `AWS::CodeConnections::Connection`
+  - updated `tagging`
+- updated `AWS::Config::ConfigRule`
+- updated `AWS::Connect::QuickConnect`
+  - updated `tagging`
+- updated `AWS::EC2::IPAM`
   - updated handler permissions
-- updated `AWS::Connect::Instance`
+- updated `AWS::EC2::IPAMResourceDiscovery`
+  - updated handler permissions
+- updated `AWS::IoT::BillingGroup`
   - updated `tagging`
-- updated `AWS::HealthImaging::Datastore`
+  - updated definition `Tag`
+- updated `AWS::IoT::ThingGroup`
   - updated `tagging`
-- updated `AWS::Lambda::CodeSigningConfig`
+  - updated definition `Tag`
+- updated `AWS::IoT::ThingType`
   - updated `tagging`
-- updated `AWS::M2::Application`
-  - updated `tagging`
-- updated `AWS::M2::Environment`
-  - updated `tagging`
-- updated `AWS::PCS::ComputeNodeGroup`
+- updated `AWS::MediaConnect::Flow`
+  - added definition `AudioMonitoringSetting`
+  - added definition `BlackFrames`
+  - added definition `FrozenFrames`
+  - added definition `SilentAudio`
+  - added definition `VideoMonitoringSetting`
+  - updated definition `SourceMonitoringConfig`
+- updated `AWS::PCS::Cluster`
   - updated property `Name`
-- updated `AWS::PCS::Queue`
-  - updated property `Name`
-- updated `AWS::QuickSight::Topic`
-  - added `writeOnlyProperties`
-  - added definition `TopicConfigOptions`
-  - added property `ConfigOptions`
-  - added property `FolderArns`
-  - updated `createOnlyProperties`
-  - updated definition `NumberScale`
-  - updated definition `TopicDetails`
-- updated `AWS::SecurityHub::Hub`
+- updated `AWS::SSMIncidents::ReplicationSet`
+  - updated definition `RegionConfiguration`
+- updated `AWS::SageMaker::Image`
   - updated `tagging`
+- updated `AWS::Timestream::Database`
+  - added `tagging`
+- updated `AWS::Timestream::ScheduledQuery`
+  - added `tagging`
+- updated `AWS::Timestream::Table`
+  - added `tagging`

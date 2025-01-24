@@ -1,5 +1,5 @@
 {
-  "$hash": "179f547a87f28c38c685eee721a90ab3478cafa3",
+  "$hash": "2a86034797b6377d505e0dbc9e96a9797ee764b8",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -168,7 +168,6 @@
     },
     "Name": {
       "description": "The name that identifies the cluster.",
-      "pattern": "^(?!pcs_)^(?![A-Za-z0-9]{10}$)[A-Za-z][A-Za-z0-9-]+$",
       "type": "string"
     },
     "Networking": {
