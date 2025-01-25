@@ -1,5 +1,5 @@
 {
-  "$hash": "4ddf64e8a2add55d113ad370a906f91f1374b53d",
+  "$hash": "125e6f7abcb24a728f1bed2bc078417e35a52a18",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -368,6 +368,7 @@
     }
   },
   "readOnlyProperties": ["/properties/VpnConnectionId"],
+  "replacementStrategy": "delete_then_create",
   "required": ["Type", "CustomerGatewayId"],
   "tagging": {
     "cloudFormationSystemTags": false,

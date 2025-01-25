@@ -1,38 +1,49 @@
-- updated `AWS::Budgets::BudgetsAction`
-  - updated `tagging`
-- updated `AWS::CodeConnections::Connection`
-  - updated `tagging`
-- updated `AWS::Config::ConfigRule`
-- updated `AWS::Connect::QuickConnect`
-  - updated `tagging`
-- updated `AWS::EC2::IPAM`
+- updated `AWS::Athena::DataCatalog`
   - updated handler permissions
-- updated `AWS::EC2::IPAMResourceDiscovery`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - updated definition `BedrockEmbeddingModelConfiguration`
+- updated `AWS::CloudWatch::MetricStream`
+  - added `tagging`
+  - removed `taggable`
+  - removed `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::IoT::BillingGroup`
+- updated `AWS::CodeStarConnections::Connection`
   - updated `tagging`
-  - updated definition `Tag`
-- updated `AWS::IoT::ThingGroup`
+- updated `AWS::Comprehend::Flywheel`
   - updated `tagging`
-  - updated definition `Tag`
-- updated `AWS::IoT::ThingType`
+- updated `AWS::EC2::CapacityReservation`
+  - added `tagging`
+  - added property `AvailabilityZoneId`
+  - updated `createOnlyProperties`
+  - updated `required`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `InstanceRequirements`
+  - updated definition `NetworkInterface`
+- updated `AWS::EC2::VPNConnection`
+  - added `replacementStrategy`
+- updated `AWS::EKS::IdentityProviderConfig`
   - updated `tagging`
-- updated `AWS::MediaConnect::Flow`
-  - added definition `AudioMonitoringSetting`
-  - added definition `BlackFrames`
-  - added definition `FrozenFrames`
-  - added definition `SilentAudio`
-  - added definition `VideoMonitoringSetting`
-  - updated definition `SourceMonitoringConfig`
-- updated `AWS::PCS::Cluster`
+- updated `AWS::FMS::Policy`
+  - added property `ResourceTagLogicalOperator`
+- updated `AWS::Organizations::Account`
+  - updated handler permissions
+- updated `AWS::Organizations::OrganizationalUnit`
+  - updated handler permissions
+- updated `AWS::Organizations::Policy`
+  - updated handler permissions
+- updated `AWS::QBusiness::WebExperience`
+  - added definition `BrowserExtensionConfiguration`
+  - added definition `BrowserExtension`
+  - added property `BrowserExtensionConfiguration`
+- updated `AWS::ResilienceHub::App`
+  - removed property `RegulatoryPolicyArn`
+- updated `AWS::SageMaker::FeatureGroup`
+  - updated `tagging`
+- updated `AWS::Timestream::InfluxDBInstance`
+  - added property `NetworkType`
+  - added property `Port`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
   - updated property `Name`
-- updated `AWS::SSMIncidents::ReplicationSet`
-  - updated definition `RegionConfiguration`
-- updated `AWS::SageMaker::Image`
-  - updated `tagging`
-- updated `AWS::Timestream::Database`
-  - added `tagging`
-- updated `AWS::Timestream::ScheduledQuery`
-  - added `tagging`
-- updated `AWS::Timestream::Table`
-  - added `tagging`
+  - updated property `Status`

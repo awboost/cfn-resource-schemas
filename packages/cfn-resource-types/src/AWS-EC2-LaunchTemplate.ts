@@ -425,8 +425,9 @@ export type InstanceRequirements = {
   AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiB;
   /**
      * The accelerator types that must be on the instance type.
-      +  For instance types with GPU accelerators, specify ``gpu``.
       +  For instance types with FPGA accelerators, specify ``fpga``.
+      +  For instance types with GPU accelerators, specify ``gpu``.
+      +  For instance types with Inference accelerators, specify ``inference``.
       
      Default: Any accelerator type
      */
@@ -950,8 +951,9 @@ export type NetworkInterface = {
    */
   Description?: string;
   /**
-   * The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
-   */
+     * The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+     If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
+     */
   DeviceIndex?: number;
   /**
    * The ENA Express configuration for the network interface.

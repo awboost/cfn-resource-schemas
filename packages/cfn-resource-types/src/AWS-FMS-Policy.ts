@@ -29,6 +29,7 @@ export type FMSPolicyProperties = {
   PolicyName: string;
   RemediationEnabled: boolean;
   ResourceSetIds?: string[];
+  ResourceTagLogicalOperator?: "AND" | "OR";
   /**
    * @maxLength `8`
    */

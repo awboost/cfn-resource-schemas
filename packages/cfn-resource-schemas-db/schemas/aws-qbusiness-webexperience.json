@@ -1,9 +1,25 @@
 {
-  "$hash": "6ac25c3525f38fde8f555cb758532ba4e47ec260",
+  "$hash": "b822c00bc99a10ab6c8851abbe3d0143d1413c92",
   "$id": "aws-qbusiness-webexperience.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
   "definitions": {
+    "BrowserExtension": { "enum": ["FIREFOX", "CHROME"], "type": "string" },
+    "BrowserExtensionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "EnabledBrowserExtensions": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/BrowserExtension" },
+          "maxItems": 2,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": ["EnabledBrowserExtensions"],
+      "type": "object"
+    },
     "CustomizationConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -181,6 +197,9 @@
       "minLength": 36,
       "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{35}$",
       "type": "string"
+    },
+    "BrowserExtensionConfiguration": {
+      "$ref": "#/definitions/BrowserExtensionConfiguration"
     },
     "CreatedAt": { "format": "date-time", "type": "string" },
     "CustomizationConfiguration": {

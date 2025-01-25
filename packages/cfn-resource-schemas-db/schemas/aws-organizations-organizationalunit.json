@@ -1,5 +1,5 @@
 {
-  "$hash": "eea922e0086f40dfa5928f2af49c5ccbe3cf6b1d",
+  "$hash": "dd09aaff830fe4c8beda90384206d232e033b816",
   "$id": "aws-organizations-organizationalunit.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ParentId"],
@@ -32,6 +32,7 @@
         "organizations:CreateOrganizationalUnit",
         "organizations:DescribeOrganizationalUnit",
         "organizations:ListParents",
+        "organizations:ListOrganizationalUnitsForParent",
         "organizations:ListTagsForResource",
         "organizations:TagResource"
       ]

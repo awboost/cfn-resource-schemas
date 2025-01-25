@@ -5,7 +5,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservation.html}
  */
 export type EC2CapacityReservationProperties = {
-  AvailabilityZone: string;
+  AvailabilityZone?: string;
+  AvailabilityZoneId?: string;
   EbsOptimized?: boolean;
   EndDate?: string;
   EndDateType?: string;

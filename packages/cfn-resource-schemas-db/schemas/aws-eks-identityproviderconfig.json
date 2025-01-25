@@ -1,5 +1,5 @@
 {
-  "$hash": "c24f1eaa0391dded46234cfb46ddef4908494cb3",
+  "$hash": "345dbd5dbe862f24b4e5c8303d1ebdef7458de31",
   "$id": "aws-eks-identityproviderconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -162,6 +162,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-eks.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["eks:TagResource", "eks:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

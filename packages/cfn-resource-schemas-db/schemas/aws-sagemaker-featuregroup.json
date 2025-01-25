@@ -1,5 +1,5 @@
 {
-  "$hash": "48c7c7e6554ac8b2a742fa185d9bb33a9e7b21d6",
+  "$hash": "8263e6ba781396d1887d19a5264751a084616871",
   "$id": "aws-sagemaker-featuregroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -261,6 +261,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:ListTags",
+      "sagemaker:DeleteTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,

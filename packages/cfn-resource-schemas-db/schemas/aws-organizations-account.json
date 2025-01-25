@@ -1,5 +1,5 @@
 {
-  "$hash": "34e9cc89400c6cc41e437925e8cdf900a15da31b",
+  "$hash": "4cbff12839017403a87a75691da7b422fddb82fd",
   "$id": "aws-organizations-account.json",
   "additionalProperties": false,
   "definitions": {
@@ -33,6 +33,7 @@
         "organizations:CreateAccount",
         "organizations:DescribeCreateAccountStatus",
         "organizations:MoveAccount",
+        "organizations:ListAccounts",
         "organizations:ListParents",
         "organizations:TagResource",
         "organizations:DescribeAccount",

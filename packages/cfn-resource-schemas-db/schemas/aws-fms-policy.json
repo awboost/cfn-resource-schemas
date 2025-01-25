@@ -1,5 +1,5 @@
 {
-  "$hash": "7e43f8f7e9219d1c230e63a7d9c32258e9ae9b54",
+  "$hash": "e2ab7f22bbb65b7d9a34642270398fdb40e7d260",
   "$id": "aws-fms-policy.json",
   "additionalProperties": false,
   "definitions": {
@@ -347,6 +347,7 @@
       "type": "array",
       "uniqueItems": true
     },
+    "ResourceTagLogicalOperator": { "enum": ["AND", "OR"], "type": "string" },
     "ResourceTags": {
       "insertionOrder": true,
       "items": { "$ref": "#/definitions/ResourceTag" },

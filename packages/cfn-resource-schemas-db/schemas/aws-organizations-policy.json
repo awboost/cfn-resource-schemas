@@ -1,5 +1,5 @@
 {
-  "$hash": "ab759b32ea0ff05eae38e837a6cb5839f78aacc4",
+  "$hash": "519fe6cf2fc75fd37b3c786b0dfbcfca6d2950b3",
   "$id": "aws-organizations-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
@@ -34,6 +34,7 @@
         "organizations:CreatePolicy",
         "organizations:DescribePolicy",
         "organizations:AttachPolicy",
+        "organizations:ListPolicies",
         "organizations:ListTagsForResource",
         "organizations:ListTargetsForPolicy",
         "organizations:TagResource"

@@ -11,6 +11,7 @@ export type QBusinessWebExperienceProperties = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]{35}$`
    */
   ApplicationId: string;
+  BrowserExtensionConfiguration?: BrowserExtensionConfiguration;
   CustomizationConfiguration?: CustomizationConfiguration;
   IdentityProviderConfiguration?: IdentityProviderConfiguration;
   /**
@@ -74,6 +75,22 @@ export type QBusinessWebExperienceAttributes = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]*$`
    */
   WebExperienceId: string;
+};
+/**
+ * Type definition for `AWS::QBusiness::WebExperience.BrowserExtension`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-browserextension.html}
+ */
+export type BrowserExtension = "FIREFOX" | "CHROME";
+/**
+ * Type definition for `AWS::QBusiness::WebExperience.BrowserExtensionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-browserextensionconfiguration.html}
+ */
+export type BrowserExtensionConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `2`
+   */
+  EnabledBrowserExtensions: BrowserExtension[];
 };
 /**
  * Type definition for `AWS::QBusiness::WebExperience.CustomizationConfiguration`.

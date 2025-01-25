@@ -73,9 +73,13 @@ export type TimestreamInfluxDBInstanceProperties = {
    * The unique name that is associated with the InfluxDB instance.
    * @minLength `3`
    * @maxLength `40`
-   * @pattern `^[a-zA-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$`
+   * @pattern `^[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$`
    */
   Name?: string;
+  /**
+   * Network type of the InfluxDB Instance.
+   */
+  NetworkType?: "IPV4" | "DUAL";
   /**
    * The organization for the InfluxDB instance.
    * @minLength `1`
@@ -89,6 +93,12 @@ export type TimestreamInfluxDBInstanceProperties = {
    * @pattern `^[a-zA-Z0-9]+$`
    */
   Password?: string;
+  /**
+   * The port number on which InfluxDB accepts connections.
+   * @min `1024`
+   * @max `65535`
+   */
+  Port?: number;
   /**
    * Attach a public IP to the customer ENI.
    */
@@ -163,6 +173,8 @@ export type TimestreamInfluxDBInstanceAttributes = {
     | "DELETING"
     | "MODIFYING"
     | "UPDATING"
+    | "UPDATING_DEPLOYMENT_TYPE"
+    | "UPDATING_INSTANCE_TYPE"
     | "DELETED"
     | "FAILED";
 };

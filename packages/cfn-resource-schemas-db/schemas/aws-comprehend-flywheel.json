@@ -1,5 +1,5 @@
 {
-  "$hash": "02b75d2d74c68329b04fc66ec0ec84006a30fbc5",
+  "$hash": "6234ad1d29bcb0963c2388f2d2ac42780e77651b",
   "$id": "aws-comprehend-flywheel.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -207,6 +207,7 @@
   "required": ["FlywheelName", "DataAccessRoleArn", "DataLakeS3Uri"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["comprehend:TagResource", "comprehend:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

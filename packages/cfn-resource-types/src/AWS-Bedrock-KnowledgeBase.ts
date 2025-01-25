@@ -82,6 +82,10 @@ export type BedrockEmbeddingModelConfiguration = {
    * @max `4096`
    */
   Dimensions?: number;
+  /**
+   * The data type for the vectors when using a model to convert text into vector embeddings.
+   */
+  EmbeddingDataType?: "FLOAT32" | "BINARY";
 };
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.CuratedQuery`.

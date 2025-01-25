@@ -1,5 +1,5 @@
 {
-  "$hash": "ef821c5f58dccd25ca7b559fd05af9ec28a714be",
+  "$hash": "4888b1d61d4a42742729d0bb800ca28e14e04f97",
   "$id": "aws-bedrock-knowledgebase.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -36,6 +36,11 @@
           "maximum": 4096,
           "minimum": 0,
           "type": "integer"
+        },
+        "EmbeddingDataType": {
+          "description": "The data type for the vectors when using a model to convert text into vector embeddings.",
+          "enum": ["FLOAT32", "BINARY"],
+          "type": "string"
         }
       },
       "type": "object"
