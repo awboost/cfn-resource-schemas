@@ -1,5 +1,5 @@
 {
-  "$hash": "9cd2c03625e2012f2d265a695a4b21f1022402e6",
+  "$hash": "d682c838d7b0a920de6390d0f26437d6b60b15d7",
   "$id": "aws-appflow-flow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FlowName", "/properties/KMSArn"],
@@ -1175,6 +1175,7 @@
     },
     "update": {
       "permissions": [
+        "appflow:DescribeFlow",
         "appflow:UpdateFlow",
         "appflow:StartFlow",
         "appflow:StopFlow",
@@ -1264,7 +1265,13 @@
   "sourceUrl": "https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "appflow:TagResource",
+      "appflow:UntagResource",
+      "appflow:ListTagsForResource"
+    ],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": false,
     "taggable": true
   },

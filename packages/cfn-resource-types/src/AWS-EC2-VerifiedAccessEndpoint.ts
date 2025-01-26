@@ -8,11 +8,15 @@ export type EC2VerifiedAccessEndpointProperties = {
   /**
    * The DNS name for users to reach your application.
    */
-  ApplicationDomain: string;
+  ApplicationDomain?: string;
   /**
    * The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
    */
   AttachmentType: string;
+  /**
+   * The options for cidr type endpoint.
+   */
+  CidrOptions?: CidrOptions;
   /**
    * A description for the AWS Verified Access endpoint.
    */
@@ -20,11 +24,11 @@ export type EC2VerifiedAccessEndpointProperties = {
   /**
    * The ARN of a public TLS/SSL certificate imported into or created with ACM.
    */
-  DomainCertificateArn: string;
+  DomainCertificateArn?: string;
   /**
    * A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
    */
-  EndpointDomainPrefix: string;
+  EndpointDomainPrefix?: string;
   /**
    * The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
    */
@@ -45,6 +49,10 @@ export type EC2VerifiedAccessEndpointProperties = {
    * The status of the Verified Access policy.
    */
   PolicyEnabled?: boolean;
+  /**
+   * The options for rds type endpoint.
+   */
+  RdsOptions?: RdsOptions;
   /**
    * The IDs of the security groups for the endpoint.
    */
@@ -97,6 +105,29 @@ export type EC2VerifiedAccessEndpointAttributes = {
   VerifiedAccessInstanceId: string;
 };
 /**
+ * Type definition for `AWS::EC2::VerifiedAccessEndpoint.CidrOptions`.
+ * The options for cidr type endpoint.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-cidroptions.html}
+ */
+export type CidrOptions = {
+  /**
+   * The IP address range, in CIDR notation.
+   */
+  Cidr?: string;
+  /**
+   * The list of port range.
+   */
+  PortRanges?: PortRange[];
+  /**
+   * The IP protocol.
+   */
+  Protocol?: string;
+  /**
+   * The IDs of the subnets.
+   */
+  SubnetIds?: string[];
+};
+/**
  * Type definition for `AWS::EC2::VerifiedAccessEndpoint.LoadBalancerOptions`.
  * The load balancer details if creating the AWS Verified Access endpoint as load-balancertype.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html}
@@ -112,6 +143,10 @@ export type LoadBalancerOptions = {
    * @max `65535`
    */
   Port?: number;
+  /**
+   * The list of port range.
+   */
+  PortRanges?: PortRange[];
   /**
    * The IP protocol.
    */
@@ -138,9 +173,69 @@ export type NetworkInterfaceOptions = {
    */
   Port?: number;
   /**
+   * The list of port ranges.
+   */
+  PortRanges?: PortRange[];
+  /**
    * The IP protocol.
    */
   Protocol?: string;
+};
+/**
+ * Type definition for `AWS::EC2::VerifiedAccessEndpoint.PortRange`.
+ * The IP port range.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-portrange.html}
+ */
+export type PortRange = {
+  /**
+   * The first port in the range.
+   * @min `1`
+   * @max `65535`
+   */
+  FromPort?: number;
+  /**
+   * The last port in the range.
+   * @min `1`
+   * @max `65535`
+   */
+  ToPort?: number;
+};
+/**
+ * Type definition for `AWS::EC2::VerifiedAccessEndpoint.RdsOptions`.
+ * The options for rds type endpoint.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-rdsoptions.html}
+ */
+export type RdsOptions = {
+  /**
+   * The IP port number.
+   * @min `1`
+   * @max `65535`
+   */
+  Port?: number;
+  /**
+   * The IP protocol.
+   */
+  Protocol?: string;
+  /**
+   * The ARN of the RDS DB cluster.
+   */
+  RdsDbClusterArn?: string;
+  /**
+   * The ARN of the RDS DB instance.
+   */
+  RdsDbInstanceArn?: string;
+  /**
+   * The ARN of the RDS DB proxy.
+   */
+  RdsDbProxyArn?: string;
+  /**
+   * The RDS endpoint.
+   */
+  RdsEndpoint?: string;
+  /**
+   * The IDs of the subnets.
+   */
+  SubnetIds?: string[];
 };
 /**
  * Type definition for `AWS::EC2::VerifiedAccessEndpoint.SseSpecification`.

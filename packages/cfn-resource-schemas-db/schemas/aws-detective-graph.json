@@ -1,5 +1,5 @@
 {
-  "$hash": "41dfc5ce8bb163b09d56c51c1e79b2bbd2986335",
+  "$hash": "c9263ee3d2f4dd7d8f96f2d0f187510ba444cab5",
   "$id": "aws-detective-graph.json",
   "additionalProperties": false,
   "definitions": {
@@ -28,11 +28,15 @@
     "create": {
       "permissions": [
         "detective:CreateGraph",
+        "detective:ListGraphs",
+        "detective:TagResource",
         "detective:UpdateOrganizationConfiguration",
         "organizations:DescribeOrganization"
       ]
     },
-    "delete": { "permissions": ["detective:DeleteGraph"] },
+    "delete": {
+      "permissions": ["detective:DeleteGraph", "detective:ListGraphs"]
+    },
     "list": {
       "permissions": [
         "detective:ListGraphs",
@@ -51,6 +55,7 @@
     },
     "update": {
       "permissions": [
+        "detective:ListGraphs",
         "detective:UntagResource",
         "detective:TagResource",
         "detective:ListTagsForResource",

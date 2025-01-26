@@ -1,49 +1,16 @@
-- updated `AWS::Athena::DataCatalog`
-  - updated handler permissions
-- updated `AWS::Bedrock::KnowledgeBase`
-  - updated definition `BedrockEmbeddingModelConfiguration`
-- updated `AWS::CloudWatch::MetricStream`
-  - added `tagging`
-  - removed `taggable`
-  - removed `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::CodeStarConnections::Connection`
+- updated `AWS::AppFlow::Flow`
   - updated `tagging`
-- updated `AWS::Comprehend::Flywheel`
-  - updated `tagging`
-- updated `AWS::EC2::CapacityReservation`
-  - added `tagging`
-  - added property `AvailabilityZoneId`
+  - updated handler permissions
+- updated `AWS::Detective::Graph`
+  - updated handler permissions
+- updated `AWS::EC2::VerifiedAccessEndpoint`
+  - added definition `CidrOptions`
+  - added definition `PortRange`
+  - added definition `RdsOptions`
+  - added property `CidrOptions`
+  - added property `RdsOptions`
   - updated `createOnlyProperties`
   - updated `required`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `InstanceRequirements`
-  - updated definition `NetworkInterface`
-- updated `AWS::EC2::VPNConnection`
-  - added `replacementStrategy`
-- updated `AWS::EKS::IdentityProviderConfig`
-  - updated `tagging`
-- updated `AWS::FMS::Policy`
-  - added property `ResourceTagLogicalOperator`
-- updated `AWS::Organizations::Account`
+  - updated definition `LoadBalancerOptions`
+  - updated definition `NetworkInterfaceOptions`
   - updated handler permissions
-- updated `AWS::Organizations::OrganizationalUnit`
-  - updated handler permissions
-- updated `AWS::Organizations::Policy`
-  - updated handler permissions
-- updated `AWS::QBusiness::WebExperience`
-  - added definition `BrowserExtensionConfiguration`
-  - added definition `BrowserExtension`
-  - added property `BrowserExtensionConfiguration`
-- updated `AWS::ResilienceHub::App`
-  - removed property `RegulatoryPolicyArn`
-- updated `AWS::SageMaker::FeatureGroup`
-  - updated `tagging`
-- updated `AWS::Timestream::InfluxDBInstance`
-  - added property `NetworkType`
-  - added property `Port`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-  - updated property `Name`
-  - updated property `Status`
