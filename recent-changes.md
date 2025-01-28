@@ -1,16 +1,14 @@
-- updated `AWS::AppFlow::Flow`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Detective::Graph`
-  - updated handler permissions
-- updated `AWS::EC2::VerifiedAccessEndpoint`
-  - added definition `CidrOptions`
-  - added definition `PortRange`
-  - added definition `RdsOptions`
-  - added property `CidrOptions`
-  - added property `RdsOptions`
+- updated `AWS::DataZone::DataSource`
+  - added property `ConnectionId`
+  - added property `ConnectionIdentifier`
   - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
   - updated `required`
-  - updated definition `LoadBalancerOptions`
-  - updated definition `NetworkInterfaceOptions`
-  - updated handler permissions
+  - updated `writeOnlyProperties`
+  - updated definition `GlueRunConfigurationInput`
+  - updated definition `RedshiftRunConfigurationInput`
+  - updated property `EnvironmentId`
+- updated `AWS::SSMIncidents::ReplicationSet`
+  - updated `tagging`
+- updated `AWS::SSMIncidents::ResponsePlan`
+  - updated `tagging`

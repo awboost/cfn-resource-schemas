@@ -1,5 +1,5 @@
 {
-  "$hash": "172457c112cbcd5773f88fa3aa46e654288d7bba",
+  "$hash": "de1093b3efbcdc5a2b1959d48fc04b41c6fe5c6f",
   "$id": "aws-ssmincidents-replicationset.json",
   "additionalProperties": false,
   "definitions": {
@@ -132,6 +132,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ssm-incidents.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "ssm-incidents:TagResource",
+      "ssm-incidents:UntagResource",
+      "ssm-incidents:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

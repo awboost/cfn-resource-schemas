@@ -17,6 +17,10 @@ export type DataZoneDataSourceProperties = {
    */
   Configuration?: DataSourceConfigurationInput;
   /**
+   * The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+   */
+  ConnectionIdentifier?: string;
+  /**
    * The description of the data source.
    * @maxLength `2048`
    */
@@ -33,7 +37,7 @@ export type DataZoneDataSourceProperties = {
   /**
    * The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
    */
-  EnvironmentIdentifier: string;
+  EnvironmentIdentifier?: string;
   /**
    * The name of the data source.
    * @minLength `1`
@@ -69,6 +73,10 @@ export type DataZoneDataSourceProperties = {
  */
 export type DataZoneDataSourceAttributes = {
   /**
+   * The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+   */
+  ConnectionId: string;
+  /**
    * The timestamp of when the data source was created.
    */
   CreatedAt: string;
@@ -79,7 +87,6 @@ export type DataZoneDataSourceAttributes = {
   DomainId: string;
   /**
    * The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
-   * @pattern `^[a-zA-Z0-9_-]{1,36}$`
    */
   EnvironmentId: string;
   /**
@@ -218,6 +225,12 @@ export type GlueRunConfigurationInput = {
    */
   AutoImportDataQualityResult?: boolean;
   /**
+   * The catalog name in the AWS Glue run configuration.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  CatalogName?: string;
+  /**
    * The data access role included in the configuration details of the AWS Glue data source.
    * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]{1,128}$`
    */
@@ -279,11 +292,11 @@ export type RedshiftRunConfigurationInput = {
   /**
    * The details of the credentials required to access an Amazon Redshift cluster.
    */
-  RedshiftCredentialConfiguration: RedshiftCredentialConfiguration;
+  RedshiftCredentialConfiguration?: RedshiftCredentialConfiguration;
   /**
    * The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
    */
-  RedshiftStorage: RedshiftStorage;
+  RedshiftStorage?: RedshiftStorage;
   /**
    * The relational filter configurations included in the configuration details of the Amazon Redshift data source.
    */
