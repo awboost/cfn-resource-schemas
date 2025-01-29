@@ -1,5 +1,5 @@
 {
-  "$hash": "4ebd738b8940e11840d7629bb0b81347451d2b66",
+  "$hash": "084a9e9421ca3ed893a5c79537fa85d66de6100e",
   "$id": "aws-panorama-package.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PackageName"],
@@ -159,6 +159,17 @@
   ],
   "required": ["PackageName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "panorama:ListTagsForResource",
+      "panorama:TagResource",
+      "panorama:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Panorama::Package"
 }

@@ -1,14 +1,36 @@
-- updated `AWS::DataZone::DataSource`
-  - added property `ConnectionId`
-  - added property `ConnectionIdentifier`
-  - updated `createOnlyProperties`
+- added `AWS::CloudFront::VpcOrigin`
+- updated `AWS::DynamoDB::Table`
+  - updated definition `PointInTimeRecoverySpecification`
+- updated `AWS::EC2::EIP`
+  - updated `tagging`
+- updated `AWS::Glue::Connection`
+  - added definition `AuthenticationConfigurationInput`
+  - added definition `AuthorizationCodeProperties`
+  - added definition `BasicAuthenticationCredentials`
+  - added definition `OAuth2ClientApplication`
+  - added definition `OAuth2Credentials`
+  - added definition `OAuth2PropertiesInput`
+  - updated definition `ConnectionInput`
+- updated `AWS::Glue::TableOptimizer`
+  - added definition `IcebergConfiguration`
+  - added definition `OrphanFileDeletionConfiguration`
+  - added definition `RetentionConfiguration`
+  - added definition `VpcConfiguration`
+  - updated definition `TableOptimizerConfiguration`
+- updated `AWS::IoTFleetWise::StateTemplate`
+  - added property `Id`
   - updated `readOnlyProperties`
-  - updated `required`
-  - updated `writeOnlyProperties`
-  - updated definition `GlueRunConfigurationInput`
-  - updated definition `RedshiftRunConfigurationInput`
-  - updated property `EnvironmentId`
-- updated `AWS::SSMIncidents::ReplicationSet`
+- updated `AWS::NeptuneGraph::PrivateGraphEndpoint`
+  - updated handler permissions
+- updated `AWS::Panorama::ApplicationInstance`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::Panorama::Package`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::Panorama::PackageVersion`
+- updated `AWS::ResourceGroups::Group`
   - updated `tagging`
-- updated `AWS::SSMIncidents::ResponsePlan`
+- updated `AWS::SSO::Application`
   - updated `tagging`
+  - updated handler permissions

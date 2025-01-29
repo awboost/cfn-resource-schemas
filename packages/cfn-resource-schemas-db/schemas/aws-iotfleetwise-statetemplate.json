@@ -1,5 +1,5 @@
 {
-  "$hash": "1b10c71ce4500a958900a590eb669c3c87f2d3c0",
+  "$hash": "2899eda4541b2fbe40a8a6888a8bd2a7ccc5cc2d",
   "$id": "aws-iotfleetwise-statetemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/SignalCatalogArn"],
@@ -70,6 +70,12 @@
       "pattern": "^[^\\u0000-\\u001F\\u007F]+$",
       "type": "string"
     },
+    "Id": {
+      "maxLength": 26,
+      "minLength": 26,
+      "pattern": "^[A-Z0-9]+$",
+      "type": "string"
+    },
     "LastModificationTime": { "format": "date-time", "type": "string" },
     "MetadataExtraDimensions": {
       "insertionOrder": false,
@@ -113,6 +119,7 @@
   },
   "readOnlyProperties": [
     "/properties/Arn",
+    "/properties/Id",
     "/properties/CreationTime",
     "/properties/LastModificationTime"
   ],

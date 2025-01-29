@@ -1,5 +1,5 @@
 {
-  "$hash": "9705f24db57c8c29b4b76c50d051c1e6f7cb7898",
+  "$hash": "7918af02ca480f0fbb9f5c09ff60995bfc02d691",
   "$id": "aws-neptunegraph-privategraphendpoint.json",
   "additionalIdentifiers": [
     ["/properties/GraphIdentifier", "/properties/VpcId"]
@@ -50,7 +50,8 @@
     "list": {
       "permissions": [
         "neptune-graph:GetPrivateGraphEndpoint",
-        "neptune-graph:ListPrivateGraphEndpoints"
+        "neptune-graph:ListPrivateGraphEndpoints",
+        "neptune-graph:ListGraphs"
       ],
       "timeoutInMinutes": 2160
     },

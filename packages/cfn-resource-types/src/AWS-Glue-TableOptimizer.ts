@@ -19,12 +19,44 @@ export type GlueTableOptimizerAttributes = {
   Id: string;
 };
 /**
+ * Type definition for `AWS::Glue::TableOptimizer.IcebergConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-icebergconfiguration.html}
+ */
+export type IcebergConfiguration = {
+  Location?: string;
+  OrphanFileRetentionPeriodInDays?: number;
+};
+/**
+ * Type definition for `AWS::Glue::TableOptimizer.OrphanFileDeletionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-orphanfiledeletionconfiguration.html}
+ */
+export type OrphanFileDeletionConfiguration = {
+  IcebergConfiguration?: IcebergConfiguration;
+};
+/**
+ * Type definition for `AWS::Glue::TableOptimizer.RetentionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-retentionconfiguration.html}
+ */
+export type RetentionConfiguration = {
+  IcebergConfiguration?: IcebergConfiguration;
+};
+/**
  * Type definition for `AWS::Glue::TableOptimizer.TableOptimizerConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html}
  */
 export type TableOptimizerConfiguration = {
   Enabled: boolean;
+  OrphanFileDeletionConfiguration?: OrphanFileDeletionConfiguration;
+  RetentionConfiguration?: RetentionConfiguration;
   RoleArn: string;
+  VpcConfiguration?: VpcConfiguration;
+};
+/**
+ * Type definition for `AWS::Glue::TableOptimizer.VpcConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-vpcconfiguration.html}
+ */
+export type VpcConfiguration = {
+  GlueConnectionName?: string;
 };
 /**
  * Resource Type definition for AWS::Glue::TableOptimizer

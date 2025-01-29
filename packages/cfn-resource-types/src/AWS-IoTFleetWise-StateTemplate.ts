@@ -46,6 +46,12 @@ export type IoTFleetWiseStateTemplateProperties = {
 export type IoTFleetWiseStateTemplateAttributes = {
   Arn: string;
   CreationTime: string;
+  /**
+   * @minLength `26`
+   * @maxLength `26`
+   * @pattern `^[A-Z0-9]+$`
+   */
+  Id: string;
   LastModificationTime: string;
 };
 /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "1941825040fe51c17b63abbd6e1efdedf18f511d",
+  "$hash": "862ceb2a3df4489e8635024a9581699876130442",
   "$id": "aws-panorama-applicationinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -292,7 +292,18 @@
   ],
   "required": ["ManifestPayload", "DefaultRuntimeContextDevice"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "panorama:ListTagsForResource",
+      "panorama:TagResource",
+      "panorama:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Panorama::ApplicationInstance",
   "writeOnlyProperties": ["/properties/ApplicationInstanceIdToReplace"]
 }

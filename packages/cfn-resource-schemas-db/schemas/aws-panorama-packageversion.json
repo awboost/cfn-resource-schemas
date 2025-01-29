@@ -1,5 +1,5 @@
 {
-  "$hash": "9ed0c54d07a99423c586f0d20d6982f111a635b1",
+  "$hash": "437b641bf12f3599018b93b3d58e5011ce5502d0",
   "$id": "aws-panorama-packageversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -150,7 +150,6 @@
   ],
   "required": ["PackageId", "PackageVersion", "PatchVersion"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-panorama.git",
-  "taggable": false,
   "typeName": "AWS::Panorama::PackageVersion",
   "writeOnlyProperties": ["/properties/UpdatedLatestPatchVersion"]
 }
