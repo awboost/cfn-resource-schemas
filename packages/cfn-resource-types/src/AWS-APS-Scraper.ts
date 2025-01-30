@@ -17,6 +17,10 @@ export type APSScraperProperties = {
    */
   Destination: Destination;
   /**
+   * Role configuration
+   */
+  RoleConfiguration?: RoleConfiguration;
+  /**
    * Scraper configuration
    */
   ScrapeConfiguration: ScrapeConfiguration;
@@ -70,6 +74,21 @@ export type Destination = {
      */
     WorkspaceArn: string;
   };
+};
+/**
+ * Type definition for `AWS::APS::Scraper.RoleConfiguration`.
+ * Role configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-roleconfiguration.html}
+ */
+export type RoleConfiguration = {
+  /**
+   * IAM Role in source account
+   */
+  SourceRoleArn?: string;
+  /**
+   * IAM Role in the target account
+   */
+  TargetRoleArn?: string;
 };
 /**
  * Type definition for `AWS::APS::Scraper.ScrapeConfiguration`.

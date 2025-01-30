@@ -1,5 +1,5 @@
 {
-  "$hash": "f89846b361065a2ae5faec92a49c7981cada0534",
+  "$hash": "fa26b697b7ea1581a199e14ead434e76eada068b",
   "$id": "aws-cloudformation-publictypeversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -56,10 +56,10 @@
       "type": "string"
     },
     "PublisherId": {
-      "description": "The publisher id assigned by CloudFormation for publishing in this region.",
+      "description": "The reserved publisher id for this type, or the publisher id assigned by CloudFormation for publishing in this region.",
       "maxLength": 40,
       "minLength": 1,
-      "pattern": "[0-9a-zA-Z-]{40}",
+      "pattern": "[0-9a-zA-Z-]{1,40}",
       "type": "string"
     },
     "Type": {

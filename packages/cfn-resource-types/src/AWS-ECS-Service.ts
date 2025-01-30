@@ -155,12 +155,12 @@ export type AwsVpcConfiguration = {
    */
   AssignPublicIp?: "DISABLED" | "ENABLED";
   /**
-     * The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
+     * The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
       All specified security groups must be from the same VPC.
      */
   SecurityGroups?: string[];
   /**
-     * The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
+     * The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.
       All specified subnets must be from the same VPC.
      */
   Subnets?: string[];
@@ -622,7 +622,6 @@ export type ServiceManagedEBSVolumeConfiguration = {
       This parameter is only supported for the ``gp3`` volume type.
      */
   Throughput?: number;
-  VolumeInitializationRate?: number;
   /**
      * The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
      The following are the supported volume types.

@@ -1,5 +1,5 @@
 {
-  "$hash": "2c45cbdbb4b1782f37f5295c6f66a4ec4c17e83c",
+  "$hash": "94b6d53a813dee77bd5d99be805cd902bed3825c",
   "$id": "aws-aps-scraper.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Source"],
@@ -21,6 +21,21 @@
           },
           "required": ["WorkspaceArn"],
           "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "RoleConfiguration": {
+      "additionalProperties": false,
+      "description": "Role configuration",
+      "properties": {
+        "SourceRoleArn": {
+          "description": "IAM Role in source account",
+          "type": "string"
+        },
+        "TargetRoleArn": {
+          "description": "IAM Role in the target account",
+          "type": "string"
         }
       },
       "type": "object"
@@ -114,7 +129,8 @@
         "eks:DescribeCluster",
         "ec2:DescribeSubnets",
         "ec2:DescribeSecurityGroups",
-        "iam:CreateServiceLinkedRole"
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole"
       ]
     },
     "delete": {
@@ -141,7 +157,8 @@
         "aps:DescribeWorkspace",
         "aps:TagResource",
         "aps:UntagResource",
-        "aps:ListTagsForResource"
+        "aps:ListTagsForResource",
+        "iam:PassRole"
       ]
     }
   },
@@ -167,6 +184,7 @@
       "pattern": "^arn:(aws|aws-us-gov|aws-cn):iam::[0-9]{12}:role/[a-zA-Z0-9-]+$",
       "type": "string"
     },
+    "RoleConfiguration": { "$ref": "#/definitions/RoleConfiguration" },
     "ScrapeConfiguration": { "$ref": "#/definitions/ScrapeConfiguration" },
     "ScraperId": {
       "description": "Required to identify a specific scraper.",

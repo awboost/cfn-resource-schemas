@@ -1,5 +1,5 @@
 {
-  "$hash": "885a51a5a7b98cf79e664aefcd3490055b69f9ab",
+  "$hash": "5349ae22cf3feef38931c0199f8a210458a55973",
   "$id": "aws-batch-jobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/JobDefinitionName"],
@@ -235,7 +235,8 @@
       "properties": {
         "MountPath": { "type": "string" },
         "Name": { "type": "string" },
-        "ReadOnly": { "type": "boolean" }
+        "ReadOnly": { "type": "boolean" },
+        "SubPath": { "type": "string" }
       },
       "type": "object"
     },
@@ -255,12 +256,27 @@
     "EksMetadata": {
       "additionalProperties": false,
       "properties": {
+        "Annotations": {
+          "additionalProperties": false,
+          "patternProperties": { ".*": { "type": "string" } },
+          "type": "object"
+        },
         "Labels": {
           "additionalProperties": false,
           "patternProperties": { ".*": { "type": "string" } },
           "type": "object"
-        }
+        },
+        "Namespace": { "type": "string" }
       },
+      "type": "object"
+    },
+    "EksPersistentVolumeClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "ClaimName": { "type": "string" },
+        "ReadOnly": { "type": "boolean" }
+      },
+      "required": ["ClaimName"],
       "type": "object"
     },
     "EksPodProperties": {
@@ -320,6 +336,9 @@
         "EmptyDir": { "$ref": "#/definitions/EksEmptyDir" },
         "HostPath": { "$ref": "#/definitions/EksHostPath" },
         "Name": { "type": "string" },
+        "PersistentVolumeClaim": {
+          "$ref": "#/definitions/EksPersistentVolumeClaim"
+        },
         "Secret": { "$ref": "#/definitions/EksSecret" }
       },
       "required": ["Name"],

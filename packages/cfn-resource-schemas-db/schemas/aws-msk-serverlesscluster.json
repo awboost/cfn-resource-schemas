@@ -1,5 +1,5 @@
 {
-  "$hash": "5a3a117395890e579ba2bbc9a8d98778b74ca4f6",
+  "$hash": "6940c94a2b8383cf0df5181a16437d2902cd6067",
   "$id": "aws-msk-serverlesscluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -99,6 +99,11 @@
   "required": ["ClusterName", "VpcConfigs", "ClientAuthentication"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "kafka:TagResource",
+      "kafka:UntagResource",
+      "kafka:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,

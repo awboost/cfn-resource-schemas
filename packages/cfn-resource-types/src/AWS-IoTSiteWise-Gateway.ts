@@ -18,6 +18,10 @@ export type IoTSiteWiseGatewayProperties = {
    */
   GatewayPlatform: GatewayPlatform;
   /**
+   * The version of the gateway you want to create.
+   */
+  GatewayVersion?: string;
+  /**
    * A list of key-value pairs that contain metadata for the gateway.
    */
   Tags?: Tag[];
@@ -56,7 +60,7 @@ export type GatewayPlatform = {
   /**
    * A gateway that runs on AWS IoT Greengrass V1.
    */
-  Greengrass?: Greengrass;
+  Greengrass?: any;
   /**
    * A gateway that runs on AWS IoT Greengrass V2.
    */
@@ -67,22 +71,15 @@ export type GatewayPlatform = {
   SiemensIE?: SiemensIE;
 };
 /**
- * Type definition for `AWS::IoTSiteWise::Gateway.Greengrass`.
- * Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html}
- */
-export type Greengrass = {
-  /**
-   * The ARN of the Greengrass group.
-   */
-  GroupArn: string;
-};
-/**
  * Type definition for `AWS::IoTSiteWise::Gateway.GreengrassV2`.
  * Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html}
  */
 export type GreengrassV2 = {
+  /**
+   * The operating system of the core device in AWS IoT Greengrass V2.
+   */
+  CoreDeviceOperatingSystem?: "LINUX_AARCH64" | "LINUX_AMD64" | "WINDOWS_AMD64";
   /**
    * The name of the CoreDevice in GreenGrass V2.
    */

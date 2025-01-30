@@ -17,6 +17,11 @@ export type IoTFleetWiseVehicleProperties = {
   Name: string;
   /**
    * @minLength `0`
+   * @maxLength `20`
+   */
+  StateTemplates?: StateTemplateAssociation[];
+  /**
+   * @minLength `0`
    * @maxLength `50`
    */
   Tags?: Tag[];
@@ -36,6 +41,41 @@ export type IoTFleetWiseVehicleAttributes = {
  */
 export type attributesMap = Record<string, string>;
 /**
+ * Type definition for `AWS::IoTFleetWise::Vehicle.OnChangeStateTemplateUpdateStrategy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-onchangestatetemplateupdatestrategy.html}
+ */
+export type OnChangeStateTemplateUpdateStrategy = Record<string, any>;
+/**
+ * Type definition for `AWS::IoTFleetWise::Vehicle.PeriodicStateTemplateUpdateStrategy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-periodicstatetemplateupdatestrategy.html}
+ */
+export type PeriodicStateTemplateUpdateStrategy = {
+  StateTemplateUpdateRate: TimePeriod;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::Vehicle.StateTemplateAssociation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-statetemplateassociation.html}
+ */
+export type StateTemplateAssociation = {
+  /**
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  Identifier: string;
+  StateTemplateUpdateStrategy: StateTemplateUpdateStrategy;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::Vehicle.StateTemplateUpdateStrategy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-statetemplateupdatestrategy.html}
+ */
+export type StateTemplateUpdateStrategy =
+  | {
+      Periodic: PeriodicStateTemplateUpdateStrategy;
+    }
+  | {
+      OnChange: OnChangeStateTemplateUpdateStrategy;
+    };
+/**
  * Type definition for `AWS::IoTFleetWise::Vehicle.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-tag.html}
  */
@@ -51,6 +91,22 @@ export type Tag = {
    */
   Value: string;
 };
+/**
+ * Type definition for `AWS::IoTFleetWise::Vehicle.TimePeriod`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-timeperiod.html}
+ */
+export type TimePeriod = {
+  Unit: TimeUnit;
+  /**
+   * @min `1`
+   */
+  Value: number;
+};
+/**
+ * Type definition for `AWS::IoTFleetWise::Vehicle.TimeUnit`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-timeunit.html}
+ */
+export type TimeUnit = "MILLISECOND" | "SECOND" | "MINUTE" | "HOUR";
 /**
  * Type definition for `AWS::IoTFleetWise::Vehicle.VehicleAssociationBehavior`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-vehicleassociationbehavior.html}

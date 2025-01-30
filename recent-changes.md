@@ -1,36 +1,43 @@
-- added `AWS::CloudFront::VpcOrigin`
-- updated `AWS::DynamoDB::Table`
-  - updated definition `PointInTimeRecoverySpecification`
-- updated `AWS::EC2::EIP`
-  - updated `tagging`
-- updated `AWS::Glue::Connection`
-  - added definition `AuthenticationConfigurationInput`
-  - added definition `AuthorizationCodeProperties`
-  - added definition `BasicAuthenticationCredentials`
-  - added definition `OAuth2ClientApplication`
-  - added definition `OAuth2Credentials`
-  - added definition `OAuth2PropertiesInput`
-  - updated definition `ConnectionInput`
-- updated `AWS::Glue::TableOptimizer`
-  - added definition `IcebergConfiguration`
-  - added definition `OrphanFileDeletionConfiguration`
-  - added definition `RetentionConfiguration`
-  - added definition `VpcConfiguration`
-  - updated definition `TableOptimizerConfiguration`
-- updated `AWS::IoTFleetWise::StateTemplate`
-  - added property `Id`
-  - updated `readOnlyProperties`
-- updated `AWS::NeptuneGraph::PrivateGraphEndpoint`
+- updated `AWS::APS::Scraper`
+  - added definition `RoleConfiguration`
+  - added property `RoleConfiguration`
   - updated handler permissions
-- updated `AWS::Panorama::ApplicationInstance`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Panorama::Package`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Panorama::PackageVersion`
-- updated `AWS::ResourceGroups::Group`
+- updated `AWS::Batch::JobDefinition`
+  - added definition `EksPersistentVolumeClaim`
+  - updated definition `EksContainerVolumeMount`
+  - updated definition `EksMetadata`
+  - updated definition `EksVolume`
+- updated `AWS::CloudFormation::PublicTypeVersion`
+  - updated property `PublisherId`
+- updated `AWS::CloudFormation::Publisher`
+  - updated property `PublisherId`
+- updated `AWS::CloudFormation::TypeActivation`
+  - updated property `PublisherId`
+- updated `AWS::ECS::Service`
+  - updated definition `AwsVpcConfiguration`
+  - updated definition `ServiceManagedEBSVolumeConfiguration`
+- updated `AWS::IoTFleetWise::Vehicle`
+  - added definition `OnChangeStateTemplateUpdateStrategy`
+  - added definition `PeriodicStateTemplateUpdateStrategy`
+  - added definition `StateTemplateAssociation`
+  - added definition `StateTemplateUpdateStrategy`
+  - added definition `TimePeriod`
+  - added definition `TimeUnit`
+  - added property `StateTemplates`
+- updated `AWS::IoTSiteWise::Gateway`
+  - added `deprecatedProperties`
+  - added definition `GatewayVersion`
+  - added property `GatewayVersion`
+  - removed definition `Greengrass`
+  - updated `createOnlyProperties`
+  - updated definition `GatewayPlatform`
+  - updated definition `GreengrassV2`
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - added definition `DirectPutSourceConfiguration`
+  - added property `DirectPutSourceConfiguration`
+  - updated `createOnlyProperties`
+  - updated definition `IcebergDestinationConfiguration`
+- updated `AWS::MSK::ServerlessCluster`
   - updated `tagging`
-- updated `AWS::SSO::Application`
-  - updated `tagging`
-  - updated handler permissions
+- updated `AWS::SageMaker::Pipeline`
+  - added `tagging`

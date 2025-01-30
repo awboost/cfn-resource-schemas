@@ -20,6 +20,7 @@ export type KinesisFirehoseDeliveryStreamProperties = {
     | "DirectPut"
     | "KinesisStreamAsSource"
     | "MSKAsSource";
+  DirectPutSourceConfiguration?: DirectPutSourceConfiguration;
   ElasticsearchDestinationConfiguration?: ElasticsearchDestinationConfiguration;
   ExtendedS3DestinationConfiguration?: ExtendedS3DestinationConfiguration;
   HttpEndpointDestinationConfiguration?: HttpEndpointDestinationConfiguration;
@@ -354,6 +355,17 @@ export type DestinationTableConfiguration = {
   UniqueKeys?: string[];
 };
 /**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.DirectPutSourceConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-directputsourceconfiguration.html}
+ */
+export type DirectPutSourceConfiguration = {
+  /**
+   * @min `1`
+   * @max `100`
+   */
+  ThroughputHintInMBs?: number;
+};
+/**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.DocumentIdOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-documentidoptions.html}
  */
@@ -574,6 +586,7 @@ export type HttpEndpointRequestConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html}
  */
 export type IcebergDestinationConfiguration = {
+  AppendOnly?: boolean;
   BufferingHints?: BufferingHints;
   CatalogConfiguration: CatalogConfiguration;
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;

@@ -157,6 +157,7 @@ export type EksContainerVolumeMount = {
   MountPath?: string;
   Name?: string;
   ReadOnly?: boolean;
+  SubPath?: string;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.EksEmptyDir`.
@@ -178,7 +179,17 @@ export type EksHostPath = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksmetadata.html}
  */
 export type EksMetadata = {
+  Annotations?: Record<string, string>;
   Labels?: Record<string, string>;
+  Namespace?: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.EksPersistentVolumeClaim`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekspersistentvolumeclaim.html}
+ */
+export type EksPersistentVolumeClaim = {
+  ClaimName: string;
+  ReadOnly?: boolean;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.EksPodProperties`.
@@ -218,6 +229,7 @@ export type EksVolume = {
   EmptyDir?: EksEmptyDir;
   HostPath?: EksHostPath;
   Name: string;
+  PersistentVolumeClaim?: EksPersistentVolumeClaim;
   Secret?: EksSecret;
 };
 /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "0e1fc0c12ca195ffb1998c1371f57e9e87b62e17",
+  "$hash": "b4f81e89beb9d6084cba155e96fd50d5a27f5810",
   "$id": "aws-sagemaker-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PipelineName"],
@@ -138,5 +138,17 @@
     }
   },
   "required": ["PipelineName", "PipelineDefinition", "RoleArn"],
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:ListTags",
+      "sagemaker:DeleteTags"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::SageMaker::Pipeline"
 }

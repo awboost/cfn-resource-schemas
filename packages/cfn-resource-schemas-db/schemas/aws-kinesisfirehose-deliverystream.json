@@ -1,5 +1,5 @@
 {
-  "$hash": "a05883fe50eaa0c48171613a4614f0b283e2a0a7",
+  "$hash": "09c0e152526af1e4336d06a68412f297a3818e33",
   "$id": "aws-kinesisfirehose-deliverystream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,6 +10,7 @@
     "/properties/AmazonOpenSearchServerlessDestinationConfiguration/VpcConfiguration",
     "/properties/DatabaseSourceConfiguration",
     "/properties/KinesisStreamSourceConfiguration",
+    "/properties/DirectPutSourceConfiguration",
     "/properties/MSKSourceConfiguration",
     "/properties/IcebergDestinationConfiguration",
     "/properties/SnowflakeDestinationConfiguration/SnowflakeVpcConfiguration"
@@ -432,6 +433,17 @@
       "items": { "$ref": "#/definitions/DestinationTableConfiguration" },
       "type": "array"
     },
+    "DirectPutSourceConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ThroughputHintInMBs": {
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "DocumentIdOptions": {
       "additionalProperties": false,
       "properties": {
@@ -693,6 +705,7 @@
     "IcebergDestinationConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "AppendOnly": { "type": "boolean" },
         "BufferingHints": { "$ref": "#/definitions/BufferingHints" },
         "CatalogConfiguration": {
           "$ref": "#/definitions/CatalogConfiguration"
@@ -1394,6 +1407,9 @@
         "MSKAsSource"
       ],
       "type": "string"
+    },
+    "DirectPutSourceConfiguration": {
+      "$ref": "#/definitions/DirectPutSourceConfiguration"
     },
     "ElasticsearchDestinationConfiguration": {
       "$ref": "#/definitions/ElasticsearchDestinationConfiguration"
