@@ -1,5 +1,5 @@
 {
-  "$hash": "dfb7f7155a4b7bc043cc21c06c06ea238debdffc",
+  "$hash": "0677faffbbb66c0346d6cf7a3937880d379b93e3",
   "$id": "aws-ram-permission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -87,7 +87,9 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ram",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["ram:TagResource", "ram:UntagResource"],
     "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

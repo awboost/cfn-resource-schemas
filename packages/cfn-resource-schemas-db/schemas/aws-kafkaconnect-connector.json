@@ -1,5 +1,5 @@
 {
-  "$hash": "79ce37dfe220b06c8eedaac9a71fab10237ab5c7",
+  "$hash": "e8d144884e4d07bc85fe25b509d70fe6053debaf",
   "$id": "aws-kafkaconnect-connector.json",
   "additionalIdentifiers": [["/properties/ConnectorName"]],
   "additionalProperties": false,
@@ -352,7 +352,6 @@
     "update": {
       "permissions": [
         "kafkaconnect:UpdateConnector",
-        "kafkaconnect:UpdateConnectorConfiguration",
         "kafkaconnect:DescribeConnector",
         "kafkaconnect:DescribeConnectorOperation",
         "kafkaconnect:TagResource",

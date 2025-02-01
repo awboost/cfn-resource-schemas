@@ -1,43 +1,16 @@
-- updated `AWS::APS::Scraper`
-  - added definition `RoleConfiguration`
-  - added property `RoleConfiguration`
-  - updated handler permissions
-- updated `AWS::Batch::JobDefinition`
-  - added definition `EksPersistentVolumeClaim`
-  - updated definition `EksContainerVolumeMount`
-  - updated definition `EksMetadata`
-  - updated definition `EksVolume`
-- updated `AWS::CloudFormation::PublicTypeVersion`
-  - updated property `PublisherId`
-- updated `AWS::CloudFormation::Publisher`
-  - updated property `PublisherId`
-- updated `AWS::CloudFormation::TypeActivation`
-  - updated property `PublisherId`
-- updated `AWS::ECS::Service`
-  - updated definition `AwsVpcConfiguration`
-  - updated definition `ServiceManagedEBSVolumeConfiguration`
-- updated `AWS::IoTFleetWise::Vehicle`
-  - added definition `OnChangeStateTemplateUpdateStrategy`
-  - added definition `PeriodicStateTemplateUpdateStrategy`
-  - added definition `StateTemplateAssociation`
-  - added definition `StateTemplateUpdateStrategy`
-  - added definition `TimePeriod`
-  - added definition `TimeUnit`
-  - added property `StateTemplates`
-- updated `AWS::IoTSiteWise::Gateway`
-  - added `deprecatedProperties`
-  - added definition `GatewayVersion`
-  - added property `GatewayVersion`
-  - removed definition `Greengrass`
-  - updated `createOnlyProperties`
-  - updated definition `GatewayPlatform`
-  - updated definition `GreengrassV2`
-- updated `AWS::KinesisFirehose::DeliveryStream`
-  - added definition `DirectPutSourceConfiguration`
-  - added property `DirectPutSourceConfiguration`
-  - updated `createOnlyProperties`
-  - updated definition `IcebergDestinationConfiguration`
-- updated `AWS::MSK::ServerlessCluster`
+- updated `AWS::BackupGateway::Hypervisor`
   - updated `tagging`
-- updated `AWS::SageMaker::Pipeline`
-  - added `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Connect::SecurityProfile`
+  - updated `tagging`
+- updated `AWS::KafkaConnect::Connector`
+  - updated handler permissions
+- updated `AWS::RAM::Permission`
+  - updated `tagging`
+- updated `AWS::RDS::DBCluster`
+  - updated property `PreferredMaintenanceWindow`
+- updated `AWS::RDS::DBInstance`
+  - updated property `DBSnapshotIdentifier`
+  - updated property `PreferredMaintenanceWindow`
+  - updated property `StorageThroughput`
