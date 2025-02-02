@@ -1,5 +1,5 @@
 {
-  "$hash": "faf16cb1400a82a003d136fbbf3b5dfd4c6aa505",
+  "$hash": "4730c9328985541a69c04eded06edb784ffa7830",
   "$id": "aws-ivs-playbackkeypair.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PublicKeyMaterial", "/properties/Name"],
@@ -53,7 +53,7 @@
       "type": "string"
     },
     "PublicKeyMaterial": {
-      "description": "The public portion of a customer-generated key pair.",
+      "description": "The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PlaybackKeyPair resource.",
       "type": "string"
     },
     "Tags": {

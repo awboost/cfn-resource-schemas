@@ -1,5 +1,5 @@
 {
-  "$hash": "9e8e9ef9bf89674bd5e388e32cb91f0589103517",
+  "$hash": "555408cfa6405ac9b62d33260ca2696cffc9c8ee",
   "$id": "aws-ivs-streamkey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ChannelArn"],
@@ -7,8 +7,18 @@
     "Tag": {
       "additionalProperties": false,
       "properties": {
-        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
-        "Value": { "maxLength": 256, "minLength": 1, "type": "string" }
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
       },
       "required": ["Value", "Key"],
       "type": "object"

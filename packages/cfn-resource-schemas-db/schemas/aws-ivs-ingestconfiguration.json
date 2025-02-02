@@ -1,5 +1,5 @@
 {
-  "$hash": "c640484a7c88447494e34cc1ec5ca54c248b7f80",
+  "$hash": "c310b16e43bffd060cad162d6f48861e14beabdb",
   "$id": "aws-ivs-ingestconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -12,8 +12,18 @@
     "Tag": {
       "additionalProperties": false,
       "properties": {
-        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
-        "Value": { "maxLength": 256, "minLength": 1, "type": "string" }
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
       },
       "required": ["Value", "Key"],
       "type": "object"

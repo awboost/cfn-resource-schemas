@@ -13,7 +13,7 @@ export type IVSPublicKeyProperties = {
    */
   Name?: string;
   /**
-   * The public portion of a customer-generated key pair.
+   * The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PublicKey resource.
    * @pattern `-----BEGIN PUBLIC KEY-----\r?\n([a-zA-Z0-9+/=\r\n]+)\r?\n-----END PUBLIC KEY-----(\r?\n)?`
    */
   PublicKeyMaterial?: string;

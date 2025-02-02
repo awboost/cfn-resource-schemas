@@ -1,5 +1,5 @@
 {
-  "$hash": "26d02c24f0fab07457ad2b8e44d3688cb9b5aa42",
+  "$hash": "22db72263adf85a238ae079c2b98c28ea8b7b5c8",
   "$id": "aws-ivs-storageconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -26,8 +26,18 @@
     "Tag": {
       "additionalProperties": false,
       "properties": {
-        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
-        "Value": { "maxLength": 256, "minLength": 1, "type": "string" }
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
       },
       "required": ["Value", "Key"],
       "type": "object"

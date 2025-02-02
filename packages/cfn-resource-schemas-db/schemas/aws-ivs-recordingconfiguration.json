@@ -1,5 +1,5 @@
 {
-  "$hash": "37a3904fd6df9820d8cf58619cd4e7bc87c139de",
+  "$hash": "3cca6d1960e838598920aeb2b215ea8c46f1e419",
   "$id": "aws-ivs-recordingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -70,8 +70,18 @@
     "Tag": {
       "additionalProperties": false,
       "properties": {
-        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
-        "Value": { "maxLength": 256, "minLength": 1, "type": "string" }
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
       },
       "required": ["Value", "Key"],
       "type": "object"

@@ -1,16 +1,33 @@
-- updated `AWS::BackupGateway::Hypervisor`
+- updated `AWS::IVS::Channel`
+  - added definition `MultitrackInputConfiguration`
+  - added property `ContainerFormat`
+  - added property `MultitrackInputConfiguration`
+  - updated definition `Tag`
+- updated `AWS::IVS::IngestConfiguration`
+  - updated definition `Tag`
+- updated `AWS::IVS::PlaybackKeyPair`
+  - updated property `PublicKeyMaterial`
+- updated `AWS::IVS::PublicKey`
+  - updated property `PublicKeyMaterial`
+- updated `AWS::IVS::RecordingConfiguration`
+  - updated definition `Tag`
+- updated `AWS::IVS::Stage`
+  - updated definition `Tag`
+  - updated property `Tags`
+- updated `AWS::IVS::StorageConfiguration`
+  - updated definition `Tag`
+- updated `AWS::IVS::StreamKey`
+  - updated definition `Tag`
+- updated `AWS::S3::Bucket`
+  - added definition `MetadataTableConfiguration`
+  - added definition `S3TablesDestination`
+  - added property `MetadataTableConfiguration`
+  - updated `readOnlyProperties`
   - updated `tagging`
-  - updated `writeOnlyProperties`
+  - updated definition `LifecycleConfiguration`
+  - updated definition `ServerSideEncryptionByDefault`
+  - updated definition `TagFilter`
+  - updated definition `Transition`
   - updated handler permissions
-- updated `AWS::Connect::SecurityProfile`
-  - updated `tagging`
-- updated `AWS::KafkaConnect::Connector`
-  - updated handler permissions
-- updated `AWS::RAM::Permission`
-  - updated `tagging`
-- updated `AWS::RDS::DBCluster`
-  - updated property `PreferredMaintenanceWindow`
-- updated `AWS::RDS::DBInstance`
-  - updated property `DBSnapshotIdentifier`
-  - updated property `PreferredMaintenanceWindow`
-  - updated property `StorageThroughput`
+  - updated property `BucketName`
+  - updated property `ObjectLockConfiguration`

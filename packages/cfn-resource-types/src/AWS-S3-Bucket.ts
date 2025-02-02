@@ -35,7 +35,7 @@ export type S3BucketProperties = {
    */
   BucketEncryption?: BucketEncryption;
   /**
-     * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon S3 User Guide*.
+     * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*.
       If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
      */
   BucketName?: string;
@@ -59,6 +59,7 @@ export type S3BucketProperties = {
    * Settings that define where logs are stored.
    */
   LoggingConfiguration?: LoggingConfiguration;
+  MetadataTableConfiguration?: MetadataTableConfiguration;
   /**
    * Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
    */
@@ -68,7 +69,7 @@ export type S3BucketProperties = {
    */
   NotificationConfiguration?: NotificationConfiguration;
   /**
-     * This operation is not supported by directory buckets.
+     * This operation is not supported for directory buckets.
       Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket. For more information, see [Locking Objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html).
        +  The ``DefaultRetention`` settings require both a mode and a period.
       +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
@@ -117,6 +118,18 @@ export type S3BucketAttributes = {
   Arn: string;
   DomainName: string;
   DualStackDomainName: string;
+  MetadataTableConfiguration: {
+    S3TablesDestination: {
+      /**
+       * The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+       */
+      TableArn: string;
+      /**
+       * The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.
+       */
+      TableNamespace: string;
+    };
+  };
   RegionalDomainName: string;
   WebsiteURL: string;
 };
@@ -457,6 +470,14 @@ export type LifecycleConfiguration = {
    * A lifecycle rule for individual objects in an Amazon S3 bucket.
    */
   Rules: Rule[];
+  /**
+     * Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+      This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
+       +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.
+      +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+      
+     To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
+     */
   TransitionDefaultMinimumObjectSize?:
     | "varies_by_storage_class"
     | "all_storage_classes_128K";
@@ -480,6 +501,13 @@ export type LoggingConfiguration = {
    * Amazon S3 key format for log objects. Only one format, either PartitionedPrefix or SimplePrefix, is allowed.
    */
   TargetObjectKeyFormat?: TargetObjectKeyFormat;
+};
+/**
+ * Type definition for `AWS::S3::Bucket.MetadataTableConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadatatableconfiguration.html}
+ */
+export type MetadataTableConfiguration = {
+  S3TablesDestination: S3TablesDestination;
 };
 /**
  * Type definition for `AWS::S3::Bucket.Metrics`.
@@ -1070,10 +1098,24 @@ export type S3KeyFilter = {
   Rules: FilterRule[];
 };
 /**
+ * Type definition for `AWS::S3::Bucket.S3TablesDestination`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3tablesdestination.html}
+ */
+export type S3TablesDestination = {
+  /**
+   * The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.
+   */
+  TableBucketArn: string;
+  /**
+   * The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+   */
+  TableName: string;
+};
+/**
  * Type definition for `AWS::S3::Bucket.ServerSideEncryptionByDefault`.
  * Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).
    +   *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS.
-  +   *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket for the lifetime of the bucket. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported.
+  +   *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported.
   +   *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html}
  */
@@ -1176,7 +1218,7 @@ export type Tag = {
 };
 /**
  * Type definition for `AWS::S3::Bucket.TagFilter`.
- * Specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
+ * Specifies tags to use to identify a subset of objects for an Amazon S3 bucket. For more information, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html) in the *Amazon Simple Storage Service User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html}
  */
 export type TagFilter = {
@@ -1266,7 +1308,7 @@ export type Transition = {
    */
   TransitionDate?: string;
   /**
-   * Indicates the number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer.
+   * Indicates the number of days after creation when objects are transitioned to the specified storage class. If the specified storage class is ``INTELLIGENT_TIERING``, ``GLACIER_IR``, ``GLACIER``, or ``DEEP_ARCHIVE``, valid values are ``0`` or positive integers. If the specified storage class is ``STANDARD_IA`` or ``ONEZONE_IA``, valid values are positive integers greater than ``30``. Be aware that some storage classes have a minimum storage duration and that you're charged for transitioning objects before their minimum storage duration. For more information, see [Constraints and considerations for transitions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints) in the *Amazon S3 User Guide*.
    */
   TransitionInDays?: number;
 };

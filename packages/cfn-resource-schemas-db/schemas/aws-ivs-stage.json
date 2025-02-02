@@ -1,5 +1,5 @@
 {
-  "$hash": "a1016ee1262fde61c582ab3697a07aeef81644eb",
+  "$hash": "801a44739822c3b8d2be1bb4d8a20697297b3048",
   "$id": "aws-ivs-stage.json",
   "additionalProperties": false,
   "definitions": {
@@ -31,8 +31,18 @@
     "Tag": {
       "additionalProperties": false,
       "properties": {
-        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
-        "Value": { "maxLength": 256, "minLength": 1, "type": "string" }
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
       },
       "required": ["Value", "Key"],
       "type": "object"
@@ -91,6 +101,7 @@
       "description": "An array of key-value pairs to apply to this resource.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 50,
       "type": "array",
       "uniqueItems": true
     }

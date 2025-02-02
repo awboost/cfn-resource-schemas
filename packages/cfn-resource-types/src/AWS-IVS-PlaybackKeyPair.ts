@@ -13,7 +13,7 @@ export type IVSPlaybackKeyPairProperties = {
    */
   Name?: string;
   /**
-   * The public portion of a customer-generated key pair.
+   * The public portion of a customer-generated key pair. This field is required to create the AWS::IVS::PlaybackKeyPair resource.
    */
   PublicKeyMaterial?: string;
   /**
