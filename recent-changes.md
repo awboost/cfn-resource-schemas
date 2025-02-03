@@ -1,33 +1,9 @@
-- updated `AWS::IVS::Channel`
-  - added definition `MultitrackInputConfiguration`
-  - added property `ContainerFormat`
-  - added property `MultitrackInputConfiguration`
-  - updated definition `Tag`
-- updated `AWS::IVS::IngestConfiguration`
-  - updated definition `Tag`
-- updated `AWS::IVS::PlaybackKeyPair`
-  - updated property `PublicKeyMaterial`
-- updated `AWS::IVS::PublicKey`
-  - updated property `PublicKeyMaterial`
-- updated `AWS::IVS::RecordingConfiguration`
-  - updated definition `Tag`
-- updated `AWS::IVS::Stage`
-  - updated definition `Tag`
-  - updated property `Tags`
-- updated `AWS::IVS::StorageConfiguration`
-  - updated definition `Tag`
-- updated `AWS::IVS::StreamKey`
-  - updated definition `Tag`
-- updated `AWS::S3::Bucket`
-  - added definition `MetadataTableConfiguration`
-  - added definition `S3TablesDestination`
-  - added property `MetadataTableConfiguration`
-  - updated `readOnlyProperties`
+- updated `AWS::APS::RuleGroupsNamespace`
   - updated `tagging`
-  - updated definition `LifecycleConfiguration`
-  - updated definition `ServerSideEncryptionByDefault`
-  - updated definition `TagFilter`
-  - updated definition `Transition`
-  - updated handler permissions
-  - updated property `BucketName`
-  - updated property `ObjectLockConfiguration`
+- updated `AWS::APS::Scraper`
+  - updated `tagging`
+- updated `AWS::APS::Workspace`
+  - updated `tagging`
+- updated `AWS::CloudFront::Distribution`
+  - added definition `VpcOriginConfig`
+  - updated definition `Origin`

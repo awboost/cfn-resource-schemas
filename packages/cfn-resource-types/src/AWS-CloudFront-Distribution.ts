@@ -732,6 +732,7 @@ export type Origin = {
    * Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
    */
   S3OriginConfig?: S3OriginConfig;
+  VpcOriginConfig?: VpcOriginConfig;
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.OriginCustomHeader`.
@@ -970,6 +971,15 @@ export type ViewerCertificate = {
      If the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``, don't set a value for this field.
      */
   SslSupportMethod?: string;
+};
+/**
+ * Type definition for `AWS::CloudFront::Distribution.VpcOriginConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-vpcoriginconfig.html}
+ */
+export type VpcOriginConfig = {
+  OriginKeepaliveTimeout?: number;
+  OriginReadTimeout?: number;
+  VpcOriginId: string;
 };
 /**
  * Resource type definition for `AWS::CloudFront::Distribution`.

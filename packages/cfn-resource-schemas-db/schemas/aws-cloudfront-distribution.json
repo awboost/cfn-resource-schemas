@@ -1,5 +1,5 @@
 {
-  "$hash": "4b88730cb33660130bc4a18c4e32256b48016e74",
+  "$hash": "91f538b890176864f5401b2c2921b47ec5323f85",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -629,6 +629,10 @@
         "S3OriginConfig": {
           "$ref": "#/definitions/S3OriginConfig",
           "description": "Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead."
+        },
+        "VpcOriginConfig": {
+          "$ref": "#/definitions/VpcOriginConfig",
+          "description": ""
         }
       },
       "required": ["DomainName", "Id"],
@@ -833,6 +837,17 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "VpcOriginConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "OriginKeepaliveTimeout": { "default": 5, "type": "integer" },
+        "OriginReadTimeout": { "default": 30, "type": "integer" },
+        "VpcOriginId": { "type": "string" }
+      },
+      "required": ["VpcOriginId"],
       "type": "object"
     }
   },
