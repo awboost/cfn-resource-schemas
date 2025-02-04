@@ -1,5 +1,5 @@
 {
-  "$hash": "ffc4c5ee5de77379937ec2899a05754160471b73",
+  "$hash": "e5dba1b7e2fe63d81d7eed47c284bc8b738f4279",
   "$id": "aws-signer-profilepermission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -51,5 +51,11 @@
   },
   "required": ["ProfileName", "Action", "Principal", "StatementId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::Signer::ProfilePermission"
 }

@@ -1,9 +1,13 @@
-- updated `AWS::APS::RuleGroupsNamespace`
+- updated `AWS::EC2::PlacementGroup`
   - updated `tagging`
-- updated `AWS::APS::Scraper`
-  - updated `tagging`
-- updated `AWS::APS::Workspace`
-  - updated `tagging`
-- updated `AWS::CloudFront::Distribution`
-  - added definition `VpcOriginConfig`
-  - updated definition `Origin`
+- updated `AWS::ECS::Service`
+  - updated property `CapacityProviderStrategy`
+  - updated property `LoadBalancers`
+  - updated property `PlacementConstraints`
+  - updated property `PlacementStrategies`
+  - updated property `ServiceRegistries`
+  - updated property `VolumeConfigurations`
+- updated `AWS::Signer::ProfilePermission`
+  - added `tagging`
+- updated `AWS::Signer::SigningProfile`
+  - added `tagging`

@@ -1,5 +1,5 @@
 {
-  "$hash": "0b5f46ed8c704a12e5d926f2d03f3b445a2cac85",
+  "$hash": "624e81aef767bfbac2d230cd0f7a94022a9d7766",
   "$id": "aws-signer-signingprofile.json",
   "additionalIdentifiers": [
     ["/properties/ProfileName"],
@@ -107,5 +107,17 @@
   ],
   "required": ["PlatformId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "signer:TagResource",
+      "signer:UntagResource",
+      "signer:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Signer::SigningProfile"
 }

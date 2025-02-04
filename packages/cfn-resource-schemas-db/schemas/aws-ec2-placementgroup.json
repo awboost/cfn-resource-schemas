@@ -1,5 +1,5 @@
 {
-  "$hash": "d92f05991aa65057bf6ae06f6fd31cc26e1a76f3",
+  "$hash": "13fbd3411fdd06bbf7559208830a57be2a069197",
   "$id": "aws-ec2-placementgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -73,6 +73,7 @@
   "tagging": {
     "cloudFormationSystemTags": false,
     "permissions": ["ec2:CreateTags"],
+    "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,
     "taggable": true
