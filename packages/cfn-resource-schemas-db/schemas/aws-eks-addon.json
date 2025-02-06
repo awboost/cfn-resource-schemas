@@ -1,5 +1,5 @@
 {
-  "$hash": "e589f7402bcbd3b575d9fda4e7e76287bedd8e37",
+  "$hash": "f74d32d724f08c3cfb0e194ffbbfba4d7217f23d",
   "$id": "aws-eks-addon.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterName", "/properties/AddonName"],
@@ -80,11 +80,11 @@
         "eks:UpdateAddon",
         "eks:DescribeAddon",
         "eks:DescribeUpdate",
-        "eks:ListTagsForResource",
         "eks:TagResource",
         "eks:UntagResource",
         "eks:CreatePodIdentityAssociation",
-        "eks:DeletePodIdentityAssociation"
+        "eks:DeletePodIdentityAssociation",
+        "eks:UpdatePodIdentityAssociation"
       ]
     }
   },

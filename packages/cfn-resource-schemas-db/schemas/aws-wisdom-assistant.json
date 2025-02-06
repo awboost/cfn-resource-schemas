@@ -1,5 +1,5 @@
 {
-  "$hash": "06ccd3b62f547b0f7a445643e1661a27ec513ba0",
+  "$hash": "f0b7b621a1b8c76fd03919105676222198ea5f09",
   "$id": "aws-wisdom-assistant.json",
   "additionalIdentifiers": [["/properties/AssistantArn"]],
   "additionalProperties": false,
@@ -75,6 +75,13 @@
   "readOnlyProperties": ["/properties/AssistantId", "/properties/AssistantArn"],
   "replacementStrategy": "delete_then_create",
   "required": ["Name", "Type"],
-  "taggable": false,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["wisdom:TagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::Wisdom::Assistant"
 }

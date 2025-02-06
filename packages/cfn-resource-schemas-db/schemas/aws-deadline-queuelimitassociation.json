@@ -1,0 +1,65 @@
+{
+  "$hash": "797859a84f0d84b755ad2023205d686de8dc3d87",
+  "$id": "aws-deadline-queuelimitassociation.json",
+  "additionalProperties": false,
+  "createOnlyProperties": [
+    "/properties/FarmId",
+    "/properties/LimitId",
+    "/properties/QueueId"
+  ],
+  "description": "Definition of AWS::Deadline::QueueLimitAssociation Resource Type",
+  "handlers": {
+    "create": {
+      "permissions": [
+        "deadline:CreateQueueLimitAssociation",
+        "deadline:GetQueueLimitAssociation",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "deadline:DeleteQueueLimitAssociation",
+        "deadline:GetQueueLimitAssociation",
+        "deadline:UpdateQueueLimitAssociation",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "FarmId": { "$ref": "resource-schema.json#/properties/FarmId" }
+        },
+        "required": ["FarmId"]
+      },
+      "permissions": [
+        "deadline:ListQueueLimitAssociations",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    "read": {
+      "permissions": [
+        "deadline:GetQueueLimitAssociation",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    }
+  },
+  "primaryIdentifier": [
+    "/properties/FarmId",
+    "/properties/LimitId",
+    "/properties/QueueId"
+  ],
+  "properties": {
+    "FarmId": { "pattern": "^farm-[0-9a-f]{32}$", "type": "string" },
+    "LimitId": { "pattern": "^limit-[0-9a-f]{32}$", "type": "string" },
+    "QueueId": { "pattern": "^queue-[0-9a-f]{32}$", "type": "string" }
+  },
+  "required": ["FarmId", "LimitId", "QueueId"],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-deadline",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
+  "typeName": "AWS::Deadline::QueueLimitAssociation"
+}

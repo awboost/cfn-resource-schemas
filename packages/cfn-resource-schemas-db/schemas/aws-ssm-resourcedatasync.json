@@ -1,5 +1,5 @@
 {
-  "$hash": "910fe11e682190cbd2a28dfe2a57ea80e6e8f826",
+  "$hash": "a54c382965b809e18f4583111469f4cf859be27f",
   "$id": "aws-ssm-resourcedatasync.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -86,7 +86,6 @@
     "SyncSource": { "$ref": "#/definitions/SyncSource" },
     "SyncType": { "maxLength": 64, "minLength": 1, "type": "string" }
   },
-  "readOnlyProperties": ["/properties/SyncName"],
   "required": ["SyncName"],
   "tagging": { "taggable": false },
   "typeName": "AWS::SSM::ResourceDataSync"

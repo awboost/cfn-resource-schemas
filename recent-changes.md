@@ -1,2 +1,12 @@
-- updated `AWS::Connect::PhoneNumber`
+- added `AWS::Deadline::Limit`
+- added `AWS::Deadline::QueueLimitAssociation`
+- updated `AWS::EKS::Addon`
   - updated handler permissions
+- updated `AWS::Glue::Trigger`
+  - updated `tagging`
+- updated `AWS::SSM::ResourceDataSync`
+  - removed `readOnlyProperties`
+- updated `AWS::Wisdom::Assistant`
+  - added `tagging`
+- updated `AWS::Wisdom::AssistantAssociation`
+  - added `tagging`

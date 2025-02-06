@@ -31,23 +31,17 @@ export type SSMResourceDataSyncProperties = {
    * @maxLength `1024`
    */
   SyncFormat?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  SyncName: string;
   SyncSource?: SyncSource;
   /**
    * @minLength `1`
    * @maxLength `64`
    */
   SyncType?: string;
-};
-/**
- * Attribute type definition for `AWS::SSM::ResourceDataSync`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#aws-resource-ssm-resourcedatasync-return-values}
- */
-export type SSMResourceDataSyncAttributes = {
-  /**
-   * @minLength `1`
-   * @maxLength `64`
-   */
-  SyncName: string;
 };
 /**
  * Type definition for `AWS::SSM::ResourceDataSync.AwsOrganizationsSource`.
@@ -113,7 +107,7 @@ export type SyncSource = {
 export class SSMResourceDataSync extends $Resource<
   "AWS::SSM::ResourceDataSync",
   SSMResourceDataSyncProperties,
-  SSMResourceDataSyncAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::SSM::ResourceDataSync";
   constructor(
