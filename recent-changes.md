@@ -1,12 +1,18 @@
-- added `AWS::Deadline::Limit`
-- added `AWS::Deadline::QueueLimitAssociation`
-- updated `AWS::EKS::Addon`
-  - updated handler permissions
-- updated `AWS::Glue::Trigger`
+- updated `AWS::Connect::TrafficDistributionGroup`
   - updated `tagging`
-- updated `AWS::SSM::ResourceDataSync`
-  - removed `readOnlyProperties`
-- updated `AWS::Wisdom::Assistant`
-  - added `tagging`
-- updated `AWS::Wisdom::AssistantAssociation`
-  - added `tagging`
+- updated `AWS::HealthLake::FHIRDatastore`
+  - updated definition `IdentityProviderConfiguration`
+- updated `AWS::Logs::Delivery`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Logs::DeliveryDestination`
+  - updated `tagging`
+- updated `AWS::Logs::DeliverySource`
+  - updated `tagging`
+- updated `AWS::RUM::AppMonitor`
+  - updated `tagging`
+- updated `AWS::SSM::Document`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::SecurityHub::Hub`
+  - updated definition `Tags`

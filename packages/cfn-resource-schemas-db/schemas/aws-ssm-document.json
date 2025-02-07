@@ -1,5 +1,5 @@
 {
-  "$hash": "d08e43134f94efdcd3724bb0d1abae1e5f269a26",
+  "$hash": "401678cca6f5c13735effe2997b7afb0464843b4",
   "$id": "aws-ssm-document.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -91,7 +91,13 @@
     },
     "delete": { "permissions": ["ssm:DeleteDocument", "ssm:GetDocument"] },
     "list": { "permissions": ["ssm:ListDocuments"] },
-    "read": { "permissions": ["ssm:GetDocument", "ssm:ListTagsForResource"] },
+    "read": {
+      "permissions": [
+        "ssm:DescribeDocument",
+        "ssm:GetDocument",
+        "ssm:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "ssm:UpdateDocument",
@@ -182,7 +188,18 @@
   },
   "required": ["Content"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ssm",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "ssm:AddTagsToResource",
+      "ssm:ListTagsForResource",
+      "ssm:RemoveTagsFromResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::SSM::Document",
   "writeOnlyProperties": ["/properties/UpdateMethod", "/properties/Attachments"]
 }

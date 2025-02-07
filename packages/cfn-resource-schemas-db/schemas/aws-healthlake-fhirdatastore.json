@@ -1,5 +1,5 @@
 {
-  "$hash": "50a8bf99a25fb2d1f8c3303f5c37650b26b11f4d",
+  "$hash": "9623110d101902053443773a2e7f5cd3be7a51b8",
   "$id": "aws-healthlake-fhirdatastore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -62,7 +62,7 @@
       "properties": {
         "AuthorizationStrategy": {
           "description": "Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.",
-          "enum": ["SMART_ON_FHIR_V1", "AWS_AUTH"],
+          "enum": ["SMART_ON_FHIR_V1", "AWS_AUTH", "SMART_ON_FHIR"],
           "type": "string"
         },
         "FineGrainedAuthorizationEnabled": {

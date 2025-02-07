@@ -105,7 +105,7 @@ export type IdentityProviderConfiguration = {
   /**
    * Type of Authorization Strategy. The two types of supported Authorization strategies are SMART_ON_FHIR_V1 and AWS_AUTH.
    */
-  AuthorizationStrategy: "SMART_ON_FHIR_V1" | "AWS_AUTH";
+  AuthorizationStrategy: "SMART_ON_FHIR_V1" | "AWS_AUTH" | "SMART_ON_FHIR";
   /**
    * Flag to indicate if fine-grained authorization will be enabled for the datastore
    */

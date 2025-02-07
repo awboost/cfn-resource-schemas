@@ -1,5 +1,5 @@
 {
-  "$hash": "1179d3555f898a5212c141e816f9fe3bcd2e9383",
+  "$hash": "b7df7a6d4105fc5cb3fc4390540c4afe3ae1f253",
   "$id": "aws-rum-appmonitor.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -370,6 +370,17 @@
   "readOnlyProperties": ["/properties/Id"],
   "required": ["Name", "Domain"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "rum:UntagResource",
+      "rum:TagResource",
+      "rum:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::RUM::AppMonitor"
 }
