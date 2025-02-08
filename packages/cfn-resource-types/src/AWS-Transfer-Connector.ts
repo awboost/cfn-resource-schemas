@@ -71,6 +71,10 @@ export type TransferConnectorProperties = {
      */
     PartnerProfileId?: string;
     /**
+     * Specifies whether to use the AWS S3 object content-type as the content-type for the AS2 message.
+     */
+    PreserveContentType?: "ENABLED" | "DISABLED";
+    /**
      * Signing algorithm for this AS2 connector configuration.
      */
     SigningAlgorithm?: "SHA256" | "SHA384" | "SHA512" | "SHA1" | "NONE";

@@ -1,5 +1,5 @@
 {
-  "$hash": "8151d64a98b3f2e83105e87f73296b6e9d4f2a0e",
+  "$hash": "444c5080ac66eb7094d05ea54acf348fe08fb8db",
   "$id": "aws-eks-fargateprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -93,7 +93,6 @@
     "update": {
       "permissions": [
         "eks:DescribeFargateProfile",
-        "eks:ListTagsForResource",
         "eks:TagResource",
         "eks:UntagResource"
       ]

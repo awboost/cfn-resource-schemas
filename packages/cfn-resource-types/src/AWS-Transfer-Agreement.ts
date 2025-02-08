@@ -26,6 +26,10 @@ export type TransferAgreementProperties = {
    */
   Description?: string;
   /**
+   * Specifies whether to enforce an AS2 message is signed for this agreement.
+   */
+  EnforceMessageSigning?: "ENABLED" | "DISABLED";
+  /**
    * A unique identifier for the local profile.
    * @minLength `19`
    * @maxLength `19`
@@ -39,6 +43,10 @@ export type TransferAgreementProperties = {
    * @pattern `^p-([0-9a-f]{17})$`
    */
   PartnerProfileId: string;
+  /**
+   * Specifies whether to preserve the filename received for this agreement.
+   */
+  PreserveFilename?: "ENABLED" | "DISABLED";
   /**
    * A unique identifier for the server.
    * @minLength `19`

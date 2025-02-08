@@ -1,5 +1,5 @@
 {
-  "$hash": "ea497153812dab827fbaf77efb0874b41c1e6c8c",
+  "$hash": "7f2a0946b32d8c3a2f7d7af451c7e2b241cceba6",
   "$id": "aws-transfer-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -148,6 +148,11 @@
   "required": ["Certificate", "Usage"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "transfer:ListTagsForResource",
+      "transfer:UnTagResource",
+      "transfer:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

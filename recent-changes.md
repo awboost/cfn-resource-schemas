@@ -1,18 +1,17 @@
-- updated `AWS::Connect::TrafficDistributionGroup`
+- updated `AWS::BCMDataExports::Export`
   - updated `tagging`
-- updated `AWS::HealthLake::FHIRDatastore`
-  - updated definition `IdentityProviderConfiguration`
-- updated `AWS::Logs::Delivery`
-  - updated `tagging`
+- updated `AWS::EKS::FargateProfile`
   - updated handler permissions
-- updated `AWS::Logs::DeliveryDestination`
+- updated `AWS::Transfer::Agreement`
+  - added property `EnforceMessageSigning`
+  - added property `PreserveFilename`
   - updated `tagging`
-- updated `AWS::Logs::DeliverySource`
+- updated `AWS::Transfer::Certificate`
   - updated `tagging`
-- updated `AWS::RUM::AppMonitor`
+- updated `AWS::Transfer::Connector`
   - updated `tagging`
-- updated `AWS::SSM::Document`
+  - updated property `As2Config`
+- updated `AWS::Transfer::Profile`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::SecurityHub::Hub`
-  - updated definition `Tags`
+- updated `AWS::Transfer::Workflow`
+  - updated `tagging`

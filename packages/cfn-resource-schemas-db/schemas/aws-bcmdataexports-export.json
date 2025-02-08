@@ -1,5 +1,5 @@
 {
-  "$hash": "f31ccaf7bff6f0d516b948bcd9484a8093d275ec",
+  "$hash": "84bae93c8c853ebfa4208894ac07729e99568b5d",
   "$id": "aws-bcmdataexports-export.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -204,6 +204,11 @@
   "required": ["Export"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "bcm-data-exports:ListTagsForResource",
+      "bcm-data-exports:TagResource",
+      "bcm-data-exports:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

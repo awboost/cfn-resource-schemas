@@ -1,5 +1,5 @@
 {
-  "$hash": "334e7c6b3ee7aeb1761d0c9ccd70829fa63498d9",
+  "$hash": "2d6e6423f82cd1bb19c7b94ee5e2085f97510405",
   "$id": "aws-transfer-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -331,6 +331,11 @@
   "required": ["Steps"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "transfer:ListTagsForResource",
+      "transfer:UnTagResource",
+      "transfer:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

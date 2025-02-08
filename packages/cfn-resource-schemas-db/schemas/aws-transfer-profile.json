@@ -1,5 +1,5 @@
 {
-  "$hash": "1576040dc314d30e3005fe5fc8a4fd8b37c9720c",
+  "$hash": "d6c1ed66d9d67bfd7ca46d3ddbb5bffacdde6ef4",
   "$id": "aws-transfer-profile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProfileType"],
@@ -95,6 +95,11 @@
   "required": ["As2Id", "ProfileType"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "transfer:ListTagsForResource",
+      "transfer:UnTagResource",
+      "transfer:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
