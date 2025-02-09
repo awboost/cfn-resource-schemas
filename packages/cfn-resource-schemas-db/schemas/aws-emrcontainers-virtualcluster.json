@@ -1,5 +1,5 @@
 {
-  "$hash": "f4f54553e36bcc61e622b21de82712ed426888ac",
+  "$hash": "b21200c511f0b8bc2398ef4d7f318e1760aa7193",
   "$id": "aws-emrcontainers-virtualcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ContainerProvider", "/properties/Name"],
@@ -103,6 +103,13 @@
       "maxLength": 64,
       "minLength": 1,
       "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+      "type": "string"
+    },
+    "SecurityConfigurationId": {
+      "description": "The ID of the security configuration.",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "[0-9a-z]+",
       "type": "string"
     },
     "Tags": {

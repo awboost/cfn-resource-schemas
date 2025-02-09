@@ -1,17 +1,21 @@
-- updated `AWS::BCMDataExports::Export`
-  - updated `tagging`
-- updated `AWS::EKS::FargateProfile`
-  - updated handler permissions
-- updated `AWS::Transfer::Agreement`
-  - added property `EnforceMessageSigning`
-  - added property `PreserveFilename`
-  - updated `tagging`
-- updated `AWS::Transfer::Certificate`
-  - updated `tagging`
-- updated `AWS::Transfer::Connector`
-  - updated `tagging`
-  - updated property `As2Config`
-- updated `AWS::Transfer::Profile`
-  - updated `tagging`
-- updated `AWS::Transfer::Workflow`
-  - updated `tagging`
+- added `AWS::Transfer::WebApp`
+- updated `AWS::Bedrock::Prompt`
+  - added definition `AdditionalModelRequestFields`
+  - added definition `CachePointBlock`
+  - added definition `CachePointType`
+  - updated definition `ContentBlock`
+  - updated definition `PromptVariant`
+  - updated definition `SystemContentBlock`
+  - updated definition `TextPromptTemplateConfiguration`
+  - updated definition `Tool`
+- updated `AWS::Bedrock::PromptVersion`
+  - added definition `AdditionalModelRequestFields`
+  - added definition `CachePointBlock`
+  - added definition `CachePointType`
+  - updated definition `ContentBlock`
+  - updated definition `PromptVariant`
+  - updated definition `SystemContentBlock`
+  - updated definition `TextPromptTemplateConfiguration`
+  - updated definition `Tool`
+- updated `AWS::EMRContainers::VirtualCluster`
+  - added property `SecurityConfigurationId`

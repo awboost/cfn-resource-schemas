@@ -71,6 +71,10 @@ export type BedrockPromptVersionAttributes = {
    * @maxLength `1`
    */
   Variants: {
+    /**
+     * Contains model-specific configurations
+     */
+    AdditionalModelRequestFields: Record<string, any>;
     GenAiResource: {
       /**
        * Target Agent to invoke with Prompt
@@ -145,6 +149,12 @@ export type BedrockPromptVersionAttributes = {
   Version: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::PromptVersion.AdditionalModelRequestFields`.
+ * Contains model-specific configurations
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-additionalmodelrequestfields.html}
+ */
+export type AdditionalModelRequestFields = Record<string, any>;
+/**
  * Type definition for `AWS::Bedrock::PromptVersion.AnyToolChoice`.
  * Any Tool choice
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-anytoolchoice.html}
@@ -156,6 +166,23 @@ export type AnyToolChoice = Record<string, any>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-autotoolchoice.html}
  */
 export type AutoToolChoice = Record<string, any>;
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.CachePointBlock`.
+ * CachePointBlock
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-cachepointblock.html}
+ */
+export type CachePointBlock = {
+  /**
+   * CachePoint types for CachePointBlock
+   */
+  Type: CachePointType;
+};
+/**
+ * Type definition for `AWS::Bedrock::PromptVersion.CachePointType`.
+ * CachePoint types for CachePointBlock
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-cachepointtype.html}
+ */
+export type CachePointType = "default";
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.ChatPromptTemplateConfiguration`.
  * Configuration for chat prompt template
@@ -185,15 +212,23 @@ export type ChatPromptTemplateConfiguration = {
 };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.ContentBlock`.
+ * Configuration for chat prompt template
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-contentblock.html}
  */
-export type ContentBlock = {
-  /**
-   * Configuration for chat prompt template
-   * @minLength `1`
-   */
-  Text: string;
-};
+export type ContentBlock =
+  | {
+      /**
+       * Configuration for chat prompt template
+       * @minLength `1`
+       */
+      Text: string;
+    }
+  | {
+      /**
+       * CachePointBlock
+       */
+      CachePoint: CachePointBlock;
+    };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.ConversationRole`.
  * Conversation roles for the chat prompt
@@ -322,6 +357,10 @@ export type PromptTemplateType = "TEXT" | "CHAT";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptvariant.html}
  */
 export type PromptVariant = {
+  /**
+   * Contains model-specific configurations
+   */
+  AdditionalModelRequestFields?: AdditionalModelRequestFields;
   GenAiResource?: PromptGenAiResource;
   InferenceConfiguration?: PromptInferenceConfiguration;
   /**
@@ -361,15 +400,23 @@ export type SpecificToolChoice = {
 };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.SystemContentBlock`.
+ * Configuration for chat prompt template
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-systemcontentblock.html}
  */
-export type SystemContentBlock = {
-  /**
-   * Configuration for chat prompt template
-   * @minLength `1`
-   */
-  Text: string;
-};
+export type SystemContentBlock =
+  | {
+      /**
+       * Configuration for chat prompt template
+       * @minLength `1`
+       */
+      Text: string;
+    }
+  | {
+      /**
+       * CachePointBlock
+       */
+      CachePoint: CachePointBlock;
+    };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.TagsMap`.
  * A map of tag keys and values
@@ -382,6 +429,10 @@ export type TagsMap = Record<string, string>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html}
  */
 export type TextPromptTemplateConfiguration = {
+  /**
+   * CachePointBlock
+   */
+  CachePoint?: CachePointBlock;
   /**
    * List of input variables
    * @minLength `0`
@@ -397,14 +448,22 @@ export type TextPromptTemplateConfiguration = {
 };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.Tool`.
+ * Tool details
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-tool.html}
  */
-export type Tool = {
-  /**
-   * Tool specification
-   */
-  ToolSpec: ToolSpecification;
-};
+export type Tool =
+  | {
+      /**
+       * Tool specification
+       */
+      ToolSpec: ToolSpecification;
+    }
+  | {
+      /**
+       * CachePointBlock
+       */
+      CachePoint: CachePointBlock;
+    };
 /**
  * Type definition for `AWS::Bedrock::PromptVersion.ToolChoice`.
  * Tool choice

@@ -17,6 +17,13 @@ export type EMRContainersVirtualClusterProperties = {
    */
   Name: string;
   /**
+   * The ID of the security configuration.
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `[0-9a-z]+`
+   */
+  SecurityConfigurationId?: string;
+  /**
    * An array of key-value pairs to apply to this virtual cluster.
    */
   Tags?: Tag[];
