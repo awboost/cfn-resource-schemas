@@ -1,5 +1,5 @@
 {
-  "$hash": "c6511c3d41dd4c845f7bd987dec32f19abdf6246",
+  "$hash": "b53d1509bf523caf04dbacf39755279ed34c9cdf",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -476,9 +476,6 @@
       "items": { "$ref": "#/definitions/LocalSecondaryIndex" },
       "type": "array",
       "uniqueItems": true
-    },
-    "PointInTimeRecoverySpecification": {
-      "$ref": "#/definitions/PointInTimeRecoverySpecification"
     },
     "Replicas": {
       "insertionOrder": false,

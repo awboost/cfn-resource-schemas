@@ -17,7 +17,6 @@ export type DynamoDBGlobalTableProperties = {
    */
   KeySchema: KeySchema[];
   LocalSecondaryIndexes?: LocalSecondaryIndex[];
-  PointInTimeRecoverySpecification?: PointInTimeRecoverySpecification;
   /**
    * @minLength `1`
    */

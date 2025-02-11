@@ -1,21 +1,4 @@
-- added `AWS::Transfer::WebApp`
-- updated `AWS::Bedrock::Prompt`
-  - added definition `AdditionalModelRequestFields`
-  - added definition `CachePointBlock`
-  - added definition `CachePointType`
-  - updated definition `ContentBlock`
-  - updated definition `PromptVariant`
-  - updated definition `SystemContentBlock`
-  - updated definition `TextPromptTemplateConfiguration`
-  - updated definition `Tool`
-- updated `AWS::Bedrock::PromptVersion`
-  - added definition `AdditionalModelRequestFields`
-  - added definition `CachePointBlock`
-  - added definition `CachePointType`
-  - updated definition `ContentBlock`
-  - updated definition `PromptVariant`
-  - updated definition `SystemContentBlock`
-  - updated definition `TextPromptTemplateConfiguration`
-  - updated definition `Tool`
-- updated `AWS::EMRContainers::VirtualCluster`
-  - added property `SecurityConfigurationId`
+- updated `AWS::DynamoDB::GlobalTable`
+  - removed property `PointInTimeRecoverySpecification`
+- updated `AWS::EFS::MountTarget`
+  - updated property `SecurityGroups`
