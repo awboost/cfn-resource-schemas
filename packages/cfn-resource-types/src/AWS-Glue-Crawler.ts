@@ -121,6 +121,29 @@ export type DynamoDBTarget = {
   Path?: string;
 };
 /**
+ * Type definition for `AWS::Glue::Crawler.HudiTarget`.
+ * Specifies Apache Hudi data store targets.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-huditarget.html}
+ */
+export type HudiTarget = {
+  /**
+   * The name of the connection to use to connect to the Hudi target.
+   */
+  ConnectionName?: string;
+  /**
+   * A list of global patterns used to exclude from the crawl.
+   */
+  Exclusions?: string[];
+  /**
+   * The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time.
+   */
+  MaximumTraversalDepth?: number;
+  /**
+   * One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix .
+   */
+  Paths?: string[];
+};
+/**
  * Type definition for `AWS::Glue::Crawler.IcebergTarget`.
  * Specifies Apache Iceberg data store targets.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-icebergtarget.html}
@@ -284,6 +307,10 @@ export type Targets = {
    * Specifies Amazon DynamoDB targets.
    */
   DynamoDBTargets?: DynamoDBTarget[];
+  /**
+   * Specifies Apache Hudi data store targets.
+   */
+  HudiTargets?: HudiTarget[];
   /**
    * Specifies Apache Iceberg data store targets.
    */

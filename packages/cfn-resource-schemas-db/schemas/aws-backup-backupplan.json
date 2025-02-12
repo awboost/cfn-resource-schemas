@@ -1,5 +1,5 @@
 {
-  "$hash": "b59504b5aa3b301d99fe47a4c7aea6015c04cebb",
+  "$hash": "c48c23573de72407e8138885c1e140c989a29abd",
   "$id": "aws-backup-backupplan.json",
   "additionalProperties": false,
   "definitions": {
@@ -45,6 +45,12 @@
           "uniqueItems": false
         },
         "EnableContinuousBackup": { "type": "boolean" },
+        "IndexActions": {
+          "insertionOrder": true,
+          "items": { "$ref": "#/definitions/IndexActionsResourceType" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "Lifecycle": { "$ref": "#/definitions/LifecycleResourceType" },
         "RecoveryPointTags": {
           "additionalProperties": false,
@@ -69,6 +75,13 @@
       "required": ["DestinationBackupVaultArn"],
       "type": "object"
     },
+    "IndexActionsResourceType": {
+      "additionalProperties": false,
+      "properties": {
+        "ResourceTypes": { "$ref": "#/definitions/ResourceTypes" }
+      },
+      "type": "object"
+    },
     "LifecycleResourceType": {
       "additionalProperties": false,
       "properties": {
@@ -77,6 +90,13 @@
         "OptInToArchiveForSupportedResources": { "type": "boolean" }
       },
       "type": "object"
+    },
+    "ResourceType": { "type": "string" },
+    "ResourceTypes": {
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/ResourceType" },
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "description": "Resource Type definition for AWS::Backup::BackupPlan",

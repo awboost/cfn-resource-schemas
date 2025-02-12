@@ -1,5 +1,5 @@
 {
-  "$hash": "d5e423a1f7cc6b5e614f4c30abc4636c045e3f76",
+  "$hash": "02893bc9cf2428950a5688b4f5c6ef3b56103120",
   "$id": "aws-sagemaker-mlflowtrackingserver.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -38,14 +38,14 @@
         "sagemaker:ListTags",
         "iam:PassRole"
       ],
-      "timeoutInMinutes": 65
+      "timeoutInMinutes": 95
     },
     "delete": {
       "permissions": [
         "sagemaker:DeleteMlflowTrackingServer",
         "sagemaker:DescribeMlflowTrackingServer"
       ],
-      "timeoutInMinutes": 65
+      "timeoutInMinutes": 95
     },
     "list": { "permissions": ["sagemaker:ListMlflowTrackingServers"] },
     "read": {

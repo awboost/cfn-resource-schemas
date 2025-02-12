@@ -1,4 +1,43 @@
-- updated `AWS::DynamoDB::GlobalTable`
-  - removed property `PointInTimeRecoverySpecification`
-- updated `AWS::EFS::MountTarget`
-  - updated property `SecurityGroups`
+- updated `AWS::B2BI::Partnership`
+  - updated definition `X12FunctionalGroupHeaders`
+  - updated definition `X12InterchangeControlHeaders`
+- updated `AWS::Backup::BackupPlan`
+  - added definition `IndexActionsResourceType`
+  - added definition `ResourceType`
+  - added definition `ResourceTypes`
+  - updated definition `BackupRuleResourceType`
+- updated `AWS::DataSync::LocationSMB`
+  - added property `AuthenticationType`
+  - added property `DnsIpAddresses`
+  - added property `KerberosKeytab`
+  - added property `KerberosKrb5Conf`
+  - added property `KerberosPrincipal`
+  - removed `createOnlyProperties`
+  - updated `required`
+  - updated `writeOnlyProperties`
+- updated `AWS::EMR::Studio`
+  - updated `tagging`
+- updated `AWS::Glue::Crawler`
+  - added definition `HudiTarget`
+  - updated `tagging`
+  - updated definition `Targets`
+- updated `AWS::IVS::PlaybackKeyPair`
+  - updated definition `Tag`
+- updated `AWS::IVS::PublicKey`
+  - updated definition `Tag`
+- updated `AWS::IVSChat::LoggingConfiguration`
+  - updated `tagging`
+- updated `AWS::IoTSiteWise::Gateway`
+  - updated definition `GatewayPlatform`
+- updated `AWS::Logs::LogGroup`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Neptune::DBCluster`
+  - updated `tagging`
+- updated `AWS::RDS::DBInstance`
+  - added property `ApplyImmediately`
+  - updated `writeOnlyProperties`
+- updated `AWS::SageMaker::MlflowTrackingServer`
+  - updated handler permissions
+- updated `AWS::WorkSpacesThinClient::Environment`
+  - updated handler permissions

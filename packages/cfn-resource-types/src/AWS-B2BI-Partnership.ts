@@ -130,13 +130,13 @@ export type X12FunctionalGroupHeaders = {
   /**
    * @minLength `2`
    * @maxLength `15`
-   * @pattern `^[a-zA-Z0-9]*$`
+   * @pattern `^[a-zA-Z0-9 ]*$`
    */
   ApplicationReceiverCode?: string;
   /**
    * @minLength `2`
    * @maxLength `15`
-   * @pattern `^[a-zA-Z0-9]*$`
+   * @pattern `^[a-zA-Z0-9 ]*$`
    */
   ApplicationSenderCode?: string;
   /**
@@ -160,7 +160,7 @@ export type X12InterchangeControlHeaders = {
   /**
    * @minLength `15`
    * @maxLength `15`
-   * @pattern `^[a-zA-Z0-9]*$`
+   * @pattern `^[a-zA-Z0-9 ]*$`
    */
   ReceiverId?: string;
   /**
@@ -177,7 +177,7 @@ export type X12InterchangeControlHeaders = {
   /**
    * @minLength `15`
    * @maxLength `15`
-   * @pattern `^[a-zA-Z0-9]*$`
+   * @pattern `^[a-zA-Z0-9 ]*$`
    */
   SenderId?: string;
   /**

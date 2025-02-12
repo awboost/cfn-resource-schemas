@@ -80,6 +80,7 @@ export type RDSDBInstanceProperties = {
      Constraints: Major version upgrades must be allowed when specifying a value for the ``EngineVersion`` parameter that is a different major version than the DB instance's current version.
      */
   AllowMajorVersionUpgrade?: boolean;
+  ApplyImmediately?: boolean;
   /**
      * The IAMlong (IAM) roles associated with the DB instance.
       *Amazon Aurora*

@@ -1,5 +1,5 @@
 {
-  "$hash": "ce4cfc8429dfd0aea6bbabb9ca717a15c1c8a7b2",
+  "$hash": "da1e882b8ca5110f90b84159a6f41b982ea88d71",
   "$id": "aws-b2bi-partnership.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -72,13 +72,13 @@
         "ApplicationReceiverCode": {
           "maxLength": 15,
           "minLength": 2,
-          "pattern": "^[a-zA-Z0-9]*$",
+          "pattern": "^[a-zA-Z0-9 ]*$",
           "type": "string"
         },
         "ApplicationSenderCode": {
           "maxLength": 15,
           "minLength": 2,
-          "pattern": "^[a-zA-Z0-9]*$",
+          "pattern": "^[a-zA-Z0-9 ]*$",
           "type": "string"
         },
         "ResponsibleAgencyCode": {
@@ -102,7 +102,7 @@
         "ReceiverId": {
           "maxLength": 15,
           "minLength": 15,
-          "pattern": "^[a-zA-Z0-9]*$",
+          "pattern": "^[a-zA-Z0-9 ]*$",
           "type": "string"
         },
         "ReceiverIdQualifier": {
@@ -119,7 +119,7 @@
         "SenderId": {
           "maxLength": 15,
           "minLength": 15,
-          "pattern": "^[a-zA-Z0-9]*$",
+          "pattern": "^[a-zA-Z0-9 ]*$",
           "type": "string"
         },
         "SenderIdQualifier": {

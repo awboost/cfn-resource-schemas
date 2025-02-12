@@ -1,5 +1,5 @@
 {
-  "$hash": "e688a7c205019eb34c1ca7217294ec758edba72a",
+  "$hash": "376662334816fad3c09bc46f53672afefb5327b8",
   "$id": "aws-workspacesthinclient-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn", "/properties/DesktopArn"],
@@ -127,7 +127,6 @@
         "workspaces-web:GetPortal",
         "workspaces-web:GetUserSettings",
         "thinclient:UpdateEnvironment",
-        "thinclient:ListTagsForResource",
         "thinclient:TagResource",
         "thinclient:UntagResource",
         "kms:Decrypt",

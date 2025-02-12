@@ -42,6 +42,7 @@ export type BackupRuleResourceType = {
   CompletionWindowMinutes?: number;
   CopyActions?: CopyActionResourceType[];
   EnableContinuousBackup?: boolean;
+  IndexActions?: IndexActionsResourceType[];
   Lifecycle?: LifecycleResourceType;
   RecoveryPointTags?: Record<string, string>;
   RuleName: string;
@@ -57,6 +58,13 @@ export type BackupRuleResourceType = {
 export type CopyActionResourceType = {
   DestinationBackupVaultArn: string;
   Lifecycle?: LifecycleResourceType;
+};
+/**
+ * Type definition for `AWS::Backup::BackupPlan.IndexActionsResourceType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-indexactionsresourcetype.html}
+ */
+export type IndexActionsResourceType = {
+  ResourceTypes?: string[];
 };
 /**
  * Type definition for `AWS::Backup::BackupPlan.LifecycleResourceType`.

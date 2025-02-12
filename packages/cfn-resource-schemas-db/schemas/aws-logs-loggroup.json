@@ -1,5 +1,5 @@
 {
-  "$hash": "506472781799e4c509bc7f97d7b6e5f731945e20",
+  "$hash": "e5c309e15a649df5eb0abafbcf51f64465aadd97",
   "$id": "aws-logs-loggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupName"],
@@ -79,6 +79,7 @@
         "logs:DeleteRetentionPolicy",
         "logs:TagResource",
         "logs:UntagResource",
+        "logs:ListTagsForResource",
         "logs:GetDataProtectionPolicy",
         "logs:PutDataProtectionPolicy",
         "logs:CreateLogDelivery",
@@ -145,6 +146,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-logs.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "logs:TagResource",
+      "logs:UntagResource",
+      "logs:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

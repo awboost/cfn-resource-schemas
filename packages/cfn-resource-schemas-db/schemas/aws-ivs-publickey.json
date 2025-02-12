@@ -1,5 +1,5 @@
 {
-  "$hash": "6cae3b679ef85f300439357284f5fe6a2ccce781",
+  "$hash": "2034e14d154430c3cd1c5cfd5c8981ed9ed94cf8",
   "$id": "aws-ivs-publickey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PublicKeyMaterial", "/properties/Name"],
@@ -8,7 +8,7 @@
       "additionalProperties": false,
       "properties": {
         "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
-        "Value": { "maxLength": 256, "minLength": 1, "type": "string" }
+        "Value": { "maxLength": 256, "minLength": 0, "type": "string" }
       },
       "required": ["Key", "Value"],
       "type": "object"

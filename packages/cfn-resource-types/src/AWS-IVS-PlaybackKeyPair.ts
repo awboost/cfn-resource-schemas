@@ -50,7 +50,7 @@ export type Tag = {
    */
   Key: string;
   /**
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `256`
    */
   Value: string;

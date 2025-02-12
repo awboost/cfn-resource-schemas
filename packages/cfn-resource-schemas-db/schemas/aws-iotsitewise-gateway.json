@@ -1,5 +1,5 @@
 {
-  "$hash": "47e808143e39812e72f01567bb3639fbf05802fb",
+  "$hash": "05e8690c5a654aade263b1e88046f2cbd0700991",
   "$id": "aws-iotsitewise-gateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -31,7 +31,6 @@
       "additionalProperties": false,
       "description": "Contains a gateway's platform information.",
       "oneOf": [
-        { "required": ["Greengrass"] },
         { "required": ["GreengrassV2"] },
         { "required": ["SiemensIE"] }
       ],

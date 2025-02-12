@@ -12,11 +12,37 @@ export type DataSyncLocationSMBProperties = {
    */
   AgentArns: string[];
   /**
+   * The authentication mode used to determine identity of user.
+   */
+  AuthenticationType?: "NTLM" | "KERBEROS";
+  /**
+   * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
+   * @maxLength `2`
+   */
+  DnsIpAddresses?: string[];
+  /**
    * The name of the Windows domain that the SMB server belongs to.
    * @maxLength `253`
    * @pattern `^([A-Za-z0-9]+[A-Za-z0-9-.]*)*[A-Za-z0-9-]*[A-Za-z0-9]$`
    */
   Domain?: string;
+  /**
+   * The Base64 string representation of the Keytab file. Specifies your Kerberos key table (keytab) file, which includes mappings between your service principal name (SPN) and encryption keys. To avoid task execution errors, make sure that the SPN in the keytab file matches exactly what you specify for KerberosPrincipal and in your krb5.conf file.
+   * @maxLength `87384`
+   */
+  KerberosKeytab?: string;
+  /**
+   * The string representation of the Krb5Conf file, or the presigned URL to access the Krb5.conf file within an S3 bucket. Specifies a Kerberos configuration file (krb5.conf) that defines your Kerberos realm configuration. To avoid task execution errors, make sure that the service principal name (SPN) in the krb5.conf file matches exactly what you specify for KerberosPrincipal and in your keytab file.
+   * @maxLength `174764`
+   */
+  KerberosKrb5Conf?: string;
+  /**
+   * Specifies a service principal name (SPN), which is an identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. SPNs are case sensitive and must include a prepended cifs/. For example, an SPN might look like cifs/kerberosuser@EXAMPLE.COM. Your task execution will fail if the SPN that you provide for this parameter doesn't match exactly what's in your keytab or krb5.conf files.
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^.+$`
+   */
+  KerberosPrincipal?: string;
   /**
    * The mount options used by DataSync to access the SMB server.
    */
@@ -49,7 +75,7 @@ export type DataSyncLocationSMBProperties = {
    * @maxLength `104`
    * @pattern `^[^\x5B\x5D\\/:;|=,+*?]{1,104}$`
    */
-  User: string;
+  User?: string;
 };
 /**
  * Attribute type definition for `AWS::DataSync::LocationSMB`.

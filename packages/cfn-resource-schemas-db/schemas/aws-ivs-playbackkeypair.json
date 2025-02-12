@@ -1,5 +1,5 @@
 {
-  "$hash": "4730c9328985541a69c04eded06edb784ffa7830",
+  "$hash": "604ebea435e6a7e3a51400d1eb4d09bd6c16de4e",
   "$id": "aws-ivs-playbackkeypair.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PublicKeyMaterial", "/properties/Name"],
@@ -8,7 +8,7 @@
       "additionalProperties": false,
       "properties": {
         "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
-        "Value": { "maxLength": 256, "minLength": 1, "type": "string" }
+        "Value": { "maxLength": 256, "minLength": 0, "type": "string" }
       },
       "required": ["Value", "Key"],
       "type": "object"
