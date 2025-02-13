@@ -1,5 +1,5 @@
 {
-  "$hash": "15a087081cf89896c2ac1aaf0b14af280aba37d1",
+  "$hash": "fb65851d7a5248e37f5cc36bc5f5f74f3e7153f3",
   "$id": "aws-ec2-transitgatewayconnect.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -94,6 +94,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-myservice",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

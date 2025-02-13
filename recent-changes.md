@@ -1,43 +1,41 @@
-- updated `AWS::B2BI::Partnership`
-  - updated definition `X12FunctionalGroupHeaders`
-  - updated definition `X12InterchangeControlHeaders`
-- updated `AWS::Backup::BackupPlan`
-  - added definition `IndexActionsResourceType`
-  - added definition `ResourceType`
-  - added definition `ResourceTypes`
-  - updated definition `BackupRuleResourceType`
-- updated `AWS::DataSync::LocationSMB`
-  - added property `AuthenticationType`
-  - added property `DnsIpAddresses`
-  - added property `KerberosKeytab`
-  - added property `KerberosKrb5Conf`
-  - added property `KerberosPrincipal`
-  - removed `createOnlyProperties`
-  - updated `required`
-  - updated `writeOnlyProperties`
-- updated `AWS::EMR::Studio`
+- added `AWS::Connect::ContactFlowVersion`
+- updated `AWS::Athena::DataCatalog`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::CleanRooms::Collaboration`
   - updated `tagging`
-- updated `AWS::Glue::Crawler`
-  - added definition `HudiTarget`
-  - updated `tagging`
-  - updated definition `Targets`
-- updated `AWS::IVS::PlaybackKeyPair`
-  - updated definition `Tag`
-- updated `AWS::IVS::PublicKey`
-  - updated definition `Tag`
-- updated `AWS::IVSChat::LoggingConfiguration`
-  - updated `tagging`
-- updated `AWS::IoTSiteWise::Gateway`
-  - updated definition `GatewayPlatform`
-- updated `AWS::Logs::LogGroup`
+- updated `AWS::Cognito::UserPoolDomain`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::EC2::TransitGateway`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::Neptune::DBCluster`
+- updated `AWS::EC2::TransitGatewayAttachment`
   - updated `tagging`
-- updated `AWS::RDS::DBInstance`
-  - added property `ApplyImmediately`
-  - updated `writeOnlyProperties`
-- updated `AWS::SageMaker::MlflowTrackingServer`
   - updated handler permissions
-- updated `AWS::WorkSpacesThinClient::Environment`
+- updated `AWS::EC2::TransitGatewayConnect`
+  - updated `tagging`
+- updated `AWS::EC2::TransitGatewayMulticastDomain`
+  - updated `tagging`
+- updated `AWS::EC2::TransitGatewayPeeringAttachment`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::EC2::TransitGatewayVpcAttachment`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ECS::Cluster`
+  - updated definition `ClusterSettings`
+  - updated property `ClusterSettings`
+- updated `AWS::GroundStation::DataflowEndpointGroup`
+  - added `createOnlyProperties`
+- updated `AWS::GroundStation::MissionProfile`
+  - updated definition `StreamsKmsKey`
+- updated `AWS::IoTSiteWise::Dashboard`
+  - updated handler permissions
+- updated `AWS::IoTSiteWise::Project`
   - updated handler permissions

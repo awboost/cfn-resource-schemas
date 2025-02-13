@@ -1,7 +1,12 @@
 {
-  "$hash": "d400dc32a18d84369f6d4a4854baa667e2879750",
+  "$hash": "41dfb6c5d295e4470c00319ba80289d5bda53f7a",
   "$id": "aws-groundstation-dataflowendpointgroup.json",
   "additionalProperties": false,
+  "createOnlyProperties": [
+    "/properties/EndpointDetails",
+    "/properties/ContactPrePassDurationSeconds",
+    "/properties/ContactPostPassDurationSeconds"
+  ],
   "definitions": {
     "AgentStatus": {
       "description": "The status of AgentEndpoint.",

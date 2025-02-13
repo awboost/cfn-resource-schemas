@@ -16,7 +16,6 @@ export type CognitoUserPoolDomainProperties = {
  */
 export type CognitoUserPoolDomainAttributes = {
   CloudFrontDistribution: string;
-  Id: string;
 };
 /**
  * Type definition for `AWS::Cognito::UserPoolDomain.CustomDomainConfigType`.

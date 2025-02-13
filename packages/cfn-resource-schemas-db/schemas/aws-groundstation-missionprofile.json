@@ -1,5 +1,5 @@
 {
-  "$hash": "2f82d85671b50b3c1bf367114f7df96c8fad4889",
+  "$hash": "0b49c7842c7140d9c4bdd6f9231a8fa15304732e",
   "$id": "aws-groundstation-missionprofile.json",
   "additionalProperties": false,
   "definitions": {
@@ -13,10 +13,18 @@
     },
     "StreamsKmsKey": {
       "additionalProperties": false,
-      "oneOf": [{ "required": ["KmsKeyArn"] }, { "required": ["KmsAliasArn"] }],
+      "oneOf": [
+        { "required": ["KmsKeyArn"] },
+        { "required": ["KmsAliasArn"] },
+        { "required": ["KmsAliasName"] }
+      ],
       "properties": {
         "KmsAliasArn": {
           "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
+          "type": "string"
+        },
+        "KmsAliasName": {
+          "pattern": "^alias/[a-zA-Z0-9:/_-]+$",
           "type": "string"
         },
         "KmsKeyArn": {

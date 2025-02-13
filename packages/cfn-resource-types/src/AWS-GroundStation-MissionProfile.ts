@@ -71,6 +71,10 @@ export type StreamsKmsKey = {
    */
   KmsAliasArn?: string;
   /**
+   * @pattern `^alias/[a-zA-Z0-9:/_-]+$`
+   */
+  KmsAliasName?: string;
+  /**
    * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
    */
   KmsKeyArn?: string;

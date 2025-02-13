@@ -1,5 +1,5 @@
 {
-  "$hash": "8599b3e434901033871062bcadea2dc3313a7b39",
+  "$hash": "0da4d712d34c54640aef7717eac6dcba3df3ae26",
   "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -245,6 +245,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "cleanrooms:ListTagsForResource",
+      "cleanrooms:UntagResource",
+      "cleanrooms:TagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

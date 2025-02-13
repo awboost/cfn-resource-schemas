@@ -1,5 +1,5 @@
 {
-  "$hash": "afe7448443ff2510bc3db52803eaf0b0f79cce1d",
+  "$hash": "f80cae5a5790e54fd1bf52431cd8d36b270e02ab",
   "$id": "aws-athena-datacatalog.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -71,6 +71,17 @@
   },
   "required": ["Name", "Type"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-athena.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "athena:UntagResource",
+      "athena:TagResource",
+      "athena:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Athena::DataCatalog"
 }

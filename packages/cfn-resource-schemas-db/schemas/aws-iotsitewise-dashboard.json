@@ -1,5 +1,5 @@
 {
-  "$hash": "cf751d229984d631fe8f5ddb7deb193220beaa80",
+  "$hash": "0bad332a4ee59231de5eaaff7ee45c0fbe9518a5",
   "$id": "aws-iotsitewise-dashboard.json",
   "additionalIdentifiers": [["/properties/DashboardArn"]],
   "additionalProperties": false,
@@ -39,6 +39,8 @@
     "list": {
       "permissions": [
         "iotsitewise:ListDashboards",
+        "iotsitewise:ListPortals",
+        "iotsitewise:ListProjects",
         "iotsitewise:ListTagsForResource"
       ]
     },

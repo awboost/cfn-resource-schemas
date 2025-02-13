@@ -1,5 +1,5 @@
 {
-  "$hash": "ac89d95143eaf9bc67d78c72b32ad70f101fbc1b",
+  "$hash": "4d6b859705b369d9121bb436875c1a80b983d531",
   "$id": "aws-iotsitewise-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PortalId"],
@@ -36,6 +36,7 @@
     },
     "list": {
       "permissions": [
+        "iotsitewise:ListPortals",
         "iotsitewise:ListProjects",
         "iotsitewise:ListTagsForResource"
       ]
