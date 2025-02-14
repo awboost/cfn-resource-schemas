@@ -101,6 +101,13 @@ export type SamlConfigOptions = {
    */
   Metadata: string;
   /**
+   * Custom entity id attribute to override default entity id for this saml integration
+   * @minLength `1`
+   * @maxLength `1024`
+   * @pattern `^aws:opensearch:[0-9]{12}:*`
+   */
+  OpenSearchServerlessEntityId?: string;
+  /**
    * Defines the session timeout in minutes
    */
   SessionTimeout?: number;

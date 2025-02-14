@@ -1,5 +1,5 @@
 {
-  "$hash": "e801840342dc6dd0fdb52741fd67d49ecbf0f323",
+  "$hash": "d194679ad5ee8821d6187ed401579e1e20c6671d",
   "$id": "aws-opensearchserverless-securityconfig.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -67,6 +67,13 @@
           "maxLength": 51200,
           "minLength": 1,
           "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u007E\\u00A1-\\u00FF]+",
+          "type": "string"
+        },
+        "OpenSearchServerlessEntityId": {
+          "description": "Custom entity id attribute to override default entity id for this saml integration",
+          "maxLength": 1024,
+          "minLength": 1,
+          "pattern": "^aws:opensearch:[0-9]{12}:*",
           "type": "string"
         },
         "SessionTimeout": {

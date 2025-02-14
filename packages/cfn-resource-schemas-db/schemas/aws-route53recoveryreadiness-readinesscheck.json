@@ -1,5 +1,5 @@
 {
-  "$hash": "56e61795a1e201d61dd8ec9d08baa8e41cf7c1d5",
+  "$hash": "bacd5d89be6a1069c2f87b6c2e4737d4ebee0420",
   "$id": "aws-route53recoveryreadiness-readinesscheck.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ReadinessCheckName"],
@@ -89,7 +89,7 @@
     "permissions": [
       "route53-recovery-readiness:TagResource",
       "route53-recovery-readiness:UntagResource",
-      "route53-recovery-readiness:ListTagsForResource"
+      "route53-recovery-readiness:ListTagsForResources"
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
