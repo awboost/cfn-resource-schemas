@@ -1,5 +1,5 @@
 {
-  "$hash": "5d7ef5507b31650c66aeffeb7c3c5d79f62fc0ed",
+  "$hash": "7ba42d0ebb3279cc699cc5dbb24c0acb25d1a888",
   "$id": "aws-ec2-ipam.json",
   "additionalProperties": false,
   "definitions": {
@@ -13,6 +13,19 @@
         }
       },
       "required": ["RegionName"],
+      "type": "object"
+    },
+    "IpamOrganizationalUnitExclusion": {
+      "additionalProperties": false,
+      "description": "If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.",
+      "properties": {
+        "OrganizationsEntityPath": {
+          "description": "An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["OrganizationsEntityPath"],
       "type": "object"
     },
     "Tag": {
@@ -82,6 +95,13 @@
     "DefaultResourceDiscoveryId": {
       "description": "The Id of the default resource discovery, created with this IPAM.",
       "type": "string"
+    },
+    "DefaultResourceDiscoveryOrganizationalUnitExclusions": {
+      "description": "A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/IpamOrganizationalUnitExclusion" },
+      "type": "array",
+      "uniqueItems": true
     },
     "Description": { "type": "string" },
     "EnablePrivateGua": {

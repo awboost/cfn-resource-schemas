@@ -1,5 +1,5 @@
 {
-  "$hash": "547d43894e7e2528787886be675f27e34eb9f2fc",
+  "$hash": "31e2723943347b5e5e698cbb0b535ef82c31f03c",
   "$id": "aws-acmpca-certificateauthority.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -45,7 +45,9 @@
         "CrlDistributionPointExtensionConfiguration": {
           "$ref": "#/definitions/CrlDistributionPointExtensionConfiguration"
         },
+        "CrlType": { "type": "string" },
         "CustomCname": { "type": "string" },
+        "CustomPath": { "type": "string" },
         "Enabled": { "type": "boolean" },
         "ExpirationInDays": { "type": "integer" },
         "S3BucketName": { "type": "string" },

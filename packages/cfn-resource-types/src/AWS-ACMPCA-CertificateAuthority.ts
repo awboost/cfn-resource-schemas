@@ -94,7 +94,9 @@ export type CrlConfiguration = {
    * Configures the default behavior of the CRL Distribution Point extension for certificates issued by your certificate authority
    */
   CrlDistributionPointExtensionConfiguration?: CrlDistributionPointExtensionConfiguration;
+  CrlType?: string;
   CustomCname?: string;
+  CustomPath?: string;
   Enabled: boolean;
   ExpirationInDays?: number;
   S3BucketName?: string;

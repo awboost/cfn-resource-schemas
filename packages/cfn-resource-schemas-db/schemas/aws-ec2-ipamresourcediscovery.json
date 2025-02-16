@@ -1,5 +1,5 @@
 {
-  "$hash": "fe47e6eba787e18156f5d28a05879a8ce7a634b8",
+  "$hash": "e7bd16d742555b9cc2812f4e9498c1307ac5ff21",
   "$id": "aws-ec2-ipamresourcediscovery.json",
   "additionalProperties": false,
   "definitions": {
@@ -13,6 +13,19 @@
         }
       },
       "required": ["RegionName"],
+      "type": "object"
+    },
+    "IpamResourceDiscoveryOrganizationalUnitExclusion": {
+      "additionalProperties": false,
+      "description": "If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.",
+      "properties": {
+        "OrganizationsEntityPath": {
+          "description": "An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["OrganizationsEntityPath"],
       "type": "object"
     },
     "Tag": {
@@ -88,6 +101,15 @@
       "description": "The regions Resource Discovery is enabled for. Allows resource discoveries to be created in these regions, as well as enabling monitoring",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/IpamOperatingRegion" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "OrganizationalUnitExclusions": {
+      "description": "A set of organizational unit (OU) exclusions for this resource.",
+      "insertionOrder": false,
+      "items": {
+        "$ref": "#/definitions/IpamResourceDiscoveryOrganizationalUnitExclusion"
+      },
       "type": "array",
       "uniqueItems": true
     },

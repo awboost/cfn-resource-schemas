@@ -1,7 +1,8 @@
 {
-  "$hash": "1bd74b2c7b7d12863ae63da02d6b8b03970aed9e",
+  "$hash": "d8926dc93f82adc621cf3b6c6aa52b29b0328798",
   "$id": "aws-medialive-inputsecuritygroup.json",
   "additionalProperties": false,
+  "createOnlyProperties": ["/properties/Tags"],
   "definitions": {
     "InputWhitelistRuleCidr": {
       "additionalProperties": false,
@@ -21,6 +22,6 @@
       "uniqueItems": false
     }
   },
-  "readOnlyProperties": ["/properties/Arn", "/properties/Id"],
+  "readOnlyProperties": ["/properties/Id", "/properties/Arn"],
   "typeName": "AWS::MediaLive::InputSecurityGroup"
 }

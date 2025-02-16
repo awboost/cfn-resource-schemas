@@ -1,4 +1,20 @@
-- updated `AWS::OpenSearchServerless::SecurityConfig`
-  - updated definition `SamlConfigOptions`
-- updated `AWS::Route53RecoveryReadiness::ReadinessCheck`
-  - updated `tagging`
+- updated `AWS::ACMPCA::CertificateAuthority`
+  - updated definition `CrlConfiguration`
+- updated `AWS::EC2::IPAM`
+  - added definition `IpamOrganizationalUnitExclusion`
+  - added property `DefaultResourceDiscoveryOrganizationalUnitExclusions`
+- updated `AWS::EC2::IPAMResourceDiscovery`
+  - added definition `IpamResourceDiscoveryOrganizationalUnitExclusion`
+  - added property `OrganizationalUnitExclusions`
+- updated `AWS::FSx::FileSystem`
+  - updated `createOnlyProperties`
+- updated `AWS::MediaLive::Channel`
+  - added definition `ChannelEngineVersionRequest`
+  - added property `ChannelEngineVersion`
+  - added property `DryRun`
+  - updated definition `CmafIngestGroupSettings`
+  - updated definition `H265Settings`
+  - updated definition `MediaPackageOutputDestinationSettings`
+- updated `AWS::MediaLive::InputSecurityGroup`
+  - added `createOnlyProperties`
+  - updated `readOnlyProperties`

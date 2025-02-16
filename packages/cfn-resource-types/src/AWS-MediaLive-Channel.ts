@@ -8,7 +8,9 @@ export type MediaLiveChannelProperties = {
   AnywhereSettings?: AnywhereSettings;
   CdiInputSpecification?: CdiInputSpecification;
   ChannelClass?: string;
+  ChannelEngineVersion?: ChannelEngineVersionRequest;
   Destinations?: OutputDestination[];
+  DryRun?: boolean;
   EncoderSettings?: EncoderSettings;
   InputAttachments?: InputAttachment[];
   InputSpecification?: InputSpecification;
@@ -451,12 +453,25 @@ export type CdiInputSpecification = {
   Resolution?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.ChannelEngineVersionRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-channelengineversionrequest.html}
+ */
+export type ChannelEngineVersionRequest = {
+  Version?: string;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.CmafIngestGroupSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html}
  */
 export type CmafIngestGroupSettings = {
   Destination?: OutputLocationRef;
+  Id3Behavior?: string;
+  Id3NameModifier?: string;
+  KlvBehavior?: string;
+  KlvNameModifier?: string;
   NielsenId3Behavior?: string;
+  NielsenId3NameModifier?: string;
+  Scte35NameModifier?: string;
   Scte35Type?: string;
   SegmentLength?: number;
   SegmentLengthUnits?: string;
@@ -856,6 +871,7 @@ export type H265Settings = {
   BufSize?: number;
   ColorMetadata?: string;
   ColorSpaceSettings?: H265ColorSpaceSettings;
+  Deblocking?: string;
   FilterSettings?: H265FilterSettings;
   FixedAfd?: string;
   FlickerAq?: string;
@@ -1221,7 +1237,9 @@ export type MediaPackageGroupSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html}
  */
 export type MediaPackageOutputDestinationSettings = {
+  ChannelGroup?: string;
   ChannelId?: string;
+  ChannelName?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.MediaPackageOutputSettings`.

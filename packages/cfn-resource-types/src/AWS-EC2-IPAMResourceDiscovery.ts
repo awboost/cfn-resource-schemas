@@ -11,6 +11,10 @@ export type EC2IPAMResourceDiscoveryProperties = {
    */
   OperatingRegions?: IpamOperatingRegion[];
   /**
+   * A set of organizational unit (OU) exclusions for this resource.
+   */
+  OrganizationalUnitExclusions?: IpamResourceDiscoveryOrganizationalUnitExclusion[];
+  /**
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];
@@ -55,6 +59,18 @@ export type IpamOperatingRegion = {
    * The name of the region.
    */
   RegionName: string;
+};
+/**
+ * Type definition for `AWS::EC2::IPAMResourceDiscovery.IpamResourceDiscoveryOrganizationalUnitExclusion`.
+ * If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamresourcediscoveryorganizationalunitexclusion.html}
+ */
+export type IpamResourceDiscoveryOrganizationalUnitExclusion = {
+  /**
+   * An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+   * @minLength `1`
+   */
+  OrganizationsEntityPath: string;
 };
 /**
  * Type definition for `AWS::EC2::IPAMResourceDiscovery.Tag`.

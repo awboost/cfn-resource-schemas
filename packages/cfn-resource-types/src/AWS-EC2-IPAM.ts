@@ -5,6 +5,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html}
  */
 export type EC2IPAMProperties = {
+  /**
+   * A set of organizational unit (OU) exclusions for the default resource discovery, created with this IPAM.
+   */
+  DefaultResourceDiscoveryOrganizationalUnitExclusions?: IpamOrganizationalUnitExclusion[];
   Description?: string;
   /**
    * Enable provisioning of GUA space in private pools.
@@ -72,6 +76,18 @@ export type IpamOperatingRegion = {
    * The name of the region.
    */
   RegionName: string;
+};
+/**
+ * Type definition for `AWS::EC2::IPAM.IpamOrganizationalUnitExclusion`.
+ * If your IPAM is integrated with AWS Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipam-ipamorganizationalunitexclusion.html}
+ */
+export type IpamOrganizationalUnitExclusion = {
+  /**
+   * An AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a '/'. Include all child OUs by ending the path with '/*'.
+   * @minLength `1`
+   */
+  OrganizationsEntityPath: string;
 };
 /**
  * Type definition for `AWS::EC2::IPAM.Tag`.

@@ -1,11 +1,10 @@
 {
-  "$hash": "8dd9a32936135c485bac932f82b8c94ade424158",
+  "$hash": "e08f889fbf743ae6872c4889ef17ea63ffba7d44",
   "$id": "aws-fsx-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KmsKeyId",
     "/properties/SecurityGroupIds",
-    "/properties/FileSystemTypeVersion",
     "/properties/FileSystemType",
     "/properties/SubnetIds",
     "/properties/BackupId"
