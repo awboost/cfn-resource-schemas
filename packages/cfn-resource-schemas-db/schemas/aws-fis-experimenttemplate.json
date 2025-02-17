@@ -1,5 +1,5 @@
 {
-  "$hash": "b1cc069e779cf1041a6f5fe281c03d34128bf94e",
+  "$hash": "461cbc2db33443618ce44baba7ddaac53169edda",
   "$id": "aws-fis-experimenttemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -133,11 +133,7 @@
                   "minLength": 3,
                   "type": "string"
                 },
-                "Prefix": {
-                  "maxLength": 1024,
-                  "minLength": 1,
-                  "type": "string"
-                }
+                "Prefix": { "maxLength": 256, "minLength": 1, "type": "string" }
               },
               "required": ["BucketName"],
               "type": "object"
@@ -173,7 +169,7 @@
           "additionalProperties": false,
           "properties": {
             "BucketName": { "maxLength": 63, "minLength": 3, "type": "string" },
-            "Prefix": { "maxLength": 1024, "minLength": 1, "type": "string" }
+            "Prefix": { "maxLength": 700, "minLength": 1, "type": "string" }
           },
           "required": ["BucketName"],
           "type": "object"

@@ -119,7 +119,7 @@ export type ExperimentTemplateExperimentReportConfiguration = {
       BucketName: string;
       /**
        * @minLength `1`
-       * @maxLength `1024`
+       * @maxLength `256`
        */
       Prefix?: string;
     };
@@ -151,7 +151,7 @@ export type ExperimentTemplateLogConfiguration = {
     BucketName: string;
     /**
      * @minLength `1`
-     * @maxLength `1024`
+     * @maxLength `700`
      */
     Prefix?: string;
   };
