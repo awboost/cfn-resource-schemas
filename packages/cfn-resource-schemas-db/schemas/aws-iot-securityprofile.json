@@ -1,5 +1,5 @@
 {
-  "$hash": "dea1145663be616c37ab8aff63e47c5e7fcb5007",
+  "$hash": "6cbdf975d4546de7d03a92aa6800abd83837ac8b",
   "$id": "aws-iot-securityprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SecurityProfileName"],
@@ -363,5 +363,17 @@
   "readOnlyProperties": ["/properties/SecurityProfileArn"],
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:TagResource",
+      "iot:UntagResource",
+      "iot:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoT::SecurityProfile"
 }

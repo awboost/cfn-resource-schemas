@@ -1,5 +1,5 @@
 {
-  "$hash": "31e2723943347b5e5e698cbb0b535ef82c31f03c",
+  "$hash": "69ef40e1bbc87755a8df44b3c258124a976a69cf",
   "$id": "aws-acmpca-certificateauthority.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -224,7 +224,8 @@
       "permissions": [
         "acm-pca:CreateCertificateAuthority",
         "acm-pca:DescribeCertificateAuthority",
-        "acm-pca:GetCertificateAuthorityCsr"
+        "acm-pca:GetCertificateAuthorityCsr",
+        "acm-pca:TagCertificateAuthority"
       ]
     },
     "delete": {
@@ -319,7 +320,6 @@
   },
   "typeName": "AWS::ACMPCA::CertificateAuthority",
   "writeOnlyProperties": [
-    "/properties/Subject",
     "/properties/Subject",
     "/properties/CsrExtensions",
     "/properties/RevocationConfiguration",

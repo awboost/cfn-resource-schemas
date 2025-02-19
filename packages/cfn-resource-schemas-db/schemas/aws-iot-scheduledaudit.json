@@ -1,5 +1,5 @@
 {
-  "$hash": "d2d51b706b13ee82f05dcb5759d9212bf949389d",
+  "$hash": "7755ac7e05f72737744577ab85f15c15ad848caf",
   "$id": "aws-iot-scheduledaudit.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ScheduledAuditName"],
@@ -99,5 +99,17 @@
   "readOnlyProperties": ["/properties/ScheduledAuditArn"],
   "required": ["Frequency", "TargetCheckNames"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:TagResource",
+      "iot:UntagResource",
+      "iot:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoT::ScheduledAudit"
 }

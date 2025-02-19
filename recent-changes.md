@@ -1,3 +1,13 @@
-- updated `AWS::FIS::ExperimentTemplate`
-  - updated definition `ExperimentTemplateExperimentReportConfiguration`
-  - updated definition `ExperimentTemplateLogConfiguration`
+- updated `AWS::ACMPCA::CertificateAuthority`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::IoT::CustomMetric`
+  - added `tagging`
+- updated `AWS::IoT::Dimension`
+  - added `tagging`
+- updated `AWS::IoT::ScheduledAudit`
+  - added `tagging`
+- updated `AWS::IoT::SecurityProfile`
+  - added `tagging`
+- updated `AWS::ServiceCatalog::CloudFormationProvisionedProduct`
+  - updated handler permissions

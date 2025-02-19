@@ -1,5 +1,5 @@
 {
-  "$hash": "da24f04552db1114d5f93c0ec98b1bf9800e46f8",
+  "$hash": "d1e104296cc27ac9625173c14e0c1d4088a5b968",
   "$id": "aws-iot-custommetric.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MetricName", "/properties/MetricType"],
@@ -81,5 +81,17 @@
   "readOnlyProperties": ["/properties/MetricArn"],
   "required": ["MetricType"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:TagResource",
+      "iot:UntagResource",
+      "iot:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoT::CustomMetric"
 }

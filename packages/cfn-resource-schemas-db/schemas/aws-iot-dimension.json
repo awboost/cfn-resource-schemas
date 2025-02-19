@@ -1,5 +1,5 @@
 {
-  "$hash": "e73e5daaff89bcaa4983dce9af05edca240bd264",
+  "$hash": "cbb60761c12fb0cb288a01d04ac685b3c70a0571",
   "$id": "aws-iot-dimension.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Type"],
@@ -83,5 +83,17 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Type", "StringValues"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:TagResource",
+      "iot:UntagResource",
+      "iot:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoT::Dimension"
 }
