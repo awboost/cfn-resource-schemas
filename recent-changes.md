@@ -1,13 +1,41 @@
-- updated `AWS::ACMPCA::CertificateAuthority`
-  - updated `writeOnlyProperties`
+- removed `AWS::NimbleStudio::LaunchProfile`
+- removed `AWS::NimbleStudio::StreamingImage`
+- removed `AWS::NimbleStudio::Studio`
+- removed `AWS::NimbleStudio::StudioComponent`
+- updated `AWS::Athena::WorkGroup`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::Bedrock::Agent`
+  - added definition `AgentCollaboration`
+  - added definition `AgentCollaborator`
+  - added definition `CustomOrchestration`
+  - added definition `EnabledMemoryTypes`
+  - added definition `FoundationModel`
+  - added definition `MemoryConfiguration`
+  - added definition `MemoryType`
+  - added definition `OrchestrationExecutor`
+  - added definition `OrchestrationType`
+  - added definition `RelayConversationHistory`
+  - added definition `SessionSummaryConfiguration`
+  - added property `AgentCollaboration`
+  - added property `AgentCollaborators`
+  - added property `CustomOrchestration`
+  - added property `MemoryConfiguration`
+  - added property `OrchestrationType`
+  - updated `tagging`
+  - updated definition `PromptConfiguration`
+  - updated definition `PromptType`
   - updated handler permissions
-- updated `AWS::IoT::CustomMetric`
+  - updated property `FoundationModel`
+- updated `AWS::Bedrock::AgentAlias`
+  - updated `tagging`
+- updated `AWS::CloudTrail::Channel`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::CloudTrail::EventDataStore`
   - added `tagging`
-- updated `AWS::IoT::Dimension`
-  - added `tagging`
-- updated `AWS::IoT::ScheduledAudit`
-  - added `tagging`
-- updated `AWS::IoT::SecurityProfile`
-  - added `tagging`
-- updated `AWS::ServiceCatalog::CloudFormationProvisionedProduct`
+- updated `AWS::ControlTower::EnabledControl`
+  - updated handler permissions
+- updated `AWS::ControlTower::LandingZone`
   - updated handler permissions

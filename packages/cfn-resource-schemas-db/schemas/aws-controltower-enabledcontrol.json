@@ -1,5 +1,5 @@
 {
-  "$hash": "4bf3cf900dc0b09e32a9eeddbd59d1d176d753ed",
+  "$hash": "158ea6e9726f7c7abdf4cb878d496374020f9df0",
   "$id": "aws-controltower-enabledcontrol.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -72,7 +72,8 @@
         "organizations:DetachPolicy",
         "organizations:ListPoliciesForTarget",
         "organizations:ListTargetsForPolicy",
-        "organizations:DescribePolicy"
+        "organizations:DescribePolicy",
+        "controltower:ListTagsForResource"
       ],
       "timeoutInMinutes": 720
     },
@@ -89,7 +90,8 @@
         "organizations:DetachPolicy",
         "organizations:ListPoliciesForTarget",
         "organizations:ListTargetsForPolicy",
-        "organizations:DescribePolicy"
+        "organizations:DescribePolicy",
+        "controltower:ListTagsForResource"
       ],
       "timeoutInMinutes": 720
     },
@@ -125,7 +127,8 @@
         "organizations:DetachPolicy",
         "organizations:ListPoliciesForTarget",
         "organizations:ListTargetsForPolicy",
-        "organizations:DescribePolicy"
+        "organizations:DescribePolicy",
+        "controltower:ListTagsForResource"
       ],
       "timeoutInMinutes": 720
     }

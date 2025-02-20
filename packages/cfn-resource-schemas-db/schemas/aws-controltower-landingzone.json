@@ -1,5 +1,5 @@
 {
-  "$hash": "3e60b92a58bd56816fd62232909ee2c1923d8d40",
+  "$hash": "d977b665ae6aedc2db46be4a971bf8e522ad7b9f",
   "$id": "aws-controltower-landingzone.json",
   "additionalProperties": false,
   "definitions": {
@@ -54,6 +54,8 @@
         "sso:GetPeregrineStatus",
         "sso:ListDirectoryAssociations",
         "sso:StartPeregrine",
+        "iam:CreateServiceLinkedRole",
+        "cloudformation:EnableOrganizationsAccess",
         "sso:RegisterRegion"
       ]
     },
@@ -78,8 +80,10 @@
         "organizations:ListRoots",
         "sso:GetPeregrineStatus",
         "sso:ListDirectoryAssociations",
+        "iam:CreateServiceLinkedRole",
         "iam:DeleteRolePolicy",
         "iam:DetachRolePolicy",
+        "cloudformation:EnableOrganizationsAccess",
         "iam:DeleteRole"
       ]
     },
@@ -121,6 +125,8 @@
         "organizations:EnableAWSServiceAccess",
         "organizations:ListRoots",
         "sso:GetPeregrineStatus",
+        "iam:CreateServiceLinkedRole",
+        "cloudformation:EnableOrganizationsAccess",
         "sso:ListDirectoryAssociations",
         "sso:StartPeregrine",
         "sso:RegisterRegion"

@@ -10,6 +10,14 @@ export type BedrockAgentProperties = {
    */
   ActionGroups?: AgentActionGroup[];
   /**
+   * Agent collaboration state
+   */
+  AgentCollaboration?: AgentCollaboration;
+  /**
+   * List of Agent Collaborators
+   */
+  AgentCollaborators?: AgentCollaborator[];
+  /**
    * Name for a resource.
    * @pattern `^([0-9a-zA-Z][_-]?){1,100}$`
    */
@@ -23,6 +31,10 @@ export type BedrockAgentProperties = {
    * Specifies whether to automatically prepare after creating or updating the agent.
    */
   AutoPrepare?: boolean;
+  /**
+   * Structure for custom orchestration
+   */
+  CustomOrchestration?: CustomOrchestration;
   /**
    * A KMS key ARN
    * @minLength `1`
@@ -62,6 +74,14 @@ export type BedrockAgentProperties = {
    * List of Agent Knowledge Bases
    */
   KnowledgeBases?: AgentKnowledgeBase[];
+  /**
+   * Configuration for memory storage
+   */
+  MemoryConfiguration?: MemoryConfiguration;
+  /**
+   * Types of orchestration strategy for agents
+   */
+  OrchestrationType?: OrchestrationType;
   /**
    * Configuration for prompt override.
    */
@@ -206,6 +226,44 @@ export type AgentActionGroup = {
   SkipResourceInUseCheckOnDelete?: boolean;
 };
 /**
+ * Type definition for `AWS::Bedrock::Agent.AgentCollaboration`.
+ * Agent collaboration state
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentcollaboration.html}
+ */
+export type AgentCollaboration =
+  | "DISABLED"
+  | "SUPERVISOR"
+  | "SUPERVISOR_ROUTER";
+/**
+ * Type definition for `AWS::Bedrock::Agent.AgentCollaborator`.
+ * Agent Collaborator
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentcollaborator.html}
+ */
+export type AgentCollaborator = {
+  /**
+   * Agent descriptor for agent collaborator
+   */
+  AgentDescriptor: {
+    /**
+     * Alias ARN for agent descriptor
+     * @pattern `^arn:aws(|-cn|-us-gov):bedrock:[a-z0-9-]{1,20}:[0-9]{12}:agent-alias/[0-9a-zA-Z]{10}/[0-9a-zA-Z]{10}$`
+     */
+    AliasArn?: string;
+  };
+  /**
+   * Agent collaborator instruction
+   */
+  CollaborationInstruction: string;
+  /**
+   * Agent collaborator name
+   */
+  CollaboratorName: string;
+  /**
+   * Relay conversation history state
+   */
+  RelayConversationHistory?: RelayConversationHistory;
+};
+/**
  * Type definition for `AWS::Bedrock::Agent.AgentKnowledgeBase`.
  * Agent Knowledge Base
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentknowledgebase.html}
@@ -271,6 +329,17 @@ export type CreationMode = "DEFAULT" | "OVERRIDDEN";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-customcontrolmethod.html}
  */
 export type CustomControlMethod = "RETURN_CONTROL";
+/**
+ * Type definition for `AWS::Bedrock::Agent.CustomOrchestration`.
+ * Structure for custom orchestration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-customorchestration.html}
+ */
+export type CustomOrchestration = {
+  /**
+   * Types of executors for custom orchestration strategy
+   */
+  Executor?: OrchestrationExecutor;
+};
 /**
  * Type definition for `AWS::Bedrock::Agent.Function`.
  * Function definition
@@ -370,6 +439,50 @@ export type InferenceConfiguration = {
  */
 export type KnowledgeBaseState = "ENABLED" | "DISABLED";
 /**
+ * Type definition for `AWS::Bedrock::Agent.MemoryConfiguration`.
+ * Configuration for memory storage
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-memoryconfiguration.html}
+ */
+export type MemoryConfiguration = {
+  /**
+   * Types of session storage persisted in memory
+   */
+  EnabledMemoryTypes?: MemoryType[];
+  /**
+   * Configuration for Session Summarization
+   */
+  SessionSummaryConfiguration?: SessionSummaryConfiguration;
+  /**
+   * Maximum number of days to store session details
+   */
+  StorageDays?: number;
+};
+/**
+ * Type definition for `AWS::Bedrock::Agent.MemoryType`.
+ * Memory type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-memorytype.html}
+ */
+export type MemoryType = "SESSION_SUMMARY";
+/**
+ * Type definition for `AWS::Bedrock::Agent.OrchestrationExecutor`.
+ * Types of executors for custom orchestration strategy
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-orchestrationexecutor.html}
+ */
+export type OrchestrationExecutor = {
+  /**
+   * ARN of a Lambda.
+   * @maxLength `2048`
+   * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_\.]+(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+   */
+  Lambda: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::Agent.OrchestrationType`.
+ * Types of orchestration strategy for agents
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-orchestrationtype.html}
+ */
+export type OrchestrationType = "DEFAULT" | "CUSTOM_ORCHESTRATION";
+/**
  * Type definition for `AWS::Bedrock::Agent.ParameterDetail`.
  * Parameter detail
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-parameterdetail.html}
@@ -408,6 +521,13 @@ export type PromptConfiguration = {
    * @maxLength `100000`
    */
   BasePromptTemplate?: string;
+  /**
+   * ARN or name of a Bedrock model.
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}(([:][a-z0-9-]{1,63}){0,2})?/[a-z0-9]{12})|(:foundation-model/([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2}))|([0-9]{12}:(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+))|(([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2}))|(([0-9a-zA-Z][_-]?)+)$`
+   */
+  FoundationModel?: string;
   /**
    * Configuration for inference in prompt configuration
    */
@@ -462,7 +582,15 @@ export type PromptType =
   | "PRE_PROCESSING"
   | "ORCHESTRATION"
   | "POST_PROCESSING"
+  | "ROUTING_CLASSIFIER"
+  | "MEMORY_SUMMARIZATION"
   | "KNOWLEDGE_BASE_RESPONSE_GENERATION";
+/**
+ * Type definition for `AWS::Bedrock::Agent.RelayConversationHistory`.
+ * Relay conversation history state
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-relayconversationhistory.html}
+ */
+export type RelayConversationHistory = "TO_COLLABORATOR" | "DISABLED";
 /**
  * Type definition for `AWS::Bedrock::Agent.RequireConfirmation`.
  * ENUM to check if action requires user confirmation
@@ -489,6 +617,17 @@ export type S3Identifier = {
    * @pattern `^[\.\-\!\*\_\'\(\)a-zA-Z0-9][\.\-\!\*\_\'\(\)\/a-zA-Z0-9]*$`
    */
   S3ObjectKey?: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::Agent.SessionSummaryConfiguration`.
+ * Configuration for Session Summarization
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-sessionsummaryconfiguration.html}
+ */
+export type SessionSummaryConfiguration = {
+  /**
+   * Maximum number of Sessions to Summarize
+   */
+  MaxRecentSessions?: number;
 };
 /**
  * Type definition for `AWS::Bedrock::Agent.TagsMap`.
