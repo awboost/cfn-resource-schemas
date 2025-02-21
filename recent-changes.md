@@ -1,41 +1,29 @@
-- removed `AWS::NimbleStudio::LaunchProfile`
-- removed `AWS::NimbleStudio::StreamingImage`
-- removed `AWS::NimbleStudio::Studio`
-- removed `AWS::NimbleStudio::StudioComponent`
-- updated `AWS::Athena::WorkGroup`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::Bedrock::Agent`
-  - added definition `AgentCollaboration`
-  - added definition `AgentCollaborator`
-  - added definition `CustomOrchestration`
-  - added definition `EnabledMemoryTypes`
-  - added definition `FoundationModel`
-  - added definition `MemoryConfiguration`
-  - added definition `MemoryType`
-  - added definition `OrchestrationExecutor`
-  - added definition `OrchestrationType`
-  - added definition `RelayConversationHistory`
-  - added definition `SessionSummaryConfiguration`
-  - added property `AgentCollaboration`
-  - added property `AgentCollaborators`
-  - added property `CustomOrchestration`
-  - added property `MemoryConfiguration`
-  - added property `OrchestrationType`
-  - updated `tagging`
-  - updated definition `PromptConfiguration`
-  - updated definition `PromptType`
-  - updated handler permissions
-  - updated property `FoundationModel`
-- updated `AWS::Bedrock::AgentAlias`
-  - updated `tagging`
 - updated `AWS::CloudTrail::Channel`
-  - removed `writeOnlyProperties`
+  - added `writeOnlyProperties`
   - updated `tagging`
   - updated handler permissions
 - updated `AWS::CloudTrail::EventDataStore`
-  - added `tagging`
-- updated `AWS::ControlTower::EnabledControl`
-  - updated handler permissions
-- updated `AWS::ControlTower::LandingZone`
-  - updated handler permissions
+  - removed `tagging`
+- updated `AWS::MediaPackageV2::Channel`
+  - added definition `InputSwitchConfiguration`
+  - added definition `OutputHeaderConfiguration`
+  - added property `InputSwitchConfiguration`
+  - added property `OutputHeaderConfiguration`
+- updated `AWS::QBusiness::DataSource`
+  - updated `tagging`
+- updated `AWS::QBusiness::Index`
+  - updated `tagging`
+- updated `AWS::QBusiness::Retriever`
+  - updated `tagging`
+- updated `AWS::QBusiness::WebExperience`
+  - updated `tagging`
+- updated `AWS::S3::AccessGrantsInstance`
+  - removed `writeOnlyProperties`
+- updated `AWS::Wisdom::AIAgent`
+  - added definition `SessionSummarizationAIAgentConfiguration`
+  - updated definition `AIAgentConfiguration`
+  - updated definition `AIAgentType`
+  - updated definition `AnswerRecommendationAIAgentConfiguration`
+  - updated definition `ManualSearchAIAgentConfiguration`
+- updated `AWS::Wisdom::AIPrompt`
+  - updated definition `AIPromptType`

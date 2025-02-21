@@ -62,6 +62,9 @@ export type AIAgentConfiguration =
     }
   | {
       SelfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration;
+    }
+  | {
+      SessionSummarizationAIAgentConfiguration: SessionSummarizationAIAgentConfiguration;
     };
 /**
  * Type definition for `AWS::Wisdom::AIAgent.AIAgentType`.
@@ -70,7 +73,8 @@ export type AIAgentConfiguration =
 export type AIAgentType =
   | "MANUAL_SEARCH"
   | "ANSWER_RECOMMENDATION"
-  | "SELF_SERVICE";
+  | "SELF_SERVICE"
+  | "SESSION_SUMMARIZATION";
 /**
  * Type definition for `AWS::Wisdom::AIAgent.AnswerRecommendationAIAgentConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html}
@@ -89,6 +93,10 @@ export type AnswerRecommendationAIAgentConfiguration = {
    * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
    */
   IntentLabelingGenerationAIPromptId?: string;
+  /**
+   * @minLength `1`
+   */
+  Locale?: string;
   /**
    * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
    */
@@ -145,6 +153,10 @@ export type ManualSearchAIAgentConfiguration = {
    */
   AnswerGenerationAIPromptId?: string;
   AssociationConfigurations?: AssociationConfiguration[];
+  /**
+   * @minLength `1`
+   */
+  Locale?: string;
 };
 /**
  * Type definition for `AWS::Wisdom::AIAgent.OrCondition`.
@@ -175,6 +187,20 @@ export type SelfServiceAIAgentConfiguration = {
    * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
    */
   SelfServicePreProcessingAIPromptId?: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.SessionSummarizationAIAgentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-sessionsummarizationaiagentconfiguration.html}
+ */
+export type SessionSummarizationAIAgentConfiguration = {
+  /**
+   * @minLength `1`
+   */
+  Locale?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  SessionSummarizationAIPromptId?: string;
 };
 /**
  * Type definition for `AWS::Wisdom::AIAgent.TagCondition`.

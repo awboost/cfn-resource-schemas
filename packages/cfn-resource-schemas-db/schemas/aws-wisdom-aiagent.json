@@ -1,5 +1,5 @@
 {
-  "$hash": "9e38cde462280de8a91982648bb8d4f5dfd7f238",
+  "$hash": "811c592164d7c3dd9d51d8677bab1d0090be2a11",
   "$id": "aws-wisdom-aiagent.json",
   "additionalIdentifiers": [
     ["/properties/AIAgentArn", "/properties/AssistantArn"]
@@ -50,11 +50,27 @@
           "required": ["SelfServiceAIAgentConfiguration"],
           "title": "SelfServiceAIAgentConfiguration",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "SessionSummarizationAIAgentConfiguration": {
+              "$ref": "#/definitions/SessionSummarizationAIAgentConfiguration"
+            }
+          },
+          "required": ["SessionSummarizationAIAgentConfiguration"],
+          "title": "SessionSummarizationAIAgentConfiguration",
+          "type": "object"
         }
       ]
     },
     "AIAgentType": {
-      "enum": ["MANUAL_SEARCH", "ANSWER_RECOMMENDATION", "SELF_SERVICE"],
+      "enum": [
+        "MANUAL_SEARCH",
+        "ANSWER_RECOMMENDATION",
+        "SELF_SERVICE",
+        "SESSION_SUMMARIZATION"
+      ],
       "type": "string"
     },
     "AnswerRecommendationAIAgentConfiguration": {
@@ -76,6 +92,7 @@
           "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
           "type": "string"
         },
+        "Locale": { "minLength": 1, "type": "string" },
         "QueryReformulationAIPromptId": {
           "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
           "type": "string"
@@ -143,7 +160,8 @@
         "AssociationConfigurations": {
           "items": { "$ref": "#/definitions/AssociationConfiguration" },
           "type": "array"
-        }
+        },
+        "Locale": { "minLength": 1, "type": "string" }
       },
       "type": "object"
     },
@@ -188,6 +206,17 @@
           "type": "string"
         },
         "SelfServicePreProcessingAIPromptId": {
+          "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SessionSummarizationAIAgentConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Locale": { "minLength": 1, "type": "string" },
+        "SessionSummarizationAIPromptId": {
           "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$",
           "type": "string"
         }

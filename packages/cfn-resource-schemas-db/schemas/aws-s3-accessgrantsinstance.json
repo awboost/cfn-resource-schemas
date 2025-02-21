@@ -1,5 +1,5 @@
 {
-  "$hash": "9ef0c195f9bfdd0522cf535f006cc58fa7bd20eb",
+  "$hash": "ffd5350fae3865e40b59bdfc6adebaa93ca33702",
   "$id": "aws-s3-accessgrantsinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
@@ -75,6 +75,5 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::S3::AccessGrantsInstance",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "typeName": "AWS::S3::AccessGrantsInstance"
 }

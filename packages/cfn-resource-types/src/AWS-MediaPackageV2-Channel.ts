@@ -24,7 +24,15 @@ export type MediaPackageV2ChannelProperties = {
    * @maxLength `1024`
    */
   Description?: string;
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration;
   InputType?: InputType;
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration;
   Tags?: Tag[];
 };
 /**
@@ -75,10 +83,32 @@ export type IngestEndpoint = {
   Url?: string;
 };
 /**
+ * Type definition for `AWS::MediaPackageV2::Channel.InputSwitchConfiguration`.
+ * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-inputswitchconfiguration.html}
+ */
+export type InputSwitchConfiguration = {
+  /**
+   * <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   */
+  MQCSInputSwitching?: boolean;
+};
+/**
  * Type definition for `AWS::MediaPackageV2::Channel.InputType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-inputtype.html}
  */
 export type InputType = "HLS" | "CMAF";
+/**
+ * Type definition for `AWS::MediaPackageV2::Channel.OutputHeaderConfiguration`.
+ * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-outputheaderconfiguration.html}
+ */
+export type OutputHeaderConfiguration = {
+  /**
+   * <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   */
+  PublishMQCS?: boolean;
+};
 /**
  * Type definition for `AWS::MediaPackageV2::Channel.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-tag.html}

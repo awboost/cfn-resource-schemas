@@ -1,5 +1,5 @@
 {
-  "$hash": "3d2ebaeab34669dc0fa6d946e14a6e26ab0ecb19",
+  "$hash": "8066029ef2c9d91245a60bbccf7df3f521eb35fd",
   "$id": "aws-cloudtrail-eventdatastore.json",
   "additionalProperties": false,
   "definitions": {
@@ -317,17 +317,5 @@
   ],
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudtrail.git",
-  "tagging": {
-    "cloudFormationSystemTags": false,
-    "permissions": [
-      "CloudTrail:AddTags",
-      "CloudTrail:RemoveTags",
-      "CloudTrail:ListTags"
-    ],
-    "tagOnCreate": true,
-    "tagProperty": "/properties/Tags",
-    "tagUpdatable": true,
-    "taggable": true
-  },
   "typeName": "AWS::CloudTrail::EventDataStore"
 }
