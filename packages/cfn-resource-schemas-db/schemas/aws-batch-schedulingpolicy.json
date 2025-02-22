@@ -1,5 +1,5 @@
 {
-  "$hash": "438c0fd49a37df8b110a71cf787f6dc0dd8390d9",
+  "$hash": "7f0b4ff047b8dfd787d506b70bb126e262b48197",
   "$id": "aws-batch-schedulingpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -84,6 +84,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-batch.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["Batch:TagResource", "Batch:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,

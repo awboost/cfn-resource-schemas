@@ -1,29 +1,14 @@
-- updated `AWS::CloudTrail::Channel`
-  - added `writeOnlyProperties`
+- updated `AWS::Batch::SchedulingPolicy`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::CloudTrail::EventDataStore`
-  - removed `tagging`
-- updated `AWS::MediaPackageV2::Channel`
-  - added definition `InputSwitchConfiguration`
-  - added definition `OutputHeaderConfiguration`
-  - added property `InputSwitchConfiguration`
-  - added property `OutputHeaderConfiguration`
-- updated `AWS::QBusiness::DataSource`
-  - updated `tagging`
-- updated `AWS::QBusiness::Index`
-  - updated `tagging`
-- updated `AWS::QBusiness::Retriever`
-  - updated `tagging`
-- updated `AWS::QBusiness::WebExperience`
+- updated `AWS::Connect::TaskTemplate`
   - updated `tagging`
 - updated `AWS::S3::AccessGrantsInstance`
-  - removed `writeOnlyProperties`
-- updated `AWS::Wisdom::AIAgent`
-  - added definition `SessionSummarizationAIAgentConfiguration`
-  - updated definition `AIAgentConfiguration`
-  - updated definition `AIAgentType`
-  - updated definition `AnswerRecommendationAIAgentConfiguration`
-  - updated definition `ManualSearchAIAgentConfiguration`
-- updated `AWS::Wisdom::AIPrompt`
-  - updated definition `AIPromptType`
+  - updated handler permissions
+- updated `AWS::S3::BucketPolicy`
+- updated `AWS::WorkSpacesWeb::UserSettings`
+  - added definition `MaxDisplayResolution`
+  - added definition `ToolbarConfiguration`
+  - added definition `ToolbarItem`
+  - added definition `ToolbarType`
+  - added definition `VisualMode`
+  - added property `ToolbarConfiguration`

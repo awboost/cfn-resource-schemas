@@ -1,5 +1,5 @@
 {
-  "$hash": "ffd5350fae3865e40b59bdfc6adebaa93ca33702",
+  "$hash": "afed9c503a0296afdb9c7910ad60c736f0f0b7c9",
   "$id": "aws-s3-accessgrantsinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
@@ -25,9 +25,19 @@
   "description": "The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations",
   "handlers": {
     "create": {
-      "permissions": ["s3:CreateAccessGrantsInstance", "s3:TagResource"]
+      "permissions": [
+        "s3:CreateAccessGrantsInstance",
+        "s3:AssociateAccessGrantsIdentityCenter",
+        "s3:TagResource"
+      ]
     },
-    "delete": { "permissions": ["s3:DeleteAccessGrantsInstance"] },
+    "delete": {
+      "permissions": [
+        "s3:GetAccessGrantsInstance",
+        "s3:DeleteAccessGrantsInstance",
+        "s3:DissociateAccessGrantsIdentityCenter"
+      ]
+    },
     "list": { "permissions": ["s3:ListAccessGrantsInstances"] },
     "read": {
       "permissions": ["s3:GetAccessGrantsInstance", "s3:ListTagsForResource"]

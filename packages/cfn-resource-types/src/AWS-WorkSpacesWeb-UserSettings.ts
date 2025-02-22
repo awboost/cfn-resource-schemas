@@ -33,6 +33,7 @@ export type WorkSpacesWebUserSettingsProperties = {
    * @maxLength `200`
    */
   Tags?: Tag[];
+  ToolbarConfiguration?: ToolbarConfiguration;
   UploadAllowed: EnabledType;
 };
 /**
@@ -98,6 +99,19 @@ export type EnabledType = "Disabled" | "Enabled";
  */
 export type EncryptionContextMap = Record<string, string>;
 /**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.MaxDisplayResolution`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-maxdisplayresolution.html}
+ */
+export type MaxDisplayResolution =
+  | "size4096X2160"
+  | "size3840X2160"
+  | "size3440X1440"
+  | "size2560X1440"
+  | "size1920X1080"
+  | "size1280X720"
+  | "size1024X768"
+  | "size800X600";
+/**
  * Type definition for `AWS::WorkSpacesWeb::UserSettings.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-tag.html}
  */
@@ -115,6 +129,36 @@ export type Tag = {
    */
   Value: string;
 };
+/**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.ToolbarConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-toolbarconfiguration.html}
+ */
+export type ToolbarConfiguration = {
+  HiddenToolbarItems?: ToolbarItem[];
+  MaxDisplayResolution?: MaxDisplayResolution;
+  ToolbarType?: ToolbarType;
+  VisualMode?: VisualMode;
+};
+/**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.ToolbarItem`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-toolbaritem.html}
+ */
+export type ToolbarItem =
+  | "Windows"
+  | "DualMonitor"
+  | "FullScreen"
+  | "Webcam"
+  | "Microphone";
+/**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.ToolbarType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-toolbartype.html}
+ */
+export type ToolbarType = "Floating" | "Docked";
+/**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.VisualMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-visualmode.html}
+ */
+export type VisualMode = "Dark" | "Light";
 /**
  * Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html}
