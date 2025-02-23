@@ -172,6 +172,7 @@ export type ManagedInstanceScaling = {
 export type ProductionVariant = {
   ContainerStartupHealthCheckTimeoutInSeconds?: number;
   EnableSSMAccess?: boolean;
+  InferenceAmiVersion?: string;
   InitialInstanceCount?: number;
   InitialVariantWeight?: number;
   InstanceType?: string;

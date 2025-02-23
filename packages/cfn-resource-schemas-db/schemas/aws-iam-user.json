@@ -1,5 +1,5 @@
 {
-  "$hash": "365700dafcd571c66d45474f31c05429631a63f1",
+  "$hash": "d028820f3dd717849b4c8fff81aeac6958800d4d",
   "$id": "aws-iam-user.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserName"],
@@ -165,6 +165,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iam.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["iam:TagUser", "iam:UntagUser", "iam:ListUserTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

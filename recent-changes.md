@@ -1,14 +1,11 @@
-- updated `AWS::Batch::SchedulingPolicy`
-  - updated `tagging`
-- updated `AWS::Connect::TaskTemplate`
-  - updated `tagging`
-- updated `AWS::S3::AccessGrantsInstance`
+- added `AWS::GuardDuty::PublishingDestination`
+- updated `AWS::EC2::CarrierGateway`
   - updated handler permissions
-- updated `AWS::S3::BucketPolicy`
-- updated `AWS::WorkSpacesWeb::UserSettings`
-  - added definition `MaxDisplayResolution`
-  - added definition `ToolbarConfiguration`
-  - added definition `ToolbarItem`
-  - added definition `ToolbarType`
-  - added definition `VisualMode`
-  - added property `ToolbarConfiguration`
+- updated `AWS::IAM::User`
+  - updated `tagging`
+- updated `AWS::Lambda::Function`
+  - updated `createOnlyProperties`
+  - updated definition `Code`
+  - updated property `KmsKeyArn`
+- updated `AWS::SageMaker::EndpointConfig`
+  - updated definition `ProductionVariant`

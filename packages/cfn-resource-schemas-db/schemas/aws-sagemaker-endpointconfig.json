@@ -1,5 +1,5 @@
 {
-  "$hash": "462630e2723bebf6ab7eea4a64321ef68861bc27",
+  "$hash": "a2977a3bc1bd055c85bd5359faf37dfe098f26c6",
   "$id": "aws-sagemaker-endpointconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -197,6 +197,7 @@
       "properties": {
         "ContainerStartupHealthCheckTimeoutInSeconds": { "type": "integer" },
         "EnableSSMAccess": { "type": "boolean" },
+        "InferenceAmiVersion": { "type": "string" },
         "InitialInstanceCount": { "type": "integer" },
         "InitialVariantWeight": { "type": "number" },
         "InstanceType": { "type": "string" },

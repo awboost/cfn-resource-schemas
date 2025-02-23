@@ -2,7 +2,7 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::CarrierGateway`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html}
  */
 export type EC2CarrierGatewayProperties = {
@@ -53,7 +53,7 @@ export type Tag = {
 };
 /**
  * Resource type definition for `AWS::EC2::CarrierGateway`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html}
  */
 export class EC2CarrierGateway extends $Resource<

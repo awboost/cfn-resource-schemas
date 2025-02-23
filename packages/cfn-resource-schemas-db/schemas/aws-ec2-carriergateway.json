@@ -1,5 +1,5 @@
 {
-  "$hash": "d1cff4b08ed69eb95646e42185842a7d1da5923a",
+  "$hash": "17936877a9d804a9c502d044754de7c66450d683",
   "$id": "aws-ec2-carriergateway.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId"],
@@ -29,7 +29,7 @@
       "uniqueItems": true
     }
   },
-  "description": "An example resource schema demonstrating some basic constructs and validation rules.",
+  "description": "Resource Type definition for Carrier Gateway which describes the Carrier Gateway resource",
   "handlers": {
     "create": {
       "permissions": [
@@ -39,7 +39,11 @@
       ]
     },
     "delete": {
-      "permissions": ["ec2:DeleteCarrierGateway", "ec2:DescribeCarrierGateways"]
+      "permissions": [
+        "ec2:DeleteCarrierGateway",
+        "ec2:DescribeCarrierGateways",
+        "ec2:DeleteTags"
+      ]
     },
     "list": { "permissions": ["ec2:DescribeCarrierGateways"] },
     "read": {
