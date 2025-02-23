@@ -1,6 +1,6 @@
 {
   "name": "@awboost/cfntypes",
-  "version": "0.100.124",
+  "version": "0.100.125",
   "type": "module",
   "publishConfig": {
     "access": "public"
