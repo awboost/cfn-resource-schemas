@@ -1,11 +1,2 @@
-- added `AWS::GuardDuty::PublishingDestination`
-- updated `AWS::EC2::CarrierGateway`
-  - updated handler permissions
-- updated `AWS::IAM::User`
+- updated `AWS::SSO::PermissionSet`
   - updated `tagging`
-- updated `AWS::Lambda::Function`
-  - updated `createOnlyProperties`
-  - updated definition `Code`
-  - updated property `KmsKeyArn`
-- updated `AWS::SageMaker::EndpointConfig`
-  - updated definition `ProductionVariant`

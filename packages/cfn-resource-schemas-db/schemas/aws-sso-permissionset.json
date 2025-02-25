@@ -1,5 +1,5 @@
 {
-  "$hash": "34379746ad50417be1c408cf83f7e7e11f4ab14f",
+  "$hash": "97900aeebd7acb8acd2961c80c21a11b50a5086b",
   "$id": "aws-sso-permissionset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceArn", "/properties/Name"],
@@ -191,6 +191,8 @@
   "required": ["Name", "InstanceArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sso/aws-sso-permissionset",
   "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["sso:TagResource", "sso:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
