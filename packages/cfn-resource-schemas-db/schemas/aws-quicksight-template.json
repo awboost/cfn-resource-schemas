@@ -1,5 +1,5 @@
 {
-  "$hash": "9e45d03555dddfade4b909b6e88b5ab96e012fff",
+  "$hash": "c4410bff2e35d507f13279669877e38d6e0187ef",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -1372,6 +1372,7 @@
       "required": ["CustomValues"],
       "type": "object"
     },
+    "DashboardBehavior": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
     "DataBarsOptions": {
       "additionalProperties": false,
       "properties": {
@@ -3677,7 +3678,9 @@
     },
     "ImageMenuOption": {
       "additionalProperties": false,
-      "properties": { "AvailabilityStatus": {} },
+      "properties": {
+        "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
+      },
       "type": "object"
     },
     "ImageStaticFile": {
@@ -4589,7 +4592,9 @@
         "THOUSANDS",
         "MILLIONS",
         "BILLIONS",
-        "TRILLIONS"
+        "TRILLIONS",
+        "LAKHS",
+        "CRORES"
       ],
       "type": "string"
     },
@@ -6508,12 +6513,6 @@
       "additionalProperties": false,
       "description": "<p>A <i>sheet</i>, which is an object that contains a set of visuals that\n            are viewed together on one page in Amazon QuickSight. Every analysis and dashboard\n            contains at least one sheet. Each sheet contains at least one visualization widget, for\n            example a chart, pivot table, or narrative insight. Sheets can be associated with other\n            components, such as controls, filters, and so on.</p>",
       "properties": {
-        "Images": {
-          "items": { "$ref": "#/definitions/SheetImage" },
-          "maxItems": 10,
-          "minItems": 0,
-          "type": "array"
-        },
         "Name": {
           "description": "<p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight\n            console.</p>",
           "maxLength": 2048,
@@ -8091,6 +8090,11 @@
       "enum": ["DATA_POINT_CLICK", "DATA_POINT_MENU"],
       "type": "string"
     },
+    "VisualInteractionOptions": {
+      "additionalProperties": false,
+      "properties": { "ContextMenuOption": {}, "VisualMenuOption": {} },
+      "type": "object"
+    },
     "VisualPalette": {
       "additionalProperties": false,
       "properties": {
@@ -8513,6 +8517,18 @@
   ],
   "required": ["AwsAccountId", "TemplateId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "quicksight:TagResource",
+      "quicksight:UntagResource",
+      "quicksight:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::QuickSight::Template",
   "writeOnlyProperties": [
     "/properties/Definition",

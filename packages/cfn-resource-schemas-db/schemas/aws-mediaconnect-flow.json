@@ -1,5 +1,5 @@
 {
-  "$hash": "b810706453beccf5bf10e13815718222fceaf4fd",
+  "$hash": "54f9b2d779f5c85023039ab16975a2193bbb8cab",
   "$id": "aws-mediaconnect-flow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -532,9 +532,25 @@
   },
   "description": "Resource schema for AWS::MediaConnect::Flow",
   "handlers": {
-    "create": { "permissions": ["mediaconnect:CreateFlow", "iam:PassRole"] },
+    "create": {
+      "permissions": [
+        "mediaconnect:CreateFlow",
+        "mediaconnect:AddFlowMediaStreams",
+        "mediaconnect:AddFlowSources",
+        "mediaconnect:AddFlowVpcInterfaces",
+        "iam:PassRole"
+      ]
+    },
     "delete": {
-      "permissions": ["mediaconnect:DescribeFlow", "mediaconnect:DeleteFlow"]
+      "permissions": [
+        "mediaconnect:DescribeFlow",
+        "mediaconnect:DeleteFlow",
+        "mediaconnect:RemoveFlowMediaStream",
+        "mediaconnect:RemoveFlowOutput",
+        "mediaconnect:RemoveFlowSource",
+        "mediaconnect:RemoveFlowVpcInterface",
+        "mediaconnect:RevokeFlowEntitlement"
+      ]
     },
     "list": { "permissions": ["mediaconnect:ListFlows"] },
     "read": { "permissions": ["mediaconnect:DescribeFlow"] },

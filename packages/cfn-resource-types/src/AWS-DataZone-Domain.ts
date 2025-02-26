@@ -16,6 +16,10 @@ export type DataZoneDomainProperties = {
    */
   DomainExecutionRole: string;
   /**
+   * The version of the domain.
+   */
+  DomainVersion?: "V1" | "V2";
+  /**
    * The identifier of the AWS Key Management Service (KMS) key that is used to encrypt the Amazon DataZone domain, metadata, and reporting data.
    * @minLength `1`
    * @maxLength `1024`
@@ -26,6 +30,11 @@ export type DataZoneDomainProperties = {
    * The name of the Amazon DataZone domain.
    */
   Name: string;
+  /**
+   * The service role of the domain that is created.
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]*$`
+   */
+  ServiceRole?: string;
   /**
    * The single-sign on configuration of the Amazon DataZone domain.
    */

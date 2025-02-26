@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html}
  */
 export type BatchJobDefinitionProperties = {
+  ConsumableResourceProperties?: ConsumableResourceProperties;
   ContainerProperties?: ContainerProperties;
   EcsProperties?: EcsProperties;
   EksProperties?: EksProperties;
@@ -24,6 +25,25 @@ export type BatchJobDefinitionProperties = {
   Tags?: Record<string, string>;
   Timeout?: JobTimeout;
   Type: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.ConsumableResourceProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-consumableresourceproperties.html}
+ */
+export type ConsumableResourceProperties = {
+  ConsumableResourceList: ConsumableResourceRequirement[];
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.ConsumableResourceRequirement`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-consumableresourcerequirement.html}
+ */
+export type ConsumableResourceRequirement = {
+  /**
+   * The ARN of the consumable resource the job definition should consume.
+   * @pattern `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`
+   */
+  ConsumableResource: string;
+  Quantity: number;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.ContainerProperties`.
@@ -375,6 +395,7 @@ export type NodeProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html}
  */
 export type NodeRangeProperty = {
+  ConsumableResourceProperties?: ConsumableResourceProperties;
   Container?: MultiNodeContainerProperties;
   EcsProperties?: MultiNodeEcsProperties;
   EksProperties?: EksProperties;

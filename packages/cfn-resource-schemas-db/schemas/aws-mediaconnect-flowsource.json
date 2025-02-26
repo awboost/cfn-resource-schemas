@@ -1,5 +1,5 @@
 {
-  "$hash": "75cbf748e8ec1513382ce292847b2c6fe55cd0b0",
+  "$hash": "e49f8d4bf4ae84d13bd0c71300d74b1282765248",
   "$id": "aws-mediaconnect-flowsource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -95,7 +95,9 @@
         "mediaconnect:RemoveFlowSource"
       ]
     },
-    "list": { "permissions": ["mediaconnect:DescribeFlow"] },
+    "list": {
+      "permissions": ["mediaconnect:DescribeFlow", "mediaconnect:ListFlows"]
+    },
     "read": { "permissions": ["mediaconnect:DescribeFlow"] },
     "update": {
       "permissions": [

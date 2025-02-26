@@ -1,5 +1,5 @@
 {
-  "$hash": "889081947c249528c28715dd43dd832d598bc1c2",
+  "$hash": "9634df9eb6a6fb801a6ea871139be884a34febe1",
   "$id": "aws-quicksight-theme.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/ThemeId"],
@@ -428,10 +428,17 @@
     "Name"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
-  "typeName": "AWS::QuickSight::Theme",
-  "writeOnlyProperties": [
-    "/properties/BaseThemeId",
-    "/properties/Configuration",
-    "/properties/VersionDescription"
-  ]
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "quicksight:TagResource",
+      "quicksight:UntagResource",
+      "quicksight:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::QuickSight::Theme"
 }

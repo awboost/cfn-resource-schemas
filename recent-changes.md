@@ -1,2 +1,60 @@
-- updated `AWS::SSO::PermissionSet`
+- added `AWS::Batch::ConsumableResource`
+- updated `AWS::Batch::JobDefinition`
+  - added definition `ConsumableResourceProperties`
+  - added definition `ConsumableResourceRequirement`
+  - added property `ConsumableResourceProperties`
+  - updated definition `NodeRangeProperty`
+- updated `AWS::DataZone::Domain`
+  - added property `DomainVersion`
+  - added property `ServiceRole`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - updated definition `EncryptionConfiguration`
+  - updated definition `Tag`
+  - updated property `AppliedFor`
+  - updated property `CreatedAt`
+  - updated property `CustomRoleArn`
+  - updated property `Description`
+  - updated property `EncryptionConfiguration`
+  - updated property `ImageTagMutability`
+  - updated property `LifecyclePolicy`
+  - updated property `Prefix`
+  - updated property `RepositoryPolicy`
+  - updated property `ResourceTags`
+  - updated property `UpdatedAt`
+- updated `AWS::MWAA::Environment`
   - updated `tagging`
+- updated `AWS::MediaConnect::Flow`
+  - updated handler permissions
+- updated `AWS::MediaConnect::FlowEntitlement`
+  - updated handler permissions
+- updated `AWS::MediaConnect::FlowOutput`
+  - updated handler permissions
+- updated `AWS::MediaConnect::FlowSource`
+  - updated handler permissions
+- updated `AWS::PCAConnectorAD::Connector`
+  - added definition `Unit`
+  - updated definition `VpcInformation`
+  - updated property `CertificateAuthorityArn`
+  - updated property `ConnectorArn`
+- updated `AWS::QuickSight::Template`
+  - added `tagging`
+  - added definition `DashboardBehavior`
+  - added definition `VisualInteractionOptions`
+  - updated definition `ImageMenuOption`
+  - updated definition `NumberScale`
+  - updated definition `Sheet`
+- updated `AWS::QuickSight::Theme`
+  - added `tagging`
+  - removed `writeOnlyProperties`
+- updated `AWS::SSO::Instance`
+  - updated `tagging`
+- updated `AWS::SecurityHub::AutomationRule`
+  - updated `tagging`
+- updated `AWS::Wisdom::AIAgent`
+  - removed definition `SessionSummarizationAIAgentConfiguration`
+  - updated definition `AIAgentConfiguration`
+  - updated definition `AIAgentType`
+- updated `AWS::Wisdom::AIPrompt`
+  - updated definition `AIPromptType`
