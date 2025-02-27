@@ -143,154 +143,6 @@ export type QuickSightDashboardAttributes = {
      */
     Sheets: {
       /**
-       * @minLength `0`
-       * @maxLength `10`
-       */
-      Images: {
-        /**
-         * @minLength `0`
-         * @maxLength `10`
-         */
-        Actions: {
-          /**
-           * @minLength `1`
-           * @maxLength `2`
-           */
-          ActionOperations: {
-            NavigationOperation: {
-              LocalNavigationConfiguration: {
-                /**
-                 * @minLength `1`
-                 * @maxLength `512`
-                 * @pattern `^[\w\-]+$`
-                 */
-                TargetSheetId: string;
-              };
-            };
-            SetParametersOperation: {
-              /**
-               * @minLength `1`
-               * @maxLength `200`
-               */
-              ParameterValueConfigurations: {
-                /**
-                 * @minLength `1`
-                 * @maxLength `2048`
-                 * @pattern `^[a-zA-Z0-9]+$`
-                 */
-                DestinationParameterName: string;
-                Value: {
-                  CustomValuesConfiguration: {
-                    CustomValues: {
-                      /**
-                       * @minLength `0`
-                       * @maxLength `50000`
-                       */
-                      DateTimeValues: string[];
-                      /**
-                       * @minLength `0`
-                       * @maxLength `50000`
-                       */
-                      DecimalValues: number[];
-                      /**
-                       * @minLength `0`
-                       * @maxLength `50000`
-                       */
-                      IntegerValues: number[];
-                      /**
-                       * @minLength `0`
-                       * @maxLength `50000`
-                       */
-                      StringValues: string[];
-                    };
-                    IncludeNullValue: boolean;
-                  };
-                  SelectAllValueOptions: SelectAllValueOptions;
-                  SourceColumn: {
-                    /**
-                     * @minLength `1`
-                     * @maxLength `127`
-                     */
-                    ColumnName: string;
-                    /**
-                     * @minLength `1`
-                     * @maxLength `2048`
-                     */
-                    DataSetIdentifier: string;
-                  };
-                  /**
-                   * @minLength `1`
-                   * @maxLength `512`
-                   */
-                  SourceField: string;
-                  SourceParameterName: string;
-                };
-              }[];
-            };
-            URLOperation: {
-              URLTarget: URLTargetConfiguration;
-              /**
-               * @minLength `1`
-               * @maxLength `2048`
-               */
-              URLTemplate: string;
-            };
-          }[];
-          /**
-           * @minLength `1`
-           * @maxLength `512`
-           * @pattern `^[\w\-]+$`
-           */
-          CustomActionId: string;
-          /**
-           * @minLength `1`
-           * @maxLength `256`
-           */
-          Name: string;
-          Status: WidgetStatus;
-          Trigger: ImageCustomActionTrigger;
-        }[];
-        /**
-         * @minLength `1`
-         * @maxLength `1024`
-         */
-        ImageContentAltText: string;
-        Interactions: {
-          ImageMenuOption: {
-            AvailabilityStatus: DashboardBehavior;
-          };
-        };
-        Scaling: {
-          ScalingType: SheetImageScalingType;
-        };
-        /**
-         * @minLength `1`
-         * @maxLength `512`
-         * @pattern `^[\w\-]+$`
-         */
-        SheetImageId: string;
-        Source: {
-          SheetImageStaticFileSource: {
-            /**
-             * @minLength `1`
-             * @maxLength `512`
-             * @pattern `^[\w\-]+$`
-             */
-            StaticFileId: string;
-          };
-        };
-        Tooltip: {
-          TooltipText: {
-            /**
-             * @minLength `1`
-             * @maxLength `1024`
-             */
-            PlainText: string;
-          };
-          Visibility: Visibility;
-        };
-      }[];
-      /**
              * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
                         console.</p>
              * @minLength `1`
@@ -1671,7 +1523,7 @@ export type DashboardPublishOptions = {
    */
   SheetLayoutElementMaximizationOption?: SheetLayoutElementMaximizationOption;
   VisualAxisSortOption?: VisualAxisSortOption;
-  VisualMenuOption?: any;
+  VisualMenuOption?: VisualMenuOption;
   /**
    * <p>The visual publish options of a visual in a dashboard</p>
    */
@@ -3677,7 +3529,7 @@ export type GeospatialLayerJoinDefinition = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayermapconfiguration.html}
  */
 export type GeospatialLayerMapConfiguration = {
-  Interactions?: any;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   MapLayers?: GeospatialLayerItem[];
   MapState?: GeospatialMapState;
@@ -3747,7 +3599,7 @@ export type GeospatialMapAggregatedFieldWells = {
  */
 export type GeospatialMapConfiguration = {
   FieldWells?: GeospatialMapFieldWells;
-  Interactions?: any;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   MapStyleOptions?: GeospatialMapStyleOptions;
   PointStyleOptions?: GeospatialPointStyleOptions;
@@ -5188,7 +5040,9 @@ export type NumberScale =
   | "THOUSANDS"
   | "MILLIONS"
   | "BILLIONS"
-  | "TRILLIONS";
+  | "TRILLIONS"
+  | "LAKHS"
+  | "CRORES";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.NumericalAggregationFunction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-numericalaggregationfunction.html}
@@ -7017,11 +6871,6 @@ export type ShapeConditionalFormat = {
  */
 export type Sheet = {
   /**
-   * @minLength `0`
-   * @maxLength `10`
-   */
-  Images?: SheetImage[];
-  /**
      * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
                 console.</p>
      * @minLength `1`
@@ -8499,6 +8348,21 @@ export type VisualCustomActionOperation = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualcustomactiontrigger.html}
  */
 export type VisualCustomActionTrigger = "DATA_POINT_CLICK" | "DATA_POINT_MENU";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.VisualInteractionOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualinteractionoptions.html}
+ */
+export type VisualInteractionOptions = {
+  ContextMenuOption?: any;
+  VisualMenuOption?: VisualMenuOption;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.VisualMenuOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualmenuoption.html}
+ */
+export type VisualMenuOption = {
+  AvailabilityStatus?: DashboardBehavior;
+};
 /**
  * Type definition for `AWS::QuickSight::Dashboard.VisualPalette`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualpalette.html}

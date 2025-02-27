@@ -58,10 +58,6 @@ export type GatewayCapabilitySummary = {
  */
 export type GatewayPlatform = {
   /**
-   * A gateway that runs on AWS IoT Greengrass V1.
-   */
-  Greengrass?: any;
-  /**
    * A gateway that runs on AWS IoT Greengrass V2.
    */
   GreengrassV2?: GreengrassV2;

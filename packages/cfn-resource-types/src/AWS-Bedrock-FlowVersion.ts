@@ -39,7 +39,7 @@ export type BedrockFlowVersionAttributes = {
   Definition: {
     /**
      * List of connections
-     * @maxLength `20`
+     * @maxLength `100`
      */
     Connections: {
       /**
@@ -68,7 +68,7 @@ export type BedrockFlowVersionAttributes = {
     }[];
     /**
      * List of nodes in a flow
-     * @maxLength `20`
+     * @maxLength `40`
      */
     Nodes: {
       /**
@@ -289,12 +289,12 @@ export type FlowDataConnectionConfiguration = {
 export type FlowDefinition = {
   /**
    * List of connections
-   * @maxLength `20`
+   * @maxLength `100`
    */
   Connections?: FlowConnection[];
   /**
    * List of nodes in a flow
-   * @maxLength `20`
+   * @maxLength `40`
    */
   Nodes?: FlowNode[];
 };
@@ -774,7 +774,7 @@ export type TextPromptTemplateConfiguration = {
   /**
    * List of input variables
    * @minLength `0`
-   * @maxLength `5`
+   * @maxLength `20`
    */
   InputVariables?: PromptInputVariable[];
   /**

@@ -1462,6 +1462,11 @@ export type CustomValuesConfiguration = {
   IncludeNullValue?: boolean;
 };
 /**
+ * Type definition for `AWS::QuickSight::Analysis.DashboardBehavior`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-dashboardbehavior.html}
+ */
+export type DashboardBehavior = "ENABLED" | "DISABLED";
+/**
  * Type definition for `AWS::QuickSight::Analysis.DataBarsOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-databarsoptions.html}
  */
@@ -3274,7 +3279,7 @@ export type GeospatialLayerJoinDefinition = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-geospatiallayermapconfiguration.html}
  */
 export type GeospatialLayerMapConfiguration = {
-  Interactions?: any;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   MapLayers?: GeospatialLayerItem[];
   MapState?: GeospatialMapState;
@@ -3344,7 +3349,7 @@ export type GeospatialMapAggregatedFieldWells = {
  */
 export type GeospatialMapConfiguration = {
   FieldWells?: GeospatialMapFieldWells;
-  Interactions?: any;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   MapStyleOptions?: GeospatialMapStyleOptions;
   PointStyleOptions?: GeospatialPointStyleOptions;
@@ -3908,7 +3913,7 @@ export type ImageInteractionOptions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-imagemenuoption.html}
  */
 export type ImageMenuOption = {
-  AvailabilityStatus?: any;
+  AvailabilityStatus?: DashboardBehavior;
 };
 /**
  * Type definition for `AWS::QuickSight::Analysis.ImageStaticFile`.
@@ -4774,7 +4779,9 @@ export type NumberScale =
   | "THOUSANDS"
   | "MILLIONS"
   | "BILLIONS"
-  | "TRILLIONS";
+  | "TRILLIONS"
+  | "LAKHS"
+  | "CRORES";
 /**
  * Type definition for `AWS::QuickSight::Analysis.NumericalAggregationFunction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-numericalaggregationfunction.html}
@@ -6615,11 +6622,6 @@ export type ShapeConditionalFormat = {
  */
 export type Sheet = {
   /**
-   * @minLength `0`
-   * @maxLength `10`
-   */
-  Images?: SheetImage[];
-  /**
      * <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
                 console.</p>
      * @minLength `1`
@@ -8074,6 +8076,14 @@ export type VisualCustomActionOperation = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualcustomactiontrigger.html}
  */
 export type VisualCustomActionTrigger = "DATA_POINT_CLICK" | "DATA_POINT_MENU";
+/**
+ * Type definition for `AWS::QuickSight::Analysis.VisualInteractionOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualinteractionoptions.html}
+ */
+export type VisualInteractionOptions = {
+  ContextMenuOption?: any;
+  VisualMenuOption?: any;
+};
 /**
  * Type definition for `AWS::QuickSight::Analysis.VisualPalette`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-visualpalette.html}

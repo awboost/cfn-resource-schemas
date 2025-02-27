@@ -1,5 +1,5 @@
 {
-  "$hash": "5c269084651bf32abafd0882afc1d05871a7d32f",
+  "$hash": "77fe2a4eb588898359480dfdf82121d56ba1484d",
   "$id": "aws-notificationscontacts-emailcontact.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -65,6 +65,8 @@
       "permissions": [
         "notifications-contacts:CreateEmailContact",
         "notifications-contacts:GetEmailContact",
+        "notifications-contacts:SendActivationCode",
+        "notifications-contacts:ListEmailContacts",
         "notifications-contacts:TagResource",
         "notifications-contacts:UntagResource",
         "notifications-contacts:ListTagsForResource"

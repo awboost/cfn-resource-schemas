@@ -116,7 +116,7 @@ export type ChatPromptTemplateConfiguration = {
   /**
    * List of input variables
    * @minLength `0`
-   * @maxLength `5`
+   * @maxLength `20`
    */
   InputVariables?: PromptInputVariable[];
   /**
@@ -221,6 +221,27 @@ export type PromptInputVariable = {
   Name?: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::Prompt.PromptMetadataEntry`.
+ * Contains a key-value pair that defines a metadata tag and value to attach to a prompt variant.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptmetadataentry.html}
+ */
+export type PromptMetadataEntry = {
+  /**
+   * The key of a metadata tag for a prompt variant.
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[a-zA-Z0-9\s._:/=+@-]*$`
+   */
+  Key: string;
+  /**
+   * The value of a metadata tag for a prompt variant.
+   * @minLength `1`
+   * @maxLength `1024`
+   * @pattern `^[a-zA-Z0-9\s._:/=+@-]*$`
+   */
+  Value: string;
+};
+/**
  * Type definition for `AWS::Bedrock::Prompt.PromptModelInferenceConfiguration`.
  * Prompt model inference configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptmodelinferenceconfiguration.html}
@@ -287,6 +308,12 @@ export type PromptVariant = {
   AdditionalModelRequestFields?: AdditionalModelRequestFields;
   GenAiResource?: PromptGenAiResource;
   InferenceConfiguration?: PromptInferenceConfiguration;
+  /**
+   * List of metadata to associate with the prompt variant.
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  Metadata?: PromptMetadataEntry[];
   /**
    * ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
    * @minLength `1`
@@ -360,7 +387,7 @@ export type TextPromptTemplateConfiguration = {
   /**
    * List of input variables
    * @minLength `0`
-   * @maxLength `5`
+   * @maxLength `20`
    */
   InputVariables?: PromptInputVariable[];
   /**

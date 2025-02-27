@@ -1,5 +1,5 @@
 {
-  "$hash": "e6353ddbd5b04e8ecc6eec5f8e32b5636b68589c",
+  "$hash": "5c474707bd8977c64bc2ee0c938a7b41818ec219",
   "$id": "aws-bedrock-flowversion.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Description", "/properties/FlowArn"],
@@ -154,14 +154,14 @@
           "description": "List of connections",
           "insertionOrder": true,
           "items": { "$ref": "#/definitions/FlowConnection" },
-          "maxItems": 20,
+          "maxItems": 100,
           "type": "array"
         },
         "Nodes": {
           "description": "List of nodes in a flow",
           "insertionOrder": true,
           "items": { "$ref": "#/definitions/FlowNode" },
-          "maxItems": 20,
+          "maxItems": 40,
           "type": "array"
         }
       },
@@ -712,7 +712,7 @@
           "description": "List of input variables",
           "insertionOrder": true,
           "items": { "$ref": "#/definitions/PromptInputVariable" },
-          "maxItems": 5,
+          "maxItems": 20,
           "minItems": 0,
           "type": "array"
         },

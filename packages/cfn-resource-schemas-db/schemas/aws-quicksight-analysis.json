@@ -1,5 +1,5 @@
 {
-  "$hash": "cdf7222280aa6ae76b0ac027cf0a6bd37a356ae1",
+  "$hash": "3c4f14298a961bb14ae04991d7f0061bf60970b7",
   "$id": "aws-quicksight-analysis.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -1439,6 +1439,7 @@
       "required": ["CustomValues"],
       "type": "object"
     },
+    "DashboardBehavior": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
     "DataBarsOptions": {
       "additionalProperties": false,
       "properties": {
@@ -3333,7 +3334,7 @@
     "GeospatialLayerMapConfiguration": {
       "additionalProperties": false,
       "properties": {
-        "Interactions": {},
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "MapLayers": {
           "items": { "$ref": "#/definitions/GeospatialLayerItem" },
@@ -3404,7 +3405,7 @@
       "additionalProperties": false,
       "properties": {
         "FieldWells": { "$ref": "#/definitions/GeospatialMapFieldWells" },
-        "Interactions": {},
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "MapStyleOptions": {
           "$ref": "#/definitions/GeospatialMapStyleOptions"
@@ -4000,7 +4001,9 @@
     },
     "ImageMenuOption": {
       "additionalProperties": false,
-      "properties": { "AvailabilityStatus": {} },
+      "properties": {
+        "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
+      },
       "type": "object"
     },
     "ImageStaticFile": {
@@ -4932,7 +4935,9 @@
         "THOUSANDS",
         "MILLIONS",
         "BILLIONS",
-        "TRILLIONS"
+        "TRILLIONS",
+        "LAKHS",
+        "CRORES"
       ],
       "type": "string"
     },
@@ -6890,12 +6895,6 @@
       "additionalProperties": false,
       "description": "<p>A <i>sheet</i>, which is an object that contains a set of visuals that\n            are viewed together on one page in Amazon QuickSight. Every analysis and dashboard\n            contains at least one sheet. Each sheet contains at least one visualization widget, for\n            example a chart, pivot table, or narrative insight. Sheets can be associated with other\n            components, such as controls, filters, and so on.</p>",
       "properties": {
-        "Images": {
-          "items": { "$ref": "#/definitions/SheetImage" },
-          "maxItems": 10,
-          "minItems": 0,
-          "type": "array"
-        },
         "Name": {
           "description": "<p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight\n            console.</p>",
           "maxLength": 2048,
@@ -8326,6 +8325,11 @@
       "enum": ["DATA_POINT_CLICK", "DATA_POINT_MENU"],
       "type": "string"
     },
+    "VisualInteractionOptions": {
+      "additionalProperties": false,
+      "properties": { "ContextMenuOption": {}, "VisualMenuOption": {} },
+      "type": "object"
+    },
     "VisualPalette": {
       "additionalProperties": false,
       "properties": {
@@ -8793,6 +8797,18 @@
   ],
   "required": ["AwsAccountId", "AnalysisId", "Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "quicksight:TagResource",
+      "quicksight:UntagResource",
+      "quicksight:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::QuickSight::Analysis",
   "writeOnlyProperties": [
     "/properties/Definition",

@@ -1,5 +1,5 @@
 {
-  "$hash": "05e8690c5a654aade263b1e88046f2cbd0700991",
+  "$hash": "252584f25c86990015d0d37c41d45900c56e8860",
   "$id": "aws-iotsitewise-gateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -35,9 +35,6 @@
         { "required": ["SiemensIE"] }
       ],
       "properties": {
-        "Greengrass": {
-          "description": "A gateway that runs on AWS IoT Greengrass V1."
-        },
         "GreengrassV2": {
           "$ref": "#/definitions/GreengrassV2",
           "description": "A gateway that runs on AWS IoT Greengrass V2."
@@ -93,7 +90,6 @@
       "type": "object"
     }
   },
-  "deprecatedProperties": ["/properties/GatewayPlatform/Greengrass"],
   "description": "Resource schema for AWS::IoTSiteWise::Gateway",
   "handlers": {
     "create": {
