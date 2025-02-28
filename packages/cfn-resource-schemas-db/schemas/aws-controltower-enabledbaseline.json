@@ -1,5 +1,5 @@
 {
-  "$hash": "5aa037b2134550571cd4ee869dbb82eae054ce98",
+  "$hash": "abb3ecd5894cfda442216b356e20877f00745321",
   "$id": "aws-controltower-enabledbaseline.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -50,6 +50,7 @@
       "permissions": [
         "controltower:EnableBaseline",
         "controltower:TagResource",
+        "controltower:UntagResource",
         "controltower:GetBaselineOperation",
         "controltower:GetEnabledBaseline",
         "controltower:ListTagsForResource",
@@ -140,7 +141,7 @@
         "servicecatalog:ListPrincipalsForPortfolio",
         "servicecatalog:DeleteProvisioningArtifact",
         "controltower:TagResource",
-        "controltower:ListTagsForResource",
+        "controltower:UntagResource",
         "controltower:GetEnabledBaseline"
       ]
     }
@@ -184,6 +185,11 @@
   "required": ["BaselineIdentifier", "TargetIdentifier", "BaselineVersion"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "controltower:TagResource",
+      "controltower:UntagResource",
+      "controltower:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

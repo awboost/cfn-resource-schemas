@@ -1,49 +1,37 @@
-- updated `AWS::Bedrock::Flow`
-  - updated definition `FlowDefinition`
-  - updated definition `TextPromptTemplateConfiguration`
-- updated `AWS::Bedrock::FlowVersion`
-  - updated definition `FlowDefinition`
-  - updated definition `TextPromptTemplateConfiguration`
-- updated `AWS::Bedrock::Prompt`
-  - added definition `PromptMetadataEntry`
-  - added definition `PromptMetadataKey`
-  - added definition `PromptMetadataList`
-  - added definition `PromptMetadataValue`
-  - updated definition `ChatPromptTemplateConfiguration`
-  - updated definition `PromptVariant`
-  - updated definition `TextPromptTemplateConfiguration`
-- updated `AWS::Bedrock::PromptVersion`
-  - added definition `PromptMetadataEntry`
-  - added definition `PromptMetadataKey`
-  - added definition `PromptMetadataList`
-  - added definition `PromptMetadataValue`
-  - updated definition `ChatPromptTemplateConfiguration`
-  - updated definition `PromptVariant`
-  - updated definition `TextPromptTemplateConfiguration`
-- updated `AWS::ECS::Cluster`
-  - updated definition `ManagedStorageConfiguration`
-  - updated definition `ServiceConnectDefaults`
-- updated `AWS::IoTSiteWise::Gateway`
-  - removed `deprecatedProperties`
-  - updated definition `GatewayPlatform`
-- updated `AWS::NotificationsContacts::EmailContact`
+- updated `AWS::CloudTrail::Channel`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::QuickSight::Analysis`
-  - added `tagging`
-  - added definition `DashboardBehavior`
-  - added definition `VisualInteractionOptions`
-  - updated definition `GeospatialLayerMapConfiguration`
-  - updated definition `GeospatialMapConfiguration`
-  - updated definition `ImageMenuOption`
-  - updated definition `NumberScale`
-  - updated definition `Sheet`
-- updated `AWS::QuickSight::Dashboard`
-  - added `tagging`
-  - added definition `VisualInteractionOptions`
-  - updated definition `DashboardPublishOptions`
-  - updated definition `GeospatialLayerMapConfiguration`
-  - updated definition `GeospatialMapConfiguration`
-  - updated definition `NumberScale`
-  - updated definition `Sheet`
-- updated `AWS::RDS::GlobalCluster`
-  - added `readOnlyProperties`
+- updated `AWS::ControlTower::EnabledBaseline`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ECR::PublicRepository`
+  - updated `tagging`
+  - updated definition `Tag`
+  - updated handler permissions
+  - updated property `Arn`
+  - updated property `RepositoryCatalogData`
+  - updated property `RepositoryName`
+  - updated property `RepositoryPolicyText`
+- updated `AWS::ECR::PullThroughCacheRule`
+  - updated definition `PullThroughCacheRule`
+  - updated property `CredentialArn`
+  - updated property `EcrRepositoryPrefix`
+  - updated property `UpstreamRegistryUrl`
+  - updated property `UpstreamRegistry`
+- updated `AWS::ECR::ReplicationConfiguration`
+  - updated definition `ReplicationConfiguration`
+  - updated definition `ReplicationDestination`
+  - updated definition `ReplicationRule`
+  - updated definition `RepositoryFilter`
+  - updated property `RegistryId`
+  - updated property `ReplicationConfiguration`
+- updated `AWS::ECR::Repository`
+  - updated definition `EncryptionConfiguration`
+  - updated handler permissions
+- updated `AWS::KinesisAnalyticsV2::Application`
+  - updated `tagging`
+- updated `AWS::Location::APIKey`
+  - added definition `Unit`
+- updated `AWS::Route53Resolver::OutpostResolver`
+  - updated handler permissions

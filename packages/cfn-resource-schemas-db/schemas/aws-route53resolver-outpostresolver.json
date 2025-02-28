@@ -1,5 +1,5 @@
 {
-  "$hash": "3eb677899235ae14e3e978fc5a1e3f3b56db17fa",
+  "$hash": "e0e417179921527fd7ceac6faebc20db01b87c28",
   "$id": "aws-route53resolver-outpostresolver.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/OutpostArn"],
@@ -31,6 +31,7 @@
       "permissions": [
         "route53resolver:CreateOutpostResolver",
         "route53resolver:GetOutpostResolver",
+        "route53resolver:ListOutpostResolvers",
         "route53resolver:ListTagsForResource",
         "outposts:GetOutpost",
         "route53resolver:TagResource"
