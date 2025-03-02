@@ -2,7 +2,7 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::LocalGatewayRouteTable`.
- * Describes a route table for a local gateway.
+ * Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetable.html}
  */
 export type EC2LocalGatewayRouteTableProperties = {
@@ -65,7 +65,7 @@ export type Tag = {
 };
 /**
  * Resource type definition for `AWS::EC2::LocalGatewayRouteTable`.
- * Describes a route table for a local gateway.
+ * Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetable.html}
  */
 export class EC2LocalGatewayRouteTable extends $Resource<

@@ -1,12 +1,12 @@
 {
-  "$hash": "58be6976199ec57f6c2bb1f1682926ce19ac1881",
+  "$hash": "1a3d9b5bb5b72944afb0a8a8f20b80ebc8cb21e1",
   "$id": "aws-ec2-localgatewayroute.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DestinationCidrBlock",
     "/properties/LocalGatewayRouteTableId"
   ],
-  "description": "Describes a route for a local gateway route table.",
+  "description": "Resource Type definition for Local Gateway Route which describes a route for a local gateway route table.",
   "handlers": {
     "create": {
       "permissions": [

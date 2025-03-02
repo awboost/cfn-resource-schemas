@@ -1,5 +1,5 @@
 {
-  "$hash": "85b625fa4f7c2a538e9853f161a2ecccbe2efc07",
+  "$hash": "ef9d0577bbb9e5864e04e102bab7276a92873cb5",
   "$id": "aws-ec2-localgatewayroutetablevpcassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -32,7 +32,7 @@
       "uniqueItems": true
     }
   },
-  "description": "Describes an association between a local gateway route table and a VPC.",
+  "description": "Resource Type definition for Local Gateway Route Table VPC Association which describes an association between a local gateway route table and a VPC.",
   "handlers": {
     "create": {
       "permissions": [
@@ -52,13 +52,17 @@
       "permissions": ["ec2:DescribeLocalGatewayRouteTableVpcAssociations"]
     },
     "read": {
-      "permissions": ["ec2:DescribeLocalGatewayRouteTableVpcAssociations"]
+      "permissions": [
+        "ec2:DescribeLocalGatewayRouteTableVpcAssociations",
+        "ec2:DescribeTags"
+      ]
     },
     "update": {
       "permissions": [
         "ec2:DescribeLocalGatewayRouteTableVpcAssociations",
         "ec2:CreateTags",
-        "ec2:DeleteTags"
+        "ec2:DeleteTags",
+        "ec2:DescribeTags"
       ]
     }
   },
@@ -94,8 +98,8 @@
   "required": ["LocalGatewayRouteTableId", "VpcId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-lgw.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "permissions": ["ec2:DeleteTags", "ec2:CreateTags"],
+    "cloudFormationSystemTags": true,
+    "permissions": ["ec2:DeleteTags", "ec2:CreateTags", "ec2:DescribeTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -352,6 +352,10 @@ export type FieldToMatch = {
    */
   JA3Fingerprint?: JA3Fingerprint;
   /**
+   * Includes the JA4 fingerprint of a web request.
+   */
+  JA4Fingerprint?: JA4Fingerprint;
+  /**
    * Inspect the request body as JSON. The request body immediately follows the request headers.
    */
   JsonBody?: JsonBody;
@@ -478,6 +482,14 @@ export type IPSetReferenceStatement = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ja3fingerprint.html}
  */
 export type JA3Fingerprint = {
+  FallbackBehavior: "MATCH" | "NO_MATCH";
+};
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.JA4Fingerprint`.
+ * Includes the JA4 fingerprint of a web request.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ja4fingerprint.html}
+ */
+export type JA4Fingerprint = {
   FallbackBehavior: "MATCH" | "NO_MATCH";
 };
 /**
@@ -638,6 +650,14 @@ export type RateBasedStatementCustomKey = {
    */
   IP?: RateLimitIP;
   /**
+   * Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+   */
+  JA3Fingerprint?: RateLimitJA3Fingerprint;
+  /**
+   * Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+   */
+  JA4Fingerprint?: RateLimitJA4Fingerprint;
+  /**
    * Specifies a label namespace to use as an aggregate key for a rate-based rule.
    */
   LabelNamespace?: RateLimitLabelNamespace;
@@ -702,6 +722,22 @@ export type RateLimitHTTPMethod = Record<string, any>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitip.html}
  */
 export type RateLimitIP = Record<string, any>;
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.RateLimitJA3Fingerprint`.
+ * Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitja3fingerprint.html}
+ */
+export type RateLimitJA3Fingerprint = {
+  FallbackBehavior: "MATCH" | "NO_MATCH";
+};
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.RateLimitJA4Fingerprint`.
+ * Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitja4fingerprint.html}
+ */
+export type RateLimitJA4Fingerprint = {
+  FallbackBehavior: "MATCH" | "NO_MATCH";
+};
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.RateLimitLabelNamespace`.
  * Specifies a label namespace to use as an aggregate key for a rate-based rule.

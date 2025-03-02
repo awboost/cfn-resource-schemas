@@ -1,2 +1,24 @@
-- added `AWS::Bedrock::Blueprint`
-- added `AWS::Bedrock::DataAutomationProject`
+- updated `AWS::DMS::DataProvider`
+  - updated property `Settings`
+- updated `AWS::EC2::LocalGatewayRoute`
+- updated `AWS::EC2::LocalGatewayRouteTable`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::EC2::LocalGatewayRouteTableVPCAssociation`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::WAFv2::RuleGroup`
+  - added definition `JA4Fingerprint`
+  - added definition `RateLimitJA3Fingerprint`
+  - added definition `RateLimitJA4Fingerprint`
+  - updated definition `FieldToMatch`
+  - updated definition `RateBasedStatementCustomKey`
+- updated `AWS::WAFv2::WebACL`
+  - added definition `JA4Fingerprint`
+  - added definition `RateLimitJA3Fingerprint`
+  - added definition `RateLimitJA4Fingerprint`
+  - updated definition `FieldToMatch`
+  - updated definition `RateBasedStatementCustomKey`

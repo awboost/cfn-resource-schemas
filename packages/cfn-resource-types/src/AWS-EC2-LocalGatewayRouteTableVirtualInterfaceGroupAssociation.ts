@@ -2,7 +2,7 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`.
- * Describes a local gateway route table virtual interface group association for a local gateway.
+ * Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html}
  */
 export type EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociationProperties =
@@ -67,7 +67,7 @@ export type Tag = {
 };
 /**
  * Resource type definition for `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`.
- * Describes a local gateway route table virtual interface group association for a local gateway.
+ * Resource Type definition for Local Gateway Route Table Virtual Interface Group Association which describes a local gateway route table virtual interface group association for a local gateway.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html}
  */
 export class EC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends $Resource<

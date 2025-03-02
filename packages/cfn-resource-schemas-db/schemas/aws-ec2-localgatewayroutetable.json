@@ -1,5 +1,5 @@
 {
-  "$hash": "be1eec053368f71adf2a6bbdc4ea62256bf5161a",
+  "$hash": "48d0fc32498c81d540e3a68a85ed473872ebef43",
   "$id": "aws-ec2-localgatewayroutetable.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LocalGatewayId", "/properties/Mode"],
@@ -29,7 +29,7 @@
       "uniqueItems": true
     }
   },
-  "description": "Describes a route table for a local gateway.",
+  "description": "Resource Type definition for Local Gateway Route Table which describes a route table for a local gateway.",
   "handlers": {
     "create": {
       "permissions": [
@@ -46,12 +46,15 @@
       ]
     },
     "list": { "permissions": ["ec2:DescribeLocalGatewayRouteTables"] },
-    "read": { "permissions": ["ec2:DescribeLocalGatewayRouteTables"] },
+    "read": {
+      "permissions": ["ec2:DescribeLocalGatewayRouteTables", "ec2:DescribeTags"]
+    },
     "update": {
       "permissions": [
         "ec2:DescribeLocalGatewayRouteTables",
         "ec2:CreateTags",
-        "ec2:DeleteTags"
+        "ec2:DeleteTags",
+        "ec2:DescribeTags"
       ]
     }
   },
@@ -101,8 +104,8 @@
   "required": ["LocalGatewayId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-lgw.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "permissions": ["ec2:DeleteTags", "ec2:CreateTags"],
+    "cloudFormationSystemTags": true,
+    "permissions": ["ec2:DeleteTags", "ec2:CreateTags", "ec2:DescribeTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

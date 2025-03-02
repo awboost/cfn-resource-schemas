@@ -1,5 +1,5 @@
 {
-  "$hash": "ba84f45b720c46bbfc5420c11d8d7b5beb1ea982",
+  "$hash": "de65a0479a172ae13a0e675fce78430d6628e599",
   "$id": "aws-wafv2-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -259,6 +259,7 @@
         "Cookies": { "$ref": "#/definitions/Cookies" },
         "Headers": { "$ref": "#/definitions/Headers" },
         "JA3Fingerprint": { "$ref": "#/definitions/JA3Fingerprint" },
+        "JA4Fingerprint": { "$ref": "#/definitions/JA4Fingerprint" },
         "JsonBody": { "$ref": "#/definitions/JsonBody" },
         "Method": {
           "description": "The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.",
@@ -386,6 +387,15 @@
     "JA3Fingerprint": {
       "additionalProperties": false,
       "description": "Includes the JA3 fingerprint of a web request.",
+      "properties": {
+        "FallbackBehavior": { "enum": ["MATCH", "NO_MATCH"], "type": "string" }
+      },
+      "required": ["FallbackBehavior"],
+      "type": "object"
+    },
+    "JA4Fingerprint": {
+      "additionalProperties": false,
+      "description": "Includes the JA4 fingerprint of a web request.",
       "properties": {
         "FallbackBehavior": { "enum": ["MATCH", "NO_MATCH"], "type": "string" }
       },
@@ -531,6 +541,8 @@
         "HTTPMethod": { "$ref": "#/definitions/RateLimitHTTPMethod" },
         "Header": { "$ref": "#/definitions/RateLimitHeader" },
         "IP": { "$ref": "#/definitions/RateLimitIP" },
+        "JA3Fingerprint": { "$ref": "#/definitions/RateLimitJA3Fingerprint" },
+        "JA4Fingerprint": { "$ref": "#/definitions/RateLimitJA4Fingerprint" },
         "LabelNamespace": { "$ref": "#/definitions/RateLimitLabelNamespace" },
         "QueryArgument": { "$ref": "#/definitions/RateLimitQueryArgument" },
         "QueryString": { "$ref": "#/definitions/RateLimitQueryString" },
@@ -587,6 +599,24 @@
     },
     "RateLimitIP": {
       "description": "Specifies the IP address in the web request as an aggregate key for a rate-based rule.",
+      "type": "object"
+    },
+    "RateLimitJA3Fingerprint": {
+      "additionalProperties": false,
+      "description": "Specifies the request's JA3 fingerprint as an aggregate key for a rate-based rule.",
+      "properties": {
+        "FallbackBehavior": { "enum": ["MATCH", "NO_MATCH"], "type": "string" }
+      },
+      "required": ["FallbackBehavior"],
+      "type": "object"
+    },
+    "RateLimitJA4Fingerprint": {
+      "additionalProperties": false,
+      "description": "Specifies the request's JA4 fingerprint as an aggregate key for a rate-based rule.",
+      "properties": {
+        "FallbackBehavior": { "enum": ["MATCH", "NO_MATCH"], "type": "string" }
+      },
+      "required": ["FallbackBehavior"],
       "type": "object"
     },
     "RateLimitLabelNamespace": {

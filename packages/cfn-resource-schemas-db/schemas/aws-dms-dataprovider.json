@@ -1,5 +1,5 @@
 {
-  "$hash": "b331284fb4eb93f245857a080ac511f2069b6703",
+  "$hash": "21aabdd71835746e989e5bf8cfd9fcffc0974a5c",
   "$id": "aws-dms-dataprovider.json",
   "additionalIdentifiers": [["/properties/DataProviderName"]],
   "additionalProperties": false,
@@ -151,10 +151,7 @@
             "DatabaseName": { "type": "string" },
             "Port": { "type": "integer" },
             "ServerName": { "type": "string" },
-            "SslMode": {
-              "$ref": "#/definitions/MongoDbSslModeValue",
-              "type": "object"
-            }
+            "SslMode": { "$ref": "#/definitions/MongoDbSslModeValue" }
           },
           "required": ["ServerName", "Port", "DatabaseName"],
           "type": "object"
@@ -166,10 +163,7 @@
             "CertificateArn": { "type": "string" },
             "Port": { "type": "integer" },
             "ServerName": { "type": "string" },
-            "SslMode": {
-              "$ref": "#/definitions/DmsSslModeValue",
-              "type": "object"
-            }
+            "SslMode": { "$ref": "#/definitions/DmsSslModeValue" }
           },
           "required": ["ServerName", "Port", "SslMode"],
           "type": "object"
@@ -182,10 +176,7 @@
             "DatabaseName": { "type": "string" },
             "Port": { "type": "integer" },
             "ServerName": { "type": "string" },
-            "SslMode": {
-              "$ref": "#/definitions/DmsSslModeValue",
-              "type": "object"
-            }
+            "SslMode": { "$ref": "#/definitions/DmsSslModeValue" }
           },
           "required": ["ServerName", "Port", "SslMode", "DatabaseName"],
           "type": "object"
@@ -194,23 +185,14 @@
           "additionalProperties": false,
           "description": "MongoDbSettings property identifier.",
           "properties": {
-            "AuthMechanism": {
-              "$ref": "#/definitions/MongoDbAuthMechanism",
-              "type": "object"
-            },
+            "AuthMechanism": { "$ref": "#/definitions/MongoDbAuthMechanism" },
             "AuthSource": { "type": "string" },
-            "AuthType": {
-              "$ref": "#/definitions/MongoDbAuthType",
-              "type": "object"
-            },
+            "AuthType": { "$ref": "#/definitions/MongoDbAuthType" },
             "CertificateArn": { "type": "string" },
             "DatabaseName": { "type": "string" },
             "Port": { "type": "integer" },
             "ServerName": { "type": "string" },
-            "SslMode": {
-              "$ref": "#/definitions/MongoDbSslModeValue",
-              "type": "object"
-            }
+            "SslMode": { "$ref": "#/definitions/MongoDbSslModeValue" }
           },
           "required": ["ServerName", "Port"],
           "type": "object"
@@ -222,10 +204,7 @@
             "CertificateArn": { "type": "string" },
             "Port": { "type": "integer" },
             "ServerName": { "type": "string" },
-            "SslMode": {
-              "$ref": "#/definitions/DmsSslModeValue",
-              "type": "object"
-            }
+            "SslMode": { "$ref": "#/definitions/DmsSslModeValue" }
           },
           "required": ["ServerName", "Port", "SslMode"],
           "type": "object"
@@ -245,10 +224,7 @@
             },
             "SecretsManagerSecurityDbEncryptionSecretId": { "type": "string" },
             "ServerName": { "type": "string" },
-            "SslMode": {
-              "$ref": "#/definitions/DmsSslModeValue",
-              "type": "object"
-            }
+            "SslMode": { "$ref": "#/definitions/DmsSslModeValue" }
           },
           "required": ["ServerName", "Port", "SslMode", "DatabaseName"],
           "type": "object"
@@ -261,10 +237,7 @@
             "DatabaseName": { "type": "string" },
             "Port": { "type": "integer" },
             "ServerName": { "type": "string" },
-            "SslMode": {
-              "$ref": "#/definitions/DmsSslModeValue",
-              "type": "object"
-            }
+            "SslMode": { "$ref": "#/definitions/DmsSslModeValue" }
           },
           "required": ["ServerName", "Port", "SslMode", "DatabaseName"],
           "type": "object"
