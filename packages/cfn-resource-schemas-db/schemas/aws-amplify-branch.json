@@ -1,5 +1,5 @@
 {
-  "$hash": "b24669ac6dc26fbeb053cde88bde4ab5f9547981",
+  "$hash": "806b07bf7272c7c71390dae6463b2bbd0b81f783",
   "$id": "aws-amplify-branch.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AppId", "/properties/BranchName"],
@@ -183,6 +183,18 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["AppId", "BranchName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-amplify",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "amplify:TagResource",
+      "amplify:ListTagsForResource",
+      "amplify:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Amplify::Branch",
   "writeOnlyProperties": ["/properties/BasicAuthConfig"]
 }

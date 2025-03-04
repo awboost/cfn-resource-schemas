@@ -1,5 +1,5 @@
 {
-  "$hash": "4a23debb70e980cc92afca616ed3e7ac422be6cf",
+  "$hash": "0e8652a065f9225693d5aa3f5785c48eeac5a9cf",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -328,7 +328,14 @@
     "RuntimeVersion"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-synthetics",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["synthetics:TagResource", "synthetics:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Synthetics::Canary",
   "writeOnlyProperties": [
     "/properties/Code/S3Bucket",

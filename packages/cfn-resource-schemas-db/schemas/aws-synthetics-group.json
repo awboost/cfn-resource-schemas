@@ -1,5 +1,5 @@
 {
-  "$hash": "7adbf80874bc8ac2fffb8ba05763f68a496a87de",
+  "$hash": "d8b88b3e74aee8beb56e00cfb295fc7c7ae186bf",
   "$id": "aws-synthetics-group.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -88,6 +88,17 @@
   "readOnlyProperties": ["/properties/Id"],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-synthetics",
-  "tagging": { "taggable": true },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "synthetics:TagResource",
+      "synthetics:UntagResource",
+      "synthetics:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Synthetics::Group"
 }

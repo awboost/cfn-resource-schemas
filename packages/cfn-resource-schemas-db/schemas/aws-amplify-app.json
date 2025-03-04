@@ -1,5 +1,5 @@
 {
-  "$hash": "e89006dbd4cd026b16b522e303173127726d22a4",
+  "$hash": "611160ffd52eafc7b36664b3878ed8464194ac00",
   "$id": "aws-amplify-app.json",
   "additionalProperties": false,
   "definitions": {
@@ -258,6 +258,18 @@
   ],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-amplify",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "amplify:TagResource",
+      "amplify:ListTagsForResource",
+      "amplify:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Amplify::App",
   "writeOnlyProperties": [
     "/properties/AccessToken",

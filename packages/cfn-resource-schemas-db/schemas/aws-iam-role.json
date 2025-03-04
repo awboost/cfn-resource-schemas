@@ -1,5 +1,5 @@
 {
-  "$hash": "88280a47f73c4e6638e09e19e5f64bd834cbb1cb",
+  "$hash": "c69af13b2472ac517b92e8f93208eab962280cd4",
   "$id": "aws-iam-role.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -144,6 +144,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iam.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["iam:TagRole", "iam:UntagRole", "iam:ListRoleTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

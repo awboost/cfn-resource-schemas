@@ -1,24 +1,15 @@
-- updated `AWS::DMS::DataProvider`
-  - updated property `Settings`
-- updated `AWS::EC2::LocalGatewayRoute`
-- updated `AWS::EC2::LocalGatewayRouteTable`
+- updated `AWS::Amplify::App`
+  - added `tagging`
+- updated `AWS::Amplify::Branch`
+  - added `tagging`
+- updated `AWS::IAM::Role`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::EC2::LocalGatewayRouteTableVPCAssociation`
+- updated `AWS::RDS::DBInstance`
+  - updated property `ApplyImmediately`
+  - updated property `StorageType`
+- updated `AWS::RDS::DBParameterGroup`
+  - updated property `Parameters`
+- updated `AWS::Synthetics::Canary`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation`
+- updated `AWS::Synthetics::Group`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::WAFv2::RuleGroup`
-  - added definition `JA4Fingerprint`
-  - added definition `RateLimitJA3Fingerprint`
-  - added definition `RateLimitJA4Fingerprint`
-  - updated definition `FieldToMatch`
-  - updated definition `RateBasedStatementCustomKey`
-- updated `AWS::WAFv2::WebACL`
-  - added definition `JA4Fingerprint`
-  - added definition `RateLimitJA3Fingerprint`
-  - added definition `RateLimitJA4Fingerprint`
-  - updated definition `FieldToMatch`
-  - updated definition `RateBasedStatementCustomKey`
