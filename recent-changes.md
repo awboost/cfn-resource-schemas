@@ -1,15 +1,151 @@
-- updated `AWS::Amplify::App`
+- updated `AWS::CE::CostCategory`
   - added `tagging`
-- updated `AWS::Amplify::Branch`
-  - added `tagging`
-- updated `AWS::IAM::Role`
-  - updated `tagging`
-- updated `AWS::RDS::DBInstance`
-  - updated property `ApplyImmediately`
-  - updated property `StorageType`
-- updated `AWS::RDS::DBParameterGroup`
-  - updated property `Parameters`
-- updated `AWS::Synthetics::Canary`
-  - updated `tagging`
-- updated `AWS::Synthetics::Group`
-  - updated `tagging`
+  - added definition `ResourceTag`
+  - added property `Tags`
+  - updated handler permissions
+- updated `AWS::DMS::DataProvider`
+  - added definition `Db2SslModeValue`
+  - updated property `Engine`
+  - updated property `Settings`
+- updated `AWS::IoT::AccountAuditConfiguration`
+  - added definition `CertAgeCheckCustomConfiguration`
+  - added definition `CertExpirationCheckCustomConfiguration`
+  - added definition `ConfigValue`
+  - added definition `DeviceCertAgeAuditCheckConfiguration`
+  - added definition `DeviceCertExpirationAuditCheckConfiguration`
+  - updated definition `AuditCheckConfigurations`
+- updated `AWS::IoTSiteWise::Gateway`
+  - updated handler permissions
+- updated `AWS::MediaLive::CloudWatchAlarmTemplate`
+  - updated `required`
+  - updated definition `CloudWatchAlarmTemplateTargetResourceType`
+- updated `AWS::MediaLive::EventBridgeRuleTemplate`
+  - updated `required`
+- updated `AWS::MediaLive::SignalMap`
+  - updated definition `MediaResourceNeighbor`
+  - updated definition `MediaResource`
+  - updated definition `MonitorDeployment`
+  - updated definition `SuccessfulMonitorDeployment`
+  - updated property `ErrorMessage`
+- updated `AWS::Oam::Link`
+  - updated definition `ResourceType`
+  - updated handler permissions
+- updated `AWS::Proton::ServiceTemplate`
+  - updated handler permissions
+- updated `AWS::QuickSight::Analysis`
+  - added definition `BodySectionDynamicCategoryDimensionConfiguration`
+  - added definition `BodySectionDynamicNumericDimensionConfiguration`
+  - added definition `BodySectionRepeatConfiguration`
+  - added definition `BodySectionRepeatDimensionConfiguration`
+  - added definition `BodySectionRepeatPageBreakConfiguration`
+  - added definition `ContextMenuOption`
+  - added definition `DigitGroupingStyle`
+  - added definition `GaugeChartColorConfiguration`
+  - added definition `ScatterPlotSortConfiguration`
+  - added definition `VisualMenuOption`
+  - updated definition `BarChartConfiguration`
+  - updated definition `BodySectionConfiguration`
+  - updated definition `BoxPlotChartConfiguration`
+  - updated definition `ComboChartConfiguration`
+  - updated definition `CustomContentConfiguration`
+  - updated definition `DateTimePickerControlDisplayOptions`
+  - updated definition `FilledMapConfiguration`
+  - updated definition `FontConfiguration`
+  - updated definition `FunnelChartConfiguration`
+  - updated definition `GaugeChartConfiguration`
+  - updated definition `HeatMapConfiguration`
+  - updated definition `HistogramConfiguration`
+  - updated definition `InsightConfiguration`
+  - updated definition `KPIConfiguration`
+  - updated definition `LineChartConfiguration`
+  - updated definition `PieChartConfiguration`
+  - updated definition `PivotTableConfiguration`
+  - updated definition `RadarChartConfiguration`
+  - updated definition `SankeyDiagramChartConfiguration`
+  - updated definition `ScatterPlotConfiguration`
+  - updated definition `SheetTextBox`
+  - updated definition `TableConfiguration`
+  - updated definition `ThousandSeparatorOptions`
+  - updated definition `TreeMapConfiguration`
+  - updated definition `VisualInteractionOptions`
+  - updated definition `WaterfallChartConfiguration`
+  - updated definition `WordCloudChartConfiguration`
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `BodySectionDynamicCategoryDimensionConfiguration`
+  - added definition `BodySectionDynamicNumericDimensionConfiguration`
+  - added definition `BodySectionRepeatConfiguration`
+  - added definition `BodySectionRepeatDimensionConfiguration`
+  - added definition `BodySectionRepeatPageBreakConfiguration`
+  - added definition `ContextMenuOption`
+  - added definition `DigitGroupingStyle`
+  - added definition `GaugeChartColorConfiguration`
+  - added definition `ScatterPlotSortConfiguration`
+  - updated definition `BarChartConfiguration`
+  - updated definition `BodySectionConfiguration`
+  - updated definition `BoxPlotChartConfiguration`
+  - updated definition `ComboChartConfiguration`
+  - updated definition `CustomContentConfiguration`
+  - updated definition `DateTimePickerControlDisplayOptions`
+  - updated definition `FilledMapConfiguration`
+  - updated definition `FontConfiguration`
+  - updated definition `FunnelChartConfiguration`
+  - updated definition `GaugeChartConfiguration`
+  - updated definition `HeatMapConfiguration`
+  - updated definition `HistogramConfiguration`
+  - updated definition `InsightConfiguration`
+  - updated definition `KPIConfiguration`
+  - updated definition `LineChartConfiguration`
+  - updated definition `PieChartConfiguration`
+  - updated definition `PivotTableConfiguration`
+  - updated definition `RadarChartConfiguration`
+  - updated definition `SankeyDiagramChartConfiguration`
+  - updated definition `ScatterPlotConfiguration`
+  - updated definition `SheetTextBox`
+  - updated definition `TableConfiguration`
+  - updated definition `ThousandSeparatorOptions`
+  - updated definition `TreeMapConfiguration`
+  - updated definition `VisualInteractionOptions`
+  - updated definition `WaterfallChartConfiguration`
+  - updated definition `WordCloudChartConfiguration`
+- updated `AWS::QuickSight::Template`
+  - added definition `BodySectionDynamicCategoryDimensionConfiguration`
+  - added definition `BodySectionDynamicNumericDimensionConfiguration`
+  - added definition `BodySectionRepeatConfiguration`
+  - added definition `BodySectionRepeatDimensionConfiguration`
+  - added definition `BodySectionRepeatPageBreakConfiguration`
+  - added definition `ContextMenuOption`
+  - added definition `DigitGroupingStyle`
+  - added definition `GaugeChartColorConfiguration`
+  - added definition `ScatterPlotSortConfiguration`
+  - added definition `VisualMenuOption`
+  - updated definition `BarChartConfiguration`
+  - updated definition `BodySectionConfiguration`
+  - updated definition `BoxPlotChartConfiguration`
+  - updated definition `ComboChartConfiguration`
+  - updated definition `CustomContentConfiguration`
+  - updated definition `DateTimePickerControlDisplayOptions`
+  - updated definition `FilledMapConfiguration`
+  - updated definition `FontConfiguration`
+  - updated definition `FontSize`
+  - updated definition `FunnelChartConfiguration`
+  - updated definition `GaugeChartConfiguration`
+  - updated definition `HeatMapConfiguration`
+  - updated definition `HistogramConfiguration`
+  - updated definition `InsightConfiguration`
+  - updated definition `KPIConfiguration`
+  - updated definition `LineChartConfiguration`
+  - updated definition `PieChartConfiguration`
+  - updated definition `PivotTableConfiguration`
+  - updated definition `RadarChartConfiguration`
+  - updated definition `SankeyDiagramChartConfiguration`
+  - updated definition `ScatterPlotConfiguration`
+  - updated definition `SheetTextBox`
+  - updated definition `TableConfiguration`
+  - updated definition `ThousandSeparatorOptions`
+  - updated definition `TreeMapConfiguration`
+  - updated definition `VisualInteractionOptions`
+  - updated definition `WaterfallChartConfiguration`
+  - updated definition `WordCloudChartConfiguration`
+- updated `AWS::Transfer::Agreement`
+  - added property `CustomDirectories`
+  - updated `required`

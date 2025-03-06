@@ -65,7 +65,9 @@ export type ResourceType =
   | "AWS::Logs::LogGroup"
   | "AWS::XRay::Trace"
   | "AWS::ApplicationInsights::Application"
-  | "AWS::InternetMonitor::Monitor";
+  | "AWS::InternetMonitor::Monitor"
+  | "AWS::ApplicationSignals::Service"
+  | "AWS::ApplicationSignals::ServiceLevelObjective";
 /**
  * Definition of AWS::Oam::Link Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-oam-link.html}

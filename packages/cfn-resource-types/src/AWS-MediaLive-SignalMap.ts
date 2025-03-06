@@ -49,7 +49,7 @@ export type MediaLiveSignalMapAttributes = {
   CreatedAt: string;
   /**
    * Error message associated with a failed creation or failed update attempt of a signal map.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `2048`
    */
   ErrorMessage: string;
@@ -70,14 +70,14 @@ export type MediaLiveSignalMapAttributes = {
         Arn: string;
         /**
          * The logical name of an AWS media resource.
-         * @minLength `1`
+         * @minLength `0`
          * @maxLength `256`
          */
         Name: string;
       }[];
       /**
        * The logical name of an AWS media resource.
-       * @minLength `1`
+       * @minLength `0`
        * @maxLength `256`
        */
       Name: string;
@@ -91,7 +91,7 @@ export type MediaLiveSignalMapAttributes = {
         Arn: string;
         /**
          * The logical name of an AWS media resource.
-         * @minLength `1`
+         * @minLength `0`
          * @maxLength `256`
          */
         Name: string;
@@ -113,7 +113,7 @@ export type MediaLiveSignalMapAttributes = {
   LastSuccessfulMonitorDeployment: {
     /**
      * URI associated with a signal map's monitor deployment.
-     * @minLength `1`
+     * @minLength `0`
      * @maxLength `2048`
      */
     DetailsUri: string;
@@ -138,14 +138,14 @@ export type MediaLiveSignalMapAttributes = {
         Arn: string;
         /**
          * The logical name of an AWS media resource.
-         * @minLength `1`
+         * @minLength `0`
          * @maxLength `256`
          */
         Name: string;
       }[];
       /**
        * The logical name of an AWS media resource.
-       * @minLength `1`
+       * @minLength `0`
        * @maxLength `256`
        */
       Name: string;
@@ -159,7 +159,7 @@ export type MediaLiveSignalMapAttributes = {
         Arn: string;
         /**
          * The logical name of an AWS media resource.
-         * @minLength `1`
+         * @minLength `0`
          * @maxLength `256`
          */
         Name: string;
@@ -177,13 +177,13 @@ export type MediaLiveSignalMapAttributes = {
   MonitorDeployment: {
     /**
      * URI associated with a signal map's monitor deployment.
-     * @minLength `1`
+     * @minLength `0`
      * @maxLength `2048`
      */
     DetailsUri: string;
     /**
      * Error message associated with a failed monitor deployment of a signal map.
-     * @minLength `1`
+     * @minLength `0`
      * @maxLength `2048`
      */
     ErrorMessage: string;
@@ -212,7 +212,7 @@ export type MediaResource = {
   Destinations?: MediaResourceNeighbor[];
   /**
    * The logical name of an AWS media resource.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `256`
    */
   Name?: string;
@@ -239,7 +239,7 @@ export type MediaResourceNeighbor = {
   Arn: string;
   /**
    * The logical name of an AWS media resource.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `256`
    */
   Name?: string;
@@ -252,13 +252,13 @@ export type MediaResourceNeighbor = {
 export type MonitorDeployment = {
   /**
    * URI associated with a signal map's monitor deployment.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `2048`
    */
   DetailsUri?: string;
   /**
    * Error message associated with a failed monitor deployment of a signal map.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `2048`
    */
   ErrorMessage?: string;
@@ -306,7 +306,7 @@ export type SignalMapStatus =
 export type SuccessfulMonitorDeployment = {
   /**
    * URI associated with a signal map's monitor deployment.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `2048`
    */
   DetailsUri: string;

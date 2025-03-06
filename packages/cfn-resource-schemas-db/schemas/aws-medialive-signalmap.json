@@ -1,5 +1,5 @@
 {
-  "$hash": "422087a95cf640f7ce447f2551e21f7d17267238",
+  "$hash": "2c8bbd617f3ae4a08c10b89afc8bf490d799fff7",
   "$id": "aws-medialive-signalmap.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
@@ -21,7 +21,7 @@
         "Name": {
           "description": "The logical name of an AWS media resource.",
           "maxLength": 256,
-          "minLength": 1,
+          "minLength": 0,
           "type": "string"
         },
         "Sources": {
@@ -51,7 +51,7 @@
         "Name": {
           "description": "The logical name of an AWS media resource.",
           "maxLength": 256,
-          "minLength": 1,
+          "minLength": 0,
           "type": "string"
         }
       },
@@ -65,13 +65,13 @@
         "DetailsUri": {
           "description": "URI associated with a signal map's monitor deployment.",
           "maxLength": 2048,
-          "minLength": 1,
+          "minLength": 0,
           "type": "string"
         },
         "ErrorMessage": {
           "description": "Error message associated with a failed monitor deployment of a signal map.",
           "maxLength": 2048,
-          "minLength": 1,
+          "minLength": 0,
           "type": "string"
         },
         "Status": { "$ref": "#/definitions/SignalMapMonitorDeploymentStatus" }
@@ -117,7 +117,7 @@
         "DetailsUri": {
           "description": "URI associated with a signal map's monitor deployment.",
           "maxLength": 2048,
-          "minLength": 1,
+          "minLength": 0,
           "type": "string"
         },
         "Status": { "$ref": "#/definitions/SignalMapMonitorDeploymentStatus" }
@@ -260,7 +260,7 @@
     "ErrorMessage": {
       "description": "Error message associated with a failed creation or failed update attempt of a signal map.",
       "maxLength": 2048,
-      "minLength": 1,
+      "minLength": 0,
       "type": "string"
     },
     "EventBridgeRuleTemplateGroupIdentifiers": {

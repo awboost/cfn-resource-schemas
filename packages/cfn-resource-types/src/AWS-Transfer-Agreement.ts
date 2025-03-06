@@ -17,7 +17,37 @@ export type TransferAgreementProperties = {
    * @maxLength `1024`
    * @pattern `^(|/.*)$`
    */
-  BaseDirectory: string;
+  BaseDirectory?: string;
+  /**
+   * Specifies a separate directory for each type of file to store for an AS2 message.
+   */
+  CustomDirectories?: {
+    /**
+     * Specifies a location to store the failed files for an AS2 message.
+     * @pattern `(|/.*)`
+     */
+    FailedFilesDirectory: string;
+    /**
+     * Specifies a location to store the MDN file for an AS2 message.
+     * @pattern `(|/.*)`
+     */
+    MdnFilesDirectory: string;
+    /**
+     * Specifies a location to store the payload file for an AS2 message.
+     * @pattern `(|/.*)`
+     */
+    PayloadFilesDirectory: string;
+    /**
+     * Specifies a location to store the status file for an AS2 message.
+     * @pattern `(|/.*)`
+     */
+    StatusFilesDirectory: string;
+    /**
+     * Specifies a location to store the temporary processing file for an AS2 message.
+     * @pattern `(|/.*)`
+     */
+    TemporaryFilesDirectory: string;
+  };
   /**
    * A textual description for the agreement.
    * @minLength `1`

@@ -1,9 +1,10 @@
 {
-  "$hash": "21aabdd71835746e989e5bf8cfd9fcffc0974a5c",
+  "$hash": "98dff9c324f18144f773c207fd71b36d9f623d20",
   "$id": "aws-dms-dataprovider.json",
   "additionalIdentifiers": [["/properties/DataProviderName"]],
   "additionalProperties": false,
   "definitions": {
+    "Db2SslModeValue": { "enum": ["none", "verify-ca"], "type": "string" },
     "DmsSslModeValue": {
       "enum": ["none", "require", "verify-ca", "verify-full"],
       "type": "string"
@@ -120,7 +121,9 @@
         "redshift",
         "mariadb",
         "mongodb",
-        "docdb"
+        "docdb",
+        "db2",
+        "db2_zos"
       ],
       "type": "string"
     },
@@ -139,7 +142,9 @@
         { "required": ["RedshiftSettings"] },
         { "required": ["DocDbSettings"] },
         { "required": ["MariaDbSettings"] },
-        { "required": ["MongoDbSettings"] }
+        { "required": ["MongoDbSettings"] },
+        { "required": ["IbmDb2LuwSettings"] },
+        { "required": ["IbmDb2zOsSettings"] }
       ],
       "description": "The property identifies the exact type of settings for the data provider.",
       "properties": {
@@ -154,6 +159,32 @@
             "SslMode": { "$ref": "#/definitions/MongoDbSslModeValue" }
           },
           "required": ["ServerName", "Port", "DatabaseName"],
+          "type": "object"
+        },
+        "IbmDb2LuwSettings": {
+          "additionalProperties": false,
+          "description": "IbmDb2LuwSettings property identifier.",
+          "properties": {
+            "CertificateArn": { "type": "string" },
+            "DatabaseName": { "type": "string" },
+            "Port": { "type": "integer" },
+            "ServerName": { "type": "string" },
+            "SslMode": { "$ref": "#/definitions/Db2SslModeValue" }
+          },
+          "required": ["ServerName", "Port", "SslMode", "DatabaseName"],
+          "type": "object"
+        },
+        "IbmDb2zOsSettings": {
+          "additionalProperties": false,
+          "description": "IbmDb2zOsSettings property identifier.",
+          "properties": {
+            "CertificateArn": { "type": "string" },
+            "DatabaseName": { "type": "string" },
+            "Port": { "type": "integer" },
+            "ServerName": { "type": "string" },
+            "SslMode": { "$ref": "#/definitions/Db2SslModeValue" }
+          },
+          "required": ["ServerName", "Port", "SslMode", "DatabaseName"],
           "type": "object"
         },
         "MariaDbSettings": {

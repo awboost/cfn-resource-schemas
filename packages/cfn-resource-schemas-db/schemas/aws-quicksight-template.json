@@ -1,5 +1,5 @@
 {
-  "$hash": "c4410bff2e35d507f13279669877e38d6e0187ef",
+  "$hash": "c42865f75a03d895226282a2e61907621e11e6f0",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -261,6 +261,7 @@
         },
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/BarChartFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "Orientation": { "$ref": "#/definitions/BarChartOrientation" },
         "ReferenceLines": {
@@ -387,6 +388,9 @@
         "PageBreakConfiguration": {
           "$ref": "#/definitions/SectionPageBreakConfiguration"
         },
+        "RepeatConfiguration": {
+          "$ref": "#/definitions/BodySectionRepeatConfiguration"
+        },
         "SectionId": {
           "maxLength": 512,
           "minLength": 1,
@@ -402,6 +406,83 @@
       "additionalProperties": false,
       "properties": {
         "Layout": { "$ref": "#/definitions/SectionLayoutConfiguration" }
+      },
+      "type": "object"
+    },
+    "BodySectionDynamicCategoryDimensionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Column": { "$ref": "#/definitions/ColumnIdentifier" },
+        "Limit": { "maximum": 1000, "minimum": 1, "type": "number" },
+        "SortByMetrics": {
+          "items": { "$ref": "#/definitions/ColumnSort" },
+          "maxItems": 100,
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": ["Column"],
+      "type": "object"
+    },
+    "BodySectionDynamicNumericDimensionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Column": { "$ref": "#/definitions/ColumnIdentifier" },
+        "Limit": { "maximum": 1000, "minimum": 1, "type": "number" },
+        "SortByMetrics": {
+          "items": { "$ref": "#/definitions/ColumnSort" },
+          "maxItems": 100,
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": ["Column"],
+      "type": "object"
+    },
+    "BodySectionRepeatConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "DimensionConfigurations": {
+          "items": {
+            "$ref": "#/definitions/BodySectionRepeatDimensionConfiguration"
+          },
+          "maxItems": 3,
+          "minItems": 0,
+          "type": "array"
+        },
+        "NonRepeatingVisuals": {
+          "items": {
+            "maxLength": 512,
+            "minLength": 1,
+            "pattern": "^[\\w\\-]+$",
+            "type": "string"
+          },
+          "maxItems": 20,
+          "minItems": 0,
+          "type": "array"
+        },
+        "PageBreakConfiguration": {
+          "$ref": "#/definitions/BodySectionRepeatPageBreakConfiguration"
+        }
+      },
+      "type": "object"
+    },
+    "BodySectionRepeatDimensionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "DynamicCategoryDimensionConfiguration": {
+          "$ref": "#/definitions/BodySectionDynamicCategoryDimensionConfiguration"
+        },
+        "DynamicNumericDimensionConfiguration": {
+          "$ref": "#/definitions/BodySectionDynamicNumericDimensionConfiguration"
+        }
+      },
+      "type": "object"
+    },
+    "BodySectionRepeatPageBreakConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "After": { "$ref": "#/definitions/SectionAfterPageBreak" }
       },
       "type": "object"
     },
@@ -432,6 +513,7 @@
           "$ref": "#/definitions/ChartAxisLabelOptions"
         },
         "FieldWells": { "$ref": "#/definitions/BoxPlotFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "PrimaryYAxisDisplayOptions": {
           "$ref": "#/definitions/AxisDisplayOptions"
@@ -883,6 +965,7 @@
         },
         "ColorLabelOptions": { "$ref": "#/definitions/ChartAxisLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/ComboChartFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "LineDataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "PrimaryYAxisDisplayOptions": {
@@ -1132,6 +1215,13 @@
       "required": ["Expression"],
       "type": "object"
     },
+    "ContextMenuOption": {
+      "additionalProperties": false,
+      "properties": {
+        "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
+      },
+      "type": "object"
+    },
     "ContributionAnalysisDefault": {
       "additionalProperties": false,
       "properties": {
@@ -1233,7 +1323,8 @@
         "ContentUrl": { "maxLength": 2048, "minLength": 1, "type": "string" },
         "ImageScaling": {
           "$ref": "#/definitions/CustomContentImageScalingConfiguration"
-        }
+        },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" }
       },
       "type": "object"
     },
@@ -1657,11 +1748,13 @@
     "DateTimePickerControlDisplayOptions": {
       "additionalProperties": false,
       "properties": {
+        "DateIconVisibility": {},
         "DateTimeFormat": {
           "maxLength": 128,
           "minLength": 1,
           "type": "string"
         },
+        "HelperTextVisibility": {},
         "InfoIconLabelOptions": {
           "$ref": "#/definitions/SheetControlInfoIconLabelOptions"
         },
@@ -1932,6 +2025,7 @@
       },
       "type": "object"
     },
+    "DigitGroupingStyle": { "enum": ["DEFAULT", "LAKHS"], "type": "string" },
     "DimensionField": {
       "additionalProperties": false,
       "properties": {
@@ -2156,6 +2250,7 @@
       "additionalProperties": false,
       "properties": {
         "FieldWells": { "$ref": "#/definitions/FilledMapFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "MapStyleOptions": {
           "$ref": "#/definitions/GeospatialMapStyleOptions"
@@ -2594,6 +2689,7 @@
       "properties": {
         "FontColor": { "pattern": "^#[A-F0-9]{6}$", "type": "string" },
         "FontDecoration": { "$ref": "#/definitions/FontDecoration" },
+        "FontFamily": { "type": "string" },
         "FontSize": { "$ref": "#/definitions/FontSize" },
         "FontStyle": { "$ref": "#/definitions/FontStyle" },
         "FontWeight": { "$ref": "#/definitions/FontWeight" }
@@ -2604,6 +2700,10 @@
     "FontSize": {
       "additionalProperties": false,
       "properties": {
+        "Absolute": {
+          "description": "String based length that is composed of value and unit in px",
+          "type": "string"
+        },
         "Relative": { "$ref": "#/definitions/RelativeFontSize" }
       },
       "type": "object"
@@ -2839,6 +2939,7 @@
           "$ref": "#/definitions/FunnelChartDataLabelOptions"
         },
         "FieldWells": { "$ref": "#/definitions/FunnelChartFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "SortConfiguration": {
           "$ref": "#/definitions/FunnelChartSortConfiguration"
         },
@@ -2941,6 +3042,14 @@
       },
       "type": "object"
     },
+    "GaugeChartColorConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "BackgroundColor": { "pattern": "^#[A-F0-9]{6}$", "type": "string" },
+        "ForegroundColor": { "pattern": "^#[A-F0-9]{6}$", "type": "string" }
+      },
+      "type": "object"
+    },
     "GaugeChartConditionalFormatting": {
       "additionalProperties": false,
       "properties": {
@@ -2968,9 +3077,13 @@
     "GaugeChartConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "ColorConfiguration": {
+          "$ref": "#/definitions/GaugeChartColorConfiguration"
+        },
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/GaugeChartFieldWells" },
         "GaugeChartOptions": { "$ref": "#/definitions/GaugeChartOptions" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "TooltipOptions": { "$ref": "#/definitions/TooltipOptions" },
         "VisualPalette": { "$ref": "#/definitions/VisualPalette" }
       },
@@ -3445,6 +3558,7 @@
         "ColumnLabelOptions": { "$ref": "#/definitions/ChartAxisLabelOptions" },
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/HeatMapFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "RowLabelOptions": { "$ref": "#/definitions/ChartAxisLabelOptions" },
         "SortConfiguration": {
@@ -3552,6 +3666,7 @@
         "BinOptions": { "$ref": "#/definitions/HistogramBinOptions" },
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/HistogramFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Tooltip": { "$ref": "#/definitions/TooltipOptions" },
         "VisualPalette": { "$ref": "#/definitions/VisualPalette" },
         "XAxisDisplayOptions": { "$ref": "#/definitions/AxisDisplayOptions" },
@@ -3713,7 +3828,8 @@
           "minItems": 0,
           "type": "array"
         },
-        "CustomNarrative": { "$ref": "#/definitions/CustomNarrativeOptions" }
+        "CustomNarrative": { "$ref": "#/definitions/CustomNarrativeOptions" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" }
       },
       "type": "object"
     },
@@ -3854,6 +3970,7 @@
       "additionalProperties": false,
       "properties": {
         "FieldWells": { "$ref": "#/definitions/KPIFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "KPIOptions": { "$ref": "#/definitions/KPIOptions" },
         "SortConfiguration": { "$ref": "#/definitions/KPISortConfiguration" }
       },
@@ -4182,6 +4299,7 @@
           "minItems": 0,
           "type": "array"
         },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "PrimaryYAxisDisplayOptions": {
           "$ref": "#/definitions/LineSeriesAxisDisplayOptions"
@@ -5160,6 +5278,7 @@
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "DonutOptions": { "$ref": "#/definitions/DonutOptions" },
         "FieldWells": { "$ref": "#/definitions/PieChartFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "SmallMultiplesOptions": {
           "$ref": "#/definitions/SmallMultiplesOptions"
@@ -5331,6 +5450,7 @@
       "properties": {
         "FieldOptions": { "$ref": "#/definitions/PivotTableFieldOptions" },
         "FieldWells": { "$ref": "#/definitions/PivotTableFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "PaginatedReportOptions": {
           "$ref": "#/definitions/PivotTablePaginatedReportOptions"
         },
@@ -5788,6 +5908,7 @@
         "ColorAxis": { "$ref": "#/definitions/AxisDisplayOptions" },
         "ColorLabelOptions": { "$ref": "#/definitions/ChartAxisLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/RadarChartFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "Shape": { "$ref": "#/definitions/RadarChartShape" },
         "SortConfiguration": {
@@ -6163,6 +6284,7 @@
       "properties": {
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/SankeyDiagramFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "SortConfiguration": {
           "$ref": "#/definitions/SankeyDiagramSortConfiguration"
         }
@@ -6264,7 +6386,11 @@
       "properties": {
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/ScatterPlotFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
+        "SortConfiguration": {
+          "$ref": "#/definitions/ScatterPlotSortConfiguration"
+        },
         "Tooltip": { "$ref": "#/definitions/TooltipOptions" },
         "VisualPalette": { "$ref": "#/definitions/VisualPalette" },
         "XAxisDisplayOptions": { "$ref": "#/definitions/AxisDisplayOptions" },
@@ -6282,6 +6408,15 @@
         },
         "ScatterPlotUnaggregatedFieldWells": {
           "$ref": "#/definitions/ScatterPlotUnaggregatedFieldWells"
+        }
+      },
+      "type": "object"
+    },
+    "ScatterPlotSortConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ScatterPlotLimitConfiguration": {
+          "$ref": "#/definitions/ItemsLimitConfiguration"
         }
       },
       "type": "object"
@@ -6730,6 +6865,7 @@
       "additionalProperties": false,
       "properties": {
         "Content": { "maxLength": 150000, "minLength": 0, "type": "string" },
+        "Interactions": {},
         "SheetTextBoxId": {
           "maxLength": 512,
           "minLength": 1,
@@ -7097,6 +7233,7 @@
       "properties": {
         "FieldOptions": { "$ref": "#/definitions/TableFieldOptions" },
         "FieldWells": { "$ref": "#/definitions/TableFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "PaginatedReportOptions": {
           "$ref": "#/definitions/TablePaginatedReportOptions"
         },
@@ -7590,6 +7727,7 @@
     "ThousandSeparatorOptions": {
       "additionalProperties": false,
       "properties": {
+        "GroupingStyle": { "$ref": "#/definitions/DigitGroupingStyle" },
         "Symbol": { "$ref": "#/definitions/NumericSeparatorSymbol" },
         "Visibility": {}
       },
@@ -7889,6 +8027,7 @@
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/TreeMapFieldWells" },
         "GroupLabelOptions": { "$ref": "#/definitions/ChartAxisLabelOptions" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "SizeLabelOptions": { "$ref": "#/definitions/ChartAxisLabelOptions" },
         "SortConfiguration": {
@@ -8092,7 +8231,17 @@
     },
     "VisualInteractionOptions": {
       "additionalProperties": false,
-      "properties": { "ContextMenuOption": {}, "VisualMenuOption": {} },
+      "properties": {
+        "ContextMenuOption": { "$ref": "#/definitions/ContextMenuOption" },
+        "VisualMenuOption": { "$ref": "#/definitions/VisualMenuOption" }
+      },
+      "type": "object"
+    },
+    "VisualMenuOption": {
+      "additionalProperties": false,
+      "properties": {
+        "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
+      },
       "type": "object"
     },
     "VisualPalette": {
@@ -8171,6 +8320,7 @@
         },
         "DataLabels": { "$ref": "#/definitions/DataLabelOptions" },
         "FieldWells": { "$ref": "#/definitions/WaterfallChartFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "Legend": { "$ref": "#/definitions/LegendOptions" },
         "PrimaryYAxisDisplayOptions": {
           "$ref": "#/definitions/AxisDisplayOptions"
@@ -8306,6 +8456,7 @@
           "$ref": "#/definitions/ChartAxisLabelOptions"
         },
         "FieldWells": { "$ref": "#/definitions/WordCloudFieldWells" },
+        "Interactions": { "$ref": "#/definitions/VisualInteractionOptions" },
         "SortConfiguration": {
           "$ref": "#/definitions/WordCloudSortConfiguration"
         },

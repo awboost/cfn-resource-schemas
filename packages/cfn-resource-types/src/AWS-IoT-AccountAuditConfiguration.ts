@@ -61,9 +61,13 @@ export type AuditCheckConfigurations = {
    */
   ConflictingClientIdsCheck?: AuditCheckConfiguration;
   /**
-   * The configuration for a specific audit check.
+   * A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
    */
-  DeviceCertificateExpiringCheck?: AuditCheckConfiguration;
+  DeviceCertificateAgeCheck?: DeviceCertAgeAuditCheckConfiguration;
+  /**
+   * A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+   */
+  DeviceCertificateExpiringCheck?: DeviceCertExpirationAuditCheckConfiguration;
   /**
    * The configuration for a specific audit check.
    */
@@ -137,6 +141,62 @@ export type AuditNotificationTarget = {
  */
 export type AuditNotificationTargetConfigurations = {
   Sns?: AuditNotificationTarget;
+};
+/**
+ * Type definition for `AWS::IoT::AccountAuditConfiguration.CertAgeCheckCustomConfiguration`.
+ * A structure containing the configName and corresponding configValue for configuring audit checks.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-certagecheckcustomconfiguration.html}
+ */
+export type CertAgeCheckCustomConfiguration = {
+  /**
+   * The configValue for configuring audit checks.
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  CertAgeThresholdInDays?: string;
+};
+/**
+ * Type definition for `AWS::IoT::AccountAuditConfiguration.CertExpirationCheckCustomConfiguration`.
+ * A structure containing the configName and corresponding configValue for configuring audit checks.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-certexpirationcheckcustomconfiguration.html}
+ */
+export type CertExpirationCheckCustomConfiguration = {
+  /**
+   * The configValue for configuring audit checks.
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  CertExpirationThresholdInDays?: string;
+};
+/**
+ * Type definition for `AWS::IoT::AccountAuditConfiguration.DeviceCertAgeAuditCheckConfiguration`.
+ * A structure containing the configName and corresponding configValue for configuring DeviceCertAgeCheck.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-devicecertageauditcheckconfiguration.html}
+ */
+export type DeviceCertAgeAuditCheckConfiguration = {
+  /**
+   * A structure containing the configName and corresponding configValue for configuring audit checks.
+   */
+  Configuration?: CertAgeCheckCustomConfiguration;
+  /**
+   * True if the check is enabled.
+   */
+  Enabled?: boolean;
+};
+/**
+ * Type definition for `AWS::IoT::AccountAuditConfiguration.DeviceCertExpirationAuditCheckConfiguration`.
+ * A structure containing the configName and corresponding configValue for configuring DeviceCertExpirationCheck.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-devicecertexpirationauditcheckconfiguration.html}
+ */
+export type DeviceCertExpirationAuditCheckConfiguration = {
+  /**
+   * A structure containing the configName and corresponding configValue for configuring audit checks.
+   */
+  Configuration?: CertExpirationCheckCustomConfiguration;
+  /**
+   * True if the check is enabled.
+   */
+  Enabled?: boolean;
 };
 /**
  * Resource type definition for `AWS::IoT::AccountAuditConfiguration`.

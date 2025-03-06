@@ -1,5 +1,5 @@
 {
-  "$hash": "8d55a42d7319c0c61ab0617e9be646352ffca8c3",
+  "$hash": "a60ff1203889753aa4d723ab3b90a7f19d56bfe4",
   "$id": "aws-medialive-eventbridgeruletemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
@@ -140,7 +140,7 @@
     "/properties/Identifier",
     "/properties/ModifiedAt"
   ],
-  "required": ["EventType", "GroupIdentifier", "Name"],
+  "required": ["EventType", "Name"],
   "tagging": {
     "cloudFormationSystemTags": false,
     "permissions": ["medialive:CreateTags", "medialive:DeleteTags"],

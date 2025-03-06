@@ -23,7 +23,7 @@ export type MediaLiveEventBridgeRuleTemplateProperties = {
    * An eventbridge rule template group's identifier. Can be either be its id or current name.
    * @pattern `^[^\s]+$`
    */
-  GroupIdentifier: string;
+  GroupIdentifier?: string;
   /**
    * A resource's name. Names must be unique within the scope of a resource type in a specific region.
    * @minLength `1`

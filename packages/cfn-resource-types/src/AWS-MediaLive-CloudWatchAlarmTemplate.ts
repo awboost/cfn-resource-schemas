@@ -29,7 +29,7 @@ export type MediaLiveCloudWatchAlarmTemplateProperties = {
    * A cloudwatch alarm template group's identifier. Can be either be its id or current name.
    * @pattern `^[^\s]+$`
    */
-  GroupIdentifier: string;
+  GroupIdentifier?: string;
   /**
    * The name of the metric associated with the alarm. Must be compatible with targetResourceType.
    * @minLength `0`
@@ -132,6 +132,7 @@ export type CloudWatchAlarmTemplateTargetResourceType =
   | "MEDIAPACKAGE_CHANNEL"
   | "MEDIAPACKAGE_ORIGIN_ENDPOINT"
   | "MEDIACONNECT_FLOW"
+  | "MEDIATAILOR_PLAYBACK_CONFIGURATION"
   | "S3_BUCKET";
 /**
  * Type definition for `AWS::MediaLive::CloudWatchAlarmTemplate.CloudWatchAlarmTemplateTreatMissingData`.

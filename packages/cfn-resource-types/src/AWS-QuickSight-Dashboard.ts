@@ -430,6 +430,7 @@ export type BarChartConfiguration = {
   ContributionAnalysisDefaults?: ContributionAnalysisDefault[];
   DataLabels?: DataLabelOptions;
   FieldWells?: BarChartFieldWells;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   Orientation?: BarChartOrientation;
   /**
@@ -556,6 +557,7 @@ export type BinWidthOptions = {
 export type BodySectionConfiguration = {
   Content: BodySectionContent;
   PageBreakConfiguration?: SectionPageBreakConfiguration;
+  RepeatConfiguration?: BodySectionRepeatConfiguration;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -570,6 +572,72 @@ export type BodySectionConfiguration = {
  */
 export type BodySectionContent = {
   Layout?: SectionLayoutConfiguration;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.BodySectionDynamicCategoryDimensionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-bodysectiondynamiccategorydimensionconfiguration.html}
+ */
+export type BodySectionDynamicCategoryDimensionConfiguration = {
+  Column: ColumnIdentifier;
+  /**
+   * @min `1`
+   * @max `1000`
+   */
+  Limit?: number;
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  SortByMetrics?: ColumnSort[];
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.BodySectionDynamicNumericDimensionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-bodysectiondynamicnumericdimensionconfiguration.html}
+ */
+export type BodySectionDynamicNumericDimensionConfiguration = {
+  Column: ColumnIdentifier;
+  /**
+   * @min `1`
+   * @max `1000`
+   */
+  Limit?: number;
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  SortByMetrics?: ColumnSort[];
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.BodySectionRepeatConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-bodysectionrepeatconfiguration.html}
+ */
+export type BodySectionRepeatConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `3`
+   */
+  DimensionConfigurations?: BodySectionRepeatDimensionConfiguration[];
+  /**
+   * @minLength `0`
+   * @maxLength `20`
+   */
+  NonRepeatingVisuals?: string[];
+  PageBreakConfiguration?: BodySectionRepeatPageBreakConfiguration;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.BodySectionRepeatDimensionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-bodysectionrepeatdimensionconfiguration.html}
+ */
+export type BodySectionRepeatDimensionConfiguration = {
+  DynamicCategoryDimensionConfiguration?: BodySectionDynamicCategoryDimensionConfiguration;
+  DynamicNumericDimensionConfiguration?: BodySectionDynamicNumericDimensionConfiguration;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.BodySectionRepeatPageBreakConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-bodysectionrepeatpagebreakconfiguration.html}
+ */
+export type BodySectionRepeatPageBreakConfiguration = {
+  After?: SectionAfterPageBreak;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.BoxPlotAggregatedFieldWells`.
@@ -596,6 +664,7 @@ export type BoxPlotChartConfiguration = {
   CategoryAxis?: AxisDisplayOptions;
   CategoryLabelOptions?: ChartAxisLabelOptions;
   FieldWells?: BoxPlotFieldWells;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
   PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
@@ -985,6 +1054,7 @@ export type ComboChartConfiguration = {
   CategoryLabelOptions?: ChartAxisLabelOptions;
   ColorLabelOptions?: ChartAxisLabelOptions;
   FieldWells?: ComboChartFieldWells;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   LineDataLabels?: DataLabelOptions;
   PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
@@ -1210,6 +1280,13 @@ export type ConditionalFormattingSolidColor = {
   Expression: string;
 };
 /**
+ * Type definition for `AWS::QuickSight::Dashboard.ContextMenuOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-contextmenuoption.html}
+ */
+export type ContextMenuOption = {
+  AvailabilityStatus?: DashboardBehavior;
+};
+/**
  * Type definition for `AWS::QuickSight::Dashboard.ContributionAnalysisDefault`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-contributionanalysisdefault.html}
  */
@@ -1321,6 +1398,7 @@ export type CustomContentConfiguration = {
    */
   ContentUrl?: string;
   ImageScaling?: CustomContentImageScalingConfiguration;
+  Interactions?: VisualInteractionOptions;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.CustomContentImageScalingConfiguration`.
@@ -2016,11 +2094,13 @@ export type DateTimeParameterDeclaration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimepickercontroldisplayoptions.html}
  */
 export type DateTimePickerControlDisplayOptions = {
+  DateIconVisibility?: Visibility;
   /**
    * @minLength `1`
    * @maxLength `128`
    */
   DateTimeFormat?: string;
+  HelperTextVisibility?: Visibility;
   InfoIconLabelOptions?: SheetControlInfoIconLabelOptions;
   TitleOptions?: LabelOptions;
 };
@@ -2262,6 +2342,11 @@ export type DestinationParameterValueConfiguration = {
   SourceField?: string;
   SourceParameterName?: string;
 };
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DigitGroupingStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-digitgroupingstyle.html}
+ */
+export type DigitGroupingStyle = "DEFAULT" | "LAKHS";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DimensionField`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dimensionfield.html}
@@ -2511,6 +2596,7 @@ export type FilledMapConditionalFormattingOption = {
  */
 export type FilledMapConfiguration = {
   FieldWells?: FilledMapFieldWells;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   MapStyleOptions?: GeospatialMapStyleOptions;
   SortConfiguration?: FilledMapSortConfiguration;
@@ -2910,6 +2996,7 @@ export type FontConfiguration = {
    */
   FontColor?: string;
   FontDecoration?: FontDecoration;
+  FontFamily?: string;
   FontSize?: FontSize;
   FontStyle?: FontStyle;
   FontWeight?: FontWeight;
@@ -3140,6 +3227,7 @@ export type FunnelChartConfiguration = {
   CategoryLabelOptions?: ChartAxisLabelOptions;
   DataLabelOptions?: FunnelChartDataLabelOptions;
   FieldWells?: FunnelChartFieldWells;
+  Interactions?: VisualInteractionOptions;
   SortConfiguration?: FunnelChartSortConfiguration;
   Tooltip?: TooltipOptions;
   ValueLabelOptions?: ChartAxisLabelOptions;
@@ -3228,6 +3316,20 @@ export type GaugeChartArcConditionalFormatting = {
   ForegroundColor?: ConditionalFormattingColor;
 };
 /**
+ * Type definition for `AWS::QuickSight::Dashboard.GaugeChartColorConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartcolorconfiguration.html}
+ */
+export type GaugeChartColorConfiguration = {
+  /**
+   * @pattern `^#[A-F0-9]{6}$`
+   */
+  BackgroundColor?: string;
+  /**
+   * @pattern `^#[A-F0-9]{6}$`
+   */
+  ForegroundColor?: string;
+};
+/**
  * Type definition for `AWS::QuickSight::Dashboard.GaugeChartConditionalFormatting`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartconditionalformatting.html}
  */
@@ -3251,9 +3353,11 @@ export type GaugeChartConditionalFormattingOption = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartconfiguration.html}
  */
 export type GaugeChartConfiguration = {
+  ColorConfiguration?: GaugeChartColorConfiguration;
   DataLabels?: DataLabelOptions;
   FieldWells?: GaugeChartFieldWells;
   GaugeChartOptions?: GaugeChartOptions;
+  Interactions?: VisualInteractionOptions;
   TooltipOptions?: TooltipOptions;
   VisualPalette?: VisualPalette;
 };
@@ -3945,6 +4049,7 @@ export type HeatMapConfiguration = {
   ColumnLabelOptions?: ChartAxisLabelOptions;
   DataLabels?: DataLabelOptions;
   FieldWells?: HeatMapFieldWells;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   RowLabelOptions?: ChartAxisLabelOptions;
   SortConfiguration?: HeatMapSortConfiguration;
@@ -4039,6 +4144,7 @@ export type HistogramConfiguration = {
   BinOptions?: HistogramBinOptions;
   DataLabels?: DataLabelOptions;
   FieldWells?: HistogramFieldWells;
+  Interactions?: VisualInteractionOptions;
   Tooltip?: TooltipOptions;
   VisualPalette?: VisualPalette;
   XAxisDisplayOptions?: AxisDisplayOptions;
@@ -4196,6 +4302,7 @@ export type InsightConfiguration = {
    */
   Computations?: Computation[];
   CustomNarrative?: CustomNarrativeOptions;
+  Interactions?: VisualInteractionOptions;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.InsightVisual`.
@@ -4334,6 +4441,7 @@ export type KPIConditionalFormattingOption = {
  */
 export type KPIConfiguration = {
   FieldWells?: KPIFieldWells;
+  Interactions?: VisualInteractionOptions;
   KPIOptions?: KPIOptions;
   SortConfiguration?: KPISortConfiguration;
 };
@@ -4633,6 +4741,7 @@ export type LineChartConfiguration = {
    * @maxLength `10`
    */
   ForecastConfigurations?: ForecastConfiguration[];
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   PrimaryYAxisDisplayOptions?: LineSeriesAxisDisplayOptions;
   PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
@@ -5610,6 +5719,7 @@ export type PieChartConfiguration = {
   DataLabels?: DataLabelOptions;
   DonutOptions?: DonutOptions;
   FieldWells?: PieChartFieldWells;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   SmallMultiplesOptions?: SmallMultiplesOptions;
   SortConfiguration?: PieChartSortConfiguration;
@@ -5763,6 +5873,7 @@ export type PivotTableConditionalFormattingScopeRole =
 export type PivotTableConfiguration = {
   FieldOptions?: PivotTableFieldOptions;
   FieldWells?: PivotTableFieldWells;
+  Interactions?: VisualInteractionOptions;
   PaginatedReportOptions?: PivotTablePaginatedReportOptions;
   SortConfiguration?: PivotTableSortConfiguration;
   TableOptions?: PivotTableOptions;
@@ -6189,6 +6300,7 @@ export type RadarChartConfiguration = {
   ColorAxis?: AxisDisplayOptions;
   ColorLabelOptions?: ChartAxisLabelOptions;
   FieldWells?: RadarChartFieldWells;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   Shape?: RadarChartShape;
   SortConfiguration?: RadarChartSortConfiguration;
@@ -6554,6 +6666,7 @@ export type SankeyDiagramAggregatedFieldWells = {
 export type SankeyDiagramChartConfiguration = {
   DataLabels?: DataLabelOptions;
   FieldWells?: SankeyDiagramFieldWells;
+  Interactions?: VisualInteractionOptions;
   SortConfiguration?: SankeyDiagramSortConfiguration;
 };
 /**
@@ -6639,7 +6752,9 @@ export type ScatterPlotCategoricallyAggregatedFieldWells = {
 export type ScatterPlotConfiguration = {
   DataLabels?: DataLabelOptions;
   FieldWells?: ScatterPlotFieldWells;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
+  SortConfiguration?: ScatterPlotSortConfiguration;
   Tooltip?: TooltipOptions;
   VisualPalette?: VisualPalette;
   XAxisDisplayOptions?: AxisDisplayOptions;
@@ -6654,6 +6769,13 @@ export type ScatterPlotConfiguration = {
 export type ScatterPlotFieldWells = {
   ScatterPlotCategoricallyAggregatedFieldWells?: ScatterPlotCategoricallyAggregatedFieldWells;
   ScatterPlotUnaggregatedFieldWells?: ScatterPlotUnaggregatedFieldWells;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.ScatterPlotSortConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-scatterplotsortconfiguration.html}
+ */
+export type ScatterPlotSortConfiguration = {
+  ScatterPlotLimitConfiguration?: ItemsLimitConfiguration;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.ScatterPlotUnaggregatedFieldWells`.
@@ -7119,6 +7241,7 @@ export type SheetTextBox = {
    * @maxLength `150000`
    */
   Content?: string;
+  Interactions?: any;
   /**
    * @minLength `1`
    * @maxLength `512`
@@ -7538,6 +7661,7 @@ export type TableConditionalFormattingOption = {
 export type TableConfiguration = {
   FieldOptions?: TableFieldOptions;
   FieldWells?: TableFieldWells;
+  Interactions?: VisualInteractionOptions;
   PaginatedReportOptions?: TablePaginatedReportOptions;
   SortConfiguration?: TableSortConfiguration;
   /**
@@ -7842,6 +7966,7 @@ export type TextWrap = "NONE" | "WRAP";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-thousandseparatoroptions.html}
  */
 export type ThousandSeparatorOptions = {
+  GroupingStyle?: DigitGroupingStyle;
   Symbol?: NumericSeparatorSymbol;
   Visibility?: Visibility;
 };
@@ -8143,6 +8268,7 @@ export type TreeMapConfiguration = {
   DataLabels?: DataLabelOptions;
   FieldWells?: TreeMapFieldWells;
   GroupLabelOptions?: ChartAxisLabelOptions;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   SizeLabelOptions?: ChartAxisLabelOptions;
   SortConfiguration?: TreeMapSortConfiguration;
@@ -8353,7 +8479,7 @@ export type VisualCustomActionTrigger = "DATA_POINT_CLICK" | "DATA_POINT_MENU";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualinteractionoptions.html}
  */
 export type VisualInteractionOptions = {
-  ContextMenuOption?: any;
+  ContextMenuOption?: ContextMenuOption;
   VisualMenuOption?: VisualMenuOption;
 };
 /**
@@ -8432,6 +8558,7 @@ export type WaterfallChartConfiguration = {
   ColorConfiguration?: WaterfallChartColorConfiguration;
   DataLabels?: DataLabelOptions;
   FieldWells?: WaterfallChartFieldWells;
+  Interactions?: VisualInteractionOptions;
   Legend?: LegendOptions;
   PrimaryYAxisDisplayOptions?: AxisDisplayOptions;
   PrimaryYAxisLabelOptions?: ChartAxisLabelOptions;
@@ -8558,6 +8685,7 @@ export type WordCloudAggregatedFieldWells = {
 export type WordCloudChartConfiguration = {
   CategoryLabelOptions?: ChartAxisLabelOptions;
   FieldWells?: WordCloudFieldWells;
+  Interactions?: VisualInteractionOptions;
   SortConfiguration?: WordCloudSortConfiguration;
   WordCloudOptions?: WordCloudOptions;
 };

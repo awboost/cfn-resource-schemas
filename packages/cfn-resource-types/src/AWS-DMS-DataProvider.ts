@@ -36,7 +36,9 @@ export type DMSDataProviderProperties = {
     | "redshift"
     | "mariadb"
     | "mongodb"
-    | "docdb";
+    | "docdb"
+    | "db2"
+    | "db2_zos";
   /**
    * The property describes the exact settings which can be modified
    */
@@ -54,6 +56,26 @@ export type DMSDataProviderProperties = {
       Port: number;
       ServerName: string;
       SslMode?: MongoDbSslModeValue;
+    };
+    /**
+     * IbmDb2LuwSettings property identifier.
+     */
+    IbmDb2LuwSettings?: {
+      CertificateArn?: string;
+      DatabaseName: string;
+      Port: number;
+      ServerName: string;
+      SslMode: Db2SslModeValue;
+    };
+    /**
+     * IbmDb2zOsSettings property identifier.
+     */
+    IbmDb2zOsSettings?: {
+      CertificateArn?: string;
+      DatabaseName: string;
+      Port: number;
+      ServerName: string;
+      SslMode: Db2SslModeValue;
     };
     /**
      * MariaDbSettings property identifier.
@@ -153,6 +175,11 @@ export type DMSDataProviderAttributes = {
    */
   DataProviderCreationTime: string;
 };
+/**
+ * Type definition for `AWS::DMS::DataProvider.Db2SslModeValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-db2sslmodevalue.html}
+ */
+export type Db2SslModeValue = "none" | "verify-ca";
 /**
  * Type definition for `AWS::DMS::DataProvider.DmsSslModeValue`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-dmssslmodevalue.html}

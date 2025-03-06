@@ -1,5 +1,5 @@
 {
-  "$hash": "252584f25c86990015d0d37c41d45900c56e8860",
+  "$hash": "16dc978b92cdc41569265948bd9c118ef49fdaf2",
   "$id": "aws-iotsitewise-gateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -100,10 +100,8 @@
         "iotsitewise:UpdateGatewayCapabilityConfiguration",
         "iam:PassRole",
         "iam:GetRole",
-        "greengrass:GetCoreDevice",
         "iotsitewise:ListTagsForResource",
-        "iotsitewise:TagResource",
-        "iot:DescribeThing"
+        "iotsitewise:TagResource"
       ]
     },
     "delete": {

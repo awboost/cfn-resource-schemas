@@ -1,5 +1,5 @@
 {
-  "$hash": "4fa24bd42f97651ae76c25937ba61a03708d224f",
+  "$hash": "b80adc491037d77a0cdadb144f8449986f2f1dbe",
   "$id": "aws-proton-servicetemplate.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -117,7 +117,12 @@
         "kms:UpdatePrimaryRegion"
       ]
     },
-    "list": { "permissions": ["proton:ListServiceTemplates"] },
+    "list": {
+      "permissions": [
+        "proton:ListServiceTemplates",
+        "proton:ListTagsForResource"
+      ]
+    },
     "read": {
       "permissions": [
         "proton:GetServiceTemplate",

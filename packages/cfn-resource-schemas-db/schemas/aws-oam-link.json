@@ -1,5 +1,5 @@
 {
-  "$hash": "ca8e516b6f3d80566a231096bec983be6d80c628",
+  "$hash": "97554d5d90475641286855670deb31bde8665426",
   "$id": "aws-oam-link.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -29,7 +29,9 @@
         "AWS::Logs::LogGroup",
         "AWS::XRay::Trace",
         "AWS::ApplicationInsights::Application",
-        "AWS::InternetMonitor::Monitor"
+        "AWS::InternetMonitor::Monitor",
+        "AWS::ApplicationSignals::Service",
+        "AWS::ApplicationSignals::ServiceLevelObjective"
       ],
       "type": "string"
     }
@@ -46,7 +48,8 @@
         "logs:Link",
         "xray:Link",
         "applicationinsights:Link",
-        "internetmonitor:Link"
+        "internetmonitor:Link",
+        "application-signals:Link"
       ]
     },
     "delete": { "permissions": ["oam:DeleteLink", "oam:GetLink"] },
@@ -61,6 +64,7 @@
         "xray:Link",
         "applicationinsights:Link",
         "internetmonitor:Link",
+        "application-signals:Link",
         "oam:TagResource",
         "oam:UntagResource",
         "oam:ListTagsForResource"
