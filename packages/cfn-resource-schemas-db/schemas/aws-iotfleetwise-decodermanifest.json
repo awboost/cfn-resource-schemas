@@ -1,5 +1,5 @@
 {
-  "$hash": "e8b0ea1878135a07c2fee8af0c2438c3b5c21eab",
+  "$hash": "ac249e4d59c5a16f3a0d594f3ca98fa2db12a3ac",
   "$id": "aws-iotfleetwise-decodermanifest.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/ModelManifestArn"],
@@ -34,6 +34,7 @@
         "MessageId": { "type": ["integer", "string"] },
         "Name": { "maxLength": 100, "minLength": 1, "type": "string" },
         "Offset": { "type": ["number", "string"] },
+        "SignalValueType": { "$ref": "#/definitions/SignalValueType" },
         "StartBit": { "type": ["integer", "string"] }
       },
       "required": [
@@ -161,11 +162,13 @@
         "BitMaskLength": { "type": ["integer", "string"] },
         "BitRightShift": { "type": ["integer", "string"] },
         "ByteLength": { "type": ["integer", "string"] },
+        "IsSigned": { "type": ["boolean", "string"] },
         "Offset": { "type": ["number", "string"] },
         "Pid": { "type": ["integer", "string"] },
         "PidResponseLength": { "type": ["integer", "string"] },
         "Scaling": { "type": ["number", "string"] },
         "ServiceMode": { "type": ["integer", "string"] },
+        "SignalValueType": { "$ref": "#/definitions/SignalValueType" },
         "StartByte": { "type": ["integer", "string"] }
       },
       "required": [
@@ -193,6 +196,10 @@
       },
       "required": ["FullyQualifiedName", "InterfaceId", "Type", "ObdSignal"],
       "type": "object"
+    },
+    "SignalValueType": {
+      "enum": ["INTEGER", "FLOATING_POINT"],
+      "type": "string"
     },
     "Tag": {
       "additionalProperties": false,

@@ -1,5 +1,5 @@
 {
-  "$hash": "91ccdd5ababa1fef8f2c7955c26dc444fb64dd95",
+  "$hash": "7f3b4ca01feed4ae7593b2acdaba924c311cdd77",
   "$id": "aws-billingconductor-billinggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PrimaryAccountId"],
@@ -152,6 +152,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-billing-conductor.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "billingconductor:ListTagsForResource",
+      "billingconductor:TagResource",
+      "billingconductor:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

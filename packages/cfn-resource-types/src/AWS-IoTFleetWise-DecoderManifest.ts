@@ -103,6 +103,7 @@ export type CanSignal = {
    */
   Name?: string;
   Offset: number | string;
+  SignalValueType?: SignalValueType;
   StartBit: number | string;
 };
 /**
@@ -230,11 +231,13 @@ export type ObdSignal = {
   BitMaskLength?: number | string;
   BitRightShift?: number | string;
   ByteLength: number | string;
+  IsSigned?: boolean | string;
   Offset: number | string;
   Pid: number | string;
   PidResponseLength: number | string;
   Scaling: number | string;
   ServiceMode: number | string;
+  SignalValueType?: SignalValueType;
   StartByte: number | string;
 };
 /**
@@ -255,6 +258,11 @@ export type ObdSignalDecoder = {
   ObdSignal: ObdSignal;
   Type: "OBD_SIGNAL";
 };
+/**
+ * Type definition for `AWS::IoTFleetWise::DecoderManifest.SignalValueType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signalvaluetype.html}
+ */
+export type SignalValueType = "INTEGER" | "FLOATING_POINT";
 /**
  * Type definition for `AWS::IoTFleetWise::DecoderManifest.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-tag.html}

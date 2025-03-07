@@ -1,5 +1,5 @@
 {
-  "$hash": "0681654cf58feaefa2d3ed19e359c67799a85873",
+  "$hash": "a7085119560b000bd97dbce18039c9522cb7b38c",
   "$id": "aws-amplify-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AppId", "/properties/DomainName"],
@@ -55,6 +55,7 @@
   "handlers": {
     "create": {
       "permissions": [
+        "amplify:GetDomainAssociation",
         "amplify:CreateDomainAssociation",
         "route53:ListHostedZones",
         "route53:ChangeResourceRecordSets",
@@ -64,9 +65,10 @@
     },
     "delete": {
       "permissions": [
+        "amplify:GetDomainAssociation",
         "amplify:DeleteDomainAssociation",
-        "iam:PassRole",
-        "amplify:DeleteDomainAssociation"
+        "route53:ListHostedZones",
+        "iam:PassRole"
       ]
     },
     "list": {
@@ -86,6 +88,7 @@
     },
     "update": {
       "permissions": [
+        "amplify:GetDomainAssociation",
         "amplify:UpdateDomainAssociation",
         "route53:ListHostedZones",
         "route53:ChangeResourceRecordSets",
