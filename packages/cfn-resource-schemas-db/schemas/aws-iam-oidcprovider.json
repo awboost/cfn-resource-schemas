@@ -1,5 +1,5 @@
 {
-  "$hash": "56492a418924808b09e6ad0684670da00a7cc6c5",
+  "$hash": "eb690a62aeb3d08b5252f813e1544281fb8af8fa",
   "$id": "aws-iam-oidcprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Url"],
@@ -37,7 +37,7 @@
     "delete": { "permissions": ["iam:DeleteOpenIDConnectProvider"] },
     "list": {
       "permissions": [
-        "iam:ListOpenIDConnectProvider",
+        "iam:ListOpenIDConnectProviders",
         "iam:GetOpenIDConnectProvider"
       ]
     },

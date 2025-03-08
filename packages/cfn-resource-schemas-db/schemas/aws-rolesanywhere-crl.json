@@ -1,5 +1,5 @@
 {
-  "$hash": "5a61efe911142979ee12e05bb4ce40e2f5ed9421",
+  "$hash": "7b585cf6ee3375eaf3ddcb70693173bfc920217e",
   "$id": "aws-rolesanywhere-crl.json",
   "additionalProperties": false,
   "definitions": {
@@ -16,11 +16,7 @@
   "description": "Definition of AWS::RolesAnywhere::CRL Resource Type",
   "handlers": {
     "create": {
-      "permissions": [
-        "rolesanywhere:ImportCrl",
-        "rolesanywhere:TagResource",
-        "rolesanywhere:ListTagsForResource"
-      ]
+      "permissions": ["rolesanywhere:ImportCrl", "rolesanywhere:TagResource"]
     },
     "delete": { "permissions": ["rolesanywhere:DeleteCrl"] },
     "list": {

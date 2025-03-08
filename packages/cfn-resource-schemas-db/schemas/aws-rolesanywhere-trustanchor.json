@@ -1,5 +1,5 @@
 {
-  "$hash": "9f9a1f2f7f8c8457bf6cd3d308aaa1f5a1931395",
+  "$hash": "5ad95ee228efa72c2cce8d7bff2c62ed8ccdfd0e",
   "$id": "aws-rolesanywhere-trustanchor.json",
   "additionalProperties": false,
   "definitions": {
@@ -65,8 +65,7 @@
       "permissions": [
         "iam:CreateServiceLinkedRole",
         "rolesanywhere:CreateTrustAnchor",
-        "rolesanywhere:TagResource",
-        "rolesanywhere:ListTagsForResource"
+        "rolesanywhere:TagResource"
       ]
     },
     "delete": { "permissions": ["rolesanywhere:DeleteTrustAnchor"] },

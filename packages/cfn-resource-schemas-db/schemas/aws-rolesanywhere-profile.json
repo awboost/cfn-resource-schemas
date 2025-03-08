@@ -1,5 +1,5 @@
 {
-  "$hash": "7837baddd7b08a4d00cd27b48bbaa1266afa2ee9",
+  "$hash": "5c285f6d30b134ac6ca0b22933fcaa21fffe4d76",
   "$id": "aws-rolesanywhere-profile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RequireInstanceProperties"],
@@ -45,7 +45,6 @@
         "iam:PassRole",
         "rolesanywhere:CreateProfile",
         "rolesanywhere:TagResource",
-        "rolesanywhere:ListTagsForResource",
         "rolesanywhere:PutAttributeMapping",
         "rolesanywhere:DeleteAttributeMapping"
       ]

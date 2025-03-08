@@ -1,14 +1,36 @@
-- updated `AWS::Amplify::Domain`
+- added `AWS::OpenSearchServerless::Index`
+- updated `AWS::Athena::CapacityReservation`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationNFS`
+  - removed `createOnlyProperties`
+- updated `AWS::DataSync::LocationObjectStorage`
+  - updated `createOnlyProperties`
+- updated `AWS::IAM::OIDCProvider`
   - updated handler permissions
-- updated `AWS::BillingConductor::BillingGroup`
-  - updated `tagging`
-- updated `AWS::BillingConductor::CustomLineItem`
-  - updated `tagging`
-- updated `AWS::BillingConductor::PricingPlan`
-  - updated `tagging`
-- updated `AWS::BillingConductor::PricingRule`
-  - updated `tagging`
-- updated `AWS::IoTFleetWise::DecoderManifest`
-  - added definition `SignalValueType`
-  - updated definition `CanSignal`
-  - updated definition `ObdSignal`
+- updated `AWS::IAM::SAMLProvider`
+  - added `writeOnlyProperties`
+  - added definition `SAMLPrivateKey`
+  - added property `AddPrivateKey`
+  - added property `AssertionEncryptionMode`
+  - added property `PrivateKeyList`
+  - added property `RemovePrivateKey`
+  - added property `SamlProviderUUID`
+  - removed `required`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+- updated `AWS::KinesisVideo::SignalingChannel`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::KinesisVideo::Stream`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::RDS::DBCluster`
+  - updated property `DatabaseInsightsMode`
+- updated `AWS::RDS::DBInstance`
+  - updated property `DBSubnetGroupName`
+- updated `AWS::RolesAnywhere::CRL`
+  - updated handler permissions
+- updated `AWS::RolesAnywhere::Profile`
+  - updated handler permissions
+- updated `AWS::RolesAnywhere::TrustAnchor`
+  - updated handler permissions

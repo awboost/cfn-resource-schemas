@@ -1,11 +1,8 @@
 {
-  "$hash": "2ff5f1217f08fa1357bad58bf3af2071f7169316",
+  "$hash": "95f218e219533dceed7e4ba17a5fc1dbc1196984",
   "$id": "aws-datasync-locationobjectstorage.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/BucketName",
-    "/properties/ServerHostname"
-  ],
+  "createOnlyProperties": ["/properties/BucketName"],
   "definitions": {
     "Tag": {
       "additionalProperties": false,

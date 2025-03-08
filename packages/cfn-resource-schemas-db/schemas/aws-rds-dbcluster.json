@@ -1,5 +1,5 @@
 {
-  "$hash": "36c05c9f030b0d851dbfc94715d5466cdb77c02b",
+  "$hash": "f5e28a30592f1f67e2e28a05d95f175f025a4850",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -284,7 +284,7 @@
       "type": "string"
     },
     "DatabaseInsightsMode": {
-      "description": "The mode of Database Insights to enable for the DB cluster.\n If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.\n Valid for Cluster Type: Aurora DB clusters only",
+      "description": "The mode of Database Insights to enable for the DB cluster.\n If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.\n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters",
       "type": "string"
     },
     "DatabaseName": {

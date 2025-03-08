@@ -1,5 +1,5 @@
 {
-  "$hash": "0271ce5a6748dbb44be52e6aa0219b4a5b565bad",
+  "$hash": "b97f55f76a724a453faadb5f46b19d153c1b4efa",
   "$id": "aws-kinesisvideo-stream.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -30,7 +30,8 @@
     "create": {
       "permissions": [
         "kinesisvideo:DescribeStream",
-        "kinesisvideo:CreateStream"
+        "kinesisvideo:CreateStream",
+        "kinesisvideo:TagStream"
       ]
     },
     "delete": {
@@ -39,12 +40,21 @@
         "kinesisvideo:DeleteStream"
       ]
     },
-    "read": { "permissions": ["kinesisvideo:DescribeStream"] },
+    "list": { "permissions": ["kinesisvideo:ListStreams"] },
+    "read": {
+      "permissions": [
+        "kinesisvideo:DescribeStream",
+        "kinesisvideo:ListTagsForStream"
+      ]
+    },
     "update": {
       "permissions": [
         "kinesisvideo:DescribeStream",
         "kinesisvideo:UpdateStream",
-        "kinesisvideo:UpdateDataRetention"
+        "kinesisvideo:UpdateDataRetention",
+        "kinesisvideo:TagStream",
+        "kinesisvideo:UntagStream",
+        "kinesisvideo:ListTagsForStream"
       ]
     }
   },
@@ -101,5 +111,13 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-kinesisvideo.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["kinesisvideo:TagStream", "kinesisvideo:UntagStream"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::KinesisVideo::Stream"
 }
