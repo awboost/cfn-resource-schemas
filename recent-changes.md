@@ -1,36 +1,8 @@
-- added `AWS::OpenSearchServerless::Index`
-- updated `AWS::Athena::CapacityReservation`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationNFS`
-  - removed `createOnlyProperties`
-- updated `AWS::DataSync::LocationObjectStorage`
-  - updated `createOnlyProperties`
-- updated `AWS::IAM::OIDCProvider`
-  - updated handler permissions
-- updated `AWS::IAM::SAMLProvider`
-  - added `writeOnlyProperties`
-  - added definition `SAMLPrivateKey`
-  - added property `AddPrivateKey`
-  - added property `AssertionEncryptionMode`
-  - added property `PrivateKeyList`
-  - added property `RemovePrivateKey`
-  - added property `SamlProviderUUID`
-  - removed `required`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-- updated `AWS::KinesisVideo::SignalingChannel`
-  - added `tagging`
-  - updated handler permissions
-- updated `AWS::KinesisVideo::Stream`
-  - added `tagging`
-  - updated handler permissions
-- updated `AWS::RDS::DBCluster`
-  - updated property `DatabaseInsightsMode`
-- updated `AWS::RDS::DBInstance`
-  - updated property `DBSubnetGroupName`
-- updated `AWS::RolesAnywhere::CRL`
-  - updated handler permissions
-- updated `AWS::RolesAnywhere::Profile`
-  - updated handler permissions
-- updated `AWS::RolesAnywhere::TrustAnchor`
-  - updated handler permissions
+- updated `AWS::ECS::Service`
+  - updated definition `AwsVpcConfiguration`
+  - updated definition `Tag`
+  - updated property `CapacityProviderStrategy`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `HealthCheck`
+  - updated definition `KernelCapabilities`
+  - updated property `Cpu`

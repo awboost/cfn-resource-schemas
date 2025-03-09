@@ -15,7 +15,7 @@ export type ECSServiceProperties = {
   /**
      * The capacity provider strategy to use for the service.
      If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-     A capacity provider strategy may contain a maximum of 6 capacity providers.
+     A capacity provider strategy can contain a maximum of 20 capacity providers.
       To remove this property from your service resource, specify an empty ``CapacityProviderStrategyItem`` array.
      */
   CapacityProviderStrategy?: CapacityProviderStrategyItem[];
@@ -157,8 +157,12 @@ export type ECSServiceAttributes = {
  */
 export type AwsVpcConfiguration = {
   /**
-   * Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
-   */
+     * Whether the task's elastic network interface receives a public IP address.
+     Consider the following when you set this value:
+      +  When you use ``create-service`` or ``update-service``, the default is ``DISABLED``.
+      +  When the service ``deploymentController`` is ``ECS``, the value must be ``DISABLED``.
+      +  When you use ``create-service`` or ``update-service``, the default is ``ENABLED``.
+     */
   AssignPublicIp?: "DISABLED" | "ENABLED";
   /**
      * The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified.
@@ -691,6 +695,13 @@ export type ServiceVolumeConfiguration = {
   +  If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
   +  Tag keys and values are case-sensitive.
   +  Do not use ``aws:``, ``AWS:``, or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
+  
+ In order to tag a service that has the following ARN format, you need to migrate the service to the long ARN. You must use the API, CLI or console to migrate the service ARN. For more information, see [Migrate an short service ARN to a long ARN](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-arn-migration.html) in the *Developer Guide*.
+  ``arn:aws:ecs:region:aws_account_id:service/service-name``
+ After the migration is complete, the following are true:
+  +   The service ARN is: ``arn:aws:ecs:region:aws_account_id:service/cluster-name/service-name``
+  +  You can use CFN to tag the service as you would a service with a long ARN format.
+  +  When the ``PhysicalResourceId`` in the CFN stack represents a service, the value does not change and will be the short service ARN.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-tag.html}
  */
 export type Tag = {
