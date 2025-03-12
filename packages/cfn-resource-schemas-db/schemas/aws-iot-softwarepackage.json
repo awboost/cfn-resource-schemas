@@ -1,5 +1,5 @@
 {
-  "$hash": "bec6b1228d9513661efdd75ace83491dd24e3b91",
+  "$hash": "2d53ef7a83dc696d4ec8e214d66e48332b5c55d6",
   "$id": "aws-iot-softwarepackage.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PackageName"],
@@ -88,7 +88,12 @@
   },
   "readOnlyProperties": ["/properties/PackageArn"],
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "iot:TagResource",
+      "iot:UntagResource",
+      "iot:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

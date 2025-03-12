@@ -27,6 +27,13 @@ export type BatchJobDefinitionProperties = {
   Type: string;
 };
 /**
+ * Attribute type definition for `AWS::Batch::JobDefinition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#aws-resource-batch-jobdefinition-return-values}
+ */
+export type BatchJobDefinitionAttributes = {
+  JobDefinitionArn: string;
+};
+/**
  * Type definition for `AWS::Batch::JobDefinition.ConsumableResourceProperties`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-consumableresourceproperties.html}
  */
@@ -505,7 +512,7 @@ export type Volume = {
 export class BatchJobDefinition extends $Resource<
   "AWS::Batch::JobDefinition",
   BatchJobDefinitionProperties,
-  Record<string, never>
+  BatchJobDefinitionAttributes
 > {
   public static readonly Type = "AWS::Batch::JobDefinition";
   constructor(

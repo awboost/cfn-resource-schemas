@@ -91,7 +91,7 @@ export type CustomActionAttachmentVariables = Record<string, string>;
 export type CustomActionDefinition = {
   /**
    * @minLength `1`
-   * @maxLength `100`
+   * @maxLength `5000`
    */
   CommandText: string;
 };

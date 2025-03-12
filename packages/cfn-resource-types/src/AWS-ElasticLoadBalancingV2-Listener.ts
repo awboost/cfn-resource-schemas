@@ -281,17 +281,20 @@ export type ListenerAttribute = {
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::Listener.MutualAuthentication`.
- * Specifies the configuration information for mutual authentication.
+ * The mutual authentication configuration information.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-mutualauthentication.html}
  */
 export type MutualAuthentication = {
+  /**
+   * Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
+   */
   AdvertiseTrustStoreCaNames?: string;
   /**
    * Indicates whether expired client certificates are ignored.
    */
   IgnoreClientCertificateExpiry?: boolean;
   /**
-   * The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
+   * The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
    */
   Mode?: string;
   /**

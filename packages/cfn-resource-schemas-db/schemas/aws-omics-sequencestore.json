@@ -1,5 +1,5 @@
 {
-  "$hash": "583dbd1c53630849d0ebf35bc068d3e004eedaef",
+  "$hash": "a8f6c5120045e91707e3629e7af037d7873c5f18",
   "$id": "aws-omics-sequencestore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -107,6 +107,5 @@
     "tagUpdatable": false,
     "taggable": true
   },
-  "typeName": "AWS::Omics::SequenceStore",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "typeName": "AWS::Omics::SequenceStore"
 }

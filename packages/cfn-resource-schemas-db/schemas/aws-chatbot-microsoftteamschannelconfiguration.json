@@ -1,5 +1,5 @@
 {
-  "$hash": "fbcbc7f4f46722690c28c83e905a497653781b77",
+  "$hash": "dd52d0841fd120eb912a2dfbdbf23c32e6ef1e9a",
   "$id": "aws-chatbot-microsoftteamschannelconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -134,6 +134,13 @@
       "maxLength": 256,
       "minLength": 1,
       "pattern": "^([a-zA-Z0-9-_=+/.,])*%3[aA]([a-zA-Z0-9-_=+/.,])*%40([a-zA-Z0-9-_=+/.,])*$",
+      "type": "string"
+    },
+    "TeamsChannelName": {
+      "description": "The name of the Microsoft Teams channel",
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^(.*)$",
       "type": "string"
     },
     "TeamsTenantId": {

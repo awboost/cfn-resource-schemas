@@ -11,7 +11,7 @@ export type ElasticLoadBalancingV2LoadBalancerProperties = {
    */
   EnablePrefixForIpv6SourceNat?: string;
   /**
-   * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
+   * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.
    */
   EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: string;
   /**
@@ -21,6 +21,7 @@ export type ElasticLoadBalancingV2LoadBalancerProperties = {
      [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
      */
   IpAddressType?: string;
+  Ipv4IpamPoolId?: string;
   /**
    * The load balancer attributes.
    */

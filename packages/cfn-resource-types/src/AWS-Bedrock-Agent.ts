@@ -184,6 +184,12 @@ export type ActionGroupSignature =
  */
 export type ActionGroupState = "ENABLED" | "DISABLED";
 /**
+ * Type definition for `AWS::Bedrock::Agent.AdditionalModelRequestFields`.
+ * Additional Model Request Fields for Prompt Configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-additionalmodelrequestfields.html}
+ */
+export type AdditionalModelRequestFields = Record<string, any>;
+/**
  * Type definition for `AWS::Bedrock::Agent.AgentActionGroup`.
  * Contains the information of an Agent Action Group
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html}
@@ -515,6 +521,10 @@ export type ParameterMap = Record<string, ParameterDetail>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-promptconfiguration.html}
  */
 export type PromptConfiguration = {
+  /**
+   * Additional Model Request Fields for Prompt Configuration
+   */
+  AdditionalModelRequestFields?: AdditionalModelRequestFields;
   /**
    * Base Prompt Template.
    * @minLength `1`

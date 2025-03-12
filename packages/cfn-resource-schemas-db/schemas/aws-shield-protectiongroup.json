@@ -1,5 +1,5 @@
 {
-  "$hash": "a3b3584b65d01bea0812bd717ff8607caca8f0e0",
+  "$hash": "0b2848fa48f170e2197238d7faabd29d7a87cac4",
   "$id": "aws-shield-protectiongroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProtectionGroupId"],
@@ -110,7 +110,9 @@
       "shield:UntagResource",
       "shield:TagResource"
     ],
+    "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::Shield::ProtectionGroup"

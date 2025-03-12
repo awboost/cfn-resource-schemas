@@ -1,5 +1,5 @@
 {
-  "$hash": "9a9b86b38a8bc3ad95a52036a503de5f8d64a4ed",
+  "$hash": "8a63b21a35e811bc5ea15ad10fd1888a0757762b",
   "$id": "aws-elasticloadbalancingv2-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoadBalancerArn"],
@@ -251,15 +251,18 @@
     },
     "MutualAuthentication": {
       "additionalProperties": false,
-      "description": "Specifies the configuration information for mutual authentication.",
+      "description": "The mutual authentication configuration information.",
       "properties": {
-        "AdvertiseTrustStoreCaNames": { "description": "", "type": "string" },
+        "AdvertiseTrustStoreCaNames": {
+          "description": "Indicates whether trust store CA certificate names are advertised. The default value is ``off``.",
+          "type": "string"
+        },
         "IgnoreClientCertificateExpiry": {
           "description": "Indicates whether expired client certificates are ignored.",
           "type": "boolean"
         },
         "Mode": {
-          "description": "The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.",
+          "description": "The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.",
           "type": "string"
         },
         "TrustStoreArn": {

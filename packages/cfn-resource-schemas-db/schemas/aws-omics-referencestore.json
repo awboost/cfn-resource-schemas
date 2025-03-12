@@ -1,5 +1,5 @@
 {
-  "$hash": "722f32ede4ed782289882e2f1cf5d03caaac3a82",
+  "$hash": "f937fa3818763343a3e372ddaf3368ccb29ffdcb",
   "$id": "aws-omics-referencestore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -100,6 +100,5 @@
     "tagUpdatable": false,
     "taggable": true
   },
-  "typeName": "AWS::Omics::ReferenceStore",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "typeName": "AWS::Omics::ReferenceStore"
 }

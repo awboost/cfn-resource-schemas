@@ -1,5 +1,5 @@
 {
-  "$hash": "72ee6d72a5ffb5fff8741d29c40023f78aacb9b0",
+  "$hash": "daa5126d746609ce2d73638e365fc6d1b148b49e",
   "$id": "aws-chatbot-customaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ActionName"],
@@ -56,7 +56,7 @@
     "CustomActionDefinition": {
       "additionalProperties": false,
       "properties": {
-        "CommandText": { "maxLength": 100, "minLength": 1, "type": "string" }
+        "CommandText": { "maxLength": 5000, "minLength": 1, "type": "string" }
       },
       "required": ["CommandText"],
       "type": "object"

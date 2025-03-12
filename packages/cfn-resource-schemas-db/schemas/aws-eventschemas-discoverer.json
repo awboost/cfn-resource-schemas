@@ -1,5 +1,5 @@
 {
-  "$hash": "892465d92afe92744f58c0dac87b8b527f3199c9",
+  "$hash": "26f80fd79ed4b1137b8fc36026b4ac44ac093cf4",
   "$id": "aws-eventschemas-discoverer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SourceArn"],
@@ -93,6 +93,11 @@
   "required": ["SourceArn"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "schemas:TagResource",
+      "schemas:UntagResource",
+      "schemas:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

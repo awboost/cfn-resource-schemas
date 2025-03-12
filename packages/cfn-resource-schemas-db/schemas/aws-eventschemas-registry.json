@@ -1,5 +1,5 @@
 {
-  "$hash": "99e95dffb5e269a8faec90afda492b74481ad173",
+  "$hash": "d83e7e85938f0bf0be8185cad15bb74fe8a02daf",
   "$id": "aws-eventschemas-registry.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RegistryName"],
@@ -62,6 +62,11 @@
   "readOnlyProperties": ["/properties/RegistryArn"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "schemas:TagResource",
+      "schemas:UntagResource",
+      "schemas:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,8 +1,9 @@
 {
-  "$hash": "65964f5f52ecde520f5062bc92b1d09ea8c5f5e1",
+  "$hash": "ef08aa5c42c4b4d6d48d58477fca4f9c6b9f8527",
   "$id": "aws-ec2-vpcendpointservice.json",
   "additionalProperties": false,
   "definitions": {
+    "IpAddressType": { "enum": ["ipv4", "ipv6"], "type": "string" },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -82,6 +83,13 @@
     },
     "PayerResponsibility": { "type": "string" },
     "ServiceId": { "type": "string" },
+    "SupportedIpAddressTypes": {
+      "description": "Specify which Ip Address types are supported for VPC endpoint service.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/IpAddressType" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "Tags": {
       "description": "The tags to add to the VPC endpoint service.",
       "insertionOrder": false,

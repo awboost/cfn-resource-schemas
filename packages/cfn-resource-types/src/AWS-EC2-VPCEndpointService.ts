@@ -11,6 +11,10 @@ export type EC2VPCEndpointServiceProperties = {
   NetworkLoadBalancerArns?: string[];
   PayerResponsibility?: string;
   /**
+   * Specify which Ip Address types are supported for VPC endpoint service.
+   */
+  SupportedIpAddressTypes?: IpAddressType[];
+  /**
    * The tags to add to the VPC endpoint service.
    */
   Tags?: Tag[];
@@ -22,6 +26,11 @@ export type EC2VPCEndpointServiceProperties = {
 export type EC2VPCEndpointServiceAttributes = {
   ServiceId: string;
 };
+/**
+ * Type definition for `AWS::EC2::VPCEndpointService.IpAddressType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpointservice-ipaddresstype.html}
+ */
+export type IpAddressType = "ipv4" | "ipv6";
 /**
  * Type definition for `AWS::EC2::VPCEndpointService.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpointservice-tag.html}

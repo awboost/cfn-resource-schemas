@@ -1,5 +1,5 @@
 {
-  "$hash": "c76a683e4153234ff35f337dc6cd2fdbc983cf34",
+  "$hash": "cb148b97765ca4344acee11665aa26882aa66c2e",
   "$id": "aws-batch-jobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/JobDefinitionName"],
@@ -788,6 +788,7 @@
     "ContainerProperties": { "$ref": "#/definitions/ContainerProperties" },
     "EcsProperties": { "$ref": "#/definitions/EcsProperties" },
     "EksProperties": { "$ref": "#/definitions/EksProperties" },
+    "JobDefinitionArn": { "type": "string" },
     "JobDefinitionName": { "maxLength": 128, "type": "string" },
     "NodeProperties": { "$ref": "#/definitions/NodeProperties" },
     "Parameters": {
@@ -813,6 +814,7 @@
     "Timeout": { "$ref": "#/definitions/JobTimeout" },
     "Type": { "type": "string" }
   },
+  "readOnlyProperties": ["/properties/JobDefinitionArn"],
   "required": ["Type"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
