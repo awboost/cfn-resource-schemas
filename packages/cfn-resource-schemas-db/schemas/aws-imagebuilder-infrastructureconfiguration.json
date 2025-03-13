@@ -1,5 +1,5 @@
 {
-  "$hash": "0a18afcefdf056df4d6e6e5467e930d5c3bff588",
+  "$hash": "a8fc16125b288e8e333cba6e2af1795996f7ffbf",
   "$id": "aws-imagebuilder-infrastructureconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -184,6 +184,12 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Name", "InstanceProfileName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ImageBuilder::InfrastructureConfiguration"
 }

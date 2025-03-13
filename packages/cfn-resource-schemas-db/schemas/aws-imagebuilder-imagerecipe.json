@@ -1,5 +1,5 @@
 {
-  "$hash": "387d1441dbfcb96e993720ee2ccf65bc403c4b9c",
+  "$hash": "35271b08e988730c455f61c37615011e229222fe",
   "$id": "aws-imagebuilder-imagerecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -217,6 +217,13 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Name", "Version", "Components", "ParentImage"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["imagebuilder:TagResource", "imagebuilder:UnTagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::ImageBuilder::ImageRecipe"
 }

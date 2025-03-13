@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SageMakerInferenceComponentProperties = {
   /**
+   * The deployment config for the inference component
+   */
+  DeploymentConfig?: InferenceComponentDeploymentConfig;
+  /**
    * The Amazon Resource Name (ARN) of the endpoint the inference component is associated with
    * @minLength `1`
    * @maxLength `256`
@@ -101,6 +105,29 @@ export type SageMakerInferenceComponentAttributes = {
   };
 };
 /**
+ * Type definition for `AWS::SageMaker::InferenceComponent.Alarm`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-alarm.html}
+ */
+export type Alarm = {
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   * @pattern `^(?!\s*$).+`
+   */
+  AlarmName: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::InferenceComponent.AutoRollbackConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-autorollbackconfiguration.html}
+ */
+export type AutoRollbackConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  Alarms: Alarm[];
+};
+/**
  * Type definition for `AWS::SageMaker::InferenceComponent.DeployedImage`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-deployedimage.html}
  */
@@ -125,6 +152,25 @@ export type DeployedImage = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-environmentmap.html}
  */
 export type EnvironmentMap = Record<string, string>;
+/**
+ * Type definition for `AWS::SageMaker::InferenceComponent.InferenceComponentCapacitySize`.
+ * Capacity size configuration for the inference component
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcapacitysize.html}
+ */
+export type InferenceComponentCapacitySize = {
+  Type: InferenceComponentCapacitySizeType;
+  /**
+   * The number of copies for the inference component
+   */
+  Value: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::InferenceComponent.InferenceComponentCapacitySizeType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcapacitysizetype.html}
+ */
+export type InferenceComponentCapacitySizeType =
+  | "COPY_COUNT"
+  | "CAPACITY_PERCENT";
 /**
  * Type definition for `AWS::SageMaker::InferenceComponent.InferenceComponentComputeResourceRequirements`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements.html}
@@ -167,6 +213,43 @@ export type InferenceComponentContainerSpecification = {
    * @pattern `[\S]+`
    */
   Image?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::InferenceComponent.InferenceComponentDeploymentConfig`.
+ * The deployment config for the inference component
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentdeploymentconfig.html}
+ */
+export type InferenceComponentDeploymentConfig = {
+  AutoRollbackConfiguration?: AutoRollbackConfiguration;
+  /**
+   * The rolling update policy for the inference component
+   */
+  RollingUpdatePolicy?: InferenceComponentRollingUpdatePolicy;
+};
+/**
+ * Type definition for `AWS::SageMaker::InferenceComponent.InferenceComponentRollingUpdatePolicy`.
+ * The rolling update policy for the inference component
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentrollingupdatepolicy.html}
+ */
+export type InferenceComponentRollingUpdatePolicy = {
+  /**
+   * Capacity size configuration for the inference component
+   */
+  MaximumBatchSize?: InferenceComponentCapacitySize;
+  /**
+   * @min `600`
+   * @max `28800`
+   */
+  MaximumExecutionTimeoutInSeconds?: number;
+  /**
+   * Capacity size configuration for the inference component
+   */
+  RollbackMaximumBatchSize?: InferenceComponentCapacitySize;
+  /**
+   * @min `0`
+   * @max `3600`
+   */
+  WaitIntervalInSeconds?: number;
 };
 /**
  * Type definition for `AWS::SageMaker::InferenceComponent.InferenceComponentRuntimeConfig`.

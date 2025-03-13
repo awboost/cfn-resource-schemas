@@ -1,65 +1,29 @@
-- added `AWS::XRay::TransactionSearchConfig`
-- updated `AWS::Batch::JobDefinition`
-  - added `readOnlyProperties`
-  - added property `JobDefinitionArn`
-- updated `AWS::Bedrock::Agent`
-  - added definition `AdditionalModelRequestFields`
-  - updated definition `PromptConfiguration`
-- updated `AWS::Chatbot::CustomAction`
-  - updated definition `CustomActionDefinition`
-- updated `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`
-  - added property `TeamsChannelName`
-- updated `AWS::DynamoDB::Table`
-  - updated property `BillingMode`
-- updated `AWS::EC2::VPCEndpointService`
-  - added definition `IpAddressType`
-  - added property `SupportedIpAddressTypes`
-- updated `AWS::ECR::PullThroughCacheRule`
-  - added definition `CustomRoleArn`
-  - added definition `UpstreamRepositoryPrefix`
-  - added property `CustomRoleArn`
-  - added property `UpstreamRepositoryPrefix`
-  - updated `createOnlyProperties`
+- updated `AWS::ImageBuilder::Component`
+  - updated `tagging`
+- updated `AWS::ImageBuilder::ContainerRecipe`
+  - updated `tagging`
+- updated `AWS::ImageBuilder::DistributionConfiguration`
+  - updated `tagging`
+- updated `AWS::ImageBuilder::ImagePipeline`
+  - updated `tagging`
+- updated `AWS::ImageBuilder::ImageRecipe`
+  - updated `tagging`
+- updated `AWS::ImageBuilder::InfrastructureConfiguration`
+  - updated `tagging`
+- updated `AWS::ImageBuilder::LifecyclePolicy`
+  - updated `tagging`
+- updated `AWS::ImageBuilder::Workflow`
+  - updated `tagging`
+- updated `AWS::SageMaker::InferenceComponent`
+  - added definition `Alarm`
+  - added definition `AutoRollbackConfiguration`
+  - added definition `CapacitySizeValue`
+  - added definition `InferenceComponentCapacitySizeType`
+  - added definition `InferenceComponentCapacitySize`
+  - added definition `InferenceComponentDeploymentConfig`
+  - added definition `InferenceComponentRollingUpdatePolicy`
+  - added definition `MaximumExecutionTimeoutInSeconds`
+  - added definition `WaitIntervalInSeconds`
+  - added property `DeploymentConfig`
+  - updated `tagging`
   - updated `writeOnlyProperties`
-  - updated definition `EcrRepositoryPrefix`
-  - updated definition `PullThroughCacheRule`
-  - updated handler permissions
-  - updated property `CredentialArn`
-  - updated property `EcrRepositoryPrefix`
-  - updated property `UpstreamRegistryUrl`
-  - updated property `UpstreamRegistry`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `MutualAuthentication`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - added property `Ipv4IpamPoolId`
-  - updated handler permissions
-  - updated property `EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic`
-- updated `AWS::EventSchemas::Discoverer`
-  - updated `tagging`
-- updated `AWS::EventSchemas::Registry`
-  - updated `tagging`
-- updated `AWS::EventSchemas::Schema`
-  - updated `tagging`
-- updated `AWS::IoT::SoftwarePackage`
-  - updated `tagging`
-- updated `AWS::IoT::SoftwarePackageVersion`
-  - added `sourceUrl`
-  - added definition `PackageVersionArtifact`
-  - added definition `S3Location`
-  - added definition `SbomValidationStatus`
-  - added definition `Sbom`
-  - added property `Artifact`
-  - added property `Recipe`
-  - added property `SbomValidationStatus`
-  - added property `Sbom`
-  - updated `readOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Omics::ReferenceStore`
-  - removed `writeOnlyProperties`
-- updated `AWS::Omics::SequenceStore`
-  - removed `writeOnlyProperties`
-- updated `AWS::Shield::Protection`
-  - updated `tagging`
-- updated `AWS::Shield::ProtectionGroup`
-  - updated `tagging`

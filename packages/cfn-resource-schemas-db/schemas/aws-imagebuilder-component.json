@@ -1,5 +1,5 @@
 {
-  "$hash": "71a37bbcb0929bd755182a2a507c2d20c20c4a93",
+  "$hash": "92f195fd6174b376f4ef6cebb51a893123e4f8aa",
   "$id": "aws-imagebuilder-component.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -120,7 +120,14 @@
   ],
   "required": ["Name", "Platform", "Version"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["imagebuilder:TagResource", "imagebuilder:UnTagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::ImageBuilder::Component",
   "writeOnlyProperties": [
     "/properties/Data",

@@ -1,5 +1,5 @@
 {
-  "$hash": "d2213413e383534f30f1a59613e05f9e1475c6fd",
+  "$hash": "11dce760f81dfa94736c0f87199ba83aef53a694",
   "$id": "aws-imagebuilder-containerrecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -292,7 +292,14 @@
   },
   "readOnlyProperties": ["/properties/Arn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["imagebuilder:TagResource", "imagebuilder:UnTagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::ImageBuilder::ContainerRecipe",
   "writeOnlyProperties": [
     "/properties/DockerfileTemplateData",

@@ -1,5 +1,5 @@
 {
-  "$hash": "f1e0ddc50fa8342173940f28ba390b21b4b344c6",
+  "$hash": "63a9a0a70921e4748c4729d9518ba6814c083651",
   "$id": "aws-imagebuilder-distributionconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -283,6 +283,12 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Name", "Distributions"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ImageBuilder::DistributionConfiguration"
 }

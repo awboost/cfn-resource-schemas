@@ -1,5 +1,5 @@
 {
-  "$hash": "aee52104b69d0007e2ad0c2defd72b9fc35f4f82",
+  "$hash": "6bb88672c1dfbf94af3dbafeaed0f198d5c82c6a",
   "$id": "aws-imagebuilder-lifecyclepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -252,6 +252,12 @@
     "ResourceSelection"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::ImageBuilder::LifecyclePolicy"
 }
