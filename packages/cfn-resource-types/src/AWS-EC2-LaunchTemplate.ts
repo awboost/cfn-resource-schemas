@@ -193,7 +193,7 @@ export type Cpu = {
  */
 export type CpuOptions = {
   /**
-   * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
+   * Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only. For more information, see [AMD SEV-SNP for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html).
    */
   AmdSevSnp?: "enabled" | "disabled";
   /**
@@ -240,7 +240,7 @@ export type Ebs = {
       +   ``io1``: 100 - 64,000 IOPS
       +   ``io2``: 100 - 256,000 IOPS
       
-     For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
+     For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
      This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
      */
   Iops?: number;
@@ -622,7 +622,7 @@ export type LaunchTemplateData = {
    */
   CapacityReservationSpecification?: CapacityReservationSpecification;
   /**
-   * The CPU options for the instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
+   * The CPU options for the instance. For more information, see [CPU options for Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *Amazon EC2 User Guide*.
    */
   CpuOptions?: CpuOptions;
   /**
@@ -630,11 +630,11 @@ export type LaunchTemplateData = {
    */
   CreditSpecification?: CreditSpecification;
   /**
-   * Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
+   * Indicates whether to enable the instance for stop protection. For more information, see [Enable stop protection for your EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html) in the *Amazon EC2 User Guide*.
    */
   DisableApiStop?: boolean;
   /**
-   * If you set this parameter to ``true``, you can't terminate the instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch, use [ModifyInstanceAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html). Alternatively, if you set ``InstanceInitiatedShutdownBehavior`` to ``terminate``, you can terminate the instance by running the shutdown command from the instance.
+   * Indicates whether termination protection is enabled for the instance. The default is ``false``, which means that you can terminate the instance using the Amazon EC2 console, command line tools, or API. You can enable termination protection when you launch an instance, while the instance is running, or while the instance is stopped.
    */
   DisableApiTermination?: boolean;
   /**
@@ -723,7 +723,7 @@ export type LaunchTemplateData = {
    */
   MaintenanceOptions?: MaintenanceOptions;
   /**
-   * The metadata options for the instance. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide*.
+   * The metadata options for the instance. For more information, see [Configure the Instance Metadata Service options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html) in the *Amazon EC2 User Guide*.
    */
   MetadataOptions?: MetadataOptions;
   /**
@@ -734,7 +734,10 @@ export type LaunchTemplateData = {
    * The network interfaces for the instance.
    */
   NetworkInterfaces?: NetworkInterface[];
-  NetworkPerformanceOptions?: any;
+  /**
+   * The settings for the network performance options for the instance. For more information, see [EC2 instance bandwidth weighting configuration](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html).
+   */
+  NetworkPerformanceOptions?: NetworkPerformanceOptions;
   /**
    * The placement for the instance.
    */
@@ -764,8 +767,8 @@ export type LaunchTemplateData = {
      */
   TagSpecifications?: TagSpecification[];
   /**
-     * The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
-     If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the *User Guide*.
+     * The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
+     If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
      */
   UserData?: string;
 };
@@ -888,7 +891,7 @@ export type MetadataOptions = {
      */
   HttpTokens?: string;
   /**
-     * Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [Work with instance tags using the instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).
+     * Set to ``enabled`` to allow access to instance tags from the instance metadata. Set to ``disabled`` to turn off access to instance tags from the instance metadata. For more information, see [View tags for your EC2 instances using instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html).
      Default: ``disabled``
      */
   InstanceMetadataTags?: string;
@@ -964,7 +967,7 @@ export type NetworkInterface = {
    */
   Groups?: string[];
   /**
-     * The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+     * The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
      If you are not creating an EFA, specify ``interface`` or omit this parameter.
      If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
      Valid values: ``interface`` | ``efa`` | ``efa-only``
@@ -1037,6 +1040,16 @@ export type NetworkInterfaceCount = {
    * The minimum number of network interfaces. To specify no minimum limit, omit this parameter.
    */
   Min?: number;
+};
+/**
+ * Type definition for `AWS::EC2::LaunchTemplate.NetworkPerformanceOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkperformanceoptions.html}
+ */
+export type NetworkPerformanceOptions = {
+  /**
+   * Specifies the performance options of your instance or sets it to default.
+   */
+  BandwidthWeighting?: string;
 };
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.Placement`.
@@ -1156,7 +1169,7 @@ export type SpotOptions = {
    */
   InstanceInterruptionBehavior?: string;
   /**
-     * The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
+     * The maximum hourly price you're willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price. If you do specify this parameter, it must be more than USD $0.001. Specifying a value below USD $0.001 will result in an ``InvalidParameterValue`` error message when the launch template is used to launch an instance.
       If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.
      */
   MaxPrice?: string;

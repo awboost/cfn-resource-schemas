@@ -1,29 +1,23 @@
-- updated `AWS::ImageBuilder::Component`
+- added `AWS::ApplicationSignals::Discovery`
+- updated `AWS::Athena::DataCatalog`
+  - added property `ConnectionType`
+  - added property `Error`
+  - added property `Status`
+  - updated handler permissions
+  - updated property `Type`
+- updated `AWS::EC2::LaunchTemplate`
+  - added definition `NetworkPerformanceOptions`
+  - updated definition `CpuOptions`
+  - updated definition `Ebs`
+  - updated definition `LaunchTemplateData`
+  - updated definition `MetadataOptions`
+  - updated definition `NetworkInterface`
+  - updated definition `SpotOptions`
+- updated `AWS::ImageBuilder::Image`
   - updated `tagging`
-- updated `AWS::ImageBuilder::ContainerRecipe`
-  - updated `tagging`
-- updated `AWS::ImageBuilder::DistributionConfiguration`
-  - updated `tagging`
-- updated `AWS::ImageBuilder::ImagePipeline`
-  - updated `tagging`
-- updated `AWS::ImageBuilder::ImageRecipe`
-  - updated `tagging`
-- updated `AWS::ImageBuilder::InfrastructureConfiguration`
-  - updated `tagging`
-- updated `AWS::ImageBuilder::LifecyclePolicy`
-  - updated `tagging`
-- updated `AWS::ImageBuilder::Workflow`
-  - updated `tagging`
-- updated `AWS::SageMaker::InferenceComponent`
-  - added definition `Alarm`
-  - added definition `AutoRollbackConfiguration`
-  - added definition `CapacitySizeValue`
-  - added definition `InferenceComponentCapacitySizeType`
-  - added definition `InferenceComponentCapacitySize`
-  - added definition `InferenceComponentDeploymentConfig`
-  - added definition `InferenceComponentRollingUpdatePolicy`
-  - added definition `MaximumExecutionTimeoutInSeconds`
-  - added definition `WaitIntervalInSeconds`
-  - added property `DeploymentConfig`
-  - updated `tagging`
-  - updated `writeOnlyProperties`
+- updated `AWS::MSK::Replicator`
+  - updated `readOnlyProperties`
+- updated `AWS::RUM::AppMonitor`
+  - added definition `ResourcePolicy`
+  - added property `ResourcePolicy`
+  - updated handler permissions

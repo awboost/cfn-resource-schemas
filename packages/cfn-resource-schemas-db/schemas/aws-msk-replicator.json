@@ -1,5 +1,5 @@
 {
-  "$hash": "17f5f93fc8f08b81147c649a11a76a4e1ac517dd",
+  "$hash": "2b78048f5c553150d9260ec5fb1ffbfaf12788bf",
   "$id": "aws-msk-replicator.json",
   "additionalIdentifiers": [["/properties/ReplicatorName"]],
   "additionalProperties": false,
@@ -321,7 +321,10 @@
       "uniqueItems": true
     }
   },
-  "readOnlyProperties": ["/properties/ReplicatorArn"],
+  "readOnlyProperties": [
+    "/properties/ReplicatorArn",
+    "/properties/CurrentVersion"
+  ],
   "required": [
     "ReplicatorName",
     "ReplicationInfoList",

@@ -1,5 +1,5 @@
 {
-  "$hash": "b7df7a6d4105fc5cb3fc4390540c4afe3ae1f253",
+  "$hash": "cd5e5ee02b2a0e5eeb7f326e7d94e0c12288333b",
   "$id": "aws-rum-appmonitor.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -182,6 +182,24 @@
       "minItems": 0,
       "type": "array"
     },
+    "ResourcePolicy": {
+      "additionalProperties": false,
+      "description": "A structure that defines resource policy attached to your app monitor.",
+      "properties": {
+        "PolicyDocument": {
+          "description": "The JSON to use as the resource policy. The document can be up to 4 KB in size. ",
+          "type": "string"
+        },
+        "PolicyRevisionId": {
+          "description": "A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy. \n\n When you assign a policy revision ID, then later requests about that policy will be rejected with an InvalidPolicyRevisionIdException error if they don't provide the correct current revision ID.",
+          "maxLength": 255,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["PolicyDocument"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
@@ -251,7 +269,9 @@
         "rum:PutRumMetricsDestination",
         "rum:BatchCreateRumMetricDefinitions",
         "rum:ListRumMetricsDestinations",
-        "rum:BatchGetRumMetricDefinitions"
+        "rum:BatchGetRumMetricDefinitions",
+        "rum:GetResourcePolicy",
+        "rum:PutResourcePolicy"
       ]
     },
     "delete": {
@@ -268,7 +288,10 @@
         "rum:DeleteRumMetricsDestination",
         "rum:BatchDeleteRumMetricDefinitions",
         "rum:ListRumMetricsDestinations",
-        "rum:BatchGetRumMetricDefinitions"
+        "rum:BatchGetRumMetricDefinitions",
+        "rum:GetResourcePolicy",
+        "rum:PutResourcePolicy",
+        "rum:DeleteResourcePolicy"
       ]
     },
     "list": {
@@ -295,7 +318,8 @@
         "s3:GetObjectAcl",
         "rum:ListTagsForResource",
         "rum:ListRumMetricsDestinations",
-        "rum:BatchGetRumMetricDefinitions"
+        "rum:BatchGetRumMetricDefinitions",
+        "rum:GetResourcePolicy"
       ]
     },
     "update": {
@@ -330,7 +354,10 @@
         "rum:BatchCreateRumMetricDefinitions",
         "rum:BatchDeleteRumMetricDefinitions",
         "rum:BatchGetRumMetricDefinitions",
-        "rum:UpdateRumMetricDefinition"
+        "rum:UpdateRumMetricDefinition",
+        "rum:GetResourcePolicy",
+        "rum:PutResourcePolicy",
+        "rum:DeleteResourcePolicy"
       ]
     }
   },
@@ -365,6 +392,7 @@
       "pattern": "[\\.\\-_/#A-Za-z0-9]+",
       "type": "string"
     },
+    "ResourcePolicy": { "$ref": "#/definitions/ResourcePolicy" },
     "Tags": { "$ref": "#/definitions/TagDef" }
   },
   "readOnlyProperties": ["/properties/Id"],

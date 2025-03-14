@@ -6,10 +6,6 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type MSKReplicatorProperties = {
   /**
-   * The current version of the MSK replicator.
-   */
-  CurrentVersion?: string;
-  /**
    * A summary description of the replicator.
    * @maxLength `1024`
    */
@@ -48,6 +44,10 @@ export type MSKReplicatorProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-replicator.html#aws-resource-msk-replicator-return-values}
  */
 export type MSKReplicatorAttributes = {
+  /**
+   * The current version of the MSK replicator.
+   */
+  CurrentVersion: string;
   /**
    * Amazon Resource Name for the created replicator.
    * @pattern `arn:(aws|aws-us-gov|aws-cn):kafka:.*`
