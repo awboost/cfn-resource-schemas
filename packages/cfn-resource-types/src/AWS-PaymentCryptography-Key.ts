@@ -49,7 +49,8 @@ export type KeyAlgorithm =
   | "RSA_3072"
   | "RSA_4096"
   | "ECC_NIST_P256"
-  | "ECC_NIST_P384";
+  | "ECC_NIST_P384"
+  | "ECC_NIST_P521";
 /**
  * Type definition for `AWS::PaymentCryptography::Key.KeyAttributes`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyattributes.html}

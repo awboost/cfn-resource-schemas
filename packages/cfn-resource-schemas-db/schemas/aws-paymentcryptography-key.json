@@ -1,5 +1,5 @@
 {
-  "$hash": "52ffdc1a003c6b36694660c2f3adf3ee9ff6ef93",
+  "$hash": "4b0545909f23f7d0750ecffe4336c2b8796ee987",
   "$id": "aws-paymentcryptography-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -14,7 +14,8 @@
         "RSA_3072",
         "RSA_4096",
         "ECC_NIST_P256",
-        "ECC_NIST_P384"
+        "ECC_NIST_P384",
+        "ECC_NIST_P521"
       ],
       "type": "string"
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "0fc7e4fdc0f9c859aac3e535ae5ace3cd37a9554",
+  "$hash": "60449ab9bb679f66047f2cdf2f79a858427f1a21",
   "$id": "aws-pcs-computenodegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -154,7 +154,7 @@
       "additionalProperties": false,
       "description": "An Amazon EC2 launch template AWS PCS uses to launch compute nodes.",
       "properties": {
-        "Id": {
+        "TemplateId": {
           "description": "The ID of the EC2 launch template to use to provision instances.",
           "type": "string"
         },
@@ -163,7 +163,7 @@
           "type": "string"
         }
       },
-      "required": ["Id", "Version"],
+      "required": ["Version"],
       "type": "object"
     },
     "ErrorInfo": {

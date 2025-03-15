@@ -1,5 +1,5 @@
 {
-  "$hash": "c42865f75a03d895226282a2e61907621e11e6f0",
+  "$hash": "a1c332e26b1f3a50e902e4144277dfdeeeae7bc1",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -6865,7 +6865,6 @@
       "additionalProperties": false,
       "properties": {
         "Content": { "maxLength": 150000, "minLength": 0, "type": "string" },
-        "Interactions": {},
         "SheetTextBoxId": {
           "maxLength": 512,
           "minLength": 1,

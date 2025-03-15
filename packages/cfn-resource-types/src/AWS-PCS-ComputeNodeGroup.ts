@@ -21,7 +21,7 @@ export type PCSComputeNodeGroupProperties = {
     /**
      * The ID of the EC2 launch template to use to provision instances.
      */
-    Id: string;
+    TemplateId?: string;
     /**
      * The version of the EC2 launch template to use to provision instances.
      */

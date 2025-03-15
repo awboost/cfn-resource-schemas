@@ -6976,7 +6976,6 @@ export type SheetTextBox = {
    * @maxLength `150000`
    */
   Content?: string;
-  Interactions?: any;
   /**
    * @minLength `1`
    * @maxLength `512`

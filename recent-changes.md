@@ -1,23 +1,10 @@
-- added `AWS::ApplicationSignals::Discovery`
-- updated `AWS::Athena::DataCatalog`
-  - added property `ConnectionType`
-  - added property `Error`
-  - added property `Status`
-  - updated handler permissions
-  - updated property `Type`
-- updated `AWS::EC2::LaunchTemplate`
-  - added definition `NetworkPerformanceOptions`
-  - updated definition `CpuOptions`
-  - updated definition `Ebs`
-  - updated definition `LaunchTemplateData`
-  - updated definition `MetadataOptions`
-  - updated definition `NetworkInterface`
-  - updated definition `SpotOptions`
-- updated `AWS::ImageBuilder::Image`
-  - updated `tagging`
-- updated `AWS::MSK::Replicator`
-  - updated `readOnlyProperties`
-- updated `AWS::RUM::AppMonitor`
-  - added definition `ResourcePolicy`
-  - added property `ResourcePolicy`
-  - updated handler permissions
+- updated `AWS::PCS::ComputeNodeGroup`
+  - updated property `CustomLaunchTemplate`
+- updated `AWS::PaymentCryptography::Key`
+  - updated definition `KeyAlgorithm`
+- updated `AWS::QuickSight::Analysis`
+  - updated definition `SheetTextBox`
+- updated `AWS::QuickSight::Dashboard`
+  - updated definition `SheetTextBox`
+- updated `AWS::QuickSight::Template`
+  - updated definition `SheetTextBox`
