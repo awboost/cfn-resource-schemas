@@ -1,5 +1,5 @@
 {
-  "$hash": "ab6a37c771f66752c693cdd58497991d3904eca0",
+  "$hash": "289225315c62da47e4390cd1330687f8fb80eb43",
   "$id": "aws-sagemaker-dataqualityjobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -413,6 +413,7 @@
         "sagemaker:CreateDataQualityJobDefinition",
         "sagemaker:DescribeDataQualityJobDefinition",
         "sagemaker:AddTags",
+        "sagemaker:ListTags",
         "iam:PassRole"
       ]
     },
@@ -423,7 +424,12 @@
         "sagemaker:ListTags"
       ]
     },
-    "read": { "permissions": ["sagemaker:DescribeDataQualityJobDefinition"] }
+    "read": {
+      "permissions": [
+        "sagemaker:DescribeDataQualityJobDefinition",
+        "sagemaker:ListTags"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/JobDefinitionArn"],
   "properties": {
@@ -486,10 +492,5 @@
     "taggable": true
   },
   "typeName": "AWS::SageMaker::DataQualityJobDefinition",
-  "writeOnlyProperties": [
-    "/properties/EndpointName",
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value"
-  ]
+  "writeOnlyProperties": ["/properties/EndpointName"]
 }

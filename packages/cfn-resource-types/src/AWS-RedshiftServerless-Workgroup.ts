@@ -55,6 +55,16 @@ export type RedshiftServerlessWorkgroupProperties = {
    */
   Tags?: Tag[];
   /**
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[a-zA-Z0-9_]+$`
+   */
+  TrackName?: string;
+  /**
+   * Definition for workgroup resource
+   */
+  Workgroup?: Workgroup;
+  /**
    * The name of the workgroup.
    * @minLength `3`
    * @maxLength `64`
@@ -87,7 +97,6 @@ export type RedshiftServerlessWorkgroupAttributes = {
    * Definition for workgroup resource
    */
   Workgroup: {
-    BaseCapacity: number;
     ConfigParameters: {
       /**
        * @minLength `0`
@@ -116,25 +125,22 @@ export type RedshiftServerlessWorkgroupAttributes = {
       }[];
     };
     EnhancedVpcRouting: boolean;
-    MaxCapacity: number;
     /**
      * @minLength `3`
      * @maxLength `64`
      * @pattern `^[a-z0-9-]+$`
      */
     NamespaceName: string;
-    PricePerformanceTarget: {
-      /**
-       * @min `1`
-       * @max `100`
-       */
-      Level: number;
-      Status: PerformanceTargetStatus;
-    };
     PubliclyAccessible: boolean;
     SecurityGroupIds: string[];
     Status: WorkgroupStatus;
     SubnetIds: string[];
+    /**
+     * @minLength `1`
+     * @maxLength `256`
+     * @pattern `^[a-zA-Z0-9_]+$`
+     */
+    TrackName: string;
     WorkgroupArn: string;
     WorkgroupId: string;
     /**
@@ -183,6 +189,8 @@ export type Tag = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html}
  */
 export type Workgroup = {
+  BaseCapacity?: number;
+  MaxCapacity?: number;
   PricePerformanceTarget?: PerformanceTarget;
 };
 /**

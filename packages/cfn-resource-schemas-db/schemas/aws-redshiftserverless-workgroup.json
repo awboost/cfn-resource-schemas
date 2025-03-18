@@ -1,5 +1,5 @@
 {
-  "$hash": "4fa160bf784687b3603f4884e578aa633caba428",
+  "$hash": "1646c3a2c2d4e2380664201fbf7a437b560bea85",
   "$id": "aws-redshiftserverless-workgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -118,6 +118,12 @@
             "type": "string"
           },
           "type": "array"
+        },
+        "TrackName": {
+          "maxLength": 256,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_]+$",
+          "type": "string"
         },
         "WorkgroupArn": { "type": "string" },
         "WorkgroupId": { "type": "string" },
@@ -294,6 +300,12 @@
       "minItems": 0,
       "type": "array"
     },
+    "TrackName": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9_]+$",
+      "type": "string"
+    },
     "Workgroup": {
       "$ref": "#/definitions/Workgroup",
       "description": "Definition for workgroup resource"
@@ -307,18 +319,16 @@
     }
   },
   "readOnlyProperties": [
-    "/properties/Workgroup",
     "/properties/Workgroup/WorkgroupId",
     "/properties/Workgroup/WorkgroupArn",
     "/properties/Workgroup/WorkgroupName",
     "/properties/Workgroup/NamespaceName",
-    "/properties/Workgroup/BaseCapacity",
-    "/properties/Workgroup/MaxCapacity",
     "/properties/Workgroup/EnhancedVpcRouting",
     "/properties/Workgroup/ConfigParameters/*/ParameterKey",
     "/properties/Workgroup/ConfigParameters/*/ParameterValue",
     "/properties/Workgroup/SecurityGroupIds",
     "/properties/Workgroup/SubnetIds",
+    "/properties/Workgroup/TrackName",
     "/properties/Workgroup/Status",
     "/properties/Workgroup/Endpoint/Address",
     "/properties/Workgroup/Endpoint/Port",

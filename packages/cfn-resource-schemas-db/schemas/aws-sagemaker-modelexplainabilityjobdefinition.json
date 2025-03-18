@@ -1,5 +1,5 @@
 {
-  "$hash": "06abf3a326f7917c228c33d398f8742ed4690d5d",
+  "$hash": "e51387dc897584d237b3117878b2dcc1c6ca5bc6",
   "$id": "aws-sagemaker-modelexplainabilityjobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -412,7 +412,8 @@
         "sagemaker:CreateModelExplainabilityJobDefinition",
         "sagemaker:DescribeModelExplainabilityJobDefinition",
         "iam:PassRole",
-        "sagemaker:AddTags"
+        "sagemaker:AddTags",
+        "sagemaker:ListTags"
       ]
     },
     "delete": {
@@ -425,7 +426,10 @@
       ]
     },
     "read": {
-      "permissions": ["sagemaker:DescribeModelExplainabilityJobDefinition"]
+      "permissions": [
+        "sagemaker:DescribeModelExplainabilityJobDefinition",
+        "sagemaker:ListTags"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/JobDefinitionArn"],
@@ -491,10 +495,5 @@
     "taggable": true
   },
   "typeName": "AWS::SageMaker::ModelExplainabilityJobDefinition",
-  "writeOnlyProperties": [
-    "/properties/EndpointName",
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value"
-  ]
+  "writeOnlyProperties": ["/properties/EndpointName"]
 }

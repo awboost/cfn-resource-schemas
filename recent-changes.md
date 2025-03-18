@@ -1,10 +1,18 @@
-- updated `AWS::PCS::ComputeNodeGroup`
-  - updated property `CustomLaunchTemplate`
-- updated `AWS::PaymentCryptography::Key`
-  - updated definition `KeyAlgorithm`
-- updated `AWS::QuickSight::Analysis`
-  - updated definition `SheetTextBox`
-- updated `AWS::QuickSight::Dashboard`
-  - updated definition `SheetTextBox`
-- updated `AWS::QuickSight::Template`
-  - updated definition `SheetTextBox`
+- updated `AWS::CloudTrail::EventDataStore`
+  - added `tagging`
+- updated `AWS::RedshiftServerless::Workgroup`
+  - added property `TrackName`
+  - updated `readOnlyProperties`
+  - updated definition `Workgroup`
+- updated `AWS::SageMaker::DataQualityJobDefinition`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::SageMaker::ModelBiasJobDefinition`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::SageMaker::ModelExplainabilityJobDefinition`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::SageMaker::ModelQualityJobDefinition`
+  - updated `writeOnlyProperties`
+  - updated handler permissions

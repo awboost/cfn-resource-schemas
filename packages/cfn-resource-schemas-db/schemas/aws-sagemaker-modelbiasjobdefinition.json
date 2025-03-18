@@ -1,5 +1,5 @@
 {
-  "$hash": "739a77cac838a269364e7ab4309fad631209594f",
+  "$hash": "b7d5128ce6c81372009d976d8966baed50ed0ba1",
   "$id": "aws-sagemaker-modelbiasjobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -454,7 +454,8 @@
         "sagemaker:CreateModelBiasJobDefinition",
         "sagemaker:DescribeModelBiasJobDefinition",
         "iam:PassRole",
-        "sagemaker:AddTags"
+        "sagemaker:AddTags",
+        "sagemaker:ListTags"
       ]
     },
     "delete": { "permissions": ["sagemaker:DeleteModelBiasJobDefinition"] },
@@ -464,7 +465,12 @@
         "sagemaker:ListTags"
       ]
     },
-    "read": { "permissions": ["sagemaker:DescribeModelBiasJobDefinition"] }
+    "read": {
+      "permissions": [
+        "sagemaker:DescribeModelBiasJobDefinition",
+        "sagemaker:ListTags"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/JobDefinitionArn"],
   "properties": {
@@ -527,10 +533,5 @@
     "taggable": true
   },
   "typeName": "AWS::SageMaker::ModelBiasJobDefinition",
-  "writeOnlyProperties": [
-    "/properties/EndpointName",
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value"
-  ]
+  "writeOnlyProperties": ["/properties/EndpointName"]
 }
