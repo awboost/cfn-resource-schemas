@@ -17,6 +17,10 @@ export type WAFv2WebACLProperties = {
    */
   CustomResponseBodies?: CustomResponseBodies;
   /**
+   * Collection of dataProtects.
+   */
+  DataProtectionConfig?: DataProtectionConfig;
+  /**
    * Default Action WebACL will take against ingress traffic when there is no matching Rule.
    */
   DefaultAction: DefaultAction;
@@ -375,6 +379,34 @@ export type CustomResponseBody = {
   ContentType: ResponseContentType;
 };
 /**
+ * Type definition for `AWS::WAFv2::WebACL.DataProtect`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-dataprotect.html}
+ */
+export type DataProtect = {
+  Action: DataProtectionAction;
+  ExcludeRateBasedDetails?: boolean;
+  ExcludeRuleMatchDetails?: boolean;
+  /**
+   * Field in log to protect.
+   */
+  Field: FieldToProtect;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.DataProtectionAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-dataprotectionaction.html}
+ */
+export type DataProtectionAction = "SUBSTITUTION" | "HASH";
+/**
+ * Type definition for `AWS::WAFv2::WebACL.DataProtectionConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-dataprotectionconfig.html}
+ */
+export type DataProtectionConfig = {
+  /**
+   * @minLength `1`
+   */
+  DataProtections: DataProtect[];
+};
+/**
  * Type definition for `AWS::WAFv2::WebACL.DefaultAction`.
  * Default Action WebACL will take against ingress traffic when there is no matching Rule.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html}
@@ -473,6 +505,26 @@ export type FieldToMatch = {
    * The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
    */
   UriPath?: Record<string, any>;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.FieldToProtect`.
+ * Field in log to protect.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtoprotect.html}
+ */
+export type FieldToProtect = {
+  /**
+   * List of field keys to protect
+   */
+  FieldKeys?: string[];
+  /**
+   * Field type to protect
+   */
+  FieldType:
+    | "SINGLE_HEADER"
+    | "SINGLE_COOKIE"
+    | "SINGLE_QUERY_ARGUMENT"
+    | "QUERY_STRING"
+    | "BODY";
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.ForwardedIPConfiguration`.

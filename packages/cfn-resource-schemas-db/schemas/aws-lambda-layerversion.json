@@ -1,5 +1,5 @@
 {
-  "$hash": "2443e91d484aada8257a1c6610f678350b057d06",
+  "$hash": "4726f437a9890f28769142161d7e81465365132d",
   "$id": "aws-lambda-layerversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -79,6 +79,9 @@
       "description": "The layer's software license.",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/LayerName": "$split(LayerName, \":\")[-1] $OR LayerName"
   },
   "readOnlyProperties": ["/properties/LayerVersionArn"],
   "required": ["Content"],

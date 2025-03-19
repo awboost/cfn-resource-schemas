@@ -28,6 +28,7 @@ export type ApiGatewayV2DomainNameProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#aws-resource-apigatewayv2-domainname-return-values}
  */
 export type ApiGatewayV2DomainNameAttributes = {
+  DomainNameArn: string;
   RegionalDomainName: string;
   RegionalHostedZoneId: string;
 };

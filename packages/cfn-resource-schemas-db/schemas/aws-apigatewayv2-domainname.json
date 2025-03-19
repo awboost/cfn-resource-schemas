@@ -1,5 +1,5 @@
 {
-  "$hash": "9ec04c4facdd7df5cbbb60e0713912cd522fe901",
+  "$hash": "7353e565538191fda9a70c415c06d6c5fb0010d5",
   "$id": "aws-apigatewayv2-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -65,6 +65,7 @@
       "description": "The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.",
       "type": "string"
     },
+    "DomainNameArn": { "description": "", "type": "string" },
     "DomainNameConfigurations": {
       "description": "The domain name configurations.",
       "items": { "$ref": "#/definitions/DomainNameConfiguration" },
@@ -86,7 +87,8 @@
   },
   "readOnlyProperties": [
     "/properties/RegionalDomainName",
-    "/properties/RegionalHostedZoneId"
+    "/properties/RegionalHostedZoneId",
+    "/properties/DomainNameArn"
   ],
   "required": ["DomainName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apigatewayv2.git",

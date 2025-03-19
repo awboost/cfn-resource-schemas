@@ -1,5 +1,5 @@
 {
-  "$hash": "1fb109f32af49e7e342eb7fcbd5360596b21484c",
+  "$hash": "9b84ee4c0afd3792ec5fc647fa3d6ba28f17ed95",
   "$id": "aws-s3-bucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BucketName"],
@@ -431,9 +431,12 @@
     },
     "MetadataTableConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).",
       "properties": {
-        "S3TablesDestination": { "$ref": "#/definitions/S3TablesDestination" }
+        "S3TablesDestination": {
+          "$ref": "#/definitions/S3TablesDestination",
+          "description": "The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket."
+        }
       },
       "required": ["S3TablesDestination"],
       "type": "object"
@@ -1055,22 +1058,22 @@
     },
     "S3TablesDestination": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.",
       "properties": {
         "TableArn": {
-          "description": "The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.",
+          "description": "The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.",
           "type": "string"
         },
         "TableBucketArn": {
-          "description": "The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.",
+          "description": "The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket.",
           "type": "string"
         },
         "TableName": {
-          "description": "The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.",
+          "description": "The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.",
           "type": "string"
         },
         "TableNamespace": {
-          "description": "The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.",
+          "description": "The table bucket namespace for the metadata table in your metadata table configuration. This value is always ``aws_s3_metadata``.",
           "type": "string"
         }
       },
@@ -1500,7 +1503,7 @@
     },
     "MetadataTableConfiguration": {
       "$ref": "#/definitions/MetadataTableConfiguration",
-      "description": ""
+      "description": "The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html)."
     },
     "MetricsConfigurations": {
       "description": "Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).",

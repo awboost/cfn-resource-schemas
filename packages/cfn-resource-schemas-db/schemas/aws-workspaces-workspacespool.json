@@ -1,5 +1,5 @@
 {
-  "$hash": "46d2923119ba960ee4df4ca23e370c89dfdbe46f",
+  "$hash": "dc0ce6c6ab02fdde11333ab653cc00443307ce2e",
   "$id": "aws-workspaces-workspacespool.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PoolName"],
@@ -71,18 +71,38 @@
     "create": {
       "permissions": [
         "workspaces:CreateWorkspacesPool",
-        "workspaces:DescribeWorkspacesPools"
+        "workspaces:DescribeWorkspacesPools",
+        "workspaces:CreateTags"
       ]
     },
     "delete": {
       "permissions": [
         "workspaces:DescribeWorkspacesPools",
-        "workspaces:TerminateWorkspacesPool"
+        "workspaces:TerminateWorkspacesPool",
+        "workspaces:DeleteTags"
       ]
     },
-    "list": { "permissions": ["workspaces:DescribeWorkspacesPools"] },
-    "read": { "permissions": ["workspaces:DescribeWorkspacesPools"] },
-    "update": { "permissions": ["workspaces:UpdateWorkspacesPool"] }
+    "list": {
+      "permissions": [
+        "workspaces:DescribeWorkspacesPools",
+        "workspaces:DescribeTags"
+      ]
+    },
+    "read": {
+      "permissions": [
+        "workspaces:DescribeWorkspacesPools",
+        "workspaces:DescribeTags"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "workspaces:UpdateWorkspacesPool",
+        "workspaces:CreateTags",
+        "workspaces:DeleteTags",
+        "workspaces:DescribeWorkspacesPools",
+        "workspaces:DescribeTags"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/PoolId"],
   "properties": {
@@ -126,7 +146,12 @@
   ],
   "required": ["PoolName", "BundleId", "DirectoryId", "Capacity"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "workspaces:CreateTags",
+      "workspaces:DescribeTags",
+      "workspaces:DeleteTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,

@@ -15,6 +15,10 @@ export type EC2VPCEndpointServiceProperties = {
    */
   SupportedIpAddressTypes?: IpAddressType[];
   /**
+   * The Regions from which service consumers can access the service.
+   */
+  SupportedRegions?: string[];
+  /**
    * The tags to add to the VPC endpoint service.
    */
   Tags?: Tag[];

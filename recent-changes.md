@@ -1,18 +1,45 @@
-- updated `AWS::CloudTrail::EventDataStore`
-  - added `tagging`
-- updated `AWS::RedshiftServerless::Workgroup`
-  - added property `TrackName`
+- updated `AWS::ApiGatewayV2::DomainName`
+  - added property `DomainNameArn`
   - updated `readOnlyProperties`
-  - updated definition `Workgroup`
-- updated `AWS::SageMaker::DataQualityJobDefinition`
-  - updated `writeOnlyProperties`
+- updated `AWS::ApplicationSignals::ServiceLevelObjective`
+  - added definition `ExclusionWindow`
+  - added definition `ExclusionWindows`
+  - added definition `RecurrenceRule`
+  - added definition `Window`
+  - added property `ExclusionWindows`
+  - updated definition `DurationUnit`
+  - updated definition `Duration`
   - updated handler permissions
-- updated `AWS::SageMaker::ModelBiasJobDefinition`
-  - updated `writeOnlyProperties`
+- updated `AWS::EC2::CapacityReservation`
+  - added definition `CapacityAllocation`
+  - added property `CapacityAllocationSet`
+  - added property `CapacityReservationArn`
+  - added property `CapacityReservationFleetId`
+  - added property `CommitmentInfo`
+  - added property `CreateDate`
+  - added property `DeliveryPreference`
+  - added property `OwnerId`
+  - added property `ReservationType`
+  - added property `StartDate`
+  - added property `State`
+  - updated `readOnlyProperties`
+- updated `AWS::EC2::VPCEndpointService`
+  - added property `SupportedRegions`
   - updated handler permissions
-- updated `AWS::SageMaker::ModelExplainabilityJobDefinition`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::SageMaker::ModelQualityJobDefinition`
-  - updated `writeOnlyProperties`
+- updated `AWS::Lambda::LayerVersion`
+  - added `propertyTransform`
+- updated `AWS::S3::Bucket`
+  - updated definition `MetadataTableConfiguration`
+  - updated definition `S3TablesDestination`
+  - updated property `MetadataTableConfiguration`
+- updated `AWS::WAFv2::WebACL`
+  - added definition `DataProtect`
+  - added definition `DataProtectionAction`
+  - added definition `DataProtectionConfig`
+  - added definition `DataProtections`
+  - added definition `FieldToProtectKeyName`
+  - added definition `FieldToProtect`
+  - added property `DataProtectionConfig`
+- updated `AWS::WorkSpaces::WorkspacesPool`
+  - updated `tagging`
   - updated handler permissions

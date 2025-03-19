@@ -27,8 +27,32 @@ export type EC2CapacityReservationProperties = {
  */
 export type EC2CapacityReservationAttributes = {
   AvailableInstanceCount: number;
+  CapacityAllocationSet: {
+    AllocationType: string;
+    Count: number;
+  }[];
+  CapacityReservationArn: string;
+  CapacityReservationFleetId: string;
+  CommitmentInfo: {
+    CommitmentEndDate: string;
+    CommittedInstanceCount: number;
+  };
+  CreateDate: string;
+  DeliveryPreference: string;
   Id: string;
+  OwnerId: string;
+  ReservationType: string;
+  StartDate: string;
+  State: string;
   TotalInstanceCount: number;
+};
+/**
+ * Type definition for `AWS::EC2::CapacityReservation.CapacityAllocation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-capacityallocation.html}
+ */
+export type CapacityAllocation = {
+  AllocationType?: string;
+  Count?: number;
 };
 /**
  * Type definition for `AWS::EC2::CapacityReservation.Tag`.

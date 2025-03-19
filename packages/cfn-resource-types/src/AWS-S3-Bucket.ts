@@ -59,6 +59,9 @@ export type S3BucketProperties = {
    * Settings that define where logs are stored.
    */
   LoggingConfiguration?: LoggingConfiguration;
+  /**
+   * The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+   */
   MetadataTableConfiguration?: MetadataTableConfiguration;
   /**
    * Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
@@ -118,14 +121,20 @@ export type S3BucketAttributes = {
   Arn: string;
   DomainName: string;
   DualStackDomainName: string;
+  /**
+   * The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
+   */
   MetadataTableConfiguration: {
+    /**
+     * The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+     */
     S3TablesDestination: {
       /**
-       * The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+       * The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
        */
       TableArn: string;
       /**
-       * The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.
+       * The table bucket namespace for the metadata table in your metadata table configuration. This value is always ``aws_s3_metadata``.
        */
       TableNamespace: string;
     };
@@ -504,9 +513,13 @@ export type LoggingConfiguration = {
 };
 /**
  * Type definition for `AWS::S3::Bucket.MetadataTableConfiguration`.
+ * The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadatatableconfiguration.html}
  */
 export type MetadataTableConfiguration = {
+  /**
+   * The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
+   */
   S3TablesDestination: S3TablesDestination;
 };
 /**
@@ -1099,15 +1112,16 @@ export type S3KeyFilter = {
 };
 /**
  * Type definition for `AWS::S3::Bucket.S3TablesDestination`.
+ * The destination information for the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3tablesdestination.html}
  */
 export type S3TablesDestination = {
   /**
-   * The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.
+   * The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS-account as the general purpose bucket.
    */
   TableBucketArn: string;
   /**
-   * The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+   * The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the ``aws_s3_metadata`` namespace in the destination table bucket.
    */
   TableName: string;
 };

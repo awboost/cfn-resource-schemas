@@ -18,6 +18,12 @@ export type ApplicationSignalsServiceLevelObjectiveProperties = {
    */
   Description?: string;
   /**
+   * Each object in this array defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  ExclusionWindows?: ExclusionWindow[];
+  /**
    * A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.
    */
   Goal?: Goal;
@@ -88,12 +94,12 @@ export type BurnRateConfiguration = {
  */
 export type CalendarInterval = {
   /**
-   * Specifies the duration of each calendar interval. For example, if `Duration` is 1 and `DurationUnit` is `MONTH`, each interval is one month, aligned with the calendar.
+   * Specifies the duration of each interval. For example, if `Duration` is 1 and `DurationUnit` is `MONTH`, each interval is one month, aligned with the calendar.
    * @min `1`
    */
   Duration: number;
   /**
-   * Specifies the calendar interval unit.
+   * Specifies the interval unit.
    */
   DurationUnit: DurationUnit;
   /**
@@ -120,10 +126,35 @@ export type Dimension = {
 };
 /**
  * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.DurationUnit`.
- * Specifies the calendar interval unit.
+ * Specifies the interval unit.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-durationunit.html}
  */
-export type DurationUnit = "DAY" | "MONTH";
+export type DurationUnit = "MINUTE" | "HOUR" | "DAY" | "MONTH";
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.ExclusionWindow`.
+ * This object defines a time exclusion window for this SLO. The time exclusion window is used to exclude breaching data points from affecting attainment rate, error budget, and burn rate metrics.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-exclusionwindow.html}
+ */
+export type ExclusionWindow = {
+  /**
+   * An optional reason for scheduling this time exclusion window. Default is 'No reason'.
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  Reason?: string;
+  /**
+   * This object defines how often to repeat a time exclusion window.
+   */
+  RecurrenceRule?: RecurrenceRule;
+  /**
+   * The time you want the exclusion window to start at. Note that time exclusion windows can only be scheduled in the future, not the past.
+   */
+  StartTime?: string;
+  /**
+   * This object defines the length of time an exclusion window should span.
+   */
+  Window: Window;
+};
 /**
  * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.Goal`.
  * A structure that contains the attributes that determine the goal of the SLO. This includes the time period for evaluation and the attainment threshold.
@@ -253,6 +284,19 @@ export type MonitoredRequestCountMetric = {
   GoodCountMetric?: MetricDataQuery[];
 };
 /**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.RecurrenceRule`.
+ * This object defines how often to repeat a time exclusion window.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-recurrencerule.html}
+ */
+export type RecurrenceRule = {
+  /**
+   * A cron or rate expression denoting how often to repeat this exclusion window.
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  Expression: string;
+};
+/**
  * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.RequestBasedSli`.
  * This structure contains information about the performance metric that a request-based SLO monitors.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedsli.html}
@@ -311,12 +355,12 @@ export type RequestBasedSliMetric = {
  */
 export type RollingInterval = {
   /**
-   * Specifies the duration of each calendar interval. For example, if `Duration` is 1 and `DurationUnit` is `MONTH`, each interval is one month, aligned with the calendar.
+   * Specifies the duration of each interval. For example, if `Duration` is 1 and `DurationUnit` is `MONTH`, each interval is one month, aligned with the calendar.
    * @min `1`
    */
   Duration: number;
   /**
-   * Specifies the calendar interval unit.
+   * Specifies the interval unit.
    */
   DurationUnit: DurationUnit;
 };
@@ -398,6 +442,22 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.Window`.
+ * This object defines the length of time an exclusion window should span.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-window.html}
+ */
+export type Window = {
+  /**
+   * Specifies the duration of each interval. For example, if `Duration` is 1 and `DurationUnit` is `MONTH`, each interval is one month, aligned with the calendar.
+   * @min `1`
+   */
+  Duration: number;
+  /**
+   * Specifies the interval unit.
+   */
+  DurationUnit: DurationUnit;
 };
 /**
  * Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective

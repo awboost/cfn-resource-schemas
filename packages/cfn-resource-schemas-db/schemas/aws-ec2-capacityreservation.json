@@ -1,5 +1,5 @@
 {
-  "$hash": "ae498dca400d1e2d5c78e6d071af15616f6372ac",
+  "$hash": "b66e0e943a92288bce4e5ffea1dde66635627179",
   "$id": "aws-ec2-capacityreservation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -15,6 +15,14 @@
     "/properties/AvailabilityZoneId"
   ],
   "definitions": {
+    "CapacityAllocation": {
+      "additionalProperties": false,
+      "properties": {
+        "AllocationType": { "type": "string" },
+        "Count": { "type": "integer" }
+      },
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -75,6 +83,24 @@
     "AvailabilityZone": { "type": "string" },
     "AvailabilityZoneId": { "type": "string" },
     "AvailableInstanceCount": { "type": "integer" },
+    "CapacityAllocationSet": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/CapacityAllocation" },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "CapacityReservationArn": { "type": "string" },
+    "CapacityReservationFleetId": { "type": "string" },
+    "CommitmentInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "CommitmentEndDate": { "type": "string" },
+        "CommittedInstanceCount": { "type": "integer" }
+      },
+      "type": "object"
+    },
+    "CreateDate": { "type": "string" },
+    "DeliveryPreference": { "type": "string" },
     "EbsOptimized": { "type": "boolean" },
     "EndDate": { "type": "string" },
     "EndDateType": { "type": "string" },
@@ -85,7 +111,11 @@
     "InstancePlatform": { "type": "string" },
     "InstanceType": { "type": "string" },
     "OutPostArn": { "type": "string" },
+    "OwnerId": { "type": "string" },
     "PlacementGroupArn": { "type": "string" },
+    "ReservationType": { "type": "string" },
+    "StartDate": { "type": "string" },
+    "State": { "type": "string" },
     "TagSpecifications": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/TagSpecification" },
@@ -99,7 +129,17 @@
   "readOnlyProperties": [
     "/properties/Id",
     "/properties/AvailableInstanceCount",
-    "/properties/TotalInstanceCount"
+    "/properties/TotalInstanceCount",
+    "/properties/StartDate",
+    "/properties/CapacityReservationArn",
+    "/properties/CreateDate",
+    "/properties/State",
+    "/properties/OwnerId",
+    "/properties/ReservationType",
+    "/properties/CapacityAllocationSet",
+    "/properties/CommitmentInfo",
+    "/properties/DeliveryPreference",
+    "/properties/CapacityReservationFleetId"
   ],
   "required": ["InstanceCount", "InstancePlatform", "InstanceType"],
   "tagging": {
