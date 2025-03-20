@@ -1,5 +1,5 @@
 {
-  "$hash": "cb4102785f3b1e38709f2c8f17085d5c2908e36c",
+  "$hash": "1b0a648ea0200bc91ea6b636bb7dc55987b2ecba",
   "$id": "aws-cloudformation-stackset.json",
   "additionalIdentifiers": [["/properties/StackSetName"]],
   "additionalProperties": false,
@@ -335,6 +335,13 @@
     "templateUri": "/cloudformation/home?region=${awsRegion}#/stacksets/${StackSetId}"
   },
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudformation.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::CloudFormation::StackSet",
   "writeOnlyProperties": [
     "/properties/TemplateURL",

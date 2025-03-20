@@ -1,45 +1,45 @@
-- updated `AWS::ApiGatewayV2::DomainName`
+- updated `AWS::AppSync::DomainName`
   - added property `DomainNameArn`
+  - added property `Tags`
   - updated `readOnlyProperties`
-- updated `AWS::ApplicationSignals::ServiceLevelObjective`
-  - added definition `ExclusionWindow`
-  - added definition `ExclusionWindows`
-  - added definition `RecurrenceRule`
-  - added definition `Window`
-  - added property `ExclusionWindows`
-  - updated definition `DurationUnit`
-  - updated definition `Duration`
-  - updated handler permissions
-- updated `AWS::EC2::CapacityReservation`
-  - added definition `CapacityAllocation`
-  - added property `CapacityAllocationSet`
-  - added property `CapacityReservationArn`
-  - added property `CapacityReservationFleetId`
-  - added property `CommitmentInfo`
-  - added property `CreateDate`
-  - added property `DeliveryPreference`
-  - added property `OwnerId`
-  - added property `ReservationType`
-  - added property `StartDate`
-  - added property `State`
-  - updated `readOnlyProperties`
-- updated `AWS::EC2::VPCEndpointService`
-  - added property `SupportedRegions`
-  - updated handler permissions
-- updated `AWS::Lambda::LayerVersion`
-  - added `propertyTransform`
-- updated `AWS::S3::Bucket`
-  - updated definition `MetadataTableConfiguration`
-  - updated definition `S3TablesDestination`
-  - updated property `MetadataTableConfiguration`
-- updated `AWS::WAFv2::WebACL`
-  - added definition `DataProtect`
-  - added definition `DataProtectionAction`
-  - added definition `DataProtectionConfig`
-  - added definition `DataProtections`
-  - added definition `FieldToProtectKeyName`
-  - added definition `FieldToProtect`
-  - added property `DataProtectionConfig`
-- updated `AWS::WorkSpaces::WorkspacesPool`
   - updated `tagging`
+  - updated definition `undefined`
   - updated handler permissions
+- updated `AWS::CloudFormation::GuardHook`
+  - added definition `StackRole`
+  - updated definition `StackName`
+  - updated property `StackFilters`
+- updated `AWS::CloudFormation::LambdaHook`
+  - added definition `StackRole`
+  - updated definition `StackName`
+  - updated property `StackFilters`
+- updated `AWS::CloudFormation::StackSet`
+  - added `tagging`
+- updated `AWS::CloudFront::AnycastIpList`
+  - updated definition `AnycastIpList`
+  - updated definition `Tag`
+  - updated definition `Tags`
+  - updated property `AnycastIpList`
+  - updated property `ETag`
+  - updated property `Id`
+  - updated property `IpCount`
+  - updated property `Name`
+  - updated property `Tags`
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `DistributionConfig`
+  - updated definition `Origin`
+  - updated definition `VpcOriginConfig`
+- updated `AWS::CloudFront::VpcOrigin`
+  - updated definition `Tag`
+  - updated definition `VpcOriginEndpointConfig`
+  - updated property `Arn`
+  - updated property `CreatedTime`
+  - updated property `Id`
+  - updated property `LastModifiedTime`
+  - updated property `Status`
+  - updated property `Tags`
+  - updated property `VpcOriginEndpointConfig`
+- updated `AWS::Kendra::Faq`
+  - added `tagging`
+- updated `AWS::Kendra::Index`
+  - added `tagging`

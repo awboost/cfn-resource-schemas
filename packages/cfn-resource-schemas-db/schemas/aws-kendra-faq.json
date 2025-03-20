@@ -1,5 +1,5 @@
 {
-  "$hash": "f375650ff11542983e63d94b34a208b15b93b54c",
+  "$hash": "f6636f3aa2b9d3cbe0f4f25786d4862816b7924c",
   "$id": "aws-kendra-faq.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -143,5 +143,17 @@
   "readOnlyProperties": ["/properties/Id", "/properties/Arn"],
   "required": ["IndexId", "Name", "S3Path", "RoleArn"],
   "sourceUrl": "https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "kendra:UntagResource",
+      "kendra:TagResource",
+      "kendra:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Kendra::Faq"
 }

@@ -22,6 +22,10 @@ export type AppSyncDomainNameProperties = {
    * @pattern `^(\*[a-z\d-]*\.)?([a-z\d-]+\.)+[a-z\d-]+$`
    */
   DomainName: string;
+  /**
+   * An arbitrary set of tags (key-value pairs) for this Domain Name.
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::AppSync::DomainName`.
@@ -29,7 +33,32 @@ export type AppSyncDomainNameProperties = {
  */
 export type AppSyncDomainNameAttributes = {
   AppSyncDomainName: string;
+  /**
+   * The Amazon Resource Name (ARN) for the Domain Name.
+   */
+  DomainNameArn: string;
   HostedZoneId: string;
+};
+/**
+ * Type definition for `AWS::AppSync::DomainName.Tag`.
+ * An arbitrary set of tags (key-value pairs) for this Domain Name.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-domainname-tag.html}
+ */
+export type Tag = {
+  /**
+   * A string used to identify this tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^(?!aws:)[ a-zA-Z+-=._:/]+$`
+   */
+  Key: string;
+  /**
+   * A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+   * @minLength `0`
+   * @maxLength `256`
+   * @pattern `^[\s\w+-=\.:/@]*$`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::AppSync::DomainName

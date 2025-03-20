@@ -1,5 +1,5 @@
 {
-  "$hash": "63a0c69211e892999c067917b0510da64f0564d4",
+  "$hash": "a1be0417ccb5b547b333169c9cfaa3140f1a8984",
   "$id": "aws-cloudformation-lambdahook.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Alias"],
@@ -34,7 +34,18 @@
     "StackName": {
       "description": "CloudFormation Stack name",
       "maxLength": 128,
-      "pattern": "^[a-zA-Z][-a-zA-Z0-9]*$",
+      "pattern": "^[a-zA-Z*?][-a-zA-Z0-9*?]*$",
+      "type": "string"
+    },
+    "StackRole": {
+      "anyOf": [
+        { "pattern": "arn:.+:iam::[0-9]{12}:role/.+" },
+        {
+          "pattern": "^(arn:.+:iam::((?!\\*|\\?)[0-9]{12}|(?=.*\\*)[0-9*?]{1,12}|[0-9?]{12}):role/.+|\\*)$"
+        }
+      ],
+      "description": "IAM Stack Role ARN filter",
+      "maxLength": 256,
       "type": "string"
     },
     "TargetName": {
@@ -170,7 +181,7 @@
             "Exclude": {
               "description": "List of stack roles that the hook is going to be excluded from",
               "insertionOrder": false,
-              "items": { "$ref": "#/definitions/Role" },
+              "items": { "$ref": "#/definitions/StackRole" },
               "maxItems": 50,
               "minItems": 1,
               "type": "array",
@@ -179,7 +190,7 @@
             "Include": {
               "description": "List of stack roles that the hook is going to target",
               "insertionOrder": false,
-              "items": { "$ref": "#/definitions/Role" },
+              "items": { "$ref": "#/definitions/StackRole" },
               "maxItems": 50,
               "minItems": 1,
               "type": "array",

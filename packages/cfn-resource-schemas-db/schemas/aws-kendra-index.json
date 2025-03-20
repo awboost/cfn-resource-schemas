@@ -1,5 +1,5 @@
 {
-  "$hash": "1c1befd6a07adc84c79cff228190037489d65f1e",
+  "$hash": "91cce587703aa0dfc0c70042d1b34a79af07c489",
   "$id": "aws-kendra-index.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -288,5 +288,17 @@
   "readOnlyProperties": ["/properties/Id", "/properties/Arn"],
   "required": ["Name", "RoleArn", "Edition"],
   "sourceUrl": "https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "kendra:UntagResource",
+      "kendra:TagResource",
+      "kendra:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Kendra::Index"
 }

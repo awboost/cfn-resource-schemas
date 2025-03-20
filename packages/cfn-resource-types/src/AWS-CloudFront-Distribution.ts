@@ -376,6 +376,9 @@ export type DistributionConfig = {
    * A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
    */
   Aliases?: string[];
+  /**
+   * ID of the Anycast static IP list that is associated with the distribution.
+   */
   AnycastIpListId?: string;
   /**
      * An alias for the CF distribution's domain name.
@@ -671,6 +674,7 @@ export type Logging = {
  * An origin.
  An origin is the location where content is stored, and from which CloudFront gets content to serve to viewers. To specify an origin:
   +  Use ``S3OriginConfig`` to specify an Amazon S3 bucket that is not configured with static website hosting.
+  +  Use ``VpcOriginConfig`` to specify a VPC origin.
   +  Use ``CustomOriginConfig`` to specify all other kinds of origins, including:
   +  An Amazon S3 bucket that is configured with static website hosting
   +  An Elastic Load Balancing load balancer
@@ -732,6 +736,9 @@ export type Origin = {
    * Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
    */
   S3OriginConfig?: S3OriginConfig;
+  /**
+   * The VPC origin configuration.
+   */
   VpcOriginConfig?: VpcOriginConfig;
 };
 /**
@@ -974,11 +981,23 @@ export type ViewerCertificate = {
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.VpcOriginConfig`.
+ * An Amazon CloudFront VPC origin configuration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-vpcoriginconfig.html}
  */
 export type VpcOriginConfig = {
+  /**
+     * Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
+     For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+     */
   OriginKeepaliveTimeout?: number;
+  /**
+     * Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
+     For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+     */
   OriginReadTimeout?: number;
+  /**
+   * The VPC origin ID.
+   */
   VpcOriginId: string;
 };
 /**

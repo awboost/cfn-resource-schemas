@@ -1,27 +1,54 @@
 {
-  "$hash": "2bad5ec0982b84293ffd7042699edc5e8c9acf82",
+  "$hash": "1772df41fba6824bc4c0e9b48ab044fb56a9027c",
   "$id": "aws-cloudfront-vpcorigin.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {
       "additionalProperties": false,
+      "description": "A complex type that contains ``Tag`` key and ``Tag`` value.",
       "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" }
+        "Key": {
+          "description": "A string that contains ``Tag`` key.\n The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.",
+          "type": "string"
+        },
+        "Value": {
+          "description": "A string that contains an optional ``Tag`` value.\n The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.",
+          "type": "string"
+        }
       },
       "required": ["Value", "Key"],
       "type": "object"
     },
     "VpcOriginEndpointConfig": {
       "additionalProperties": false,
+      "description": "An Amazon CloudFront VPC origin endpoint configuration.",
       "properties": {
-        "Arn": { "type": "string" },
-        "HTTPPort": { "default": 80, "type": "integer" },
-        "HTTPSPort": { "default": 443, "type": "integer" },
-        "Name": { "type": "string" },
-        "OriginProtocolPolicy": { "default": "match-viewer", "type": "string" },
+        "Arn": {
+          "description": "The ARN of the CloudFront VPC origin endpoint configuration.",
+          "type": "string"
+        },
+        "HTTPPort": {
+          "default": 80,
+          "description": "The HTTP port for the CloudFront VPC origin endpoint configuration. The default value is ``80``.",
+          "type": "integer"
+        },
+        "HTTPSPort": {
+          "default": 443,
+          "description": "The HTTPS port of the CloudFront VPC origin endpoint configuration. The default value is ``443``.",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "The name of the CloudFront VPC origin endpoint configuration.",
+          "type": "string"
+        },
+        "OriginProtocolPolicy": {
+          "default": "match-viewer",
+          "description": "The origin protocol policy for the CloudFront VPC origin endpoint configuration.",
+          "type": "string"
+        },
         "OriginSSLProtocols": {
           "default": ["TLSv1", "SSLv3"],
+          "description": "",
           "items": { "type": "string" },
           "type": "array",
           "uniqueItems": false
@@ -31,7 +58,7 @@
       "type": "object"
     }
   },
-  "description": "Resource Type definition for AWS::CloudFront::VpcOrigin",
+  "description": "An Amazon CloudFront VPC origin.",
   "handlers": {
     "create": {
       "permissions": [
@@ -80,18 +107,20 @@
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
-    "Arn": { "type": "string" },
-    "CreatedTime": { "type": "string" },
-    "Id": { "type": "string" },
-    "LastModifiedTime": { "type": "string" },
-    "Status": { "type": "string" },
+    "Arn": { "description": "", "type": "string" },
+    "CreatedTime": { "description": "", "type": "string" },
+    "Id": { "description": "", "type": "string" },
+    "LastModifiedTime": { "description": "", "type": "string" },
+    "Status": { "description": "", "type": "string" },
     "Tags": {
+      "description": "A complex type that contains zero or more ``Tag`` elements.",
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
     },
     "VpcOriginEndpointConfig": {
-      "$ref": "#/definitions/VpcOriginEndpointConfig"
+      "$ref": "#/definitions/VpcOriginEndpointConfig",
+      "description": "The VPC origin endpoint configuration."
     }
   },
   "readOnlyProperties": [
