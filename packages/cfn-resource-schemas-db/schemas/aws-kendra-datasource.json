@@ -1,5 +1,5 @@
 {
-  "$hash": "94a7d584eab593e2d1e6d0c7226c3ca0b1175013",
+  "$hash": "b539810d8a0ecedc6bea89ba7b7b2f428fbd699f",
   "$id": "aws-kendra-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
@@ -1293,5 +1293,17 @@
   "readOnlyProperties": ["/properties/Id", "/properties/Arn"],
   "required": ["Name", "IndexId", "Type"],
   "sourceUrl": "https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "kendra:UntagResource",
+      "kendra:TagResource",
+      "kendra:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Kendra::DataSource"
 }
