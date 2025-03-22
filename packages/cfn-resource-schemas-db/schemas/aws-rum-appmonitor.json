@@ -1,5 +1,5 @@
 {
-  "$hash": "cd5e5ee02b2a0e5eeb7f326e7d94e0c12288333b",
+  "$hash": "6e56c872d943f7ceeed6dc666355fd4a0be603c0",
   "$id": "aws-rum-appmonitor.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -81,6 +81,31 @@
       "type": "object"
     },
     "CustomEventsStatus": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
+    "DeobfuscationConfiguration": {
+      "additionalProperties": false,
+      "description": "A structure that contains the configuration for how an app monitor can deobfuscate stack traces.",
+      "properties": {
+        "JavaScriptSourceMaps": {
+          "additionalProperties": false,
+          "description": "A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.",
+          "properties": {
+            "S3Uri": {
+              "description": "The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.",
+              "pattern": "^s3://[a-z0-9][-.a-z0-9]{1,61}(?:/[-!_*'().a-z0-9A-Z]+(?:/[-!_*'().a-z0-9A-Z]+)*)?/?$",
+              "type": "string"
+            },
+            "Status": {
+              "description": "Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED",
+              "enum": ["ENABLED", "DISABLED"],
+              "type": "string"
+            }
+          },
+          "required": ["Status"],
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
     "FavoritePages": {
       "description": "List of favorite pages",
       "insertionOrder": false,
@@ -361,6 +386,7 @@
       ]
     }
   },
+  "oneOf": [{ "required": ["Domain"] }, { "required": ["DomainList"] }],
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
     "AppMonitorConfiguration": {
@@ -371,12 +397,22 @@
       "description": "Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false",
       "type": "boolean"
     },
+    "DeobfuscationConfiguration": {
+      "$ref": "#/definitions/DeobfuscationConfiguration"
+    },
     "Domain": {
-      "description": "The top-level internet domain name for which your application has administrative authority.",
+      "description": "The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.",
       "maxLength": 253,
       "minLength": 1,
       "pattern": "^(localhost)|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^(?![-.])([A-Za-z0-9-\\.\\-]{0,63})((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))\\.(?![-])[A-Za-z-0-9]{1,63}((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))|^(\\*\\.)(?![-.])([A-Za-z0-9-\\.\\-]{0,63})((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))\\.(?![-])[A-Za-z-0-9]{1,63}((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))",
       "type": "string"
+    },
+    "DomainList": {
+      "description": "The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.",
+      "items": { "$ref": "#/properties/Domain" },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
     },
     "Id": {
       "description": "The unique ID of the new app monitor.",
@@ -396,7 +432,7 @@
     "Tags": { "$ref": "#/definitions/TagDef" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": ["Name", "Domain"],
+  "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,

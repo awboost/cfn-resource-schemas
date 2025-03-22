@@ -48,6 +48,27 @@ export type BedrockDataSourceAttributes = {
    */
   CreatedAt: string;
   /**
+   * Specifies a raw data source location to ingest.
+   */
+  DataSourceConfiguration: {
+    /**
+     * Configures a web data source location.
+     */
+    WebConfiguration: {
+      /**
+       * Configuration for the web crawler.
+       */
+      CrawlerConfiguration: {
+        /**
+         * The full user agent header, including UUID and suffix.
+         * @minLength `61`
+         * @maxLength `86`
+         */
+        UserAgentHeader: string;
+      };
+    };
+  };
+  /**
    * Identifier for a resource.
    * @pattern `^[0-9a-zA-Z]{10}$`
    */
@@ -98,6 +119,24 @@ export type BedrockFoundationModelConfiguration = {
    * Instructions for interpreting the contents of a document.
    */
   ParsingPrompt?: ParsingPrompt;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataSource.BedrockFoundationModelContextEnrichmentConfiguration`.
+ * Bedrock Foundation Model configuration to be used for Context Enrichment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelcontextenrichmentconfiguration.html}
+ */
+export type BedrockFoundationModelContextEnrichmentConfiguration = {
+  /**
+   * Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+   */
+  EnrichmentStrategyConfiguration: EnrichmentStrategyConfiguration;
+  /**
+   * The model's ARN.
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}::foundation-model/([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2})|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)$`
+   */
+  ModelArn: string;
 };
 /**
  * Type definition for `AWS::Bedrock::DataSource.ChunkingConfiguration`.
@@ -186,6 +225,27 @@ export type ConfluenceSourceConfiguration = {
   HostUrl: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::DataSource.ContextEnrichmentConfiguration`.
+ * Additional Enrichment Configuration for example when using GraphRag.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-contextenrichmentconfiguration.html}
+ */
+export type ContextEnrichmentConfiguration = {
+  /**
+   * Bedrock Foundation Model configuration to be used for Context Enrichment.
+   */
+  BedrockFoundationModelConfiguration?: BedrockFoundationModelContextEnrichmentConfiguration;
+  /**
+   * Enrichment type to be used for the vector database.
+   */
+  Type: ContextEnrichmentType;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataSource.ContextEnrichmentType`.
+ * Enrichment type to be used for the vector database.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-contextenrichmenttype.html}
+ */
+export type ContextEnrichmentType = "BEDROCK_FOUNDATION_MODEL";
+/**
  * Type definition for `AWS::Bedrock::DataSource.CrawlFilterConfiguration`.
  * The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-crawlfilterconfiguration.html}
@@ -273,6 +333,23 @@ export type DataSourceType =
   | "WEB"
   | "CUSTOM"
   | "REDSHIFT_METADATA";
+/**
+ * Type definition for `AWS::Bedrock::DataSource.EnrichmentStrategyConfiguration`.
+ * Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-enrichmentstrategyconfiguration.html}
+ */
+export type EnrichmentStrategyConfiguration = {
+  /**
+   * Enrichment Strategy method.
+   */
+  Method: EnrichmentStrategyMethod;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataSource.EnrichmentStrategyMethod`.
+ * Enrichment Strategy method.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-enrichmentstrategymethod.html}
+ */
+export type EnrichmentStrategyMethod = "CHUNK_ENTITY_EXTRACTION";
 /**
  * Type definition for `AWS::Bedrock::DataSource.FixedSizeChunkingConfiguration`.
  * Configurations for when you choose fixed-size chunking. If you set the chunkingStrategy as NONE, exclude this field.
@@ -592,7 +669,9 @@ export type SharePointSourceConfiguration = {
   /**
    * The supported authentication type to authenticate and connect to your SharePoint site/sites.
    */
-  AuthType: "OAUTH2_CLIENT_CREDENTIALS";
+  AuthType:
+    | "OAUTH2_CLIENT_CREDENTIALS"
+    | "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS";
   /**
    * The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site/sites. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration.
    * @pattern `^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$`
@@ -684,6 +763,10 @@ export type VectorIngestionConfiguration = {
    */
   ChunkingConfiguration?: ChunkingConfiguration;
   /**
+   * Additional Enrichment Configuration for example when using GraphRag.
+   */
+  ContextEnrichmentConfiguration?: ContextEnrichmentConfiguration;
+  /**
    * Settings for customizing steps in the data source content ingestion pipeline.
    */
   CustomTransformationConfiguration?: CustomTransformationConfiguration;
@@ -718,6 +801,12 @@ export type WebCrawlerConfiguration = {
    * The scope that a web crawl job will be restricted to.
    */
   Scope?: WebScopeType;
+  /**
+   * The suffix that will be included in the user agent header.
+   * @minLength `15`
+   * @maxLength `40`
+   */
+  UserAgent?: string;
 };
 /**
  * Type definition for `AWS::Bedrock::DataSource.WebCrawlerLimits`.
@@ -725,6 +814,11 @@ export type WebCrawlerConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerlimits.html}
  */
 export type WebCrawlerLimits = {
+  /**
+   * Maximum number of pages the crawler can crawl.
+   * @min `1`
+   */
+  MaxPages?: number;
   /**
    * Rate of web URLs retrieved per minute.
    * @min `1`

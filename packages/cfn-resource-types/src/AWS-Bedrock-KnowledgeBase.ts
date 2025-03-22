@@ -179,7 +179,8 @@ export type KnowledgeBaseStorageType =
   | "OPENSEARCH_SERVERLESS"
   | "PINECONE"
   | "RDS"
-  | "MONGO_DB_ATLAS";
+  | "MONGO_DB_ATLAS"
+  | "NEPTUNE_ANALYTICS";
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KnowledgeBaseType`.
  * The type of a knowledge base.
@@ -256,6 +257,43 @@ export type MongoDbAtlasFieldMapping = {
    * @pattern `^.*$`
    */
   VectorField: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.NeptuneAnalyticsConfiguration`.
+ * Contains the configurations to use Neptune Analytics as Vector Store.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-neptuneanalyticsconfiguration.html}
+ */
+export type NeptuneAnalyticsConfiguration = {
+  /**
+   * A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+   */
+  FieldMapping: NeptuneAnalyticsFieldMapping;
+  /**
+   * ARN for Neptune Analytics graph database.
+   * @minLength `1`
+   * @maxLength `255`
+   * @pattern `^arn:aws(|-cn|-us-gov):neptune-graph:[a-zA-Z0-9-]*:[0-9]{12}:graph\/g-[a-zA-Z0-9]{10}$`
+   */
+  GraphArn: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.NeptuneAnalyticsFieldMapping`.
+ * A mapping of Bedrock Knowledge Base fields to Neptune Analytics fields.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-neptuneanalyticsfieldmapping.html}
+ */
+export type NeptuneAnalyticsFieldMapping = {
+  /**
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  MetadataField: string;
+  /**
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  TextField: string;
 };
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.OpenSearchServerlessConfiguration`.
@@ -725,6 +763,10 @@ export type StorageConfiguration = {
    * Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
    */
   MongoDbAtlasConfiguration?: MongoDbAtlasConfiguration;
+  /**
+   * Contains the configurations to use Neptune Analytics as Vector Store.
+   */
+  NeptuneAnalyticsConfiguration?: NeptuneAnalyticsConfiguration;
   /**
    * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
    */

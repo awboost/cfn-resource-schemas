@@ -18,12 +18,22 @@ export type RUMAppMonitorProperties = {
    */
   CwLogEnabled?: boolean;
   /**
-   * The top-level internet domain name for which your application has administrative authority.
+   * A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+   */
+  DeobfuscationConfiguration?: DeobfuscationConfiguration;
+  /**
+   * The top-level internet domain name for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
    * @minLength `1`
    * @maxLength `253`
    * @pattern `^(localhost)|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^(?![-.])([A-Za-z0-9-\.\-]{0,63})((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))\.(?![-])[A-Za-z-0-9]{1,63}((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))|^(\*\.)(?![-.])([A-Za-z0-9-\.\-]{0,63})((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))\.(?![-])[A-Za-z-0-9]{1,63}((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))`
    */
-  Domain: string;
+  Domain?: string;
+  /**
+   * The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.
+   * @minLength `1`
+   * @maxLength `5`
+   */
+  DomainList?: unknown[];
   /**
    * A name for the app monitor
    * @minLength `1`
@@ -130,6 +140,27 @@ export type CustomEvents = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-customeventsstatus.html}
  */
 export type CustomEventsStatus = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::RUM::AppMonitor.DeobfuscationConfiguration`.
+ * A structure that contains the configuration for how an app monitor can deobfuscate stack traces.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-deobfuscationconfiguration.html}
+ */
+export type DeobfuscationConfiguration = {
+  /**
+   * A structure that contains the configuration for how an app monitor can unminify JavaScript error stack traces using source maps.
+   */
+  JavaScriptSourceMaps?: {
+    /**
+     * The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
+     * @pattern `^s3://[a-z0-9][-.a-z0-9]{1,61}(?:/[-!_*'().a-z0-9A-Z]+(?:/[-!_*'().a-z0-9A-Z]+)*)?/?$`
+     */
+    S3Uri?: string;
+    /**
+     * Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be DISABLED
+     */
+    Status: "ENABLED" | "DISABLED";
+  };
+};
 /**
  * Type definition for `AWS::RUM::AppMonitor.MetricDefinition`.
  * A single metric definition

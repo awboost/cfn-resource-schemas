@@ -1,2 +1,33 @@
-- updated `AWS::Kendra::DataSource`
-  - added `tagging`
+- added `AWS::DataZone::Connection`
+- updated `AWS::Bedrock::DataSource`
+  - added definition `BedrockFoundationModelContextEnrichmentConfiguration`
+  - added definition `ContextEnrichmentConfiguration`
+  - added definition `ContextEnrichmentType`
+  - added definition `EnrichmentStrategyConfiguration`
+  - added definition `EnrichmentStrategyMethod`
+  - added definition `ModelArn`
+  - updated `readOnlyProperties`
+  - updated definition `BedrockFoundationModelConfiguration`
+  - updated definition `SharePointSourceConfiguration`
+  - updated definition `VectorIngestionConfiguration`
+  - updated definition `WebCrawlerConfiguration`
+  - updated definition `WebCrawlerLimits`
+  - updated handler permissions
+- updated `AWS::Bedrock::KnowledgeBase`
+  - added definition `NeptuneAnalyticsConfiguration`
+  - added definition `NeptuneAnalyticsFieldMapping`
+  - updated `tagging`
+  - updated definition `KnowledgeBaseStorageType`
+  - updated definition `StorageConfiguration`
+- updated `AWS::DataZone::Domain`
+  - added property `RootDomainUnitId`
+  - updated `readOnlyProperties`
+- updated `AWS::MediaConnect::Bridge`
+  - updated handler permissions
+- updated `AWS::RUM::AppMonitor`
+  - added `oneOf`
+  - added definition `DeobfuscationConfiguration`
+  - added property `DeobfuscationConfiguration`
+  - added property `DomainList`
+  - updated `required`
+  - updated property `Domain`

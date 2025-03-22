@@ -1,5 +1,5 @@
 {
-  "$hash": "45ce64d528a3bdd65f9eb61e302e4463842d2e5f",
+  "$hash": "632b16abcfec837b466574b5fb4b7c35d3d8ea19",
   "$id": "aws-mediaconnect-bridge.json",
   "additionalProperties": false,
   "definitions": {
@@ -209,13 +209,17 @@
     "create": {
       "permissions": [
         "mediaconnect:CreateBridge",
-        "mediaconnect:DescribeBridge"
+        "mediaconnect:DescribeBridge",
+        "mediaconnect:AddBridgeOutputs",
+        "mediaconnect:AddBridgeSources"
       ]
     },
     "delete": {
       "permissions": [
         "mediaconnect:DescribeBridge",
-        "mediaconnect:DeleteBridge"
+        "mediaconnect:DeleteBridge",
+        "mediaconnect:RemoveBridgeOutput",
+        "mediaconnect:RemoveBridgeSource"
       ]
     },
     "list": { "permissions": ["mediaconnect:ListBridges"] },

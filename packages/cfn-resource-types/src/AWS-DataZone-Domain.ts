@@ -76,6 +76,13 @@ export type DataZoneDomainAttributes = {
    */
   PortalUrl: string;
   /**
+   * The ID of the root domain in Amazon Datazone.
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[a-z0-9_\-]+$`
+   */
+  RootDomainUnitId: string;
+  /**
    * The status of the Amazon DataZone domain.
    */
   Status: DomainStatus;
