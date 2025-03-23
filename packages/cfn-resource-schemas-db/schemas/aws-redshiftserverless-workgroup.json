@@ -1,5 +1,5 @@
 {
-  "$hash": "1646c3a2c2d4e2380664201fbf7a437b560bea85",
+  "$hash": "49ac2d36e10d5d702b94a9fdd29356303328a6bf",
   "$id": "aws-redshiftserverless-workgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -357,8 +357,6 @@
   },
   "typeName": "AWS::RedshiftServerless::Workgroup",
   "writeOnlyProperties": [
-    "/properties/BaseCapacity",
-    "/properties/MaxCapacity",
     "/properties/ConfigParameters",
     "/properties/SecurityGroupIds",
     "/properties/SubnetIds"
