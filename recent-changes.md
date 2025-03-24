@@ -1,2 +1,3 @@
-- updated `AWS::RedshiftServerless::Workgroup`
-  - updated `writeOnlyProperties`
+- updated `AWS::GuardDuty::PublishingDestination`
+- updated `AWS::PaymentCryptography::Key`
+  - updated definition `KeyAlgorithm`

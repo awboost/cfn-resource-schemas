@@ -1,5 +1,5 @@
 {
-  "$hash": "4b0545909f23f7d0750ecffe4336c2b8796ee987",
+  "$hash": "e1202cd9b9da1af7049b075c436a1b9401d5cc70",
   "$id": "aws-paymentcryptography-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -10,6 +10,10 @@
         "AES_128",
         "AES_192",
         "AES_256",
+        "HMAC_SHA256",
+        "HMAC_SHA384",
+        "HMAC_SHA512",
+        "HMAC_SHA224",
         "RSA_2048",
         "RSA_3072",
         "RSA_4096",

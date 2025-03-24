@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::GuardDuty::PublishingDestination
+ * Resource Type definition for AWS::GuardDuty::PublishingDestination.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-publishingdestination.html}
  */
 export type GuardDutyPublishingDestinationProperties = {
@@ -67,7 +67,7 @@ export type TagItem = {
   Value: string;
 };
 /**
- * Resource Type definition for AWS::GuardDuty::PublishingDestination
+ * Resource Type definition for AWS::GuardDuty::PublishingDestination.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-publishingdestination.html}
  */
 export class GuardDutyPublishingDestination extends $Resource<
