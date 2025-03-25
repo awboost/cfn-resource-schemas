@@ -105,6 +105,11 @@ export type RDSDBInstanceProperties = {
    */
   AutomaticBackupReplicationRegion?: string;
   /**
+   * @min `1`
+   * @max `35`
+   */
+  AutomaticBackupReplicationRetentionPeriod?: number;
+  /**
      * The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).
      For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.
      Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.
@@ -124,6 +129,7 @@ export type RDSDBInstanceProperties = {
       +  Must be a value from 0 to 35
       +  Can't be set to 0 if the DB instance is a source to read replicas
      * @min `0`
+     * @max `35`
      */
   BackupRetentionPeriod?: number;
   /**
@@ -613,7 +619,7 @@ export type RDSDBInstanceProperties = {
      */
   PerformanceInsightsKMSKeyId?: string;
   /**
-     * The number of days to retain Performance Insights data.
+     * The number of days to retain Performance Insights data. When creating a DB instance without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
      This setting doesn't apply to RDS Custom DB instances.
      Valid Values:
       +   ``7``

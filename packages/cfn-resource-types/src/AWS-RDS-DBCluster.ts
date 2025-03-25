@@ -330,7 +330,7 @@ export type RDSDBClusterProperties = {
      */
   PerformanceInsightsKmsKeyId?: string;
   /**
-     * The number of days to retain Performance Insights data.
+     * The number of days to retain Performance Insights data. When creating a DB cluster without enabling Performance Insights, you can't specify the parameter ``PerformanceInsightsRetentionPeriod``.
      Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
      Valid Values:
       +   ``7``

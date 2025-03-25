@@ -42,6 +42,14 @@ export type MediaConnectFlowOutputProperties = {
    */
   Name?: string;
   /**
+   * A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
+   */
+  NdiProgramName?: string;
+  /**
+   * A quality setting for the NDI Speed HQ encoder.
+   */
+  NdiSpeedHqQuality?: number;
+  /**
    * An indication of whether the output should transmit data or not.
    */
   OutputStatus?: "ENABLED" | "DISABLED";
@@ -62,7 +70,8 @@ export type MediaConnectFlowOutputProperties = {
     | "srt-listener"
     | "srt-caller"
     | "st2110-jpegxs"
-    | "cdi";
+    | "cdi"
+    | "ndi-speed-hq";
   /**
    * The remote ID for the Zixi-pull stream.
    */

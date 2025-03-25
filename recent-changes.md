@@ -1,3 +1,20 @@
-- updated `AWS::GuardDuty::PublishingDestination`
-- updated `AWS::PaymentCryptography::Key`
-  - updated definition `KeyAlgorithm`
+- updated `AWS::MediaConnect::Flow`
+  - added definition `NdiConfig`
+  - added definition `NdiDiscoveryServerConfig`
+  - added property `FlowNdiMachineName`
+  - added property `FlowSize`
+  - added property `NdiConfig`
+  - updated `readOnlyProperties`
+- updated `AWS::MediaConnect::FlowOutput`
+  - added property `NdiProgramName`
+  - added property `NdiSpeedHqQuality`
+  - updated property `Protocol`
+- updated `AWS::RDS::DBCluster`
+  - updated `readOnlyProperties`
+  - updated property `PerformanceInsightsRetentionPeriod`
+- updated `AWS::RDS::DBInstance`
+  - added property `AutomaticBackupReplicationRetentionPeriod`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+  - updated property `BackupRetentionPeriod`
+  - updated property `PerformanceInsightsRetentionPeriod`

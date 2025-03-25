@@ -10,6 +10,10 @@ export type MediaConnectFlowProperties = {
    */
   AvailabilityZone?: string;
   /**
+   * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+   */
+  FlowSize?: "MEDIUM" | "LARGE";
+  /**
    * The maintenance settings you want to use for the flow.
    */
   Maintenance?: Maintenance;
@@ -21,6 +25,10 @@ export type MediaConnectFlowProperties = {
    * The name of the flow.
    */
   Name: string;
+  /**
+   * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+   */
+  NdiConfig?: NdiConfig;
   /**
    * The source of the flow.
    */
@@ -55,6 +63,10 @@ export type MediaConnectFlowAttributes = {
    * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
    */
   FlowAvailabilityZone: string;
+  /**
+   * A prefix for the names of the NDI sources that the flow creates.(ReadOnly)
+   */
+  FlowNdiMachineName: string;
   /**
    * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
    */
@@ -382,6 +394,44 @@ export type MediaStreamSourceConfiguration = {
    * A name that helps you distinguish one media stream from another.
    */
   MediaStreamName: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.NdiConfig`.
+ * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-ndiconfig.html}
+ */
+export type NdiConfig = {
+  /**
+   * A prefix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect generates a unique 12-character ID as the prefix.
+   */
+  MachineName?: string;
+  /**
+   * A list of up to three NDI discovery server configurations. While not required by the API, this configuration is necessary for NDI functionality to work properly.
+   */
+  NdiDiscoveryServers?: NdiDiscoveryServerConfig[];
+  /**
+   * A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+   */
+  NdiState?: "ENABLED" | "DISABLED";
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.NdiDiscoveryServerConfig`.
+ * Specifies the configuration settings for individual NDI discovery servers. A maximum of 3 servers is allowed.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-ndidiscoveryserverconfig.html}
+ */
+export type NdiDiscoveryServerConfig = {
+  /**
+   * The unique network address of the NDI discovery server.
+   */
+  DiscoveryServerAddress: string;
+  /**
+   * The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.
+   */
+  DiscoveryServerPort?: number;
+  /**
+   * The identifier for the Virtual Private Cloud (VPC) network interface used by the flow.
+   */
+  VpcInterfaceAdapter: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.SilentAudio`.
