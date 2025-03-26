@@ -20,6 +20,10 @@ export type EKSClusterProperties = {
   ComputeConfig?: ComputeConfig;
   EncryptionConfig?: EncryptionConfig[];
   /**
+   * Force cluster version update
+   */
+  Force?: boolean;
+  /**
    * The Kubernetes network configuration for the cluster.
    */
   KubernetesNetworkConfig?: KubernetesNetworkConfig;

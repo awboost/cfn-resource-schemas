@@ -12,6 +12,10 @@ export type NetworkFirewallFirewallProperties = {
    */
   Description?: string;
   /**
+   * The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.
+   */
+  EnabledAnalysisTypes?: EnabledAnalysisType[];
+  /**
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^[a-zA-Z0-9-]+$`
@@ -58,6 +62,12 @@ export type NetworkFirewallFirewallAttributes = {
    */
   FirewallId: string;
 };
+/**
+ * Type definition for `AWS::NetworkFirewall::Firewall.EnabledAnalysisType`.
+ * An analysis type.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-enabledanalysistype.html}
+ */
+export type EnabledAnalysisType = "TLS_SNI" | "HTTP_HOST";
 /**
  * Type definition for `AWS::NetworkFirewall::Firewall.SubnetMapping`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-subnetmapping.html}

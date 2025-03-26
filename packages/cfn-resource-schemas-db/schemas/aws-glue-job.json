@@ -1,5 +1,5 @@
 {
-  "$hash": "44e3d37f176c2e38953c3c239373a56eaf52506a",
+  "$hash": "886013c47829987d9d0910280387e220a36a2186",
   "$id": "aws-glue-job.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -201,6 +201,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-glue.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": ["glue:TagResource", "glue:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

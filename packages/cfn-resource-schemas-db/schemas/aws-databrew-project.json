@@ -1,8 +1,8 @@
 {
-  "$hash": "55d0d36873deb1e1994c5ca104fcf1fe1ce7ba74",
+  "$hash": "fbb29ab251a9e4cdbe3f0e5305868acbf0910152",
   "$id": "aws-databrew-project.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
+  "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "Sample": {
       "additionalProperties": false,
@@ -51,14 +51,15 @@
         "iam:ListRoles"
       ]
     },
-    "read": {
+    "read": { "permissions": ["databrew:DescribeProject", "iam:ListRoles"] },
+    "update": {
       "permissions": [
-        "databrew:DescribeProject",
-        "databrew:ListTagsForResource",
-        "iam:ListRoles"
+        "databrew:UpdateProject",
+        "databrew:TagResource",
+        "databrew:UntagResource",
+        "iam:PassRole"
       ]
-    },
-    "update": { "permissions": ["databrew:UpdateProject", "iam:PassRole"] }
+    }
   },
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
@@ -100,7 +101,7 @@
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::DataBrew::Project"

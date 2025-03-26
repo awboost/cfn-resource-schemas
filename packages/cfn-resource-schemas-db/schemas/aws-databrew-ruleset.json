@@ -1,12 +1,8 @@
 {
-  "$hash": "bbea146438c975285f2e634331cfbafa599398e1",
+  "$hash": "7c8cf465684fa0f2b9ecb64e63a0a98a760a9a59",
   "$id": "aws-databrew-ruleset.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/Name",
-    "/properties/TargetArn",
-    "/properties/Tags"
-  ],
+  "createOnlyProperties": ["/properties/Name", "/properties/TargetArn"],
   "definitions": {
     "ColumnSelector": {
       "additionalProperties": false,
@@ -147,14 +143,14 @@
         "iam:ListRoles"
       ]
     },
-    "read": {
+    "read": { "permissions": ["databrew:DescribeRuleset", "iam:ListRoles"] },
+    "update": {
       "permissions": [
-        "databrew:DescribeRuleset",
-        "databrew:ListTagsForResource",
-        "iam:ListRoles"
+        "databrew:UpdateRuleset",
+        "databrew:TagResource",
+        "databrew:UntagResource"
       ]
-    },
-    "update": { "permissions": ["databrew:UpdateRuleset"] }
+    }
   },
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
@@ -200,7 +196,7 @@
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::DataBrew::Ruleset"

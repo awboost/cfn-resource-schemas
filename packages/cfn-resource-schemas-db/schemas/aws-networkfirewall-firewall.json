@@ -1,5 +1,5 @@
 {
-  "$hash": "b660178456b5634af5da42a893de68e75cfed039",
+  "$hash": "59fff5015f7de7dac5b4581041c0f5b2c29ad994",
   "$id": "aws-networkfirewall-firewall.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId", "/properties/FirewallName"],
@@ -94,6 +94,12 @@
   "properties": {
     "DeleteProtection": { "type": "boolean" },
     "Description": { "maxLength": 512, "pattern": "^.*$", "type": "string" },
+    "EnabledAnalysisTypes": {
+      "description": "The types of analysis to enable for the firewall. Can be TLS_SNI, HTTP_HOST, or both.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/EnabledAnalysisType" },
+      "type": "array"
+    },
     "EndpointIds": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/EndpointId" },

@@ -1,8 +1,8 @@
 {
-  "$hash": "57bd2f9654dfb8278198c95e371bf7b26e1543cd",
+  "$hash": "f733fbe06122569b931f8b78ef38f2e087f529e3",
   "$id": "aws-databrew-dataset.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
+  "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "BucketOwner": {
       "description": "Bucket owner",
@@ -292,16 +292,12 @@
         "iam:ListRoles"
       ]
     },
-    "read": {
-      "permissions": [
-        "databrew:DescribeDataset",
-        "databrew:ListTagsForResource",
-        "iam:ListRoles"
-      ]
-    },
+    "read": { "permissions": ["databrew:DescribeDataset", "iam:ListRoles"] },
     "update": {
       "permissions": [
         "databrew:UpdateDataset",
+        "databrew:TagResource",
+        "databrew:UntagResource",
         "glue:GetConnection",
         "glue:GetTable"
       ]
@@ -352,7 +348,7 @@
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::DataBrew::Dataset"

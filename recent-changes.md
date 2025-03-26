@@ -1,20 +1,52 @@
-- updated `AWS::MediaConnect::Flow`
-  - added definition `NdiConfig`
-  - added definition `NdiDiscoveryServerConfig`
-  - added property `FlowNdiMachineName`
-  - added property `FlowSize`
-  - added property `NdiConfig`
-  - updated `readOnlyProperties`
-- updated `AWS::MediaConnect::FlowOutput`
-  - added property `NdiProgramName`
-  - added property `NdiSpeedHqQuality`
-  - updated property `Protocol`
-- updated `AWS::RDS::DBCluster`
-  - updated `readOnlyProperties`
-  - updated property `PerformanceInsightsRetentionPeriod`
-- updated `AWS::RDS::DBInstance`
-  - added property `AutomaticBackupReplicationRetentionPeriod`
-  - updated `readOnlyProperties`
+- updated `AWS::DataBrew::Dataset`
+  - updated `createOnlyProperties`
+  - updated `tagging`
   - updated handler permissions
-  - updated property `BackupRetentionPeriod`
-  - updated property `PerformanceInsightsRetentionPeriod`
+- updated `AWS::DataBrew::Job`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DataBrew::Project`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DataBrew::Recipe`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DataBrew::Ruleset`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DataBrew::Schedule`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ECS::Service`
+  - updated definition `AwsVpcConfiguration`
+- updated `AWS::EKS::Cluster`
+  - added property `Force`
+  - updated `writeOnlyProperties`
+- updated `AWS::Glue::Job`
+  - updated `tagging`
+- updated `AWS::NetworkFirewall::Firewall`
+  - added property `EnabledAnalysisTypes`
+- updated `AWS::Omics::SequenceStore`
+  - added definition `ETagAlgorithmFamily`
+  - added definition `SequenceStoreStatus`
+  - added property `AccessLogLocation`
+  - added property `ETagAlgorithmFamily`
+  - added property `PropagatedSetLevelTags`
+  - added property `S3AccessPointArn`
+  - added property `S3AccessPolicy`
+  - added property `S3Uri`
+  - added property `StatusMessage`
+  - added property `Status`
+  - added property `UpdateTime`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+  - updated property `FallbackLocation`
+- updated `AWS::SecurityHub::ConfigurationPolicy`
+  - updated `tagging`

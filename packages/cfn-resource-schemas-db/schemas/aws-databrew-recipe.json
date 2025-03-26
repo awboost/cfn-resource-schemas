@@ -1,8 +1,8 @@
 {
-  "$hash": "ec7e243166c60ec712c9caf3f394acdbe1e445c2",
+  "$hash": "7d760ad9d394810061678046f2f4abc2ca0605e0",
   "$id": "aws-databrew-recipe.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
+  "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "Action": {
       "additionalProperties": false,
@@ -252,13 +252,7 @@
       ]
     },
     "delete": { "permissions": ["databrew:DeleteRecipeVersion"] },
-    "list": {
-      "permissions": [
-        "databrew:ListRecipes",
-        "databrew:ListTagsForResource",
-        "iam:ListRoles"
-      ]
-    },
+    "list": { "permissions": ["databrew:ListRecipes", "iam:ListRoles"] },
     "read": {
       "permissions": [
         "databrew:DescribeRecipe",
@@ -266,7 +260,13 @@
         "iam:ListRoles"
       ]
     },
-    "update": { "permissions": ["databrew:UpdateRecipe"] }
+    "update": {
+      "permissions": [
+        "databrew:UpdateRecipe",
+        "databrew:TagResource",
+        "databrew:UntagResource"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
@@ -305,7 +305,7 @@
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::DataBrew::Recipe"
