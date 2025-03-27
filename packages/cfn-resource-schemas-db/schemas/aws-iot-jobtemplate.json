@@ -1,5 +1,5 @@
 {
-  "$hash": "aa00f3fdb2d3769412e4fe094d4d65d2dd5a2e3a",
+  "$hash": "fc80e88a691ee33abdda117ed29a468e853edbbe",
   "$id": "aws-iot-jobtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -12,10 +12,10 @@
     "/properties/JobExecutionsRolloutConfig",
     "/properties/AbortConfig",
     "/properties/PresignedUrlConfig",
-    "/properties/Tags",
     "/properties/DestinationPackageVersions",
     "/properties/JobExecutionsRetryConfig",
-    "/properties/MaintenanceWindows"
+    "/properties/MaintenanceWindows",
+    "/properties/Tags"
   ],
   "definitions": {
     "AbortCriteria": {
@@ -167,7 +167,7 @@
     },
     "ThresholdPercentage": { "maximum": 100, "type": "number" }
   },
-  "description": "Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.",
+  "description": "Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.",
   "documentationUrl": "https://docs.aws.amazon.com/iot/latest/developerguide/job-templates.html",
   "handlers": {
     "create": {
@@ -180,7 +180,9 @@
     },
     "delete": { "permissions": ["iot:DeleteJobTemplate"] },
     "list": { "permissions": ["iot:ListJobTemplates"] },
-    "read": { "permissions": ["iot:DescribeJobTemplate"] }
+    "read": {
+      "permissions": ["iot:DescribeJobTemplate", "iot:ListTagsForResource"]
+    }
   },
   "primaryIdentifier": ["/properties/JobTemplateId"],
   "properties": {
@@ -297,11 +299,21 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["JobTemplateId", "Description"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "iot:TagResource",
+      "iot:UntagResource",
+      "iot:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::IoT::JobTemplate",
   "writeOnlyProperties": [
     "/properties/JobArn",
-    "/properties/Tags",
     "/properties/Document",
     "/properties/DocumentSource",
     "/properties/TimeoutConfig",

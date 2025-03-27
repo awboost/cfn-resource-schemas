@@ -1,5 +1,5 @@
 {
-  "$hash": "817504d8c53404bb7e86f16a42be1ab623d7e1fe",
+  "$hash": "f76f6cb0c8229b6e1a90e405883fdacd29a03e36",
   "$id": "aws-quicksight-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/DataSetId"],
@@ -121,11 +121,10 @@
           "description": "<p>Calculated columns to create.</p>",
           "items": { "$ref": "#/definitions/CalculatedColumn" },
           "maxItems": 128,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array"
         }
       },
-      "required": ["Columns"],
       "type": "object"
     },
     "CustomSql": {
@@ -167,6 +166,9 @@
       "additionalProperties": false,
       "description": "<p>The refresh properties of a dataset.</p>",
       "properties": {
+        "FailureConfiguration": {
+          "$ref": "#/definitions/RefreshFailureConfiguration"
+        },
         "RefreshConfiguration": { "$ref": "#/definitions/RefreshConfiguration" }
       },
       "type": "object"
@@ -188,6 +190,7 @@
       },
       "type": "object"
     },
+    "DataSetUseAs": { "enum": ["RLS_RULES"], "type": "string" },
     "DatasetParameter": {
       "additionalProperties": false,
       "description": "<p>A dataset parameter.</p>",
@@ -734,7 +737,7 @@
           "description": "<p>Projected columns.</p>",
           "items": { "type": "string" },
           "maxItems": 2000,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array"
         }
       },
@@ -748,6 +751,24 @@
         "IncrementalRefresh": { "$ref": "#/definitions/IncrementalRefresh" }
       },
       "required": ["IncrementalRefresh"],
+      "type": "object"
+    },
+    "RefreshFailureAlertStatus": {
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
+    "RefreshFailureConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "EmailAlert": { "$ref": "#/definitions/RefreshFailureEmailAlert" }
+      },
+      "type": "object"
+    },
+    "RefreshFailureEmailAlert": {
+      "additionalProperties": false,
+      "properties": {
+        "AlertStatus": { "$ref": "#/definitions/RefreshFailureAlertStatus" }
+      },
       "type": "object"
     },
     "RelationalTable": {
@@ -804,7 +825,7 @@
           "type": "string"
         }
       },
-      "required": ["ColumnName", "NewColumnName"],
+      "required": ["ColumnName"],
       "type": "object"
     },
     "ResourcePermission": {
@@ -935,9 +956,9 @@
           "minItems": 1,
           "type": "array"
         },
-        "UploadSettings": {}
+        "UploadSettings": { "$ref": "#/definitions/UploadSettings" }
       },
-      "required": ["DataSourceArn", "InputColumns"],
+      "required": ["DataSourceArn"],
       "type": "object"
     },
     "Status": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
@@ -1288,7 +1309,8 @@
       "maxItems": 200,
       "minItems": 1,
       "type": "array"
-    }
+    },
+    "UseAs": { "$ref": "#/definitions/DataSetUseAs" }
   },
   "readOnlyProperties": [
     "/properties/Arn",
@@ -1299,6 +1321,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "quicksight:TagResource",
+      "quicksight:UntagResource",
+      "quicksight:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -85,6 +85,7 @@ export type QuickSightDataSetProperties = {
    * @maxLength `200`
    */
   Tags?: Tag[];
+  UseAs?: DataSetUseAs;
 };
 /**
  * Attribute type definition for `AWS::QuickSight::DataSet`.
@@ -269,10 +270,10 @@ export type ColumnTagName = "COLUMN_GEOGRAPHIC_ROLE" | "COLUMN_DESCRIPTION";
 export type CreateColumnsOperation = {
   /**
    * <p>Calculated columns to create.</p>
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `128`
    */
-  Columns: CalculatedColumn[];
+  Columns?: CalculatedColumn[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.CustomSql`.
@@ -342,6 +343,7 @@ export type DatasetParameterValueType = "MULTI_VALUED" | "SINGLE_VALUED";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html}
  */
 export type DataSetRefreshProperties = {
+  FailureConfiguration?: RefreshFailureConfiguration;
   /**
    * <p>The refresh configuration of a dataset.</p>
    */
@@ -362,6 +364,11 @@ export type DataSetUsageConfiguration = {
    */
   DisableUseAsImportedSource?: boolean;
 };
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetUseAs`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetuseas.html}
+ */
+export type DataSetUseAs = "RLS_RULES";
 /**
  * Type definition for `AWS::QuickSight::DataSet.DateTimeDatasetParameter`.
  * <p>A date time parameter for a dataset.</p>
@@ -465,6 +472,11 @@ export type FieldFolder = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfoldermap.html}
  */
 export type FieldFolderMap = Record<string, FieldFolder>;
+/**
+ * Type definition for `AWS::QuickSight::DataSet.FileFormat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fileformat.html}
+ */
+export type FileFormat = "CSV" | "TSV" | "CLF" | "ELF" | "XLSX" | "JSON";
 /**
  * Type definition for `AWS::QuickSight::DataSet.FilterOperation`.
  * <p>A transform operation that filters rows based on a condition.</p>
@@ -869,7 +881,7 @@ export type PhysicalTableMap = Record<string, PhysicalTable>;
 export type ProjectOperation = {
   /**
    * <p>Projected columns.</p>
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `2000`
    */
   ProjectedColumns: string[];
@@ -884,6 +896,25 @@ export type RefreshConfiguration = {
    * <p>The incremental refresh configuration for a dataset.</p>
    */
   IncrementalRefresh: IncrementalRefresh;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.RefreshFailureAlertStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshfailurealertstatus.html}
+ */
+export type RefreshFailureAlertStatus = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::QuickSight::DataSet.RefreshFailureConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshfailureconfiguration.html}
+ */
+export type RefreshFailureConfiguration = {
+  EmailAlert?: RefreshFailureEmailAlert;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.RefreshFailureEmailAlert`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshfailureemailalert.html}
+ */
+export type RefreshFailureEmailAlert = {
+  AlertStatus?: RefreshFailureAlertStatus;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.RelationalTable`.
@@ -937,7 +968,7 @@ export type RenameColumnOperation = {
    * @minLength `1`
    * @maxLength `127`
    */
-  NewColumnName: string;
+  NewColumnName?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.ResourcePermission`.
@@ -1075,8 +1106,11 @@ export type S3Source = {
      * @minLength `1`
      * @maxLength `2048`
      */
-  InputColumns: InputColumn[];
-  UploadSettings?: any;
+  InputColumns?: InputColumn[];
+  /**
+   * <p>Information about the format for a source file or files.</p>
+   */
+  UploadSettings?: UploadSettings;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.Status`.
@@ -1165,6 +1199,11 @@ export type TagColumnOperation = {
   Tags: ColumnTag[];
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.TextQualifier`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-textqualifier.html}
+ */
+export type TextQualifier = "DOUBLE_QUOTE" | "SINGLE_QUOTE";
+/**
  * Type definition for `AWS::QuickSight::DataSet.TimeGranularity`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-timegranularity.html}
  */
@@ -1247,6 +1286,30 @@ export type UntagColumnOperation = {
    * <p>The column tags to remove from this column.</p>
    */
   TagNames: ColumnTagName[];
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.UploadSettings`.
+ * <p>Information about the format for a source file or files.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html}
+ */
+export type UploadSettings = {
+  /**
+   * <p>Whether the file has a header row, or the files each have a header row.</p>
+   */
+  ContainsHeader?: boolean;
+  /**
+   * <p>The delimiter between values in the file.</p>
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  Delimiter?: string;
+  Format?: FileFormat;
+  /**
+   * <p>A row number to start reading data from.</p>
+   * @min `1`
+   */
+  StartFromRow?: number;
+  TextQualifier?: TextQualifier;
 };
 /**
  * Definition of the AWS::QuickSight::DataSet Resource Type.

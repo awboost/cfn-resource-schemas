@@ -1,5 +1,5 @@
 {
-  "$hash": "bcc453d8aa895cc4271aa6bd582d3187dd77de8a",
+  "$hash": "af97df4e27e6df76581d3e7e127574817a4b3aea",
   "$id": "aws-quicksight-vpcconnection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -224,6 +224,11 @@
   ],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "quicksight:TagResource",
+      "quicksight:UntagResource",
+      "quicksight:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

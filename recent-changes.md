@@ -1,52 +1,30 @@
-- updated `AWS::DataBrew::Dataset`
+- updated `AWS::IoT::JobTemplate`
+  - added `tagging`
+  - removed `taggable`
   - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::DataBrew::Job`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::DataBrew::Project`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::DataBrew::Recipe`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::DataBrew::Ruleset`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::DataBrew::Schedule`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ECS::Service`
-  - updated definition `AwsVpcConfiguration`
-- updated `AWS::EKS::Cluster`
-  - added property `Force`
   - updated `writeOnlyProperties`
-- updated `AWS::Glue::Job`
-  - updated `tagging`
-- updated `AWS::NetworkFirewall::Firewall`
-  - added property `EnabledAnalysisTypes`
-- updated `AWS::Omics::SequenceStore`
-  - added definition `ETagAlgorithmFamily`
-  - added definition `SequenceStoreStatus`
-  - added property `AccessLogLocation`
-  - added property `ETagAlgorithmFamily`
-  - added property `PropagatedSetLevelTags`
-  - added property `S3AccessPointArn`
-  - added property `S3AccessPolicy`
-  - added property `S3Uri`
-  - added property `StatusMessage`
-  - added property `Status`
-  - added property `UpdateTime`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated `tagging`
   - updated handler permissions
-  - updated property `FallbackLocation`
-- updated `AWS::SecurityHub::ConfigurationPolicy`
+- updated `AWS::Lex::Bot`
+  - added definition `BedrockModelSpecification`
+  - added definition `QnAIntentConfiguration`
+  - added definition `QnAKendraConfiguration`
+  - updated definition `ConfidenceThreshold`
+  - updated definition `Intent`
+  - updated definition `SlotValues`
+  - updated definition `VoiceSettings`
+- updated `AWS::QuickSight::DataSet`
+  - added definition `DataSetUseAs`
+  - added definition `RefreshFailureAlertStatus`
+  - added definition `RefreshFailureConfiguration`
+  - added definition `RefreshFailureEmailAlert`
+  - added property `UseAs`
+  - updated `tagging`
+  - updated definition `CreateColumnsOperation`
+  - updated definition `DataSetRefreshProperties`
+  - updated definition `ProjectOperation`
+  - updated definition `RenameColumnOperation`
+  - updated definition `S3Source`
+- updated `AWS::QuickSight::DataSource`
+  - added `tagging`
+- updated `AWS::QuickSight::VPCConnection`
   - updated `tagging`

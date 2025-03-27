@@ -1,5 +1,5 @@
 {
-  "$hash": "a8c1d2e027ddce954ce2844a7b233326877d9fba",
+  "$hash": "55e880ea80584d86c3f3872d624f31c747a079f4",
   "$id": "aws-quicksight-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -972,6 +972,18 @@
   ],
   "required": ["Name", "Type"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "quicksight:TagResource",
+      "quicksight:UntagResource",
+      "quicksight:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::QuickSight::DataSource",
   "writeOnlyProperties": ["/properties/Credentials", "/properties/FolderArns"]
 }

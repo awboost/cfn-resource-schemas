@@ -1,8 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource type definition for `AWS::IoT::JobTemplate`.
- * Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+ * Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
  * @see {@link https://docs.aws.amazon.com/iot/latest/developerguide/job-templates.html}
  */
 export type IoTJobTemplateProperties = {
@@ -232,8 +231,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource type definition for `AWS::IoT::JobTemplate`.
- * Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+ * Resource Type definition for AWS::IoT::JobTemplate. Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
  * @see {@link https://docs.aws.amazon.com/iot/latest/developerguide/job-templates.html}
  */
 export class IoTJobTemplate extends $Resource<
