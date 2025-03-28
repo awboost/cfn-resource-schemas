@@ -31,7 +31,7 @@ export type CloudFormationStackProperties = {
    * @maxLength `50`
    */
   Tags?: Tag[];
-  TemplateBody?: Record<string, any>;
+  TemplateBody?: Record<string, any> | string;
   /**
    * @minLength `1`
    * @maxLength `1024`

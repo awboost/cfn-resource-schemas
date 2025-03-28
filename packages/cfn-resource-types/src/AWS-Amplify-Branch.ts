@@ -26,6 +26,12 @@ export type AmplifyBranchProperties = {
    */
   BuildSpec?: string;
   /**
+   * @minLength `0`
+   * @maxLength `1000`
+   * @pattern `(?s).*`
+   */
+  ComputeRoleArn?: string;
+  /**
    * @maxLength `1000`
    * @pattern `(?s).*`
    */
@@ -33,6 +39,7 @@ export type AmplifyBranchProperties = {
   EnableAutoBuild?: boolean;
   EnablePerformanceMode?: boolean;
   EnablePullRequestPreview?: boolean;
+  EnableSkewProtection?: boolean;
   EnvironmentVariables?: EnvironmentVariable[];
   /**
    * @maxLength `255`

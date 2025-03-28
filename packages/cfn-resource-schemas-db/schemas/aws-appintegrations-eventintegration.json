@@ -1,5 +1,5 @@
 {
-  "$hash": "ab7b3a622801f1c8d88bdeed26a01330b0870111",
+  "$hash": "ff0c54e49c147c84cef15215bfc2e6895d7e5faa",
   "$id": "aws-appintegrations-eventintegration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -15,7 +15,7 @@
           "description": "The source of the events.",
           "maxLength": 256,
           "minLength": 1,
-          "pattern": "^aws\\.partner\\/.*$",
+          "pattern": "^aws\\.(partner\\/.*|cases)$",
           "type": "string"
         }
       },

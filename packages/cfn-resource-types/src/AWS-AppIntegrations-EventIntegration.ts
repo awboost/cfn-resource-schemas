@@ -58,7 +58,7 @@ export type EventFilter = {
    * The source of the events.
    * @minLength `1`
    * @maxLength `256`
-   * @pattern `^aws\.partner\/.*$`
+   * @pattern `^aws\.(partner\/.*|cases)$`
    */
   Source: string;
 };

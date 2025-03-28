@@ -1,5 +1,5 @@
 {
-  "$hash": "b3a90436b761f4100e946a84de10caa5d331b94e",
+  "$hash": "540341bc1c312bc18308d36bc896baabaefd9363",
   "$id": "aws-bedrock-guardrail.json",
   "additionalProperties": false,
   "definitions": {
@@ -526,6 +526,11 @@
   "required": ["Name", "BlockedInputMessaging", "BlockedOutputsMessaging"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "bedrock:ListTagsForResource",
+      "bedrock:TagResource",
+      "bedrock:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

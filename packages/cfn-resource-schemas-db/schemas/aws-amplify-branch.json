@@ -1,5 +1,5 @@
 {
-  "$hash": "806b07bf7272c7c71390dae6463b2bbd0b81f783",
+  "$hash": "59295114b5848a7d33659c637b6e9506ed998a9c",
   "$id": "aws-amplify-branch.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AppId", "/properties/BranchName"],
@@ -149,10 +149,17 @@
       "pattern": "(?s).+",
       "type": "string"
     },
+    "ComputeRoleArn": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "pattern": "(?s).*",
+      "type": "string"
+    },
     "Description": { "maxLength": 1000, "pattern": "(?s).*", "type": "string" },
     "EnableAutoBuild": { "type": "boolean" },
     "EnablePerformanceMode": { "type": "boolean" },
     "EnablePullRequestPreview": { "type": "boolean" },
+    "EnableSkewProtection": { "type": "boolean" },
     "EnvironmentVariables": {
       "items": { "$ref": "#/definitions/EnvironmentVariable" },
       "type": "array",

@@ -1,5 +1,5 @@
 {
-  "$hash": "958149949f4e63e39b369136928726b131f9ecd8",
+  "$hash": "d02edaee9dadfa798a1eaf0918524ed75931a715",
   "$id": "aws-route53recoverycontrol-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -44,6 +44,13 @@
         "route53-recovery-control-config:DescribeCluster",
         "route53-recovery-control-config:ListTagsForResource"
       ]
+    },
+    "update": {
+      "permissions": [
+        "route53-recovery-control-config:DescribeCluster",
+        "route53-recovery-control-config:ListTagsForResource",
+        "route53-recovery-control-config:UpdateCluster"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/ClusterArn"],
@@ -65,6 +72,11 @@
       "description": "Name of a Cluster. You can use any non-white space character in the name",
       "maxLength": 64,
       "minLength": 1,
+      "type": "string"
+    },
+    "NetworkType": {
+      "description": "Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.",
+      "enum": ["IPV4", "DUALSTACK"],
       "type": "string"
     },
     "Status": {

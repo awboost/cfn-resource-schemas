@@ -1,5 +1,5 @@
 {
-  "$hash": "611160ffd52eafc7b36664b3878ed8464194ac00",
+  "$hash": "28657ac2187f61646669a50e1b4f641bfb71fe1d",
   "$id": "aws-amplify-app.json",
   "additionalProperties": false,
   "definitions": {
@@ -207,6 +207,12 @@
       "type": "string"
     },
     "CacheConfig": { "$ref": "#/definitions/CacheConfig" },
+    "ComputeRoleArn": {
+      "maxLength": 1000,
+      "minLength": 0,
+      "pattern": "(?s).*",
+      "type": "string"
+    },
     "CustomHeaders": {
       "maxLength": 25000,
       "minLength": 0,

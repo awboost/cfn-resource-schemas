@@ -1,5 +1,5 @@
 {
-  "$hash": "6e56c872d943f7ceeed6dc666355fd4a0be603c0",
+  "$hash": "c96be96b71120ee4678f90ba9923068d4827fb87",
   "$id": "aws-rum-appmonitor.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -409,7 +409,12 @@
     },
     "DomainList": {
       "description": "The top-level internet domain names for which your application has administrative authority. The CreateAppMonitor requires either the domain or the domain list.",
-      "items": { "$ref": "#/properties/Domain" },
+      "items": {
+        "maxLength": 253,
+        "minLength": 1,
+        "pattern": "^(localhost)|^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$|^(?![-.])([A-Za-z0-9-\\.\\-]{0,63})((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))\\.(?![-])[A-Za-z-0-9]{1,63}((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))|^(\\*\\.)(?![-.])([A-Za-z0-9-\\.\\-]{0,63})((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))\\.(?![-])[A-Za-z-0-9]{1,63}((?![-])([a-zA-Z0-9]{1}|^[a-zA-Z0-9]{0,1}))",
+        "type": "string"
+      },
       "maxItems": 5,
       "minItems": 1,
       "type": "array"

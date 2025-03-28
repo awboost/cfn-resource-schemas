@@ -33,7 +33,7 @@ export type RUMAppMonitorProperties = {
    * @minLength `1`
    * @maxLength `5`
    */
-  DomainList?: unknown[];
+  DomainList?: string[];
   /**
    * A name for the app monitor
    * @minLength `1`

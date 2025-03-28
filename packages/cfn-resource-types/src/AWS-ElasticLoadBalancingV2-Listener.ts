@@ -286,7 +286,7 @@ export type ListenerAttribute = {
  */
 export type MutualAuthentication = {
   /**
-   * Indicates whether trust store CA certificate names are advertised. The default value is ``off``.
+   * Indicates whether trust store CA certificate names are advertised.
    */
   AdvertiseTrustStoreCaNames?: string;
   /**
@@ -294,7 +294,7 @@ export type MutualAuthentication = {
    */
   IgnoreClientCertificateExpiry?: boolean;
   /**
-   * The client certificate handling method. The possible values are ``off``, ``passthrough``, and ``verify``. The default value is ``off``.
+   * The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
    */
   Mode?: string;
   /**

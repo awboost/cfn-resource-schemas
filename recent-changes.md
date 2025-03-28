@@ -1,30 +1,24 @@
-- updated `AWS::IoT::JobTemplate`
-  - added `tagging`
-  - removed `taggable`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
+- updated `AWS::Amplify::App`
+  - added property `ComputeRoleArn`
+- updated `AWS::Amplify::Branch`
+  - added property `ComputeRoleArn`
+  - added property `EnableSkewProtection`
+- updated `AWS::AppIntegrations::EventIntegration`
+  - updated definition `EventFilter`
+- updated `AWS::Bedrock::Guardrail`
+  - updated `tagging`
+- updated `AWS::CloudFormation::Stack`
+  - updated property `TemplateBody`
+- updated `AWS::DocDBElastic::Cluster`
+  - updated `tagging`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated definition `MutualAuthentication`
+- updated `AWS::RDS::DBProxy`
+  - updated `tagging`
+- updated `AWS::RDS::DBProxyEndpoint`
+  - updated `tagging`
+- updated `AWS::RUM::AppMonitor`
+  - updated property `DomainList`
+- updated `AWS::Route53RecoveryControl::Cluster`
+  - added property `NetworkType`
   - updated handler permissions
-- updated `AWS::Lex::Bot`
-  - added definition `BedrockModelSpecification`
-  - added definition `QnAIntentConfiguration`
-  - added definition `QnAKendraConfiguration`
-  - updated definition `ConfidenceThreshold`
-  - updated definition `Intent`
-  - updated definition `SlotValues`
-  - updated definition `VoiceSettings`
-- updated `AWS::QuickSight::DataSet`
-  - added definition `DataSetUseAs`
-  - added definition `RefreshFailureAlertStatus`
-  - added definition `RefreshFailureConfiguration`
-  - added definition `RefreshFailureEmailAlert`
-  - added property `UseAs`
-  - updated `tagging`
-  - updated definition `CreateColumnsOperation`
-  - updated definition `DataSetRefreshProperties`
-  - updated definition `ProjectOperation`
-  - updated definition `RenameColumnOperation`
-  - updated definition `S3Source`
-- updated `AWS::QuickSight::DataSource`
-  - added `tagging`
-- updated `AWS::QuickSight::VPCConnection`
-  - updated `tagging`

@@ -1,5 +1,5 @@
 {
-  "$hash": "9c97bbd61d2ad2d5d07e3d435bed74be5263ac01",
+  "$hash": "60b19a129db4e7983c064ee67473a7951c80aaf3",
   "$id": "aws-rds-dbproxy.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -164,6 +164,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "rds:AddTagsToResource",
+      "rds:RemoveTagsFromResource",
+      "rds:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -13,6 +13,10 @@ export type Route53RecoveryControlClusterProperties = {
    */
   Name: string;
   /**
+   * Cluster supports IPv4 endpoints and Dual-stack IPv4 and IPv6 endpoints. NetworkType can be IPV4 or DUALSTACK.
+   */
+  NetworkType?: "IPV4" | "DUALSTACK";
+  /**
    * A collection of tags associated with a resource
    */
   Tags?: Tag[];

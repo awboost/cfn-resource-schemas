@@ -21,6 +21,12 @@ export type AmplifyAppProperties = {
   CacheConfig?: CacheConfig;
   /**
    * @minLength `0`
+   * @maxLength `1000`
+   * @pattern `(?s).*`
+   */
+  ComputeRoleArn?: string;
+  /**
+   * @minLength `0`
    * @maxLength `25000`
    * @pattern `(?s).*`
    */
