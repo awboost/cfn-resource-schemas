@@ -1,24 +1,27 @@
-- updated `AWS::Amplify::App`
-  - added property `ComputeRoleArn`
-- updated `AWS::Amplify::Branch`
-  - added property `ComputeRoleArn`
-  - added property `EnableSkewProtection`
-- updated `AWS::AppIntegrations::EventIntegration`
-  - updated definition `EventFilter`
-- updated `AWS::Bedrock::Guardrail`
+- added `AWS::IoTSiteWise::Dataset`
+- updated `AWS::ApiGateway::DomainName`
+  - updated definition `EndpointConfiguration`
+- updated `AWS::ApiGateway::RestApi`
+  - updated definition `EndpointConfiguration`
+- updated `AWS::EC2::Instance`
+  - added definition `EnaSrdSpecification`
+  - added definition `EnaSrdUdpSpecification`
+  - updated definition `NetworkInterface`
+- updated `AWS::EC2::NetworkAcl`
   - updated `tagging`
-- updated `AWS::CloudFormation::Stack`
-  - updated property `TemplateBody`
-- updated `AWS::DocDBElastic::Cluster`
+- updated `AWS::EC2::RouteTable`
   - updated `tagging`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `MutualAuthentication`
-- updated `AWS::RDS::DBProxy`
-  - updated `tagging`
-- updated `AWS::RDS::DBProxyEndpoint`
-  - updated `tagging`
-- updated `AWS::RUM::AppMonitor`
-  - updated property `DomainList`
-- updated `AWS::Route53RecoveryControl::Cluster`
-  - added property `NetworkType`
-  - updated handler permissions
+- updated `AWS::SageMaker::UserProfile`
+  - updated definition `CodeEditorAppSettings`
+  - updated definition `JupyterLabAppSettings`
+- updated `AWS::SystemsManagerSAP::Application`
+  - added definition `ComponentInfo`
+  - added property `ComponentsInfo`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::WAFv2::RuleGroup`
+  - added definition `UriFragment`
+  - updated definition `FieldToMatch`
+- updated `AWS::WAFv2::WebACL`
+  - added definition `UriFragment`
+  - updated definition `FieldToMatch`

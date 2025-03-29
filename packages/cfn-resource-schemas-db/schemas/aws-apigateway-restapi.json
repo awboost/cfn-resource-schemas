@@ -1,5 +1,5 @@
 {
-  "$hash": "b7453eb61c405e755b10bc3a34ff1eeed212df01",
+  "$hash": "c6039fbb66ba1dfe45858d534aab067ce11d78a0",
   "$id": "aws-apigateway-restapi.json",
   "additionalProperties": false,
   "definitions": {
@@ -7,6 +7,7 @@
       "additionalProperties": false,
       "description": "The ``EndpointConfiguration`` property type specifies the endpoint types of a REST API.\n ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::RestApi](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html) resource.",
       "properties": {
+        "IpAddressType": { "description": "", "type": "string" },
         "Types": {
           "description": "",
           "items": { "type": "string" },

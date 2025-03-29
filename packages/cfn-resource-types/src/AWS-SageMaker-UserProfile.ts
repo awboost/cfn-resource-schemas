@@ -80,7 +80,7 @@ export type CodeEditorAppSettings = {
   /**
    * A list of custom images for use for CodeEditor apps.
    * @minLength `0`
-   * @maxLength `30`
+   * @maxLength `200`
    */
   CustomImages?: CustomImage[];
   /**
@@ -264,7 +264,7 @@ export type JupyterLabAppSettings = {
   /**
    * A list of custom images available for use for JupyterLab apps
    * @minLength `0`
-   * @maxLength `30`
+   * @maxLength `200`
    */
   CustomImages?: CustomImage[];
   /**

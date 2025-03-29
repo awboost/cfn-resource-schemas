@@ -11,6 +11,11 @@ export type SystemsManagerSAPApplicationProperties = {
   ApplicationId: string;
   ApplicationType: "HANA" | "SAP_ABAP";
   /**
+   * This is an optional parameter for component details to which the SAP ABAP application is attached, such as Web Dispatcher.
+   * @minLength `1`
+   */
+  ComponentsInfo?: ComponentInfo[];
+  /**
    * @minLength `1`
    */
   Credentials?: Credential[];
@@ -46,6 +51,29 @@ export type SystemsManagerSAPApplicationAttributes = {
    * @pattern `^arn:(.+:){2,4}.+$|^arn:(.+:){1,3}.+\/.+$`
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::SystemsManagerSAP::Application.ComponentInfo`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-systemsmanagersap-application-componentinfo.html}
+ */
+export type ComponentInfo = {
+  ComponentType?:
+    | "HANA"
+    | "HANA_NODE"
+    | "ABAP"
+    | "ASCS"
+    | "DIALOG"
+    | "WEBDISP"
+    | "WD"
+    | "ERS";
+  /**
+   * @pattern `^i-[\w\d]{8}$|^i-[\w\d]{17}$`
+   */
+  Ec2InstanceId?: string;
+  /**
+   * @pattern `[A-Z][A-Z0-9]{2}`
+   */
+  Sid?: string;
 };
 /**
  * Type definition for `AWS::SystemsManagerSAP::Application.Credential`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "1931dab608b513401d9e39be58ef457d3fc516e1",
+  "$hash": "7ce2d086fa055f5fda1b1cc9b683a3d9196237d1",
   "$id": "aws-sagemaker-userprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -41,7 +41,7 @@
         "CustomImages": {
           "description": "A list of custom images for use for CodeEditor apps.",
           "items": { "$ref": "#/definitions/CustomImage" },
-          "maxItems": 30,
+          "maxItems": 200,
           "minItems": 0,
           "type": "array",
           "uniqueItems": false
@@ -222,7 +222,7 @@
         "CustomImages": {
           "description": "A list of custom images available for use for JupyterLab apps",
           "items": { "$ref": "#/definitions/CustomImage" },
-          "maxItems": 30,
+          "maxItems": 200,
           "minItems": 0,
           "type": "array",
           "uniqueItems": false

@@ -316,6 +316,32 @@ export type ElasticInferenceAccelerator = {
   Type: string;
 };
 /**
+ * Type definition for `AWS::EC2::Instance.EnaSrdSpecification`.
+ * Specifies the ENA Express settings for the network interface that's attached to the instance.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enasrdspecification.html}
+ */
+export type EnaSrdSpecification = {
+  /**
+   * Specifies whether ENA Express is enabled for the network interface when you launch an instance.
+   */
+  EnaSrdEnabled?: boolean;
+  /**
+   * Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+   */
+  EnaSrdUdpSpecification?: EnaSrdUdpSpecification;
+};
+/**
+ * Type definition for `AWS::EC2::Instance.EnaSrdUdpSpecification`.
+ * Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-enasrdudpspecification.html}
+ */
+export type EnaSrdUdpSpecification = {
+  /**
+   * Indicates whether UDP traffic uses ENA Express for your instance.
+   */
+  EnaSrdUdpEnabled?: boolean;
+};
+/**
  * Type definition for `AWS::EC2::Instance.InstanceIpv6Address`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-instanceipv6address.html}
  */
@@ -378,6 +404,10 @@ export type NetworkInterface = {
    * The position of the network interface in the attachment order. A primary network interface has a device index of 0.
    */
   DeviceIndex: string;
+  /**
+   * Specifies the ENA Express settings for the network interface that's attached to the instance.
+   */
+  EnaSrdSpecification?: EnaSrdSpecification;
   /**
    * The IDs of the security groups for the network interface.
    */

@@ -1,5 +1,5 @@
 {
-  "$hash": "c7c31288c28ae7b26dfd773245806037954b27eb",
+  "$hash": "93f7fffc4fb996831fec29f84158f17369be4e26",
   "$id": "aws-ec2-instance.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -131,6 +131,31 @@
       "required": ["Type"],
       "type": "object"
     },
+    "EnaSrdSpecification": {
+      "additionalProperties": false,
+      "description": "Specifies the ENA Express settings for the network interface that's attached to the instance.",
+      "properties": {
+        "EnaSrdEnabled": {
+          "description": "Specifies whether ENA Express is enabled for the network interface when you launch an instance.",
+          "type": "boolean"
+        },
+        "EnaSrdUdpSpecification": {
+          "$ref": "#/definitions/EnaSrdUdpSpecification"
+        }
+      },
+      "type": "object"
+    },
+    "EnaSrdUdpSpecification": {
+      "additionalProperties": false,
+      "description": "Contains ENA Express settings for UDP network traffic for the network interface that's attached to the instance.",
+      "properties": {
+        "EnaSrdUdpEnabled": {
+          "description": "Indicates whether UDP traffic uses ENA Express for your instance.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "InstanceIpv6Address": {
       "additionalProperties": false,
       "properties": {
@@ -195,6 +220,7 @@
           "description": "The position of the network interface in the attachment order. A primary network interface has a device index of 0.",
           "type": "string"
         },
+        "EnaSrdSpecification": { "$ref": "#/definitions/EnaSrdSpecification" },
         "GroupSet": {
           "description": "The IDs of the security groups for the network interface.",
           "insertionOrder": false,

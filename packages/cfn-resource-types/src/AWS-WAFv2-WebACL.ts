@@ -502,6 +502,10 @@ export type FieldToMatch = {
     Name: string;
   };
   /**
+   * The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+   */
+  UriFragment?: UriFragment;
+  /**
    * The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
    */
   UriPath?: Record<string, any>;
@@ -1435,6 +1439,14 @@ export type TextTransformationType =
   | "BASE64_DECODE_EXT"
   | "URL_DECODE_UNI"
   | "UTF8_TO_UNICODE";
+/**
+ * Type definition for `AWS::WAFv2::WebACL.UriFragment`.
+ * The path component of the URI Fragment. This is the part of a web request that identifies a fragment uri, for example, /abcd#introduction
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-urifragment.html}
+ */
+export type UriFragment = {
+  FallbackBehavior?: "MATCH" | "NO_MATCH";
+};
 /**
  * Type definition for `AWS::WAFv2::WebACL.VisibilityConfig`.
  * Visibility Metric of the WebACL.

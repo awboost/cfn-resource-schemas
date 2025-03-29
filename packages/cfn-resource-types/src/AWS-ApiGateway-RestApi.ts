@@ -60,6 +60,7 @@ export type ApiGatewayRestApiAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html}
  */
 export type EndpointConfiguration = {
+  IpAddressType?: string;
   Types?: string[];
   VpcEndpointIds?: string[];
 };

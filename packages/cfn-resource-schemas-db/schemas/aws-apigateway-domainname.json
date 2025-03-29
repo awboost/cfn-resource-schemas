@@ -1,5 +1,5 @@
 {
-  "$hash": "16fa8bc16d8efaf9a75a5416d7dc37648da85e6e",
+  "$hash": "f423121a5f74992cc93a5da6b375c3273181987f",
   "$id": "aws-apigateway-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -7,6 +7,7 @@
     "EndpointConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "IpAddressType": { "type": "string" },
         "Types": { "items": { "type": "string" }, "type": "array" }
       },
       "type": "object"
