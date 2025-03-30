@@ -1,27 +1,5 @@
-- added `AWS::IoTSiteWise::Dataset`
-- updated `AWS::ApiGateway::DomainName`
-  - updated definition `EndpointConfiguration`
-- updated `AWS::ApiGateway::RestApi`
-  - updated definition `EndpointConfiguration`
-- updated `AWS::EC2::Instance`
-  - added definition `EnaSrdSpecification`
-  - added definition `EnaSrdUdpSpecification`
-  - updated definition `NetworkInterface`
-- updated `AWS::EC2::NetworkAcl`
-  - updated `tagging`
-- updated `AWS::EC2::RouteTable`
-  - updated `tagging`
-- updated `AWS::SageMaker::UserProfile`
-  - updated definition `CodeEditorAppSettings`
-  - updated definition `JupyterLabAppSettings`
-- updated `AWS::SystemsManagerSAP::Application`
-  - added definition `ComponentInfo`
-  - added property `ComponentsInfo`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::WAFv2::RuleGroup`
-  - added definition `UriFragment`
-  - updated definition `FieldToMatch`
-- updated `AWS::WAFv2::WebACL`
-  - added definition `UriFragment`
-  - updated definition `FieldToMatch`
+- updated `AWS::Bedrock::Guardrail`
+  - added definition `Modality`
+  - updated definition `ContentFilterConfig`
+- updated `AWS::CodeBuild::Project`
+  - updated definition `ProjectCache`

@@ -139,6 +139,7 @@ export type ProjectBuildBatchConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html}
  */
 export type ProjectCache = {
+  CacheNamespace?: string;
   Location?: string;
   Modes?: string[];
   Type: string;

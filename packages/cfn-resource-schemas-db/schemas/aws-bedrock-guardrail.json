@@ -1,5 +1,5 @@
 {
-  "$hash": "540341bc1c312bc18308d36bc896baabaefd9363",
+  "$hash": "cbc626e452987214e1bd8db970f4ec0fe5aa8ebd",
   "$id": "aws-bedrock-guardrail.json",
   "additionalProperties": false,
   "definitions": {
@@ -18,7 +18,19 @@
       "additionalProperties": false,
       "description": "Content filter config in content policy.",
       "properties": {
+        "InputModalities": {
+          "description": "List of modalities",
+          "items": { "$ref": "#/definitions/Modality" },
+          "minItems": 1,
+          "type": "array"
+        },
         "InputStrength": { "$ref": "#/definitions/FilterStrength" },
+        "OutputModalities": {
+          "description": "List of modalities",
+          "items": { "$ref": "#/definitions/Modality" },
+          "minItems": 1,
+          "type": "array"
+        },
         "OutputStrength": { "$ref": "#/definitions/FilterStrength" },
         "Type": { "$ref": "#/definitions/ContentFilterType" }
       },
@@ -119,6 +131,11 @@
     "ManagedWordsType": {
       "description": "Options for managed words.",
       "enum": ["PROFANITY"],
+      "type": "string"
+    },
+    "Modality": {
+      "description": "Modality for filters",
+      "enum": ["TEXT", "IMAGE"],
       "type": "string"
     },
     "PiiEntity": {

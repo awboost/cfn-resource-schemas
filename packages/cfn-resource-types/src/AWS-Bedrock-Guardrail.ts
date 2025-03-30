@@ -116,9 +116,19 @@ export type BedrockGuardrailAttributes = {
  */
 export type ContentFilterConfig = {
   /**
+   * List of modalities
+   * @minLength `1`
+   */
+  InputModalities?: Modality[];
+  /**
    * Strength for filters
    */
   InputStrength: FilterStrength;
+  /**
+   * List of modalities
+   * @minLength `1`
+   */
+  OutputModalities?: Modality[];
   /**
    * Strength for filters
    */
@@ -222,6 +232,12 @@ export type ManagedWordsConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordstype.html}
  */
 export type ManagedWordsType = "PROFANITY";
+/**
+ * Type definition for `AWS::Bedrock::Guardrail.Modality`.
+ * Modality for filters
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-modality.html}
+ */
+export type Modality = "TEXT" | "IMAGE";
 /**
  * Type definition for `AWS::Bedrock::Guardrail.PiiEntityConfig`.
  * Pii entity configuration.

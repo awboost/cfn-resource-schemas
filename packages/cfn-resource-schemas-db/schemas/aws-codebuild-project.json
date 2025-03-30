@@ -1,5 +1,5 @@
 {
-  "$hash": "4ce68b090f474737b8621a6d139200aac1fa5136",
+  "$hash": "e7dc36bef094fd86ed095126c67f0e8eb77269b6",
   "$id": "aws-codebuild-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -109,6 +109,7 @@
     "ProjectCache": {
       "additionalProperties": false,
       "properties": {
+        "CacheNamespace": { "type": "string" },
         "Location": { "type": "string" },
         "Modes": {
           "items": { "type": "string" },
