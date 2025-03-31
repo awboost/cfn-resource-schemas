@@ -1,5 +1,6 @@
-- updated `AWS::Bedrock::Guardrail`
-  - added definition `Modality`
-  - updated definition `ContentFilterConfig`
-- updated `AWS::CodeBuild::Project`
-  - updated definition `ProjectCache`
+- updated `AWS::ApiGatewayV2::Api`
+  - added property `IpAddressType`
+- updated `AWS::ApiGatewayV2::DomainName`
+  - updated definition `DomainNameConfiguration`
+- updated `AWS::EKS::Cluster`
+  - updated `createOnlyProperties`

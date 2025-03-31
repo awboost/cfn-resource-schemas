@@ -45,6 +45,7 @@ export type ApiGatewayV2ApiProperties = {
    * Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.
    */
   FailOnWarnings?: boolean;
+  IpAddressType?: string;
   /**
    * The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.
    */

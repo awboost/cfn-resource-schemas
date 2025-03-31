@@ -51,6 +51,7 @@ export type DomainNameConfiguration = {
    * The endpoint type.
    */
   EndpointType?: string;
+  IpAddressType?: string;
   /**
    * The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
    */

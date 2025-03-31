@@ -1,5 +1,5 @@
 {
-  "$hash": "7353e565538191fda9a70c415c06d6c5fb0010d5",
+  "$hash": "3784626b2196c50a273d1b184b09bfdb3b17e416",
   "$id": "aws-apigatewayv2-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -20,6 +20,7 @@
           "description": "The endpoint type.",
           "type": "string"
         },
+        "IpAddressType": { "description": "", "type": "string" },
         "OwnershipVerificationCertificateArn": {
           "description": "The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.",
           "type": "string"

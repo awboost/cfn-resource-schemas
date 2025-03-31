@@ -1,5 +1,5 @@
 {
-  "$hash": "22c14ec8c39562ffb42c12f471150de04b433be9",
+  "$hash": "66d3ee1219066eb79383ae6c3a9af4610ccfeac3",
   "$id": "aws-eks-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,8 +10,7 @@
     "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions",
     "/properties/Name",
     "/properties/RoleArn",
-    "/properties/BootstrapSelfManagedAddons",
-    "/properties/RemoteNetworkConfig"
+    "/properties/BootstrapSelfManagedAddons"
   ],
   "definitions": {
     "AccessConfig": {
