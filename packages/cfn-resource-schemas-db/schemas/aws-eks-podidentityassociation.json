@@ -1,5 +1,5 @@
 {
-  "$hash": "31ab808a242f81160fbf64d44bbb9ce16a11a794",
+  "$hash": "4c4fa9d2e30a989ae9d5db891d569811b80cef12",
   "$id": "aws-eks-podidentityassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -85,6 +85,16 @@
       "minLength": 1,
       "type": "string"
     },
+    "DisableSessionTags": {
+      "description": "The Disable Session Tags of the pod identity association.",
+      "minLength": 1,
+      "type": "boolean"
+    },
+    "ExternalId": {
+      "description": "The External Id of the pod identity association.",
+      "minLength": 1,
+      "type": "string"
+    },
     "Namespace": {
       "description": "The Kubernetes namespace that the pod identity association is created for.",
       "type": "string"
@@ -103,11 +113,17 @@
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": true
+    },
+    "TargetRoleArn": {
+      "description": "The Target Role Arn of the pod identity association.",
+      "minLength": 1,
+      "type": "string"
     }
   },
   "readOnlyProperties": [
     "/properties/AssociationArn",
-    "/properties/AssociationId"
+    "/properties/AssociationId",
+    "/properties/ExternalId"
   ],
   "replacementStrategy": "create_then_delete",
   "required": ["ClusterName", "RoleArn", "Namespace", "ServiceAccount"],

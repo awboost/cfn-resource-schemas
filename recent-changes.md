@@ -1,6 +1,9 @@
-- updated `AWS::ApiGatewayV2::Api`
-  - added property `IpAddressType`
-- updated `AWS::ApiGatewayV2::DomainName`
-  - updated definition `DomainNameConfiguration`
-- updated `AWS::EKS::Cluster`
-  - updated `createOnlyProperties`
+- updated `AWS::DataPipeline::Pipeline`
+  - updated `tagging`
+- updated `AWS::EKS::PodIdentityAssociation`
+  - added property `DisableSessionTags`
+  - added property `ExternalId`
+  - added property `TargetRoleArn`
+  - updated `readOnlyProperties`
+- updated `AWS::FMS::ResourceSet`
+  - updated `tagging`
