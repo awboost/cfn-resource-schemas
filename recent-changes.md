@@ -1,9 +1,8 @@
-- updated `AWS::DataPipeline::Pipeline`
-  - updated `tagging`
-- updated `AWS::EKS::PodIdentityAssociation`
-  - added property `DisableSessionTags`
-  - added property `ExternalId`
-  - added property `TargetRoleArn`
-  - updated `readOnlyProperties`
-- updated `AWS::FMS::ResourceSet`
-  - updated `tagging`
+- added `AWS::EC2::RouteServer`
+- added `AWS::EC2::RouteServerAssociation`
+- added `AWS::EC2::RouteServerEndpoint`
+- added `AWS::EC2::RouteServerPeer`
+- added `AWS::EC2::RouteServerPropagation`
+- updated `AWS::RDS::DBInstance`
+  - updated property `AutomaticBackupReplicationRetentionPeriod`
+  - updated property `BackupRetentionPeriod`

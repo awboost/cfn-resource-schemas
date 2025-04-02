@@ -106,7 +106,6 @@ export type RDSDBInstanceProperties = {
   AutomaticBackupReplicationRegion?: string;
   /**
    * @min `1`
-   * @max `35`
    */
   AutomaticBackupReplicationRetentionPeriod?: number;
   /**
@@ -129,7 +128,6 @@ export type RDSDBInstanceProperties = {
       +  Must be a value from 0 to 35
       +  Can't be set to 0 if the DB instance is a source to read replicas
      * @min `0`
-     * @max `35`
      */
   BackupRetentionPeriod?: number;
   /**
