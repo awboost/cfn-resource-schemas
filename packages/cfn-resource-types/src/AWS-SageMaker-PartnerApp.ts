@@ -32,6 +32,12 @@ export type SageMakerPartnerAppProperties = {
    */
   ExecutionRoleArn: string;
   /**
+   * The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
+   * @maxLength `2048`
+   * @pattern `.*`
+   */
+  KmsKeyId?: string;
+  /**
    * A collection of settings that specify the maintenance schedule for the PartnerApp.
    */
   MaintenanceConfig?: PartnerAppMaintenanceConfig;

@@ -1,8 +1,6 @@
-- added `AWS::EC2::RouteServer`
-- added `AWS::EC2::RouteServerAssociation`
-- added `AWS::EC2::RouteServerEndpoint`
-- added `AWS::EC2::RouteServerPeer`
-- added `AWS::EC2::RouteServerPropagation`
-- updated `AWS::RDS::DBInstance`
-  - updated property `AutomaticBackupReplicationRetentionPeriod`
-  - updated property `BackupRetentionPeriod`
+- updated `AWS::SNS::Topic`
+  - updated `tagging`
+- updated `AWS::SageMaker::PartnerApp`
+  - added property `KmsKeyId`
+  - updated `createOnlyProperties`
+  - updated handler permissions

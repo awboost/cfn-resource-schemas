@@ -1,12 +1,13 @@
 {
-  "$hash": "3f18249308ac4bcb412ca810dafef65d3ca1ad31",
+  "$hash": "9adf3ce5c25ee0e0623e583931607f1445b2dd33",
   "$id": "aws-sagemaker-partnerapp.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",
     "/properties/Type",
     "/properties/ExecutionRoleArn",
-    "/properties/AuthType"
+    "/properties/AuthType",
+    "/properties/KmsKeyId"
   ],
   "definitions": {
     "PartnerAppAdminUserList": {
@@ -78,7 +79,9 @@
         "sagemaker:DescribePartnerApp",
         "sagemaker:AddTags",
         "sagemaker:ListTags",
-        "iam:PassRole"
+        "iam:PassRole",
+        "kms:CreateGrant",
+        "kms:DescribeKey"
       ],
       "timeoutInMinutes": 180
     },
@@ -106,7 +109,8 @@
         "sagemaker:DescribePartnerApp",
         "sagemaker:AddTags",
         "sagemaker:ListTags",
-        "sagemaker:DeleteTags"
+        "sagemaker:DeleteTags",
+        "kms:DescribeKey"
       ],
       "timeoutInMinutes": 180
     }
@@ -150,6 +154,12 @@
       "maxLength": 2048,
       "minLength": 20,
       "pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
+      "type": "string"
+    },
+    "KmsKeyId": {
+      "description": "The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.",
+      "maxLength": 2048,
+      "pattern": ".*",
       "type": "string"
     },
     "MaintenanceConfig": {
