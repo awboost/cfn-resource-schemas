@@ -27,6 +27,11 @@ export type GameLiftBuildProperties = {
    */
   StorageLocation?: StorageLocation;
   /**
+   * An array of key-value pairs to apply to this resource.
+   * @maxLength `200`
+   */
+  Tags?: Tag[];
+  /**
    * Version information that is associated with this build. Version strings do not need to be unique.
    */
   Version?: string;
@@ -36,6 +41,11 @@ export type GameLiftBuildProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#aws-resource-gamelift-build-return-values}
  */
 export type GameLiftBuildAttributes = {
+  /**
+   * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift build resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift build ARN, the resource ID matches the BuildId value.
+   * @pattern `^arn:.*:build\/build-\S+`
+   */
+  BuildArn: string;
   /**
    * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
    */
@@ -62,6 +72,25 @@ export type StorageLocation = {
    * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
    */
   RoleArn: string;
+};
+/**
+ * Type definition for `AWS::GameLift::Build.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::GameLift::Build

@@ -13,7 +13,7 @@ export type ECRPullThroughCacheRuleProperties = {
    */
   CredentialArn?: string;
   /**
-   * The ARN of the IAM role to be assumed by Amazon ECR to authenticate to ECR upstream registry. This role must be in the same account as the registry that you are configuring.
+   * The ARN of the IAM role associated with the pull through cache rule.
    * @maxLength `2048`
    */
   CustomRoleArn?: string;
@@ -33,7 +33,7 @@ export type ECRPullThroughCacheRuleProperties = {
    */
   UpstreamRegistryUrl?: string;
   /**
-   * The repository name prefix of upstream registry to match with the upstream repository name. When this field isn't specified, Amazon ECR will use the `ROOT`.
+   * The upstream repository prefix associated with the pull through cache rule.
    * @minLength `2`
    * @maxLength `30`
    * @pattern `^((?:[a-z0-9]+(?:[._-][a-z0-9]+)/‍*)*[a-z0-9]+(?:[._-][a-z0-9]+)/‍*?|ROOT)$`

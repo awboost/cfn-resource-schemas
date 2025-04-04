@@ -1,5 +1,5 @@
 {
-  "$hash": "7520297cbdec82562d06e82c16045f00023e6db8",
+  "$hash": "7c677a01ced76e127a1940940f414a95434a1bcf",
   "$id": "aws-ecr-pullthroughcacherule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -109,7 +109,7 @@
     },
     "CustomRoleArn": {
       "$ref": "#/definitions/CustomRoleArn",
-      "description": ""
+      "description": "The ARN of the IAM role associated with the pull through cache rule."
     },
     "EcrRepositoryPrefix": {
       "$ref": "#/definitions/EcrRepositoryPrefix",
@@ -125,7 +125,7 @@
     },
     "UpstreamRepositoryPrefix": {
       "$ref": "#/definitions/UpstreamRepositoryPrefix",
-      "description": ""
+      "description": "The upstream repository prefix associated with the pull through cache rule."
     }
   },
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ecr.git",

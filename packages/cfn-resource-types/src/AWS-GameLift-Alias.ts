@@ -22,12 +22,22 @@ export type GameLiftAliasProperties = {
    * A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
    */
   RoutingStrategy: RoutingStrategy;
+  /**
+   * An array of key-value pairs to apply to this resource.
+   * @maxLength `200`
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::GameLift::Alias`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#aws-resource-gamelift-alias-return-values}
  */
 export type GameLiftAliasAttributes = {
+  /**
+   * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Alias resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Alias ARN, the resource ID matches the AliasId value.
+   * @pattern `^arn:.*:alias\/alias-\S+`
+   */
+  AliasArn: string;
   /**
    * Unique alias ID
    */
@@ -51,6 +61,25 @@ export type RoutingStrategy = {
    * Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
    */
   Type: "SIMPLE" | "TERMINAL";
+};
+/**
+ * Type definition for `AWS::GameLift::Alias.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.

@@ -37,11 +37,27 @@ export type RedshiftServerlessWorkgroupProperties = {
    */
   PubliclyAccessible?: boolean;
   /**
+   * The recovery point id to restore from.
+   */
+  RecoveryPointId?: string;
+  /**
    * A list of security group IDs to associate with the workgroup.
    * @minLength `1`
    * @maxLength `32`
    */
   SecurityGroupIds?: string[];
+  /**
+   * The Amazon Resource Name (ARN) of the snapshot to restore from.
+   */
+  SnapshotArn?: string;
+  /**
+   * The snapshot name to restore from.
+   */
+  SnapshotName?: string;
+  /**
+   * The Amazon Web Services account that owns the snapshot.
+   */
+  SnapshotOwnerAccount?: string;
   /**
    * A list of subnet IDs the workgroup is associated with.
    * @minLength `1`

@@ -1,5 +1,5 @@
 {
-  "$hash": "f2b7a6978c54749c748edd88ffd68e8db8d825e8",
+  "$hash": "e8c3bfdb09e6f8db902757b62b412d648b3ab8f6",
   "$id": "aws-gamelift-containergroupdefinition.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -341,15 +341,11 @@
         "ecr:BatchCheckLayerAvailability",
         "ecr:BatchGetImage",
         "ecr:GetDownloadUrlForLayer",
-        "ecr:DescribeImages"
+        "ecr:DescribeImages",
+        "ecr:GetAuthorizationToken"
       ]
     },
-    "delete": {
-      "permissions": [
-        "gamelift:DescribeContainerGroupDefinition",
-        "gamelift:DeleteContainerGroupDefinition"
-      ]
-    },
+    "delete": { "permissions": ["gamelift:DeleteContainerGroupDefinition"] },
     "list": { "permissions": ["gamelift:ListContainerGroupDefinitions"] },
     "read": {
       "permissions": [
@@ -359,6 +355,7 @@
     },
     "update": {
       "permissions": [
+        "gamelift:DescribeContainerGroupDefinition",
         "gamelift:UpdateContainerGroupDefinition",
         "gamelift:ListTagsForResource",
         "gamelift:TagResource",
@@ -481,5 +478,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::GameLift::ContainerGroupDefinition"
+  "typeName": "AWS::GameLift::ContainerGroupDefinition",
+  "writeOnlyProperties": ["/properties/SourceVersionNumber"]
 }

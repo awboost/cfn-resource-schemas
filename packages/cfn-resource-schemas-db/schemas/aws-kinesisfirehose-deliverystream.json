@@ -1,5 +1,5 @@
 {
-  "$hash": "09c0e152526af1e4336d06a68412f297a3818e33",
+  "$hash": "8b2799b4314c092cf72a2dc0f19d79cd93dfad02",
   "$id": "aws-kinesisfirehose-deliverystream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -12,7 +12,7 @@
     "/properties/KinesisStreamSourceConfiguration",
     "/properties/DirectPutSourceConfiguration",
     "/properties/MSKSourceConfiguration",
-    "/properties/IcebergDestinationConfiguration",
+    "/properties/IcebergDestinationConfiguration/CatalogConfiguration",
     "/properties/SnowflakeDestinationConfiguration/SnowflakeVpcConfiguration"
   ],
   "definitions": {

@@ -1,6 +1,40 @@
-- updated `AWS::SNS::Topic`
+- updated `AWS::ECR::PullThroughCacheRule`
+  - updated property `CustomRoleArn`
+  - updated property `UpstreamRepositoryPrefix`
+- updated `AWS::GameLift::Alias`
+  - added `tagging`
+  - added definition `Tag`
+  - added property `AliasArn`
+  - added property `Tags`
+  - removed `taggable`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::GameLift::Build`
+  - added definition `Tag`
+  - added property `BuildArn`
+  - added property `Tags`
+  - updated `readOnlyProperties`
   - updated `tagging`
-- updated `AWS::SageMaker::PartnerApp`
-  - added property `KmsKeyId`
+  - updated handler permissions
+- updated `AWS::GameLift::ContainerGroupDefinition`
+  - added `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::GameLift::GameServerGroup`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::GameLift::GameSessionQueue`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::GameLift::Script`
+  - updated `tagging`
+- updated `AWS::KinesisFirehose::DeliveryStream`
   - updated `createOnlyProperties`
+- updated `AWS::RedshiftServerless::Workgroup`
+  - added property `RecoveryPointId`
+  - added property `SnapshotArn`
+  - added property `SnapshotName`
+  - added property `SnapshotOwnerAccount`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::S3::AccessPoint`
   - updated handler permissions

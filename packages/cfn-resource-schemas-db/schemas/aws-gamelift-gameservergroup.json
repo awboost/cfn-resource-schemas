@@ -1,5 +1,5 @@
 {
-  "$hash": "a2f05dfcb30328760906c7bd9b0a26f732ede43d",
+  "$hash": "14e9f4f8ec64c98b876997dd581628191747cba3",
   "$id": "aws-gamelift-gameservergroup.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -357,7 +357,18 @@
   ],
   "required": ["GameServerGroupName", "InstanceDefinitions", "RoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "gamelift:ListTagsForResource",
+      "gamelift:TagResource",
+      "gamelift:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::GameLift::GameServerGroup",
   "writeOnlyProperties": [
     "/properties/DeleteOption",
