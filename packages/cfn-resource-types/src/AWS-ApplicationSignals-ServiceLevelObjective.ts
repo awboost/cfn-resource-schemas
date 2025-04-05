@@ -110,6 +110,29 @@ export type CalendarInterval = {
   StartTime: number;
 };
 /**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.DependencyConfig`.
+ * Configuration for identifying a dependency and its operation
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-dependencyconfig.html}
+ */
+export type DependencyConfig = {
+  /**
+   * If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
+   */
+  DependencyKeyAttributes: DependencyKeyAttributes;
+  /**
+   * When the SLO monitors a specific operation of the dependency, this field specifies the name of that operation in the dependency.
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  DependencyOperationName: string;
+};
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.DependencyKeyAttributes`.
+ * If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-dependencykeyattributes.html}
+ */
+export type DependencyKeyAttributes = Record<string, string>;
+/**
  * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.Dimension`.
  * A dimension is a name/value pair that is part of the identity of a metric. Because dimensions are part of the unique identifier for a metric, whenever you add a unique name/value pair to one of your metrics, you are creating a new variation of that metric. For example, many Amazon EC2 metrics publish `InstanceId` as a dimension name, and the actual instance ID as the value for that dimension. You can assign up to 30 dimensions to a metric.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-dimension.html}
@@ -326,6 +349,10 @@ export type RequestBasedSli = {
  */
 export type RequestBasedSliMetric = {
   /**
+   * Configuration for identifying a dependency and its operation
+   */
+  DependencyConfig?: DependencyConfig;
+  /**
    * This is a string-to-string map that contains information about the type of object that this SLO is related to.
    */
   KeyAttributes?: KeyAttributes;
@@ -393,6 +420,10 @@ export type Sli = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html}
  */
 export type SliMetric = {
+  /**
+   * Configuration for identifying a dependency and its operation
+   */
+  DependencyConfig?: DependencyConfig;
   /**
    * This is a string-to-string map that contains information about the type of object that this SLO is related to.
    */

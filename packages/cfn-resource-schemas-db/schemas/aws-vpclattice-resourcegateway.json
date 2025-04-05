@@ -1,5 +1,5 @@
 {
-  "$hash": "79c849b1605a3cbbf5282267082818b61dbcca79",
+  "$hash": "ec18da928252e4c8ebcfa1b5114f10fad6a0dcce",
   "$id": "aws-vpclattice-resourcegateway.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -36,7 +36,8 @@
     "delete": {
       "permissions": [
         "vpc-lattice:DeleteResourceGateway",
-        "vpc-lattice:GetResourceGateway"
+        "vpc-lattice:GetResourceGateway",
+        "vpc-lattice:UntagResource"
       ]
     },
     "list": { "permissions": ["vpc-lattice:ListResourceGateways"] },
@@ -136,8 +137,9 @@
     "VpcIdentifier": { "maxLength": 50, "minLength": 5, "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id", "/properties/Arn"],
+  "required": ["Name", "VpcIdentifier", "SubnetIds"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "vpc-lattice:UntagResource",
       "vpc-lattice:TagResource",

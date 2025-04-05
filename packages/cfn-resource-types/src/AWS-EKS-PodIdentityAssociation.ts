@@ -12,10 +12,6 @@ export type EKSPodIdentityAssociationProperties = {
    */
   ClusterName: string;
   /**
-   * The Disable Session Tags of the pod identity association.
-   */
-  DisableSessionTags?: boolean;
-  /**
    * The Kubernetes namespace that the pod identity association is created for.
    */
   Namespace: string;
@@ -31,11 +27,6 @@ export type EKSPodIdentityAssociationProperties = {
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];
-  /**
-   * The Target Role Arn of the pod identity association.
-   * @minLength `1`
-   */
-  TargetRoleArn?: string;
 };
 /**
  * Attribute type definition for `AWS::EKS::PodIdentityAssociation`.
@@ -51,11 +42,6 @@ export type EKSPodIdentityAssociationAttributes = {
    * @minLength `1`
    */
   AssociationId: string;
-  /**
-   * The External Id of the pod identity association.
-   * @minLength `1`
-   */
-  ExternalId: string;
 };
 /**
  * Type definition for `AWS::EKS::PodIdentityAssociation.Tag`.

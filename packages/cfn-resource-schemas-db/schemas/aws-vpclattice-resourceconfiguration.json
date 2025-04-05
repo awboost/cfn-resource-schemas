@@ -1,5 +1,5 @@
 {
-  "$hash": "ff1b9f196543a752b3df7555f67d650b78f0bcae",
+  "$hash": "34fd25d9eb06d108f0b1a4a0564ce8bcb65bbdd8",
   "$id": "aws-vpclattice-resourceconfiguration.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -156,7 +156,7 @@
     }
   },
   "readOnlyProperties": ["/properties/Id", "/properties/Arn"],
-  "required": [],
+  "required": ["Name", "ResourceConfigurationType"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,

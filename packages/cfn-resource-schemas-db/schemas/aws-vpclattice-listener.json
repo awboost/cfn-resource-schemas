@@ -1,5 +1,5 @@
 {
-  "$hash": "3eff77249de759606728c7e57c570700de575302",
+  "$hash": "12765484f55927aef6864d1e0b22c8a06ee06faa",
   "$id": "aws-vpclattice-listener.json",
   "additionalIdentifiers": [
     ["/properties/ServiceIdentifier", "/properties/Name", "/properties/Port"]
@@ -61,7 +61,7 @@
           "pattern": "^((tg-[0-9a-z]{17})|(arn:[a-z0-9\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:targetgroup/tg-[0-9a-z]{17}))$",
           "type": "string"
         },
-        "Weight": { "maximum": 999, "minimum": 1, "type": "integer" }
+        "Weight": { "maximum": 999, "minimum": 0, "type": "integer" }
       },
       "required": ["TargetGroupIdentifier"],
       "type": "object"

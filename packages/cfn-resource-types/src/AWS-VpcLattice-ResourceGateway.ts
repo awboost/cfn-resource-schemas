@@ -12,7 +12,7 @@ export type VpcLatticeResourceGatewayProperties = {
    * @maxLength `40`
    * @pattern `^(?!rgw-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`
    */
-  Name?: string;
+  Name: string;
   /**
    * The ID of one or more security groups to associate with the endpoint network interface.
    */
@@ -20,7 +20,7 @@ export type VpcLatticeResourceGatewayProperties = {
   /**
    * The ID of one or more subnets in which to create an endpoint network interface.
    */
-  SubnetIds?: string[];
+  SubnetIds: string[];
   /**
    * @minLength `0`
    * @maxLength `50`
@@ -30,7 +30,7 @@ export type VpcLatticeResourceGatewayProperties = {
    * @minLength `5`
    * @maxLength `50`
    */
-  VpcIdentifier?: string;
+  VpcIdentifier: string;
 };
 /**
  * Attribute type definition for `AWS::VpcLattice::ResourceGateway`.

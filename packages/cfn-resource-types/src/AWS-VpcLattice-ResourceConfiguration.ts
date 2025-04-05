@@ -12,7 +12,7 @@ export type VpcLatticeResourceConfigurationProperties = {
    * @maxLength `40`
    * @pattern `^(?!rcfg-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`
    */
-  Name?: string;
+  Name: string;
   PortRanges?: string[];
   ProtocolType?: "TCP";
   ResourceConfigurationAuthType?: "NONE" | "AWS_IAM";
@@ -40,7 +40,7 @@ export type VpcLatticeResourceConfigurationProperties = {
    * @pattern `^rcfg-[0-9a-z]{17}$`
    */
   ResourceConfigurationGroupId?: string;
-  ResourceConfigurationType?: "GROUP" | "CHILD" | "SINGLE" | "ARN";
+  ResourceConfigurationType: "GROUP" | "CHILD" | "SINGLE" | "ARN";
   ResourceGatewayId?: string;
   /**
    * @minLength `0`

@@ -1,8 +1,8 @@
 {
-  "$hash": "670f2fb1df2078bd316efc474419242540db46a6",
+  "$hash": "89299a92fd276e42b2b3bfe9bf13b72420f02a06",
   "$id": "aws-redshiftserverless-namespace.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/NamespaceName", "/properties/Tags"],
+  "createOnlyProperties": ["/properties/NamespaceName"],
   "definitions": {
     "LogExport": {
       "enum": ["useractivitylog", "userlog", "connectionlog"],

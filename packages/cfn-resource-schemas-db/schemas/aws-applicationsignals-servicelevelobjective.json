@@ -1,5 +1,5 @@
 {
-  "$hash": "0042cb812948ebfe479ffa1b02c237c0616b52a2",
+  "$hash": "1331b15efa0140baa92a80470e77f430d22613bb",
   "$id": "aws-applicationsignals-servicelevelobjective.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -41,6 +41,28 @@
       },
       "required": ["StartTime", "DurationUnit", "Duration"],
       "type": "object"
+    },
+    "DependencyConfig": {
+      "additionalProperties": false,
+      "description": "Configuration for identifying a dependency and its operation",
+      "properties": {
+        "DependencyKeyAttributes": {
+          "$ref": "#/definitions/DependencyKeyAttributes"
+        },
+        "DependencyOperationName": {
+          "description": "When the SLO monitors a specific operation of the dependency, this field specifies the name of that operation in the dependency.",
+          "maxLength": 255,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["DependencyKeyAttributes", "DependencyOperationName"],
+      "type": "object"
+    },
+    "DependencyKeyAttributes": {
+      "additionalProperties": false,
+      "description": "If this SLO is related to a metric collected by Application Signals, you must use this field to specify which dependency the SLO metric is related to.",
+      "patternProperties": { "^.+$": { "type": "string" } }
     },
     "Dimension": {
       "additionalProperties": false,
@@ -264,6 +286,7 @@
       "additionalProperties": false,
       "description": "This structure contains the information about the metric that is used for a request-based SLO.",
       "properties": {
+        "DependencyConfig": { "$ref": "#/definitions/DependencyConfig" },
         "KeyAttributes": { "$ref": "#/definitions/KeyAttributes" },
         "MetricType": {
           "description": "If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.",
@@ -323,6 +346,7 @@
       "additionalProperties": false,
       "description": "A structure that contains information about the metric that the SLO monitors.",
       "properties": {
+        "DependencyConfig": { "$ref": "#/definitions/DependencyConfig" },
         "KeyAttributes": { "$ref": "#/definitions/KeyAttributes" },
         "MetricDataQueries": { "$ref": "#/definitions/MetricDataQueries" },
         "MetricType": {

@@ -1,40 +1,37 @@
-- updated `AWS::ECR::PullThroughCacheRule`
-  - updated property `CustomRoleArn`
-  - updated property `UpstreamRepositoryPrefix`
-- updated `AWS::GameLift::Alias`
-  - added `tagging`
-  - added definition `Tag`
-  - added property `AliasArn`
-  - added property `Tags`
-  - removed `taggable`
+- updated `AWS::ApplicationSignals::ServiceLevelObjective`
+  - added definition `DependencyConfig`
+  - added definition `DependencyKeyAttributes`
+  - updated definition `RequestBasedSliMetric`
+  - updated definition `SliMetric`
+- updated `AWS::CloudFormation::StackSet`
+  - updated `tagging`
+- updated `AWS::EKS::PodIdentityAssociation`
+  - removed property `DisableSessionTags`
+  - removed property `ExternalId`
+  - removed property `TargetRoleArn`
   - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::GameLift::Build`
-  - added definition `Tag`
-  - added property `BuildArn`
-  - added property `Tags`
-  - updated `readOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::GameLift::ContainerGroupDefinition`
-  - added `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::GameLift::GameServerGroup`
+- updated `AWS::Neptune::DBSubnetGroup`
+  - added `propertyTransform`
+  - added `sourceUrl`
   - added `tagging`
-  - removed `taggable`
-- updated `AWS::GameLift::GameSessionQueue`
-  - updated `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::GameLift::Script`
-  - updated `tagging`
-- updated `AWS::KinesisFirehose::DeliveryStream`
+  - updated property `DBSubnetGroupDescription`
+  - updated property `DBSubnetGroupName`
+  - updated property `SubnetIds`
+  - updated property `Tags`
+- updated `AWS::RedshiftServerless::Namespace`
   - updated `createOnlyProperties`
-- updated `AWS::RedshiftServerless::Workgroup`
-  - added property `RecoveryPointId`
-  - added property `SnapshotArn`
-  - added property `SnapshotName`
-  - added property `SnapshotOwnerAccount`
-  - updated `writeOnlyProperties`
+- updated `AWS::VpcLattice::AccessLogSubscription`
   - updated handler permissions
-- updated `AWS::S3::AccessPoint`
+- updated `AWS::VpcLattice::Listener`
+  - updated definition `WeightedTargetGroup`
+- updated `AWS::VpcLattice::ResourceConfiguration`
+  - updated `required`
+- updated `AWS::VpcLattice::ResourceGateway`
+  - added `required`
+  - updated `tagging`
   - updated handler permissions

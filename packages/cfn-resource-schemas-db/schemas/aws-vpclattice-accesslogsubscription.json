@@ -1,5 +1,5 @@
 {
-  "$hash": "f0ca86511f87fba861de8237344edd2b0dc530e5",
+  "$hash": "27b158998004d1f284daaf1d664f86ecfcb4e268",
   "$id": "aws-vpclattice-accesslogsubscription.json",
   "additionalIdentifiers": [
     ["/properties/Id"],
@@ -75,7 +75,10 @@
         },
         "required": ["ResourceIdentifier"]
       },
-      "permissions": ["vpc-lattice:ListAccessLogSubscriptions"]
+      "permissions": [
+        "vpc-lattice:ListAccessLogSubscriptions",
+        "logs:GetLogDelivery"
+      ]
     },
     "read": {
       "permissions": [

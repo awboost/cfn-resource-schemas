@@ -119,7 +119,7 @@ export type WeightedTargetGroup = {
    */
   TargetGroupIdentifier: string;
   /**
-   * @min `1`
+   * @min `0`
    * @max `999`
    */
   Weight?: number;
