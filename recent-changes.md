@@ -1,37 +1,4 @@
-- updated `AWS::ApplicationSignals::ServiceLevelObjective`
-  - added definition `DependencyConfig`
-  - added definition `DependencyKeyAttributes`
-  - updated definition `RequestBasedSliMetric`
-  - updated definition `SliMetric`
-- updated `AWS::CloudFormation::StackSet`
-  - updated `tagging`
-- updated `AWS::EKS::PodIdentityAssociation`
-  - removed property `DisableSessionTags`
-  - removed property `ExternalId`
-  - removed property `TargetRoleArn`
-  - updated `readOnlyProperties`
-- updated `AWS::Neptune::DBSubnetGroup`
-  - added `propertyTransform`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `DBSubnetGroupDescription`
-  - updated property `DBSubnetGroupName`
-  - updated property `SubnetIds`
-  - updated property `Tags`
-- updated `AWS::RedshiftServerless::Namespace`
-  - updated `createOnlyProperties`
-- updated `AWS::VpcLattice::AccessLogSubscription`
-  - updated handler permissions
-- updated `AWS::VpcLattice::Listener`
-  - updated definition `WeightedTargetGroup`
-- updated `AWS::VpcLattice::ResourceConfiguration`
-  - updated `required`
-- updated `AWS::VpcLattice::ResourceGateway`
-  - added `required`
-  - updated `tagging`
-  - updated handler permissions
+- added `AWS::DSQL::Cluster`
+- updated `AWS::Kinesis::Stream`
+  - added definition `EnhancedMetric`
+  - added property `DesiredShardLevelMetrics`

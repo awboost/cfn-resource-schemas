@@ -1,0 +1,72 @@
+import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
+import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
+/**
+ * Resource Type definition for AWS::DSQL::Cluster
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html}
+ */
+export type DSQLClusterProperties = {
+  /**
+   * Whether deletion protection is enabled in this cluster.
+   */
+  DeletionProtectionEnabled?: boolean;
+  Tags?: Tag[];
+};
+/**
+ * Attribute type definition for `AWS::DSQL::Cluster`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html#aws-resource-dsql-cluster-return-values}
+ */
+export type DSQLClusterAttributes = {
+  /**
+   * The time of when the cluster was created in ISO-8601 format.
+   */
+  CreationTime: string;
+  /**
+   * The ID of the created cluster.
+   */
+  Identifier: string;
+  /**
+   * The Amazon Resource Name (ARN) for the cluster.
+   */
+  ResourceArn: string;
+  /**
+   * The status of the cluster.
+   */
+  Status: string;
+};
+/**
+ * Type definition for `AWS::DSQL::Cluster.Tag`.
+ * A map of key and value pairs to use to tag your cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dsql-cluster-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Value: string;
+};
+/**
+ * Resource Type definition for AWS::DSQL::Cluster
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dsql-cluster.html}
+ */
+export class DSQLCluster extends $Resource<
+  "AWS::DSQL::Cluster",
+  DSQLClusterProperties,
+  DSQLClusterAttributes
+> {
+  public static readonly Type = "AWS::DSQL::Cluster";
+  constructor(
+    logicalId: string,
+    properties: DSQLClusterProperties,
+    options?: $ResourceOptions,
+  ) {
+    super(logicalId, DSQLCluster.Type, properties, options);
+  }
+}

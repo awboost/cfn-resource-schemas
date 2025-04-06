@@ -6,6 +6,11 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type KinesisStreamProperties = {
   /**
+   * The final list of shard-level metrics
+   * @maxLength `7`
+   */
+  DesiredShardLevelMetrics?: EnhancedMetric[];
+  /**
    * The name of the Kinesis stream.
    * @minLength `1`
    * @maxLength `128`
@@ -46,6 +51,20 @@ export type KinesisStreamAttributes = {
    */
   Arn: string;
 };
+/**
+ * Type definition for `AWS::Kinesis::Stream.EnhancedMetric`.
+ * Value of an enhanced metric
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-enhancedmetric.html}
+ */
+export type EnhancedMetric =
+  | "IncomingBytes"
+  | "IncomingRecords"
+  | "OutgoingBytes"
+  | "OutgoingRecords"
+  | "WriteProvisionedThroughputExceeded"
+  | "ReadProvisionedThroughputExceeded"
+  | "IteratorAgeMilliseconds"
+  | "ALL";
 /**
  * Type definition for `AWS::Kinesis::Stream.StreamEncryption`.
  * When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
