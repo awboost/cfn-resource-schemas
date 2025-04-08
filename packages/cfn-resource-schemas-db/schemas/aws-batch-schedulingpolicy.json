@@ -1,5 +1,5 @@
 {
-  "$hash": "7f0b4ff047b8dfd787d506b70bb126e262b48197",
+  "$hash": "2264abc74ff8865c9ba7d4d32f99289929c251ce",
   "$id": "aws-batch-schedulingpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -38,7 +38,7 @@
       "type": "object"
     }
   },
-  "description": "Resource Type schema for AWS::Batch::SchedulingPolicy",
+  "description": "Resource Type definition for AWS::Batch::SchedulingPolicy",
   "handlers": {
     "create": {
       "permissions": ["Batch:CreateSchedulingPolicy", "Batch:TagResource"]

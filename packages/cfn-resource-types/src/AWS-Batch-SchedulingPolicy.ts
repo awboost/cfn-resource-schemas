@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type schema for AWS::Batch::SchedulingPolicy
+ * Resource Type definition for AWS::Batch::SchedulingPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html}
  */
 export type BatchSchedulingPolicyProperties = {
@@ -63,7 +63,7 @@ export type ShareAttributes = {
   WeightFactor?: number;
 };
 /**
- * Resource Type schema for AWS::Batch::SchedulingPolicy
+ * Resource Type definition for AWS::Batch::SchedulingPolicy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-schedulingpolicy.html}
  */
 export class BatchSchedulingPolicy extends $Resource<

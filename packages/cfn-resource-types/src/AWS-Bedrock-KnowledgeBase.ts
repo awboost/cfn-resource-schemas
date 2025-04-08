@@ -180,7 +180,8 @@ export type KnowledgeBaseStorageType =
   | "PINECONE"
   | "RDS"
   | "MONGO_DB_ATLAS"
-  | "NEPTUNE_ANALYTICS";
+  | "NEPTUNE_ANALYTICS"
+  | "OPENSEARCH_MANAGED_CLUSTER";
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KnowledgeBaseType`.
  * The type of a knowledge base.
@@ -294,6 +295,61 @@ export type NeptuneAnalyticsFieldMapping = {
    * @pattern `^.*$`
    */
   TextField: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.OpenSearchManagedClusterConfiguration`.
+ * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchmanagedclusterconfiguration.html}
+ */
+export type OpenSearchManagedClusterConfiguration = {
+  /**
+   * The Amazon Resource Name (ARN) of the OpenSearch domain.
+   * @maxLength `2048`
+   * @pattern `^arn:aws(|-cn|-us-gov|-iso):es:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:domain/[a-z][a-z0-9-]{3,28}$`
+   */
+  DomainArn: string;
+  /**
+   * The endpoint URL the OpenSearch domain.
+   * @maxLength `2048`
+   * @pattern `^https://.*$`
+   */
+  DomainEndpoint: string;
+  /**
+   * A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+   */
+  FieldMapping: OpenSearchManagedClusterFieldMapping;
+  /**
+   * The name of the vector store.
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^(?![\-_+.])[a-z0-9][a-z0-9\-_\.]*$`
+   */
+  VectorIndexName: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.OpenSearchManagedClusterFieldMapping`.
+ * A mapping of Bedrock Knowledge Base fields to OpenSearch Managed Cluster field names
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchmanagedclusterfieldmapping.html}
+ */
+export type OpenSearchManagedClusterFieldMapping = {
+  /**
+   * The name of the field in which Amazon Bedrock stores metadata about the vector store.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  MetadataField: string;
+  /**
+   * The name of the field in which Amazon Bedrock stores the raw text from your data. The text is split according to the chunking strategy you choose.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  TextField: string;
+  /**
+   * The name of the field in which Amazon Bedrock stores the vector embeddings for your data sources.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  VectorField: string;
 };
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.OpenSearchServerlessConfiguration`.
@@ -767,6 +823,10 @@ export type StorageConfiguration = {
    * Contains the configurations to use Neptune Analytics as Vector Store.
    */
   NeptuneAnalyticsConfiguration?: NeptuneAnalyticsConfiguration;
+  /**
+   * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+   */
+  OpensearchManagedClusterConfiguration?: OpenSearchManagedClusterConfiguration;
   /**
    * Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
    */

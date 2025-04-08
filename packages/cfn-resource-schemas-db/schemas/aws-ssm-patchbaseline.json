@@ -1,5 +1,5 @@
 {
-  "$hash": "38968a3a06c8f7ef9edb444a4caffdcab0419d13",
+  "$hash": "643c6c3d73c72d1a84cbc66813191b739d1fd30f",
   "$id": "aws-ssm-patchbaseline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/OperatingSystem"],
@@ -299,6 +299,11 @@
   "required": ["Name"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "ssm:AddTagsToResource",
+      "ssm:ListTagsForResource",
+      "ssm:RemoveTagsFromResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

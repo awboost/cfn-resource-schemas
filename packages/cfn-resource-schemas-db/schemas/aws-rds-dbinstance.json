@@ -1,5 +1,5 @@
 {
-  "$hash": "545c1ef0c9e66a8b5eae958759064953eed0d919",
+  "$hash": "c85d3b4fb50e023ab617c184ce9497237f68aea3",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -272,7 +272,7 @@
       "type": "string"
     },
     "AutomaticBackupReplicationRetentionPeriod": {
-      "description": "",
+      "description": "The retention period for automated backups in a different AWS Region. Use this parameter to set a unique retention period that only applies to cross-Region automated backups. To enable automated backups in a different Region, specify a positive value for the ``AutomaticBackupReplicationRegion`` parameter. \n If not specified, this parameter defaults to the value of the ``BackupRetentionPeriod`` parameter. The maximum allowed value is 35.",
       "minimum": 1,
       "type": "integer"
     },
@@ -291,7 +291,7 @@
     },
     "CertificateDetails": {
       "$ref": "#/definitions/CertificateDetails",
-      "description": "The details of the DB instance's server certificate."
+      "description": ""
     },
     "CertificateRotationRestart": {
       "description": "Specifies whether the DB instance is restarted when you rotate your SSL/TLS certificate.\n By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted.\n  Set this parameter only if you are *not* using SSL/TLS to connect to the DB instance.\n  If you are using SSL/TLS to connect to the DB instance, follow the appropriate instructions for your DB engine to rotate your SSL/TLS certificate:\n  +  For more information about rotating your SSL/TLS certificate for RDS DB engines, see [Rotating Your SSL/TLS Certificate.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon RDS User Guide.* \n  +  For more information about rotating your SSL/TLS certificate for Aurora DB engines, see [Rotating Your SSL/TLS Certificate](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html) in the *Amazon Aurora User Guide*.\n  \n This setting doesn't apply to RDS Custom DB instances.",
@@ -407,10 +407,7 @@
       "description": "Specifies whether to enable Performance Insights for the DB instance. For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.\n This setting doesn't apply to RDS Custom DB instances.",
       "type": "boolean"
     },
-    "Endpoint": {
-      "$ref": "#/definitions/Endpoint",
-      "description": "The connection endpoint for the DB instance.\n  The endpoint might not be shown for instances with the status of ``creating``."
-    },
+    "Endpoint": { "$ref": "#/definitions/Endpoint", "description": "" },
     "Engine": {
       "description": "The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.\n This property is required when creating a DB instance.\n  You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.\n  Valid Values:\n  +   ``aurora-mysql`` (for Aurora MySQL DB instances)\n  +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)\n  +   ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)\n  +   ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)\n  +   ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)\n  +   ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)\n  +   ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)\n  +   ``db2-ae`` \n  +   ``db2-se`` \n  +   ``mariadb`` \n  +   ``mysql`` \n  +   ``oracle-ee`` \n  +   ``oracle-ee-cdb`` \n  +   ``oracle-se2`` \n  +   ``oracle-se2-cdb`` \n  +   ``postgres`` \n  +   ``sqlserver-ee`` \n  +   ``sqlserver-se`` \n  +   ``sqlserver-ex`` \n  +   ``sqlserver-web``",
       "type": "string"

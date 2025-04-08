@@ -1,4 +1,16 @@
-- added `AWS::DSQL::Cluster`
-- updated `AWS::Kinesis::Stream`
-  - added definition `EnhancedMetric`
-  - added property `DesiredShardLevelMetrics`
+- updated `AWS::Batch::SchedulingPolicy`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - added definition `OpenSearchManagedClusterConfiguration`
+  - added definition `OpenSearchManagedClusterFieldMapping`
+  - updated definition `KnowledgeBaseStorageType`
+  - updated definition `StorageConfiguration`
+- updated `AWS::Connect::UserHierarchyGroup`
+  - updated `tagging`
+- updated `AWS::RDS::DBCluster`
+  - updated property `ReadEndpoint`
+- updated `AWS::RDS::DBInstance`
+  - updated property `AutomaticBackupReplicationRetentionPeriod`
+  - updated property `CertificateDetails`
+  - updated property `Endpoint`
+- updated `AWS::SSM::PatchBaseline`
+  - updated `tagging`
