@@ -1,5 +1,5 @@
 {
-  "$hash": "a2fe92acca2af649d639f9952adfa840fb3162d0",
+  "$hash": "4a08dd3b718a6eb417f24ed03d5d8d9b3d5c3c36",
   "$id": "aws-memorydb-acl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ACLName"],
@@ -34,7 +34,8 @@
         "memorydb:CreateACL",
         "memorydb:DescribeACLs",
         "memorydb:TagResource",
-        "memorydb:ListTags"
+        "memorydb:ListTags",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     "delete": {

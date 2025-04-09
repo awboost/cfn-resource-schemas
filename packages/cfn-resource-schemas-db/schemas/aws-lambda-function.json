@@ -1,5 +1,5 @@
 {
-  "$hash": "38fbddc010e7c4fff9e35d22163f57741cb2413a",
+  "$hash": "8be4c32cfaeec26027d908415694fbfefaac3899",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -319,7 +319,6 @@
         "lambda:DeleteFunctionConcurrency",
         "lambda:GetFunction",
         "lambda:PutFunctionConcurrency",
-        "lambda:ListTags",
         "lambda:TagResource",
         "lambda:UntagResource",
         "lambda:UpdateFunctionConfiguration",
@@ -487,6 +486,11 @@
   "required": ["Code", "Role"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "lambda:ListTags",
+      "lambda:TagResource",
+      "lambda:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
@@ -496,7 +500,6 @@
   "writeOnlyProperties": [
     "/properties/SnapStart",
     "/properties/SnapStart/ApplyOn",
-    "/properties/Code",
     "/properties/Code/ImageUri",
     "/properties/Code/S3Bucket",
     "/properties/Code/S3Key",

@@ -1,5 +1,5 @@
 {
-  "$hash": "4f217c2006a1de5fa540ba8fc070cd41ae3c4d23",
+  "$hash": "6b72bec46015a963e8a0074a4a98ac02552e7778",
   "$id": "aws-ec2-keypair.json",
   "additionalIdentifiers": [["/properties/KeyPairId"]],
   "additionalProperties": false,
@@ -84,12 +84,16 @@
       "uniqueItems": true
     }
   },
+  "propertyTransform": {
+    "/properties/PublicKeyMaterial": "$join([PublicKeyMaterial, \"\n\"])"
+  },
   "readOnlyProperties": ["/properties/KeyPairId", "/properties/KeyFingerprint"],
   "required": ["KeyName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
     "permissions": ["ec2:CreateTags"],
+    "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,
     "taggable": true

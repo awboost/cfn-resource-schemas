@@ -33,6 +33,10 @@ export type MemoryDBSubnetGroupAttributes = {
    * The Amazon Resource Name (ARN) of the subnet group.
    */
   ARN: string;
+  /**
+   * Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].
+   */
+  SupportedNetworkTypes: string[];
 };
 /**
  * Type definition for `AWS::MemoryDB::SubnetGroup.Tag`.

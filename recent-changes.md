@@ -1,16 +1,26 @@
-- updated `AWS::Batch::SchedulingPolicy`
-- updated `AWS::Bedrock::KnowledgeBase`
-  - added definition `OpenSearchManagedClusterConfiguration`
-  - added definition `OpenSearchManagedClusterFieldMapping`
-  - updated definition `KnowledgeBaseStorageType`
-  - updated definition `StorageConfiguration`
-- updated `AWS::Connect::UserHierarchyGroup`
+- updated `AWS::EC2::KeyPair`
+  - added `propertyTransform`
   - updated `tagging`
-- updated `AWS::RDS::DBCluster`
-  - updated property `ReadEndpoint`
-- updated `AWS::RDS::DBInstance`
-  - updated property `AutomaticBackupReplicationRetentionPeriod`
-  - updated property `CertificateDetails`
-  - updated property `Endpoint`
-- updated `AWS::SSM::PatchBaseline`
+- updated `AWS::Lambda::Function`
   - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::MemoryDB::ACL`
+  - updated handler permissions
+- updated `AWS::MemoryDB::Cluster`
+  - added definition `SupportedIpDiscoveryTypes`
+  - added definition `SupportedNetworkTypes`
+  - added property `IpDiscovery`
+  - added property `NetworkType`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::MemoryDB::MultiRegionCluster`
+  - updated handler permissions
+- updated `AWS::MemoryDB::ParameterGroup`
+  - updated handler permissions
+- updated `AWS::MemoryDB::SubnetGroup`
+  - added property `SupportedNetworkTypes`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::MemoryDB::User`
+  - updated handler permissions

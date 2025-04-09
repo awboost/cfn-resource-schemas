@@ -1,5 +1,5 @@
 {
-  "$hash": "5f614f4862b8abd180e0da0c897d8527d2b24915",
+  "$hash": "6e659eee676a4f8718d0b1219e02207960a11f00",
   "$id": "aws-memorydb-multiregioncluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -39,7 +39,8 @@
         "memorydb:CreateMultiRegionCluster",
         "memorydb:DescribeMultiRegionClusters",
         "memorydb:TagResource",
-        "memorydb:ListTags"
+        "memorydb:ListTags",
+        "iam:CreateServiceLinkedRole"
       ],
       "timeoutInMinutes": 2160
     },

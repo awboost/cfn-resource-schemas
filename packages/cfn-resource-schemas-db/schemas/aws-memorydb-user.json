@@ -1,5 +1,5 @@
 {
-  "$hash": "e9f06291202921cf91b24f037c5ab2e2d1d59fa6",
+  "$hash": "e659eac945788b89d8338130007421c01135896a",
   "$id": "aws-memorydb-user.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserName"],
@@ -34,7 +34,8 @@
         "memorydb:CreateUser",
         "memorydb:DescribeUsers",
         "memorydb:TagResource",
-        "memorydb:ListTags"
+        "memorydb:ListTags",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     "delete": {

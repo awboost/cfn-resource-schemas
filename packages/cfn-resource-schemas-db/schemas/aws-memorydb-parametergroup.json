@@ -1,5 +1,5 @@
 {
-  "$hash": "fb08b537ebc8fc04fbe11582c6b1d4b2c2c193f7",
+  "$hash": "559e96377c1ba1b4d547d56551f1be111434a650",
   "$id": "aws-memorydb-parametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -38,7 +38,8 @@
         "memorydb:CreateParameterGroup",
         "memorydb:DescribeParameterGroups",
         "memorydb:TagResource",
-        "memorydb:ListTags"
+        "memorydb:ListTags",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     "delete": { "permissions": ["memorydb:DeleteParameterGroup"] },

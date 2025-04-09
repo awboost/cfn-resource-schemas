@@ -1,5 +1,5 @@
 {
-  "$hash": "78990f0b3a0c7b5a7ef4a82ac85b90b9cfe0d6d4",
+  "$hash": "aba83193f98c801f44686f9d976c7ae6a26857e4",
   "$id": "aws-memorydb-subnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubnetGroupName"],
@@ -34,7 +34,8 @@
         "memorydb:CreateSubnetGroup",
         "memorydb:DescribeSubnetGroups",
         "memorydb:TagResource",
-        "memorydb:ListTags"
+        "memorydb:ListTags",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     "delete": {
@@ -79,6 +80,13 @@
       "type": "array",
       "uniqueItems": true
     },
+    "SupportedNetworkTypes": {
+      "description": "Supported network types would be a list of network types supported by subnet group and can be either [ipv4] or [ipv4, dual_stack] or [ipv6].",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "Tags": {
       "description": "An array of key-value pairs to apply to this subnet group.",
       "insertionOrder": false,
@@ -88,7 +96,10 @@
       "uniqueItems": true
     }
   },
-  "readOnlyProperties": ["/properties/ARN"],
+  "readOnlyProperties": [
+    "/properties/ARN",
+    "/properties/SupportedNetworkTypes"
+  ],
   "required": ["SubnetGroupName", "SubnetIds"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-memorydb",
   "tagging": {
