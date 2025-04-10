@@ -7025,6 +7025,11 @@ export type TableFieldOptions = {
    * @maxLength `100`
    */
   SelectedFieldOptions?: TableFieldOption[];
+  /**
+   * @minLength `0`
+   * @maxLength `10001`
+   */
+  TransposedTableOptions?: TransposedTableOption[];
 };
 /**
  * Type definition for `AWS::QuickSight::Template.TableFieldURLConfiguration`.
@@ -7669,6 +7674,27 @@ export type TotalOptions = {
   TotalAggregationOptions?: TotalAggregationOption[];
   TotalCellStyle?: TableCellStyle;
   TotalsVisibility?: any;
+};
+/**
+ * Type definition for `AWS::QuickSight::Template.TransposedColumnType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-transposedcolumntype.html}
+ */
+export type TransposedColumnType = "ROW_HEADER_COLUMN" | "VALUE_COLUMN";
+/**
+ * Type definition for `AWS::QuickSight::Template.TransposedTableOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-transposedtableoption.html}
+ */
+export type TransposedTableOption = {
+  /**
+   * @min `0`
+   * @max `9999`
+   */
+  ColumnIndex?: number;
+  ColumnType: TransposedColumnType;
+  /**
+   * String based length that is composed of value and unit in px
+   */
+  ColumnWidth?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Template.TreeMapAggregatedFieldWells`.

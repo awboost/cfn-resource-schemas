@@ -1,5 +1,5 @@
 {
-  "$hash": "ae446ac677ba3454781698fab71a4691181bd6a8",
+  "$hash": "86b6175349007a5d3ba3d0117cfffb070df9e9e0",
   "$id": "aws-route53resolver-resolverqueryloggingconfigassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -94,5 +94,6 @@
     "/properties/CreationTime",
     "/properties/Id"
   ],
+  "tagging": { "taggable": false },
   "typeName": "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
 }

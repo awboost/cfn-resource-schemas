@@ -17,7 +17,7 @@ export type CleanRoomsAnalysisTemplateProperties = {
    * @pattern `^[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDBFF-\uDC00\uDFFF\t\r\n]*$`
    */
   Description?: string;
-  Format: "SQL";
+  Format: "SQL" | "PYSPARK_1_0";
   /**
    * @minLength `36`
    * @maxLength `36`
@@ -29,7 +29,9 @@ export type CleanRoomsAnalysisTemplateProperties = {
    * @pattern `^[a-zA-Z0-9_](([a-zA-Z0-9_ ]+-)*([a-zA-Z0-9_ ]+))?$`
    */
   Name: string;
+  Schema?: AnalysisSchema;
   Source: AnalysisSource;
+  SourceMetadata?: AnalysisSourceMetadata;
   /**
    * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
    */
@@ -64,12 +66,6 @@ export type CleanRoomsAnalysisTemplateAttributes = {
    * @maxLength `100`
    */
   MembershipArn: string;
-  Schema: {
-    /**
-     * @minLength `0`
-     */
-    ReferencedTables: string[];
-  };
 };
 /**
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.AnalysisParameter`.
@@ -131,12 +127,74 @@ export type AnalysisSchema = {
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.AnalysisSource`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysissource.html}
  */
-export type AnalysisSource = {
+export type AnalysisSource =
+  | {
+      /**
+       * @minLength `0`
+       * @maxLength `90000`
+       */
+      Text: string;
+    }
+  | {
+      Artifacts: AnalysisTemplateArtifacts;
+    };
+/**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.AnalysisSourceMetadata`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysissourcemetadata.html}
+ */
+export type AnalysisSourceMetadata = {
+  Artifacts: AnalysisTemplateArtifactMetadata;
+};
+/**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.AnalysisTemplateArtifact`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysistemplateartifact.html}
+ */
+export type AnalysisTemplateArtifact = {
+  Location: S3Location;
+};
+/**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.AnalysisTemplateArtifactMetadata`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysistemplateartifactmetadata.html}
+ */
+export type AnalysisTemplateArtifactMetadata = {
+  AdditionalArtifactHashes?: Hash[];
+  EntryPointHash: Hash;
+};
+/**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.AnalysisTemplateArtifacts`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysistemplateartifacts.html}
+ */
+export type AnalysisTemplateArtifacts = {
   /**
-   * @minLength `0`
-   * @maxLength `15000`
+   * @minLength `1`
+   * @maxLength `1`
    */
-  Text: string;
+  AdditionalArtifacts?: AnalysisTemplateArtifact[];
+  EntryPoint: AnalysisTemplateArtifact;
+  /**
+   * @minLength `32`
+   * @maxLength `512`
+   */
+  RoleArn: string;
+};
+/**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.Hash`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-hash.html}
+ */
+export type Hash = {
+  Sha256?: string;
+};
+/**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.S3Location`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-s3location.html}
+ */
+export type S3Location = {
+  /**
+   * @minLength `3`
+   * @maxLength `63`
+   */
+  Bucket: string;
+  Key: string;
 };
 /**
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.Tag`.

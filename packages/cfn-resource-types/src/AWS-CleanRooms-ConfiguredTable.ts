@@ -28,6 +28,7 @@ export type CleanRoomsConfiguredTableProperties = {
    * @pattern `^(?!\s*$)[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDBFF-\uDC00\uDFFF\t]*$`
    */
   Name: string;
+  SelectedAnalysisMethods?: SelectedAnalysisMethod[];
   TableReference: TableReference;
   /**
    * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -103,7 +104,7 @@ export type AggregationType = "COUNT_DISTINCT";
  * Type definition for `AWS::CleanRooms::ConfiguredTable.AnalysisMethod`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysismethod.html}
  */
-export type AnalysisMethod = "DIRECT_QUERY";
+export type AnalysisMethod = "DIRECT_QUERY" | "DIRECT_JOB" | "MULTIPLE";
 /**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.AnalysisRule`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrule.html}
@@ -293,6 +294,11 @@ export type ScalarFunctions =
   | "TO_NUMBER"
   | "TO_TIMESTAMP"
   | "TRIM";
+/**
+ * Type definition for `AWS::CleanRooms::ConfiguredTable.SelectedAnalysisMethod`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-selectedanalysismethod.html}
+ */
+export type SelectedAnalysisMethod = "DIRECT_QUERY" | "DIRECT_JOB";
 /**
  * Type definition for `AWS::CleanRooms::ConfiguredTable.SnowflakeTableReference`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketablereference.html}

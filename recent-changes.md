@@ -1,26 +1,56 @@
-- updated `AWS::EC2::KeyPair`
-  - added `propertyTransform`
-  - updated `tagging`
-- updated `AWS::Lambda::Function`
-  - updated `tagging`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::MemoryDB::ACL`
-  - updated handler permissions
-- updated `AWS::MemoryDB::Cluster`
-  - added definition `SupportedIpDiscoveryTypes`
-  - added definition `SupportedNetworkTypes`
-  - added property `IpDiscovery`
-  - added property `NetworkType`
+- updated `AWS::CleanRooms::AnalysisTemplate`
+  - added definition `AnalysisSourceMetadata`
+  - added definition `AnalysisTemplateArtifactMetadata`
+  - added definition `AnalysisTemplateArtifact`
+  - added definition `AnalysisTemplateArtifacts`
+  - added definition `Hash`
+  - added definition `S3Location`
+  - added property `SourceMetadata`
   - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::MemoryDB::MultiRegionCluster`
-  - updated handler permissions
-- updated `AWS::MemoryDB::ParameterGroup`
-  - updated handler permissions
-- updated `AWS::MemoryDB::SubnetGroup`
-  - added property `SupportedNetworkTypes`
   - updated `readOnlyProperties`
+  - updated definition `AnalysisSource`
   - updated handler permissions
-- updated `AWS::MemoryDB::User`
+  - updated property `Format`
+- updated `AWS::CleanRooms::Collaboration`
+  - added definition `CollaborationJobLogStatus`
+  - added definition `JobComputePaymentConfig`
+  - added property `JobLogStatus`
+  - updated `createOnlyProperties`
+  - updated definition `MemberAbility`
+  - updated definition `PaymentConfiguration`
+- updated `AWS::CleanRooms::ConfiguredTable`
+  - added definition `SelectedAnalysisMethod`
+  - added definition `SelectedAnalysisMethods`
+  - added property `SelectedAnalysisMethods`
+  - updated `createOnlyProperties`
+  - updated definition `AllowedAnalysis`
+  - updated definition `AnalysisMethod`
+- updated `AWS::CleanRooms::Membership`
+  - added definition `MembershipJobComputePaymentConfig`
+  - added definition `MembershipJobLogStatus`
+  - added definition `MembershipProtectedJobOutputConfiguration`
+  - added definition `MembershipProtectedJobResultConfiguration`
+  - added definition `ProtectedJobS3OutputConfigurationInput`
+  - added property `DefaultJobResultConfiguration`
+  - added property `JobLogStatus`
+  - updated definition `MembershipPaymentConfiguration`
+- updated `AWS::QuickSight::Analysis`
+  - added definition `TransposedColumnType`
+  - added definition `TransposedTableOption`
+  - updated definition `TableFieldOptions`
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `TransposedColumnType`
+  - added definition `TransposedTableOption`
+  - updated definition `TableFieldOptions`
+- updated `AWS::QuickSight::Template`
+  - added definition `TransposedColumnType`
+  - added definition `TransposedTableOption`
+  - updated definition `TableFieldOptions`
+- updated `AWS::Route53Resolver::ResolverQueryLoggingConfig`
+  - added `tagging`
+  - added property `Tags`
+  - updated `createOnlyProperties`
+  - updated definition `undefined`
   - updated handler permissions
+- updated `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`
+  - added `tagging`

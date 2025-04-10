@@ -1,5 +1,5 @@
 {
-  "$hash": "0da4d712d34c54640aef7717eac6dcba3df3ae26",
+  "$hash": "1d2bab4b003d54c0e6881e8ffe71681d89c3332d",
   "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,6 +7,7 @@
     "/properties/CreatorMemberAbilities",
     "/properties/CreatorMLMemberAbilities",
     "/properties/DataEncryptionMetadata",
+    "/properties/JobLogStatus",
     "/properties/QueryLogStatus",
     "/properties/Members",
     "/properties/CreatorPaymentConfiguration",
@@ -15,6 +16,10 @@
   "definitions": {
     "AnalyticsEngine": {
       "enum": ["CLEAN_ROOMS_SQL", "SPARK"],
+      "type": "string"
+    },
+    "CollaborationJobLogStatus": {
+      "enum": ["ENABLED", "DISABLED"],
       "type": "string"
     },
     "CollaborationQueryLogStatus": {
@@ -47,6 +52,12 @@
       ],
       "type": "object"
     },
+    "JobComputePaymentConfig": {
+      "additionalProperties": false,
+      "properties": { "IsResponsible": { "type": "boolean" } },
+      "required": ["IsResponsible"],
+      "type": "object"
+    },
     "MLMemberAbilities": {
       "additionalProperties": false,
       "properties": {
@@ -74,7 +85,7 @@
       "uniqueItems": true
     },
     "MemberAbility": {
-      "enum": ["CAN_QUERY", "CAN_RECEIVE_RESULTS"],
+      "enum": ["CAN_QUERY", "CAN_RUN_JOB", "CAN_RECEIVE_RESULTS"],
       "type": "string"
     },
     "MemberSpecification": {
@@ -119,6 +130,7 @@
     "PaymentConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "JobCompute": { "$ref": "#/definitions/JobComputePaymentConfig" },
         "MachineLearning": { "$ref": "#/definitions/MLPaymentConfig" },
         "QueryCompute": { "$ref": "#/definitions/QueryComputePaymentConfig" }
       },
@@ -209,6 +221,7 @@
       "pattern": "^(?!\\s*$)[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t\\r\\n]*$",
       "type": "string"
     },
+    "JobLogStatus": { "$ref": "#/definitions/CollaborationJobLogStatus" },
     "Members": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/MemberSpecification" },

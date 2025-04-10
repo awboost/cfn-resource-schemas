@@ -1,17 +1,14 @@
 {
-  "$hash": "bf64d9141d7765b01166c485624cce44e75d9139",
+  "$hash": "21aa62754e5d69ed3bb8e9d5eaaf20c01ae30391",
   "$id": "aws-cleanrooms-analysistemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",
     "/properties/MembershipIdentifier",
     "/properties/Source",
-    "/properties/Source/Text",
     "/properties/Format",
     "/properties/AnalysisParameters",
-    "/properties/AnalysisParameters/Name",
-    "/properties/AnalysisParameters/Type",
-    "/properties/AnalysisParameters/DefaultValue"
+    "/properties/Schema"
   ],
   "definitions": {
     "AnalysisParameter": {
@@ -70,11 +67,80 @@
       "type": "object"
     },
     "AnalysisSource": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Text": { "maxLength": 90000, "minLength": 0, "type": "string" }
+          },
+          "required": ["Text"],
+          "title": "Text",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Artifacts": { "$ref": "#/definitions/AnalysisTemplateArtifacts" }
+          },
+          "required": ["Artifacts"],
+          "title": "Artifacts",
+          "type": "object"
+        }
+      ]
+    },
+    "AnalysisSourceMetadata": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Artifacts": {
+              "$ref": "#/definitions/AnalysisTemplateArtifactMetadata"
+            }
+          },
+          "required": ["Artifacts"],
+          "title": "Artifacts",
+          "type": "object"
+        }
+      ]
+    },
+    "AnalysisTemplateArtifact": {
+      "additionalProperties": false,
+      "properties": { "Location": { "$ref": "#/definitions/S3Location" } },
+      "required": ["Location"],
+      "type": "object"
+    },
+    "AnalysisTemplateArtifactMetadata": {
       "additionalProperties": false,
       "properties": {
-        "Text": { "maxLength": 15000, "minLength": 0, "type": "string" }
+        "AdditionalArtifactHashes": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/Hash" },
+          "type": "array"
+        },
+        "EntryPointHash": { "$ref": "#/definitions/Hash" }
       },
-      "required": ["Text"],
+      "required": ["EntryPointHash"],
+      "type": "object"
+    },
+    "AnalysisTemplateArtifacts": {
+      "additionalProperties": false,
+      "properties": {
+        "AdditionalArtifacts": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/AnalysisTemplateArtifact" },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        },
+        "EntryPoint": { "$ref": "#/definitions/AnalysisTemplateArtifact" },
+        "RoleArn": { "maxLength": 512, "minLength": 32, "type": "string" }
+      },
+      "required": ["EntryPoint", "RoleArn"],
+      "type": "object"
+    },
+    "Hash": {
+      "additionalProperties": false,
+      "properties": { "Sha256": { "type": "string" } },
       "type": "object"
     },
     "ReferencedTables": {
@@ -82,6 +148,15 @@
       "items": { "$ref": "#/definitions/TableName" },
       "minItems": 0,
       "type": "array"
+    },
+    "S3Location": {
+      "additionalProperties": false,
+      "properties": {
+        "Bucket": { "maxLength": 63, "minLength": 3, "type": "string" },
+        "Key": { "type": "string" }
+      },
+      "required": ["Bucket", "Key"],
+      "type": "object"
     },
     "TableName": {
       "maxLength": 128,
@@ -106,7 +181,8 @@
         "cleanrooms:ListTagsForResource",
         "cleanrooms:TagResource",
         "cleanrooms:GetAnalysisTemplate",
-        "cleanrooms:ListAnalysisTemplates"
+        "cleanrooms:ListAnalysisTemplates",
+        "iam:PassRole"
       ]
     },
     "delete": {
@@ -177,7 +253,7 @@
       "pattern": "^[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t\\r\\n]*$",
       "type": "string"
     },
-    "Format": { "enum": ["SQL"], "type": "string" },
+    "Format": { "enum": ["SQL", "PYSPARK_1_0"], "type": "string" },
     "MembershipArn": { "maxLength": 100, "type": "string" },
     "MembershipIdentifier": {
       "maxLength": 36,
@@ -192,6 +268,7 @@
     },
     "Schema": { "$ref": "#/definitions/AnalysisSchema" },
     "Source": { "$ref": "#/definitions/AnalysisSource" },
+    "SourceMetadata": { "$ref": "#/definitions/AnalysisSourceMetadata" },
     "Tags": {
       "description": "An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.",
       "insertionOrder": false,
@@ -203,7 +280,6 @@
     "/properties/CollaborationArn",
     "/properties/CollaborationIdentifier",
     "/properties/AnalysisTemplateIdentifier",
-    "/properties/Schema",
     "/properties/Arn",
     "/properties/MembershipArn"
   ],

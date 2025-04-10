@@ -1,5 +1,5 @@
 {
-  "$hash": "a1c332e26b1f3a50e902e4144277dfdeeeae7bc1",
+  "$hash": "76ee8ce5685d0255834e12748abd482e8e36b0f0",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7329,6 +7329,12 @@
           "maxItems": 100,
           "minItems": 0,
           "type": "array"
+        },
+        "TransposedTableOptions": {
+          "items": { "$ref": "#/definitions/TransposedTableOption" },
+          "maxItems": 10001,
+          "minItems": 0,
+          "type": "array"
         }
       },
       "type": "object"
@@ -7992,6 +7998,23 @@
         "TotalCellStyle": { "$ref": "#/definitions/TableCellStyle" },
         "TotalsVisibility": {}
       },
+      "type": "object"
+    },
+    "TransposedColumnType": {
+      "enum": ["ROW_HEADER_COLUMN", "VALUE_COLUMN"],
+      "type": "string"
+    },
+    "TransposedTableOption": {
+      "additionalProperties": false,
+      "properties": {
+        "ColumnIndex": { "maximum": 9999, "minimum": 0, "type": "number" },
+        "ColumnType": { "$ref": "#/definitions/TransposedColumnType" },
+        "ColumnWidth": {
+          "description": "String based length that is composed of value and unit in px",
+          "type": "string"
+        }
+      },
+      "required": ["ColumnType"],
       "type": "object"
     },
     "TreeMapAggregatedFieldWells": {

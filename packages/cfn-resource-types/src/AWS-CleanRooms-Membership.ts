@@ -12,7 +12,9 @@ export type CleanRoomsMembershipProperties = {
    * @pattern `[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`
    */
   CollaborationIdentifier: string;
+  DefaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration;
   DefaultResultConfiguration?: MembershipProtectedQueryResultConfiguration;
+  JobLogStatus?: MembershipJobLogStatus;
   PaymentConfiguration?: MembershipPaymentConfiguration;
   QueryLogStatus: MembershipQueryLogStatus;
   /**
@@ -47,6 +49,18 @@ export type CleanRoomsMembershipAttributes = {
   MembershipIdentifier: string;
 };
 /**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipJobComputePaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipjobcomputepaymentconfig.html}
+ */
+export type MembershipJobComputePaymentConfig = {
+  IsResponsible: boolean;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipJobLogStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipjoblogstatus.html}
+ */
+export type MembershipJobLogStatus = "ENABLED" | "DISABLED";
+/**
  * Type definition for `AWS::CleanRooms::Membership.MembershipMLPaymentConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html}
  */
@@ -73,8 +87,28 @@ export type MembershipModelTrainingPaymentConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html}
  */
 export type MembershipPaymentConfiguration = {
+  JobCompute?: MembershipJobComputePaymentConfig;
   MachineLearning?: MembershipMLPaymentConfig;
   QueryCompute: MembershipQueryComputePaymentConfig;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipProtectedJobOutputConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedjoboutputconfiguration.html}
+ */
+export type MembershipProtectedJobOutputConfiguration = {
+  S3: ProtectedJobS3OutputConfigurationInput;
+};
+/**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipProtectedJobResultConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedjobresultconfiguration.html}
+ */
+export type MembershipProtectedJobResultConfiguration = {
+  OutputConfiguration: MembershipProtectedJobOutputConfiguration;
+  /**
+   * @minLength `32`
+   * @maxLength `512`
+   */
+  RoleArn: string;
 };
 /**
  * Type definition for `AWS::CleanRooms::Membership.MembershipProtectedQueryOutputConfiguration`.
@@ -107,6 +141,18 @@ export type MembershipQueryComputePaymentConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerylogstatus.html}
  */
 export type MembershipQueryLogStatus = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::CleanRooms::Membership.ProtectedJobS3OutputConfigurationInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedjobs3outputconfigurationinput.html}
+ */
+export type ProtectedJobS3OutputConfigurationInput = {
+  /**
+   * @minLength `3`
+   * @maxLength `63`
+   */
+  Bucket: string;
+  KeyPrefix?: string;
+};
 /**
  * Type definition for `AWS::CleanRooms::Membership.ProtectedQueryS3OutputConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html}

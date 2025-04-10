@@ -1,5 +1,5 @@
 {
-  "$hash": "93c58bdb2b48795819e5e464e2aa30d7b4ff07df",
+  "$hash": "15a4ac200adea8460f3f4294f4dcb7f72d49e5f6",
   "$id": "aws-quicksight-analysis.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7725,6 +7725,12 @@
           "maxItems": 100,
           "minItems": 0,
           "type": "array"
+        },
+        "TransposedTableOptions": {
+          "items": { "$ref": "#/definitions/TransposedTableOption" },
+          "maxItems": 10001,
+          "minItems": 0,
+          "type": "array"
         }
       },
       "type": "object"
@@ -8222,6 +8228,23 @@
         "TotalCellStyle": { "$ref": "#/definitions/TableCellStyle" },
         "TotalsVisibility": { "$ref": "#/definitions/Visibility" }
       },
+      "type": "object"
+    },
+    "TransposedColumnType": {
+      "enum": ["ROW_HEADER_COLUMN", "VALUE_COLUMN"],
+      "type": "string"
+    },
+    "TransposedTableOption": {
+      "additionalProperties": false,
+      "properties": {
+        "ColumnIndex": { "maximum": 9999, "minimum": 0, "type": "number" },
+        "ColumnType": { "$ref": "#/definitions/TransposedColumnType" },
+        "ColumnWidth": {
+          "description": "String based length that is composed of value and unit in px",
+          "type": "string"
+        }
+      },
+      "required": ["ColumnType"],
       "type": "object"
     },
     "TreeMapAggregatedFieldWells": {

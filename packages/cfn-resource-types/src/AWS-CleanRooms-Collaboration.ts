@@ -23,6 +23,7 @@ export type CleanRoomsCollaborationProperties = {
    * @pattern `^(?!\s*$)[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDBFF-\uDC00\uDFFF\t\r\n]*$`
    */
   Description: string;
+  JobLogStatus?: CollaborationJobLogStatus;
   /**
    * @minLength `0`
    * @maxLength `9`
@@ -62,6 +63,11 @@ export type CleanRoomsCollaborationAttributes = {
  */
 export type AnalyticsEngine = "CLEAN_ROOMS_SQL" | "SPARK";
 /**
+ * Type definition for `AWS::CleanRooms::Collaboration.CollaborationJobLogStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-collaborationjoblogstatus.html}
+ */
+export type CollaborationJobLogStatus = "ENABLED" | "DISABLED";
+/**
  * Type definition for `AWS::CleanRooms::Collaboration.CollaborationQueryLogStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-collaborationquerylogstatus.html}
  */
@@ -84,10 +90,17 @@ export type DataEncryptionMetadata = {
   PreserveNulls: boolean;
 };
 /**
+ * Type definition for `AWS::CleanRooms::Collaboration.JobComputePaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-jobcomputepaymentconfig.html}
+ */
+export type JobComputePaymentConfig = {
+  IsResponsible: boolean;
+};
+/**
  * Type definition for `AWS::CleanRooms::Collaboration.MemberAbility`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberability.html}
  */
-export type MemberAbility = "CAN_QUERY" | "CAN_RECEIVE_RESULTS";
+export type MemberAbility = "CAN_QUERY" | "CAN_RUN_JOB" | "CAN_RECEIVE_RESULTS";
 /**
  * Type definition for `AWS::CleanRooms::Collaboration.MemberSpecification`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html}
@@ -143,6 +156,7 @@ export type ModelTrainingPaymentConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html}
  */
 export type PaymentConfiguration = {
+  JobCompute?: JobComputePaymentConfig;
   MachineLearning?: MLPaymentConfig;
   QueryCompute: QueryComputePaymentConfig;
 };
