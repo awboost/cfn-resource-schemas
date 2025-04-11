@@ -9,7 +9,6 @@ export type BackupRestoreTestingPlanProperties = {
   RestoreTestingPlanName: string;
   ScheduleExpression: string;
   ScheduleExpressionTimezone?: string;
-  ScheduleStatus?: RestoreTestingScheduleStatus;
   StartWindowHours?: number;
   Tags?: Tag[];
 };
@@ -43,11 +42,6 @@ export type RestoreTestingRecoveryPointSelectionAlgorithm =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingplan-restoretestingrecoverypointtype.html}
  */
 export type RestoreTestingRecoveryPointType = "SNAPSHOT" | "CONTINUOUS";
-/**
- * Type definition for `AWS::Backup::RestoreTestingPlan.RestoreTestingScheduleStatus`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingplan-restoretestingschedulestatus.html}
- */
-export type RestoreTestingScheduleStatus = "ACTIVE" | "SUSPENDED";
 /**
  * Type definition for `AWS::Backup::RestoreTestingPlan.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingplan-tag.html}

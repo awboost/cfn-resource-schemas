@@ -1,10 +1,24 @@
 {
-  "$hash": "c3e926ad83ae43437fb63c61bab31878140025ad",
+  "$hash": "64c6eff4659224c736a2adcc799bd48ecc71e9cd",
   "$id": "aws-qbusiness-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId", "/properties/IndexId"],
   "definitions": {
     "AttributeValueOperator": { "enum": ["DELETE"], "type": "string" },
+    "AudioExtractionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "AudioExtractionStatus": {
+          "$ref": "#/definitions/AudioExtractionStatus"
+        }
+      },
+      "required": ["AudioExtractionStatus"],
+      "type": "object"
+    },
+    "AudioExtractionStatus": {
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
     "DataSourceStatus": {
       "enum": [
         "PENDING_CREATION",
@@ -214,8 +228,14 @@
     "MediaExtractionConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "AudioExtractionConfiguration": {
+          "$ref": "#/definitions/AudioExtractionConfiguration"
+        },
         "ImageExtractionConfiguration": {
           "$ref": "#/definitions/ImageExtractionConfiguration"
+        },
+        "VideoExtractionConfiguration": {
+          "$ref": "#/definitions/VideoExtractionConfiguration"
         }
       },
       "type": "object"
@@ -228,6 +248,20 @@
       },
       "required": ["Key", "Value"],
       "type": "object"
+    },
+    "VideoExtractionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "VideoExtractionStatus": {
+          "$ref": "#/definitions/VideoExtractionStatus"
+        }
+      },
+      "required": ["VideoExtractionStatus"],
+      "type": "object"
+    },
+    "VideoExtractionStatus": {
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
     }
   },
   "description": "Definition of AWS::QBusiness::DataSource Resource Type",

@@ -36,7 +36,7 @@ export type LogsLogGroupProperties = {
       
      For details about the features supported by each class, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html)
      */
-  LogGroupClass?: "STANDARD" | "INFREQUENT_ACCESS";
+  LogGroupClass?: "STANDARD" | "INFREQUENT_ACCESS" | "DELIVERY";
   /**
    * The name of the log group. If you don't specify a name, CFNlong generates a unique ID for the log group.
    * @minLength `1`

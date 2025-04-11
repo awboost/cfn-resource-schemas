@@ -82,6 +82,18 @@ export type QBusinessDataSourceAttributes = {
  */
 export type AttributeValueOperator = "DELETE";
 /**
+ * Type definition for `AWS::QBusiness::DataSource.AudioExtractionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-audioextractionconfiguration.html}
+ */
+export type AudioExtractionConfiguration = {
+  AudioExtractionStatus: AudioExtractionStatus;
+};
+/**
+ * Type definition for `AWS::QBusiness::DataSource.AudioExtractionStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-audioextractionstatus.html}
+ */
+export type AudioExtractionStatus = "ENABLED" | "DISABLED";
+/**
  * Type definition for `AWS::QBusiness::DataSource.DataSourceStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-datasourcestatus.html}
  */
@@ -237,7 +249,9 @@ export type InlineDocumentEnrichmentConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html}
  */
 export type MediaExtractionConfiguration = {
+  AudioExtractionConfiguration?: AudioExtractionConfiguration;
   ImageExtractionConfiguration?: ImageExtractionConfiguration;
+  VideoExtractionConfiguration?: VideoExtractionConfiguration;
 };
 /**
  * Type definition for `AWS::QBusiness::DataSource.Tag`.
@@ -255,6 +269,18 @@ export type Tag = {
    */
   Value: string;
 };
+/**
+ * Type definition for `AWS::QBusiness::DataSource.VideoExtractionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-videoextractionconfiguration.html}
+ */
+export type VideoExtractionConfiguration = {
+  VideoExtractionStatus: VideoExtractionStatus;
+};
+/**
+ * Type definition for `AWS::QBusiness::DataSource.VideoExtractionStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-videoextractionstatus.html}
+ */
+export type VideoExtractionStatus = "ENABLED" | "DISABLED";
 /**
  * Definition of AWS::QBusiness::DataSource Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html}
