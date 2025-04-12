@@ -1,21 +1,44 @@
 {
-  "$hash": "36f2837aeddfb5e8d5d646b09ab3129884436202",
+  "$hash": "37f34886a31a3f69485b797868d623047e6774e5",
   "$id": "aws-macie-session.json",
   "additionalProperties": false,
   "description": "The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.",
   "handlers": {
     "create": {
-      "permissions": ["macie2:GetMacieSession", "macie2:EnableMacie"]
+      "permissions": [
+        "macie2:GetMacieSession",
+        "macie2:EnableMacie",
+        "macie2:ListAutomatedDiscoveryAccounts"
+      ]
     },
     "delete": { "permissions": ["macie2:DisableMacie"] },
-    "list": { "permissions": ["macie2:GetMacieSession"] },
-    "read": { "permissions": ["macie2:GetMacieSession"] },
+    "list": {
+      "permissions": [
+        "macie2:GetMacieSession",
+        "macie2:ListAutomatedDiscoveryAccounts"
+      ]
+    },
+    "read": {
+      "permissions": [
+        "macie2:GetMacieSession",
+        "macie2:ListAutomatedDiscoveryAccounts"
+      ]
+    },
     "update": {
-      "permissions": ["macie2:GetMacieSession", "macie2:UpdateMacieSession"]
+      "permissions": [
+        "macie2:GetMacieSession",
+        "macie2:UpdateMacieSession",
+        "macie2:ListAutomatedDiscoveryAccounts"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/AwsAccountId"],
   "properties": {
+    "AutomatedDiscoveryStatus": {
+      "description": "The status of automated sensitive data discovery for the Macie session.",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
     "AwsAccountId": {
       "description": "AWS account ID of customer",
       "type": "string"
@@ -37,7 +60,11 @@
       "type": "string"
     }
   },
-  "readOnlyProperties": ["/properties/AwsAccountId", "/properties/ServiceRole"],
+  "readOnlyProperties": [
+    "/properties/AwsAccountId",
+    "/properties/ServiceRole",
+    "/properties/AutomatedDiscoveryStatus"
+  ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-macie.git",
   "tagging": {
     "cloudFormationSystemTags": false,

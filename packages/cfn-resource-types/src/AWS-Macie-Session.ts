@@ -20,6 +20,10 @@ export type MacieSessionProperties = {
  */
 export type MacieSessionAttributes = {
   /**
+   * The status of automated sensitive data discovery for the Macie session.
+   */
+  AutomatedDiscoveryStatus: "ENABLED" | "DISABLED";
+  /**
    * AWS account ID of customer
    */
   AwsAccountId: string;

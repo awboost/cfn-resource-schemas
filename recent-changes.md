@@ -1,14 +1,4 @@
-- updated `AWS::Backup::RestoreTestingPlan`
-  - removed definition `RestoreTestingScheduleStatus`
-  - removed property `ScheduleStatus`
+- updated `AWS::Macie::Session`
+  - added property `AutomatedDiscoveryStatus`
+  - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::Connect::Prompt`
-  - updated `tagging`
-- updated `AWS::Logs::LogGroup`
-  - updated property `LogGroupClass`
-- updated `AWS::QBusiness::DataSource`
-  - added definition `AudioExtractionConfiguration`
-  - added definition `AudioExtractionStatus`
-  - added definition `VideoExtractionConfiguration`
-  - added definition `VideoExtractionStatus`
-  - updated definition `MediaExtractionConfiguration`
