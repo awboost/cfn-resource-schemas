@@ -202,7 +202,9 @@ export type S3LogsConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-scopeconfiguration.html}
  */
 export type ScopeConfiguration = {
+  Domain?: string;
   Name: string;
+  Scope?: string;
 };
 /**
  * Type definition for `AWS::CodeBuild::Project.Source`.

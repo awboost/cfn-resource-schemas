@@ -1,10 +1,11 @@
 {
-  "$hash": "8c4c3e893d3b9eb29fb8ac48934c57bc441660f3",
+  "$hash": "cd28a9defc249d81991018d3599df89327686bb3",
   "$id": "aws-dms-replicationinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/KmsKeyId",
     "/properties/ResourceIdentifier",
+    "/properties/DnsNameServers",
     "/properties/ReplicationSubnetGroupIdentifier",
     "/properties/PubliclyAccessible"
   ],
@@ -26,6 +27,7 @@
     "AllowMajorVersionUpgrade": { "type": "boolean" },
     "AutoMinorVersionUpgrade": { "type": "boolean" },
     "AvailabilityZone": { "type": "string" },
+    "DnsNameServers": { "type": "string" },
     "EngineVersion": { "type": "string" },
     "Id": { "type": "string" },
     "KmsKeyId": { "type": "string" },

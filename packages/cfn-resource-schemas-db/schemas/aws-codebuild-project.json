@@ -1,5 +1,5 @@
 {
-  "$hash": "e7dc36bef094fd86ed095126c67f0e8eb77269b6",
+  "$hash": "e43069c10dedc93ee445eebca72a2a2b88e31624",
   "$id": "aws-codebuild-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -182,7 +182,11 @@
     },
     "ScopeConfiguration": {
       "additionalProperties": false,
-      "properties": { "Name": { "type": "string" } },
+      "properties": {
+        "Domain": { "type": "string" },
+        "Name": { "type": "string" },
+        "Scope": { "type": "string" }
+      },
       "required": ["Name"],
       "type": "object"
     },

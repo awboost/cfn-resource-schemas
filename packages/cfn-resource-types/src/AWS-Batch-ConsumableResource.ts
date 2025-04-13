@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type schema for AWS::Batch::ConsumableResource
+ * Resource Type definition for AWS::Batch::ConsumableResource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-consumableresource.html}
  */
 export type BatchConsumableResourceProperties = {
@@ -49,7 +49,7 @@ export type BatchConsumableResourceAttributes = {
  */
 export type ResourceType = "REPLENISHABLE" | "NON_REPLENISHABLE";
 /**
- * Resource Type schema for AWS::Batch::ConsumableResource
+ * Resource Type definition for AWS::Batch::ConsumableResource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-consumableresource.html}
  */
 export class BatchConsumableResource extends $Resource<

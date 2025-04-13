@@ -1,5 +1,5 @@
 {
-  "$hash": "cb148b97765ca4344acee11665aa26882aa66c2e",
+  "$hash": "426b718da3d3943b3dd43096e5d1a04b78582b66",
   "$id": "aws-batch-jobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/JobDefinitionName"],
@@ -39,6 +39,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "EnableExecuteCommand": { "type": "boolean" },
         "Environment": {
           "insertionOrder": true,
           "items": { "$ref": "#/definitions/Environment" },
@@ -160,6 +161,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "EnableExecuteCommand": { "type": "boolean" },
         "EphemeralStorage": { "$ref": "#/definitions/EphemeralStorage" },
         "ExecutionRoleArn": { "type": "string" },
         "IpcMode": { "type": "string" },
@@ -469,6 +471,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "EnableExecuteCommand": { "type": "boolean" },
         "Environment": {
           "insertionOrder": true,
           "items": { "$ref": "#/definitions/Environment" },
@@ -547,6 +550,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "EnableExecuteCommand": { "type": "boolean" },
         "ExecutionRoleArn": { "type": "string" },
         "IpcMode": { "type": "string" },
         "PidMode": { "type": "string" },
@@ -675,6 +679,19 @@
           "uniqueItems": false
         },
         "Essential": { "type": "boolean" },
+        "FirelensConfiguration": {
+          "additionalProperties": false,
+          "properties": {
+            "Options": {
+              "additionalProperties": false,
+              "patternProperties": { ".*": { "type": "string" } },
+              "type": "object"
+            },
+            "Type": { "type": "string" }
+          },
+          "required": ["Type"],
+          "type": "object"
+        },
         "Image": { "type": "string" },
         "LinuxParameters": { "$ref": "#/definitions/LinuxParameters" },
         "LogConfiguration": { "$ref": "#/definitions/LogConfiguration" },
@@ -819,7 +836,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
-    "permissions": ["Batch:TagResource", "Batch:UntagResource"],
+    "permissions": ["Batch:TagResource", "Batch:UnTagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

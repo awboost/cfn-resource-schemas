@@ -1,5 +1,5 @@
 {
-  "$hash": "1e9a023575a2d101e7e6a533dc042fb93f51aaf2",
+  "$hash": "469896558c3411b71c0ef2b1e367d6f6ade9a03c",
   "$id": "aws-batch-consumableresource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -18,7 +18,7 @@
       "type": "string"
     }
   },
-  "description": "Resource Type schema for AWS::Batch::ConsumableResource",
+  "description": "Resource Type definition for AWS::Batch::ConsumableResource",
   "handlers": {
     "create": {
       "permissions": ["Batch:CreateConsumableResource", "Batch:TagResource"]

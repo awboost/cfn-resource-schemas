@@ -21,6 +21,7 @@ export type TransferWebAppProperties = {
    */
   Tags?: Tag[];
   WebAppCustomization?: WebAppCustomization;
+  WebAppEndpointPolicy?: WebAppEndpointPolicy;
   /**
    * A union that contains the value for number of concurrent connections or the user sessions on your web app.
    */
@@ -119,6 +120,11 @@ export type WebAppCustomization = {
    */
   Title?: string;
 };
+/**
+ * Type definition for `AWS::Transfer::WebApp.WebAppEndpointPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-webappendpointpolicy.html}
+ */
+export type WebAppEndpointPolicy = "STANDARD" | "FIPS";
 /**
  * Type definition for `AWS::Transfer::WebApp.WebAppUnits`.
  * A union that contains the value for number of concurrent connections or the user sessions on your web app.

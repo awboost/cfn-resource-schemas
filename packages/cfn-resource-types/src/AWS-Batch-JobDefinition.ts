@@ -58,6 +58,7 @@ export type ConsumableResourceRequirement = {
  */
 export type ContainerProperties = {
   Command?: string[];
+  EnableExecuteCommand?: boolean;
   Environment?: Environment[];
   EphemeralStorage?: EphemeralStorage;
   ExecutionRoleArn?: string;
@@ -104,6 +105,7 @@ export type EcsProperties = {
  */
 export type EcsTaskProperties = {
   Containers?: TaskContainerProperties[];
+  EnableExecuteCommand?: boolean;
   EphemeralStorage?: EphemeralStorage;
   ExecutionRoleArn?: string;
   IpcMode?: string;
@@ -341,6 +343,7 @@ export type MountPoint = {
  */
 export type MultiNodeContainerProperties = {
   Command?: string[];
+  EnableExecuteCommand?: boolean;
   Environment?: Environment[];
   EphemeralStorage?: EphemeralStorage;
   ExecutionRoleArn?: string;
@@ -375,6 +378,7 @@ export type MultiNodeEcsProperties = {
  */
 export type MultiNodeEcsTaskProperties = {
   Containers?: TaskContainerProperties[];
+  EnableExecuteCommand?: boolean;
   ExecutionRoleArn?: string;
   IpcMode?: string;
   PidMode?: string;
@@ -465,6 +469,10 @@ export type TaskContainerProperties = {
   DependsOn?: TaskContainerDependency[];
   Environment?: Environment[];
   Essential?: boolean;
+  FirelensConfiguration?: {
+    Options?: Record<string, string>;
+    Type: string;
+  };
   Image: string;
   LinuxParameters?: LinuxParameters;
   LogConfiguration?: LogConfiguration;

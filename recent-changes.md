@@ -1,4 +1,37 @@
-- updated `AWS::Macie::Session`
-  - added property `AutomatedDiscoveryStatus`
-  - updated `readOnlyProperties`
+- updated `AWS::Batch::ComputeEnvironment`
+  - updated `tagging`
+- updated `AWS::Batch::ConsumableResource`
+- updated `AWS::Batch::JobDefinition`
+  - updated `tagging`
+  - updated definition `ContainerProperties`
+  - updated definition `EcsTaskProperties`
+  - updated definition `MultiNodeContainerProperties`
+  - updated definition `MultiNodeEcsTaskProperties`
+  - updated definition `TaskContainerProperties`
+- updated `AWS::CodeBuild::Project`
+  - updated definition `ScopeConfiguration`
+- updated `AWS::DMS::ReplicationInstance`
+  - added property `DnsNameServers`
+  - updated `createOnlyProperties`
+- updated `AWS::EC2::VPCEndpoint`
+  - added property `ServiceRegion`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated definition `DnsOptionsSpecification`
+  - updated definition `Tag`
   - updated handler permissions
+  - updated property `DnsOptions`
+  - updated property `IpAddressType`
+  - updated property `ResourceConfigurationArn`
+  - updated property `ServiceNetworkArn`
+  - updated property `Tags`
+- updated `AWS::ImageBuilder::Component`
+  - updated `writeOnlyProperties`
+- updated `AWS::PaymentCryptography::Key`
+  - added definition `DeriveKeyUsage`
+  - added property `DeriveKeyUsage`
+  - updated definition `KeyCheckValueAlgorithm`
+- updated `AWS::Transfer::WebApp`
+  - added definition `WebAppEndpointPolicy`
+  - added property `WebAppEndpointPolicy`
+  - updated `createOnlyProperties`

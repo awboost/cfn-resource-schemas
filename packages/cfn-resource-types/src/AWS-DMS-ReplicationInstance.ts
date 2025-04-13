@@ -9,6 +9,7 @@ export type DMSReplicationInstanceProperties = {
   AllowMajorVersionUpgrade?: boolean;
   AutoMinorVersionUpgrade?: boolean;
   AvailabilityZone?: string;
+  DnsNameServers?: string;
   EngineVersion?: string;
   KmsKeyId?: string;
   MultiAZ?: boolean;

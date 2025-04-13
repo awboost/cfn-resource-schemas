@@ -9,7 +9,13 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html}
  */
 export type EC2VPCEndpointProperties = {
+  /**
+   * Describes the DNS options for an endpoint.
+   */
   DnsOptions?: DnsOptionsSpecification;
+  /**
+   * The supported IP address types.
+   */
   IpAddressType?: "ipv4" | "ipv6" | "dualstack" | "not-specified";
   /**
      * An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
@@ -24,6 +30,9 @@ export type EC2VPCEndpointProperties = {
      Default: ``false``
      */
   PrivateDnsEnabled?: boolean;
+  /**
+   * The Amazon Resource Name (ARN) of the resource configuration.
+   */
   ResourceConfigurationArn?: string;
   /**
    * The IDs of the route tables. Routing is supported only for gateway endpoints.
@@ -37,11 +46,18 @@ export type EC2VPCEndpointProperties = {
    * The name of the endpoint service.
    */
   ServiceName?: string;
+  /**
+   * The Amazon Resource Name (ARN) of the service network.
+   */
   ServiceNetworkArn?: string;
+  ServiceRegion?: string;
   /**
    * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
    */
   SubnetIds?: string[];
+  /**
+   * The tags to associate with the endpoint.
+   */
   Tags?: Tag[];
   /**
      * The type of endpoint.
@@ -70,15 +86,22 @@ export type EC2VPCEndpointAttributes = {
 };
 /**
  * Type definition for `AWS::EC2::VPCEndpoint.DnsOptionsSpecification`.
+ * Describes the DNS options for an endpoint.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html}
  */
 export type DnsOptionsSpecification = {
+  /**
+   * The DNS records created for the endpoint.
+   */
   DnsRecordIpType?:
     | "ipv4"
     | "ipv6"
     | "dualstack"
     | "service-defined"
     | "not-specified";
+  /**
+   * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
+   */
   PrivateDnsOnlyForInboundResolverEndpoint?:
     | "OnlyInboundResolver"
     | "AllResolvers"
@@ -86,10 +109,19 @@ export type DnsOptionsSpecification = {
 };
 /**
  * Type definition for `AWS::EC2::VPCEndpoint.Tag`.
+ * Describes a tag.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-tag.html}
  */
 export type Tag = {
+  /**
+     * The key of the tag.
+     Constraints: Tag keys are case-sensitive and accept a maximum of 127 Unicode characters. May not begin with ``aws:``.
+     */
   Key: string;
+  /**
+     * The value of the tag.
+     Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.
+     */
   Value: string;
 };
 /**

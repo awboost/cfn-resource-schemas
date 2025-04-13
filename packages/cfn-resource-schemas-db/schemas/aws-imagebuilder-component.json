@@ -1,5 +1,5 @@
 {
-  "$hash": "92f195fd6174b376f4ef6cebb51a893123e4f8aa",
+  "$hash": "928c4c5e294d93441d1b3956872920b21b3f19f6",
   "$id": "aws-imagebuilder-component.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -129,9 +129,5 @@
     "taggable": true
   },
   "typeName": "AWS::ImageBuilder::Component",
-  "writeOnlyProperties": [
-    "/properties/Data",
-    "/properties/Uri",
-    "/properties/Platform"
-  ]
+  "writeOnlyProperties": ["/properties/Data", "/properties/Uri"]
 }
