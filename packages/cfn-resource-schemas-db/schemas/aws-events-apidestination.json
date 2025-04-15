@@ -1,5 +1,5 @@
 {
-  "$hash": "0f757604ef58034906b08f55a72b4e72d75aff33",
+  "$hash": "56e10dcfefc5670140196f381990a8d309ac52b9",
   "$id": "aws-events-apidestination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -33,6 +33,11 @@
       "pattern": "^arn:aws([a-z]|\\-)*:events:([a-z]|\\d|\\-)*:([0-9]{12})?:api-destination/[\\.\\-_A-Za-z0-9]+/[\\-A-Za-z0-9]+$",
       "type": "string"
     },
+    "ArnForPolicy": {
+      "description": "The arn of the api destination to be used in IAM policies.",
+      "pattern": "^arn:aws([a-z]|\\-)*:events:([a-z]|\\d|\\-)*:([0-9]{12})?:api-destination/[\\.\\-_A-Za-z0-9]+$",
+      "type": "string"
+    },
     "ConnectionArn": {
       "description": "The arn of the connection.",
       "pattern": "^arn:aws([a-z]|\\-)*:events:([a-z]|\\d|\\-)*:([0-9]{12})?:connection/[\\.\\-_A-Za-z0-9]+/[\\-A-Za-z0-9]+$",
@@ -57,7 +62,7 @@
       "type": "string"
     }
   },
-  "readOnlyProperties": ["/properties/Arn"],
+  "readOnlyProperties": ["/properties/Arn", "/properties/ArnForPolicy"],
   "required": ["ConnectionArn", "InvocationEndpoint", "HttpMethod"],
   "tagging": {
     "cloudFormationSystemTags": false,

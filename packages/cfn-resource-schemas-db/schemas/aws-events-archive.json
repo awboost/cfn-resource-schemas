@@ -1,20 +1,34 @@
 {
-  "$hash": "090bf5ffe637bffb20c56eaac0adae255c6a0ef6",
+  "$hash": "3bd684dd6c5cc8d45e18caa8a26549f83aa63e82",
   "$id": "aws-events-archive.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ArchiveName", "/properties/SourceArn"],
   "description": "Resource Type definition for AWS::Events::Archive",
   "handlers": {
     "create": {
-      "permissions": ["events:DescribeArchive", "events:CreateArchive"]
+      "permissions": [
+        "events:DescribeArchive",
+        "events:CreateArchive",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ]
     },
     "delete": {
       "permissions": ["events:DescribeArchive", "events:DeleteArchive"]
     },
     "list": { "permissions": ["events:ListArchives"] },
-    "read": { "permissions": ["events:DescribeArchive"] },
+    "read": { "permissions": ["events:DescribeArchive", "kms:Decrypt"] },
     "update": {
-      "permissions": ["events:DescribeArchive", "events:UpdateArchive"]
+      "permissions": [
+        "events:DescribeArchive",
+        "events:UpdateArchive",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:Decrypt",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/ArchiveName"],
@@ -31,6 +45,7 @@
     },
     "Description": { "type": "string" },
     "EventPattern": { "type": "object" },
+    "KmsKeyIdentifier": { "maxLength": 2048, "minLength": 0, "type": "string" },
     "RetentionDays": { "type": "integer" },
     "SourceArn": { "type": "string" }
   },

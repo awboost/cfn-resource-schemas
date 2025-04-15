@@ -13,6 +13,11 @@ export type EventsArchiveProperties = {
   ArchiveName?: string;
   Description?: string;
   EventPattern?: Record<string, any>;
+  /**
+   * @minLength `0`
+   * @maxLength `2048`
+   */
+  KmsKeyIdentifier?: string;
   RetentionDays?: number;
   SourceArn: string;
 };

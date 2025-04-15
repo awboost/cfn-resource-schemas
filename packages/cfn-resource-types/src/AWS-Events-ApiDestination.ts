@@ -42,6 +42,11 @@ export type EventsApiDestinationAttributes = {
    * @pattern `^arn:aws([a-z]|\-)*:events:([a-z]|\d|\-)*:([0-9]{12})?:api-destination/[\.\-_A-Za-z0-9]+/[\-A-Za-z0-9]+$`
    */
   Arn: string;
+  /**
+   * The arn of the api destination to be used in IAM policies.
+   * @pattern `^arn:aws([a-z]|\-)*:events:([a-z]|\d|\-)*:([0-9]{12})?:api-destination/[\.\-_A-Za-z0-9]+$`
+   */
+  ArnForPolicy: string;
 };
 /**
  * Resource Type definition for AWS::Events::ApiDestination.
