@@ -22,7 +22,7 @@ export type LaunchWizardDeploymentProperties = {
   /**
    * LaunchWizard deployment specifications
    */
-  Specifications: DeploymentSpecifications;
+  Specifications?: DeploymentSpecifications;
   /**
    * Tags for LaunchWizard deployment
    */

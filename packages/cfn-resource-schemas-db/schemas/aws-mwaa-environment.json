@@ -1,5 +1,5 @@
 {
-  "$hash": "f0eb6176be9682fd354d831ef3e7b62b319792c6",
+  "$hash": "5d1c9015bddefa6076503aee4191d9078e7c1eb0",
   "$id": "aws-mwaa-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -318,17 +318,62 @@
   "description": "Resource schema for AWS::MWAA::Environment",
   "handlers": {
     "create": {
-      "permissions": ["airflow:CreateEnvironment"],
+      "permissions": [
+        "airflow:GetEnvironment",
+        "airflow:CreateEnvironment",
+        "airflow:TagResource",
+        "airflow:UntagResource",
+        "iam:PassRole",
+        "iam:ListRoles",
+        "iam:CreatePolicy",
+        "iam:AttachRolePolicy",
+        "iam:CreateRole",
+        "iam:CreateServiceLinkedRole",
+        "s3:GetBucketLocation",
+        "s3:ListAllMyBuckets",
+        "s3:ListBucket",
+        "s3:ListBucketVersions",
+        "s3:CreateBucket",
+        "s3:PutObject",
+        "s3:GetEncryptionConfiguration",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeRouteTables",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateSecurityGroup",
+        "ec2:CreateVpcEndpoint",
+        "ec2:CreateNetworkInterface",
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:ListAliases"
+      ],
       "timeoutInMinutes": 180
     },
-    "delete": { "permissions": ["airflow:DeleteEnvironment"] },
+    "delete": {
+      "permissions": ["airflow:GetEnvironment", "airflow:DeleteEnvironment"]
+    },
     "list": { "permissions": ["airflow:ListEnvironments"] },
     "read": { "permissions": ["airflow:GetEnvironment"] },
     "update": {
       "permissions": [
+        "airflow:GetEnvironment",
         "airflow:UpdateEnvironment",
         "airflow:TagResource",
-        "airflow:UntagResource"
+        "airflow:UntagResource",
+        "iam:PassRole",
+        "iam:ListRoles",
+        "iam:AttachRolePolicy",
+        "s3:GetBucketLocation",
+        "s3:ListBucket",
+        "s3:ListBucketVersions",
+        "s3:GetEncryptionConfiguration",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeRouteTables",
+        "kms:DescribeKey",
+        "kms:ListAliases"
       ],
       "timeoutInMinutes": 480
     }

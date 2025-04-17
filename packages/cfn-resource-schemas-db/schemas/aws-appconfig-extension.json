@@ -1,13 +1,8 @@
 {
-  "$hash": "6036390e1b059c48e4e998baf7a249688e49c459",
+  "$hash": "e3246360d62b957ddd36b0f50a8409725bdee662",
   "$id": "aws-appconfig-extension.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/Name",
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value"
-  ],
+  "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "Action": {
       "additionalProperties": false,
@@ -98,7 +93,9 @@
       "permissions": ["appconfig:DeleteExtension", "appconfig:UntagResource"]
     },
     "list": { "permissions": ["appconfig:ListExtensions"] },
-    "read": { "permissions": ["appconfig:GetExtension"] },
+    "read": {
+      "permissions": ["appconfig:GetExtension", "appconfig:ListTagsForResource"]
+    },
     "update": {
       "permissions": [
         "appconfig:UpdateExtension",
@@ -132,7 +129,7 @@
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
-      "uniqueItems": false
+      "uniqueItems": true
     },
     "VersionNumber": { "type": "integer" }
   },
@@ -156,10 +153,5 @@
     "taggable": true
   },
   "typeName": "AWS::AppConfig::Extension",
-  "writeOnlyProperties": [
-    "/properties/LatestVersionNumber",
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value"
-  ]
+  "writeOnlyProperties": ["/properties/LatestVersionNumber"]
 }

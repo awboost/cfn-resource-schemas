@@ -52,7 +52,7 @@ export type IngressAnalysis = {
   /**
    * @minLength `1`
    * @maxLength `256`
-   * @pattern `^[\sa-zA-Z0-9_]+$`
+   * @pattern `^(addon\.)?[\sa-zA-Z0-9_]+$`
    */
   ResultField: string;
 };
@@ -103,6 +103,27 @@ export type IngressIpv4Expression = {
   Values: string[];
 };
 /**
+ * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressIpv6Attribute`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv6attribute.html}
+ */
+export type IngressIpv6Attribute = "SENDER_IPV6";
+/**
+ * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressIpv6Expression`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv6expression.html}
+ */
+export type IngressIpv6Expression = {
+  Evaluate: IngressIpv6ToEvaluate;
+  Operator: IngressIpOperator;
+  Values: string[];
+};
+/**
+ * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressIpv6ToEvaluate`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv6toevaluate.html}
+ */
+export type IngressIpv6ToEvaluate = {
+  Attribute: IngressIpv6Attribute;
+};
+/**
  * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressStringEmailAttribute`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringemailattribute.html}
  */
@@ -130,9 +151,13 @@ export type IngressStringOperator =
  * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressStringToEvaluate`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html}
  */
-export type IngressStringToEvaluate = {
-  Attribute: IngressStringEmailAttribute;
-};
+export type IngressStringToEvaluate =
+  | {
+      Attribute: IngressStringEmailAttribute;
+    }
+  | {
+      Analysis: IngressAnalysis;
+    };
 /**
  * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressTlsAttribute`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingresstlsattribute.html}
@@ -174,6 +199,9 @@ export type PolicyCondition =
     }
   | {
       IpExpression: IngressIpv4Expression;
+    }
+  | {
+      Ipv6Expression: IngressIpv6Expression;
     }
   | {
       TlsExpression: IngressTlsProtocolExpression;

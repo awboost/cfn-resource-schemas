@@ -12,6 +12,7 @@ export type SESMailManagerIngressPointProperties = {
    * @pattern `^[A-Za-z0-9_\-]+$`
    */
   IngressPointName?: string;
+  NetworkConfiguration?: NetworkConfiguration;
   /**
    * @minLength `1`
    * @maxLength `100`
@@ -84,6 +85,34 @@ export type IngressPointStatusToUpdate = "ACTIVE" | "CLOSED";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointtype.html}
  */
 export type IngressPointType = "OPEN" | "AUTH";
+/**
+ * Type definition for `AWS::SES::MailManagerIngressPoint.NetworkConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-networkconfiguration.html}
+ */
+export type NetworkConfiguration =
+  | {
+      PublicNetworkConfiguration: PublicNetworkConfiguration;
+    }
+  | {
+      PrivateNetworkConfiguration: PrivateNetworkConfiguration;
+    };
+/**
+ * Type definition for `AWS::SES::MailManagerIngressPoint.PrivateNetworkConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-privatenetworkconfiguration.html}
+ */
+export type PrivateNetworkConfiguration = {
+  /**
+   * @pattern `^vpce-[a-zA-Z0-9]{17}$`
+   */
+  VpcEndpointId: string;
+};
+/**
+ * Type definition for `AWS::SES::MailManagerIngressPoint.PublicNetworkConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-publicnetworkconfiguration.html}
+ */
+export type PublicNetworkConfiguration = {
+  IpType: any;
+};
 /**
  * Type definition for `AWS::SES::MailManagerIngressPoint.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-tag.html}

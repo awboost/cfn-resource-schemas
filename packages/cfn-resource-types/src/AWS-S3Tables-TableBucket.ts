@@ -7,6 +7,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type S3TablesTableBucketProperties = {
   /**
+   * Specifies encryption settings for the table bucket
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+  /**
    * A name for the table bucket.
    * @minLength `3`
    * @maxLength `63`
@@ -26,6 +30,21 @@ export type S3TablesTableBucketAttributes = {
    * The Amazon Resource Name (ARN) of the specified table bucket.
    */
   TableBucketARN: string;
+};
+/**
+ * Type definition for `AWS::S3Tables::TableBucket.EncryptionConfiguration`.
+ * Specifies encryption settings for the table bucket
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-encryptionconfiguration.html}
+ */
+export type EncryptionConfiguration = {
+  /**
+   * ARN of the KMS key to use for encryption
+   */
+  KMSKeyArn?: string;
+  /**
+   * Server-side encryption algorithm
+   */
+  SSEAlgorithm?: "AES256" | "aws:kms";
 };
 /**
  * Type definition for `AWS::S3Tables::TableBucket.UnreferencedFileRemoval`.

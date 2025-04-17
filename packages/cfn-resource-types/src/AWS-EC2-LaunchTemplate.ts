@@ -273,7 +273,7 @@ export type Ebs = {
 };
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.ElasticGpuSpecification`.
- * Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+ * Amazon Elastic Graphics reached end of life on January 8, 2024.
   Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
   ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html}
@@ -427,7 +427,6 @@ export type InstanceRequirements = {
      * The accelerator types that must be on the instance type.
       +  For instance types with FPGA accelerators, specify ``fpga``.
       +  For instance types with GPU accelerators, specify ``gpu``.
-      +  For instance types with Inference accelerators, specify ``inference``.
       
      Default: Any accelerator type
      */
@@ -643,14 +642,13 @@ export type LaunchTemplateData = {
   EbsOptimized?: boolean;
   /**
      * Deprecated.
-      Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
+      Amazon Elastic Graphics reached end of life on January 8, 2024.
      */
   ElasticGpuSpecifications?: ElasticGpuSpecification[];
   /**
      * Amazon Elastic Inference is no longer available.
       An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
      You cannot specify accelerators from different generations in the same request.
-      Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
      */
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[];
   /**
@@ -774,7 +772,8 @@ export type LaunchTemplateData = {
 };
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.LaunchTemplateElasticInferenceAccelerator`.
- * Specifies an elastic inference accelerator.
+ * Amazon Elastic Inference is no longer available.
+  Specifies an elastic inference accelerator.
   ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html}
  */
@@ -954,7 +953,7 @@ export type NetworkInterface = {
    */
   Description?: string;
   /**
-     * The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+     * The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.
      If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
      */
   DeviceIndex?: number;
@@ -1043,12 +1042,14 @@ export type NetworkInterfaceCount = {
 };
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.NetworkPerformanceOptions`.
+ * Contains settings for the network performance options for the instance.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkperformanceoptions.html}
  */
 export type NetworkPerformanceOptions = {
   /**
-   * Specifies the performance options of your instance or sets it to default.
-   */
+     * Specify the bandwidth weighting option to boost the associated type of baseline bandwidth, as follows:
+      + default This option uses the standard bandwidth configuration for your instance type. + vpc-1 This option boosts your networking baseline bandwidth and reduces your EBS baseline bandwidth. + ebs-1 This option boosts your EBS baseline bandwidth and reduces your networking baseline bandwidth.
+     */
   BandwidthWeighting?: string;
 };
 /**

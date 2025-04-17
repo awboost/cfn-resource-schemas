@@ -1,5 +1,5 @@
 {
-  "$hash": "14346fb65364219ff569a57c0e3ce01f63fb0b54",
+  "$hash": "83fcbe4937ead585d8fe324f81d1843bcf64a76c",
   "$id": "aws-wafv2-webaclassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn", "/properties/WebACLArn"],
@@ -14,6 +14,8 @@
         "wafv2:GetWebACLForResource",
         "wafv2:GetWebACL",
         "wafv2:DisassociateWebACL",
+        "wafv2:PutPermissionPolicy",
+        "wafv2:GetPermissionPolicy",
         "elasticloadbalancing:SetWebACL",
         "apigateway:SetWebACL",
         "appsync:SetWebACL",
@@ -26,7 +28,9 @@
         "ec2:AssociateVerifiedAccessInstanceWebAcl",
         "ec2:DisassociateVerifiedAccessInstanceWebAcl",
         "ec2:DescribeVerifiedAccessInstanceWebAclAssociations",
-        "ec2:GetVerifiedAccessInstanceWebAcl"
+        "ec2:GetVerifiedAccessInstanceWebAcl",
+        "amplify:AssociateWebACL",
+        "amplify:GetWebACLForResource"
       ]
     },
     "delete": {
@@ -35,6 +39,7 @@
         "wafv2:GetWebACLForResource",
         "wafv2:GetWebACL",
         "wafv2:DisassociateWebACL",
+        "wafv2:PutPermissionPolicy",
         "elasticloadbalancing:SetWebACL",
         "apigateway:SetWebACL",
         "appsync:SetWebACL",
@@ -47,7 +52,9 @@
         "ec2:AssociateVerifiedAccessInstanceWebAcl",
         "ec2:DisassociateVerifiedAccessInstanceWebAcl",
         "ec2:DescribeVerifiedAccessInstanceWebAclAssociations",
-        "ec2:GetVerifiedAccessInstanceWebAcl"
+        "ec2:GetVerifiedAccessInstanceWebAcl",
+        "amplify:DisassociateWebACL",
+        "amplify:GetWebACLForResource"
       ]
     },
     "read": {
@@ -68,7 +75,8 @@
         "ec2:AssociateVerifiedAccessInstanceWebAcl",
         "ec2:DisassociateVerifiedAccessInstanceWebAcl",
         "ec2:DescribeVerifiedAccessInstanceWebAclAssociations",
-        "ec2:GetVerifiedAccessInstanceWebAcl"
+        "ec2:GetVerifiedAccessInstanceWebAcl",
+        "amplify:GetWebACLForResource"
       ]
     },
     "update": {

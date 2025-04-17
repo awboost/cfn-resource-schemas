@@ -68,7 +68,7 @@ export type Analysis = {
   /**
    * @minLength `1`
    * @maxLength `256`
-   * @pattern `^[\sa-zA-Z0-9_]+$`
+   * @pattern `^(addon\.)?[\sa-zA-Z0-9_]+$`
    */
   ResultField: string;
 };
@@ -248,9 +248,13 @@ export type RuleBooleanOperator = "IS_TRUE" | "IS_FALSE";
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleBooleanToEvaluate`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleantoevaluate.html}
  */
-export type RuleBooleanToEvaluate = {
-  Attribute: RuleBooleanEmailAttribute;
-};
+export type RuleBooleanToEvaluate =
+  | {
+      Attribute: RuleBooleanEmailAttribute;
+    }
+  | {
+      Analysis: Analysis;
+    };
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleCondition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html}
@@ -407,6 +411,9 @@ export type RuleStringToEvaluate =
        * @pattern `^X-[a-zA-Z0-9-]{1,256}$`
        */
       MimeHeaderAttribute: string;
+    }
+  | {
+      Analysis: Analysis;
     };
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleVerdict`.

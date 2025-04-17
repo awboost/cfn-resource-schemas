@@ -1,5 +1,5 @@
 {
-  "$hash": "e336aef43b491a620e6495f9c58fb48eb4034265",
+  "$hash": "9599721428aac94dbc0be31821157e23004b4b86",
   "$id": "aws-launchwizard-deployment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -225,14 +225,14 @@
     "/properties/ResourceGroup",
     "/properties/Status"
   ],
-  "required": [
-    "DeploymentPatternName",
-    "Name",
-    "Specifications",
-    "WorkloadName"
-  ],
+  "required": ["DeploymentPatternName", "Name", "WorkloadName"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "launchwizard:ListTagsForResource",
+      "launchwizard:TagResource",
+      "launchwizard:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,5 +1,5 @@
 {
-  "$hash": "ebfc64f95d567119cc8e2b57a5011bda5a6bca7d",
+  "$hash": "3f7f5f95c83ad84c12b49b8f5f9032f566272e67",
   "$id": "aws-ses-mailmanagerruleset.json",
   "additionalProperties": false,
   "definitions": {
@@ -25,7 +25,7 @@
         "ResultField": {
           "maxLength": 256,
           "minLength": 1,
-          "pattern": "^[\\sa-zA-Z0-9_]+$",
+          "pattern": "^(addon\\.)?[\\sa-zA-Z0-9_]+$",
           "type": "string"
         }
       },
@@ -268,6 +268,13 @@
           "required": ["Attribute"],
           "title": "Attribute",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": { "Analysis": { "$ref": "#/definitions/Analysis" } },
+          "required": ["Analysis"],
+          "title": "Analysis",
+          "type": "object"
         }
       ]
     },
@@ -360,9 +367,9 @@
         "Operator": { "$ref": "#/definitions/RuleIpOperator" },
         "Values": {
           "items": {
-            "maxLength": 18,
+            "maxLength": 43,
             "minLength": 1,
-            "pattern": "^(([0-9]|.|/)*)$",
+            "pattern": "^(([0-9]|.|:|/)*)$",
             "type": "string"
           },
           "maxItems": 10,
@@ -478,6 +485,13 @@
           },
           "required": ["MimeHeaderAttribute"],
           "title": "MimeHeaderAttribute",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": { "Analysis": { "$ref": "#/definitions/Analysis" } },
+          "required": ["Analysis"],
+          "title": "Analysis",
           "type": "object"
         }
       ]

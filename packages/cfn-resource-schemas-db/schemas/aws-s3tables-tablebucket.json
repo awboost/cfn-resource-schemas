@@ -1,9 +1,25 @@
 {
-  "$hash": "367be36cf1a03a3c733f1089f1299233b48f9bcb",
+  "$hash": "7bcc7df0a33e36b012cb8ba447c90bcd8f15a361",
   "$id": "aws-s3tables-tablebucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TableBucketName"],
   "definitions": {
+    "EncryptionConfiguration": {
+      "additionalProperties": false,
+      "description": "Specifies encryption settings for the table bucket",
+      "properties": {
+        "KMSKeyArn": {
+          "description": "ARN of the KMS key to use for encryption",
+          "type": "string"
+        },
+        "SSEAlgorithm": {
+          "description": "Server-side encryption algorithm",
+          "enum": ["AES256", "aws:kms"],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "TableBucketARN": {
       "description": "The Amazon Resource Name (ARN) of the specified table bucket.",
       "examples": [
@@ -46,8 +62,11 @@
       "permissions": [
         "s3tables:CreateTableBucket",
         "s3tables:PutTableBucketMaintenanceConfiguration",
+        "s3tables:PutTableBucketEncryption",
         "s3tables:GetTableBucket",
-        "s3tables:GetTableBucketMaintenanceConfiguration"
+        "s3tables:GetTableBucketMaintenanceConfiguration",
+        "s3tables:GetTableBucketEncryption",
+        "kms:DescribeKey"
       ]
     },
     "delete": { "permissions": ["s3tables:DeleteTableBucket"] },
@@ -55,19 +74,26 @@
     "read": {
       "permissions": [
         "s3tables:GetTableBucket",
-        "s3tables:GetTableBucketMaintenanceConfiguration"
+        "s3tables:GetTableBucketMaintenanceConfiguration",
+        "s3tables:GetTableBucketEncryption"
       ]
     },
     "update": {
       "permissions": [
         "s3tables:PutTableBucketMaintenanceConfiguration",
+        "s3tables:PutTableBucketEncryption",
+        "s3tables:GetTableBucketMaintenanceConfiguration",
+        "s3tables:GetTableBucketEncryption",
         "s3tables:GetTableBucket",
-        "s3tables:GetTableBucketMaintenanceConfiguration"
+        "kms:DescribeKey"
       ]
     }
   },
   "primaryIdentifier": ["/properties/TableBucketARN"],
   "properties": {
+    "EncryptionConfiguration": {
+      "$ref": "#/definitions/EncryptionConfiguration"
+    },
     "TableBucketARN": { "$ref": "#/definitions/TableBucketARN" },
     "TableBucketName": { "$ref": "#/definitions/TableBucketName" },
     "UnreferencedFileRemoval": {

@@ -1,142 +1,57 @@
-- updated `AWS::Events::ApiDestination`
-  - added property `ArnForPolicy`
-  - updated `readOnlyProperties`
-- updated `AWS::Events::Archive`
-  - added property `KmsKeyIdentifier`
+- updated `AWS::AppConfig::Extension`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::Events::Connection`
-  - added property `ArnForPolicy`
-  - updated `readOnlyProperties`
-- updated `AWS::Lex::Bot`
-  - added definition `BedrockAgentIntentConfiguration`
-  - added definition `CompositeSlotTypeSetting`
-  - added definition `QInConnectIntentConfiguration`
-  - added definition `SubSlotTypeComposition`
-  - updated definition `AdvancedRecognitionSetting`
-  - updated definition `AllowedInputTypes`
-  - updated definition `AudioAndDTMFInputSpecification`
-  - updated definition `AudioLogDestination`
-  - updated definition `AudioLogSetting`
-  - updated definition `AudioLogSettings`
-  - updated definition `AudioRecognitionStrategy`
-  - updated definition `AudioSpecification`
-  - updated definition `BedrockModelSpecification`
-  - updated definition `BotAliasLocaleSettingsItem`
-  - updated definition `BotAliasLocaleSettingsList`
-  - updated definition `BotAliasLocaleSettings`
-  - updated definition `BotLocale`
-  - updated definition `Button`
-  - updated definition `CloudWatchLogGroupLogDestination`
-  - updated definition `CodeHookSpecification`
-  - updated definition `ConditionExpression`
-  - updated definition `Condition`
-  - updated definition `ConditionalBranch`
-  - updated definition `ConditionalBranches`
-  - updated definition `ConditionalSpecification`
-  - updated definition `Conditional`
-  - updated definition `ConfidenceThreshold`
-  - updated definition `ContextTimeToLiveInSeconds`
-  - updated definition `ContextTurnsToLive`
-  - updated definition `ConversationLogSettings`
-  - updated definition `CustomPayload`
-  - updated definition `CustomVocabularyItem`
-  - updated definition `CustomVocabulary`
-  - updated definition `DTMFSpecification`
-  - updated definition `DataPrivacy`
-  - updated definition `DefaultConditionalBranch`
-  - updated definition `DialogActionType`
-  - updated definition `DialogAction`
-  - updated definition `DialogCodeHookInvocationSetting`
-  - updated definition `DialogCodeHookSetting`
-  - updated definition `DialogState`
-  - updated definition `ElicitationCodeHookInvocationSetting`
-  - updated definition `ExternalSourceSetting`
-  - updated definition `FulfillmentCodeHookSetting`
-  - updated definition `FulfillmentStartResponseSpecification`
-  - updated definition `FulfillmentUpdateResponseSpecification`
-  - updated definition `FulfillmentUpdatesSpecification`
-  - updated definition `GrammarSlotTypeSetting`
-  - updated definition `GrammarSlotTypeSource`
-  - updated definition `Id`
-  - updated definition `IdleSessionTTLInSeconds`
-  - updated definition `ImageResponseCard`
-  - updated definition `InitialResponseSetting`
-  - updated definition `InputContext`
-  - updated definition `InputContextsList`
-  - updated definition `IntentClosingSetting`
-  - updated definition `IntentConfirmationSetting`
-  - updated definition `IntentOverride`
-  - updated definition `Intent`
-  - updated definition `KendraConfiguration`
-  - updated definition `KendraIndexArn`
-  - updated definition `LambdaCodeHook`
-  - updated definition `LocaleId`
-  - updated definition `MessageGroup`
-  - updated definition `MessageGroupsList`
-  - updated definition `MessageSelectionStrategy`
-  - updated definition `Message`
-  - updated definition `MultipleValuesSetting`
-  - updated definition `Name`
-  - updated definition `ObfuscationSetting`
-  - updated definition `OutputContext`
-  - updated definition `OutputContextsList`
-  - updated definition `ParentIntentSignature`
-  - updated definition `ParentSlotTypeSignature`
-  - updated definition `PlainTextMessage`
-  - updated definition `PostDialogCodeHookInvocationSpecification`
-  - updated definition `PostFulfillmentStatusSpecification`
-  - updated definition `PriorityValue`
-  - updated definition `PromptAttemptSpecification`
-  - updated definition `PromptMaxRetries`
-  - updated definition `PromptSpecification`
-  - updated definition `QnAIntentConfiguration`
-  - updated definition `QnAKendraConfiguration`
-  - updated definition `QueryFilterString`
-  - updated definition `Replication`
-  - updated definition `ResponseSpecification`
-  - updated definition `RoleArn`
-  - updated definition `S3BucketLogDestination`
-  - updated definition `S3Location`
-  - updated definition `SSMLMessage`
-  - updated definition `SampleUtterance`
-  - updated definition `SampleUtterancesList`
-  - updated definition `SampleValue`
-  - updated definition `SessionAttribute`
-  - updated definition `SlotCaptureSetting`
-  - updated definition `SlotDefaultValueSpecification`
-  - updated definition `SlotDefaultValue`
-  - updated definition `SlotPrioritiesList`
-  - updated definition `SlotPriority`
-  - updated definition `SlotShape`
-  - updated definition `SlotTypeName`
-  - updated definition `SlotTypeValue`
-  - updated definition `SlotTypeValues`
-  - updated definition `SlotType`
-  - updated definition `SlotValueElicitationSetting`
-  - updated definition `SlotValueOverrideMap`
-  - updated definition `SlotValueOverride`
-  - updated definition `SlotValueRegexFilter`
-  - updated definition `SlotValueResolutionStrategy`
-  - updated definition `SlotValueSelectionSetting`
-  - updated definition `SlotValue`
-  - updated definition `SlotValues`
-  - updated definition `Slot`
-  - updated definition `StillWaitingResponseFrequency`
-  - updated definition `StillWaitingResponseSpecification`
-  - updated definition `StillWaitingResponseTimeout`
-  - updated definition `SynonymList`
-  - updated definition `Tag`
-  - updated definition `TestBotAliasSettings`
-  - updated definition `TextInputSpecification`
-  - updated definition `TextLogDestination`
-  - updated definition `TextLogSetting`
-  - updated definition `TextLogSettings`
-  - updated definition `Utterance`
-  - updated definition `VoiceSettings`
-  - updated definition `WaitAndContinueSpecification`
-  - updated property `AutoBuildBotLocales`
-  - updated property `BotLocales`
-  - updated property `BotTags`
-  - updated property `DataPrivacy`
-  - updated property `IdleSessionTTLInSeconds`
-  - updated property `TestBotAliasTags`
+  - updated property `Tags`
+- updated `AWS::AppConfig::ExtensionAssociation`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+  - updated property `Tags`
+- updated `AWS::Connect::View`
+  - updated `tagging`
+- updated `AWS::DynamoDB::Table`
+  - updated definition `Projection`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `ElasticGpuSpecification`
+  - updated definition `InstanceRequirements`
+  - updated definition `LaunchTemplateData`
+  - updated definition `LaunchTemplateElasticInferenceAccelerator`
+  - updated definition `NetworkInterface`
+  - updated definition `NetworkPerformanceOptions`
+- updated `AWS::Lambda::EventSourceMapping`
+  - updated `tagging`
+  - updated handler permissions
+  - updated property `BisectBatchOnFunctionError`
+- updated `AWS::LaunchWizard::Deployment`
+  - updated `required`
+  - updated `tagging`
+- updated `AWS::MWAA::Environment`
+  - updated handler permissions
+- updated `AWS::Route53::CidrCollection`
+- updated `AWS::S3Tables::TableBucket`
+  - added definition `EncryptionConfiguration`
+  - added property `EncryptionConfiguration`
+  - updated handler permissions
+- updated `AWS::SES::MailManagerIngressPoint`
+  - added definition `IpType`
+  - added definition `NetworkConfiguration`
+  - added definition `PrivateNetworkConfiguration`
+  - added definition `PublicNetworkConfiguration`
+  - added property `NetworkConfiguration`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::SES::MailManagerRuleSet`
+  - updated definition `Analysis`
+  - updated definition `RuleBooleanToEvaluate`
+  - updated definition `RuleIpExpression`
+  - updated definition `RuleStringToEvaluate`
+- updated `AWS::SES::MailManagerTrafficPolicy`
+  - added definition `IngressIpv6Attribute`
+  - added definition `IngressIpv6Expression`
+  - added definition `IngressIpv6ToEvaluate`
+  - updated definition `IngressAnalysis`
+  - updated definition `IngressStringToEvaluate`
+  - updated definition `PolicyCondition`
+- updated `AWS::WAFv2::WebACLAssociation`
+  - updated handler permissions

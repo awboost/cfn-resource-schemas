@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource schema for AWS::Route53::CidrCollection.
+ * Resource Type definition for AWS::Route53::CidrCollection.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html}
  */
 export type Route53CidrCollectionProperties = {
@@ -48,7 +48,7 @@ export type Location = {
   LocationName: string;
 };
 /**
- * Resource schema for AWS::Route53::CidrCollection.
+ * Resource Type definition for AWS::Route53::CidrCollection.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html}
  */
 export class Route53CidrCollection extends $Resource<

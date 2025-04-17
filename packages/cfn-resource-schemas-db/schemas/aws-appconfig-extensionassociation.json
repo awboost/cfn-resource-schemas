@@ -1,14 +1,11 @@
 {
-  "$hash": "3099812e258f837e83397f3c19de024fd5b76fe2",
+  "$hash": "5bf075c04fb8c8bbb68133f924e7bb3f39e12a0e",
   "$id": "aws-appconfig-extensionassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ExtensionIdentifier",
     "/properties/ResourceIdentifier",
-    "/properties/ExtensionVersionNumber",
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value"
+    "/properties/ExtensionVersionNumber"
   ],
   "definitions": {
     "Tag": {
@@ -47,7 +44,12 @@
       ]
     },
     "list": { "permissions": ["appconfig:ListExtensionAssociations"] },
-    "read": { "permissions": ["appconfig:GetExtensionAssociation"] },
+    "read": {
+      "permissions": [
+        "appconfig:GetExtensionAssociation",
+        "appconfig:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "appconfig:UpdateExtensionAssociation",
@@ -75,7 +77,7 @@
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
-      "uniqueItems": false
+      "uniqueItems": true
     }
   },
   "readOnlyProperties": [
@@ -100,9 +102,6 @@
   "typeName": "AWS::AppConfig::ExtensionAssociation",
   "writeOnlyProperties": [
     "/properties/ExtensionIdentifier",
-    "/properties/ResourceIdentifier",
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value"
+    "/properties/ResourceIdentifier"
   ]
 }

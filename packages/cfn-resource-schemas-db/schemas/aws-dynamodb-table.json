@@ -1,5 +1,5 @@
 {
-  "$hash": "fbe669a3da0838e7bf1740473e6337cbabefda6d",
+  "$hash": "1f545c5d83955647761bb351e9c5d484b1d05cc2",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/KeySchema"],
@@ -246,7 +246,7 @@
       "description": "Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.",
       "properties": {
         "NonKeyAttributes": {
-          "description": "Represents the non-key attribute names which will be projected into the index.\n For local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the local secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.",
+          "description": "Represents the non-key attribute names which will be projected into the index.\n For global and local secondary indexes, the total count of ``NonKeyAttributes`` summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of ``INCLUDE``. You still can specify the ProjectionType of ``ALL`` to project all attributes from the source table, even if the table has more than 100 attributes.",
           "items": { "type": "string" },
           "type": "array",
           "uniqueItems": false
