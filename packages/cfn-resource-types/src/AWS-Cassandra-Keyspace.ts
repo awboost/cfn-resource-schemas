@@ -31,6 +31,7 @@ export type ReplicationSpecification = {
    * @maxLength `6`
    */
   RegionList?: (
+    | "af-south-1"
     | "ap-northeast-1"
     | "ap-northeast-2"
     | "ap-south-1"

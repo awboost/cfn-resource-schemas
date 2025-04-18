@@ -309,6 +309,7 @@ export type RDSDBInstanceProperties = {
    * The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
    */
   DBSystemId?: string;
+  DatabaseInsightsMode?: string;
   /**
    * Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
    */
@@ -816,7 +817,6 @@ export type RDSDBInstanceAttributes = {
     ValidTill: string;
   };
   DBInstanceArn: string;
-  DatabaseInsightsMode: string;
   DbiResourceId: string;
   /**
      * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:

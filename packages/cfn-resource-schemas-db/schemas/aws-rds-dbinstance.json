@@ -1,5 +1,5 @@
 {
-  "$hash": "c85d3b4fb50e023ab617c184ce9497237f68aea3",
+  "$hash": "b53b3f8259876f61d06a778912fb54d5167ec618",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -614,8 +614,7 @@
     "/properties/MasterUserSecret/SecretArn",
     "/properties/CertificateDetails",
     "/properties/CertificateDetails/CAIdentifier",
-    "/properties/CertificateDetails/ValidTill",
-    "/properties/DatabaseInsightsMode"
+    "/properties/CertificateDetails/ValidTill"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {

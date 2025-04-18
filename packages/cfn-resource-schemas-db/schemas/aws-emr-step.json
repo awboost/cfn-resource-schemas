@@ -1,5 +1,5 @@
 {
-  "$hash": "7568170ba74ee4d32dd3da6b0ac9f84fc22fba7d",
+  "$hash": "79a9164ec5a0db4b5fe8cf88cbb6cf5a61767705",
   "$id": "aws-emr-step.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -40,7 +40,8 @@
   "description": "Schema for AWS::EMR::Step",
   "handlers": {
     "create": { "permissions": ["emr:AddJobFlowSteps"] },
-    "delete": { "permissions": [] }
+    "delete": { "permissions": [] },
+    "read": { "permissions": [] }
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {

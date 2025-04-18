@@ -1,5 +1,5 @@
 {
-  "$hash": "251e4c1383d7219ceda5b9d5ac6bb9c6b5d1031b",
+  "$hash": "ee7d29136a4165be756925ef6b219c073740f3a1",
   "$id": "aws-datazone-domain.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -25,10 +25,18 @@
       ],
       "type": "string"
     },
+    "IdcInstanceArn": {
+      "description": "The ARN of the AWS Identity Center instance.",
+      "maxLength": 1224,
+      "minLength": 10,
+      "pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
+      "type": "string"
+    },
     "SingleSignOn": {
       "additionalProperties": false,
       "description": "The single-sign on configuration of the Amazon DataZone domain.",
       "properties": {
+        "IdcInstanceArn": { "$ref": "#/definitions/IdcInstanceArn" },
         "Type": { "$ref": "#/definitions/AuthType" },
         "UserAssignment": { "$ref": "#/definitions/UserAssignment" }
       },
@@ -73,6 +81,13 @@
         "sso:PutApplicationAssignmentConfiguration",
         "sso:ListInstances",
         "sso:PutApplicationAccessScope",
+        "sso:PutApplicationGrant",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationAccessScope",
+        "sso:CreateApplication",
+        "sso:DeleteApplication",
+        "sso:CreateApplicationAssignment",
+        "sso:DeleteApplicationAssignment",
         "iam:PassRole"
       ]
     },
@@ -82,6 +97,8 @@
         "datazone:GetDomain",
         "sso:DeleteManagedApplicationInstance",
         "sso:PutApplicationAssignmentConfiguration",
+        "sso:DeleteApplication",
+        "sso:DeleteApplicationAssignment",
         "sso:ListInstances"
       ]
     },

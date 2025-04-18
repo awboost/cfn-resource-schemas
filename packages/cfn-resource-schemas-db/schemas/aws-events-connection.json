@@ -1,5 +1,5 @@
 {
-  "$hash": "206ad3a4411f311db6714e7ecf573eb3233b612c",
+  "$hash": "ea02111f8dcb151d420108598e48495b15099935",
   "$id": "aws-events-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -155,14 +155,16 @@
         "secretsmanager:CreateSecret",
         "secretsmanager:GetSecretValue",
         "secretsmanager:PutSecretValue",
-        "iam:CreateServiceLinkedRole"
+        "iam:CreateServiceLinkedRole",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
       ]
     },
     "delete": {
       "permissions": ["events:DeleteConnection", "events:DescribeConnection"]
     },
     "list": { "permissions": ["events:ListConnections"] },
-    "read": { "permissions": ["events:DescribeConnection"] },
+    "read": { "permissions": ["events:DescribeConnection", "kms:Decrypt"] },
     "update": {
       "permissions": [
         "events:UpdateConnection",
@@ -170,7 +172,11 @@
         "secretsmanager:CreateSecret",
         "secretsmanager:UpdateSecret",
         "secretsmanager:GetSecretValue",
-        "secretsmanager:PutSecretValue"
+        "secretsmanager:PutSecretValue",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:GenerateDataKey"
       ]
     }
   },
@@ -204,6 +210,11 @@
       },
       "required": ["ResourceParameters"],
       "type": "object"
+    },
+    "KmsKeyIdentifier": {
+      "maxLength": 2048,
+      "pattern": "^[a-zA-Z0-9_\\-/:]*$",
+      "type": "string"
     },
     "Name": {
       "description": "Name of the connection.",

@@ -228,6 +228,12 @@ export type MongoDbAtlasConfiguration = {
    */
   FieldMapping: MongoDbAtlasFieldMapping;
   /**
+   * Name of a MongoDB Atlas text index.
+   * @maxLength `2048`
+   * @pattern `^.*$`
+   */
+  TextIndexName?: string;
+  /**
    * Name of a MongoDB Atlas index.
    * @maxLength `2048`
    * @pattern `^.*$`
@@ -574,6 +580,12 @@ export type RdsConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html}
  */
 export type RdsFieldMapping = {
+  /**
+   * The name of the field in which Amazon Bedrock stores custom metadata about the vector store.
+   * @maxLength `63`
+   * @pattern `^[a-zA-Z0-9_\-]+$`
+   */
+  CustomMetadataField?: string;
   /**
    * The name of the field in which Amazon Bedrock stores metadata about the vector store.
    * @maxLength `63`

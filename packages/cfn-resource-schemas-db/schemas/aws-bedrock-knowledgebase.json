@@ -1,5 +1,5 @@
 {
-  "$hash": "65f2537c32650c6f7a438f7ffcada06ce20a99cc",
+  "$hash": "614d1fdff2495b25dfe201925dc2695728fabe6b",
   "$id": "aws-bedrock-knowledgebase.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -178,6 +178,12 @@
           "type": "string"
         },
         "FieldMapping": { "$ref": "#/definitions/MongoDbAtlasFieldMapping" },
+        "TextIndexName": {
+          "description": "Name of a MongoDB Atlas text index.",
+          "maxLength": 2048,
+          "pattern": "^.*$",
+          "type": "string"
+        },
         "VectorIndexName": {
           "description": "Name of a MongoDB Atlas index.",
           "maxLength": 2048,
@@ -539,6 +545,12 @@
       "additionalProperties": false,
       "description": "Contains the names of the fields to which to map information about the vector store.",
       "properties": {
+        "CustomMetadataField": {
+          "description": "The name of the field in which Amazon Bedrock stores custom metadata about the vector store.",
+          "maxLength": 63,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "type": "string"
+        },
         "MetadataField": {
           "description": "The name of the field in which Amazon Bedrock stores metadata about the vector store.",
           "maxLength": 63,

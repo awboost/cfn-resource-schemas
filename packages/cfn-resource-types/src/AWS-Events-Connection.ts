@@ -19,6 +19,11 @@ export type EventsConnectionProperties = {
     ResourceParameters: ResourceParameters;
   };
   /**
+   * @maxLength `2048`
+   * @pattern `^[a-zA-Z0-9_\-/:]*$`
+   */
+  KmsKeyIdentifier?: string;
+  /**
    * Name of the connection.
    * @minLength `1`
    * @maxLength `64`

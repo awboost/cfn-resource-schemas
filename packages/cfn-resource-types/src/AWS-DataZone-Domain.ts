@@ -112,6 +112,13 @@ export type DomainStatus =
  */
 export type SingleSignOn = {
   /**
+   * The ARN of the AWS Identity Center instance.
+   * @minLength `10`
+   * @maxLength `1224`
+   * @pattern `arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}`
+   */
+  IdcInstanceArn?: string;
+  /**
    * The type of single sign-on in Amazon DataZone.
    */
   Type?: AuthType;

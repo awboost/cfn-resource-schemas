@@ -110,11 +110,18 @@ export type BedrockGuardrailAttributes = {
   Version: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::Guardrail.ContentFilterAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilteraction.html}
+ */
+export type ContentFilterAction = "BLOCK" | "NONE";
+/**
  * Type definition for `AWS::Bedrock::Guardrail.ContentFilterConfig`.
  * Content filter config in content policy.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterconfig.html}
  */
 export type ContentFilterConfig = {
+  InputAction?: ContentFilterAction;
+  InputEnabled?: boolean;
   /**
    * List of modalities
    * @minLength `1`
@@ -124,6 +131,8 @@ export type ContentFilterConfig = {
    * Strength for filters
    */
   InputStrength: FilterStrength;
+  OutputAction?: ContentFilterAction;
+  OutputEnabled?: boolean;
   /**
    * List of modalities
    * @minLength `1`
@@ -164,11 +173,18 @@ export type ContentPolicyConfig = {
   FiltersConfig: ContentFilterConfig[];
 };
 /**
+ * Type definition for `AWS::Bedrock::Guardrail.ContextualGroundingAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingaction.html}
+ */
+export type ContextualGroundingAction = "BLOCK" | "NONE";
+/**
  * Type definition for `AWS::Bedrock::Guardrail.ContextualGroundingFilterConfig`.
  * A config for grounding filter.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html}
  */
 export type ContextualGroundingFilterConfig = {
+  Action?: ContextualGroundingAction;
+  Enabled?: boolean;
   /**
    * The threshold for this filter.
    * @min `0`
@@ -221,6 +237,10 @@ export type GuardrailStatus =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-managedwordsconfig.html}
  */
 export type ManagedWordsConfig = {
+  InputAction?: WordAction;
+  InputEnabled?: boolean;
+  OutputAction?: WordAction;
+  OutputEnabled?: boolean;
   /**
    * Options for managed words.
    */
@@ -248,6 +268,16 @@ export type PiiEntityConfig = {
    * Options for sensitive information action.
    */
   Action: SensitiveInformationAction;
+  /**
+   * Options for sensitive information action.
+   */
+  InputAction?: SensitiveInformationAction;
+  InputEnabled?: boolean;
+  /**
+   * Options for sensitive information action.
+   */
+  OutputAction?: SensitiveInformationAction;
+  OutputEnabled?: boolean;
   /**
    * The currently supported PII entities
    */
@@ -307,11 +337,21 @@ export type RegexConfig = {
    */
   Description?: string;
   /**
+   * Options for sensitive information action.
+   */
+  InputAction?: SensitiveInformationAction;
+  InputEnabled?: boolean;
+  /**
    * The regex name.
    * @minLength `1`
    * @maxLength `100`
    */
   Name: string;
+  /**
+   * Options for sensitive information action.
+   */
+  OutputAction?: SensitiveInformationAction;
+  OutputEnabled?: boolean;
   /**
    * The regex pattern.
    * @minLength `1`
@@ -323,7 +363,7 @@ export type RegexConfig = {
  * Options for sensitive information action.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-sensitiveinformationaction.html}
  */
-export type SensitiveInformationAction = "BLOCK" | "ANONYMIZE";
+export type SensitiveInformationAction = "BLOCK" | "ANONYMIZE" | "NONE";
 /**
  * Type definition for `AWS::Bedrock::Guardrail.SensitiveInformationPolicyConfig`.
  * Sensitive information policy config for a guardrail.
@@ -363,6 +403,11 @@ export type Tag = {
   Value: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::Guardrail.TopicAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicaction.html}
+ */
+export type TopicAction = "BLOCK" | "NONE";
+/**
  * Type definition for `AWS::Bedrock::Guardrail.TopicConfig`.
  * Topic config in topic policy.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicconfig.html}
@@ -379,6 +424,8 @@ export type TopicConfig = {
    * @minLength `0`
    */
   Examples?: string[];
+  InputAction?: TopicAction;
+  InputEnabled?: boolean;
   /**
    * Name of topic in topic policy
    * @minLength `1`
@@ -386,6 +433,8 @@ export type TopicConfig = {
    * @pattern `^[0-9a-zA-Z-_ !?.]+$`
    */
   Name: string;
+  OutputAction?: TopicAction;
+  OutputEnabled?: boolean;
   /**
    * Type of topic in a policy
    */
@@ -410,11 +459,20 @@ export type TopicPolicyConfig = {
  */
 export type TopicType = "DENY";
 /**
+ * Type definition for `AWS::Bedrock::Guardrail.WordAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordaction.html}
+ */
+export type WordAction = "BLOCK" | "NONE";
+/**
  * Type definition for `AWS::Bedrock::Guardrail.WordConfig`.
  * A custom word config.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-wordconfig.html}
  */
 export type WordConfig = {
+  InputAction?: WordAction;
+  InputEnabled?: boolean;
+  OutputAction?: WordAction;
+  OutputEnabled?: boolean;
   /**
    * The custom word text.
    * @minLength `1`

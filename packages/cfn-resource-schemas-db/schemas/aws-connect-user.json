@@ -1,5 +1,5 @@
 {
-  "$hash": "4370bd78eb3a491d8f20bf706c4ef1e1390dd3be",
+  "$hash": "8005dfbb3d9daabe3825b3865c857934e6aad3be",
   "$id": "aws-connect-user.json",
   "additionalProperties": false,
   "definitions": {
@@ -246,6 +246,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["connect:TagResource", "connect:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

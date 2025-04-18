@@ -1,5 +1,5 @@
 {
-  "$hash": "c69af13b2472ac517b92e8f93208eab962280cd4",
+  "$hash": "83fbbade72f80d136f9c7609854251402c6d6e4a",
   "$id": "aws-iam-role.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -30,7 +30,7 @@
           "type": "string"
         },
         "Value": {
-          "description": "The value associated with this tag. For example, tags with a key name of ``Department`` could have values such as ``Human Resources``, ``Accounting``, and ``Support``. Tags with a key name of ``Cost Center`` might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.\n   AWS always interprets the tag ``Value`` as a single string. If you need to store an array, you can store comma-separated values in the string. However, you must interpret the value in your code.",
+          "description": "The value associated with this tag. For example, tags with a key name of ``Department`` could have values such as ``Human Resources``, ``Accounting``, and ``Support``. Tags with a key name of ``Cost Center`` might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.",
           "type": "string"
         }
       },

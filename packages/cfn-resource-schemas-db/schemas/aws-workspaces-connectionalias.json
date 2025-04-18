@@ -1,5 +1,5 @@
 {
-  "$hash": "56346287b2a352b9e134b55515120b5f35aba81c",
+  "$hash": "0f0dcc341ec00802b95f92f68c6e66af4e4f8f74",
   "$id": "aws-workspaces-connectionalias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectionString", "/properties/Tags"],
@@ -106,5 +106,13 @@
     "/properties/Associations"
   ],
   "required": ["ConnectionString"],
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["workspaces:CreateTags", "workspaces:DescribeTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::WorkSpaces::ConnectionAlias"
 }

@@ -1,57 +1,74 @@
-- updated `AWS::AppConfig::Extension`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-  - updated property `Tags`
-- updated `AWS::AppConfig::ExtensionAssociation`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-  - updated property `Tags`
-- updated `AWS::Connect::View`
+- updated `AWS::Bedrock::Guardrail`
+  - added definition `ContentFilterAction`
+  - added definition `ContextualGroundingAction`
+  - added definition `TopicAction`
+  - added definition `WordAction`
+  - removed definition `ContentFilter`
+  - removed definition `ManagedWords`
+  - removed definition `PiiEntity`
+  - removed definition `Topic`
+  - updated definition `ContentFilterConfig`
+  - updated definition `ContextualGroundingFilterConfig`
+  - updated definition `ManagedWordsConfig`
+  - updated definition `PiiEntityConfig`
+  - updated definition `RegexConfig`
+  - updated definition `SensitiveInformationAction`
+  - updated definition `TopicConfig`
+  - updated definition `WordConfig`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - updated definition `MongoDbAtlasConfiguration`
+  - updated definition `RdsFieldMapping`
+- updated `AWS::Cassandra::Keyspace`
+  - updated definition `RegionList`
+- updated `AWS::Connect::User`
   - updated `tagging`
-- updated `AWS::DynamoDB::Table`
-  - updated definition `Projection`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `ElasticGpuSpecification`
-  - updated definition `InstanceRequirements`
-  - updated definition `LaunchTemplateData`
-  - updated definition `LaunchTemplateElasticInferenceAccelerator`
-  - updated definition `NetworkInterface`
-  - updated definition `NetworkPerformanceOptions`
-- updated `AWS::Lambda::EventSourceMapping`
-  - updated `tagging`
+- updated `AWS::Connect::UserHierarchyGroup`
+  - updated definition `UserHierarchyGroupArn`
+- updated `AWS::DataZone::Domain`
+  - added definition `IdcInstanceArn`
+  - updated definition `SingleSignOn`
   - updated handler permissions
-  - updated property `BisectBatchOnFunctionError`
-- updated `AWS::LaunchWizard::Deployment`
+- updated `AWS::EC2::InstanceConnectEndpoint`
+  - updated `tagging`
+- updated `AWS::EMR::Step`
+  - updated handler permissions
+- updated `AWS::Events::Connection`
+  - added property `KmsKeyIdentifier`
+  - updated handler permissions
+- updated `AWS::IAM::Role`
+  - updated definition `Tag`
+- updated `AWS::Neptune::DBClusterParameterGroup`
+  - added `propertyTransform`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
   - updated `required`
-  - updated `tagging`
-- updated `AWS::MWAA::Environment`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::Route53::CidrCollection`
-- updated `AWS::S3Tables::TableBucket`
-  - added definition `EncryptionConfiguration`
-  - added property `EncryptionConfiguration`
-  - updated handler permissions
-- updated `AWS::SES::MailManagerIngressPoint`
-  - added definition `IpType`
-  - added definition `NetworkConfiguration`
-  - added definition `PrivateNetworkConfiguration`
-  - added definition `PublicNetworkConfiguration`
-  - added property `NetworkConfiguration`
+  - updated property `Description`
+  - updated property `Family`
+  - updated property `Name`
+  - updated property `Parameters`
+  - updated property `Tags`
+- updated `AWS::Neptune::DBParameterGroup`
+  - added `propertyTransform`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
   - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::SES::MailManagerRuleSet`
-  - updated definition `Analysis`
-  - updated definition `RuleBooleanToEvaluate`
-  - updated definition `RuleIpExpression`
-  - updated definition `RuleStringToEvaluate`
-- updated `AWS::SES::MailManagerTrafficPolicy`
-  - added definition `IngressIpv6Attribute`
-  - added definition `IngressIpv6Expression`
-  - added definition `IngressIpv6ToEvaluate`
-  - updated definition `IngressAnalysis`
-  - updated definition `IngressStringToEvaluate`
-  - updated definition `PolicyCondition`
-- updated `AWS::WAFv2::WebACLAssociation`
-  - updated handler permissions
+  - updated property `Description`
+  - updated property `Family`
+  - updated property `Name`
+  - updated property `Parameters`
+  - updated property `Tags`
+- updated `AWS::RDS::DBInstance`
+  - updated `readOnlyProperties`
+- updated `AWS::WorkSpaces::ConnectionAlias`
+  - added `tagging`

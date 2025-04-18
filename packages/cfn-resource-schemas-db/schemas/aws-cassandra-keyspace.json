@@ -1,5 +1,5 @@
 {
-  "$hash": "67b89a4a8faa9228db3965a3977f1d23ed16947f",
+  "$hash": "0b6d26cae6ef27c76d5701486dfbfea8a4217e94",
   "$id": "aws-cassandra-keyspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KeyspaceName"],
@@ -8,6 +8,7 @@
       "insertionOrder": false,
       "items": {
         "enum": [
+          "af-south-1",
           "ap-northeast-1",
           "ap-northeast-2",
           "ap-south-1",
