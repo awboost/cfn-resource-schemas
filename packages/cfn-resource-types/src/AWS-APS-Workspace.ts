@@ -30,6 +30,10 @@ export type APSWorkspaceProperties = {
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];
+  /**
+   * Workspace configuration
+   */
+  WorkspaceConfiguration?: WorkspaceConfiguration;
 };
 /**
  * Attribute type definition for `AWS::APS::Workspace`.
@@ -54,6 +58,52 @@ export type APSWorkspaceAttributes = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9_-]{1,99}$`
    */
   WorkspaceId: string;
+};
+/**
+ * Type definition for `AWS::APS::Workspace.Label`.
+ * Series label
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-label.html}
+ */
+export type Label = {
+  /**
+   * Name of the label
+   * @minLength `1`
+   * @pattern `^[a-zA-Z_][a-zA-Z0-9_]*$`
+   */
+  Name: string;
+  /**
+   * Value of the label
+   * @minLength `1`
+   */
+  Value: string;
+};
+/**
+ * Type definition for `AWS::APS::Workspace.LimitsPerLabelSet`.
+ * Label set and its associated limits
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-limitsperlabelset.html}
+ */
+export type LimitsPerLabelSet = {
+  /**
+   * An array of series labels
+   * @minLength `0`
+   */
+  LabelSet: Label[];
+  /**
+   * Limits that can be applied to a label set
+   */
+  Limits: LimitsPerLabelSetEntry;
+};
+/**
+ * Type definition for `AWS::APS::Workspace.LimitsPerLabelSetEntry`.
+ * Limits that can be applied to a label set
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-limitsperlabelsetentry.html}
+ */
+export type LimitsPerLabelSetEntry = {
+  /**
+   * The maximum number of active series that can be ingested for this label set
+   * @min `0`
+   */
+  MaxSeries?: number;
 };
 /**
  * Type definition for `AWS::APS::Workspace.LoggingConfiguration`.
@@ -86,6 +136,23 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::APS::Workspace.WorkspaceConfiguration`.
+ * Workspace configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-workspaceconfiguration.html}
+ */
+export type WorkspaceConfiguration = {
+  /**
+   * An array of label set and associated limits
+   * @minLength `0`
+   */
+  LimitsPerLabelSets?: LimitsPerLabelSet[];
+  /**
+   * How many days that metrics are retained in the workspace
+   * @min `1`
+   */
+  RetentionPeriodInDays?: number;
 };
 /**
  * Resource Type definition for AWS::APS::Workspace
