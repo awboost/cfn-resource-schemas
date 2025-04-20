@@ -1,7 +1,13 @@
-- updated `AWS::APS::Workspace`
-  - added definition `Label`
-  - added definition `LimitsPerLabelSetEntry`
-  - added definition `LimitsPerLabelSet`
-  - added definition `WorkspaceConfiguration`
-  - added property `WorkspaceConfiguration`
+- added `AWS::CloudFront::ConnectionGroup`
+- updated `AWS::CloudFront::Distribution`
+  - added definition `ConnectionMode`
+  - added definition `ParameterDefinition`
+  - updated `tagging`
+  - updated definition `DistributionConfig`
   - updated handler permissions
+- updated `AWS::EC2::TransitGatewayConnect`
+  - updated handler permissions
+- updated `AWS::EC2::TransitGatewayMulticastDomain`
+  - updated handler permissions
+- updated `AWS::FMS::Policy`
+  - added `tagging`

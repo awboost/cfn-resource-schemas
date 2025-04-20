@@ -1,5 +1,5 @@
 {
-  "$hash": "fb65851d7a5248e37f5cc36bc5f5f74f3e7153f3",
+  "$hash": "c327056b8db4a6c40e1e24672592881b37203d51",
   "$id": "aws-ec2-transitgatewayconnect.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -35,23 +35,30 @@
       "permissions": [
         "ec2:CreateTransitGatewayConnect",
         "ec2:DescribeTransitGatewayConnects",
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "ec2:DescribeTags"
       ]
     },
     "delete": {
       "permissions": [
         "ec2:DeleteTransitGatewayConnect",
         "ec2:DescribeTransitGatewayConnects",
-        "ec2:DeleteTags"
+        "ec2:DeleteTags",
+        "ec2:DescribeTags"
       ]
     },
-    "list": { "permissions": ["ec2:DescribeTransitGatewayConnects"] },
-    "read": { "permissions": ["ec2:DescribeTransitGatewayConnects"] },
+    "list": {
+      "permissions": ["ec2:DescribeTransitGatewayConnects", "ec2:DescribeTags"]
+    },
+    "read": {
+      "permissions": ["ec2:DescribeTransitGatewayConnects", "ec2:DescribeTags"]
+    },
     "update": {
       "permissions": [
         "ec2:DescribeTransitGatewayConnects",
         "ec2:DeleteTags",
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "ec2:DescribeTags"
       ]
     }
   },

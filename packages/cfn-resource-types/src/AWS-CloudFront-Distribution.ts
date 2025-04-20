@@ -151,6 +151,11 @@ export type CacheBehavior = {
   ViewerProtocolPolicy: string;
 };
 /**
+ * Type definition for `AWS::CloudFront::Distribution.ConnectionMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-connectionmode.html}
+ */
+export type ConnectionMode = "direct" | "tenant-only";
+/**
  * Type definition for `AWS::CloudFront::Distribution.Cookies`.
  * This field is deprecated. We recommend that you use a cache policy or an origin request policy instead of this field.
  If you want to include cookies in the cache key, use a cache policy. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) in the *Amazon CloudFront Developer Guide*.
@@ -393,6 +398,7 @@ export type DistributionConfig = {
    * A comment to describe the distribution. The comment cannot be longer than 128 characters.
    */
   Comment?: string;
+  ConnectionMode?: ConnectionMode;
   /**
    * The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
    */
@@ -478,6 +484,9 @@ export type DistributionConfig = {
    * A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
    */
   Staging?: boolean;
+  TenantConfig?: {
+    ParameterDefinitions?: ParameterDefinition[];
+  };
   /**
    * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
    */
@@ -855,6 +864,20 @@ export type OriginShield = {
      When you enable CloudFront Origin Shield, you must specify the AWS-Region for Origin Shield. For the list of AWS-Regions that you can specify, and for help choosing the best Region for your origin, see [Choosing the for Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region) in the *Amazon CloudFront Developer Guide*.
      */
   OriginShieldRegion?: string;
+};
+/**
+ * Type definition for `AWS::CloudFront::Distribution.ParameterDefinition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-parameterdefinition.html}
+ */
+export type ParameterDefinition = {
+  Definition: {
+    StringSchema?: {
+      Comment?: string;
+      DefaultValue?: string;
+      Required: boolean;
+    };
+  };
+  Name: string;
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.Restrictions`.

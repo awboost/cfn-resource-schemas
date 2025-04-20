@@ -1,5 +1,5 @@
 {
-  "$hash": "a0eba32f20caa0321d68af32b8da0fa00ebfcf49",
+  "$hash": "412293a0221110e91d63d330d02abf313a51291a",
   "$id": "aws-ec2-transitgatewaymulticastdomain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TransitGatewayId"],
@@ -25,23 +25,36 @@
       "permissions": [
         "ec2:DescribeTransitGatewayMulticastDomains",
         "ec2:CreateTransitGatewayMulticastDomain",
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "ec2:DescribeTags"
       ]
     },
     "delete": {
       "permissions": [
         "ec2:DescribeTransitGatewayMulticastDomains",
         "ec2:DeleteTransitGatewayMulticastDomain",
-        "ec2:DeleteTags"
+        "ec2:DeleteTags",
+        "ec2:DescribeTags"
       ]
     },
-    "list": { "permissions": ["ec2:DescribeTransitGatewayMulticastDomains"] },
-    "read": { "permissions": ["ec2:DescribeTransitGatewayMulticastDomains"] },
+    "list": {
+      "permissions": [
+        "ec2:DescribeTransitGatewayMulticastDomains",
+        "ec2:DescribeTags"
+      ]
+    },
+    "read": {
+      "permissions": [
+        "ec2:DescribeTransitGatewayMulticastDomains",
+        "ec2:DescribeTags"
+      ]
+    },
     "update": {
       "permissions": [
         "ec2:DescribeTransitGatewayMulticastDomains",
         "ec2:DeleteTags",
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "ec2:DescribeTags"
       ]
     }
   },
