@@ -1,5 +1,5 @@
 {
-  "$hash": "ea5103b64cd03da87520c61dff5b3dec55093498",
+  "$hash": "e2d65a40a0eecab0d67e320963ff6ec6c8c1a749",
   "$id": "aws-redshift-clustersubnetgroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -148,7 +148,7 @@
   "readOnlyProperties": ["/properties/ClusterSubnetGroupName"],
   "required": ["Description", "SubnetIds"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-redshift",
-  "tagging": { "taggable": true },
+  "tagging": { "taggable": false },
   "typeName": "AWS::Redshift::ClusterSubnetGroup",
   "writeOnlyProperties": [
     "/properties/Tags",

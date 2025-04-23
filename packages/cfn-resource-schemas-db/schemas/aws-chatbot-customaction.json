@@ -1,5 +1,5 @@
 {
-  "$hash": "daa5126d746609ce2d73638e365fc6d1b148b49e",
+  "$hash": "4a484c8cfc0ad4fb3af243e7ec9577e5554ee38e",
   "$id": "aws-chatbot-customaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ActionName"],
@@ -36,7 +36,7 @@
         "Operator": {
           "$ref": "#/definitions/CustomActionAttachmentCriteriaOperator"
         },
-        "Value": { "maxLength": 50, "minLength": 0, "type": "string" },
+        "Value": { "maxLength": 1024, "minLength": 0, "type": "string" },
         "VariableName": { "type": "string" }
       },
       "required": ["Operator", "VariableName"],

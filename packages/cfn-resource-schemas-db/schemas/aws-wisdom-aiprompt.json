@@ -1,5 +1,5 @@
 {
-  "$hash": "5642a1eaa176635e761036d72f4d24d70ebba33c",
+  "$hash": "30426580877e472354c1f6182027ef2c36ecc3c3",
   "$id": "aws-wisdom-aiprompt.json",
   "additionalIdentifiers": [
     ["/properties/AIPromptArn", "/properties/AssistantArn"]
@@ -18,7 +18,9 @@
     "AIPromptAPIFormat": {
       "enum": [
         "ANTHROPIC_CLAUDE_MESSAGES",
-        "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS"
+        "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS",
+        "MESSAGES",
+        "TEXT_COMPLETIONS"
       ],
       "type": "string"
     },

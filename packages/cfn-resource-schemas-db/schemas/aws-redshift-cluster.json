@@ -1,5 +1,5 @@
 {
-  "$hash": "46441d18a2db0ec67ad4fa06e4bed5337d655b13",
+  "$hash": "bf25e949e6bfc46e35501734dd22d45f8f406368",
   "$id": "aws-redshift-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -368,7 +368,7 @@
       "type": "object"
     },
     "NodeType": {
-      "description": "The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge",
+      "description": "The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.large | ra3.4xlarge | ra3.16xlarge",
       "type": "string"
     },
     "NumberOfNodes": {

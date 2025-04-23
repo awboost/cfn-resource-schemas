@@ -1,5 +1,5 @@
 {
-  "$hash": "0ea541b4f4d6557bcbbdd58e80a818765ec2fb52",
+  "$hash": "a1a6a9142d6e5e43efb8002ec3963c2d3d9ecb4b",
   "$id": "aws-ec2-networkinsightsaccessscopeanalysis.json",
   "additionalIdentifiers": [
     ["/properties/NetworkInsightsAccessScopeAnalysisArn"]
@@ -81,5 +81,13 @@
   ],
   "required": ["NetworkInsightsAccessScopeId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-ni.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EC2::NetworkInsightsAccessScopeAnalysis"
 }

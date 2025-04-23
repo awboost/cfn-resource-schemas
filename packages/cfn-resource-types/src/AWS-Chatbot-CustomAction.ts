@@ -69,7 +69,7 @@ export type CustomActionAttachmentCriteria = {
   Operator: CustomActionAttachmentCriteriaOperator;
   /**
    * @minLength `0`
-   * @maxLength `50`
+   * @maxLength `1024`
    */
   Value?: string;
   VariableName: string;

@@ -1,5 +1,5 @@
 {
-  "$hash": "b240e09eecc5e631d42912c7a22f0d571a13aeac",
+  "$hash": "985cce7726d7b75f248354cea58cb0ef3a64b7d8",
   "$id": "aws-ec2-networkinsightsanalysis.json",
   "additionalIdentifiers": [["/properties/NetworkInsightsAnalysisArn"]],
   "additionalProperties": false,
@@ -411,5 +411,13 @@
   ],
   "required": ["NetworkInsightsPathId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-ni.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EC2::NetworkInsightsAnalysis"
 }

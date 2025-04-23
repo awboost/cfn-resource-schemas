@@ -57,7 +57,9 @@ export type WisdomAIPromptAttributes = {
  */
 export type AIPromptAPIFormat =
   | "ANTHROPIC_CLAUDE_MESSAGES"
-  | "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS";
+  | "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS"
+  | "MESSAGES"
+  | "TEXT_COMPLETIONS";
 /**
  * Type definition for `AWS::Wisdom::AIPrompt.AIPromptTemplateConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiprompt-aiprompttemplateconfiguration.html}
