@@ -1,18 +1,5 @@
-- updated `AWS::Chatbot::CustomAction`
-  - updated definition `CustomActionAttachmentCriteria`
-- updated `AWS::EC2::NetworkInsightsAccessScopeAnalysis`
-  - added `tagging`
-- updated `AWS::EC2::NetworkInsightsAnalysis`
-  - added `tagging`
-- updated `AWS::Redshift::Cluster`
-  - updated property `NodeType`
-- updated `AWS::Redshift::ClusterParameterGroup`
-  - removed `writeOnlyProperties`
-  - updated `tagging`
+- added `AWS::CloudFront::DistributionTenant`
+- updated `AWS::AmazonMQ::Configuration`
   - updated handler permissions
-- updated `AWS::Redshift::ClusterSubnetGroup`
-  - updated `tagging`
-- updated `AWS::Redshift::EventSubscription`
-  - updated `tagging`
-- updated `AWS::Wisdom::AIPrompt`
-  - updated definition `AIPromptAPIFormat`
+- updated `AWS::RedshiftServerless::Workgroup`
+  - updated `readOnlyProperties`

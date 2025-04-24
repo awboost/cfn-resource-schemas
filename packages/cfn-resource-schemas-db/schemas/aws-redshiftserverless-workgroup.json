@@ -1,5 +1,5 @@
 {
-  "$hash": "b2091575ddf1449d7af663ae2bc77eca340bdb73",
+  "$hash": "c859469e76e630be69eea7be268b521e5b0fcc20",
   "$id": "aws-redshiftserverless-workgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -343,6 +343,8 @@
     "/properties/Workgroup/WorkgroupArn",
     "/properties/Workgroup/WorkgroupName",
     "/properties/Workgroup/NamespaceName",
+    "/properties/Workgroup/BaseCapacity",
+    "/properties/Workgroup/MaxCapacity",
     "/properties/Workgroup/EnhancedVpcRouting",
     "/properties/Workgroup/ConfigParameters/*/ParameterKey",
     "/properties/Workgroup/ConfigParameters/*/ParameterValue",
