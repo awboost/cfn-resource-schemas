@@ -1,5 +1,5 @@
 {
-  "$hash": "12a30297ee10aa2b5d53825f6faa93182250870c",
+  "$hash": "de2c94558d47824ff1e505bba653b4e8e1dd32f2",
   "$id": "aws-customerprofiles-objecttype.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -116,7 +116,9 @@
       "permissions": [
         "profile:GetProfileObjectType",
         "profile:PutProfileObjectType",
-        "profile:TagResource"
+        "profile:TagResource",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
       ]
     },
     "delete": { "permissions": ["profile:DeleteProfileObjectType"] },
@@ -129,15 +131,27 @@
         },
         "required": ["DomainName"]
       },
-      "permissions": ["profile:ListProfileObjectTypes"]
+      "permissions": [
+        "profile:ListProfileObjectTypes",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ]
     },
-    "read": { "permissions": ["profile:GetProfileObjectType"] },
+    "read": {
+      "permissions": [
+        "profile:GetProfileObjectType",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ]
+    },
     "update": {
       "permissions": [
         "profile:GetProfileObjectType",
         "profile:PutProfileObjectType",
         "profile:UntagResource",
-        "profile:TagResource"
+        "profile:TagResource",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
       ]
     }
   },

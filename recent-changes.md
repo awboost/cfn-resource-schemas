@@ -1,5 +1,34 @@
-- added `AWS::CloudFront::DistributionTenant`
-- updated `AWS::AmazonMQ::Configuration`
+- updated `AWS::CE::AnomalyMonitor`
+  - added `tagging`
+  - removed `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::RedshiftServerless::Workgroup`
-  - updated `readOnlyProperties`
+- updated `AWS::CE::AnomalySubscription`
+  - added `tagging`
+  - removed `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::CustomerProfiles::Domain`
+  - updated handler permissions
+- updated `AWS::CustomerProfiles::Integration`
+  - updated handler permissions
+- updated `AWS::CustomerProfiles::ObjectType`
+  - updated handler permissions
+- updated `AWS::DynamoDB::Table`
+  - updated definition `AttributeDefinition`
+  - updated definition `GlobalSecondaryIndex`
+  - updated definition `KeySchema`
+  - updated definition `LocalSecondaryIndex`
+  - updated definition `Projection`
+  - updated definition `SSESpecification`
+  - updated definition `StreamSpecification`
+  - updated definition `Tag`
+  - updated property `BillingMode`
+- updated `AWS::MediaPackageV2::OriginEndpoint`
+  - updated definition `ForceEndpointErrorConfiguration`
+  - updated definition `HlsManifestConfiguration`
+  - updated definition `LowLatencyHlsManifestConfiguration`
+- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
+  - updated handler permissions
+- updated `AWS::Route53Resolver::ResolverRule`
+  - added property `DelegationRecord`
+- updated `AWS::Route53Resolver::ResolverRuleAssociation`
+  - updated handler permissions

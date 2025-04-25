@@ -1,5 +1,5 @@
 {
-  "$hash": "b14cff454d203df0403f6294cb596f11ce02944c",
+  "$hash": "c0be21d66deaccb460bf9fafc4a3a9f7c49d557d",
   "$id": "aws-customerprofiles-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -271,17 +271,7 @@
       "permissions": ["profile:CreateDomain", "profile:TagResource"]
     },
     "delete": { "permissions": ["profile:DeleteDomain"] },
-    "list": {
-      "handlerSchema": {
-        "properties": {
-          "DomainName": {
-            "$ref": "resource-schema.json#/properties/DomainName"
-          }
-        },
-        "required": ["DomainName"]
-      },
-      "permissions": ["profile:ListDomains"]
-    },
+    "list": { "permissions": ["profile:ListDomains"] },
     "read": { "permissions": ["profile:GetDomain"] },
     "update": {
       "permissions": [

@@ -1,5 +1,5 @@
 {
-  "$hash": "4d8db4d4a043f73f3868d30732130194091209c8",
+  "$hash": "e819d1b255edaba73bc88f30ce3ffa5a139bb58c",
   "$id": "aws-ce-anomalymonitor.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -41,7 +41,9 @@
     "create": { "permissions": ["ce:CreateAnomalyMonitor", "ce:TagResource"] },
     "delete": { "permissions": ["ce:DeleteAnomalyMonitor"] },
     "list": { "permissions": ["ce:GetAnomalyMonitors"] },
-    "read": { "permissions": ["ce:GetAnomalyMonitors"] },
+    "read": {
+      "permissions": ["ce:GetAnomalyMonitors", "ce:ListTagsForResource"]
+    },
     "update": { "permissions": ["ce:UpdateAnomalyMonitor"] }
   },
   "primaryIdentifier": ["/properties/MonitorArn"],
@@ -105,6 +107,13 @@
   ],
   "required": ["MonitorName", "MonitorType"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "typeName": "AWS::CE::AnomalyMonitor",
-  "writeOnlyProperties": ["/properties/ResourceTags"]
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["ce:ListTagsForResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/ResourceTags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
+  "typeName": "AWS::CE::AnomalyMonitor"
 }

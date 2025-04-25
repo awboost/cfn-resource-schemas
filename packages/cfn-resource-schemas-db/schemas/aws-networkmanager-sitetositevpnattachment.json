@@ -1,5 +1,5 @@
 {
-  "$hash": "d897f12952f393485d79f19a079b8fe51894bac3",
+  "$hash": "62a0e57fcd19024a792c58405eba0e7d3cc206e3",
   "$id": "aws-networkmanager-sitetositevpnattachment.json",
   "additionalIdentifiers": [
     ["/properties/CoreNetworkId", "/properties/VpnConnectionArn"]
@@ -80,7 +80,7 @@
         "ec2:DescribeRegions",
         "networkmanager:TagResource"
       ],
-      "timeoutInMinutes": 40
+      "timeoutInMinutes": 120
     },
     "delete": {
       "permissions": [

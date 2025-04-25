@@ -1,5 +1,5 @@
 {
-  "$hash": "4408bc5e8a272e188c38539cb3a142db677cbd21",
+  "$hash": "06db13651bc28b63153894e2e36246e0feec3126",
   "$id": "aws-customerprofiles-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName", "/properties/Uri"],
@@ -420,6 +420,8 @@
         "appflow:CreateFlow",
         "app-integrations:CreateEventIntegrationAssociation",
         "app-integrations:GetEventIntegration",
+        "connect:DescribeInstance",
+        "ds:DescribeDirectories",
         "events:ListTargetsByRule",
         "events:PutRule",
         "events:PutTargets",
@@ -466,7 +468,9 @@
         "events:PutTargets",
         "events:PutEvents",
         "profile:UntagResource",
-        "profile:TagResource"
+        "profile:TagResource",
+        "connect:DescribeInstance",
+        "ds:DescribeDirectories"
       ]
     }
   },

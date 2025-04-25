@@ -1,5 +1,5 @@
 {
-  "$hash": "b56f96374795c9315a6c5364d664956a0099fed9",
+  "$hash": "fd38f3488ba16c61696b723247a89f9bb6c82bd3",
   "$id": "aws-route53resolver-resolverruleassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -22,7 +22,12 @@
         "route53resolver:GetResolverRuleAssociation"
       ]
     },
-    "list": { "permissions": ["route53resolver:ListResolverRuleAssociations"] },
+    "list": {
+      "permissions": [
+        "route53resolver:ListResolverRuleAssociations",
+        "ec2:DescribeVpcs"
+      ]
+    },
     "read": { "permissions": ["route53resolver:GetResolverRuleAssociation"] }
   },
   "primaryIdentifier": ["/properties/ResolverRuleAssociationId"],
