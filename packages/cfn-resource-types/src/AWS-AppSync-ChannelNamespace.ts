@@ -20,6 +20,7 @@ export type AppSyncChannelNamespaceProperties = {
    * The Amazon S3 endpoint where the code is located.
    */
   CodeS3Location?: string;
+  HandlerConfigs?: HandlerConfigs;
   /**
    * Namespace indentifier.
    * @minLength `1`
@@ -71,6 +72,61 @@ export type AuthMode = {
    * Security configuration for your AppSync API.
    */
   AuthType?: AuthenticationType;
+};
+/**
+ * Type definition for `AWS::AppSync::ChannelNamespace.HandlerBehavior`.
+ * Integration behavior for a handler configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-handlerbehavior.html}
+ */
+export type HandlerBehavior = "CODE" | "DIRECT";
+/**
+ * Type definition for `AWS::AppSync::ChannelNamespace.HandlerConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-handlerconfig.html}
+ */
+export type HandlerConfig = {
+  /**
+   * Integration behavior for a handler configuration.
+   */
+  Behavior: HandlerBehavior;
+  Integration: Integration;
+};
+/**
+ * Type definition for `AWS::AppSync::ChannelNamespace.HandlerConfigs`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-handlerconfigs.html}
+ */
+export type HandlerConfigs = {
+  OnPublish?: HandlerConfig;
+  OnSubscribe?: HandlerConfig;
+};
+/**
+ * Type definition for `AWS::AppSync::ChannelNamespace.Integration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-integration.html}
+ */
+export type Integration = {
+  /**
+   * Data source to invoke for this integration.
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `([_A-Za-z][_0-9A-Za-z]{0,511})?`
+   */
+  DataSourceName: string;
+  LambdaConfig?: LambdaConfig;
+};
+/**
+ * Type definition for `AWS::AppSync::ChannelNamespace.InvokeType`.
+ * Invocation type for direct lambda integrations.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-invoketype.html}
+ */
+export type InvokeType = "REQUEST_RESPONSE" | "EVENT";
+/**
+ * Type definition for `AWS::AppSync::ChannelNamespace.LambdaConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-lambdaconfig.html}
+ */
+export type LambdaConfig = {
+  /**
+   * Invocation type for direct lambda integrations.
+   */
+  InvokeType: InvokeType;
 };
 /**
  * Type definition for `AWS::AppSync::ChannelNamespace.Tag`.

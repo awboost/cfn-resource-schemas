@@ -1,11 +1,10 @@
 {
-  "$hash": "ea592fe239fd088689e44d7d27e784579c3e16e0",
+  "$hash": "cf78778369919a147c8c64db292ad7dd0535e70e",
   "$id": "aws-apprunner-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceName",
-    "/properties/EncryptionConfiguration",
-    "/properties/Tags"
+    "/properties/EncryptionConfiguration"
   ],
   "definitions": {
     "AuthenticationConfiguration": {
@@ -62,7 +61,8 @@
             "PHP_81",
             "RUBY_31",
             "PYTHON_311",
-            "NODEJS_18"
+            "NODEJS_18",
+            "NODEJS_22"
           ],
           "type": "string"
         },
@@ -415,14 +415,16 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-apprunner.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "apprunner:TagResource",
+      "apprunner:UntagResource",
+      "apprunner:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,
     "taggable": true
   },
   "typeName": "AWS::AppRunner::Service",
-  "writeOnlyProperties": [
-    "/properties/Tags",
-    "/properties/AutoScalingConfigurationArn"
-  ]
+  "writeOnlyProperties": ["/properties/AutoScalingConfigurationArn"]
 }

@@ -1,34 +1,53 @@
-- updated `AWS::CE::AnomalyMonitor`
-  - added `tagging`
+- added `AWS::ECR::RegistryScanningConfiguration`
+- updated `AWS::AppRunner::AutoScalingConfiguration`
   - removed `writeOnlyProperties`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::CE::AnomalySubscription`
-  - added `tagging`
-  - removed `writeOnlyProperties`
+- updated `AWS::AppRunner::Service`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated definition `CodeConfigurationValues`
+- updated `AWS::AppSync::ChannelNamespace`
+  - added definition `HandlerBehavior`
+  - added definition `HandlerConfig`
+  - added definition `HandlerConfigs`
+  - added definition `Integration`
+  - added definition `InvokeType`
+  - added definition `LambdaConfig`
+  - added property `HandlerConfigs`
+- updated `AWS::CodePipeline::Pipeline`
+  - added definition `EnvironmentVariable`
+  - updated definition `ActionDeclaration`
+- updated `AWS::DSQL::Cluster`
+  - added property `VpcEndpointServiceName`
+  - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::CustomerProfiles::Domain`
-  - updated handler permissions
-- updated `AWS::CustomerProfiles::Integration`
-  - updated handler permissions
-- updated `AWS::CustomerProfiles::ObjectType`
-  - updated handler permissions
-- updated `AWS::DynamoDB::Table`
-  - updated definition `AttributeDefinition`
-  - updated definition `GlobalSecondaryIndex`
-  - updated definition `KeySchema`
-  - updated definition `LocalSecondaryIndex`
-  - updated definition `Projection`
-  - updated definition `SSESpecification`
-  - updated definition `StreamSpecification`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `ContainerDefinition`
+  - updated definition `ContainerDependency`
+  - updated definition `FirelensConfiguration`
+  - updated definition `LogConfiguration`
+  - updated definition `PortMapping`
+  - updated definition `ProxyConfiguration`
+  - updated definition `SystemControl`
+- updated `AWS::IAM::User`
   - updated definition `Tag`
-  - updated property `BillingMode`
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - updated definition `ForceEndpointErrorConfiguration`
-  - updated definition `HlsManifestConfiguration`
-  - updated definition `LowLatencyHlsManifestConfiguration`
-- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
-  - updated handler permissions
+- updated `AWS::KMS::Alias`
+  - updated property `TargetKeyId`
+- updated `AWS::KMS::Key`
+  - updated `tagging`
+  - updated property `EnableKeyRotation`
+  - updated property `KeyPolicy`
+  - updated property `KeySpec`
+  - updated property `MultiRegion`
+  - updated property `Origin`
+  - updated property `PendingWindowInDays`
+- updated `AWS::KMS::ReplicaKey`
+  - updated `tagging`
 - updated `AWS::Route53Resolver::ResolverRule`
-  - added property `DelegationRecord`
-- updated `AWS::Route53Resolver::ResolverRuleAssociation`
-  - updated handler permissions
+  - removed property `DelegationRecord`
+- updated `AWS::S3::MultiRegionAccessPoint`
+  - added `tagging`
+- updated `AWS::S3::MultiRegionAccessPointPolicy`
+  - added `tagging`

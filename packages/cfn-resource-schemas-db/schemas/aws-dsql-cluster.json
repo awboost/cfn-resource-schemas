@@ -1,5 +1,5 @@
 {
-  "$hash": "521b62dd81b880d05102abedae73ceaab0c65e0e",
+  "$hash": "ded0ea2a5b77e973e13b38fb5010bcace9419663",
   "$id": "aws-dsql-cluster.json",
   "additionalProperties": false,
   "definitions": {
@@ -30,6 +30,7 @@
         "dsql:CreateCluster",
         "dsql:GetCluster",
         "dsql:TagResource",
+        "dsql:GetVpcEndpointServiceName",
         "dsql:ListTagsForResource",
         "iam:CreateServiceLinkedRole"
       ]
@@ -52,6 +53,7 @@
     "read": {
       "permissions": [
         "dsql:GetCluster",
+        "dsql:GetVpcEndpointServiceName",
         "dsql:ListTagsForResource",
         "tag:GetTagKeys",
         "tag:GetTagValues"
@@ -63,6 +65,7 @@
         "dsql:GetCluster",
         "dsql:UntagResource",
         "dsql:TagResource",
+        "dsql:GetVpcEndpointServiceName",
         "dsql:ListTagsForResource"
       ]
     }
@@ -91,13 +94,18 @@
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
+    },
+    "VpcEndpointServiceName": {
+      "description": "The VPC endpoint service name.",
+      "type": "string"
     }
   },
   "readOnlyProperties": [
     "/properties/ResourceArn",
     "/properties/Identifier",
     "/properties/CreationTime",
-    "/properties/Status"
+    "/properties/Status",
+    "/properties/VpcEndpointServiceName"
   ],
   "required": [],
   "tagging": {

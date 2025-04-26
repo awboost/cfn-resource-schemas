@@ -1,5 +1,5 @@
 {
-  "$hash": "df5dfa852fa7321f90570d698ad0654e9ada8d96",
+  "$hash": "05cfbc4f25bee285581d897c8fb20337a7b16594",
   "$id": "aws-s3-multiregionaccesspointpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MrapName"],
@@ -63,5 +63,6 @@
     "/properties/PolicyStatus/IsPublic"
   ],
   "required": ["Policy", "MrapName"],
+  "tagging": { "taggable": false },
   "typeName": "AWS::S3::MultiRegionAccessPointPolicy"
 }

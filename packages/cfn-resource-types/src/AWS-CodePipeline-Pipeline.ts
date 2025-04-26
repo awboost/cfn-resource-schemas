@@ -83,6 +83,10 @@ export type ActionDeclaration = {
    * The action's configuration. These are key-value pairs that specify input values for an action.
    */
   Configuration?: Record<string, any>;
+  /**
+   * The list of environment variables that are input to a compute based action.
+   */
+  EnvironmentVariables?: EnvironmentVariable[];
   InputArtifacts?: InputArtifact[];
   /**
    * The action declaration's name.
@@ -228,6 +232,21 @@ export type EncryptionKey = {
    * The type of encryption key, such as an AWS KMS key. When creating or updating a pipeline, the value must be set to 'KMS'.
    */
   Type: string;
+};
+/**
+ * Type definition for `AWS::CodePipeline::Pipeline.EnvironmentVariable`.
+ * Represents information about the environment variable of an action.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-environmentvariable.html}
+ */
+export type EnvironmentVariable = {
+  /**
+   * The name of the environment variable.
+   */
+  Name: string;
+  /**
+   * The value of the environment variable.
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::CodePipeline::Pipeline.FailureConditions`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "44246fd5ab6e6bc8b4bb2bf864bb33bb961fdac6",
+  "$hash": "5385eed9c42dc5bdd6e4f5b6a568f61d2333ae05",
   "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -18,6 +18,12 @@
         "Configuration": {
           "description": "The action's configuration. These are key-value pairs that specify input values for an action.",
           "type": "object"
+        },
+        "EnvironmentVariables": {
+          "description": "The list of environment variables that are input to a compute based action.",
+          "items": { "$ref": "#/definitions/EnvironmentVariable" },
+          "type": "array",
+          "uniqueItems": true
         },
         "InputArtifacts": {
           "items": { "$ref": "#/definitions/InputArtifact" },
@@ -184,6 +190,22 @@
         }
       },
       "required": ["Type", "Id"],
+      "type": "object"
+    },
+    "EnvironmentVariable": {
+      "additionalProperties": false,
+      "description": "Represents information about the environment variable of an action.",
+      "properties": {
+        "Name": {
+          "description": "The name of the environment variable.",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value of the environment variable.",
+          "type": "string"
+        }
+      },
+      "required": ["Name", "Value"],
       "type": "object"
     },
     "FailureConditions": {

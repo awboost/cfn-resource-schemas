@@ -32,6 +32,10 @@ export type DSQLClusterAttributes = {
    * The status of the cluster.
    */
   Status: string;
+  /**
+   * The VPC endpoint service name.
+   */
+  VpcEndpointServiceName: string;
 };
 /**
  * Type definition for `AWS::DSQL::Cluster.Tag`.

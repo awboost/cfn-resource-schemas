@@ -6,12 +6,6 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type Route53ResolverResolverRuleProperties = {
   /**
-   * The name server domain for queries to be delegated to if a query matches the delegation record.
-   * @minLength `1`
-   * @maxLength `256`
-   */
-  DelegationRecord?: string;
-  /**
    * DNS queries for this domain name are forwarded to the IP addresses that are specified in TargetIps
    * @minLength `1`
    * @maxLength `256`

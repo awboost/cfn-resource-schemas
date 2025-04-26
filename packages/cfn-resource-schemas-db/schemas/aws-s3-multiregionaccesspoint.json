@@ -1,5 +1,5 @@
 {
-  "$hash": "c2c3e9bec9e5ef837d60c36164e63a53cc473cf0",
+  "$hash": "deea559b8e3bdd8ee4a3fb29ecfe07652dcf55f3",
   "$id": "aws-s3-multiregionaccesspoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -107,5 +107,6 @@
   },
   "readOnlyProperties": ["/properties/Alias", "/properties/CreatedAt"],
   "required": ["Regions"],
+  "tagging": { "taggable": false },
   "typeName": "AWS::S3::MultiRegionAccessPoint"
 }

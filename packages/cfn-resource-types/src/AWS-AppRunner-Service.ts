@@ -137,7 +137,8 @@ export type CodeConfigurationValues = {
     | "PHP_81"
     | "RUBY_31"
     | "PYTHON_311"
-    | "NODEJS_18";
+    | "NODEJS_18"
+    | "NODEJS_22";
   /**
    * The secrets and parameters that get referenced by your service as environment variables
    */

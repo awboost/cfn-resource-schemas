@@ -1,5 +1,5 @@
 {
-  "$hash": "f43be8880fc3d583cd065b0fae73191e9e464068",
+  "$hash": "f94429f2c4260d8f67f6c07b37eb770212efee44",
   "$id": "aws-apprunner-autoscalingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -29,8 +29,13 @@
       ]
     },
     "delete": { "permissions": ["apprunner:DeleteAutoScalingConfiguration"] },
-    "list": { "permissions": ["apprunner:ListAutoScalingConfiguration"] },
-    "read": { "permissions": ["apprunner:DescribeAutoScalingConfiguration"] }
+    "list": { "permissions": ["apprunner:ListAutoScalingConfigurations"] },
+    "read": {
+      "permissions": [
+        "apprunner:DescribeAutoScalingConfiguration",
+        "apprunner:ListTagsForResource"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/AutoScalingConfigurationArn"],
   "properties": {
@@ -83,11 +88,15 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "apprunner:TagResource",
+      "apprunner:UntagResource",
+      "apprunner:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,
     "taggable": true
   },
-  "typeName": "AWS::AppRunner::AutoScalingConfiguration",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "typeName": "AWS::AppRunner::AutoScalingConfiguration"
 }

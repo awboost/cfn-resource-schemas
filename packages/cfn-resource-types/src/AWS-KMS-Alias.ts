@@ -11,7 +11,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
   +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
   
   *Regions*
-  KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
+ KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html}
  */
 export type KMSAliasProperties = {
@@ -50,7 +50,7 @@ export type KMSAliasProperties = {
   +  Each alias name must begin with ``alias/`` followed by a name, such as ``alias/exampleKey``. The alias name can contain only alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot begin with ``alias/aws/``. That alias name prefix is reserved for [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
   
   *Regions*
-  KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
+ KMS CloudFormation resources are available in all AWS-Regions in which KMS and CFN are supported.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html}
  */
 export class KMSAlias extends $Resource<
