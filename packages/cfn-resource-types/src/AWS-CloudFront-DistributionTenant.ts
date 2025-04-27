@@ -24,11 +24,6 @@ export type CloudFrontDistributionTenantAttributes = {
   CreatedTime: string;
   DomainResults: {
     Domain: string;
-    Reason:
-      | "pending-validation"
-      | "validation-failed"
-      | "pending-activation"
-      | "customer-activated";
     Status: "active" | "inactive";
   }[];
   ETag: string;
@@ -58,11 +53,6 @@ export type Customizations = {
  */
 export type DomainResult = {
   Domain?: string;
-  Reason?:
-    | "pending-validation"
-    | "validation-failed"
-    | "pending-activation"
-    | "customer-activated";
   Status?: "active" | "inactive";
 };
 /**

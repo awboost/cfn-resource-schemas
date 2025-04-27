@@ -1,5 +1,5 @@
 {
-  "$hash": "628ae69e70790fa004136f5ceeec98624396daf0",
+  "$hash": "5012ce90734db482dd2254d504b9b3723bcaa906",
   "$id": "aws-cloudfront-distributiontenant.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -27,15 +27,6 @@
       "additionalProperties": false,
       "properties": {
         "Domain": { "type": "string" },
-        "Reason": {
-          "enum": [
-            "pending-validation",
-            "validation-failed",
-            "pending-activation",
-            "customer-activated"
-          ],
-          "type": "string"
-        },
         "Status": { "enum": ["active", "inactive"], "type": "string" }
       },
       "type": "object"
@@ -100,7 +91,6 @@
   "handlers": {
     "create": {
       "permissions": [
-        "acm:DeleteCertificate",
         "acm:DescribeCertificate",
         "acm:RequestCertificate",
         "cloudfront:CreateDistributionTenant",
@@ -112,7 +102,6 @@
     },
     "delete": {
       "permissions": [
-        "acm:DeleteCertificate",
         "cloudfront:DeleteDistributionTenant",
         "cloudfront:UpdateDistributionTenant",
         "cloudfront:GetDistributionTenant"
@@ -132,7 +121,6 @@
     },
     "update": {
       "permissions": [
-        "acm:DeleteCertificate",
         "acm:DescribeCertificate",
         "acm:RequestCertificate",
         "cloudfront:GetDistributionTenant",
