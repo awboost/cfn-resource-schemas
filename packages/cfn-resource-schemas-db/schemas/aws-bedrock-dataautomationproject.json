@@ -1,5 +1,5 @@
 {
-  "$hash": "ae06021f6feeeb02de495c64e5565be19b1c67e1",
+  "$hash": "7eee2da9c30ba1d7c459336f7c5a5beb5ad43db0",
   "$id": "aws-bedrock-dataautomationproject.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProjectName"],
@@ -24,6 +24,15 @@
         "TOPIC_CONTENT_MODERATION"
       ],
       "type": "string"
+    },
+    "AudioOverrideConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ModalityProcessing": {
+          "$ref": "#/definitions/ModalityProcessingConfiguration"
+        }
+      },
+      "type": "object"
     },
     "AudioStandardExtraction": {
       "additionalProperties": false,
@@ -106,6 +115,10 @@
       "enum": ["COMPLETED", "IN_PROGRESS", "FAILED"],
       "type": "string"
     },
+    "DesiredModality": {
+      "enum": ["DOCUMENT", "IMAGE", "VIDEO", "AUDIO"],
+      "type": "string"
+    },
     "DocumentBoundingBox": {
       "additionalProperties": false,
       "properties": { "State": { "$ref": "#/definitions/State" } },
@@ -164,6 +177,9 @@
     "DocumentOverrideConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "ModalityProcessing": {
+          "$ref": "#/definitions/ModalityProcessingConfiguration"
+        },
         "Splitter": { "$ref": "#/definitions/SplitterConfiguration" }
       },
       "type": "object"
@@ -217,6 +233,15 @@
       "enum": ["CONTENT_MODERATION", "TEXT_DETECTION", "LOGOS"],
       "type": "string"
     },
+    "ImageOverrideConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ModalityProcessing": {
+          "$ref": "#/definitions/ModalityProcessingConfiguration"
+        }
+      },
+      "type": "object"
+    },
     "ImageStandardExtraction": {
       "additionalProperties": false,
       "properties": {
@@ -253,11 +278,33 @@
       },
       "type": "object"
     },
+    "ModalityProcessingConfiguration": {
+      "additionalProperties": false,
+      "properties": { "State": { "$ref": "#/definitions/State" } },
+      "type": "object"
+    },
+    "ModalityRoutingConfiguration": {
+      "additionalProperties": false,
+      "description": "Modality routing configuration",
+      "properties": {
+        "jpeg": { "$ref": "#/definitions/DesiredModality" },
+        "mov": { "$ref": "#/definitions/DesiredModality" },
+        "mp4": { "$ref": "#/definitions/DesiredModality" },
+        "png": { "$ref": "#/definitions/DesiredModality" }
+      },
+      "type": "object"
+    },
     "OverrideConfiguration": {
       "additionalProperties": false,
       "description": "Override configuration",
       "properties": {
-        "Document": { "$ref": "#/definitions/DocumentOverrideConfiguration" }
+        "Audio": { "$ref": "#/definitions/AudioOverrideConfiguration" },
+        "Document": { "$ref": "#/definitions/DocumentOverrideConfiguration" },
+        "Image": { "$ref": "#/definitions/ImageOverrideConfiguration" },
+        "ModalityRouting": {
+          "$ref": "#/definitions/ModalityRoutingConfiguration"
+        },
+        "Video": { "$ref": "#/definitions/VideoOverrideConfiguration" }
       },
       "type": "object"
     },
@@ -325,6 +372,15 @@
     "VideoExtractionCategoryType": {
       "enum": ["CONTENT_MODERATION", "TEXT_DETECTION", "TRANSCRIPT", "LOGOS"],
       "type": "string"
+    },
+    "VideoOverrideConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ModalityProcessing": {
+          "$ref": "#/definitions/ModalityProcessingConfiguration"
+        }
+      },
+      "type": "object"
     },
     "VideoStandardExtraction": {
       "additionalProperties": false,

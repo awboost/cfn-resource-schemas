@@ -1,5 +1,5 @@
 {
-  "$hash": "1d2bab4b003d54c0e6881e8ffe71681d89c3332d",
+  "$hash": "6afa3d72e496c82d415fa3bc7583b25aa372dc42",
   "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,8 +10,7 @@
     "/properties/JobLogStatus",
     "/properties/QueryLogStatus",
     "/properties/Members",
-    "/properties/CreatorPaymentConfiguration",
-    "/properties/AnalyticsEngine"
+    "/properties/CreatorPaymentConfiguration"
   ],
   "definitions": {
     "AnalyticsEngine": {

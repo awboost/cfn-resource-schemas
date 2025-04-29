@@ -87,6 +87,13 @@ export type AudioExtractionCategoryType =
   | "TRANSCRIPT"
   | "TOPIC_CONTENT_MODERATION";
 /**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.AudioOverrideConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html}
+ */
+export type AudioOverrideConfiguration = {
+  ModalityProcessing?: ModalityProcessingConfiguration;
+};
+/**
  * Type definition for `AWS::Bedrock::DataAutomationProject.AudioStandardExtraction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiostandardextraction.html}
  */
@@ -169,6 +176,11 @@ export type DataAutomationProjectStatus =
   | "IN_PROGRESS"
   | "FAILED";
 /**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.DesiredModality`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-desiredmodality.html}
+ */
+export type DesiredModality = "DOCUMENT" | "IMAGE" | "VIDEO" | "AUDIO";
+/**
  * Type definition for `AWS::Bedrock::DataAutomationProject.DocumentBoundingBox`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentboundingbox.html}
  */
@@ -228,6 +240,7 @@ export type DocumentOutputTextFormatType =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentoverrideconfiguration.html}
  */
 export type DocumentOverrideConfiguration = {
+  ModalityProcessing?: ModalityProcessingConfiguration;
   Splitter?: SplitterConfiguration;
 };
 /**
@@ -278,6 +291,13 @@ export type ImageExtractionCategoryType =
   | "TEXT_DETECTION"
   | "LOGOS";
 /**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.ImageOverrideConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imageoverrideconfiguration.html}
+ */
+export type ImageOverrideConfiguration = {
+  ModalityProcessing?: ModalityProcessingConfiguration;
+};
+/**
  * Type definition for `AWS::Bedrock::DataAutomationProject.ImageStandardExtraction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imagestandardextraction.html}
  */
@@ -307,12 +327,37 @@ export type ImageStandardOutputConfiguration = {
   GenerativeField?: ImageStandardGenerativeField;
 };
 /**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.ModalityProcessingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-modalityprocessingconfiguration.html}
+ */
+export type ModalityProcessingConfiguration = {
+  State?: State;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.ModalityRoutingConfiguration`.
+ * Modality routing configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-modalityroutingconfiguration.html}
+ */
+export type ModalityRoutingConfiguration = {
+  jpeg?: DesiredModality;
+  mov?: DesiredModality;
+  mp4?: DesiredModality;
+  png?: DesiredModality;
+};
+/**
  * Type definition for `AWS::Bedrock::DataAutomationProject.OverrideConfiguration`.
  * Override configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-overrideconfiguration.html}
  */
 export type OverrideConfiguration = {
+  Audio?: AudioOverrideConfiguration;
   Document?: DocumentOverrideConfiguration;
+  Image?: ImageOverrideConfiguration;
+  /**
+   * Modality routing configuration
+   */
+  ModalityRouting?: ModalityRoutingConfiguration;
+  Video?: VideoOverrideConfiguration;
 };
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.SplitterConfiguration`.
@@ -382,6 +427,13 @@ export type VideoExtractionCategoryType =
   | "TEXT_DETECTION"
   | "TRANSCRIPT"
   | "LOGOS";
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.VideoOverrideConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videooverrideconfiguration.html}
+ */
+export type VideoOverrideConfiguration = {
+  ModalityProcessing?: ModalityProcessingConfiguration;
+};
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.VideoStandardExtraction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videostandardextraction.html}

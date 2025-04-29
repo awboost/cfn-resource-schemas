@@ -1,3 +1,18 @@
-- updated `AWS::CloudFront::DistributionTenant`
-  - updated definition `DomainResult`
+- updated `AWS::Bedrock::DataAutomationProject`
+  - added definition `AudioOverrideConfiguration`
+  - added definition `DesiredModality`
+  - added definition `ImageOverrideConfiguration`
+  - added definition `ModalityProcessingConfiguration`
+  - added definition `ModalityRoutingConfiguration`
+  - added definition `VideoOverrideConfiguration`
+  - updated definition `DocumentOverrideConfiguration`
+  - updated definition `OverrideConfiguration`
+- updated `AWS::CleanRooms::Collaboration`
+  - updated `createOnlyProperties`
+- updated `AWS::ECS::Service`
+  - updated definition `LogConfiguration`
+  - updated definition `ServiceManagedEBSVolumeConfiguration`
+  - updated definition `Tag`
+  - updated definition `TimeoutConfiguration`
   - updated handler permissions
+  - updated property `SchedulingStrategy`
