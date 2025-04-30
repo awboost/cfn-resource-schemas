@@ -1,9 +1,20 @@
 {
-  "$hash": "064709cc95e6bcffc341272ba53ee67dce8041bb",
+  "$hash": "510ccb9da38d4a609fea42bb62c194b9ee492df4",
   "$id": "aws-mediatailor-playbackconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
+    "AdConditioningConfiguration": {
+      "additionalProperties": false,
+      "description": "<p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>",
+      "properties": {
+        "StreamingMediaFileConditioning": {
+          "$ref": "#/definitions/StreamingMediaFileConditioning"
+        }
+      },
+      "required": ["StreamingMediaFileConditioning"],
+      "type": "object"
+    },
     "AdMarkerPassthrough": {
       "additionalProperties": false,
       "description": "For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.",
@@ -127,6 +138,10 @@
       },
       "type": "object"
     },
+    "StreamingMediaFileConditioning": {
+      "enum": ["TRANSCODE", "NONE"],
+      "type": "string"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -163,6 +178,9 @@
   },
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
+    "AdConditioningConfiguration": {
+      "$ref": "#/definitions/AdConditioningConfiguration"
+    },
     "AdDecisionServerUrl": {
       "description": "The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.",
       "type": "string"

@@ -1,18 +1,59 @@
-- updated `AWS::Bedrock::DataAutomationProject`
-  - added definition `AudioOverrideConfiguration`
-  - added definition `DesiredModality`
-  - added definition `ImageOverrideConfiguration`
-  - added definition `ModalityProcessingConfiguration`
-  - added definition `ModalityRoutingConfiguration`
-  - added definition `VideoOverrideConfiguration`
-  - updated definition `DocumentOverrideConfiguration`
-  - updated definition `OverrideConfiguration`
-- updated `AWS::CleanRooms::Collaboration`
-  - updated `createOnlyProperties`
-- updated `AWS::ECS::Service`
-  - updated definition `LogConfiguration`
-  - updated definition `ServiceManagedEBSVolumeConfiguration`
-  - updated definition `Tag`
-  - updated definition `TimeoutConfiguration`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `BlockDeviceMapping`
+  - updated definition `CapacityReservationSpecification`
+  - updated definition `CapacityReservationTarget`
+  - updated definition `CpuOptions`
+  - updated definition `CreditSpecification`
+  - updated definition `Ebs`
+  - updated definition `ElasticGpuSpecification`
+  - updated definition `HibernationOptions`
+  - updated definition `IamInstanceProfile`
+  - updated definition `InstanceMarketOptions`
+  - updated definition `InstanceRequirements`
+  - updated definition `Ipv4PrefixSpecification`
+  - updated definition `Ipv6Add`
+  - updated definition `Ipv6PrefixSpecification`
+  - updated definition `LaunchTemplateData`
+  - updated definition `LaunchTemplateElasticInferenceAccelerator`
+  - updated definition `LaunchTemplateTagSpecification`
+  - updated definition `LicenseSpecification`
+  - updated definition `MetadataOptions`
+  - updated definition `Monitoring`
+  - updated definition `NetworkInterface`
+  - updated definition `Placement`
+  - updated definition `PrivateIpAdd`
+  - updated definition `Reference`
+  - updated definition `SpotOptions`
+  - updated definition `TagSpecification`
+- updated `AWS::ImageBuilder::DistributionConfiguration`
+  - added definition `SsmParameterConfiguration`
+  - updated definition `Distribution`
   - updated handler permissions
-  - updated property `SchedulingStrategy`
+- updated `AWS::Lambda::Function`
+  - updated definition `DeadLetterConfig`
+  - updated definition `RuntimeManagementConfig`
+- updated `AWS::MediaTailor::Channel`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+- updated `AWS::MediaTailor::LiveSource`
+  - updated `tagging`
+- updated `AWS::MediaTailor::PlaybackConfiguration`
+  - added definition `AdConditioningConfiguration`
+  - added definition `StreamingMediaFileConditioning`
+  - added property `AdConditioningConfiguration`
+- updated `AWS::MediaTailor::SourceLocation`
+  - updated `tagging`
+- updated `AWS::MediaTailor::VodSource`
+  - updated `tagging`
+- updated `AWS::WAFv2::IPSet`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::WAFv2::RegexPatternSet`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::WAFv2::RuleGroup`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::WAFv2::WebACL`
+  - updated `tagging`
+  - updated handler permissions

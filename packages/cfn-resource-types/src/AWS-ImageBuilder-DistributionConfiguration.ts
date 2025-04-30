@@ -112,6 +112,10 @@ export type Distribution = {
    * region
    */
   Region: string;
+  /**
+   * The SSM parameter configurations to use for AMI distribution.
+   */
+  SsmParameterConfigurations?: SsmParameterConfiguration[];
 };
 /**
  * Type definition for `AWS::ImageBuilder::DistributionConfiguration.FastLaunchConfiguration`.
@@ -211,6 +215,25 @@ export type LaunchTemplateConfiguration = {
    * Set the specified EC2 launch template as the default launch template for the specified account.
    */
   SetDefaultVersion?: boolean;
+};
+/**
+ * Type definition for `AWS::ImageBuilder::DistributionConfiguration.SsmParameterConfiguration`.
+ * The SSM parameter configuration for AMI distribution.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-ssmparameterconfiguration.html}
+ */
+export type SsmParameterConfiguration = {
+  /**
+   * The account ID for the AMI to update the parameter with.
+   */
+  AmiAccountId?: string;
+  /**
+   * The data type of the SSM parameter.
+   */
+  DataType?: "text" | "aws:ec2:image";
+  /**
+   * The name of the SSM parameter.
+   */
+  ParameterName: string;
 };
 /**
  * Type definition for `AWS::ImageBuilder::DistributionConfiguration.TargetContainerRepository`.

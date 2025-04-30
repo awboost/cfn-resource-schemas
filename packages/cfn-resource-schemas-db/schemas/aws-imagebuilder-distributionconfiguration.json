@@ -1,5 +1,5 @@
 {
-  "$hash": "63a9a0a70921e4748c4729d9518ba6814c083651",
+  "$hash": "bff06082b83ac38fdf1ffc7460724bfaac966168",
   "$id": "aws-imagebuilder-distributionconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -87,7 +87,13 @@
           "items": { "$ref": "#/definitions/LicenseConfigurationArn" },
           "type": "array"
         },
-        "Region": { "description": "region", "type": "string" }
+        "Region": { "description": "region", "type": "string" },
+        "SsmParameterConfigurations": {
+          "description": "The SSM parameter configurations to use for AMI distribution.",
+          "insertionOrder": true,
+          "items": { "$ref": "#/definitions/SsmParameterConfiguration" },
+          "type": "array"
+        }
       },
       "required": ["Region"],
       "type": "object"
@@ -203,6 +209,27 @@
       "description": "The Amazon Resource Name (ARN) of the License Manager configuration.",
       "type": "string"
     },
+    "SsmParameterConfiguration": {
+      "additionalProperties": false,
+      "description": "The SSM parameter configuration for AMI distribution.",
+      "properties": {
+        "AmiAccountId": {
+          "description": "The account ID for the AMI to update the parameter with.",
+          "type": "string"
+        },
+        "DataType": {
+          "description": "The data type of the SSM parameter.",
+          "enum": ["text", "aws:ec2:image"],
+          "type": "string"
+        },
+        "ParameterName": {
+          "description": "The name of the SSM parameter.",
+          "type": "string"
+        }
+      },
+      "required": ["ParameterName"],
+      "type": "object"
+    },
     "TargetContainerRepository": {
       "additionalProperties": false,
       "description": "The destination repository for the container image.",
@@ -229,6 +256,7 @@
         "ec2:DescribeLaunchTemplates",
         "ec2:CreateLaunchTemplateVersion",
         "ec2:ModifyLaunchTemplate",
+        "ssm:GetParameter",
         "imagebuilder:TagResource",
         "imagebuilder:GetDistributionConfiguration",
         "imagebuilder:CreateDistributionConfiguration"
@@ -248,6 +276,7 @@
         "ec2:DescribeLaunchTemplates",
         "ec2:CreateLaunchTemplateVersion",
         "ec2:ModifyLaunchTemplate",
+        "ssm:GetParameter",
         "imagebuilder:GetDistributionConfiguration",
         "imagebuilder:UpdateDistributionConfiguration"
       ]

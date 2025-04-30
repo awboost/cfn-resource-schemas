@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type MediaTailorPlaybackConfigurationProperties = {
   /**
+   * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+   */
+  AdConditioningConfiguration?: AdConditioningConfiguration;
+  /**
    * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
    */
   AdDecisionServerUrl: string;
@@ -100,6 +104,14 @@ export type MediaTailorPlaybackConfigurationAttributes = {
    * The URL that the player uses to initialize a session that uses client-side reporting.
    */
   SessionInitializationEndpointPrefix: string;
+};
+/**
+ * Type definition for `AWS::MediaTailor::PlaybackConfiguration.AdConditioningConfiguration`.
+ * <p>The setting that indicates what conditioning MediaTailor will perform on ads that the ad decision server (ADS) returns.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-adconditioningconfiguration.html}
+ */
+export type AdConditioningConfiguration = {
+  StreamingMediaFileConditioning: StreamingMediaFileConditioning;
 };
 /**
  * Type definition for `AWS::MediaTailor::PlaybackConfiguration.AdMarkerPassthrough`.
@@ -208,6 +220,11 @@ export type ManifestProcessingRules = {
    */
   AdMarkerPassthrough?: AdMarkerPassthrough;
 };
+/**
+ * Type definition for `AWS::MediaTailor::PlaybackConfiguration.StreamingMediaFileConditioning`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-streamingmediafileconditioning.html}
+ */
+export type StreamingMediaFileConditioning = "TRANSCODE" | "NONE";
 /**
  * Type definition for `AWS::MediaTailor::PlaybackConfiguration.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-tag.html}

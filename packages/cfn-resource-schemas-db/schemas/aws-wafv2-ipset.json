@@ -1,5 +1,5 @@
 {
-  "$hash": "15bcba7254d5304bfae1a22d0c2d6f3504b33564",
+  "$hash": "06e73204780f9dcce82434e8d5302c7b87116416",
   "$id": "aws-wafv2-ipset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -54,7 +54,9 @@
       "permissions": [
         "wafv2:CreateIPSet",
         "wafv2:GetIPSet",
-        "wafv2:ListTagsForResource"
+        "wafv2:ListTagsForResource",
+        "wafv2:TagResource",
+        "wafv2:UntagResource"
       ]
     },
     "delete": { "permissions": ["wafv2:DeleteIPSet", "wafv2:GetIPSet"] },
@@ -106,6 +108,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-wafv2.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "wafv2:TagResource",
+      "wafv2:UntagResource",
+      "wafv2:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

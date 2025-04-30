@@ -1,5 +1,5 @@
 {
-  "$hash": "de03959abb3f3011f9e46a9ee600159f4630c57c",
+  "$hash": "2fea0247a88c79063ad1d7b15301b5d5ccfcca0f",
   "$id": "aws-wafv2-webacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -1389,7 +1389,9 @@
       "permissions": [
         "wafv2:CreateWebACL",
         "wafv2:GetWebACL",
-        "wafv2:ListTagsForResource"
+        "wafv2:ListTagsForResource",
+        "wafv2:TagResource",
+        "wafv2:UntagResource"
       ]
     },
     "delete": { "permissions": ["wafv2:DeleteWebACL", "wafv2:GetWebACL"] },
@@ -1458,6 +1460,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-wafv2.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "wafv2:TagResource",
+      "wafv2:UntagResource",
+      "wafv2:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

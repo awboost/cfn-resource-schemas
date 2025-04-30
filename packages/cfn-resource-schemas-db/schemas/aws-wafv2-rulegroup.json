@@ -1,5 +1,5 @@
 {
-  "$hash": "4954a543a15dd576663d6d2cb9a57e15e55b5630",
+  "$hash": "67e37bba6af9cfdf704e3124f7aa2c5c4e51d27b",
   "$id": "aws-wafv2-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -953,6 +953,8 @@
       "permissions": [
         "wafv2:CreateRuleGroup",
         "wafv2:GetRuleGroup",
+        "wafv2:TagResource",
+        "wafv2:UntagResource",
         "wafv2:ListTagsForResource"
       ]
     },
@@ -1028,6 +1030,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-wafv2.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "wafv2:TagResource",
+      "wafv2:UntagResource",
+      "wafv2:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
