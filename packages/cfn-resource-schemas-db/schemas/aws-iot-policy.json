@@ -1,5 +1,5 @@
 {
-  "$hash": "4b1d5fcb547deb9b6bbcfe18880cec44e2c208a8",
+  "$hash": "aa3e17b21cd7ad7ab5a94cafce57207677c176e4",
   "$id": "aws-iot-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName"],
@@ -68,6 +68,11 @@
   "required": ["PolicyDocument"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:ListTagsForResource",
+      "iot:TagResource",
+      "iot:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

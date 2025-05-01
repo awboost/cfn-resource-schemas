@@ -1,5 +1,5 @@
 {
-  "$hash": "b66fd5c9dad4509af077bc1f7932f5f21e6fdf50",
+  "$hash": "25dcf8cf4548cccc4adec710c5ae841ddfdbe5f6",
   "$id": "aws-cognito-userpoolclient.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -15,6 +15,17 @@
         "ExternalId": { "type": "string" },
         "RoleArn": { "type": "string" },
         "UserDataShared": { "type": "boolean" }
+      },
+      "type": "object"
+    },
+    "RefreshTokenRotation": {
+      "properties": {
+        "Feature": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
+        "RetryGracePeriodSeconds": {
+          "maximum": 60,
+          "minimum": 0,
+          "type": "integer"
+        }
       },
       "type": "object"
     },
@@ -96,6 +107,7 @@
     "Name": { "type": "string" },
     "PreventUserExistenceErrors": { "type": "string" },
     "ReadAttributes": { "items": { "type": "string" }, "type": "array" },
+    "RefreshTokenRotation": { "$ref": "#/definitions/RefreshTokenRotation" },
     "RefreshTokenValidity": {
       "maximum": 315360000,
       "minimum": 1,

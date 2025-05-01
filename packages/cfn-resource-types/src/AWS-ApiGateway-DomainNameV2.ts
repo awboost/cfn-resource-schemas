@@ -28,6 +28,7 @@ export type ApiGatewayDomainNameV2Attributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainnamev2-endpointconfiguration.html}
  */
 export type EndpointConfiguration = {
+  IpAddressType?: string;
   Types?: string[];
 };
 /**

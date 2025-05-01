@@ -1,59 +1,68 @@
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `BlockDeviceMapping`
-  - updated definition `CapacityReservationSpecification`
-  - updated definition `CapacityReservationTarget`
-  - updated definition `CpuOptions`
-  - updated definition `CreditSpecification`
-  - updated definition `Ebs`
-  - updated definition `ElasticGpuSpecification`
-  - updated definition `HibernationOptions`
-  - updated definition `IamInstanceProfile`
-  - updated definition `InstanceMarketOptions`
-  - updated definition `InstanceRequirements`
-  - updated definition `Ipv4PrefixSpecification`
-  - updated definition `Ipv6Add`
-  - updated definition `Ipv6PrefixSpecification`
-  - updated definition `LaunchTemplateData`
-  - updated definition `LaunchTemplateElasticInferenceAccelerator`
-  - updated definition `LaunchTemplateTagSpecification`
-  - updated definition `LicenseSpecification`
-  - updated definition `MetadataOptions`
-  - updated definition `Monitoring`
-  - updated definition `NetworkInterface`
-  - updated definition `Placement`
-  - updated definition `PrivateIpAdd`
-  - updated definition `Reference`
-  - updated definition `SpotOptions`
-  - updated definition `TagSpecification`
-- updated `AWS::ImageBuilder::DistributionConfiguration`
-  - added definition `SsmParameterConfiguration`
-  - updated definition `Distribution`
-  - updated handler permissions
-- updated `AWS::Lambda::Function`
-  - updated definition `DeadLetterConfig`
-  - updated definition `RuntimeManagementConfig`
-- updated `AWS::MediaTailor::Channel`
-  - removed `writeOnlyProperties`
+- updated `AWS::ApiGateway::DomainNameV2`
+  - updated definition `EndpointConfiguration`
+- updated `AWS::Cognito::UserPoolClient`
+  - added definition `RefreshTokenRotation`
+  - added property `RefreshTokenRotation`
+- updated `AWS::EC2::NatGateway`
+  - updated property `SecondaryPrivateIpAddressCount`
+  - updated property `SecondaryPrivateIpAddresses`
+- updated `AWS::IoT::Authorizer`
   - updated `tagging`
-- updated `AWS::MediaTailor::LiveSource`
+- updated `AWS::IoT::CACertificate`
   - updated `tagging`
-- updated `AWS::MediaTailor::PlaybackConfiguration`
-  - added definition `AdConditioningConfiguration`
-  - added definition `StreamingMediaFileConditioning`
-  - added property `AdConditioningConfiguration`
-- updated `AWS::MediaTailor::SourceLocation`
+- updated `AWS::IoT::CertificateProvider`
   - updated `tagging`
-- updated `AWS::MediaTailor::VodSource`
+- updated `AWS::IoT::Policy`
   - updated `tagging`
-- updated `AWS::WAFv2::IPSet`
+- updated `AWS::IoT::ProvisioningTemplate`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::WAFv2::RegexPatternSet`
+- updated `AWS::IoT::RoleAlias`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::WAFv2::RuleGroup`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::WAFv2::WebACL`
-  - updated `tagging`
-  - updated handler permissions
+- updated `AWS::Lambda::Permission`
+  - updated property `FunctionName`
+- updated `AWS::RDS::DBCluster`
+  - updated definition `ScalingConfiguration`
+  - updated property `BacktrackWindow`
+  - updated property `DBClusterIdentifier`
+  - updated property `EnableCloudwatchLogsExports`
+  - updated property `EnableIAMDatabaseAuthentication`
+  - updated property `EngineLifecycleSupport`
+  - updated property `ManageMasterUserPassword`
+  - updated property `MonitoringInterval`
+  - updated property `NetworkType`
+  - updated property `PerformanceInsightsRetentionPeriod`
+  - updated property `Port`
+  - updated property `PreferredBackupWindow`
+  - updated property `PreferredMaintenanceWindow`
+  - updated property `RestoreToTime`
+  - updated property `RestoreType`
+  - updated property `SnapshotIdentifier`
+  - updated property `StorageType`
+- updated `AWS::RDS::DBClusterParameterGroup`
+  - updated property `Family`
+- updated `AWS::RDS::DBInstance`
+  - updated property `CertificateRotationRestart`
+  - updated property `DBName`
+  - updated property `DBSnapshotIdentifier`
+  - updated property `DatabaseInsightsMode`
+  - updated property `EnableCloudwatchLogsExports`
+  - updated property `EnableIAMDatabaseAuthentication`
+  - updated property `EngineLifecycleSupport`
+  - updated property `EngineVersion`
+  - updated property `Engine`
+  - updated property `LicenseModel`
+  - updated property `ManageMasterUserPassword`
+  - updated property `MonitoringInterval`
+  - updated property `PerformanceInsightsRetentionPeriod`
+  - updated property `Port`
+  - updated property `PreferredBackupWindow`
+  - updated property `PreferredMaintenanceWindow`
+  - updated property `PromotionTier`
+  - updated property `ReplicaMode`
+  - updated property `StorageType`
+- updated `AWS::RDS::DBParameterGroup`
+  - updated property `Parameters`
+- updated `AWS::RDS::OptionGroup`
+  - updated property `OptionGroupName`
+- updated `AWS::SecretsManager::Secret`
+  - updated definition `GenerateSecretString`

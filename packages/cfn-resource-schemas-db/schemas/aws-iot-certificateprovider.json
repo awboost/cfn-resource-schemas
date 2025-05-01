@@ -1,5 +1,5 @@
 {
-  "$hash": "78aa5a60365feb2b7cc43969ef77ae829a67888e",
+  "$hash": "3fb935558fedb60e7acdfe7ef1964f705e87b30b",
   "$id": "aws-iot-certificateprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CertificateProviderName"],
@@ -95,6 +95,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:ListTagsForResource",
+      "iot:TagResource",
+      "iot:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

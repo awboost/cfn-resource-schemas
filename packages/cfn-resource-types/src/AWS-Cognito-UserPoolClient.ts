@@ -38,6 +38,7 @@ export type CognitoUserPoolClientProperties = {
   LogoutURLs?: string[];
   PreventUserExistenceErrors?: string;
   ReadAttributes?: string[];
+  RefreshTokenRotation?: RefreshTokenRotation;
   /**
    * @min `1`
    * @max `315360000`
@@ -67,6 +68,18 @@ export type AnalyticsConfiguration = {
   ExternalId?: string;
   RoleArn?: string;
   UserDataShared?: boolean;
+};
+/**
+ * Type definition for `AWS::Cognito::UserPoolClient.RefreshTokenRotation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-refreshtokenrotation.html}
+ */
+export type RefreshTokenRotation = {
+  Feature?: "ENABLED" | "DISABLED";
+  /**
+   * @min `0`
+   * @max `60`
+   */
+  RetryGracePeriodSeconds?: number;
 };
 /**
  * Type definition for `AWS::Cognito::UserPoolClient.TokenValidityUnits`.
