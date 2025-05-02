@@ -1,5 +1,5 @@
 {
-  "$hash": "629cafb4245cdd8b59cc4e259278494d9df9a36e",
+  "$hash": "743e77f8e89f2104948ab694de7f526eb9ff6eb8",
   "$id": "aws-cassandra-type.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -68,6 +68,9 @@
       "description": "Name of the User-Defined Type.",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/Fields/*/FieldType": "$lowercase(FieldType)"
   },
   "readOnlyProperties": [
     "/properties/DirectReferringTables",

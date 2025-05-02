@@ -33,8 +33,8 @@ export type AppSyncResolverProperties = {
   FieldName: string;
   /**
      * The resolver type.
-      +   *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
-      +   *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
+      +  *UNIT*: A UNIT resolver type. A UNIT resolver is the default resolver type. You can use a UNIT resolver to run a GraphQL query against a single data source.
+      +  *PIPELINE*: A PIPELINE resolver type. You can use a PIPELINE resolver to invoke a series of ``Function`` objects in a serial manner. You can use a pipeline resolver to run a GraphQL query against multiple data sources.
      */
   Kind?: string;
   /**
@@ -132,7 +132,7 @@ export type LambdaConflictHandlerConfig = {
 /**
  * Type definition for `AWS::AppSync::Resolver.PipelineConfig`.
  * Use the ``PipelineConfig`` property type to specify ``PipelineConfig`` for an APSYlong resolver.
-  ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
+ ``PipelineConfig`` is a property of the [AWS::AppSync::Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html) resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-pipelineconfig.html}
  */
 export type PipelineConfig = {
@@ -150,15 +150,15 @@ export type PipelineConfig = {
 export type SyncConfig = {
   /**
      * The Conflict Detection strategy to use.
-      +   *VERSION*: Detect conflicts based on object versions for this resolver.
-      +   *NONE*: Do not detect conflicts when invoking this resolver.
+      +  *VERSION*: Detect conflicts based on object versions for this resolver.
+      +  *NONE*: Do not detect conflicts when invoking this resolver.
      */
   ConflictDetection: string;
   /**
      * The Conflict Resolution strategy to perform in the event of a conflict.
-      +   *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
-      +   *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
-      +   *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
+      +  *OPTIMISTIC_CONCURRENCY*: Resolve conflicts by rejecting mutations when versions don't match the latest version at the server.
+      +  *AUTOMERGE*: Resolve conflicts with the Automerge conflict resolution strategy.
+      +  *LAMBDA*: Resolve conflicts with an LAMlong function supplied in the ``LambdaConflictHandlerConfig``.
      */
   ConflictHandler?: string;
   /**

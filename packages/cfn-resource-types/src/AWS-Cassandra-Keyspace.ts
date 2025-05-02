@@ -28,7 +28,7 @@ export type CassandraKeyspaceProperties = {
 export type ReplicationSpecification = {
   /**
    * @minLength `2`
-   * @maxLength `6`
+   * @maxLength `17`
    */
   RegionList?: (
     | "af-south-1"

@@ -1,68 +1,23 @@
-- updated `AWS::ApiGateway::DomainNameV2`
-  - updated definition `EndpointConfiguration`
-- updated `AWS::Cognito::UserPoolClient`
-  - added definition `RefreshTokenRotation`
-  - added property `RefreshTokenRotation`
-- updated `AWS::EC2::NatGateway`
-  - updated property `SecondaryPrivateIpAddressCount`
-  - updated property `SecondaryPrivateIpAddresses`
-- updated `AWS::IoT::Authorizer`
+- added `AWS::SSMGuiConnect::Preferences`
+- updated `AWS::AppRunner::AutoScalingConfiguration`
+  - updated handler permissions
+- updated `AWS::AppSync::Resolver`
+  - updated definition `PipelineConfig`
+  - updated definition `SyncConfig`
+  - updated property `Kind`
+- updated `AWS::Cassandra::Keyspace`
+  - updated definition `RegionList`
+- updated `AWS::Cassandra::Table`
+  - added `propertyTransform`
+- updated `AWS::Cassandra::Type`
+  - added `propertyTransform`
+- updated `AWS::ECS::TaskDefinition`
+  - updated property `Cpu`
+- updated `AWS::IoTSiteWise::AssetModel`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::VerifiedPermissions::PolicyStore`
+  - added definition `Tag`
+  - added property `Tags`
   - updated `tagging`
-- updated `AWS::IoT::CACertificate`
-  - updated `tagging`
-- updated `AWS::IoT::CertificateProvider`
-  - updated `tagging`
-- updated `AWS::IoT::Policy`
-  - updated `tagging`
-- updated `AWS::IoT::ProvisioningTemplate`
-  - updated `tagging`
-- updated `AWS::IoT::RoleAlias`
-  - updated `tagging`
-- updated `AWS::Lambda::Permission`
-  - updated property `FunctionName`
-- updated `AWS::RDS::DBCluster`
-  - updated definition `ScalingConfiguration`
-  - updated property `BacktrackWindow`
-  - updated property `DBClusterIdentifier`
-  - updated property `EnableCloudwatchLogsExports`
-  - updated property `EnableIAMDatabaseAuthentication`
-  - updated property `EngineLifecycleSupport`
-  - updated property `ManageMasterUserPassword`
-  - updated property `MonitoringInterval`
-  - updated property `NetworkType`
-  - updated property `PerformanceInsightsRetentionPeriod`
-  - updated property `Port`
-  - updated property `PreferredBackupWindow`
-  - updated property `PreferredMaintenanceWindow`
-  - updated property `RestoreToTime`
-  - updated property `RestoreType`
-  - updated property `SnapshotIdentifier`
-  - updated property `StorageType`
-- updated `AWS::RDS::DBClusterParameterGroup`
-  - updated property `Family`
-- updated `AWS::RDS::DBInstance`
-  - updated property `CertificateRotationRestart`
-  - updated property `DBName`
-  - updated property `DBSnapshotIdentifier`
-  - updated property `DatabaseInsightsMode`
-  - updated property `EnableCloudwatchLogsExports`
-  - updated property `EnableIAMDatabaseAuthentication`
-  - updated property `EngineLifecycleSupport`
-  - updated property `EngineVersion`
-  - updated property `Engine`
-  - updated property `LicenseModel`
-  - updated property `ManageMasterUserPassword`
-  - updated property `MonitoringInterval`
-  - updated property `PerformanceInsightsRetentionPeriod`
-  - updated property `Port`
-  - updated property `PreferredBackupWindow`
-  - updated property `PreferredMaintenanceWindow`
-  - updated property `PromotionTier`
-  - updated property `ReplicaMode`
-  - updated property `StorageType`
-- updated `AWS::RDS::DBParameterGroup`
-  - updated property `Parameters`
-- updated `AWS::RDS::OptionGroup`
-  - updated property `OptionGroupName`
-- updated `AWS::SecretsManager::Secret`
-  - updated definition `GenerateSecretString`
+  - updated handler permissions

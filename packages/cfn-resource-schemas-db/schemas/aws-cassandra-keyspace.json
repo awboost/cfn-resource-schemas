@@ -1,5 +1,5 @@
 {
-  "$hash": "0b6d26cae6ef27c76d5701486dfbfea8a4217e94",
+  "$hash": "a15853f1d79059ae33f5afe22a1c40bc3a1a8562",
   "$id": "aws-cassandra-keyspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KeyspaceName"],
@@ -28,7 +28,7 @@
         ],
         "type": "string"
       },
-      "maxItems": 6,
+      "maxItems": 17,
       "minItems": 2,
       "type": "array",
       "uniqueItems": true

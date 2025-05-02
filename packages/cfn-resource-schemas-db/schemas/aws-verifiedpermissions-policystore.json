@@ -1,5 +1,5 @@
 {
-  "$hash": "3308cb81e3ec78924f970eb2a29a63453535680d",
+  "$hash": "43264edc5a2da26182923e7dfc77e4baadc2be9e",
   "$id": "aws-verifiedpermissions-policystore.json",
   "additionalProperties": false,
   "definitions": {
@@ -9,6 +9,15 @@
       "type": "object"
     },
     "SchemaJson": { "type": "string" },
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": { "type": "string" }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
     "ValidationMode": { "enum": ["OFF", "STRICT"], "type": "string" },
     "ValidationSettings": {
       "additionalProperties": false,
@@ -22,6 +31,7 @@
     "create": {
       "permissions": [
         "verifiedpermissions:CreatePolicyStore",
+        "verifiedpermissions:TagResource",
         "verifiedpermissions:GetPolicyStore",
         "verifiedpermissions:PutSchema"
       ]
@@ -42,6 +52,7 @@
     "read": {
       "permissions": [
         "verifiedpermissions:GetPolicyStore",
+        "verifiedpermissions:ListTagsForResource",
         "verifiedpermissions:GetSchema"
       ]
     },
@@ -49,6 +60,8 @@
       "permissions": [
         "verifiedpermissions:UpdatePolicyStore",
         "verifiedpermissions:GetPolicyStore",
+        "verifiedpermissions:TagResource",
+        "verifiedpermissions:UntagResource",
         "verifiedpermissions:GetSchema",
         "verifiedpermissions:PutSchema"
       ]
@@ -70,6 +83,13 @@
       "type": "string"
     },
     "Schema": { "$ref": "#/definitions/SchemaDefinition" },
+    "Tags": {
+      "description": "The tags to add to the policy store",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "ValidationSettings": { "$ref": "#/definitions/ValidationSettings" }
   },
   "propertyTransform": {
@@ -79,10 +99,16 @@
   "required": ["ValidationSettings"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-avp",
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "tagOnCreate": false,
-    "tagUpdatable": false,
-    "taggable": false
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "verifiedpermissions:TagResource",
+      "verifiedpermissions:ListTagsForResource",
+      "verifiedpermissions:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
   },
   "typeName": "AWS::VerifiedPermissions::PolicyStore"
 }

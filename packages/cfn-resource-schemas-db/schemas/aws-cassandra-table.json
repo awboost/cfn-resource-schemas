@@ -1,5 +1,5 @@
 {
-  "$hash": "a56d193bcdf352e35b73f389636f349281744c9d",
+  "$hash": "2b867a9009336ab0c02d769fd87c14c99d5d18bc",
   "$id": "aws-cassandra-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -319,6 +319,11 @@
       "type": "array",
       "uniqueItems": true
     }
+  },
+  "propertyTransform": {
+    "/properties/ClusteringKeyColumns/*/Column/ColumnType": "$lowercase(ColumnType)",
+    "/properties/PartitionKeyColumns/*/ColumnType": "$lowercase(ColumnType)",
+    "/properties/RegularColumns/*/ColumnType": "$lowercase(ColumnType)"
   },
   "required": ["KeyspaceName", "PartitionKeyColumns"],
   "tagging": {

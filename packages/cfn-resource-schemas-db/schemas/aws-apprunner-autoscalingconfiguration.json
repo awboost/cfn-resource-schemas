@@ -1,5 +1,5 @@
 {
-  "$hash": "f94429f2c4260d8f67f6c07b37eb770212efee44",
+  "$hash": "1a8949c1f9aa09629ca7c9767d32d1ccadeae9c3",
   "$id": "aws-apprunner-autoscalingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -30,12 +30,7 @@
     },
     "delete": { "permissions": ["apprunner:DeleteAutoScalingConfiguration"] },
     "list": { "permissions": ["apprunner:ListAutoScalingConfigurations"] },
-    "read": {
-      "permissions": [
-        "apprunner:DescribeAutoScalingConfiguration",
-        "apprunner:ListTagsForResource"
-      ]
-    }
+    "read": { "permissions": ["apprunner:DescribeAutoScalingConfiguration"] }
   },
   "primaryIdentifier": ["/properties/AutoScalingConfigurationArn"],
   "properties": {

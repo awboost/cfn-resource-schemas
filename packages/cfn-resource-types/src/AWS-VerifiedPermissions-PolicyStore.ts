@@ -12,6 +12,10 @@ export type VerifiedPermissionsPolicyStoreProperties = {
    */
   Description?: string;
   Schema?: SchemaDefinition;
+  /**
+   * The tags to add to the policy store
+   */
+  Tags?: Tag[];
   ValidationSettings: ValidationSettings;
 };
 /**
@@ -38,6 +42,14 @@ export type VerifiedPermissionsPolicyStoreAttributes = {
  */
 export type SchemaDefinition = {
   CedarJson?: string;
+};
+/**
+ * Type definition for `AWS::VerifiedPermissions::PolicyStore.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Type definition for `AWS::VerifiedPermissions::PolicyStore.ValidationMode`.
