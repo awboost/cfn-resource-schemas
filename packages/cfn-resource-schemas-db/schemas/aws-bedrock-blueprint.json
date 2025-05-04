@@ -1,5 +1,5 @@
 {
-  "$hash": "b883a6a3d5b5865224a5207433879ac3b8955519",
+  "$hash": "a1998eb0380ec6eb40bff1c792e83a4025893cc4",
   "$id": "aws-bedrock-blueprint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BlueprintName", "/properties/Type"],
@@ -124,7 +124,7 @@
     },
     "Type": {
       "description": "Modality Type",
-      "enum": ["DOCUMENT", "IMAGE"],
+      "enum": ["DOCUMENT", "IMAGE", "AUDIO"],
       "type": "string"
     }
   },

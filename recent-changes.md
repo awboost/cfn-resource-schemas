@@ -1,23 +1,11 @@
-- added `AWS::SSMGuiConnect::Preferences`
-- updated `AWS::AppRunner::AutoScalingConfiguration`
-  - updated handler permissions
-- updated `AWS::AppSync::Resolver`
-  - updated definition `PipelineConfig`
-  - updated definition `SyncConfig`
-  - updated property `Kind`
-- updated `AWS::Cassandra::Keyspace`
-  - updated definition `RegionList`
-- updated `AWS::Cassandra::Table`
-  - added `propertyTransform`
-- updated `AWS::Cassandra::Type`
-  - added `propertyTransform`
-- updated `AWS::ECS::TaskDefinition`
-  - updated property `Cpu`
-- updated `AWS::IoTSiteWise::AssetModel`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::VerifiedPermissions::PolicyStore`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated `tagging`
-  - updated handler permissions
+- updated `AWS::Bedrock::Blueprint`
+  - updated property `Type`
+- updated `AWS::Budgets::Budget`
+  - added definition `CostCategoryValues`
+  - added definition `ExpressionDimensionValues`
+  - added definition `Expression`
+  - added definition `TagValues`
+  - updated definition `BudgetData`
+- updated `AWS::EC2::ClientVpnEndpoint`
+  - added definition `ClientRouteEnforcementOptions`
+  - added property `ClientRouteEnforcementOptions`

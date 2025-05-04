@@ -9,6 +9,7 @@ export type EC2ClientVpnEndpointProperties = {
   ClientCidrBlock: string;
   ClientConnectOptions?: ClientConnectOptions;
   ClientLoginBannerOptions?: ClientLoginBannerOptions;
+  ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions;
   ConnectionLogOptions: ConnectionLogOptions;
   Description?: string;
   DisconnectOnSessionTimeout?: boolean;
@@ -62,6 +63,13 @@ export type ClientConnectOptions = {
 export type ClientLoginBannerOptions = {
   BannerText?: string;
   Enabled: boolean;
+};
+/**
+ * Type definition for `AWS::EC2::ClientVpnEndpoint.ClientRouteEnforcementOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientrouteenforcementoptions.html}
+ */
+export type ClientRouteEnforcementOptions = {
+  Enforced?: boolean;
 };
 /**
  * Type definition for `AWS::EC2::ClientVpnEndpoint.ConnectionLogOptions`.

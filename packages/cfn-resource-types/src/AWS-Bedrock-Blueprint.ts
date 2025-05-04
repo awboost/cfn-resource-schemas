@@ -35,7 +35,7 @@ export type BedrockBlueprintProperties = {
   /**
    * Modality Type
    */
-  Type: "DOCUMENT" | "IMAGE";
+  Type: "DOCUMENT" | "IMAGE" | "AUDIO";
 };
 /**
  * Attribute type definition for `AWS::Bedrock::Blueprint`.

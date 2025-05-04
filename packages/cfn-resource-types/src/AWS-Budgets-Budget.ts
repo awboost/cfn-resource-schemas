@@ -35,9 +35,20 @@ export type BudgetData = {
   BudgetType: string;
   CostFilters?: Record<string, any>;
   CostTypes?: CostTypes;
+  FilterExpression?: Expression;
+  Metrics?: string[];
   PlannedBudgetLimits?: Record<string, any>;
   TimePeriod?: TimePeriod;
   TimeUnit: string;
+};
+/**
+ * Type definition for `AWS::Budgets::Budget.CostCategoryValues`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costcategoryvalues.html}
+ */
+export type CostCategoryValues = {
+  Key?: string;
+  MatchOptions?: string[];
+  Values?: string[];
 };
 /**
  * Type definition for `AWS::Budgets::Budget.CostTypes`.
@@ -55,6 +66,27 @@ export type CostTypes = {
   IncludeUpfront?: boolean;
   UseAmortized?: boolean;
   UseBlended?: boolean;
+};
+/**
+ * Type definition for `AWS::Budgets::Budget.Expression`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-expression.html}
+ */
+export type Expression = {
+  And?: Expression[];
+  CostCategories?: CostCategoryValues;
+  Dimensions?: ExpressionDimensionValues;
+  Not?: Expression;
+  Or?: Expression[];
+  Tags?: TagValues;
+};
+/**
+ * Type definition for `AWS::Budgets::Budget.ExpressionDimensionValues`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-expressiondimensionvalues.html}
+ */
+export type ExpressionDimensionValues = {
+  Key?: string;
+  MatchOptions?: string[];
+  Values?: string[];
 };
 /**
  * Type definition for `AWS::Budgets::Budget.HistoricalOptions`.
@@ -104,6 +136,15 @@ export type Spend = {
 export type Subscriber = {
   Address: string;
   SubscriptionType: string;
+};
+/**
+ * Type definition for `AWS::Budgets::Budget.TagValues`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-tagvalues.html}
+ */
+export type TagValues = {
+  Key?: string;
+  MatchOptions?: string[];
+  Values?: string[];
 };
 /**
  * Type definition for `AWS::Budgets::Budget.TimePeriod`.
