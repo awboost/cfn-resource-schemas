@@ -1,10 +1,10 @@
 {
-  "$hash": "a9d8f178715040ef41a5099b87b248aefeb2ea90",
+  "$hash": "9be4745923bd3402163e2cd0a565e7486b7f4c91",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
+  "conditionalCreateOnlyProperties": ["/properties/DeploymentController"],
   "createOnlyProperties": [
     "/properties/Cluster",
-    "/properties/DeploymentController",
     "/properties/LaunchType",
     "/properties/Role",
     "/properties/SchedulingStrategy",

@@ -1,11 +1,5 @@
-- updated `AWS::Bedrock::Blueprint`
-  - updated property `Type`
-- updated `AWS::Budgets::Budget`
-  - added definition `CostCategoryValues`
-  - added definition `ExpressionDimensionValues`
-  - added definition `Expression`
-  - added definition `TagValues`
-  - updated definition `BudgetData`
-- updated `AWS::EC2::ClientVpnEndpoint`
-  - added definition `ClientRouteEnforcementOptions`
-  - added property `ClientRouteEnforcementOptions`
+- added `AWS::DataZone::DomainUnit`
+- added `AWS::DataZone::Owner`
+- updated `AWS::ECS::Service`
+  - added `conditionalCreateOnlyProperties`
+  - updated `createOnlyProperties`
