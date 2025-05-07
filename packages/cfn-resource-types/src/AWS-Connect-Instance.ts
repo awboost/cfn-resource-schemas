@@ -23,7 +23,7 @@ export type ConnectInstanceProperties = {
   /**
    * Alias of the new directory created as part of new instance creation.
    * @minLength `1`
-   * @maxLength `62`
+   * @maxLength `45`
    * @pattern `^(?!d-)([\da-zA-Z]+)([-]*[\da-zA-Z])*$`
    */
   InstanceAlias?: string;

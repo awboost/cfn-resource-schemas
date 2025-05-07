@@ -1,5 +1,5 @@
 {
-  "$hash": "c415e4ddf77f37c441e7449dd7c895e0d23d05c6",
+  "$hash": "fa441484f8426c52662867c8be0dfa9a1ea2ecab",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -300,7 +300,8 @@
         "es:CreateDomain",
         "es:DescribeDomain",
         "es:AddTags",
-        "es:ListTags"
+        "es:ListTags",
+        "es:DescribeDomainChangeProgress"
       ]
     },
     "delete": { "permissions": ["es:DeleteDomain", "es:DescribeDomain"] },
@@ -388,6 +389,14 @@
     "/properties/IdentityCenterOptions/IdentityStoreId"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["es:AddTags", "es:RemoveTags", "es:ListTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::OpenSearchService::Domain",
   "writeOnlyProperties": [
     "/properties/AdvancedSecurityOptions/MasterUserOptions",

@@ -1,5 +1,5 @@
 {
-  "$hash": "d3af5e15060e8a5f1df5fa7a3c75c1af1da9d978",
+  "$hash": "7ee314341603d739d13cf9a77a575331a9a1fb2e",
   "$id": "aws-connect-instance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -162,7 +162,7 @@
     },
     "InstanceAlias": {
       "description": "Alias of the new directory created as part of new instance creation.",
-      "maxLength": 62,
+      "maxLength": 45,
       "minLength": 1,
       "pattern": "^(?!d-)([\\da-zA-Z]+)([-]*[\\da-zA-Z])*$",
       "type": "string"

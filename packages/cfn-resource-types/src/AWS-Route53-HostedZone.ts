@@ -13,9 +13,9 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  The ``CreateHostedZone`` request requires the caller to have an ``ec2:DescribeVpcs`` permission.
   When creating private hosted zones, the Amazon VPC must belong to the same partition where the hosted zone is created. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
  The following are the supported partitions:
-  +   ``aws`` - AWS-Regions
-  +   ``aws-cn`` - China Regions
-  +   ``aws-us-gov`` - govcloud-us-region
+  +  ``aws`` - AWS-Regions
+  +  ``aws-cn`` - China Regions
+  +  ``aws-us-gov`` - govcloud-us-region
   
  For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html}
@@ -82,17 +82,17 @@ export type HostedZoneConfig = {
 export type HostedZoneTag = {
   /**
      * The value of ``Key`` depends on the operation that you want to perform:
-      +   *Add a tag to a health check or hosted zone*: ``Key`` is the name that you want to give the new tag.
-      +   *Edit a tag*: ``Key`` is the name of the tag that you want to change the ``Value`` for.
-      +   *Delete a key*: ``Key`` is the name of the tag you want to remove.
-      +   *Give a name to a health check*: Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
+      +  *Add a tag to a health check or hosted zone*: ``Key`` is the name that you want to give the new tag.
+      +  *Edit a tag*: ``Key`` is the name of the tag that you want to change the ``Value`` for.
+      +  *Delete a key*: ``Key`` is the name of the tag you want to remove.
+      +  *Give a name to a health check*: Edit the default ``Name`` tag. In the Amazon Route 53 console, the list of your health checks includes a *Name* column that lets you see the name that you've given to each health check.
      * @maxLength `128`
      */
   Key: string;
   /**
      * The value of ``Value`` depends on the operation that you want to perform:
-      +   *Add a tag to a health check or hosted zone*: ``Value`` is the value that you want to give the new tag.
-      +   *Edit a tag*: ``Value`` is the new value that you want to assign the tag.
+      +  *Add a tag to a health check or hosted zone*: ``Value`` is the value that you want to give the new tag.
+      +  *Edit a tag*: ``Value`` is the new value that you want to assign the tag.
      * @maxLength `256`
      */
   Value: string;
@@ -139,9 +139,9 @@ export type VPC = {
  The ``CreateHostedZone`` request requires the caller to have an ``ec2:DescribeVpcs`` permission.
   When creating private hosted zones, the Amazon VPC must belong to the same partition where the hosted zone is created. A partition is a group of AWS-Regions. Each AWS-account is scoped to one partition.
  The following are the supported partitions:
-  +   ``aws`` - AWS-Regions
-  +   ``aws-cn`` - China Regions
-  +   ``aws-us-gov`` - govcloud-us-region
+  +  ``aws`` - AWS-Regions
+  +  ``aws-cn`` - China Regions
+  +  ``aws-us-gov`` - govcloud-us-region
   
  For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html}

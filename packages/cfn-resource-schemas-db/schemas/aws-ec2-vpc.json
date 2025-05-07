@@ -1,5 +1,5 @@
 {
-  "$hash": "228ed693d685a3b44cfcfb48fd3c8e8facf2b4d2",
+  "$hash": "cf92927f1e8bc7081a7313d2fe53a1159086bd94",
   "$id": "aws-ec2-vpc.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/InstanceTenancy"],
@@ -81,7 +81,7 @@
       "type": "boolean"
     },
     "InstanceTenancy": {
-      "description": "The allowed tenancy of instances launched into the VPC.\n  +   ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n  +   ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.\n  \n Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.",
+      "description": "The allowed tenancy of instances launched into the VPC.\n  +  ``default``: An instance launched into the VPC runs on shared hardware by default, unless you explicitly specify a different tenancy during instance launch.\n  +  ``dedicated``: An instance launched into the VPC runs on dedicated hardware by default, unless you explicitly specify a tenancy of ``host`` during instance launch. You cannot specify a tenancy of ``default`` during instance launch.\n  \n Updating ``InstanceTenancy`` requires no replacement only if you are updating its value from ``dedicated`` to ``default``. Updating ``InstanceTenancy`` from ``default`` to ``dedicated`` requires replacement.",
       "type": "string"
     },
     "Ipv4IpamPoolId": {

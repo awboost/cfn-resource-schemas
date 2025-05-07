@@ -1,5 +1,10 @@
-- added `AWS::DataZone::DomainUnit`
-- added `AWS::DataZone::Owner`
-- updated `AWS::ECS::Service`
-  - added `conditionalCreateOnlyProperties`
-  - updated `createOnlyProperties`
+- updated `AWS::Connect::Instance`
+  - updated property `InstanceAlias`
+- updated `AWS::EC2::VPC`
+  - updated property `InstanceTenancy`
+- updated `AWS::OpenSearchService::Domain`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::Route53::HostedZone`
+  - updated definition `HostedZoneTag`
+  - updated property `QueryLoggingConfig`
