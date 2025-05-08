@@ -1,10 +1,9 @@
-- updated `AWS::Connect::Instance`
-  - updated property `InstanceAlias`
-- updated `AWS::EC2::VPC`
-  - updated property `InstanceTenancy`
-- updated `AWS::OpenSearchService::Domain`
-  - added `tagging`
+- added `AWS::Bedrock::IntelligentPromptRouter`
+- updated `AWS::EC2::Volume`
+  - added property `VolumeInitializationRate`
+  - updated property `Iops`
+  - updated property `MultiAttachEnabled`
+  - updated property `Size`
+  - updated property `VolumeType`
+- updated `AWS::SageMaker::ModelPackageGroup`
   - updated handler permissions
-- updated `AWS::Route53::HostedZone`
-  - updated definition `HostedZoneTag`
-  - updated property `QueryLoggingConfig`

@@ -32,9 +32,9 @@ export type EC2VolumeProperties = {
   /**
      * The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
      The following are the supported values for each volume type:
-      +   ``gp3``: 3,000 - 16,000 IOPS
-      +   ``io1``: 100 - 64,000 IOPS
-      +   ``io2``: 100 - 256,000 IOPS
+      +  ``gp3``: 3,000 - 16,000 IOPS
+      +  ``io1``: 100 - 64,000 IOPS
+      +  ``io2``: 100 - 256,000 IOPS
       
      For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html). On other instances, you can achieve performance up to 32,000 IOPS.
      This parameter is required for ``io1`` and ``io2`` volumes. The default for ``gp3`` volumes is 3,000 IOPS. This parameter is not supported for ``gp2``, ``st1``, ``sc1``, or ``standard`` volumes.
@@ -52,7 +52,7 @@ export type EC2VolumeProperties = {
   KmsKeyId?: string;
   /**
      * Indicates whether Amazon EBS Multi-Attach is enabled.
-      CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
+     CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
      */
   MultiAttachEnabled?: boolean;
   /**
@@ -62,11 +62,11 @@ export type EC2VolumeProperties = {
   /**
      * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
      The following are the supported volumes sizes for each volume type:
-      +   ``gp2`` and ``gp3``: 1 - 16,384 GiB
-      +   ``io1``: 4 - 16,384 GiB
-      +   ``io2``: 4 - 65,536 GiB
-      +   ``st1`` and ``sc1``: 125 - 16,384 GiB
-      +   ``standard``: 1 - 1024 GiB
+      +  ``gp2`` and ``gp3``: 1 - 16,384 GiB
+      +  ``io1``: 4 - 16,384 GiB
+      +  ``io2``: 4 - 65,536 GiB
+      +  ``st1`` and ``sc1``: 125 - 16,384 GiB
+      +  ``standard``: 1 - 1024 GiB
      */
   Size?: number;
   /**
@@ -83,6 +83,7 @@ export type EC2VolumeProperties = {
      Valid Range: Minimum value of 125. Maximum value of 1000.
      */
   Throughput?: number;
+  VolumeInitializationRate?: number;
   /**
      * The volume type. This parameter can be one of the following values:
       +  General Purpose SSD: ``gp2`` | ``gp3``

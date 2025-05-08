@@ -1,5 +1,5 @@
 {
-  "$hash": "093f9635727811c478e2b8e3b76d169ca833c4b8",
+  "$hash": "305a92dbe6b42271cd378fe7935397cdb34eaf45",
   "$id": "aws-sagemaker-modelpackagegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -73,7 +73,6 @@
       "permissions": [
         "sagemaker:DescribeModelPackageGroup",
         "sagemaker:GetModelPackageGroupPolicy",
-        "sagemaker:PutModelPackageGroupPolicy",
         "sagemaker:ListTags"
       ]
     },
