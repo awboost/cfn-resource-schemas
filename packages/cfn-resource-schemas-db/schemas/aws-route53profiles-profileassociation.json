@@ -1,5 +1,5 @@
 {
-  "$hash": "961f46a70393d88b706d9fe718c972d4a074f8db",
+  "$hash": "a95cd06feba11075a1ad7e5076cc401b4c7f8d71",
   "$id": "aws-route53profiles-profileassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -34,6 +34,7 @@
       "permissions": [
         "route53profiles:AssociateProfile",
         "route53profiles:GetProfileAssociation",
+        "route53profiles:ListProfileAssociations",
         "ec2:DescribeVpcs",
         "route53profiles:TagResource",
         "route53profiles:ListTagsForResource"

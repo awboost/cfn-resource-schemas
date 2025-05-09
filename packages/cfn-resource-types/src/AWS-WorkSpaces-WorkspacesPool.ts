@@ -27,6 +27,7 @@ export type WorkSpacesWorkspacesPoolProperties = {
    * @pattern `^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$`
    */
   PoolName: string;
+  RunningMode?: RunningMode;
   Tags?: Tag[];
   TimeoutSettings?: TimeoutSettings;
 };
@@ -72,6 +73,11 @@ export type Capacity = {
    */
   DesiredUserSessions: number;
 };
+/**
+ * Type definition for `AWS::WorkSpaces::WorkspacesPool.RunningMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-runningmode.html}
+ */
+export type RunningMode = "ALWAYS_ON" | "AUTO_STOP";
 /**
  * Type definition for `AWS::WorkSpaces::WorkspacesPool.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspacespool-tag.html}

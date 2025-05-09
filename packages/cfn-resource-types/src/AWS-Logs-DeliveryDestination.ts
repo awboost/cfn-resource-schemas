@@ -15,7 +15,7 @@ export type LogsDeliveryDestinationProperties = {
     
     Length Constraints: Maximum length of 51200
      */
-  DeliveryDestinationPolicy?: Record<string, any>;
+  DeliveryDestinationPolicy?: DestinationPolicy;
   /**
    * The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
    * @minLength `16`
@@ -61,6 +61,22 @@ export type LogsDeliveryDestinationAttributes = {
    * @pattern `^[0-9A-Za-z]+$`
    */
   DeliveryDestinationType: string;
+};
+/**
+ * Type definition for `AWS::Logs::DeliveryDestination.DestinationPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-deliverydestination-destinationpolicy.html}
+ */
+export type DestinationPolicy = {
+  /**
+   * The name of the delivery destination to assign this policy to
+   * @minLength `1`
+   * @maxLength `60`
+   */
+  DeliveryDestinationName?: string;
+  /**
+   * The contents of the policy attached to the delivery destination
+   */
+  DeliveryDestinationPolicy?: Record<string, any>;
 };
 /**
  * Type definition for `AWS::Logs::DeliveryDestination.Tag`.

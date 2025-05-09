@@ -1,5 +1,5 @@
 {
-  "$hash": "33b3291c393de089b1f3bd56352c6248e998881f",
+  "$hash": "a076ed7b4f7fd54dc90b9bcc7149e33834ef13ed",
   "$id": "aws-lookoutvision-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProjectName"],
@@ -41,5 +41,6 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["ProjectName"],
   "sourceUrl": "https://docs.aws.amazon.com/lookout-for-vision/latest/developer-guide/model-create-project.html",
+  "tagging": { "taggable": false },
   "typeName": "AWS::LookoutVision::Project"
 }

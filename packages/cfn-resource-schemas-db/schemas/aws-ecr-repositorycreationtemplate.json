@@ -1,5 +1,5 @@
 {
-  "$hash": "d185504dbb79d044f86d8716d97ddad9256e01b5",
+  "$hash": "7894df4942957e09e53d17dc820a57595ff106b8",
   "$id": "aws-ecr-repositorycreationtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Prefix"],
@@ -129,7 +129,7 @@
       "type": "string"
     },
     "RepositoryPolicy": {
-      "description": "he repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.",
+      "description": "The repository policy to apply to repositories created using the template. A repository policy is a permissions policy associated with a repository to control access permissions.",
       "type": "string"
     },
     "ResourceTags": {

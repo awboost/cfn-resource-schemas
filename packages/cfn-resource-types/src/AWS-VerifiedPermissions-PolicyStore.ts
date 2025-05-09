@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-verifiedpermissions-policystore.html}
  */
 export type VerifiedPermissionsPolicyStoreProperties = {
+  DeletionProtection?: DeletionProtection;
   /**
    * @minLength `0`
    * @maxLength `150`
@@ -35,6 +36,18 @@ export type VerifiedPermissionsPolicyStoreAttributes = {
    * @pattern `^[a-zA-Z0-9-]*$`
    */
   PolicyStoreId: string;
+};
+/**
+ * Type definition for `AWS::VerifiedPermissions::PolicyStore.DeletionMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-deletionmode.html}
+ */
+export type DeletionMode = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::VerifiedPermissions::PolicyStore.DeletionProtection`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-deletionprotection.html}
+ */
+export type DeletionProtection = {
+  Mode: DeletionMode;
 };
 /**
  * Type definition for `AWS::VerifiedPermissions::PolicyStore.SchemaDefinition`.

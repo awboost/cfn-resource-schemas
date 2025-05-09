@@ -1,5 +1,5 @@
 {
-  "$hash": "2a86034797b6377d505e0dbc9e96a9797ee764b8",
+  "$hash": "71700935b05b5442735154b66b27872a09697433",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,6 +10,26 @@
     "/properties/SlurmConfiguration"
   ],
   "definitions": {
+    "Accounting": {
+      "description": "The accounting configuration includes configurable settings for Slurm accounting.",
+      "properties": {
+        "DefaultPurgeTimeInDays": {
+          "default": -1,
+          "description": "The default value for all purge settings for `slurmdbd.conf`. For more information, see the [slurmdbd.conf documentation at SchedMD](https://slurm.schedmd.com/slurmdbd.conf.html). The default value is `-1`. A value of `-1` means there is no purge time and records persist as long as the cluster exists.",
+          "maximum": 10000,
+          "minimum": -1,
+          "type": "integer"
+        },
+        "Mode": {
+          "default": "NONE",
+          "description": "The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.",
+          "enum": ["STANDARD", "NONE"],
+          "type": "string"
+        }
+      },
+      "required": ["Mode"],
+      "type": "object"
+    },
     "AuthKey": {
       "additionalProperties": false,
       "description": "The shared Slurm key for authentication, also known as the cluster secret.",

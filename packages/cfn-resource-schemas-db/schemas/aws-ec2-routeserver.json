@@ -1,5 +1,5 @@
 {
-  "$hash": "5857f41e374c5a5ee5e79b3c2594815e01c49830",
+  "$hash": "a4b5b817fae59a65b1e50ed155a4ac047b690770",
   "$id": "aws-ec2-routeserver.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AmazonSideAsn"],
@@ -52,7 +52,9 @@
         "ec2:DeleteTags",
         "ec2:DescribeRouteServers",
         "ec2:DescribeTags",
-        "ec2:ModifyRouteServer"
+        "ec2:ModifyRouteServer",
+        "sns:CreateTopic",
+        "sns:DeleteTopic"
       ]
     }
   },

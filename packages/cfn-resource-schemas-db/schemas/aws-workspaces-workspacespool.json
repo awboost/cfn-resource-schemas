@@ -1,5 +1,5 @@
 {
-  "$hash": "dc0ce6c6ab02fdde11333ab653cc00443307ce2e",
+  "$hash": "a3ae28e3ca52043825f69d7d21f449de4beaeda4",
   "$id": "aws-workspaces-workspacespool.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PoolName"],
@@ -29,6 +29,7 @@
       "required": ["DesiredUserSessions"],
       "type": "object"
     },
+    "RunningMode": { "enum": ["ALWAYS_ON", "AUTO_STOP"], "type": "string" },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -131,6 +132,7 @@
       "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$",
       "type": "string"
     },
+    "RunningMode": { "$ref": "#/definitions/RunningMode" },
     "Tags": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },

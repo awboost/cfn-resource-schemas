@@ -1,5 +1,5 @@
 {
-  "$hash": "8237a616e60cec0000ec10560449f5f17d0f4d48",
+  "$hash": "d431f9f83b1465ab2afc0a2050f9dd44da509a01",
   "$id": "aws-route53profiles-profileresourceassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -13,16 +13,22 @@
       "permissions": [
         "route53profiles:AssociateResourceToProfile",
         "route53profiles:GetProfileResourceAssociation",
-        "route53resolver:*",
-        "route53:*"
+        "route53resolver:GetFirewallRuleGroup",
+        "route53resolver:GetResolverRule",
+        "route53:GetHostedZone",
+        "route53resolver:GetResolverQueryLogConfig",
+        "ec2:DescribeVpcEndpoints"
       ]
     },
     "delete": {
       "permissions": [
         "route53profiles:DisassociateResourceFromProfile",
         "route53profiles:GetProfileResourceAssociation",
-        "route53resolver:*",
-        "route53:*"
+        "route53resolver:GetFirewallRuleGroup",
+        "route53resolver:GetResolverRule",
+        "route53:GetHostedZone",
+        "route53resolver:GetResolverQueryLogConfig",
+        "ec2:DescribeVpcEndpoints"
       ]
     },
     "list": {
@@ -32,26 +38,13 @@
         },
         "required": ["ProfileId"]
       },
-      "permissions": [
-        "route53profiles:ListProfileResourceAssociations",
-        "route53resolver:*",
-        "route53:*"
-      ]
+      "permissions": ["route53profiles:ListProfileResourceAssociations"]
     },
     "read": {
-      "permissions": [
-        "route53profiles:GetProfileResourceAssociation",
-        "route53resolver:*",
-        "route53:*"
-      ]
+      "permissions": ["route53profiles:GetProfileResourceAssociation"]
     },
     "update": {
-      "permissions": [
-        "route53profiles:UpdateProfileResourceAssociation",
-        "route53profiles:GetProfileResourceAssociation",
-        "route53resolver:*",
-        "route53:*"
-      ]
+      "permissions": ["route53profiles:UpdateProfileResourceAssociation"]
     }
   },
   "primaryIdentifier": ["/properties/Id"],

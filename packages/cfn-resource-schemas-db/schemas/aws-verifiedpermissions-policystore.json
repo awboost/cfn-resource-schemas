@@ -1,8 +1,19 @@
 {
-  "$hash": "43264edc5a2da26182923e7dfc77e4baadc2be9e",
+  "$hash": "8a048143877219c22cfd4ca7ce8912b66631cb12",
   "$id": "aws-verifiedpermissions-policystore.json",
   "additionalProperties": false,
   "definitions": {
+    "DeletionMode": {
+      "default": "DISABLED",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
+    "DeletionProtection": {
+      "additionalProperties": false,
+      "properties": { "Mode": { "$ref": "#/definitions/DeletionMode" } },
+      "required": ["Mode"],
+      "type": "object"
+    },
     "SchemaDefinition": {
       "additionalProperties": false,
       "properties": { "CedarJson": { "$ref": "#/definitions/SchemaJson" } },
@@ -75,6 +86,7 @@
       "pattern": "^arn:[^:]*:[^:]*:[^:]*:[^:]*:.*$",
       "type": "string"
     },
+    "DeletionProtection": { "$ref": "#/definitions/DeletionProtection" },
     "Description": { "maxLength": 150, "minLength": 0, "type": "string" },
     "PolicyStoreId": {
       "maxLength": 200,
