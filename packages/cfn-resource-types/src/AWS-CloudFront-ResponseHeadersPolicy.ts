@@ -52,7 +52,7 @@ export type AccessControlAllowMethods = {
       +   ``PUT``
       +   ``ALL``
       
-     ``ALL`` is a special value that includes all of the listed HTTP methods.
+      ``ALL`` is a special value that includes all of the listed HTTP methods.
      */
   Items: string[];
 };

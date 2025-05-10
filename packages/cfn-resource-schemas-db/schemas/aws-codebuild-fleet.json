@@ -1,5 +1,5 @@
 {
-  "$hash": "0adc8672244256f8acc74a450e61e7ce96faf3cd",
+  "$hash": "614df5b62cadac7fa6fe62e50541bbec6d323b84",
   "$id": "aws-codebuild-fleet.json",
   "additionalProperties": false,
   "definitions": {
@@ -7,6 +7,7 @@
       "additionalProperties": false,
       "properties": {
         "disk": { "type": "integer" },
+        "instanceType": { "type": "string" },
         "machineType": { "enum": ["GENERAL", "NVME"], "type": "string" },
         "memory": { "type": "integer" },
         "vCpu": { "type": "integer" }
@@ -139,7 +140,8 @@
         "BUILD_GENERAL1_LARGE",
         "BUILD_GENERAL1_XLARGE",
         "BUILD_GENERAL1_2XLARGE",
-        "ATTRIBUTE_BASED_COMPUTE"
+        "ATTRIBUTE_BASED_COMPUTE",
+        "CUSTOM_INSTANCE_TYPE"
       ],
       "type": "string"
     },
@@ -181,6 +183,7 @@
   "readOnlyProperties": ["/properties/Arn"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["codebuild:CreateFleet", "codebuild:UpdateFleet"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -16,7 +16,8 @@ export type CodeBuildFleetProperties = {
     | "BUILD_GENERAL1_LARGE"
     | "BUILD_GENERAL1_XLARGE"
     | "BUILD_GENERAL1_2XLARGE"
-    | "ATTRIBUTE_BASED_COMPUTE";
+    | "ATTRIBUTE_BASED_COMPUTE"
+    | "CUSTOM_INSTANCE_TYPE";
   EnvironmentType?:
     | "WINDOWS_SERVER_2019_CONTAINER"
     | "WINDOWS_SERVER_2022_CONTAINER"
@@ -62,6 +63,7 @@ export type CodeBuildFleetAttributes = {
  */
 export type ComputeConfiguration = {
   disk?: number;
+  instanceType?: string;
   machineType?: "GENERAL" | "NVME";
   memory?: number;
   vCpu?: number;
