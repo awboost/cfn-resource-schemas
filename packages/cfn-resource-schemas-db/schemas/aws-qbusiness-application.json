@@ -1,5 +1,5 @@
 {
-  "$hash": "e8d2b6214e54f565535543beae3dacca751f7241",
+  "$hash": "d99929f1d129c1bbe9160fe52169cc22049caac1",
   "$id": "aws-qbusiness-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -53,7 +53,8 @@
         "AWS_IAM_IDP_SAML",
         "AWS_IAM_IDP_OIDC",
         "AWS_IAM_IDC",
-        "AWS_QUICKSIGHT_IDP"
+        "AWS_QUICKSIGHT_IDP",
+        "ANONYMOUS"
       ],
       "type": "string"
     },

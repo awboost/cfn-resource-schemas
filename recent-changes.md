@@ -1,8 +1,6 @@
-- updated `AWS::CloudFront::OriginAccessControl`
-  - updated definition `OriginAccessControlConfig`
-- updated `AWS::CloudFront::ResponseHeadersPolicy`
-  - updated definition `AccessControlAllowMethods`
-- updated `AWS::CodeBuild::Fleet`
-  - updated `tagging`
-  - updated definition `ComputeConfiguration`
-  - updated property `ComputeType`
+- updated `AWS::ECS::Cluster`
+  - updated definition `ExecuteCommandConfiguration`
+- updated `AWS::ECS::Service`
+  - updated definition `ServiceManagedEBSVolumeConfiguration`
+- updated `AWS::QBusiness::Application`
+  - updated definition `IdentityType`

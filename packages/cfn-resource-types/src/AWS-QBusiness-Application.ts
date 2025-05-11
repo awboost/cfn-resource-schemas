@@ -130,7 +130,8 @@ export type IdentityType =
   | "AWS_IAM_IDP_SAML"
   | "AWS_IAM_IDP_OIDC"
   | "AWS_IAM_IDC"
-  | "AWS_QUICKSIGHT_IDP";
+  | "AWS_QUICKSIGHT_IDP"
+  | "ANONYMOUS";
 /**
  * Type definition for `AWS::QBusiness::Application.PersonalizationConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-personalizationconfiguration.html}
