@@ -1,5 +1,5 @@
 {
-  "$hash": "d202b6973220a665933d90144db2fcc2001785eb",
+  "$hash": "607f0cb45d30dfd0db036e949e18bacaf7413eb1",
   "$id": "aws-ssmcontacts-rotation.json",
   "additionalProperties": false,
   "definitions": {
@@ -163,8 +163,7 @@
         "ssm-contacts:CreateRotation",
         "ssm-contacts:GetRotation",
         "ssm-contacts:TagResource",
-        "ssm-contacts:ListTagsForResource",
-        "ssm-contacts:UntagResource"
+        "ssm-contacts:ListTagsForResource"
       ]
     },
     "delete": {
@@ -185,9 +184,7 @@
     "read": {
       "permissions": [
         "ssm-contacts:GetRotation",
-        "ssm-contacts:TagResource",
-        "ssm-contacts:ListTagsForResource",
-        "ssm-contacts:UntagResource"
+        "ssm-contacts:ListTagsForResource"
       ]
     },
     "update": {
@@ -239,8 +236,14 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "ssm-contacts:TagResource",
+      "ssm-contacts:UntagResource",
+      "ssm-contacts:ListTagsForResource"
+    ],
     "tagOnCreate": true,
-    "tagUpdatable": false,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::SSMContacts::Rotation"

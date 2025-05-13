@@ -1,5 +1,5 @@
 {
-  "$hash": "3aae9c5f72be62dc701282a0496ccf9898f2143b",
+  "$hash": "cb9fbe0c8e00d8f1be4102ba4ee23e97884d60bc",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -226,7 +226,7 @@
       "uniqueItems": true
     },
     "AutoMinorVersionUpgrade": {
-      "description": "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.\n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster",
+      "description": "Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.\n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.\n For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).",
       "type": "boolean"
     },
     "AvailabilityZones": {

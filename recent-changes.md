@@ -1,6 +1,34 @@
-- updated `AWS::ECS::Cluster`
-  - updated definition `ExecuteCommandConfiguration`
-- updated `AWS::ECS::Service`
-  - updated definition `ServiceManagedEBSVolumeConfiguration`
-- updated `AWS::QBusiness::Application`
-  - updated definition `IdentityType`
+- removed `AWS::DataSync::StorageSystem`
+- updated `AWS::Connect::EvaluationForm`
+  - updated definition `EvaluationFormNumericQuestionOption`
+  - updated definition `EvaluationFormQuestion`
+  - updated definition `EvaluationFormSection`
+  - updated definition `EvaluationFormSingleSelectQuestionAutomation`
+  - updated definition `EvaluationFormSingleSelectQuestionOption`
+  - updated definition `EvaluationFormSingleSelectQuestionProperties`
+  - updated definition `ScoringStrategy`
+  - updated definition `SingleSelectQuestionRuleCategoryAutomation`
+  - updated property `Description`
+  - updated property `Items`
+  - updated property `Status`
+- updated `AWS::EC2::EIPAssociation`
+  - updated property `EIP`
+- updated `AWS::EC2::NetworkInsightsAnalysis`
+  - added property `FilterOutArns`
+  - updated `createOnlyProperties`
+- updated `AWS::EC2::VPNConnection`
+  - added `writeOnlyProperties`
+  - updated definition `VpnTunnelOptionsSpecification`
+  - updated property `OutsideIpAddressType`
+- updated `AWS::RDS::DBCluster`
+  - updated property `AutoMinorVersionUpgrade`
+- updated `AWS::SSMContacts::Contact`
+  - added `tagging`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated handler permissions
+- updated `AWS::SSMContacts::ContactChannel`
+  - added `tagging`
+- updated `AWS::SSMContacts::Rotation`
+  - updated `tagging`
+  - updated handler permissions

@@ -23,6 +23,7 @@ export type SSMContactsContactProperties = {
    * The stages that an escalation plan or engagement plan engages contacts and contact methods in.
    */
   Plan?: Stage[];
+  Tags?: Tag[];
   /**
    * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
    */
@@ -86,6 +87,25 @@ export type Stage = {
    * The contacts or contact methods that the escalation plan or engagement plan is engaging.
    */
   Targets?: Targets[];
+};
+/**
+ * Type definition for `AWS::SSMContacts::Contact.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::SSMContacts::Contact.Targets`.

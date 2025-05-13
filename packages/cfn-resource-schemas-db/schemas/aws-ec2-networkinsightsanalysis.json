@@ -1,11 +1,12 @@
 {
-  "$hash": "985cce7726d7b75f248354cea58cb0ef3a64b7d8",
+  "$hash": "6200699dbff43a2b27a610ebfd0bbe8f00fcd22a",
   "$id": "aws-ec2-networkinsightsanalysis.json",
   "additionalIdentifiers": [["/properties/NetworkInsightsAnalysisArn"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/NetworkInsightsPathId",
-    "/properties/FilterInArns"
+    "/properties/FilterInArns",
+    "/properties/FilterOutArns"
   ],
   "definitions": {
     "AdditionalDetail": {
@@ -360,6 +361,12 @@
       "uniqueItems": false
     },
     "FilterInArns": {
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/ResourceArn" },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "FilterOutArns": {
       "insertionOrder": true,
       "items": { "$ref": "#/definitions/ResourceArn" },
       "type": "array",

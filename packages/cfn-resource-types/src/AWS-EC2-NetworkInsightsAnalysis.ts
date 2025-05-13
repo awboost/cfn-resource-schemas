@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type EC2NetworkInsightsAnalysisProperties = {
   AdditionalAccounts?: string[];
   FilterInArns?: string[];
+  FilterOutArns?: string[];
   NetworkInsightsPathId: string;
   Tags?: Tag[];
 };

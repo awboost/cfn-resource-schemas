@@ -1,5 +1,5 @@
 {
-  "$hash": "b6fbc2374178c63673fc27b46876972f921d183f",
+  "$hash": "e9be91499048f7f5303dee616f37fff533644ea3",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -60,7 +60,7 @@
         },
         "Score": {
           "$ref": "#/definitions/Score",
-          "description": "The score assigned to answer values within the range option.\n  *Minimum*: 0\n  *Maximum*: 10"
+          "description": "The score assigned to answer values within the range option.\n *Minimum*: 0\n *Maximum*: 10"
         }
       },
       "required": ["MinValue", "MaxValue"],
@@ -101,7 +101,7 @@
       "description": "Information about a question from an evaluation form.",
       "properties": {
         "Instructions": {
-          "description": "The instructions of the section.\n  *Length Constraints*: Minimum length of 0. Maximum length of 1024.",
+          "description": "The instructions of the section.\n *Length Constraints*: Minimum length of 0. Maximum length of 1024.",
           "maxLength": 1024,
           "type": "string"
         },
@@ -110,7 +110,7 @@
           "type": "boolean"
         },
         "QuestionType": {
-          "description": "The type of the question.\n  *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``",
+          "description": "The type of the question.\n *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``",
           "enum": ["NUMERIC", "SINGLESELECT", "TEXT"],
           "type": "string"
         },
@@ -120,17 +120,17 @@
         },
         "RefId": {
           "$ref": "#/definitions/RefId",
-          "description": "The identifier of the question. An identifier must be unique within the evaluation form.\n  *Length Constraints*: Minimum length of 1. Maximum length of 40."
+          "description": "The identifier of the question. An identifier must be unique within the evaluation form.\n *Length Constraints*: Minimum length of 1. Maximum length of 40."
         },
         "Title": {
-          "description": "The title of the question.\n  *Length Constraints*: Minimum length of 1. Maximum length of 350.",
+          "description": "The title of the question.\n *Length Constraints*: Minimum length of 1. Maximum length of 350.",
           "maxLength": 350,
           "minLength": 1,
           "type": "string"
         },
         "Weight": {
           "$ref": "#/definitions/Weight",
-          "description": "The scoring weight of the section.\n  *Minimum*: 0\n  *Maximum*: 100"
+          "description": "The scoring weight of the section.\n *Minimum*: 0\n *Maximum*: 100"
         }
       },
       "required": ["RefId", "Title", "QuestionType"],
@@ -161,7 +161,7 @@
           "type": "string"
         },
         "Items": {
-          "description": "The items of the section.\n  *Minimum*: 1",
+          "description": "The items of the section.\n *Minimum*: 1",
           "insertionOrder": true,
           "items": { "$ref": "#/definitions/EvaluationFormItem" },
           "maxItems": 200,
@@ -170,17 +170,17 @@
         },
         "RefId": {
           "$ref": "#/definitions/RefId",
-          "description": "The identifier of the section. An identifier must be unique within the evaluation form.\n  *Length Constraints*: Minimum length of 1. Maximum length of 40."
+          "description": "The identifier of the section. An identifier must be unique within the evaluation form.\n *Length Constraints*: Minimum length of 1. Maximum length of 40."
         },
         "Title": {
-          "description": "The title of the section.\n  *Length Constraints*: Minimum length of 1. Maximum length of 128.",
+          "description": "The title of the section.\n *Length Constraints*: Minimum length of 1. Maximum length of 128.",
           "maxLength": 128,
           "minLength": 1,
           "type": "string"
         },
         "Weight": {
           "$ref": "#/definitions/Weight",
-          "description": "The scoring weight of the section.\n  *Minimum*: 0 \n  *Maximum*: 100"
+          "description": "The scoring weight of the section.\n *Minimum*: 0 \n *Maximum*: 100"
         }
       },
       "required": ["RefId", "Title"],
@@ -192,10 +192,10 @@
       "properties": {
         "DefaultOptionRefId": {
           "$ref": "#/definitions/RefId",
-          "description": "The identifier of the default answer option, when none of the automation options match the criteria.\n  *Length Constraints*: Minimum length of 1. Maximum length of 40."
+          "description": "The identifier of the default answer option, when none of the automation options match the criteria.\n *Length Constraints*: Minimum length of 1. Maximum length of 40."
         },
         "Options": {
-          "description": "The automation options of the single select question.\n  *Minimum*: 1\n  *Maximum*: 20",
+          "description": "The automation options of the single select question.\n *Minimum*: 1\n *Maximum*: 20",
           "insertionOrder": true,
           "items": {
             "$ref": "#/definitions/EvaluationFormSingleSelectQuestionAutomationOption"
@@ -230,14 +230,14 @@
         },
         "RefId": {
           "$ref": "#/definitions/RefId",
-          "description": "The identifier of the answer option. An identifier must be unique within the question.\n  *Length Constraints*: Minimum length of 1. Maximum length of 40."
+          "description": "The identifier of the answer option. An identifier must be unique within the question.\n *Length Constraints*: Minimum length of 1. Maximum length of 40."
         },
         "Score": {
           "$ref": "#/definitions/Score",
-          "description": "The score assigned to the answer option.\n  *Minimum*: 0\n  *Maximum*: 10"
+          "description": "The score assigned to the answer option.\n *Minimum*: 0\n *Maximum*: 10"
         },
         "Text": {
-          "description": "The title of the answer option.\n  *Length Constraints*: Minimum length of 1. Maximum length of 128.",
+          "description": "The title of the answer option.\n *Length Constraints*: Minimum length of 1. Maximum length of 128.",
           "maxLength": 128,
           "minLength": 1,
           "type": "string"
@@ -255,12 +255,12 @@
           "description": "The display mode of the single select question."
         },
         "DisplayAs": {
-          "description": "The display mode of the single select question.\n  *Allowed values*: ``DROPDOWN`` | ``RADIO``",
+          "description": "The display mode of the single select question.\n *Allowed values*: ``DROPDOWN`` | ``RADIO``",
           "enum": ["DROPDOWN", "RADIO"],
           "type": "string"
         },
         "Options": {
-          "description": "The answer options of the single select question.\n  *Minimum*: 2\n  *Maximum*: 256",
+          "description": "The answer options of the single select question.\n *Minimum*: 2\n *Maximum*: 256",
           "insertionOrder": true,
           "items": {
             "$ref": "#/definitions/EvaluationFormSingleSelectQuestionOption"
@@ -311,12 +311,12 @@
       "description": "A scoring strategy of the evaluation form.",
       "properties": {
         "Mode": {
-          "description": "The scoring mode of the evaluation form.\n  *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``",
+          "description": "The scoring mode of the evaluation form.\n *Allowed values*: ``QUESTION_ONLY`` | ``SECTION_ONLY``",
           "enum": ["QUESTION_ONLY", "SECTION_ONLY"],
           "type": "string"
         },
         "Status": {
-          "description": "The scoring status of the evaluation form.\n  *Allowed values*: ``ENABLED`` | ``DISABLED``",
+          "description": "The scoring status of the evaluation form.\n *Allowed values*: ``ENABLED`` | ``DISABLED``",
           "enum": ["ENABLED", "DISABLED"],
           "type": "string"
         }
@@ -326,22 +326,22 @@
     },
     "SingleSelectQuestionRuleCategoryAutomation": {
       "additionalProperties": false,
-      "description": "Information about the automation option based on a rule category for a single select question.\n  *Length Constraints*: Minimum length of 1. Maximum length of 50.",
+      "description": "Information about the automation option based on a rule category for a single select question.\n *Length Constraints*: Minimum length of 1. Maximum length of 50.",
       "properties": {
         "Category": {
-          "description": "The category name, as defined in Rules.\n  *Minimum*: 1\n  *Maximum*: 50",
+          "description": "The category name, as defined in Rules.\n *Minimum*: 1\n *Maximum*: 50",
           "maxLength": 50,
           "minLength": 1,
           "type": "string"
         },
         "Condition": {
-          "description": "The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.\n  *Allowed values*: ``PRESENT`` | ``NOT_PRESENT`` \n  *Maximum*: 50",
+          "description": "The condition to apply for the automation option. If the condition is PRESENT, then the option is applied when the contact data includes the category. Similarly, if the condition is NOT_PRESENT, then the option is applied when the contact data does not include the category.\n *Allowed values*: ``PRESENT`` | ``NOT_PRESENT``\n *Maximum*: 50",
           "enum": ["PRESENT", "NOT_PRESENT"],
           "type": "string"
         },
         "OptionRefId": {
           "$ref": "#/definitions/RefId",
-          "description": "The identifier of the answer option. An identifier must be unique within the question.\n  *Length Constraints*: Minimum length of 1. Maximum length of 40."
+          "description": "The identifier of the answer option. An identifier must be unique within the question.\n *Length Constraints*: Minimum length of 1. Maximum length of 40."
         }
       },
       "required": ["Category", "Condition", "OptionRefId"],
@@ -407,7 +407,7 @@
   "primaryIdentifier": ["/properties/EvaluationFormArn"],
   "properties": {
     "Description": {
-      "description": "The description of the evaluation form.\n  *Length Constraints*: Minimum length of 0. Maximum length of 1024.",
+      "description": "The description of the evaluation form.\n *Length Constraints*: Minimum length of 0. Maximum length of 1024.",
       "maxLength": 1024,
       "type": "string"
     },
@@ -422,7 +422,7 @@
       "type": "string"
     },
     "Items": {
-      "description": "Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.\n  *Minimum size*: 1\n  *Maximum size*: 100",
+      "description": "Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.\n *Minimum size*: 1\n *Maximum size*: 100",
       "insertionOrder": true,
       "items": { "$ref": "#/definitions/EvaluationFormBaseItem" },
       "maxItems": 200,
@@ -435,7 +435,7 @@
     },
     "Status": {
       "default": "DRAFT",
-      "description": "The status of the evaluation form.\n  *Allowed values*: ``DRAFT`` | ``ACTIVE``",
+      "description": "The status of the evaluation form.\n *Allowed values*: ``DRAFT`` | ``ACTIVE``",
       "enum": ["DRAFT", "ACTIVE"],
       "type": "string"
     },

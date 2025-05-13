@@ -1,5 +1,5 @@
 {
-  "$hash": "125e6f7abcb24a728f1bed2bc078417e35a52a18",
+  "$hash": "bb522edf6cdd82ac61acb58e9f33d7b51e16ab19",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -150,7 +150,7 @@
       "description": "The tunnel options for a single VPN tunnel.",
       "properties": {
         "DPDTimeoutAction": {
-          "description": "The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.\n Valid Values: ``clear`` | ``none`` | ``restart`` \n Default: ``clear``",
+          "description": "The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.\n Valid Values: ``clear`` | ``none`` | ``restart``\n Default: ``clear``",
           "enum": ["clear", "none", "restart"],
           "type": "string"
         },
@@ -262,7 +262,7 @@
           "type": "integer"
         },
         "StartupAction": {
-          "description": "The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.\n Valid Values: ``add`` | ``start`` \n Default: ``add``",
+          "description": "The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.\n Valid Values: ``add`` | ``start``\n Default: ``add``",
           "enum": ["add", "start"],
           "type": "string"
         },
@@ -319,7 +319,7 @@
       "type": "string"
     },
     "OutsideIpAddressType": {
-      "description": "The type of IPv4 address assigned to the outside interface of the customer gateway device.\n Valid values: ``PrivateIpv4`` | ``PublicIpv4`` \n Default: ``PublicIpv4``",
+      "description": "The type of IPv4 address assigned to the outside interface of the customer gateway device.\n Valid values: ``PrivateIpv4`` | ``PublicIpv4``\n Default: ``PublicIpv4``",
       "type": "string"
     },
     "RemoteIpv4NetworkCidr": {
@@ -378,5 +378,8 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::EC2::VPNConnection"
+  "typeName": "AWS::EC2::VPNConnection",
+  "writeOnlyProperties": [
+    "/properties/VpnTunnelOptionsSpecifications/*/PreSharedKey"
+  ]
 }
