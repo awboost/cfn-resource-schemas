@@ -46,6 +46,11 @@ export type OmicsWorkflowProperties = {
    */
   StorageCapacity?: number;
   /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  StorageType?: StorageType;
+  /**
    * A map of resource tags
    */
   Tags?: TagMap;
@@ -78,12 +83,21 @@ export type OmicsWorkflowAttributes = {
    * @maxLength `64`
    */
   Type: WorkflowType;
+  /**
+   * @pattern `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`
+   */
+  Uuid: string;
 };
 /**
  * Type definition for `AWS::Omics::Workflow.Accelerators`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-accelerators.html}
  */
 export type Accelerators = "GPU";
+/**
+ * Type definition for `AWS::Omics::Workflow.StorageType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-storagetype.html}
+ */
+export type StorageType = "STATIC" | "DYNAMIC";
 /**
  * Type definition for `AWS::Omics::Workflow.TagMap`.
  * A map of resource tags

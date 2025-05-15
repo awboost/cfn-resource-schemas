@@ -28,6 +28,10 @@ export type SageMakerAppProperties = {
    */
   DomainId: string;
   /**
+   * Indicates whether the application is launched in recovery mode.
+   */
+  RecoveryMode?: boolean;
+  /**
    * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
    */
   ResourceSpec?: ResourceSpec;
@@ -57,6 +61,12 @@ export type SageMakerAppAttributes = {
    * @pattern `arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:app/.*`
    */
   AppArn: string;
+  /**
+   * The lifecycle configuration that runs before the default lifecycle configuration.
+   * @maxLength `256`
+   * @pattern `^(arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:studio-lifecycle-config/.*|None)$`
+   */
+  BuiltInLifecycleConfigArn: string;
 };
 /**
  * Type definition for `AWS::SageMaker::App.ResourceSpec`.
@@ -133,7 +143,7 @@ export type ResourceSpec = {
   /**
    * The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.
    * @maxLength `256`
-   * @pattern `arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:studio-lifecycle-config/.*`
+   * @pattern `^(arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:studio-lifecycle-config/.*|None)$`
    */
   LifecycleConfigArn?: string;
   /**

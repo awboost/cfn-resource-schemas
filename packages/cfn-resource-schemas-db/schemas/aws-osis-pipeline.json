@@ -1,5 +1,5 @@
 {
-  "$hash": "c46c6a5ee18a1a3128af03418bfa43ccebf64676",
+  "$hash": "741c49f5a874d053c3ea2e70cd2e615461d21072",
   "$id": "aws-osis-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PipelineName"],
@@ -216,7 +216,7 @@
     },
     "PipelineConfigurationBody": {
       "description": "The Data Prepper pipeline configuration.",
-      "maxLength": 24000,
+      "maxLength": 100000,
       "minLength": 1,
       "type": "string"
     },
@@ -263,6 +263,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-osis.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "osis:TagResource",
+      "osis:UntagResource",
+      "osis:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

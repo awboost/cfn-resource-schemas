@@ -1,34 +1,44 @@
-- removed `AWS::DataSync::StorageSystem`
-- updated `AWS::Connect::EvaluationForm`
-  - updated definition `EvaluationFormNumericQuestionOption`
-  - updated definition `EvaluationFormQuestion`
-  - updated definition `EvaluationFormSection`
-  - updated definition `EvaluationFormSingleSelectQuestionAutomation`
-  - updated definition `EvaluationFormSingleSelectQuestionOption`
-  - updated definition `EvaluationFormSingleSelectQuestionProperties`
-  - updated definition `ScoringStrategy`
-  - updated definition `SingleSelectQuestionRuleCategoryAutomation`
-  - updated property `Description`
-  - updated property `Items`
-  - updated property `Status`
-- updated `AWS::EC2::EIPAssociation`
-  - updated property `EIP`
-- updated `AWS::EC2::NetworkInsightsAnalysis`
-  - added property `FilterOutArns`
-  - updated `createOnlyProperties`
-- updated `AWS::EC2::VPNConnection`
-  - added `writeOnlyProperties`
-  - updated definition `VpnTunnelOptionsSpecification`
-  - updated property `OutsideIpAddressType`
-- updated `AWS::RDS::DBCluster`
-  - updated property `AutoMinorVersionUpgrade`
-- updated `AWS::SSMContacts::Contact`
-  - added `tagging`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated handler permissions
-- updated `AWS::SSMContacts::ContactChannel`
-  - added `tagging`
-- updated `AWS::SSMContacts::Rotation`
+- added `AWS::Omics::WorkflowVersion`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `Ebs`
+- updated `AWS::OSIS::Pipeline`
   - updated `tagging`
-  - updated handler permissions
+  - updated property `PipelineConfigurationBody`
+- updated `AWS::Omics::Workflow`
+  - added definition `StorageType`
+  - added definition `Uuid`
+  - added property `StorageType`
+  - added property `Uuid`
+  - updated `readOnlyProperties`
+- updated `AWS::SageMaker::App`
+  - added property `BuiltInLifecycleConfigArn`
+  - added property `RecoveryMode`
+  - updated `readOnlyProperties`
+  - updated definition `ResourceSpec`
+- updated `AWS::SageMaker::Domain`
+  - added definition `AppInstanceType`
+  - added definition `HiddenSageMakerImage`
+  - updated definition `CodeEditorAppSettings`
+  - updated definition `JupyterLabAppSettings`
+  - updated definition `ResourceSpec`
+  - updated definition `StudioLifecycleConfigArn`
+  - updated definition `StudioWebPortalSettings`
+  - updated definition `UserSettings`
+- updated `AWS::SageMaker::UserProfile`
+  - added definition `AppInstanceType`
+  - added definition `HiddenSageMakerImage`
+  - updated definition `CodeEditorAppSettings`
+  - updated definition `JupyterLabAppSettings`
+  - updated definition `ResourceSpec`
+  - updated definition `StudioLifecycleConfigArn`
+  - updated definition `StudioWebPortalSettings`
+  - updated definition `UserSettings`
+- updated `AWS::SecurityHub::AutomationRule`
+  - updated definition `MapFilter`
+  - updated definition `SeverityUpdate`
+  - updated definition `StringFilter`
+  - updated definition `WorkflowUpdate`
+- updated `AWS::SecurityHub::FindingAggregator`
+  - updated property `RegionLinkingMode`
+- updated `AWS::SecurityHub::Standard`
+  - updated property `DisabledStandardsControls`

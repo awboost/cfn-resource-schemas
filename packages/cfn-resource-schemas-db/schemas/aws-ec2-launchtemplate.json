@@ -1,5 +1,5 @@
 {
-  "$hash": "5a30b35ceff5417e4ed5c510b75f6c6d7888ee79",
+  "$hash": "10c147ffc77c0267605b345b7b0877ba358b5fa9",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -202,6 +202,7 @@
           "description": "The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.\n Valid Range: Minimum value of 125. Maximum value of 1000.",
           "type": "integer"
         },
+        "VolumeInitializationRate": { "description": "", "type": "integer" },
         "VolumeSize": {
           "description": "The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:\n  +  ``gp2`` and ``gp3``: 1 - 16,384 GiB\n  +  ``io1``: 4 - 16,384 GiB\n  +  ``io2``: 4 - 65,536 GiB\n  +  ``st1`` and ``sc1``: 125 - 16,384 GiB\n  +  ``standard``: 1 - 1024 GiB",
           "type": "integer"

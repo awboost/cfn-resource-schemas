@@ -257,6 +257,7 @@ export type Ebs = {
      Valid Range: Minimum value of 125. Maximum value of 1000.
      */
   Throughput?: number;
+  VolumeInitializationRate?: number;
   /**
      * The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:
       +  ``gp2`` and ``gp3``: 1 - 16,384 GiB

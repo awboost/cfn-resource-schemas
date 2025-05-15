@@ -33,7 +33,7 @@ export type OSISPipelineProperties = {
   /**
    * The Data Prepper pipeline configuration.
    * @minLength `1`
-   * @maxLength `24000`
+   * @maxLength `100000`
    */
   PipelineConfigurationBody: string;
   /**

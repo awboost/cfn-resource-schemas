@@ -1,5 +1,5 @@
 {
-  "$hash": "5facd8707e2cd42ebbe0f172dcbe4a46ea36c255",
+  "$hash": "ca0d446ec9180f62a5e29dd7649238b64f943243",
   "$id": "aws-sagemaker-app.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -86,7 +86,7 @@
         "LifecycleConfigArn": {
           "description": "The Amazon Resource Name (ARN) of the Lifecycle Configuration to attach to the Resource.",
           "maxLength": 256,
-          "pattern": "arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:studio-lifecycle-config/.*",
+          "pattern": "^(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:studio-lifecycle-config/.*|None)$",
           "type": "string"
         },
         "SageMakerImageArn": {
@@ -161,11 +161,21 @@
       ],
       "type": "string"
     },
+    "BuiltInLifecycleConfigArn": {
+      "description": "The lifecycle configuration that runs before the default lifecycle configuration.",
+      "maxLength": 256,
+      "pattern": "^(arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:studio-lifecycle-config/.*|None)$",
+      "type": "string"
+    },
     "DomainId": {
       "description": "The domain ID.",
       "maxLength": 63,
       "minLength": 1,
       "type": "string"
+    },
+    "RecoveryMode": {
+      "description": "Indicates whether the application is launched in recovery mode.",
+      "type": "boolean"
     },
     "ResourceSpec": {
       "$ref": "#/definitions/ResourceSpec",
@@ -187,7 +197,10 @@
       "type": "string"
     }
   },
-  "readOnlyProperties": ["/properties/AppArn"],
+  "readOnlyProperties": [
+    "/properties/AppArn",
+    "/properties/BuiltInLifecycleConfigArn"
+  ],
   "required": ["AppName", "AppType", "DomainId", "UserProfileName"],
   "typeName": "AWS::SageMaker::App",
   "writeOnlyProperties": ["/properties/Tags"]
