@@ -1,5 +1,5 @@
 {
-  "$hash": "f8b80ea5166d15614ac5bdf99c9278ee07d4f57d",
+  "$hash": "04956b967462d58c9b6dadd5ac2899d1ece9b626",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -83,11 +83,11 @@
     },
     "BaselinePerformanceFactorsRequest": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Auto Scaling uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. \n Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` uses the CPU performance of the ``c6i`` family as the baseline reference.",
       "properties": {
         "Cpu": {
           "$ref": "#/definitions/CpuPerformanceFactorRequest",
-          "description": ""
+          "description": "The CPU performance to consider, using an instance family as the baseline reference."
         }
       },
       "type": "object"
@@ -106,11 +106,15 @@
     },
     "CapacityReservationSpecification": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Describes the Capacity Reservation preference and targeting options. If you specify ``open`` or ``none`` for ``CapacityReservationPreference``, do not specify a ``CapacityReservationTarget``.",
       "properties": {
-        "CapacityReservationPreference": { "type": "string" },
+        "CapacityReservationPreference": {
+          "description": "The capacity reservation preference. The following options are available: \n  +   ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.\n  +   ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.\n  +   ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity. \n  +   ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.",
+          "type": "string"
+        },
         "CapacityReservationTarget": {
-          "$ref": "#/definitions/CapacityReservationTarget"
+          "$ref": "#/definitions/CapacityReservationTarget",
+          "description": "Describes a target Capacity Reservation or Capacity Reservation resource group."
         }
       },
       "required": ["CapacityReservationPreference"],
@@ -118,24 +122,26 @@
     },
     "CapacityReservationTarget": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The target for the Capacity Reservation. Specify Capacity Reservations IDs or Capacity Reservation resource group ARNs.",
       "properties": {
         "CapacityReservationIds": {
-          "$ref": "#/definitions/CapacityReservationIds"
+          "$ref": "#/definitions/CapacityReservationIds",
+          "description": "The Capacity Reservation IDs to launch instances into."
         },
         "CapacityReservationResourceGroupArns": {
-          "$ref": "#/definitions/CapacityReservationResourceGroupArns"
+          "$ref": "#/definitions/CapacityReservationResourceGroupArns",
+          "description": "The resource group ARNs of the Capacity Reservation to launch instances into."
         }
       },
       "type": "object"
     },
     "CpuPerformanceFactorRequest": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The CPU performance to consider, using an instance family as the baseline reference.",
       "properties": {
         "References": {
           "$ref": "#/definitions/PerformanceFactorReferenceSetRequest",
-          "description": ""
+          "description": "Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences. \n  Currently only one instance family can be specified in the list."
         }
       },
       "type": "object"
@@ -209,7 +215,7 @@
         },
         "BaselinePerformanceFactors": {
           "$ref": "#/definitions/BaselinePerformanceFactorsRequest",
-          "description": ""
+          "description": "The baseline performance factors for the instance requirements."
         },
         "BurstablePerformance": {
           "description": "Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.\n Default: ``excluded``",
@@ -534,9 +540,12 @@
     },
     "PerformanceFactorReferenceRequest": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Specify an instance family to use as the baseline reference for CPU performance. All instance types that All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences. \n  Currently only one instance family can be specified in the list.",
       "properties": {
-        "InstanceFamily": { "description": "", "type": "string" }
+        "InstanceFamily": {
+          "description": "The instance family to use as a baseline reference. \n  Make sure that you specify the correct value for the instance family. The instance family is everything before the period (.) in the instance type name. For example, in the instance ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.\n  The following instance types are *not supported* for performance protection.\n  +   ``c1`` \n  +   ``g3| g3s`` \n  +   ``hpc7g`` \n  +   ``m1| m2`` \n  +   ``mac1 | mac2 | mac2-m1ultra | mac2-m2 | mac2-m2pro`` \n  +   ``p3dn | p4d | p5`` \n  +   ``t1`` \n  +   ``u-12tb1 | u-18tb1 | u-24tb1 | u-3tb1 | u-6tb1 | u-9tb1 | u7i-12tb | u7in-16tb | u7in-24tb | u7in-32tb`` \n  \n If you performance protection by specifying a supported instance family, the returned instance types will exclude the preceding unsupported instance families.\n If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response.",
+          "type": "string"
+        }
       },
       "type": "object"
     },
@@ -685,6 +694,7 @@
   },
   "primaryIdentifier": ["/properties/AutoScalingGroupName"],
   "properties": {
+    "AutoScalingGroupARN": { "description": "", "type": "string" },
     "AutoScalingGroupName": {
       "description": "The name of the Auto Scaling group. This name must be unique per Region per account.\n The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.\n  You cannot use a colon (:) in the name.",
       "type": "string"
@@ -710,7 +720,7 @@
     },
     "CapacityReservationSpecification": {
       "$ref": "#/definitions/CapacityReservationSpecification",
-      "description": ""
+      "description": "The capacity reservation specification."
     },
     "Context": { "description": "Reserved.", "type": "string" },
     "Cooldown": {
@@ -855,9 +865,11 @@
   "propertyTransform": {
     "/properties/LaunchConfigurationName": "InstanceId? AutoScalingGroupName : LaunchConfigurationName"
   },
+  "readOnlyProperties": ["/properties/AutoScalingGroupARN"],
   "required": ["MinSize", "MaxSize"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["autoscaling:CreateOrUpdateTags", "autoscaling:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

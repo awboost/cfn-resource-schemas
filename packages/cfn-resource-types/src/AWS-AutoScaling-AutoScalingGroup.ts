@@ -30,6 +30,9 @@ export type AutoScalingAutoScalingGroupProperties = {
    * Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
    */
   CapacityRebalance?: boolean;
+  /**
+   * The capacity reservation specification.
+   */
   CapacityReservationSpecification?: CapacityReservationSpecification;
   /**
    * Reserved.
@@ -174,6 +177,13 @@ export type AutoScalingAutoScalingGroupProperties = {
   VPCZoneIdentifier?: string[];
 };
 /**
+ * Attribute type definition for `AWS::AutoScaling::AutoScalingGroup`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup-return-values}
+ */
+export type AutoScalingAutoScalingGroupAttributes = {
+  AutoScalingGroupARN: string;
+};
+/**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.AcceleratorCountRequest`.
  * ``AcceleratorCountRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of accelerators for an instance type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-acceleratorcountrequest.html}
@@ -248,32 +258,60 @@ export type BaselineEbsBandwidthMbpsRequest = {
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.BaselinePerformanceFactorsRequest`.
+ * The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Auto Scaling uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
+ Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` uses the CPU performance of the ``c6i`` family as the baseline reference.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineperformancefactorsrequest.html}
  */
 export type BaselinePerformanceFactorsRequest = {
+  /**
+   * The CPU performance to consider, using an instance family as the baseline reference.
+   */
   Cpu?: CpuPerformanceFactorRequest;
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.CapacityReservationSpecification`.
+ * Describes the Capacity Reservation preference and targeting options. If you specify ``open`` or ``none`` for ``CapacityReservationPreference``, do not specify a ``CapacityReservationTarget``.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationspecification.html}
  */
 export type CapacityReservationSpecification = {
+  /**
+     * The capacity reservation preference. The following options are available:
+      +   ``capacity-reservations-only`` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+      +   ``capacity-reservations-first`` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+      +   ``none`` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+      +   ``default`` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+     */
   CapacityReservationPreference: string;
+  /**
+   * Describes a target Capacity Reservation or Capacity Reservation resource group.
+   */
   CapacityReservationTarget?: CapacityReservationTarget;
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.CapacityReservationTarget`.
+ * The target for the Capacity Reservation. Specify Capacity Reservations IDs or Capacity Reservation resource group ARNs.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationtarget.html}
  */
 export type CapacityReservationTarget = {
+  /**
+   * The Capacity Reservation IDs to launch instances into.
+   */
   CapacityReservationIds?: string[];
+  /**
+   * The resource group ARNs of the Capacity Reservation to launch instances into.
+   */
   CapacityReservationResourceGroupArns?: string[];
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.CpuPerformanceFactorRequest`.
+ * The CPU performance to consider, using an instance family as the baseline reference.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-cpuperformancefactorrequest.html}
  */
 export type CpuPerformanceFactorRequest = {
+  /**
+     * Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+      Currently only one instance family can be specified in the list.
+     */
   References?: PerformanceFactorReferenceRequest[];
 };
 /**
@@ -369,6 +407,9 @@ export type InstanceRequirements = {
      Default: No minimum or maximum limits
      */
   BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
+  /**
+   * The baseline performance factors for the instance requirements.
+   */
   BaselinePerformanceFactors?: BaselinePerformanceFactorsRequest;
   /**
      * Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
@@ -784,9 +825,27 @@ export type NotificationConfiguration = {
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.PerformanceFactorReferenceRequest`.
+ * Specify an instance family to use as the baseline reference for CPU performance. All instance types that All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+  Currently only one instance family can be specified in the list.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-performancefactorreferencerequest.html}
  */
 export type PerformanceFactorReferenceRequest = {
+  /**
+     * The instance family to use as a baseline reference.
+      Make sure that you specify the correct value for the instance family. The instance family is everything before the period (.) in the instance type name. For example, in the instance ``c6i.large``, the instance family is ``c6i``, not ``c6``. For more information, see [Amazon EC2 instance type naming conventions](https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html) in *Amazon EC2 Instance Types*.
+      The following instance types are *not supported* for performance protection.
+      +   ``c1``
+      +   ``g3| g3s``
+      +   ``hpc7g``
+      +   ``m1| m2``
+      +   ``mac1 | mac2 | mac2-m1ultra | mac2-m2 | mac2-m2pro``
+      +   ``p3dn | p4d | p5``
+      +   ``t1``
+      +   ``u-12tb1 | u-18tb1 | u-24tb1 | u-3tb1 | u-6tb1 | u-9tb1 | u7i-12tb | u7in-16tb | u7in-24tb | u7in-32tb``
+      
+     If you performance protection by specifying a supported instance family, the returned instance types will exclude the preceding unsupported instance families.
+     If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response.
+     */
   InstanceFamily?: string;
 };
 /**
@@ -882,7 +941,7 @@ export type VCpuCountRequest = {
 export class AutoScalingAutoScalingGroup extends $Resource<
   "AWS::AutoScaling::AutoScalingGroup",
   AutoScalingAutoScalingGroupProperties,
-  Record<string, never>
+  AutoScalingAutoScalingGroupAttributes
 > {
   public static readonly Type = "AWS::AutoScaling::AutoScalingGroup";
   constructor(

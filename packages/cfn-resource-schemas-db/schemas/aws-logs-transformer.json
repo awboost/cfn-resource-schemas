@@ -1,5 +1,5 @@
 {
-  "$hash": "c965a1656a1f56303602a43646433aa88e930150",
+  "$hash": "363a1082a28c4876e274841dd6b0e3259fc2605f",
   "$id": "aws-logs-transformer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupIdentifier"],
@@ -113,7 +113,7 @@
               "minItems": 1,
               "type": "array"
             },
-            "Delimiter": { "maxLength": 1, "type": "string" },
+            "Delimiter": { "maxLength": 2, "type": "string" },
             "QuoteCharacter": { "maxLength": 1, "type": "string" },
             "Source": { "type": "string" }
           },
@@ -158,7 +158,7 @@
         "Grok": {
           "additionalProperties": false,
           "properties": {
-            "Match": { "maxLength": 128, "type": "string" },
+            "Match": { "maxLength": 512, "type": "string" },
             "Source": { "$ref": "#/definitions/NonEmptyString" }
           },
           "required": ["Match"],
@@ -336,7 +336,7 @@
     "SplitStringEntry": {
       "additionalProperties": false,
       "properties": {
-        "Delimiter": { "maxLength": 1, "type": "string" },
+        "Delimiter": { "maxLength": 128, "type": "string" },
         "Source": { "$ref": "#/definitions/NonEmptyString" }
       },
       "required": ["Source", "Delimiter"],

@@ -1,44 +1,31 @@
-- added `AWS::Omics::WorkflowVersion`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `Ebs`
-- updated `AWS::OSIS::Pipeline`
+- added `AWS::DataSync::StorageSystem`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - added `readOnlyProperties`
+  - added property `AutoScalingGroupARN`
   - updated `tagging`
-  - updated property `PipelineConfigurationBody`
-- updated `AWS::Omics::Workflow`
-  - added definition `StorageType`
-  - added definition `Uuid`
-  - added property `StorageType`
-  - added property `Uuid`
-  - updated `readOnlyProperties`
-- updated `AWS::SageMaker::App`
-  - added property `BuiltInLifecycleConfigArn`
-  - added property `RecoveryMode`
-  - updated `readOnlyProperties`
-  - updated definition `ResourceSpec`
-- updated `AWS::SageMaker::Domain`
-  - added definition `AppInstanceType`
-  - added definition `HiddenSageMakerImage`
-  - updated definition `CodeEditorAppSettings`
-  - updated definition `JupyterLabAppSettings`
-  - updated definition `ResourceSpec`
-  - updated definition `StudioLifecycleConfigArn`
-  - updated definition `StudioWebPortalSettings`
-  - updated definition `UserSettings`
-- updated `AWS::SageMaker::UserProfile`
-  - added definition `AppInstanceType`
-  - added definition `HiddenSageMakerImage`
-  - updated definition `CodeEditorAppSettings`
-  - updated definition `JupyterLabAppSettings`
-  - updated definition `ResourceSpec`
-  - updated definition `StudioLifecycleConfigArn`
-  - updated definition `StudioWebPortalSettings`
-  - updated definition `UserSettings`
-- updated `AWS::SecurityHub::AutomationRule`
-  - updated definition `MapFilter`
-  - updated definition `SeverityUpdate`
-  - updated definition `StringFilter`
-  - updated definition `WorkflowUpdate`
-- updated `AWS::SecurityHub::FindingAggregator`
-  - updated property `RegionLinkingMode`
-- updated `AWS::SecurityHub::Standard`
-  - updated property `DisabledStandardsControls`
+  - updated definition `BaselinePerformanceFactorsRequest`
+  - updated definition `CapacityReservationSpecification`
+  - updated definition `CapacityReservationTarget`
+  - updated definition `CpuPerformanceFactorRequest`
+  - updated definition `InstanceRequirements`
+  - updated definition `PerformanceFactorReferenceRequest`
+  - updated property `CapacityReservationSpecification`
+- updated `AWS::AutoScaling::WarmPool`
+  - updated handler permissions
+- updated `AWS::ECR::RegistryScanningConfiguration`
+  - updated definition `RepositoryFilter`
+  - updated definition `ScanningRule`
+  - updated property `RegistryId`
+  - updated property `Rules`
+  - updated property `ScanType`
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Logs::Transformer`
+  - updated definition `Processor`
+  - updated definition `SplitStringEntry`
+- updated `AWS::QBusiness::DataAccessor`
+  - updated handler permissions
+- updated `AWS::SSM::Document`
+  - updated property `DocumentType`

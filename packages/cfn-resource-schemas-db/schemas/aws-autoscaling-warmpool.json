@@ -1,5 +1,5 @@
 {
-  "$hash": "aaae00c8281c84d3837dc755c8c956bebddf1e0c",
+  "$hash": "70265a555e47df0908117860515a81a568f42aba",
   "$id": "aws-autoscaling-warmpool.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AutoScalingGroupName"],
@@ -24,6 +24,17 @@
         "autoscaling:DeleteWarmPool",
         "autoscaling:DescribeWarmPool"
       ]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "AutoScalingGroupName": {
+            "$ref": "resource-schema.json#/properties/AutoScalingGroupName"
+          }
+        },
+        "required": ["AutoScalingGroupName"]
+      },
+      "permissions": ["autoscaling:DescribeWarmPool"]
     },
     "read": { "permissions": ["autoscaling:DescribeWarmPool"] },
     "update": {

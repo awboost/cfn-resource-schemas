@@ -1,5 +1,5 @@
 {
-  "$hash": "401678cca6f5c13735effe2997b7afb0464843b4",
+  "$hash": "2fdef6c903853ba1f644357e348bdcc85966c279",
   "$id": "aws-ssm-document.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -138,10 +138,12 @@
         "ApplicationConfigurationSchema",
         "Automation",
         "Automation.ChangeTemplate",
+        "AutoApprovalPolicy",
         "ChangeCalendar",
         "CloudFormation",
         "Command",
         "DeploymentStrategy",
+        "ManualApprovalPolicy",
         "Package",
         "Policy",
         "ProblemAnalysis",

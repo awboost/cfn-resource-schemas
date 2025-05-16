@@ -1,12 +1,13 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+ * Resource type definition for `AWS::ECR::RegistryScanningConfiguration`.
+ * The scanning configuration for a private registry.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registryscanningconfiguration.html}
  */
 export type ECRRegistryScanningConfigurationProperties = {
   /**
-   * The scanning rules associated with the registry. A registry scanning configuration may contain a maximum of 2 rules.
+   * The scanning rules associated with the registry.
    * @minLength `0`
    * @maxLength `2`
    */
@@ -35,7 +36,7 @@ export type ECRRegistryScanningConfigurationAttributes = {
 export type FilterType = "WILDCARD";
 /**
  * Type definition for `AWS::ECR::RegistryScanningConfiguration.RepositoryFilter`.
- * The details of a scanning repository filter.
+ * The filter settings used with image replication. Specifying a repository filter to a replication rule provides a method for controlling which repositories in a private registry are replicated. If no filters are added, the contents of all repositories are replicated.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-registryscanningconfiguration-repositoryfilter.html}
  */
 export type RepositoryFilter = {
@@ -57,18 +58,18 @@ export type RepositoryFilter = {
 export type ScanFrequency = "SCAN_ON_PUSH" | "CONTINUOUS_SCAN";
 /**
  * Type definition for `AWS::ECR::RegistryScanningConfiguration.ScanningRule`.
- * A rule representing the details of a scanning configuration.
+ * The scanning rules associated with the registry.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-registryscanningconfiguration-scanningrule.html}
  */
 export type ScanningRule = {
   /**
-   * The repository filters associated with the scanning configuration for a private registry.
+   * The details of a scanning repository filter. For more information on how to use filters, see [Using filters](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html#image-scanning-filters) in the *Amazon Elastic Container Registry User Guide*.
    * @minLength `0`
    * @maxLength `100`
    */
   RepositoryFilters: RepositoryFilter[];
   /**
-   * The frequency that scans are performed.
+   * The frequency that scans are performed at for a private registry. When the ``ENHANCED`` scan type is specified, the supported scan frequencies are ``CONTINUOUS_SCAN`` and ``SCAN_ON_PUSH``. When the ``BASIC`` scan type is specified, the ``SCAN_ON_PUSH`` scan frequency is supported. If scan on push is not specified, then the ``MANUAL`` scan frequency is set by default.
    */
   ScanFrequency: ScanFrequency;
 };
@@ -79,7 +80,8 @@ export type ScanningRule = {
  */
 export type ScanType = "BASIC" | "ENHANCED";
 /**
- * The AWS::ECR::RegistryScanningConfiguration controls the scanning configuration for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html
+ * Resource type definition for `AWS::ECR::RegistryScanningConfiguration`.
+ * The scanning configuration for a private registry.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registryscanningconfiguration.html}
  */
 export class ECRRegistryScanningConfiguration extends $Resource<

@@ -145,7 +145,7 @@ export type Processor = {
      */
     Columns?: string[];
     /**
-     * @maxLength `1`
+     * @maxLength `2`
      */
     Delimiter?: string;
     /**
@@ -183,7 +183,7 @@ export type Processor = {
   };
   Grok?: {
     /**
-     * @maxLength `128`
+     * @maxLength `512`
      */
     Match: string;
     /**
@@ -324,7 +324,7 @@ export type RenameKeyEntry = {
  */
 export type SplitStringEntry = {
   /**
-   * @maxLength `1`
+   * @maxLength `128`
    */
   Delimiter: string;
   /**
