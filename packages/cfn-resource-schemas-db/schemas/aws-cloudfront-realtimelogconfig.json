@@ -1,16 +1,16 @@
 {
-  "$hash": "6c62fa3491843049544b6b111ec76628e67d72db",
+  "$hash": "5e3c4b320668a4a2e976102adef0b54ca6688f60",
   "$id": "aws-cloudfront-realtimelogconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "EndPoint": {
       "additionalProperties": false,
-      "description": "Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.",
+      "description": "Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.",
       "properties": {
         "KinesisStreamConfig": {
           "$ref": "#/definitions/KinesisStreamConfig",
-          "description": "Contains information about the Amazon Kinesis data stream where you are sending real-time log data."
+          "description": "Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration."
         },
         "StreamType": {
           "description": "The type of data stream where you are sending real-time log data. The only valid value is ``Kinesis``.",

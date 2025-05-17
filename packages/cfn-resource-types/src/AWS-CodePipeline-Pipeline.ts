@@ -244,6 +244,10 @@ export type EnvironmentVariable = {
    */
   Name: string;
   /**
+   * The type of the environment variable.
+   */
+  Type?: "PLAINTEXT" | "SECRETS_MANAGER";
+  /**
    * The value of the environment variable.
    */
   Value: string;

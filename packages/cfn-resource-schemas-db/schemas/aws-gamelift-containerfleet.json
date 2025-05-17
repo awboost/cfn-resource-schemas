@@ -1,12 +1,11 @@
 {
-  "$hash": "73c946bb90e8f045f238f870953b059a9a60be0f",
+  "$hash": "9a3e742439f9356c3180f4c5b8de137ad17c10d3",
   "$id": "aws-gamelift-containerfleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/InstanceType",
-    "/properties/BillingType",
-    "/properties/Locations"
+    "/properties/BillingType"
   ],
   "definitions": {
     "ConnectionPortRange": {
@@ -516,8 +515,6 @@
   },
   "typeName": "AWS::GameLift::ContainerFleet",
   "writeOnlyProperties": [
-    "/properties/ScalingPolicies",
-    "/properties/Locations",
     "/properties/DeploymentConfiguration",
     "/properties/GameServerContainerGroupsPerInstance",
     "/properties/GameServerContainerGroupDefinitionName",

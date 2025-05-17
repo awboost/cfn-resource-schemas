@@ -1,5 +1,5 @@
 {
-  "$hash": "1772df41fba6824bc4c0e9b48ab044fb56a9027c",
+  "$hash": "85c7f29bcbe698170d0e282ccbe1c5d0d96a4f98",
   "$id": "aws-cloudfront-vpcorigin.json",
   "additionalProperties": false,
   "definitions": {
@@ -70,7 +70,8 @@
         "ec2:DescribeInternetGateways",
         "iam:CreateServiceLinkedRole",
         "sts:AssumeRole"
-      ]
+      ],
+      "timeoutInMinutes": 40
     },
     "delete": {
       "permissions": [
@@ -102,7 +103,8 @@
         "ec2:DescribeInternetGateways",
         "iam:CreateServiceLinkedRole",
         "sts:AssumeRole"
-      ]
+      ],
+      "timeoutInMinutes": 40
     }
   },
   "primaryIdentifier": ["/properties/Id"],

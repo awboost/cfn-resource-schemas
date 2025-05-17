@@ -1,5 +1,5 @@
 {
-  "$hash": "5ad95ee228efa72c2cce8d7bff2c62ed8ccdfd0e",
+  "$hash": "1a885765c94719f846384b429086498048bfb4e9",
   "$id": "aws-rolesanywhere-trustanchor.json",
   "additionalProperties": false,
   "definitions": {
@@ -25,6 +25,7 @@
         "SourceData": { "$ref": "#/definitions/SourceData" },
         "SourceType": { "$ref": "#/definitions/TrustAnchorType" }
       },
+      "required": ["SourceType", "SourceData"],
       "type": "object"
     },
     "SourceData": {

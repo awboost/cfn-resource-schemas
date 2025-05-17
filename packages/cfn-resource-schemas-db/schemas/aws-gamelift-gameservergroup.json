@@ -1,5 +1,5 @@
 {
-  "$hash": "14e9f4f8ec64c98b876997dd581628191747cba3",
+  "$hash": "37507b3c5dbe37b3107bcff3b63a1cce0e017d11",
   "$id": "aws-gamelift-gameservergroup.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -182,7 +182,7 @@
       "type": "object"
     },
     "Tags": {
-      "description": "A list of labels to assign to the new game server group resource. Updating game server group tags with CloudFormation will not take effect. Please update this property using AWS GameLift APIs instead.",
+      "description": "A list of labels to assign to the new game server group resource.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "maxItems": 200,
@@ -376,7 +376,6 @@
     "/properties/MinSize",
     "/properties/MaxSize",
     "/properties/AutoScalingPolicy",
-    "/properties/VpcSubnets",
-    "/properties/Tags"
+    "/properties/VpcSubnets"
   ]
 }

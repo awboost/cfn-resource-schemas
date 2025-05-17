@@ -64,8 +64,8 @@ export type NotificationSetting = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-source.html}
  */
 export type Source = {
-  SourceData?: SourceData;
-  SourceType?: TrustAnchorType;
+  SourceData: SourceData;
+  SourceType: TrustAnchorType;
 };
 /**
  * Type definition for `AWS::RolesAnywhere::TrustAnchor.SourceData`.

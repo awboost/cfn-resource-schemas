@@ -1,5 +1,5 @@
 {
-  "$hash": "5385eed9c42dc5bdd6e4f5b6a568f61d2333ae05",
+  "$hash": "bd049caa9b2f0583d1e7d49147c056b4e827eb35",
   "$id": "aws-codepipeline-pipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -198,6 +198,11 @@
       "properties": {
         "Name": {
           "description": "The name of the environment variable.",
+          "type": "string"
+        },
+        "Type": {
+          "description": "The type of the environment variable.",
+          "enum": ["PLAINTEXT", "SECRETS_MANAGER"],
           "type": "string"
         },
         "Value": {

@@ -37,12 +37,12 @@ export type CloudFrontRealtimeLogConfigAttributes = {
 };
 /**
  * Type definition for `AWS::CloudFront::RealtimeLogConfig.EndPoint`.
- * Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+ * Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html}
  */
 export type EndPoint = {
   /**
-   * Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+   * Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
    */
   KinesisStreamConfig: KinesisStreamConfig;
   /**

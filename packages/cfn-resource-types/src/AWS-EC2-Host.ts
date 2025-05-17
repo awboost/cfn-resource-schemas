@@ -37,6 +37,10 @@ export type EC2HostProperties = {
    * The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
    */
   OutpostArn?: string;
+  /**
+   * Any tags assigned to the Host.
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::EC2::Host`.
@@ -47,6 +51,14 @@ export type EC2HostAttributes = {
    * ID of the host created.
    */
   HostId: string;
+};
+/**
+ * Type definition for `AWS::EC2::Host.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-host-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::EC2::Host

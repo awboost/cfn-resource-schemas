@@ -143,12 +143,22 @@ export type GameLiftFleetProperties = {
    * @maxLength `1024`
    */
   ServerLaunchPath?: string;
+  /**
+   * An array of key-value pairs to apply to this resource.
+   * @maxLength `200`
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::GameLift::Fleet`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#aws-resource-gamelift-fleet-return-values}
  */
 export type GameLiftFleetAttributes = {
+  /**
+   * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift Servers Fleet resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift Fleet ARN, the resource ID matches the FleetId value.
+   * @pattern `^arn:.*:fleet/[a-z]*fleet-[a-zA-Z0-9\-]+$`
+   */
+  FleetArn: string;
   /**
    * Unique fleet ID
    * @pattern `^fleet-\S+`
@@ -405,6 +415,25 @@ export type ServerProcess = {
    * @maxLength `1024`
    */
   Parameters?: string;
+};
+/**
+ * Type definition for `AWS::GameLift::Fleet.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::GameLift::Fleet.TargetConfiguration`.
