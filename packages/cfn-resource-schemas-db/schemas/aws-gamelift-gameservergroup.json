@@ -1,5 +1,5 @@
 {
-  "$hash": "37507b3c5dbe37b3107bcff3b63a1cce0e017d11",
+  "$hash": "938a6dee199a86555f8aa67d93448516961cef0c",
   "$id": "aws-gamelift-gameservergroup.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -228,6 +228,7 @@
     "create": {
       "permissions": [
         "gamelift:CreateGameServerGroup",
+        "gamelift:ListTagsForResource",
         "gamelift:TagResource",
         "gamelift:DescribeGameServerGroup",
         "iam:assumeRole",
@@ -280,10 +281,18 @@
       ]
     },
     "list": { "permissions": ["gamelift:ListGameServerGroups"] },
-    "read": { "permissions": ["gamelift:DescribeGameServerGroup"] },
+    "read": {
+      "permissions": [
+        "gamelift:DescribeGameServerGroup",
+        "gamelift:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "gamelift:UpdateGameServerGroup",
+        "gamelift:TagResource",
+        "gamelift:UntagResource",
+        "gamelift:ListTagsForResource",
         "iam:assumeRole",
         "iam:PassRole",
         "autoscaling:DescribeAutoScalingGroups",
