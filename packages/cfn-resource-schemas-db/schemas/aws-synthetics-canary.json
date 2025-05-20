@@ -1,5 +1,5 @@
 {
-  "$hash": "0e8652a065f9225693d5aa3f5785c48eeac5a9cf",
+  "$hash": "55aa6da049b5c5bf97c1c3a2e4af8d94d4668dc6",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -54,6 +54,17 @@
       "enum": ["lambda-function"],
       "type": "string"
     },
+    "RetryConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "MaxRetries": {
+          "description": "maximum times the canary will be retried upon the scheduled run failure",
+          "type": "integer"
+        }
+      },
+      "required": ["MaxRetries"],
+      "type": "object"
+    },
     "RunConfig": {
       "additionalProperties": false,
       "properties": {
@@ -98,7 +109,11 @@
       "additionalProperties": false,
       "properties": {
         "DurationInSeconds": { "type": "string" },
-        "Expression": { "type": "string" }
+        "Expression": { "type": "string" },
+        "RetryConfig": {
+          "$ref": "#/definitions/RetryConfig",
+          "description": "Provide canary auto retry configuration"
+        }
       },
       "required": ["Expression"],
       "type": "object"
@@ -208,8 +223,10 @@
       "permissions": [
         "synthetics:UpdateCanary",
         "synthetics:StartCanary",
+        "synthetics:StartCanaryDryRun",
         "synthetics:StopCanary",
         "synthetics:GetCanary",
+        "synthetics:GetCanaryRuns",
         "synthetics:TagResource",
         "synthetics:UntagResource",
         "s3:GetObject",
@@ -252,6 +269,10 @@
     },
     "DeleteLambdaResourcesOnCanaryDeletion": {
       "description": "Deletes associated lambda resources created by Synthetics if set to True. Default is False",
+      "type": "boolean"
+    },
+    "DryRunAndUpdate": {
+      "description": "Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.",
       "type": "boolean"
     },
     "ExecutionRoleArn": {
@@ -346,6 +367,7 @@
     "/properties/StartCanaryAfterCreation",
     "/properties/ResourcesToReplicateTags",
     "/properties/RunConfig/EnvironmentVariables",
-    "/properties/VisualReference"
+    "/properties/VisualReference",
+    "/properties/DryRunAndUpdate"
   ]
 }

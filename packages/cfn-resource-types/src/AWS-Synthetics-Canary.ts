@@ -23,6 +23,10 @@ export type SyntheticsCanaryProperties = {
    */
   DeleteLambdaResourcesOnCanaryDeletion?: boolean;
   /**
+   * Setting to control if UpdateCanary will perform a DryRun and validate it is PASSING before performing the Update. Default is FALSE.
+   */
+  DryRunAndUpdate?: boolean;
+  /**
    * Lambda Execution role used to run your canaries
    */
   ExecutionRoleArn: string;
@@ -135,6 +139,16 @@ export type Code = {
  */
 export type ResourceToTag = "lambda-function";
 /**
+ * Type definition for `AWS::Synthetics::Canary.RetryConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-retryconfig.html}
+ */
+export type RetryConfig = {
+  /**
+   * maximum times the canary will be retried upon the scheduled run failure
+   */
+  MaxRetries: number;
+};
+/**
  * Type definition for `AWS::Synthetics::Canary.RunConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html}
  */
@@ -177,6 +191,10 @@ export type S3Encryption = {
 export type Schedule = {
   DurationInSeconds?: string;
   Expression: string;
+  /**
+   * Provide canary auto retry configuration
+   */
+  RetryConfig?: RetryConfig;
 };
 /**
  * Type definition for `AWS::Synthetics::Canary.Tag`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "e7e2d1547bf05885eb3b3c03bedb0cf04d0067b3",
+  "$hash": "a1eb8a73d3a06ec4ddc3dcfc1bee07e5435dd4cb",
   "$id": "aws-datazone-owner.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -90,11 +90,16 @@
         "datazone:AddEntityOwner",
         "datazone:ListEntityOwners",
         "datazone:GetGroupProfile",
-        "datazone:GetUserProfile"
+        "datazone:GetUserProfile",
+        "iam:GetRole"
       ]
     },
     "delete": {
-      "permissions": ["datazone:RemoveEntityOwner", "datazone:GetUserProfile"]
+      "permissions": [
+        "datazone:RemoveEntityOwner",
+        "datazone:GetUserProfile",
+        "iam:GetRole"
+      ]
     },
     "list": {
       "handlerSchema": {
@@ -116,9 +121,9 @@
         },
         "required": ["DomainIdentifier", "EntityType", "EntityIdentifier"]
       },
-      "permissions": ["datazone:ListEntityOwners"]
+      "permissions": ["datazone:ListEntityOwners", "iam:GetRole"]
     },
-    "read": { "permissions": ["datazone:ListEntityOwners"] }
+    "read": { "permissions": ["datazone:ListEntityOwners", "iam:GetRole"] }
   },
   "primaryIdentifier": [
     "/properties/DomainIdentifier",

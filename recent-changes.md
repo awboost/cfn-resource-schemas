@@ -1,4 +1,39 @@
-- updated `AWS::Bedrock::Blueprint`
-  - updated property `Type`
-- updated `AWS::GameLift::GameServerGroup`
+- added `AWS::MPA::ApprovalTeam`
+- added `AWS::MPA::IdentitySource`
+- updated `AWS::DataZone::EnvironmentBlueprintConfiguration`
+  - added definition `LakeFormationConfiguration`
+  - added definition `ProvisioningConfiguration`
+  - added property `EnvironmentRolePermissionBoundary`
+  - added property `ProvisioningConfigurations`
+  - updated `writeOnlyProperties`
+- updated `AWS::DataZone::Owner`
+  - updated handler permissions
+- updated `AWS::DataZone::Project`
+  - added definition `EnvironmentConfigurationUserParameter`
+  - added definition `EnvironmentDeploymentDetails`
+  - added definition `EnvironmentError`
+  - added definition `EnvironmentFailureReasons`
+  - added definition `EnvironmentParameter`
+  - added definition `EnvironmentResolvedAccount`
+  - added definition `OverallDeploymentStatus`
+  - added definition `ProjectDeletionError`
+  - added definition `ProjectStatus`
+  - added definition `Tags`
+  - added property `DomainUnitId`
+  - added property `ProjectProfileId`
+  - added property `ProjectProfileVersion`
+  - added property `ProjectStatus`
+  - added property `UserParameters`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::EC2::EIP`
+  - updated `createOnlyProperties`
+- updated `AWS::ECS::Service`
+  - updated definition `ServiceManagedEBSVolumeConfiguration`
+- updated `AWS::Synthetics::Canary`
+  - added definition `RetryConfig`
+  - added property `DryRunAndUpdate`
+  - updated `writeOnlyProperties`
+  - updated definition `Schedule`
   - updated handler permissions

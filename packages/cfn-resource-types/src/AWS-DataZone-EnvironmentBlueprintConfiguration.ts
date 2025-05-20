@@ -18,9 +18,14 @@ export type DataZoneEnvironmentBlueprintConfigurationProperties = {
    */
   EnvironmentBlueprintIdentifier: string;
   /**
+   * @pattern `^arn:aws[^:]*:iam::(aws|\d{12}):policy/[\w+=,.@-]*$`
+   */
+  EnvironmentRolePermissionBoundary?: string;
+  /**
    * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]*$`
    */
   ManageAccessRoleArn?: string;
+  ProvisioningConfigurations?: ProvisioningConfiguration[];
   /**
    * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]*$`
    */
@@ -44,10 +49,32 @@ export type DataZoneEnvironmentBlueprintConfigurationAttributes = {
   UpdatedAt: string;
 };
 /**
+ * Type definition for `AWS::DataZone::EnvironmentBlueprintConfiguration.LakeFormationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-lakeformationconfiguration.html}
+ */
+export type LakeFormationConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `20`
+   */
+  LocationRegistrationExcludeS3Locations?: string[];
+  /**
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]*$`
+   */
+  LocationRegistrationRole?: string;
+};
+/**
  * Type definition for `AWS::DataZone::EnvironmentBlueprintConfiguration.Parameter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-parameter.html}
  */
 export type Parameter = Record<string, string>;
+/**
+ * Type definition for `AWS::DataZone::EnvironmentBlueprintConfiguration.ProvisioningConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-provisioningconfiguration.html}
+ */
+export type ProvisioningConfiguration = {
+  LakeFormationConfiguration: LakeFormationConfiguration;
+};
 /**
  * Type definition for `AWS::DataZone::EnvironmentBlueprintConfiguration.RegionalParameter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentblueprintconfiguration-regionalparameter.html}
