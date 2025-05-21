@@ -1,8 +1,8 @@
 {
-  "$hash": "b539810d8a0ecedc6bea89ba7b7b2f428fbd699f",
+  "$hash": "e55f8d4309d1c36d0557da38129ebf9604ebced3",
   "$id": "aws-kendra-datasource.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Type"],
+  "createOnlyProperties": ["/properties/Type", "/properties/IndexId"],
   "definitions": {
     "AccessControlListConfiguration": {
       "additionalProperties": false,
