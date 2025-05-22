@@ -1,5 +1,5 @@
 {
-  "$hash": "c6ddb511571dd4421b85a42ef65c89d8db0eb569",
+  "$hash": "7d2c828f4918b31bd1bcae4cb29418a622c3af3f",
   "$id": "aws-xray-samplingrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SamplingRule/Version"],
@@ -193,7 +193,11 @@
   "description": "This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.",
   "handlers": {
     "create": {
-      "permissions": ["xray:CreateSamplingRule", "xray:TagResource"]
+      "permissions": [
+        "xray:CreateSamplingRule",
+        "xray:TagResource",
+        "xray:ListTagsForResource"
+      ]
     },
     "delete": { "permissions": ["xray:DeleteSamplingRule"] },
     "list": {
@@ -224,7 +228,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
-    "permissions": ["xray:TagResource", "xray:UntagResource"],
+    "permissions": [
+      "xray:TagResource",
+      "xray:UntagResource",
+      "xray:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

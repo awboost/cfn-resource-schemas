@@ -1,5 +1,5 @@
 {
-  "$hash": "b53d1509bf523caf04dbacf39755279ed34c9cdf",
+  "$hash": "bc68da5ce08fc27bed8726fc1f7455568ce34b38",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -62,6 +62,11 @@
         }
       },
       "required": ["IndexName", "Projection", "KeySchema"],
+      "type": "object"
+    },
+    "GlobalTableWitness": {
+      "additionalProperties": false,
+      "properties": { "Region": { "type": "string" } },
       "type": "object"
     },
     "KeySchema": {

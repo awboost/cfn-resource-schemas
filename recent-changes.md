@@ -1,2 +1,7 @@
-- updated `AWS::Kendra::DataSource`
-  - updated `createOnlyProperties`
+- removed `AWS::MPA::ApprovalTeam`
+- removed `AWS::MPA::IdentitySource`
+- updated `AWS::DynamoDB::GlobalTable`
+  - added definition `GlobalTableWitness`
+- updated `AWS::XRay::SamplingRule`
+  - updated `tagging`
+  - updated handler permissions
