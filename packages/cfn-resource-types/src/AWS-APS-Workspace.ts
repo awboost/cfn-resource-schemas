@@ -27,6 +27,10 @@ export type APSWorkspaceProperties = {
    */
   LoggingConfiguration?: LoggingConfiguration;
   /**
+   * Query logging configuration
+   */
+  QueryLoggingConfiguration?: QueryLoggingConfiguration;
+  /**
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];
@@ -58,6 +62,19 @@ export type APSWorkspaceAttributes = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9_-]{1,99}$`
    */
   WorkspaceId: string;
+};
+/**
+ * Type definition for `AWS::APS::Workspace.CloudWatchLogDestination`.
+ * Represents a cloudwatch logs destination for query logging
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-cloudwatchlogdestination.html}
+ */
+export type CloudWatchLogDestination = {
+  /**
+   * The ARN of the CloudWatch Logs log group
+   * @minLength `0`
+   * @maxLength `512`
+   */
+  LogGroupArn: string;
 };
 /**
  * Type definition for `AWS::APS::Workspace.Label`.
@@ -117,6 +134,46 @@ export type LoggingConfiguration = {
    * @maxLength `512`
    */
   LogGroupArn?: string;
+};
+/**
+ * Type definition for `AWS::APS::Workspace.LoggingDestination`.
+ * Destinations for query logging
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingdestination.html}
+ */
+export type LoggingDestination = {
+  /**
+   * Represents a cloudwatch logs destination for query logging
+   */
+  CloudWatchLogs: CloudWatchLogDestination;
+  /**
+   * Filters for logging
+   */
+  Filters: LoggingFilter;
+};
+/**
+ * Type definition for `AWS::APS::Workspace.LoggingFilter`.
+ * Filters for logging
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingfilter.html}
+ */
+export type LoggingFilter = {
+  /**
+   * Query logs with QSP above this limit are vended
+   * @min `0`
+   */
+  QspThreshold: number;
+};
+/**
+ * Type definition for `AWS::APS::Workspace.QueryLoggingConfiguration`.
+ * Query logging configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-queryloggingconfiguration.html}
+ */
+export type QueryLoggingConfiguration = {
+  /**
+   * The destinations configuration for query logging
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  Destinations: LoggingDestination[];
 };
 /**
  * Type definition for `AWS::APS::Workspace.Tag`.

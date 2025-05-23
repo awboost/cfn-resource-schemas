@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource schema for AWS::DataSync::LocationObjectStorage.
+ * Resource Type definition for AWS::DataSync::LocationObjectStorage.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html}
  */
 export type DataSyncLocationObjectStorageProperties = {
@@ -13,11 +13,11 @@ export type DataSyncLocationObjectStorageProperties = {
    */
   AccessKey?: string;
   /**
-   * The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
+   * Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
    * @minLength `1`
    * @maxLength `4`
    */
-  AgentArns: string[];
+  AgentArns?: string[];
   /**
    * The name of the bucket on the self-managed object storage server.
    * @minLength `3`
@@ -25,6 +25,14 @@ export type DataSyncLocationObjectStorageProperties = {
    * @pattern `^[a-zA-Z0-9_\-\+\./\(\)\$\p{Zs}]+$`
    */
   BucketName?: string;
+  /**
+   * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+   */
+  CmkSecretConfig?: CmkSecretConfig;
+  /**
+   * Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+   */
+  CustomSecretConfig?: CustomSecretConfig;
   /**
    * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
    * @minLength `8`
@@ -71,6 +79,17 @@ export type DataSyncLocationObjectStorageProperties = {
  */
 export type DataSyncLocationObjectStorageAttributes = {
   /**
+   * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+   */
+  CmkSecretConfig: {
+    /**
+     * Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+     * @maxLength `2048`
+     * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+     */
+    SecretArn: string;
+  };
+  /**
    * The Amazon Resource Name (ARN) of the location that is created.
    * @maxLength `128`
    * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
@@ -82,6 +101,62 @@ export type DataSyncLocationObjectStorageAttributes = {
    * @pattern `^(efs|nfs|s3|smb|fsxw|object-storage)://[a-zA-Z0-9./\-]+$`
    */
   LocationUri: string;
+  /**
+   * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+   */
+  ManagedSecretConfig: {
+    /**
+     * Specifies the ARN for an AWS Secrets Manager secret.
+     * @maxLength `2048`
+     * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+     */
+    SecretArn: string;
+  };
+};
+/**
+ * Type definition for `AWS::DataSync::LocationObjectStorage.CmkSecretConfig`.
+ * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-cmksecretconfig.html}
+ */
+export type CmkSecretConfig = {
+  /**
+   * Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):kms:[a-z-0-9]+:[0-9]{12}:key/.*|)$`
+   */
+  KmsKeyArn?: string;
+};
+/**
+ * Type definition for `AWS::DataSync::LocationObjectStorage.CustomSecretConfig`.
+ * Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-customsecretconfig.html}
+ */
+export type CustomSecretConfig = {
+  /**
+   * Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*|)$`
+   */
+  SecretAccessRoleArn: string;
+  /**
+   * Specifies the ARN for a customer created AWS Secrets Manager secret.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+   */
+  SecretArn: string;
+};
+/**
+ * Type definition for `AWS::DataSync::LocationObjectStorage.ManagedSecretConfig`.
+ * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationobjectstorage-managedsecretconfig.html}
+ */
+export type ManagedSecretConfig = {
+  /**
+   * Specifies the ARN for an AWS Secrets Manager secret.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+   */
+  SecretArn: string;
 };
 /**
  * Type definition for `AWS::DataSync::LocationObjectStorage.Tag`.
@@ -105,7 +180,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource schema for AWS::DataSync::LocationObjectStorage.
+ * Resource Type definition for AWS::DataSync::LocationObjectStorage.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html}
  */
 export class DataSyncLocationObjectStorage extends $Resource<

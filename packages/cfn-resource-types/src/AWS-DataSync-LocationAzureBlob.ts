@@ -1,16 +1,16 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource schema for AWS::DataSync::LocationAzureBlob.
+ * Resource Type definition for AWS::DataSync::LocationAzureBlob.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html}
  */
 export type DataSyncLocationAzureBlobProperties = {
   /**
-   * The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.
+   * Specifies the Amazon Resource Name (ARN) of the DataSync agent that can connect with your Azure Blob Storage container. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
    * @minLength `1`
    * @maxLength `4`
    */
-  AgentArns: string[];
+  AgentArns?: string[];
   /**
    * Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
    */
@@ -18,7 +18,7 @@ export type DataSyncLocationAzureBlobProperties = {
   /**
    * The specific authentication type that you want DataSync to use to access your Azure Blob Container.
    */
-  AzureBlobAuthenticationType: "SAS";
+  AzureBlobAuthenticationType: "SAS" | "NONE";
   /**
    * The URL of the Azure Blob container that was described.
    * @maxLength `325`
@@ -33,6 +33,14 @@ export type DataSyncLocationAzureBlobProperties = {
    * Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
    */
   AzureBlobType?: "BLOCK";
+  /**
+   * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+   */
+  CmkSecretConfig?: CmkSecretConfig;
+  /**
+   * Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+   */
+  CustomSecretConfig?: CustomSecretConfig;
   /**
    * The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
    * @maxLength `1024`
@@ -51,6 +59,17 @@ export type DataSyncLocationAzureBlobProperties = {
  */
 export type DataSyncLocationAzureBlobAttributes = {
   /**
+   * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+   */
+  CmkSecretConfig: {
+    /**
+     * Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+     * @maxLength `2048`
+     * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+     */
+    SecretArn: string;
+  };
+  /**
    * The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
    * @maxLength `128`
    * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
@@ -62,6 +81,17 @@ export type DataSyncLocationAzureBlobAttributes = {
    * @pattern `^(azure-blob)://[a-zA-Z0-9./\-]+$`
    */
   LocationUri: string;
+  /**
+   * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+   */
+  ManagedSecretConfig: {
+    /**
+     * Specifies the ARN for an AWS Secrets Manager secret.
+     * @maxLength `2048`
+     * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+     */
+    SecretArn: string;
+  };
 };
 /**
  * Type definition for `AWS::DataSync::LocationAzureBlob.AzureBlobSasConfiguration`.
@@ -76,6 +106,51 @@ export type AzureBlobSasConfiguration = {
    * @pattern `(^.+$)`
    */
   AzureBlobSasToken: string;
+};
+/**
+ * Type definition for `AWS::DataSync::LocationAzureBlob.CmkSecretConfig`.
+ * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-cmksecretconfig.html}
+ */
+export type CmkSecretConfig = {
+  /**
+   * Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):kms:[a-z-0-9]+:[0-9]{12}:key/.*|)$`
+   */
+  KmsKeyArn?: string;
+};
+/**
+ * Type definition for `AWS::DataSync::LocationAzureBlob.CustomSecretConfig`.
+ * Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-customsecretconfig.html}
+ */
+export type CustomSecretConfig = {
+  /**
+   * Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*|)$`
+   */
+  SecretAccessRoleArn: string;
+  /**
+   * Specifies the ARN for a customer created AWS Secrets Manager secret.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+   */
+  SecretArn: string;
+};
+/**
+ * Type definition for `AWS::DataSync::LocationAzureBlob.ManagedSecretConfig`.
+ * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-managedsecretconfig.html}
+ */
+export type ManagedSecretConfig = {
+  /**
+   * Specifies the ARN for an AWS Secrets Manager secret.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+   */
+  SecretArn: string;
 };
 /**
  * Type definition for `AWS::DataSync::LocationAzureBlob.Tag`.
@@ -99,7 +174,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource schema for AWS::DataSync::LocationAzureBlob.
+ * Resource Type definition for AWS::DataSync::LocationAzureBlob.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html}
  */
 export class DataSyncLocationAzureBlob extends $Resource<

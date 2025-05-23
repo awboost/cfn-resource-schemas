@@ -1,5 +1,5 @@
 {
-  "$hash": "e75ed57eed9f527a0f0935daf3d3526014c2358e",
+  "$hash": "bea73881917100d442f7afdd748717cd92f08b8b",
   "$id": "aws-lakeformation-tag.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CatalogId", "/properties/TagKey"],
@@ -27,11 +27,15 @@
   },
   "description": "A resource schema representing a Lake Formation Tag.",
   "handlers": {
-    "create": { "permissions": ["lakeformation:CreateLFTag"] },
+    "create": {
+      "permissions": ["lakeformation:CreateLFTag", "lakeformation:GetLFTag"]
+    },
     "delete": { "permissions": ["lakeformation:DeleteLFTag"] },
     "list": { "permissions": ["lakeformation:ListLFTags"] },
     "read": { "permissions": ["lakeformation:GetLFTag"] },
-    "update": { "permissions": ["lakeformation:UpdateLFTag"] }
+    "update": {
+      "permissions": ["lakeformation:UpdateLFTag", "lakeformation:GetLFTag"]
+    }
   },
   "primaryIdentifier": ["/properties/TagKey"],
   "properties": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "991ac4179d06f510914cda51ee98b070516ff328",
+  "$hash": "5460badac2335ddf393f154a91204f0c2bee9a24",
   "$id": "aws-bedrock-flow.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -192,7 +192,7 @@
           "description": "List of node inputs in a flow",
           "insertionOrder": true,
           "items": { "$ref": "#/definitions/FlowNodeInput" },
-          "maxItems": 5,
+          "maxItems": 20,
           "type": "array"
         },
         "Name": {
@@ -334,6 +334,17 @@
           "required": ["Retrieval"],
           "title": "Retrieval",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "InlineCode": {
+              "$ref": "#/definitions/InlineCodeFlowNodeConfiguration"
+            }
+          },
+          "required": ["InlineCode"],
+          "title": "InlineCode",
+          "type": "object"
         }
       ]
     },
@@ -390,7 +401,8 @@
         "Storage",
         "Retrieval",
         "Iterator",
-        "Collector"
+        "Collector",
+        "InlineCode"
       ],
       "type": "string"
     },
@@ -430,6 +442,20 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "InlineCodeFlowNodeConfiguration": {
+      "additionalProperties": false,
+      "description": "Inline code config strucuture, contains code configs",
+      "properties": {
+        "Code": {
+          "description": "The inline code entered by customers. max size is 5MB.",
+          "maxLength": 5000000,
+          "type": "string"
+        },
+        "Language": { "$ref": "#/definitions/SupportedLanguages" }
+      },
+      "required": ["Code", "Language"],
       "type": "object"
     },
     "InputFlowNodeConfiguration": {
@@ -761,6 +787,11 @@
           "type": "object"
         }
       ]
+    },
+    "SupportedLanguages": {
+      "description": "Enum encodes the supported language type",
+      "enum": ["Python_3"],
+      "type": "string"
     },
     "TagsMap": {
       "additionalProperties": false,

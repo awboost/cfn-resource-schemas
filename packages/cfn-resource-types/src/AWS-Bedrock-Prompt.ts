@@ -250,7 +250,7 @@ export type PromptModelInferenceConfiguration = {
   /**
    * Maximum length of output
    * @min `0`
-   * @max `4096`
+   * @max `512000`
    */
   MaxTokens?: number;
   /**

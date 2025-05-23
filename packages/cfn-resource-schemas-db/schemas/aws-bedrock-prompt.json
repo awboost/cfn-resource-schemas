@@ -1,5 +1,5 @@
 {
-  "$hash": "64cf44d42c38202b99ee4e3f29c0c46e7805700e",
+  "$hash": "e2e96c61f6565b5e8300fc13d82a3ab5e4ceaa3e",
   "$id": "aws-bedrock-prompt.json",
   "additionalProperties": false,
   "definitions": {
@@ -202,7 +202,7 @@
       "properties": {
         "MaxTokens": {
           "description": "Maximum length of output",
-          "maximum": 4096,
+          "maximum": 512000,
           "minimum": 0,
           "type": "number"
         },

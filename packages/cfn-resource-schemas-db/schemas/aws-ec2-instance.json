@@ -1,5 +1,5 @@
 {
-  "$hash": "93f7fffc4fb996831fec29f84158f17369be4e26",
+  "$hash": "3db463ffca7efd0731d694fe5d42f84cbe28c652",
   "$id": "aws-ec2-instance.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -195,6 +195,39 @@
         }
       },
       "required": ["LicenseConfigurationArn"],
+      "type": "object"
+    },
+    "MetadataOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "HttpEndpoint": {
+          "description": "Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.",
+          "enum": ["disabled", "enabled"],
+          "type": "string"
+        },
+        "HttpProtocolIpv6": {
+          "description": "Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.",
+          "enum": ["disabled", "enabled"],
+          "type": "string"
+        },
+        "HttpPutResponseHopLimit": {
+          "default": 1,
+          "description": "The number of network hops that the metadata token can travel. Maximum is 64.",
+          "maximum": 64,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "HttpTokens": {
+          "description": "Indicates whether IMDSv2 is required.",
+          "enum": ["optional", "required"],
+          "type": "string"
+        },
+        "InstanceMetadataTags": {
+          "description": "Indicates whether tags from the instance are propagated to the EBS volumes.",
+          "enum": ["disabled", "enabled"],
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "NetworkInterface": {
@@ -443,6 +476,7 @@
         "ec2:ModifyInstanceAttribute",
         "ec2:ModifyInstanceCreditSpecification",
         "ec2:ModifyInstanceMaintenanceOptions",
+        "ec2:ModifyInstanceMetadataOptions",
         "ec2:ModifyInstancePlacement",
         "ec2:MonitorInstances",
         "ec2:AttachVolume",
@@ -588,6 +622,11 @@
       "items": { "$ref": "#/definitions/LicenseSpecification" },
       "type": "array",
       "uniqueItems": false
+    },
+    "MetadataOptions": {
+      "$ref": "#/definitions/MetadataOptions",
+      "description": "The metadata options for the instance",
+      "type": "object"
     },
     "Monitoring": {
       "description": "Specifies whether detailed monitoring is enabled for the instance.",

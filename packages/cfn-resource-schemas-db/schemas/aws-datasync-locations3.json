@@ -1,5 +1,5 @@
 {
-  "$hash": "caac5118d8c440295a4789d1dd8fb4f4cbfe4999",
+  "$hash": "1fb8128940bbe88cdb02023d33095264a9aaa050",
   "$id": "aws-datasync-locations3.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/S3BucketArn"],
@@ -69,7 +69,8 @@
         "datasync:ListTagsForResource",
         "datasync:TagResource",
         "datasync:UntagResource",
-        "datasync:UpdateLocationS3"
+        "datasync:UpdateLocationS3",
+        "iam:PassRole"
       ]
     }
   },

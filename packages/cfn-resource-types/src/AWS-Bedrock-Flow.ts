@@ -269,7 +269,7 @@ export type FlowNode = {
   Configuration?: FlowNodeConfiguration;
   /**
    * List of node inputs in a flow
-   * @maxLength `5`
+   * @maxLength `20`
    */
   Inputs?: FlowNodeInput[];
   /**
@@ -364,6 +364,12 @@ export type FlowNodeConfiguration =
        * Retrieval flow node configuration
        */
       Retrieval: RetrievalFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Inline code config strucuture, contains code configs
+       */
+      InlineCode: InlineCodeFlowNodeConfiguration;
     };
 /**
  * Type definition for `AWS::Bedrock::Flow.FlowNodeInput`.
@@ -431,7 +437,8 @@ export type FlowNodeType =
   | "Storage"
   | "Retrieval"
   | "Iterator"
-  | "Collector";
+  | "Collector"
+  | "InlineCode";
 /**
  * Type definition for `AWS::Bedrock::Flow.FlowStatus`.
  * Schema Type for Flow APIs
@@ -466,6 +473,22 @@ export type GuardrailConfiguration = {
    * @pattern `^(([0-9]{1,8})|(DRAFT))$`
    */
   GuardrailVersion?: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::Flow.InlineCodeFlowNodeConfiguration`.
+ * Inline code config strucuture, contains code configs
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-inlinecodeflownodeconfiguration.html}
+ */
+export type InlineCodeFlowNodeConfiguration = {
+  /**
+   * The inline code entered by customers. max size is 5MB.
+   * @maxLength `5000000`
+   */
+  Code: string;
+  /**
+   * Enum encodes the supported language type
+   */
+  Language: SupportedLanguages;
 };
 /**
  * Type definition for `AWS::Bedrock::Flow.InputFlowNodeConfiguration`.
@@ -761,6 +784,12 @@ export type StorageFlowNodeServiceConfiguration = {
    */
   S3?: StorageFlowNodeS3Configuration;
 };
+/**
+ * Type definition for `AWS::Bedrock::Flow.SupportedLanguages`.
+ * Enum encodes the supported language type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-supportedlanguages.html}
+ */
+export type SupportedLanguages = "Python_3";
 /**
  * Type definition for `AWS::Bedrock::Flow.TagsMap`.
  * A map of tag keys and values

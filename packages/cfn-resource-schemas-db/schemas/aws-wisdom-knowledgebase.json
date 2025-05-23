@@ -1,5 +1,5 @@
 {
-  "$hash": "e99fba452999f9cd361176aec28cdc474f5ce95a",
+  "$hash": "3b78bfdd3c864736ae2b108b25b27b57f2f86011",
   "$id": "aws-wisdom-knowledgebase.json",
   "additionalIdentifiers": [["/properties/KnowledgeBaseArn"]],
   "additionalProperties": false,
@@ -91,7 +91,13 @@
       "type": "object"
     },
     "KnowledgeBaseType": {
-      "enum": ["EXTERNAL", "CUSTOM", "MESSAGE_TEMPLATES", "MANAGED"],
+      "enum": [
+        "EXTERNAL",
+        "CUSTOM",
+        "MESSAGE_TEMPLATES",
+        "MANAGED",
+        "QUICK_RESPONSES"
+      ],
       "type": "string"
     },
     "ManagedSourceConfiguration": {

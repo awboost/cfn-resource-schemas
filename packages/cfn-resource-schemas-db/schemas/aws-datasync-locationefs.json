@@ -1,5 +1,5 @@
 {
-  "$hash": "dcd092cd2e095e2f533fb8d057011fd8a519eae9",
+  "$hash": "a741eab6f85bce5a708bff9bf83dc9dd4da360e8",
   "$id": "aws-datasync-locationefs.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -88,7 +88,8 @@
         "datasync:TagResource",
         "datasync:UntagResource",
         "elasticfilesystem:DescribeFileSystems",
-        "elasticfilesystem:DescribeAccessPoints"
+        "elasticfilesystem:DescribeAccessPoints",
+        "iam:PassRole"
       ]
     }
   },

@@ -121,7 +121,8 @@ export type KnowledgeBaseType =
   | "EXTERNAL"
   | "CUSTOM"
   | "MESSAGE_TEMPLATES"
-  | "MANAGED";
+  | "MANAGED"
+  | "QUICK_RESPONSES";
 /**
  * Type definition for `AWS::Wisdom::KnowledgeBase.ManagedSourceConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-knowledgebase-managedsourceconfiguration.html}

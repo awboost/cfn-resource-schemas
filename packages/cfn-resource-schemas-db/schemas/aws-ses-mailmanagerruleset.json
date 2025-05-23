@@ -1,5 +1,5 @@
 {
-  "$hash": "3f7f5f95c83ad84c12b49b8f5f9032f566272e67",
+  "$hash": "c9cbab97f8d77baead5e4a6dadb8254da0168874",
   "$id": "aws-ses-mailmanagerruleset.json",
   "additionalProperties": false,
   "definitions": {
@@ -237,6 +237,15 @@
           },
           "required": ["DeliverToQBusiness"],
           "title": "DeliverToQBusiness",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "PublishToSns": { "$ref": "#/definitions/SnsAction" }
+          },
+          "required": ["PublishToSns"],
+          "title": "PublishToSns",
           "type": "object"
         }
       ]
@@ -585,6 +594,36 @@
       },
       "required": ["RoleArn"],
       "type": "object"
+    },
+    "SnsAction": {
+      "additionalProperties": false,
+      "properties": {
+        "ActionFailurePolicy": { "$ref": "#/definitions/ActionFailurePolicy" },
+        "Encoding": { "$ref": "#/definitions/SnsNotificationEncoding" },
+        "PayloadType": { "$ref": "#/definitions/SnsNotificationPayloadType" },
+        "RoleArn": {
+          "maxLength": 2048,
+          "minLength": 20,
+          "pattern": "^[a-zA-Z0-9:_/+=,@.#-]+$",
+          "type": "string"
+        },
+        "TopicArn": {
+          "maxLength": 2048,
+          "minLength": 20,
+          "pattern": "^arn:(aws|aws-cn|aws-us-gov):sns:[a-z]{2}-[a-z]+-\\d{1}:\\d{12}:[\\w\\-]{1,256}$",
+          "type": "string"
+        }
+      },
+      "required": ["TopicArn", "RoleArn"],
+      "type": "object"
+    },
+    "SnsNotificationEncoding": {
+      "enum": ["UTF-8", "BASE64"],
+      "type": "string"
+    },
+    "SnsNotificationPayloadType": {
+      "enum": ["CONTENT", "HEADERS"],
+      "type": "string"
     },
     "Tag": {
       "additionalProperties": false,

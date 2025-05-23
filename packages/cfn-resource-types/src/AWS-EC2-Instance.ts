@@ -117,6 +117,10 @@ export type EC2InstanceProperties = {
    */
   LicenseSpecifications?: LicenseSpecification[];
   /**
+   * The metadata options for the instance
+   */
+  MetadataOptions?: MetadataOptions;
+  /**
    * Specifies whether detailed monitoring is enabled for the instance.
    */
   Monitoring?: boolean;
@@ -378,6 +382,34 @@ export type LicenseSpecification = {
    * The Amazon Resource Name (ARN) of the license configuration.
    */
   LicenseConfigurationArn: string;
+};
+/**
+ * Type definition for `AWS::EC2::Instance.MetadataOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-metadataoptions.html}
+ */
+export type MetadataOptions = {
+  /**
+   * Enables or disables the HTTP metadata endpoint on your instances. If you specify a value of disabled, you cannot access your instance metadata.
+   */
+  HttpEndpoint?: "disabled" | "enabled";
+  /**
+   * Enables or disables the IPv6 endpoint for the instance metadata service. To use this option, the instance must be a Nitro-based instance launched in a subnet that supports IPv6.
+   */
+  HttpProtocolIpv6?: "disabled" | "enabled";
+  /**
+   * The number of network hops that the metadata token can travel. Maximum is 64.
+   * @min `1`
+   * @max `64`
+   */
+  HttpPutResponseHopLimit?: number;
+  /**
+   * Indicates whether IMDSv2 is required.
+   */
+  HttpTokens?: "optional" | "required";
+  /**
+   * Indicates whether tags from the instance are propagated to the EBS volumes.
+   */
+  InstanceMetadataTags?: "disabled" | "enabled";
 };
 /**
  * Type definition for `AWS::EC2::Instance.NetworkInterface`.

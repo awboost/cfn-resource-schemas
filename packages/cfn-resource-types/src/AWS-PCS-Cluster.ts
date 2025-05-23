@@ -44,6 +44,10 @@ export type PCSClusterProperties = {
    */
   SlurmConfiguration?: {
     /**
+     * The accounting configuration includes configurable settings for Slurm accounting.
+     */
+    Accounting?: Accounting;
+    /**
      * The shared Slurm key for authentication, also known as the cluster secret.
      */
     AuthKey?: AuthKey;
@@ -121,6 +125,23 @@ export type PCSClusterAttributes = {
     | "CREATE_FAILED"
     | "DELETE_FAILED"
     | "UPDATE_FAILED";
+};
+/**
+ * Type definition for `AWS::PCS::Cluster.Accounting`.
+ * The accounting configuration includes configurable settings for Slurm accounting.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-accounting.html}
+ */
+export type Accounting = {
+  /**
+   * The default value for all purge settings for `slurmdbd.conf`. For more information, see the [slurmdbd.conf documentation at SchedMD](https://slurm.schedmd.com/slurmdbd.conf.html). The default value is `-1`. A value of `-1` means there is no purge time and records persist as long as the cluster exists.
+   * @min `-1`
+   * @max `10000`
+   */
+  DefaultPurgeTimeInDays?: number;
+  /**
+   * The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+   */
+  Mode: "STANDARD" | "NONE";
 };
 /**
  * Type definition for `AWS::PCS::Cluster.AuthKey`.

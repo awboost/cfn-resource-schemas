@@ -405,6 +405,12 @@ export type FlowNodeConfiguration =
        * Collector flow node configuration
        */
       Collector: CollectorFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Inline code config strucuture, contains code configs
+       */
+      InlineCode: InlineCodeFlowNodeConfiguration;
     };
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.FlowNodeInput`.
@@ -472,7 +478,8 @@ export type FlowNodeType =
   | "Iterator"
   | "Collector"
   | "Storage"
-  | "Retrieval";
+  | "Retrieval"
+  | "InlineCode";
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.FlowStatus`.
  * Schema Type for Flow APIs
@@ -496,6 +503,22 @@ export type GuardrailConfiguration = {
    * @pattern `^(([0-9]{1,8})|(DRAFT))$`
    */
   GuardrailVersion?: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.InlineCodeFlowNodeConfiguration`.
+ * Inline code config strucuture, contains code configs
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-inlinecodeflownodeconfiguration.html}
+ */
+export type InlineCodeFlowNodeConfiguration = {
+  /**
+   * The inline code entered by customers. max size is 5MB.
+   * @maxLength `5000000`
+   */
+  Code: string;
+  /**
+   * Enum encodes the supported language type
+   */
+  Language: SupportedLanguages;
 };
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.InputFlowNodeConfiguration`.
@@ -765,6 +788,12 @@ export type StorageFlowNodeServiceConfiguration = {
    */
   S3?: StorageFlowNodeS3Configuration;
 };
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.SupportedLanguages`.
+ * Enum encodes the supported language type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-supportedlanguages.html}
+ */
+export type SupportedLanguages = "Python_3";
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.TextPromptTemplateConfiguration`.
  * Configuration for text prompt template

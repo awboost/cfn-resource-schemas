@@ -1,5 +1,5 @@
 {
-  "$hash": "5c474707bd8977c64bc2ee0c938a7b41818ec219",
+  "$hash": "be838bf27995f370dbe6c5becc0e5d9718ae638d",
   "$id": "aws-bedrock-flowversion.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Description", "/properties/FlowArn"],
@@ -318,6 +318,17 @@
           "required": ["Collector"],
           "title": "Collector",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "InlineCode": {
+              "$ref": "#/definitions/InlineCodeFlowNodeConfiguration"
+            }
+          },
+          "required": ["InlineCode"],
+          "title": "InlineCode",
+          "type": "object"
         }
       ]
     },
@@ -374,7 +385,8 @@
         "Iterator",
         "Collector",
         "Storage",
-        "Retrieval"
+        "Retrieval",
+        "InlineCode"
       ],
       "type": "string"
     },
@@ -399,6 +411,20 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "InlineCodeFlowNodeConfiguration": {
+      "additionalProperties": false,
+      "description": "Inline code config strucuture, contains code configs",
+      "properties": {
+        "Code": {
+          "description": "The inline code entered by customers. max size is 5MB.",
+          "maxLength": 5000000,
+          "type": "string"
+        },
+        "Language": { "$ref": "#/definitions/SupportedLanguages" }
+      },
+      "required": ["Code", "Language"],
       "type": "object"
     },
     "InputFlowNodeConfiguration": {
@@ -703,6 +729,11 @@
           "type": "object"
         }
       ]
+    },
+    "SupportedLanguages": {
+      "description": "Enum encodes the supported language type",
+      "enum": ["Python_3"],
+      "type": "string"
     },
     "TextPromptTemplateConfiguration": {
       "additionalProperties": false,

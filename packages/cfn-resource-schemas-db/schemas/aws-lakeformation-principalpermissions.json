@@ -1,5 +1,5 @@
 {
-  "$hash": "431391c13d61cfa6e4aa1e369120b0f9504f4dba",
+  "$hash": "92c680b382c5ad100ba2dc9d12d2b3188a576065",
   "$id": "aws-lakeformation-principalpermissions.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -338,7 +338,7 @@
       "type": "array"
     }
   },
-  "description": "The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong ``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong ``RevokePermissions`` API operation.",
+  "description": "The ``AWS::LakeFormation::PrincipalPermissions`` resource represents the permissions that a principal has on a GLUDC resource (such as GLUlong databases or GLUlong tables). When you create a ``PrincipalPermissions`` resource, the permissions are granted via the LFlong``GrantPermissions`` API operation. When you delete a ``PrincipalPermissions`` resource, the permissions on principal-resource pair are revoked via the LFlong``RevokePermissions`` API operation.",
   "handlers": {
     "create": {
       "permissions": [

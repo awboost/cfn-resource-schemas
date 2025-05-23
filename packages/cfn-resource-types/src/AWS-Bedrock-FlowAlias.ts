@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowalias.html}
  */
 export type BedrockFlowAliasProperties = {
+  ConcurrencyConfiguration?: FlowAliasConcurrencyConfiguration;
   /**
    * Description of the Resource.
    * @minLength `1`
@@ -64,6 +65,24 @@ export type BedrockFlowAliasAttributes = {
    * Time Stamp.
    */
   UpdatedAt: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowAlias.ConcurrencyType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowalias-concurrencytype.html}
+ */
+export type ConcurrencyType = "Automatic" | "Manual";
+/**
+ * Type definition for `AWS::Bedrock::FlowAlias.FlowAliasConcurrencyConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowalias-flowaliasconcurrencyconfiguration.html}
+ */
+export type FlowAliasConcurrencyConfiguration = {
+  /**
+   * Number of nodes executed concurrently at a time
+   * @min `1`
+   * @max `100`
+   */
+  MaxConcurrency?: number;
+  Type: ConcurrencyType;
 };
 /**
  * Type definition for `AWS::Bedrock::FlowAlias.FlowAliasRoutingConfigurationListItem`.

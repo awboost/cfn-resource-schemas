@@ -20,6 +20,7 @@ export type DeadlineFleetProperties = {
    * @pattern `^farm-[0-9a-f]{32}$`
    */
   FarmId: string;
+  HostConfiguration?: HostConfiguration;
   /**
    * @min `0`
    * @max `2147483647`
@@ -169,6 +170,7 @@ export type CustomerManagedFleetConfiguration = {
    * @pattern `^sp-[0-9a-f]{32}$`
    */
   StorageProfileId?: string;
+  TagPropagationMode?: TagPropagationMode;
   WorkerCapabilities: CustomerManagedWorkerCapabilities;
 };
 /**
@@ -293,6 +295,22 @@ export type FleetStatus =
   | "CREATE_FAILED"
   | "UPDATE_FAILED";
 /**
+ * Type definition for `AWS::Deadline::Fleet.HostConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-hostconfiguration.html}
+ */
+export type HostConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `15000`
+   */
+  ScriptBody: string;
+  /**
+   * @min `300`
+   * @max `3600`
+   */
+  ScriptTimeoutSeconds?: number;
+};
+/**
  * Type definition for `AWS::Deadline::Fleet.MemoryMiBRange`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-memorymibrange.html}
  */
@@ -379,6 +397,13 @@ export type Tag = {
    */
   Value: string;
 };
+/**
+ * Type definition for `AWS::Deadline::Fleet.TagPropagationMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-tagpropagationmode.html}
+ */
+export type TagPropagationMode =
+  | "NO_PROPAGATION"
+  | "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH";
 /**
  * Type definition for `AWS::Deadline::Fleet.VCpuCountRange`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-vcpucountrange.html}

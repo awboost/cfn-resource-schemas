@@ -1,5 +1,5 @@
 {
-  "$hash": "06dc8ec8c8f418be2fc134c7c9790c5c26bda284",
+  "$hash": "206f9a05152495d859a9bcb1da5c862a84074c8f",
   "$id": "aws-elasticloadbalancingv2-loadbalancer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -121,14 +121,17 @@
       "type": "string"
     },
     "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
-      "description": "Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.",
+      "description": "Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink. The default is ``on``.\n You can't configure this property on a Network Load Balancer unless you associated a security group with the load balancer when you created it.",
       "type": "string"
     },
     "IpAddressType": {
       "description": "The IP address type. Internal load balancers must use ``ipv4``.\n [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).\n Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.\n [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).",
       "type": "string"
     },
-    "Ipv4IpamPoolId": { "description": "", "type": "string" },
+    "Ipv4IpamPoolId": {
+      "description": "The ID of the IPv4 IPAM pool.",
+      "type": "string"
+    },
     "LoadBalancerArn": { "description": "", "type": "string" },
     "LoadBalancerAttributes": {
       "arrayType": "AttributeList",

@@ -222,6 +222,9 @@ export type RuleAction =
     }
   | {
       DeliverToQBusiness: DeliverToQBusinessAction;
+    }
+  | {
+      PublishToSns: SnsAction;
     };
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleBooleanEmailAttribute`.
@@ -498,6 +501,37 @@ export type SendAction = {
    */
   RoleArn: string;
 };
+/**
+ * Type definition for `AWS::SES::MailManagerRuleSet.SnsAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-snsaction.html}
+ */
+export type SnsAction = {
+  ActionFailurePolicy?: ActionFailurePolicy;
+  Encoding?: SnsNotificationEncoding;
+  PayloadType?: SnsNotificationPayloadType;
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^[a-zA-Z0-9:_/+=,@.#-]+$`
+   */
+  RoleArn: string;
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov):sns:[a-z]{2}-[a-z]+-\d{1}:\d{12}:[\w\-]{1,256}$`
+   */
+  TopicArn: string;
+};
+/**
+ * Type definition for `AWS::SES::MailManagerRuleSet.SnsNotificationEncoding`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-snsnotificationencoding.html}
+ */
+export type SnsNotificationEncoding = "UTF-8" | "BASE64";
+/**
+ * Type definition for `AWS::SES::MailManagerRuleSet.SnsNotificationPayloadType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-snsnotificationpayloadtype.html}
+ */
+export type SnsNotificationPayloadType = "CONTENT" | "HEADERS";
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-tag.html}

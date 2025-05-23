@@ -1071,6 +1071,7 @@ export type Slot = {
   Name: string;
   ObfuscationSetting?: ObfuscationSetting;
   SlotTypeName: string;
+  SubSlotSetting?: SubSlotSetting;
   ValueElicitationSetting: SlotValueElicitationSetting;
 };
 /**
@@ -1245,6 +1246,19 @@ export type SlotValueSelectionSetting = {
   ResolutionStrategy: SlotValueResolutionStrategy;
 };
 /**
+ * Type definition for `AWS::Lex::Bot.Specifications`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-specifications.html}
+ */
+export type Specifications = {
+  /**
+   * @minLength `1`
+   * @maxLength `25`
+   * @pattern `^((AMAZON\.)[a-zA-Z_]+?|[0-9a-zA-Z]+)$`
+   */
+  SlotTypeId: string;
+  ValueElicitationSetting: SubSlotValueElicitationSetting;
+};
+/**
  * Type definition for `AWS::Lex::Bot.SSMLMessage`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html}
  */
@@ -1278,6 +1292,19 @@ export type StillWaitingResponseSpecification = {
   TimeoutInSeconds: number;
 };
 /**
+ * Type definition for `AWS::Lex::Bot.SubSlotSetting`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslotsetting.html}
+ */
+export type SubSlotSetting = {
+  /**
+   * @minLength `1`
+   * @maxLength `1000`
+   * @pattern `[0-9A-Za-z_\-\s\(\)]+`
+   */
+  Expression?: string;
+  SlotSpecifications?: Record<string, Specifications>;
+};
+/**
  * Type definition for `AWS::Lex::Bot.SubSlotTypeComposition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslottypecomposition.html}
  */
@@ -1294,6 +1321,16 @@ export type SubSlotTypeComposition = {
    * @pattern `^((AMAZON\.)[a-zA-Z_]+?|[0-9a-zA-Z]+)$`
    */
   SlotTypeId: string;
+};
+/**
+ * Type definition for `AWS::Lex::Bot.SubSlotValueElicitationSetting`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslotvalueelicitationsetting.html}
+ */
+export type SubSlotValueElicitationSetting = {
+  DefaultValueSpecification?: SlotDefaultValueSpecification;
+  PromptSpecification?: PromptSpecification;
+  SampleUtterances?: SampleUtterance[];
+  WaitAndContinueSpecification?: WaitAndContinueSpecification;
 };
 /**
  * Type definition for `AWS::Lex::Bot.Tag`.

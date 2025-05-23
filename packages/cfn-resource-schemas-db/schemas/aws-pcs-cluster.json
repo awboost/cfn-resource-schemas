@@ -1,5 +1,5 @@
 {
-  "$hash": "71700935b05b5442735154b66b27872a09697433",
+  "$hash": "96cf98d87d640d783b64bf61f0ab7c798bef8a61",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -235,6 +235,7 @@
       "additionalProperties": false,
       "description": "Additional options related to the Slurm scheduler.",
       "properties": {
+        "Accounting": { "$ref": "#/definitions/Accounting" },
         "AuthKey": { "$ref": "#/definitions/AuthKey" },
         "ScaleDownIdleTimeInSeconds": {
           "description": "The time before an idle node is scaled down.",
