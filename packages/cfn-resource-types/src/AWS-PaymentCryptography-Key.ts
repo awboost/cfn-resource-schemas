@@ -94,7 +94,7 @@ export type KeyAttributes = {
  * Type definition for `AWS::PaymentCryptography::Key.KeyCheckValueAlgorithm`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keycheckvaluealgorithm.html}
  */
-export type KeyCheckValueAlgorithm = "CMAC" | "ANSI_X9_24" | "HMAC";
+export type KeyCheckValueAlgorithm = "CMAC" | "ANSI_X9_24" | "HMAC" | "SHA_1";
 /**
  * Type definition for `AWS::PaymentCryptography::Key.KeyClass`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyclass.html}

@@ -1,5 +1,5 @@
 {
-  "$hash": "7e05b8ab60aa4710b6b91ab3d385d02046e2a771",
+  "$hash": "d9a81320d6f6a8abcd7cbb7eab960decbc1afdf3",
   "$id": "aws-paymentcryptography-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -59,7 +59,7 @@
       "type": "object"
     },
     "KeyCheckValueAlgorithm": {
-      "enum": ["CMAC", "ANSI_X9_24", "HMAC"],
+      "enum": ["CMAC", "ANSI_X9_24", "HMAC", "SHA_1"],
       "type": "string"
     },
     "KeyClass": {
