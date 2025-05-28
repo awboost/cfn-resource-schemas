@@ -227,6 +227,17 @@ export type RuleAction =
       PublishToSns: SnsAction;
     };
 /**
+ * Type definition for `AWS::SES::MailManagerRuleSet.RuleAddressListEmailAttribute`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaddresslistemailattribute.html}
+ */
+export type RuleAddressListEmailAttribute =
+  | "RECIPIENT"
+  | "MAIL_FROM"
+  | "SENDER"
+  | "FROM"
+  | "TO"
+  | "CC";
+/**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleBooleanEmailAttribute`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleanemailattribute.html}
  */
@@ -257,6 +268,9 @@ export type RuleBooleanToEvaluate =
     }
   | {
       Analysis: Analysis;
+    }
+  | {
+      IsInAddressList: RuleIsInAddressList;
     };
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleCondition`.
@@ -332,6 +346,18 @@ export type RuleIpOperator = "CIDR_MATCHES" | "NOT_CIDR_MATCHES";
  */
 export type RuleIpToEvaluate = {
   Attribute: RuleIpEmailAttribute;
+};
+/**
+ * Type definition for `AWS::SES::MailManagerRuleSet.RuleIsInAddressList`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleisinaddresslist.html}
+ */
+export type RuleIsInAddressList = {
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  AddressLists: string[];
+  Attribute: RuleAddressListEmailAttribute;
 };
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleNumberEmailAttribute`.

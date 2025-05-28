@@ -1,5 +1,5 @@
 {
-  "$hash": "c9cbab97f8d77baead5e4a6dadb8254da0168874",
+  "$hash": "ff66bf2c70d89785fcfb6969f6950cfbdfffbeb8",
   "$id": "aws-ses-mailmanagerruleset.json",
   "additionalProperties": false,
   "definitions": {
@@ -250,6 +250,10 @@
         }
       ]
     },
+    "RuleAddressListEmailAttribute": {
+      "enum": ["RECIPIENT", "MAIL_FROM", "SENDER", "FROM", "TO", "CC"],
+      "type": "string"
+    },
     "RuleBooleanEmailAttribute": {
       "enum": ["READ_RECEIPT_REQUESTED", "TLS", "TLS_WRAPPED"],
       "type": "string"
@@ -283,6 +287,15 @@
           "properties": { "Analysis": { "$ref": "#/definitions/Analysis" } },
           "required": ["Analysis"],
           "title": "Analysis",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "IsInAddressList": { "$ref": "#/definitions/RuleIsInAddressList" }
+          },
+          "required": ["IsInAddressList"],
+          "title": "IsInAddressList",
           "type": "object"
         }
       ]
@@ -405,6 +418,21 @@
           "type": "object"
         }
       ]
+    },
+    "RuleIsInAddressList": {
+      "additionalProperties": false,
+      "properties": {
+        "AddressLists": {
+          "items": { "type": "string" },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "Attribute": { "$ref": "#/definitions/RuleAddressListEmailAttribute" }
+      },
+      "required": ["Attribute", "AddressLists"],
+      "type": "object"
     },
     "RuleNumberEmailAttribute": { "enum": ["MESSAGE_SIZE"], "type": "string" },
     "RuleNumberExpression": {

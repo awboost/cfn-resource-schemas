@@ -1,2 +1,8 @@
-- updated `AWS::PaymentCryptography::Key`
-  - updated definition `KeyCheckValueAlgorithm`
+- updated `AWS::SES::MailManagerRuleSet`
+  - added definition `RuleAddressListEmailAttribute`
+  - added definition `RuleIsInAddressList`
+  - updated definition `RuleBooleanToEvaluate`
+- updated `AWS::SES::MailManagerTrafficPolicy`
+  - added definition `IngressAddressListEmailAttribute`
+  - added definition `IngressIsInAddressList`
+  - updated definition `IngressBooleanToEvaluate`

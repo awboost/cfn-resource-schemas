@@ -41,6 +41,11 @@ export type SESMailManagerTrafficPolicyAttributes = {
  */
 export type AcceptAction = "ALLOW" | "DENY";
 /**
+ * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressAddressListEmailAttribute`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressaddresslistemailattribute.html}
+ */
+export type IngressAddressListEmailAttribute = "RECIPIENT";
+/**
  * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressAnalysis`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressanalysis.html}
  */
@@ -73,9 +78,13 @@ export type IngressBooleanOperator = "IS_TRUE" | "IS_FALSE";
  * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressBooleanToEvaluate`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html}
  */
-export type IngressBooleanToEvaluate = {
-  Analysis: IngressAnalysis;
-};
+export type IngressBooleanToEvaluate =
+  | {
+      Analysis: IngressAnalysis;
+    }
+  | {
+      IsInAddressList: IngressIsInAddressList;
+    };
 /**
  * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressIpOperator`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipoperator.html}
@@ -122,6 +131,18 @@ export type IngressIpv6Expression = {
  */
 export type IngressIpv6ToEvaluate = {
   Attribute: IngressIpv6Attribute;
+};
+/**
+ * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressIsInAddressList`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressisinaddresslist.html}
+ */
+export type IngressIsInAddressList = {
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  AddressLists: string[];
+  Attribute: IngressAddressListEmailAttribute;
 };
 /**
  * Type definition for `AWS::SES::MailManagerTrafficPolicy.IngressStringEmailAttribute`.
