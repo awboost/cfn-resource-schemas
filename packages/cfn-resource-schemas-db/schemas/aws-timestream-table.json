@@ -1,5 +1,5 @@
 {
-  "$hash": "306fefdac6547c7c025dede4cf1fc931be3f3824",
+  "$hash": "a13cdecc55950644fd6cd5e004fb85d3c467f24e",
   "$id": "aws-timestream-table.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DatabaseName", "/properties/TableName"],
@@ -60,7 +60,8 @@
         "s3:PutObject",
         "s3:GetObject",
         "s3:GetBucketAcl",
-        "kms:GenerateDataKey*",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
         "kms:DescribeKey",
         "kms:Encrypt"
       ]
@@ -91,7 +92,8 @@
         "s3:PutObject",
         "s3:GetObject",
         "s3:GetBucketAcl",
-        "kms:GenerateDataKey*",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
         "kms:DescribeKey",
         "kms:Encrypt"
       ]

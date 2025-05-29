@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Notifications::EventRule Resource Type
+ * Resource Type definition for AWS::Notifications::EventRule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-eventrule.html}
  */
 export type NotificationsEventRuleProperties = {
@@ -74,7 +74,7 @@ export type EventRuleStatusSummary = {
  */
 export type StatusSummaryByRegion = Record<string, EventRuleStatusSummary>;
 /**
- * Definition of AWS::Notifications::EventRule Resource Type
+ * Resource Type definition for AWS::Notifications::EventRule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-eventrule.html}
  */
 export class NotificationsEventRule extends $Resource<

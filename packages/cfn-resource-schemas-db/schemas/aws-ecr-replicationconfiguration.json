@@ -1,5 +1,5 @@
 {
-  "$hash": "30b8b568f173971a57da900c4a67326a1c6d4088",
+  "$hash": "5127b58ff6d0fdee9ddeeb852bc3d942a5cf59b2",
   "$id": "aws-ecr-replicationconfiguration.json",
   "additionalProperties": false,
   "definitions": {
@@ -61,7 +61,7 @@
         "Destinations": {
           "description": "An array of objects representing the destination for a replication rule.",
           "items": { "$ref": "#/definitions/ReplicationDestination" },
-          "maxItems": 25,
+          "maxItems": 100,
           "minItems": 1,
           "type": "array"
         },

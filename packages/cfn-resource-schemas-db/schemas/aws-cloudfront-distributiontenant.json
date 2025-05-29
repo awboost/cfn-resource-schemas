@@ -1,11 +1,8 @@
 {
-  "$hash": "3d2e88f955d041c8cd45a38b78d5851cd6b8462b",
+  "$hash": "dd3e08b4f03d77306108090cbeebc535eb610c49",
   "$id": "aws-cloudfront-distributiontenant.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/Name",
-    "/properties/ManagedCertificateRequest"
-  ],
+  "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "Certificate": {
       "additionalProperties": false,

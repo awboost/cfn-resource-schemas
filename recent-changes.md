@@ -1,8 +1,49 @@
-- updated `AWS::SES::MailManagerRuleSet`
-  - added definition `RuleAddressListEmailAttribute`
-  - added definition `RuleIsInAddressList`
-  - updated definition `RuleBooleanToEvaluate`
-- updated `AWS::SES::MailManagerTrafficPolicy`
-  - added definition `IngressAddressListEmailAttribute`
-  - added definition `IngressIsInAddressList`
-  - updated definition `IngressBooleanToEvaluate`
+- added `AWS::DataZone::ProjectProfile`
+- updated `AWS::CloudFront::DistributionTenant`
+  - updated `createOnlyProperties`
+- updated `AWS::CloudFront::VpcOrigin`
+  - updated definition `VpcOriginEndpointConfig`
+- updated `AWS::DSQL::Cluster`
+  - updated definition `Tag`
+- updated `AWS::EC2::IPAM`
+  - added property `MeteredAccount`
+- updated `AWS::ECR::ReplicationConfiguration`
+  - updated definition `ReplicationRule`
+- updated `AWS::Notifications::ChannelAssociation`
+- updated `AWS::Notifications::EventRule`
+- updated `AWS::Notifications::ManagedNotificationAccountContactAssociation`
+- updated `AWS::Notifications::ManagedNotificationAdditionalChannelAssociation`
+- updated `AWS::Notifications::NotificationConfiguration`
+- updated `AWS::Notifications::NotificationHub`
+- updated `AWS::Route53Resolver::ResolverEndpoint`
+  - added `sourceUrl`
+  - added `tagging`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated `required`
+  - updated definition `IpAddressRequest`
+  - updated definition `Tag`
+  - updated handler permissions
+  - updated property `Arn`
+  - updated property `Direction`
+  - updated property `HostVPCId`
+  - updated property `IpAddressCount`
+  - updated property `IpAddresses`
+  - updated property `Name`
+  - updated property `OutpostArn`
+  - updated property `PreferredInstanceType`
+  - updated property `Protocols`
+  - updated property `ResolverEndpointId`
+  - updated property `ResolverEndpointType`
+  - updated property `SecurityGroupIds`
+  - updated property `Tags`
+- updated `AWS::SageMaker::App`
+  - added `tagging`
+  - removed `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Timestream::ScheduledQuery`
+  - added `writeOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Timestream::Table`
+  - updated handler permissions

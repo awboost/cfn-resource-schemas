@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Notifications::NotificationConfiguration Resource Type
+ * Resource Type definition for AWS::Notifications::NotificationConfiguration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationconfiguration.html}
  */
 export type NotificationsNotificationConfigurationProperties = {
@@ -66,7 +66,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Definition of AWS::Notifications::NotificationConfiguration Resource Type
+ * Resource Type definition for AWS::Notifications::NotificationConfiguration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationconfiguration.html}
  */
 export class NotificationsNotificationConfiguration extends $Resource<

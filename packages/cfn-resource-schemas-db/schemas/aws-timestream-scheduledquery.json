@@ -1,5 +1,5 @@
 {
-  "$hash": "d07ed91e1068f22d43fc0f9e13a8b438f3c32908",
+  "$hash": "737f59b0aa43b4b426c547f09ba8cd7ada5cd989",
   "$id": "aws-timestream-scheduledquery.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,7 +7,6 @@
     "/properties/QueryString",
     "/properties/ScheduleConfiguration",
     "/properties/NotificationConfiguration",
-    "/properties/ClientToken",
     "/properties/ScheduledQueryExecutionRoleArn",
     "/properties/TargetConfiguration",
     "/properties/ErrorReportConfiguration",
@@ -340,12 +339,17 @@
     "create": {
       "permissions": [
         "timestream:CreateScheduledQuery",
-        "timestream:DescribeEndpoints"
+        "timestream:DescribeEndpoints",
+        "timestream:TagResource",
+        "iam:PassRole",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
       ]
     },
     "delete": {
       "permissions": [
         "timestream:DeleteScheduledQuery",
+        "timestream:DescribeScheduledQuery",
         "timestream:DescribeEndpoints"
       ]
     },
@@ -359,7 +363,9 @@
       "permissions": [
         "timestream:DescribeScheduledQuery",
         "timestream:ListTagsForResource",
-        "timestream:DescribeEndpoints"
+        "timestream:DescribeEndpoints",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
       ]
     },
     "update": {
@@ -454,5 +460,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::Timestream::ScheduledQuery"
+  "typeName": "AWS::Timestream::ScheduledQuery",
+  "writeOnlyProperties": ["/properties/ClientToken"]
 }

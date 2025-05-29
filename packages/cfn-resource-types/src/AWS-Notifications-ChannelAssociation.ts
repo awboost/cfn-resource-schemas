@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Notifications::ChannelAssociation Resource Type
+ * Resource Type definition for AWS::Notifications::ChannelAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-channelassociation.html}
  */
 export type NotificationsChannelAssociationProperties = {
@@ -19,7 +19,7 @@ export type NotificationsChannelAssociationProperties = {
   NotificationConfigurationArn: string;
 };
 /**
- * Definition of AWS::Notifications::ChannelAssociation Resource Type
+ * Resource Type definition for AWS::Notifications::ChannelAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-channelassociation.html}
  */
 export class NotificationsChannelAssociation extends $Resource<

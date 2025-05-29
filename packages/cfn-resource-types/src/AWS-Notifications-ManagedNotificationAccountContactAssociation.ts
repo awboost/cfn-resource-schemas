@@ -2,7 +2,7 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Notifications::ManagedNotificationAccountContactAssociation`.
- * This resource schema represents the ManagedNotificationAccountContactAssociation resource in the AWS User Notifications.
+ * Resource Type definition for ManagedNotificationAccountContactAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationaccountcontactassociation.html}
  */
 export type NotificationsManagedNotificationAccountContactAssociationProperties =
@@ -29,7 +29,7 @@ export type ContactIdentifier =
   | "ACCOUNT_ALTERNATE_BILLING";
 /**
  * Resource type definition for `AWS::Notifications::ManagedNotificationAccountContactAssociation`.
- * This resource schema represents the ManagedNotificationAccountContactAssociation resource in the AWS User Notifications.
+ * Resource Type definition for ManagedNotificationAccountContactAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-managednotificationaccountcontactassociation.html}
  */
 export class NotificationsManagedNotificationAccountContactAssociation extends $Resource<

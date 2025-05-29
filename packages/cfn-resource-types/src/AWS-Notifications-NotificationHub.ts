@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Notifications::NotificationHub Resource Type
+ * Resource Type definition for AWS::Notifications::NotificationHub
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationhub.html}
  */
 export type NotificationsNotificationHubProperties = {
@@ -42,7 +42,7 @@ export type NotificationHubStatusSummary = {
   NotificationHubStatusReason: string;
 };
 /**
- * Definition of AWS::Notifications::NotificationHub Resource Type
+ * Resource Type definition for AWS::Notifications::NotificationHub
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-notifications-notificationhub.html}
  */
 export class NotificationsNotificationHub extends $Resource<

@@ -1,5 +1,5 @@
 {
-  "$hash": "ffed1378855a95a10d2df1a14bcae98f16af8d3f",
+  "$hash": "9d238115354faee36e41c435732a7007ba8ff5f2",
   "$id": "aws-notifications-eventrule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -32,7 +32,7 @@
     },
     "Unit": { "additionalProperties": false, "type": "object" }
   },
-  "description": "Definition of AWS::Notifications::EventRule Resource Type",
+  "description": "Resource Type definition for AWS::Notifications::EventRule",
   "handlers": {
     "create": {
       "permissions": [

@@ -63,7 +63,7 @@ export type ReplicationRule = {
   /**
    * An array of objects representing the destination for a replication rule.
    * @minLength `1`
-   * @maxLength `25`
+   * @maxLength `100`
    */
   Destinations: ReplicationDestination[];
   /**

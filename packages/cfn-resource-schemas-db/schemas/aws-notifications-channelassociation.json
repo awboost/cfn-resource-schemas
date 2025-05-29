@@ -1,12 +1,12 @@
 {
-  "$hash": "d77bac778dff4984e3642a0627e4a98897a4e859",
+  "$hash": "e40e82dbc752118b7739cfae91b23febeb39eb94",
   "$id": "aws-notifications-channelassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Arn",
     "/properties/NotificationConfigurationArn"
   ],
-  "description": "Definition of AWS::Notifications::ChannelAssociation Resource Type",
+  "description": "Resource Type definition for AWS::Notifications::ChannelAssociation",
   "handlers": {
     "create": {
       "permissions": [

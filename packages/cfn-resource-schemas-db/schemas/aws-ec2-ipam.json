@@ -1,5 +1,5 @@
 {
-  "$hash": "7ba42d0ebb3279cc699cc5dbb24c0acb25d1a888",
+  "$hash": "5617ac5c66a2ea935d420d95680c295a5449e416",
   "$id": "aws-ec2-ipam.json",
   "additionalProperties": false,
   "definitions": {
@@ -109,6 +109,11 @@
       "type": "boolean"
     },
     "IpamId": { "description": "Id of the IPAM.", "type": "string" },
+    "MeteredAccount": {
+      "description": "A metered account is an account that is charged for active IP addresses managed in IPAM",
+      "enum": ["ipam-owner", "resource-owner"],
+      "type": "string"
+    },
     "OperatingRegions": {
       "description": "The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring",
       "insertionOrder": false,

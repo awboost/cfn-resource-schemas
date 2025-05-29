@@ -1,5 +1,5 @@
 {
-  "$hash": "c01d79376e1aad2079b8572504f2d42628e174cc",
+  "$hash": "6896c2881d245035a7c78e4158a0e7167579e6fd",
   "$id": "aws-notifications-managednotificationaccountcontactassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -23,7 +23,7 @@
       "type": "string"
     }
   },
-  "description": "This resource schema represents the ManagedNotificationAccountContactAssociation resource in the AWS User Notifications.",
+  "description": "Resource Type definition for ManagedNotificationAccountContactAssociation",
   "handlers": {
     "create": {
       "permissions": [

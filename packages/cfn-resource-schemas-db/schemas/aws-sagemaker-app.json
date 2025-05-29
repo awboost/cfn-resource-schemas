@@ -1,5 +1,5 @@
 {
-  "$hash": "ca0d446ec9180f62a5e29dd7649238b64f943243",
+  "$hash": "0e0e1d438ba50b207c1f03b023d2220ed3f1b86a",
   "$id": "aws-sagemaker-app.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -119,14 +119,28 @@
   "description": "Resource Type definition for AWS::SageMaker::App",
   "handlers": {
     "create": {
-      "permissions": ["sagemaker:CreateApp", "sagemaker:DescribeApp"]
+      "permissions": [
+        "sagemaker:CreateApp",
+        "sagemaker:DescribeApp",
+        "sagemaker:AddTags",
+        "sagemaker:ListTags"
+      ]
     },
     "delete": {
-      "permissions": ["sagemaker:DeleteApp", "sagemaker:DescribeApp"]
+      "permissions": [
+        "sagemaker:DeleteApp",
+        "sagemaker:DescribeApp",
+        "sagemaker:DeleteTags",
+        "sagemaker:ListTags"
+      ]
     },
-    "list": { "permissions": ["sagemaker:ListApps"] },
+    "list": { "permissions": ["sagemaker:ListApps", "sagemaker:ListTags"] },
     "read": {
-      "permissions": ["sagemaker:DescribeApp", "sagemaker:DescribeApp"]
+      "permissions": [
+        "sagemaker:DescribeApp",
+        "sagemaker:DescribeApp",
+        "sagemaker:ListTags"
+      ]
     }
   },
   "primaryIdentifier": [
@@ -202,6 +216,17 @@
     "/properties/BuiltInLifecycleConfigArn"
   ],
   "required": ["AppName", "AppType", "DomainId", "UserProfileName"],
-  "typeName": "AWS::SageMaker::App",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:ListTags",
+      "sagemaker:DeleteTags"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
+  "typeName": "AWS::SageMaker::App"
 }

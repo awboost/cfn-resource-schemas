@@ -15,6 +15,10 @@ export type EC2IPAMProperties = {
    */
   EnablePrivateGua?: boolean;
   /**
+   * A metered account is an account that is charged for active IP addresses managed in IPAM
+   */
+  MeteredAccount?: "ipam-owner" | "resource-owner";
+  /**
    * The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
    */
   OperatingRegions?: IpamOperatingRegion[];

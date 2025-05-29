@@ -1,5 +1,5 @@
 {
-  "$hash": "85c7f29bcbe698170d0e282ccbe1c5d0d96a4f98",
+  "$hash": "0d5b22eaa8237cfd2a31227706742f73c74ccc14",
   "$id": "aws-cloudfront-vpcorigin.json",
   "additionalProperties": false,
   "definitions": {
@@ -48,7 +48,7 @@
         },
         "OriginSSLProtocols": {
           "default": ["TLSv1", "SSLv3"],
-          "description": "",
+          "description": "Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.\n For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.",
           "items": { "type": "string" },
           "type": "array",
           "uniqueItems": false

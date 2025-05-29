@@ -1,5 +1,5 @@
 {
-  "$hash": "6e09ef7e2bf2698f696c425d86cf4caf6e993703",
+  "$hash": "6a88b959afa6d479508487ef14748cd744b46fa3",
   "$id": "aws-notifications-notificationconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
@@ -29,7 +29,7 @@
       "uniqueItems": false
     }
   },
-  "description": "Definition of AWS::Notifications::NotificationConfiguration Resource Type",
+  "description": "Resource Type definition for AWS::Notifications::NotificationConfiguration",
   "handlers": {
     "create": {
       "permissions": [
