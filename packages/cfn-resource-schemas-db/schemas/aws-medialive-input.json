@@ -1,5 +1,5 @@
 {
-  "$hash": "e0b6e1c71a47f72aa1bda3692a43b02f3499e1b5",
+  "$hash": "85578c690d9169de54283ae314c76d193067dc79",
   "$id": "aws-medialive-input.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -32,6 +32,14 @@
       "properties": {
         "Cidr": { "type": "string" },
         "Gateway": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "InputSdpLocation": {
+      "additionalProperties": false,
+      "properties": {
+        "MediaIndex": { "type": "integer" },
+        "SdpUrl": { "type": "string" }
       },
       "type": "object"
     },
@@ -81,6 +89,43 @@
       "properties": {
         "SourceIp": { "type": "string" },
         "Url": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "Smpte2110ReceiverGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "SdpSettings": {
+          "$ref": "#/definitions/Smpte2110ReceiverGroupSdpSettings"
+        }
+      },
+      "type": "object"
+    },
+    "Smpte2110ReceiverGroupSdpSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "AncillarySdps": {
+          "items": { "$ref": "#/definitions/InputSdpLocation" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "AudioSdps": {
+          "items": { "$ref": "#/definitions/InputSdpLocation" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "VideoSdp": { "$ref": "#/definitions/InputSdpLocation" }
+      },
+      "type": "object"
+    },
+    "Smpte2110ReceiverGroupSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "Smpte2110ReceiverGroups": {
+          "items": { "$ref": "#/definitions/Smpte2110ReceiverGroup" },
+          "type": "array",
+          "uniqueItems": false
+        }
       },
       "type": "object"
     },
@@ -146,6 +191,14 @@
     },
     "Name": { "type": "string" },
     "RoleArn": { "type": "string" },
+    "SdiSources": {
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "Smpte2110ReceiverGroupSettings": {
+      "$ref": "#/definitions/Smpte2110ReceiverGroupSettings"
+    },
     "Sources": {
       "items": { "$ref": "#/definitions/InputSourceRequest" },
       "type": "array",

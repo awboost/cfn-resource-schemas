@@ -242,6 +242,8 @@ export type KeyValue = {
  */
 export type ManagedScalingPolicy = {
   ComputeLimits?: ComputeLimits;
+  ScalingStrategy?: string;
+  UtilizationPerformanceIndex?: number;
 };
 /**
  * Type definition for `AWS::EMR::Cluster.MetricDimension`.

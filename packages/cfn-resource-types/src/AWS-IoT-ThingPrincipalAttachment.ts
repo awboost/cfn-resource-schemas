@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type IoTThingPrincipalAttachmentProperties = {
   Principal: string;
   ThingName: string;
+  ThingPrincipalType?: string;
 };
 /**
  * Attribute type definition for `AWS::IoT::ThingPrincipalAttachment`.

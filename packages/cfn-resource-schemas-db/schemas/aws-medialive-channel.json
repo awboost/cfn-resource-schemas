@@ -1,8 +1,8 @@
 {
-  "$hash": "6dda7463149787cb4a514ac79a33c1fde87e9a25",
+  "$hash": "e9bc3347f2fcea30781befaf9004c95d37babd01",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Vpc", "/properties/AnywhereSettings"],
+  "createOnlyProperties": ["/properties/Vpc"],
   "definitions": {
     "AacSettings": {
       "additionalProperties": false,
@@ -274,6 +274,7 @@
       "additionalProperties": false,
       "properties": {
         "AfdSignaling": { "type": "string" },
+        "Bitrate": { "type": "integer" },
         "BufSize": { "type": "integer" },
         "ColorSpaceSettings": { "$ref": "#/definitions/Av1ColorSpaceSettings" },
         "FixedAfd": { "type": "string" },
@@ -288,6 +289,7 @@
         "ParDenominator": { "type": "integer" },
         "ParNumerator": { "type": "integer" },
         "QvbrQualityLevel": { "type": "integer" },
+        "RateControlMode": { "type": "string" },
         "SceneChangeDetect": { "type": "string" },
         "TimecodeBurninSettings": {
           "$ref": "#/definitions/TimecodeBurninSettings"
@@ -490,9 +492,22 @@
       "properties": { "Version": { "type": "string" } },
       "type": "object"
     },
+    "CmafIngestCaptionLanguageMapping": {
+      "additionalProperties": false,
+      "properties": {
+        "CaptionChannel": { "type": "integer" },
+        "LanguageCode": { "type": "string" }
+      },
+      "type": "object"
+    },
     "CmafIngestGroupSettings": {
       "additionalProperties": false,
       "properties": {
+        "CaptionLanguageMappings": {
+          "items": { "$ref": "#/definitions/CmafIngestCaptionLanguageMapping" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "Destination": { "$ref": "#/definitions/OutputLocationRef" },
         "Id3Behavior": { "type": "string" },
         "Id3NameModifier": { "type": "string" },
@@ -504,7 +519,10 @@
         "Scte35Type": { "type": "string" },
         "SegmentLength": { "type": "integer" },
         "SegmentLengthUnits": { "type": "string" },
-        "SendDelayMs": { "type": "integer" }
+        "SendDelayMs": { "type": "integer" },
+        "TimedMetadataId3Frame": { "type": "string" },
+        "TimedMetadataId3Period": { "type": "integer" },
+        "TimedMetadataPassthrough": { "type": "string" }
       },
       "type": "object"
     },
@@ -639,6 +657,8 @@
       "additionalProperties": false,
       "properties": {
         "CopyrightHolder": { "type": "string" },
+        "DefaultFontSize": { "type": "integer" },
+        "DefaultLineHeight": { "type": "integer" },
         "FillLineGap": { "type": "string" },
         "FontFamily": { "type": "string" },
         "StyleControl": { "type": "string" }
@@ -1574,6 +1594,11 @@
       "additionalProperties": false,
       "properties": {
         "Id": { "type": "string" },
+        "LogicalInterfaceNames": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "MediaPackageSettings": {
           "items": {
             "$ref": "#/definitions/MediaPackageOutputDestinationSettings"

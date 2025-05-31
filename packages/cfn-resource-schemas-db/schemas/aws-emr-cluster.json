@@ -1,5 +1,5 @@
 {
-  "$hash": "dd55adec0cde83e908445a324062f22f23cae524",
+  "$hash": "f510bd602037e003784d9437a4f009583ae5e532",
   "$id": "aws-emr-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -311,7 +311,9 @@
     "ManagedScalingPolicy": {
       "additionalProperties": false,
       "properties": {
-        "ComputeLimits": { "$ref": "#/definitions/ComputeLimits" }
+        "ComputeLimits": { "$ref": "#/definitions/ComputeLimits" },
+        "ScalingStrategy": { "type": "string" },
+        "UtilizationPerformanceIndex": { "type": "integer" }
       },
       "type": "object"
     },

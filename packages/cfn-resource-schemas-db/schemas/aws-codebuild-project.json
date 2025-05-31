@@ -1,5 +1,5 @@
 {
-  "$hash": "e43069c10dedc93ee445eebca72a2a2b88e31624",
+  "$hash": "7a9fa47046c6d08f3e4789312048b8eb1d58b4cf",
   "$id": "aws-codebuild-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -50,11 +50,25 @@
       "required": ["Status"],
       "type": "object"
     },
+    "DockerServer": {
+      "additionalProperties": false,
+      "properties": {
+        "ComputeType": { "type": "string" },
+        "SecurityGroupIds": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
+      "required": ["ComputeType"],
+      "type": "object"
+    },
     "Environment": {
       "additionalProperties": false,
       "properties": {
         "Certificate": { "type": "string" },
         "ComputeType": { "type": "string" },
+        "DockerServer": { "$ref": "#/definitions/DockerServer" },
         "EnvironmentVariables": {
           "items": { "$ref": "#/definitions/EnvironmentVariable" },
           "type": "array",

@@ -287,6 +287,7 @@ export type Av1ColorSpaceSettings = {
  */
 export type Av1Settings = {
   AfdSignaling?: string;
+  Bitrate?: number;
   BufSize?: number;
   ColorSpaceSettings?: Av1ColorSpaceSettings;
   FixedAfd?: string;
@@ -301,6 +302,7 @@ export type Av1Settings = {
   ParDenominator?: number;
   ParNumerator?: number;
   QvbrQualityLevel?: number;
+  RateControlMode?: string;
   SceneChangeDetect?: string;
   TimecodeBurninSettings?: TimecodeBurninSettings;
 };
@@ -460,10 +462,19 @@ export type ChannelEngineVersionRequest = {
   Version?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.CmafIngestCaptionLanguageMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestcaptionlanguagemapping.html}
+ */
+export type CmafIngestCaptionLanguageMapping = {
+  CaptionChannel?: number;
+  LanguageCode?: string;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.CmafIngestGroupSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html}
  */
 export type CmafIngestGroupSettings = {
+  CaptionLanguageMappings?: CmafIngestCaptionLanguageMapping[];
   Destination?: OutputLocationRef;
   Id3Behavior?: string;
   Id3NameModifier?: string;
@@ -476,6 +487,9 @@ export type CmafIngestGroupSettings = {
   SegmentLength?: number;
   SegmentLengthUnits?: string;
   SendDelayMs?: number;
+  TimedMetadataId3Frame?: string;
+  TimedMetadataId3Period?: number;
+  TimedMetadataPassthrough?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.CmafIngestOutputSettings`.
@@ -612,6 +626,8 @@ export type Eac3Settings = {
  */
 export type EbuTtDDestinationSettings = {
   CopyrightHolder?: string;
+  DefaultFontSize?: number;
+  DefaultLineHeight?: number;
   FillLineGap?: string;
   FontFamily?: string;
   StyleControl?: string;
@@ -1449,6 +1465,7 @@ export type Output = {
  */
 export type OutputDestination = {
   Id?: string;
+  LogicalInterfaceNames?: string[];
   MediaPackageSettings?: MediaPackageOutputDestinationSettings[];
   MultiplexSettings?: MultiplexProgramChannelDestinationSettings;
   Settings?: OutputDestinationSettings[];

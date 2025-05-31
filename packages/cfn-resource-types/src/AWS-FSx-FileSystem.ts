@@ -48,6 +48,14 @@ export type ClientConfigurations = {
   Options?: string[];
 };
 /**
+ * Type definition for `AWS::FSx::FileSystem.DataReadCacheConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-datareadcacheconfiguration.html}
+ */
+export type DataReadCacheConfiguration = {
+  SizeGiB?: number;
+  SizingMode?: string;
+};
+/**
  * Type definition for `AWS::FSx::FileSystem.DiskIopsConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-diskiopsconfiguration.html}
  */
@@ -65,6 +73,7 @@ export type LustreConfiguration = {
   CopyTagsToBackups?: boolean;
   DailyAutomaticBackupStartTime?: string;
   DataCompressionType?: string;
+  DataReadCacheConfiguration?: DataReadCacheConfiguration;
   DeploymentType?: string;
   DriveCacheType?: string;
   EfaEnabled?: boolean;
@@ -73,6 +82,7 @@ export type LustreConfiguration = {
   ImportedFileChunkSize?: number;
   MetadataConfiguration?: MetadataConfiguration;
   PerUnitStorageThroughput?: number;
+  ThroughputCapacity?: number;
   WeeklyMaintenanceStartTime?: string;
 };
 /**

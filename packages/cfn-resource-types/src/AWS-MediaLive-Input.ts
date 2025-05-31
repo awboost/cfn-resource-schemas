@@ -13,6 +13,8 @@ export type MediaLiveInputProperties = {
   MulticastSettings?: MulticastSettingsCreateRequest;
   Name?: string;
   RoleArn?: string;
+  SdiSources?: string[];
+  Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings;
   Sources?: InputSourceRequest[];
   SrtSettings?: SrtSettingsRequest;
   Tags?: Record<string, any>;
@@ -53,6 +55,14 @@ export type InputRequestDestinationRoute = {
   Gateway?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Input.InputSdpLocation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsdplocation.html}
+ */
+export type InputSdpLocation = {
+  MediaIndex?: number;
+  SdpUrl?: string;
+};
+/**
  * Type definition for `AWS::MediaLive::Input.InputSourceRequest`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputsourcerequest.html}
  */
@@ -90,6 +100,29 @@ export type MulticastSettingsCreateRequest = {
 export type MulticastSourceCreateRequest = {
   SourceIp?: string;
   Url?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.Smpte2110ReceiverGroup`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-smpte2110receivergroup.html}
+ */
+export type Smpte2110ReceiverGroup = {
+  SdpSettings?: Smpte2110ReceiverGroupSdpSettings;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.Smpte2110ReceiverGroupSdpSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-smpte2110receivergroupsdpsettings.html}
+ */
+export type Smpte2110ReceiverGroupSdpSettings = {
+  AncillarySdps?: InputSdpLocation[];
+  AudioSdps?: InputSdpLocation[];
+  VideoSdp?: InputSdpLocation;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.Smpte2110ReceiverGroupSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-smpte2110receivergroupsettings.html}
+ */
+export type Smpte2110ReceiverGroupSettings = {
+  Smpte2110ReceiverGroups?: Smpte2110ReceiverGroup[];
 };
 /**
  * Type definition for `AWS::MediaLive::Input.SrtCallerDecryptionRequest`.

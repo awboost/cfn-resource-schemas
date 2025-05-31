@@ -1,5 +1,5 @@
 {
-  "$hash": "e08f889fbf743ae6872c4889ef17ea63ffba7d44",
+  "$hash": "63d06af5c3856cfc2745b957648c3a490eb6fec4",
   "$id": "aws-fsx-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -32,6 +32,14 @@
       },
       "type": "object"
     },
+    "DataReadCacheConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "SizeGiB": { "type": "integer" },
+        "SizingMode": { "type": "string" }
+      },
+      "type": "object"
+    },
     "DiskIopsConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -48,6 +56,9 @@
         "CopyTagsToBackups": { "type": "boolean" },
         "DailyAutomaticBackupStartTime": { "type": "string" },
         "DataCompressionType": { "type": "string" },
+        "DataReadCacheConfiguration": {
+          "$ref": "#/definitions/DataReadCacheConfiguration"
+        },
         "DeploymentType": { "type": "string" },
         "DriveCacheType": { "type": "string" },
         "EfaEnabled": { "type": "boolean" },
@@ -58,6 +69,7 @@
           "$ref": "#/definitions/MetadataConfiguration"
         },
         "PerUnitStorageThroughput": { "type": "integer" },
+        "ThroughputCapacity": { "type": "integer" },
         "WeeklyMaintenanceStartTime": { "type": "string" }
       },
       "type": "object"

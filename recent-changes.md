@@ -1,49 +1,30 @@
-- added `AWS::DataZone::ProjectProfile`
-- updated `AWS::CloudFront::DistributionTenant`
+- updated `AWS::CodeBuild::Project`
+  - added definition `DockerServer`
+  - updated definition `Environment`
+- updated `AWS::EMR::Cluster`
+  - updated definition `ManagedScalingPolicy`
+- updated `AWS::EntityResolution::IdNamespace`
+  - updated definition `IdNamespaceInputSource`
+- updated `AWS::FSx::FileSystem`
+  - added definition `DataReadCacheConfiguration`
+  - updated definition `LustreConfiguration`
+- updated `AWS::IAM::Role`
+  - updated property `MaxSessionDuration`
+- updated `AWS::IoT::ThingPrincipalAttachment`
+  - added property `ThingPrincipalType`
   - updated `createOnlyProperties`
-- updated `AWS::CloudFront::VpcOrigin`
-  - updated definition `VpcOriginEndpointConfig`
-- updated `AWS::DSQL::Cluster`
-  - updated definition `Tag`
-- updated `AWS::EC2::IPAM`
-  - added property `MeteredAccount`
-- updated `AWS::ECR::ReplicationConfiguration`
-  - updated definition `ReplicationRule`
-- updated `AWS::Notifications::ChannelAssociation`
-- updated `AWS::Notifications::EventRule`
-- updated `AWS::Notifications::ManagedNotificationAccountContactAssociation`
-- updated `AWS::Notifications::ManagedNotificationAdditionalChannelAssociation`
-- updated `AWS::Notifications::NotificationConfiguration`
-- updated `AWS::Notifications::NotificationHub`
-- updated `AWS::Route53Resolver::ResolverEndpoint`
-  - added `sourceUrl`
-  - added `tagging`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
   - updated `required`
-  - updated definition `IpAddressRequest`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `Arn`
-  - updated property `Direction`
-  - updated property `HostVPCId`
-  - updated property `IpAddressCount`
-  - updated property `IpAddresses`
-  - updated property `Name`
-  - updated property `OutpostArn`
-  - updated property `PreferredInstanceType`
-  - updated property `Protocols`
-  - updated property `ResolverEndpointId`
-  - updated property `ResolverEndpointType`
-  - updated property `SecurityGroupIds`
-  - updated property `Tags`
-- updated `AWS::SageMaker::App`
-  - added `tagging`
-  - removed `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::Timestream::ScheduledQuery`
-  - added `writeOnlyProperties`
+- updated `AWS::MediaLive::Channel`
+  - added definition `CmafIngestCaptionLanguageMapping`
   - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::Timestream::Table`
-  - updated handler permissions
+  - updated definition `Av1Settings`
+  - updated definition `CmafIngestGroupSettings`
+  - updated definition `EbuTtDDestinationSettings`
+  - updated definition `OutputDestination`
+- updated `AWS::MediaLive::Input`
+  - added definition `InputSdpLocation`
+  - added definition `Smpte2110ReceiverGroupSdpSettings`
+  - added definition `Smpte2110ReceiverGroupSettings`
+  - added definition `Smpte2110ReceiverGroup`
+  - added property `SdiSources`
+  - added property `Smpte2110ReceiverGroupSettings`

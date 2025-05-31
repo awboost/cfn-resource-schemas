@@ -80,12 +80,21 @@ export type CloudWatchLogsConfig = {
   StreamName?: string;
 };
 /**
+ * Type definition for `AWS::CodeBuild::Project.DockerServer`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-dockerserver.html}
+ */
+export type DockerServer = {
+  ComputeType: string;
+  SecurityGroupIds?: string[];
+};
+/**
  * Type definition for `AWS::CodeBuild::Project.Environment`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html}
  */
 export type Environment = {
   Certificate?: string;
   ComputeType: string;
+  DockerServer?: DockerServer;
   EnvironmentVariables?: EnvironmentVariable[];
   Fleet?: ProjectFleet;
   Image: string;
