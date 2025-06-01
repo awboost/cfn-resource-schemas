@@ -1,5 +1,5 @@
 {
-  "$hash": "e0af4cd6b1fc9b8bf2c2314b63afa5709235d529",
+  "$hash": "e73f1f4fdcce6df4739a06679cd6d9a66469d50f",
   "$id": "aws-cloudwatch-insightrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
@@ -9,6 +9,7 @@
   "description": "Resource Type definition for AWS::CloudWatch::InsightRule",
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
+    "ApplyOnTransformedLogs": { "type": "boolean" },
     "Arn": { "type": "string" },
     "Id": { "type": "string" },
     "RuleBody": { "type": "string" },

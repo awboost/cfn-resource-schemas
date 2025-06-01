@@ -1,30 +1,6 @@
-- updated `AWS::CodeBuild::Project`
-  - added definition `DockerServer`
-  - updated definition `Environment`
-- updated `AWS::EMR::Cluster`
-  - updated definition `ManagedScalingPolicy`
-- updated `AWS::EntityResolution::IdNamespace`
-  - updated definition `IdNamespaceInputSource`
-- updated `AWS::FSx::FileSystem`
-  - added definition `DataReadCacheConfiguration`
-  - updated definition `LustreConfiguration`
-- updated `AWS::IAM::Role`
-  - updated property `MaxSessionDuration`
-- updated `AWS::IoT::ThingPrincipalAttachment`
-  - added property `ThingPrincipalType`
-  - updated `createOnlyProperties`
-  - updated `required`
-- updated `AWS::MediaLive::Channel`
-  - added definition `CmafIngestCaptionLanguageMapping`
-  - updated `createOnlyProperties`
-  - updated definition `Av1Settings`
-  - updated definition `CmafIngestGroupSettings`
-  - updated definition `EbuTtDDestinationSettings`
-  - updated definition `OutputDestination`
-- updated `AWS::MediaLive::Input`
-  - added definition `InputSdpLocation`
-  - added definition `Smpte2110ReceiverGroupSdpSettings`
-  - added definition `Smpte2110ReceiverGroupSettings`
-  - added definition `Smpte2110ReceiverGroup`
-  - added property `SdiSources`
-  - added property `Smpte2110ReceiverGroupSettings`
+- added `AWS::Lightsail::InstanceSnapshot`
+- added `AWS::S3Express::AccessPoint`
+- updated `AWS::CloudWatch::InsightRule`
+  - added property `ApplyOnTransformedLogs`
+- updated `AWS::IoTFleetWise::Vehicle`
+  - updated handler permissions

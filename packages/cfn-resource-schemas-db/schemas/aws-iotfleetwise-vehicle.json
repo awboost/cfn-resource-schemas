@@ -1,5 +1,5 @@
 {
-  "$hash": "36379e00775c8329f4cced96a0adeaa689fb5c3d",
+  "$hash": "89a64dcf5af0a50a986eb73c1a46db37f6a5d4e3",
   "$id": "aws-iotfleetwise-vehicle.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -92,6 +92,7 @@
         "iotfleetwise:GetVehicle",
         "iotfleetwise:CreateVehicle",
         "iot:CreateThing",
+        "iot:DeleteThing",
         "iot:DescribeThing",
         "iotfleetwise:ListTagsForResource",
         "iotfleetwise:ListVehicles",
