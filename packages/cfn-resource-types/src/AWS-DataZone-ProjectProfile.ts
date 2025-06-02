@@ -5,8 +5,6 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html}
  */
 export type DataZoneProjectProfileProperties = {
-  AllowedDesignations?: DesignationConfiguration[];
-  ChangeLog?: string;
   /**
    * @maxLength `2048`
    */
@@ -27,7 +25,6 @@ export type DataZoneProjectProfileProperties = {
    * @pattern `^[\w -]+$`
    */
   Name: string;
-  ProjectScopes?: ProjectScope[];
   Status?: Status;
 };
 /**
@@ -56,31 +53,6 @@ export type DataZoneProjectProfileAttributes = {
    */
   Identifier: string;
   LastUpdatedAt: string;
-};
-/**
- * Type definition for `AWS::DataZone::ProjectProfile.DesignationConfiguration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-designationconfiguration.html}
- */
-export type DesignationConfiguration = {
-  /**
-   * @minLength `1`
-   * @maxLength `36`
-   * @pattern `^[a-zA-Z0-9_-]+$`
-   */
-  DesignationId: string;
-};
-/**
- * Type definition for `AWS::DataZone::ProjectProfile.ProjectScope`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-projectscope.html}
- */
-export type ProjectScope = {
-  /**
-   * @minLength `1`
-   * @maxLength `64`
-   * @pattern `^[\w -]+$`
-   */
-  Name: string;
-  Policy?: string;
 };
 /**
  * Type definition for `AWS::DataZone::ProjectProfile.Status`.

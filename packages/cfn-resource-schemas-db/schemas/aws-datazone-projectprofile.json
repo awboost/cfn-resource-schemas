@@ -1,5 +1,5 @@
 {
-  "$hash": "663192aa028115509b3b1929031eb9ee33962fc9",
+  "$hash": "9d834b0c07d8de52126696f0732e9935b3ee6bd5",
   "$id": "aws-datazone-projectprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainIdentifier"],
@@ -137,11 +137,6 @@
     "/properties/Identifier"
   ],
   "properties": {
-    "AllowedDesignations": {
-      "items": { "$ref": "#/definitions/DesignationConfiguration" },
-      "type": "array"
-    },
-    "ChangeLog": { "type": "string" },
     "CreatedAt": { "format": "date-time", "type": "string" },
     "CreatedBy": { "type": "string" },
     "Description": { "maxLength": 2048, "type": "string" },
@@ -171,10 +166,6 @@
       "pattern": "^[\\w -]+$",
       "type": "string"
     },
-    "ProjectScopes": {
-      "items": { "$ref": "#/definitions/ProjectScope" },
-      "type": "array"
-    },
     "Status": { "$ref": "#/definitions/Status" }
   },
   "readOnlyProperties": [
@@ -194,10 +185,5 @@
     "taggable": false
   },
   "typeName": "AWS::DataZone::ProjectProfile",
-  "writeOnlyProperties": [
-    "/properties/DomainUnitIdentifier",
-    "/properties/AllowedDesignations",
-    "/properties/ProjectScopes",
-    "/properties/ChangeLog"
-  ]
+  "writeOnlyProperties": ["/properties/DomainUnitIdentifier"]
 }

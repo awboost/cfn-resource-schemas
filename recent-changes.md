@@ -1,6 +1,5 @@
-- added `AWS::Lightsail::InstanceSnapshot`
-- added `AWS::S3Express::AccessPoint`
-- updated `AWS::CloudWatch::InsightRule`
-  - added property `ApplyOnTransformedLogs`
-- updated `AWS::IoTFleetWise::Vehicle`
-  - updated handler permissions
+- updated `AWS::DataZone::ProjectProfile`
+  - removed property `AllowedDesignations`
+  - removed property `ChangeLog`
+  - removed property `ProjectScopes`
+  - updated `writeOnlyProperties`
