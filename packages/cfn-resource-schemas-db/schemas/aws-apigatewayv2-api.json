@@ -1,5 +1,5 @@
 {
-  "$hash": "94007ff5a9a2b5306b33251727926af68a46911e",
+  "$hash": "302d36b74bd3dbcbd631cc61e0a60af1d0970478",
   "$id": "aws-apigatewayv2-api.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProtocolType"],
@@ -173,8 +173,8 @@
   },
   "typeName": "AWS::ApiGatewayV2::Api",
   "writeOnlyProperties": [
-    "/properties/BasePath",
     "/properties/Body",
+    "/properties/BasePath",
     "/properties/BodyS3Location",
     "/properties/BodyS3Location/Etag",
     "/properties/BodyS3Location/Bucket",

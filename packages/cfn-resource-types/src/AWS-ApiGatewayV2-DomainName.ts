@@ -18,6 +18,10 @@ export type ApiGatewayV2DomainNameProperties = {
    * The mutual TLS authentication configuration for a custom domain name.
    */
   MutualTlsAuthentication?: MutualTlsAuthentication;
+  RoutingMode?:
+    | "API_MAPPING_ONLY"
+    | "ROUTING_RULE_THEN_API_MAPPING"
+    | "ROUTING_RULE_ONLY";
   /**
    * The collection of tags associated with a domain name.
    */

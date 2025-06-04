@@ -1,5 +1,23 @@
-- updated `AWS::DataZone::ProjectProfile`
-  - removed property `AllowedDesignations`
-  - removed property `ChangeLog`
-  - removed property `ProjectScopes`
+- added `AWS::ApiGatewayV2::RoutingRule`
+- updated `AWS::ApiGateway::DomainName`
+  - added property `RoutingMode`
+- updated `AWS::ApiGateway::DomainNameV2`
+  - added property `RoutingMode`
+- updated `AWS::ApiGatewayV2::Api`
   - updated `writeOnlyProperties`
+- updated `AWS::ApiGatewayV2::Authorizer`
+  - added `writeOnlyProperties`
+- updated `AWS::ApiGatewayV2::DomainName`
+  - added property `RoutingMode`
+- updated `AWS::CloudTrail::EventDataStore`
+  - added definition `ContextKeySelector`
+  - added property `ContextKeySelectors`
+  - added property `MaxEventSize`
+  - updated handler permissions
+- updated `AWS::DSQL::Cluster`
+  - added property `MultiRegionProperties`
+  - updated handler permissions
+- updated `AWS::EFS::FileSystem`
+  - updated definition `BackupPolicy`
+  - updated definition `FileSystemProtection`
+  - updated property `LifecyclePolicies`

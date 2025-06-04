@@ -1,5 +1,5 @@
 {
-  "$hash": "373648e6aa1b3845375c7ea53aba02c315579a36",
+  "$hash": "d7ded651176ffe31ac1592bc2b8e8f2a03a22c08",
   "$id": "aws-apigatewayv2-authorizer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],
@@ -98,5 +98,12 @@
     "tagUpdatable": false,
     "taggable": false
   },
-  "typeName": "AWS::ApiGatewayV2::Authorizer"
+  "typeName": "AWS::ApiGatewayV2::Authorizer",
+  "writeOnlyProperties": [
+    "/properties/AuthorizerPayloadFormatVersion",
+    "/properties/AuthorizerResultTtlInSeconds",
+    "/properties/EnableSimpleResponses",
+    "/properties/AuthorizerCredentialsArn",
+    "/properties/AuthorizerUri"
+  ]
 }

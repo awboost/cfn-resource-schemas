@@ -9,6 +9,16 @@ export type DSQLClusterProperties = {
    * Whether deletion protection is enabled in this cluster.
    */
   DeletionProtectionEnabled?: boolean;
+  /**
+   * The Multi-region properties associated to this cluster.
+   */
+  MultiRegionProperties?: {
+    Clusters?: string[];
+    /**
+     * The witness region in a multi-region cluster.
+     */
+    WitnessRegion?: string;
+  };
   Tags?: Tag[];
 };
 /**

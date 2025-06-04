@@ -1,5 +1,5 @@
 {
-  "$hash": "82889cf1ebdca37e75331eec2841433c74768010",
+  "$hash": "df5e6bcb13d4d632d512737be2f5e2c9d488fe1e",
   "$id": "aws-apigateway-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -70,6 +70,16 @@
     "RegionalCertificateArn": { "description": "", "type": "string" },
     "RegionalDomainName": { "description": "", "type": "string" },
     "RegionalHostedZoneId": { "description": "", "type": "string" },
+    "RoutingMode": {
+      "default": "BASE_PATH_MAPPING_ONLY",
+      "description": "",
+      "enum": [
+        "BASE_PATH_MAPPING_ONLY",
+        "ROUTING_RULE_THEN_BASE_PATH_MAPPING",
+        "ROUTING_RULE_ONLY"
+      ],
+      "type": "string"
+    },
     "SecurityPolicy": { "description": "", "type": "string" },
     "Tags": {
       "description": "",

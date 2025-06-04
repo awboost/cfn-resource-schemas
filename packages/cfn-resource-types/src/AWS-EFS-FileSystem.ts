@@ -50,7 +50,7 @@ export type EFSFileSystemProperties = {
       +  When to move files in the file system from primary storage or IA storage to Archive storage.
       +  When to move files that are in IA or Archive storage to primary storage.
       
-       EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive`` ``TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
+      EFS requires that each ``LifecyclePolicy`` object have only a single transition. This means that in a request body, ``LifecyclePolicies`` needs to be structured as an array of ``LifecyclePolicy`` objects, one object for each transition, ``TransitionToIA``, ``TransitionToArchive````TransitionToPrimaryStorageClass``. See the example requests in the following section for more information.
      */
   LifecyclePolicies?: LifecyclePolicy[];
   /**
@@ -109,8 +109,8 @@ export type EFSFileSystemAttributes = {
 export type BackupPolicy = {
   /**
      * Set the backup policy status for the file system.
-      +   *ENABLED* - Turns automatic backups on for the file system.
-      +   *DISABLED* - Turns automatic backups off for the file system.
+      +  *ENABLED* - Turns automatic backups on for the file system.
+      +  *DISABLED* - Turns automatic backups off for the file system.
      */
   Status: "DISABLED" | "ENABLED";
 };
@@ -137,9 +137,9 @@ export type ElasticFileSystemTag = {
 export type FileSystemProtection = {
   /**
      * The status of the file system's replication overwrite protection.
-      +   ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default.
-      +   ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
-      +   ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
+      +  ``ENABLED`` – The file system cannot be used as the destination file system in a replication configuration. The file system is writeable. Replication overwrite protection is ``ENABLED`` by default.
+      +  ``DISABLED`` – The file system can be used as the destination file system in a replication configuration. The file system is read-only and can only be modified by EFS replication.
+      +  ``REPLICATING`` – The file system is being used as the destination file system in a replication configuration. The file system is read-only and is modified only by EFS replication.
       
      If the replication configuration is deleted, the file system's replication overwrite protection is re-enabled, the file system becomes writeable.
      */

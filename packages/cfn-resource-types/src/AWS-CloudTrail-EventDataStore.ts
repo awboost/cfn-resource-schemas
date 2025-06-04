@@ -15,6 +15,11 @@ export type CloudTrailEventDataStoreProperties = {
    */
   BillingMode?: string;
   /**
+   * An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+   * @maxLength `2`
+   */
+  ContextKeySelectors?: ContextKeySelector[];
+  /**
    * Indicates whether federation is enabled on an event data store.
    */
   FederationEnabled?: boolean;
@@ -38,6 +43,10 @@ export type CloudTrailEventDataStoreProperties = {
    * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
    */
   KmsKeyId?: string;
+  /**
+   * Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
+   */
+  MaxEventSize?: "Standard" | "Large";
   /**
    * Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
    */
@@ -143,6 +152,23 @@ export type AdvancedFieldSelector = {
    * @minLength `1`
    */
   StartsWith?: string[];
+};
+/**
+ * Type definition for `AWS::CloudTrail::EventDataStore.ContextKeySelector`.
+ * An object that contains information types to be included in CloudTrail enriched events.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-contextkeyselector.html}
+ */
+export type ContextKeySelector = {
+  /**
+   * An operator that includes events that match the exact value of the event record field specified in Type.
+   * @minLength `1`
+   * @maxLength `50`
+   */
+  Equals: string[];
+  /**
+   * Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.
+   */
+  Type: "RequestContext" | "TagContext";
 };
 /**
  * Type definition for `AWS::CloudTrail::EventDataStore.InsightSelector`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "3784626b2196c50a273d1b184b09bfdb3b17e416",
+  "$hash": "7701bfdb9d9523ac281a3152f809f91fa78367db",
   "$id": "aws-apigatewayv2-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -79,6 +79,16 @@
     },
     "RegionalDomainName": { "description": "", "type": "string" },
     "RegionalHostedZoneId": { "description": "", "type": "string" },
+    "RoutingMode": {
+      "default": "API_MAPPING_ONLY",
+      "description": "",
+      "enum": [
+        "API_MAPPING_ONLY",
+        "ROUTING_RULE_THEN_API_MAPPING",
+        "ROUTING_RULE_ONLY"
+      ],
+      "type": "string"
+    },
     "Tags": {
       "additionalProperties": false,
       "description": "The collection of tags associated with a domain name.",

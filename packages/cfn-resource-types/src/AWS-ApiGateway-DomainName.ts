@@ -19,6 +19,10 @@ export type ApiGatewayDomainNameProperties = {
    */
   OwnershipVerificationCertificateArn?: string;
   RegionalCertificateArn?: string;
+  RoutingMode?:
+    | "BASE_PATH_MAPPING_ONLY"
+    | "ROUTING_RULE_THEN_BASE_PATH_MAPPING"
+    | "ROUTING_RULE_ONLY";
   SecurityPolicy?: string;
   Tags?: Tag[];
 };
