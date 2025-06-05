@@ -34,6 +34,7 @@ export type WAFv2WebACLProperties = {
    * @pattern `^[0-9A-Za-z_-]{1,128}$`
    */
   Name?: string;
+  OnSourceDDoSProtectionConfig?: any;
   /**
    * Collection of Rules.
    */

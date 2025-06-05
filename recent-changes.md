@@ -1,23 +1,50 @@
-- added `AWS::ApiGatewayV2::RoutingRule`
-- updated `AWS::ApiGateway::DomainName`
-  - added property `RoutingMode`
-- updated `AWS::ApiGateway::DomainNameV2`
-  - added property `RoutingMode`
-- updated `AWS::ApiGatewayV2::Api`
-  - updated `writeOnlyProperties`
-- updated `AWS::ApiGatewayV2::Authorizer`
-  - added `writeOnlyProperties`
-- updated `AWS::ApiGatewayV2::DomainName`
-  - added property `RoutingMode`
-- updated `AWS::CloudTrail::EventDataStore`
-  - added definition `ContextKeySelector`
-  - added property `ContextKeySelectors`
-  - added property `MaxEventSize`
-  - updated handler permissions
-- updated `AWS::DSQL::Cluster`
-  - added property `MultiRegionProperties`
-  - updated handler permissions
-- updated `AWS::EFS::FileSystem`
-  - updated definition `BackupPolicy`
-  - updated definition `FileSystemProtection`
-  - updated property `LifecyclePolicies`
+- updated `AWS::Bedrock::Flow`
+  - added definition `AdditionalModelRequestFields`
+  - added definition `BedrockRerankingModelArn`
+  - added definition `FieldForReranking`
+  - added definition `FieldsForReranking`
+  - added definition `FlowNodeInputCategory`
+  - added definition `KnowledgeBaseOrchestrationConfiguration`
+  - added definition `KnowledgeBasePromptTemplate`
+  - added definition `LoopControllerFlowNodeConfiguration`
+  - added definition `LoopFlowNodeConfiguration`
+  - added definition `LoopInputFlowNodeConfiguration`
+  - added definition `MetadataConfigurationForReranking`
+  - added definition `PerformanceConfigurationLatency`
+  - added definition `PerformanceConfiguration`
+  - added definition `RerankingMetadataSelectionMode`
+  - added definition `RerankingMetadataSelectiveModeConfiguration`
+  - added definition `VectorSearchBedrockRerankingConfiguration`
+  - added definition `VectorSearchBedrockRerankingModelConfiguration`
+  - added definition `VectorSearchRerankingConfigurationType`
+  - added definition `VectorSearchRerankingConfiguration`
+  - updated definition `FlowNodeConfiguration`
+  - updated definition `FlowNodeInput`
+  - updated definition `FlowNodeType`
+  - updated definition `KnowledgeBaseFlowNodeConfiguration`
+- updated `AWS::Bedrock::FlowVersion`
+  - added definition `AdditionalModelRequestFields`
+  - added definition `BedrockRerankingModelArn`
+  - added definition `FieldForReranking`
+  - added definition `FieldsForReranking`
+  - added definition `KnowledgeBaseOrchestrationConfiguration`
+  - added definition `KnowledgeBasePromptTemplate`
+  - added definition `LoopControllerFlowNodeConfiguration`
+  - added definition `LoopFlowNodeConfiguration`
+  - added definition `LoopInputFlowNodeConfiguration`
+  - added definition `MetadataConfigurationForReranking`
+  - added definition `PerformanceConfigurationLatency`
+  - added definition `PerformanceConfiguration`
+  - added definition `RerankingMetadataSelectionMode`
+  - added definition `RerankingMetadataSelectiveModeConfiguration`
+  - added definition `VectorSearchBedrockRerankingConfiguration`
+  - added definition `VectorSearchBedrockRerankingModelConfiguration`
+  - added definition `VectorSearchRerankingConfigurationType`
+  - added definition `VectorSearchRerankingConfiguration`
+  - updated definition `FlowNodeConfiguration`
+  - updated definition `FlowNodeType`
+  - updated definition `KnowledgeBaseFlowNodeConfiguration`
+- updated `AWS::Deadline::Fleet`
+  - updated definition `ServiceManagedEc2FleetConfiguration`
+- updated `AWS::WAFv2::WebACL`
+  - added property `OnSourceDDoSProtectionConfig`

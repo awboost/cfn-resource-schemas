@@ -36,92 +36,7 @@ export type BedrockFlowVersionAttributes = {
   /**
    * Flow definition
    */
-  Definition: {
-    /**
-     * List of connections
-     * @maxLength `100`
-     */
-    Connections: {
-      /**
-       * Connection configuration
-       */
-      Configuration: FlowConnectionConfiguration;
-      /**
-       * Name of a connection in a flow
-       * @pattern `^[a-zA-Z]([_]?[0-9a-zA-Z]){1,100}$`
-       */
-      Name: string;
-      /**
-       * Name of a node in a flow
-       * @pattern `^[a-zA-Z]([_]?[0-9a-zA-Z]){1,50}$`
-       */
-      Source: string;
-      /**
-       * Name of a node in a flow
-       * @pattern `^[a-zA-Z]([_]?[0-9a-zA-Z]){1,50}$`
-       */
-      Target: string;
-      /**
-       * Connection type
-       */
-      Type: FlowConnectionType;
-    }[];
-    /**
-     * List of nodes in a flow
-     * @maxLength `40`
-     */
-    Nodes: {
-      /**
-       * Node configuration in a flow
-       */
-      Configuration: FlowNodeConfiguration;
-      /**
-       * List of node inputs in a flow
-       * @maxLength `5`
-       */
-      Inputs: {
-        /**
-         * Expression for a node input in a flow
-         * @minLength `1`
-         * @maxLength `64`
-         */
-        Expression: string;
-        /**
-         * Name of a node input in a flow
-         * @pattern `^[a-zA-Z]([_]?[0-9a-zA-Z]){1,50}$`
-         */
-        Name: string;
-        /**
-         * Type of input/output for a node in a flow
-         */
-        Type: FlowNodeIODataType;
-      }[];
-      /**
-       * Name of a node in a flow
-       * @pattern `^[a-zA-Z]([_]?[0-9a-zA-Z]){1,50}$`
-       */
-      Name: string;
-      /**
-       * List of node outputs in a flow
-       * @maxLength `5`
-       */
-      Outputs: {
-        /**
-         * Name of a node output in a flow
-         * @pattern `^[a-zA-Z]([_]?[0-9a-zA-Z]){1,50}$`
-         */
-        Name: string;
-        /**
-         * Type of input/output for a node in a flow
-         */
-        Type: FlowNodeIODataType;
-      }[];
-      /**
-       * Flow node types
-       */
-      Type: FlowNodeType;
-    }[];
-  };
+  Definition: FlowDefinition;
   /**
    * ARN of a IAM role
    * @maxLength `2048`
@@ -148,6 +63,11 @@ export type BedrockFlowVersionAttributes = {
    */
   Version: string;
 };
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.AdditionalModelRequestFields`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-additionalmodelrequestfields.html}
+ */
+export type AdditionalModelRequestFields = Record<string, any>;
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.AgentFlowNodeConfiguration`.
  * Agent flow node configuration
@@ -179,6 +99,19 @@ export type ConditionFlowNodeConfiguration = {
    * @maxLength `5`
    */
   Conditions: FlowCondition[];
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.FieldForReranking`.
+ * Field name for reranking
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-fieldforreranking.html}
+ */
+export type FieldForReranking = {
+  /**
+   * Field name for reranking
+   * @minLength `1`
+   * @maxLength `2000`
+   */
+  FieldName: string;
 };
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.FlowCondition`.
@@ -411,6 +344,24 @@ export type FlowNodeConfiguration =
        * Inline code config strucuture, contains code configs
        */
       InlineCode: InlineCodeFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Loop node config, contains loop's internal definition
+       */
+      Loop: LoopFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Configuration for the LoopInput node
+       */
+      LoopInput: LoopInputFlowNodeConfiguration;
+    }
+  | {
+      /**
+       * Configuration for the LoopController node, which manages loop execution
+       */
+      LoopController: LoopControllerFlowNodeConfiguration;
     };
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.FlowNodeInput`.
@@ -479,7 +430,10 @@ export type FlowNodeType =
   | "Collector"
   | "Storage"
   | "Retrieval"
-  | "InlineCode";
+  | "InlineCode"
+  | "Loop"
+  | "LoopInput"
+  | "LoopController";
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.FlowStatus`.
  * Schema Type for Flow APIs
@@ -542,6 +496,7 @@ export type KnowledgeBaseFlowNodeConfiguration = {
    * Configuration for a guardrail
    */
   GuardrailConfiguration?: GuardrailConfiguration;
+  InferenceConfiguration?: PromptInferenceConfiguration;
   /**
    * Identifier of the KnowledgeBase
    * @maxLength `10`
@@ -555,6 +510,36 @@ export type KnowledgeBaseFlowNodeConfiguration = {
    * @pattern `^(arn:aws(-[^:]{1,12})?:(bedrock|sagemaker):[a-z0-9-]{1,20}:([0-9]{12})?:([a-z-]+/)?)?([a-zA-Z0-9.-]{1,63}){0,2}(([:][a-z0-9-]{1,63}){0,2})?(/[a-z0-9]{1,12})?$`
    */
   ModelId?: string;
+  /**
+   * Number Of Results to Retrieve
+   * @min `1`
+   * @max `100`
+   */
+  NumberOfResults?: number;
+  OrchestrationConfiguration?: KnowledgeBaseOrchestrationConfiguration;
+  PromptTemplate?: KnowledgeBasePromptTemplate;
+  RerankingConfiguration?: VectorSearchRerankingConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.KnowledgeBaseOrchestrationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseorchestrationconfiguration.html}
+ */
+export type KnowledgeBaseOrchestrationConfiguration = {
+  AdditionalModelRequestFields?: AdditionalModelRequestFields;
+  InferenceConfig?: PromptInferenceConfiguration;
+  PerformanceConfig?: PerformanceConfiguration;
+  PromptTemplate?: KnowledgeBasePromptTemplate;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.KnowledgeBasePromptTemplate`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseprompttemplate.html}
+ */
+export type KnowledgeBasePromptTemplate = {
+  /**
+   * @minLength `1`
+   * @maxLength `100000`
+   */
+  TextPromptTemplate: string;
 };
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.LambdaFunctionFlowNodeConfiguration`.
@@ -589,11 +574,75 @@ export type LexFlowNodeConfiguration = {
   LocaleId: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::FlowVersion.LoopControllerFlowNodeConfiguration`.
+ * Configuration for the LoopController node, which manages loop execution
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-loopcontrollerflownodeconfiguration.html}
+ */
+export type LoopControllerFlowNodeConfiguration = {
+  /**
+   * Condition branch for a condition node
+   */
+  ContinueCondition: FlowCondition;
+  /**
+   * Maximum number of iterations the loop can perform
+   * @min `1`
+   * @max `1000`
+   */
+  MaxIterations?: number;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.LoopFlowNodeConfiguration`.
+ * Loop node config, contains loop's internal definition
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-loopflownodeconfiguration.html}
+ */
+export type LoopFlowNodeConfiguration = {
+  /**
+   * Flow definition
+   */
+  Definition: FlowDefinition;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.LoopInputFlowNodeConfiguration`.
+ * Configuration for the LoopInput node
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-loopinputflownodeconfiguration.html}
+ */
+export type LoopInputFlowNodeConfiguration = Record<string, any>;
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.MetadataConfigurationForReranking`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-metadataconfigurationforreranking.html}
+ */
+export type MetadataConfigurationForReranking = {
+  /**
+   * Reranking Metadata Selection Mode
+   */
+  SelectionMode: RerankingMetadataSelectionMode;
+  /**
+   * Reranking Metadata Selective Mode Configuration
+   */
+  SelectiveModeConfiguration?: RerankingMetadataSelectiveModeConfiguration;
+};
+/**
  * Type definition for `AWS::Bedrock::FlowVersion.OutputFlowNodeConfiguration`.
  * Output flow node configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-outputflownodeconfiguration.html}
  */
 export type OutputFlowNodeConfiguration = Record<string, any>;
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.PerformanceConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-performanceconfiguration.html}
+ */
+export type PerformanceConfiguration = {
+  /**
+   * Performance Configuration Latency
+   */
+  Latency?: PerformanceConfigurationLatency;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.PerformanceConfigurationLatency`.
+ * Performance Configuration Latency
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-performanceconfigurationlatency.html}
+ */
+export type PerformanceConfigurationLatency = "standard" | "optimized";
 /**
  * Type definition for `AWS::Bedrock::FlowVersion.PromptFlowNodeConfiguration`.
  * Prompt flow node configuration
@@ -729,6 +778,34 @@ export type PromptTemplateConfiguration = {
  */
 export type PromptTemplateType = "TEXT";
 /**
+ * Type definition for `AWS::Bedrock::FlowVersion.RerankingMetadataSelectionMode`.
+ * Reranking Metadata Selection Mode
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-rerankingmetadataselectionmode.html}
+ */
+export type RerankingMetadataSelectionMode = "SELECTIVE" | "ALL";
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.RerankingMetadataSelectiveModeConfiguration`.
+ * Reranking Metadata Selective Mode Configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-rerankingmetadataselectivemodeconfiguration.html}
+ */
+export type RerankingMetadataSelectiveModeConfiguration =
+  | {
+      /**
+       * List of Fields For Reranking
+       * @minLength `1`
+       * @maxLength `100`
+       */
+      FieldsToInclude: FieldForReranking[];
+    }
+  | {
+      /**
+       * List of Fields For Reranking
+       * @minLength `1`
+       * @maxLength `100`
+       */
+      FieldsToExclude: FieldForReranking[];
+    };
+/**
  * Type definition for `AWS::Bedrock::FlowVersion.RetrievalFlowNodeConfiguration`.
  * Retrieval flow node configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodeconfiguration.html}
@@ -813,6 +890,51 @@ export type TextPromptTemplateConfiguration = {
    */
   Text: string;
 };
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.VectorSearchBedrockRerankingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-vectorsearchbedrockrerankingconfiguration.html}
+ */
+export type VectorSearchBedrockRerankingConfiguration = {
+  MetadataConfiguration?: MetadataConfigurationForReranking;
+  ModelConfiguration: VectorSearchBedrockRerankingModelConfiguration;
+  /**
+   * Number Of Results For Reranking
+   * @min `1`
+   * @max `100`
+   */
+  NumberOfRerankedResults?: number;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.VectorSearchBedrockRerankingModelConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-vectorsearchbedrockrerankingmodelconfiguration.html}
+ */
+export type VectorSearchBedrockRerankingModelConfiguration = {
+  AdditionalModelRequestFields?: AdditionalModelRequestFields;
+  /**
+   * Arn of a Bedrock Reranking model
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}::foundation-model/(.*))?$`
+   */
+  ModelArn: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.VectorSearchRerankingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-vectorsearchrerankingconfiguration.html}
+ */
+export type VectorSearchRerankingConfiguration = {
+  BedrockRerankingConfiguration?: VectorSearchBedrockRerankingConfiguration;
+  /**
+   * Enum of Rerank Configuration Types
+   */
+  Type: VectorSearchRerankingConfigurationType;
+};
+/**
+ * Type definition for `AWS::Bedrock::FlowVersion.VectorSearchRerankingConfigurationType`.
+ * Enum of Rerank Configuration Types
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-vectorsearchrerankingconfigurationtype.html}
+ */
+export type VectorSearchRerankingConfigurationType = "BEDROCK_RERANKING_MODEL";
 /**
  * Definition of AWS::Bedrock::FlowVersion Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-flowversion.html}

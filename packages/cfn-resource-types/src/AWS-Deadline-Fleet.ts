@@ -333,6 +333,10 @@ export type MemoryMiBRange = {
 export type ServiceManagedEc2FleetConfiguration = {
   InstanceCapabilities: ServiceManagedEc2InstanceCapabilities;
   InstanceMarketOptions: ServiceManagedEc2InstanceMarketOptions;
+  /**
+   * @pattern `^sp-[0-9a-f]{32}$`
+   */
+  StorageProfileId?: string;
 };
 /**
  * Type definition for `AWS::Deadline::Fleet.ServiceManagedEc2InstanceCapabilities`.

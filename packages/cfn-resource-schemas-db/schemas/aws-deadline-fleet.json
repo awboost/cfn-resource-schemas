@@ -1,5 +1,5 @@
 {
-  "$hash": "82b190b1c00a3c27462dce74da1d4c83c67505c0",
+  "$hash": "90201530c8997f57d6aa789037b0706f88c97f37",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -247,7 +247,8 @@
         },
         "InstanceMarketOptions": {
           "$ref": "#/definitions/ServiceManagedEc2InstanceMarketOptions"
-        }
+        },
+        "StorageProfileId": { "pattern": "^sp-[0-9a-f]{32}$", "type": "string" }
       },
       "required": ["InstanceCapabilities", "InstanceMarketOptions"],
       "type": "object"
