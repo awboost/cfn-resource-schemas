@@ -1,5 +1,5 @@
 {
-  "$hash": "997771529bd9fa5e011e70bcc6556ae9b07eab68",
+  "$hash": "a9e5d06103e2bd836b26744093892d63c293acce",
   "$id": "aws-ec2-securitygroup.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -82,6 +82,8 @@
         "ec2:DescribeSecurityGroups",
         "ec2:AuthorizeSecurityGroupEgress",
         "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:UpdateSecurityGroupRuleDescriptionsIngress",
+        "ec2:UpdateSecurityGroupRuleDescriptionsEgress",
         "ec2:CreateTags",
         "ec2:DeleteTags"
       ]

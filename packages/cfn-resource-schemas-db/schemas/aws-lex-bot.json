@@ -1,5 +1,5 @@
 {
-  "$hash": "7d4ca7cd6ba093ec2cad7157094a36bf416ff109",
+  "$hash": "da16b3f6044520f515d7c922dcb84291f9be2865",
   "$id": "aws-lex-bot.json",
   "additionalProperties": false,
   "definitions": {
@@ -172,7 +172,7 @@
     "BotArn": {
       "maxLength": 1011,
       "minLength": 1,
-      "pattern": "^arn:aws[a-zA-Z-]*:lex:[a-z]+-[a-z]+-[0-9]:[0-9]{12}:bot/[0-9a-zA-Z]+$",
+      "pattern": "^arn:aws[a-zA-Z-]*:lex:[a-z]+-(?:[a-z]+-)*[0-9]:[0-9]{12}:bot/[0-9a-zA-Z]+$",
       "type": "string"
     },
     "BotLocale": {
@@ -701,7 +701,7 @@
     "KendraIndexArn": {
       "maxLength": 2048,
       "minLength": 32,
-      "pattern": "^arn:aws[a-zA-Z-]*:kendra:[a-z]+-[a-z]+-[0-9]:[0-9]{12}:index/[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+      "pattern": "^arn:aws[a-zA-Z-]*:kendra:[a-z]+-(?:[a-z]+-)*[0-9]:[0-9]{12}:index/[a-zA-Z0-9][a-zA-Z0-9_-]*$",
       "type": "string"
     },
     "LambdaCodeHook": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "4db815bd2e00008e14f6d9cee359bc297cc2405f",
+  "$hash": "7fb5dd7acbb74759651a2909eb2b4fb33134b3b3",
   "$id": "aws-ecs-taskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -1015,7 +1015,8 @@
     }
   },
   "propertyTransform": {
-    "/properties/TaskRoleArn": "TaskRoleArn $OR $split(TaskRoleArn, \"role/\")[-1]"
+    "/properties/ExecutionRoleArn": "ExecutionRoleArn $OR $join([\"arn:(aws)[-]{0,1}[a-z]{0,2}[-]{0,1}[a-z]{0,3}:iam::[0-9]{12}[:]role/\", ExecutionRoleArn])",
+    "/properties/TaskRoleArn": "TaskRoleArn $OR $split(TaskRoleArn, \"role/\")[-1] $OR $join([\"arn:(aws)[-]{0,1}[a-z]{0,2}[-]{0,1}[a-z]{0,3}:iam::[0-9]{12}[:]role/\", TaskRoleArn])"
   },
   "readOnlyProperties": ["/properties/TaskDefinitionArn"],
   "sourceUrl": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html",

@@ -1,50 +1,14 @@
-- updated `AWS::Bedrock::Flow`
-  - added definition `AdditionalModelRequestFields`
-  - added definition `BedrockRerankingModelArn`
-  - added definition `FieldForReranking`
-  - added definition `FieldsForReranking`
-  - added definition `FlowNodeInputCategory`
-  - added definition `KnowledgeBaseOrchestrationConfiguration`
-  - added definition `KnowledgeBasePromptTemplate`
-  - added definition `LoopControllerFlowNodeConfiguration`
-  - added definition `LoopFlowNodeConfiguration`
-  - added definition `LoopInputFlowNodeConfiguration`
-  - added definition `MetadataConfigurationForReranking`
-  - added definition `PerformanceConfigurationLatency`
-  - added definition `PerformanceConfiguration`
-  - added definition `RerankingMetadataSelectionMode`
-  - added definition `RerankingMetadataSelectiveModeConfiguration`
-  - added definition `VectorSearchBedrockRerankingConfiguration`
-  - added definition `VectorSearchBedrockRerankingModelConfiguration`
-  - added definition `VectorSearchRerankingConfigurationType`
-  - added definition `VectorSearchRerankingConfiguration`
-  - updated definition `FlowNodeConfiguration`
-  - updated definition `FlowNodeInput`
-  - updated definition `FlowNodeType`
-  - updated definition `KnowledgeBaseFlowNodeConfiguration`
-- updated `AWS::Bedrock::FlowVersion`
-  - added definition `AdditionalModelRequestFields`
-  - added definition `BedrockRerankingModelArn`
-  - added definition `FieldForReranking`
-  - added definition `FieldsForReranking`
-  - added definition `KnowledgeBaseOrchestrationConfiguration`
-  - added definition `KnowledgeBasePromptTemplate`
-  - added definition `LoopControllerFlowNodeConfiguration`
-  - added definition `LoopFlowNodeConfiguration`
-  - added definition `LoopInputFlowNodeConfiguration`
-  - added definition `MetadataConfigurationForReranking`
-  - added definition `PerformanceConfigurationLatency`
-  - added definition `PerformanceConfiguration`
-  - added definition `RerankingMetadataSelectionMode`
-  - added definition `RerankingMetadataSelectiveModeConfiguration`
-  - added definition `VectorSearchBedrockRerankingConfiguration`
-  - added definition `VectorSearchBedrockRerankingModelConfiguration`
-  - added definition `VectorSearchRerankingConfigurationType`
-  - added definition `VectorSearchRerankingConfiguration`
-  - updated definition `FlowNodeConfiguration`
-  - updated definition `FlowNodeType`
-  - updated definition `KnowledgeBaseFlowNodeConfiguration`
-- updated `AWS::Deadline::Fleet`
-  - updated definition `ServiceManagedEc2FleetConfiguration`
-- updated `AWS::WAFv2::WebACL`
-  - added property `OnSourceDDoSProtectionConfig`
+- added `AWS::EVS::Environment`
+- added `AWS::NetworkFirewall::VpcEndpointAssociation`
+- updated `AWS::EC2::EC2Fleet`
+  - added `tagging`
+  - updated definition `FleetLaunchTemplateOverridesRequest`
+- updated `AWS::EC2::SecurityGroup`
+  - updated handler permissions
+- updated `AWS::EC2::SpotFleet`
+  - added `tagging`
+- updated `AWS::ECS::TaskDefinition`
+  - updated `propertyTransform`
+- updated `AWS::Lex::Bot`
+  - updated definition `BotArn`
+  - updated definition `KendraIndexArn`

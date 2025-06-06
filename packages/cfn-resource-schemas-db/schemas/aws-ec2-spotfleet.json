@@ -1,5 +1,5 @@
 {
-  "$hash": "2d3c30739f93a43c930e3db8f49da3a00a546981",
+  "$hash": "fc8832161912b6aa1bc7a696ac45ee4778264c4d",
   "$id": "aws-ec2-spotfleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -666,6 +666,7 @@
   },
   "readOnlyProperties": ["/properties/Id"],
   "required": ["SpotFleetRequestConfigData"],
+  "tagging": { "taggable": false },
   "typeName": "AWS::EC2::SpotFleet",
   "writeOnlyProperties": [
     "/properties/SpotFleetRequestConfigData/TagSpecifications",

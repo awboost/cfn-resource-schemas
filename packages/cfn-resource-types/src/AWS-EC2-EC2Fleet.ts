@@ -60,6 +60,16 @@ export type BaselinePerformanceFactorsRequest = {
   Cpu?: CpuPerformanceFactorRequest;
 };
 /**
+ * Type definition for `AWS::EC2::EC2Fleet.BlockDeviceMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-blockdevicemapping.html}
+ */
+export type BlockDeviceMapping = {
+  DeviceName?: string;
+  Ebs?: EbsBlockDevice;
+  NoDevice?: string;
+  VirtualName?: string;
+};
+/**
  * Type definition for `AWS::EC2::EC2Fleet.CapacityRebalance`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-capacityrebalance.html}
  */
@@ -82,6 +92,19 @@ export type CpuPerformanceFactorRequest = {
   References?: PerformanceFactorReferenceRequest[];
 };
 /**
+ * Type definition for `AWS::EC2::EC2Fleet.EbsBlockDevice`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ebsblockdevice.html}
+ */
+export type EbsBlockDevice = {
+  DeleteOnTermination?: boolean;
+  Encrypted?: boolean;
+  Iops?: number;
+  KmsKeyId?: string;
+  SnapshotId?: string;
+  VolumeSize?: number;
+  VolumeType?: "gp2" | "gp3" | "io1" | "io2" | "sc1" | "st1" | "standard";
+};
+/**
  * Type definition for `AWS::EC2::EC2Fleet.FleetLaunchTemplateConfigRequest`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html}
  */
@@ -95,6 +118,7 @@ export type FleetLaunchTemplateConfigRequest = {
  */
 export type FleetLaunchTemplateOverridesRequest = {
   AvailabilityZone?: string;
+  BlockDeviceMappings?: BlockDeviceMapping[];
   InstanceRequirements?: InstanceRequirementsRequest;
   InstanceType?: string;
   MaxPrice?: string;

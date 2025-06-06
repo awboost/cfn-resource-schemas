@@ -1,5 +1,5 @@
 {
-  "$hash": "36cfb04adffd44064f24b8d0940fb0169ac41256",
+  "$hash": "641b8144129ae7f17804faff401911712120f25e",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -125,6 +125,11 @@
       "additionalProperties": false,
       "properties": {
         "AvailabilityZone": { "type": "string" },
+        "BlockDeviceMappings": {
+          "items": { "$ref": "#/definitions/BlockDeviceMapping" },
+          "type": "array",
+          "uniqueItems": true
+        },
         "InstanceRequirements": {
           "$ref": "#/definitions/InstanceRequirementsRequest"
         },
@@ -525,5 +530,6 @@
   },
   "readOnlyProperties": ["/properties/FleetId"],
   "required": ["TargetCapacitySpecification", "LaunchTemplateConfigs"],
+  "tagging": { "taggable": false },
   "typeName": "AWS::EC2::EC2Fleet"
 }

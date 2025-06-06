@@ -53,7 +53,7 @@ export type LexBotAttributes = {
   /**
    * @minLength `1`
    * @maxLength `1011`
-   * @pattern `^arn:aws[a-zA-Z-]*:lex:[a-z]+-[a-z]+-[0-9]:[0-9]{12}:bot/[0-9a-zA-Z]+$`
+   * @pattern `^arn:aws[a-zA-Z-]*:lex:[a-z]+-(?:[a-z]+-)*[0-9]:[0-9]{12}:bot/[0-9a-zA-Z]+$`
    */
   Arn: string;
   /**
@@ -708,7 +708,7 @@ export type KendraConfiguration = {
   /**
    * @minLength `32`
    * @maxLength `2048`
-   * @pattern `^arn:aws[a-zA-Z-]*:kendra:[a-z]+-[a-z]+-[0-9]:[0-9]{12}:index/[a-zA-Z0-9][a-zA-Z0-9_-]*$`
+   * @pattern `^arn:aws[a-zA-Z-]*:kendra:[a-z]+-(?:[a-z]+-)*[0-9]:[0-9]{12}:index/[a-zA-Z0-9][a-zA-Z0-9_-]*$`
    */
   KendraIndex: string;
   /**
