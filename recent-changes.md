@@ -1,14 +1,1 @@
-- added `AWS::EVS::Environment`
-- added `AWS::NetworkFirewall::VpcEndpointAssociation`
-- updated `AWS::EC2::EC2Fleet`
-  - added `tagging`
-  - updated definition `FleetLaunchTemplateOverridesRequest`
-- updated `AWS::EC2::SecurityGroup`
-  - updated handler permissions
-- updated `AWS::EC2::SpotFleet`
-  - added `tagging`
-- updated `AWS::ECS::TaskDefinition`
-  - updated `propertyTransform`
-- updated `AWS::Lex::Bot`
-  - updated definition `BotArn`
-  - updated definition `KendraIndexArn`
+- removed `AWS::OpsWorksCM::Server`
