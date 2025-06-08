@@ -1,5 +1,5 @@
 {
-  "$hash": "11dce760f81dfa94736c0f87199ba83aef53a694",
+  "$hash": "d2b95985badc4db0c474d816bdae615bf764c9d3",
   "$id": "aws-imagebuilder-containerrecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -179,7 +179,7 @@
     },
     "delete": {
       "permissions": [
-        "imagebuilder:UnTagResource",
+        "imagebuilder:UntagResource",
         "imagebuilder:GetContainerRecipe",
         "imagebuilder:DeleteContainerRecipe"
       ]
@@ -294,7 +294,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
   "tagging": {
     "cloudFormationSystemTags": true,
-    "permissions": ["imagebuilder:TagResource", "imagebuilder:UnTagResource"],
+    "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,

@@ -1,5 +1,5 @@
 {
-  "$hash": "a8fc16125b288e8e333cba6e2af1795996f7ffbf",
+  "$hash": "85231884cc4ae350ed7b456ad3f10e68d8ebf943",
   "$id": "aws-imagebuilder-infrastructureconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -92,7 +92,7 @@
     },
     "delete": {
       "permissions": [
-        "imagebuilder:UnTagResource",
+        "imagebuilder:UntagResource",
         "imagebuilder:GetInfrastructureConfiguration",
         "imagebuilder:DeleteInfrastructureConfiguration"
       ]
@@ -106,7 +106,9 @@
         "iam:PassRole",
         "sns:Publish",
         "imagebuilder:GetInfrastructureConfiguration",
-        "imagebuilder:UpdateInfrastructureConfiguration"
+        "imagebuilder:UpdateInfrastructureConfiguration",
+        "imagebuilder:TagResource",
+        "imagebuilder:UntagResource"
       ]
     }
   },
@@ -186,6 +188,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

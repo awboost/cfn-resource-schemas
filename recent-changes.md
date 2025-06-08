@@ -1,1 +1,43 @@
-- removed `AWS::OpsWorksCM::Server`
+- added `AWS::OpsWorksCM::Server`
+- updated `AWS::ImageBuilder::Component`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::ContainerRecipe`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::DistributionConfiguration`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Image`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::ImagePipeline`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::ImageRecipe`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::InfrastructureConfiguration`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::LifecyclePolicy`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Workflow`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Lambda::EventSourceMapping`
+  - added definition `SchemaRegistryAccessConfig`
+  - added definition `SchemaRegistryConfig`
+  - added definition `SchemaValidationConfig`
+  - updated `createOnlyProperties`
+  - updated `propertyTransform`
+  - updated definition `AmazonManagedKafkaEventSourceConfig`
+  - updated definition `OnFailure`
+  - updated definition `SelfManagedKafkaEventSourceConfig`
+  - updated definition `SourceAccessConfiguration`
+  - updated property `BatchSize`
+  - updated property `EventSourceArn`
+  - updated property `FunctionName`
+  - updated property `MaximumBatchingWindowInSeconds`
+  - updated property `StartingPosition`

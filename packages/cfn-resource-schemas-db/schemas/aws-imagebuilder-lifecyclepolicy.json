@@ -1,5 +1,5 @@
 {
-  "$hash": "6bb88672c1dfbf94af3dbafeaed0f198d5c82c6a",
+  "$hash": "e0ab3ebb8b99d5d2ec1fc2c01cfcd6a58150be4f",
   "$id": "aws-imagebuilder-lifecyclepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -185,7 +185,7 @@
       "permissions": [
         "imagebuilder:GetLifecyclePolicy",
         "imagebuilder:DeleteLifecyclePolicy",
-        "imagebuilder:UnTagResource"
+        "imagebuilder:UntagResource"
       ]
     },
     "list": { "permissions": ["imagebuilder:ListLifecyclePolicies"] },
@@ -194,7 +194,9 @@
       "permissions": [
         "iam:PassRole",
         "imagebuilder:GetLifecyclePolicy",
-        "imagebuilder:UpdateLifecyclePolicy"
+        "imagebuilder:UpdateLifecyclePolicy",
+        "imagebuilder:TagResource",
+        "imagebuilder:UntagResource"
       ]
     }
   },
@@ -254,6 +256,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
