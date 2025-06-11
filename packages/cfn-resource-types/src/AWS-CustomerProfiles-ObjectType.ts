@@ -13,7 +13,7 @@ export type CustomerProfilesObjectTypeProperties = {
   /**
    * Description of the profile object type.
    * @minLength `1`
-   * @maxLength `1000`
+   * @maxLength `10000`
    */
   Description: string;
   /**
@@ -43,6 +43,11 @@ export type CustomerProfilesObjectTypeProperties = {
    * A list of unique keys that can be used to map data to the profile.
    */
   Keys?: KeyMap[];
+  /**
+   * The maximum number of profile objects for this object type
+   * @min `1`
+   */
+  MaxProfileObjectCount?: number;
   /**
    * The name of the profile object type.
    * @minLength `1`
@@ -83,6 +88,11 @@ export type CustomerProfilesObjectTypeAttributes = {
    * The time of this integration got last updated at.
    */
   LastUpdatedAt: string;
+  /**
+   * The maximum available number of profile objects
+   * @min `0`
+   */
+  MaxAvailableProfileObjectCount: number;
 };
 /**
  * Type definition for `AWS::CustomerProfiles::ObjectType.FieldMap`.

@@ -1,7 +1,8 @@
 {
-  "$hash": "3b5e0287943db77c164d26c5ae4ade6af50953d7",
+  "$hash": "d2c875a11ab8cffd0e5f2da24adcbdbeabcbe661",
   "$id": "aws-mediapackage-asset.json",
   "additionalProperties": false,
+  "createOnlyProperties": ["/properties/Id", "/properties/Tags"],
   "definitions": {
     "EgressEndpoint": {
       "additionalProperties": false,
@@ -102,6 +103,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "mediapackage-vod:TagResource",
+      "mediapackage-vod:UntagResource",
+      "mediapackage-vod:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,

@@ -26,7 +26,7 @@ export type FISExperimentTemplateProperties = {
    * One or more stop conditions.
    */
   StopConditions: ExperimentTemplateStopCondition[];
-  Tags: Record<string, string>;
+  Tags?: Record<string, string>;
   /**
    * The targets for the experiment.
    */

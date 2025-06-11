@@ -1,11 +1,8 @@
 {
-  "$hash": "461cbc2db33443618ce44baba7ddaac53169edda",
+  "$hash": "cfd843fcb90f35ec9e9d073b5832c7bce6f84f83",
   "$id": "aws-fis-experimenttemplate.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/Tags",
-    "/properties/ExperimentOptions/AccountTargeting"
-  ],
+  "createOnlyProperties": ["/properties/ExperimentOptions/AccountTargeting"],
   "definitions": {
     "ActionId": {
       "description": "The ID of the action.",
@@ -341,7 +338,7 @@
     "Targets": { "$ref": "#/definitions/ExperimentTemplateTargetMap" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": ["Description", "StopConditions", "Targets", "RoleArn", "Tags"],
+  "required": ["Description", "StopConditions", "Targets", "RoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-fis.git",
   "tagging": {
     "cloudFormationSystemTags": true,

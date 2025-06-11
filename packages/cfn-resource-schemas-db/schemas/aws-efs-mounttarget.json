@@ -1,9 +1,11 @@
 {
-  "$hash": "36c4de538fdea4128cfb80036c258d9889c262dc",
+  "$hash": "9d38844274546150eeb9ba9fdb4bcfe2254dc8c2",
   "$id": "aws-efs-mounttarget.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IpAddress",
+    "/properties/Ipv6Address",
+    "/properties/IpAddressType",
     "/properties/SubnetId",
     "/properties/FileSystemId"
   ],
@@ -60,6 +62,12 @@
       "description": "Valid IPv4 address within the address range of the specified subnet.",
       "type": "string"
     },
+    "IpAddressType": {
+      "description": "",
+      "enum": ["IPV4_ONLY", "IPV6_ONLY", "DUAL_STACK"],
+      "type": "string"
+    },
+    "Ipv6Address": { "description": "", "type": "string" },
     "SecurityGroups": {
       "description": "VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).",
       "insertionOrder": false,
@@ -76,5 +84,6 @@
   "required": ["FileSystemId", "SecurityGroups", "SubnetId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": { "taggable": false },
-  "typeName": "AWS::EFS::MountTarget"
+  "typeName": "AWS::EFS::MountTarget",
+  "writeOnlyProperties": ["/properties/IpAddressType"]
 }

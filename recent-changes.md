@@ -1,43 +1,39 @@
-- added `AWS::OpsWorksCM::Server`
-- updated `AWS::ImageBuilder::Component`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::ContainerRecipe`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::DistributionConfiguration`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::Image`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::ImagePipeline`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::ImageRecipe`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::InfrastructureConfiguration`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::LifecyclePolicy`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::Workflow`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Lambda::EventSourceMapping`
-  - added definition `SchemaRegistryAccessConfig`
-  - added definition `SchemaRegistryConfig`
-  - added definition `SchemaValidationConfig`
+- updated `AWS::CustomerProfiles::CalculatedAttributeDefinition`
+  - added definition `Readiness`
+  - added definition `ValueRange`
+  - added property `Readiness`
+  - added property `Status`
+  - added property `UseHistoricalData`
   - updated `createOnlyProperties`
-  - updated `propertyTransform`
-  - updated definition `AmazonManagedKafkaEventSourceConfig`
-  - updated definition `OnFailure`
-  - updated definition `SelfManagedKafkaEventSourceConfig`
-  - updated definition `SourceAccessConfiguration`
-  - updated property `BatchSize`
-  - updated property `EventSourceArn`
-  - updated property `FunctionName`
-  - updated property `MaximumBatchingWindowInSeconds`
-  - updated property `StartingPosition`
+  - updated `readOnlyProperties`
+  - updated definition `ObjectCount`
+  - updated definition `RangeValue`
+  - updated definition `Range`
+- updated `AWS::CustomerProfiles::ObjectType`
+  - added property `MaxAvailableProfileObjectCount`
+  - added property `MaxProfileObjectCount`
+  - updated `readOnlyProperties`
+  - updated property `Description`
+- updated `AWS::CustomerProfiles::SegmentDefinition`
+  - updated definition `RangeOverride`
+- updated `AWS::ECS::Service`
+  - updated definition `AwsVpcConfiguration`
+  - updated definition `LogConfiguration`
+  - updated handler permissions
+- updated `AWS::EFS::MountTarget`
+  - added `writeOnlyProperties`
+  - added property `IpAddressType`
+  - added property `Ipv6Address`
+  - updated `createOnlyProperties`
+- updated `AWS::FIS::ExperimentTemplate`
+  - updated `createOnlyProperties`
+  - updated `required`
+- updated `AWS::MediaPackage::Asset`
+  - added `createOnlyProperties`
+  - updated `tagging`
+- updated `AWS::MediaPackage::Channel`
+  - updated `tagging`
+- updated `AWS::MediaPackage::PackagingConfiguration`
+  - updated `tagging`
+- updated `AWS::MediaPackage::PackagingGroup`
+  - updated `tagging`

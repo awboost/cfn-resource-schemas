@@ -51,6 +51,10 @@ export type CustomerProfilesCalculatedAttributeDefinitionProperties = {
    * @maxLength `50`
    */
   Tags?: Tag[];
+  /**
+   * Whether to use historical data for the calculated attribute.
+   */
+  UseHistoricalData?: boolean;
 };
 /**
  * Attribute type definition for `AWS::CustomerProfiles::CalculatedAttributeDefinition`.
@@ -65,6 +69,25 @@ export type CustomerProfilesCalculatedAttributeDefinitionAttributes = {
    * The timestamp of when the calculated attribute definition was most recently edited.
    */
   LastUpdatedAt: string;
+  /**
+   * The readiness status of the calculated attribute.
+   */
+  Readiness: {
+    /**
+     * Any information pertaining to the status of the calculated attribute if required.
+     */
+    Message: string;
+    /**
+     * The progress percentage for including historical data in your calculated attribute.
+     * @min `0`
+     * @max `100`
+     */
+    ProgressPercentage: number;
+  };
+  /**
+   * The status of the calculated attribute definition.
+   */
+  Status: "IN_PROGRESS" | "PREPARING" | "COMPLETED" | "FAILED";
 };
 /**
  * Type definition for `AWS::CustomerProfiles::CalculatedAttributeDefinition.AttributeDetails`.
@@ -108,7 +131,7 @@ export type Conditions = {
   /**
    * The number of profile objects used for the calculated attribute.
    * @min `1`
-   * @max `100`
+   * @max `300`
    */
   ObjectCount?: number;
   /**
@@ -127,15 +150,31 @@ export type Conditions = {
  */
 export type Range = {
   /**
+   * The format the timestamp field in your JSON object is specified. This value should be one of EPOCHMILLI or ISO_8601. E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "2001-07-04T12:08:56.235Z"}}, then TimestampFormat should be "ISO_8601".
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  TimestampFormat?: string;
+  /**
+   * An expression specifying the field in your JSON object from which the date should be parsed. The expression should follow the structure of \"{ObjectTypeName.<Location of timestamp field in JSON pointer format>}\". E.g. if your object type is MyType and source JSON is {"generatedAt": {"timestamp": "1737587945945"}}, then TimestampSource should be "{MyType.generatedAt.timestamp}".
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  TimestampSource?: string;
+  /**
    * The unit of time.
    */
   Unit: RangeUnit;
   /**
    * The amount of time of the specified unit.
    * @min `1`
-   * @max `366`
+   * @max `2147483647`
    */
-  Value: number;
+  Value?: number;
+  /**
+   * A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+   */
+  ValueRange?: ValueRange;
 };
 /**
  * Type definition for `AWS::CustomerProfiles::CalculatedAttributeDefinition.RangeUnit`.
@@ -143,6 +182,23 @@ export type Range = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-rangeunit.html}
  */
 export type RangeUnit = "DAYS";
+/**
+ * Type definition for `AWS::CustomerProfiles::CalculatedAttributeDefinition.Readiness`.
+ * The readiness status of the calculated attribute.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-readiness.html}
+ */
+export type Readiness = {
+  /**
+   * Any information pertaining to the status of the calculated attribute if required.
+   */
+  Message?: string;
+  /**
+   * The progress percentage for including historical data in your calculated attribute.
+   * @min `0`
+   * @max `100`
+   */
+  ProgressPercentage?: number;
+};
 /**
  * Type definition for `AWS::CustomerProfiles::CalculatedAttributeDefinition.Statistic`.
  * The aggregation operation to perform for the calculated attribute.
@@ -203,6 +259,25 @@ export type ThresholdOperator =
   | "GREATER_THAN"
   | "LESS_THAN"
   | "NOT_EQUAL_TO";
+/**
+ * Type definition for `AWS::CustomerProfiles::CalculatedAttributeDefinition.ValueRange`.
+ * A structure specifying the endpoints of the relative time period over which data is included in the aggregation.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-valuerange.html}
+ */
+export type ValueRange = {
+  /**
+   * The ending point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+   * @min `-2147483648`
+   * @max `2147483647`
+   */
+  End: number;
+  /**
+   * The starting point for this range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+   * @min `-2147483648`
+   * @max `2147483647`
+   */
+  Start: number;
+};
 /**
  * Resource type definition for `AWS::CustomerProfiles::CalculatedAttributeDefinition`.
  * A calculated attribute definition for Customer Profiles

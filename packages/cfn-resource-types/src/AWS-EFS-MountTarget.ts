@@ -13,6 +13,8 @@ export type EFSMountTargetProperties = {
    * Valid IPv4 address within the address range of the specified subnet.
    */
   IpAddress?: string;
+  IpAddressType?: "IPV4_ONLY" | "IPV6_ONLY" | "DUAL_STACK";
+  Ipv6Address?: string;
   /**
    * VPC security group IDs, of the form ``sg-xxxxxxxx``. These must be for the same VPC as the subnet specified. The maximum number of security groups depends on account quota. For more information, see [Amazon VPC Quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html) in the *Amazon VPC User Guide* (see the *Security Groups* table).
    */

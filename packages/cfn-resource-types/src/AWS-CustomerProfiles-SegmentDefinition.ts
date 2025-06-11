@@ -371,15 +371,15 @@ export type ProfileDimension = {
  */
 export type RangeOverride = {
   /**
-   * The ending point for this overridden range.
-   * @min `0`
-   * @max `366`
+   * The ending point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+   * @min `-2147483648`
+   * @max `2147483647`
    */
   End?: number;
   /**
-   * The starting point for this overridden range.
-   * @min `1`
-   * @max `366`
+   * The starting point for this overridden range. Positive numbers indicate how many days in the past data should be included, and negative numbers indicate how many days in the future.
+   * @min `-2147483648`
+   * @max `2147483647`
    */
   Start: number;
   /**

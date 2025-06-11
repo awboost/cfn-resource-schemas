@@ -1,5 +1,5 @@
 {
-  "$hash": "de2c94558d47824ff1e505bba653b4e8e1dd32f2",
+  "$hash": "cdfd3aada67f78a0e65aa04009c31ed23268dc1a",
   "$id": "aws-customerprofiles-objecttype.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -167,7 +167,7 @@
     },
     "Description": {
       "description": "Description of the profile object type.",
-      "maxLength": 1000,
+      "maxLength": 10000,
       "minLength": 1,
       "type": "string"
     },
@@ -206,6 +206,16 @@
       "description": "The time of this integration got last updated at.",
       "type": "string"
     },
+    "MaxAvailableProfileObjectCount": {
+      "description": "The maximum available number of profile objects",
+      "minimum": 0,
+      "type": "integer"
+    },
+    "MaxProfileObjectCount": {
+      "description": "The maximum number of profile objects for this object type",
+      "minimum": 1,
+      "type": "integer"
+    },
     "ObjectTypeName": {
       "description": "The name of the profile object type.",
       "maxLength": 255,
@@ -234,7 +244,11 @@
       "type": "string"
     }
   },
-  "readOnlyProperties": ["/properties/LastUpdatedAt", "/properties/CreatedAt"],
+  "readOnlyProperties": [
+    "/properties/LastUpdatedAt",
+    "/properties/CreatedAt",
+    "/properties/MaxAvailableProfileObjectCount"
+  ],
   "required": ["DomainName", "ObjectTypeName", "Description"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-customer-profiles.git",
   "tagging": {
