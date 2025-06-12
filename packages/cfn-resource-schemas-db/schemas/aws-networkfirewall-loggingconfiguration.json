@@ -1,5 +1,5 @@
 {
-  "$hash": "8c8aad86cf011cb824ae85fbdfcf5b8fa03d51e7",
+  "$hash": "0e593027e3210207a190c5f5626c3a2271f03035",
   "$id": "aws-networkfirewall-loggingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -108,6 +108,7 @@
   },
   "primaryIdentifier": ["/properties/FirewallArn"],
   "properties": {
+    "EnableMonitoringDashboard": { "type": "boolean" },
     "FirewallArn": { "$ref": "#/definitions/ResourceArn" },
     "FirewallName": {
       "maxLength": 128,

@@ -1,39 +1,10 @@
-- updated `AWS::CustomerProfiles::CalculatedAttributeDefinition`
-  - added definition `Readiness`
-  - added definition `ValueRange`
-  - added property `Readiness`
-  - added property `Status`
-  - added property `UseHistoricalData`
-  - updated `createOnlyProperties`
+- updated `AWS::EKS::PodIdentityAssociation`
+  - added property `DisableSessionTags`
+  - added property `ExternalId`
+  - added property `TargetRoleArn`
   - updated `readOnlyProperties`
-  - updated definition `ObjectCount`
-  - updated definition `RangeValue`
-  - updated definition `Range`
-- updated `AWS::CustomerProfiles::ObjectType`
-  - added property `MaxAvailableProfileObjectCount`
-  - added property `MaxProfileObjectCount`
-  - updated `readOnlyProperties`
-  - updated property `Description`
-- updated `AWS::CustomerProfiles::SegmentDefinition`
-  - updated definition `RangeOverride`
-- updated `AWS::ECS::Service`
-  - updated definition `AwsVpcConfiguration`
-  - updated definition `LogConfiguration`
+- updated `AWS::Kinesis::Stream`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::EFS::MountTarget`
-  - added `writeOnlyProperties`
-  - added property `IpAddressType`
-  - added property `Ipv6Address`
-  - updated `createOnlyProperties`
-- updated `AWS::FIS::ExperimentTemplate`
-  - updated `createOnlyProperties`
-  - updated `required`
-- updated `AWS::MediaPackage::Asset`
-  - added `createOnlyProperties`
-  - updated `tagging`
-- updated `AWS::MediaPackage::Channel`
-  - updated `tagging`
-- updated `AWS::MediaPackage::PackagingConfiguration`
-  - updated `tagging`
-- updated `AWS::MediaPackage::PackagingGroup`
-  - updated `tagging`
+- updated `AWS::NetworkFirewall::LoggingConfiguration`
+  - added property `EnableMonitoringDashboard`

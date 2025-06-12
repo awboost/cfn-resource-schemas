@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html}
  */
 export type NetworkFirewallLoggingConfigurationProperties = {
+  EnableMonitoringDashboard?: boolean;
   /**
    * A resource ARN.
    * @minLength `1`
