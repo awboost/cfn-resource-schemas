@@ -1,5 +1,5 @@
 {
-  "$hash": "c2f2a3951079bb62326dc9005e805a8ffc7cd4ff",
+  "$hash": "a3a3c98d5dc3e54225dc7dc9eb610bd1cd001bfd",
   "$id": "aws-lambda-layerversionpermission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -39,6 +39,9 @@
       "description": "An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/Principal": "Principal $OR $join([\".*AWS.*[arn:aws:iam::\", Principal, \":root].*\"]) $OR $join([\".*AWS.*[\", Principal, \"].*\"])"
   },
   "readOnlyProperties": ["/properties/Id"],
   "required": ["LayerVersionArn", "Action", "Principal"],

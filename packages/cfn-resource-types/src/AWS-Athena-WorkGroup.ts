@@ -130,6 +130,29 @@ export type EngineVersion = {
   SelectedEngineVersion?: string;
 };
 /**
+ * Type definition for `AWS::Athena::WorkGroup.ManagedQueryResultsConfiguration`.
+ * The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-managedqueryresultsconfiguration.html}
+ */
+export type ManagedQueryResultsConfiguration = {
+  Enabled?: boolean;
+  /**
+   * Indicates the encryption configuration for Athena Managed Storage. If not setting this field, Managed Storage will encrypt the query results with Athena's encryption key
+   */
+  EncryptionConfiguration?: ManagedStorageEncryptionConfiguration;
+};
+/**
+ * Type definition for `AWS::Athena::WorkGroup.ManagedStorageEncryptionConfiguration`.
+ * Indicates the encryption configuration for Athena Managed Storage. If not setting this field, Managed Storage will encrypt the query results with Athena's encryption key
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-managedstorageencryptionconfiguration.html}
+ */
+export type ManagedStorageEncryptionConfiguration = {
+  /**
+   * For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID.
+   */
+  KmsKey?: string;
+};
+/**
  * Type definition for `AWS::Athena::WorkGroup.ResultConfiguration`.
  * The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
 
@@ -233,6 +256,10 @@ export type WorkGroupConfiguration = {
    */
   ExecutionRole?: string;
   /**
+   * The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
+   */
+  ManagedQueryResultsConfiguration?: ManagedQueryResultsConfiguration;
+  /**
    * Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
    */
   PublishCloudWatchMetricsEnabled?: boolean;
@@ -277,6 +304,10 @@ export type WorkGroupConfigurationUpdates = {
    * Execution Role ARN required to run Athena Spark Calculations
    */
   ExecutionRole?: string;
+  /**
+   * The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
+   */
+  ManagedQueryResultsConfiguration?: ManagedQueryResultsConfiguration;
   /**
    * Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
    */

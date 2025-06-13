@@ -1,5 +1,5 @@
 {
-  "$hash": "34a4936b8c0cd6faf305614b7f7889f16fab817a",
+  "$hash": "f7838018faa9b9f689d586565b981547746307d5",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -422,6 +422,9 @@
           "minItems": 1,
           "type": "array",
           "uniqueItems": false
+        },
+        "UnifiedStudioSettings": {
+          "$ref": "#/definitions/UnifiedStudioSettings"
         }
       },
       "type": "object"
@@ -874,6 +877,56 @@
         "Value": { "maxLength": 128, "minLength": 1, "type": "string" }
       },
       "required": ["Key", "Value"],
+      "type": "object"
+    },
+    "UnifiedStudioSettings": {
+      "additionalProperties": false,
+      "description": "A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.",
+      "properties": {
+        "DomainAccountId": {
+          "description": "The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.",
+          "maxLength": 12,
+          "minLength": 12,
+          "pattern": "^\\d+$",
+          "type": "string"
+        },
+        "DomainId": {
+          "description": "The ID of the Amazon SageMaker Unified Studio domain associated with this domain.",
+          "maxLength": 36,
+          "minLength": 1,
+          "pattern": "^dzd[-_][a-zA-Z0-9_-]{1,36}$",
+          "type": "string"
+        },
+        "DomainRegion": {
+          "description": "The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.",
+          "pattern": "[a-zA-Z]{2}-[a-zA-Z\\-]+-\\d+",
+          "type": "string"
+        },
+        "EnvironmentId": {
+          "description": "The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.",
+          "maxLength": 36,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_-]{1,36}$",
+          "type": "string"
+        },
+        "ProjectId": {
+          "description": "The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.",
+          "pattern": "^[a-zA-Z0-9_-]{1,36}$",
+          "type": "string"
+        },
+        "ProjectS3Path": {
+          "description": "The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.",
+          "maxLength": 100,
+          "minLength": 1,
+          "pattern": "[\\w\\.-]+$",
+          "type": "string"
+        },
+        "StudioWebPortalAccess": {
+          "description": "Sets whether you can access the domain in Amazon SageMaker Studio:\n\nENABLED\nYou can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.\nDISABLED\nYou can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.\n",
+          "enum": ["ENABLED", "DISABLED"],
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "UserSettings": {

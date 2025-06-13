@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type EC2EgressOnlyInternetGatewayProperties = {
   /**
+   * Any tags assigned to the egress only internet gateway.
+   */
+  Tags?: Tag[];
+  /**
    * The ID of the VPC for which to create the egress-only internet gateway.
    */
   VpcId: string;
@@ -19,6 +23,21 @@ export type EC2EgressOnlyInternetGatewayAttributes = {
    * Service Generated ID of the EgressOnlyInternetGateway
    */
   Id: string;
+};
+/**
+ * Type definition for `AWS::EC2::EgressOnlyInternetGateway.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-egressonlyinternetgateway-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::EC2::EgressOnlyInternetGateway

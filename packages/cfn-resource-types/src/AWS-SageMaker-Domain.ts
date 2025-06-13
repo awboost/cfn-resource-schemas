@@ -500,6 +500,10 @@ export type DomainSettings = {
    * @maxLength `3`
    */
   SecurityGroupIds?: string[];
+  /**
+   * A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+   */
+  UnifiedStudioSettings?: UnifiedStudioSettings;
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.EFSFileSystemConfig`.
@@ -894,6 +898,61 @@ export type Tag = {
    * @maxLength `128`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.UnifiedStudioSettings`.
+ * A collection of settings that apply to an Amazon SageMaker AI domain when you use it in Amazon SageMaker Unified Studio.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-unifiedstudiosettings.html}
+ */
+export type UnifiedStudioSettings = {
+  /**
+   * The ID of the AWS account that has the Amazon SageMaker Unified Studio domain. The default value, if you don't specify an ID, is the ID of the account that has the Amazon SageMaker AI domain.
+   * @minLength `12`
+   * @maxLength `12`
+   * @pattern `^\d+$`
+   */
+  DomainAccountId?: string;
+  /**
+   * The ID of the Amazon SageMaker Unified Studio domain associated with this domain.
+   * @minLength `1`
+   * @maxLength `36`
+   * @pattern `^dzd[-_][a-zA-Z0-9_-]{1,36}$`
+   */
+  DomainId?: string;
+  /**
+   * The AWS Region where the domain is located in Amazon SageMaker Unified Studio. The default value, if you don't specify a Region, is the Region where the Amazon SageMaker AI domain is located.
+   * @pattern `[a-zA-Z]{2}-[a-zA-Z\-]+-\d+`
+   */
+  DomainRegion?: string;
+  /**
+   * The ID of the environment that Amazon SageMaker Unified Studio associates with the domain.
+   * @minLength `1`
+   * @maxLength `36`
+   * @pattern `^[a-zA-Z0-9_-]{1,36}$`
+   */
+  EnvironmentId?: string;
+  /**
+   * The ID of the Amazon SageMaker Unified Studio project that corresponds to the domain.
+   * @pattern `^[a-zA-Z0-9_-]{1,36}$`
+   */
+  ProjectId?: string;
+  /**
+   * The location where Amazon S3 stores temporary execution data and other artifacts for the project that corresponds to the domain.
+   * @minLength `1`
+   * @maxLength `100`
+   * @pattern `[\w\.-]+$`
+   */
+  ProjectS3Path?: string;
+  /**
+     * Sets whether you can access the domain in Amazon SageMaker Studio:
+    
+    ENABLED
+    You can access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it in both studio interfaces.
+    DISABLED
+    You can't access the domain in Amazon SageMaker Studio. If you migrate the domain to Amazon SageMaker Unified Studio, you can access it only in that studio interface.
+    
+     */
+  StudioWebPortalAccess?: "ENABLED" | "DISABLED";
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.UserSettings`.

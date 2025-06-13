@@ -1,6 +1,6 @@
 {
   "$comment": "Resource Schema for AWS::Athena::WorkGroup. Any changes made to SDK model for WorkGroup should be reflected here.",
-  "$hash": "e6732e300789815be8e6d98612b978f952f311d2",
+  "$hash": "17d12695c43e7e4a3526c10036309efd0409b2fa",
   "$id": "aws-athena-workgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -76,6 +76,23 @@
     "KmsKey": {
       "description": "For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID. ",
       "type": "string"
+    },
+    "ManagedQueryResultsConfiguration": {
+      "additionalProperties": false,
+      "description": "The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time",
+      "properties": {
+        "Enabled": { "type": "boolean" },
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/ManagedStorageEncryptionConfiguration"
+        }
+      },
+      "type": "object"
+    },
+    "ManagedStorageEncryptionConfiguration": {
+      "additionalProperties": false,
+      "description": "Indicates the encryption configuration for Athena Managed Storage. If not setting this field, Managed Storage will encrypt the query results with Athena's encryption key",
+      "properties": { "KmsKey": { "$ref": "#/definitions/KmsKey" } },
+      "type": "object"
     },
     "OutputLocation": {
       "description": "The location in Amazon S3 where your query results are stored, such as s3://path/to/query/bucket/. To run the query, you must specify the query results location using one of the ways: either for individual queries using either this setting (client-side), or in the workgroup, using WorkGroupConfiguration",
@@ -174,6 +191,9 @@
         },
         "EngineVersion": { "$ref": "#/definitions/EngineVersion" },
         "ExecutionRole": { "$ref": "#/definitions/ExecutionRole" },
+        "ManagedQueryResultsConfiguration": {
+          "$ref": "#/definitions/ManagedQueryResultsConfiguration"
+        },
         "PublishCloudWatchMetricsEnabled": {
           "$ref": "#/definitions/PublishCloudWatchMetricsEnabled"
         },
@@ -202,6 +222,9 @@
         },
         "EngineVersion": { "$ref": "#/definitions/EngineVersion" },
         "ExecutionRole": { "$ref": "#/definitions/ExecutionRole" },
+        "ManagedQueryResultsConfiguration": {
+          "$ref": "#/definitions/ManagedQueryResultsConfiguration"
+        },
         "PublishCloudWatchMetricsEnabled": {
           "$ref": "#/definitions/PublishCloudWatchMetricsEnabled"
         },

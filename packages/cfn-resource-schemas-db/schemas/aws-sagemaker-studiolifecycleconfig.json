@@ -1,5 +1,5 @@
 {
-  "$hash": "f58e8d250c46227c902136286fc4c2b4312117c8",
+  "$hash": "119fc9d3ad18b71206efaec3f78e7d1ae2c589a0",
   "$id": "aws-sagemaker-studiolifecycleconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -87,6 +87,9 @@
       "type": "array",
       "uniqueItems": false
     }
+  },
+  "propertyTransform": {
+    "/properties/StudioLifecycleConfigName": "$lowercase(StudioLifecycleConfigName) $OR StudioLifecycleConfigName"
   },
   "readOnlyProperties": ["/properties/StudioLifecycleConfigArn"],
   "required": [

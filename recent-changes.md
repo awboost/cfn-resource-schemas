@@ -1,10 +1,22 @@
-- updated `AWS::EKS::PodIdentityAssociation`
-  - added property `DisableSessionTags`
-  - added property `ExternalId`
-  - added property `TargetRoleArn`
-  - updated `readOnlyProperties`
-- updated `AWS::Kinesis::Stream`
+- updated `AWS::Athena::WorkGroup`
+  - added definition `ManagedQueryResultsConfiguration`
+  - added definition `ManagedStorageEncryptionConfiguration`
+  - updated definition `WorkGroupConfigurationUpdates`
+  - updated definition `WorkGroupConfiguration`
+- updated `AWS::EC2::EgressOnlyInternetGateway`
+  - added property `Tags`
   - updated `tagging`
+  - updated definition `undefined`
   - updated handler permissions
-- updated `AWS::NetworkFirewall::LoggingConfiguration`
-  - added property `EnableMonitoringDashboard`
+- updated `AWS::Lambda::LayerVersionPermission`
+  - added `propertyTransform`
+- updated `AWS::SageMaker::AppImageConfig`
+  - added `propertyTransform`
+  - added `tagging`
+  - removed `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::SageMaker::Domain`
+  - added definition `UnifiedStudioSettings`
+  - updated definition `DomainSettings`
+- updated `AWS::SageMaker::StudioLifecycleConfig`
+  - added `propertyTransform`
