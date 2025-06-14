@@ -1,5 +1,5 @@
 {
-  "$hash": "bfd4221bc1331e69fd9e030d024e850560444aef",
+  "$hash": "ca2c3f33ead2077bc1eef01b56f0b75cad6666e5",
   "$id": "aws-opsworkscm-server.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,6 +11,7 @@
     "/properties/CustomDomain",
     "/properties/InstanceProfileArn",
     "/properties/SecurityGroupIds",
+    "/properties/ServerName",
     "/properties/SubnetIds",
     "/properties/BackupId",
     "/properties/EngineModel",
@@ -83,7 +84,6 @@
   },
   "readOnlyProperties": [
     "/properties/Id",
-    "/properties/ServerName",
     "/properties/Endpoint",
     "/properties/Arn"
   ],

@@ -102,6 +102,14 @@ export type AndStatement = {
   Statements: Statement[];
 };
 /**
+ * Type definition for `AWS::WAFv2::RuleGroup.AsnMatchStatement`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-asnmatchstatement.html}
+ */
+export type AsnMatchStatement = {
+  AsnList?: number[];
+  ForwardedIPConfig?: ForwardedIPConfiguration;
+};
+/**
  * Type definition for `AWS::WAFv2::RuleGroup.BlockAction`.
  * Block traffic towards application.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-blockaction.html}
@@ -634,6 +642,10 @@ export type RateBasedStatement = {
  */
 export type RateBasedStatementCustomKey = {
   /**
+   * Specifies the request's ASN as an aggregate key for a rate-based rule.
+   */
+  ASN?: RateLimitAsn;
+  /**
    * Specifies a cookie as an aggregate key for a rate-based rule.
    */
   Cookie?: RateLimitCookie;
@@ -678,6 +690,12 @@ export type RateBasedStatementCustomKey = {
    */
   UriPath?: RateLimitUriPath;
 };
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.RateLimitAsn`.
+ * Specifies the request's ASN as an aggregate key for a rate-based rule.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratelimitasn.html}
+ */
+export type RateLimitAsn = Record<string, any>;
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.RateLimitCookie`.
  * Specifies a cookie as an aggregate key for a rate-based rule.
@@ -942,6 +960,7 @@ export type SqliMatchStatement = {
  */
 export type Statement = {
   AndStatement?: AndStatement;
+  AsnMatchStatement?: AsnMatchStatement;
   /**
    * Byte Match statement.
    */

@@ -101,7 +101,10 @@ export type KMSKeyProperties = {
     | "HMAC_256"
     | "HMAC_384"
     | "HMAC_512"
-    | "SM2";
+    | "SM2"
+    | "ML_DSA_44"
+    | "ML_DSA_65"
+    | "ML_DSA_87";
   /**
      * Determines the [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. The default value is ``ENCRYPT_DECRYPT``. This property is required for asymmetric KMS keys and HMAC KMS keys. You can't change the ``KeyUsage`` value after the KMS key is created.
       If you change the value of the ``KeyUsage`` property on an existing KMS key, the update request fails, regardless of the value of the [UpdateReplacePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html). This prevents you from accidentally deleting a KMS key by changing an immutable property value.

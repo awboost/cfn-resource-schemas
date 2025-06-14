@@ -1,5 +1,5 @@
 {
-  "$hash": "5d1c9015bddefa6076503aee4191d9078e7c1eb0",
+  "$hash": "81a99702d71bb02e9778220b89933dd723f2ea71",
   "$id": "aws-mwaa-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -123,7 +123,10 @@
       "properties": {
         "CreatedAt": { "$ref": "#/definitions/UpdateCreatedAt" },
         "Error": { "$ref": "#/definitions/UpdateError" },
-        "Status": { "$ref": "#/definitions/UpdateStatus" }
+        "Status": { "$ref": "#/definitions/UpdateStatus" },
+        "WorkerReplacementStrategy": {
+          "$ref": "#/definitions/WorkerReplacementStrategy"
+        }
       },
       "type": "object"
     },
@@ -313,6 +316,11 @@
       "maxLength": 9,
       "pattern": "(MON|TUE|WED|THU|FRI|SAT|SUN):([01]\\d|2[0-3]):(00|30)",
       "type": "string"
+    },
+    "WorkerReplacementStrategy": {
+      "description": "The worker replacement strategy to use when updating the environment. Valid values: `FORCED`, `GRACEFUL`. FORCED means Apache Airflow workers will be stopped and replaced without waiting for tasks to complete before an update. GRACEFUL means Apache Airflow workers will be able to complete running tasks for up to 12 hours during an update before being stopped and replaced.",
+      "enum": ["FORCED", "GRACEFUL"],
+      "type": "string"
     }
   },
   "description": "Resource schema for AWS::MWAA::Environment",
@@ -375,7 +383,7 @@
         "kms:DescribeKey",
         "kms:ListAliases"
       ],
-      "timeoutInMinutes": 480
+      "timeoutInMinutes": 900
     }
   },
   "primaryIdentifier": ["/properties/Name"],
@@ -421,6 +429,9 @@
     },
     "WeeklyMaintenanceWindowStart": {
       "$ref": "#/definitions/WeeklyMaintenanceWindowStart"
+    },
+    "WorkerReplacementStrategy": {
+      "$ref": "#/definitions/WorkerReplacementStrategy"
     }
   },
   "readOnlyProperties": [
@@ -445,5 +456,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::MWAA::Environment"
+  "typeName": "AWS::MWAA::Environment",
+  "writeOnlyProperties": ["/properties/WorkerReplacementStrategy"]
 }

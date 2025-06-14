@@ -22,6 +22,7 @@ export type OpsWorksCMServerProperties = {
   PreferredBackupWindow?: string;
   PreferredMaintenanceWindow?: string;
   SecurityGroupIds?: string[];
+  ServerName?: string;
   ServiceRoleArn: string;
   SubnetIds?: string[];
   Tags?: Tag[];
@@ -34,7 +35,6 @@ export type OpsWorksCMServerAttributes = {
   Arn: string;
   Endpoint: string;
   Id: string;
-  ServerName: string;
 };
 /**
  * Type definition for `AWS::OpsWorksCM::Server.EngineAttribute`.

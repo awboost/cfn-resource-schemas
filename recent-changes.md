@@ -1,22 +1,32 @@
-- updated `AWS::Athena::WorkGroup`
-  - added definition `ManagedQueryResultsConfiguration`
-  - added definition `ManagedStorageEncryptionConfiguration`
-  - updated definition `WorkGroupConfigurationUpdates`
-  - updated definition `WorkGroupConfiguration`
-- updated `AWS::EC2::EgressOnlyInternetGateway`
-  - added property `Tags`
-  - updated `tagging`
-  - updated definition `undefined`
+- updated `AWS::KMS::Key`
+  - updated property `KeySpec`
+- updated `AWS::MWAA::Environment`
+  - added `writeOnlyProperties`
+  - added definition `WorkerReplacementStrategy`
+  - added property `WorkerReplacementStrategy`
+  - updated definition `LastUpdate`
   - updated handler permissions
-- updated `AWS::Lambda::LayerVersionPermission`
-  - added `propertyTransform`
-- updated `AWS::SageMaker::AppImageConfig`
-  - added `propertyTransform`
-  - added `tagging`
-  - removed `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::SageMaker::Domain`
-  - added definition `UnifiedStudioSettings`
-  - updated definition `DomainSettings`
-- updated `AWS::SageMaker::StudioLifecycleConfig`
-  - added `propertyTransform`
+- updated `AWS::OpsWorksCM::Server`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+- updated `AWS::WAFv2::RuleGroup`
+  - added definition `AsnMatchStatement`
+  - added definition `RateLimitAsn`
+  - updated definition `RateBasedStatementCustomKey`
+  - updated definition `Statement`
+- updated `AWS::WAFv2::WebACL`
+  - added definition `AWSManagedRulesAntiDDoSRuleSet`
+  - added definition `AsnMatchStatement`
+  - added definition `ClientSideActionConfig`
+  - added definition `ClientSideAction`
+  - added definition `OnSourceDDoSProtectionConfig`
+  - added definition `RateLimitAsn`
+  - added definition `RegexPatternString`
+  - added definition `Regex`
+  - added definition `RegularExpressionList`
+  - added definition `SensitivityToAct`
+  - added definition `UsageOfAction`
+  - updated definition `ManagedRuleGroupConfig`
+  - updated definition `RateBasedStatementCustomKey`
+  - updated definition `Statement`
+  - updated property `OnSourceDDoSProtectionConfig`

@@ -1,5 +1,5 @@
 {
-  "$hash": "67e37bba6af9cfdf704e3124f7aa2c5c4e51d27b",
+  "$hash": "6c0046007fc2e6b2011867763a6bc6d0eec860ab",
   "$id": "aws-wafv2-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -23,6 +23,19 @@
         }
       },
       "required": ["Statements"],
+      "type": "object"
+    },
+    "AsnMatchStatement": {
+      "additionalProperties": false,
+      "properties": {
+        "AsnList": {
+          "items": { "maximum": 4294967295, "minimum": 0, "type": "integer" },
+          "type": "array"
+        },
+        "ForwardedIPConfig": {
+          "$ref": "#/definitions/ForwardedIPConfiguration"
+        }
+      },
       "type": "object"
     },
     "BlockAction": {
@@ -537,6 +550,7 @@
       "additionalProperties": false,
       "description": "Specifies a single custom aggregate key for a rate-base rule.",
       "properties": {
+        "ASN": { "$ref": "#/definitions/RateLimitAsn" },
         "Cookie": { "$ref": "#/definitions/RateLimitCookie" },
         "ForwardedIP": { "$ref": "#/definitions/RateLimitForwardedIP" },
         "HTTPMethod": { "$ref": "#/definitions/RateLimitHTTPMethod" },
@@ -552,6 +566,10 @@
       "type": "object"
     },
     "RateLimit": { "maximum": 2000000000, "minimum": 10, "type": "integer" },
+    "RateLimitAsn": {
+      "description": "Specifies the request's ASN as an aggregate key for a rate-based rule.",
+      "type": "object"
+    },
     "RateLimitCookie": {
       "additionalProperties": false,
       "description": "Specifies a cookie as an aggregate key for a rate-based rule.",
@@ -839,6 +857,7 @@
       "description": "First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc",
       "properties": {
         "AndStatement": { "$ref": "#/definitions/AndStatement" },
+        "AsnMatchStatement": { "$ref": "#/definitions/AsnMatchStatement" },
         "ByteMatchStatement": { "$ref": "#/definitions/ByteMatchStatement" },
         "GeoMatchStatement": { "$ref": "#/definitions/GeoMatchStatement" },
         "IPSetReferenceStatement": {

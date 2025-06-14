@@ -1,5 +1,5 @@
 {
-  "$hash": "e9b1eeb492463991374be82bc464c2254418adf5",
+  "$hash": "f7864d0270be85cb0a2b641b81ca638836697baf",
   "$id": "aws-kms-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -104,7 +104,10 @@
         "HMAC_256",
         "HMAC_384",
         "HMAC_512",
-        "SM2"
+        "SM2",
+        "ML_DSA_44",
+        "ML_DSA_65",
+        "ML_DSA_87"
       ],
       "type": "string"
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "8972297d801fb645c79df05885f96ac07c6fad77",
+  "$hash": "0a9b930858041be9cb8fd83d8546048a9c204662",
   "$id": "aws-wafv2-webacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -27,6 +27,18 @@
         "ResponseInspection": { "$ref": "#/definitions/ResponseInspection" }
       },
       "required": ["LoginPath"],
+      "type": "object"
+    },
+    "AWSManagedRulesAntiDDoSRuleSet": {
+      "additionalProperties": false,
+      "description": "Configures how to use the AntiDDOS AWS managed rule group in the web ACL",
+      "properties": {
+        "ClientSideActionConfig": {
+          "$ref": "#/definitions/ClientSideActionConfig"
+        },
+        "SensitivityToBlock": { "$ref": "#/definitions/SensitivityToAct" }
+      },
+      "required": ["ClientSideActionConfig"],
       "type": "object"
     },
     "AWSManagedRulesBotControlRuleSet": {
@@ -59,6 +71,19 @@
         }
       },
       "required": ["Statements"],
+      "type": "object"
+    },
+    "AsnMatchStatement": {
+      "additionalProperties": false,
+      "properties": {
+        "AsnList": {
+          "items": { "maximum": 4294967295, "minimum": 0, "type": "integer" },
+          "type": "array"
+        },
+        "ForwardedIPConfig": {
+          "$ref": "#/definitions/ForwardedIPConfiguration"
+        }
+      },
       "type": "object"
     },
     "AssociationConfig": {
@@ -142,6 +167,28 @@
       "properties": {
         "ImmunityTimeProperty": { "$ref": "#/definitions/ImmunityTimeProperty" }
       },
+      "type": "object"
+    },
+    "ClientSideAction": {
+      "additionalProperties": false,
+      "description": "Client side action config for AntiDDOS AMR.",
+      "properties": {
+        "ExemptUriRegularExpressions": {
+          "$ref": "#/definitions/RegularExpressionList"
+        },
+        "Sensitivity": { "$ref": "#/definitions/SensitivityToAct" },
+        "UsageOfAction": { "$ref": "#/definitions/UsageOfAction" }
+      },
+      "required": ["UsageOfAction"],
+      "type": "object"
+    },
+    "ClientSideActionConfig": {
+      "additionalProperties": false,
+      "description": "Client side action config for AntiDDOS AMR.",
+      "properties": {
+        "Challenge": { "$ref": "#/definitions/ClientSideAction" }
+      },
+      "required": ["Challenge"],
       "type": "object"
     },
     "CookieMatchPattern": {
@@ -610,6 +657,9 @@
         "AWSManagedRulesATPRuleSet": {
           "$ref": "#/definitions/AWSManagedRulesATPRuleSet"
         },
+        "AWSManagedRulesAntiDDoSRuleSet": {
+          "$ref": "#/definitions/AWSManagedRulesAntiDDoSRuleSet"
+        },
         "AWSManagedRulesBotControlRuleSet": {
           "$ref": "#/definitions/AWSManagedRulesBotControlRuleSet"
         },
@@ -665,6 +715,18 @@
       "additionalProperties": false,
       "properties": { "Statement": { "$ref": "#/definitions/Statement" } },
       "required": ["Statement"],
+      "type": "object"
+    },
+    "OnSourceDDoSProtectionConfig": {
+      "additionalProperties": false,
+      "description": "Configures the options for on-source DDoS protection provided by supported resource type.",
+      "properties": {
+        "ALBLowReputationMode": {
+          "enum": ["ACTIVE_UNDER_DDOS", "ALWAYS_ON"],
+          "type": "string"
+        }
+      },
+      "required": ["ALBLowReputationMode"],
       "type": "object"
     },
     "OrStatement": {
@@ -738,6 +800,7 @@
       "additionalProperties": false,
       "description": "Specifies a single custom aggregate key for a rate-base rule.",
       "properties": {
+        "ASN": { "$ref": "#/definitions/RateLimitAsn" },
         "Cookie": { "$ref": "#/definitions/RateLimitCookie" },
         "ForwardedIP": { "$ref": "#/definitions/RateLimitForwardedIP" },
         "HTTPMethod": { "$ref": "#/definitions/RateLimitHTTPMethod" },
@@ -753,6 +816,10 @@
       "type": "object"
     },
     "RateLimit": { "maximum": 2000000000, "minimum": 10, "type": "integer" },
+    "RateLimitAsn": {
+      "description": "Specifies the request's ASN as an aggregate key for a rate-based rule.",
+      "type": "object"
+    },
     "RateLimitCookie": {
       "additionalProperties": false,
       "description": "Specifies a cookie as an aggregate key for a rate-based rule.",
@@ -877,6 +944,13 @@
       "required": ["TextTransformations"],
       "type": "object"
     },
+    "Regex": {
+      "description": "Regex",
+      "properties": {
+        "RegexString": { "$ref": "#/definitions/RegexPatternString" }
+      },
+      "type": "object"
+    },
     "RegexMatchStatement": {
       "additionalProperties": false,
       "properties": {
@@ -902,6 +976,15 @@
       },
       "required": ["Arn", "FieldToMatch", "TextTransformations"],
       "type": "object"
+    },
+    "RegexPatternString": {
+      "maxLength": 512,
+      "minLength": 1,
+      "type": "string"
+    },
+    "RegularExpressionList": {
+      "items": { "$ref": "#/definitions/Regex" },
+      "type": "array"
     },
     "RequestBody": {
       "additionalProperties": false,
@@ -1202,6 +1285,7 @@
       "enum": ["LOW", "HIGH"],
       "type": "string"
     },
+    "SensitivityToAct": { "enum": ["LOW", "MEDIUM", "HIGH"], "type": "string" },
     "SingleHeader": {
       "additionalProperties": false,
       "properties": { "Name": { "type": "string" } },
@@ -1258,6 +1342,7 @@
       "description": "First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc",
       "properties": {
         "AndStatement": { "$ref": "#/definitions/AndStatement" },
+        "AsnMatchStatement": { "$ref": "#/definitions/AsnMatchStatement" },
         "ByteMatchStatement": { "$ref": "#/definitions/ByteMatchStatement" },
         "GeoMatchStatement": { "$ref": "#/definitions/GeoMatchStatement" },
         "IPSetReferenceStatement": {
@@ -1354,6 +1439,7 @@
       "type": "object"
     },
     "UriPath": { "type": "object" },
+    "UsageOfAction": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
     "VisibilityConfig": {
       "additionalProperties": false,
       "description": "Visibility Metric of the WebACL.",
@@ -1436,7 +1522,9 @@
     "Id": { "$ref": "#/definitions/EntityId" },
     "LabelNamespace": { "$ref": "#/definitions/LabelName" },
     "Name": { "$ref": "#/definitions/EntityName" },
-    "OnSourceDDoSProtectionConfig": {},
+    "OnSourceDDoSProtectionConfig": {
+      "$ref": "#/definitions/OnSourceDDoSProtectionConfig"
+    },
     "Rules": {
       "description": "Collection of Rules.",
       "items": { "$ref": "#/definitions/Rule" },

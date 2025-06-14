@@ -157,6 +157,10 @@ export type MWAAEnvironmentProperties = {
    * @pattern `(MON|TUE|WED|THU|FRI|SAT|SUN):([01]\d|2[0-3]):(00|30)`
    */
   WeeklyMaintenanceWindowStart?: string;
+  /**
+   * The worker replacement strategy to use when updating the environment. Valid values: `FORCED`, `GRACEFUL`. FORCED means Apache Airflow workers will be stopped and replaced without waiting for tasks to complete before an update. GRACEFUL means Apache Airflow workers will be able to complete running tasks for up to 12 hours during an update before being stopped and replaced.
+   */
+  WorkerReplacementStrategy?: WorkerReplacementStrategy;
 };
 /**
  * Attribute type definition for `AWS::MWAA::Environment`.
@@ -320,6 +324,12 @@ export type NetworkConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-webserveraccessmode.html}
  */
 export type WebserverAccessMode = "PRIVATE_ONLY" | "PUBLIC_ONLY";
+/**
+ * Type definition for `AWS::MWAA::Environment.WorkerReplacementStrategy`.
+ * The worker replacement strategy to use when updating the environment. Valid values: `FORCED`, `GRACEFUL`. FORCED means Apache Airflow workers will be stopped and replaced without waiting for tasks to complete before an update. GRACEFUL means Apache Airflow workers will be able to complete running tasks for up to 12 hours during an update before being stopped and replaced.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-workerreplacementstrategy.html}
+ */
+export type WorkerReplacementStrategy = "FORCED" | "GRACEFUL";
 /**
  * Resource schema for AWS::MWAA::Environment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html}

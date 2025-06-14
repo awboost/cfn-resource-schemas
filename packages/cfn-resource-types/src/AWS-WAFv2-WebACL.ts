@@ -34,7 +34,10 @@ export type WAFv2WebACLProperties = {
    * @pattern `^[0-9A-Za-z_-]{1,128}$`
    */
   Name?: string;
-  OnSourceDDoSProtectionConfig?: any;
+  /**
+   * Configures the options for on-source DDoS protection provided by supported resource type.
+   */
+  OnSourceDDoSProtectionConfig?: OnSourceDDoSProtectionConfig;
   /**
    * Collection of Rules.
    */
@@ -106,6 +109,14 @@ export type AndStatement = {
   Statements: Statement[];
 };
 /**
+ * Type definition for `AWS::WAFv2::WebACL.AsnMatchStatement`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-asnmatchstatement.html}
+ */
+export type AsnMatchStatement = {
+  AsnList?: number[];
+  ForwardedIPConfig?: ForwardedIPConfiguration;
+};
+/**
  * Type definition for `AWS::WAFv2::WebACL.AssociationConfig`.
  * AssociationConfig for body inspection
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html}
@@ -133,6 +144,18 @@ export type AWSManagedRulesACFPRuleSet = {
    * Configures the inspection of login responses
    */
   ResponseInspection?: ResponseInspection;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.AWSManagedRulesAntiDDoSRuleSet`.
+ * Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesantiddosruleset.html}
+ */
+export type AWSManagedRulesAntiDDoSRuleSet = {
+  /**
+   * Client side action config for AntiDDOS AMR.
+   */
+  ClientSideActionConfig: ClientSideActionConfig;
+  SensitivityToBlock?: SensitivityToAct;
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.AWSManagedRulesATPRuleSet`.
@@ -250,6 +273,27 @@ export type ChallengeAction = {
  */
 export type ChallengeConfig = {
   ImmunityTimeProperty?: ImmunityTimeProperty;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.ClientSideAction`.
+ * Client side action config for AntiDDOS AMR.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-clientsideaction.html}
+ */
+export type ClientSideAction = {
+  ExemptUriRegularExpressions?: Regex[];
+  Sensitivity?: SensitivityToAct;
+  UsageOfAction: UsageOfAction;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.ClientSideActionConfig`.
+ * Client side action config for AntiDDOS AMR.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-clientsideactionconfig.html}
+ */
+export type ClientSideActionConfig = {
+  /**
+   * Client side action config for AntiDDOS AMR.
+   */
+  Challenge: ClientSideAction;
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.CookieMatchPattern`.
@@ -725,6 +769,10 @@ export type ManagedRuleGroupConfig = {
    */
   AWSManagedRulesATPRuleSet?: AWSManagedRulesATPRuleSet;
   /**
+   * Configures how to use the AntiDDOS AWS managed rule group in the web ACL
+   */
+  AWSManagedRulesAntiDDoSRuleSet?: AWSManagedRulesAntiDDoSRuleSet;
+  /**
    * Configures how to use the Bot Control managed rule group in the web ACL
    */
   AWSManagedRulesBotControlRuleSet?: AWSManagedRulesBotControlRuleSet;
@@ -785,6 +833,14 @@ export type NotStatement = {
    * First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
    */
   Statement: Statement;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.OnSourceDDoSProtectionConfig`.
+ * Configures the options for on-source DDoS protection provided by supported resource type.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-onsourceddosprotectionconfig.html}
+ */
+export type OnSourceDDoSProtectionConfig = {
+  ALBLowReputationMode: "ACTIVE_UNDER_DDOS" | "ALWAYS_ON";
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.OrStatement`.
@@ -860,6 +916,10 @@ export type RateBasedStatement = {
  */
 export type RateBasedStatementCustomKey = {
   /**
+   * Specifies the request's ASN as an aggregate key for a rate-based rule.
+   */
+  ASN?: RateLimitAsn;
+  /**
    * Specifies a cookie as an aggregate key for a rate-based rule.
    */
   Cookie?: RateLimitCookie;
@@ -904,6 +964,12 @@ export type RateBasedStatementCustomKey = {
    */
   UriPath?: RateLimitUriPath;
 };
+/**
+ * Type definition for `AWS::WAFv2::WebACL.RateLimitAsn`.
+ * Specifies the request's ASN as an aggregate key for a rate-based rule.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitasn.html}
+ */
+export type RateLimitAsn = Record<string, any>;
 /**
  * Type definition for `AWS::WAFv2::WebACL.RateLimitCookie`.
  * Specifies a cookie as an aggregate key for a rate-based rule.
@@ -1010,6 +1076,18 @@ export type RateLimitQueryString = {
  */
 export type RateLimitUriPath = {
   TextTransformations: TextTransformation[];
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.Regex`.
+ * Regex
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regex.html}
+ */
+export type Regex = {
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   */
+  RegexString?: string;
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.RegexMatchStatement`.
@@ -1309,6 +1387,11 @@ export type Scope = "CLOUDFRONT" | "REGIONAL";
  */
 export type SensitivityLevel = "LOW" | "HIGH";
 /**
+ * Type definition for `AWS::WAFv2::WebACL.SensitivityToAct`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sensitivitytoact.html}
+ */
+export type SensitivityToAct = "LOW" | "MEDIUM" | "HIGH";
+/**
  * Type definition for `AWS::WAFv2::WebACL.SizeConstraintStatement`.
  * Size Constraint statement.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html}
@@ -1354,6 +1437,7 @@ export type SqliMatchStatement = {
  */
 export type Statement = {
   AndStatement?: AndStatement;
+  AsnMatchStatement?: AsnMatchStatement;
   /**
    * Byte Match statement.
    */
@@ -1448,6 +1532,11 @@ export type TextTransformationType =
 export type UriFragment = {
   FallbackBehavior?: "MATCH" | "NO_MATCH";
 };
+/**
+ * Type definition for `AWS::WAFv2::WebACL.UsageOfAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-usageofaction.html}
+ */
+export type UsageOfAction = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::WAFv2::WebACL.VisibilityConfig`.
  * Visibility Metric of the WebACL.
