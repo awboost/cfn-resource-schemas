@@ -218,7 +218,7 @@ export type AmazonManagedKafkaEventSourceConfig = {
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.DestinationConfig`.
- * A configuration object that specifies the destination of an event after Lambda processes it.
+ * A configuration object that specifies the destination of an event after Lambda processes it. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html}
  */
 export type DestinationConfig = {
@@ -305,7 +305,7 @@ export type MetricsConfig = {
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.OnFailure`.
- * A destination for events that failed processing. See [Capturing records of Lambda asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html) for more information.
+ * A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html}
  */
 export type OnFailure = {
@@ -356,15 +356,11 @@ export type ScalingConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryaccessconfig.html}
  */
 export type SchemaRegistryAccessConfig = {
-  /**
-   * The type of authentication Lambda uses to access your schema registry.
-   */
   Type?:
     | "BASIC_AUTH"
     | "CLIENT_CERTIFICATE_TLS_AUTH"
     | "SERVER_ROOT_CA_CERTIFICATE";
   /**
-   * The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
    * @minLength `1`
    * @maxLength `10000`
    * @pattern `arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
@@ -377,23 +373,17 @@ export type SchemaRegistryAccessConfig = {
  */
 export type SchemaRegistryConfig = {
   /**
-   * An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
    * @maxLength `2`
    */
   AccessConfigs?: SchemaRegistryAccessConfig[];
-  /**
-   * The record format that Lambda delivers to your function after schema validation.
-   */
   EventRecordFormat?: "JSON" | "SOURCE";
   /**
-   * The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
    * @minLength `1`
    * @maxLength `10000`
    * @pattern `[a-zA-Z0-9-/*:_+=.@-]*`
    */
   SchemaRegistryURI?: string;
   /**
-   * An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
    * @minLength `1`
    * @maxLength `2`
    */
@@ -404,9 +394,6 @@ export type SchemaRegistryConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemavalidationconfig.html}
  */
 export type SchemaValidationConfig = {
-  /**
-   * The attribute you want your schema registry to validate and filter for.
-   */
   Attribute?: "KEY" | "VALUE";
 };
 /**

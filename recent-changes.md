@@ -1,32 +1,6 @@
-- updated `AWS::KMS::Key`
-  - updated property `KeySpec`
-- updated `AWS::MWAA::Environment`
-  - added `writeOnlyProperties`
-  - added definition `WorkerReplacementStrategy`
-  - added property `WorkerReplacementStrategy`
-  - updated definition `LastUpdate`
-  - updated handler permissions
-- updated `AWS::OpsWorksCM::Server`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-- updated `AWS::WAFv2::RuleGroup`
-  - added definition `AsnMatchStatement`
-  - added definition `RateLimitAsn`
-  - updated definition `RateBasedStatementCustomKey`
-  - updated definition `Statement`
-- updated `AWS::WAFv2::WebACL`
-  - added definition `AWSManagedRulesAntiDDoSRuleSet`
-  - added definition `AsnMatchStatement`
-  - added definition `ClientSideActionConfig`
-  - added definition `ClientSideAction`
-  - added definition `OnSourceDDoSProtectionConfig`
-  - added definition `RateLimitAsn`
-  - added definition `RegexPatternString`
-  - added definition `Regex`
-  - added definition `RegularExpressionList`
-  - added definition `SensitivityToAct`
-  - added definition `UsageOfAction`
-  - updated definition `ManagedRuleGroupConfig`
-  - updated definition `RateBasedStatementCustomKey`
-  - updated definition `Statement`
-  - updated property `OnSourceDDoSProtectionConfig`
+- updated `AWS::Lambda::EventSourceMapping`
+  - updated definition `DestinationConfig`
+  - updated definition `OnFailure`
+  - updated definition `SchemaRegistryAccessConfig`
+  - updated definition `SchemaRegistryConfig`
+  - updated definition `SchemaValidationConfig`
