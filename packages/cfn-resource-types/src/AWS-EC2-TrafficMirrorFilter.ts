@@ -1,12 +1,21 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::EC2::TrafficMirrorFilter
+ * Resource schema for AWS::EC2::TrafficMirrorFilter
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html}
  */
 export type EC2TrafficMirrorFilterProperties = {
+  /**
+   * The description of a traffic mirror filter.
+   */
   Description?: string;
-  NetworkServices?: string[];
+  /**
+   * The network service that is associated with the traffic mirror filter.
+   */
+  NetworkServices?: TrafficMirrorNetworkService[];
+  /**
+   * The tags for a traffic mirror filter.
+   */
   Tags?: Tag[];
 };
 /**
@@ -14,6 +23,9 @@ export type EC2TrafficMirrorFilterProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html#aws-resource-ec2-trafficmirrorfilter-return-values}
  */
 export type EC2TrafficMirrorFilterAttributes = {
+  /**
+   * The ID of a traffic mirror filter.
+   */
   Id: string;
 };
 /**
@@ -25,7 +37,13 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource Type definition for AWS::EC2::TrafficMirrorFilter
+ * Type definition for `AWS::EC2::TrafficMirrorFilter.TrafficMirrorNetworkService`.
+ * The network service traffic that is associated with the traffic mirror filter.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-trafficmirrorfilter-trafficmirrornetworkservice.html}
+ */
+export type TrafficMirrorNetworkService = "amazon-dns";
+/**
+ * Resource schema for AWS::EC2::TrafficMirrorFilter
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilter.html}
  */
 export class EC2TrafficMirrorFilter extends $Resource<

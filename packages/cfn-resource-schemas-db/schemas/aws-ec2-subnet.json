@@ -1,5 +1,5 @@
 {
-  "$hash": "913394b6a857006dffb80c3da698d90bb35605e6",
+  "$hash": "ad96f7a1ccd7c08124d4edf9c12cd38fbc4ef8d1",
   "$id": "aws-ec2-subnet.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/Ipv6CidrBlock"],
@@ -69,6 +69,17 @@
       "description": "The AZ ID of the subnet.",
       "type": "string"
     },
+    "BlockPublicAccessStates": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "InternetGatewayBlockMode": {
+          "description": "The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress ",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "CidrBlock": {
       "description": "The IPv4 CIDR block assigned to the subnet.\n If you update this property, we create a new subnet, and then delete the existing one.",
       "type": "string"
@@ -112,7 +123,7 @@
       "type": "integer"
     },
     "MapPublicIpOnLaunch": {
-      "description": "Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.\n  AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).",
+      "description": "Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.\n AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).",
       "type": "boolean"
     },
     "NetworkAclAssociationId": { "description": "", "type": "string" },
@@ -145,7 +156,8 @@
   "readOnlyProperties": [
     "/properties/NetworkAclAssociationId",
     "/properties/SubnetId",
-    "/properties/Ipv6CidrBlocks"
+    "/properties/Ipv6CidrBlocks",
+    "/properties/BlockPublicAccessStates"
   ],
   "required": ["VpcId"],
   "tagging": {

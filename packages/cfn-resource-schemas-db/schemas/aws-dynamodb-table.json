@@ -1,5 +1,5 @@
 {
-  "$hash": "745545b415e5c29be553e6265e82c8eef4ebaa01",
+  "$hash": "94f7e4db251e53d0de68f3e8673bbc073d3b6330",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/KeySchema"],
@@ -92,7 +92,7 @@
         },
         "OnDemandThroughput": {
           "$ref": "#/definitions/OnDemandThroughput",
-          "description": "The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both."
+          "description": "The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode."
         },
         "Projection": {
           "$ref": "#/definitions/Projection",
@@ -100,7 +100,7 @@
         },
         "ProvisionedThroughput": {
           "$ref": "#/definitions/ProvisionedThroughput",
-          "description": "Represents the provisioned throughput settings for the specified global secondary index.\n For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*."
+          "description": "Represents the provisioned throughput settings for the specified global secondary index. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.\n For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*."
         },
         "WarmThroughput": {
           "$ref": "#/definitions/WarmThroughput",

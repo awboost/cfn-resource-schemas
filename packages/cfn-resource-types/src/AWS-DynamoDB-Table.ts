@@ -184,7 +184,7 @@ export type GlobalSecondaryIndex = {
      */
   KeySchema: KeySchema[];
   /**
-   * The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
+   * The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
    */
   OnDemandThroughput?: OnDemandThroughput;
   /**
@@ -192,7 +192,7 @@ export type GlobalSecondaryIndex = {
    */
   Projection: Projection;
   /**
-     * Represents the provisioned throughput settings for the specified global secondary index.
+     * Represents the provisioned throughput settings for the specified global secondary index. You must use either ``OnDemandThroughput`` or ``ProvisionedThroughput`` based on your table's capacity mode.
      For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
      */
   ProvisionedThroughput?: ProvisionedThroughput;

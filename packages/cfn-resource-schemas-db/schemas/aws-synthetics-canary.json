@@ -1,5 +1,5 @@
 {
-  "$hash": "55aa6da049b5c5bf97c1c3a2e4af8d94d4668dc6",
+  "$hash": "ff17266daa652000b5c2865fa8b04c5a7df00f1c",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -79,6 +79,10 @@
             "[a-zA-Z][a-zA-Z0-9_]+": { "type": "string" }
           },
           "type": "object"
+        },
+        "EphemeralStorage": {
+          "description": "Provide ephemeralStorage available for canary in MB",
+          "type": "integer"
         },
         "MemoryInMB": {
           "description": "Provide maximum memory available for canary in MB",

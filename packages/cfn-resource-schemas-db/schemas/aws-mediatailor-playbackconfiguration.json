@@ -1,5 +1,5 @@
 {
-  "$hash": "510ccb9da38d4a609fea42bb62c194b9ee492df4",
+  "$hash": "4ce5f6f19a2a498c97bd07a7b4366297bf84c566",
   "$id": "aws-mediatailor-playbackconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -22,6 +22,22 @@
         "Enabled": {
           "description": "Enables ad marker passthrough for your configuration.",
           "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "AdsInteractionLog": {
+      "additionalProperties": false,
+      "properties": {
+        "ExcludeEventTypes": {
+          "description": "Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.",
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "PublishOptInEventTypes": {
+          "description": "Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.",
+          "items": { "type": "string" },
+          "type": "array"
         }
       },
       "type": "object"
@@ -127,6 +143,32 @@
       },
       "type": "object"
     },
+    "LogConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "AdsInteractionLog": {
+          "$ref": "#/definitions/AdsInteractionLog",
+          "description": "The event types that MediaTailor emits in logs for interactions with the ADS."
+        },
+        "EnabledLoggingStrategies": {
+          "description": "The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch",
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "ManifestServiceInteractionLog": {
+          "$ref": "#/definitions/ManifestServiceInteractionLog",
+          "description": "The event types that MediaTailor emits in logs for interactions with the origin server."
+        },
+        "PercentEnabled": {
+          "description": "The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.",
+          "maximum": 100,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": ["PercentEnabled"],
+      "type": "object"
+    },
     "ManifestProcessingRules": {
       "additionalProperties": false,
       "description": "The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.",
@@ -134,6 +176,17 @@
         "AdMarkerPassthrough": {
           "$ref": "#/definitions/AdMarkerPassthrough",
           "description": "For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0."
+        }
+      },
+      "type": "object"
+    },
+    "ManifestServiceInteractionLog": {
+      "additionalProperties": false,
+      "properties": {
+        "ExcludeEventTypes": {
+          "description": "Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.",
+          "items": { "type": "string" },
+          "type": "array"
         }
       },
       "type": "object"
@@ -212,6 +265,10 @@
     "LivePreRollConfiguration": {
       "$ref": "#/definitions/LivePreRollConfiguration",
       "description": "The configuration for pre-roll ad insertion."
+    },
+    "LogConfiguration": {
+      "$ref": "#/definitions/LogConfiguration",
+      "description": "The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration."
     },
     "ManifestProcessingRules": {
       "$ref": "#/definitions/ManifestProcessingRules",

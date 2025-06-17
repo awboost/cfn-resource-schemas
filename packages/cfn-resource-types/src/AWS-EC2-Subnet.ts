@@ -63,7 +63,7 @@ export type EC2SubnetProperties = {
   Ipv6NetmaskLength?: number;
   /**
      * Indicates whether instances launched in this subnet receive a public IPv4 address. The default value is ``false``.
-      AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
+     AWS charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the *Public IPv4 Address* tab on the [VPC pricing page](https://docs.aws.amazon.com/vpc/pricing/).
      */
   MapPublicIpOnLaunch?: boolean;
   /**
@@ -97,6 +97,12 @@ export type EC2SubnetProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#aws-resource-ec2-subnet-return-values}
  */
 export type EC2SubnetAttributes = {
+  BlockPublicAccessStates: {
+    /**
+     * The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress
+     */
+    InternetGatewayBlockMode: string;
+  };
   Ipv6CidrBlocks: string[];
   NetworkAclAssociationId: string;
   SubnetId: string;

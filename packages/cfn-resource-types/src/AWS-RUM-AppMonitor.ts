@@ -152,7 +152,7 @@ export type DeobfuscationConfiguration = {
   JavaScriptSourceMaps?: {
     /**
      * The S3Uri of the bucket or folder that stores the source map files. It is required if status is ENABLED.
-     * @pattern `^s3://[a-z0-9][-.a-z0-9]{1,61}(?:/[-!_*'().a-z0-9A-Z]+(?:/[-!_*'().a-z0-9A-Z]+)*)?/?$`
+     * @pattern `^s3://[a-z0-9][-.a-z0-9]{1,62}(?:/[-!_*'().a-z0-9A-Z]+(?:/[-!_*'().a-z0-9A-Z]+)*)?/?$`
      */
     S3Uri?: string;
     /**

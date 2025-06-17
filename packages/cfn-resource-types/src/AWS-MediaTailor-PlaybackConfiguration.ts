@@ -38,6 +38,10 @@ export type MediaTailorPlaybackConfigurationProperties = {
    */
   LivePreRollConfiguration?: LivePreRollConfiguration;
   /**
+   * The configuration that defines where AWS Elemental MediaTailor sends logs for the playback configuration.
+   */
+  LogConfiguration?: LogConfiguration;
+  /**
    * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
    */
   ManifestProcessingRules?: ManifestProcessingRules;
@@ -125,6 +129,20 @@ export type AdMarkerPassthrough = {
   Enabled?: boolean;
 };
 /**
+ * Type definition for `AWS::MediaTailor::PlaybackConfiguration.AdsInteractionLog`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-adsinteractionlog.html}
+ */
+export type AdsInteractionLog = {
+  /**
+   * Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+   */
+  ExcludeEventTypes?: string[];
+  /**
+   * Indicates that MediaTailor emits RAW_ADS_RESPONSE logs for playback sessions that are initialized with this configuration.
+   */
+  PublishOptInEventTypes?: string[];
+};
+/**
  * Type definition for `AWS::MediaTailor::PlaybackConfiguration.AvailSuppression`.
  * The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-availsuppression.html}
@@ -210,6 +228,30 @@ export type LivePreRollConfiguration = {
   MaxDurationSeconds?: number;
 };
 /**
+ * Type definition for `AWS::MediaTailor::PlaybackConfiguration.LogConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-logconfiguration.html}
+ */
+export type LogConfiguration = {
+  /**
+   * The event types that MediaTailor emits in logs for interactions with the ADS.
+   */
+  AdsInteractionLog?: AdsInteractionLog;
+  /**
+   * The method used for collecting logs from AWS Elemental MediaTailor. To configure MediaTailor to send logs directly to Amazon CloudWatch Logs, choose LEGACY_CLOUDWATCH. To configure MediaTailor to send logs to CloudWatch, which then vends the logs to your destination of choice, choose VENDED_LOGS. Supported destinations are CloudWatch Logs log group, Amazon S3 bucket, and Amazon Data Firehose stream. To use vended logs, you must configure the delivery destination in Amazon CloudWatch
+   */
+  EnabledLoggingStrategies?: string[];
+  /**
+   * The event types that MediaTailor emits in logs for interactions with the origin server.
+   */
+  ManifestServiceInteractionLog?: ManifestServiceInteractionLog;
+  /**
+   * The percentage of session logs that MediaTailor sends to your CloudWatch Logs account. For example, if your playback configuration has 1000 sessions and percentEnabled is set to 60, MediaTailor sends logs for 600 of the sessions to CloudWatch Logs. MediaTailor decides at random which of the playback configuration sessions to send logs for. If you want to view logs for a specific session, you can use the debug log mode.
+   * @min `0`
+   * @max `100`
+   */
+  PercentEnabled: number;
+};
+/**
  * Type definition for `AWS::MediaTailor::PlaybackConfiguration.ManifestProcessingRules`.
  * The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-manifestprocessingrules.html}
@@ -219,6 +261,16 @@ export type ManifestProcessingRules = {
    * For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
    */
   AdMarkerPassthrough?: AdMarkerPassthrough;
+};
+/**
+ * Type definition for `AWS::MediaTailor::PlaybackConfiguration.ManifestServiceInteractionLog`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-manifestserviceinteractionlog.html}
+ */
+export type ManifestServiceInteractionLog = {
+  /**
+   * Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
+   */
+  ExcludeEventTypes?: string[];
 };
 /**
  * Type definition for `AWS::MediaTailor::PlaybackConfiguration.StreamingMediaFileConditioning`.

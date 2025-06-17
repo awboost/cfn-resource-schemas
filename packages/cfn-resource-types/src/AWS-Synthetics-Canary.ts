@@ -162,6 +162,10 @@ export type RunConfig = {
    */
   EnvironmentVariables?: Record<string, string>;
   /**
+   * Provide ephemeralStorage available for canary in MB
+   */
+  EphemeralStorage?: number;
+  /**
    * Provide maximum memory available for canary in MB
    */
   MemoryInMB?: number;
