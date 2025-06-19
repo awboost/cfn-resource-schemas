@@ -45,6 +45,7 @@ export type AmplifyAppProperties = {
    * @pattern `(?s).*`
    */
   IAMServiceRole?: string;
+  JobConfig?: JobConfig;
   /**
    * @minLength `1`
    * @maxLength `255`
@@ -194,6 +195,13 @@ export type EnvironmentVariable = {
    * @pattern `(?s).*`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::Amplify::App.JobConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-jobconfig.html}
+ */
+export type JobConfig = {
+  BuildComputeType: "STANDARD_8GB" | "LARGE_16GB" | "XLARGE_72GB";
 };
 /**
  * Type definition for `AWS::Amplify::App.Tag`.

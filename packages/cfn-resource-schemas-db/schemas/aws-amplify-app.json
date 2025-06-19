@@ -1,5 +1,5 @@
 {
-  "$hash": "28657ac2187f61646669a50e1b4f641bfb71fe1d",
+  "$hash": "8d522c0709db5bef6ccb4c1caa361e28be018edf",
   "$id": "aws-amplify-app.json",
   "additionalProperties": false,
   "definitions": {
@@ -102,6 +102,17 @@
         "Value": { "maxLength": 5500, "pattern": "(?s).*", "type": "string" }
       },
       "required": ["Name", "Value"],
+      "type": "object"
+    },
+    "JobConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "BuildComputeType": {
+          "enum": ["STANDARD_8GB", "LARGE_16GB", "XLARGE_72GB"],
+          "type": "string"
+        }
+      },
+      "required": ["BuildComputeType"],
       "type": "object"
     },
     "Tag": {
@@ -238,6 +249,7 @@
       "pattern": "(?s).*",
       "type": "string"
     },
+    "JobConfig": { "$ref": "#/definitions/JobConfig" },
     "Name": {
       "maxLength": 255,
       "minLength": 1,

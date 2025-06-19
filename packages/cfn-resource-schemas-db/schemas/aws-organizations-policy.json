@@ -1,5 +1,5 @@
 {
-  "$hash": "519fe6cf2fc75fd37b3c786b0dfbcfca6d2950b3",
+  "$hash": "cd7ef4364b535a5a7c1c13dac866f82075592ed3",
   "$id": "aws-organizations-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
@@ -130,7 +130,7 @@
       "uniqueItems": true
     },
     "Type": {
-      "description": "The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2",
+      "description": "The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY",
       "enum": [
         "SERVICE_CONTROL_POLICY",
         "AISERVICES_OPT_OUT_POLICY",
@@ -138,7 +138,8 @@
         "TAG_POLICY",
         "CHATBOT_POLICY",
         "RESOURCE_CONTROL_POLICY",
-        "DECLARATIVE_POLICY_EC2"
+        "DECLARATIVE_POLICY_EC2",
+        "SECURITYHUB_POLICY"
       ],
       "type": "string"
     }

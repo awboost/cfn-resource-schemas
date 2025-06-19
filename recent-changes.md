@@ -1,3 +1,10 @@
-- updated `AWS::IoTSiteWise::Asset`
-  - added `tagging`
-  - removed `taggable`
+- updated `AWS::Amplify::App`
+  - added definition `JobConfig`
+  - added property `JobConfig`
+- updated `AWS::CleanRooms::Collaboration`
+  - updated `required`
+  - updated definition `MemberSpecification`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `Ebs`
+- updated `AWS::Organizations::Policy`
+  - updated property `Type`

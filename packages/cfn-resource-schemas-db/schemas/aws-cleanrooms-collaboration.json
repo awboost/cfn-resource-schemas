@@ -1,5 +1,5 @@
 {
-  "$hash": "6afa3d72e496c82d415fa3bc7583b25aa372dc42",
+  "$hash": "67ba7c87ddf987436a1d1bb183b868556ac71e65",
   "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -101,7 +101,7 @@
         "MemberAbilities": { "$ref": "#/definitions/MemberAbilities" },
         "PaymentConfiguration": { "$ref": "#/definitions/PaymentConfiguration" }
       },
-      "required": ["AccountId", "DisplayName", "MemberAbilities"],
+      "required": ["AccountId", "DisplayName"],
       "type": "object"
     },
     "MemberStatus": {
@@ -247,14 +247,7 @@
     "/properties/Arn",
     "/properties/CollaborationIdentifier"
   ],
-  "required": [
-    "CreatorDisplayName",
-    "CreatorMemberAbilities",
-    "Members",
-    "Name",
-    "Description",
-    "QueryLogStatus"
-  ],
+  "required": ["CreatorDisplayName", "Name", "Description", "QueryLogStatus"],
   "tagging": {
     "cloudFormationSystemTags": true,
     "permissions": [

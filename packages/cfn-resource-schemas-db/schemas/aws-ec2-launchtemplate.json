@@ -1,5 +1,5 @@
 {
-  "$hash": "10c147ffc77c0267605b345b7b0877ba358b5fa9",
+  "$hash": "46f9358800306483053eb5260a77637c26c190db",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -202,7 +202,10 @@
           "description": "The throughput to provision for a ``gp3`` volume, with a maximum of 1,000 MiB/s.\n Valid Range: Minimum value of 125. Maximum value of 1000.",
           "type": "integer"
         },
-        "VolumeInitializationRate": { "description": "", "type": "integer" },
+        "VolumeInitializationRate": {
+          "description": "Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download the snapshot blocks from Amazon S3 to the volume. This is also known as *volume initialization*. Specifying a volume initialization rate ensures that the volume is initialized at a predictable and consistent rate after creation.\n This parameter is supported only for volumes created from snapshots. Omit this parameter if:\n  +  You want to create the volume using fast snapshot restore. You must specify a snapshot that is enabled for fast snapshot restore. In this case, the volume is fully initialized at creation.\n  If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate, the volume will be initialized at the specified rate instead of fast snapshot restore.\n   +  You want to create a volume that is initialized at the default rate.\n  \n For more information, see [Initialize Amazon EBS volumes](https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html) in the *Amazon EC2 User Guide*.\n Valid range: 100 - 300 MiB/s",
+          "type": "integer"
+        },
         "VolumeSize": {
           "description": "The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. The following are the supported volumes sizes for each volume type:\n  +  ``gp2`` and ``gp3``: 1 - 16,384 GiB\n  +  ``io1``: 4 - 16,384 GiB\n  +  ``io2``: 4 - 65,536 GiB\n  +  ``st1`` and ``sc1``: 125 - 16,384 GiB\n  +  ``standard``: 1 - 1024 GiB",
           "type": "integer"

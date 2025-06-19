@@ -14,7 +14,7 @@ export type CleanRoomsCollaborationProperties = {
    */
   CreatorDisplayName: string;
   CreatorMLMemberAbilities?: MLMemberAbilities;
-  CreatorMemberAbilities: MemberAbility[];
+  CreatorMemberAbilities?: MemberAbility[];
   CreatorPaymentConfiguration?: PaymentConfiguration;
   DataEncryptionMetadata?: DataEncryptionMetadata;
   /**
@@ -28,7 +28,7 @@ export type CleanRoomsCollaborationProperties = {
    * @minLength `0`
    * @maxLength `9`
    */
-  Members: MemberSpecification[];
+  Members?: MemberSpecification[];
   /**
    * @minLength `1`
    * @maxLength `100`
@@ -119,7 +119,7 @@ export type MemberSpecification = {
    */
   DisplayName: string;
   MLMemberAbilities?: MLMemberAbilities;
-  MemberAbilities: MemberAbility[];
+  MemberAbilities?: MemberAbility[];
   PaymentConfiguration?: PaymentConfiguration;
 };
 /**
