@@ -1,10 +1,13 @@
-- updated `AWS::Amplify::App`
-  - added definition `JobConfig`
-  - added property `JobConfig`
-- updated `AWS::CleanRooms::Collaboration`
-  - updated `required`
-  - updated definition `MemberSpecification`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `Ebs`
-- updated `AWS::Organizations::Policy`
-  - updated property `Type`
+- added `AWS::MPA::ApprovalTeam`
+- added `AWS::MPA::IdentitySource`
+- added `AWS::SecurityHub::AggregatorV2`
+- added `AWS::SecurityHub::AutomationRuleV2`
+- updated `AWS::InspectorV2::CisScanConfiguration`
+  - updated `tagging`
+- updated `AWS::InspectorV2::Filter`
+  - added definition `FilterTagMap`
+  - added property `Tags`
+  - updated `tagging`
+  - updated definition `FilterCriteria`
+  - updated definition `PackageFilter`
+  - updated handler permissions

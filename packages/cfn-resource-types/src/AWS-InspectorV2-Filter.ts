@@ -26,6 +26,7 @@ export type InspectorV2FilterProperties = {
    * @maxLength `128`
    */
   Name: string;
+  Tags?: FilterTagMap;
 };
 /**
  * Attribute type definition for `AWS::InspectorV2::Filter`.
@@ -62,6 +63,21 @@ export type FilterCriteria = {
    * @maxLength `10`
    */
   AwsAccountId?: StringFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  CodeVulnerabilityDetectorName?: StringFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  CodeVulnerabilityDetectorTags?: StringFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  CodeVulnerabilityFilePath?: StringFilter[];
   /**
    * @minLength `1`
    * @maxLength `10`
@@ -121,6 +137,16 @@ export type FilterCriteria = {
    * @minLength `1`
    * @maxLength `10`
    */
+  EpssScore?: NumberFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  ExploitAvailable?: StringFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
   FindingArn?: StringFilter[];
   /**
    * @minLength `1`
@@ -141,7 +167,37 @@ export type FilterCriteria = {
    * @minLength `1`
    * @maxLength `10`
    */
+  FixAvailable?: StringFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
   InspectorScore?: NumberFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  LambdaFunctionExecutionRoleArn?: StringFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  LambdaFunctionLastModifiedAt?: DateFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  LambdaFunctionLayers?: StringFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  LambdaFunctionName?: StringFilter[];
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  LambdaFunctionRuntime?: StringFilter[];
   /**
    * @minLength `1`
    * @maxLength `10`
@@ -214,6 +270,11 @@ export type FilterCriteria = {
   VulnerablePackages?: PackageFilter[];
 };
 /**
+ * Type definition for `AWS::InspectorV2::Filter.FilterTagMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtertagmap.html}
+ */
+export type FilterTagMap = Record<string, string>;
+/**
  * Type definition for `AWS::InspectorV2::Filter.MapComparison`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-mapcomparison.html}
  */
@@ -250,8 +311,10 @@ export type NumberFilter = {
 export type PackageFilter = {
   Architecture?: StringFilter;
   Epoch?: NumberFilter;
+  FilePath?: StringFilter;
   Name?: StringFilter;
   Release?: StringFilter;
+  SourceLambdaLayerArn?: StringFilter;
   SourceLayerHash?: StringFilter;
   Version?: StringFilter;
 };
