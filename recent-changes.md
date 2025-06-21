@@ -1,13 +1,28 @@
-- added `AWS::MPA::ApprovalTeam`
-- added `AWS::MPA::IdentitySource`
-- added `AWS::SecurityHub::AggregatorV2`
-- added `AWS::SecurityHub::AutomationRuleV2`
-- updated `AWS::InspectorV2::CisScanConfiguration`
+- added `AWS::SecurityHub::HubV2`
+- updated `AWS::AccessAnalyzer::Analyzer`
+  - added definition `InternalAccessAnalysisRuleCriteria`
+  - added definition `InternalAccessConfiguration`
+  - updated property `AnalyzerConfiguration`
+  - updated property `Type`
+- updated `AWS::AppStream::AppBlock`
+  - removed `writeOnlyProperties`
   - updated `tagging`
-- updated `AWS::InspectorV2::Filter`
-  - added definition `FilterTagMap`
-  - added property `Tags`
-  - updated `tagging`
-  - updated definition `FilterCriteria`
-  - updated definition `PackageFilter`
   - updated handler permissions
+- updated `AWS::AppStream::AppBlockBuilder`
+  - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::AppStream::Application`
+  - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Connect::EvaluationForm`
+  - added definition `AutoEvaluationConfiguration`
+  - added property `AutoEvaluationConfiguration`
+  - updated definition `EvaluationFormNumericQuestionAutomation`
+  - updated definition `NumericQuestionPropertyValueAutomation`
+- updated `AWS::CustomerProfiles::SegmentDefinition`
+  - added definition `ProfileTypeDimensionType`
+  - added definition `ProfileTypeDimension`
+  - added definition `ProfileType`
+  - updated definition `ProfileAttributes`

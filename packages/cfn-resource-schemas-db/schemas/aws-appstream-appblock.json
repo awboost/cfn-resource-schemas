@@ -1,5 +1,5 @@
 {
-  "$hash": "43f7c8fa55d680ce97676056e342990b6caab888",
+  "$hash": "ecdc0b834f4d777055f507b1ab02c8ecf0483112",
   "$id": "aws-appstream-appblock.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -72,8 +72,22 @@
         "s3:GetBucketOwnershipControls"
       ]
     },
-    "delete": { "permissions": ["appstream:DeleteAppBlock"] },
-    "read": { "permissions": ["appstream:DescribeAppBlocks"] }
+    "delete": {
+      "permissions": ["appstream:DeleteAppBlock", "appstream:DescribeAppBlocks"]
+    },
+    "read": {
+      "permissions": [
+        "appstream:DescribeAppBlocks",
+        "appstream:ListTagsForResource"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "appstream:DescribeAppBlocks",
+        "appstream:TagResource",
+        "appstream:UntagResource"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
@@ -98,11 +112,15 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appstream.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "appstream:TagResource",
+      "appstream:ListTagsForResource",
+      "appstream:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::AppStream::AppBlock",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "typeName": "AWS::AppStream::AppBlock"
 }

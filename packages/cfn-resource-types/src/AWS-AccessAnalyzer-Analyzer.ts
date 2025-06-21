@@ -10,6 +10,10 @@ export type AccessAnalyzerAnalyzerProperties = {
    */
   AnalyzerConfiguration?: {
     /**
+     * Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates internal access within your AWS environment.
+     */
+    InternalAccessConfiguration?: InternalAccessConfiguration;
+    /**
      * The Configuration for Unused Access Analyzer
      */
     UnusedAccessConfiguration?: UnusedAccessConfiguration;
@@ -27,7 +31,7 @@ export type AccessAnalyzerAnalyzerProperties = {
    */
   Tags?: Tag[];
   /**
-   * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+   * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_INTERNAL_ACCESS, ORGANIZATION_INTERNAL_ACCESS, ACCOUNT_UNUSED_ACCESS and ORGANIZATION_UNUSED_ACCESS
    * @minLength `0`
    * @maxLength `1024`
    */
@@ -89,6 +93,41 @@ export type Filter = {
   Exists?: boolean;
   Neq?: string[];
   Property: string;
+};
+/**
+ * Type definition for `AWS::AccessAnalyzer::Analyzer.InternalAccessAnalysisRuleCriteria`.
+ * The criteria for an analysis rule for an internal access analyzer.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-internalaccessanalysisrulecriteria.html}
+ */
+export type InternalAccessAnalysisRuleCriteria = {
+  /**
+   * A list of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers and cannot include the organization owner account.
+   */
+  AccountIds?: string[];
+  /**
+   * A list of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
+   */
+  ResourceArns?: string[];
+  /**
+   * A list of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types.
+   */
+  ResourceTypes?: string[];
+};
+/**
+ * Type definition for `AWS::AccessAnalyzer::Analyzer.InternalAccessConfiguration`.
+ * Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates internal access within your AWS environment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-internalaccessconfiguration.html}
+ */
+export type InternalAccessConfiguration = {
+  /**
+   * Contains information about analysis rules for the internal access analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule.
+   */
+  InternalAccessAnalysisRule?: {
+    /**
+     * A list of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings.
+     */
+    Inclusions?: InternalAccessAnalysisRuleCriteria[];
+  };
 };
 /**
  * Type definition for `AWS::AccessAnalyzer::Analyzer.Tag`.

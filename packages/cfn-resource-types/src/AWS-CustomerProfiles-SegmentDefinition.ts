@@ -344,6 +344,10 @@ export type ProfileAttributes = {
    */
   PhoneNumber?: ProfileDimension;
   /**
+   * Specifies profile type based criteria for a segment.
+   */
+  ProfileType?: ProfileTypeDimension;
+  /**
    * The address based criteria for the segment.
    */
   ShippingAddress?: AddressDimension;
@@ -364,6 +368,34 @@ export type ProfileDimension = {
    */
   Values: string[];
 };
+/**
+ * Type definition for `AWS::CustomerProfiles::SegmentDefinition.ProfileType`.
+ * The type of profile.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profiletype.html}
+ */
+export type ProfileType = "ACCOUNT_PROFILE" | "PROFILE";
+/**
+ * Type definition for `AWS::CustomerProfiles::SegmentDefinition.ProfileTypeDimension`.
+ * Specifies profile type based criteria for a segment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profiletypedimension.html}
+ */
+export type ProfileTypeDimension = {
+  /**
+   * The type of segment dimension to use for a profile type dimension.
+   */
+  DimensionType: ProfileTypeDimensionType;
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  Values: ProfileType[];
+};
+/**
+ * Type definition for `AWS::CustomerProfiles::SegmentDefinition.ProfileTypeDimensionType`.
+ * The type of segment dimension to use for a profile type dimension.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profiletypedimensiontype.html}
+ */
+export type ProfileTypeDimensionType = "INCLUSIVE" | "EXCLUSIVE";
 /**
  * Type definition for `AWS::CustomerProfiles::SegmentDefinition.RangeOverride`.
  * Defines the range to be applied to the calculated attribute definition.

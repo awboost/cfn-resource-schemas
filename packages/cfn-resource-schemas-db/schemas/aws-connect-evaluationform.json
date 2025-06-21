@@ -1,8 +1,19 @@
 {
-  "$hash": "e9be91499048f7f5303dee616f37fff533644ea3",
+  "$hash": "75b418802340d7054ca0704f52b329cf6c43a30b",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
+    "AutoEvaluationConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Enabled": {
+          "description": "Auto Evaluation enablement status.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "EvaluationFormBaseItem": {
       "additionalProperties": false,
       "description": "An item at the root level. All items must be sections.",
@@ -34,12 +45,12 @@
       "additionalProperties": false,
       "description": "Information about the automation configuration in numeric questions.",
       "properties": {
+        "AnswerSource": { "description": "" },
         "PropertyValue": {
           "$ref": "#/definitions/NumericQuestionPropertyValueAutomation",
           "description": "The property value of the automation."
         }
       },
-      "required": ["PropertyValue"],
       "type": "object"
     },
     "EvaluationFormNumericQuestionOption": {
@@ -287,7 +298,10 @@
             "NUMBER_OF_INTERRUPTIONS",
             "CONTACT_DURATION",
             "AGENT_INTERACTION_DURATION",
-            "CUSTOMER_HOLD_TIME"
+            "CUSTOMER_HOLD_TIME",
+            "LONGEST_HOLD_DURATION",
+            "NUMBER_OF_HOLDS",
+            "AGENT_INTERACTION_AND_HOLD_DURATION"
           ],
           "type": "string"
         }
@@ -406,6 +420,10 @@
   },
   "primaryIdentifier": ["/properties/EvaluationFormArn"],
   "properties": {
+    "AutoEvaluationConfiguration": {
+      "$ref": "#/definitions/AutoEvaluationConfiguration",
+      "description": ""
+    },
     "Description": {
       "description": "The description of the evaluation form.\n *Length Constraints*: Minimum length of 0. Maximum length of 1024.",
       "maxLength": 1024,

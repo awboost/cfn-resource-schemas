@@ -1,5 +1,5 @@
 {
-  "$hash": "196bb0c7c456707934d1f0a70608232e12a6f711",
+  "$hash": "ef78ae8975e5add0e58ef3d33007025300b79447",
   "$id": "aws-customerprofiles-segmentdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -211,6 +211,7 @@
         "PartyTypeString": { "$ref": "#/definitions/ProfileDimension" },
         "PersonalEmailAddress": { "$ref": "#/definitions/ProfileDimension" },
         "PhoneNumber": { "$ref": "#/definitions/ProfileDimension" },
+        "ProfileType": { "$ref": "#/definitions/ProfileTypeDimension" },
         "ShippingAddress": { "$ref": "#/definitions/AddressDimension" }
       },
       "type": "object"
@@ -230,6 +231,32 @@
       },
       "required": ["DimensionType", "Values"],
       "type": "object"
+    },
+    "ProfileType": {
+      "description": "The type of profile.",
+      "enum": ["ACCOUNT_PROFILE", "PROFILE"],
+      "type": "string"
+    },
+    "ProfileTypeDimension": {
+      "additionalProperties": false,
+      "description": "Specifies profile type based criteria for a segment.",
+      "properties": {
+        "DimensionType": { "$ref": "#/definitions/ProfileTypeDimensionType" },
+        "Values": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/ProfileType" },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["DimensionType", "Values"],
+      "type": "object"
+    },
+    "ProfileTypeDimensionType": {
+      "description": "The type of segment dimension to use for a profile type dimension.",
+      "enum": ["INCLUSIVE", "EXCLUSIVE"],
+      "type": "string"
     },
     "RangeOverride": {
       "additionalProperties": false,

@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html}
  */
 export type ConnectEvaluationFormProperties = {
+  AutoEvaluationConfiguration?: AutoEvaluationConfiguration;
   /**
    * The description of the evaluation form.
    *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -57,6 +58,16 @@ export type ConnectEvaluationFormAttributes = {
   EvaluationFormArn: string;
 };
 /**
+ * Type definition for `AWS::Connect::EvaluationForm.AutoEvaluationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-autoevaluationconfiguration.html}
+ */
+export type AutoEvaluationConfiguration = {
+  /**
+   * Auto Evaluation enablement status.
+   */
+  Enabled?: boolean;
+};
+/**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormBaseItem`.
  * An item at the root level. All items must be sections.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformbaseitem.html}
@@ -88,10 +99,11 @@ export type EvaluationFormItem = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html}
  */
 export type EvaluationFormNumericQuestionAutomation = {
+  AnswerSource?: any;
   /**
    * The property value of the automation.
    */
-  PropertyValue: NumericQuestionPropertyValueAutomation;
+  PropertyValue?: NumericQuestionPropertyValueAutomation;
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormNumericQuestionOption`.
@@ -352,7 +364,10 @@ export type NumericQuestionPropertyValueAutomation = {
     | "NUMBER_OF_INTERRUPTIONS"
     | "CONTACT_DURATION"
     | "AGENT_INTERACTION_DURATION"
-    | "CUSTOMER_HOLD_TIME";
+    | "CUSTOMER_HOLD_TIME"
+    | "LONGEST_HOLD_DURATION"
+    | "NUMBER_OF_HOLDS"
+    | "AGENT_INTERACTION_AND_HOLD_DURATION";
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.ScoringStrategy`.
