@@ -19,6 +19,7 @@ export type DataZoneProjectProfileProperties = {
    * @pattern `^[a-z0-9_\-]+$`
    */
   DomainUnitIdentifier?: string;
+  EnvironmentConfigurations?: EnvironmentConfiguration[];
   /**
    * @minLength `1`
    * @maxLength `64`
@@ -44,6 +45,22 @@ export type DataZoneProjectProfileAttributes = {
    * @pattern `^[a-z0-9_\-]+$`
    */
   DomainUnitId: string;
+  EnvironmentConfigurations: {
+    ConfigurationParameters: {
+      ResolvedParameters: {
+        IsEditable: boolean;
+        /**
+         * @pattern `^[a-zA-Z_][a-zA-Z0-9_]*$`
+         */
+        Name: string;
+        Value: string;
+      }[];
+    };
+    /**
+     * @pattern `^[a-zA-Z0-9_-]{1,36}$`
+     */
+    Id: string;
+  }[];
   /**
    * @pattern `^[a-zA-Z0-9_-]{1,36}$`
    */
@@ -53,6 +70,81 @@ export type DataZoneProjectProfileAttributes = {
    */
   Identifier: string;
   LastUpdatedAt: string;
+};
+/**
+ * Type definition for `AWS::DataZone::ProjectProfile.AwsAccount`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-awsaccount.html}
+ */
+export type AwsAccount = {
+  /**
+   * @pattern `^\d{12}$`
+   */
+  AwsAccountId: string;
+};
+/**
+ * Type definition for `AWS::DataZone::ProjectProfile.DeploymentMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-deploymentmode.html}
+ */
+export type DeploymentMode = "ON_CREATE" | "ON_DEMAND";
+/**
+ * Type definition for `AWS::DataZone::ProjectProfile.EnvironmentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfiguration.html}
+ */
+export type EnvironmentConfiguration = {
+  AwsAccount?: AwsAccount;
+  AwsRegion: Region;
+  ConfigurationParameters?: EnvironmentConfigurationParametersDetails;
+  DeploymentMode?: DeploymentMode;
+  /**
+   * @min `0`
+   * @max `16`
+   */
+  DeploymentOrder?: number;
+  /**
+   * @maxLength `2048`
+   */
+  Description?: string;
+  /**
+   * @pattern `^[a-zA-Z0-9_-]{1,36}$`
+   */
+  EnvironmentBlueprintId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[\w -]+$`
+   */
+  Name: string;
+};
+/**
+ * Type definition for `AWS::DataZone::ProjectProfile.EnvironmentConfigurationParameter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfigurationparameter.html}
+ */
+export type EnvironmentConfigurationParameter = {
+  IsEditable?: boolean;
+  /**
+   * @pattern `^[a-zA-Z_][a-zA-Z0-9_]*$`
+   */
+  Name?: string;
+  Value?: string;
+};
+/**
+ * Type definition for `AWS::DataZone::ProjectProfile.EnvironmentConfigurationParametersDetails`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-environmentconfigurationparametersdetails.html}
+ */
+export type EnvironmentConfigurationParametersDetails = {
+  ParameterOverrides?: EnvironmentConfigurationParameter[];
+};
+/**
+ * Type definition for `AWS::DataZone::ProjectProfile.Region`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-region.html}
+ */
+export type Region = {
+  /**
+   * @minLength `4`
+   * @maxLength `16`
+   * @pattern `^[a-z]{2}-?(iso|gov)?-{1}[a-z]*-{1}[0-9]$`
+   */
+  RegionName: string;
 };
 /**
  * Type definition for `AWS::DataZone::ProjectProfile.Status`.

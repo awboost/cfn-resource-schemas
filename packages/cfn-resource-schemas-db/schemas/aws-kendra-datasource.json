@@ -1,5 +1,5 @@
 {
-  "$hash": "e55f8d4309d1c36d0557da38129ebf9604ebced3",
+  "$hash": "4b53ead797ac3faf6331038bbbabb3056c8e8c4e",
   "$id": "aws-kendra-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type", "/properties/IndexId"],
@@ -315,7 +315,8 @@
         { "required": ["ConfluenceConfiguration"] },
         { "required": ["GoogleDriveConfiguration"] },
         { "required": ["WebCrawlerConfiguration"] },
-        { "required": ["WorkDocsConfiguration"] }
+        { "required": ["WorkDocsConfiguration"] },
+        { "required": ["TemplateConfiguration"] }
       ],
       "properties": {
         "ConfluenceConfiguration": {
@@ -341,6 +342,9 @@
         },
         "SharePointConfiguration": {
           "$ref": "#/definitions/SharePointConfiguration"
+        },
+        "TemplateConfiguration": {
+          "$ref": "#/definitions/TemplateConfiguration"
         },
         "WebCrawlerConfiguration": {
           "$ref": "#/definitions/WebCrawlerConfiguration"
@@ -1067,6 +1071,12 @@
       "maxItems": 200,
       "type": "array"
     },
+    "TemplateConfiguration": {
+      "additionalProperties": false,
+      "properties": { "Template": { "type": "object" } },
+      "required": ["Template"],
+      "type": "object"
+    },
     "TenantDomain": {
       "maxLength": 256,
       "minLength": 1,
@@ -1087,7 +1097,8 @@
         "CONFLUENCE",
         "GOOGLEDRIVE",
         "WEBCRAWLER",
-        "WORKDOCS"
+        "WORKDOCS",
+        "TEMPLATE"
       ],
       "type": "string"
     },

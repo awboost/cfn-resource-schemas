@@ -1,5 +1,5 @@
 {
-  "$hash": "9a3e742439f9356c3180f4c5b8de137ad17c10d3",
+  "$hash": "eae8497d444e1131c0e6d80248df57cacefbbef1",
   "$id": "aws-gamelift-containerfleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -516,7 +516,6 @@
   "typeName": "AWS::GameLift::ContainerFleet",
   "writeOnlyProperties": [
     "/properties/DeploymentConfiguration",
-    "/properties/GameServerContainerGroupsPerInstance",
     "/properties/GameServerContainerGroupDefinitionName",
     "/properties/PerInstanceContainerGroupDefinitionName"
   ]

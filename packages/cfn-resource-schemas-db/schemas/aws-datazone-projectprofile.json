@@ -1,5 +1,5 @@
 {
-  "$hash": "9d834b0c07d8de52126696f0732e9935b3ee6bd5",
+  "$hash": "ecdfe3eca3c11f72c18bfc8bfcdf2b0c090bc9ab",
   "$id": "aws-datazone-projectprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainIdentifier"],
@@ -75,8 +75,7 @@
             "$ref": "#/definitions/EnvironmentConfigurationParameter"
           },
           "type": "array"
-        },
-        "SsmPath": { "maxLength": 2048, "minLength": 1, "type": "string" }
+        }
       },
       "type": "object"
     },
@@ -114,7 +113,8 @@
     "create": {
       "permissions": [
         "datazone:CreateProjectProfile",
-        "datazone:GetProjectProfile"
+        "datazone:GetProjectProfile",
+        "ssm:GetParameter"
       ]
     },
     "delete": {
@@ -124,11 +124,14 @@
       ]
     },
     "list": { "permissions": ["datazone:ListProjectProfiles"] },
-    "read": { "permissions": ["datazone:GetProjectProfile"] },
+    "read": {
+      "permissions": ["datazone:GetProjectProfile", "ssm:GetParameter"]
+    },
     "update": {
       "permissions": [
         "datazone:UpdateProjectProfile",
-        "datazone:GetProjectProfile"
+        "datazone:GetProjectProfile",
+        "ssm:GetParameter"
       ]
     }
   },
@@ -157,6 +160,10 @@
       "pattern": "^[a-z0-9_\\-]+$",
       "type": "string"
     },
+    "EnvironmentConfigurations": {
+      "items": { "$ref": "#/definitions/EnvironmentConfiguration" },
+      "type": "array"
+    },
     "Id": { "pattern": "^[a-zA-Z0-9_-]{1,36}$", "type": "string" },
     "Identifier": { "pattern": "^[a-zA-Z0-9_-]{1,36}$", "type": "string" },
     "LastUpdatedAt": { "format": "date-time", "type": "string" },
@@ -175,7 +182,9 @@
     "/properties/DomainUnitId",
     "/properties/Id",
     "/properties/Identifier",
-    "/properties/LastUpdatedAt"
+    "/properties/LastUpdatedAt",
+    "/properties/EnvironmentConfigurations/*/Id",
+    "/properties/EnvironmentConfigurations/*/ConfigurationParameters/ResolvedParameters"
   ],
   "required": ["Name"],
   "tagging": {

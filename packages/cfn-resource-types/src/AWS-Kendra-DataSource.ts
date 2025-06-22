@@ -447,6 +447,7 @@ export type DataSourceConfiguration = {
    * SharePoint configuration
    */
   SharePointConfiguration?: SharePointConfiguration;
+  TemplateConfiguration?: TemplateConfiguration;
   WebCrawlerConfiguration?: WebCrawlerConfiguration;
   WorkDocsConfiguration?: WorkDocsConfiguration;
 };
@@ -1080,6 +1081,13 @@ export type Tag = {
   Value: string;
 };
 /**
+ * Type definition for `AWS::Kendra::DataSource.TemplateConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-templateconfiguration.html}
+ */
+export type TemplateConfiguration = {
+  Template: Record<string, any>;
+};
+/**
  * Type definition for `AWS::Kendra::DataSource.Type`.
  * Data source type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-type.html}
@@ -1095,7 +1103,8 @@ export type Type =
   | "CONFLUENCE"
   | "GOOGLEDRIVE"
   | "WEBCRAWLER"
-  | "WORKDOCS";
+  | "WORKDOCS"
+  | "TEMPLATE";
 /**
  * Type definition for `AWS::Kendra::DataSource.WebCrawlerAuthenticationConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-webcrawlerauthenticationconfiguration.html}

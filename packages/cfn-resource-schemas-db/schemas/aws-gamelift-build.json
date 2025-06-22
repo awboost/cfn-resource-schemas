@@ -1,5 +1,5 @@
 {
-  "$hash": "8e813b08488838588d3d4159fc657297b6291865",
+  "$hash": "385a780153a8b0221254d4678eb7ace7d19a4d28",
   "$id": "aws-gamelift-build.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -60,7 +60,8 @@
         "gamelift:DescribeBuild",
         "gamelift:CreateBuild",
         "gamelift:ListTagsForResource",
-        "gamelift:TagResource"
+        "gamelift:TagResource",
+        "iam:PassRole"
       ]
     },
     "delete": {
@@ -143,8 +144,5 @@
     "taggable": true
   },
   "typeName": "AWS::GameLift::Build",
-  "writeOnlyProperties": [
-    "/properties/StorageLocation",
-    "/properties/ServerSdkVersion"
-  ]
+  "writeOnlyProperties": ["/properties/StorageLocation"]
 }

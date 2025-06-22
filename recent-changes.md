@@ -1,28 +1,14 @@
-- added `AWS::SecurityHub::HubV2`
-- updated `AWS::AccessAnalyzer::Analyzer`
-  - added definition `InternalAccessAnalysisRuleCriteria`
-  - added definition `InternalAccessConfiguration`
-  - updated property `AnalyzerConfiguration`
-  - updated property `Type`
-- updated `AWS::AppStream::AppBlock`
-  - removed `writeOnlyProperties`
-  - updated `tagging`
+- updated `AWS::DataZone::ProjectProfile`
+  - added property `EnvironmentConfigurations`
+  - updated `readOnlyProperties`
+  - updated definition `EnvironmentConfigurationParametersDetails`
   - updated handler permissions
-- updated `AWS::AppStream::AppBlockBuilder`
-  - updated `tagging`
+- updated `AWS::GameLift::Build`
   - updated `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::AppStream::Application`
-  - updated `tagging`
+- updated `AWS::GameLift::ContainerFleet`
   - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::Connect::EvaluationForm`
-  - added definition `AutoEvaluationConfiguration`
-  - added property `AutoEvaluationConfiguration`
-  - updated definition `EvaluationFormNumericQuestionAutomation`
-  - updated definition `NumericQuestionPropertyValueAutomation`
-- updated `AWS::CustomerProfiles::SegmentDefinition`
-  - added definition `ProfileTypeDimensionType`
-  - added definition `ProfileTypeDimension`
-  - added definition `ProfileType`
-  - updated definition `ProfileAttributes`
+- updated `AWS::Kendra::DataSource`
+  - added definition `TemplateConfiguration`
+  - updated definition `DataSourceConfiguration`
+  - updated definition `Type`
