@@ -1,5 +1,5 @@
 {
-  "$hash": "dd3e08b4f03d77306108090cbeebc535eb610c49",
+  "$hash": "9d4cdfe288b08c46066619441dd212db8b9cab23",
   "$id": "aws-cloudfront-distributiontenant.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -138,14 +138,16 @@
         "cloudfront:GetDistributionTenant",
         "cloudfront:GetManagedCertificateDetails",
         "cloudfront:TagResource",
-        "cloudfront:VerifyDnsConfiguration"
+        "cloudfront:VerifyDnsConfiguration",
+        "wafv2:GetWebACL"
       ]
     },
     "delete": {
       "permissions": [
         "cloudfront:DeleteDistributionTenant",
         "cloudfront:UpdateDistributionTenant",
-        "cloudfront:GetDistributionTenant"
+        "cloudfront:GetDistributionTenant",
+        "wafv2:GetWebACL"
       ]
     },
     "list": {
@@ -170,7 +172,8 @@
         "cloudfront:ListTagsForResource",
         "cloudfront:TagResource",
         "cloudfront:UntagResource",
-        "cloudfront:VerifyDnsConfiguration"
+        "cloudfront:VerifyDnsConfiguration",
+        "wafv2:GetWebACL"
       ]
     }
   },

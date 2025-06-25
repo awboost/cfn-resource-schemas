@@ -26,6 +26,10 @@ export type BedrockGuardrailProperties = {
    */
   ContextualGroundingPolicyConfig?: ContextualGroundingPolicyConfig;
   /**
+   * The system-defined guardrail profile that you’re using with your guardrail
+   */
+  CrossRegionConfig?: GuardrailCrossRegionConfig;
+  /**
    * Description of the guardrail or its version
    * @minLength `1`
    * @maxLength `200`
@@ -219,6 +223,20 @@ export type ContextualGroundingPolicyConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-filterstrength.html}
  */
 export type FilterStrength = "NONE" | "LOW" | "MEDIUM" | "HIGH";
+/**
+ * Type definition for `AWS::Bedrock::Guardrail.GuardrailCrossRegionConfig`.
+ * The system-defined guardrail profile that you’re using with your guardrail
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-guardrailcrossregionconfig.html}
+ */
+export type GuardrailCrossRegionConfig = {
+  /**
+   * The Amazon Resource Name (ARN) of the guardrail profile
+   * @minLength `15`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:guardrail-profile/[a-z0-9-]+[.]{1}guardrail[.]{1}v[0-9:]+$`
+   */
+  GuardrailProfileArn: string;
+};
 /**
  * Type definition for `AWS::Bedrock::Guardrail.GuardrailStatus`.
  * Status of the guardrail

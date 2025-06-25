@@ -10,6 +10,10 @@ export type DSQLClusterProperties = {
    */
   DeletionProtectionEnabled?: boolean;
   /**
+   * The KMS key that encrypts data on the cluster.
+   */
+  KmsEncryptionKey?: string;
+  /**
    * The Multi-region properties associated to this cluster.
    */
   MultiRegionProperties?: {
@@ -30,6 +34,23 @@ export type DSQLClusterAttributes = {
    * The time of when the cluster was created in ISO-8601 format.
    */
   CreationTime: string;
+  /**
+   * The encryption configuration details for the cluster.
+   */
+  EncryptionDetails: {
+    /**
+     * The status of encryption for the cluster.
+     */
+    EncryptionStatus: string;
+    /**
+     * The type of encryption that protects data in the cluster.
+     */
+    EncryptionType: string;
+    /**
+     * The Amazon Resource Name (ARN) of the KMS key that encrypts data in the cluster.
+     */
+    KmsKeyArn: string;
+  };
   /**
    * The ID of the created cluster.
    */

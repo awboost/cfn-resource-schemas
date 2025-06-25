@@ -144,6 +144,10 @@ export type CommunicationLimitsConfig = {
    * Communication limits
    */
   AllChannelsSubtypes?: CommunicationLimits;
+  /**
+   * Enumeration of Instance Limits handling in a Campaign
+   */
+  InstanceLimitsHandling?: InstanceLimitsHandling;
 };
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.CommunicationLimitTimeUnit`.
@@ -275,6 +279,12 @@ export type EventTrigger = {
    */
   CustomerProfilesDomainArn?: string;
 };
+/**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.InstanceLimitsHandling`.
+ * Enumeration of Instance Limits handling in a Campaign
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-instancelimitshandling.html}
+ */
+export type InstanceLimitsHandling = "OPT_IN" | "OPT_OUT";
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.LocalTimeZoneConfig`.
  * Local time zone config

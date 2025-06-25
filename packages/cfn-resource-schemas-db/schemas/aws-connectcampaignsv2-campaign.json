@@ -1,5 +1,5 @@
 {
-  "$hash": "a3c4bb53e2e414b474dcdc3c4d9eba2d5c573ba4",
+  "$hash": "1cc6c4968da41c18c0f447fb656cf873d727bb47",
   "$id": "aws-connectcampaignsv2-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceId"],
@@ -102,7 +102,10 @@
       "additionalProperties": false,
       "description": "Communication limits config",
       "properties": {
-        "AllChannelsSubtypes": { "$ref": "#/definitions/CommunicationLimits" }
+        "AllChannelsSubtypes": { "$ref": "#/definitions/CommunicationLimits" },
+        "InstanceLimitsHandling": {
+          "$ref": "#/definitions/InstanceLimitsHandling"
+        }
       },
       "type": "object"
     },
@@ -206,6 +209,11 @@
       "maxLength": 256,
       "minLength": 0,
       "pattern": "^[a-zA-Z0-9_\\-.]*$",
+      "type": "string"
+    },
+    "InstanceLimitsHandling": {
+      "description": "Enumeration of Instance Limits handling in a Campaign",
+      "enum": ["OPT_IN", "OPT_OUT"],
       "type": "string"
     },
     "Iso8601Date": {

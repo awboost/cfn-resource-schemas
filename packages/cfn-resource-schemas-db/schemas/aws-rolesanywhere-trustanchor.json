@@ -1,5 +1,5 @@
 {
-  "$hash": "1a885765c94719f846384b429086498048bfb4e9",
+  "$hash": "56edcb4bfe445586513009d5a6747e057b8004ec",
   "$id": "aws-rolesanywhere-trustanchor.json",
   "additionalProperties": false,
   "definitions": {
@@ -56,7 +56,7 @@
       "type": "object"
     },
     "TrustAnchorType": {
-      "enum": ["AWS_ACM_PCA", "CERTIFICATE_BUNDLE", "SELF_SIGNED_REPOSITORY"],
+      "enum": ["AWS_ACM_PCA", "CERTIFICATE_BUNDLE"],
       "type": "string"
     }
   },

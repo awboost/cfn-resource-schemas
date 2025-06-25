@@ -98,10 +98,7 @@ export type Tag = {
  * Type definition for `AWS::RolesAnywhere::TrustAnchor.TrustAnchorType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-trustanchortype.html}
  */
-export type TrustAnchorType =
-  | "AWS_ACM_PCA"
-  | "CERTIFICATE_BUNDLE"
-  | "SELF_SIGNED_REPOSITORY";
+export type TrustAnchorType = "AWS_ACM_PCA" | "CERTIFICATE_BUNDLE";
 /**
  * Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-trustanchor.html}

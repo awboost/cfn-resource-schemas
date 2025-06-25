@@ -1,5 +1,5 @@
 {
-  "$hash": "ecdfe3eca3c11f72c18bfc8bfcdf2b0c090bc9ab",
+  "$hash": "1be518e83a5a0b139b3c8270a0077c0102bfab12",
   "$id": "aws-datazone-projectprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainIdentifier"],
@@ -75,7 +75,8 @@
             "$ref": "#/definitions/EnvironmentConfigurationParameter"
           },
           "type": "array"
-        }
+        },
+        "SsmPath": { "maxLength": 2048, "minLength": 1, "type": "string" }
       },
       "type": "object"
     },

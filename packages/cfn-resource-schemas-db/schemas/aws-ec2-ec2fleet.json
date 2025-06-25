@@ -1,5 +1,5 @@
 {
-  "$hash": "641b8144129ae7f17804faff401911712120f25e",
+  "$hash": "af3c60bc2bea25c88a3e3c78896ad91ed9f2b4b5",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -494,7 +494,14 @@
   "handlers": {
     "create": { "permissions": ["ec2:CreateFleet", "ec2:DescribeFleets"] },
     "delete": { "permissions": ["ec2:DescribeFleets", "ec2:DeleteFleets"] },
-    "list": { "permissions": ["ec2:DescribeFleets"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "Type": { "$ref": "resource-schema.json#/properties/Type" }
+        }
+      },
+      "permissions": ["ec2:DescribeFleets"]
+    },
     "read": { "permissions": ["ec2:DescribeFleets"] },
     "update": { "permissions": ["ec2:ModifyFleet", "ec2:DescribeFleets"] }
   },
@@ -530,6 +537,7 @@
   },
   "readOnlyProperties": ["/properties/FleetId"],
   "required": ["TargetCapacitySpecification", "LaunchTemplateConfigs"],
+  "sourceUrl": "https://github.com/aws-cloudformation",
   "tagging": { "taggable": false },
   "typeName": "AWS::EC2::EC2Fleet"
 }

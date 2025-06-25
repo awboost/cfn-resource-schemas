@@ -747,6 +747,7 @@ export type Origin = {
      For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the *Amazon CloudFront Developer Guide*.
      */
   OriginShield?: OriginShield;
+  ResponseCompletionTimeout?: number;
   /**
    * Use this type to specify an origin that is an Amazon S3 bucket that is not configured with static website hosting. To specify any other type of origin, including an Amazon S3 bucket that is configured with static website hosting, use the ``CustomOriginConfig`` type instead.
    */
@@ -920,6 +921,7 @@ export type S3OriginConfig = {
      For more information about the origin access identity, see [Serving Private Content through CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) in the *Amazon CloudFront Developer Guide*.
      */
   OriginAccessIdentity?: string;
+  OriginReadTimeout?: number;
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.StatusCodes`.

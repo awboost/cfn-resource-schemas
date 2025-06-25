@@ -1,14 +1,25 @@
-- updated `AWS::DataZone::ProjectProfile`
-  - added property `EnvironmentConfigurations`
+- added `AWS::AIOps::InvestigationGroup`
+- updated `AWS::Bedrock::Guardrail`
+  - added definition `GuardrailCrossRegionConfig`
+  - added property `CrossRegionConfig`
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `Origin`
+  - updated definition `S3OriginConfig`
+- updated `AWS::CloudFront::DistributionTenant`
+  - updated handler permissions
+- updated `AWS::ConnectCampaignsV2::Campaign`
+  - added definition `InstanceLimitsHandling`
+  - updated definition `CommunicationLimitsConfig`
+- updated `AWS::DSQL::Cluster`
+  - added `writeOnlyProperties`
+  - added property `EncryptionDetails`
+  - added property `KmsEncryptionKey`
   - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::DataZone::ProjectProfile`
   - updated definition `EnvironmentConfigurationParametersDetails`
+- updated `AWS::EC2::EC2Fleet`
+  - added `sourceUrl`
   - updated handler permissions
-- updated `AWS::GameLift::Build`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::GameLift::ContainerFleet`
-  - updated `writeOnlyProperties`
-- updated `AWS::Kendra::DataSource`
-  - added definition `TemplateConfiguration`
-  - updated definition `DataSourceConfiguration`
-  - updated definition `Type`
+- updated `AWS::RolesAnywhere::TrustAnchor`
+  - updated definition `TrustAnchorType`

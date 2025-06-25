@@ -133,6 +133,11 @@ export type EnvironmentConfigurationParameter = {
  */
 export type EnvironmentConfigurationParametersDetails = {
   ParameterOverrides?: EnvironmentConfigurationParameter[];
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  SsmPath?: string;
 };
 /**
  * Type definition for `AWS::DataZone::ProjectProfile.Region`.
