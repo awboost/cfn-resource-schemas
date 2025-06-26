@@ -1,5 +1,5 @@
 {
-  "$hash": "15b27d98d021d5546b51a4fed4f25e6dea877039",
+  "$hash": "8e1751318252ce619dc8b702f057cc650b0c27c5",
   "$id": "aws-route53resolver-resolverrule.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/DomainName"],
@@ -93,6 +93,12 @@
   "properties": {
     "Arn": {
       "description": "The Amazon Resource Name (ARN) of the resolver rule.",
+      "type": "string"
+    },
+    "DelegationRecord": {
+      "description": "The name server domain for queries to be delegated to if a query matches the delegation record.",
+      "maxLength": 256,
+      "minLength": 1,
       "type": "string"
     },
     "DomainName": {

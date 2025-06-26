@@ -34,6 +34,10 @@ export type MediaTailorPlaybackConfigurationProperties = {
    */
   DashConfiguration?: DashConfiguration;
   /**
+   * The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched.
+   */
+  InsertionMode?: InsertionMode;
+  /**
    * The configuration for pre-roll ad insertion.
    */
   LivePreRollConfiguration?: LivePreRollConfiguration;
@@ -212,6 +216,11 @@ export type DashConfiguration = {
    */
   OriginManifestType?: "SINGLE_PERIOD" | "MULTI_PERIOD";
 };
+/**
+ * Type definition for `AWS::MediaTailor::PlaybackConfiguration.InsertionMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-insertionmode.html}
+ */
+export type InsertionMode = "STITCHED_ONLY" | "PLAYER_SELECT";
 /**
  * Type definition for `AWS::MediaTailor::PlaybackConfiguration.LivePreRollConfiguration`.
  * The configuration for pre-roll ad insertion.

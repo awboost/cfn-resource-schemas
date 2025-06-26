@@ -1,5 +1,5 @@
 {
-  "$hash": "fd38f3488ba16c61696b723247a89f9bb6c82bd3",
+  "$hash": "fdc51de234cc3220e2d4fb51674c7d7b1c014ef5",
   "$id": "aws-route53resolver-resolverruleassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -48,6 +48,6 @@
   },
   "readOnlyProperties": ["/properties/ResolverRuleAssociationId"],
   "required": ["VPCId", "ResolverRuleId"],
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::Route53Resolver::ResolverRuleAssociation"
 }

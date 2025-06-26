@@ -1,5 +1,5 @@
 {
-  "$hash": "4ce5f6f19a2a498c97bd07a7b4366297bf84c566",
+  "$hash": "dff7e63026c6c5c13877f68c9c9535445aebd382",
   "$id": "aws-mediatailor-playbackconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -127,6 +127,10 @@
         }
       },
       "type": "object"
+    },
+    "InsertionMode": {
+      "enum": ["STITCHED_ONLY", "PLAYER_SELECT"],
+      "type": "string"
     },
     "LivePreRollConfiguration": {
       "additionalProperties": false,
@@ -261,6 +265,10 @@
     "HlsConfiguration": {
       "$ref": "#/definitions/HlsConfiguration",
       "description": "The configuration for HLS content."
+    },
+    "InsertionMode": {
+      "$ref": "#/definitions/InsertionMode",
+      "description": "The setting that controls whether players can use stitched or guided ad insertion. The default, STITCHED_ONLY, forces all player sessions to use stitched (server-side) ad insertion. Choosing PLAYER_SELECT allows players to select either stitched or guided ad insertion at session-initialization time. The default for players that do not specify an insertion mode is stitched."
     },
     "LivePreRollConfiguration": {
       "$ref": "#/definitions/LivePreRollConfiguration",

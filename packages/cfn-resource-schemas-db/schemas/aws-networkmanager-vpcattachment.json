@@ -1,5 +1,5 @@
 {
-  "$hash": "ea685822dd700479cd440d7e9bce34da06d2975e",
+  "$hash": "02e934b66cd162b706e13b379a1bcbddbd0eb722",
   "$id": "aws-networkmanager-vpcattachment.json",
   "additionalIdentifiers": [
     ["/properties/CoreNetworkId", "/properties/VpcArn"]
@@ -76,9 +76,19 @@
           "description": "Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false",
           "type": "boolean"
         },
+        "DnsSupport": {
+          "default": true,
+          "description": "Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false",
+          "type": "boolean"
+        },
         "Ipv6Support": {
           "default": false,
           "description": "Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable",
+          "type": "boolean"
+        },
+        "SecurityGroupReferencingSupport": {
+          "default": true,
+          "description": "Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false",
           "type": "boolean"
         }
       },

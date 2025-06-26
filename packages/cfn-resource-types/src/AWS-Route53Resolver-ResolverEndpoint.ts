@@ -9,6 +9,7 @@ export type Route53ResolverResolverEndpointProperties = {
      * Indicates whether the Resolver endpoint allows inbound or outbound DNS queries:
     - INBOUND: allows DNS queries to your VPC from your network
     - OUTBOUND: allows DNS queries from your VPC to your network
+    - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
      */
   Direction: string;
   /**

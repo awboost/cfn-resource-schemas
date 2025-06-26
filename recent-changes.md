@@ -1,25 +1,30 @@
-- added `AWS::AIOps::InvestigationGroup`
-- updated `AWS::Bedrock::Guardrail`
-  - added definition `GuardrailCrossRegionConfig`
-  - added property `CrossRegionConfig`
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `Origin`
-  - updated definition `S3OriginConfig`
-- updated `AWS::CloudFront::DistributionTenant`
+- added `AWS::S3Tables::Namespace`
+- added `AWS::WorkspacesInstances::Volume`
+- added `AWS::WorkspacesInstances::VolumeAssociation`
+- added `AWS::WorkspacesInstances::WorkspaceInstance`
+- updated `AWS::AIOps::InvestigationGroup`
+  - added definition `CrossAccountConfiguration`
+  - added property `CrossAccountConfigurations`
+- updated `AWS::Batch::ComputeEnvironment`
+  - updated definition `LaunchTemplateSpecificationOverride`
+  - updated definition `LaunchTemplateSpecification`
   - updated handler permissions
-- updated `AWS::ConnectCampaignsV2::Campaign`
-  - added definition `InstanceLimitsHandling`
-  - updated definition `CommunicationLimitsConfig`
-- updated `AWS::DSQL::Cluster`
-  - added `writeOnlyProperties`
-  - added property `EncryptionDetails`
-  - added property `KmsEncryptionKey`
-  - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::DataZone::ProjectProfile`
-  - updated definition `EnvironmentConfigurationParametersDetails`
-- updated `AWS::EC2::EC2Fleet`
-  - added `sourceUrl`
-  - updated handler permissions
-- updated `AWS::RolesAnywhere::TrustAnchor`
-  - updated definition `TrustAnchorType`
+- updated `AWS::ECS::Service`
+- updated `AWS::Logs::Transformer`
+  - added definition `EventSource`
+  - added definition `OcsfVersion`
+  - added definition `ParseToOCSF`
+  - updated definition `Processor`
+- updated `AWS::MediaTailor::PlaybackConfiguration`
+  - added definition `InsertionMode`
+  - added property `InsertionMode`
+- updated `AWS::NetworkManager::VpcAttachment`
+  - updated definition `VpcOptions`
+- updated `AWS::Route53Resolver::ResolverConfig`
+  - added `tagging`
+- updated `AWS::Route53Resolver::ResolverEndpoint`
+  - updated property `Direction`
+- updated `AWS::Route53Resolver::ResolverRule`
+  - added property `DelegationRecord`
+- updated `AWS::Route53Resolver::ResolverRuleAssociation`
+  - added `tagging`

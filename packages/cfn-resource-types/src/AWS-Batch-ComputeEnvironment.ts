@@ -79,6 +79,7 @@ export type LaunchTemplateSpecification = {
   LaunchTemplateId?: string;
   LaunchTemplateName?: string;
   Overrides?: LaunchTemplateSpecificationOverride[];
+  UserdataType?: "EKS_BOOTSTRAP_SH" | "EKS_NODEADM";
   Version?: string;
 };
 /**
@@ -89,6 +90,7 @@ export type LaunchTemplateSpecificationOverride = {
   LaunchTemplateId?: string;
   LaunchTemplateName?: string;
   TargetInstanceTypes?: string[];
+  UserdataType?: "EKS_BOOTSTRAP_SH" | "EKS_NODEADM";
   Version?: string;
 };
 /**

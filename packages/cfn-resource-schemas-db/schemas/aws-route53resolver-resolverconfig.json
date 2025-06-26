@@ -1,5 +1,5 @@
 {
-  "$hash": "8fde17a07bc19dc217027f4befb4ff31a0b71c77",
+  "$hash": "63338a9126d5969125b4e0892aacf196ed81b948",
   "$id": "aws-route53resolver-resolverconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -69,6 +69,6 @@
     "/properties/AutodefinedReverse"
   ],
   "required": ["ResourceId", "AutodefinedReverseFlag"],
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::Route53Resolver::ResolverConfig"
 }

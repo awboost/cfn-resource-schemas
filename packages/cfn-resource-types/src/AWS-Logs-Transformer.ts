@@ -54,6 +54,16 @@ export type CopyValueEntry = {
   Target: string;
 };
 /**
+ * Type definition for `AWS::Logs::Transformer.EventSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-eventsource.html}
+ */
+export type EventSource =
+  | "CloudTrail"
+  | "Route53Resolver"
+  | "VPCFlow"
+  | "EKSAudit"
+  | "AWSWAF";
+/**
  * Type definition for `AWS::Logs::Transformer.MoveKeyEntry`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-movekeyentry.html}
  */
@@ -68,6 +78,11 @@ export type MoveKeyEntry = {
    */
   Target: string;
 };
+/**
+ * Type definition for `AWS::Logs::Transformer.OcsfVersion`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-ocsfversion.html}
+ */
+export type OcsfVersion = "V1.1";
 /**
  * Type definition for `AWS::Logs::Transformer.ParseCloudfront`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsecloudfront.html}
@@ -93,6 +108,18 @@ export type ParsePostgres = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parseroute53.html}
  */
 export type ParseRoute53 = {
+  /**
+   * @pattern `^.*[a-zA-Z0-9]+.*$`
+   */
+  Source?: string;
+};
+/**
+ * Type definition for `AWS::Logs::Transformer.ParseToOCSF`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsetoocsf.html}
+ */
+export type ParseToOCSF = {
+  EventSource: EventSource;
+  OcsfVersion: OcsfVersion;
   /**
    * @pattern `^.*[a-zA-Z0-9]+.*$`
    */
@@ -258,6 +285,7 @@ export type Processor = {
   };
   ParsePostgres?: ParsePostgres;
   ParseRoute53?: ParseRoute53;
+  ParseToOCSF?: ParseToOCSF;
   ParseVPC?: ParseVPC;
   ParseWAF?: ParseWAF;
   RenameKeys?: {

@@ -152,9 +152,17 @@ export type VpcOptions = {
    */
   ApplianceModeSupport?: boolean;
   /**
+   * Indicates whether to enable private DNS Support for Vpc Attachment. Valid Values: true | false
+   */
+  DnsSupport?: boolean;
+  /**
    * Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
    */
   Ipv6Support?: boolean;
+  /**
+   * Indicates whether to enable Security Group Referencing Support for Vpc Attachment. Valid Values: true | false
+   */
+  SecurityGroupReferencingSupport?: boolean;
 };
 /**
  * AWS::NetworkManager::VpcAttachment Resoruce Type

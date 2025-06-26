@@ -1,5 +1,5 @@
 {
-  "$hash": "0b8902c93ae1052e82e9c7cd19d3df386c286e25",
+  "$hash": "6bf5b1f523eaacfc23b5de13822b10f471b9d4ed",
   "$id": "aws-aiops-investigationgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/RetentionInDays"],
@@ -15,6 +15,11 @@
         },
         "SNSTopicArn": { "maxLength": 2048, "minLength": 20, "type": "string" }
       },
+      "type": "object"
+    },
+    "CrossAccountConfiguration": {
+      "additionalProperties": false,
+      "properties": { "SourceRoleArn": { "$ref": "#/definitions/RoleArn" } },
       "type": "object"
     },
     "EncryptionConfigMap": {
@@ -136,6 +141,13 @@
     },
     "CreatedAt": { "$ref": "#/definitions/Timestamp" },
     "CreatedBy": { "$ref": "#/definitions/StringWithPatternAndLengthLimits" },
+    "CrossAccountConfigurations": {
+      "description": "An array of cross account configurations.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/CrossAccountConfiguration" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "EncryptionConfig": { "$ref": "#/definitions/EncryptionConfigMap" },
     "InvestigationGroupPolicy": {
       "description": "Investigation Group policy",

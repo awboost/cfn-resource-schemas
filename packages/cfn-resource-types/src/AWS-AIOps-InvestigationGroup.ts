@@ -9,6 +9,10 @@ export type AIOpsInvestigationGroupProperties = {
    * An array of key-value pairs of notification channels to apply to this resource.
    */
   ChatbotNotificationChannels?: ChatbotNotificationChannel[];
+  /**
+   * An array of cross account configurations.
+   */
+  CrossAccountConfigurations?: CrossAccountConfiguration[];
   EncryptionConfig?: EncryptionConfigMap;
   /**
    * Investigation Group policy
@@ -85,6 +89,18 @@ export type ChatbotNotificationChannel = {
    * @maxLength `2048`
    */
   SNSTopicArn?: string;
+};
+/**
+ * Type definition for `AWS::AIOps::InvestigationGroup.CrossAccountConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aiops-investigationgroup-crossaccountconfiguration.html}
+ */
+export type CrossAccountConfiguration = {
+  /**
+   * The Investigation Role's ARN.
+   * @minLength `20`
+   * @maxLength `2048`
+   */
+  SourceRoleArn?: string;
 };
 /**
  * Type definition for `AWS::AIOps::InvestigationGroup.EncryptionConfigMap`.
