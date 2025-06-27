@@ -56,6 +56,13 @@ export type B2BITransformerAttributes = {
   TransformerId: string;
 };
 /**
+ * Type definition for `AWS::B2BI::Transformer.AdvancedOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-advancedoptions.html}
+ */
+export type AdvancedOptions = {
+  X12?: X12AdvancedOptions;
+};
+/**
  * Type definition for `AWS::B2BI::Transformer.EdiType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-editype.html}
  */
@@ -84,6 +91,7 @@ export type FromFormat = "X12";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-inputconversion.html}
  */
 export type InputConversion = {
+  AdvancedOptions?: AdvancedOptions;
   FormatOptions?: FormatOptions;
   FromFormat: FromFormat;
 };
@@ -167,12 +175,31 @@ export type ToFormat = "X12";
  */
 export type TransformerStatus = "active" | "inactive";
 /**
+ * Type definition for `AWS::B2BI::Transformer.X12AdvancedOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12advancedoptions.html}
+ */
+export type X12AdvancedOptions = {
+  SplitOptions?: X12SplitOptions;
+};
+/**
  * Type definition for `AWS::B2BI::Transformer.X12Details`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12details.html}
  */
 export type X12Details = {
   TransactionSet?: X12TransactionSet;
   Version?: X12Version;
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.X12SplitBy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12splitby.html}
+ */
+export type X12SplitBy = "NONE" | "TRANSACTION";
+/**
+ * Type definition for `AWS::B2BI::Transformer.X12SplitOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12splitoptions.html}
+ */
+export type X12SplitOptions = {
+  SplitBy?: X12SplitBy;
 };
 /**
  * Type definition for `AWS::B2BI::Transformer.X12TransactionSet`.

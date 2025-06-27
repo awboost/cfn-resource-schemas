@@ -210,6 +210,7 @@ export type BotLocale = {
    * @maxLength `200`
    */
   Description?: string;
+  GenerativeAISettings?: GenerativeAISettings;
   /**
    * @maxLength `1000`
    */
@@ -538,6 +539,31 @@ export type FulfillmentUpdatesSpecification = {
    */
   TimeoutInSeconds?: number;
   UpdateResponse?: FulfillmentUpdateResponseSpecification;
+};
+/**
+ * Type definition for `AWS::Lex::Bot.GenerativeAISettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-generativeaisettings.html}
+ */
+export type GenerativeAISettings = {
+  BuildtimeSettings?: {
+    DescriptiveBotBuilderSpecification?: {
+      BedrockModelSpecification?: BedrockModelSpecification;
+      Enabled: boolean;
+    };
+    SampleUtteranceGenerationSpecification?: {
+      BedrockModelSpecification?: BedrockModelSpecification;
+      Enabled: boolean;
+    };
+  };
+  RuntimeSettings?: {
+    NluImprovementSpecification?: {
+      Enabled: boolean;
+    };
+    SlotResolutionImprovementSpecification?: {
+      BedrockModelSpecification?: BedrockModelSpecification;
+      Enabled: boolean;
+    };
+  };
 };
 /**
  * Type definition for `AWS::Lex::Bot.GrammarSlotTypeSetting`.

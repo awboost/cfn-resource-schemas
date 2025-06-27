@@ -1,5 +1,5 @@
 {
-  "$hash": "ce9e19f86eb3983cf2c7c93e5f7b9c0c7614f900",
+  "$hash": "00ab90366eff6c59573ad3f8f5bc8cbc8ebb2301",
   "$id": "aws-events-endpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -13,7 +13,7 @@
     "EventBusArn": {
       "maxLength": 512,
       "minLength": 1,
-      "pattern": "^arn:aws[a-z-]*:events:[a-z]{2}-[a-z-]+-\\d+:\\d{12}:event-bus/[\\w.-]+$",
+      "pattern": "^arn:aws[a-z-]*:events:[a-z]+-[a-z-]+-\\d+:\\d{12}:event-bus/[\\w.-]+$",
       "type": "string"
     },
     "EventBuses": {

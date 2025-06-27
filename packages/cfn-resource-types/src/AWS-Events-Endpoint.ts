@@ -75,7 +75,7 @@ export type EndpointEventBus = {
   /**
    * @minLength `1`
    * @maxLength `512`
-   * @pattern `^arn:aws[a-z-]*:events:[a-z]{2}-[a-z-]+-\d+:\d{12}:event-bus/[\w.-]+$`
+   * @pattern `^arn:aws[a-z-]*:events:[a-z]+-[a-z-]+-\d+:\d{12}:event-bus/[\w.-]+$`
    */
   EventBusArn: string;
 };

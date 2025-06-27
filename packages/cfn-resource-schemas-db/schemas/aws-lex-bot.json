@@ -1,5 +1,5 @@
 {
-  "$hash": "da16b3f6044520f515d7c922dcb84291f9be2865",
+  "$hash": "b938dfee3d20bc118b38a751b6b5ab6639c27ca3",
   "$id": "aws-lex-bot.json",
   "additionalProperties": false,
   "definitions": {
@@ -180,6 +180,9 @@
       "properties": {
         "CustomVocabulary": { "$ref": "#/definitions/CustomVocabulary" },
         "Description": { "$ref": "#/definitions/Description" },
+        "GenerativeAISettings": {
+          "$ref": "#/definitions/GenerativeAISettings"
+        },
         "Intents": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/Intent" },
@@ -512,6 +515,63 @@
         }
       },
       "required": ["Active"],
+      "type": "object"
+    },
+    "GenerativeAISettings": {
+      "additionalProperties": false,
+      "properties": {
+        "BuildtimeSettings": {
+          "additionalProperties": false,
+          "properties": {
+            "DescriptiveBotBuilderSpecification": {
+              "additionalProperties": false,
+              "properties": {
+                "BedrockModelSpecification": {
+                  "$ref": "#/definitions/BedrockModelSpecification"
+                },
+                "Enabled": { "type": "boolean" }
+              },
+              "required": ["Enabled"],
+              "type": "object"
+            },
+            "SampleUtteranceGenerationSpecification": {
+              "additionalProperties": false,
+              "properties": {
+                "BedrockModelSpecification": {
+                  "$ref": "#/definitions/BedrockModelSpecification"
+                },
+                "Enabled": { "type": "boolean" }
+              },
+              "required": ["Enabled"],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        "RuntimeSettings": {
+          "additionalProperties": false,
+          "properties": {
+            "NluImprovementSpecification": {
+              "additionalProperties": false,
+              "properties": { "Enabled": { "type": "boolean" } },
+              "required": ["Enabled"],
+              "type": "object"
+            },
+            "SlotResolutionImprovementSpecification": {
+              "additionalProperties": false,
+              "properties": {
+                "BedrockModelSpecification": {
+                  "$ref": "#/definitions/BedrockModelSpecification"
+                },
+                "Enabled": { "type": "boolean" }
+              },
+              "required": ["Enabled"],
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
       "type": "object"
     },
     "GrammarSlotTypeSetting": {

@@ -66,8 +66,21 @@ export type B2BIPartnershipAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html}
  */
 export type CapabilityOptions = {
+  InboundEdi?: InboundEdiOptions;
   OutboundEdi?: OutboundEdiOptions;
 };
+/**
+ * Type definition for `AWS::B2BI::Partnership.InboundEdiOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-inboundedioptions.html}
+ */
+export type InboundEdiOptions = {
+  X12?: X12InboundEdiOptions;
+};
+/**
+ * Type definition for `AWS::B2BI::Partnership.LineTerminator`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-lineterminator.html}
+ */
+export type LineTerminator = "CRLF" | "LF" | "CR";
 /**
  * Type definition for `AWS::B2BI::Partnership.OutboundEdiOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-outboundedioptions.html}
@@ -90,6 +103,52 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::B2BI::Partnership.WrapFormat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-wrapformat.html}
+ */
+export type WrapFormat = "SEGMENT" | "ONE_LINE" | "LINE_LENGTH";
+/**
+ * Type definition for `AWS::B2BI::Partnership.WrapOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-wrapoptions.html}
+ */
+export type WrapOptions = {
+  /**
+   * @min `1`
+   */
+  LineLength?: number;
+  LineTerminator?: LineTerminator;
+  WrapBy?: WrapFormat;
+};
+/**
+ * Type definition for `AWS::B2BI::Partnership.X12AcknowledgmentOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12acknowledgmentoptions.html}
+ */
+export type X12AcknowledgmentOptions = {
+  FunctionalAcknowledgment: X12FunctionalAcknowledgment;
+  TechnicalAcknowledgment: X12TechnicalAcknowledgment;
+};
+/**
+ * Type definition for `AWS::B2BI::Partnership.X12ControlNumbers`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12controlnumbers.html}
+ */
+export type X12ControlNumbers = {
+  /**
+   * @min `1`
+   * @max `999999999`
+   */
+  StartingFunctionalGroupControlNumber?: number;
+  /**
+   * @min `1`
+   * @max `999999999`
+   */
+  StartingInterchangeControlNumber?: number;
+  /**
+   * @min `1`
+   * @max `999999999`
+   */
+  StartingTransactionSetControlNumber?: number;
 };
 /**
  * Type definition for `AWS::B2BI::Partnership.X12Delimiters`.
@@ -121,7 +180,16 @@ export type X12Delimiters = {
  */
 export type X12Envelope = {
   Common?: X12OutboundEdiHeaders;
+  WrapOptions?: WrapOptions;
 };
+/**
+ * Type definition for `AWS::B2BI::Partnership.X12FunctionalAcknowledgment`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12functionalacknowledgment.html}
+ */
+export type X12FunctionalAcknowledgment =
+  | "DO_NOT_GENERATE"
+  | "GENERATE_ALL_SEGMENTS"
+  | "GENERATE_WITHOUT_TRANSACTION_SET_RESPONSE_LOOP";
 /**
  * Type definition for `AWS::B2BI::Partnership.X12FunctionalGroupHeaders`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12functionalgroupheaders.html}
@@ -145,6 +213,18 @@ export type X12FunctionalGroupHeaders = {
    * @pattern `^[a-zA-Z0-9]*$`
    */
   ResponsibleAgencyCode?: string;
+};
+/**
+ * Type definition for `AWS::B2BI::Partnership.X12GS05TimeFormat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12gs05timeformat.html}
+ */
+export type X12GS05TimeFormat = "HHMM" | "HHMMSS" | "HHMMSSDD";
+/**
+ * Type definition for `AWS::B2BI::Partnership.X12InboundEdiOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12inboundedioptions.html}
+ */
+export type X12InboundEdiOptions = {
+  AcknowledgmentOptions?: X12AcknowledgmentOptions;
 };
 /**
  * Type definition for `AWS::B2BI::Partnership.X12InterchangeControlHeaders`.
@@ -198,11 +278,20 @@ export type X12InterchangeControlHeaders = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html}
  */
 export type X12OutboundEdiHeaders = {
+  ControlNumbers?: X12ControlNumbers;
   Delimiters?: X12Delimiters;
   FunctionalGroupHeaders?: X12FunctionalGroupHeaders;
+  Gs05TimeFormat?: X12GS05TimeFormat;
   InterchangeControlHeaders?: X12InterchangeControlHeaders;
   ValidateEdi?: boolean;
 };
+/**
+ * Type definition for `AWS::B2BI::Partnership.X12TechnicalAcknowledgment`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12technicalacknowledgment.html}
+ */
+export type X12TechnicalAcknowledgment =
+  | "DO_NOT_GENERATE"
+  | "GENERATE_ALL_SEGMENTS";
 /**
  * Definition of AWS::B2BI::Partnership Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html}

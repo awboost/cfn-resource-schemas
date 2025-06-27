@@ -1,8 +1,13 @@
 {
-  "$hash": "36f3d67832dbed4428967b56093c93c2c1a3c75d",
+  "$hash": "c1702ca280c60805f7c50768475b32bca48e74fb",
   "$id": "aws-b2bi-transformer.json",
   "additionalProperties": false,
   "definitions": {
+    "AdvancedOptions": {
+      "additionalProperties": false,
+      "properties": { "X12": { "$ref": "#/definitions/X12AdvancedOptions" } },
+      "type": "object"
+    },
     "EdiType": {
       "oneOf": [
         {
@@ -32,6 +37,7 @@
     "InputConversion": {
       "additionalProperties": false,
       "properties": {
+        "AdvancedOptions": { "$ref": "#/definitions/AdvancedOptions" },
         "FormatOptions": { "$ref": "#/definitions/FormatOptions" },
         "FromFormat": { "$ref": "#/definitions/FromFormat" }
       },
@@ -91,12 +97,25 @@
     },
     "ToFormat": { "enum": ["X12"], "type": "string" },
     "TransformerStatus": { "enum": ["active", "inactive"], "type": "string" },
+    "X12AdvancedOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "SplitOptions": { "$ref": "#/definitions/X12SplitOptions" }
+      },
+      "type": "object"
+    },
     "X12Details": {
       "additionalProperties": false,
       "properties": {
         "TransactionSet": { "$ref": "#/definitions/X12TransactionSet" },
         "Version": { "$ref": "#/definitions/X12Version" }
       },
+      "type": "object"
+    },
+    "X12SplitBy": { "enum": ["NONE", "TRANSACTION"], "type": "string" },
+    "X12SplitOptions": {
+      "additionalProperties": false,
+      "properties": { "SplitBy": { "$ref": "#/definitions/X12SplitBy" } },
       "type": "object"
     },
     "X12TransactionSet": {

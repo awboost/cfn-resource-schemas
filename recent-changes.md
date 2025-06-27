@@ -1,30 +1,30 @@
-- added `AWS::S3Tables::Namespace`
-- added `AWS::WorkspacesInstances::Volume`
-- added `AWS::WorkspacesInstances::VolumeAssociation`
-- added `AWS::WorkspacesInstances::WorkspaceInstance`
-- updated `AWS::AIOps::InvestigationGroup`
-  - added definition `CrossAccountConfiguration`
-  - added property `CrossAccountConfigurations`
-- updated `AWS::Batch::ComputeEnvironment`
-  - updated definition `LaunchTemplateSpecificationOverride`
-  - updated definition `LaunchTemplateSpecification`
-  - updated handler permissions
-- updated `AWS::ECS::Service`
-- updated `AWS::Logs::Transformer`
-  - added definition `EventSource`
-  - added definition `OcsfVersion`
-  - added definition `ParseToOCSF`
-  - updated definition `Processor`
-- updated `AWS::MediaTailor::PlaybackConfiguration`
-  - added definition `InsertionMode`
-  - added property `InsertionMode`
-- updated `AWS::NetworkManager::VpcAttachment`
-  - updated definition `VpcOptions`
-- updated `AWS::Route53Resolver::ResolverConfig`
-  - added `tagging`
-- updated `AWS::Route53Resolver::ResolverEndpoint`
-  - updated property `Direction`
-- updated `AWS::Route53Resolver::ResolverRule`
-  - added property `DelegationRecord`
-- updated `AWS::Route53Resolver::ResolverRuleAssociation`
-  - added `tagging`
+- added `AWS::FSx::S3AccessPointAttachment`
+- updated `AWS::B2BI::Partnership`
+  - added definition `InboundEdiOptions`
+  - added definition `LineTerminator`
+  - added definition `WrapFormat`
+  - added definition `WrapOptions`
+  - added definition `X12AcknowledgmentOptions`
+  - added definition `X12ControlNumbers`
+  - added definition `X12FunctionalAcknowledgment`
+  - added definition `X12GS05TimeFormat`
+  - added definition `X12InboundEdiOptions`
+  - added definition `X12TechnicalAcknowledgment`
+  - updated definition `CapabilityOptions`
+  - updated definition `X12Envelope`
+  - updated definition `X12OutboundEdiHeaders`
+- updated `AWS::B2BI::Transformer`
+  - added definition `AdvancedOptions`
+  - added definition `X12AdvancedOptions`
+  - added definition `X12SplitBy`
+  - added definition `X12SplitOptions`
+  - updated definition `InputConversion`
+- updated `AWS::Events::Endpoint`
+  - updated definition `EventBusArn`
+- updated `AWS::KMS::Key`
+  - updated property `KeySpec`
+  - updated property `KeyUsage`
+  - updated property `Origin`
+- updated `AWS::Lex::Bot`
+  - added definition `GenerativeAISettings`
+  - updated definition `BotLocale`
