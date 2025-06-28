@@ -1,30 +1,29 @@
-- added `AWS::FSx::S3AccessPointAttachment`
-- updated `AWS::B2BI::Partnership`
-  - added definition `InboundEdiOptions`
-  - added definition `LineTerminator`
-  - added definition `WrapFormat`
-  - added definition `WrapOptions`
-  - added definition `X12AcknowledgmentOptions`
-  - added definition `X12ControlNumbers`
-  - added definition `X12FunctionalAcknowledgment`
-  - added definition `X12GS05TimeFormat`
-  - added definition `X12InboundEdiOptions`
-  - added definition `X12TechnicalAcknowledgment`
-  - updated definition `CapabilityOptions`
-  - updated definition `X12Envelope`
-  - updated definition `X12OutboundEdiHeaders`
-- updated `AWS::B2BI::Transformer`
-  - added definition `AdvancedOptions`
-  - added definition `X12AdvancedOptions`
-  - added definition `X12SplitBy`
-  - added definition `X12SplitOptions`
-  - updated definition `InputConversion`
-- updated `AWS::Events::Endpoint`
-  - updated definition `EventBusArn`
-- updated `AWS::KMS::Key`
-  - updated property `KeySpec`
-  - updated property `KeyUsage`
-  - updated property `Origin`
-- updated `AWS::Lex::Bot`
-  - added definition `GenerativeAISettings`
-  - updated definition `BotLocale`
+- updated `AWS::EC2::TrafficMirrorFilterRule`
+  - added `sourceUrl`
+  - added `tagging`
+  - added definition `TrafficDirection`
+  - added definition `TrafficMirrorRuleAction`
+  - added property `TrafficMirrorFilterRuleId`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `TrafficMirrorPortRange`
+  - updated handler permissions
+  - updated property `Description`
+  - updated property `DestinationCidrBlock`
+  - updated property `DestinationPortRange`
+  - updated property `Protocol`
+  - updated property `RuleAction`
+  - updated property `RuleNumber`
+  - updated property `SourceCidrBlock`
+  - updated property `SourcePortRange`
+  - updated property `Tags`
+  - updated property `TrafficDirection`
+  - updated property `TrafficMirrorFilterId`
+- updated `AWS::ECS::TaskDefinition`
+  - added `deprecatedProperties`
+  - updated definition `ContainerDefinition`
+- updated `AWS::EMRServerless::Application`
+  - added definition `IdentityCenterConfiguration`
+  - added property `IdentityCenterConfiguration`
+  - updated handler permissions

@@ -18,6 +18,10 @@ export type EMRServerlessApplicationProperties = {
    */
   AutoStopConfiguration?: AutoStopConfiguration;
   /**
+   * The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+   */
+  IdentityCenterConfiguration?: IdentityCenterConfiguration;
+  /**
    * The image configuration.
    */
   ImageConfiguration?: ImageConfigurationInput;
@@ -172,6 +176,20 @@ export type ConfigurationObject = {
   Classification: string;
   Configurations?: ConfigurationObject[];
   Properties?: Record<string, string>;
+};
+/**
+ * Type definition for `AWS::EMRServerless::Application.IdentityCenterConfiguration`.
+ * The IAM IdentityCenter configuration for trusted-identity-propagation on this application. Supported with release labels emr-7.8.0 and above.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-identitycenterconfiguration.html}
+ */
+export type IdentityCenterConfiguration = {
+  /**
+   * The IAM IdentityCenter instance arn
+   * @minLength `1`
+   * @maxLength `1024`
+   * @pattern `^arn:(aws[a-zA-Z0-9-]*):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$`
+   */
+  IdentityCenterInstanceArn?: string;
 };
 /**
  * Type definition for `AWS::EMRServerless::Application.ImageConfigurationInput`.
