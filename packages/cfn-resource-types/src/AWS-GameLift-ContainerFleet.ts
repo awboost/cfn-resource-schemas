@@ -312,6 +312,13 @@ export type LogConfiguration = {
    */
   LogDestination?: LogDestination;
   /**
+   * If log destination is CLOUDWATCH, logs are sent to the specified log group in Amazon CloudWatch.
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `[a-zA-Z0-9:/\-\*]+`
+   */
+  LogGroupArn?: string;
+  /**
    * The name of the S3 bucket to pull logs from if S3 is the LogDestination
    * @minLength `1`
    * @maxLength `1024`

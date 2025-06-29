@@ -1,29 +1,31 @@
-- updated `AWS::EC2::TrafficMirrorFilterRule`
+- updated `AWS::GameLift::ContainerFleet`
+  - updated definition `LogConfiguration`
+- updated `AWS::GameLift::Fleet`
+  - updated `createOnlyProperties`
+  - updated property `ApplyCapacity`
+- updated `AWS::Neptune::DBInstance`
+  - added `conditionalCreateOnlyProperties`
+  - added `deprecatedProperties`
+  - added `propertyTransform`
   - added `sourceUrl`
   - added `tagging`
-  - added definition `TrafficDirection`
-  - added definition `TrafficMirrorRuleAction`
-  - added property `TrafficMirrorFilterRuleId`
+  - added `writeOnlyProperties`
   - removed property `Id`
+  - updated `createOnlyProperties`
   - updated `primaryIdentifier`
   - updated `readOnlyProperties`
-  - updated definition `TrafficMirrorPortRange`
+  - updated definition `Tag`
   - updated handler permissions
-  - updated property `Description`
-  - updated property `DestinationCidrBlock`
-  - updated property `DestinationPortRange`
-  - updated property `Protocol`
-  - updated property `RuleAction`
-  - updated property `RuleNumber`
-  - updated property `SourceCidrBlock`
-  - updated property `SourcePortRange`
+  - updated property `AllowMajorVersionUpgrade`
+  - updated property `AutoMinorVersionUpgrade`
+  - updated property `AvailabilityZone`
+  - updated property `DBClusterIdentifier`
+  - updated property `DBInstanceClass`
+  - updated property `DBInstanceIdentifier`
+  - updated property `DBParameterGroupName`
+  - updated property `DBSnapshotIdentifier`
+  - updated property `DBSubnetGroupName`
+  - updated property `Endpoint`
+  - updated property `Port`
+  - updated property `PreferredMaintenanceWindow`
   - updated property `Tags`
-  - updated property `TrafficDirection`
-  - updated property `TrafficMirrorFilterId`
-- updated `AWS::ECS::TaskDefinition`
-  - added `deprecatedProperties`
-  - updated definition `ContainerDefinition`
-- updated `AWS::EMRServerless::Application`
-  - added definition `IdentityCenterConfiguration`
-  - added property `IdentityCenterConfiguration`
-  - updated handler permissions
