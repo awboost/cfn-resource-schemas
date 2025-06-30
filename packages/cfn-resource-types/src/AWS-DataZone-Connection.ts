@@ -499,7 +499,7 @@ export type RedshiftPropertiesInput = {
   /**
    * @minLength `1`
    * @maxLength `64`
-   * @pattern `^[a-z0-9]+$`
+   * @pattern `^[a-z0-9_]+$`
    */
   DatabaseName?: string;
   /**

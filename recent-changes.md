@@ -1,31 +1,10 @@
-- updated `AWS::GameLift::ContainerFleet`
-  - updated definition `LogConfiguration`
-- updated `AWS::GameLift::Fleet`
-  - updated `createOnlyProperties`
-  - updated property `ApplyCapacity`
-- updated `AWS::Neptune::DBInstance`
-  - added `conditionalCreateOnlyProperties`
-  - added `deprecatedProperties`
-  - added `propertyTransform`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - removed property `Id`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `Tag`
+- updated `AWS::Cassandra::Table`
+  - added definition `CdcSpecification`
+  - added definition `CdcStatus`
+  - added definition `CdcViewType`
+  - added property `CdcSpecification`
   - updated handler permissions
-  - updated property `AllowMajorVersionUpgrade`
-  - updated property `AutoMinorVersionUpgrade`
-  - updated property `AvailabilityZone`
-  - updated property `DBClusterIdentifier`
-  - updated property `DBInstanceClass`
-  - updated property `DBInstanceIdentifier`
-  - updated property `DBParameterGroupName`
-  - updated property `DBSnapshotIdentifier`
-  - updated property `DBSubnetGroupName`
-  - updated property `Endpoint`
-  - updated property `Port`
-  - updated property `PreferredMaintenanceWindow`
-  - updated property `Tags`
+- updated `AWS::DataZone::Connection`
+  - updated definition `RedshiftPropertiesInput`
+- updated `AWS::RDS::DBCluster`
+  - updated handler permissions

@@ -1,5 +1,5 @@
 {
-  "$hash": "ba12e080ebc3c72059718d0aa6c77d6fcda09cfd",
+  "$hash": "337879172dc6e8527fb57bc81169e2c417fdf9c7",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -172,6 +172,7 @@
         "rds:ModifyDBCluster",
         "rds:RestoreDBClusterFromSnapshot",
         "rds:RestoreDBClusterToPointInTime",
+        "rds:DescribeDBClusterSnapshots",
         "secretsmanager:CreateSecret",
         "secretsmanager:TagResource"
       ],

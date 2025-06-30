@@ -11,6 +11,10 @@ export type CassandraTableProperties = {
   AutoScalingSpecifications?: AutoScalingSpecification;
   BillingMode?: BillingMode;
   /**
+   * Represents the CDC configuration for the table
+   */
+  CdcSpecification?: CdcSpecification;
+  /**
    * Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
    */
   ClientSideTimestampsEnabled?: boolean;
@@ -110,6 +114,37 @@ export type BillingMode = {
    */
   ProvisionedThroughput?: ProvisionedThroughput;
 };
+/**
+ * Type definition for `AWS::Cassandra::Table.CdcSpecification`.
+ * Represents the CDC configuration for the table
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-cdcspecification.html}
+ */
+export type CdcSpecification = {
+  /**
+   * Indicates whether CDC is enabled or disabled for the table
+   */
+  Status: CdcStatus;
+  /**
+   * Specifies what data should be captured in the change data stream
+   */
+  ViewType?: CdcViewType;
+};
+/**
+ * Type definition for `AWS::Cassandra::Table.CdcStatus`.
+ * Indicates whether CDC is enabled or disabled for the table
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-cdcstatus.html}
+ */
+export type CdcStatus = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::Cassandra::Table.CdcViewType`.
+ * Specifies what data should be captured in the change data stream
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-cdcviewtype.html}
+ */
+export type CdcViewType =
+  | "NEW_IMAGE"
+  | "OLD_IMAGE"
+  | "KEYS_ONLY"
+  | "NEW_AND_OLD_IMAGES";
 /**
  * Type definition for `AWS::Cassandra::Table.ClusteringKeyColumn`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-clusteringkeycolumn.html}

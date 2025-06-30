@@ -1,5 +1,5 @@
 {
-  "$hash": "f8832b713b227d4d37686a3e3a3307ab102239d9",
+  "$hash": "6a64d793078b47318056d6afd9fbb27589b0e1d2",
   "$id": "aws-datazone-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -451,7 +451,7 @@
         "DatabaseName": {
           "maxLength": 64,
           "minLength": 1,
-          "pattern": "^[a-z0-9]+$",
+          "pattern": "^[a-z0-9_]+$",
           "type": "string"
         },
         "Host": { "maxLength": 256, "pattern": "^[\\S]*$", "type": "string" },
