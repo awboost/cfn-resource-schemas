@@ -1,5 +1,5 @@
 {
-  "$hash": "bc68da5ce08fc27bed8726fc1f7455568ce34b38",
+  "$hash": "b9372a3a6286939ab4bfca473106ef6b9b251109",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -469,6 +469,14 @@
       "type": "array",
       "uniqueItems": true
     },
+    "GlobalTableWitnesses": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/GlobalTableWitness" },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
     "KeySchema": {
       "items": { "$ref": "#/definitions/KeySchema" },
       "maxItems": 2,
@@ -481,6 +489,10 @@
       "items": { "$ref": "#/definitions/LocalSecondaryIndex" },
       "type": "array",
       "uniqueItems": true
+    },
+    "MultiRegionConsistency": {
+      "enum": ["EVENTUAL", "STRONG"],
+      "type": "string"
     },
     "Replicas": {
       "insertionOrder": false,

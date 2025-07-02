@@ -18,6 +18,11 @@ export type QBusinessPermissionProperties = {
   ApplicationId: string;
   /**
    * @minLength `1`
+   * @maxLength `10`
+   */
+  Conditions?: Condition[];
+  /**
+   * @minLength `1`
    * @maxLength `1284`
    * @pattern `^arn:aws:iam::[0-9]{12}:role/[a-zA-Z0-9_/+=,.@-]+$`
    */
@@ -28,6 +33,22 @@ export type QBusinessPermissionProperties = {
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
   StatementId: string;
+};
+/**
+ * Type definition for `AWS::QBusiness::Permission.Condition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-permission-condition.html}
+ */
+export type Condition = {
+  /**
+   * @pattern `^aws:PrincipalTag/qbusiness-dataaccessor:[a-zA-Z]+`
+   */
+  ConditionKey: string;
+  ConditionOperator: "StringEquals";
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  ConditionValues: string[];
 };
 /**
  * Definition of AWS::QBusiness::Permission Resource Type

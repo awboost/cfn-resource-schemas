@@ -16,6 +16,7 @@ export type QBusinessDataAccessorProperties = {
    * @pattern `^[a-zA-Z0-9][a-zA-Z0-9-]{35}$`
    */
   ApplicationId: string;
+  AuthenticationDetail?: DataAccessorAuthenticationDetail;
   /**
    * @minLength `1`
    * @maxLength `100`
@@ -93,6 +94,45 @@ export type AttributeFilter = {
   LessThanOrEquals?: DocumentAttribute;
   NotFilter?: AttributeFilter;
   OrAllFilters?: AttributeFilter[];
+};
+/**
+ * Type definition for `AWS::QBusiness::DataAccessor.DataAccessorAuthenticationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-dataaccessorauthenticationconfiguration.html}
+ */
+export type DataAccessorAuthenticationConfiguration = {
+  IdcTrustedTokenIssuerConfiguration: DataAccessorIdcTrustedTokenIssuerConfiguration;
+};
+/**
+ * Type definition for `AWS::QBusiness::DataAccessor.DataAccessorAuthenticationDetail`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-dataaccessorauthenticationdetail.html}
+ */
+export type DataAccessorAuthenticationDetail = {
+  AuthenticationConfiguration?: DataAccessorAuthenticationConfiguration;
+  AuthenticationType: DataAccessorAuthenticationType;
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  ExternalIds?: string[];
+};
+/**
+ * Type definition for `AWS::QBusiness::DataAccessor.DataAccessorAuthenticationType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-dataaccessorauthenticationtype.html}
+ */
+export type DataAccessorAuthenticationType =
+  | "AWS_IAM_IDC_TTI"
+  | "AWS_IAM_IDC_AUTH_CODE";
+/**
+ * Type definition for `AWS::QBusiness::DataAccessor.DataAccessorIdcTrustedTokenIssuerConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-dataaccessoridctrustedtokenissuerconfiguration.html}
+ */
+export type DataAccessorIdcTrustedTokenIssuerConfiguration = {
+  /**
+   * @minLength `0`
+   * @maxLength `1284`
+   * @pattern `^arn:aws:sso::[0-9]{12}:trustedTokenIssuer/(sso)?ins-[a-zA-Z0-9-.]{16}/tti-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+   */
+  IdcTrustedTokenIssuerArn: string;
 };
 /**
  * Type definition for `AWS::QBusiness::DataAccessor.DocumentAttribute`.

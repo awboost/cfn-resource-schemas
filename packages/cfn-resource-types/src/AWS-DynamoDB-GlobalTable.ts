@@ -13,10 +13,16 @@ export type DynamoDBGlobalTableProperties = {
   GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
   /**
    * @minLength `1`
+   * @maxLength `1`
+   */
+  GlobalTableWitnesses?: GlobalTableWitness[];
+  /**
+   * @minLength `1`
    * @maxLength `2`
    */
   KeySchema: KeySchema[];
   LocalSecondaryIndexes?: LocalSecondaryIndex[];
+  MultiRegionConsistency?: "EVENTUAL" | "STRONG";
   /**
    * @minLength `1`
    */
@@ -95,6 +101,13 @@ export type GlobalSecondaryIndex = {
   WarmThroughput?: WarmThroughput;
   WriteOnDemandThroughputSettings?: WriteOnDemandThroughputSettings;
   WriteProvisionedThroughputSettings?: WriteProvisionedThroughputSettings;
+};
+/**
+ * Type definition for `AWS::DynamoDB::GlobalTable.GlobalTableWitness`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globaltablewitness.html}
+ */
+export type GlobalTableWitness = {
+  Region?: string;
 };
 /**
  * Type definition for `AWS::DynamoDB::GlobalTable.KeySchema`.

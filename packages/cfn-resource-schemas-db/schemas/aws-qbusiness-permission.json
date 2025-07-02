@@ -1,13 +1,35 @@
 {
-  "$hash": "bce6bc0780911789f59bde2858458a2b346c2113",
+  "$hash": "2aa534800ec1bf9fec3174d989af4f21d6c3d141",
   "$id": "aws-qbusiness-permission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ApplicationId",
     "/properties/StatementId",
     "/properties/Actions",
-    "/properties/Principal"
+    "/properties/Principal",
+    "/properties/Conditions"
   ],
+  "definitions": {
+    "Condition": {
+      "additionalProperties": false,
+      "properties": {
+        "ConditionKey": {
+          "pattern": "^aws:PrincipalTag/qbusiness-dataaccessor:[a-zA-Z]+",
+          "type": "string"
+        },
+        "ConditionOperator": { "enum": ["StringEquals"], "type": "string" },
+        "ConditionValues": {
+          "items": { "type": "string" },
+          "maxItems": 1,
+          "minItems": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+          "type": "array"
+        }
+      },
+      "required": ["ConditionOperator", "ConditionKey", "ConditionValues"],
+      "type": "object"
+    }
+  },
   "description": "Definition of AWS::QBusiness::Permission Resource Type",
   "handlers": {
     "create": {
@@ -48,6 +70,12 @@
       "minLength": 36,
       "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{35}$",
       "type": "string"
+    },
+    "Conditions": {
+      "items": { "$ref": "#/definitions/Condition" },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
     },
     "Principal": {
       "maxLength": 1284,

@@ -1,5 +1,5 @@
 {
-  "$hash": "c2159a6e74d067f05e9fae5afb1ac6c286320c4f",
+  "$hash": "a8d0bce295bb4f7450180beecc8997b578a0fcfe",
   "$id": "aws-connect-rule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -179,7 +179,7 @@
       "description": "Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)",
       "properties": {
         "Type": {
-          "description": "The type of the reference. ``DATE`` must be of type Epoch timestamp. \n  *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``",
+          "description": "The type of the reference. ``DATE`` must be of type Epoch timestamp. \n *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``",
           "enum": ["URL", "ATTACHMENT", "NUMBER", "STRING", "DATE", "EMAIL"],
           "type": "string"
         },
@@ -233,12 +233,12 @@
           "type": "string"
         },
         "ContentType": {
-          "description": "Content type format.\n  *Allowed value*: ``PLAIN_TEXT``",
+          "description": "Content type format.\n *Allowed value*: ``PLAIN_TEXT``",
           "enum": ["PLAIN_TEXT"],
           "type": "string"
         },
         "DeliveryMethod": {
-          "description": "Notification delivery method.\n  *Allowed value*: ``EMAIL``",
+          "description": "Notification delivery method.\n *Allowed value*: ``EMAIL``",
           "enum": ["EMAIL"],
           "type": "string"
         },
@@ -418,7 +418,7 @@
       "type": "string"
     },
     "PublishStatus": {
-      "description": "The publish status of the rule.\n  *Allowed values*: ``DRAFT`` | ``PUBLISHED``",
+      "description": "The publish status of the rule.\n *Allowed values*: ``DRAFT`` | ``PUBLISHED``",
       "enum": ["DRAFT", "PUBLISHED"],
       "type": "string"
     },
@@ -453,6 +453,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["connect:TagResource", "connect:UntagResource"],
     "tagOnCreate": false,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

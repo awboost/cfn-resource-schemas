@@ -1,10 +1,20 @@
-- updated `AWS::Cassandra::Table`
-  - added definition `CdcSpecification`
-  - added definition `CdcStatus`
-  - added definition `CdcViewType`
-  - added property `CdcSpecification`
+- added `AWS::RedshiftServerless::Snapshot`
+- updated `AWS::Connect::Rule`
+  - updated `tagging`
+  - updated definition `Reference`
+  - updated definition `SendNotificationAction`
+  - updated property `PublishStatus`
+- updated `AWS::DynamoDB::GlobalTable`
+  - added property `GlobalTableWitnesses`
+  - added property `MultiRegionConsistency`
+- updated `AWS::QBusiness::DataAccessor`
+  - added definition `DataAccessorAuthenticationConfiguration`
+  - added definition `DataAccessorAuthenticationDetail`
+  - added definition `DataAccessorAuthenticationType`
+  - added definition `DataAccessorIdcTrustedTokenIssuerConfiguration`
+  - added property `AuthenticationDetail`
   - updated handler permissions
-- updated `AWS::DataZone::Connection`
-  - updated definition `RedshiftPropertiesInput`
-- updated `AWS::RDS::DBCluster`
-  - updated handler permissions
+- updated `AWS::QBusiness::Permission`
+  - added property `Conditions`
+  - updated `createOnlyProperties`
+  - updated definition `undefined`
