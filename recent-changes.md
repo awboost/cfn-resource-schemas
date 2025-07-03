@@ -1,20 +1,17 @@
-- added `AWS::RedshiftServerless::Snapshot`
-- updated `AWS::Connect::Rule`
-  - updated `tagging`
-  - updated definition `Reference`
-  - updated definition `SendNotificationAction`
-  - updated property `PublishStatus`
-- updated `AWS::DynamoDB::GlobalTable`
-  - added property `GlobalTableWitnesses`
-  - added property `MultiRegionConsistency`
-- updated `AWS::QBusiness::DataAccessor`
-  - added definition `DataAccessorAuthenticationConfiguration`
-  - added definition `DataAccessorAuthenticationDetail`
-  - added definition `DataAccessorAuthenticationType`
-  - added definition `DataAccessorIdcTrustedTokenIssuerConfiguration`
-  - added property `AuthenticationDetail`
-  - updated handler permissions
-- updated `AWS::QBusiness::Permission`
-  - added property `Conditions`
+- updated `AWS::ECS::Service`
+  - updated definition `LogConfiguration`
+- updated `AWS::Kinesis::StreamConsumer`
+  - added `sourceUrl`
+  - added `tagging`
+  - added property `Tags`
+  - removed property `Id`
   - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
   - updated definition `undefined`
+  - updated handler permissions
+  - updated property `ConsumerARN`
+  - updated property `ConsumerCreationTimestamp`
+  - updated property `ConsumerName`
+  - updated property `ConsumerStatus`
+  - updated property `StreamARN`
