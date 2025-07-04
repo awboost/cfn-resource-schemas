@@ -1,5 +1,5 @@
 {
-  "$hash": "b7991bd3f6cc55359381963f9c65f1deb748e2d7",
+  "$hash": "c35b5b98b0d53ec1fab5d1ea18ef0989a482a210",
   "$id": "aws-bedrock-guardrail.json",
   "additionalProperties": false,
   "definitions": {
@@ -43,10 +43,24 @@
       ],
       "type": "string"
     },
+    "ContentFiltersTierName": {
+      "description": "Tier name for tier configuration in content filters policy",
+      "enum": ["CLASSIC", "STANDARD"],
+      "type": "string"
+    },
     "ContentPolicyConfig": {
       "additionalProperties": false,
       "description": "Content policy config for a guardrail.",
       "properties": {
+        "ContentFiltersTierConfig": {
+          "additionalProperties": false,
+          "description": "Guardrail tier config for content policy",
+          "properties": {
+            "TierName": { "$ref": "#/definitions/ContentFiltersTierName" }
+          },
+          "required": ["TierName"],
+          "type": "object"
+        },
         "FiltersConfig": {
           "description": "List of content filter configs in content policy.",
           "items": { "$ref": "#/definitions/ContentFilterConfig" },
@@ -327,6 +341,15 @@
           "items": { "$ref": "#/definitions/TopicConfig" },
           "minItems": 1,
           "type": "array"
+        },
+        "TopicsTierConfig": {
+          "additionalProperties": false,
+          "description": "Guardrail tier config for topic policy",
+          "properties": {
+            "TierName": { "$ref": "#/definitions/TopicsTierName" }
+          },
+          "required": ["TierName"],
+          "type": "object"
         }
       },
       "required": ["TopicsConfig"],
@@ -335,6 +358,11 @@
     "TopicType": {
       "description": "Type of topic in a policy",
       "enum": ["DENY"],
+      "type": "string"
+    },
+    "TopicsTierName": {
+      "description": "Tier name for tier configuration in topic policy",
+      "enum": ["CLASSIC", "STANDARD"],
       "type": "string"
     },
     "WordAction": { "enum": ["BLOCK", "NONE"], "type": "string" },

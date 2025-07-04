@@ -1,5 +1,5 @@
 {
-  "$hash": "410b73489cddf5c4eb4d946cb109292cd77b22a5",
+  "$hash": "49d8f74c38b0f47749589c6c79fe43747e1f3e78",
   "$id": "aws-elasticbeanstalk-application.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationName"],
@@ -71,14 +71,40 @@
   },
   "description": "The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.",
   "handlers": {
-    "create": { "permissions": ["elasticbeanstalk:CreateApplication"] },
-    "delete": { "permissions": ["elasticbeanstalk:DeleteApplication"] },
+    "create": {
+      "permissions": [
+        "elasticbeanstalk:CreateApplication",
+        "elasticbeanstalk:DescribeApplications",
+        "s3:CreateBucket",
+        "s3:PutBucketAcl",
+        "s3:PutBucketObjectLockConfiguration",
+        "s3:PutBucketVersioning",
+        "s3:PutBucketOwnershipControls",
+        "s3:PutBucketPolicy",
+        "s3:PutBucketPublicAccessBlock",
+        "s3:PutObject",
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:GetBucketLocation",
+        "s3:GetBucketPolicy",
+        "iam:PassRole"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "elasticbeanstalk:DeleteApplication",
+        "elasticbeanstalk:DescribeApplications",
+        "s3:ListBucket"
+      ]
+    },
     "list": { "permissions": ["elasticbeanstalk:DescribeApplications"] },
     "read": { "permissions": ["elasticbeanstalk:DescribeApplications"] },
     "update": {
       "permissions": [
         "elasticbeanstalk:UpdateApplication",
-        "elasticbeanstalk:UpdateApplicationResourceLifecycle"
+        "elasticbeanstalk:UpdateApplicationResourceLifecycle",
+        "elasticbeanstalk:DescribeApplications",
+        "iam:PassRole"
       ]
     }
   },

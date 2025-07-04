@@ -1,5 +1,5 @@
 {
-  "$hash": "ddf84978cc95dedfeceb09c224bca6f1da2dcd44",
+  "$hash": "6b5d25efd05592ec8134d542dc07711af073eec1",
   "$id": "aws-elasticbeanstalk-applicationversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -33,10 +33,20 @@
         "s3:PutObject"
       ]
     },
-    "delete": { "permissions": ["elasticbeanstalk:DeleteApplicationVersion"] },
+    "delete": {
+      "permissions": [
+        "elasticbeanstalk:DeleteApplicationVersion",
+        "elasticbeanstalk:DescribeApplicationVersions"
+      ]
+    },
     "list": { "permissions": ["elasticbeanstalk:DescribeApplicationVersions"] },
     "read": { "permissions": ["elasticbeanstalk:DescribeApplicationVersions"] },
-    "update": { "permissions": ["elasticbeanstalk:UpdateApplicationVersion"] }
+    "update": {
+      "permissions": [
+        "elasticbeanstalk:UpdateApplicationVersion",
+        "elasticbeanstalk:DescribeApplicationVersions"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/ApplicationName", "/properties/Id"],
   "properties": {

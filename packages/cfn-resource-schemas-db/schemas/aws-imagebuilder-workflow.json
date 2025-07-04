@@ -1,5 +1,5 @@
 {
-  "$hash": "575459ff7f62a3826d85a612c2c00eae618ea4b2",
+  "$hash": "ae3df7fb1d05d0d742c6de01917777241b8f86c2",
   "$id": "aws-imagebuilder-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,8 +10,7 @@
     "/properties/Data",
     "/properties/Uri",
     "/properties/Type",
-    "/properties/KmsKeyId",
-    "/properties/Tags"
+    "/properties/KmsKeyId"
   ],
   "description": "Resource schema for AWS::ImageBuilder::Workflow",
   "handlers": {
@@ -51,9 +50,11 @@
         "imagebuilder:ListWorkflowBuildVersions"
       ]
     },
-    "read": { "permissions": ["imagebuilder:GetWorkflow", "kms:Decrypt"] }
+    "read": { "permissions": ["imagebuilder:GetWorkflow", "kms:Decrypt"] },
+    "update": {
+      "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"]
+    }
   },
-  "oneOf": [{ "required": ["Data"] }, { "required": ["Uri"] }],
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
     "Arn": {
@@ -104,7 +105,7 @@
     "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::ImageBuilder::Workflow",

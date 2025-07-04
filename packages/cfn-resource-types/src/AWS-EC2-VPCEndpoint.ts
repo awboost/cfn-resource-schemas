@@ -50,6 +50,9 @@ export type EC2VPCEndpointProperties = {
    * The Amazon Resource Name (ARN) of the service network.
    */
   ServiceNetworkArn?: string;
+  /**
+   * Describes a Region.
+   */
   ServiceRegion?: string;
   /**
    * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.

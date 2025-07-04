@@ -1,5 +1,5 @@
 {
-  "$hash": "7b6adaf71adcdd90aefbfaa8dc7779a68c88b04a",
+  "$hash": "15196cf450a3f687dcd26d688a6b4bcba2d096dd",
   "$id": "aws-ec2-trafficmirrortarget.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -19,20 +19,64 @@
       "type": "object"
     }
   },
-  "description": "Resource Type definition for AWS::EC2::TrafficMirrorTarget",
+  "description": "The description of the Traffic Mirror target.",
+  "handlers": {
+    "create": {
+      "permissions": ["ec2:CreateTrafficMirrorTarget", "ec2:CreateTags"]
+    },
+    "delete": {
+      "permissions": ["ec2:DeleteTrafficMirrorTarget", "ec2:DeleteTags"]
+    },
+    "list": {
+      "permissions": ["ec2:DescribeTrafficMirrorTargets", "ec2:DescribeTags"]
+    },
+    "read": {
+      "permissions": ["ec2:DescribeTrafficMirrorTargets", "ec2:DescribeTags"]
+    },
+    "update": {
+      "permissions": [
+        "ec2:DescribeTrafficMirrorTargets",
+        "ec2:CreateTags",
+        "ec2:DeleteTags",
+        "ec2:DescribeTags"
+      ]
+    }
+  },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
-    "Description": { "type": "string" },
-    "GatewayLoadBalancerEndpointId": { "type": "string" },
+    "Description": {
+      "description": "The description of the Traffic Mirror target.",
+      "type": "string"
+    },
+    "GatewayLoadBalancerEndpointId": {
+      "description": "The ID of the Gateway Load Balancer endpoint.",
+      "type": "string"
+    },
     "Id": { "type": "string" },
-    "NetworkInterfaceId": { "type": "string" },
-    "NetworkLoadBalancerArn": { "type": "string" },
+    "NetworkInterfaceId": {
+      "description": "The network interface ID that is associated with the target.",
+      "type": "string"
+    },
+    "NetworkLoadBalancerArn": {
+      "description": "The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.",
+      "type": "string"
+    },
     "Tags": {
+      "description": " The tags to assign to the Traffic Mirror target.",
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
     }
   },
   "readOnlyProperties": ["/properties/Id"],
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EC2::TrafficMirrorTarget"
 }

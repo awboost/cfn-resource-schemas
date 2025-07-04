@@ -1,5 +1,5 @@
 {
-  "$hash": "a63d053f64f08334ef652735c2c6d81d88350be8",
+  "$hash": "b40d026ecd5b2b8b56cb563b68bcafff46e4ce39",
   "$id": "aws-imagebuilder-component.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,8 +11,7 @@
     "/properties/Data",
     "/properties/Uri",
     "/properties/KmsKeyId",
-    "/properties/SupportedOsVersions",
-    "/properties/Tags"
+    "/properties/SupportedOsVersions"
   ],
   "description": "Resource schema for AWS::ImageBuilder::Component",
   "handlers": {
@@ -53,9 +52,11 @@
         "imagebuilder:ListComponentBuildVersions"
       ]
     },
-    "read": { "permissions": ["imagebuilder:GetComponent", "kms:Decrypt"] }
+    "read": { "permissions": ["imagebuilder:GetComponent", "kms:Decrypt"] },
+    "update": {
+      "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"]
+    }
   },
-  "oneOf": [{ "required": ["Data"] }, { "required": ["Uri"] }],
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
     "Arn": {
@@ -125,7 +126,7 @@
     "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::ImageBuilder::Component",

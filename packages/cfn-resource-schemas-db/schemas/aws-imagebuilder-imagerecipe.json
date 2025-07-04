@@ -1,5 +1,5 @@
 {
-  "$hash": "96d4175a219b743c2443ca66352da45cb5a49bc1",
+  "$hash": "9ed54bc3548c9ed2345d86cd5a8a36311c6bca99",
   "$id": "aws-imagebuilder-imagerecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,8 +9,7 @@
     "/properties/ParentImage",
     "/properties/Description",
     "/properties/BlockDeviceMappings",
-    "/properties/WorkingDirectory",
-    "/properties/Tags"
+    "/properties/WorkingDirectory"
   ],
   "definitions": {
     "AdditionalInstanceConfiguration": {
@@ -160,7 +159,10 @@
       ]
     },
     "list": { "permissions": ["imagebuilder:ListImageRecipes"] },
-    "read": { "permissions": ["imagebuilder:GetImageRecipe"] }
+    "read": { "permissions": ["imagebuilder:GetImageRecipe"] },
+    "update": {
+      "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"]
+    }
   },
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
@@ -211,9 +213,6 @@
       "type": "string"
     }
   },
-  "propertyTransform": {
-    "/properties/BlockDeviceMappings/*/Ebs/VolumeType": "$uppercase(VolumeType)"
-  },
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Name", "Version", "Components", "ParentImage"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
@@ -222,7 +221,7 @@
     "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::ImageBuilder::ImageRecipe"

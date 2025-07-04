@@ -1,17 +1,57 @@
-- updated `AWS::ECS::Service`
-  - updated definition `LogConfiguration`
-- updated `AWS::Kinesis::StreamConsumer`
-  - added `sourceUrl`
+- added `AWS::ODB::CloudAutonomousVmCluster`
+- added `AWS::ODB::CloudExadataInfrastructure`
+- added `AWS::ODB::CloudVmCluster`
+- added `AWS::ODB::OdbNetwork`
+- added `AWS::S3Tables::Table`
+- updated `AWS::Bedrock::Guardrail`
+  - added definition `ContentFiltersTierName`
+  - added definition `TopicsTierName`
+  - updated definition `ContentPolicyConfig`
+  - updated definition `TopicPolicyConfig`
+- updated `AWS::EC2::TrafficMirrorTarget`
   - added `tagging`
-  - added property `Tags`
-  - removed property `Id`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `undefined`
   - updated handler permissions
-  - updated property `ConsumerARN`
-  - updated property `ConsumerCreationTimestamp`
-  - updated property `ConsumerName`
-  - updated property `ConsumerStatus`
-  - updated property `StreamARN`
+  - updated property `Description`
+  - updated property `GatewayLoadBalancerEndpointId`
+  - updated property `NetworkInterfaceId`
+  - updated property `NetworkLoadBalancerArn`
+  - updated property `Tags`
+- updated `AWS::EC2::VPCEndpoint`
+  - updated handler permissions
+  - updated property `ServiceRegion`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `InferenceAccelerator`
+  - updated definition `LogConfiguration`
+  - updated property `InferenceAccelerators`
+- updated `AWS::ElasticBeanstalk::Application`
+  - updated handler permissions
+- updated `AWS::ElasticBeanstalk::ApplicationVersion`
+  - updated handler permissions
+- updated `AWS::ElasticBeanstalk::ConfigurationTemplate`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Component`
+  - removed `oneOf`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::ContainerRecipe`
+  - removed `propertyTransform`
+  - updated `createOnlyProperties`
+  - updated `oneOf`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::ImageRecipe`
+  - removed `propertyTransform`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Workflow`
+  - removed `oneOf`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::QuickSight::CustomPermissions`
+  - updated definition `Capabilities`
+- updated `AWS::RDS::DBInstance`
+  - added property `BackupTarget`
+  - updated `createOnlyProperties`

@@ -45,7 +45,13 @@ export type Capabilities = {
   CreateSPICEDataset?: CapabilityState;
   CreateSharedFolders?: CapabilityState;
   ExportToCsv?: CapabilityState;
+  ExportToCsvInScheduledReports?: CapabilityState;
   ExportToExcel?: CapabilityState;
+  ExportToExcelInScheduledReports?: CapabilityState;
+  ExportToPdf?: CapabilityState;
+  ExportToPdfInScheduledReports?: CapabilityState;
+  IncludeContentInScheduledReportsEmail?: CapabilityState;
+  PrintReports?: CapabilityState;
   RenameSharedFolders?: CapabilityState;
   ShareAnalyses?: CapabilityState;
   ShareDashboards?: CapabilityState;

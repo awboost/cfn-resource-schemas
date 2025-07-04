@@ -1,5 +1,5 @@
 {
-  "$hash": "d2b95985badc4db0c474d816bdae615bf764c9d3",
+  "$hash": "8f7ca6d7deb7c97e46c9e25fa21ea441d9a3d62a",
   "$id": "aws-imagebuilder-containerrecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -16,8 +16,7 @@
     "/properties/KmsKeyId",
     "/properties/PlatformOverride",
     "/properties/WorkingDirectory",
-    "/properties/Components",
-    "/properties/Tags"
+    "/properties/Components"
   ],
   "definitions": {
     "ComponentConfiguration": {
@@ -187,23 +186,14 @@
     "list": { "permissions": ["imagebuilder:ListContainerRecipes"] },
     "read": {
       "permissions": ["imagebuilder:GetContainerRecipe", "kms:Decrypt"]
+    },
+    "update": {
+      "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"]
     }
   },
   "oneOf": [
     {
       "required": [
-        "DockerfileTemplateData",
-        "Name",
-        "Version",
-        "Components",
-        "ParentImage",
-        "TargetRepository",
-        "ContainerType"
-      ]
-    },
-    {
-      "required": [
-        "DockerfileTemplateUri",
         "Name",
         "Version",
         "Components",
@@ -287,9 +277,6 @@
       "type": "string"
     }
   },
-  "propertyTransform": {
-    "/properties/InstanceConfiguration/BlockDeviceMappings/*/Ebs/VolumeType": "$uppercase(VolumeType)"
-  },
   "readOnlyProperties": ["/properties/Arn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
   "tagging": {
@@ -297,7 +284,7 @@
     "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::ImageBuilder::ContainerRecipe",

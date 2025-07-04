@@ -1,14 +1,30 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::EC2::TrafficMirrorTarget
+ * Resource type definition for `AWS::EC2::TrafficMirrorTarget`.
+ * The description of the Traffic Mirror target.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html}
  */
 export type EC2TrafficMirrorTargetProperties = {
+  /**
+   * The description of the Traffic Mirror target.
+   */
   Description?: string;
+  /**
+   * The ID of the Gateway Load Balancer endpoint.
+   */
   GatewayLoadBalancerEndpointId?: string;
+  /**
+   * The network interface ID that is associated with the target.
+   */
   NetworkInterfaceId?: string;
+  /**
+   * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
+   */
   NetworkLoadBalancerArn?: string;
+  /**
+   *  The tags to assign to the Traffic Mirror target.
+   */
   Tags?: Tag[];
 };
 /**
@@ -27,7 +43,8 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource Type definition for AWS::EC2::TrafficMirrorTarget
+ * Resource type definition for `AWS::EC2::TrafficMirrorTarget`.
+ * The description of the Traffic Mirror target.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrortarget.html}
  */
 export class EC2TrafficMirrorTarget extends $Resource<

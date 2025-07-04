@@ -152,6 +152,12 @@ export type ContentFilterConfig = {
   Type: ContentFilterType;
 };
 /**
+ * Type definition for `AWS::Bedrock::Guardrail.ContentFiltersTierName`.
+ * Tier name for tier configuration in content filters policy
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfilterstiername.html}
+ */
+export type ContentFiltersTierName = "CLASSIC" | "STANDARD";
+/**
  * Type definition for `AWS::Bedrock::Guardrail.ContentFilterType`.
  * Type of filter in content policy
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentfiltertype.html}
@@ -169,6 +175,15 @@ export type ContentFilterType =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html}
  */
 export type ContentPolicyConfig = {
+  /**
+   * Guardrail tier config for content policy
+   */
+  ContentFiltersTierConfig?: {
+    /**
+     * Tier name for tier configuration in content filters policy
+     */
+    TierName: ContentFiltersTierName;
+  };
   /**
    * List of content filter configs in content policy.
    * @minLength `1`
@@ -469,7 +484,22 @@ export type TopicPolicyConfig = {
    * @minLength `1`
    */
   TopicsConfig: TopicConfig[];
+  /**
+   * Guardrail tier config for topic policy
+   */
+  TopicsTierConfig?: {
+    /**
+     * Tier name for tier configuration in topic policy
+     */
+    TierName: TopicsTierName;
+  };
 };
+/**
+ * Type definition for `AWS::Bedrock::Guardrail.TopicsTierName`.
+ * Tier name for tier configuration in topic policy
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicstiername.html}
+ */
+export type TopicsTierName = "CLASSIC" | "STANDARD";
 /**
  * Type definition for `AWS::Bedrock::Guardrail.TopicType`.
  * Type of topic in a policy

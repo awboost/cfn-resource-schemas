@@ -1,5 +1,5 @@
 {
-  "$hash": "681943125ec560d4f38b5d29bf9480907fd6b078",
+  "$hash": "6c0b4150a05c4225479065776eae7947af730684",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -22,6 +22,7 @@
     "/properties/UseLatestRestorableTime"
   ],
   "createOnlyProperties": [
+    "/properties/BackupTarget",
     "/properties/CharacterSetName",
     "/properties/CustomIAMInstanceProfile",
     "/properties/DBClusterIdentifier",
@@ -285,6 +286,7 @@
       "minimum": 0,
       "type": "integer"
     },
+    "BackupTarget": { "description": "", "type": "string" },
     "CACertificateIdentifier": {
       "description": "The identifier of the CA certificate for this DB instance.\n For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.",
       "type": "string"
