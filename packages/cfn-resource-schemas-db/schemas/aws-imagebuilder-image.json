@@ -1,5 +1,5 @@
 {
-  "$hash": "1d98276efd40cc316b1e8e499713261d34ac570c",
+  "$hash": "ec9328b9de3919d2c547932263e69eda93709f34",
   "$id": "aws-imagebuilder-image.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,8 +10,7 @@
     "/properties/DistributionConfigurationArn",
     "/properties/ImageTestsConfiguration",
     "/properties/ImageScanningConfiguration",
-    "/properties/EnhancedImageMetadataEnabled",
-    "/properties/Tags"
+    "/properties/EnhancedImageMetadataEnabled"
   ],
   "definitions": {
     "EcrConfiguration": {
@@ -146,7 +145,10 @@
         "imagebuilder:ListImageBuildVersions"
       ]
     },
-    "read": { "permissions": ["imagebuilder:GetImage"] }
+    "read": { "permissions": ["imagebuilder:GetImage"] },
+    "update": {
+      "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"]
+    }
   },
   "oneOf": [
     { "required": ["ContainerRecipeArn", "InfrastructureConfigurationArn"] },
@@ -225,7 +227,7 @@
     "permissions": ["imagebuilder:TagResource", "imagebuilder:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::ImageBuilder::Image"
