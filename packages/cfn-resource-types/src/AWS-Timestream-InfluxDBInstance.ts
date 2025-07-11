@@ -29,7 +29,8 @@ export type TimestreamInfluxDBInstanceProperties = {
     | "db.influx.4xlarge"
     | "db.influx.8xlarge"
     | "db.influx.12xlarge"
-    | "db.influx.16xlarge";
+    | "db.influx.16xlarge"
+    | "db.influx.24xlarge";
   /**
    * The name of an existing InfluxDB parameter group.
    * @minLength `3`

@@ -1,6 +1,3 @@
-- updated `AWS::ImageBuilder::Image`
+- updated `AWS::Timestream::InfluxDBInstance`
   - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::RDS::DBShardGroup`
-  - updated property `ComputeRedundancy`
+  - updated property `DbInstanceType`
