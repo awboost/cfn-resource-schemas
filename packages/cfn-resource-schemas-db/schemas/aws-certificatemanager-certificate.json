@@ -1,5 +1,5 @@
 {
-  "$hash": "8c358e4c70c44b76bcb67c3c19bed394d679a0f6",
+  "$hash": "4652805a4c540e48a446615d1e261a1f608c0fe4",
   "$id": "aws-certificatemanager-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -35,6 +35,7 @@
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
     "CertificateAuthorityArn": { "type": "string" },
+    "CertificateExport": { "type": "string" },
     "CertificateTransparencyLoggingPreference": { "type": "string" },
     "DomainName": { "type": "string" },
     "DomainValidationOptions": {

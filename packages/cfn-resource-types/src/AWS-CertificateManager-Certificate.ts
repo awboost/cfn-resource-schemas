@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CertificateManagerCertificateProperties = {
   CertificateAuthorityArn?: string;
+  CertificateExport?: string;
   CertificateTransparencyLoggingPreference?: string;
   DomainName: string;
   DomainValidationOptions?: DomainValidationOption[];

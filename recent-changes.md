@@ -1,3 +1,2 @@
-- updated `AWS::Timestream::InfluxDBInstance`
-  - updated `createOnlyProperties`
-  - updated property `DbInstanceType`
+- updated `AWS::CertificateManager::Certificate`
+  - added property `CertificateExport`
