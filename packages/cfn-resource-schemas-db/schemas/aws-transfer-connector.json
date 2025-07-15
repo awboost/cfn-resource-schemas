@@ -1,5 +1,5 @@
 {
-  "$hash": "58ba385f009ded34be3a7e3fbd53bf6a60caf586",
+  "$hash": "7a476c3bcb32ddb33109344f67f6a29987606dab",
   "$id": "aws-transfer-connector.json",
   "additionalProperties": false,
   "definitions": {
@@ -170,6 +170,13 @@
       "additionalProperties": false,
       "description": "Configuration for an SFTP connector.",
       "properties": {
+        "MaxConcurrentConnections": {
+          "default": 1,
+          "description": "Specifies the number of active connections that your connector can establish with the remote server at the same time.",
+          "maximum": 5,
+          "minimum": 1,
+          "type": "integer"
+        },
         "TrustedHostKeys": {
           "description": "List of public host keys, for the external server to which you are connecting.",
           "insertionOrder": false,

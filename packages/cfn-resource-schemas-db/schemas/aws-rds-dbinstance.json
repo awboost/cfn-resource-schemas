@@ -1,5 +1,5 @@
 {
-  "$hash": "6c0b4150a05c4225479065776eae7947af730684",
+  "$hash": "c3d298178c845262dd0236103c38d8716366c7e8",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -469,7 +469,7 @@
       "type": "string"
     },
     "MultiAZ": {
-      "description": "Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.\n This setting doesn't apply to the following DB instances:\n  +  Amazon Aurora (DB instance Availability Zones (AZs) are managed by the DB cluster.)\n  +  RDS Custom",
+      "description": "Specifies whether the DB instance is a Multi-AZ deployment. You can't set the ``AvailabilityZone`` parameter if the DB instance is a Multi-AZ deployment.\n This setting doesn't apply to Amazon Aurora because the DB instance Availability Zones (AZs) are managed by the DB cluster.",
       "type": "boolean"
     },
     "NcharCharacterSetName": {

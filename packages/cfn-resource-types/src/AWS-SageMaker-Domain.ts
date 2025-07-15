@@ -46,7 +46,7 @@ export type SageMakerDomainProperties = {
    * @minLength `1`
    * @maxLength `16`
    */
-  SubnetIds: string[];
+  SubnetIds?: string[];
   /**
    * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
    */
@@ -62,7 +62,7 @@ export type SageMakerDomainProperties = {
    * @maxLength `32`
    * @pattern `[-0-9a-zA-Z]+`
    */
-  VpcId: string;
+  VpcId?: string;
 };
 /**
  * Attribute type definition for `AWS::SageMaker::Domain`.
@@ -943,6 +943,11 @@ export type UnifiedStudioSettings = {
    * @pattern `[\w\.-]+$`
    */
   ProjectS3Path?: string;
+  /**
+   * The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
+   * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso::[0-9]+:application/[a-zA-Z0-9-_.]+/apl-[a-zA-Z0-9]+$`
+   */
+  SingleSignOnApplicationArn?: string;
   /**
      * Sets whether you can access the domain in Amazon SageMaker Studio:
     

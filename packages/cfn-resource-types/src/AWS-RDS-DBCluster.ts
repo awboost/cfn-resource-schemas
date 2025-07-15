@@ -132,6 +132,7 @@ export type RDSDBClusterProperties = {
      Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
   DatabaseName?: string;
+  DeleteAutomatedBackups?: boolean;
   /**
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      Valid for: Aurora DB clusters and Multi-AZ DB clusters

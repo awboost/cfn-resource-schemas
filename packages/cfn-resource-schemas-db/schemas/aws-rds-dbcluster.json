@@ -1,5 +1,5 @@
 {
-  "$hash": "337879172dc6e8527fb57bc81169e2c417fdf9c7",
+  "$hash": "9e7f17216b75a4f8969714d2ab5a0330d69d55bf",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -292,6 +292,7 @@
       "description": "The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. \n Valid for: Aurora DB clusters and Multi-AZ DB clusters",
       "type": "string"
     },
+    "DeleteAutomatedBackups": { "description": "", "type": "boolean" },
     "DeletionProtection": {
       "description": "A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.\n Valid for: Aurora DB clusters and Multi-AZ DB clusters",
       "type": "boolean"
@@ -517,6 +518,7 @@
   "writeOnlyProperties": [
     "/properties/ClusterScalabilityType",
     "/properties/DBInstanceParameterGroupName",
+    "/properties/DeleteAutomatedBackups",
     "/properties/MasterUserPassword",
     "/properties/RestoreToTime",
     "/properties/RestoreType",

@@ -1,2 +1,11 @@
-- updated `AWS::CertificateManager::Certificate`
-  - added property `CertificateExport`
+- added `AWS::Billing::BillingView`
+- updated `AWS::RDS::DBCluster`
+  - added property `DeleteAutomatedBackups`
+  - updated `writeOnlyProperties`
+- updated `AWS::RDS::DBInstance`
+  - updated property `MultiAZ`
+- updated `AWS::SageMaker::Domain`
+  - updated `required`
+  - updated definition `UnifiedStudioSettings`
+- updated `AWS::Transfer::Connector`
+  - updated property `SftpConfig`

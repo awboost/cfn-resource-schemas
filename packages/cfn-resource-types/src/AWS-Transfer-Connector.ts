@@ -97,6 +97,12 @@ export type TransferConnectorProperties = {
    */
   SftpConfig?: {
     /**
+     * Specifies the number of active connections that your connector can establish with the remote server at the same time.
+     * @min `1`
+     * @max `5`
+     */
+    MaxConcurrentConnections?: number;
+    /**
      * List of public host keys, for the external server to which you are connecting.
      * @maxLength `10`
      */
