@@ -27,6 +27,7 @@ export type S3ExpressDirectoryBucketProperties = {
    * Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
    */
   LocationName: string;
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::S3Express::DirectoryBucket`.
@@ -129,6 +130,24 @@ export type ServerSideEncryptionRule = {
    * Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
    */
   ServerSideEncryptionByDefault?: ServerSideEncryptionByDefault;
+};
+/**
+ * Type definition for `AWS::S3Express::DirectoryBucket.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^(?!aws:.*)([\p{L}\p{Z}\p{N}_.:=+\/\-@%]*)$`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   * @pattern `^([\p{L}\p{Z}\p{N}_.:=+\/\-@%]*)$`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::S3Express::DirectoryBucket.

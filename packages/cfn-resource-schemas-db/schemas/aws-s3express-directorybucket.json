@@ -1,5 +1,5 @@
 {
-  "$hash": "15d0e13486e25042f7aba9901554723b770bc04b",
+  "$hash": "27e8393b7a4bc6d528c4ca6051ff04f64eb48ff0",
   "$id": "aws-s3express-directorybucket.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -119,6 +119,25 @@
         }
       },
       "type": "object"
+    },
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^(?!aws:.*)([\\p{L}\\p{Z}\\p{N}_.:=+\\/\\-@%]*)$",
+          "type": "string"
+        },
+        "Value": {
+          "maxLength": 256,
+          "minLength": 0,
+          "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:=+\\/\\-@%]*)$",
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::S3Express::DirectoryBucket.",
@@ -130,7 +149,8 @@
         "s3express:CreateBucket",
         "s3express:ListAllMyDirectoryBuckets",
         "s3express:PutEncryptionConfiguration",
-        "s3express:PutLifecycleConfiguration"
+        "s3express:PutLifecycleConfiguration",
+        "s3express:TagResource"
       ]
     },
     "delete": {
@@ -145,7 +165,8 @@
         "s3express:ListAllMyDirectoryBuckets",
         "ec2:DescribeAvailabilityZones",
         "s3express:GetEncryptionConfiguration",
-        "s3express:GetLifecycleConfiguration"
+        "s3express:GetLifecycleConfiguration",
+        "s3express:ListTagsForResource"
       ]
     },
     "update": {
@@ -153,7 +174,9 @@
         "kms:GenerateDataKey",
         "kms:Decrypt",
         "s3express:PutEncryptionConfiguration",
-        "s3express:PutLifecycleConfiguration"
+        "s3express:PutLifecycleConfiguration",
+        "s3express:TagResource",
+        "s3express:UntagResource"
       ]
     }
   },
@@ -190,15 +213,23 @@
     "LocationName": {
       "description": "Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.",
       "type": "string"
+    },
+    "Tags": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "readOnlyProperties": ["/properties/Arn", "/properties/AvailabilityZoneName"],
   "required": ["LocationName", "DataRedundancy"],
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "tagOnCreate": false,
-    "tagUpdatable": false,
-    "taggable": false
+    "cloudFormationSystemTags": true,
+    "permissions": ["s3express:TagResource", "s3express:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
   },
   "typeName": "AWS::S3Express::DirectoryBucket"
 }

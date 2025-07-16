@@ -1,5 +1,5 @@
 {
-  "$hash": "ab478c44fc0e588271826877f92491071fd0983e",
+  "$hash": "78a9b64bdaa32f0a7512a0ec7044e167136b5842",
   "$id": "aws-ec2-capacityreservationfleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -129,6 +129,13 @@
     "TotalTargetCapacity": { "maximum": 25000, "minimum": 1, "type": "integer" }
   },
   "readOnlyProperties": ["/properties/CapacityReservationFleetId"],
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/TagSpecifications",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::EC2::CapacityReservationFleet"
 }

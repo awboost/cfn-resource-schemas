@@ -1,5 +1,5 @@
 {
-  "$hash": "7ee314341603d739d13cf9a77a575331a9a1fb2e",
+  "$hash": "61fdb4360bff966b7905ff06df1199c9b7282577",
   "$id": "aws-connect-instance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -17,7 +17,20 @@
         "ContactLens": { "$ref": "#/definitions/ContactLens" },
         "ContactflowLogs": { "$ref": "#/definitions/ContactflowLogs" },
         "EarlyMedia": { "$ref": "#/definitions/EarlyMedia" },
+        "EnhancedChatMonitoring": {
+          "$ref": "#/definitions/EnhancedChatMonitoring"
+        },
+        "EnhancedContactMonitoring": {
+          "$ref": "#/definitions/EnhancedContactMonitoring"
+        },
+        "HighVolumeOutBound": { "$ref": "#/definitions/HighVolumeOutBound" },
         "InboundCalls": { "$ref": "#/definitions/InboundCalls" },
+        "MultiPartyChatConference": {
+          "$ref": "#/definitions/MultiPartyChatConference"
+        },
+        "MultiPartyConference": {
+          "$ref": "#/definitions/MultiPartyConference"
+        },
         "OutboundCalls": { "$ref": "#/definitions/OutboundCalls" },
         "UseCustomTTSVoices": { "$ref": "#/definitions/UseCustomTTSVoices" }
       },
@@ -40,8 +53,28 @@
       "description": "Boolean flag which enables EARLY_MEDIA on an instance.",
       "type": "boolean"
     },
+    "EnhancedChatMonitoring": {
+      "description": "Boolean flag which enables ENHANCED_CHAT_MONITORING on an instance.",
+      "type": "boolean"
+    },
+    "EnhancedContactMonitoring": {
+      "description": "Boolean flag which enables ENHANCED_CONTACT_MONITORING on an instance.",
+      "type": "boolean"
+    },
+    "HighVolumeOutBound": {
+      "description": "Boolean flag which enables HIGH_VOLUME_OUTBOUND on an instance.",
+      "type": "boolean"
+    },
     "InboundCalls": {
       "description": "Mandatory element which enables inbound calls on new instance.",
+      "type": "boolean"
+    },
+    "MultiPartyChatConference": {
+      "description": "Boolean flag which enables MULTI_PARTY_CHAT_CONFERENCE on an instance.",
+      "type": "boolean"
+    },
+    "MultiPartyConference": {
+      "description": "Boolean flag which enables MULTI_PARTY_CONFERENCE on an instance.",
       "type": "boolean"
     },
     "OutboundCalls": {
@@ -121,7 +154,10 @@
       "permissions": [
         "connect:ListInstanceAttributes",
         "connect:UpdateInstanceAttribute",
+        "ds:DescribeDirectories",
         "iam:CreateServiceLinkedRole",
+        "iam:DeleteRolePolicy",
+        "logs:CreateLogGroup",
         "iam:PutRolePolicy",
         "connect:TagResource",
         "connect:UntagResource"

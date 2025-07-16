@@ -1,11 +1,56 @@
-- added `AWS::Billing::BillingView`
-- updated `AWS::RDS::DBCluster`
-  - added property `DeleteAutomatedBackups`
+- added `AWS::S3Tables::TablePolicy`
+- updated `AWS::Connect::Instance`
+  - added definition `EnhancedChatMonitoring`
+  - added definition `EnhancedContactMonitoring`
+  - added definition `HighVolumeOutBound`
+  - added definition `MultiPartyChatConference`
+  - added definition `MultiPartyConference`
+  - updated definition `Attributes`
+  - updated handler permissions
+- updated `AWS::EC2::CapacityReservationFleet`
+  - added `tagging`
+  - removed `taggable`
+- updated `AWS::MediaPackageV2::OriginEndpoint`
+  - added definition `DashBaseUrl`
+  - added definition `DashCompactness`
+  - added definition `DashDvbFontDownload`
+  - added definition `DashDvbMetricsReporting`
+  - added definition `DashDvbSettings`
+  - added definition `DashProfile`
+  - added definition `DashProgramInformation`
+  - added definition `DashSubtitleConfiguration`
+  - added definition `DashTtmlConfiguration`
+  - added definition `DashTtmlProfile`
+  - updated definition `DashManifestConfiguration`
+  - updated definition `Encryption`
+  - updated definition `ForceEndpointErrorConfiguration`
+  - updated definition `HlsManifestConfiguration`
+  - updated definition `LowLatencyHlsManifestConfiguration`
+  - updated definition `SpekeKeyProvider`
+- updated `AWS::S3::Bucket`
+  - added definition `InventoryTableConfiguration`
+  - added definition `JournalTableConfiguration`
+  - added definition `MetadataConfiguration`
+  - added definition `MetadataDestination`
+  - added definition `MetadataTableEncryptionConfiguration`
+  - added definition `RecordExpiration`
+  - added property `MetadataConfiguration`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
   - updated `writeOnlyProperties`
-- updated `AWS::RDS::DBInstance`
-  - updated property `MultiAZ`
-- updated `AWS::SageMaker::Domain`
-  - updated `required`
-  - updated definition `UnifiedStudioSettings`
-- updated `AWS::Transfer::Connector`
-  - updated property `SftpConfig`
+  - updated definition `CorsRule`
+  - updated definition `DeleteMarkerReplication`
+  - updated definition `Destination`
+  - updated definition `LifecycleConfiguration`
+  - updated definition `ReplicaModifications`
+  - updated definition `ReplicationRule`
+  - updated definition `RoutingRuleCondition`
+  - updated definition `ServerSideEncryptionByDefault`
+  - updated definition `ServerSideEncryptionRule`
+  - updated handler permissions
+  - updated property `MetadataTableConfiguration`
+- updated `AWS::S3Express::DirectoryBucket`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions

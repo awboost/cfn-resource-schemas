@@ -1,8 +1,11 @@
 {
-  "$hash": "9b84ee4c0afd3792ec5fc647fa3d6ba28f17ed95",
+  "$hash": "dd8466fa22e8fb7ce689978c49078b4e3a3744d6",
   "$id": "aws-s3-bucket.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/BucketName"],
+  "createOnlyProperties": [
+    "/properties/BucketName",
+    "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration"
+  ],
   "definitions": {
     "AbortIncompleteMultipartUpload": {
       "additionalProperties": false,
@@ -116,7 +119,7 @@
           "uniqueItems": true
         },
         "AllowedMethods": {
-          "description": "An HTTP method that you allow the origin to run.\n  *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``",
+          "description": "An HTTP method that you allow the origin to run.\n *Allowed values*: ``GET`` | ``PUT`` | ``HEAD`` | ``POST`` | ``DELETE``",
           "insertionOrder": true,
           "items": {
             "enum": ["GET", "PUT", "HEAD", "POST", "DELETE"],
@@ -192,7 +195,7 @@
     },
     "DeleteMarkerReplication": {
       "additionalProperties": false,
-      "description": "Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). \n For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). \n  If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).",
+      "description": "Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). \n For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). \n  If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations).",
       "properties": {
         "Status": {
           "description": "Indicates whether to replicate delete markers. Disabled by default.",
@@ -215,7 +218,7 @@
           "type": "string"
         },
         "Format": {
-          "description": "Specifies the file format used when exporting data to Amazon S3.\n  *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``",
+          "description": "Specifies the file format used when exporting data to Amazon S3.\n *Allowed values*: ``CSV`` | ``ORC`` | ``Parquet``",
           "enum": ["CSV", "ORC", "Parquet"],
           "type": "string"
         },
@@ -370,6 +373,52 @@
       ],
       "type": "object"
     },
+    "InventoryTableConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "ConfigurationState": {
+          "description": "Specifies whether inventory table configuration is enabled or disabled.",
+          "enum": ["ENABLED", "DISABLED"],
+          "type": "string"
+        },
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/MetadataTableEncryptionConfiguration",
+          "description": "The encryption configuration for the inventory table."
+        },
+        "TableArn": {
+          "description": "The ARN of the inventory table.",
+          "type": "string"
+        },
+        "TableName": {
+          "description": "The name of the inventory table.",
+          "type": "string"
+        }
+      },
+      "required": ["ConfigurationState"],
+      "type": "object"
+    },
+    "JournalTableConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "EncryptionConfiguration": {
+          "$ref": "#/definitions/MetadataTableEncryptionConfiguration",
+          "description": "The encryption configuration for the journal table."
+        },
+        "RecordExpiration": { "$ref": "#/definitions/RecordExpiration" },
+        "TableArn": {
+          "description": "The ARN of the journal table.",
+          "type": "string"
+        },
+        "TableName": {
+          "description": "The name of the journal table.",
+          "type": "string"
+        }
+      },
+      "required": ["RecordExpiration"],
+      "type": "object"
+    },
     "LambdaConfiguration": {
       "additionalProperties": false,
       "description": "Describes the LAMlong functions to invoke and the events for which to invoke them.",
@@ -402,7 +451,7 @@
           "uniqueItems": true
         },
         "TransitionDefaultMinimumObjectSize": {
-          "description": "Indicates which default minimum object size behavior is applied to the lifecycle configuration.\n  This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.\n   +   ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.\n  +   ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. \n  \n To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.",
+          "description": "Indicates which default minimum object size behavior is applied to the lifecycle configuration.\n  This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.\n   +  ``all_storage_classes_128K`` - Objects smaller than 128 KB will not transition to any storage class by default.\n  +  ``varies_by_storage_class`` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB. \n  \n To customize the minimum object size for any transition you can add a filter that specifies a custom ``ObjectSizeGreaterThan`` or ``ObjectSizeLessThan`` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.",
           "enum": ["varies_by_storage_class", "all_storage_classes_128K"],
           "type": "string"
         }
@@ -429,6 +478,47 @@
       },
       "type": "object"
     },
+    "MetadataConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Destination": {
+          "$ref": "#/definitions/MetadataDestination",
+          "description": "The destination information for the metadata configuration."
+        },
+        "InventoryTableConfiguration": {
+          "$ref": "#/definitions/InventoryTableConfiguration",
+          "description": "The configuration for the inventory table."
+        },
+        "JournalTableConfiguration": {
+          "$ref": "#/definitions/JournalTableConfiguration",
+          "description": "The configuration for the journal table."
+        }
+      },
+      "required": ["JournalTableConfiguration"],
+      "type": "object"
+    },
+    "MetadataDestination": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "TableBucketArn": {
+          "description": "The ARN of the table bucket.",
+          "type": "string"
+        },
+        "TableBucketType": {
+          "description": "The type of the table bucket.",
+          "enum": ["aws", "customer"],
+          "type": "string"
+        },
+        "TableNamespace": {
+          "description": "The namespace of the table.",
+          "type": "string"
+        }
+      },
+      "required": ["TableBucketType"],
+      "type": "object"
+    },
     "MetadataTableConfiguration": {
       "additionalProperties": false,
       "description": "The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html).",
@@ -439,6 +529,23 @@
         }
       },
       "required": ["S3TablesDestination"],
+      "type": "object"
+    },
+    "MetadataTableEncryptionConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "KmsKeyArn": {
+          "description": "The ARN of the KMS key. Required if SseAlgorithm is aws:kms.",
+          "type": "string"
+        },
+        "SseAlgorithm": {
+          "description": "Specifies the server-side encryption algorithm to use for encrypting tables.",
+          "enum": ["aws:kms", "AES256"],
+          "type": "string"
+        }
+      },
+      "required": ["SseAlgorithm"],
       "type": "object"
     },
     "Metrics": {
@@ -687,6 +794,23 @@
       "required": ["Event", "Queue"],
       "type": "object"
     },
+    "RecordExpiration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Days": {
+          "description": "The number of days after which records expire. Required if Expiration is ENABLED.",
+          "type": "integer"
+        },
+        "Expiration": {
+          "description": "Specifies whether record expiration is enabled or disabled.",
+          "enum": ["ENABLED", "DISABLED"],
+          "type": "string"
+        }
+      },
+      "required": ["Expiration"],
+      "type": "object"
+    },
     "RedirectAllRequestsTo": {
       "additionalProperties": false,
       "description": "Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.",
@@ -737,7 +861,7 @@
       "description": "A filter that you can specify for selection for modifications on replicas.",
       "properties": {
         "Status": {
-          "description": "Specifies whether Amazon S3 replicates modifications on replicas.\n  *Allowed values*: ``Enabled`` | ``Disabled``",
+          "description": "Specifies whether Amazon S3 replicates modifications on replicas.\n *Allowed values*: ``Enabled`` | ``Disabled``",
           "enum": ["Enabled", "Disabled"],
           "type": "string"
         }
@@ -820,7 +944,7 @@
       "properties": {
         "DeleteMarkerReplication": {
           "$ref": "#/definitions/DeleteMarkerReplication",
-          "description": "Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication`` ``Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). \n For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). \n  If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations)."
+          "description": "Specifies whether Amazon S3 replicates delete markers. If you specify a ``Filter`` in your replication configuration, you must also include a ``DeleteMarkerReplication`` element. If your ``Filter`` includes a ``Tag`` element, the ``DeleteMarkerReplication````Status`` must be set to Disabled, because Amazon S3 does not support replicating delete markers for tag-based rules. For an example configuration, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-config-min-rule-config). \n For more information about delete marker replication, see [Basic Rule Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-marker-replication.html). \n  If you are using an earlier version of the replication configuration, Amazon S3 handles replication of delete markers differently. For more information, see [Backward Compatibility](https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-add-config.html#replication-backward-compat-considerations)."
         },
         "Destination": {
           "$ref": "#/definitions/ReplicationDestination",
@@ -948,7 +1072,7 @@
           "type": "string"
         },
         "KeyPrefixEquals": {
-          "description": "The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html``, the key prefix will be ``ExamplePage.html``. To redirect request for all pages with the prefix ``docs/``, the key prefix will be ``/docs``, which identifies all objects in the docs/ folder.\n Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.",
+          "description": "The object key name prefix when the redirect is applied. For example, to redirect requests for ``ExamplePage.html``, the key prefix will be ``ExamplePage.html``. To redirect request for all pages with the prefix ``docs/``, the key prefix will be ``docs/``, which identifies all objects in the docs/ folder.\n Required when the parent element ``Condition`` is specified and sibling ``HttpErrorCodeReturnedEquals`` is not specified. If both conditions are specified, both must be true for the redirect to be applied.",
           "type": "string"
         }
       },
@@ -1082,10 +1206,10 @@
     },
     "ServerSideEncryptionByDefault": {
       "additionalProperties": false,
-      "description": "Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).\n   +   *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. \n  +   *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. \n  +   *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.",
+      "description": "Describes the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied. For more information, see [PutBucketEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html).\n   +  *General purpose buckets* - If you don't specify a customer managed key at configuration, Amazon S3 automatically creates an AWS KMS key (``aws/s3``) in your AWS account the first time that you add an object encrypted with SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. \n  +  *Directory buckets* - Your SSE-KMS configuration can only support 1 [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) per directory bucket's lifetime. The [managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) (``aws/s3``) isn't supported. \n  +  *Directory buckets* - For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS.",
       "properties": {
         "KMSMasterKeyID": {
-          "description": "AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. \n   +   *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.\n  +   *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.\n  \n  You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.\n  +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab`` \n  +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`` \n  +  Key Alias: ``alias/alias-name`` \n  \n If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).\n   +   *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. \n  +   *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.\n  \n   Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.",
+          "description": "AWS Key Management Service (KMS) customer managed key ID to use for the default encryption. \n   +  *General purpose buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms`` or ``aws:kms:dsse``.\n  +  *Directory buckets* - This parameter is allowed if and only if ``SSEAlgorithm`` is set to ``aws:kms``.\n  \n  You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.\n  +  Key ID: ``1234abcd-12ab-34cd-56ef-1234567890ab``\n  +  Key ARN: ``arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab``\n  +  Key Alias: ``alias/alias-name``\n  \n If you are using encryption with cross-account or AWS service operations, you must use a fully qualified KMS key ARN. For more information, see [Using encryption for cross-account operations](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy).\n   +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log. \n  +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.\n  \n   Amazon S3 only supports symmetric encryption KMS keys. For more information, see [Asymmetric keys in KMS](https://docs.aws.amazon.com//kms/latest/developerguide/symmetric-asymmetric.html) in the *Key Management Service Developer Guide*.",
           "type": "string"
         },
         "SSEAlgorithm": {
@@ -1099,7 +1223,7 @@
     },
     "ServerSideEncryptionRule": {
       "additionalProperties": false,
-      "description": "Specifies the default server-side encryption configuration.\n   +   *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.\n  +   *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.",
+      "description": "Specifies the default server-side encryption configuration.\n   +  *General purpose buckets* - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner.\n  +  *Directory buckets* - When you specify an [customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.",
       "properties": {
         "BucketKeyEnabled": {
           "description": "Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.\n For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.",
@@ -1348,7 +1472,9 @@
         "s3:CreateBucketMetadataTableConfiguration",
         "s3tables:CreateNamespace",
         "s3tables:CreateTable",
+        "s3tables:CreateTableBucket",
         "s3tables:GetTable",
+        "s3tables:PutTableEncryption",
         "s3tables:PutTablePolicy",
         "s3tables:GetTableMetadataLocation",
         "s3tables:UpdateTableMetadataLocation"
@@ -1397,9 +1523,13 @@
         "s3:GetBucketMetadataTableConfiguration",
         "s3:DeleteBucketMetadataTableConfiguration",
         "s3:CreateBucketMetadataTableConfiguration",
+        "s3:UpdateBucketMetadataJournalTableConfiguration",
+        "s3:UpdateBucketMetadataInventoryTableConfiguration",
         "s3tables:CreateNamespace",
         "s3tables:CreateTable",
+        "s3tables:CreateTableBucket",
         "s3tables:GetTable",
+        "s3tables:PutTableEncryption",
         "s3tables:PutTablePolicy",
         "s3tables:GetTableMetadataLocation",
         "s3tables:UpdateTableMetadataLocation",
@@ -1501,9 +1631,13 @@
       "$ref": "#/definitions/LoggingConfiguration",
       "description": "Settings that define where logs are stored."
     },
+    "MetadataConfiguration": {
+      "$ref": "#/definitions/MetadataConfiguration",
+      "description": ""
+    },
     "MetadataTableConfiguration": {
       "$ref": "#/definitions/MetadataTableConfiguration",
-      "description": "The metadata table configuration of an S3 general purpose bucket. For more information, see [Accelerating data discovery with S3 Metadata](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-overview.html) and [Setting up permissions for configuring metadata tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metadata-tables-permissions.html)."
+      "description": "The metadata table configuration of an S3 general purpose bucket."
     },
     "MetricsConfigurations": {
       "description": "Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).",
@@ -1577,6 +1711,11 @@
     "/properties/RegionalDomainName",
     "/properties/MetadataTableConfiguration/S3TablesDestination/TableNamespace",
     "/properties/MetadataTableConfiguration/S3TablesDestination/TableArn",
+    "/properties/MetadataConfiguration/Destination",
+    "/properties/MetadataConfiguration/JournalTableConfiguration/TableName",
+    "/properties/MetadataConfiguration/JournalTableConfiguration/TableArn",
+    "/properties/MetadataConfiguration/InventoryTableConfiguration/TableName",
+    "/properties/MetadataConfiguration/InventoryTableConfiguration/TableArn",
     "/properties/WebsiteURL"
   ],
   "tagging": {
@@ -1594,6 +1733,8 @@
   "typeName": "AWS::S3::Bucket",
   "writeOnlyProperties": [
     "/properties/AccessControl",
+    "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration",
+    "/properties/MetadataConfiguration/InventoryTableConfiguration/EncryptionConfiguration",
     "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionExpirationInDays",
     "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionTransition",
     "/properties/LifecycleConfiguration/Rules/*/Transition",

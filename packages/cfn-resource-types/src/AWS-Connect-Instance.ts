@@ -81,9 +81,29 @@ export type Attributes = {
    */
   EarlyMedia?: boolean;
   /**
+   * Boolean flag which enables ENHANCED_CHAT_MONITORING on an instance.
+   */
+  EnhancedChatMonitoring?: boolean;
+  /**
+   * Boolean flag which enables ENHANCED_CONTACT_MONITORING on an instance.
+   */
+  EnhancedContactMonitoring?: boolean;
+  /**
+   * Boolean flag which enables HIGH_VOLUME_OUTBOUND on an instance.
+   */
+  HighVolumeOutBound?: boolean;
+  /**
    * Mandatory element which enables inbound calls on new instance.
    */
   InboundCalls: boolean;
+  /**
+   * Boolean flag which enables MULTI_PARTY_CHAT_CONFERENCE on an instance.
+   */
+  MultiPartyChatConference?: boolean;
+  /**
+   * Boolean flag which enables MULTI_PARTY_CONFERENCE on an instance.
+   */
+  MultiPartyConference?: boolean;
   /**
    * Mandatory element which enables outbound calls on new instance.
    */

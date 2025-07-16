@@ -119,17 +119,126 @@ export type CmafEncryptionMethod = "CENC" | "CBCS";
  */
 export type ContainerType = "TS" | "CMAF";
 /**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashBaseUrl`.
+ * <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashbaseurl.html}
+ */
+export type DashBaseUrl = {
+  /**
+   * <p>For use with DVB-DASH profiles only. The priority of this location for servings segments. The lower the number, the higher the priority.</p>
+   * @min `1`
+   * @max `15000`
+   */
+  DvbPriority?: number;
+  /**
+   * <p>For use with DVB-DASH profiles only. The weighting for source locations that have the same priority. </p>
+   * @min `1`
+   * @max `15000`
+   */
+  DvbWeight?: number;
+  /**
+   * <p>The name of the source location.</p>
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  ServiceLocation?: string;
+  /**
+   * <p>A source location for segments.</p>
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  Url: string;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashCompactness`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashcompactness.html}
+ */
+export type DashCompactness = "STANDARD" | "NONE";
+/**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashDrmSignaling`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashdrmsignaling.html}
  */
 export type DashDrmSignaling = "INDIVIDUAL" | "REFERENCED";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashDvbFontDownload`.
+ * <p>For use with DVB-DASH profiles only. The settings for font downloads that you want Elemental MediaPackage to pass through to the manifest.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashdvbfontdownload.html}
+ */
+export type DashDvbFontDownload = {
+  /**
+   * <p>The <code>fontFamily</code> name for subtitles, as described in <a href="https://tech.ebu.ch/publications/tech3380">EBU-TT-D Subtitling Distribution Format</a>. </p>
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  FontFamily?: string;
+  /**
+   * <p>The <code>mimeType</code> of the resource that's at the font download URL.</p> <p>For information about font MIME types, see the <a href="https://dvb.org/wp-content/uploads/2021/06/A168r4_MPEG-DASH-Profile-for-Transport-of-ISO-BMFF-Based-DVB-Services_Draft-ts_103-285-v140_November_2021.pdf">MPEG-DASH Profile for Transport of ISO BMFF Based DVB Services over IP Based Networks</a> document. </p>
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[a-zA-Z0-9][a-zA-Z0-9_/-]*[a-zA-Z0-9]$`
+   */
+  MimeType?: string;
+  /**
+   * <p>The URL for downloading fonts for subtitles.</p>
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  Url?: string;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashDvbMetricsReporting`.
+ * <p>For use with DVB-DASH profiles only. The settings for error reporting from the playback device that you want Elemental MediaPackage to pass through to the manifest.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashdvbmetricsreporting.html}
+ */
+export type DashDvbMetricsReporting = {
+  /**
+   * <p>The number of playback devices per 1000 that will send error reports to the reporting URL. This represents the probability that a playback device will be a reporting player for this session.</p>
+   * @min `1`
+   * @max `1000`
+   */
+  Probability?: number;
+  /**
+   * <p>The URL where playback devices send error reports.</p>
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  ReportingUrl: string;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashDvbSettings`.
+ * <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashdvbsettings.html}
+ */
+export type DashDvbSettings = {
+  /**
+   * <p>Playback device error reporting settings.</p>
+   * @minLength `0`
+   * @maxLength `20`
+   */
+  ErrorMetrics?: DashDvbMetricsReporting[];
+  /**
+   * <p>For use with DVB-DASH profiles only. The settings for font downloads that you want Elemental MediaPackage to pass through to the manifest.</p>
+   */
+  FontDownload?: DashDvbFontDownload;
+};
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashManifestConfiguration`.
  * <p>Retrieve the DASH manifest configuration.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html}
  */
 export type DashManifestConfiguration = {
+  /**
+   * <p>The base URL to use for retrieving segments.</p>
+   * @minLength `0`
+   * @maxLength `20`
+   */
+  BaseUrls?: DashBaseUrl[];
+  Compactness?: DashCompactness;
   DrmSignaling?: DashDrmSignaling;
+  /**
+   * <p>For endpoints that use the DVB-DASH profile only. The font download and error reporting information that you want MediaPackage to pass through to the manifest.</p>
+   */
+  DvbSettings?: DashDvbSettings;
   /**
    * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
    */
@@ -154,17 +263,30 @@ export type DashManifestConfiguration = {
    */
   MinUpdatePeriodSeconds?: number;
   /**
-     * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period.
-             For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
-     * @minLength `0`
-     * @maxLength `100`
-     */
+   * <p>A list of triggers that controls when AWS Elemental MediaPackage separates the MPEG-DASH manifest into multiple periods. Leave this value empty to indicate that the manifest is contained all in one period. For more information about periods in the DASH manifest, see <a href="https://docs.aws.amazon.com/mediapackage/latest/userguide/multi-period.html">Multi-period DASH in AWS Elemental MediaPackage</a>.</p>
+   * @minLength `0`
+   * @maxLength `100`
+   */
   PeriodTriggers?: DashPeriodTrigger[];
+  /**
+   * <p>The profile that the output is compliant with.</p>
+   * @minLength `0`
+   * @maxLength `5`
+   */
+  Profiles?: DashProfile[];
+  /**
+   * <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
+   */
+  ProgramInformation?: DashProgramInformation;
   /**
    * <p>The SCTE configuration.</p>
    */
   ScteDash?: ScteDash;
   SegmentTemplateFormat?: DashSegmentTemplateFormat;
+  /**
+   * <p>The configuration for DASH subtitles.</p>
+   */
+  SubtitleConfiguration?: DashSubtitleConfiguration;
   /**
    * <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
    */
@@ -185,10 +307,77 @@ export type DashPeriodTrigger =
   | "SOURCE_DISRUPTIONS"
   | "NONE";
 /**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashProfile`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashprofile.html}
+ */
+export type DashProfile = "DVB_DASH";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashProgramInformation`.
+ * <p>Details about the content that you want MediaPackage to pass through in the manifest to the playback device.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashprograminformation.html}
+ */
+export type DashProgramInformation = {
+  /**
+   * <p>A copyright statement about the content.</p>
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  Copyright?: string;
+  /**
+   * <p>The language code for this manifest.</p>
+   * @minLength `2`
+   * @maxLength `5`
+   * @pattern `^[a-zA-Z0-9][a-zA-Z0-9_-]*[a-zA-Z0-9]$`
+   */
+  LanguageCode?: string;
+  /**
+   * <p>An absolute URL that contains more information about this content.</p>
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  MoreInformationUrl?: string;
+  /**
+   * <p>Information about the content provider.</p>
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  Source?: string;
+  /**
+   * <p>The title for the manifest.</p>
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  Title?: string;
+};
+/**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashSegmentTemplateFormat`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashsegmenttemplateformat.html}
  */
 export type DashSegmentTemplateFormat = "NUMBER_WITH_TIMELINE";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashSubtitleConfiguration`.
+ * <p>The configuration for DASH subtitles.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashsubtitleconfiguration.html}
+ */
+export type DashSubtitleConfiguration = {
+  /**
+   * <p>The settings for TTML subtitles.</p>
+   */
+  TtmlConfiguration?: DashTtmlConfiguration;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashTtmlConfiguration`.
+ * <p>The settings for TTML subtitles.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashttmlconfiguration.html}
+ */
+export type DashTtmlConfiguration = {
+  TtmlProfile: DashTtmlProfile;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashTtmlProfile`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashttmlprofile.html}
+ */
+export type DashTtmlProfile = "IMSC_1" | "EBU_TT_D_101";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashUtcTiming`.
  * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
@@ -240,12 +429,10 @@ export type Encryption = {
    */
   EncryptionMethod: EncryptionMethod;
   /**
-     * <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
-             <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
-             </p>
-     * @min `300`
-     * @max `31536000`
-     */
+   * <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p> <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code> </p>
+   * @min `300`
+   * @max `31536000`
+   */
   KeyRotationIntervalSeconds?: number;
   /**
    * <p>The parameters for the SPEKE key provider.</p>
@@ -317,26 +504,8 @@ export type FilterConfiguration = {
  */
 export type ForceEndpointErrorConfiguration = {
   /**
-     * <p>The failover conditions for the endpoint. The options are:</p>
-             <ul>
-                <li>
-                   <p>
-                      <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p>
-                </li>
-                <li>
-                   <p>
-                      <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p>
-                </li>
-                <li>
-                   <p>
-                      <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p>
-                </li>
-                <li>
-                   <p>
-                      <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p>
-                </li>
-             </ul>
-     */
+   * <p>The failover conditions for the endpoint. The options are:</p> <ul> <li> <p> <code>STALE_MANIFEST</code> - The manifest stalled and there are no new segments or parts.</p> </li> <li> <p> <code>INCOMPLETE_MANIFEST</code> - There is a gap in the manifest.</p> </li> <li> <p> <code>MISSING_DRM_KEY</code> - Key rotation is enabled but we're unable to fetch the key for the current key period.</p> </li> <li> <p> <code>SLATE_INPUT</code> - The segments which contain slate content are considered to be missing content.</p> </li> </ul>
+   */
   EndpointErrorConditions?: EndpointErrorCondition[];
 };
 /**
@@ -368,11 +537,8 @@ export type HlsManifestConfiguration = {
    */
   ManifestWindowSeconds?: number;
   /**
-     * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-             EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-             The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-             <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
-     */
+   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+   */
   ProgramDateTimeIntervalSeconds?: number;
   /**
    * <p>The SCTE configuration.</p>
@@ -383,9 +549,8 @@ export type HlsManifestConfiguration = {
    */
   StartTag?: StartTag;
   /**
-     * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
-     */
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   */
   UrlEncodeChildManifest?: boolean;
 };
 /**
@@ -417,11 +582,8 @@ export type LowLatencyHlsManifestConfiguration = {
    */
   ManifestWindowSeconds?: number;
   /**
-     * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
-             EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-             The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
-             <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
-     */
+   * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval, EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest. The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p> <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
+   */
   ProgramDateTimeIntervalSeconds?: number;
   /**
    * <p>The SCTE configuration.</p>
@@ -432,9 +594,8 @@ export type LowLatencyHlsManifestConfiguration = {
    */
   StartTag?: StartTag;
   /**
-     * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol.
-             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
-     */
+   * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
+   */
   UrlEncodeChildManifest?: boolean;
 };
 /**
@@ -562,29 +723,23 @@ export type SpekeKeyProvider = {
    */
   EncryptionContractConfiguration: EncryptionContractConfiguration;
   /**
-     * <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
-             <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
-             </p>
-     * @minLength `1`
-     * @maxLength `256`
-     * @pattern `^[0-9a-zA-Z_-]+$`
-     */
+   * <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p> <p>The following example shows a resource ID: <code>MovieNight20171126093045</code> </p>
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[0-9a-zA-Z_-]+$`
+   */
   ResourceId: string;
   /**
-     * <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p>
-             <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code>
-             </p>
-     * @minLength `1`
-     * @maxLength `2048`
-     */
+   * <p>The ARN for the IAM role granted by the key provider that provides access to the key provider API. This role must have a trust policy that allows MediaPackage to assume the role, and it must have a sufficient permissions policy to allow access to the specific key retrieval URL. Get this from your DRM solution provider.</p> <p>Valid format: <code>arn:aws:iam::{accountID}:role/{name}</code>. The following example shows a role ARN: <code>arn:aws:iam::444455556666:role/SpekeAccess</code> </p>
+   * @minLength `1`
+   * @maxLength `2048`
+   */
   RoleArn: string;
   /**
-     * <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p>
-             <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code>
-             </p>
-     * @minLength `1`
-     * @maxLength `1024`
-     */
+   * <p>The URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage and must start with https://.</p> <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code> </p>
+   * @minLength `1`
+   * @maxLength `1024`
+   */
   Url: string;
 };
 /**
