@@ -1,5 +1,5 @@
 {
-  "$hash": "d9e215dcb2ec81d14e0d5c025ed1002cd44f4080",
+  "$hash": "aeea2aa8b9256f40e4c5ab3858614d8042409473",
   "$id": "aws-guardduty-ipset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Format", "/properties/DetectorId"],
@@ -54,6 +54,7 @@
   "properties": {
     "Activate": { "type": "boolean" },
     "DetectorId": { "maxLength": 300, "minLength": 1, "type": "string" },
+    "ExpectedBucketOwner": { "type": "string" },
     "Format": { "type": "string" },
     "Id": { "type": "string" },
     "Location": { "maxLength": 300, "minLength": 1, "type": "string" },

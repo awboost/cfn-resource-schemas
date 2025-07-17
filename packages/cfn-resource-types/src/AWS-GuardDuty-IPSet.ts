@@ -11,6 +11,7 @@ export type GuardDutyIPSetProperties = {
    * @maxLength `300`
    */
   DetectorId?: string;
+  ExpectedBucketOwner?: string;
   Format: string;
   /**
    * @minLength `1`

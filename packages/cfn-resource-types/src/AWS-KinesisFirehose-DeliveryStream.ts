@@ -184,6 +184,12 @@ export type CatalogConfiguration = {
    * @pattern `arn:.*`
    */
   CatalogArn?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `s3:\/\/.*`
+   */
+  WarehouseLocation?: string;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.CloudWatchLoggingOptions`.
@@ -347,6 +353,9 @@ export type DestinationTableConfiguration = {
    * @maxLength `512`
    */
   DestinationTableName: string;
+  PartitionSpec?: {
+    Identity?: PartitionField[];
+  };
   /**
    * @minLength `1`
    * @maxLength `1024`
@@ -600,6 +609,8 @@ export type IcebergDestinationConfiguration = {
    */
   RoleARN: string;
   S3Configuration: S3DestinationConfiguration;
+  SchemaEvolutionConfiguration?: SchemaEvolutionConfiguration;
+  TableCreationConfiguration?: TableCreationConfiguration;
   s3BackupMode?: "AllData" | "FailedDataOnly";
 };
 /**
@@ -697,6 +708,17 @@ export type ParquetSerDe = {
   MaxPaddingBytes?: number;
   PageSizeBytes?: number;
   WriterVersion?: string;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.PartitionField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-partitionfield.html}
+ */
+export type PartitionField = {
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  SourceName: string;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.ProcessingConfiguration`.
@@ -830,6 +852,13 @@ export type SchemaConfiguration = {
   RoleARN?: string;
   TableName?: string;
   VersionId?: string;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.SchemaEvolutionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaevolutionconfiguration.html}
+ */
+export type SchemaEvolutionConfiguration = {
+  Enabled?: boolean;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.SecretsManagerConfiguration`.
@@ -1012,6 +1041,13 @@ export type SplunkDestinationConfiguration = {
  */
 export type SplunkRetryOptions = {
   DurationInSeconds?: number;
+};
+/**
+ * Type definition for `AWS::KinesisFirehose::DeliveryStream.TableCreationConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-tablecreationconfiguration.html}
+ */
+export type TableCreationConfiguration = {
+  Enabled?: boolean;
 };
 /**
  * Type definition for `AWS::KinesisFirehose::DeliveryStream.Tag`.

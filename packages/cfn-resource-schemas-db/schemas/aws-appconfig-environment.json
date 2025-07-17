@@ -1,5 +1,5 @@
 {
-  "$hash": "12ac05a09c78b2f16898fcffa1ce9d4ea220730a",
+  "$hash": "c5e700cc7b9c1c118e900289aa86a8945656bc8a",
   "$id": "aws-appconfig-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApplicationId"],
@@ -22,7 +22,6 @@
           "description": "ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.",
           "maxLength": 2048,
           "minLength": 20,
-          "pattern": "^((arn):(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):(iam)::\\d{12}:role[/].*)$",
           "relationshipRef": {
             "propertyPath": "/properties/Arn",
             "typeName": "AWS::IAM::Role"

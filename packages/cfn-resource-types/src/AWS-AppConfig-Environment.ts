@@ -64,7 +64,6 @@ export type Monitor = {
    * ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
    * @minLength `20`
    * @maxLength `2048`
-   * @pattern `^((arn):(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):(iam)::\d{12}:role[/].*)$`
    */
   AlarmRoleArn?: string;
 };

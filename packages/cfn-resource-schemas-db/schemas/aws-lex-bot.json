@@ -1,5 +1,5 @@
 {
-  "$hash": "b938dfee3d20bc118b38a751b6b5ab6639c27ca3",
+  "$hash": "c864a4b7c45a2d1772154a97c6acee995494480a",
   "$id": "aws-lex-bot.json",
   "additionalProperties": false,
   "definitions": {
@@ -382,7 +382,7 @@
     },
     "Description": {
       "description": "A description of the resource",
-      "maxLength": 200,
+      "maxLength": 2000,
       "type": "string"
     },
     "DialogAction": {

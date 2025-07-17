@@ -1,5 +1,5 @@
 {
-  "$hash": "f308c5d3d5d9905c15b1365ae39ed7d89486fa1e",
+  "$hash": "487c5510f2ffae5cdc57d38f0d3644021e903366",
   "$id": "aws-guardduty-threatintelset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Format", "/properties/DetectorId"],
@@ -53,6 +53,7 @@
   "properties": {
     "Activate": { "type": "boolean" },
     "DetectorId": { "maxLength": 32, "minLength": 1, "type": "string" },
+    "ExpectedBucketOwner": { "type": "string" },
     "Format": { "maxLength": 300, "minLength": 1, "type": "string" },
     "Id": { "type": "string" },
     "Location": { "maxLength": 300, "minLength": 1, "type": "string" },

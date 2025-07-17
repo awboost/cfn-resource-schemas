@@ -36,7 +36,7 @@ export type SageMakerProjectProperties = {
   /**
    * Input ServiceCatalog Provisioning Details
    */
-  ServiceCatalogProvisioningDetails: {
+  ServiceCatalogProvisioningDetails?: {
     /**
      * The path identifier of the product.
      * @maxLength `100`
@@ -65,6 +65,12 @@ export type SageMakerProjectProperties = {
    * @maxLength `40`
    */
   Tags?: Tag[];
+  /**
+   * An array of template providers associated with the project.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  TemplateProviderDetails?: TemplateProviderDetail[];
 };
 /**
  * Attribute type definition for `AWS::SageMaker::Project`.
@@ -99,6 +105,57 @@ export type SageMakerProjectAttributes = {
     | "DeleteInProgress"
     | "DeleteFailed"
     | "DeleteCompleted";
+};
+/**
+ * Type definition for `AWS::SageMaker::Project.CfnStackParameter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-cfnstackparameter.html}
+ */
+export type CfnStackParameter = {
+  /**
+   * The key of the parameter.
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  Key: string;
+  /**
+   * The value of the parameter.
+   * @maxLength `4096`
+   */
+  Value: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Project.CfnTemplateProviderDetail`.
+ * CloudFormation template provider details for a SageMaker project.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-cfntemplateproviderdetail.html}
+ */
+export type CfnTemplateProviderDetail = {
+  /**
+   * A list of parameters used in the CloudFormation template.
+   * @minLength `0`
+   * @maxLength `180`
+   */
+  Parameters?: CfnStackParameter[];
+  /**
+   * The Amazon Resource Name (ARN) of the IAM role used by the template provider.
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`
+   */
+  RoleARN?: string;
+  /**
+   * The name of the template used for the project.
+   * @minLength `1`
+   * @maxLength `32`
+   * @pattern `(?=.{1,32}$)[a-zA-Z0-9](-*[a-zA-Z0-9])*`
+   */
+  TemplateName: string;
+  /**
+   * The URL of the CloudFormation template.
+   * @minLength `1`
+   * @maxLength `1024`
+   * @pattern `(?=.{1,1024}$)(https)://([^/]+)/(.+)`
+   */
+  TemplateURL: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Project.ProvisioningParameter`.
@@ -139,6 +196,17 @@ export type Tag = {
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Project.TemplateProviderDetail`.
+ * Details about the template provider for the SageMaker project.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-templateproviderdetail.html}
+ */
+export type TemplateProviderDetail = {
+  /**
+   * CloudFormation template provider details for a SageMaker project.
+   */
+  CfnTemplateProviderDetail?: CfnTemplateProviderDetail;
 };
 /**
  * Resource Type definition for AWS::SageMaker::Project

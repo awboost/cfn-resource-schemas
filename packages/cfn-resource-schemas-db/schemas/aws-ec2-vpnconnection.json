@@ -1,5 +1,5 @@
 {
-  "$hash": "bb522edf6cdd82ac61acb58e9f33d7b51e16ab19",
+  "$hash": "9f5f9964a1120e51acbf6daf8f1665f5e121566d",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -319,7 +319,7 @@
       "type": "string"
     },
     "OutsideIpAddressType": {
-      "description": "The type of IPv4 address assigned to the outside interface of the customer gateway device.\n Valid values: ``PrivateIpv4`` | ``PublicIpv4``\n Default: ``PublicIpv4``",
+      "description": "The type of IP address assigned to the outside interface of the customer gateway device.\n Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``\n Default: ``PublicIpv4``",
       "type": "string"
     },
     "RemoteIpv4NetworkCidr": {

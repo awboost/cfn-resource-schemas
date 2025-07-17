@@ -62,9 +62,6 @@ export type ConnectEvaluationFormAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-autoevaluationconfiguration.html}
  */
 export type AutoEvaluationConfiguration = {
-  /**
-   * Auto Evaluation enablement status.
-   */
   Enabled?: boolean;
 };
 /**

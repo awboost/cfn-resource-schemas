@@ -11,6 +11,7 @@ export type GuardDutyThreatIntelSetProperties = {
    * @maxLength `32`
    */
   DetectorId?: string;
+  ExpectedBucketOwner?: string;
   /**
    * @minLength `1`
    * @maxLength `300`

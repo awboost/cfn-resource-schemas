@@ -1,56 +1,45 @@
-- added `AWS::S3Tables::TablePolicy`
-- updated `AWS::Connect::Instance`
-  - added definition `EnhancedChatMonitoring`
-  - added definition `EnhancedContactMonitoring`
-  - added definition `HighVolumeOutBound`
-  - added definition `MultiPartyChatConference`
-  - added definition `MultiPartyConference`
-  - updated definition `Attributes`
+- added `AWS::Wisdom::QuickResponse`
+- updated `AWS::AppConfig::Environment`
+  - updated definition `Monitor`
+- updated `AWS::Connect::EvaluationForm`
+  - updated definition `AutoEvaluationConfiguration`
+- updated `AWS::DocDBElastic::Cluster`
   - updated handler permissions
-- updated `AWS::EC2::CapacityReservationFleet`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - added definition `DashBaseUrl`
-  - added definition `DashCompactness`
-  - added definition `DashDvbFontDownload`
-  - added definition `DashDvbMetricsReporting`
-  - added definition `DashDvbSettings`
-  - added definition `DashProfile`
-  - added definition `DashProgramInformation`
-  - added definition `DashSubtitleConfiguration`
-  - added definition `DashTtmlConfiguration`
-  - added definition `DashTtmlProfile`
-  - updated definition `DashManifestConfiguration`
-  - updated definition `Encryption`
-  - updated definition `ForceEndpointErrorConfiguration`
-  - updated definition `HlsManifestConfiguration`
-  - updated definition `LowLatencyHlsManifestConfiguration`
-  - updated definition `SpekeKeyProvider`
-- updated `AWS::S3::Bucket`
-  - added definition `InventoryTableConfiguration`
-  - added definition `JournalTableConfiguration`
-  - added definition `MetadataConfiguration`
-  - added definition `MetadataDestination`
-  - added definition `MetadataTableEncryptionConfiguration`
-  - added definition `RecordExpiration`
-  - added property `MetadataConfiguration`
+- updated `AWS::DynamoDB::Table`
+  - updated property `ResourcePolicy`
+- updated `AWS::EC2::VPNConnection`
+  - updated property `OutsideIpAddressType`
+- updated `AWS::ECS::Service`
+  - added definition `AdvancedConfiguration`
+  - added definition `DeploymentLifecycleHook`
+  - added definition `ServiceConnectTestTrafficRulesHeaderValue`
+  - added definition `ServiceConnectTestTrafficRulesHeader`
+  - added definition `ServiceConnectTestTrafficRules`
+  - removed `conditionalCreateOnlyProperties`
+  - updated definition `DeploymentConfiguration`
+  - updated definition `LoadBalancer`
+  - updated definition `ServiceConnectClientAlias`
+  - updated handler permissions
+- updated `AWS::GuardDuty::IPSet`
+  - added property `ExpectedBucketOwner`
+- updated `AWS::GuardDuty::ThreatIntelSet`
+  - added property `ExpectedBucketOwner`
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - added definition `PartitionField`
+  - added definition `SchemaEvolutionConfiguration`
+  - added definition `TableCreationConfiguration`
+  - updated definition `CatalogConfiguration`
+  - updated definition `DestinationTableConfiguration`
+  - updated definition `IcebergDestinationConfiguration`
+- updated `AWS::Lex::Bot`
+  - updated definition `Description`
+- updated `AWS::SageMaker::Project`
+  - added `oneOf`
+  - added definition `CfnStackParameter`
+  - added definition `CfnStackParameters`
+  - added definition `CfnTemplateProviderDetail`
+  - added definition `TemplateProviderDetail`
+  - added property `TemplateProviderDetails`
   - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated definition `CorsRule`
-  - updated definition `DeleteMarkerReplication`
-  - updated definition `Destination`
-  - updated definition `LifecycleConfiguration`
-  - updated definition `ReplicaModifications`
-  - updated definition `ReplicationRule`
-  - updated definition `RoutingRuleCondition`
-  - updated definition `ServerSideEncryptionByDefault`
-  - updated definition `ServerSideEncryptionRule`
-  - updated handler permissions
-  - updated property `MetadataTableConfiguration`
-- updated `AWS::S3Express::DirectoryBucket`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated `tagging`
+  - updated `required`
   - updated handler permissions

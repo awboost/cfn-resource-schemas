@@ -174,6 +174,16 @@ export type ECSServiceAttributes = {
   ServiceArn: string;
 };
 /**
+ * Type definition for `AWS::ECS::Service.AdvancedConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-advancedconfiguration.html}
+ */
+export type AdvancedConfiguration = {
+  AlternateTargetGroupArn: string;
+  ProductionListenerRule?: string;
+  RoleArn?: string;
+  TestListenerRule?: string;
+};
+/**
  * Type definition for `AWS::ECS::Service.AwsVpcConfiguration`.
  * An object representing the networking details for a task or service. For example ``awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html}
@@ -271,10 +281,16 @@ export type DeploymentConfiguration = {
    */
   Alarms?: DeploymentAlarms;
   /**
+   * @min `0`
+   * @max `1440`
+   */
+  BakeTimeInMinutes?: number;
+  /**
      * The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
       The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
      */
   DeploymentCircuitBreaker?: DeploymentCircuitBreaker;
+  LifecycleHooks?: DeploymentLifecycleHook[];
   /**
      * If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
      The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
@@ -302,6 +318,7 @@ export type DeploymentConfiguration = {
       If a service is using either the blue/green (``CODE_DEPLOY``) or ``EXTERNAL`` deployment types and is running tasks that use the Fargate launch type, the minimum healthy percent value is not used, although it is returned when describing your service.
      */
   MinimumHealthyPercent?: number;
+  Strategy?: "ROLLING" | "BLUE_GREEN";
 };
 /**
  * Type definition for `AWS::ECS::Service.DeploymentController`.
@@ -314,6 +331,26 @@ export type DeploymentController = {
       + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
      */
   Type?: "CODE_DEPLOY" | "ECS" | "EXTERNAL";
+};
+/**
+ * Type definition for `AWS::ECS::Service.DeploymentLifecycleHook`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html}
+ */
+export type DeploymentLifecycleHook = {
+  HookTargetArn: string;
+  /**
+   * @minLength `1`
+   */
+  LifecycleStages: (
+    | "RECONCILE_SERVICE"
+    | "PRE_SCALE_UP"
+    | "POST_SCALE_UP"
+    | "TEST_TRAFFIC_SHIFT"
+    | "POST_TEST_TRAFFIC_SHIFT"
+    | "PRODUCTION_TRAFFIC_SHIFT"
+    | "POST_PRODUCTION_TRAFFIC_SHIFT"
+  )[];
+  RoleArn: string;
 };
 /**
  * Type definition for `AWS::ECS::Service.EBSTagSpecification`.
@@ -345,6 +382,7 @@ export type EBSTagSpecification = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html}
  */
 export type LoadBalancer = {
+  AdvancedConfiguration?: AdvancedConfiguration;
   /**
      * The name of the container (as it appears in a container definition) to associate with the load balancer.
      You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
@@ -494,6 +532,7 @@ export type ServiceConnectClientAlias = {
      To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
   Port: number;
+  TestTrafficRules?: ServiceConnectTestTrafficRules;
 };
 /**
  * Type definition for `AWS::ECS::Service.ServiceConnectConfiguration`.
@@ -565,6 +604,28 @@ export type ServiceConnectService = {
    * A reference to an object that represents a Transport Layer Security (TLS) configuration.
    */
   Tls?: ServiceConnectTlsConfiguration;
+};
+/**
+ * Type definition for `AWS::ECS::Service.ServiceConnectTestTrafficRules`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttesttrafficrules.html}
+ */
+export type ServiceConnectTestTrafficRules = {
+  Header: ServiceConnectTestTrafficRulesHeader;
+};
+/**
+ * Type definition for `AWS::ECS::Service.ServiceConnectTestTrafficRulesHeader`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttesttrafficrulesheader.html}
+ */
+export type ServiceConnectTestTrafficRulesHeader = {
+  Name: string;
+  Value?: ServiceConnectTestTrafficRulesHeaderValue;
+};
+/**
+ * Type definition for `AWS::ECS::Service.ServiceConnectTestTrafficRulesHeaderValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttesttrafficrulesheadervalue.html}
+ */
+export type ServiceConnectTestTrafficRulesHeaderValue = {
+  Exact: string;
 };
 /**
  * Type definition for `AWS::ECS::Service.ServiceConnectTlsCertificateAuthority`.

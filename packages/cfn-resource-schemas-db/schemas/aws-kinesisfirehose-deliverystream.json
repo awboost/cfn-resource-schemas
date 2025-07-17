@@ -1,5 +1,5 @@
 {
-  "$hash": "d7baf77f2c84f74405ab191740e24eaa27df7abc",
+  "$hash": "f6728cecd6a553430e204d72db7dfbfb4f5ef2a0",
   "$id": "aws-kinesisfirehose-deliverystream.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -179,6 +179,12 @@
           "maxLength": 512,
           "minLength": 1,
           "pattern": "arn:.*",
+          "type": "string"
+        },
+        "WarehouseLocation": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "pattern": "s3:\\/\\/.*",
           "type": "string"
         }
       },
@@ -414,6 +420,17 @@
           "maxLength": 512,
           "minLength": 1,
           "type": "string"
+        },
+        "PartitionSpec": {
+          "additionalProperties": false,
+          "properties": {
+            "Identity": {
+              "items": { "$ref": "#/definitions/PartitionField" },
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "type": "object"
         },
         "S3ErrorOutputPrefix": {
           "maxLength": 1024,
@@ -733,6 +750,12 @@
         "S3Configuration": {
           "$ref": "#/definitions/S3DestinationConfiguration"
         },
+        "SchemaEvolutionConfiguration": {
+          "$ref": "#/definitions/SchemaEvolutionConfiguration"
+        },
+        "TableCreationConfiguration": {
+          "$ref": "#/definitions/TableCreationConfiguration"
+        },
         "s3BackupMode": {
           "enum": ["AllData", "FailedDataOnly"],
           "type": "string"
@@ -864,6 +887,14 @@
         "PageSizeBytes": { "type": "integer" },
         "WriterVersion": { "type": "string" }
       },
+      "type": "object"
+    },
+    "PartitionField": {
+      "additionalProperties": false,
+      "properties": {
+        "SourceName": { "maxLength": 255, "minLength": 1, "type": "string" }
+      },
+      "required": ["SourceName"],
       "type": "object"
     },
     "ProcessingConfiguration": {
@@ -1066,6 +1097,11 @@
       },
       "type": "object"
     },
+    "SchemaEvolutionConfiguration": {
+      "additionalProperties": false,
+      "properties": { "Enabled": { "type": "boolean" } },
+      "type": "object"
+    },
     "SecretsManagerConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -1260,6 +1296,11 @@
     "SplunkRetryOptions": {
       "additionalProperties": false,
       "properties": { "DurationInSeconds": { "type": "integer" } },
+      "type": "object"
+    },
+    "TableCreationConfiguration": {
+      "additionalProperties": false,
+      "properties": { "Enabled": { "type": "boolean" } },
       "type": "object"
     },
     "Tag": {

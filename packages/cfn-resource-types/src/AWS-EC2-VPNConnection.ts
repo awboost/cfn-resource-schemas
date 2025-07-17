@@ -29,8 +29,8 @@ export type EC2VPNConnectionProperties = {
      */
   LocalIpv6NetworkCidr?: string;
   /**
-     * The type of IPv4 address assigned to the outside interface of the customer gateway device.
-     Valid values: ``PrivateIpv4`` | ``PublicIpv4``
+     * The type of IP address assigned to the outside interface of the customer gateway device.
+     Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
      Default: ``PublicIpv4``
      */
   OutsideIpAddressType?: string;

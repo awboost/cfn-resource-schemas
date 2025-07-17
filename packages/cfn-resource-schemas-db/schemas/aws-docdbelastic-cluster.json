@@ -1,5 +1,5 @@
 {
-  "$hash": "cd7bce51b622fe77be5dceaa6e011b15c6c24075",
+  "$hash": "8499610e6e128455734e9ec12eb7eb46691b0a32",
   "$id": "aws-docdbelastic-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -51,7 +51,8 @@
         "kms:GenerateDataKey",
         "kms:Decrypt",
         "iam:CreateServiceLinkedRole"
-      ]
+      ],
+      "timeoutInMinutes": 480
     },
     "delete": {
       "permissions": [
@@ -65,7 +66,8 @@
         "ec2:DescribeVpcAttribute",
         "ec2:DescribeVpcs",
         "ec2:DescribeAvailabilityZones"
-      ]
+      ],
+      "timeoutInMinutes": 240
     },
     "list": { "permissions": ["docdb-elastic:ListClusters"] },
     "read": {
@@ -99,7 +101,8 @@
         "kms:CreateGrant",
         "kms:GenerateDataKey",
         "kms:Decrypt"
-      ]
+      ],
+      "timeoutInMinutes": 2160
     }
   },
   "primaryIdentifier": ["/properties/ClusterArn"],

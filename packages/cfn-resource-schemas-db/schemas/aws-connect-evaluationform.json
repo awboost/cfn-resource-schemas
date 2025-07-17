@@ -1,17 +1,12 @@
 {
-  "$hash": "75b418802340d7054ca0704f52b329cf6c43a30b",
+  "$hash": "5e757f8dfd757c8081357f31f2f82642be2ab32f",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
     "AutoEvaluationConfiguration": {
       "additionalProperties": false,
       "description": "",
-      "properties": {
-        "Enabled": {
-          "description": "Auto Evaluation enablement status.",
-          "type": "boolean"
-        }
-      },
+      "properties": { "Enabled": { "description": "", "type": "boolean" } },
       "type": "object"
     },
     "EvaluationFormBaseItem": {

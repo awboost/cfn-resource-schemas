@@ -18,7 +18,7 @@ export type LexBotProperties = {
   };
   /**
    * A description of the resource
-   * @maxLength `200`
+   * @maxLength `2000`
    */
   Description?: string;
   /**
@@ -207,7 +207,7 @@ export type BotLocale = {
   CustomVocabulary?: CustomVocabulary;
   /**
    * A description of the resource
-   * @maxLength `200`
+   * @maxLength `2000`
    */
   Description?: string;
   GenerativeAISettings?: GenerativeAISettings;
@@ -651,7 +651,7 @@ export type Intent = {
   BedrockAgentIntentConfiguration?: BedrockAgentIntentConfiguration;
   /**
    * Description of thr intent.
-   * @maxLength `200`
+   * @maxLength `2000`
    */
   Description?: string;
   DialogCodeHook?: DialogCodeHookSetting;
@@ -1085,7 +1085,7 @@ export type SessionAttribute = {
 export type Slot = {
   /**
    * A description of the resource
-   * @maxLength `200`
+   * @maxLength `2000`
    */
   Description?: string;
   MultipleValuesSetting?: MultipleValuesSetting;
@@ -1170,7 +1170,7 @@ export type SlotType = {
   CompositeSlotTypeSetting?: CompositeSlotTypeSetting;
   /**
    * A description of the resource
-   * @maxLength `200`
+   * @maxLength `2000`
    */
   Description?: string;
   ExternalSourceSetting?: ExternalSourceSetting;
@@ -1386,7 +1386,7 @@ export type TestBotAliasSettings = {
   ConversationLogSettings?: ConversationLogSettings;
   /**
    * A description of the resource
-   * @maxLength `200`
+   * @maxLength `2000`
    */
   Description?: string;
   SentimentAnalysisSettings?: {
