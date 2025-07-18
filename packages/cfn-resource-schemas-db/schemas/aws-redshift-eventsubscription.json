@@ -1,5 +1,5 @@
 {
-  "$hash": "2483545594ebe02d70867c4c3df39768f817779e",
+  "$hash": "7267083da4f2daed9bacc46ac75f72e8f7d9b276",
   "$id": "aws-redshift-eventsubscription.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SubscriptionName"],
@@ -165,11 +165,17 @@
   ],
   "required": ["SubscriptionName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-redshift",
-  "tagging": { "taggable": false },
-  "typeName": "AWS::Redshift::EventSubscription",
-  "writeOnlyProperties": [
-    "/properties/Tags",
-    "/properties/Tags/*/Key",
-    "/properties/Tags/*/Value"
-  ]
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "redshift:DescribeTags",
+      "redshift:CreateTags",
+      "redshift:DeleteTags"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::Redshift::EventSubscription"
 }

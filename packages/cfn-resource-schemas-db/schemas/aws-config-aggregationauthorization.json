@@ -1,5 +1,5 @@
 {
-  "$hash": "4febe994e128e6da7e8235769c18f1fd3d279e7a",
+  "$hash": "3c766c38da8fee7dbc154f66d1cf3a5e01aa63c4",
   "$id": "aws-config-aggregationauthorization.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -82,6 +82,7 @@
     },
     "Tags": {
       "description": "The tags for the AggregationAuthorization.",
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "maxItems": 50,
       "type": "array",

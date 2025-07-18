@@ -1,45 +1,21 @@
-- added `AWS::Wisdom::QuickResponse`
-- updated `AWS::AppConfig::Environment`
-  - updated definition `Monitor`
-- updated `AWS::Connect::EvaluationForm`
-  - updated definition `AutoEvaluationConfiguration`
-- updated `AWS::DocDBElastic::Cluster`
+- updated `AWS::Config::AggregationAuthorization`
+  - updated property `Tags`
+- updated `AWS::EC2::CustomerGateway`
+  - updated property `IpAddress`
+- updated `AWS::Events::EventBus`
+  - added property `LogConfig`
+- updated `AWS::NetworkFirewall::RuleGroup`
   - updated handler permissions
-- updated `AWS::DynamoDB::Table`
-  - updated property `ResourcePolicy`
-- updated `AWS::EC2::VPNConnection`
-  - updated property `OutsideIpAddressType`
-- updated `AWS::ECS::Service`
-  - added definition `AdvancedConfiguration`
-  - added definition `DeploymentLifecycleHook`
-  - added definition `ServiceConnectTestTrafficRulesHeaderValue`
-  - added definition `ServiceConnectTestTrafficRulesHeader`
-  - added definition `ServiceConnectTestTrafficRules`
-  - removed `conditionalCreateOnlyProperties`
-  - updated definition `DeploymentConfiguration`
-  - updated definition `LoadBalancer`
-  - updated definition `ServiceConnectClientAlias`
+- updated `AWS::Redshift::Cluster`
   - updated handler permissions
-- updated `AWS::GuardDuty::IPSet`
-  - added property `ExpectedBucketOwner`
-- updated `AWS::GuardDuty::ThreatIntelSet`
-  - added property `ExpectedBucketOwner`
-- updated `AWS::KinesisFirehose::DeliveryStream`
-  - added definition `PartitionField`
-  - added definition `SchemaEvolutionConfiguration`
-  - added definition `TableCreationConfiguration`
-  - updated definition `CatalogConfiguration`
-  - updated definition `DestinationTableConfiguration`
-  - updated definition `IcebergDestinationConfiguration`
-- updated `AWS::Lex::Bot`
-  - updated definition `Description`
-- updated `AWS::SageMaker::Project`
-  - added `oneOf`
-  - added definition `CfnStackParameter`
-  - added definition `CfnStackParameters`
-  - added definition `CfnTemplateProviderDetail`
-  - added definition `TemplateProviderDetail`
-  - added property `TemplateProviderDetails`
-  - updated `createOnlyProperties`
-  - updated `required`
+- updated `AWS::Redshift::ClusterSubnetGroup`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
   - updated handler permissions
+- updated `AWS::Redshift::EventSubscription`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+- updated `AWS::Transfer::Server`
+  - added definition `IpAddressType`
+  - added property `IpAddressType`
+  - updated `conditionalCreateOnlyProperties`

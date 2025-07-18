@@ -1,5 +1,5 @@
 {
-  "$hash": "5bd1ab6495f1b9a72677d2abbc356c12a7ac369a",
+  "$hash": "fe89288e1a23848176a9202c02e392793fe1388d",
   "$id": "aws-ec2-customergateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -72,7 +72,7 @@
       "type": "string"
     },
     "IpAddress": {
-      "description": "IPv4 address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``PublicIpv4``, you can use a public IPv4 address.",
+      "description": "The IP address for the customer gateway device's outside interface. The address must be static. If ``OutsideIpAddressType`` in your VPN connection options is set to ``PrivateIpv4``, you can use an RFC6598 or RFC1918 private IPv4 address. If ``OutsideIpAddressType`` is set to ``Ipv6``, you can use an IPv6 address.",
       "type": "string"
     },
     "Tags": {

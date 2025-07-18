@@ -1,8 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource type definition for `AWS::Redshift::ClusterSubnetGroup`.
- * Specifies an Amazon Redshift subnet group.
+ * Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html}
  */
 export type RedshiftClusterSubnetGroupProperties = {
@@ -52,8 +51,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource type definition for `AWS::Redshift::ClusterSubnetGroup`.
- * Specifies an Amazon Redshift subnet group.
+ * Resource Type definition for AWS::Redshift::ClusterSubnetGroup. Specifies an Amazon Redshift subnet group.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html}
  */
 export class RedshiftClusterSubnetGroup extends $Resource<

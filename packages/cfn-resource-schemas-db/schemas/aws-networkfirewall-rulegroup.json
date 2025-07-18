@@ -1,5 +1,5 @@
 {
-  "$hash": "86c6a9ddaaa913c798c58dad745538879cbe720b",
+  "$hash": "8b636184d5cd6c8f5037318b486e4d8987bb93cc",
   "$id": "aws-networkfirewall-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -454,7 +454,8 @@
         "network-firewall:TagResource",
         "network-firewall:ListRuleGroups",
         "iam:CreateServiceLinkedRole",
-        "ec2:GetManagedPrefixListEntries"
+        "ec2:GetManagedPrefixListEntries",
+        "ec2:DescribeManagedPrefixLists"
       ]
     },
     "delete": {
@@ -478,7 +479,8 @@
         "network-firewall:TagResource",
         "network-firewall:UntagResource",
         "iam:CreateServiceLinkedRole",
-        "ec2:GetManagedPrefixListEntries"
+        "ec2:GetManagedPrefixListEntries",
+        "ec2:DescribeManagedPrefixLists"
       ]
     }
   },

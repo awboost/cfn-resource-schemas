@@ -24,6 +24,19 @@ export type EventsEventBusProperties = {
    */
   KmsKeyIdentifier?: string;
   /**
+   * The logging configuration settings for vended logs.
+   */
+  LogConfig?: {
+    /**
+     * Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.
+     */
+    IncludeDetail?: "FULL" | "NONE";
+    /**
+     * Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.
+     */
+    Level?: "INFO" | "ERROR" | "TRACE" | "OFF";
+  };
+  /**
    * The name of the event bus.
    */
   Name: string;

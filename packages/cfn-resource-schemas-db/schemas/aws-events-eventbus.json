@@ -1,5 +1,5 @@
 {
-  "$hash": "665215bf9a2b8c4e4735d99ff35fa39f7b899b85",
+  "$hash": "cf6fe721391e01d8ff5ebbdee564f98c1ba6e41f",
   "$id": "aws-events-eventbus.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -80,6 +80,23 @@
     "KmsKeyIdentifier": {
       "description": "Kms Key Identifier used to encrypt events at rest in the event bus.",
       "type": "string"
+    },
+    "LogConfig": {
+      "additionalProperties": false,
+      "description": "The logging configuration settings for vended logs.",
+      "properties": {
+        "IncludeDetail": {
+          "description": "Configures whether or not to include event detail, input transformer details, target properties, and target input in the applicable log messages.",
+          "enum": ["FULL", "NONE"],
+          "type": "string"
+        },
+        "Level": {
+          "description": "Configures the log level of the EventBus and determines which log messages are sent to Ingestion Hub for delivery.",
+          "enum": ["INFO", "ERROR", "TRACE", "OFF"],
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "Name": { "description": "The name of the event bus.", "type": "string" },
     "Policy": {

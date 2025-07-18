@@ -1,11 +1,12 @@
 {
-  "$hash": "7c2edb9f28b22b4da1832d69bcef9955384be8e3",
+  "$hash": "7d57c00374356398731b4ecac3c9ce7155bdaec4",
   "$id": "aws-transfer-server.json",
   "additionalIdentifiers": [["/properties/ServerId"]],
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
     "/properties/EndpointDetails",
-    "/properties/EndpointDetails/AddressAllocationIds"
+    "/properties/EndpointDetails/AddressAllocationIds",
+    "/properties/IpAddressType"
   ],
   "createOnlyProperties": [
     "/properties/Domain",
@@ -93,6 +94,7 @@
       ],
       "type": "string"
     },
+    "IpAddressType": { "enum": ["IPV4", "DUALSTACK"], "type": "string" },
     "Protocol": { "enum": ["SFTP", "FTP", "FTPS", "AS2"], "type": "string" },
     "ProtocolDetails": {
       "additionalProperties": false,
@@ -297,6 +299,7 @@
       "$ref": "#/definitions/IdentityProviderDetails"
     },
     "IdentityProviderType": { "$ref": "#/definitions/IdentityProviderType" },
+    "IpAddressType": { "$ref": "#/definitions/IpAddressType" },
     "LoggingRole": {
       "maxLength": 2048,
       "minLength": 0,

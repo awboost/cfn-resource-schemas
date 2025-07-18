@@ -15,6 +15,7 @@ export type TransferServerProperties = {
   EndpointType?: EndpointType;
   IdentityProviderDetails?: IdentityProviderDetails;
   IdentityProviderType?: IdentityProviderType;
+  IpAddressType?: IpAddressType;
   /**
    * @minLength `0`
    * @maxLength `2048`
@@ -157,6 +158,11 @@ export type IdentityProviderType =
   | "API_GATEWAY"
   | "AWS_DIRECTORY_SERVICE"
   | "AWS_LAMBDA";
+/**
+ * Type definition for `AWS::Transfer::Server.IpAddressType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-ipaddresstype.html}
+ */
+export type IpAddressType = "IPV4" | "DUALSTACK";
 /**
  * Type definition for `AWS::Transfer::Server.Protocol`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-protocol.html}
