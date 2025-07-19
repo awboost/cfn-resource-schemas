@@ -1,5 +1,5 @@
 {
-  "$hash": "3e2f0ab007720a6e45998fd1dddbd28792dd6b80",
+  "$hash": "d71fb72a33a645f97de8a1253b4052f86ef1b87b",
   "$id": "aws-amazonmq-broker.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -97,7 +97,6 @@
           "type": "array",
           "uniqueItems": false
         },
-        "JolokiaApiAccess": { "type": "string" },
         "Password": { "type": "string" },
         "ReplicationUser": { "type": "boolean" },
         "Username": { "type": "string" }
@@ -121,6 +120,11 @@
     "Configuration": { "$ref": "#/definitions/ConfigurationId" },
     "ConfigurationId": { "type": "string" },
     "ConfigurationRevision": { "type": "integer" },
+    "ConsoleURLs": {
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "DataReplicationMode": { "type": "string" },
     "DataReplicationPrimaryBrokerArn": { "type": "string" },
     "DeploymentMode": { "type": "string" },
@@ -182,6 +186,7 @@
   },
   "readOnlyProperties": [
     "/properties/IpAddresses",
+    "/properties/ConsoleURLs",
     "/properties/Id",
     "/properties/MqttEndpoints",
     "/properties/OpenWireEndpoints",

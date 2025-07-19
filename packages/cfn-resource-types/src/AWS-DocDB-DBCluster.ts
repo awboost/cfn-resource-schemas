@@ -14,11 +14,13 @@ export type DocDBDBClusterProperties = {
   DeletionProtection?: boolean;
   EnableCloudwatchLogsExports?: string[];
   EngineVersion?: string;
+  GlobalClusterIdentifier?: string;
   KmsKeyId?: string;
   ManageMasterUserPassword?: boolean;
   MasterUserPassword?: string;
   MasterUserSecretKmsKeyId?: string;
   MasterUsername?: string;
+  NetworkType?: string;
   Port?: number;
   PreferredBackupWindow?: string;
   PreferredMaintenanceWindow?: string;

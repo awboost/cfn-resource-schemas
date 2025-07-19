@@ -35,6 +35,7 @@ export type AmazonMQBrokerAttributes = {
   Arn: string;
   ConfigurationId: string;
   ConfigurationRevision: number;
+  ConsoleURLs: string[];
   Id: string;
   IpAddresses: string[];
   MqttEndpoints: string[];
@@ -107,7 +108,6 @@ export type TagsEntry = {
 export type User = {
   ConsoleAccess?: boolean;
   Groups?: string[];
-  JolokiaApiAccess?: string;
   Password: string;
   ReplicationUser?: boolean;
   Username: string;

@@ -1,21 +1,10 @@
-- updated `AWS::Config::AggregationAuthorization`
-  - updated property `Tags`
-- updated `AWS::EC2::CustomerGateway`
-  - updated property `IpAddress`
-- updated `AWS::Events::EventBus`
-  - added property `LogConfig`
-- updated `AWS::NetworkFirewall::RuleGroup`
-  - updated handler permissions
-- updated `AWS::Redshift::Cluster`
-  - updated handler permissions
-- updated `AWS::Redshift::ClusterSubnetGroup`
-  - removed `writeOnlyProperties`
+- updated `AWS::AmazonMQ::Broker`
+  - added property `ConsoleURLs`
+  - updated `readOnlyProperties`
+  - updated definition `User`
+- updated `AWS::Connect::RoutingProfile`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Redshift::EventSubscription`
-  - removed `writeOnlyProperties`
-  - updated `tagging`
-- updated `AWS::Transfer::Server`
-  - added definition `IpAddressType`
-  - added property `IpAddressType`
-  - updated `conditionalCreateOnlyProperties`
+- updated `AWS::DocDB::DBCluster`
+  - added property `GlobalClusterIdentifier`
+  - added property `NetworkType`
+  - updated `createOnlyProperties`
