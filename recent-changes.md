@@ -1,10 +1,10 @@
-- updated `AWS::AmazonMQ::Broker`
-  - added property `ConsoleURLs`
-  - updated `readOnlyProperties`
-  - updated definition `User`
-- updated `AWS::Connect::RoutingProfile`
-  - updated `tagging`
-- updated `AWS::DocDB::DBCluster`
-  - added property `GlobalClusterIdentifier`
-  - added property `NetworkType`
-  - updated `createOnlyProperties`
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - updated property `ImageTagMutability`
+- updated `AWS::RDS::DBClusterParameterGroup`
+  - updated handler permissions
+- updated `AWS::RDS::DBParameterGroup`
+  - updated handler permissions
+- updated `AWS::SageMaker::Space`
+  - added definition `RemoteAccess`
+  - added definition `SpaceManagedResources`
+  - updated definition `SpaceSettings`

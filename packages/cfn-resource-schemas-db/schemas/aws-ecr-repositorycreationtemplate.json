@@ -1,5 +1,5 @@
 {
-  "$hash": "7894df4942957e09e53d17dc820a57595ff106b8",
+  "$hash": "ff67675f27b1565cf447d3dcfb5e64b1b991d06b",
   "$id": "aws-ecr-repositorycreationtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Prefix"],
@@ -111,7 +111,7 @@
       "description": "The encryption configuration associated with the repository creation template."
     },
     "ImageTagMutability": {
-      "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of MUTABLE will be used which will allow image tags to be overwritten. If IMMUTABLE is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.",
+      "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.",
       "enum": ["MUTABLE", "IMMUTABLE"],
       "type": "string"
     },

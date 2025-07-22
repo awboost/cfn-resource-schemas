@@ -1,5 +1,5 @@
 {
-  "$hash": "b63d21827a1db0e685de2eecb97fc20bf18edd81",
+  "$hash": "f869dae30db9bb1c58bfafeb93b0476a768dc61c",
   "$id": "aws-sagemaker-space.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -167,6 +167,11 @@
       "required": ["OwnerUserProfileName"],
       "type": "object"
     },
+    "RemoteAccess": {
+      "description": "The flag to enable/disable remote access for a space.",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
     "ResourceSpec": {
       "additionalProperties": false,
       "properties": {
@@ -314,6 +319,11 @@
       },
       "type": "object"
     },
+    "SpaceManagedResources": {
+      "description": "The flag to enable/disable creation of space managed resources.",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
     "SpaceSettings": {
       "additionalProperties": false,
       "description": "A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.",
@@ -335,6 +345,14 @@
         "KernelGatewayAppSettings": {
           "$ref": "#/definitions/KernelGatewayAppSettings",
           "description": "The kernel gateway app settings."
+        },
+        "RemoteAccess": {
+          "$ref": "#/definitions/RemoteAccess",
+          "description": "This is a flag used to indicate if remote access is enabled."
+        },
+        "SpaceManagedResources": {
+          "$ref": "#/definitions/SpaceManagedResources",
+          "description": "This is a flag used to indicate if space managed resources needs to be created."
         },
         "SpaceStorageSettings": {
           "$ref": "#/definitions/SpaceStorageSettings",

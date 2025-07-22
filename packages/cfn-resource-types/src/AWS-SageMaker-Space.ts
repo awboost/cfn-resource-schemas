@@ -193,6 +193,12 @@ export type OwnershipSettings = {
   OwnerUserProfileName: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::Space.RemoteAccess`.
+ * The flag to enable/disable remote access for a space.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-remoteaccess.html}
+ */
+export type RemoteAccess = "ENABLED" | "DISABLED";
+/**
  * Type definition for `AWS::SageMaker::Space.ResourceSpec`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-resourcespec.html}
  */
@@ -327,6 +333,12 @@ export type SpaceJupyterLabAppSettings = {
   DefaultResourceSpec?: ResourceSpec;
 };
 /**
+ * Type definition for `AWS::SageMaker::Space.SpaceManagedResources`.
+ * The flag to enable/disable creation of space managed resources.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacemanagedresources.html}
+ */
+export type SpaceManagedResources = "ENABLED" | "DISABLED";
+/**
  * Type definition for `AWS::SageMaker::Space.SpaceSettings`.
  * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html}
@@ -354,6 +366,14 @@ export type SpaceSettings = {
    * The kernel gateway app settings.
    */
   KernelGatewayAppSettings?: KernelGatewayAppSettings;
+  /**
+   * This is a flag used to indicate if remote access is enabled.
+   */
+  RemoteAccess?: RemoteAccess;
+  /**
+   * This is a flag used to indicate if space managed resources needs to be created.
+   */
+  SpaceManagedResources?: SpaceManagedResources;
   /**
    * Default storage settings for a space.
    */

@@ -1,5 +1,5 @@
 {
-  "$hash": "62518ceb5fff4d0b3e39b9a6336a61d2c7bfde8c",
+  "$hash": "83ff74aaff736a5be9f7ca68fb52c85fd3973cc2",
   "$id": "aws-rds-dbparametergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -50,7 +50,6 @@
       "permissions": [
         "rds:DescribeDBParameterGroups",
         "rds:DescribeDBParameters",
-        "rds:DescribeEngineDefaultParameters",
         "rds:ListTagsForResource"
       ]
     },
