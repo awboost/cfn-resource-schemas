@@ -40,6 +40,10 @@ export type WisdomMessageTemplateProperties = {
    */
   Language?: string;
   /**
+   * List of message template attachments
+   */
+  MessageTemplateAttachments?: MessageTemplateAttachment[];
+  /**
    * The name of the message template.
    * @minLength `1`
    * @maxLength `255`
@@ -61,6 +65,15 @@ export type WisdomMessageTemplateAttributes = {
    * @pattern `^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})?$`
    */
   MessageTemplateArn: string;
+  /**
+   * List of message template attachments
+   */
+  MessageTemplateAttachments: {
+    /**
+     * @minLength `1`
+     */
+    AttachmentId: string;
+  }[];
   /**
    * The content SHA256 of the message template.
    * @minLength `1`
@@ -546,6 +559,23 @@ export type GroupingConfiguration = {
    * The list of values that define different groups of Amazon Q in Connect users.
    */
   Values: string[];
+};
+/**
+ * Type definition for `AWS::Wisdom::MessageTemplate.MessageTemplateAttachment`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-messagetemplate-messagetemplateattachment.html}
+ */
+export type MessageTemplateAttachment = {
+  /**
+   * The name of the attachment file being uploaded. The name should include the file extension.
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  AttachmentName: string;
+  /**
+   * The S3 Presigned URL for the attachment file. When generating the PreSignedUrl, please ensure that the expires-in time is set to 30 minutes. The URL can be generated through the AWS Console or through the AWS CLI (https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html).
+   * @minLength `1`
+   */
+  S3PresignedUrl: string;
 };
 /**
  * Type definition for `AWS::Wisdom::MessageTemplate.MessageTemplateAttributes`.

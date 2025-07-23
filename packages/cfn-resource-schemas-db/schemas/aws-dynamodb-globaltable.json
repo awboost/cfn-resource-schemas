@@ -1,5 +1,5 @@
 {
-  "$hash": "b9372a3a6286939ab4bfca473106ef6b9b251109",
+  "$hash": "5f04ea34446abeb892a13b626bdbb6662e27744f",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -85,13 +85,7 @@
           "enum": ["MICROSECOND", "MILLISECOND"],
           "type": "string"
         },
-        "StreamArn": {
-          "relationshipRef": {
-            "propertyPath": "/properties/Arn",
-            "typeName": "AWS::Kinesis::Stream"
-          },
-          "type": "string"
-        }
+        "StreamArn": { "type": "string" }
       },
       "required": ["StreamArn"],
       "type": "object"

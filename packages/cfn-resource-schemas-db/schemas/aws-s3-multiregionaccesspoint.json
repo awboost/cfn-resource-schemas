@@ -1,5 +1,5 @@
 {
-  "$hash": "deea559b8e3bdd8ee4a3fb29ecfe07652dcf55f3",
+  "$hash": "a728db2b5668125c81cbb2cee183c839a68a9a47",
   "$id": "aws-s3-multiregionaccesspoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -37,10 +37,6 @@
           "maxLength": 63,
           "minLength": 3,
           "pattern": "^[a-z0-9][a-z0-9//.//-]*[a-z0-9]$",
-          "relationshipRef": {
-            "propertyPath": "/properties/BucketName",
-            "typeName": "AWS::S3::Bucket"
-          },
           "type": "string"
         },
         "BucketAccountId": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "ff472f9ff50eb5d8855c06ba9affb7068f74c6a5",
+  "$hash": "d62ac348c8c955c0f08694293663c13e592498be",
   "$id": "aws-ecs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterName"],
@@ -14,10 +14,6 @@
         },
         "CapacityProvider": {
           "description": "The short name of the capacity provider.",
-          "relationshipRef": {
-            "propertyPath": "/properties/Name",
-            "typeName": "AWS::ECS::CapacityProvider"
-          },
           "type": "string"
         },
         "Weight": {
@@ -63,10 +59,6 @@
       "properties": {
         "KmsKeyId": {
           "description": "Specify an KMSlong key ID to encrypt the data between the local client and the container.",
-          "relationshipRef": {
-            "propertyPath": "/properties/Arn",
-            "typeName": "AWS::KMS::Key"
-          },
           "type": "string"
         },
         "LogConfiguration": {
@@ -90,10 +82,6 @@
         },
         "CloudWatchLogGroupName": {
           "description": "The name of the CloudWatch log group to send logs to.\n  The CloudWatch log group must already be created.",
-          "relationshipRef": {
-            "propertyPath": "/properties/LogGroupName",
-            "typeName": "AWS::Logs::LogGroup"
-          },
           "type": "string"
         },
         "S3BucketName": {

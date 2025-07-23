@@ -1,5 +1,5 @@
 {
-  "$hash": "896fb35a496a1bd2059a3ee4f0a3186104b26c43",
+  "$hash": "42ab66ab3a0277f9b0afdf352af0eb7265a4dcd7",
   "$id": "aws-elasticloadbalancingv2-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoadBalancerArn"],
@@ -34,10 +34,6 @@
         },
         "TargetGroupArn": {
           "description": "The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.",
-          "relationshipRef": {
-            "propertyPath": "/properties/TargetGroupArn",
-            "typeName": "AWS::ElasticLoadBalancingV2::TargetGroup"
-          },
           "type": "string"
         },
         "Type": { "description": "The type of action.", "type": "string" }
@@ -72,10 +68,6 @@
         },
         "UserPoolArn": {
           "description": "The Amazon Resource Name (ARN) of the Amazon Cognito user pool.",
-          "relationshipRef": {
-            "propertyPath": "/properties/Arn",
-            "typeName": "AWS::Cognito::UserPool"
-          },
           "type": "string"
         },
         "UserPoolClientId": {
@@ -98,10 +90,6 @@
         },
         "UserPoolDomain": {
           "description": "The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.",
-          "relationshipRef": {
-            "propertyPath": "/properties/Id",
-            "typeName": "AWS::Cognito::UserPoolDomain"
-          },
           "type": "string"
         }
       },
@@ -325,10 +313,6 @@
       "properties": {
         "TargetGroupArn": {
           "description": "The Amazon Resource Name (ARN) of the target group.",
-          "relationshipRef": {
-            "propertyPath": "/properties/TargetGroupArn",
-            "typeName": "AWS::ElasticLoadBalancingV2::TargetGroup"
-          },
           "type": "string"
         },
         "Weight": {

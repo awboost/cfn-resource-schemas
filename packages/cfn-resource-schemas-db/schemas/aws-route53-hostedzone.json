@@ -1,5 +1,5 @@
 {
-  "$hash": "02ad14f7793ce2c4473ace0a85c601357224285d",
+  "$hash": "089a5c5e173156e1e35c372cbdbda9a9fe07d4b9",
   "$id": "aws-route53-hostedzone.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -40,10 +40,6 @@
       "properties": {
         "CloudWatchLogsLogGroupArn": {
           "description": "The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.",
-          "relationshipRef": {
-            "propertyPath": "/properties/Arn",
-            "typeName": "AWS::Logs::LogGroup"
-          },
           "type": "string"
         }
       },
@@ -56,10 +52,6 @@
       "properties": {
         "VPCId": {
           "description": "*Private hosted zones only:* The ID of an Amazon VPC.\n  For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.",
-          "relationshipRef": {
-            "propertyPath": "/properties/VpcId",
-            "typeName": "AWS::EC2::VPC"
-          },
           "type": "string"
         },
         "VPCRegion": {

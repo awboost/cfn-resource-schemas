@@ -1,5 +1,5 @@
 {
-  "$hash": "55e880ea80584d86c3f3872d624f31c747a079f4",
+  "$hash": "a23480dabe5133f370d7e7df383360d46adc7f6a",
   "$id": "aws-quicksight-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -40,6 +40,9 @@
       "additionalProperties": false,
       "description": "<p>Parameters for Amazon Athena.</p>",
       "properties": {
+        "IdentityCenterConfiguration": {
+          "$ref": "#/definitions/IdentityCenterConfiguration"
+        },
         "RoleArn": {
           "description": "<p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>",
           "maxLength": 2048,
@@ -257,13 +260,16 @@
         "ORACLE",
         "POSTGRESQL",
         "PRESTO",
+        "QBUSINESS",
         "REDSHIFT",
         "S3",
         "S3_TABLES",
+        "S3_KNOWLEDGE_BASE",
         "SALESFORCE",
         "SERVICENOW",
         "SNOWFLAKE",
         "SPARK",
+        "SPICE",
         "SQLSERVER",
         "TERADATA",
         "TIMESTREAM",
@@ -277,7 +283,12 @@
         "DOCUMENTDB",
         "APPFLOW",
         "IMPALA",
-        "GLUE"
+        "GLUE",
+        "GOOGLE_DRIVE",
+        "CONFLUENCE",
+        "SHAREPOINT",
+        "ONE_DRIVE",
+        "WEB_CRAWLER"
       ],
       "type": "string"
     },
@@ -437,7 +448,8 @@
           "maximum": 65535,
           "minimum": 1,
           "type": "number"
-        }
+        },
+        "UseServiceName": { "default": false, "type": "boolean" }
       },
       "required": ["Database", "Host", "Port"],
       "type": "object"
@@ -615,6 +627,7 @@
         "UPDATE_IN_PROGRESS",
         "UPDATE_SUCCESSFUL",
         "UPDATE_FAILED",
+        "PENDING_UPDATE",
         "DELETED"
       ],
       "type": "string"

@@ -1,5 +1,5 @@
 {
-  "$hash": "c6039fbb66ba1dfe45858d534aab067ce11d78a0",
+  "$hash": "167305aa4957a4a50af8e3399844bcdde4231f5d",
   "$id": "aws-apigateway-restapi.json",
   "additionalProperties": false,
   "definitions": {
@@ -35,10 +35,6 @@
       "properties": {
         "Bucket": {
           "description": "The name of the S3 bucket where the OpenAPI file is stored.",
-          "relationshipRef": {
-            "propertyPath": "/properties/BucketName",
-            "typeName": "AWS::S3::Bucket"
-          },
           "type": "string"
         },
         "ETag": {

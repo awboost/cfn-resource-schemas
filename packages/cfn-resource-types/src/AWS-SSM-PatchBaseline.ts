@@ -30,6 +30,10 @@ export type SSMPatchBaselineProperties = {
    */
   ApprovedPatchesEnableNonSecurity?: boolean;
   /**
+   * The compliance status for vendor recommended security updates that are not approved by this patch baseline.
+   */
+  AvailableSecurityUpdatesComplianceStatus?: "NON_COMPLIANT" | "COMPLIANT";
+  /**
    * Set the baseline as default baseline. Only registering to default patch baseline is allowed.
    */
   DefaultBaseline?: boolean;

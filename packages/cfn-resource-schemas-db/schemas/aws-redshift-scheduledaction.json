@@ -1,5 +1,5 @@
 {
-  "$hash": "5a383000c896c984a0b7f89ab107743a8f3e02a1",
+  "$hash": "e1e1f13bce2a2f2c835724189b65c5a66660d58f",
   "$id": "aws-redshift-scheduledaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ScheduledActionName"],
@@ -7,15 +7,7 @@
     "PauseClusterMessage": {
       "additionalProperties": false,
       "description": "Describes a pause cluster operation. For example, a scheduled action to run the `PauseCluster` API operation.",
-      "properties": {
-        "ClusterIdentifier": {
-          "relationshipRef": {
-            "propertyPath": "/properties/ClusterIdentifier",
-            "typeName": "AWS::Redshift::Cluster"
-          },
-          "type": "string"
-        }
-      },
+      "properties": { "ClusterIdentifier": { "type": "string" } },
       "required": ["ClusterIdentifier"],
       "type": "object"
     },
@@ -24,34 +16,10 @@
       "description": "Describes a resize cluster operation. For example, a scheduled action to run the `ResizeCluster` API operation.",
       "properties": {
         "Classic": { "type": "boolean" },
-        "ClusterIdentifier": {
-          "relationshipRef": {
-            "propertyPath": "/properties/ClusterIdentifier",
-            "typeName": "AWS::Redshift::Cluster"
-          },
-          "type": "string"
-        },
-        "ClusterType": {
-          "relationshipRef": {
-            "propertyPath": "/properties/ClusterType",
-            "typeName": "AWS::Redshift::Cluster"
-          },
-          "type": "string"
-        },
-        "NodeType": {
-          "relationshipRef": {
-            "propertyPath": "/properties/NodeType",
-            "typeName": "AWS::Redshift::Cluster"
-          },
-          "type": "string"
-        },
-        "NumberOfNodes": {
-          "relationshipRef": {
-            "propertyPath": "/properties/NumberOfNodes",
-            "typeName": "AWS::Redshift::Cluster"
-          },
-          "type": "integer"
-        }
+        "ClusterIdentifier": { "type": "string" },
+        "ClusterType": { "type": "string" },
+        "NodeType": { "type": "string" },
+        "NumberOfNodes": { "type": "integer" }
       },
       "required": ["ClusterIdentifier"],
       "type": "object"
@@ -59,15 +27,7 @@
     "ResumeClusterMessage": {
       "additionalProperties": false,
       "description": "Describes a resume cluster operation. For example, a scheduled action to run the `ResumeCluster` API operation.",
-      "properties": {
-        "ClusterIdentifier": {
-          "relationshipRef": {
-            "propertyPath": "/properties/ClusterIdentifier",
-            "typeName": "AWS::Redshift::Cluster"
-          },
-          "type": "string"
-        }
-      },
+      "properties": { "ClusterIdentifier": { "type": "string" } },
       "required": ["ClusterIdentifier"],
       "type": "object"
     },

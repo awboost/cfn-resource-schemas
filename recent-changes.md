@@ -1,10 +1,86 @@
-- updated `AWS::ECR::RepositoryCreationTemplate`
-  - updated property `ImageTagMutability`
-- updated `AWS::RDS::DBClusterParameterGroup`
+- updated `AWS::ApiGateway::RestApi`
+  - updated definition `S3Location`
+- updated `AWS::AppConfig::Environment`
+  - updated definition `Monitor`
+- updated `AWS::Bedrock::DataSource`
+  - updated definition `ModelArn`
+- updated `AWS::Connect::Rule`
+  - updated definition `UserArn`
+- updated `AWS::DynamoDB::GlobalTable`
+  - updated definition `KinesisStreamSpecification`
+- updated `AWS::DynamoDB::Table`
+  - updated definition `KinesisStreamSpecification`
+  - updated definition `S3BucketSource`
+- updated `AWS::ECS::Cluster`
+  - updated definition `CapacityProviderStrategyItem`
+  - updated definition `ExecuteCommandConfiguration`
+  - updated definition `ExecuteCommandLogConfiguration`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated definition `Action`
+  - updated definition `AuthenticateCognitoConfig`
+  - updated definition `TargetGroupTuple`
+- updated `AWS::GameLift::ContainerFleet`
+  - updated definition `LocationCapacity`
+- updated `AWS::GameLift::Fleet`
+  - updated property `ApplyCapacity`
+- updated `AWS::KinesisFirehose::DeliveryStream`
+  - updated definition `AmazonOpenSearchServerlessDestinationConfiguration`
+  - updated definition `AmazonopensearchserviceDestinationConfiguration`
+  - updated definition `AuthenticationConfiguration`
+  - updated definition `CloudWatchLoggingOptions`
+  - updated definition `DeliveryStreamEncryptionConfigurationInput`
+  - updated definition `ElasticsearchDestinationConfiguration`
+  - updated definition `ExtendedS3DestinationConfiguration`
+  - updated definition `HttpEndpointDestinationConfiguration`
+  - updated definition `IcebergDestinationConfiguration`
+  - updated definition `KMSEncryptionConfig`
+  - updated definition `KinesisStreamSourceConfiguration`
+  - updated definition `MSKSourceConfiguration`
+  - updated definition `RedshiftDestinationConfiguration`
+  - updated definition `S3DestinationConfiguration`
+  - updated definition `SchemaConfiguration`
+  - updated definition `SecretsManagerConfiguration`
+  - updated definition `SnowflakeDestinationConfiguration`
+  - updated definition `VpcConfiguration`
+- updated `AWS::Lambda::Version`
   - updated handler permissions
-- updated `AWS::RDS::DBParameterGroup`
+- updated `AWS::QuickSight::DataSource`
+  - updated definition `AthenaParameters`
+  - updated definition `DataSourceType`
+  - updated definition `OracleParameters`
+  - updated definition `ResourceStatus`
+- updated `AWS::RDS::DBInstance`
+  - added property `DBInstanceStatus`
+  - added property `InstanceCreateTime`
+  - added property `IsStorageConfigUpgradeAvailable`
+  - added property `LatestRestorableTime`
+  - added property `ListenerEndpoint`
+  - added property `ReadReplicaDBClusterIdentifiers`
+  - added property `ReadReplicaDBInstanceIdentifiers`
+  - updated `readOnlyProperties`
+- updated `AWS::Redshift::Cluster`
+  - updated definition `LoggingProperties`
+- updated `AWS::Redshift::EndpointAccess`
+  - updated definition `NetworkInterface`
+  - updated definition `VpcSecurityGroup`
+- updated `AWS::Redshift::ScheduledAction`
+  - updated definition `PauseClusterMessage`
+  - updated definition `ResizeClusterMessage`
+  - updated definition `ResumeClusterMessage`
+- updated `AWS::Route53::HostedZone`
+  - updated definition `QueryLoggingConfig`
+  - updated definition `VPC`
+- updated `AWS::S3::MultiRegionAccessPoint`
+  - updated definition `Region`
+- updated `AWS::S3::StorageLens`
+  - updated definition `S3BucketDestination`
+- updated `AWS::SSM::PatchBaseline`
+  - added property `AvailableSecurityUpdatesComplianceStatus`
+- updated `AWS::Wisdom::MessageTemplate`
+  - added `writeOnlyProperties`
+  - added definition `AttachmentName`
+  - added definition `AttachmentUrl`
+  - added definition `MessageTemplateAttachment`
+  - added property `MessageTemplateAttachments`
+  - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::SageMaker::Space`
-  - added definition `RemoteAccess`
-  - added definition `SpaceManagedResources`
-  - updated definition `SpaceSettings`

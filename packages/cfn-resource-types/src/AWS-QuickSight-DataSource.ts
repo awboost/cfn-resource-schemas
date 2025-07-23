@@ -124,6 +124,10 @@ export type AmazonOpenSearchParameters = {
  */
 export type AthenaParameters = {
   /**
+   * <p>The parameters for an IAM Identity Center configuration.</p>
+   */
+  IdentityCenterConfiguration?: IdentityCenterConfiguration;
+  /**
    * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
    * @minLength `20`
    * @maxLength `2048`
@@ -418,13 +422,16 @@ export type DataSourceType =
   | "ORACLE"
   | "POSTGRESQL"
   | "PRESTO"
+  | "QBUSINESS"
   | "REDSHIFT"
   | "S3"
   | "S3_TABLES"
+  | "S3_KNOWLEDGE_BASE"
   | "SALESFORCE"
   | "SERVICENOW"
   | "SNOWFLAKE"
   | "SPARK"
+  | "SPICE"
   | "SQLSERVER"
   | "TERADATA"
   | "TIMESTREAM"
@@ -438,7 +445,12 @@ export type DataSourceType =
   | "DOCUMENTDB"
   | "APPFLOW"
   | "IMPALA"
-  | "GLUE";
+  | "GLUE"
+  | "GOOGLE_DRIVE"
+  | "CONFLUENCE"
+  | "SHAREPOINT"
+  | "ONE_DRIVE"
+  | "WEB_CRAWLER";
 /**
  * Type definition for `AWS::QuickSight::DataSource.IdentityCenterConfiguration`.
  * <p>The parameters for an IAM Identity Center configuration.</p>
@@ -568,6 +580,7 @@ export type OracleParameters = {
    * @max `65535`
    */
   Port: number;
+  UseServiceName?: boolean;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.PostgreSqlParameters`.
@@ -757,6 +770,7 @@ export type ResourceStatus =
   | "UPDATE_IN_PROGRESS"
   | "UPDATE_SUCCESSFUL"
   | "UPDATE_FAILED"
+  | "PENDING_UPDATE"
   | "DELETED";
 /**
  * Type definition for `AWS::QuickSight::DataSource.S3Parameters`.

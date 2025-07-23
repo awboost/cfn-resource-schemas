@@ -1,5 +1,5 @@
 {
-  "$hash": "6db596faa6778f0d540dd99c2482157f9916c67d",
+  "$hash": "92ebafeba72a2369eb9c76e710c56e0824b6f955",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/KeySchema"],
@@ -172,10 +172,6 @@
         },
         "StreamArn": {
           "description": "The ARN for a specific Kinesis data stream.\n Length Constraints: Minimum length of 37. Maximum length of 1024.",
-          "relationshipRef": {
-            "propertyPath": "/properties/Arn",
-            "typeName": "AWS::Kinesis::Stream"
-          },
           "type": "string"
         }
       },
@@ -292,10 +288,6 @@
       "properties": {
         "S3Bucket": {
           "description": "The S3 bucket that is being imported from.",
-          "relationshipRef": {
-            "propertyPath": "/properties/BucketName",
-            "typeName": "AWS::S3::Bucket"
-          },
           "type": "string"
         },
         "S3BucketOwner": {

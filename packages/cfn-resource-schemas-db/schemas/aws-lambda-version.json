@@ -1,5 +1,5 @@
 {
-  "$hash": "f542d1e72084ea92d010852e02044eca00336a52",
+  "$hash": "cbed3ac466ccb4c3436fa7c13da2a16d55b87837",
   "$id": "aws-lambda-version.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -51,7 +51,9 @@
         "lambda:PutProvisionedConcurrencyConfig",
         "lambda:GetProvisionedConcurrencyConfig",
         "lambda:PutRuntimeManagementConfig",
-        "lambda:GetRuntimeManagementConfig"
+        "lambda:GetRuntimeManagementConfig",
+        "lambda:PutFunctionScalingConfig",
+        "lambda:GetCapacityProvider"
       ],
       "timeoutInMinutes": 180
     },

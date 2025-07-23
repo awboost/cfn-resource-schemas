@@ -1,5 +1,5 @@
 {
-  "$hash": "a8d0bce295bb4f7450180beecc8997b578a0fcfe",
+  "$hash": "63474f1408c6816068c65688131ed45b03b0ead0",
   "$id": "aws-connect-rule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -367,8 +367,8 @@
       "uniqueItems": true
     },
     "UserArn": {
-      "description": "The Amazon Resource Name (ARN) of the user.",
-      "pattern": "^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/agent/[-a-zA-Z0-9]*$",
+      "description": "The Amazon Resource Name (ARN) of the user or a dynamic recipient string starting with '$.'.",
+      "pattern": "^$|arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*/agent/[-a-zA-Z0-9]*$|^\\$\\..+$",
       "type": "string"
     }
   },

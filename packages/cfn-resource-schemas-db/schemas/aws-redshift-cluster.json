@@ -1,5 +1,5 @@
 {
-  "$hash": "3894529fac276d63320436a8024c923312164018",
+  "$hash": "ee5e11affcb9360dcf0fdb3f0ab140c3805fa459",
   "$id": "aws-redshift-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -23,13 +23,7 @@
     "LoggingProperties": {
       "additionalProperties": false,
       "properties": {
-        "BucketName": {
-          "relationshipRef": {
-            "propertyPath": "/properties/BucketName",
-            "typeName": "AWS::S3::Bucket"
-          },
-          "type": "string"
-        },
+        "BucketName": { "type": "string" },
         "LogDestinationType": { "type": "string" },
         "LogExports": {
           "insertionOrder": false,

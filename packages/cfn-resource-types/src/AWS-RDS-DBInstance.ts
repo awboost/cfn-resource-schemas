@@ -820,6 +820,7 @@ export type RDSDBInstanceAttributes = {
     ValidTill: string;
   };
   DBInstanceArn: string;
+  DBInstanceStatus: string;
   DbiResourceId: string;
   /**
      * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
@@ -843,6 +844,31 @@ export type RDSDBInstanceAttributes = {
      */
     Port: string;
   };
+  InstanceCreateTime: string;
+  IsStorageConfigUpgradeAvailable: boolean;
+  LatestRestorableTime: string;
+  /**
+     * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
+      +   ``CreateDBInstance``
+      +   ``DescribeDBInstances``
+      +   ``DeleteDBInstance``
+      
+     For the data structure that represents Amazon Aurora DB cluster endpoints, see ``DBClusterEndpoint``.
+     */
+  ListenerEndpoint: {
+    /**
+     * Specifies the DNS address of the DB instance.
+     */
+    Address: string;
+    /**
+     * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+     */
+    HostedZoneId: string;
+    /**
+     * Specifies the port that the database engine is listening on.
+     */
+    Port: string;
+  };
   /**
      * The secret managed by RDS in AWS Secrets Manager for the master user password.
      For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
@@ -853,6 +879,8 @@ export type RDSDBInstanceAttributes = {
      */
     SecretArn: string;
   };
+  ReadReplicaDBClusterIdentifiers: string[];
+  ReadReplicaDBInstanceIdentifiers: string[];
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.DBInstanceRole`.

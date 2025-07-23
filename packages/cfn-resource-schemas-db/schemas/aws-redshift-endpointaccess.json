@@ -1,5 +1,5 @@
 {
-  "$hash": "d885203cb67857500674cb97fe2fd55b729d6191",
+  "$hash": "ad985a75e87f1839971141430c555f955dad6257",
   "$id": "aws-redshift-endpointaccess.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -19,26 +19,14 @@
         },
         "NetworkInterfaceId": {
           "description": "The network interface identifier.",
-          "relationshipRef": {
-            "propertyPath": "/properties/Id",
-            "typeName": "AWS::EC2::NetworkInterface"
-          },
           "type": "string"
         },
         "PrivateIpAddress": {
           "description": "The IPv4 address of the network interface within the subnet.",
-          "relationshipRef": {
-            "propertyPath": "/properties/PrivateIpAddress",
-            "typeName": "AWS::EC2::NetworkInterface"
-          },
           "type": "string"
         },
         "SubnetId": {
           "description": "The subnet identifier.",
-          "relationshipRef": {
-            "propertyPath": "/properties/SubnetId",
-            "typeName": "AWS::EC2::NetworkInterface"
-          },
           "type": "string"
         }
       },
@@ -54,10 +42,6 @@
         },
         "VpcSecurityGroupId": {
           "description": "The identifier of the VPC security group.",
-          "relationshipRef": {
-            "propertyPath": "/properties/Id",
-            "typeName": "AWS::EC2::SecurityGroup"
-          },
           "type": "string"
         }
       },
