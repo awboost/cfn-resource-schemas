@@ -343,6 +343,7 @@ export type CodeRepository = {
 export type CustomFileSystemConfig = {
   EFSFileSystemConfig?: EFSFileSystemConfig;
   FSxLustreFileSystemConfig?: FSxLustreFileSystemConfig;
+  S3FileSystemConfig?: S3FileSystemConfig;
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.CustomImage`.
@@ -831,6 +832,23 @@ export type RStudioServerProDomainSettings = {
    * @pattern `^(https:|http:|www\.)\S*`
    */
   RStudioPackageManagerUrl?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Domain.S3FileSystemConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-s3filesystemconfig.html}
+ */
+export type S3FileSystemConfig = {
+  /**
+   * @minLength `0`
+   * @maxLength `1024`
+   */
+  MountPath?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `1024`
+   * @pattern `(s3)://([^/]+)/?(.*)`
+   */
+  S3Uri?: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.SharingSettings`.

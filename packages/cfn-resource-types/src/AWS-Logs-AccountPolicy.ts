@@ -31,7 +31,8 @@ export type LogsAccountPolicyProperties = {
     | "DATA_PROTECTION_POLICY"
     | "SUBSCRIPTION_FILTER_POLICY"
     | "FIELD_INDEX_POLICY"
-    | "TRANSFORMER_POLICY";
+    | "TRANSFORMER_POLICY"
+    | "METRIC_EXTRACTION_POLICY";
   /**
    * Scope for policy application
    */

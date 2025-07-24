@@ -32,6 +32,11 @@ export type QuickSightTopicProperties = {
    */
   Name?: string;
   /**
+   * @minLength `1`
+   * @maxLength `200`
+   */
+  Tags?: Tag[];
+  /**
    * @minLength `0`
    * @maxLength `256`
    * @pattern `^[A-Za-z0-9-_.\\+]*$`
@@ -410,6 +415,26 @@ export type SemanticType = {
    */
   TypeName?: string;
   TypeParameters?: TypeParameters;
+};
+/**
+ * Type definition for `AWS::QuickSight::Topic.Tag`.
+ * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+            resource.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-tag.html}
+ */
+export type Tag = {
+  /**
+   * <p>Tag key.</p>
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * <p>Tag value.</p>
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Topic.TopicCalculatedField`.

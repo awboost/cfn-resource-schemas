@@ -1,5 +1,5 @@
 {
-  "$hash": "0d882aaa06851eb4c040e98231a78f5e478a10f3",
+  "$hash": "bb98cf2c3ad32b00f6e8fd79f992894bd6d3f738",
   "$id": "aws-cassandra-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -50,6 +50,14 @@
       "description": "Represents the CDC configuration for the table",
       "properties": {
         "Status": { "$ref": "#/definitions/CdcStatus" },
+        "Tags": {
+          "description": "An array of key-value pairs to apply to the CDC stream resource",
+          "items": { "$ref": "#/definitions/Tag" },
+          "maxItems": 50,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
         "ViewType": { "$ref": "#/definitions/CdcViewType" }
       },
       "required": ["Status"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "f869dae30db9bb1c58bfafeb93b0476a768dc61c",
+  "$hash": "99dca77f1b9d241389ca6fc9933a80d2e21ca768",
   "$id": "aws-sagemaker-space.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -38,7 +38,8 @@
       "additionalProperties": false,
       "properties": {
         "EFSFileSystem": { "$ref": "#/definitions/EFSFileSystem" },
-        "FSxLustreFileSystem": { "$ref": "#/definitions/FSxLustreFileSystem" }
+        "FSxLustreFileSystem": { "$ref": "#/definitions/FSxLustreFileSystem" },
+        "S3FileSystem": { "$ref": "#/definitions/S3FileSystem" }
       },
       "type": "object"
     },
@@ -260,6 +261,18 @@
           "description": "The ARN of the image version created on the instance.",
           "maxLength": 256,
           "pattern": "^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "S3FileSystem": {
+      "additionalProperties": false,
+      "properties": {
+        "S3Uri": {
+          "maxLength": 1024,
+          "minLength": 0,
+          "pattern": "(s3)://([^/]+)/?(.*)",
           "type": "string"
         }
       },

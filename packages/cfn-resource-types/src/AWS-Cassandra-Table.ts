@@ -125,6 +125,12 @@ export type CdcSpecification = {
    */
   Status: CdcStatus;
   /**
+   * An array of key-value pairs to apply to the CDC stream resource
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
+  /**
    * Specifies what data should be captured in the change data stream
    */
   ViewType?: CdcViewType;

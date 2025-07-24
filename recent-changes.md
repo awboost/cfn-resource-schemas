@@ -1,86 +1,62 @@
-- updated `AWS::ApiGateway::RestApi`
-  - updated definition `S3Location`
-- updated `AWS::AppConfig::Environment`
-  - updated definition `Monitor`
-- updated `AWS::Bedrock::DataSource`
-  - updated definition `ModelArn`
-- updated `AWS::Connect::Rule`
-  - updated definition `UserArn`
-- updated `AWS::DynamoDB::GlobalTable`
-  - updated definition `KinesisStreamSpecification`
-- updated `AWS::DynamoDB::Table`
-  - updated definition `KinesisStreamSpecification`
-  - updated definition `S3BucketSource`
-- updated `AWS::ECS::Cluster`
-  - updated definition `CapacityProviderStrategyItem`
-  - updated definition `ExecuteCommandConfiguration`
-  - updated definition `ExecuteCommandLogConfiguration`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `Action`
-  - updated definition `AuthenticateCognitoConfig`
-  - updated definition `TargetGroupTuple`
-- updated `AWS::GameLift::ContainerFleet`
-  - updated definition `LocationCapacity`
-- updated `AWS::GameLift::Fleet`
-  - updated property `ApplyCapacity`
-- updated `AWS::KinesisFirehose::DeliveryStream`
-  - updated definition `AmazonOpenSearchServerlessDestinationConfiguration`
-  - updated definition `AmazonopensearchserviceDestinationConfiguration`
-  - updated definition `AuthenticationConfiguration`
-  - updated definition `CloudWatchLoggingOptions`
-  - updated definition `DeliveryStreamEncryptionConfigurationInput`
-  - updated definition `ElasticsearchDestinationConfiguration`
-  - updated definition `ExtendedS3DestinationConfiguration`
-  - updated definition `HttpEndpointDestinationConfiguration`
-  - updated definition `IcebergDestinationConfiguration`
-  - updated definition `KMSEncryptionConfig`
-  - updated definition `KinesisStreamSourceConfiguration`
-  - updated definition `MSKSourceConfiguration`
-  - updated definition `RedshiftDestinationConfiguration`
-  - updated definition `S3DestinationConfiguration`
-  - updated definition `SchemaConfiguration`
-  - updated definition `SecretsManagerConfiguration`
-  - updated definition `SnowflakeDestinationConfiguration`
-  - updated definition `VpcConfiguration`
-- updated `AWS::Lambda::Version`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - updated definition `AvailabilityZoneDistribution`
+  - updated definition `CapacityReservationSpecification`
+  - updated definition `InstanceRequirements`
+  - updated definition `InstancesDistribution`
+  - updated definition `LaunchTemplateOverrides`
+  - updated definition `LaunchTemplateSpecification`
+  - updated definition `LaunchTemplate`
+  - updated definition `MixedInstancesPolicy`
+  - updated definition `NotificationConfiguration`
+  - updated definition `TrafficSourceIdentifier`
+  - updated property `LifecycleHookSpecificationList`
+  - updated property `PlacementGroup`
+- updated `AWS::Cassandra::Table`
+  - updated definition `CdcSpecification`
+- updated `AWS::EC2::TrafficMirrorSession`
+  - added `sourceUrl`
+  - added `tagging`
+  - added definition `TrafficMirrorSessionField`
+  - added property `OwnerId`
+  - removed `createOnlyProperties`
+  - updated `required`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::QuickSight::DataSource`
-  - updated definition `AthenaParameters`
-  - updated definition `DataSourceType`
-  - updated definition `OracleParameters`
-  - updated definition `ResourceStatus`
-- updated `AWS::RDS::DBInstance`
-  - added property `DBInstanceStatus`
-  - added property `InstanceCreateTime`
-  - added property `IsStorageConfigUpgradeAvailable`
-  - added property `LatestRestorableTime`
-  - added property `ListenerEndpoint`
-  - added property `ReadReplicaDBClusterIdentifiers`
-  - added property `ReadReplicaDBInstanceIdentifiers`
-  - updated `readOnlyProperties`
-- updated `AWS::Redshift::Cluster`
-  - updated definition `LoggingProperties`
-- updated `AWS::Redshift::EndpointAccess`
-  - updated definition `NetworkInterface`
-  - updated definition `VpcSecurityGroup`
-- updated `AWS::Redshift::ScheduledAction`
-  - updated definition `PauseClusterMessage`
-  - updated definition `ResizeClusterMessage`
-  - updated definition `ResumeClusterMessage`
-- updated `AWS::Route53::HostedZone`
-  - updated definition `QueryLoggingConfig`
-  - updated definition `VPC`
-- updated `AWS::S3::MultiRegionAccessPoint`
-  - updated definition `Region`
-- updated `AWS::S3::StorageLens`
-  - updated definition `S3BucketDestination`
-- updated `AWS::SSM::PatchBaseline`
-  - added property `AvailableSecurityUpdatesComplianceStatus`
-- updated `AWS::Wisdom::MessageTemplate`
-  - added `writeOnlyProperties`
-  - added definition `AttachmentName`
-  - added definition `AttachmentUrl`
-  - added definition `MessageTemplateAttachment`
-  - added property `MessageTemplateAttachments`
-  - updated `readOnlyProperties`
+  - updated property `Description`
+  - updated property `Id`
+  - updated property `NetworkInterfaceId`
+  - updated property `PacketLength`
+  - updated property `SessionNumber`
+  - updated property `Tags`
+  - updated property `TrafficMirrorFilterId`
+  - updated property `TrafficMirrorTargetId`
+  - updated property `VirtualNetworkId`
+- updated `AWS::Events::Rule`
+  - added property `Tags`
+  - updated `tagging`
   - updated handler permissions
+- updated `AWS::Logs::AccountPolicy`
+  - updated handler permissions
+  - updated property `PolicyType`
+- updated `AWS::QuickSight::Topic`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::RDS::DBCluster`
+  - updated property `ClusterScalabilityType`
+  - updated property `DeleteAutomatedBackups`
+  - updated property `SourceDBClusterIdentifier`
+- updated `AWS::SageMaker::AppImageConfig`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+- updated `AWS::SageMaker::Domain`
+  - added definition `S3FileSystemConfig`
+  - updated definition `CustomFileSystemConfig`
+- updated `AWS::SageMaker::Space`
+  - added definition `S3FileSystem`
+  - updated definition `CustomFileSystem`
+- updated `AWS::SageMaker::UserProfile`
+  - added definition `S3FileSystemConfig`
+  - updated definition `CustomFileSystemConfig`

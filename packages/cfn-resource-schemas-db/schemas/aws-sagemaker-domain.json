@@ -1,5 +1,5 @@
 {
-  "$hash": "2f4c2ca3eb0d8a9b1691b5bb958056f6cb4248f2",
+  "$hash": "1bcd2e43b66e046c148475d835528ec54213155b",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -252,7 +252,8 @@
         "EFSFileSystemConfig": { "$ref": "#/definitions/EFSFileSystemConfig" },
         "FSxLustreFileSystemConfig": {
           "$ref": "#/definitions/FSxLustreFileSystemConfig"
-        }
+        },
+        "S3FileSystemConfig": { "$ref": "#/definitions/S3FileSystemConfig" }
       },
       "type": "object"
     },
@@ -790,6 +791,19 @@
           "description": "The Amazon Resource Name (ARN) of the image version created on the instance.",
           "maxLength": 256,
           "pattern": "^arn:aws(-[\\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])*/[0-9]+$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "S3FileSystemConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "MountPath": { "maxLength": 1024, "minLength": 0, "type": "string" },
+        "S3Uri": {
+          "maxLength": 1024,
+          "minLength": 0,
+          "pattern": "(s3)://([^/]+)/?(.*)",
           "type": "string"
         }
       },

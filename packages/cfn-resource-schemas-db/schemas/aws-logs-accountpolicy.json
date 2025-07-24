@@ -1,5 +1,5 @@
 {
-  "$hash": "9acc4dd9dc2af9ca6175b69bde0ba1107b68a451",
+  "$hash": "82d9243aedbe3c8c464c6e992825219654e8ebd5",
   "$id": "aws-logs-accountpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName", "/properties/PolicyType"],
@@ -17,6 +17,7 @@
         "logs:PutSubscriptionFilter",
         "logs:DeleteSubscriptionFilter",
         "logs:PutTransformer",
+        "logs:PutMetricExtractionPolicy",
         "iam:PassRole"
       ]
     },
@@ -28,6 +29,7 @@
         "logs:DescribeAccountPolicies",
         "logs:DeleteSubscriptionFilter",
         "logs:DeleteTransformer",
+        "logs:DeleteMetricExtractionPolicy",
         "iam:PassRole"
       ]
     },
@@ -40,10 +42,18 @@
         },
         "required": ["PolicyType"]
       },
-      "permissions": ["logs:DescribeAccountPolicies", "logs:GetTransformer"]
+      "permissions": [
+        "logs:DescribeAccountPolicies",
+        "logs:GetTransformer",
+        "logs:GetMetricExtractionPolicy"
+      ]
     },
     "read": {
-      "permissions": ["logs:DescribeAccountPolicies", "logs:GetTransformer"]
+      "permissions": [
+        "logs:DescribeAccountPolicies",
+        "logs:GetTransformer",
+        "logs:GetMetricExtractionPolicy"
+      ]
     },
     "update": {
       "permissions": [
@@ -59,6 +69,8 @@
         "logs:DeleteSubscriptionFilter",
         "logs:PutTransformer",
         "logs:DeleteTransformer",
+        "logs:PutMetricExtractionPolicy",
+        "logs:DeleteMetricExtractionPolicy",
         "s3:REST.PUT.OBJECT",
         "firehose:TagDeliveryStream",
         "iam:PassRole"
@@ -95,7 +107,8 @@
         "DATA_PROTECTION_POLICY",
         "SUBSCRIPTION_FILTER_POLICY",
         "FIELD_INDEX_POLICY",
-        "TRANSFORMER_POLICY"
+        "TRANSFORMER_POLICY",
+        "METRIC_EXTRACTION_POLICY"
       ],
       "type": "string"
     },

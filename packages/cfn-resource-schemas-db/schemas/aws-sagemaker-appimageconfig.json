@@ -1,11 +1,8 @@
 {
-  "$hash": "594d84fd185663173d5bdcb1e2c0c4fc322d14ef",
+  "$hash": "5abb72aac35954c932501e5f193ecdeca001f910",
   "$id": "aws-sagemaker-appimageconfig.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/AppImageConfigName",
-    "/properties/Tags"
-  ],
+  "createOnlyProperties": ["/properties/AppImageConfigName"],
   "definitions": {
     "CodeEditorAppImageConfig": {
       "additionalProperties": false,
@@ -253,7 +250,7 @@
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::SageMaker::AppImageConfig"

@@ -1,11 +1,12 @@
 {
-  "$hash": "dd90d2c957027fdc941d05f409cac8a16eca5671",
+  "$hash": "fc71a7adc11ec6f79ebc76542970bcfc986062fb",
   "$id": "aws-quicksight-topic.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AwsAccountId",
     "/properties/FolderArns",
-    "/properties/TopicId"
+    "/properties/TopicId",
+    "/properties/Tags"
   ],
   "definitions": {
     "AggregationFunctionParameters": {
@@ -316,6 +317,26 @@
       },
       "type": "object"
     },
+    "Tag": {
+      "additionalProperties": false,
+      "description": "<p>The key or keys of the key-value pairs for the resource tag or tags assigned to the\n            resource.</p>",
+      "properties": {
+        "Key": {
+          "description": "<p>Tag key.</p>",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "<p>Tag value.</p>",
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
     "TopicCalculatedField": {
       "additionalProperties": false,
       "properties": {
@@ -607,12 +628,18 @@
       "permissions": [
         "quicksight:CreateTopic",
         "quicksight:PassDataSet",
-        "quicksight:DescribeTopicRefresh"
+        "quicksight:DescribeTopicRefresh",
+        "quicksight:TagResource"
       ]
     },
     "delete": { "permissions": ["quicksight:DeleteTopic"] },
     "list": { "permissions": ["quicksight:ListTopics"] },
-    "read": { "permissions": ["quicksight:DescribeTopic"] },
+    "read": {
+      "permissions": [
+        "quicksight:DescribeTopic",
+        "quicksight:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "quicksight:UpdateTopic",
@@ -643,6 +670,12 @@
       "type": "array"
     },
     "Name": { "maxLength": 128, "minLength": 1, "type": "string" },
+    "Tags": {
+      "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 200,
+      "minItems": 1,
+      "type": "array"
+    },
     "TopicId": {
       "maxLength": 256,
       "minLength": 0,
@@ -656,9 +689,11 @@
   "readOnlyProperties": ["/properties/Arn"],
   "tagging": {
     "cloudFormationSystemTags": false,
-    "tagOnCreate": false,
+    "permissions": ["quicksight:TagResource", "quicksight:ListTagsForResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
     "tagUpdatable": false,
-    "taggable": false
+    "taggable": true
   },
   "typeName": "AWS::QuickSight::Topic",
   "writeOnlyProperties": ["/properties/FolderArns"]

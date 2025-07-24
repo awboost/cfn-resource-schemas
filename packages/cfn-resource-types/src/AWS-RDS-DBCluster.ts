@@ -64,6 +64,7 @@ export type RDSDBClusterProperties = {
   BackupRetentionPeriod?: number;
   /**
    * Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
+   *Important:* Automated backup retention isn't supported with Aurora Limitless Database clusters. If you set this property to ``limitless``, you cannot set ``DeleteAutomatedBackups`` to ``false``. To create a backup, use manual snapshots instead.
    */
   ClusterScalabilityType?: string;
   /**
@@ -132,6 +133,9 @@ export type RDSDBClusterProperties = {
      Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
   DatabaseName?: string;
+  /**
+   * Specifies whether to remove automated backups immediately after the DB cluster is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB cluster is deleted, unless the AWS Backup policy specifies a point-in-time restore rule.
+   */
   DeleteAutomatedBackups?: boolean;
   /**
      * A value that indicates whether the DB cluster has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -456,6 +460,7 @@ export type RDSDBClusterProperties = {
      * When restoring a DB cluster to a point in time, the identifier of the source DB cluster from which to restore.
      Constraints:
       +  Must match the identifier of an existing DBCluster.
+      +  Cannot be specified if ``SourceDbClusterResourceId`` is specified. You must specify either ``SourceDBClusterIdentifier`` or ``SourceDbClusterResourceId``, but not both.
       
      Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */

@@ -82,6 +82,7 @@ export type CodeRepository = {
 export type CustomFileSystem = {
   EFSFileSystem?: EFSFileSystem;
   FSxLustreFileSystem?: FSxLustreFileSystem;
+  S3FileSystem?: S3FileSystem;
 };
 /**
  * Type definition for `AWS::SageMaker::Space.CustomImage`.
@@ -288,6 +289,18 @@ export type ResourceSpec = {
    * @pattern `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])/‍*[0-9]+$`
    */
   SageMakerImageVersionArn?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Space.S3FileSystem`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-s3filesystem.html}
+ */
+export type S3FileSystem = {
+  /**
+   * @minLength `0`
+   * @maxLength `1024`
+   * @pattern `(s3)://([^/]+)/?(.*)`
+   */
+  S3Uri?: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Space.SpaceAppLifecycleManagement`.

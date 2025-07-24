@@ -286,6 +286,7 @@ export type CodeRepository = {
 export type CustomFileSystemConfig = {
   EFSFileSystemConfig?: EFSFileSystemConfig;
   FSxLustreFileSystemConfig?: FSxLustreFileSystemConfig;
+  S3FileSystemConfig?: S3FileSystemConfig;
 };
 /**
  * Type definition for `AWS::SageMaker::UserProfile.CustomImage`.
@@ -644,6 +645,23 @@ export type RStudioServerProAppSettings = {
    * The level of permissions that the user has within the RStudioServerPro app. This value defaults to User. The Admin value allows the user access to the RStudio Administrative Dashboard.
    */
   UserGroup?: "R_STUDIO_ADMIN" | "R_STUDIO_USER";
+};
+/**
+ * Type definition for `AWS::SageMaker::UserProfile.S3FileSystemConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-s3filesystemconfig.html}
+ */
+export type S3FileSystemConfig = {
+  /**
+   * @minLength `0`
+   * @maxLength `1024`
+   */
+  MountPath?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `1024`
+   * @pattern `(s3)://([^/]+)/?(.*)`
+   */
+  S3Uri?: string;
 };
 /**
  * Type definition for `AWS::SageMaker::UserProfile.SharingSettings`.
