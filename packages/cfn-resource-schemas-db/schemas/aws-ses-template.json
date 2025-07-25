@@ -1,5 +1,5 @@
 {
-  "$hash": "b19428cbfe5def5943f90d02e994b0cb0d80cee8",
+  "$hash": "fd4e0921612ed647a41e6b56bdd166e47dd28b49",
   "$id": "aws-ses-template.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Template/TemplateName"],
@@ -63,5 +63,6 @@
   },
   "readOnlyProperties": ["/properties/Id"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ses.git",
+  "tagging": { "taggable": false },
   "typeName": "AWS::SES::Template"
 }

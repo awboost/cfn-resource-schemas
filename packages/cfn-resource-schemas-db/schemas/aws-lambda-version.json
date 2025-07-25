@@ -1,5 +1,5 @@
 {
-  "$hash": "cbed3ac466ccb4c3436fa7c13da2a16d55b87837",
+  "$hash": "893e90213e0c7eb3a41f6e29a1dd16a05b028c38",
   "$id": "aws-lambda-version.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -83,6 +83,13 @@
         "lambda:GetFunctionConfiguration",
         "lambda:GetProvisionedConcurrencyConfig",
         "lambda:GetRuntimeManagementConfig"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "lambda:GetFunctionConfiguration",
+        "lambda:PutFunctionScalingConfig",
+        "lambda:GetCapacityProvider"
       ]
     }
   },

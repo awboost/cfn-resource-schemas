@@ -15,6 +15,28 @@ export type SESDedicatedIpPoolProperties = {
    * @pattern `^(STANDARD|MANAGED)$`
    */
   ScalingMode?: string;
+  /**
+   * The tags (keys and values) associated with the dedicated IP pool.
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
+};
+/**
+ * Type definition for `AWS::SES::DedicatedIpPool.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-dedicatedippool-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::SES::DedicatedIpPool

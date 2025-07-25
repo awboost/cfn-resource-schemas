@@ -27,6 +27,12 @@ export type SESConfigurationSetProperties = {
    */
   SuppressionOptions?: SuppressionOptions;
   /**
+   * The tags (keys and values) associated with the contact list.
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
+  /**
    * An object that defines the open and click tracking options for emails that you send using the configuration set.
    */
   TrackingOptions?: TrackingOptions;
@@ -110,6 +116,22 @@ export type SuppressionOptions = {
    * A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
    */
   SuppressedReasons?: string[];
+};
+/**
+ * Type definition for `AWS::SES::ConfigurationSet.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::SES::ConfigurationSet.TrackingOptions`.

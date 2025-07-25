@@ -29,6 +29,12 @@ export type SESEmailIdentityProperties = {
    * Used to enable or disable the custom Mail-From domain configuration for an email identity.
    */
   MailFromAttributes?: MailFromAttributes;
+  /**
+   * The tags (keys and values) associated with the email identity.
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::SES::EmailIdentity`.
@@ -110,6 +116,22 @@ export type MailFromAttributes = {
    * The custom MAIL FROM domain that you want the verified identity to use
    */
   MailFromDomain?: string;
+};
+/**
+ * Type definition for `AWS::SES::EmailIdentity.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::SES::EmailIdentity

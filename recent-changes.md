@@ -1,62 +1,40 @@
-- updated `AWS::AutoScaling::AutoScalingGroup`
-  - updated definition `AvailabilityZoneDistribution`
-  - updated definition `CapacityReservationSpecification`
-  - updated definition `InstanceRequirements`
-  - updated definition `InstancesDistribution`
-  - updated definition `LaunchTemplateOverrides`
-  - updated definition `LaunchTemplateSpecification`
-  - updated definition `LaunchTemplate`
-  - updated definition `MixedInstancesPolicy`
-  - updated definition `NotificationConfiguration`
-  - updated definition `TrafficSourceIdentifier`
-  - updated property `LifecycleHookSpecificationList`
-  - updated property `PlacementGroup`
-- updated `AWS::Cassandra::Table`
-  - updated definition `CdcSpecification`
-- updated `AWS::EC2::TrafficMirrorSession`
-  - added `sourceUrl`
+- removed `AWS::OpsWorksCM::Server`
+- updated `AWS::AmazonMQ::ConfigurationAssociation`
   - added `tagging`
-  - added definition `TrafficMirrorSessionField`
-  - added property `OwnerId`
-  - removed `createOnlyProperties`
-  - updated `required`
-  - updated definition `Tag`
+  - updated definition `ConfigurationId`
   - updated handler permissions
-  - updated property `Description`
+  - updated property `Broker`
   - updated property `Id`
-  - updated property `NetworkInterfaceId`
-  - updated property `PacketLength`
-  - updated property `SessionNumber`
-  - updated property `Tags`
-  - updated property `TrafficMirrorFilterId`
-  - updated property `TrafficMirrorTargetId`
-  - updated property `VirtualNetworkId`
 - updated `AWS::Events::Rule`
-  - added property `Tags`
+  - removed property `Tags`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::Logs::AccountPolicy`
+- updated `AWS::Lambda::Version`
   - updated handler permissions
-  - updated property `PolicyType`
-- updated `AWS::QuickSight::Topic`
+- updated `AWS::MPA::IdentitySource`
+  - updated handler permissions
+- updated `AWS::RDS::DBInstance`
+  - updated property `BackupTarget`
+- updated `AWS::SES::ConfigurationSet`
+  - added `tagging`
   - added definition `Tag`
   - added property `Tags`
-  - updated `createOnlyProperties`
-  - updated `tagging`
   - updated handler permissions
-- updated `AWS::RDS::DBCluster`
-  - updated property `ClusterScalabilityType`
-  - updated property `DeleteAutomatedBackups`
-  - updated property `SourceDBClusterIdentifier`
-- updated `AWS::SageMaker::AppImageConfig`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-- updated `AWS::SageMaker::Domain`
-  - added definition `S3FileSystemConfig`
-  - updated definition `CustomFileSystemConfig`
-- updated `AWS::SageMaker::Space`
-  - added definition `S3FileSystem`
-  - updated definition `CustomFileSystem`
-- updated `AWS::SageMaker::UserProfile`
-  - added definition `S3FileSystemConfig`
-  - updated definition `CustomFileSystemConfig`
+- updated `AWS::SES::ConfigurationSetEventDestination`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::SES::ContactList`
+  - added `tagging`
+  - updated handler permissions
+- updated `AWS::SES::DedicatedIpPool`
+  - added `tagging`
+  - added property `Tags`
+  - updated definition `undefined`
+  - updated handler permissions
+- updated `AWS::SES::EmailIdentity`
+  - added `tagging`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated handler permissions
+- updated `AWS::SES::Template`
+  - added `tagging`

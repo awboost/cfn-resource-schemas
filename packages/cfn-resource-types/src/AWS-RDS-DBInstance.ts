@@ -132,6 +132,16 @@ export type RDSDBInstanceProperties = {
      * @min `0`
      */
   BackupRetentionPeriod?: number;
+  /**
+     * The location for storing automated backups and manual snapshots.
+     Valid Values:
+      +  ``local`` (Dedicated Local Zone)
+      +  ``outposts`` (AWS Outposts)
+      +  ``region`` (AWS-Region)
+      
+     Default: ``region``
+     For more information, see [Working with Amazon RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html) in the *Amazon RDS User Guide*.
+     */
   BackupTarget?: string;
   /**
      * The identifier of the CA certificate for this DB instance.

@@ -1,5 +1,5 @@
 {
-  "$hash": "398e888ebaeb272453acb62d995c049b9b797090",
+  "$hash": "bc15b467f29f9d91a1847a70fe1adf9548a49da9",
   "$id": "aws-mpa-identitysource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -67,7 +67,8 @@
         "sso:PutApplicationAssignmentConfiguration",
         "sso:PutApplicationGrant",
         "sso:PutApplicationAuthenticationMethod",
-        "sso:PutApplicationAccessScope"
+        "sso:PutApplicationAccessScope",
+        "kms:Decrypt"
       ]
     },
     "delete": {
@@ -75,7 +76,8 @@
         "mpa:DeleteIdentitySource",
         "mpa:GetIdentitySource",
         "mpa:UntagResource",
-        "sso:DeleteApplication"
+        "sso:DeleteApplication",
+        "kms:Decrypt"
       ]
     },
     "list": {

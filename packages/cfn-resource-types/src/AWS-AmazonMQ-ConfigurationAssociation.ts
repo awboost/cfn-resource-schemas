@@ -5,6 +5,9 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html}
  */
 export type AmazonMQConfigurationAssociationProperties = {
+  /**
+   * ID of the Broker that the configuration should be applied to
+   */
   Broker: string;
   Configuration: ConfigurationId;
 };
@@ -13,6 +16,9 @@ export type AmazonMQConfigurationAssociationProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html#aws-resource-amazonmq-configurationassociation-return-values}
  */
 export type AmazonMQConfigurationAssociationAttributes = {
+  /**
+   * The ID of the ConfigurationAssociation Resource
+   */
   Id: string;
 };
 /**
@@ -20,7 +26,13 @@ export type AmazonMQConfigurationAssociationAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configurationassociation-configurationid.html}
  */
 export type ConfigurationId = {
+  /**
+   * ID of the Configuration to apply to a Broker
+   */
   Id: string;
+  /**
+   * Revision of the Configuration to apply to a Broker
+   */
   Revision: number;
 };
 /**
