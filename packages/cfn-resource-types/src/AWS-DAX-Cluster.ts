@@ -10,6 +10,7 @@ export type DAXClusterProperties = {
   ClusterName?: string;
   Description?: string;
   IAMRoleARN: string;
+  NetworkType?: string;
   NodeType: string;
   NotificationTopicARN?: string;
   ParameterGroupName?: string;

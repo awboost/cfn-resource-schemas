@@ -1,11 +1,12 @@
 {
-  "$hash": "e29cca8dcde1f9a36b9d22fee7fe6ce4398eb3b3",
+  "$hash": "f9aa5db773a5c47ac5b336de29ce4c27bf31b142",
   "$id": "aws-dax-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/IAMRoleARN",
     "/properties/SSESpecification",
     "/properties/ClusterEndpointEncryptionType",
+    "/properties/NetworkType",
     "/properties/ClusterName",
     "/properties/NodeType",
     "/properties/SubnetGroupName"
@@ -33,6 +34,7 @@
     "Description": { "type": "string" },
     "IAMRoleARN": { "type": "string" },
     "Id": { "type": "string" },
+    "NetworkType": { "type": "string" },
     "NodeType": { "type": "string" },
     "NotificationTopicARN": { "type": "string" },
     "ParameterGroupName": { "type": "string" },

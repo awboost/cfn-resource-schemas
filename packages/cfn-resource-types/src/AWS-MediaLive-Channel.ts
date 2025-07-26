@@ -1247,6 +1247,7 @@ export type MaintenanceCreateSettings = {
  */
 export type MediaPackageGroupSettings = {
   Destination?: OutputLocationRef;
+  MediapackageV2GroupSettings?: MediaPackageV2GroupSettings;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.MediaPackageOutputDestinationSettings`.
@@ -1261,7 +1262,26 @@ export type MediaPackageOutputDestinationSettings = {
  * Type definition for `AWS::MediaLive::Channel.MediaPackageOutputSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputsettings.html}
  */
-export type MediaPackageOutputSettings = Record<string, any>;
+export type MediaPackageOutputSettings = {
+  MediaPackageV2DestinationSettings?: MediaPackageV2DestinationSettings;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.MediaPackageV2DestinationSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2destinationsettings.html}
+ */
+export type MediaPackageV2DestinationSettings = {
+  AudioGroupId?: string;
+  AudioRenditionSets?: string;
+  HlsAutoSelect?: string;
+  HlsDefault?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.MediaPackageV2GroupSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2groupsettings.html}
+ */
+export type MediaPackageV2GroupSettings = {
+  CaptionLanguageMappings?: CaptionLanguageMapping[];
+};
 /**
  * Type definition for `AWS::MediaLive::Channel.MotionGraphicsConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-motiongraphicsconfiguration.html}

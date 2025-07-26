@@ -1,40 +1,17 @@
-- removed `AWS::OpsWorksCM::Server`
-- updated `AWS::AmazonMQ::ConfigurationAssociation`
-  - added `tagging`
-  - updated definition `ConfigurationId`
+- added `AWS::Lightsail::Domain`
+- updated `AWS::ApplicationInsights::Application`
+  - updated definition `ComponentMonitoringSetting`
+  - updated definition `Log`
   - updated handler permissions
-  - updated property `Broker`
-  - updated property `Id`
-- updated `AWS::Events::Rule`
-  - removed property `Tags`
-  - updated `tagging`
-  - updated handler permissions
+- updated `AWS::DAX::Cluster`
+  - added property `NetworkType`
+  - updated `createOnlyProperties`
+- updated `AWS::DataZone::Connection`
+  - updated definition `RedshiftPropertiesInput`
 - updated `AWS::Lambda::Version`
   - updated handler permissions
-- updated `AWS::MPA::IdentitySource`
-  - updated handler permissions
-- updated `AWS::RDS::DBInstance`
-  - updated property `BackupTarget`
-- updated `AWS::SES::ConfigurationSet`
-  - added `tagging`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated handler permissions
-- updated `AWS::SES::ConfigurationSetEventDestination`
-  - added `tagging`
-  - updated handler permissions
-- updated `AWS::SES::ContactList`
-  - added `tagging`
-  - updated handler permissions
-- updated `AWS::SES::DedicatedIpPool`
-  - added `tagging`
-  - added property `Tags`
-  - updated definition `undefined`
-  - updated handler permissions
-- updated `AWS::SES::EmailIdentity`
-  - added `tagging`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated handler permissions
-- updated `AWS::SES::Template`
-  - added `tagging`
+- updated `AWS::MediaLive::Channel`
+  - added definition `MediaPackageV2DestinationSettings`
+  - added definition `MediaPackageV2GroupSettings`
+  - updated definition `MediaPackageGroupSettings`
+  - updated definition `MediaPackageOutputSettings`

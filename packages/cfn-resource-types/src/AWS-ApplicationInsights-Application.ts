@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource schema for AWS::ApplicationInsights::Application
+ * Resource Type definition for AWS::ApplicationInsights::Application
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html}
  */
 export type ApplicationInsightsApplicationProperties = {
@@ -155,7 +155,7 @@ export type ComponentMonitoringSetting = {
   DefaultOverwriteComponentConfiguration?: ComponentConfiguration;
   /**
    * The tier of the application component.
-   * @pattern `^[A-Z][[A-Z]_]*$`
+   * @pattern `^[A-Z][A-Z_]*$`
    */
   Tier: string;
 };
@@ -322,7 +322,7 @@ export type Log = {
   LogPath?: string;
   /**
    * The log type decides the log patterns against which Application Insights analyzes the log.
-   * @pattern `^[A-Z][[A-Z]_]*$`
+   * @pattern `^[A-Z][A-Z_]*$`
    */
   LogType: string;
   /**
@@ -519,7 +519,7 @@ export type WindowsEvent = {
   PatternSet?: string;
 };
 /**
- * Resource schema for AWS::ApplicationInsights::Application
+ * Resource Type definition for AWS::ApplicationInsights::Application
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html}
  */
 export class ApplicationInsightsApplication extends $Resource<
