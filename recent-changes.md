@@ -1,17 +1,6 @@
-- added `AWS::Lightsail::Domain`
-- updated `AWS::ApplicationInsights::Application`
-  - updated definition `ComponentMonitoringSetting`
-  - updated definition `Log`
+- updated `AWS::EC2::IPAM`
+  - updated `tagging`
+- updated `AWS::MediaPackageV2::OriginEndpointPolicy`
+  - added property `CdnAuthConfiguration`
+  - updated definition `undefined`
   - updated handler permissions
-- updated `AWS::DAX::Cluster`
-  - added property `NetworkType`
-  - updated `createOnlyProperties`
-- updated `AWS::DataZone::Connection`
-  - updated definition `RedshiftPropertiesInput`
-- updated `AWS::Lambda::Version`
-  - updated handler permissions
-- updated `AWS::MediaLive::Channel`
-  - added definition `MediaPackageV2DestinationSettings`
-  - added definition `MediaPackageV2GroupSettings`
-  - updated definition `MediaPackageGroupSettings`
-  - updated definition `MediaPackageOutputSettings`

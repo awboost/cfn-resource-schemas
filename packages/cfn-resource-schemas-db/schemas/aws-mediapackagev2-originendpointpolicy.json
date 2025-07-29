@@ -1,5 +1,5 @@
 {
-  "$hash": "ae462a4993a7b3d5dd2db9b21711b6f85c1da566",
+  "$hash": "7d5f02af3cfd29c6f145c41230ec04ca96770f2f",
   "$id": "aws-mediapackagev2-originendpointpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,12 +7,33 @@
     "/properties/ChannelName",
     "/properties/OriginEndpointName"
   ],
+  "definitions": {
+    "CdnAuthConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "CdnIdentifierSecretArns": {
+          "items": { "maxLength": 2048, "minLength": 20, "type": "string" },
+          "maxItems": 100,
+          "minItems": 1,
+          "type": "array"
+        },
+        "SecretsRoleArn": {
+          "maxLength": 2048,
+          "minLength": 20,
+          "type": "string"
+        }
+      },
+      "required": ["CdnIdentifierSecretArns", "SecretsRoleArn"],
+      "type": "object"
+    }
+  },
   "description": "<p>Represents a resource policy that allows or denies access to an origin endpoint.</p>",
   "handlers": {
     "create": {
       "permissions": [
         "mediapackagev2:GetOriginEndpointPolicy",
-        "mediapackagev2:PutOriginEndpointPolicy"
+        "mediapackagev2:PutOriginEndpointPolicy",
+        "iam:PassRole"
       ]
     },
     "delete": {
@@ -25,7 +46,8 @@
     "update": {
       "permissions": [
         "mediapackagev2:GetOriginEndpointPolicy",
-        "mediapackagev2:PutOriginEndpointPolicy"
+        "mediapackagev2:PutOriginEndpointPolicy",
+        "iam:PassRole"
       ]
     }
   },
@@ -35,6 +57,7 @@
     "/properties/OriginEndpointName"
   ],
   "properties": {
+    "CdnAuthConfiguration": { "$ref": "#/definitions/CdnAuthConfiguration" },
     "ChannelGroupName": {
       "maxLength": 256,
       "minLength": 1,

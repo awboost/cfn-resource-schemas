@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html}
  */
 export type MediaPackageV2OriginEndpointPolicyProperties = {
+  CdnAuthConfiguration?: CdnAuthConfiguration;
   /**
    * @minLength `1`
    * @maxLength `256`
@@ -25,6 +26,22 @@ export type MediaPackageV2OriginEndpointPolicyProperties = {
    */
   OriginEndpointName: string;
   Policy: Record<string, any> | string;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpointPolicy.CdnAuthConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpointpolicy-cdnauthconfiguration.html}
+ */
+export type CdnAuthConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  CdnIdentifierSecretArns: string[];
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   */
+  SecretsRoleArn: string;
 };
 /**
  * Resource type definition for `AWS::MediaPackageV2::OriginEndpointPolicy`.
