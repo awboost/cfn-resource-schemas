@@ -1,6 +1,10 @@
-- updated `AWS::EC2::IPAM`
-  - updated `tagging`
-- updated `AWS::MediaPackageV2::OriginEndpointPolicy`
-  - added property `CdnAuthConfiguration`
-  - updated definition `undefined`
+- added `AWS::Batch::ServiceEnvironment`
+- updated `AWS::EC2::Volume`
+  - updated property `VolumeInitializationRate`
+- updated `AWS::Lambda::CodeSigningConfig`
   - updated handler permissions
+- updated `AWS::Lambda::Version`
+  - updated property `FunctionArn`
+- updated `AWS::QuickSight::Topic`
+  - added definition `CustomInstructions`
+  - added property `CustomInstructions`

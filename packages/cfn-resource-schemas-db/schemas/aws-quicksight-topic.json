@@ -1,5 +1,5 @@
 {
-  "$hash": "fc71a7adc11ec6f79ebc76542970bcfc986062fb",
+  "$hash": "d86b73d2078d6a471b78b8210d8c228d1f98c634",
   "$id": "aws-quicksight-topic.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -75,6 +75,18 @@
     "ConstantType": {
       "enum": ["SINGULAR", "RANGE", "COLLECTIVE"],
       "type": "string"
+    },
+    "CustomInstructions": {
+      "additionalProperties": false,
+      "properties": {
+        "CustomInstructionsString": {
+          "maxLength": 5000,
+          "minLength": 0,
+          "type": "string"
+        }
+      },
+      "required": ["CustomInstructionsString"],
+      "type": "object"
     },
     "DataAggregation": {
       "additionalProperties": false,
@@ -658,6 +670,7 @@
       "type": "string"
     },
     "ConfigOptions": { "$ref": "#/definitions/TopicConfigOptions" },
+    "CustomInstructions": { "$ref": "#/definitions/CustomInstructions" },
     "DataSets": {
       "items": { "$ref": "#/definitions/DatasetMetadata" },
       "type": "array"

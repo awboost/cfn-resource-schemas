@@ -15,6 +15,7 @@ export type QuickSightTopicProperties = {
    * Model for configuration of a Topic
    */
   ConfigOptions?: TopicConfigOptions;
+  CustomInstructions?: CustomInstructions;
   DataSets?: DatasetMetadata[];
   /**
    * @minLength `0`
@@ -132,6 +133,17 @@ export type ComparativeOrder = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-constanttype.html}
  */
 export type ConstantType = "SINGULAR" | "RANGE" | "COLLECTIVE";
+/**
+ * Type definition for `AWS::QuickSight::Topic.CustomInstructions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-custominstructions.html}
+ */
+export type CustomInstructions = {
+  /**
+   * @minLength `0`
+   * @maxLength `5000`
+   */
+  CustomInstructionsString: string;
+};
 /**
  * Type definition for `AWS::QuickSight::Topic.DataAggregation`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-dataaggregation.html}

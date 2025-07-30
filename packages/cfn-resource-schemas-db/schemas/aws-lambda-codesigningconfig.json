@@ -1,5 +1,5 @@
 {
-  "$hash": "43fd04fb4785d5580d1e27e20dbf3995d4780789",
+  "$hash": "91014c388737a89458072d961416be72283d41f5",
   "$id": "aws-lambda-codesigningconfig.json",
   "additionalProperties": false,
   "definitions": {
@@ -70,7 +70,6 @@
     "update": {
       "permissions": [
         "lambda:UpdateCodeSigningConfig",
-        "lambda:ListTags",
         "lambda:TagResource",
         "lambda:UntagResource"
       ]
