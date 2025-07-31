@@ -1,5 +1,5 @@
 {
-  "$hash": "3ab86839a4a54e8919ce1e24807020aaf3072e08",
+  "$hash": "70808f2944d2f47757689b478ac894ab62bcb6c0",
   "$id": "aws-iot-cacertificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -62,19 +62,25 @@
         "iot:RegisterCACertificate",
         "iot:DescribeCACertificate",
         "iot:TagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "delete": {
       "permissions": [
         "iot:UpdateCACertificate",
         "iot:DeleteCACertificate",
-        "iot:DescribeCACertificate"
+        "iot:DescribeCACertificate",
+        "kms:Decrypt"
       ]
     },
     "list": { "permissions": ["iot:ListCACertificates"] },
     "read": {
-      "permissions": ["iot:DescribeCACertificate", "iot:ListTagsForResource"]
+      "permissions": [
+        "iot:DescribeCACertificate",
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
+      ]
     },
     "update": {
       "permissions": [
@@ -84,7 +90,8 @@
         "iot:DescribeCACertificate",
         "iot:TagResource",
         "iot:UntagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     }
   },

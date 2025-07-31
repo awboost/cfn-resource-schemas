@@ -1,5 +1,5 @@
 {
-  "$hash": "beaa2429f338e50bb7630ab1a2482eff85cf26dc",
+  "$hash": "c95473216da2e05cdfd1ed44670b7933cbc7077a",
   "$id": "aws-elasticloadbalancingv2-listenerrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ListenerArn"],
@@ -191,11 +191,8 @@
       "description": "Information about a host header condition.",
       "properties": {
         "Values": {
-          "description": "The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).\n If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.",
-          "insertionOrder": false,
-          "items": { "type": "string" },
-          "type": "array",
-          "uniqueItems": true
+          "$ref": "#/definitions/ListOfStrings",
+          "description": "The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one \".\" character. You can include only alphabetical characters after the final \".\" character.\n If you specify multiple strings, the condition is satisfied if one of the strings matches the host name."
         }
       },
       "type": "object"
@@ -209,11 +206,8 @@
           "type": "string"
         },
         "Values": {
-          "description": "The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).\n If the same header appears multiple times in the request, we search them in order until a match is found.\n If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.",
-          "insertionOrder": false,
-          "items": { "type": "string" },
-          "type": "array",
-          "uniqueItems": true
+          "$ref": "#/definitions/ListOfStrings",
+          "description": "The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).\n If the same header appears multiple times in the request, we search them in order until a match is found.\n If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string."
         }
       },
       "type": "object"
@@ -223,25 +217,25 @@
       "description": "Information about an HTTP method condition.\n HTTP defines a set of request methods, also referred to as HTTP verbs. For more information, see the [HTTP Method Registry](https://docs.aws.amazon.com/https://www.iana.org/assignments/http-methods/http-methods.xhtml). You can also define custom HTTP methods.",
       "properties": {
         "Values": {
-          "description": "The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.\n If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.",
-          "insertionOrder": false,
-          "items": { "type": "string" },
-          "type": "array",
-          "uniqueItems": true
+          "$ref": "#/definitions/ListOfStrings",
+          "description": "The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.\n If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached."
         }
       },
       "type": "object"
+    },
+    "ListOfStrings": {
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": true
     },
     "PathPatternConfig": {
       "additionalProperties": false,
       "description": "Information about a path pattern condition.",
       "properties": {
         "Values": {
-          "description": "The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).\n If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.",
-          "insertionOrder": false,
-          "items": { "type": "string" },
-          "type": "array",
-          "uniqueItems": true
+          "$ref": "#/definitions/ListOfStrings",
+          "description": "The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).\n If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string."
         }
       },
       "type": "object"
@@ -337,11 +331,8 @@
           "description": "Information for a source IP condition. Specify only when ``Field`` is ``source-ip``."
         },
         "Values": {
-          "description": "The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.\n If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.\n  +  A-Z, a-z, 0-9\n  +  - .\n  +  * (matches 0 or more characters)\n  +  ? (matches exactly 1 character)\n  \n If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.\n  +  A-Z, a-z, 0-9\n  +  _ - . $ / ~ \" ' @ : +\n  +  & (using &amp;)\n  +  * (matches 0 or more characters)\n  +  ? (matches exactly 1 character)",
-          "insertionOrder": false,
-          "items": { "type": "string" },
-          "type": "array",
-          "uniqueItems": true
+          "$ref": "#/definitions/ListOfStrings",
+          "description": "The condition value. Specify only when ``Field`` is ``host-header`` or ``path-pattern``. Alternatively, to specify multiple host names or multiple path patterns, use ``HostHeaderConfig`` or ``PathPatternConfig``.\n If ``Field`` is ``host-header`` and you're not using ``HostHeaderConfig``, you can specify a single host name (for example, my.example.com). A host name is case insensitive, can be up to 128 characters in length, and can contain any of the following characters.\n  +  A-Z, a-z, 0-9\n  +  - .\n  +  * (matches 0 or more characters)\n  +  ? (matches exactly 1 character)\n  \n If ``Field`` is ``path-pattern`` and you're not using ``PathPatternConfig``, you can specify a single path pattern (for example, /img/*). A path pattern is case-sensitive, can be up to 128 characters in length, and can contain any of the following characters.\n  +  A-Z, a-z, 0-9\n  +  _ - . $ / ~ \" ' @ : +\n  +  & (using &amp;)\n  +  * (matches 0 or more characters)\n  +  ? (matches exactly 1 character)"
         }
       },
       "type": "object"
@@ -365,7 +356,7 @@
       "description": "Information about the target group stickiness for a rule.",
       "properties": {
         "DurationSeconds": {
-          "description": "The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).",
+          "description": "The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.",
           "type": "integer"
         },
         "Enabled": {

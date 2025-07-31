@@ -1,5 +1,5 @@
 {
-  "$hash": "aa3e17b21cd7ad7ab5a94cafce57207677c176e4",
+  "$hash": "39e99250d9a47ce449fa8cc25f75aad46af77205",
   "$id": "aws-iot-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName"],
@@ -21,7 +21,8 @@
         "iot:CreatePolicy",
         "iot:GetPolicy",
         "iot:TagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "delete": {
@@ -29,11 +30,14 @@
         "iot:DeletePolicy",
         "iot:GetPolicy",
         "iot:ListPolicyVersions",
-        "iot:DeletePolicyVersion"
+        "iot:DeletePolicyVersion",
+        "kms:Decrypt"
       ]
     },
     "list": { "permissions": ["iot:ListPolicies"] },
-    "read": { "permissions": ["iot:GetPolicy", "iot:ListTagsForResource"] },
+    "read": {
+      "permissions": ["iot:GetPolicy", "iot:ListTagsForResource", "kms:Decrypt"]
+    },
     "update": {
       "permissions": [
         "iot:GetPolicy",
@@ -43,7 +47,8 @@
         "iot:SetDefaultPolicyVersion",
         "iot:TagResource",
         "iot:UntagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     }
   },

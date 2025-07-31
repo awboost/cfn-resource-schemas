@@ -1,5 +1,5 @@
 {
-  "$hash": "3fb935558fedb60e7acdfe7ef1964f705e87b30b",
+  "$hash": "20b9cc1914067b92f3578a6fb2b6aaa70e667e7d",
   "$id": "aws-iot-certificateprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CertificateProviderName"],
@@ -36,20 +36,23 @@
         "iot:CreateCertificateProvider",
         "iot:DescribeCertificateProvider",
         "iot:TagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "delete": {
       "permissions": [
         "iot:DeleteCertificateProvider",
-        "iot:DescribeCertificateProvider"
+        "iot:DescribeCertificateProvider",
+        "kms:Decrypt"
       ]
     },
     "list": { "permissions": ["iot:ListCertificateProviders"] },
     "read": {
       "permissions": [
         "iot:DescribeCertificateProvider",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "update": {
@@ -58,7 +61,8 @@
         "iot:DescribeCertificateProvider",
         "iot:TagResource",
         "iot:UntagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     }
   },

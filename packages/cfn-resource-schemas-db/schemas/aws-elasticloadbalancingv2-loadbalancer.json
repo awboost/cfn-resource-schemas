@@ -1,5 +1,5 @@
 {
-  "$hash": "206f9a05152495d859a9bcb1da5c862a84074c8f",
+  "$hash": "b613ac25b77bee60a99bc61a809250ee55a2a195",
   "$id": "aws-elasticloadbalancingv2-loadbalancer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -135,7 +135,7 @@
     "LoadBalancerArn": { "description": "", "type": "string" },
     "LoadBalancerAttributes": {
       "arrayType": "AttributeList",
-      "description": "The load balancer attributes.",
+      "description": "The load balancer attributes. Attributes that you do not modify retain their current values.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/LoadBalancerAttribute" },
       "type": "array",

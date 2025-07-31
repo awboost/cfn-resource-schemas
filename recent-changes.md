@@ -1,10 +1,49 @@
-- added `AWS::Batch::ServiceEnvironment`
-- updated `AWS::EC2::Volume`
-  - updated property `VolumeInitializationRate`
-- updated `AWS::Lambda::CodeSigningConfig`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated definition `TargetGroupStickinessConfig`
+  - updated property `Certificates`
+  - updated property `ListenerAttributes`
+  - updated property `SslPolicy`
+- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
+  - added definition `ListOfStrings`
+  - updated definition `HostHeaderConfig`
+  - updated definition `HttpHeaderConfig`
+  - updated definition `HttpRequestMethodConfig`
+  - updated definition `PathPatternConfig`
+  - updated definition `RuleCondition`
+  - updated definition `TargetGroupStickinessConfig`
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - updated property `LoadBalancerAttributes`
+- updated `AWS::EntityResolution::MatchingWorkflow`
+  - added definition `RuleConditionProperties`
+  - added definition `RuleCondition`
+  - updated definition `ResolutionTechniques`
+- updated `AWS::Glue::Job`
+  - updated property `WorkerType`
+- updated `AWS::IoT::Authorizer`
   - updated handler permissions
-- updated `AWS::Lambda::Version`
-  - updated property `FunctionArn`
-- updated `AWS::QuickSight::Topic`
-  - added definition `CustomInstructions`
-  - added property `CustomInstructions`
+- updated `AWS::IoT::CACertificate`
+  - updated handler permissions
+- updated `AWS::IoT::Certificate`
+  - updated handler permissions
+- updated `AWS::IoT::CertificateProvider`
+  - updated handler permissions
+- updated `AWS::IoT::DomainConfiguration`
+  - updated handler permissions
+- updated `AWS::IoT::Policy`
+  - updated handler permissions
+- updated `AWS::IoT::ProvisioningTemplate`
+  - updated handler permissions
+- updated `AWS::IoT::RoleAlias`
+  - updated handler permissions
+- updated `AWS::IoTFleetWise::Campaign`
+  - updated `createOnlyProperties`
+- updated `AWS::MediaPackageV2::Channel`
+  - updated definition `InputSwitchConfiguration`
+- updated `AWS::RDS::DBInstance`
+  - added definition `DBInstanceStatusInfo`
+  - added property `AutomaticRestartTime`
+  - added property `PercentProgress`
+  - added property `ResumeFullAutomationModeTime`
+  - added property `SecondaryAvailabilityZone`
+  - added property `StatusInfos`
+  - updated `readOnlyProperties`

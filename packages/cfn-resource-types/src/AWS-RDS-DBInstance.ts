@@ -751,6 +751,7 @@ export type RDSDBInstanceProperties = {
    * The ID of the region that contains the source DB instance for the read replica.
    */
   SourceRegion?: string;
+  StatusInfos?: DBInstanceStatusInfo[];
   /**
      * A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
      If you specify the ``KmsKeyId`` property, then you must enable encryption.
@@ -815,6 +816,7 @@ export type RDSDBInstanceProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#aws-resource-rds-dbinstance-return-values}
  */
 export type RDSDBInstanceAttributes = {
+  AutomaticRestartTime: string;
   /**
      * The details of the DB instance’s server certificate.
      For more information, see [Using SSL/TLS to encrypt a connection to a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the *Amazon RDS User Guide* and [Using SSL/TLS to encrypt a connection to a DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html) in the *Amazon Aurora User Guide*.
@@ -889,8 +891,11 @@ export type RDSDBInstanceAttributes = {
      */
     SecretArn: string;
   };
+  PercentProgress: string;
   ReadReplicaDBClusterIdentifiers: string[];
   ReadReplicaDBInstanceIdentifiers: string[];
+  ResumeFullAutomationModeTime: string;
+  SecondaryAvailabilityZone: string;
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.DBInstanceRole`.
@@ -906,6 +911,28 @@ export type DBInstanceRole = {
    * The Amazon Resource Name (ARN) of the IAM role that is associated with the DB instance.
    */
   RoleArn: string;
+};
+/**
+ * Type definition for `AWS::RDS::DBInstance.DBInstanceStatusInfo`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancestatusinfo.html}
+ */
+export type DBInstanceStatusInfo = {
+  /**
+   * Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
+   */
+  Message?: string;
+  /**
+   * Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
+   */
+  Normal?: boolean;
+  /**
+   * The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+   */
+  Status?: string;
+  /**
+   * The status type of the DB instance.
+   */
+  StatusType?: string;
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.MasterUserSecret`.

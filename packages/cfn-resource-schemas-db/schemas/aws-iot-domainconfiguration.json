@@ -1,5 +1,5 @@
 {
-  "$hash": "4c5ea9c7ba04189eecb23eec1b468e29ffe67783",
+  "$hash": "0bfb459ff7127642011b4c603ca2405cf267c1c6",
   "$id": "aws-iot-domainconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -91,21 +91,24 @@
         "iot:DescribeDomainConfiguration",
         "iot:TagResource",
         "iot:ListTagsForResource",
-        "acm:GetCertificate"
+        "acm:GetCertificate",
+        "kms:Decrypt"
       ]
     },
     "delete": {
       "permissions": [
         "iot:DescribeDomainConfiguration",
         "iot:DeleteDomainConfiguration",
-        "iot:UpdateDomainConfiguration"
+        "iot:UpdateDomainConfiguration",
+        "kms:Decrypt"
       ]
     },
     "list": { "permissions": ["iot:ListDomainConfigurations"] },
     "read": {
       "permissions": [
         "iot:DescribeDomainConfiguration",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "update": {
@@ -114,7 +117,8 @@
         "iot:DescribeDomainConfiguration",
         "iot:ListTagsForResource",
         "iot:TagResource",
-        "iot:UntagResource"
+        "iot:UntagResource",
+        "kms:Decrypt"
       ]
     }
   },

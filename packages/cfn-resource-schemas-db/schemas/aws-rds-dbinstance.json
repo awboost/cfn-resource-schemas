@@ -1,5 +1,5 @@
 {
-  "$hash": "d5c468542fc12d5a7da05f828bd7a68a344e354c",
+  "$hash": "7bedbaa0fcd58d5d50c136a0836c54f38665a5fa",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -68,6 +68,29 @@
         }
       },
       "required": ["FeatureName", "RoleArn"],
+      "type": "object"
+    },
+    "DBInstanceStatusInfo": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Message": {
+          "description": "Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.",
+          "type": "string"
+        },
+        "Normal": {
+          "description": "Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).",
+          "type": "boolean"
+        },
+        "Status": {
+          "description": "The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.",
+          "type": "string"
+        },
+        "StatusType": {
+          "description": "The status type of the DB instance.",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "Endpoint": {
@@ -277,6 +300,7 @@
       "minimum": 1,
       "type": "integer"
     },
+    "AutomaticRestartTime": { "description": "", "type": "string" },
     "AvailabilityZone": {
       "description": "The Availability Zone (AZ) where the database will be created. For information on AWS-Regions and Availability Zones, see [Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html).\n For Amazon Aurora, each Aurora DB cluster hosts copies of its storage in three separate Availability Zones. Specify one of these Availability Zones. Aurora automatically chooses an appropriate Availability Zone if you don't specify one.\n Default: A random, system-chosen Availability Zone in the endpoint's AWS-Region.\n Constraints:\n  +  The ``AvailabilityZone`` parameter can't be specified if the DB instance is a Multi-AZ deployment.\n  +  The specified Availability Zone must be in the same AWS-Region as the current endpoint.\n  \n Example: ``us-east-1d``",
       "type": "string"
@@ -500,6 +524,7 @@
       "description": "Indicates that the DB instance should be associated with the specified option group.\n Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance.",
       "type": "string"
     },
+    "PercentProgress": { "description": "", "type": "string" },
     "PerformanceInsightsKMSKeyId": {
       "description": "The AWS KMS key identifier for encryption of Performance Insights data.\n The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.\n If you do not specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS account. Your AWS account has a different default KMS key for each AWS Region.\n For information about enabling Performance Insights, see [EnablePerformanceInsights](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights).",
       "type": "string"
@@ -554,6 +579,8 @@
       "format": "date-time",
       "type": "string"
     },
+    "ResumeFullAutomationModeTime": { "description": "", "type": "string" },
+    "SecondaryAvailabilityZone": { "description": "", "type": "string" },
     "SourceDBClusterIdentifier": {
       "description": "The identifier of the Multi-AZ DB cluster that will act as the source for the read replica. Each DB cluster can have up to 15 read replicas.\n Constraints:\n  +  Must be the identifier of an existing Multi-AZ DB cluster.\n  +  Can't be specified if the ``SourceDBInstanceIdentifier`` parameter is also specified.\n  +  The specified DB cluster must have automatic backups enabled, that is, its backup retention period must be greater than 0.\n  +  The source DB cluster must be in the same AWS-Region as the read replica. Cross-Region replication isn't supported.",
       "type": "string"
@@ -573,6 +600,11 @@
     "SourceRegion": {
       "description": "The ID of the region that contains the source DB instance for the read replica.",
       "type": "string"
+    },
+    "StatusInfos": {
+      "description": "",
+      "items": { "$ref": "#/definitions/DBInstanceStatusInfo" },
+      "type": "array"
     },
     "StorageEncrypted": {
       "description": "A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.\n If you specify the ``KmsKeyId`` property, then you must enable encryption.\n If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.\n If you specify the ``SourceDBInstanceAutomatedBackupsArn`` property, don't specify this property. The value is inherited from the source DB instance automated backup. \n If you specify ``DBSnapshotIdentifier`` property, don't specify this property. The value is inherited from the snapshot.\n  *Amazon Aurora* \n Not applicable. The encryption for DB instances is managed by the DB cluster.",
@@ -636,6 +668,7 @@
     "/properties/StorageType": "$lowercase(StorageType)"
   },
   "readOnlyProperties": [
+    "/properties/AutomaticRestartTime",
     "/properties/CertificateDetails",
     "/properties/CertificateDetails/CAIdentifier",
     "/properties/CertificateDetails/ValidTill",
@@ -654,8 +687,12 @@
     "/properties/ListenerEndpoint/Port",
     "/properties/ListenerEndpoint/HostedZoneId",
     "/properties/MasterUserSecret/SecretArn",
+    "/properties/PercentProgress",
     "/properties/ReadReplicaDBClusterIdentifiers",
-    "/properties/ReadReplicaDBInstanceIdentifiers"
+    "/properties/ReadReplicaDBInstanceIdentifiers",
+    "/properties/ResumeFullAutomationModeTime",
+    "/properties/SecondaryAvailabilityZone",
+    "/properties/StatusInfo"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {

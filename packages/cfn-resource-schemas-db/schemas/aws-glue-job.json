@@ -1,5 +1,5 @@
 {
-  "$hash": "886013c47829987d9d0910280387e220a36a2186",
+  "$hash": "a709615625f04ff241f6d443bb2853c5d73380a3",
   "$id": "aws-glue-job.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -193,7 +193,21 @@
     },
     "WorkerType": {
       "description": "TThe type of predefined worker that is allocated when a job runs.",
-      "enum": ["Standard", "G.1X", "G.2X", "G.025X", "G.4X", "G.8X", "Z.2X"],
+      "enum": [
+        "Standard",
+        "G.1X",
+        "G.2X",
+        "G.025X",
+        "G.4X",
+        "G.8X",
+        "Z.2X",
+        "G.12X",
+        "G.16X",
+        "R.1X",
+        "R.2X",
+        "R.4X",
+        "R.8X"
+      ],
       "type": "string"
     }
   },

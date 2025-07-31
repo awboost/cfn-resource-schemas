@@ -1,5 +1,5 @@
 {
-  "$hash": "65974ff080578eaf450bcecdc373164f3608a20e",
+  "$hash": "d6c16662e98e150b1a624361ceb84de6d39b69f7",
   "$id": "aws-mediapackagev2-channel.json",
   "additionalIdentifiers": [
     ["/properties/ChannelGroupName", "/properties/ChannelName"]
@@ -33,7 +33,8 @@
         "MQCSInputSwitching": {
           "description": "<p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>",
           "type": "boolean"
-        }
+        },
+        "PreferredInput": { "maximum": 2, "minimum": 1, "type": "integer" }
       },
       "type": "object"
     },

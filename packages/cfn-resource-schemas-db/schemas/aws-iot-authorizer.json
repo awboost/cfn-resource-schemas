@@ -1,5 +1,5 @@
 {
-  "$hash": "8d3f9157ede28885028925853a8767ae32628fb1",
+  "$hash": "6df3016cfddd0c86e84f0293d22d2450216789eb",
   "$id": "aws-iot-authorizer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -24,19 +24,25 @@
         "iot:CreateAuthorizer",
         "iot:DescribeAuthorizer",
         "iot:TagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "delete": {
       "permissions": [
         "iot:UpdateAuthorizer",
         "iot:DeleteAuthorizer",
-        "iot:DescribeAuthorizer"
+        "iot:DescribeAuthorizer",
+        "kms:Decrypt"
       ]
     },
     "list": { "permissions": ["iot:ListAuthorizers"] },
     "read": {
-      "permissions": ["iot:DescribeAuthorizer", "iot:ListTagsForResource"]
+      "permissions": [
+        "iot:DescribeAuthorizer",
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
+      ]
     },
     "update": {
       "permissions": [
@@ -44,7 +50,8 @@
         "iot:DescribeAuthorizer",
         "iot:TagResource",
         "iot:UntagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     }
   },

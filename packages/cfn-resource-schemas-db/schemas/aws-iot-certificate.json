@@ -1,5 +1,5 @@
 {
-  "$hash": "e24b1bb7e94d50a3ffc36815d2df84ce035622af",
+  "$hash": "6260671c452dbe97f663e218238adb1eec30f53b",
   "$id": "aws-iot-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -16,20 +16,26 @@
         "iot:CreateCertificateFromCsr",
         "iot:RegisterCertificate",
         "iot:RegisterCertificateWithoutCA",
-        "iot:DescribeCertificate"
+        "iot:DescribeCertificate",
+        "kms:Decrypt"
       ]
     },
     "delete": {
       "permissions": [
         "iot:DeleteCertificate",
         "iot:UpdateCertificate",
-        "iot:DescribeCertificate"
+        "iot:DescribeCertificate",
+        "kms:Decrypt"
       ]
     },
     "list": { "permissions": ["iot:ListCertificates"] },
-    "read": { "permissions": ["iot:DescribeCertificate"] },
+    "read": { "permissions": ["iot:DescribeCertificate", "kms:Decrypt"] },
     "update": {
-      "permissions": ["iot:UpdateCertificate", "iot:DescribeCertificate"]
+      "permissions": [
+        "iot:UpdateCertificate",
+        "iot:DescribeCertificate",
+        "kms:Decrypt"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/Id"],

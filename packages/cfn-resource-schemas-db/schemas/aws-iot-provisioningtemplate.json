@@ -1,5 +1,5 @@
 {
-  "$hash": "c187441c9ca0e82f88a01c9e710b7a8b708af1d8",
+  "$hash": "236ab7df98b33dece8f169c8da360f029bfd7370",
   "$id": "aws-iot-provisioningtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -34,20 +34,23 @@
         "iot:CreateProvisioningTemplate",
         "iot:DescribeProvisioningTemplate",
         "iot:TagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "delete": {
       "permissions": [
         "iot:DeleteProvisioningTemplate",
-        "iot:DescribeProvisioningTemplate"
+        "iot:DescribeProvisioningTemplate",
+        "kms:Decrypt"
       ]
     },
     "list": { "permissions": ["iot:ListProvisioningTemplates"] },
     "read": {
       "permissions": [
         "iot:DescribeProvisioningTemplate",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "update": {
@@ -61,7 +64,8 @@
         "iot:DescribeProvisioningTemplate",
         "iot:TagResource",
         "iot:UntagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     }
   },

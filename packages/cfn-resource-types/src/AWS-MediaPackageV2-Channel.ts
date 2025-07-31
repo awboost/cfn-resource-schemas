@@ -92,6 +92,11 @@ export type InputSwitchConfiguration = {
    * <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
    */
   MQCSInputSwitching?: boolean;
+  /**
+   * @min `1`
+   * @max `2`
+   */
+  PreferredInput?: number;
 };
 /**
  * Type definition for `AWS::MediaPackageV2::Channel.InputType`.

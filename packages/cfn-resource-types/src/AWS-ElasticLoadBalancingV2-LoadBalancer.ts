@@ -27,7 +27,7 @@ export type ElasticLoadBalancingV2LoadBalancerProperties = {
    */
   Ipv4IpamPoolId?: string;
   /**
-   * The load balancer attributes.
+   * The load balancer attributes. Attributes that you do not modify retain their current values.
    */
   LoadBalancerAttributes?: LoadBalancerAttribute[];
   /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "24e99735a563fa2b05bf0cea974175961d960b82",
+  "$hash": "d2d8bd07ab641d871f6dd83e83ce0c4d60da16ee",
   "$id": "aws-iotfleetwise-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -14,7 +14,10 @@
     "/properties/Compression",
     "/properties/StartTime",
     "/properties/ExpiryTime",
-    "/properties/DataPartitions"
+    "/properties/DataPartitions",
+    "/properties/SignalsToCollect",
+    "/properties/SignalsToFetch",
+    "/properties/DataDestinationConfigs"
   ],
   "definitions": {
     "CampaignStatus": {

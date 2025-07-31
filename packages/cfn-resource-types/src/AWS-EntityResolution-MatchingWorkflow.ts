@@ -151,6 +151,7 @@ export type ResolutionTechniques = {
   ProviderProperties?: ProviderProperties;
   ResolutionType?: ResolutionType;
   RuleBasedProperties?: RuleBasedProperties;
+  RuleConditionProperties?: RuleConditionProperties;
 };
 /**
  * Type definition for `AWS::EntityResolution::MatchingWorkflow.ResolutionType`.
@@ -186,6 +187,30 @@ export type RuleBasedProperties = {
    * @maxLength `15`
    */
   Rules: Rule[];
+};
+/**
+ * Type definition for `AWS::EntityResolution::MatchingWorkflow.RuleCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulecondition.html}
+ */
+export type RuleCondition = {
+  Condition?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `255`
+   * @pattern `^[a-zA-Z_0-9- \t]*$`
+   */
+  RuleName?: string;
+};
+/**
+ * Type definition for `AWS::EntityResolution::MatchingWorkflow.RuleConditionProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-ruleconditionproperties.html}
+ */
+export type RuleConditionProperties = {
+  /**
+   * @minLength `1`
+   * @maxLength `15`
+   */
+  Rules: RuleCondition[];
 };
 /**
  * Type definition for `AWS::EntityResolution::MatchingWorkflow.Tag`.

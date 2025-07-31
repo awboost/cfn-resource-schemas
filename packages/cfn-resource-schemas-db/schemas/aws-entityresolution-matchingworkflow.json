@@ -1,5 +1,5 @@
 {
-  "$hash": "c9b022f9aa51e72ee02a5fb8512eb48b9a290c72",
+  "$hash": "cbbe306899aa59555570e1071b070990db7a6296",
   "$id": "aws-entityresolution-matchingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
@@ -121,7 +121,10 @@
       "properties": {
         "ProviderProperties": { "$ref": "#/definitions/ProviderProperties" },
         "ResolutionType": { "$ref": "#/definitions/ResolutionType" },
-        "RuleBasedProperties": { "$ref": "#/definitions/RuleBasedProperties" }
+        "RuleBasedProperties": { "$ref": "#/definitions/RuleBasedProperties" },
+        "RuleConditionProperties": {
+          "$ref": "#/definitions/RuleConditionProperties"
+        }
       },
       "type": "object"
     },
@@ -169,6 +172,28 @@
         }
       },
       "required": ["AttributeMatchingModel", "Rules"],
+      "type": "object"
+    },
+    "RuleCondition": {
+      "additionalProperties": false,
+      "properties": {
+        "Condition": { "type": "string" },
+        "RuleName": { "$ref": "#/definitions/AttributeName" }
+      },
+      "type": "object"
+    },
+    "RuleConditionProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "Rules": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/RuleCondition" },
+          "maxItems": 15,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["Rules"],
       "type": "object"
     },
     "SchemaMappingArn": {

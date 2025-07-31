@@ -1,5 +1,5 @@
 {
-  "$hash": "6e2b3778a0916c3e393cf8da98d2a9fc6982ae4a",
+  "$hash": "11fc88ce25d304d237f8bddc64e0e34c323902cd",
   "$id": "aws-iot-rolealias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RoleAlias"],
@@ -36,11 +36,16 @@
         "iot:CreateRoleAlias",
         "iot:DescribeRoleAlias",
         "iot:TagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "delete": {
-      "permissions": ["iot:DeleteRoleAlias", "iot:DescribeRoleAlias"]
+      "permissions": [
+        "iot:DeleteRoleAlias",
+        "iot:DescribeRoleAlias",
+        "kms:Decrypt"
+      ]
     },
     "list": { "permissions": ["iot:ListRoleAliases"] },
     "read": {
@@ -48,7 +53,8 @@
         "iam:GetRole",
         "iam:PassRole",
         "iot:DescribeRoleAlias",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     },
     "update": {
@@ -59,7 +65,8 @@
         "iot:DescribeRoleAlias",
         "iot:TagResource",
         "iot:UntagResource",
-        "iot:ListTagsForResource"
+        "iot:ListTagsForResource",
+        "kms:Decrypt"
       ]
     }
   },

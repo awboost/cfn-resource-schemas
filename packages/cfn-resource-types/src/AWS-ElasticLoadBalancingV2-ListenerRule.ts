@@ -218,7 +218,7 @@ export type ForwardConfig = {
  */
 export type HostHeaderConfig = {
   /**
-     * The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+     * The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
      If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
      */
   Values?: string[];
@@ -411,7 +411,7 @@ export type SourceIpConfig = {
  */
 export type TargetGroupStickinessConfig = {
   /**
-   * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+   * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
    */
   DurationSeconds?: number;
   /**

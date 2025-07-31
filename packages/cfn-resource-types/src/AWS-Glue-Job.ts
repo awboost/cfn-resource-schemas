@@ -103,7 +103,13 @@ export type GlueJobProperties = {
     | "G.025X"
     | "G.4X"
     | "G.8X"
-    | "Z.2X";
+    | "Z.2X"
+    | "G.12X"
+    | "G.16X"
+    | "R.1X"
+    | "R.2X"
+    | "R.4X"
+    | "R.8X";
 };
 /**
  * Type definition for `AWS::Glue::Job.ConnectionsList`.
