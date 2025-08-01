@@ -16,7 +16,7 @@ export type SageMakerClusterProperties = {
    * The instance groups of the SageMaker HyperPod cluster.
    * @minLength `1`
    */
-  InstanceGroups: ClusterInstanceGroup[];
+  InstanceGroups?: ClusterInstanceGroup[];
   /**
    * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
    */
@@ -25,6 +25,11 @@ export type SageMakerClusterProperties = {
    * Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
    */
   Orchestrator?: Orchestrator;
+  /**
+   * The restricted instance groups of the SageMaker HyperPod cluster.
+   * @minLength `1`
+   */
+  RestrictedInstanceGroups?: ClusterRestrictedInstanceGroup[];
   /**
    * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
    * @maxLength `50`
@@ -72,6 +77,17 @@ export type SageMakerClusterAttributes = {
   InstanceGroups: {
     /**
      * The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
+     * @min `0`
+     */
+    CurrentCount: number;
+  }[];
+  /**
+   * The restricted instance groups of the SageMaker HyperPod cluster.
+   * @minLength `1`
+   */
+  RestrictedInstanceGroups: {
+    /**
+     * The number of instances that are currently in the restricted instance group of a SageMaker HyperPod cluster.
      * @min `0`
      */
     CurrentCount: number;
@@ -142,6 +158,13 @@ export type ClusterInstanceGroup = {
    * @max `2`
    */
   ThreadsPerCore?: number;
+  /**
+   * The Amazon Resource Name (ARN) of the training plan to use for this cluster instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+   * @minLength `50`
+   * @maxLength `2048`
+   * @pattern `^arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:training-plan/.*$`
+   */
+  TrainingPlanArn?: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.ClusterInstanceStorageConfig`.
@@ -185,11 +208,101 @@ export type ClusterOrchestratorEksConfig = {
   ClusterArn: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterRestrictedInstanceGroup`.
+ * Details of a restricted instance group in a SageMaker HyperPod cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterrestrictedinstancegroup.html}
+ */
+export type ClusterRestrictedInstanceGroup = {
+  /**
+   * The configuration for the restricted instance groups (RIG) environment.
+   */
+  EnvironmentConfig: EnvironmentConfig;
+  /**
+   * The execution role for the instance group to assume.
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+   */
+  ExecutionRole: string;
+  /**
+   * The number of instances you specified to add to the restricted instance group of a SageMaker HyperPod cluster.
+   * @min `0`
+   */
+  InstanceCount: number;
+  /**
+   * The name of the instance group of a SageMaker HyperPod cluster.
+   * @minLength `1`
+   * @maxLength `63`
+   * @pattern `^[a-zA-Z0-9](-*[a-zA-Z0-9])*$`
+   */
+  InstanceGroupName: string;
+  /**
+   * The instance storage configuration for the instance group.
+   * @maxLength `1`
+   */
+  InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
+  /**
+   * The instance type of the instance group of a SageMaker HyperPod cluster.
+   */
+  InstanceType: string;
+  /**
+   * Nodes will undergo advanced stress test to detect and replace faulty instances, based on the type of deep health check(s) passed in.
+   */
+  OnStartDeepHealthChecks?: DeepHealthCheckType[];
+  /**
+   * Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+   */
+  OverrideVpcConfig?: VpcConfig;
+  /**
+   * The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
+   * @min `1`
+   * @max `2`
+   */
+  ThreadsPerCore?: number;
+  /**
+   * The Amazon Resource Name (ARN) of the training plan to use for this cluster restricted instance group. For more information about how to reserve GPU capacity for your SageMaker HyperPod clusters using Amazon SageMaker Training Plan, see CreateTrainingPlan.
+   * @minLength `50`
+   * @maxLength `2048`
+   * @pattern `^arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:training-plan/.*$`
+   */
+  TrainingPlanArn?: string;
+};
+/**
  * Type definition for `AWS::SageMaker::Cluster.DeepHealthCheckType`.
  * The type of deep health check(s) to be performed on the instances in the SageMaker HyperPod cluster instance group.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-deephealthchecktype.html}
  */
 export type DeepHealthCheckType = "InstanceStress" | "InstanceConnectivity";
+/**
+ * Type definition for `AWS::SageMaker::Cluster.EnvironmentConfig`.
+ * The configuration for the restricted instance groups (RIG) environment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-environmentconfig.html}
+ */
+export type EnvironmentConfig = {
+  /**
+   * Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+   */
+  FSxLustreConfig?: FSxLustreConfig;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.FSxLustreConfig`.
+ * Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-fsxlustreconfig.html}
+ */
+export type FSxLustreConfig = {
+  /**
+   * The throughput capacity of the FSx for Lustre file system, measured in MB/s per TiB of storage.
+   * @min `125`
+   * @max `1000`
+   */
+  PerUnitStorageThroughput: number;
+  /**
+   * The storage capacity of the FSx for Lustre file system, specified in gibibytes (GiB).
+   * @min `1200`
+   * @max `100800`
+   */
+  SizeInGiB: number;
+};
 /**
  * Type definition for `AWS::SageMaker::Cluster.Orchestrator`.
  * Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.

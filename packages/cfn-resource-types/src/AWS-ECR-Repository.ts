@@ -20,7 +20,16 @@ export type ECRRepositoryProperties = {
   /**
    * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
    */
-  ImageTagMutability?: "MUTABLE" | "IMMUTABLE";
+  ImageTagMutability?:
+    | "MUTABLE"
+    | "IMMUTABLE"
+    | "MUTABLE_WITH_EXCLUSION"
+    | "IMMUTABLE_WITH_EXCLUSION";
+  /**
+   * @minLength `1`
+   * @maxLength `5`
+   */
+  ImageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[];
   /**
    * Creates or updates a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html).
    */
@@ -92,6 +101,29 @@ export type ImageScanningConfiguration = {
    */
   ScanOnPush?: boolean;
 };
+/**
+ * Type definition for `AWS::ECR::Repository.ImageTagMutabilityExclusionFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagetagmutabilityexclusionfilter.html}
+ */
+export type ImageTagMutabilityExclusionFilter = {
+  /**
+   * Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+   */
+  ImageTagMutabilityExclusionFilterType: ImageTagMutabilityExclusionFilterType;
+  /**
+   * The value to use when filtering image tags.
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[0-9a-zA-Z._*-]{1,128}`
+   */
+  ImageTagMutabilityExclusionFilterValue: string;
+};
+/**
+ * Type definition for `AWS::ECR::Repository.ImageTagMutabilityExclusionFilterType`.
+ * Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagetagmutabilityexclusionfiltertype.html}
+ */
+export type ImageTagMutabilityExclusionFilterType = "WILDCARD";
 /**
  * Type definition for `AWS::ECR::Repository.LifecyclePolicy`.
  * The ``LifecyclePolicy`` property type specifies a lifecycle policy. For information about lifecycle policy syntax, see [Lifecycle policy template](https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html) in the *Amazon ECR User Guide*.

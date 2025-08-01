@@ -29,7 +29,16 @@ export type ECRRepositoryCreationTemplateProperties = {
   /**
    * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
    */
-  ImageTagMutability?: "MUTABLE" | "IMMUTABLE";
+  ImageTagMutability?:
+    | "MUTABLE"
+    | "IMMUTABLE"
+    | "IMMUTABLE_WITH_EXCLUSION"
+    | "MUTABLE_WITH_EXCLUSION";
+  /**
+   * @minLength `1`
+   * @maxLength `5`
+   */
+  ImageTagMutabilityExclusionFilters?: ImageTagMutabilityExclusionFilter[];
   /**
    * The lifecycle policy to use for repositories created using the template.
    * @minLength `100`
@@ -96,6 +105,23 @@ export type EncryptionConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-encryptiontype.html}
  */
 export type EncryptionType = "AES256" | "KMS" | "KMS_DSSE";
+/**
+ * Type definition for `AWS::ECR::RepositoryCreationTemplate.ImageTagMutabilityExclusionFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-imagetagmutabilityexclusionfilter.html}
+ */
+export type ImageTagMutabilityExclusionFilter = {
+  /**
+   * Specifies the type of filter to use for excluding image tags from the repository's mutability setting.
+   */
+  ImageTagMutabilityExclusionFilterType: "WILDCARD";
+  /**
+   * The value to use when filtering image tags.
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[0-9a-zA-Z._*-]{1,128}`
+   */
+  ImageTagMutabilityExclusionFilterValue: string;
+};
 /**
  * Type definition for `AWS::ECR::RepositoryCreationTemplate.Tag`.
  * The metadata to apply to a resource to help you categorize and organize them. Each tag consists of a key and a value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.

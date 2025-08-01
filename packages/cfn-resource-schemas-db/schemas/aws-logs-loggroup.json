@@ -1,5 +1,5 @@
 {
-  "$hash": "14351b771376f6c2c11e0879e0b7dd65f6f2dac8",
+  "$hash": "fcf6c559aa7755b627acd83161e8cfb5e4b801e2",
   "$id": "aws-logs-loggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupName"],
@@ -67,7 +67,8 @@
         "logs:DescribeLogGroups",
         "logs:ListTagsForResource",
         "logs:GetDataProtectionPolicy",
-        "logs:DescribeIndexPolicies"
+        "logs:DescribeIndexPolicies",
+        "logs:DescribeResourcePolicies"
       ]
     },
     "update": {
@@ -86,7 +87,10 @@
         "s3:REST.PUT.OBJECT",
         "firehose:TagDeliveryStream",
         "logs:PutIndexPolicy",
-        "logs:DeleteIndexPolicy"
+        "logs:DeleteIndexPolicy",
+        "logs:PutResourcePolicy",
+        "logs:DescribeResourcePolicies",
+        "logs:DeleteResourcePolicy"
       ]
     }
   },
@@ -126,6 +130,7 @@
       "pattern": "^[.\\-_/#A-Za-z0-9]{1,512}\\Z",
       "type": "string"
     },
+    "ResourcePolicyDocument": { "description": "", "type": "object" },
     "RetentionInDays": {
       "description": "The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, 2192, 2557, 2922, 3288, and 3653.\n To set a log group so that its log events do not expire, use [DeleteRetentionPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html).",
       "enum": [

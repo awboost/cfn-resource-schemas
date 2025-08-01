@@ -1,49 +1,47 @@
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `TargetGroupStickinessConfig`
-  - updated property `Certificates`
-  - updated property `ListenerAttributes`
-  - updated property `SslPolicy`
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - added definition `ListOfStrings`
-  - updated definition `HostHeaderConfig`
-  - updated definition `HttpHeaderConfig`
-  - updated definition `HttpRequestMethodConfig`
-  - updated definition `PathPatternConfig`
-  - updated definition `RuleCondition`
-  - updated definition `TargetGroupStickinessConfig`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - updated property `LoadBalancerAttributes`
-- updated `AWS::EntityResolution::MatchingWorkflow`
-  - added definition `RuleConditionProperties`
-  - added definition `RuleCondition`
-  - updated definition `ResolutionTechniques`
-- updated `AWS::Glue::Job`
-  - updated property `WorkerType`
-- updated `AWS::IoT::Authorizer`
+- added `AWS::EC2::TransitGatewayConnectPeer`
+- added `AWS::IoTSiteWise::ComputationModel`
+- added `AWS::SageMaker::ProcessingJob`
+- updated `AWS::CloudWatch::Alarm`
+  - updated definition `Dimension`
+  - updated definition `MetricDataQuery`
+  - updated definition `MetricStat`
+  - updated property `Period`
+- updated `AWS::EC2::VPC`
   - updated handler permissions
-- updated `AWS::IoT::CACertificate`
+- updated `AWS::ECR::Repository`
+  - added definition `ImageTagMutabilityExclusionFilterType`
+  - added definition `ImageTagMutabilityExclusionFilterValue`
+  - added definition `ImageTagMutabilityExclusionFilter`
+  - added property `ImageTagMutabilityExclusionFilters`
+  - updated property `ImageTagMutability`
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - added definition `ImageTagMutabilityExclusionFilter`
+  - added property `ImageTagMutabilityExclusionFilters`
+  - updated property `ImageTagMutability`
+- updated `AWS::Logs::Destination`
+  - added property `Tags`
+  - updated `tagging`
+  - updated definition `undefined`
   - updated handler permissions
-- updated `AWS::IoT::Certificate`
+- updated `AWS::Logs::LogGroup`
+  - added property `ResourcePolicyDocument`
   - updated handler permissions
-- updated `AWS::IoT::CertificateProvider`
+- updated `AWS::S3::AccessPoint`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::IoT::DomainConfiguration`
-  - updated handler permissions
-- updated `AWS::IoT::Policy`
-  - updated handler permissions
-- updated `AWS::IoT::ProvisioningTemplate`
-  - updated handler permissions
-- updated `AWS::IoT::RoleAlias`
-  - updated handler permissions
-- updated `AWS::IoTFleetWise::Campaign`
+- updated `AWS::SSM::Parameter`
+  - updated property `Name`
+  - updated property `Policies`
+  - updated property `Type`
+- updated `AWS::SageMaker::Cluster`
+  - added definition `ClusterRestrictedInstanceGroup`
+  - added definition `ClusterRestrictedInstanceGroupsList`
+  - added definition `EnvironmentConfig`
+  - added definition `FSxLustreConfig`
+  - added property `RestrictedInstanceGroups`
   - updated `createOnlyProperties`
-- updated `AWS::MediaPackageV2::Channel`
-  - updated definition `InputSwitchConfiguration`
-- updated `AWS::RDS::DBInstance`
-  - added definition `DBInstanceStatusInfo`
-  - added property `AutomaticRestartTime`
-  - added property `PercentProgress`
-  - added property `ResumeFullAutomationModeTime`
-  - added property `SecondaryAvailabilityZone`
-  - added property `StatusInfos`
   - updated `readOnlyProperties`
+  - updated `required`
+  - updated definition `ClusterInstanceGroup`

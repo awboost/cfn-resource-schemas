@@ -33,6 +33,10 @@ export type S3AccessPointProperties = {
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
   /**
+   * An arbitrary set of tags (key-value pairs) for this S3 Access Point.
+   */
+  Tags?: Tag[];
+  /**
    * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
    */
   VpcConfiguration?: VpcConfiguration;
@@ -84,6 +88,21 @@ export type PublicAccessBlockConfiguration = {
     Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
      */
   RestrictPublicBuckets?: boolean;
+};
+/**
+ * Type definition for `AWS::S3::AccessPoint.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::S3::AccessPoint.VpcConfiguration`.

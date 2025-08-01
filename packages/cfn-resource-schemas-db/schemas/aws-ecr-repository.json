@@ -1,5 +1,5 @@
 {
-  "$hash": "a4671e5bf31f69cd6750f5d41af32ac258cfc241",
+  "$hash": "d010d211e522a2718c05b1e6e2e04eab0038941f",
   "$id": "aws-ecr-repository.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -44,6 +44,35 @@
         }
       },
       "type": "object"
+    },
+    "ImageTagMutabilityExclusionFilter": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "ImageTagMutabilityExclusionFilterType": {
+          "$ref": "#/definitions/ImageTagMutabilityExclusionFilterType"
+        },
+        "ImageTagMutabilityExclusionFilterValue": {
+          "$ref": "#/definitions/ImageTagMutabilityExclusionFilterValue"
+        }
+      },
+      "required": [
+        "ImageTagMutabilityExclusionFilterType",
+        "ImageTagMutabilityExclusionFilterValue"
+      ],
+      "type": "object"
+    },
+    "ImageTagMutabilityExclusionFilterType": {
+      "description": "Specifies the type of filter to use for excluding image tags from the repository's mutability setting.",
+      "enum": ["WILDCARD"],
+      "type": "string"
+    },
+    "ImageTagMutabilityExclusionFilterValue": {
+      "description": "The value to use when filtering image tags.",
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[0-9a-zA-Z._*-]{1,128}",
+      "type": "string"
     },
     "KmsKey": {
       "description": "If you use the KMS or KMS_DSSE encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.",
@@ -161,8 +190,21 @@
     },
     "ImageTagMutability": {
       "description": "The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.",
-      "enum": ["MUTABLE", "IMMUTABLE"],
+      "enum": [
+        "MUTABLE",
+        "IMMUTABLE",
+        "MUTABLE_WITH_EXCLUSION",
+        "IMMUTABLE_WITH_EXCLUSION"
+      ],
       "type": "string"
+    },
+    "ImageTagMutabilityExclusionFilters": {
+      "description": "",
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/ImageTagMutabilityExclusionFilter" },
+      "maxItems": 5,
+      "minItems": 1,
+      "type": "array"
     },
     "LifecyclePolicy": {
       "$ref": "#/definitions/LifecyclePolicy",

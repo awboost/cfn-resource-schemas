@@ -75,9 +75,9 @@ export type CloudWatchAlarmProperties = {
    */
   OKActions?: string[];
   /**
-     * The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 30, 60, and any multiple of 60.
+     * The period, in seconds, over which the statistic is applied. This is required for an alarm based on a metric. Valid values are 10, 20, 30, 60, and any multiple of 60.
      For an alarm based on a math expression, you can't specify ``Period``, and instead you use the ``Metrics`` parameter.
-      *Minimum:* 10
+     *Minimum:* 10
      */
   Period?: number;
   /**
@@ -120,7 +120,7 @@ export type CloudWatchAlarmAttributes = {
 };
 /**
  * Type definition for `AWS::CloudWatch::Alarm.Dimension`.
- * Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 10 dimensions for a given metric.
+ * Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-dimension.html}
  */
 export type Dimension = {
@@ -182,7 +182,7 @@ export type MetricDataQuery = {
      */
   MetricStat?: MetricStat;
   /**
-   * The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
+   * The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` operation that includes a ``StorageResolution of 1 second``.
    */
   Period?: number;
   /**
@@ -195,7 +195,7 @@ export type MetricDataQuery = {
 /**
  * Type definition for `AWS::CloudWatch::Alarm.MetricStat`.
  * This structure defines the metric to be returned, along with the statistics, period, and units.
-  ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
+ ``MetricStat`` is a property of the [MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html) property type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html}
  */
 export type MetricStat = {
@@ -204,7 +204,7 @@ export type MetricStat = {
    */
   Metric: Metric;
   /**
-     * The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
+     * The granularity, in seconds, of the returned data points. For metrics with regular resolution, a period can be as short as one minute (60 seconds) and must be a multiple of 60. For high-resolution metrics that are collected at intervals of less than one minute, the period can be 1, 5, 10, 20, 30, 60, or any multiple of 60. High-resolution metrics are those metrics stored by a ``PutMetricData`` call that includes a ``StorageResolution`` of 1 second.
      If the ``StartTime`` parameter specifies a time stamp that is greater than 3 hours ago, you must specify the period as follows or no data points in that time range is returned:
       +  Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).
       +  Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).
