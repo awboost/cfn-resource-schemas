@@ -1,5 +1,5 @@
 {
-  "$hash": "91b111ef34d408961c9825aa516af1fb5cbb1038",
+  "$hash": "e22638f8dd5e5c2f1b52aca6fc78f82b56bc8283",
   "$id": "aws-s3express-accesspoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -65,6 +65,25 @@
       },
       "type": "object"
     },
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^(?!aws:.*)([\\p{L}\\p{Z}\\p{N}_.:=+\\/\\-@%]*)$",
+          "type": "string"
+        },
+        "Value": {
+          "maxLength": 256,
+          "minLength": 0,
+          "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:=+\\/\\-@%]*)$",
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
     "VpcConfiguration": {
       "description": "The Virtual Private Cloud (VPC) configuration for a bucket access point.",
       "properties": {
@@ -86,7 +105,8 @@
         "s3express:PutAccessPointPolicy",
         "s3express:GetAccessPoint",
         "s3express:PutAccessPointScope",
-        "s3express:GetAccessPointScope"
+        "s3express:GetAccessPointScope",
+        "s3express:TagResource"
       ]
     },
     "delete": {
@@ -103,7 +123,8 @@
       "permissions": [
         "s3express:GetAccessPoint",
         "s3express:GetAccessPointPolicy",
-        "s3express:GetAccessPointScope"
+        "s3express:GetAccessPointScope",
+        "s3express:ListTagsForResource"
       ]
     },
     "update": {
@@ -111,7 +132,13 @@
         "s3express:PutAccessPointPolicy",
         "s3express:DeleteAccessPointPolicy",
         "s3express:PutAccessPointScope",
-        "s3express:DeleteAccessPointScope"
+        "s3express:DeleteAccessPointScope",
+        "s3express:TagResource",
+        "s3express:UntagResource",
+        "s3express:GetAccessPoint",
+        "s3express:GetAccessPointPolicy",
+        "s3express:GetAccessPointScope",
+        "s3express:ListTagsForResource"
       ]
     }
   },
@@ -160,6 +187,12 @@
       "$ref": "#/definitions/Scope",
       "description": "For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both."
     },
+    "Tags": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "VpcConfiguration": {
       "$ref": "#/definitions/VpcConfiguration",
       "description": "If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC)."
@@ -167,6 +200,13 @@
   },
   "readOnlyProperties": ["/properties/NetworkOrigin", "/properties/Arn"],
   "required": ["Bucket"],
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["s3express:TagResource", "s3express:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::S3Express::AccessPoint"
 }

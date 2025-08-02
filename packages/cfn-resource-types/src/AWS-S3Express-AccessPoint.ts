@@ -36,6 +36,7 @@ export type S3ExpressAccessPointProperties = {
    * For directory buckets, you can ﬁlter access control to speciﬁc preﬁxes, API operations, or a combination of both.
    */
   Scope?: Scope;
+  Tags?: Tag[];
   /**
    * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
    */
@@ -104,6 +105,24 @@ export type Scope = {
    * You can specify any amount of preﬁxes, but the total length of characters of all preﬁxes must be less than 256 bytes in size.
    */
   Prefixes?: string[];
+};
+/**
+ * Type definition for `AWS::S3Express::AccessPoint.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-accesspoint-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^(?!aws:.*)([\p{L}\p{Z}\p{N}_.:=+\/\-@%]*)$`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   * @pattern `^([\p{L}\p{Z}\p{N}_.:=+\/\-@%]*)$`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::S3Express::AccessPoint.VpcConfiguration`.

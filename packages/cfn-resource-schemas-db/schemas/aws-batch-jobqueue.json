@@ -1,8 +1,12 @@
 {
-  "$hash": "da6295054311ade22e2e5052b1e52c6fe9b27a5b",
+  "$hash": "2d25707777d55c7de9fdb2f6056fe7cd41e8dc75",
   "$id": "aws-batch-jobqueue.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Tags", "/properties/JobQueueName"],
+  "createOnlyProperties": [
+    "/properties/Tags",
+    "/properties/JobQueueName",
+    "/properties/JobQueueType"
+  ],
   "definitions": {
     "ComputeEnvironmentOrder": {
       "additionalProperties": false,
@@ -16,7 +20,7 @@
     "JobStateTimeLimitAction": {
       "additionalProperties": false,
       "properties": {
-        "Action": { "enum": ["CANCEL"], "type": "string" },
+        "Action": { "enum": ["CANCEL", "TERMINATE"], "type": "string" },
         "MaxTimeSeconds": {
           "maximum": 86400,
           "minimum": 600,
@@ -31,6 +35,15 @@
     "ResourceArn": {
       "pattern": "arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}",
       "type": "string"
+    },
+    "ServiceEnvironmentOrder": {
+      "additionalProperties": false,
+      "properties": {
+        "Order": { "type": "integer" },
+        "ServiceEnvironment": { "type": "string" }
+      },
+      "required": ["ServiceEnvironment", "Order"],
+      "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::Batch::JobQueue",
@@ -60,6 +73,10 @@
       ]
     }
   },
+  "oneOf": [
+    { "required": ["ComputeEnvironmentOrder"] },
+    { "required": ["ServiceEnvironmentOrder"] }
+  ],
   "primaryIdentifier": ["/properties/JobQueueArn"],
   "properties": {
     "ComputeEnvironmentOrder": {
@@ -70,6 +87,7 @@
     },
     "JobQueueArn": { "$ref": "#/definitions/ResourceArn" },
     "JobQueueName": { "maxLength": 128, "minLength": 1, "type": "string" },
+    "JobQueueType": { "type": "string" },
     "JobStateTimeLimitActions": {
       "insertionOrder": true,
       "items": { "$ref": "#/definitions/JobStateTimeLimitAction" },
@@ -78,6 +96,12 @@
     },
     "Priority": { "maximum": 1000, "minimum": 0, "type": "integer" },
     "SchedulingPolicyArn": { "$ref": "#/definitions/ResourceArn" },
+    "ServiceEnvironmentOrder": {
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/ServiceEnvironmentOrder" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "State": { "enum": ["DISABLED", "ENABLED"], "type": "string" },
     "Tags": {
       "additionalProperties": false,
@@ -87,7 +111,7 @@
     }
   },
   "readOnlyProperties": ["/properties/JobQueueArn"],
-  "required": ["ComputeEnvironmentOrder", "Priority"],
+  "required": ["Priority"],
   "tagging": {
     "cloudFormationSystemTags": false,
     "permissions": ["Batch:TagResource", "Batch:UntagResource"],

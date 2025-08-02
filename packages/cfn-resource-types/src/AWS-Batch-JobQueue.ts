@@ -5,12 +5,13 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html}
  */
 export type BatchJobQueueProperties = {
-  ComputeEnvironmentOrder: ComputeEnvironmentOrder[];
+  ComputeEnvironmentOrder?: ComputeEnvironmentOrder[];
   /**
    * @minLength `1`
    * @maxLength `128`
    */
   JobQueueName?: string;
+  JobQueueType?: string;
   JobStateTimeLimitActions?: JobStateTimeLimitAction[];
   /**
    * @min `0`
@@ -21,6 +22,7 @@ export type BatchJobQueueProperties = {
    * @pattern `arn:[a-z0-9-\.]{1,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}`
    */
   SchedulingPolicyArn?: string;
+  ServiceEnvironmentOrder?: ServiceEnvironmentOrder[];
   State?: "DISABLED" | "ENABLED";
   /**
    * A key-value pair to associate with a resource.
@@ -50,7 +52,7 @@ export type ComputeEnvironmentOrder = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-jobstatetimelimitaction.html}
  */
 export type JobStateTimeLimitAction = {
-  Action: "CANCEL";
+  Action: "CANCEL" | "TERMINATE";
   /**
    * @min `600`
    * @max `86400`
@@ -58,6 +60,14 @@ export type JobStateTimeLimitAction = {
   MaxTimeSeconds: number;
   Reason: string;
   State: "RUNNABLE";
+};
+/**
+ * Type definition for `AWS::Batch::JobQueue.ServiceEnvironmentOrder`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobqueue-serviceenvironmentorder.html}
+ */
+export type ServiceEnvironmentOrder = {
+  Order: number;
+  ServiceEnvironment: string;
 };
 /**
  * Resource Type definition for AWS::Batch::JobQueue

@@ -1,47 +1,29 @@
-- added `AWS::EC2::TransitGatewayConnectPeer`
-- added `AWS::IoTSiteWise::ComputationModel`
-- added `AWS::SageMaker::ProcessingJob`
-- updated `AWS::CloudWatch::Alarm`
-  - updated definition `Dimension`
-  - updated definition `MetricDataQuery`
-  - updated definition `MetricStat`
-  - updated property `Period`
-- updated `AWS::EC2::VPC`
-  - updated handler permissions
-- updated `AWS::ECR::Repository`
-  - added definition `ImageTagMutabilityExclusionFilterType`
-  - added definition `ImageTagMutabilityExclusionFilterValue`
-  - added definition `ImageTagMutabilityExclusionFilter`
-  - added property `ImageTagMutabilityExclusionFilters`
-  - updated property `ImageTagMutability`
-- updated `AWS::ECR::RepositoryCreationTemplate`
-  - added definition `ImageTagMutabilityExclusionFilter`
-  - added property `ImageTagMutabilityExclusionFilters`
-  - updated property `ImageTagMutability`
-- updated `AWS::Logs::Destination`
-  - added property `Tags`
+- added `AWS::ARCRegionSwitch::Plan`
+- updated `AWS::Batch::JobQueue`
+  - added `oneOf`
+  - added definition `ServiceEnvironmentOrder`
+  - added property `JobQueueType`
+  - added property `ServiceEnvironmentOrder`
+  - updated `createOnlyProperties`
+  - updated `required`
+  - updated definition `JobStateTimeLimitAction`
+- updated `AWS::CodePipeline::CustomActionType`
   - updated `tagging`
-  - updated definition `undefined`
-  - updated handler permissions
-- updated `AWS::Logs::LogGroup`
-  - added property `ResourcePolicyDocument`
-  - updated handler permissions
-- updated `AWS::S3::AccessPoint`
+- updated `AWS::S3::Bucket`
+  - updated definition `InventoryConfiguration`
+  - updated definition `InventoryTableConfiguration`
+  - updated definition `JournalTableConfiguration`
+  - updated definition `MetadataConfiguration`
+  - updated definition `MetadataDestination`
+  - updated definition `MetadataTableConfiguration`
+  - updated definition `MetadataTableEncryptionConfiguration`
+  - updated definition `RecordExpiration`
+  - updated definition `ReplicationDestination`
+  - updated definition `S3TablesDestination`
+  - updated property `InventoryConfigurations`
+  - updated property `MetadataConfiguration`
+- updated `AWS::S3Express::AccessPoint`
   - added definition `Tag`
   - added property `Tags`
   - updated `tagging`
   - updated handler permissions
-- updated `AWS::SSM::Parameter`
-  - updated property `Name`
-  - updated property `Policies`
-  - updated property `Type`
-- updated `AWS::SageMaker::Cluster`
-  - added definition `ClusterRestrictedInstanceGroup`
-  - added definition `ClusterRestrictedInstanceGroupsList`
-  - added definition `EnvironmentConfig`
-  - added definition `FSxLustreConfig`
-  - added property `RestrictedInstanceGroups`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated `required`
-  - updated definition `ClusterInstanceGroup`
