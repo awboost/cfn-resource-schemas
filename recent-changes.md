@@ -1,29 +1,5 @@
-- added `AWS::ARCRegionSwitch::Plan`
-- updated `AWS::Batch::JobQueue`
-  - added `oneOf`
-  - added definition `ServiceEnvironmentOrder`
-  - added property `JobQueueType`
-  - added property `ServiceEnvironmentOrder`
+- updated `AWS::RDS::DBCluster`
+  - added property `SourceDbClusterResourceId`
   - updated `createOnlyProperties`
-  - updated `required`
-  - updated definition `JobStateTimeLimitAction`
-- updated `AWS::CodePipeline::CustomActionType`
-  - updated `tagging`
-- updated `AWS::S3::Bucket`
-  - updated definition `InventoryConfiguration`
-  - updated definition `InventoryTableConfiguration`
-  - updated definition `JournalTableConfiguration`
-  - updated definition `MetadataConfiguration`
-  - updated definition `MetadataDestination`
-  - updated definition `MetadataTableConfiguration`
-  - updated definition `MetadataTableEncryptionConfiguration`
-  - updated definition `RecordExpiration`
-  - updated definition `ReplicationDestination`
-  - updated definition `S3TablesDestination`
-  - updated property `InventoryConfigurations`
-  - updated property `MetadataConfiguration`
-- updated `AWS::S3Express::AccessPoint`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated `tagging`
+  - updated `writeOnlyProperties`
   - updated handler permissions
