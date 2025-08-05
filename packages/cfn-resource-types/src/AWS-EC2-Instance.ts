@@ -300,7 +300,7 @@ export type Ebs = {
  */
 export type ElasticGpuSpecification = {
   /**
-   * The type of Elastic Graphics accelerator.
+   * The type of Elastic Graphics accelerator. Amazon Elastic Graphics is no longer available.
    */
   Type: string;
 };
@@ -310,12 +310,12 @@ export type ElasticGpuSpecification = {
  */
 export type ElasticInferenceAccelerator = {
   /**
-   * The number of elastic inference accelerators to attach to the instance.
+   * The number of elastic inference accelerators to attach to the instance. Amazon Elastic Inference is no longer available.
    * @min `0`
    */
   Count?: number;
   /**
-   * The type of elastic inference accelerator.
+   * The type of elastic inference accelerator. Amazon Elastic Inference is no longer available.
    */
   Type: string;
 };

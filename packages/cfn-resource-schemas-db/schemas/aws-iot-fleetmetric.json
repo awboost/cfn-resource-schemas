@@ -1,5 +1,5 @@
 {
-  "$hash": "4ca5aee32efc689f3f59d3eb552efa7918696845",
+  "$hash": "a37f5c26649e85eb2d0b9f0b83357651949a0da8",
   "$id": "aws-iot-fleetmetric.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MetricName"],
@@ -142,6 +142,17 @@
   ],
   "required": ["MetricName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
-  "taggable": true,
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:TagResource",
+      "iot:UntagResource",
+      "iot:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoT::FleetMetric"
 }

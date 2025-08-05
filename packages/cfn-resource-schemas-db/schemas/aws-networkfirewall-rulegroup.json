@@ -1,5 +1,5 @@
 {
-  "$hash": "8b636184d5cd6c8f5037318b486e4d8987bb93cc",
+  "$hash": "b3d29cabfea0aa1276b2aa66478e3f8ba29fb7e3",
   "$id": "aws-networkfirewall-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -396,6 +396,10 @@
       "required": ["StatelessRules"],
       "type": "object"
     },
+    "SummaryRuleOption": {
+      "enum": ["SID", "MSG", "METADATA"],
+      "type": "string"
+    },
     "TCPFlag": {
       "enum": ["FIN", "SYN", "RST", "PSH", "ACK", "URG", "ECE", "CWR"],
       "type": "string"
@@ -506,6 +510,18 @@
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9-]+$",
       "type": "string"
+    },
+    "SummaryConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "RuleOptions": {
+          "insertionOrder": true,
+          "items": { "$ref": "#/definitions/SummaryRuleOption" },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
+      "type": "object"
     },
     "Tags": {
       "insertionOrder": false,

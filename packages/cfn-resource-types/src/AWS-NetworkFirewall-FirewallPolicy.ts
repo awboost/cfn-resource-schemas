@@ -150,6 +150,7 @@ export type StatefulRuleGroupOverride = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html}
  */
 export type StatefulRuleGroupReference = {
+  DeepThreatInspection?: boolean;
   Override?: StatefulRuleGroupOverride;
   /**
    * @min `1`

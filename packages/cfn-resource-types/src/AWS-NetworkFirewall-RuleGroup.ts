@@ -19,6 +19,9 @@ export type NetworkFirewallRuleGroupProperties = {
    * @pattern `^[a-zA-Z0-9-]+$`
    */
   RuleGroupName: string;
+  SummaryConfiguration?: {
+    RuleOptions?: SummaryRuleOption[];
+  };
   Tags?: Tag[];
   Type: "STATELESS" | "STATEFUL";
 };
@@ -313,6 +316,11 @@ export type StatelessRulesAndCustomActions = {
   CustomActions?: CustomAction[];
   StatelessRules: StatelessRule[];
 };
+/**
+ * Type definition for `AWS::NetworkFirewall::RuleGroup.SummaryRuleOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-summaryruleoption.html}
+ */
+export type SummaryRuleOption = "SID" | "MSG" | "METADATA";
 /**
  * Type definition for `AWS::NetworkFirewall::RuleGroup.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tag.html}
