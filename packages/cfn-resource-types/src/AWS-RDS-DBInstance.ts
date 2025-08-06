@@ -751,6 +751,9 @@ export type RDSDBInstanceProperties = {
    * The ID of the region that contains the source DB instance for the read replica.
    */
   SourceRegion?: string;
+  /**
+   * The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+   */
   StatusInfos?: DBInstanceStatusInfo[];
   /**
      * A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
@@ -914,6 +917,7 @@ export type DBInstanceRole = {
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.DBInstanceStatusInfo`.
+ * Provides a list of status information for a DB instance.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancestatusinfo.html}
  */
 export type DBInstanceStatusInfo = {
@@ -930,7 +934,7 @@ export type DBInstanceStatusInfo = {
    */
   Status?: string;
   /**
-   * The status type of the DB instance.
+   * This value is currently "read replication."
    */
   StatusType?: string;
 };

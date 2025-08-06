@@ -33,9 +33,13 @@ export type IoTSiteWiseAssetModelProperties = {
    */
   AssetModelProperties?: AssetModelProperty[];
   /**
-   * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL)
+   * The type of the asset model (ASSET_MODEL OR COMPONENT_MODEL or INTERFACE)
    */
   AssetModelType?: string;
+  /**
+   * a list of asset model and interface relationships
+   */
+  EnforcedAssetModelInterfaceRelationships?: EnforcedAssetModelInterfaceRelationship[];
   /**
    * A list of key-value pairs that contain metadata for the asset model.
    */
@@ -324,6 +328,40 @@ export type DataType = "STRING" | "INTEGER" | "DOUBLE" | "BOOLEAN" | "STRUCT";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-datatypespec.html}
  */
 export type DataTypeSpec = "AWS/ALARM_STATE";
+/**
+ * Type definition for `AWS::IoTSiteWise::AssetModel.EnforcedAssetModelInterfacePropertyMapping`.
+ * Contains information about enforced interface property and asset model property
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-enforcedassetmodelinterfacepropertymapping.html}
+ */
+export type EnforcedAssetModelInterfacePropertyMapping = {
+  /**
+   * The external ID of the enforced asset model property
+   */
+  AssetModelPropertyExternalId?: string;
+  /**
+   * The logical ID of the enforced asset model property
+   */
+  AssetModelPropertyLogicalId?: string;
+  /**
+   * The external ID of the enforced interface property
+   */
+  InterfaceAssetModelPropertyExternalId: string;
+};
+/**
+ * Type definition for `AWS::IoTSiteWise::AssetModel.EnforcedAssetModelInterfaceRelationship`.
+ * Contains information about enforced interface hierarchy and asset model hierarchy
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-enforcedassetmodelinterfacerelationship.html}
+ */
+export type EnforcedAssetModelInterfaceRelationship = {
+  /**
+   * The ID of the interface that is enforced to the asset model
+   */
+  InterfaceAssetModelId?: string;
+  /**
+   * Contains information about enforced interface property and asset model property
+   */
+  PropertyMappings?: EnforcedAssetModelInterfacePropertyMapping[];
+};
 /**
  * Type definition for `AWS::IoTSiteWise::AssetModel.ExpressionVariable`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html}

@@ -1,29 +1,28 @@
-- updated `AWS::EC2::Instance`
-  - updated definition `ElasticGpuSpecification`
-  - updated definition `ElasticInferenceAccelerator`
+- added `AWS::WorkSpacesWeb::SessionLogger`
+- updated `AWS::AppConfig::ConfigurationProfile`
+  - updated property `KmsKeyArn`
+  - updated property `KmsKeyIdentifier`
+  - updated property `RetrievalRoleArn`
+- updated `AWS::AppConfig::Deployment`
+  - added property `State`
+  - updated `readOnlyProperties`
+- updated `AWS::IoTSiteWise::AssetModel`
+  - added definition `EnforcedAssetModelInterfacePropertyMapping`
+  - added definition `EnforcedAssetModelInterfaceRelationship`
+  - added property `EnforcedAssetModelInterfaceRelationships`
   - updated handler permissions
-- updated `AWS::ECS::Service`
-  - updated definition `AdvancedConfiguration`
-  - updated definition `DeploymentAlarms`
-  - updated definition `DeploymentConfiguration`
-  - updated definition `DeploymentController`
-  - updated definition `DeploymentLifecycleHook`
-  - updated definition `LoadBalancer`
-  - updated definition `ServiceConnectClientAlias`
-  - updated definition `ServiceConnectTestTrafficRulesHeaderValue`
-  - updated definition `ServiceConnectTestTrafficRulesHeader`
-  - updated definition `ServiceConnectTestTrafficRules`
-  - updated property `DeploymentController`
-  - updated property `EnableECSManagedTags`
-- updated `AWS::ECS::TaskDefinition`
-  - updated `propertyTransform`
-- updated `AWS::IoT::FleetMetric`
-  - added `tagging`
-  - removed `taggable`
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - updated definition `Encryption`
-- updated `AWS::NetworkFirewall::FirewallPolicy`
-  - updated definition `StatefulRuleGroupReference`
-- updated `AWS::NetworkFirewall::RuleGroup`
-  - added definition `SummaryRuleOption`
-  - added property `SummaryConfiguration`
+  - updated property `AssetModelType`
+- updated `AWS::NetworkFirewall::Firewall`
+  - added definition `AvailabilityZoneMapping`
+  - added property `AvailabilityZoneChangeProtection`
+  - added property `AvailabilityZoneMappings`
+  - added property `TransitGatewayId`
+  - updated `required`
+  - updated handler permissions
+  - updated property `SubnetMappings`
+- updated `AWS::RDS::DBInstance`
+  - updated definition `DBInstanceStatusInfo`
+  - updated property `StatusInfos`
+- updated `AWS::WorkSpacesWeb::Portal`
+  - added property `SessionLoggerArn`
+  - updated handler permissions

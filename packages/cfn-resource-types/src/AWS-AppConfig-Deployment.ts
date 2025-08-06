@@ -49,6 +49,17 @@ export type AppConfigDeploymentAttributes = {
    * The sequence number of the deployment.
    */
   DeploymentNumber: string;
+  /**
+   * The state of the deployment.
+   */
+  State:
+    | "BAKING"
+    | "VALIDATING"
+    | "DEPLOYING"
+    | "COMPLETE"
+    | "ROLLING_BACK"
+    | "ROLLED_BACK"
+    | "REVERTED";
 };
 /**
  * Type definition for `AWS::AppConfig::Deployment.DynamicExtensionParameters`.

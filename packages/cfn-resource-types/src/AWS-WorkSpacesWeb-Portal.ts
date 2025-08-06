@@ -50,6 +50,12 @@ export type WorkSpacesWebPortalProperties = {
    */
   NetworkSettingsArn?: string;
   /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:[\w+=\/,.@-]+:[a-zA-Z0-9\-]+:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\/[a-fA-F0-9\-]{36})+$`
+   */
+  SessionLoggerArn?: string;
+  /**
    * @minLength `0`
    * @maxLength `200`
    */

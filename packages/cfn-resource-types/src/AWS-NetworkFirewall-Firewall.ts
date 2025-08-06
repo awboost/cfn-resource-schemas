@@ -5,6 +5,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html}
  */
 export type NetworkFirewallFirewallProperties = {
+  AvailabilityZoneChangeProtection?: boolean;
+  AvailabilityZoneMappings?: AvailabilityZoneMapping[];
   DeleteProtection?: boolean;
   /**
    * @maxLength `512`
@@ -30,17 +32,19 @@ export type NetworkFirewallFirewallProperties = {
   FirewallPolicyArn: string;
   FirewallPolicyChangeProtection?: boolean;
   SubnetChangeProtection?: boolean;
-  /**
-   * @minLength `1`
-   */
-  SubnetMappings: SubnetMapping[];
+  SubnetMappings?: SubnetMapping[];
   Tags?: Tag[];
+  /**
+   * @maxLength `128`
+   * @pattern `^tgw-[0-9a-z]+$`
+   */
+  TransitGatewayId?: string;
   /**
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^vpc-[0-9a-f]+$`
    */
-  VpcId: string;
+  VpcId?: string;
 };
 /**
  * Attribute type definition for `AWS::NetworkFirewall::Firewall`.
@@ -61,6 +65,16 @@ export type NetworkFirewallFirewallAttributes = {
    * @pattern `^([0-9a-f]{8})-([0-9a-f]{4}-){3}([0-9a-f]{12})$`
    */
   FirewallId: string;
+};
+/**
+ * Type definition for `AWS::NetworkFirewall::Firewall.AvailabilityZoneMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewall-availabilityzonemapping.html}
+ */
+export type AvailabilityZoneMapping = {
+  /**
+   * A AvailabilityZone
+   */
+  AvailabilityZone: string;
 };
 /**
  * Type definition for `AWS::NetworkFirewall::Firewall.EnabledAnalysisType`.
