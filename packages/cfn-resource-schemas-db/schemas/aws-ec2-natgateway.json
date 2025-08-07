@@ -1,5 +1,5 @@
 {
-  "$hash": "34edbf5a55f048c6305f0b1afcd7f9ddd6232f38",
+  "$hash": "2eaba6b50dd2efcbcfc47607f1a64099531fa4e5",
   "$id": "aws-ec2-natgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,6 +9,21 @@
     "/properties/PrivateIpAddress"
   ],
   "definitions": {
+    "AvailabilityZoneAddress": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "AllocationIds": {
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "AvailabilityZone": { "type": "string" }
+      },
+      "required": ["AvailabilityZone", "AllocationIds"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
@@ -97,7 +112,6 @@
     }
   },
   "readOnlyProperties": ["/properties/NatGatewayId"],
-  "required": ["SubnetId"],
   "tagging": {
     "cloudFormationSystemTags": true,
     "permissions": ["ec2:DeleteTags", "ec2:CreateTags"],

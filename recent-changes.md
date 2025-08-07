@@ -1,28 +1,20 @@
-- added `AWS::WorkSpacesWeb::SessionLogger`
-- updated `AWS::AppConfig::ConfigurationProfile`
-  - updated property `KmsKeyArn`
-  - updated property `KmsKeyIdentifier`
-  - updated property `RetrievalRoleArn`
-- updated `AWS::AppConfig::Deployment`
-  - added property `State`
-  - updated `readOnlyProperties`
-- updated `AWS::IoTSiteWise::AssetModel`
-  - added definition `EnforcedAssetModelInterfacePropertyMapping`
-  - added definition `EnforcedAssetModelInterfaceRelationship`
-  - added property `EnforcedAssetModelInterfaceRelationships`
+- updated `AWS::EC2::NatGateway`
+  - added definition `AvailabilityZoneAddress`
+  - removed `required`
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - updated definition `ImageTagMutabilityExclusionFilter`
+  - updated property `ImageTagMutabilityExclusionFilters`
+- updated `AWS::ElastiCache::ParameterGroup`
+  - updated `tagging`
   - updated handler permissions
-  - updated property `AssetModelType`
-- updated `AWS::NetworkFirewall::Firewall`
-  - added definition `AvailabilityZoneMapping`
-  - added property `AvailabilityZoneChangeProtection`
-  - added property `AvailabilityZoneMappings`
-  - added property `TransitGatewayId`
-  - updated `required`
+- updated `AWS::ElastiCache::SubnetGroup`
+  - updated `tagging`
+- updated `AWS::Lambda::Version`
   - updated handler permissions
-  - updated property `SubnetMappings`
-- updated `AWS::RDS::DBInstance`
-  - updated definition `DBInstanceStatusInfo`
-  - updated property `StatusInfos`
-- updated `AWS::WorkSpacesWeb::Portal`
-  - added property `SessionLoggerArn`
-  - updated handler permissions
+  - updated property `FunctionArn`
+- updated `AWS::PCS::Cluster`
+  - updated definition `Endpoint`
+  - updated property `Networking`
+- updated `AWS::VerifiedPermissions::PolicyStore`
+  - added definition `SchemaCedarFormat`
+  - updated definition `SchemaDefinition`

@@ -1,5 +1,5 @@
 {
-  "$hash": "96cf98d87d640d783b64bf61f0ab7c798bef8a61",
+  "$hash": "f94936c18e3b106431188bdc3d8e76a79677a88e",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -50,6 +50,10 @@
       "additionalProperties": false,
       "description": "An endpoint available for interaction with the scheduler.",
       "properties": {
+        "Ipv6Address": {
+          "description": "The endpoint's IPv6 address.",
+          "type": "string"
+        },
         "Port": {
           "description": "The endpoint's connection port number.",
           "type": "string"
@@ -194,6 +198,12 @@
       "additionalProperties": false,
       "description": "The networking configuration for the cluster's control plane.",
       "properties": {
+        "NetworkType": {
+          "description": "The IP of the cluster (IPV4 or IPV6)",
+          "enum": ["IPV4", "IPV6"],
+          "insertionOrder": false,
+          "type": "string"
+        },
         "SecurityGroupIds": {
           "description": "The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.",
           "insertionOrder": false,

@@ -43,7 +43,7 @@ export type EC2NatGatewayProperties = {
   /**
    * The ID of the subnet in which the NAT gateway is located.
    */
-  SubnetId: string;
+  SubnetId?: string;
   /**
    * The tags for the NAT gateway.
    */

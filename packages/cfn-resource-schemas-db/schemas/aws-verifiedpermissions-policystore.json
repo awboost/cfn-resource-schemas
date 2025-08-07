@@ -1,5 +1,5 @@
 {
-  "$hash": "8a048143877219c22cfd4ca7ce8912b66631cb12",
+  "$hash": "02b54579c43b741e92771ea0ea86c42e7de226c9",
   "$id": "aws-verifiedpermissions-policystore.json",
   "additionalProperties": false,
   "definitions": {
@@ -14,10 +14,26 @@
       "required": ["Mode"],
       "type": "object"
     },
+    "SchemaCedarFormat": { "type": "string" },
     "SchemaDefinition": {
-      "additionalProperties": false,
-      "properties": { "CedarJson": { "$ref": "#/definitions/SchemaJson" } },
-      "type": "object"
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": { "CedarJson": { "$ref": "#/definitions/SchemaJson" } },
+          "required": ["CedarJson"],
+          "title": "CedarJson",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "CedarFormat": { "$ref": "#/definitions/SchemaCedarFormat" }
+          },
+          "required": ["CedarFormat"],
+          "title": "CedarFormat",
+          "type": "object"
+        }
+      ]
     },
     "SchemaJson": { "type": "string" },
     "Tag": {

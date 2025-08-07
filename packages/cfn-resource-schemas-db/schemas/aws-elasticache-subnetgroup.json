@@ -1,5 +1,5 @@
 {
-  "$hash": "372bf1992472410f769e069bab2c98be9897a146",
+  "$hash": "a699aa076d617371ab4a9e81deb43bf85004dace",
   "$id": "aws-elasticache-subnetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CacheSubnetGroupName"],
@@ -75,6 +75,11 @@
   "required": ["Description", "SubnetIds"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "elasticache:AddTagsToResource",
+      "elasticache:RemoveTagsFromResource",
+      "elasticache:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -14,6 +14,10 @@ export type PCSClusterProperties = {
    */
   Networking: {
     /**
+     * The IP of the cluster (IPV4 or IPV6)
+     */
+    NetworkType?: "IPV4" | "IPV6";
+    /**
      * The list of security group IDs associated with the Elastic Network Interface (ENI) created in subnets.
      */
     SecurityGroupIds?: string[];
@@ -79,6 +83,10 @@ export type PCSClusterAttributes = {
    * The list of endpoints available for interaction with the scheduler.
    */
   Endpoints: {
+    /**
+     * The endpoint's IPv6 address.
+     */
+    Ipv6Address: string;
     /**
      * The endpoint's connection port number.
      */
@@ -164,6 +172,10 @@ export type AuthKey = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-endpoint.html}
  */
 export type Endpoint = {
+  /**
+   * The endpoint's IPv6 address.
+   */
+  Ipv6Address?: string;
   /**
    * The endpoint's connection port number.
    */
