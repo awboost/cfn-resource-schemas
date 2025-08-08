@@ -337,6 +337,7 @@ export type ServiceManagedEc2FleetConfiguration = {
    * @pattern `^sp-[0-9a-f]{32}$`
    */
   StorageProfileId?: string;
+  VpcConfiguration?: VpcConfiguration;
 };
 /**
  * Type definition for `AWS::Deadline::Fleet.ServiceManagedEc2InstanceCapabilities`.
@@ -423,6 +424,13 @@ export type VCpuCountRange = {
    * @max `10000`
    */
   Min: number;
+};
+/**
+ * Type definition for `AWS::Deadline::Fleet.VpcConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-vpcconfiguration.html}
+ */
+export type VpcConfiguration = {
+  ResourceConfigurationArns?: string[];
 };
 /**
  * Definition of AWS::Deadline::Fleet Resource Type

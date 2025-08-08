@@ -1,5 +1,5 @@
 {
-  "$hash": "90201530c8997f57d6aa789037b0706f88c97f37",
+  "$hash": "5e608061b3139dc22938042d67ce6df85ddd1fe5",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -248,7 +248,11 @@
         "InstanceMarketOptions": {
           "$ref": "#/definitions/ServiceManagedEc2InstanceMarketOptions"
         },
-        "StorageProfileId": { "pattern": "^sp-[0-9a-f]{32}$", "type": "string" }
+        "StorageProfileId": {
+          "pattern": "^sp-[0-9a-f]{32}$",
+          "type": "string"
+        },
+        "VpcConfiguration": { "$ref": "#/definitions/VpcConfiguration" }
       },
       "required": ["InstanceCapabilities", "InstanceMarketOptions"],
       "type": "object"
@@ -342,6 +346,16 @@
       },
       "required": ["Min"],
       "type": "object"
+    },
+    "VpcConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ResourceConfigurationArns": {
+          "items": { "maxLength": 2048, "minLength": 1, "type": "string" },
+          "type": "array"
+        }
+      },
+      "type": "object"
     }
   },
   "description": "Definition of AWS::Deadline::Fleet Resource Type",
@@ -354,7 +368,13 @@
         "identitystore:ListGroupMembershipsForMember",
         "logs:CreateLogGroup",
         "deadline:TagResource",
-        "deadline:ListTagsForResource"
+        "deadline:ListTagsForResource",
+        "vpc-lattice:GetResourceGateway",
+        "vpc-lattice:GetResourceConfiguration",
+        "ec2:CreateVpcEndpoint",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeVpcs"
       ]
     },
     "delete": {
@@ -393,7 +413,13 @@
         "identitystore:ListGroupMembershipsForMember",
         "deadline:TagResource",
         "deadline:UntagResource",
-        "deadline:ListTagsForResource"
+        "deadline:ListTagsForResource",
+        "vpc-lattice:GetResourceGateway",
+        "vpc-lattice:GetResourceConfiguration",
+        "ec2:CreateVpcEndpoint",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeVpcs"
       ]
     }
   },

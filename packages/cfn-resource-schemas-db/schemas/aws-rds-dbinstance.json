@@ -1,5 +1,5 @@
 {
-  "$hash": "b0df9a36717007f5c6de84a73a7a282def7f275e",
+  "$hash": "0c5770e14bbfce87c42b74c8a7f4d14e08ce517e",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -692,7 +692,7 @@
     "/properties/ReadReplicaDBInstanceIdentifiers",
     "/properties/ResumeFullAutomationModeTime",
     "/properties/SecondaryAvailabilityZone",
-    "/properties/StatusInfo"
+    "/properties/StatusInfos"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {

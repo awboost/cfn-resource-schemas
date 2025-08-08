@@ -18,6 +18,10 @@ export type EKSClusterProperties = {
    * Todo: add description
    */
   ComputeConfig?: ComputeConfig;
+  /**
+   * Set this value to true to enable deletion protection for the cluster.
+   */
+  DeletionProtection?: boolean;
   EncryptionConfig?: EncryptionConfig[];
   /**
    * Force cluster version update

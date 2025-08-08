@@ -283,19 +283,6 @@ export type Ebs = {
   VolumeType?: string;
 };
 /**
- * Type definition for `AWS::EC2::LaunchTemplate.ElasticGpuSpecification`.
- * Amazon Elastic Graphics reached end of life on January 8, 2024.
-  Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.
- ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-elasticgpuspecification.html}
- */
-export type ElasticGpuSpecification = {
-  /**
-   * The type of Elastic Graphics accelerator.
-   */
-  Type?: string;
-};
-/**
  * Type definition for `AWS::EC2::LaunchTemplate.EnaSrdSpecification`.
  * ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.
  To improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it.
@@ -653,17 +640,6 @@ export type LaunchTemplateData = {
    */
   EbsOptimized?: boolean;
   /**
-     * Deprecated.
-      Amazon Elastic Graphics reached end of life on January 8, 2024.
-     */
-  ElasticGpuSpecifications?: ElasticGpuSpecification[];
-  /**
-     * Amazon Elastic Inference is no longer available.
-      An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
-     You cannot specify accelerators from different generations in the same request.
-     */
-  ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[];
-  /**
      * Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.
      You can't enable AWS Nitro Enclaves and hibernation on the same instance.
      */
@@ -781,24 +757,6 @@ export type LaunchTemplateData = {
      If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.
      */
   UserData?: string;
-};
-/**
- * Type definition for `AWS::EC2::LaunchTemplate.LaunchTemplateElasticInferenceAccelerator`.
- * Amazon Elastic Inference is no longer available.
-  Specifies an elastic inference accelerator.
- ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html}
- */
-export type LaunchTemplateElasticInferenceAccelerator = {
-  /**
-     * The number of elastic inference accelerators to attach to the instance.
-     Default: 1
-     */
-  Count?: number;
-  /**
-   * The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-   */
-  Type?: string;
 };
 /**
  * Type definition for `AWS::EC2::LaunchTemplate.LaunchTemplateTagSpecification`.
@@ -969,6 +927,7 @@ export type NetworkInterface = {
      If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
      */
   DeviceIndex?: number;
+  EnaQueueCount?: number;
   /**
    * The ENA Express configuration for the network interface.
    */

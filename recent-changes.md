@@ -1,20 +1,26 @@
-- updated `AWS::EC2::NatGateway`
-  - added definition `AvailabilityZoneAddress`
-  - removed `required`
-- updated `AWS::ECR::RepositoryCreationTemplate`
+- updated `AWS::Deadline::Fleet`
+  - added definition `VpcConfiguration`
+  - updated definition `ServiceManagedEc2FleetConfiguration`
+  - updated handler permissions
+- updated `AWS::Deadline::Monitor`
+  - added property `Tags`
+  - updated `tagging`
+  - updated definition `undefined`
+  - updated handler permissions
+- updated `AWS::EC2::LaunchTemplate`
+  - removed definition `ElasticGpuSpecification`
+  - removed definition `LaunchTemplateElasticInferenceAccelerator`
+  - updated definition `LaunchTemplateData`
+  - updated definition `NetworkInterface`
+- updated `AWS::ECR::Repository`
   - updated definition `ImageTagMutabilityExclusionFilter`
   - updated property `ImageTagMutabilityExclusionFilters`
-- updated `AWS::ElastiCache::ParameterGroup`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ElastiCache::SubnetGroup`
-  - updated `tagging`
-- updated `AWS::Lambda::Version`
-  - updated handler permissions
-  - updated property `FunctionArn`
-- updated `AWS::PCS::Cluster`
-  - updated definition `Endpoint`
-  - updated property `Networking`
-- updated `AWS::VerifiedPermissions::PolicyStore`
-  - added definition `SchemaCedarFormat`
-  - updated definition `SchemaDefinition`
+- updated `AWS::ECS::Service`
+  - updated property `AvailabilityZoneRebalancing`
+- updated `AWS::EKS::Cluster`
+  - added definition `DeletionProtection`
+  - added property `DeletionProtection`
+- updated `AWS::RDS::DBInstance`
+  - updated `readOnlyProperties`
+- updated `AWS::RDS::DBProxy`
+  - updated definition `AuthFormat`

@@ -1,5 +1,5 @@
 {
-  "$hash": "46f9358800306483053eb5260a77637c26c190db",
+  "$hash": "a139e59b5cf134645273310e207b2950d9bf4503",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -212,17 +212,6 @@
         },
         "VolumeType": {
           "description": "The volume type. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html) in the *Amazon EBS User Guide*.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ElasticGpuSpecification": {
-      "additionalProperties": false,
-      "description": "Amazon Elastic Graphics reached end of life on January 8, 2024.\n  Specifies a specification for an Elastic GPU for an Amazon EC2 launch template.\n ``ElasticGpuSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
-      "properties": {
-        "Type": {
-          "description": "The type of Elastic Graphics accelerator.",
           "type": "string"
         }
       },
@@ -493,20 +482,6 @@
           "description": "Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal Amazon EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.",
           "type": "boolean"
         },
-        "ElasticGpuSpecifications": {
-          "description": "Deprecated.\n  Amazon Elastic Graphics reached end of life on January 8, 2024.",
-          "items": { "$ref": "#/definitions/ElasticGpuSpecification" },
-          "type": "array",
-          "uniqueItems": false
-        },
-        "ElasticInferenceAccelerators": {
-          "description": "Amazon Elastic Inference is no longer available.\n  An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.\n You cannot specify accelerators from different generations in the same request.",
-          "items": {
-            "$ref": "#/definitions/LaunchTemplateElasticInferenceAccelerator"
-          },
-          "type": "array",
-          "uniqueItems": false
-        },
         "EnclaveOptions": {
           "$ref": "#/definitions/EnclaveOptions",
           "description": "Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see [What is Nitro Enclaves?](https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html) in the *Nitro Enclaves User Guide*.\n You can't enable AWS Nitro Enclaves and hibernation on the same instance."
@@ -607,21 +582,6 @@
         },
         "UserData": {
           "description": "The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands when you launch an EC2 instance with user data input](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.\n If you are creating the launch template for use with BATCH, the user data must be provided in the [MIME multi-part archive format](https://docs.aws.amazon.com/https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive). For more information, see [Amazon EC2 user data in launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html#lt-user-data) in the *User Guide*.",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "LaunchTemplateElasticInferenceAccelerator": {
-      "additionalProperties": false,
-      "description": "Amazon Elastic Inference is no longer available.\n  Specifies an elastic inference accelerator.\n ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
-      "properties": {
-        "Count": {
-          "description": "The number of elastic inference accelerators to attach to the instance. \n Default: 1",
-          "type": "integer"
-        },
-        "Type": {
-          "description": "The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.",
           "type": "string"
         }
       },
@@ -777,6 +737,7 @@
           "description": "The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.\n If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.",
           "type": "integer"
         },
+        "EnaQueueCount": { "description": "", "type": "integer" },
         "EnaSrdSpecification": {
           "$ref": "#/definitions/EnaSrdSpecification",
           "description": "The ENA Express configuration for the network interface."

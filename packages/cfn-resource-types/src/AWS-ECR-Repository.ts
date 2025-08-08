@@ -26,6 +26,7 @@ export type ECRRepositoryProperties = {
     | "MUTABLE_WITH_EXCLUSION"
     | "IMMUTABLE_WITH_EXCLUSION";
   /**
+   * The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
    * @minLength `1`
    * @maxLength `5`
    */
@@ -103,6 +104,7 @@ export type ImageScanningConfiguration = {
 };
 /**
  * Type definition for `AWS::ECR::Repository.ImageTagMutabilityExclusionFilter`.
+ * Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagetagmutabilityexclusionfilter.html}
  */
 export type ImageTagMutabilityExclusionFilter = {

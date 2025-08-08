@@ -752,10 +752,6 @@ export type RDSDBInstanceProperties = {
    */
   SourceRegion?: string;
   /**
-   * The status of a read replica. If the DB instance isn't a read replica, the value is blank.
-   */
-  StatusInfos?: DBInstanceStatusInfo[];
-  /**
      * A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.
      If you specify the ``KmsKeyId`` property, then you must enable encryption.
      If you specify the ``SourceDBInstanceIdentifier`` or ``SourceDbiResourceId`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.
@@ -899,6 +895,27 @@ export type RDSDBInstanceAttributes = {
   ReadReplicaDBInstanceIdentifiers: string[];
   ResumeFullAutomationModeTime: string;
   SecondaryAvailabilityZone: string;
+  /**
+   * The status of a read replica. If the DB instance isn't a read replica, the value is blank.
+   */
+  StatusInfos: {
+    /**
+     * Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
+     */
+    Message: string;
+    /**
+     * Indicates whether the instance is operating normally (TRUE) or is in an error state (FALSE).
+     */
+    Normal: boolean;
+    /**
+     * The status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+     */
+    Status: string;
+    /**
+     * This value is currently "read replication."
+     */
+    StatusType: string;
+  }[];
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.DBInstanceRole`.

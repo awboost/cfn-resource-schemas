@@ -1,5 +1,5 @@
 {
-  "$hash": "66d3ee1219066eb79383ae6c3a9af4610ccfeac3",
+  "$hash": "58b35621cc58c621026d9b55331722e5689af666",
   "$id": "aws-eks-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -76,6 +76,10 @@
         }
       },
       "type": "object"
+    },
+    "DeletionProtection": {
+      "description": "Set this value to true to enable deletion protection for the cluster.",
+      "type": "boolean"
     },
     "ElasticLoadBalancing": {
       "additionalProperties": false,
@@ -398,6 +402,10 @@
       "type": "string"
     },
     "ComputeConfig": { "$ref": "#/definitions/ComputeConfig" },
+    "DeletionProtection": {
+      "description": "Set this value to true to enable deletion protection for the cluster.",
+      "type": "boolean"
+    },
     "EncryptionConfig": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/EncryptionConfig", "maxItems": 1 },
