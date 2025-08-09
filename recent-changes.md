@@ -1,26 +1,5 @@
-- updated `AWS::Deadline::Fleet`
-  - added definition `VpcConfiguration`
-  - updated definition `ServiceManagedEc2FleetConfiguration`
-  - updated handler permissions
-- updated `AWS::Deadline::Monitor`
-  - added property `Tags`
-  - updated `tagging`
-  - updated definition `undefined`
-  - updated handler permissions
-- updated `AWS::EC2::LaunchTemplate`
-  - removed definition `ElasticGpuSpecification`
-  - removed definition `LaunchTemplateElasticInferenceAccelerator`
-  - updated definition `LaunchTemplateData`
-  - updated definition `NetworkInterface`
-- updated `AWS::ECR::Repository`
-  - updated definition `ImageTagMutabilityExclusionFilter`
-  - updated property `ImageTagMutabilityExclusionFilters`
-- updated `AWS::ECS::Service`
-  - updated property `AvailabilityZoneRebalancing`
-- updated `AWS::EKS::Cluster`
-  - added definition `DeletionProtection`
-  - added property `DeletionProtection`
-- updated `AWS::RDS::DBInstance`
-  - updated `readOnlyProperties`
-- updated `AWS::RDS::DBProxy`
-  - updated definition `AuthFormat`
+- updated `AWS::CodeBuild::Project`
+  - added definition `PullRequestBuildPolicy`
+  - updated definition `ProjectTriggers`
+- updated `AWS::SecurityHub::AutomationRule`
+  - updated definition `StringFilter`

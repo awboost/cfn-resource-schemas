@@ -186,8 +186,17 @@ export type ProjectSourceVersion = {
 export type ProjectTriggers = {
   BuildType?: string;
   FilterGroups?: FilterGroup[];
+  PullRequestBuildPolicy?: PullRequestBuildPolicy;
   ScopeConfiguration?: ScopeConfiguration;
   Webhook?: boolean;
+};
+/**
+ * Type definition for `AWS::CodeBuild::Project.PullRequestBuildPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-pullrequestbuildpolicy.html}
+ */
+export type PullRequestBuildPolicy = {
+  ApproverRoles?: string[];
+  RequiresCommentApproval: string;
 };
 /**
  * Type definition for `AWS::CodeBuild::Project.RegistryCredential`.
