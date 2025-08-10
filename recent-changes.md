@@ -1,5 +1,5 @@
-- updated `AWS::CodeBuild::Project`
-  - added definition `PullRequestBuildPolicy`
-  - updated definition `ProjectTriggers`
-- updated `AWS::SecurityHub::AutomationRule`
-  - updated definition `StringFilter`
+- updated `AWS::SageMaker::Cluster`
+  - added definition `ImageId`
+  - added property `NodeProvisioningMode`
+  - updated definition `ClusterInstanceGroup`
+  - updated handler permissions

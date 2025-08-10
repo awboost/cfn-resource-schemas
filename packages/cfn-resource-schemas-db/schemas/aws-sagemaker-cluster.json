@@ -1,5 +1,5 @@
 {
-  "$hash": "934eeb14ccaebc75991df64e5505942d2e4cd555",
+  "$hash": "9275a886f6b671c07adc8354d4210f8e8f647c36",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
@@ -42,6 +42,7 @@
           "type": "integer"
         },
         "ExecutionRole": { "$ref": "#/definitions/ExecutionRole" },
+        "ImageId": { "$ref": "#/definitions/ImageId" },
         "InstanceCount": {
           "description": "The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.",
           "minimum": 0,
@@ -237,6 +238,13 @@
       "required": ["SizeInGiB", "PerUnitStorageThroughput"],
       "type": "object"
     },
+    "ImageId": {
+      "description": "AMI Id to be used for launching EC2 instances - HyperPodPublicAmiId or CustomAmiId",
+      "maxLength": 21,
+      "minLength": 12,
+      "pattern": "^ami-[0-9a-fA-F]{8,17}|default$",
+      "type": "string"
+    },
     "InstanceGroupName": {
       "description": "The name of the instance group of a SageMaker HyperPod cluster.",
       "maxLength": 63,
@@ -326,6 +334,8 @@
         "sagemaker:DescribeCluster",
         "sagemaker:AddTags",
         "sagemaker:ListTags",
+        "sagemaker:BatchAddClusterNodes",
+        "sagemaker:BatchDeleteClusterNodes",
         "eks:DescribeAccessEntry",
         "eks:DescribeCluster",
         "eks:CreateAccessEntry",
@@ -352,15 +362,20 @@
     "update": {
       "permissions": [
         "sagemaker:UpdateCluster",
+        "sagemaker:UpdateClusterSoftware",
         "sagemaker:DescribeCluster",
         "sagemaker:ListTags",
         "sagemaker:AddTags",
         "sagemaker:DeleteTags",
+        "sagemaker:BatchAddClusterNodes",
+        "sagemaker:BatchDeleteClusterNodes",
         "eks:DescribeAccessEntry",
         "eks:DescribeCluster",
         "eks:CreateAccessEntry",
         "eks:DeleteAccessEntry",
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:BatchAddClusterNodes",
+        "sagemaker:BatchDeleteClusterNodes"
       ],
       "timeoutInMinutes": 720
     }
@@ -402,6 +417,11 @@
       "type": "string"
     },
     "InstanceGroups": { "$ref": "#/definitions/ClusterInstanceGroupsList" },
+    "NodeProvisioningMode": {
+      "description": "Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.",
+      "enum": ["Continuous"],
+      "type": "string"
+    },
     "NodeRecovery": {
       "description": "If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.",
       "enum": ["Automatic", "None"],

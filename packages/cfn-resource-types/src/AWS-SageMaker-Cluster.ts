@@ -18,6 +18,10 @@ export type SageMakerClusterProperties = {
    */
   InstanceGroups?: ClusterInstanceGroup[];
   /**
+   * Determines the scaling strategy for the SageMaker HyperPod cluster. When set to 'Continuous', enables continuous scaling which dynamically manages node provisioning. If the parameter is omitted, uses the standard scaling approach in previous release.
+   */
+  NodeProvisioningMode?: "Continuous";
+  /**
    * If node auto-recovery is set to true, faulty nodes will be replaced or rebooted when a failure is detected. If set to false, nodes will be labelled when a fault is detected.
    */
   NodeRecovery?: "Automatic" | "None";
@@ -119,6 +123,13 @@ export type ClusterInstanceGroup = {
    * @pattern `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
    */
   ExecutionRole: string;
+  /**
+   * AMI Id to be used for launching EC2 instances - HyperPodPublicAmiId or CustomAmiId
+   * @minLength `12`
+   * @maxLength `21`
+   * @pattern `^ami-[0-9a-fA-F]{8,17}|default$`
+   */
+  ImageId?: string;
   /**
    * The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
    * @min `0`
