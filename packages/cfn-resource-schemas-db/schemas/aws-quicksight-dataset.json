@@ -1,5 +1,5 @@
 {
-  "$hash": "f76f6cb0c8229b6e1a90e405883fdacd29a03e36",
+  "$hash": "d69d2728c9b8a7de34726d730daf7cb150e833ff",
   "$id": "aws-quicksight-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/DataSetId"],
@@ -49,7 +49,7 @@
         "NewColumnType": { "$ref": "#/definitions/ColumnDataType" },
         "SubType": { "$ref": "#/definitions/ColumnDataSubType" }
       },
-      "required": ["ColumnName", "NewColumnType"],
+      "required": ["NewColumnType"],
       "type": "object"
     },
     "ColumnDataSubType": { "enum": ["FLOAT", "FIXED"], "type": "string" },
@@ -120,7 +120,7 @@
         "Columns": {
           "description": "<p>Calculated columns to create.</p>",
           "items": { "$ref": "#/definitions/CalculatedColumn" },
-          "maxItems": 128,
+          "maxItems": 256,
           "minItems": 0,
           "type": "array"
         }
@@ -135,7 +135,7 @@
           "description": "<p>The column schema from the SQL query result set.</p>",
           "items": { "$ref": "#/definitions/InputColumn" },
           "maxItems": 2048,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array"
         },
         "DataSourceArn": {
@@ -342,7 +342,6 @@
           "type": "string"
         }
       },
-      "required": ["ConditionExpression"],
       "type": "object"
     },
     "GeoSpatialColumnGroup": {
@@ -741,7 +740,6 @@
           "type": "array"
         }
       },
-      "required": ["ProjectedColumns"],
       "type": "object"
     },
     "RefreshConfiguration": {
@@ -789,7 +787,7 @@
           "description": "<p>The column schema of the table.</p>",
           "items": { "$ref": "#/definitions/InputColumn" },
           "maxItems": 2048,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array"
         },
         "Name": {
@@ -825,7 +823,6 @@
           "type": "string"
         }
       },
-      "required": ["ColumnName"],
       "type": "object"
     },
     "ResourcePermission": {
@@ -938,7 +935,7 @@
           "type": "string"
         }
       },
-      "required": ["ColumnName", "TagKey"],
+      "required": ["TagKey"],
       "type": "object"
     },
     "S3Source": {
@@ -953,7 +950,7 @@
           "description": "<p>A physical table type for an S3 data source.</p>\n         <note>\n            <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>\n         </note>",
           "items": { "$ref": "#/definitions/InputColumn" },
           "maxItems": 2048,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array"
         },
         "UploadSettings": { "$ref": "#/definitions/UploadSettings" }
@@ -1099,7 +1096,6 @@
           "type": "array"
         }
       },
-      "required": ["ColumnNames"],
       "type": "object"
     },
     "UntagColumnOperation": {

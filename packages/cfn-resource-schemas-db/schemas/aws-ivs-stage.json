@@ -1,5 +1,5 @@
 {
-  "$hash": "801a44739822c3b8d2be1bb4d8a20697297b3048",
+  "$hash": "bf52f55c50abbfa263c549d9de8466c438b1c09c",
   "$id": "aws-ivs-stage.json",
   "additionalProperties": false,
   "definitions": {
@@ -7,6 +7,28 @@
       "additionalProperties": false,
       "description": "Configuration object for individual participant recording, to attach to the new stage.",
       "properties": {
+        "HlsConfiguration": {
+          "additionalProperties": false,
+          "description": "HLS configuration object for individual participant recording.",
+          "properties": {
+            "ParticipantRecordingHlsConfiguration": {
+              "additionalProperties": false,
+              "description": "An object representing a configuration of participant HLS recordings for individual participant recording.",
+              "properties": {
+                "TargetSegmentDurationSeconds": {
+                  "default": 6,
+                  "description": "Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.",
+                  "maximum": 10,
+                  "minimum": 2,
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [],
+          "type": "object"
+        },
         "MediaTypes": {
           "default": ["AUDIO_VIDEO"],
           "description": "Types of media to be recorded. Default: AUDIO_VIDEO.",
@@ -17,12 +39,60 @@
           "type": "array",
           "uniqueItems": true
         },
+        "RecordingReconnectWindowSeconds": {
+          "default": 0,
+          "description": "If a stage publisher disconnects and then reconnects within the specified interval, the multiple recordings will be considered a single recording and merged together. The default value is 0, which disables merging.",
+          "maximum": 300,
+          "minimum": 0,
+          "type": "integer"
+        },
         "StorageConfigurationArn": {
           "description": "ARN of the StorageConfiguration resource to use for individual participant recording.",
           "maxLength": 128,
           "minLength": 0,
           "pattern": "^$|^arn:aws:ivs:[a-z0-9-]+:[0-9]+:storage-configuration/[a-zA-Z0-9-]+$",
           "type": "string"
+        },
+        "ThumbnailConfiguration": {
+          "additionalProperties": false,
+          "description": "A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.",
+          "properties": {
+            "ParticipantThumbnailConfiguration": {
+              "additionalProperties": false,
+              "description": "An object representing a configuration of thumbnails for recorded video from an individual participant.",
+              "properties": {
+                "RecordingMode": {
+                  "default": "INTERVAL",
+                  "description": "Thumbnail recording mode. Default: DISABLED.",
+                  "enum": ["INTERVAL", "DISABLED"],
+                  "type": "string"
+                },
+                "Storage": {
+                  "default": ["SEQUENTIAL"],
+                  "description": "Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.",
+                  "insertionOrder": false,
+                  "items": {
+                    "enum": ["SEQUENTIAL", "LATEST"],
+                    "type": "string"
+                  },
+                  "maxItems": 2,
+                  "minItems": 0,
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "TargetIntervalSeconds": {
+                  "default": 60,
+                  "description": "The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.",
+                  "maximum": 86400,
+                  "minimum": 1,
+                  "type": "integer"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "required": [],
+          "type": "object"
         }
       },
       "required": ["StorageConfigurationArn"],

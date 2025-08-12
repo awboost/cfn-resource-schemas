@@ -8,11 +8,11 @@ export type IVSPlaybackRestrictionPolicyProperties = {
   /**
    * A list of country codes that control geoblocking restriction. Allowed values are the officially assigned ISO 3166-1 alpha-2 codes. Default: All countries (an empty array).
    */
-  AllowedCountries: string[];
+  AllowedCountries?: string[];
   /**
    * A list of origin sites that control CORS restriction. Allowed values are the same as valid values of the Origin header defined at https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
    */
-  AllowedOrigins: string[];
+  AllowedOrigins?: string[];
   /**
    * Whether channel playback is constrained by origin site.
    */

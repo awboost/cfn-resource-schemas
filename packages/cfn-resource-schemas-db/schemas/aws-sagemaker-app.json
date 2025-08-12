@@ -1,5 +1,5 @@
 {
-  "$hash": "0e0e1d438ba50b207c1f03b023d2220ed3f1b86a",
+  "$hash": "0f6c38ff211d95e0b4de34ae0a6cabdd2c6ef19b",
   "$id": "aws-sagemaker-app.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,7 +7,6 @@
     "/properties/AppType",
     "/properties/DomainId",
     "/properties/UserProfileName",
-    "/properties/Tags",
     "/properties/ResourceSpec"
   ],
   "definitions": {
@@ -141,6 +140,14 @@
         "sagemaker:DescribeApp",
         "sagemaker:ListTags"
       ]
+    },
+    "update": {
+      "permissions": [
+        "sagemaker:DescribeApp",
+        "sagemaker:AddTags",
+        "sagemaker:DeleteTags",
+        "sagemaker:ListTags"
+      ]
     }
   },
   "primaryIdentifier": [
@@ -225,7 +232,7 @@
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::SageMaker::App"

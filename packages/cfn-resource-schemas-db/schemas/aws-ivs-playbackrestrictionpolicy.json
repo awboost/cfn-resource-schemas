@@ -1,5 +1,5 @@
 {
-  "$hash": "267d70ef3f1d05179a10c507f0e50046f05f605c",
+  "$hash": "81043d2b0fee70ddead931f6d96bcc66ce4f6212",
   "$id": "aws-ivs-playbackrestrictionpolicy.json",
   "additionalProperties": false,
   "definitions": {
@@ -103,7 +103,6 @@
     }
   },
   "readOnlyProperties": ["/properties/Arn"],
-  "required": ["AllowedCountries", "AllowedOrigins"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,

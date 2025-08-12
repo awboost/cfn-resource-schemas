@@ -1,5 +1,5 @@
 {
-  "$hash": "a23480dabe5133f370d7e7df383360d46adc7f6a",
+  "$hash": "d6264e5a77f244ceb97792ca1d8e2d9ba9c8d244",
   "$id": "aws-quicksight-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -329,6 +329,25 @@
           "type": "boolean"
         }
       },
+      "type": "object"
+    },
+    "ImpalaParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "Host": { "maxLength": 256, "minLength": 1, "type": "string" },
+        "Port": {
+          "default": 0,
+          "maximum": 65535,
+          "minimum": 1,
+          "type": "number"
+        },
+        "SqlEndpointPath": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["Host", "Port", "SqlEndpointPath"],
       "type": "object"
     },
     "ManifestFileLocation": {

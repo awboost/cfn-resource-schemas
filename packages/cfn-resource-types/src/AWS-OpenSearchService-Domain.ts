@@ -78,6 +78,7 @@ export type OpenSearchServiceDomainAttributes = {
 export type AdvancedSecurityOptionsInput = {
   AnonymousAuthEnabled?: boolean;
   Enabled?: boolean;
+  IAMFederationOptions?: IAMFederationOptions;
   InternalUserDatabaseEnabled?: boolean;
   JWTOptions?: JWTOptions;
   MasterUserOptions?: MasterUserOptions;
@@ -148,6 +149,15 @@ export type EBSOptions = {
 export type EncryptionAtRestOptions = {
   Enabled?: boolean;
   KmsKeyId?: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.IAMFederationOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-iamfederationoptions.html}
+ */
+export type IAMFederationOptions = {
+  Enabled?: boolean;
+  RolesKey?: string;
+  SubjectKey?: string;
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.IdentityCenterOptions`.

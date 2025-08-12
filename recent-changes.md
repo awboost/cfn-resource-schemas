@@ -1,5 +1,29 @@
-- updated `AWS::SageMaker::Cluster`
-  - added definition `ImageId`
-  - added property `NodeProvisioningMode`
-  - updated definition `ClusterInstanceGroup`
+- added `AWS::ObservabilityAdmin::OrganizationTelemetryRule`
+- added `AWS::ObservabilityAdmin::TelemetryRule`
+- updated `AWS::IVS::PlaybackRestrictionPolicy`
+  - removed `required`
+- updated `AWS::IVS::Stage`
+  - updated definition `AutoParticipantRecordingConfiguration`
+- updated `AWS::OpenSearchService::Domain`
+  - added `propertyTransform`
+  - added definition `IAMFederationOptions`
+  - updated definition `AdvancedSecurityOptionsInput`
+- updated `AWS::QuickSight::DataSet`
+  - updated definition `CastColumnTypeOperation`
+  - updated definition `CreateColumnsOperation`
+  - updated definition `CustomSql`
+  - updated definition `FilterOperation`
+  - updated definition `ProjectOperation`
+  - updated definition `RelationalTable`
+  - updated definition `RenameColumnOperation`
+  - updated definition `RowLevelPermissionTagRule`
+  - updated definition `S3Source`
+  - updated definition `UniqueKey`
+- updated `AWS::QuickSight::DataSource`
+  - added definition `ImpalaParameters`
+- updated `AWS::SageMaker::App`
+  - updated `createOnlyProperties`
+  - updated `tagging`
   - updated handler permissions
+- updated `AWS::SageMaker::Domain`
+  - updated definition `UnifiedStudioSettings`

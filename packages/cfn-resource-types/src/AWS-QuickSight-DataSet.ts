@@ -168,7 +168,7 @@ export type CastColumnTypeOperation = {
    * @minLength `1`
    * @maxLength `127`
    */
-  ColumnName: string;
+  ColumnName?: string;
   /**
      * <p>When casting a column from string to datetime type, you can supply a string in a
                 format supported by Amazon QuickSight to denote the source data format.</p>
@@ -271,7 +271,7 @@ export type CreateColumnsOperation = {
   /**
    * <p>Calculated columns to create.</p>
    * @minLength `0`
-   * @maxLength `128`
+   * @maxLength `256`
    */
   Columns?: CalculatedColumn[];
 };
@@ -283,7 +283,7 @@ export type CreateColumnsOperation = {
 export type CustomSql = {
   /**
    * <p>The column schema from the SQL query result set.</p>
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `2048`
    */
   Columns?: InputColumn[];
@@ -489,7 +489,7 @@ export type FilterOperation = {
      * @minLength `1`
      * @maxLength `4096`
      */
-  ConditionExpression: string;
+  ConditionExpression?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.GeoSpatialColumnGroup`.
@@ -884,7 +884,7 @@ export type ProjectOperation = {
    * @minLength `0`
    * @maxLength `2000`
    */
-  ProjectedColumns: string[];
+  ProjectedColumns?: string[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.RefreshConfiguration`.
@@ -934,7 +934,7 @@ export type RelationalTable = {
   DataSourceArn: string;
   /**
    * <p>The column schema of the table.</p>
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `2048`
    */
   InputColumns?: InputColumn[];
@@ -962,7 +962,7 @@ export type RenameColumnOperation = {
    * @minLength `1`
    * @maxLength `127`
    */
-  ColumnName: string;
+  ColumnName?: string;
   /**
    * <p>The new name for the column.</p>
    * @minLength `1`
@@ -1068,7 +1068,7 @@ export type RowLevelPermissionTagRule = {
   /**
    * <p>The column name that a tag key is assigned to.</p>
    */
-  ColumnName: string;
+  ColumnName?: string;
   /**
    * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
    * @minLength `1`
@@ -1103,7 +1103,7 @@ export type S3Source = {
              <note>
                 <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
              </note>
-     * @minLength `1`
+     * @minLength `0`
      * @maxLength `2048`
      */
   InputColumns?: InputColumn[];
@@ -1268,7 +1268,7 @@ export type UniqueKey = {
    * @minLength `1`
    * @maxLength `1`
    */
-  ColumnNames: string[];
+  ColumnNames?: string[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.UntagColumnOperation`.

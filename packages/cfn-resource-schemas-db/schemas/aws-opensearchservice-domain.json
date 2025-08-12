@@ -1,5 +1,5 @@
 {
-  "$hash": "fa441484f8426c52662867c8be0dfa9a1ea2ecab",
+  "$hash": "7a8db80cf4db2e65c60477ae728f9c9b8cec9bb3",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -14,6 +14,9 @@
         "AnonymousAuthDisableDate": { "type": "string" },
         "AnonymousAuthEnabled": { "type": "boolean" },
         "Enabled": { "type": "boolean" },
+        "IAMFederationOptions": {
+          "$ref": "#/definitions/IAMFederationOptions"
+        },
         "InternalUserDatabaseEnabled": { "type": "boolean" },
         "JWTOptions": { "$ref": "#/definitions/JWTOptions" },
         "MasterUserOptions": { "$ref": "#/definitions/MasterUserOptions" },
@@ -85,6 +88,15 @@
       "properties": {
         "Enabled": { "type": "boolean" },
         "KmsKeyId": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "IAMFederationOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "Enabled": { "type": "boolean" },
+        "RolesKey": { "type": "string" },
+        "SubjectKey": { "type": "string" }
       },
       "type": "object"
     },
@@ -375,6 +387,9 @@
       "uniqueItems": true
     },
     "VPCOptions": { "$ref": "#/definitions/VPCOptions" }
+  },
+  "propertyTransform": {
+    "/properties/EncryptionAtRestOptions/KmsKeyId": "$split(EncryptionAtRestOptions.KmsKeyId, \"/\")[-1] $OR EncryptionAtRestOptions.KmsKeyId"
   },
   "readOnlyProperties": [
     "/properties/Id",

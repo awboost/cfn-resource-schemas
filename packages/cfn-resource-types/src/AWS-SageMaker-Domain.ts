@@ -962,11 +962,6 @@ export type UnifiedStudioSettings = {
    */
   ProjectS3Path?: string;
   /**
-   * The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.
-   * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso::[0-9]+:application/[a-zA-Z0-9-_.]+/apl-[a-zA-Z0-9]+$`
-   */
-  SingleSignOnApplicationArn?: string;
-  /**
      * Sets whether you can access the domain in Amazon SageMaker Studio:
     
     ENABLED

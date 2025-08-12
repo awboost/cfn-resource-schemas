@@ -1,5 +1,5 @@
 {
-  "$hash": "1bcd2e43b66e046c148475d835528ec54213155b",
+  "$hash": "5543b47516fec2feab6fa56042e51aef37c2a68a",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -933,11 +933,6 @@
           "maxLength": 100,
           "minLength": 1,
           "pattern": "[\\w\\.-]+$",
-          "type": "string"
-        },
-        "SingleSignOnApplicationArn": {
-          "description": "The ARN of the DataZone application managed by SageMaker Unified Studio in the AWS IAM Identity Center.",
-          "pattern": "^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso::[0-9]+:application/[a-zA-Z0-9-_.]+/apl-[a-zA-Z0-9]+$",
           "type": "string"
         },
         "StudioWebPortalAccess": {
