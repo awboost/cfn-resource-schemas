@@ -1,29 +1,24 @@
-- added `AWS::ObservabilityAdmin::OrganizationTelemetryRule`
-- added `AWS::ObservabilityAdmin::TelemetryRule`
-- updated `AWS::IVS::PlaybackRestrictionPolicy`
-  - removed `required`
-- updated `AWS::IVS::Stage`
-  - updated definition `AutoParticipantRecordingConfiguration`
-- updated `AWS::OpenSearchService::Domain`
-  - added `propertyTransform`
-  - added definition `IAMFederationOptions`
-  - updated definition `AdvancedSecurityOptionsInput`
-- updated `AWS::QuickSight::DataSet`
-  - updated definition `CastColumnTypeOperation`
-  - updated definition `CreateColumnsOperation`
-  - updated definition `CustomSql`
-  - updated definition `FilterOperation`
-  - updated definition `ProjectOperation`
-  - updated definition `RelationalTable`
-  - updated definition `RenameColumnOperation`
-  - updated definition `RowLevelPermissionTagRule`
-  - updated definition `S3Source`
-  - updated definition `UniqueKey`
-- updated `AWS::QuickSight::DataSource`
-  - added definition `ImpalaParameters`
-- updated `AWS::SageMaker::App`
-  - updated `createOnlyProperties`
-  - updated `tagging`
+- updated `AWS::ARCRegionSwitch::Plan`
+  - added `deprecatedProperties`
+  - added definition `HealthCheckIds`
+  - added definition `HostedZoneIds`
+  - added definition `RecordNames`
+  - added definition `Regions`
+  - added property `Route53HealthChecks`
+  - updated `readOnlyProperties`
+- updated `AWS::CleanRooms::ConfiguredTable`
+  - removed `createOnlyProperties`
   - updated handler permissions
-- updated `AWS::SageMaker::Domain`
-  - updated definition `UnifiedStudioSettings`
+- updated `AWS::EFS::MountTarget`
+  - updated property `IpAddressType`
+  - updated property `IpAddress`
+  - updated property `Ipv6Address`
+  - updated property `SecurityGroups`
+  - updated property `SubnetId`
+- updated `AWS::RDS::DBCluster`
+  - updated property `SourceDbClusterResourceId`
+- updated `AWS::RDS::DBInstance`
+  - updated property `StatusInfos`
+- updated `AWS::Synthetics::Canary`
+  - added definition `Dependency`
+  - updated definition `Code`

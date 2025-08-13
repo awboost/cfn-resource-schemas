@@ -1,5 +1,5 @@
 {
-  "$hash": "0c5770e14bbfce87c42b74c8a7f4d14e08ce517e",
+  "$hash": "4ec920e07c854c5dfe49d2d1a6b4534aa9b9a14c",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -602,7 +602,7 @@
       "type": "string"
     },
     "StatusInfos": {
-      "description": "The status of a read replica. If the DB instance isn't a read replica, the value is blank.",
+      "description": "",
       "items": { "$ref": "#/definitions/DBInstanceStatusInfo" },
       "type": "array"
     },

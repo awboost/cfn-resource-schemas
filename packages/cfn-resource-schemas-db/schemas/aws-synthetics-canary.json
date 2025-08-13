@@ -1,5 +1,5 @@
 {
-  "$hash": "ff17266daa652000b5c2865fa8b04c5a7df00f1c",
+  "$hash": "d600fd11957d6e9ceff3cd9fa8d8651c102605bb",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -39,6 +39,12 @@
         { "required": ["Script"] }
       ],
       "properties": {
+        "Dependencies": {
+          "description": "List of Lambda layers to attach to the canary",
+          "items": { "$ref": "#/definitions/Dependency" },
+          "maxItems": 1,
+          "type": "array"
+        },
         "Handler": { "type": "string" },
         "S3Bucket": { "type": "string" },
         "S3Key": { "type": "string" },
@@ -47,6 +53,25 @@
         "SourceLocationArn": { "type": "string" }
       },
       "required": ["Handler"],
+      "type": "object"
+    },
+    "Dependency": {
+      "additionalProperties": false,
+      "properties": {
+        "Reference": {
+          "description": "ARN of the Lambda layer",
+          "maxLength": 140,
+          "minLength": 1,
+          "pattern": "arn:[a-zA-Z0-9-]+:lambda:[a-zA-Z0-9-]+:\\d{12}:layer:[a-zA-Z0-9-_]+:[0-9]+",
+          "type": "string"
+        },
+        "Type": {
+          "description": "Type of dependency",
+          "enum": ["LambdaLayer"],
+          "type": "string"
+        }
+      },
+      "required": ["Reference"],
       "type": "object"
     },
     "ResourceToTag": {

@@ -895,9 +895,6 @@ export type RDSDBInstanceAttributes = {
   ReadReplicaDBInstanceIdentifiers: string[];
   ResumeFullAutomationModeTime: string;
   SecondaryAvailabilityZone: string;
-  /**
-   * The status of a read replica. If the DB instance isn't a read replica, the value is blank.
-   */
   StatusInfos: {
     /**
      * Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.

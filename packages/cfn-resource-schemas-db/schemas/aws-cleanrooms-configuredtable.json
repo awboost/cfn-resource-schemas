@@ -1,11 +1,7 @@
 {
-  "$hash": "e928f094203401b7f6a94ae8507b8ba48f4cff75",
+  "$hash": "6a1b2616434e7438d63372e5f871fd3d1e6554c3",
   "$id": "aws-cleanrooms-configuredtable.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/AllowedColumns",
-    "/properties/TableReference"
-  ],
   "definitions": {
     "AdditionalAnalyses": {
       "enum": ["ALLOWED", "REQUIRED", "NOT_ALLOWED"],
@@ -460,6 +456,8 @@
     "update": {
       "permissions": [
         "cleanrooms:UpdateConfiguredTable",
+        "cleanrooms:UpdateConfiguredTableReference",
+        "cleanrooms:UpdateConfiguredTableAllowedColumns",
         "cleanrooms:GetConfiguredTable",
         "cleanrooms:CreateConfiguredTableAnalysisRule",
         "cleanrooms:UpdateConfiguredTableAnalysisRule",

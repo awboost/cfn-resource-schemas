@@ -1,5 +1,5 @@
 {
-  "$hash": "2e9cbdb73657c29c66c93433b135bc286cf9a532",
+  "$hash": "d9f11f0fceee2e3b48c616cfd97d8305222a788c",
   "$id": "aws-arcregionswitch-plan.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -408,6 +408,7 @@
       "enum": ["failover"],
       "type": "string"
     },
+    "HealthCheckIds": { "items": { "type": "string" }, "type": "array" },
     "HealthCheckState": {
       "additionalProperties": false,
       "properties": {
@@ -416,6 +417,7 @@
       },
       "type": "object"
     },
+    "HostedZoneIds": { "items": { "type": "string" }, "type": "array" },
     "KubernetesResourceType": {
       "additionalProperties": false,
       "properties": {
@@ -478,6 +480,7 @@
       "required": ["Steps"],
       "type": "object"
     },
+    "RecordNames": { "items": { "type": "string" }, "type": "array" },
     "RecoveryApproach": {
       "enum": ["activeActive", "activePassive"],
       "type": "string"
@@ -521,6 +524,7 @@
       },
       "type": "object"
     },
+    "Regions": { "items": { "type": "string" }, "type": "array" },
     "Route53HealthCheckConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -655,6 +659,7 @@
       "type": "string"
     }
   },
+  "deprecatedProperties": ["/properties/HealthChecksForPlan"],
   "description": "Represents a plan that specifies Regions, IAM roles, and workflows of logic required to perform the desired change to your multi-Region application",
   "handlers": {
     "create": {
@@ -732,6 +737,16 @@
       "minItems": 2,
       "type": "array"
     },
+    "Route53HealthChecks": {
+      "additionalProperties": false,
+      "properties": {
+        "HealthCheckIds": { "$ref": "#/definitions/HealthCheckIds" },
+        "HostedZoneIds": { "$ref": "#/definitions/HostedZoneIds" },
+        "RecordNames": { "$ref": "#/definitions/RecordNames" },
+        "Regions": { "$ref": "#/definitions/Regions" }
+      },
+      "type": "object"
+    },
     "Tags": { "$ref": "#/definitions/Tags" },
     "Triggers": {
       "items": { "$ref": "#/definitions/Trigger" },
@@ -747,7 +762,8 @@
     "/properties/Arn",
     "/properties/Owner",
     "/properties/Version",
-    "/properties/HealthChecksForPlan"
+    "/properties/HealthChecksForPlan",
+    "/properties/Route53HealthChecks"
   ],
   "required": [
     "ExecutionRole",

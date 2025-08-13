@@ -465,6 +465,9 @@ export type RDSDBClusterProperties = {
      Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
   SourceDBClusterIdentifier?: string;
+  /**
+   * The resource ID of the source DB cluster from which to restore.
+   */
   SourceDbClusterResourceId?: string;
   /**
      * The AWS Region which contains the source DB cluster when replicating a DB cluster. For example, ``us-east-1``.

@@ -126,11 +126,33 @@ export type BaseScreenshot = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html}
  */
 export type Code = {
+  /**
+   * List of Lambda layers to attach to the canary
+   * @maxLength `1`
+   */
+  Dependencies?: Dependency[];
   Handler: string;
   S3Bucket?: string;
   S3Key?: string;
   S3ObjectVersion?: string;
   Script?: string;
+};
+/**
+ * Type definition for `AWS::Synthetics::Canary.Dependency`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-dependency.html}
+ */
+export type Dependency = {
+  /**
+   * ARN of the Lambda layer
+   * @minLength `1`
+   * @maxLength `140`
+   * @pattern `arn:[a-zA-Z0-9-]+:lambda:[a-zA-Z0-9-]+:\d{12}:layer:[a-zA-Z0-9-_]+:[0-9]+`
+   */
+  Reference: string;
+  /**
+   * Type of dependency
+   */
+  Type?: "LambdaLayer";
 };
 /**
  * Type definition for `AWS::Synthetics::Canary.ResourceToTag`.
