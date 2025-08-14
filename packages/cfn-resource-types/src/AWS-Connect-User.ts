@@ -145,6 +145,10 @@ export type UserPhoneConfig = {
    */
   DeskPhoneNumber?: string;
   /**
+   * The Persistent Connection setting.
+   */
+  PersistentConnection?: boolean;
+  /**
    * The phone type.
    */
   PhoneType: PhoneType;

@@ -1,24 +1,19 @@
-- updated `AWS::ARCRegionSwitch::Plan`
-  - added `deprecatedProperties`
-  - added definition `HealthCheckIds`
-  - added definition `HostedZoneIds`
-  - added definition `RecordNames`
-  - added definition `Regions`
-  - added property `Route53HealthChecks`
-  - updated `readOnlyProperties`
-- updated `AWS::CleanRooms::ConfiguredTable`
-  - removed `createOnlyProperties`
+- updated `AWS::AppIntegrations::Application`
+  - added definition `ApplicationConfig`
+  - added definition `ContactHandling`
+  - added definition `IframeConfig`
+  - added property `ApplicationConfig`
+  - added property `IframeConfig`
+  - added property `InitializationTimeout`
+  - added property `IsService`
+- updated `AWS::Connect::User`
+  - added definition `PersistentConnection`
+  - updated definition `UserPhoneConfig`
+- updated `AWS::IoT::MitigationAction`
+  - added `tagging`
+  - updated definition `EnableIoTLoggingParams`
+  - updated definition `PublishFindingToSnsParams`
+- updated `AWS::Lambda::Permission`
   - updated handler permissions
-- updated `AWS::EFS::MountTarget`
-  - updated property `IpAddressType`
-  - updated property `IpAddress`
-  - updated property `Ipv6Address`
-  - updated property `SecurityGroups`
-  - updated property `SubnetId`
-- updated `AWS::RDS::DBCluster`
-  - updated property `SourceDbClusterResourceId`
-- updated `AWS::RDS::DBInstance`
-  - updated property `StatusInfos`
-- updated `AWS::Synthetics::Canary`
-  - added definition `Dependency`
-  - updated definition `Code`
+  - updated property `FunctionName`
+  - updated property `SourceArn`

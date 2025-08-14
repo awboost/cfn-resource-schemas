@@ -92,7 +92,7 @@ export type EnableIoTLoggingParams = {
   LogLevel: "DEBUG" | "INFO" | "ERROR" | "WARN" | "UNSET_VALUE";
   /**
    *  The ARN of the IAM role used for logging.
-   * @minLength `20`
+   * @minLength `11`
    * @maxLength `2048`
    */
   RoleArnForLogging: string;
@@ -105,7 +105,7 @@ export type EnableIoTLoggingParams = {
 export type PublishFindingToSnsParams = {
   /**
    * The ARN of the topic to which you want to publish the findings.
-   * @minLength `20`
+   * @minLength `11`
    * @maxLength `2048`
    */
   TopicArn: string;

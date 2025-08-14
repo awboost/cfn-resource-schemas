@@ -7,6 +7,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type AppIntegrationsApplicationProperties = {
   /**
+   * The application configuration. Cannot be used when IsService is true.
+   */
+  ApplicationConfig?: ApplicationConfig;
+  /**
    * Application source config
    */
   ApplicationSourceConfig: {
@@ -18,6 +22,18 @@ export type AppIntegrationsApplicationProperties = {
    * @maxLength `1000`
    */
   Description: string;
+  /**
+   * The iframe configuration
+   */
+  IframeConfig?: IframeConfig;
+  /**
+   * The initialization timeout in milliseconds. Required when IsService is true.
+   */
+  InitializationTimeout?: number;
+  /**
+   * Indicates if the application is a service
+   */
+  IsService?: boolean;
   /**
    * The name of the application.
    * @minLength `1`
@@ -66,6 +82,20 @@ export type AppIntegrationsApplicationAttributes = {
   Id: string;
 };
 /**
+ * Type definition for `AWS::AppIntegrations::Application.ApplicationConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-applicationconfig.html}
+ */
+export type ApplicationConfig = {
+  ContactHandling?: ContactHandling;
+};
+/**
+ * Type definition for `AWS::AppIntegrations::Application.ContactHandling`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-contacthandling.html}
+ */
+export type ContactHandling = {
+  Scope: "CROSS_CONTACTS" | "PER_CONTACT";
+};
+/**
  * Type definition for `AWS::AppIntegrations::Application.ExternalUrlConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-externalurlconfig.html}
  */
@@ -81,6 +111,14 @@ export type ExternalUrlConfig = {
    * @maxLength `50`
    */
   ApprovedOrigins?: string[];
+};
+/**
+ * Type definition for `AWS::AppIntegrations::Application.IframeConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-iframeconfig.html}
+ */
+export type IframeConfig = {
+  Allow?: string[];
+  Sandbox?: string[];
 };
 /**
  * Type definition for `AWS::AppIntegrations::Application.Tag`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "042f268978626708922b849711f6bf62d6b7ca73",
+  "$hash": "47fa2baeb68b2cfe60a39ee61713335668a606a4",
   "$id": "aws-iot-mitigationaction.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ActionName"],
@@ -62,7 +62,7 @@
         "RoleArnForLogging": {
           "description": " The ARN of the IAM role used for logging.",
           "maxLength": 2048,
-          "minLength": 20,
+          "minLength": 11,
           "type": "string"
         }
       },
@@ -76,7 +76,7 @@
         "TopicArn": {
           "description": "The ARN of the topic to which you want to publish the findings.",
           "maxLength": 2048,
-          "minLength": 20,
+          "minLength": 11,
           "type": "string"
         }
       },
@@ -192,5 +192,17 @@
   ],
   "required": ["RoleArn", "ActionParams"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "iot:TagResource",
+      "iot:UntagResource",
+      "iot:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::IoT::MitigationAction"
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "8005dfbb3d9daabe3825b3865c857934e6aad3be",
+  "$hash": "c30c483f3b18115f37928d7b4230e029a1d96dee",
   "$id": "aws-connect-user.json",
   "additionalProperties": false,
   "definitions": {
@@ -50,6 +50,10 @@
       "description": "The mobile phone number.",
       "pattern": "^\\+[1-9]\\d{1,14}$",
       "type": "string"
+    },
+    "PersistentConnection": {
+      "description": "The Persistent Connection setting.",
+      "type": "boolean"
     },
     "PhoneType": {
       "description": "The phone type.",
@@ -107,6 +111,9 @@
         },
         "AutoAccept": { "$ref": "#/definitions/AutoAccept" },
         "DeskPhoneNumber": { "$ref": "#/definitions/DeskPhoneNumber" },
+        "PersistentConnection": {
+          "$ref": "#/definitions/PersistentConnection"
+        },
         "PhoneType": { "$ref": "#/definitions/PhoneType" }
       },
       "required": ["PhoneType"],
