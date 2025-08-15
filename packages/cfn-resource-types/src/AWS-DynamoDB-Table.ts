@@ -146,6 +146,7 @@ export type ContributorInsightsSpecification = {
    * Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).
    */
   Enabled: boolean;
+  Mode?: "ACCESSED_AND_THROTTLED_KEYS" | "THROTTLED_KEYS";
 };
 /**
  * Type definition for `AWS::DynamoDB::Table.Csv`.

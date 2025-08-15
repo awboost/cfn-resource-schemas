@@ -1,5 +1,5 @@
 {
-  "$hash": "5f04ea34446abeb892a13b626bdbb6662e27744f",
+  "$hash": "58c7fbe4e4e796843ceeadf907a1a30f47525272",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -37,7 +37,13 @@
     },
     "ContributorInsightsSpecification": {
       "additionalProperties": false,
-      "properties": { "Enabled": { "type": "boolean" } },
+      "properties": {
+        "Enabled": { "type": "boolean" },
+        "Mode": {
+          "enum": ["ACCESSED_AND_THROTTLED_KEYS", "THROTTLED_KEYS"],
+          "type": "string"
+        }
+      },
       "required": ["Enabled"],
       "type": "object"
     },

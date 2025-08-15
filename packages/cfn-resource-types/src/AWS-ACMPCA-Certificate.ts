@@ -82,7 +82,7 @@ export type CustomAttribute = {
 /**
  * Type definition for `AWS::ACMPCA::Certificate.CustomExtension`.
  * Specifies the X.509 extension information for a certificate.
- Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
+ Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-customextension.html}
  */
 export type CustomExtension = {

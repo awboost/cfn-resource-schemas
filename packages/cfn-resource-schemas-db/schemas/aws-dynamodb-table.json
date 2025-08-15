@@ -1,5 +1,5 @@
 {
-  "$hash": "92ebafeba72a2369eb9c76e710c56e0824b6f955",
+  "$hash": "b8977bcfb2c9161c7e4c5542caed9baa2c86edba",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/KeySchema"],
@@ -31,6 +31,11 @@
         "Enabled": {
           "description": "Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).",
           "type": "boolean"
+        },
+        "Mode": {
+          "description": "",
+          "enum": ["ACCESSED_AND_THROTTLED_KEYS", "THROTTLED_KEYS"],
+          "type": "string"
         }
       },
       "required": ["Enabled"],

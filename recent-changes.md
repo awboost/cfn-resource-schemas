@@ -1,19 +1,9 @@
-- updated `AWS::AppIntegrations::Application`
-  - added definition `ApplicationConfig`
-  - added definition `ContactHandling`
-  - added definition `IframeConfig`
-  - added property `ApplicationConfig`
-  - added property `IframeConfig`
-  - added property `InitializationTimeout`
-  - added property `IsService`
-- updated `AWS::Connect::User`
-  - added definition `PersistentConnection`
-  - updated definition `UserPhoneConfig`
-- updated `AWS::IoT::MitigationAction`
-  - added `tagging`
-  - updated definition `EnableIoTLoggingParams`
-  - updated definition `PublishFindingToSnsParams`
-- updated `AWS::Lambda::Permission`
-  - updated handler permissions
-  - updated property `FunctionName`
-  - updated property `SourceArn`
+- added `AWS::EC2::IpPoolRouteTableAssociation`
+- added `AWS::InspectorV2::CodeSecurityIntegration`
+- added `AWS::InspectorV2::CodeSecurityScanConfiguration`
+- updated `AWS::ACMPCA::Certificate`
+  - updated definition `CustomExtension`
+- updated `AWS::DynamoDB::GlobalTable`
+  - updated definition `ContributorInsightsSpecification`
+- updated `AWS::DynamoDB::Table`
+  - updated definition `ContributorInsightsSpecification`

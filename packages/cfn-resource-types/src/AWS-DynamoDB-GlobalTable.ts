@@ -81,6 +81,7 @@ export type CapacityAutoScalingSettings = {
  */
 export type ContributorInsightsSpecification = {
   Enabled: boolean;
+  Mode?: "ACCESSED_AND_THROTTLED_KEYS" | "THROTTLED_KEYS";
 };
 /**
  * Type definition for `AWS::DynamoDB::GlobalTable.GlobalSecondaryIndex`.

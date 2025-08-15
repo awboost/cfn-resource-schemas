@@ -1,5 +1,5 @@
 {
-  "$hash": "ad7070fbca833fbd2da84176ee139b606a1694f2",
+  "$hash": "cfbb577e96e4a640d1ae3ec65e3f5834a483a63b",
   "$id": "aws-acmpca-certificate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -55,7 +55,7 @@
     },
     "CustomExtension": {
       "additionalProperties": false,
-      "description": "Specifies the X.509 extension information for a certificate.\n Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough`` [template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).",
+      "description": "Specifies the X.509 extension information for a certificate.\n Extensions present in ``CustomExtensions`` follow the ``ApiPassthrough``[template rules](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations).",
       "properties": {
         "Critical": {
           "description": "Specifies the critical flag of the X.509 extension.",
