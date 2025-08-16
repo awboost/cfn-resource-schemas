@@ -10,6 +10,7 @@ export type FSxFileSystemProperties = {
   FileSystemTypeVersion?: string;
   KmsKeyId?: string;
   LustreConfiguration?: LustreConfiguration;
+  NetworkType?: string;
   OntapConfiguration?: OntapConfiguration;
   OpenZFSConfiguration?: OpenZFSConfiguration;
   SecurityGroupIds?: string[];
@@ -130,6 +131,7 @@ export type OpenZFSConfiguration = {
   DeploymentType: string;
   DiskIopsConfiguration?: DiskIopsConfiguration;
   EndpointIpAddressRange?: string;
+  EndpointIpv6AddressRange?: string;
   Options?: string[];
   PreferredSubnetId?: string;
   ReadCacheConfiguration?: ReadCacheConfiguration;

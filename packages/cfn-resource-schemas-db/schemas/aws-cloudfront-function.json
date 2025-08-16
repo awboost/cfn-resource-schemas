@@ -1,7 +1,8 @@
 {
-  "$hash": "23e07d0b3e9faf97ca9daa417489f2b76749d619",
+  "$hash": "498ac310162e869c9b8e725cbb7f857b385a6726",
   "$id": "aws-cloudfront-function.json",
   "additionalProperties": false,
+  "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "FunctionConfig": {
       "additionalProperties": false,

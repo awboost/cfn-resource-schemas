@@ -1,5 +1,5 @@
 {
-  "$hash": "227a507b9b2e7950cbf969c68bb8a369f040c2bd",
+  "$hash": "c44b2c4a6c11d3b7fa4213dad2766ba6c5a110c0",
   "$id": "aws-glue-tableoptimizer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -17,6 +17,15 @@
       },
       "type": "object"
     },
+    "IcebergRetentionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "CleanExpiredFiles": { "type": "boolean" },
+        "NumberOfSnapshotsToRetain": { "type": "integer" },
+        "SnapshotRetentionPeriodInDays": { "type": "integer" }
+      },
+      "type": "object"
+    },
     "OrphanFileDeletionConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -27,7 +36,9 @@
     "RetentionConfiguration": {
       "additionalProperties": false,
       "properties": {
-        "IcebergConfiguration": { "$ref": "#/definitions/IcebergConfiguration" }
+        "IcebergConfiguration": {
+          "$ref": "#/definitions/IcebergRetentionConfiguration"
+        }
       },
       "type": "object"
     },

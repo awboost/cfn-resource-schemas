@@ -1,9 +1,22 @@
-- added `AWS::EC2::IpPoolRouteTableAssociation`
-- added `AWS::InspectorV2::CodeSecurityIntegration`
-- added `AWS::InspectorV2::CodeSecurityScanConfiguration`
-- updated `AWS::ACMPCA::Certificate`
-  - updated definition `CustomExtension`
-- updated `AWS::DynamoDB::GlobalTable`
-  - updated definition `ContributorInsightsSpecification`
-- updated `AWS::DynamoDB::Table`
-  - updated definition `ContributorInsightsSpecification`
+- added `AWS::GuardDuty::ThreatEntitySet`
+- added `AWS::GuardDuty::TrustedEntitySet`
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `CacheBehavior`
+  - updated definition `CustomOriginConfig`
+  - updated definition `DefaultCacheBehavior`
+  - updated definition `DistributionConfig`
+  - updated definition `ForwardedValues`
+  - updated definition `ViewerCertificate`
+  - updated definition `VpcOriginConfig`
+- updated `AWS::CloudFront::Function`
+  - added `createOnlyProperties`
+- updated `AWS::CloudFront::VpcOrigin`
+  - updated definition `VpcOriginEndpointConfig`
+- updated `AWS::ECS::Service`
+  - updated property `AvailabilityZoneRebalancing`
+- updated `AWS::FSx::FileSystem`
+  - added property `NetworkType`
+  - updated definition `OpenZFSConfiguration`
+- updated `AWS::Glue::TableOptimizer`
+  - added definition `IcebergRetentionConfiguration`
+  - updated definition `RetentionConfiguration`

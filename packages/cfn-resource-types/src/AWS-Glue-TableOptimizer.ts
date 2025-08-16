@@ -27,6 +27,15 @@ export type IcebergConfiguration = {
   OrphanFileRetentionPeriodInDays?: number;
 };
 /**
+ * Type definition for `AWS::Glue::TableOptimizer.IcebergRetentionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-icebergretentionconfiguration.html}
+ */
+export type IcebergRetentionConfiguration = {
+  CleanExpiredFiles?: boolean;
+  NumberOfSnapshotsToRetain?: number;
+  SnapshotRetentionPeriodInDays?: number;
+};
+/**
  * Type definition for `AWS::Glue::TableOptimizer.OrphanFileDeletionConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-orphanfiledeletionconfiguration.html}
  */
@@ -38,7 +47,7 @@ export type OrphanFileDeletionConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-retentionconfiguration.html}
  */
 export type RetentionConfiguration = {
-  IcebergConfiguration?: IcebergConfiguration;
+  IcebergConfiguration?: IcebergRetentionConfiguration;
 };
 /**
  * Type definition for `AWS::Glue::TableOptimizer.TableOptimizerConfiguration`.

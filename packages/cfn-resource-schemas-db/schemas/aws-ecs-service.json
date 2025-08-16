@@ -1,5 +1,5 @@
 {
-  "$hash": "86097c9ed70d8eb9139760dde4bdd3f14844aaef",
+  "$hash": "0544e3aa2a744996d11552bd31f2d24af603e4cc",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -654,7 +654,7 @@
   "primaryIdentifier": ["/properties/ServiceArn", "/properties/Cluster"],
   "properties": {
     "AvailabilityZoneRebalancing": {
-      "default": "ENABLED",
+      "default": "DISABLED",
       "description": "Indicates whether to use Availability Zone rebalancing for the service.\n For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.",
       "enum": ["ENABLED", "DISABLED"],
       "type": "string"

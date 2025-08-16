@@ -1,5 +1,5 @@
 {
-  "$hash": "63d06af5c3856cfc2745b957648c3a490eb6fec4",
+  "$hash": "935364ca67e07c371238a8cdb46c9255d1f8e59c",
   "$id": "aws-fsx-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -130,6 +130,7 @@
           "$ref": "#/definitions/DiskIopsConfiguration"
         },
         "EndpointIpAddressRange": { "type": "string" },
+        "EndpointIpv6AddressRange": { "type": "string" },
         "Options": {
           "items": { "type": "string" },
           "type": "array",
@@ -256,6 +257,7 @@
     "KmsKeyId": { "type": "string" },
     "LustreConfiguration": { "$ref": "#/definitions/LustreConfiguration" },
     "LustreMountName": { "type": "string" },
+    "NetworkType": { "type": "string" },
     "OntapConfiguration": { "$ref": "#/definitions/OntapConfiguration" },
     "OpenZFSConfiguration": { "$ref": "#/definitions/OpenZFSConfiguration" },
     "ResourceARN": { "type": "string" },
