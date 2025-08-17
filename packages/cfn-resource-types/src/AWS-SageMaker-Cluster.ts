@@ -98,6 +98,37 @@ export type SageMakerClusterAttributes = {
   }[];
 };
 /**
+ * Type definition for `AWS::SageMaker::Cluster.AlarmDetails`.
+ * The details of the alarm to monitor during the AMI update.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-alarmdetails.html}
+ */
+export type AlarmDetails = {
+  /**
+   * The name of the alarm.
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `(?!\s*$).+`
+   */
+  AlarmName: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.CapacitySizeConfig`.
+ * The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-capacitysizeconfig.html}
+ */
+export type CapacitySizeConfig = {
+  /**
+   * Specifies whether SageMaker should process the update by amount or percentage of instances.
+   * @pattern `INSTANCE_COUNT|CAPACITY_PERCENTAGE`
+   */
+  Type: string;
+  /**
+   * Specifies the amount or percentage of instances SageMaker updates at a time.
+   * @min `1`
+   */
+  Value: number;
+};
+/**
  * Type definition for `AWS::SageMaker::Cluster.ClusterEbsVolumeConfig`.
  * Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html}
@@ -163,6 +194,10 @@ export type ClusterInstanceGroup = {
    * Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
    */
   OverrideVpcConfig?: VpcConfig;
+  /**
+   * The configuration object of the schedule that SageMaker follows when updating the AMI.
+   */
+  ScheduledUpdateConfig?: ScheduledUpdateConfig;
   /**
    * The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
    * @min `1`
@@ -285,6 +320,27 @@ export type ClusterRestrictedInstanceGroup = {
  */
 export type DeepHealthCheckType = "InstanceStress" | "InstanceConnectivity";
 /**
+ * Type definition for `AWS::SageMaker::Cluster.DeploymentConfig`.
+ * The configuration to use when updating the AMI versions.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-deploymentconfig.html}
+ */
+export type DeploymentConfig = {
+  /**
+   * An array that contains the alarms that SageMaker monitors to know whether to roll back the AMI update.
+   */
+  AutoRollbackConfiguration?: AlarmDetails[];
+  /**
+   * The policy that SageMaker uses when updating the AMI versions of the cluster.
+   */
+  RollingUpdatePolicy?: RollingUpdatePolicy;
+  /**
+   * The duration in seconds that SageMaker waits before updating more instances in the cluster.
+   * @min `0`
+   * @max `3600`
+   */
+  WaitIntervalInSeconds?: number;
+};
+/**
  * Type definition for `AWS::SageMaker::Cluster.EnvironmentConfig`.
  * The configuration for the restricted instance groups (RIG) environment.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-environmentconfig.html}
@@ -324,6 +380,39 @@ export type Orchestrator = {
    * Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
    */
   Eks: ClusterOrchestratorEksConfig;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.RollingUpdatePolicy`.
+ * The policy that SageMaker uses when updating the AMI versions of the cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-rollingupdatepolicy.html}
+ */
+export type RollingUpdatePolicy = {
+  /**
+   * The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+   */
+  MaximumBatchSize: CapacitySizeConfig;
+  /**
+   * The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.
+   */
+  RollbackMaximumBatchSize?: CapacitySizeConfig;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.ScheduledUpdateConfig`.
+ * The configuration object of the schedule that SageMaker follows when updating the AMI.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-scheduledupdateconfig.html}
+ */
+export type ScheduledUpdateConfig = {
+  /**
+   * The configuration to use when updating the AMI versions.
+   */
+  DeploymentConfig?: DeploymentConfig;
+  /**
+   * A cron expression that specifies the schedule that SageMaker follows when updating the AMI.
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `cron\((?:[0-5][0-9]|[0-9]|) (?:[01][0-9]|2[0-3]|[0-9]) (?:[1-9]|0[1-9]|[12][0-9]|3[01]|\?) (?:[1-9]|0[1-9]|1[0-2]|\*|\/‍*(?:[1-9]|1[0-2])|) (?:MON|TUE|WED|THU|FRI|SAT|SUN|[1-7]|\?|L|(?:[1-7]#[1-5])|(?:[1-7]L)) (?:20[2-9][0-9]|\*|)\)`
+   */
+  ScheduleExpression: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.Tag`.

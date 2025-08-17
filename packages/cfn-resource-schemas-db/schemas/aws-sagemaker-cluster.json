@@ -1,5 +1,5 @@
 {
-  "$hash": "9275a886f6b671c07adc8354d4210f8e8f647c36",
+  "$hash": "2f2afbeba99a6c8aeb3bda7248a96cf1bd171898",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
@@ -19,6 +19,45 @@
     "/properties/RestrictedInstanceGroups/*/ThreadsPerCore"
   ],
   "definitions": {
+    "AlarmDetails": {
+      "additionalProperties": false,
+      "description": "The details of the alarm to monitor during the AMI update.",
+      "properties": {
+        "AlarmName": {
+          "description": "The name of the alarm.",
+          "maxLength": 256,
+          "minLength": 1,
+          "pattern": "(?!\\s*$).+",
+          "type": "string"
+        }
+      },
+      "required": ["AlarmName"],
+      "type": "object"
+    },
+    "AutoRollbackConfiguration": {
+      "description": "An array that contains the alarms that SageMaker monitors to know whether to roll back the AMI update.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AlarmDetails" },
+      "type": "array"
+    },
+    "CapacitySizeConfig": {
+      "additionalProperties": false,
+      "description": "The configuration of the size measurements of the AMI update. Using this configuration, you can specify whether SageMaker should update your instance group by an amount or percentage of instances.",
+      "properties": {
+        "Type": {
+          "description": "Specifies whether SageMaker should process the update by amount or percentage of instances.",
+          "pattern": "INSTANCE_COUNT|CAPACITY_PERCENTAGE",
+          "type": "string"
+        },
+        "Value": {
+          "description": "Specifies the amount or percentage of instances SageMaker updates at a time.",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": ["Type", "Value"],
+      "type": "object"
+    },
     "ClusterEbsVolumeConfig": {
       "additionalProperties": false,
       "description": "Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.",
@@ -58,6 +97,9 @@
           "$ref": "#/definitions/OnStartDeepHealthChecks"
         },
         "OverrideVpcConfig": { "$ref": "#/definitions/VpcConfig" },
+        "ScheduledUpdateConfig": {
+          "$ref": "#/definitions/ScheduledUpdateConfig"
+        },
         "ThreadsPerCore": {
           "description": "The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.",
           "maximum": 2,
@@ -203,6 +245,23 @@
       "enum": ["InstanceStress", "InstanceConnectivity"],
       "type": "string"
     },
+    "DeploymentConfig": {
+      "additionalProperties": false,
+      "description": "The configuration to use when updating the AMI versions.",
+      "properties": {
+        "AutoRollbackConfiguration": {
+          "$ref": "#/definitions/AutoRollbackConfiguration"
+        },
+        "RollingUpdatePolicy": { "$ref": "#/definitions/RollingUpdatePolicy" },
+        "WaitIntervalInSeconds": {
+          "description": "The duration in seconds that SageMaker waits before updating more instances in the cluster.",
+          "maximum": 3600,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "EnvironmentConfig": {
       "additionalProperties": false,
       "description": "The configuration for the restricted instance groups (RIG) environment.",
@@ -271,6 +330,34 @@
       "required": ["Eks"],
       "type": "object"
     },
+    "RollingUpdatePolicy": {
+      "additionalProperties": false,
+      "description": "The policy that SageMaker uses when updating the AMI versions of the cluster.",
+      "properties": {
+        "MaximumBatchSize": { "$ref": "#/definitions/CapacitySizeConfig" },
+        "RollbackMaximumBatchSize": {
+          "$ref": "#/definitions/CapacitySizeConfig"
+        }
+      },
+      "required": ["MaximumBatchSize"],
+      "type": "object"
+    },
+    "ScheduledUpdateConfig": {
+      "additionalProperties": false,
+      "description": "The configuration object of the schedule that SageMaker follows when updating the AMI.",
+      "properties": {
+        "DeploymentConfig": { "$ref": "#/definitions/DeploymentConfig" },
+        "ScheduleExpression": {
+          "description": "A cron expression that specifies the schedule that SageMaker follows when updating the AMI.",
+          "maxLength": 256,
+          "minLength": 1,
+          "pattern": "cron\\((?:[0-5][0-9]|[0-9]|) (?:[01][0-9]|2[0-3]|[0-9]) (?:[1-9]|0[1-9]|[12][0-9]|3[01]|\\?) (?:[1-9]|0[1-9]|1[0-2]|\\*|\\*/(?:[1-9]|1[0-2])|) (?:MON|TUE|WED|THU|FRI|SAT|SUN|[1-7]|\\?|L|(?:[1-7]#[1-5])|(?:[1-7]L)) (?:20[2-9][0-9]|\\*|)\\)",
+          "type": "string"
+        }
+      },
+      "required": ["ScheduleExpression"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
@@ -332,6 +419,7 @@
       "permissions": [
         "sagemaker:CreateCluster",
         "sagemaker:DescribeCluster",
+        "sagemaker:UpdateClusterSoftware",
         "sagemaker:AddTags",
         "sagemaker:ListTags",
         "sagemaker:BatchAddClusterNodes",

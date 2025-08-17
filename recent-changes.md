@@ -1,22 +1,13 @@
-- added `AWS::GuardDuty::ThreatEntitySet`
-- added `AWS::GuardDuty::TrustedEntitySet`
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `CacheBehavior`
-  - updated definition `CustomOriginConfig`
-  - updated definition `DefaultCacheBehavior`
-  - updated definition `DistributionConfig`
-  - updated definition `ForwardedValues`
-  - updated definition `ViewerCertificate`
-  - updated definition `VpcOriginConfig`
-- updated `AWS::CloudFront::Function`
-  - added `createOnlyProperties`
-- updated `AWS::CloudFront::VpcOrigin`
-  - updated definition `VpcOriginEndpointConfig`
-- updated `AWS::ECS::Service`
-  - updated property `AvailabilityZoneRebalancing`
-- updated `AWS::FSx::FileSystem`
-  - added property `NetworkType`
-  - updated definition `OpenZFSConfiguration`
-- updated `AWS::Glue::TableOptimizer`
-  - added definition `IcebergRetentionConfiguration`
-  - updated definition `RetentionConfiguration`
+- added `AWS::APS::ResourcePolicy`
+- updated `AWS::EKS::Addon`
+  - added property `NamespaceConfig`
+  - updated `createOnlyProperties`
+- updated `AWS::SageMaker::Cluster`
+  - added definition `AlarmDetails`
+  - added definition `AutoRollbackConfiguration`
+  - added definition `CapacitySizeConfig`
+  - added definition `DeploymentConfig`
+  - added definition `RollingUpdatePolicy`
+  - added definition `ScheduledUpdateConfig`
+  - updated definition `ClusterInstanceGroup`
+  - updated handler permissions

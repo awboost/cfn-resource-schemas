@@ -26,6 +26,15 @@ export type EKSAddonProperties = {
    */
   ConfigurationValues?: string;
   /**
+   * The custom namespace configuration to use with the add-on
+   */
+  NamespaceConfig?: {
+    /**
+     * The custom namespace for creating the add-on
+     */
+    Namespace: string;
+  };
+  /**
    * An array of pod identities to apply to this add-on.
    */
   PodIdentityAssociations?: PodIdentityAssociation[];
