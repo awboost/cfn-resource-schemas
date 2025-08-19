@@ -1,5 +1,5 @@
 {
-  "$hash": "ed92730203bf32043d5a6b72ca3520319885eb1a",
+  "$hash": "4a364398ef0b21de5defe4a18450b6eab201728a",
   "$id": "aws-greengrassv2-componentversion.json",
   "additionalIdentifiers": [
     ["/properties/ComponentName", "/properties/ComponentVersion"]
@@ -213,6 +213,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-greengrassv2",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "greengrass:TagResource",
+      "greengrass:UntagResource",
+      "greengrass:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -1,5 +1,5 @@
 {
-  "$hash": "6fd68bcbd147fa7341c008a7be41b76807833171",
+  "$hash": "9396b5ee55859b8d638fc595f60f55ab491fe882",
   "$id": "aws-billing-billingview.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,7 +9,7 @@
   ],
   "definitions": {
     "Arn": {
-      "pattern": "arn:aws[a-z-]*:(billing)::[0-9]{12}:billingview/[a-zA-Z0-9_+=.@-]{1,75}",
+      "pattern": "arn:aws[a-z-]*:(billing)::[0-9]{12}:billingview/[a-zA-Z0-9/:_\\+=\\.\\-@]{0,75}[a-zA-Z0-9]",
       "type": "string"
     },
     "BillingViewType": {

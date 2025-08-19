@@ -1,13 +1,18 @@
-- added `AWS::APS::ResourcePolicy`
-- updated `AWS::EKS::Addon`
-  - added property `NamespaceConfig`
-  - updated `createOnlyProperties`
-- updated `AWS::SageMaker::Cluster`
-  - added definition `AlarmDetails`
-  - added definition `AutoRollbackConfiguration`
-  - added definition `CapacitySizeConfig`
-  - added definition `DeploymentConfig`
-  - added definition `RollingUpdatePolicy`
-  - added definition `ScheduledUpdateConfig`
-  - updated definition `ClusterInstanceGroup`
-  - updated handler permissions
+- updated `AWS::Billing::BillingView`
+  - updated definition `Arn`
+- updated `AWS::Connect::PredefinedAttribute`
+  - updated `required`
+  - updated definition `StringList`
+  - updated definition `Value`
+  - updated property `Name`
+- updated `AWS::Deadline::Fleet`
+  - added property `StatusMessage`
+  - updated `readOnlyProperties`
+  - updated definition `Ec2MarketType`
+  - updated definition `FleetStatus`
+- updated `AWS::GreengrassV2::ComponentVersion`
+  - updated `tagging`
+- updated `AWS::GreengrassV2::Deployment`
+  - updated `tagging`
+- updated `AWS::Lambda::Alias`
+  - updated `propertyTransform`

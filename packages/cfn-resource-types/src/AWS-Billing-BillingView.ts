@@ -54,7 +54,7 @@ export type BillingBillingViewProperties = {
  */
 export type BillingBillingViewAttributes = {
   /**
-   * @pattern `arn:aws[a-z-]*:(billing)::[0-9]{12}:billingview/[a-zA-Z0-9_+=.@-]{1,75}`
+   * @pattern `arn:aws[a-z-]*:(billing)::[0-9]{12}:billingview/[a-zA-Z0-9/:_\+=\.\-@]{0,75}[a-zA-Z0-9]`
    */
   Arn: string;
   BillingViewType: BillingViewType;

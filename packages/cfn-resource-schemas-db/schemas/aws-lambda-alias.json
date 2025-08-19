@@ -1,5 +1,5 @@
 {
-  "$hash": "5328f7341b49e3b5bae198ba53fc97ee9cfaa006",
+  "$hash": "0659757662a1ce1acd8722724f7b989f77aa5766",
   "$id": "aws-lambda-alias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/FunctionName"],
@@ -120,7 +120,7 @@
     }
   },
   "propertyTransform": {
-    "/properties/FunctionName": "$split(FunctionName, \":\")[-1] $OR FunctionName"
+    "/properties/FunctionName": "$split(FunctionName, \":\")[-1] $OR FunctionName $OR $join([\"((arn:.*:lambda:.*:[0-9]{12}:function)|([0-9]{12}:function)):\", $split(FunctionName, \":\")[-1]])"
   },
   "readOnlyProperties": ["/properties/AliasArn"],
   "required": ["FunctionName", "FunctionVersion", "Name"],

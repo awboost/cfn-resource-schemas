@@ -1,5 +1,5 @@
 {
-  "$hash": "5e608061b3139dc22938042d67ce6df85ddd1fe5",
+  "$hash": "ffbe3ce9add55de71d97153ae0ff03ddbd84b4c3",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -122,7 +122,10 @@
       },
       "type": "object"
     },
-    "Ec2MarketType": { "enum": ["on-demand", "spot"], "type": "string" },
+    "Ec2MarketType": {
+      "enum": ["on-demand", "spot", "wait-and-save"],
+      "type": "string"
+    },
     "FleetAmountCapability": {
       "additionalProperties": false,
       "properties": {
@@ -212,7 +215,8 @@
         "CREATE_IN_PROGRESS",
         "UPDATE_IN_PROGRESS",
         "CREATE_FAILED",
-        "UPDATE_FAILED"
+        "UPDATE_FAILED",
+        "SUSPENDED"
       ],
       "type": "string"
     },
@@ -457,6 +461,7 @@
       "type": "string"
     },
     "Status": { "$ref": "#/definitions/FleetStatus" },
+    "StatusMessage": { "type": "string" },
     "Tags": {
       "description": "An array of key-value pairs to apply to this resource.",
       "insertionOrder": false,
@@ -471,6 +476,7 @@
     "/properties/Capabilities",
     "/properties/FleetId",
     "/properties/Status",
+    "/properties/StatusMessage",
     "/properties/WorkerCount",
     "/properties/Arn"
   ],

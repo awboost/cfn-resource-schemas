@@ -88,6 +88,7 @@ export type DeadlineFleetAttributes = {
    */
   FleetId: string;
   Status: FleetStatus;
+  StatusMessage: string;
   WorkerCount: number;
 };
 /**
@@ -225,7 +226,7 @@ export type Ec2EbsVolume = {
  * Type definition for `AWS::Deadline::Fleet.Ec2MarketType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-ec2markettype.html}
  */
-export type Ec2MarketType = "on-demand" | "spot";
+export type Ec2MarketType = "on-demand" | "spot" | "wait-and-save";
 /**
  * Type definition for `AWS::Deadline::Fleet.FleetAmountCapability`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-fleetamountcapability.html}
@@ -293,7 +294,8 @@ export type FleetStatus =
   | "CREATE_IN_PROGRESS"
   | "UPDATE_IN_PROGRESS"
   | "CREATE_FAILED"
-  | "UPDATE_FAILED";
+  | "UPDATE_FAILED"
+  | "SUSPENDED";
 /**
  * Type definition for `AWS::Deadline::Fleet.HostConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-hostconfiguration.html}

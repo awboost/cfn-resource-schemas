@@ -13,17 +13,17 @@ export type ConnectPredefinedAttributeProperties = {
   /**
    * The name of the predefined attribute.
    * @minLength `1`
-   * @maxLength `64`
+   * @maxLength `100`
    */
   Name: string;
   /**
    * The values of a predefined attribute.
    */
-  Values: {
+  Values?: {
     /**
      * Predefined attribute values of type string list.
      * @minLength `1`
-     * @maxLength `128`
+     * @maxLength `500`
      */
     StringList?: string[];
   };
