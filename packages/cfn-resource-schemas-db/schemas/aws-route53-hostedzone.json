@@ -1,5 +1,5 @@
 {
-  "$hash": "089a5c5e173156e1e35c372cbdbda9a9fe07d4b9",
+  "$hash": "24215714f054e56f780d9c14c9b8faebcd141480",
   "$id": "aws-route53-hostedzone.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -151,7 +151,9 @@
       "uniqueItems": true
     }
   },
-  "propertyTransform": { "/properties/Name": "Name $OR $join([Name, \".\"])" },
+  "propertyTransform": {
+    "/properties/Name": "Name $OR $join([Name, \".\"]) $OR $lowercase(Name) $OR $lowercase($join([Name, \".\"]))"
+  },
   "readOnlyProperties": ["/properties/Id", "/properties/NameServers"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53.git",
   "tagging": {

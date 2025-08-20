@@ -1,5 +1,5 @@
 {
-  "$hash": "3a0caa69b68e8a5193508cde7807955fcecdb05e",
+  "$hash": "23b07a6d7fd826a7a00b517a84421450789c862b",
   "$id": "aws-frauddetector-entitytype.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -92,5 +92,17 @@
   ],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "frauddetector:ListTagsForResource",
+      "frauddetector:TagResource",
+      "frauddetector:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::FraudDetector::EntityType"
 }

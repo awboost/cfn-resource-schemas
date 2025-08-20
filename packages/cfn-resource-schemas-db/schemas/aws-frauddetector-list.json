@@ -1,5 +1,5 @@
 {
-  "$hash": "341ce93f9d625148e3b781e16ad946c3384fce60",
+  "$hash": "6642a7e419259c0acb1164b914e187d23c901d89",
   "$id": "aws-frauddetector-list.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -132,6 +132,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "frauddetector:ListTagsForResource",
+      "frauddetector:TagResource",
+      "frauddetector:UntagResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

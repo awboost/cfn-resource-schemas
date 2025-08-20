@@ -1,5 +1,5 @@
 {
-  "$hash": "d20b238f8420508ad9c766db29296191b89556a0",
+  "$hash": "330f5f6fcf0c780b6b2cb762354baee1e99f21fa",
   "$id": "aws-kinesisanalyticsv2-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -32,6 +32,10 @@
           "$ref": "#/definitions/ApplicationCodeConfiguration",
           "description": "The code location and type parameters for a Flink-based Kinesis Data Analytics application."
         },
+        "ApplicationEncryptionConfiguration": {
+          "$ref": "#/definitions/ApplicationEncryptionConfiguration",
+          "description": "Describes whether customer managed key is enabled and key details for customer data encryption"
+        },
         "ApplicationSnapshotConfiguration": {
           "$ref": "#/definitions/ApplicationSnapshotConfiguration",
           "description": "Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application."
@@ -61,6 +65,26 @@
           "description": "The configuration parameters for a Kinesis Data Analytics Studio notebook."
         }
       },
+      "type": "object"
+    },
+    "ApplicationEncryptionConfiguration": {
+      "additionalProperties": false,
+      "description": "Describes whether customer managed key is enabled and key details for customer data encryption",
+      "properties": {
+        "KeyId": {
+          "description": "KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias",
+          "maxLength": 2048,
+          "minLength": 1,
+          "pattern": "^(?:arn:.*:kms:.*:.*:(?:key\\/.*|alias\\/.*)|alias\\/.*|(?i)[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$",
+          "type": "string"
+        },
+        "KeyType": {
+          "description": "Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY",
+          "enum": ["AWS_OWNED_KEY", "CUSTOMER_MANAGED_KEY"],
+          "type": "string"
+        }
+      },
+      "required": ["KeyType"],
       "type": "object"
     },
     "ApplicationMaintenanceConfiguration": {
@@ -788,7 +812,11 @@
         "kinesisanalytics:CreateApplication",
         "kinesisanalytics:DescribeApplication",
         "kinesisanalytics:ListTagsForResource",
-        "kinesisanalytics:UpdateApplicationMaintenanceConfiguration"
+        "kinesisanalytics:UpdateApplicationMaintenanceConfiguration",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext"
       ]
     },
     "delete": {
@@ -801,7 +829,8 @@
     "read": {
       "permissions": [
         "kinesisanalytics:DescribeApplication",
-        "kinesisanalytics:ListTagsForResource"
+        "kinesisanalytics:ListTagsForResource",
+        "kms:DescribeKey"
       ]
     },
     "update": {
@@ -813,7 +842,12 @@
         "kinesisanalytics:AddApplicationVpcConfiguration",
         "kinesisanalytics:DeleteApplicationVpcConfiguration",
         "kinesisanalytics:UpdateApplicationMaintenanceConfiguration",
-        "kinesisanalytics:ListTagsForResource"
+        "kinesisanalytics:ListTagsForResource",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext"
       ]
     }
   },
@@ -868,15 +902,13 @@
       "uniqueItems": false
     }
   },
+  "propertyTransform": {
+    "/properties/ApplicationConfiguration/ApplicationEncryptionConfiguration/KeyId": "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\""
+  },
   "required": ["RuntimeEnvironment", "ServiceExecutionRole"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-kinesisanalyticsv2.git",
   "tagging": {
     "cloudFormationSystemTags": true,
-    "permissions": [
-      "kinesisanalytics:TagResource",
-      "kinesisanalytics:UntagResource",
-      "kinesisanalytics:ListTagsForResource"
-    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

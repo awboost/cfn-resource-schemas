@@ -1,5 +1,5 @@
 {
-  "$hash": "3b40c9abd8a69cc5d84aa2af7bc9bf911e3ae3db",
+  "$hash": "3f636ae32a71172e51d6277081b2d5eec5ccbdbb",
   "$id": "aws-dms-datamigration.json",
   "additionalIdentifiers": [["/properties/DataMigrationName"]],
   "additionalProperties": false,
@@ -8,7 +8,7 @@
       "additionalProperties": false,
       "properties": {
         "CloudwatchLogsEnabled": {
-          "description": "The property specifies whether to enable the Cloudwatch log.",
+          "description": "The property specifies whether to enable the CloudWatch log.",
           "type": "boolean"
         },
         "NumberOfJobs": {

@@ -1,18 +1,44 @@
-- updated `AWS::Billing::BillingView`
-  - updated definition `Arn`
-- updated `AWS::Connect::PredefinedAttribute`
+- updated `AWS::CodePipeline::Webhook`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
   - updated `required`
-  - updated definition `StringList`
-  - updated definition `Value`
+  - updated definition `WebhookAuthConfiguration`
+  - updated definition `WebhookFilterRule`
+  - updated handler permissions
+  - updated property `AuthenticationConfiguration`
+  - updated property `Authentication`
+  - updated property `Filters`
+  - updated property `Id`
   - updated property `Name`
-- updated `AWS::Deadline::Fleet`
-  - added property `StatusMessage`
-  - updated `readOnlyProperties`
-  - updated definition `Ec2MarketType`
-  - updated definition `FleetStatus`
-- updated `AWS::GreengrassV2::ComponentVersion`
+  - updated property `RegisterWithThirdParty`
+  - updated property `TargetAction`
+  - updated property `TargetPipelineVersion`
+  - updated property `TargetPipeline`
+  - updated property `Url`
+- updated `AWS::DMS::DataMigration`
+  - updated definition `DataMigrationSettings`
+- updated `AWS::Events::Rule`
+  - added property `Tags`
   - updated `tagging`
-- updated `AWS::GreengrassV2::Deployment`
+  - updated handler permissions
+- updated `AWS::FraudDetector::EntityType`
+  - added `tagging`
+- updated `AWS::FraudDetector::Label`
+  - added `tagging`
+- updated `AWS::FraudDetector::List`
   - updated `tagging`
-- updated `AWS::Lambda::Alias`
+- updated `AWS::FraudDetector::Outcome`
+  - added `tagging`
+- updated `AWS::FraudDetector::Variable`
+  - added `tagging`
+- updated `AWS::KinesisAnalyticsV2::Application`
+  - added `propertyTransform`
+  - added definition `ApplicationEncryptionConfiguration`
+  - updated `tagging`
+  - updated definition `ApplicationConfiguration`
+  - updated handler permissions
+- updated `AWS::Route53::HostedZone`
   - updated `propertyTransform`
+- updated `AWS::VpcLattice::ResourceGateway`
+  - added property `Ipv4AddressesPerEni`

@@ -37,6 +37,10 @@ export type EventsRuleProperties = {
     | "ENABLED"
     | "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS";
   /**
+   * Any tags assigned to the event rule.
+   */
+  Tags?: Tag[];
+  /**
      * Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
     Targets are the resources that are invoked when a rule is triggered.
      */

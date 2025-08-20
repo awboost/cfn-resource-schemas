@@ -1,5 +1,5 @@
 {
-  "$hash": "4f3db885ccd7b735d2fd8b72bd49bb045348da43",
+  "$hash": "ee29aabecf9c7f276346412193a189874be05df6",
   "$id": "aws-frauddetector-label.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -89,5 +89,17 @@
   ],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "frauddetector:ListTagsForResource",
+      "frauddetector:TagResource",
+      "frauddetector:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::FraudDetector::Label"
 }

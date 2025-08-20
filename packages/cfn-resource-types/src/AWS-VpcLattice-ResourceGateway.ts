@@ -8,6 +8,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type VpcLatticeResourceGatewayProperties = {
   IpAddressType?: "IPV4" | "IPV6" | "DUALSTACK";
   /**
+   * The number of IPv4 addresses to allocate per ENI for the resource gateway
+   */
+  Ipv4AddressesPerEni?: number;
+  /**
    * @minLength `3`
    * @maxLength `40`
    * @pattern `^(?!rgw-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`

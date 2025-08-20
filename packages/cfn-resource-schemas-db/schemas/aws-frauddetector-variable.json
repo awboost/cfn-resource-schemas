@@ -1,5 +1,5 @@
 {
-  "$hash": "0f26142065559e2031c483d2f51ea9a75b5abb02",
+  "$hash": "d8c9ad241c39f5a6d4d3af3da9d9c4e5c69e87f8",
   "$id": "aws-frauddetector-variable.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -143,5 +143,17 @@
   ],
   "required": ["DataType", "DataSource", "DefaultValue", "Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "frauddetector:ListTagsForResource",
+      "frauddetector:TagResource",
+      "frauddetector:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::FraudDetector::Variable"
 }

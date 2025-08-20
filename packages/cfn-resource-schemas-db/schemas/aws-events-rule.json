@@ -1,5 +1,5 @@
 {
-  "$hash": "9bf02bd6e57162c171626d406e8fbe829a3e7bc8",
+  "$hash": "97259d9f51460ab42b266716af68783694769226",
   "$id": "aws-events-rule.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/EventBusName"],
@@ -301,7 +301,8 @@
         "iam:PassRole",
         "events:DescribeRule",
         "events:PutRule",
-        "events:PutTargets"
+        "events:PutTargets",
+        "events:TagResource"
       ]
     },
     "delete": {
@@ -318,7 +319,8 @@
       "permissions": [
         "iam:PassRole",
         "events:DescribeRule",
-        "events:ListTargetsByRule"
+        "events:ListTargetsByRule",
+        "events:ListTagsForResource"
       ]
     },
     "update": {
@@ -327,7 +329,9 @@
         "events:DescribeRule",
         "events:PutRule",
         "events:RemoveTargets",
-        "events:PutTargets"
+        "events:PutTargets",
+        "events:UntagResource",
+        "events:TagResource"
       ]
     }
   },
@@ -367,6 +371,13 @@
       ],
       "type": "string"
     },
+    "Tags": {
+      "description": "Any tags assigned to the event rule.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "Targets": {
       "description": "Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.\nTargets are the resources that are invoked when a rule is triggered.",
       "insertionOrder": false,
@@ -376,6 +387,17 @@
     }
   },
   "readOnlyProperties": ["/properties/Arn"],
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "events:UntagResource",
+      "events:TagResource",
+      "events:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Events::Rule"
 }

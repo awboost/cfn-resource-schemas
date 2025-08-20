@@ -70,7 +70,7 @@ export type DMSDataMigrationAttributes = {
  */
 export type DataMigrationSettings = {
   /**
-   * The property specifies whether to enable the Cloudwatch log.
+   * The property specifies whether to enable the CloudWatch log.
    */
   CloudwatchLogsEnabled?: boolean;
   /**

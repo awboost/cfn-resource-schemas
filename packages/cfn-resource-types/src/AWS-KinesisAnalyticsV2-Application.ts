@@ -79,6 +79,10 @@ export type ApplicationConfiguration = {
    */
   ApplicationCodeConfiguration?: ApplicationCodeConfiguration;
   /**
+   * Describes whether customer managed key is enabled and key details for customer data encryption
+   */
+  ApplicationEncryptionConfiguration?: ApplicationEncryptionConfiguration;
+  /**
    * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
    */
   ApplicationSnapshotConfiguration?: ApplicationSnapshotConfiguration;
@@ -107,6 +111,24 @@ export type ApplicationConfiguration = {
    * The configuration parameters for a Kinesis Data Analytics Studio notebook.
    */
   ZeppelinApplicationConfiguration?: ZeppelinApplicationConfiguration;
+};
+/**
+ * Type definition for `AWS::KinesisAnalyticsV2::Application.ApplicationEncryptionConfiguration`.
+ * Describes whether customer managed key is enabled and key details for customer data encryption
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationencryptionconfiguration.html}
+ */
+export type ApplicationEncryptionConfiguration = {
+  /**
+   * KMS KeyId. Can be either key uuid or full key arn or key alias arn or short key alias
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^(?:arn:.*:kms:.*:.*:(?:key\/.*|alias\/.*)|alias\/.*|(?i)[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$`
+   */
+  KeyId?: string;
+  /**
+   * Specifies whether application data is encrypted using service key: AWS_OWNED_KEY or customer key: CUSTOMER_MANAGED_KEY
+   */
+  KeyType: "AWS_OWNED_KEY" | "CUSTOMER_MANAGED_KEY";
 };
 /**
  * Type definition for `AWS::KinesisAnalyticsV2::Application.ApplicationMaintenanceConfiguration`.
