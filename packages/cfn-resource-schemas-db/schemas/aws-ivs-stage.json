@@ -1,5 +1,5 @@
 {
-  "$hash": "bf52f55c50abbfa263c549d9de8466c438b1c09c",
+  "$hash": "4b1fa975807bfeeda246fafec6316594f8442915",
   "$id": "aws-ivs-stage.json",
   "additionalProperties": false,
   "definitions": {
@@ -118,7 +118,7 @@
       "type": "object"
     }
   },
-  "description": "Resource Definition for type AWS::IVS::Stage.",
+  "description": "Resource Type definition for AWS::IVS::Stage.",
   "handlers": {
     "create": {
       "permissions": [
@@ -144,7 +144,6 @@
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
     "ActiveSessionId": {
-      "default": "",
       "description": "ID of the active session within the stage.",
       "maxLength": 128,
       "minLength": 0,

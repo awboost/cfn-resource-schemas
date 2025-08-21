@@ -12,6 +12,7 @@ export type EntityResolutionIdMappingWorkflowProperties = {
    * @maxLength `255`
    */
   Description?: string;
+  IdMappingIncrementalRunConfig?: IdMappingIncrementalRunConfig;
   IdMappingTechniques: IdMappingTechniques;
   /**
    * @minLength `1`
@@ -58,6 +59,13 @@ export type EntityResolutionIdMappingWorkflowAttributes = {
    * @pattern `^arn:(aws|aws-us-gov|aws-cn):entityresolution:.*:[0-9]+:(idmappingworkflow/.*)$`
    */
   WorkflowArn: string;
+};
+/**
+ * Type definition for `AWS::EntityResolution::IdMappingWorkflow.IdMappingIncrementalRunConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingincrementalrunconfig.html}
+ */
+export type IdMappingIncrementalRunConfig = {
+  IncrementalRunType: "ON_DEMAND";
 };
 /**
  * Type definition for `AWS::EntityResolution::IdMappingWorkflow.IdMappingRuleBasedProperties`.

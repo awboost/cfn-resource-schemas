@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Definition for type AWS::IVS::Stage.
+ * Resource Type definition for AWS::IVS::Stage.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html}
  */
 export type IVSStageProperties = {
@@ -128,7 +128,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource Definition for type AWS::IVS::Stage.
+ * Resource Type definition for AWS::IVS::Stage.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html}
  */
 export class IVSStage extends $Resource<

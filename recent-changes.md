@@ -1,44 +1,15 @@
-- updated `AWS::CodePipeline::Webhook`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - updated `required`
-  - updated definition `WebhookAuthConfiguration`
-  - updated definition `WebhookFilterRule`
+- updated `AWS::EntityResolution::IdMappingWorkflow`
+  - added definition `IdMappingIncrementalRunConfig`
+  - added property `IdMappingIncrementalRunConfig`
+- updated `AWS::IVS::Stage`
+  - updated property `ActiveSessionId`
+- updated `AWS::Kendra::Index`
+  - updated definition `DocumentMetadataConfigurationList`
+  - updated definition `TagList`
+  - updated definition `UserTokenConfigurationList`
+  - updated definition `ValueImportanceItems`
   - updated handler permissions
-  - updated property `AuthenticationConfiguration`
-  - updated property `Authentication`
-  - updated property `Filters`
-  - updated property `Id`
-  - updated property `Name`
-  - updated property `RegisterWithThirdParty`
-  - updated property `TargetAction`
-  - updated property `TargetPipelineVersion`
-  - updated property `TargetPipeline`
-  - updated property `Url`
-- updated `AWS::DMS::DataMigration`
-  - updated definition `DataMigrationSettings`
-- updated `AWS::Events::Rule`
-  - added property `Tags`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::FraudDetector::EntityType`
-  - added `tagging`
-- updated `AWS::FraudDetector::Label`
-  - added `tagging`
-- updated `AWS::FraudDetector::List`
-  - updated `tagging`
-- updated `AWS::FraudDetector::Outcome`
-  - added `tagging`
-- updated `AWS::FraudDetector::Variable`
-  - added `tagging`
-- updated `AWS::KinesisAnalyticsV2::Application`
-  - added `propertyTransform`
-  - added definition `ApplicationEncryptionConfiguration`
-  - updated `tagging`
-  - updated definition `ApplicationConfiguration`
-  - updated handler permissions
-- updated `AWS::Route53::HostedZone`
-  - updated `propertyTransform`
-- updated `AWS::VpcLattice::ResourceGateway`
-  - added property `Ipv4AddressesPerEni`
+- updated `AWS::Lambda::EventInvokeConfig`
+  - updated definition `OnFailure`
+  - updated definition `OnSuccess`
+  - updated property `FunctionName`
