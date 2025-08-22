@@ -70,6 +70,11 @@ export type EdiType = {
   X12Details: X12Details;
 };
 /**
+ * Type definition for `AWS::B2BI::Transformer.ElementRequirement`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-elementrequirement.html}
+ */
+export type ElementRequirement = "OPTIONAL" | "MANDATORY";
+/**
  * Type definition for `AWS::B2BI::Transformer.FileFormat`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-fileformat.html}
  */
@@ -117,6 +122,7 @@ export type MappingTemplateLanguage = "XSLT" | "JSONATA";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html}
  */
 export type OutputConversion = {
+  AdvancedOptions?: AdvancedOptions;
   FormatOptions?: FormatOptions;
   ToFormat: ToFormat;
 };
@@ -180,6 +186,21 @@ export type TransformerStatus = "active" | "inactive";
  */
 export type X12AdvancedOptions = {
   SplitOptions?: X12SplitOptions;
+  ValidationOptions?: X12ValidationOptions;
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.X12CodeListValidationRule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12codelistvalidationrule.html}
+ */
+export type X12CodeListValidationRule = {
+  CodesToAdd?: string[];
+  CodesToRemove?: string[];
+  /**
+   * @minLength `4`
+   * @maxLength `4`
+   * @pattern `^[0-9]{4}$`
+   */
+  ElementId: string;
 };
 /**
  * Type definition for `AWS::B2BI::Transformer.X12Details`.
@@ -188,6 +209,39 @@ export type X12AdvancedOptions = {
 export type X12Details = {
   TransactionSet?: X12TransactionSet;
   Version?: X12Version;
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.X12ElementLengthValidationRule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12elementlengthvalidationrule.html}
+ */
+export type X12ElementLengthValidationRule = {
+  /**
+   * @minLength `4`
+   * @maxLength `4`
+   * @pattern `^[0-9]{4}$`
+   */
+  ElementId: string;
+  /**
+   * @min `1`
+   * @max `1000000`
+   */
+  MaxLength: number;
+  /**
+   * @min `1`
+   * @max `1000000`
+   */
+  MinLength: number;
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.X12ElementRequirementValidationRule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12elementrequirementvalidationrule.html}
+ */
+export type X12ElementRequirementValidationRule = {
+  /**
+   * @pattern `^[a-zA-Z0-9]+(?:-\d{2})(?:-\d{2})?$`
+   */
+  ElementPosition: string;
+  Requirement: ElementRequirement;
 };
 /**
  * Type definition for `AWS::B2BI::Transformer.X12SplitBy`.
@@ -548,6 +602,27 @@ export type X12TransactionSet =
   | "X12_837_X292"
   | "X12_837_X298"
   | "X12_999_X231";
+/**
+ * Type definition for `AWS::B2BI::Transformer.X12ValidationOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12validationoptions.html}
+ */
+export type X12ValidationOptions = {
+  ValidationRules?: X12ValidationRule[];
+};
+/**
+ * Type definition for `AWS::B2BI::Transformer.X12ValidationRule`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12validationrule.html}
+ */
+export type X12ValidationRule =
+  | {
+      CodeListValidationRule: X12CodeListValidationRule;
+    }
+  | {
+      ElementLengthValidationRule: X12ElementLengthValidationRule;
+    }
+  | {
+      ElementRequirementValidationRule: X12ElementRequirementValidationRule;
+    };
 /**
  * Type definition for `AWS::B2BI::Transformer.X12Version`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-x12version.html}

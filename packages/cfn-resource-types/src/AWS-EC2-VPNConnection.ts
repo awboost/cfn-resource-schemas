@@ -34,6 +34,7 @@ export type EC2VPNConnectionProperties = {
      Default: ``PublicIpv4``
      */
   OutsideIpAddressType?: string;
+  PreSharedKeyStorage?: "Standard" | "SecretsManager";
   /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      Default: ``0.0.0.0/0``

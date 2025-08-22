@@ -1,15 +1,16 @@
-- updated `AWS::EntityResolution::IdMappingWorkflow`
-  - added definition `IdMappingIncrementalRunConfig`
-  - added property `IdMappingIncrementalRunConfig`
-- updated `AWS::IVS::Stage`
-  - updated property `ActiveSessionId`
-- updated `AWS::Kendra::Index`
-  - updated definition `DocumentMetadataConfigurationList`
-  - updated definition `TagList`
-  - updated definition `UserTokenConfigurationList`
-  - updated definition `ValueImportanceItems`
-  - updated handler permissions
-- updated `AWS::Lambda::EventInvokeConfig`
-  - updated definition `OnFailure`
-  - updated definition `OnSuccess`
-  - updated property `FunctionName`
+- updated `AWS::B2BI::Transformer`
+  - added definition `ElementRequirement`
+  - added definition `X12CodeListValidationRule`
+  - added definition `X12ElementLengthValidationRule`
+  - added definition `X12ElementRequirementValidationRule`
+  - added definition `X12ValidationOptions`
+  - added definition `X12ValidationRule`
+  - updated definition `OutputConversion`
+  - updated definition `X12AdvancedOptions`
+- updated `AWS::EC2::VPNConnection`
+  - added property `PreSharedKeyStorage`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::Route53::HealthCheck`
+  - added `tagging`
+  - removed `taggable`

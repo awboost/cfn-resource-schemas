@@ -1,5 +1,5 @@
 {
-  "$hash": "9f5f9964a1120e51acbf6daf8f1665f5e121566d",
+  "$hash": "218d2ccad2aaea85cdc8c29a3f4cbee05996c399",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -17,6 +17,7 @@
     "/properties/StaticRoutesOnly",
     "/properties/TransportTransitGatewayAttachmentId",
     "/properties/TunnelInsideIpVersion",
+    "/properties/PreSharedKeyStorage",
     "/properties/VpnTunnelOptionsSpecifications"
   ],
   "definitions": {
@@ -322,6 +323,11 @@
       "description": "The type of IP address assigned to the outside interface of the customer gateway device.\n Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``\n Default: ``PublicIpv4``",
       "type": "string"
     },
+    "PreSharedKeyStorage": {
+      "description": "",
+      "enum": ["Standard", "SecretsManager"],
+      "type": "string"
+    },
     "RemoteIpv4NetworkCidr": {
       "description": "The IPv4 CIDR on the AWS side of the VPN connection.\n Default: ``0.0.0.0/0``",
       "type": "string"
@@ -380,6 +386,7 @@
   },
   "typeName": "AWS::EC2::VPNConnection",
   "writeOnlyProperties": [
+    "/properties/PreSharedKeyStorage",
     "/properties/VpnTunnelOptionsSpecifications/*/PreSharedKey"
   ]
 }
