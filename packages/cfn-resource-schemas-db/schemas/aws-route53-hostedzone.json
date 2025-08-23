@@ -1,5 +1,5 @@
 {
-  "$hash": "24215714f054e56f780d9c14c9b8faebcd141480",
+  "$hash": "c9b3b8571c5e53b5d421bc3b30185b33ce75876b",
   "$id": "aws-route53-hostedzone.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -162,7 +162,7 @@
       "route53:ChangeTagsForResource",
       "route53:ListTagsForResource"
     ],
-    "tagOnCreate": true,
+    "tagOnCreate": false,
     "tagProperty": "/properties/HostedZoneTags",
     "tagUpdatable": true,
     "taggable": true

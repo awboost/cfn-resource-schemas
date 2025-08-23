@@ -43,11 +43,11 @@ export type EC2InstanceProperties = {
    */
   EbsOptimized?: boolean;
   /**
-   * An elastic GPU to associate with the instance.
+   * An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.
    */
   ElasticGpuSpecifications?: ElasticGpuSpecification[];
   /**
-   * An elastic inference accelerator to associate with the instance.
+   * An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.
    */
   ElasticInferenceAccelerators?: ElasticInferenceAccelerator[];
   /**

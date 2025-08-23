@@ -1,5 +1,5 @@
 {
-  "$hash": "65b55a13f2bd84ee47110e1a3128fc5f3b069ca7",
+  "$hash": "75bea755803b92ccdcbaedbbf06b229ad8465ee4",
   "$id": "aws-ec2-instance.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -12,10 +12,10 @@
     "/properties/KernelId",
     "/properties/PrivateDnsNameOptions",
     "/properties/RamdiskId",
-    "/properties/SecurityGroupIds",
     "/properties/Tenancy",
     "/properties/UserData",
-    "/properties/BlockDeviceMappings"
+    "/properties/BlockDeviceMappings",
+    "/properties/SecurityGroupIds"
   ],
   "createOnlyProperties": [
     "/properties/AvailabilityZone",
@@ -532,14 +532,14 @@
       "type": "boolean"
     },
     "ElasticGpuSpecifications": {
-      "description": "An elastic GPU to associate with the instance.",
+      "description": "An elastic GPU to associate with the instance. Amazon Elastic Graphics is no longer available.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/ElasticGpuSpecification" },
       "type": "array",
       "uniqueItems": false
     },
     "ElasticInferenceAccelerators": {
-      "description": "An elastic inference accelerator to associate with the instance.",
+      "description": "An elastic inference accelerator to associate with the instance. Amazon Elastic Inference is no longer available.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/ElasticInferenceAccelerator" },
       "type": "array",

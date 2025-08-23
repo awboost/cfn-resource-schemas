@@ -1,5 +1,5 @@
 {
-  "$hash": "55883e7331ee5e4a353921ae60feb71b8a1b1f4d",
+  "$hash": "fdaa3fc07558106e3952f9f282ba2bdf83a52992",
   "$id": "aws-elasticache-usergroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserGroupId"],
@@ -109,6 +109,10 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-elasticache",
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "elasticache:AddTagsToResource",
+      "elasticache:RemoveTagsFromResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

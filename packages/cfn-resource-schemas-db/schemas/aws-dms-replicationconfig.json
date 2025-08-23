@@ -1,5 +1,5 @@
 {
-  "$hash": "1d096fcea73388610cd390723479c80528280647",
+  "$hash": "ca4013fea7f03a734e64c5867048b78f9eab61c1",
   "$id": "aws-dms-replicationconfig.json",
   "additionalIdentifiers": [["/properties/ReplicationConfigIdentifier"]],
   "additionalProperties": false,
@@ -164,5 +164,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::DMS::ReplicationConfig"
+  "typeName": "AWS::DMS::ReplicationConfig",
+  "writeOnlyProperties": ["/properties/ResourceIdentifier"]
 }

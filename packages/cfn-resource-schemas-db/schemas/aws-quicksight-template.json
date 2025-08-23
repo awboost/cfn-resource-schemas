@@ -1,5 +1,5 @@
 {
-  "$hash": "76ee8ce5685d0255834e12748abd482e8e36b0f0",
+  "$hash": "40001816800570ce2b69dd5b92acf821061c4638",
   "$id": "aws-quicksight-template.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -6206,6 +6206,7 @@
         "UPDATE_IN_PROGRESS",
         "UPDATE_SUCCESSFUL",
         "UPDATE_FAILED",
+        "PENDING_UPDATE",
         "DELETED"
       ],
       "type": "string"

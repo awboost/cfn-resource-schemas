@@ -1,16 +1,21 @@
-- updated `AWS::B2BI::Transformer`
-  - added definition `ElementRequirement`
-  - added definition `X12CodeListValidationRule`
-  - added definition `X12ElementLengthValidationRule`
-  - added definition `X12ElementRequirementValidationRule`
-  - added definition `X12ValidationOptions`
-  - added definition `X12ValidationRule`
-  - updated definition `OutputConversion`
-  - updated definition `X12AdvancedOptions`
-- updated `AWS::EC2::VPNConnection`
-  - added property `PreSharedKeyStorage`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::Route53::HealthCheck`
-  - added `tagging`
-  - removed `taggable`
+- added `AWS::IoT::EncryptionConfiguration`
+- updated `AWS::DMS::ReplicationConfig`
+  - added `writeOnlyProperties`
+- updated `AWS::EC2::Instance`
+  - updated `conditionalCreateOnlyProperties`
+  - updated property `ElasticGpuSpecifications`
+  - updated property `ElasticInferenceAccelerators`
+- updated `AWS::ElastiCache::User`
+  - updated `tagging`
+- updated `AWS::ElastiCache::UserGroup`
+  - updated `tagging`
+- updated `AWS::QuickSight::Analysis`
+  - updated definition `ResourceStatus`
+- updated `AWS::QuickSight::Dashboard`
+  - updated definition `ResourceStatus`
+- updated `AWS::QuickSight::Template`
+  - updated definition `ResourceStatus`
+- updated `AWS::QuickSight::Theme`
+  - updated definition `ResourceStatus`
+- updated `AWS::Route53::HostedZone`
+  - updated `tagging`

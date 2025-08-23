@@ -6347,6 +6347,7 @@ export type ResourceStatus =
   | "UPDATE_IN_PROGRESS"
   | "UPDATE_SUCCESSFUL"
   | "UPDATE_FAILED"
+  | "PENDING_UPDATE"
   | "DELETED";
 /**
  * Type definition for `AWS::QuickSight::Analysis.RollingDateConfiguration`.
