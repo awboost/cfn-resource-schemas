@@ -214,6 +214,9 @@ export type AmazonManagedKafkaEventSourceConfig = {
    * @pattern `[a-zA-Z0-9-\/*:_+=.@-]*`
    */
   ConsumerGroupId?: string;
+  /**
+   * Specific configuration settings for a Kafka schema registry.
+   */
   SchemaRegistryConfig?: SchemaRegistryConfig;
 };
 /**
@@ -353,14 +356,21 @@ export type ScalingConfig = {
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.SchemaRegistryAccessConfig`.
+ * Specific access configuration settings that tell Lambda how to authenticate with your schema registry.
+ If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.
+ If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryaccessconfig.html}
  */
 export type SchemaRegistryAccessConfig = {
+  /**
+   * The type of authentication Lambda uses to access your schema registry.
+   */
   Type?:
     | "BASIC_AUTH"
     | "CLIENT_CERTIFICATE_TLS_AUTH"
     | "SERVER_ROOT_CA_CERTIFICATE";
   /**
+   * The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.
    * @minLength `1`
    * @maxLength `10000`
    * @pattern `arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
@@ -369,21 +379,32 @@ export type SchemaRegistryAccessConfig = {
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.SchemaRegistryConfig`.
+ * Specific configuration settings for a Kafka schema registry.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemaregistryconfig.html}
  */
 export type SchemaRegistryConfig = {
   /**
+   * An array of access configuration objects that tell Lambda how to authenticate with your schema registry.
    * @maxLength `2`
    */
   AccessConfigs?: SchemaRegistryAccessConfig[];
+  /**
+     * The record format that Lambda delivers to your function after schema validation.
+      +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.
+      +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.
+     */
   EventRecordFormat?: "JSON" | "SOURCE";
   /**
-   * @minLength `1`
-   * @maxLength `10000`
-   * @pattern `[a-zA-Z0-9-/*:_+=.@-]*`
-   */
+     * The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.
+      +  For GLU schema registries, use the ARN of the registry.
+      +  For Confluent schema registries, use the URL of the registry.
+     * @minLength `1`
+     * @maxLength `10000`
+     * @pattern `[a-zA-Z0-9-/*:_+=.@-]*`
+     */
   SchemaRegistryURI?: string;
   /**
+   * An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.
    * @minLength `1`
    * @maxLength `2`
    */
@@ -391,9 +412,13 @@ export type SchemaRegistryConfig = {
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.SchemaValidationConfig`.
+ * Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-schemavalidationconfig.html}
  */
 export type SchemaValidationConfig = {
+  /**
+   * The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.
+   */
   Attribute?: "KEY" | "VALUE";
 };
 /**
@@ -420,6 +445,9 @@ export type SelfManagedKafkaEventSourceConfig = {
    * @pattern `[a-zA-Z0-9-\/*:_+=.@-]*`
    */
   ConsumerGroupId?: string;
+  /**
+   * Specific configuration settings for a Kafka schema registry.
+   */
   SchemaRegistryConfig?: SchemaRegistryConfig;
 };
 /**

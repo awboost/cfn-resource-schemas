@@ -1,5 +1,5 @@
 {
-  "$hash": "ba34d703280408ddd986ba66df187b8e4fa51064",
+  "$hash": "3a1108e9eb4185c74e56a379162a80c976104a39",
   "$id": "aws-lambda-eventsourcemapping.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -19,7 +19,7 @@
         },
         "SchemaRegistryConfig": {
           "$ref": "#/definitions/SchemaRegistryConfig",
-          "description": ""
+          "description": "Specific configuration settings for a Kafka schema registry."
         }
       },
       "type": "object"
@@ -183,10 +183,10 @@
     },
     "SchemaRegistryAccessConfig": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Specific access configuration settings that tell Lambda how to authenticate with your schema registry.\n If you're working with an GLU schema registry, don't provide authentication details in this object. Instead, ensure that your execution role has the required permissions for Lambda to access your cluster.\n If you're working with a Confluent schema registry, choose the authentication method in the ``Type`` field, and provide the ASMlong secret ARN in the ``URI`` field.",
       "properties": {
         "Type": {
-          "description": "",
+          "description": "The type of authentication Lambda uses to access your schema registry.",
           "enum": [
             "BASIC_AUTH",
             "CLIENT_CERTIFICATE_TLS_AUTH",
@@ -195,7 +195,7 @@
           "type": "string"
         },
         "URI": {
-          "description": "",
+          "description": "The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.",
           "maxLength": 10000,
           "minLength": 1,
           "pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:([a-z]{2}(-gov)?(-iso([a-z])?)?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
@@ -206,29 +206,29 @@
     },
     "SchemaRegistryConfig": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Specific configuration settings for a Kafka schema registry.",
       "properties": {
         "AccessConfigs": {
-          "description": "",
+          "description": "An array of access configuration objects that tell Lambda how to authenticate with your schema registry.",
           "items": { "$ref": "#/definitions/SchemaRegistryAccessConfig" },
           "maxItems": 2,
           "type": "array",
           "uniqueItems": true
         },
         "EventRecordFormat": {
-          "description": "",
+          "description": "The record format that Lambda delivers to your function after schema validation.\n  +  Choose ``JSON`` to have Lambda deliver the record to your function as a standard JSON object.\n  +  Choose ``SOURCE`` to have Lambda deliver the record to your function in its original source format. Lambda removes all schema metadata, such as the schema ID, before sending the record to your function.",
           "enum": ["JSON", "SOURCE"],
           "type": "string"
         },
         "SchemaRegistryURI": {
-          "description": "",
+          "description": "The URI for your schema registry. The correct URI format depends on the type of schema registry you're using.\n  +  For GLU schema registries, use the ARN of the registry.\n  +  For Confluent schema registries, use the URL of the registry.",
           "maxLength": 10000,
           "minLength": 1,
           "pattern": "[a-zA-Z0-9-/*:_+=.@-]*",
           "type": "string"
         },
         "SchemaValidationConfigs": {
-          "description": "",
+          "description": "An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.",
           "items": { "$ref": "#/definitions/SchemaValidationConfig" },
           "maxItems": 2,
           "minItems": 1,
@@ -240,10 +240,10 @@
     },
     "SchemaValidationConfig": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Specific schema validation configuration settings that tell Lambda the message attributes you want to validate and filter using your schema registry.",
       "properties": {
         "Attribute": {
-          "description": "",
+          "description": "The attributes you want your schema registry to validate and filter for. If you selected ``JSON`` as the ``EventRecordFormat``, Lambda also deserializes the selected message attributes.",
           "enum": ["KEY", "VALUE"],
           "type": "string"
         }
@@ -271,7 +271,7 @@
         },
         "SchemaRegistryConfig": {
           "$ref": "#/definitions/SchemaRegistryConfig",
-          "description": ""
+          "description": "Specific configuration settings for a Kafka schema registry."
         }
       },
       "type": "object"

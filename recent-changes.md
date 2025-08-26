@@ -1,1 +1,6 @@
-- added `AWS::DataZone::PolicyGrant`
+- updated `AWS::Lambda::EventSourceMapping`
+  - updated definition `AmazonManagedKafkaEventSourceConfig`
+  - updated definition `SchemaRegistryAccessConfig`
+  - updated definition `SchemaRegistryConfig`
+  - updated definition `SchemaValidationConfig`
+  - updated definition `SelfManagedKafkaEventSourceConfig`
