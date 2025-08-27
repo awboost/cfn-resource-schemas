@@ -1,5 +1,5 @@
 {
-  "$hash": "5024e9c00a5869ecde852d2f8c56cd9c79f9cf08",
+  "$hash": "24f5ec9bfec7dbe171faa92b68a33f8925967424",
   "$id": "aws-eks-nodegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -141,7 +141,9 @@
         "eks:TagResource",
         "eks:UntagResource",
         "eks:UpdateNodegroupConfig",
-        "eks:UpdateNodegroupVersion"
+        "eks:UpdateNodegroupVersion",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:RunInstances"
       ],
       "timeoutInMinutes": 2160
     }

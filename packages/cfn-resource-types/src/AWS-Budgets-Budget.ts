@@ -30,6 +30,7 @@ export type AutoAdjustData = {
  */
 export type BudgetData = {
   AutoAdjustData?: AutoAdjustData;
+  BillingViewArn?: string;
   BudgetLimit?: Spend;
   BudgetName?: string;
   BudgetType: string;

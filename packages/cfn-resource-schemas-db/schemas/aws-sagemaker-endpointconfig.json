@@ -1,5 +1,5 @@
 {
-  "$hash": "a2977a3bc1bd055c85bd5359faf37dfe098f26c6",
+  "$hash": "05ac319619aa1ed4f695d7d539b03f7e50dac33f",
   "$id": "aws-sagemaker-endpointconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -53,6 +53,14 @@
         },
         "S3FailurePath": { "type": "string" },
         "S3OutputPath": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "CapacityReservationConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "CapacityReservationPreference": { "type": "string" },
+        "MlReservationArn": { "type": "string" }
       },
       "type": "object"
     },
@@ -195,6 +203,9 @@
     "ProductionVariant": {
       "additionalProperties": false,
       "properties": {
+        "CapacityReservationConfig": {
+          "$ref": "#/definitions/CapacityReservationConfig"
+        },
         "ContainerStartupHealthCheckTimeoutInSeconds": { "type": "integer" },
         "EnableSSMAccess": { "type": "boolean" },
         "InferenceAmiVersion": { "type": "string" },

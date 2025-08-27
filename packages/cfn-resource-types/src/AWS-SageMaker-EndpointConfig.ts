@@ -59,6 +59,14 @@ export type AsyncInferenceOutputConfig = {
   S3OutputPath?: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::EndpointConfig.CapacityReservationConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-capacityreservationconfig.html}
+ */
+export type CapacityReservationConfig = {
+  CapacityReservationPreference?: string;
+  MlReservationArn?: string;
+};
+/**
  * Type definition for `AWS::SageMaker::EndpointConfig.CaptureContentTypeHeader`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-capturecontenttypeheader.html}
  */
@@ -170,6 +178,7 @@ export type ManagedInstanceScaling = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html}
  */
 export type ProductionVariant = {
+  CapacityReservationConfig?: CapacityReservationConfig;
   ContainerStartupHealthCheckTimeoutInSeconds?: number;
   EnableSSMAccess?: boolean;
   InferenceAmiVersion?: string;

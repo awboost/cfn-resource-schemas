@@ -1,5 +1,5 @@
 {
-  "$hash": "84ad367578d7909a2109993b8d1098a9168211f0",
+  "$hash": "7333488bdbe185e40a3b2f04bf385e9e3b392a1e",
   "$id": "aws-budgets-budget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/NotificationsWithSubscribers"],
@@ -17,6 +17,7 @@
       "additionalProperties": false,
       "properties": {
         "AutoAdjustData": { "$ref": "#/definitions/AutoAdjustData" },
+        "BillingViewArn": { "type": "string" },
         "BudgetLimit": { "$ref": "#/definitions/Spend" },
         "BudgetName": { "type": "string" },
         "BudgetType": { "type": "string" },

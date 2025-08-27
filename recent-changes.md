@@ -1,6 +1,10 @@
-- updated `AWS::Lambda::EventSourceMapping`
-  - updated definition `AmazonManagedKafkaEventSourceConfig`
-  - updated definition `SchemaRegistryAccessConfig`
-  - updated definition `SchemaRegistryConfig`
-  - updated definition `SchemaValidationConfig`
-  - updated definition `SelfManagedKafkaEventSourceConfig`
+- updated `AWS::Budgets::Budget`
+  - updated definition `BudgetData`
+- updated `AWS::EKS::Nodegroup`
+  - updated handler permissions
+- updated `AWS::Glue::Crawler`
+  - updated definition `DynamoDBTarget`
+- updated `AWS::S3::BucketPolicy`
+- updated `AWS::SageMaker::EndpointConfig`
+  - added definition `CapacityReservationConfig`
+  - updated definition `ProductionVariant`
