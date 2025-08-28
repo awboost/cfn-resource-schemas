@@ -1,9 +1,15 @@
 {
-  "$hash": "89f4e308790e2546841b61e5e0d7e853bff5e751",
+  "$hash": "05f367ee454145023681aeb2da8a77d79e83329a",
   "$id": "aws-connect-predefinedattribute.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceArn", "/properties/Name"],
   "definitions": {
+    "Purpose": {
+      "description": "A label allowing customers to categorize a predefined attribute.",
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
     "StringList": {
       "description": "Predefined attribute values of type string list.",
       "insertionOrder": false,
@@ -39,6 +45,21 @@
   },
   "primaryIdentifier": ["/properties/InstanceArn", "/properties/Name"],
   "properties": {
+    "AttributeConfiguration": {
+      "additionalProperties": false,
+      "description": "Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.",
+      "properties": {
+        "EnableValueValidationOnAssociation": {
+          "description": "Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.",
+          "type": "boolean"
+        },
+        "IsReadOnly": {
+          "description": "Allows the predefined attribute to show up and be managed in the Amazon Connect UI.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "InstanceArn": {
       "description": "The identifier of the Amazon Connect instance.",
       "pattern": "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*$",
@@ -58,6 +79,14 @@
       "maxLength": 100,
       "minLength": 1,
       "type": "string"
+    },
+    "Purposes": {
+      "description": "The assigned purposes of the predefined attribute.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Purpose" },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
     },
     "Values": {
       "additionalProperties": false,

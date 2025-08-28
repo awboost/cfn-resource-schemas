@@ -1,5 +1,5 @@
 {
-  "$hash": "bc15b467f29f9d91a1847a70fe1adf9548a49da9",
+  "$hash": "10800b5f348a9dfe30637b22957f045a08b81ec5",
   "$id": "aws-mpa-identitysource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -77,6 +77,7 @@
         "mpa:GetIdentitySource",
         "mpa:UntagResource",
         "sso:DeleteApplication",
+        "sso:ListInstances",
         "kms:Decrypt"
       ]
     },

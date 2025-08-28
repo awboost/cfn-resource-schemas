@@ -10,6 +10,7 @@ export type OmicsWorkflowProperties = {
    * @maxLength `64`
    */
   Accelerators?: Accelerators;
+  DefinitionRepository?: DefinitionRepository;
   /**
    * @minLength `1`
    * @maxLength `256`
@@ -41,6 +42,11 @@ export type OmicsWorkflowProperties = {
   Name?: string;
   ParameterTemplate?: WorkflowParameterTemplate;
   /**
+   * Path to the primary workflow parameter template JSON file inside the repository
+   * @pattern `^[\S]+$`
+   */
+  ParameterTemplatePath?: string;
+  /**
    * @min `0`
    * @max `100000`
    */
@@ -54,6 +60,27 @@ export type OmicsWorkflowProperties = {
    * A map of resource tags
    */
   Tags?: TagMap;
+  /**
+   * Optional workflow bucket owner ID to verify the workflow bucket
+   * @pattern `^[0-9]{12}$`
+   */
+  WorkflowBucketOwnerId?: string;
+  /**
+   * The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
+   */
+  readmeMarkdown?: string;
+  /**
+   * The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+$`
+   */
+  readmePath?: string;
+  /**
+   * The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.
+   * @pattern `^s3://([a-z0-9][a-z0-9-.]{1,61}[a-z0-9])/((.{1,1024}))$`
+   */
+  readmeUri?: string;
 };
 /**
  * Attribute type definition for `AWS::Omics::Workflow`.
@@ -93,6 +120,36 @@ export type OmicsWorkflowAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-accelerators.html}
  */
 export type Accelerators = "GPU";
+/**
+ * Type definition for `AWS::Omics::Workflow.DefinitionRepository`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-definitionrepository.html}
+ */
+export type DefinitionRepository = {
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^arn:aws(-[\\w]+)*:.+:.+:[0-9]{12}:.+$`
+   */
+  connectionArn?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `50`
+   */
+  excludeFilePatterns?: string[];
+  /**
+   * @pattern `.+/.+`
+   */
+  fullRepositoryId?: string;
+  sourceReference?: SourceReference;
+};
+/**
+ * Type definition for `AWS::Omics::Workflow.SourceReference`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-sourcereference.html}
+ */
+export type SourceReference = {
+  type?: "BRANCH" | "TAG" | "COMMIT";
+  value?: string;
+};
 /**
  * Type definition for `AWS::Omics::Workflow.StorageType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-storagetype.html}

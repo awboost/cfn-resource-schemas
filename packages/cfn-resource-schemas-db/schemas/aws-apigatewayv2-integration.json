@@ -1,5 +1,5 @@
 {
-  "$hash": "d1dcce61064b639bf0e5bfa5ad748f70ac9e551a",
+  "$hash": "e9a669bb47a1363429da93e30ee35846e21257f9",
   "$id": "aws-apigatewayv2-integration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ApiId"],
@@ -55,7 +55,7 @@
   },
   "description": "An example resource schema demonstrating some basic constructs and validation rules.",
   "handlers": {
-    "create": { "permissions": ["apigateway:POST"] },
+    "create": { "permissions": ["apigateway:POST", "iam:PassRole"] },
     "delete": { "permissions": ["apigateway:GET", "apigateway:DELETE"] },
     "list": {
       "handlerSchema": {
@@ -68,7 +68,12 @@
     },
     "read": { "permissions": ["apigateway:GET"] },
     "update": {
-      "permissions": ["apigateway:PATCH", "apigateway:GET", "apigateway:PUT"]
+      "permissions": [
+        "apigateway:PATCH",
+        "apigateway:GET",
+        "apigateway:PUT",
+        "iam:PassRole"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/ApiId", "/properties/IntegrationId"],

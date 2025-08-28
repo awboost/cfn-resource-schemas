@@ -1,5 +1,5 @@
 {
-  "$hash": "0544e3aa2a744996d11552bd31f2d24af603e4cc",
+  "$hash": "dcb4979ee62afd3c01bc9b3de7a901db5a5dc980",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -218,6 +218,21 @@
         }
       },
       "required": ["ResourceType"],
+      "type": "object"
+    },
+    "ForceNewDeployment": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "EnableForceNewDeployment": { "type": "boolean" },
+        "ForceNewDeploymentNonce": {
+          "$comment": "A time-varying value that has at most a negligible chance of repeating; for example, a random value that is generated anew for each use, a time-stamp, a sequence number, or some combination of these.",
+          "maxLength": 255,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["EnableForceNewDeployment"],
       "type": "object"
     },
     "LoadBalancer": {
@@ -688,6 +703,10 @@
       "description": "Determines whether the execute command functionality is turned on for the service. If ``true``, the execute command functionality is turned on for all containers in tasks as part of the service.",
       "type": "boolean"
     },
+    "ForceNewDeployment": {
+      "$ref": "#/definitions/ForceNewDeployment",
+      "description": ""
+    },
     "HealthCheckGracePeriodSeconds": {
       "description": "The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you don't specify a health check grace period value, the default value of ``0`` is used. If you don't use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.\n If your service's tasks take a while to start and respond to health checks, you can specify a health check grace period of up to 2,147,483,647 seconds (about 69 years). During that time, the Amazon ECS service scheduler ignores health check status. This grace period can prevent the service scheduler from marking tasks as unhealthy and stopping them before they have time to come up.",
       "type": "integer"
@@ -790,6 +809,7 @@
   "typeName": "AWS::ECS::Service",
   "writeOnlyProperties": [
     "/properties/ServiceConnectConfiguration",
-    "/properties/VolumeConfigurations"
+    "/properties/VolumeConfigurations",
+    "/properties/ForceNewDeployment"
   ]
 }

@@ -6,6 +6,19 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ConnectPredefinedAttributeProperties = {
   /**
+   * Custom metadata associated to a Predefined attribute that controls how the attribute behaves when used by upstream services.
+   */
+  AttributeConfiguration?: {
+    /**
+     * Enables customers to enforce strict validation on the specific values that this predefined attribute can hold.
+     */
+    EnableValueValidationOnAssociation?: boolean;
+    /**
+     * Allows the predefined attribute to show up and be managed in the Amazon Connect UI.
+     */
+    IsReadOnly?: boolean;
+  };
+  /**
    * The identifier of the Amazon Connect instance.
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]*$`
    */
@@ -16,6 +29,12 @@ export type ConnectPredefinedAttributeProperties = {
    * @maxLength `100`
    */
   Name: string;
+  /**
+   * The assigned purposes of the predefined attribute.
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  Purposes?: string[];
   /**
    * The values of a predefined attribute.
    */

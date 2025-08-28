@@ -14,8 +14,9 @@ export type ApplicationAutoScalingScalingPolicyProperties = {
   /**
      * The scaling policy type.
      The following policy types are supported:
-      ``TargetTrackingScaling``—Not supported for Amazon EMR
-      ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+     ``TargetTrackingScaling``—Not supported for Amazon EMR
+     ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+     ``PredictiveScaling``—Only supported for Amazon ECS
      */
   PolicyType: string;
   /**
@@ -39,6 +40,7 @@ export type ApplicationAutoScalingScalingPolicyProperties = {
       +  Amazon Keyspaces table - The resource type is ``table`` and the unique identifier is the table name. Example: ``keyspace/mykeyspace/table/mytable``.
       +  Amazon MSK cluster - The resource type and unique identifier are specified using the cluster ARN. Example: ``arn:aws:kafka:us-east-1:123456789012:cluster/demo-cluster-1/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5``.
       +  Amazon ElastiCache replication group - The resource type is ``replication-group`` and the unique identifier is the replication group name. Example: ``replication-group/mycluster``.
+      +  Amazon ElastiCache cache cluster - The resource type is ``cache-cluster`` and the unique identifier is the cache cluster name. Example: ``cache-cluster/mycluster``.
       +  Neptune cluster - The resource type is ``cluster`` and the unique identifier is the cluster name. Example: ``cluster:mycluster``.
       +  SageMaker serverless endpoint - The resource type is ``variant`` and the unique identifier is the resource ID. Example: ``endpoint/my-end-point/variant/KMeansClustering``.
       +  SageMaker inference component - The resource type is ``inference-component`` and the unique identifier is the resource ID. Example: ``inference-component/my-inference-component``.
@@ -47,29 +49,30 @@ export type ApplicationAutoScalingScalingPolicyProperties = {
   ResourceId?: string;
   /**
      * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
-      +   ``ecs:service:DesiredCount`` - The task count of an ECS service.
-      +   ``elasticmapreduce:instancegroup:InstanceCount`` - The instance count of an EMR Instance Group.
-      +   ``ec2:spot-fleet-request:TargetCapacity`` - The target capacity of a Spot Fleet.
-      +   ``appstream:fleet:DesiredCapacity`` - The capacity of an AppStream 2.0 fleet.
-      +   ``dynamodb:table:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB table.
-      +   ``dynamodb:table:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB table.
-      +   ``dynamodb:index:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB global secondary index.
-      +   ``dynamodb:index:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB global secondary index.
-      +   ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
-      +   ``sagemaker:variant:DesiredInstanceCount`` - The number of EC2 instances for a SageMaker model endpoint variant.
-      +   ``custom-resource:ResourceType:Property`` - The scalable dimension for a custom resource provided by your own application or service.
-      +   ``comprehend:document-classifier-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend document classification endpoint.
-      +   ``comprehend:entity-recognizer-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend entity recognizer endpoint.
-      +   ``lambda:function:ProvisionedConcurrency`` - The provisioned concurrency for a Lambda function.
-      +   ``cassandra:table:ReadCapacityUnits`` - The provisioned read capacity for an Amazon Keyspaces table.
-      +   ``cassandra:table:WriteCapacityUnits`` - The provisioned write capacity for an Amazon Keyspaces table.
-      +   ``kafka:broker-storage:VolumeSize`` - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
-      +   ``elasticache:replication-group:NodeGroups`` - The number of node groups for an Amazon ElastiCache replication group.
-      +   ``elasticache:replication-group:Replicas`` - The number of replicas per node group for an Amazon ElastiCache replication group.
-      +   ``neptune:cluster:ReadReplicaCount`` - The count of read replicas in an Amazon Neptune DB cluster.
-      +   ``sagemaker:variant:DesiredProvisionedConcurrency`` - The provisioned concurrency for a SageMaker serverless endpoint.
-      +   ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
-      +   ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
+      +  ``ecs:service:DesiredCount`` - The task count of an ECS service.
+      +  ``elasticmapreduce:instancegroup:InstanceCount`` - The instance count of an EMR Instance Group.
+      +  ``ec2:spot-fleet-request:TargetCapacity`` - The target capacity of a Spot Fleet.
+      +  ``appstream:fleet:DesiredCapacity`` - The capacity of an AppStream 2.0 fleet.
+      +  ``dynamodb:table:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB table.
+      +  ``dynamodb:table:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB table.
+      +  ``dynamodb:index:ReadCapacityUnits`` - The provisioned read capacity for a DynamoDB global secondary index.
+      +  ``dynamodb:index:WriteCapacityUnits`` - The provisioned write capacity for a DynamoDB global secondary index.
+      +  ``rds:cluster:ReadReplicaCount`` - The count of Aurora Replicas in an Aurora DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible edition.
+      +  ``sagemaker:variant:DesiredInstanceCount`` - The number of EC2 instances for a SageMaker model endpoint variant.
+      +  ``custom-resource:ResourceType:Property`` - The scalable dimension for a custom resource provided by your own application or service.
+      +  ``comprehend:document-classifier-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend document classification endpoint.
+      +  ``comprehend:entity-recognizer-endpoint:DesiredInferenceUnits`` - The number of inference units for an Amazon Comprehend entity recognizer endpoint.
+      +  ``lambda:function:ProvisionedConcurrency`` - The provisioned concurrency for a Lambda function.
+      +  ``cassandra:table:ReadCapacityUnits`` - The provisioned read capacity for an Amazon Keyspaces table.
+      +  ``cassandra:table:WriteCapacityUnits`` - The provisioned write capacity for an Amazon Keyspaces table.
+      +  ``kafka:broker-storage:VolumeSize`` - The provisioned volume size (in GiB) for brokers in an Amazon MSK cluster.
+      +  ``elasticache:cache-cluster:Nodes`` - The number of nodes for an Amazon ElastiCache cache cluster.
+      +  ``elasticache:replication-group:NodeGroups`` - The number of node groups for an Amazon ElastiCache replication group.
+      +  ``elasticache:replication-group:Replicas`` - The number of replicas per node group for an Amazon ElastiCache replication group.
+      +  ``neptune:cluster:ReadReplicaCount`` - The count of read replicas in an Amazon Neptune DB cluster.
+      +  ``sagemaker:variant:DesiredProvisionedConcurrency`` - The provisioned concurrency for a SageMaker serverless endpoint.
+      +  ``sagemaker:inference-component:DesiredCopyCount`` - The number of copies across an endpoint for a SageMaker inference component.
+      +  ``workspaces:workspacespool:DesiredUserSessions`` - The number of user sessions for the WorkSpaces in the pool.
      */
   ScalableDimension?: string;
   /**
@@ -107,7 +110,7 @@ export type ApplicationAutoScalingScalingPolicyAttributes = {
   
  For an example of how creating new metrics can be useful, see [Scaling based on Amazon SQS](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html) in the *Amazon EC2 Auto Scaling User Guide*. This topic mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking scaling policies that you create for a Spot Fleet by using Application Auto Scaling.
  For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html).
-  ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+ ``CustomizedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html}
  */
 export type CustomizedMetricSpecification = {
@@ -155,7 +158,7 @@ export type MetricDimension = {
 /**
  * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredefinedMetricSpecification`.
  * Contains predefined metric specification information for a target tracking scaling policy for Application Auto Scaling.
-  ``PredefinedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
+ ``PredefinedMetricSpecification`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html) property type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html}
  */
 export type PredefinedMetricSpecification = {
@@ -166,7 +169,7 @@ export type PredefinedMetricSpecification = {
   /**
      * Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ``ALBRequestCountPerTarget`` and there is a target group attached to the Spot Fleet or ECS service.
      You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:
-      ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
+     ``app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff``.
      Where:
       +  app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN
       +  targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
@@ -328,7 +331,7 @@ export type PredictiveScalingMetricStat = {
 };
 /**
  * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingPolicyConfiguration`.
- * Represents a predictive scaling policy configuration.
+ * Represents a predictive scaling policy configuration. Predictive scaling is supported on Amazon ECS services.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpolicyconfiguration.html}
  */
 export type PredictiveScalingPolicyConfiguration = {
@@ -360,6 +363,16 @@ export type PredictiveScalingPolicyConfiguration = {
  * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingPredefinedLoadMetric`.
  * Describes a load metric for a predictive scaling policy.
  When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+ The following predefined metrics are available for predictive scaling:
+  +   ``ECSServiceAverageCPUUtilization``
+  +   ``ECSServiceAverageMemoryUtilization``
+  +   ``ECSServiceCPUUtilization``
+  +   ``ECSServiceMemoryUtilization``
+  +   ``ECSServiceTotalCPUUtilization``
+  +   ``ECSServiceTotalMemoryUtilization``
+  +   ``ALBRequestCount``
+  +   ``ALBRequestCountPerTarget``
+  +   ``TotalALBRequestCount``
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedloadmetric.html}
  */
 export type PredictiveScalingPredefinedLoadMetric = {
@@ -375,6 +388,16 @@ export type PredictiveScalingPredefinedLoadMetric = {
 /**
  * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingPredefinedMetricPair`.
  * Represents a metric pair for a predictive scaling policy.
+ The following predefined metrics are available for predictive scaling:
+  +   ``ECSServiceAverageCPUUtilization``
+  +   ``ECSServiceAverageMemoryUtilization``
+  +   ``ECSServiceCPUUtilization``
+  +   ``ECSServiceMemoryUtilization``
+  +   ``ECSServiceTotalCPUUtilization``
+  +   ``ECSServiceTotalMemoryUtilization``
+  +   ``ALBRequestCount``
+  +   ``ALBRequestCountPerTarget``
+  +   ``TotalALBRequestCount``
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedmetricpair.html}
  */
 export type PredictiveScalingPredefinedMetricPair = {
@@ -391,6 +414,16 @@ export type PredictiveScalingPredefinedMetricPair = {
  * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.PredictiveScalingPredefinedScalingMetric`.
  * Describes a scaling metric for a predictive scaling policy.
  When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+ The following predefined metrics are available for predictive scaling:
+  +   ``ECSServiceAverageCPUUtilization``
+  +   ``ECSServiceAverageMemoryUtilization``
+  +   ``ECSServiceCPUUtilization``
+  +   ``ECSServiceMemoryUtilization``
+  +   ``ECSServiceTotalCPUUtilization``
+  +   ``ECSServiceTotalMemoryUtilization``
+  +   ``ALBRequestCount``
+  +   ``ALBRequestCountPerTarget``
+  +   ``TotalALBRequestCount``
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric.html}
  */
 export type PredictiveScalingPredefinedScalingMetric = {
@@ -485,7 +518,7 @@ export type TargetTrackingMetric = {
  * The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
  You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
  For more information and examples, see [Create a target tracking scaling policy for Application Auto Scaling using metric math](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html) in the *Application Auto Scaling User Guide*.
-  ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
+ ``TargetTrackingMetricDataQuery`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html) property type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html}
  */
 export type TargetTrackingMetricDataQuery = {
@@ -532,7 +565,7 @@ export type TargetTrackingMetricDimension = {
 /**
  * Type definition for `AWS::ApplicationAutoScaling::ScalingPolicy.TargetTrackingMetricStat`.
  * This structure defines the CloudWatch metric to return, along with the statistic and unit.
-  ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
+ ``TargetTrackingMetricStat`` is a property of the [AWS::ApplicationAutoScaling::ScalingPolicy TargetTrackingMetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html) property type.
  For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html}
  */

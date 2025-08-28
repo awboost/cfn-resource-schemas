@@ -1,10 +1,56 @@
-- updated `AWS::Budgets::Budget`
-  - updated definition `BudgetData`
-- updated `AWS::EKS::Nodegroup`
+- updated `AWS::ApiGatewayV2::Integration`
   - updated handler permissions
-- updated `AWS::Glue::Crawler`
-  - updated definition `DynamoDBTarget`
-- updated `AWS::S3::BucketPolicy`
-- updated `AWS::SageMaker::EndpointConfig`
-  - added definition `CapacityReservationConfig`
-  - updated definition `ProductionVariant`
+- updated `AWS::ApplicationAutoScaling::ScalingPolicy`
+  - updated definition `CustomizedMetricSpecification`
+  - updated definition `PredefinedMetricSpecification`
+  - updated definition `PredictiveScalingPolicyConfiguration`
+  - updated definition `PredictiveScalingPredefinedLoadMetric`
+  - updated definition `PredictiveScalingPredefinedMetricPair`
+  - updated definition `PredictiveScalingPredefinedScalingMetric`
+  - updated definition `TargetTrackingMetricDataQuery`
+  - updated definition `TargetTrackingMetricStat`
+  - updated property `PolicyType`
+  - updated property `ResourceId`
+  - updated property `ScalableDimension`
+- updated `AWS::Connect::PredefinedAttribute`
+  - added definition `Purpose`
+  - added property `AttributeConfiguration`
+  - added property `Purposes`
+- updated `AWS::EC2::IPAMPool`
+  - updated `tagging`
+- updated `AWS::EC2::IPAMResourceDiscovery`
+  - updated `tagging`
+- updated `AWS::EC2::IPAMResourceDiscoveryAssociation`
+  - updated `tagging`
+- updated `AWS::EC2::IPAMScope`
+  - updated `tagging`
+- updated `AWS::ECS::Cluster`
+  - updated definition `CapacityProviderStrategyItem`
+- updated `AWS::ECS::Service`
+  - added definition `ForceNewDeployment`
+  - added property `ForceNewDeployment`
+  - updated `writeOnlyProperties`
+- updated `AWS::Lambda::EventSourceMapping`
+  - updated definition `OnFailure`
+  - updated definition `SchemaRegistryAccessConfig`
+  - updated property `EventSourceArn`
+  - updated property `EventSourceMappingArn`
+  - updated property `FunctionName`
+- updated `AWS::MPA::IdentitySource`
+  - updated handler permissions
+- updated `AWS::Omics::Workflow`
+  - added definition `DefinitionRepository`
+  - added definition `SourceReference`
+  - added property `DefinitionRepository`
+  - added property `ParameterTemplatePath`
+  - added property `WorkflowBucketOwnerId`
+  - added property `readmeMarkdown`
+  - added property `readmePath`
+  - added property `readmeUri`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::SSM::Parameter`
+  - updated `tagging`
+  - updated `writeOnlyProperties`
+  - updated handler permissions

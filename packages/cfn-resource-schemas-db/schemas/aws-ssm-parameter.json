@@ -1,5 +1,5 @@
 {
-  "$hash": "26bc14754818e312b915b49eb29b477b158192ed",
+  "$hash": "bad8cf470b86418919b90aef6bba4e479c7701cf",
   "$id": "aws-ssm-parameter.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -15,7 +15,7 @@
     },
     "delete": { "permissions": ["ssm:DeleteParameter"] },
     "list": { "permissions": ["ssm:DescribeParameters"] },
-    "read": { "permissions": ["ssm:GetParameters"] },
+    "read": { "permissions": ["ssm:GetParameters", "ssm:ListTagsForResource"] },
     "update": {
       "permissions": [
         "ssm:PutParameter",
@@ -75,6 +75,11 @@
   "required": ["Value", "Type"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "ssm:AddTagsToResource",
+      "ssm:ListTagsForResource",
+      "ssm:RemoveTagsFromResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
@@ -82,7 +87,6 @@
   },
   "typeName": "AWS::SSM::Parameter",
   "writeOnlyProperties": [
-    "/properties/Tags",
     "/properties/Description",
     "/properties/Tier",
     "/properties/AllowedPattern",

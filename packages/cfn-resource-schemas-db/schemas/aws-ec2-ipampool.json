@@ -1,5 +1,5 @@
 {
-  "$hash": "58afb89655c9bfeed439aee7714a586efd0c9e99",
+  "$hash": "8e04df444c7ad2ad44794238c372c05889688c31",
   "$id": "aws-ec2-ipampool.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -224,7 +224,7 @@
   "required": ["IpamScopeId", "AddressFamily"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ipam.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["ec2:DeleteTags", "ec2:CreateTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
