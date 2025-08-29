@@ -1,5 +1,5 @@
 {
-  "$hash": "bcf87348300eee6cc6f84dc6845ea03f6def7c7c",
+  "$hash": "d06a53325afbd48542eab8b3a1dfa9c4f258a881",
   "$id": "aws-rds-customdbengineversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -110,7 +110,7 @@
       "type": "string"
     },
     "EngineVersion": {
-      "description": "The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.\n  *Constraints:* Minimum length is 1. Maximum length is 60.\n  *Pattern:* ``^[a-z0-9_.-]{1,60$``}",
+      "description": "The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.\n *Constraints:* Minimum length is 1. Maximum length is 60.\n *Pattern:*``^[a-z0-9_.-]{1,60$``}",
       "maxLength": 60,
       "minLength": 1,
       "type": "string"

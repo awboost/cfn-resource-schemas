@@ -1,12 +1,11 @@
 {
-  "$hash": "e3ce3bc1ed0b95bd9221ba3775c49a1442c1aef6",
+  "$hash": "51702be49c1979974a350cc546361995958a1d2f",
   "$id": "aws-datazone-project.json",
   "additionalIdentifiers": [["/properties/DomainIdentifier"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ProjectProfileId",
-    "/properties/DomainIdentifier",
-    "/properties/DomainUnitId"
+    "/properties/DomainIdentifier"
   ],
   "definitions": {
     "EnvironmentConfigurationUserParameter": {

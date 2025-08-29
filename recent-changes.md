@@ -1,56 +1,26 @@
-- updated `AWS::ApiGatewayV2::Integration`
-  - updated handler permissions
-- updated `AWS::ApplicationAutoScaling::ScalingPolicy`
-  - updated definition `CustomizedMetricSpecification`
-  - updated definition `PredefinedMetricSpecification`
-  - updated definition `PredictiveScalingPolicyConfiguration`
-  - updated definition `PredictiveScalingPredefinedLoadMetric`
-  - updated definition `PredictiveScalingPredefinedMetricPair`
-  - updated definition `PredictiveScalingPredefinedScalingMetric`
-  - updated definition `TargetTrackingMetricDataQuery`
-  - updated definition `TargetTrackingMetricStat`
-  - updated property `PolicyType`
-  - updated property `ResourceId`
-  - updated property `ScalableDimension`
-- updated `AWS::Connect::PredefinedAttribute`
-  - added definition `Purpose`
-  - added property `AttributeConfiguration`
-  - added property `Purposes`
-- updated `AWS::EC2::IPAMPool`
-  - updated `tagging`
-- updated `AWS::EC2::IPAMResourceDiscovery`
-  - updated `tagging`
-- updated `AWS::EC2::IPAMResourceDiscoveryAssociation`
-  - updated `tagging`
-- updated `AWS::EC2::IPAMScope`
-  - updated `tagging`
-- updated `AWS::ECS::Cluster`
-  - updated definition `CapacityProviderStrategyItem`
-- updated `AWS::ECS::Service`
-  - added definition `ForceNewDeployment`
-  - added property `ForceNewDeployment`
-  - updated `writeOnlyProperties`
-- updated `AWS::Lambda::EventSourceMapping`
-  - updated definition `OnFailure`
-  - updated definition `SchemaRegistryAccessConfig`
-  - updated property `EventSourceArn`
-  - updated property `EventSourceMappingArn`
-  - updated property `FunctionName`
-- updated `AWS::MPA::IdentitySource`
-  - updated handler permissions
-- updated `AWS::Omics::Workflow`
-  - added definition `DefinitionRepository`
-  - added definition `SourceReference`
-  - added property `DefinitionRepository`
-  - added property `ParameterTemplatePath`
-  - added property `WorkflowBucketOwnerId`
-  - added property `readmeMarkdown`
-  - added property `readmePath`
-  - added property `readmeUri`
+- updated `AWS::DataZone::Project`
   - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `LogConfiguration`
+- updated `AWS::Lambda::Version`
+  - updated definition `RuntimePolicy`
   - updated handler permissions
-- updated `AWS::SSM::Parameter`
+  - updated property `FunctionArn`
+  - updated property `FunctionName`
+- updated `AWS::RDS::CustomDBEngineVersion`
+  - updated property `EngineVersion`
+- updated `AWS::S3::StorageLens`
   - updated `tagging`
-  - updated `writeOnlyProperties`
+- updated `AWS::S3::StorageLensGroup`
+  - updated `tagging`
+- updated `AWS::SageMaker::ProcessingJob`
+  - updated definition `AppSpecification`
+  - updated definition `VpcConfig`
   - updated handler permissions
+- updated `AWS::ServiceCatalog::TagOption`
+  - added `tagging`
+  - updated handler permissions
+  - updated property `Active`
+  - updated property `Id`
+  - updated property `Key`
+  - updated property `Value`

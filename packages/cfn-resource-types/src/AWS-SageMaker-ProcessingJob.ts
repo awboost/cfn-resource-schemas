@@ -131,13 +131,13 @@ export type SageMakerProcessingJobAttributes = {
 export type AppSpecification = {
   /**
    * The arguments for a container used to run a processing job.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `100`
    */
   ContainerArguments?: string[];
   /**
    * The entrypoint for a container used to run a processing job.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `100`
    */
   ContainerEntrypoint?: string[];
@@ -683,13 +683,13 @@ export type Tag = {
 export type VpcConfig = {
   /**
    * The VPC security group IDs, in the form 'sg-xxxxxxxx'. Specify the security groups for the VPC that is specified in the 'Subnets' field.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `5`
    */
   SecurityGroupIds: string[];
   /**
    * The ID of the subnets in the VPC to which you want to connect your training job or model. For information about the availability of specific instance types, see https://docs.aws.amazon.com/sagemaker/latest/dg/regions-quotas.html
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `16`
    */
   Subnets: string[];

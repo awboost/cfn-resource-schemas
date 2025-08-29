@@ -1,5 +1,5 @@
 {
-  "$hash": "3a68df91e6b9b716ed65d2add72f578fb3ea1ccd",
+  "$hash": "cc68c8be835b8f091fb925c2948d57f55278763d",
   "$id": "aws-sagemaker-processingjob.json",
   "additionalIdentifiers": [["/properties/ProcessingJobName"]],
   "additionalProperties": false,
@@ -31,7 +31,7 @@
             "type": "string"
           },
           "maxItems": 100,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array",
           "uniqueItems": false
         },
@@ -45,7 +45,7 @@
             "type": "string"
           },
           "maxItems": 100,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array",
           "uniqueItems": false
         },
@@ -622,7 +622,7 @@
             "type": "string"
           },
           "maxItems": 5,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array",
           "uniqueItems": false
         },
@@ -636,7 +636,7 @@
             "type": "string"
           },
           "maxItems": 16,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array",
           "uniqueItems": false
         }
@@ -649,6 +649,18 @@
   "handlers": {
     "create": {
       "permissions": [
+        "ec2:CreateNetworkInterface",
+        "ec2:CreateNetworkInterfacePermission",
+        "ec2:DeleteNetworkInterface",
+        "ec2:DeleteNetworkInterfacePermission",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeDhcpOptions",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
         "sagemaker:CreateProcessingJob",
         "sagemaker:DescribeProcessingJob",
         "sagemaker:AddTags",
@@ -658,6 +670,12 @@
     },
     "delete": {
       "permissions": [
+        "ec2:DeleteNetworkInterface",
+        "ec2:DeleteNetworkInterfacePermission",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
         "sagemaker:StopProcessingJob",
         "sagemaker:DescribeProcessingJob",
         "sagemaker:ListTags",
