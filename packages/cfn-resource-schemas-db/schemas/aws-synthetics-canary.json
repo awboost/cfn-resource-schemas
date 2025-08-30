@@ -1,5 +1,5 @@
 {
-  "$hash": "d600fd11957d6e9ceff3cd9fa8d8651c102605bb",
+  "$hash": "2effdd66fbfd12af58324813d5ff106183d15556",
   "$id": "aws-synthetics-canary.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -32,6 +32,13 @@
       "required": ["ScreenshotName"],
       "type": "object"
     },
+    "BrowserConfig": {
+      "additionalProperties": false,
+      "properties": { "BrowserType": { "$ref": "#/definitions/BrowserType" } },
+      "required": ["BrowserType"],
+      "type": "object"
+    },
+    "BrowserType": { "enum": ["CHROME", "FIREFOX"], "type": "string" },
     "Code": {
       "additionalProperties": false,
       "oneOf": [
@@ -192,13 +199,17 @@
           "description": "List of screenshots used as base reference for visual testing",
           "items": { "$ref": "#/definitions/BaseScreenshot" },
           "type": "array"
-        }
+        },
+        "BrowserType": { "$ref": "#/definitions/BrowserType" }
       },
       "required": ["BaseCanaryRunId"],
       "type": "object"
     }
   },
-  "deprecatedProperties": ["/properties/DeleteLambdaResourcesOnCanaryDeletion"],
+  "deprecatedProperties": [
+    "/properties/DeleteLambdaResourcesOnCanaryDeletion",
+    "/properties/VisualReference"
+  ],
   "description": "Resource Type definition for AWS::Synthetics::Canary",
   "handlers": {
     "create": {
@@ -292,6 +303,13 @@
       "pattern": "^(s3|S3)://",
       "type": "string"
     },
+    "BrowserConfigs": {
+      "description": "List of browser configurations for the canary",
+      "items": { "$ref": "#/definitions/BrowserConfig" },
+      "maxItems": 2,
+      "minItems": 1,
+      "type": "array"
+    },
     "Code": {
       "$ref": "#/definitions/Code",
       "description": "Provide the canary script source"
@@ -362,6 +380,13 @@
     "VisualReference": {
       "$ref": "#/definitions/VisualReference",
       "description": "Visual reference configuration for visual testing"
+    },
+    "VisualReferences": {
+      "description": "List of visual references for the canary",
+      "items": { "$ref": "#/definitions/VisualReference" },
+      "maxItems": 2,
+      "minItems": 1,
+      "type": "array"
     }
   },
   "readOnlyProperties": [
@@ -397,6 +422,7 @@
     "/properties/ResourcesToReplicateTags",
     "/properties/RunConfig/EnvironmentVariables",
     "/properties/VisualReference",
+    "/properties/VisualReferences",
     "/properties/DryRunAndUpdate"
   ]
 }

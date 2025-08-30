@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type EC2ClientVpnEndpointProperties = {
   AuthenticationOptions: ClientAuthenticationRequest[];
-  ClientCidrBlock: string;
+  ClientCidrBlock?: string;
   ClientConnectOptions?: ClientConnectOptions;
   ClientLoginBannerOptions?: ClientLoginBannerOptions;
   ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions;

@@ -1,26 +1,13 @@
-- updated `AWS::DataZone::Project`
-  - updated `createOnlyProperties`
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `LogConfiguration`
-- updated `AWS::Lambda::Version`
-  - updated definition `RuntimePolicy`
-  - updated handler permissions
-  - updated property `FunctionArn`
-  - updated property `FunctionName`
-- updated `AWS::RDS::CustomDBEngineVersion`
-  - updated property `EngineVersion`
-- updated `AWS::S3::StorageLens`
-  - updated `tagging`
-- updated `AWS::S3::StorageLensGroup`
-  - updated `tagging`
-- updated `AWS::SageMaker::ProcessingJob`
-  - updated definition `AppSpecification`
-  - updated definition `VpcConfig`
-  - updated handler permissions
-- updated `AWS::ServiceCatalog::TagOption`
-  - added `tagging`
-  - updated handler permissions
-  - updated property `Active`
-  - updated property `Id`
-  - updated property `Key`
-  - updated property `Value`
+- updated `AWS::EC2::ClientVpnEndpoint`
+  - updated `required`
+- updated `AWS::EC2::VPCBlockPublicAccessOptions`
+  - added property `ExclusionsAllowed`
+  - updated `readOnlyProperties`
+- updated `AWS::Synthetics::Canary`
+  - added definition `BrowserConfig`
+  - added definition `BrowserType`
+  - added property `BrowserConfigs`
+  - added property `VisualReferences`
+  - updated `deprecatedProperties`
+  - updated `writeOnlyProperties`
+  - updated definition `VisualReference`

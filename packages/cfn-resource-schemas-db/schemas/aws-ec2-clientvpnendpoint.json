@@ -1,5 +1,5 @@
 {
-  "$hash": "df0305291af969c336d8b6c49c5cd606d16829be",
+  "$hash": "2fccecb4c26fd1b09f5bf4e320734a45106be916",
   "$id": "aws-ec2-clientvpnendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -148,7 +148,6 @@
   },
   "readOnlyProperties": ["/properties/Id"],
   "required": [
-    "ClientCidrBlock",
     "ConnectionLogOptions",
     "AuthenticationOptions",
     "ServerCertificateArn"

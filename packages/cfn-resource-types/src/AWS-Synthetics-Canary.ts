@@ -15,6 +15,12 @@ export type SyntheticsCanaryProperties = {
    */
   ArtifactS3Location: string;
   /**
+   * List of browser configurations for the canary
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  BrowserConfigs?: BrowserConfig[];
+  /**
    * Provide the canary script source
    */
   Code: Code;
@@ -76,6 +82,12 @@ export type SyntheticsCanaryProperties = {
    * Visual reference configuration for visual testing
    */
   VisualReference?: VisualReference;
+  /**
+   * List of visual references for the canary
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  VisualReferences?: VisualReference[];
 };
 /**
  * Attribute type definition for `AWS::Synthetics::Canary`.
@@ -121,6 +133,18 @@ export type BaseScreenshot = {
    */
   ScreenshotName: string;
 };
+/**
+ * Type definition for `AWS::Synthetics::Canary.BrowserConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-browserconfig.html}
+ */
+export type BrowserConfig = {
+  BrowserType: BrowserType;
+};
+/**
+ * Type definition for `AWS::Synthetics::Canary.BrowserType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-browsertype.html}
+ */
+export type BrowserType = "CHROME" | "FIREFOX";
 /**
  * Type definition for `AWS::Synthetics::Canary.Code`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html}
@@ -254,6 +278,7 @@ export type VisualReference = {
    * List of screenshots used as base reference for visual testing
    */
   BaseScreenshots?: BaseScreenshot[];
+  BrowserType?: BrowserType;
 };
 /**
  * Type definition for `AWS::Synthetics::Canary.VPCConfig`.

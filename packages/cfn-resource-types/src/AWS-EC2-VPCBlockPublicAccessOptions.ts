@@ -19,6 +19,10 @@ export type EC2VPCBlockPublicAccessOptionsAttributes = {
    * The identifier for the specified AWS account.
    */
   AccountId: string;
+  /**
+   * Determines if exclusions are allowed. If you have enabled VPC BPA at the Organization level, exclusions may be not-allowed. Otherwise, they are allowed.
+   */
+  ExclusionsAllowed: string;
 };
 /**
  * Resource Type definition for AWS::EC2::VPCBlockPublicAccessOptions

@@ -1,5 +1,5 @@
 {
-  "$hash": "68f60e5adb052a5dcf59e3d9b9293e15429d14b6",
+  "$hash": "2569b26ad1dc6b9bc8f0a905f94ed818aad9933c",
   "$id": "aws-ec2-vpcblockpublicaccessoptions.json",
   "additionalProperties": false,
   "description": "Resource Type definition for AWS::EC2::VPCBlockPublicAccessOptions",
@@ -30,13 +30,20 @@
       "description": "The identifier for the specified AWS account.",
       "type": "string"
     },
+    "ExclusionsAllowed": {
+      "description": "Determines if exclusions are allowed. If you have enabled VPC BPA at the Organization level, exclusions may be not-allowed. Otherwise, they are allowed.",
+      "type": "string"
+    },
     "InternetGatewayBlockMode": {
       "description": "The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value",
       "enum": ["block-bidirectional", "block-ingress"],
       "type": "string"
     }
   },
-  "readOnlyProperties": ["/properties/AccountId"],
+  "readOnlyProperties": [
+    "/properties/AccountId",
+    "/properties/ExclusionsAllowed"
+  ],
   "required": ["InternetGatewayBlockMode"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2-vpcblockpublicaccessoptions.git",
   "tagging": {
