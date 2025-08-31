@@ -1,13 +1,2 @@
-- updated `AWS::EC2::ClientVpnEndpoint`
-  - updated `required`
-- updated `AWS::EC2::VPCBlockPublicAccessOptions`
-  - added property `ExclusionsAllowed`
-  - updated `readOnlyProperties`
-- updated `AWS::Synthetics::Canary`
-  - added definition `BrowserConfig`
-  - added definition `BrowserType`
-  - added property `BrowserConfigs`
-  - added property `VisualReferences`
-  - updated `deprecatedProperties`
-  - updated `writeOnlyProperties`
-  - updated definition `VisualReference`
+- added `AWS::Bedrock::AutomatedReasoningPolicy`
+- added `AWS::Bedrock::AutomatedReasoningPolicyVersion`
