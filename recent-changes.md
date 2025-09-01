@@ -1,2 +1,2 @@
-- added `AWS::Bedrock::AutomatedReasoningPolicy`
-- added `AWS::Bedrock::AutomatedReasoningPolicyVersion`
+- updated `AWS::SageMaker::Cluster`
+  - updated definition `ImageId`

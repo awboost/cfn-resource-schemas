@@ -156,7 +156,7 @@ export type ClusterInstanceGroup = {
   ExecutionRole: string;
   /**
    * AMI Id to be used for launching EC2 instances - HyperPodPublicAmiId or CustomAmiId
-   * @minLength `12`
+   * @minLength `7`
    * @maxLength `21`
    * @pattern `^ami-[0-9a-fA-F]{8,17}|default$`
    */

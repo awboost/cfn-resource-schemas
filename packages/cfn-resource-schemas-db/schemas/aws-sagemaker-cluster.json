@@ -1,5 +1,5 @@
 {
-  "$hash": "2f2afbeba99a6c8aeb3bda7248a96cf1bd171898",
+  "$hash": "b3d731956ece931a3feb0d9c4612f07e7abf7ff4",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
@@ -300,7 +300,7 @@
     "ImageId": {
       "description": "AMI Id to be used for launching EC2 instances - HyperPodPublicAmiId or CustomAmiId",
       "maxLength": 21,
-      "minLength": 12,
+      "minLength": 7,
       "pattern": "^ami-[0-9a-fA-F]{8,17}|default$",
       "type": "string"
     },
