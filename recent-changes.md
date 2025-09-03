@@ -1,2 +1,2 @@
-- updated `AWS::SageMaker::Cluster`
-  - updated definition `ImageId`
+- updated `AWS::EC2::Volume`
+  - updated property `AvailabilityZone`

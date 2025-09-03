@@ -21,8 +21,9 @@ export type EC2VolumeProperties = {
    */
   AutoEnableIO?: boolean;
   /**
-   * The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
-   */
+     * The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.
+     Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.
+     */
   AvailabilityZone: string;
   /**
      * Indicates whether the volume should be encrypted. The effect of setting the encryption state to ``true`` depends on the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default) in the *Amazon EBS User Guide*.

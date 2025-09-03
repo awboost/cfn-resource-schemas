@@ -1,5 +1,5 @@
 {
-  "$hash": "2abbbef1e363a97243edf492e1102800221118a0",
+  "$hash": "eb8acd6632af8f073073ad24b43decaa4648f100",
   "$id": "aws-ec2-volume.json",
   "additionalProperties": false,
   "definitions": {
@@ -71,7 +71,7 @@
       "type": "boolean"
     },
     "AvailabilityZone": {
-      "description": "The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.",
+      "description": "The ID of the Availability Zone in which to create the volume. For example, ``us-east-1a``.\n Either ``AvailabilityZone`` or ``AvailabilityZoneId`` must be specified, but not both.",
       "type": "string"
     },
     "Encrypted": {
