@@ -1,2 +1,15 @@
-- updated `AWS::EC2::Volume`
-  - updated property `AvailabilityZone`
+- updated `AWS::ECS::Service`
+  - updated definition `CapacityProviderStrategyItem`
+  - updated definition `ForceNewDeployment`
+  - updated definition `LogConfiguration`
+  - updated property `AvailabilityZoneRebalancing`
+  - updated property `ForceNewDeployment`
+- updated `AWS::IVS::Stage`
+  - added definition `HlsConfiguration`
+  - added definition `ParticipantRecordingHlsConfiguration`
+  - added definition `ThumbnailConfiguration`
+  - updated definition `AutoParticipantRecordingConfiguration`
+- updated `AWS::Lambda::LayerVersionPermission`
+  - updated `propertyTransform`
+- updated `AWS::Wisdom::AIPrompt`
+  - updated `createOnlyProperties`

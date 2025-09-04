@@ -50,19 +50,7 @@ export type AutoParticipantRecordingConfiguration = {
   /**
    * HLS configuration object for individual participant recording.
    */
-  HlsConfiguration?: {
-    /**
-     * An object representing a configuration of participant HLS recordings for individual participant recording.
-     */
-    ParticipantRecordingHlsConfiguration?: {
-      /**
-       * Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
-       * @min `2`
-       * @max `10`
-       */
-      TargetSegmentDurationSeconds?: number;
-    };
-  };
+  HlsConfiguration?: HlsConfiguration;
   /**
    * Types of media to be recorded. Default: AUDIO_VIDEO.
    * @minLength `0`
@@ -85,29 +73,31 @@ export type AutoParticipantRecordingConfiguration = {
   /**
    * A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
    */
-  ThumbnailConfiguration?: {
-    /**
-     * An object representing a configuration of thumbnails for recorded video from an individual participant.
-     */
-    ParticipantThumbnailConfiguration?: {
-      /**
-       * Thumbnail recording mode. Default: DISABLED.
-       */
-      RecordingMode?: "INTERVAL" | "DISABLED";
-      /**
-       * Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
-       * @minLength `0`
-       * @maxLength `2`
-       */
-      Storage?: ("SEQUENTIAL" | "LATEST")[];
-      /**
-       * The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
-       * @min `1`
-       * @max `86400`
-       */
-      TargetIntervalSeconds?: number;
-    };
-  };
+  ThumbnailConfiguration?: ThumbnailConfiguration;
+};
+/**
+ * Type definition for `AWS::IVS::Stage.HlsConfiguration`.
+ * HLS configuration object for individual participant recording.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-hlsconfiguration.html}
+ */
+export type HlsConfiguration = {
+  /**
+   * An object representing a configuration of participant HLS recordings for individual participant recording.
+   */
+  ParticipantRecordingHlsConfiguration?: ParticipantRecordingHlsConfiguration;
+};
+/**
+ * Type definition for `AWS::IVS::Stage.ParticipantRecordingHlsConfiguration`.
+ * An object representing a configuration of participant HLS recordings for individual participant recording.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-participantrecordinghlsconfiguration.html}
+ */
+export type ParticipantRecordingHlsConfiguration = {
+  /**
+   * Defines the target duration for recorded segments generated when recording a stage participant. Segments may have durations longer than the specified value when needed to ensure each segment begins with a keyframe. Default: 6.
+   * @min `2`
+   * @max `10`
+   */
+  TargetSegmentDurationSeconds?: number;
 };
 /**
  * Type definition for `AWS::IVS::Stage.Tag`.
@@ -126,6 +116,34 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::IVS::Stage.ThumbnailConfiguration`.
+ * A complex type that allows you to enable/disable the recording of thumbnails for individual participant recording and modify the interval at which thumbnails are generated for the live session.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-thumbnailconfiguration.html}
+ */
+export type ThumbnailConfiguration = {
+  /**
+   * An object representing a configuration of thumbnails for recorded video from an individual participant.
+   */
+  ParticipantThumbnailConfiguration?: {
+    /**
+     * Thumbnail recording mode. Default: DISABLED.
+     */
+    RecordingMode?: "INTERVAL" | "DISABLED";
+    /**
+     * Indicates the format in which thumbnails are recorded. SEQUENTIAL records all generated thumbnails in a serial manner, to the media/thumbnails/high directory. LATEST saves the latest thumbnail in media/latest_thumbnail/high/thumb.jpg and overwrites it at the interval specified by targetIntervalSeconds. You can enable both SEQUENTIAL and LATEST. Default: SEQUENTIAL.
+     * @minLength `0`
+     * @maxLength `2`
+     */
+    Storage?: ("SEQUENTIAL" | "LATEST")[];
+    /**
+     * The targeted thumbnail-generation interval in seconds. This is configurable only if recordingMode is INTERVAL. Default: 60.
+     * @min `1`
+     * @max `86400`
+     */
+    TargetIntervalSeconds?: number;
+  };
 };
 /**
  * Resource Type definition for AWS::IVS::Stage.

@@ -1,5 +1,5 @@
 {
-  "$hash": "a3a3c98d5dc3e54225dc7dc9eb610bd1cd001bfd",
+  "$hash": "bbaceb552aed974bab52b3035bb1527d4ff8aabc",
   "$id": "aws-lambda-layerversionpermission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -41,7 +41,7 @@
     }
   },
   "propertyTransform": {
-    "/properties/Principal": "Principal $OR $join([\".*AWS.*[arn:aws:iam::\", Principal, \":root].*\"]) $OR $join([\".*AWS.*[\", Principal, \"].*\"])"
+    "/properties/Principal": "Principal $OR $join([\"^arn:aws[a-zA-Z-]*:iam::\",Principal,\":[a-zA-Z-]*\"]) $OR $join([\".*AWS.*[\", Principal, \"].*\"]) $OR $replace(Principal, /^arn:aws-([a-zA-Z]+)(-)?([a-zA-Z]+)?:/, \"arn:aws[a-zA-Z-]*:\")"
   },
   "readOnlyProperties": ["/properties/Id"],
   "required": ["LayerVersionArn", "Action", "Principal"],

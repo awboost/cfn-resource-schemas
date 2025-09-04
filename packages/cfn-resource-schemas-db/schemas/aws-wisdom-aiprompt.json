@@ -1,5 +1,5 @@
 {
-  "$hash": "30426580877e472354c1f6182027ef2c36ecc3c3",
+  "$hash": "a6aefc2362cab5e86293282c25b5b9dab2642286",
   "$id": "aws-wisdom-aiprompt.json",
   "additionalIdentifiers": [
     ["/properties/AIPromptArn", "/properties/AssistantArn"]
@@ -8,7 +8,6 @@
   "createOnlyProperties": [
     "/properties/ApiFormat",
     "/properties/AssistantId",
-    "/properties/ModelId",
     "/properties/Name",
     "/properties/Tags",
     "/properties/TemplateType",
