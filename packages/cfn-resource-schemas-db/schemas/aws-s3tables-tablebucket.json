@@ -1,5 +1,5 @@
 {
-  "$hash": "7bcc7df0a33e36b012cb8ba447c90bcd8f15a361",
+  "$hash": "8e36279fe13bfc69da76570fa1e2ead10f1726b1",
   "$id": "aws-s3tables-tablebucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TableBucketName"],
@@ -84,6 +84,7 @@
         "s3tables:PutTableBucketEncryption",
         "s3tables:GetTableBucketMaintenanceConfiguration",
         "s3tables:GetTableBucketEncryption",
+        "s3tables:DeleteTableBucketEncryption",
         "s3tables:GetTableBucket",
         "kms:DescribeKey"
       ]

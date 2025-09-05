@@ -1,5 +1,5 @@
 {
-  "$hash": "c864a4b7c45a2d1772154a97c6acee995494480a",
+  "$hash": "25d077cd871ebeccfd06f12aa231c704e3dd5bd7",
   "$id": "aws-lex-bot.json",
   "additionalProperties": false,
   "definitions": {
@@ -452,6 +452,18 @@
         "InvocationLabel": { "$ref": "#/definitions/Name" }
       },
       "required": ["EnableCodeHookInvocation"],
+      "type": "object"
+    },
+    "ErrorLogSettings": {
+      "additionalProperties": false,
+      "description": "Error logs configuration for this bot. This is used by Amazon Lex to emit any errors that occur during Lex Runtime API invocations.",
+      "properties": {
+        "Enabled": {
+          "description": "Specify whether error log feature has been enabled",
+          "type": "boolean"
+        }
+      },
+      "required": ["Enabled"],
       "type": "object"
     },
     "ExternalSourceSetting": {
@@ -1695,6 +1707,12 @@
       "type": "object"
     },
     "Description": { "$ref": "#/definitions/Description" },
+    "ErrorLogSettings": {
+      "additionalProperties": false,
+      "properties": { "Enabled": { "type": "boolean" } },
+      "required": ["Enabled"],
+      "type": "object"
+    },
     "Id": { "$ref": "#/definitions/Id" },
     "IdleSessionTTLInSeconds": {
       "maximum": 86400,

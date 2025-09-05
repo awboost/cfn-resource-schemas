@@ -21,6 +21,9 @@ export type LexBotProperties = {
    * @maxLength `2000`
    */
   Description?: string;
+  ErrorLogSettings?: {
+    Enabled: boolean;
+  };
   /**
    * @min `60`
    * @max `86400`

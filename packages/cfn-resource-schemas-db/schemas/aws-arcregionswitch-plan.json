@@ -1,5 +1,5 @@
 {
-  "$hash": "d9f11f0fceee2e3b48c616cfd97d8305222a788c",
+  "$hash": "3b1dd463dbcba33c3e6a74ecbbcfb27a2cab1cf5",
   "$id": "aws-arcregionswitch-plan.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -409,6 +409,11 @@
       "type": "string"
     },
     "HealthCheckIds": { "items": { "type": "string" }, "type": "array" },
+    "HealthCheckRecordNames": {
+      "items": { "type": "string" },
+      "type": "array"
+    },
+    "HealthCheckRegions": { "items": { "type": "string" }, "type": "array" },
     "HealthCheckState": {
       "additionalProperties": false,
       "properties": {
@@ -416,6 +421,12 @@
         "Region": { "type": "string" }
       },
       "type": "object"
+    },
+    "HealthChecks": {
+      "items": { "$ref": "#/definitions/HealthCheckState" },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
     },
     "HostedZoneIds": { "items": { "type": "string" }, "type": "array" },
     "KubernetesResourceType": {
@@ -480,7 +491,6 @@
       "required": ["Steps"],
       "type": "object"
     },
-    "RecordNames": { "items": { "type": "string" }, "type": "array" },
     "RecoveryApproach": {
       "enum": ["activeActive", "activePassive"],
       "type": "string"
@@ -524,7 +534,6 @@
       },
       "type": "object"
     },
-    "Regions": { "items": { "type": "string" }, "type": "array" },
     "Route53HealthCheckConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -543,12 +552,6 @@
       },
       "required": ["HostedZoneId", "RecordName"],
       "type": "object"
-    },
-    "Route53HealthChecks": {
-      "items": { "$ref": "#/definitions/HealthCheckState" },
-      "maxItems": 2,
-      "minItems": 2,
-      "type": "array"
     },
     "Route53ResourceRecordSet": {
       "additionalProperties": false,
@@ -712,9 +715,7 @@
     },
     "HealthChecksForPlan": {
       "additionalProperties": false,
-      "patternProperties": {
-        ".+": { "$ref": "#/definitions/Route53HealthChecks" }
-      },
+      "patternProperties": { ".+": { "$ref": "#/definitions/HealthChecks" } },
       "type": "object"
     },
     "Name": {
@@ -742,8 +743,8 @@
       "properties": {
         "HealthCheckIds": { "$ref": "#/definitions/HealthCheckIds" },
         "HostedZoneIds": { "$ref": "#/definitions/HostedZoneIds" },
-        "RecordNames": { "$ref": "#/definitions/RecordNames" },
-        "Regions": { "$ref": "#/definitions/Regions" }
+        "RecordNames": { "$ref": "#/definitions/HealthCheckRecordNames" },
+        "Regions": { "$ref": "#/definitions/HealthCheckRegions" }
       },
       "type": "object"
     },

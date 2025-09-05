@@ -1,15 +1,19 @@
-- updated `AWS::ECS::Service`
-  - updated definition `CapacityProviderStrategyItem`
-  - updated definition `ForceNewDeployment`
-  - updated definition `LogConfiguration`
-  - updated property `AvailabilityZoneRebalancing`
-  - updated property `ForceNewDeployment`
-- updated `AWS::IVS::Stage`
-  - added definition `HlsConfiguration`
-  - added definition `ParticipantRecordingHlsConfiguration`
-  - added definition `ThumbnailConfiguration`
-  - updated definition `AutoParticipantRecordingConfiguration`
-- updated `AWS::Lambda::LayerVersionPermission`
-  - updated `propertyTransform`
-- updated `AWS::Wisdom::AIPrompt`
-  - updated `createOnlyProperties`
+- added `AWS::Notifications::OrganizationalUnitAssociation`
+- updated `AWS::ARCRegionSwitch::Plan`
+  - added definition `HealthCheckRecordNames`
+  - added definition `HealthCheckRegions`
+  - added definition `HealthChecks`
+  - removed definition `RecordNames`
+  - removed definition `Regions`
+  - removed definition `Route53HealthChecks`
+  - updated property `HealthChecksForPlan`
+  - updated property `Route53HealthChecks`
+- updated `AWS::ApplicationAutoScaling::ScalableTarget`
+  - updated definition `ScheduledAction`
+  - updated property `ResourceId`
+  - updated property `ScalableDimension`
+- updated `AWS::Lex::Bot`
+  - added definition `ErrorLogSettings`
+  - added property `ErrorLogSettings`
+- updated `AWS::S3Tables::TableBucket`
+  - updated handler permissions
