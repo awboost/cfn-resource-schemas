@@ -7,10 +7,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type WorkspacesInstancesWorkspaceInstanceProperties = {
   ManagedInstance?: {
     BlockDeviceMappings?: BlockDeviceMapping[];
+    CapacityReservationSpecification?: CapacityReservationSpecification;
     CpuOptions?: CpuOptionsRequest;
     CreditSpecification?: CreditSpecificationRequest;
     DisableApiStop?: boolean;
     EbsOptimized?: boolean;
+    EnablePrimaryIpv6?: boolean;
     EnclaveOptions?: EnclaveOptionsRequest;
     HibernationOptions?: HibernationOptionsRequest;
     IamInstanceProfile?: IamInstanceProfileSpecification;
@@ -18,14 +20,20 @@ export type WorkspacesInstancesWorkspaceInstanceProperties = {
      * @pattern `^ami-[0-9a-zA-Z]{1,63}$`
      */
     ImageId: string;
+    InstanceMarketOptions?: InstanceMarketOptionsRequest;
     /**
      * @pattern `^([a-z0-9-]+)\.([a-z0-9]+)$`
      */
     InstanceType: string;
     /**
+     * @min `0`
+     */
+    Ipv6AddressCount?: number;
+    /**
      * @maxLength `64`
      */
     KeyName?: string;
+    LicenseSpecifications?: LicenseConfigurationRequest[];
     MaintenanceOptions?: InstanceMaintenanceOptionsRequest;
     MetadataOptions?: InstanceMetadataOptionsRequest;
     Monitoring?: RunInstancesMonitoringEnabled;
@@ -33,6 +41,10 @@ export type WorkspacesInstancesWorkspaceInstanceProperties = {
     NetworkPerformanceOptions?: InstanceNetworkPerformanceOptionsRequest;
     Placement?: Placement;
     PrivateDnsNameOptions?: PrivateDnsNameOptionsRequest;
+    /**
+     * @pattern `^subnet-[0-9a-zA-Z]{1,63}$`
+     */
+    SubnetId?: string;
     /**
      * @maxLength `30`
      */
@@ -89,6 +101,31 @@ export type BlockDeviceMapping = {
    * @pattern `^ephemeral(0|[1-9][0-9]{0,2})$`
    */
   VirtualName?: string;
+};
+/**
+ * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.CapacityReservationSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-capacityreservationspecification.html}
+ */
+export type CapacityReservationSpecification = {
+  CapacityReservationPreference?:
+    | "capacity-reservations-only"
+    | "open"
+    | "none";
+  CapacityReservationTarget?: CapacityReservationTarget;
+};
+/**
+ * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.CapacityReservationTarget`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-capacityreservationtarget.html}
+ */
+export type CapacityReservationTarget = {
+  /**
+   * @maxLength `128`
+   */
+  CapacityReservationId?: string;
+  /**
+   * @pattern `^arn:.*`
+   */
+  CapacityReservationResourceGroupArn?: string;
 };
 /**
  * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.CpuOptionsRequest`.
@@ -155,6 +192,11 @@ export type HibernationOptionsRequest = {
  */
 export type IamInstanceProfileSpecification = {
   /**
+   * @maxLength `2048`
+   * @pattern `^arn:.*`
+   */
+  Arn?: string;
+  /**
    * @maxLength `64`
    */
   Name?: string;
@@ -165,6 +207,14 @@ export type IamInstanceProfileSpecification = {
  */
 export type InstanceMaintenanceOptionsRequest = {
   AutoRecovery?: "disabled" | "default";
+};
+/**
+ * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.InstanceMarketOptionsRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-instancemarketoptionsrequest.html}
+ */
+export type InstanceMarketOptionsRequest = {
+  MarketType?: "spot" | "capacity-block";
+  SpotOptions?: SpotMarketOptions;
 };
 /**
  * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.InstanceMetadataOptionsRequest`.
@@ -209,6 +259,16 @@ export type InstanceNetworkPerformanceOptionsRequest = {
   BandwidthWeighting?: "default" | "vpc-1" | "ebs-1";
 };
 /**
+ * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.LicenseConfigurationRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-licenseconfigurationrequest.html}
+ */
+export type LicenseConfigurationRequest = {
+  /**
+   * @pattern `^arn:.*`
+   */
+  LicenseConfigurationArn?: string;
+};
+/**
  * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.Placement`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-placement.html}
  */
@@ -218,9 +278,14 @@ export type Placement = {
    */
   AvailabilityZone?: string;
   /**
+   * @pattern `^pg-[0-9a-zA-Z]{1,63}$`
+   */
+  GroupId?: string;
+  /**
    * @maxLength `255`
    */
   GroupName?: string;
+  PartitionNumber?: number;
   Tenancy?: "default" | "dedicated" | "host";
 };
 /**
@@ -238,6 +303,22 @@ export type PrivateDnsNameOptionsRequest = {
  */
 export type RunInstancesMonitoringEnabled = {
   Enabled?: boolean;
+};
+/**
+ * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.SpotMarketOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-spotmarketoptions.html}
+ */
+export type SpotMarketOptions = {
+  InstanceInterruptionBehavior?: "hibernate" | "stop";
+  /**
+   * @maxLength `64`
+   */
+  MaxPrice?: string;
+  SpotInstanceType?: "one-time" | "persistent";
+  /**
+   * @maxLength `64`
+   */
+  ValidUntilUtc?: string;
 };
 /**
  * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.Tag`.

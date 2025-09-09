@@ -1,5 +1,5 @@
 {
-  "$hash": "19783e8809f5c2fb73e94f56d3e1c648f7ce98b9",
+  "$hash": "cf6b0a66f9c12ef13705dd985bc67b1905f50e47",
   "$id": "aws-workspacesinstances-workspaceinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/Tags"],
@@ -113,7 +113,10 @@
     },
     "IamInstanceProfileSpecification": {
       "additionalProperties": false,
-      "properties": { "Name": { "maxLength": 64, "type": "string" } },
+      "properties": {
+        "Arn": { "maxLength": 2048, "pattern": "^arn:.*", "type": "string" },
+        "Name": { "maxLength": 64, "type": "string" }
+      },
       "type": "object"
     },
     "InstanceIpv6Address": {
@@ -214,7 +217,9 @@
           "pattern": "^[a-z]{2}-[a-z]+-\\d[a-z](-[a-z0-9]+)?$",
           "type": "string"
         },
+        "GroupId": { "pattern": "^pg-[0-9a-zA-Z]{1,63}$", "type": "string" },
         "GroupName": { "maxLength": 255, "type": "string" },
+        "PartitionNumber": { "type": "integer" },
         "Tenancy": {
           "enum": ["default", "dedicated", "host"],
           "type": "string"
@@ -250,7 +255,6 @@
     "SpotMarketOptions": {
       "additionalProperties": false,
       "properties": {
-        "BlockDurationMinutes": { "minimum": 0, "type": "integer" },
         "InstanceInterruptionBehavior": {
           "enum": ["hibernate", "stop"],
           "type": "string"
@@ -260,7 +264,7 @@
           "enum": ["one-time", "persistent"],
           "type": "string"
         },
-        "ValidUntilUtc": { "format": "date-time", "type": "string" }
+        "ValidUntilUtc": { "maxLength": 64, "type": "string" }
       },
       "type": "object"
     },
@@ -343,12 +347,16 @@
           "items": { "$ref": "#/definitions/BlockDeviceMapping" },
           "type": "array"
         },
+        "CapacityReservationSpecification": {
+          "$ref": "#/definitions/CapacityReservationSpecification"
+        },
         "CpuOptions": { "$ref": "#/definitions/CpuOptionsRequest" },
         "CreditSpecification": {
           "$ref": "#/definitions/CreditSpecificationRequest"
         },
         "DisableApiStop": { "type": "boolean" },
         "EbsOptimized": { "type": "boolean" },
+        "EnablePrimaryIpv6": { "type": "boolean" },
         "EnclaveOptions": { "$ref": "#/definitions/EnclaveOptionsRequest" },
         "HibernationOptions": {
           "$ref": "#/definitions/HibernationOptionsRequest"
@@ -357,11 +365,19 @@
           "$ref": "#/definitions/IamInstanceProfileSpecification"
         },
         "ImageId": { "pattern": "^ami-[0-9a-zA-Z]{1,63}$", "type": "string" },
+        "InstanceMarketOptions": {
+          "$ref": "#/definitions/InstanceMarketOptionsRequest"
+        },
         "InstanceType": {
           "pattern": "^([a-z0-9-]+)\\.([a-z0-9]+)$",
           "type": "string"
         },
+        "Ipv6AddressCount": { "minimum": 0, "type": "integer" },
         "KeyName": { "maxLength": 64, "type": "string" },
+        "LicenseSpecifications": {
+          "items": { "$ref": "#/definitions/LicenseConfigurationRequest" },
+          "type": "array"
+        },
         "MaintenanceOptions": {
           "$ref": "#/definitions/InstanceMaintenanceOptionsRequest"
         },
@@ -381,6 +397,10 @@
         "Placement": { "$ref": "#/definitions/Placement" },
         "PrivateDnsNameOptions": {
           "$ref": "#/definitions/PrivateDnsNameOptionsRequest"
+        },
+        "SubnetId": {
+          "pattern": "^subnet-[0-9a-zA-Z]{1,63}$",
+          "type": "string"
         },
         "TagSpecifications": {
           "items": { "$ref": "#/definitions/TagSpecification" },

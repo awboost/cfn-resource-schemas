@@ -1,5 +1,5 @@
 {
-  "$hash": "6bf5b1f523eaacfc23b5de13822b10f471b9d4ed",
+  "$hash": "f71f77fe8c5843bb1938c9057d803f285ae5968b",
   "$id": "aws-aiops-investigationgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/RetentionInDays"],
@@ -191,6 +191,10 @@
     "/properties/Arn"
   ],
   "required": ["Name"],
+  "resourceLink": {
+    "mappings": {},
+    "templateUri": "/cloudwatch/home?region=${awsRegion}#/investigations/configuration"
+  },
   "tagging": {
     "cloudFormationSystemTags": true,
     "permissions": [

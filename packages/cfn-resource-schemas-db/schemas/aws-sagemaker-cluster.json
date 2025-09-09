@@ -1,5 +1,5 @@
 {
-  "$hash": "b3d731956ece931a3feb0d9c4612f07e7abf7ff4",
+  "$hash": "c16dc8811efcbb3b2616671fb07391f7509fe974",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
@@ -58,10 +58,36 @@
       "required": ["Type", "Value"],
       "type": "object"
     },
+    "ClusterAutoScalingConfig": {
+      "additionalProperties": false,
+      "description": "Configuration for cluster auto-scaling",
+      "properties": {
+        "AutoScalerType": {
+          "default": "Karpenter",
+          "description": "The type of auto-scaler to use",
+          "enum": ["Karpenter"],
+          "type": "string"
+        },
+        "Mode": {
+          "description": "The auto-scaling mode for the cluster",
+          "enum": ["Enable", "Disable"],
+          "type": "string"
+        }
+      },
+      "required": ["Mode"],
+      "type": "object"
+    },
     "ClusterEbsVolumeConfig": {
       "additionalProperties": false,
       "description": "Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.",
       "properties": {
+        "RootVolume": { "type": "boolean" },
+        "VolumeKmsKeyId": {
+          "maxLength": 2048,
+          "minLength": 0,
+          "pattern": "^[a-zA-Z0-9:/_-]*$",
+          "type": "string"
+        },
         "VolumeSizeInGB": {
           "description": "The size in gigabytes (GB) of the additional EBS volume to be attached to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.",
           "maximum": 16384,
@@ -430,7 +456,13 @@
         "eks:DeleteAccessEntry",
         "eks:AssociateAccessPolicy",
         "iam:CreateServiceLinkedRole",
-        "iam:PassRole"
+        "iam:PassRole",
+        "kms:DescribeKey",
+        "kms:CreateGrant",
+        "ec2:DescribeImages",
+        "ec2:DescribeSnapshots",
+        "ec2:ModifyImageAttribute",
+        "ec2:ModifySnapshotAttribute"
       ],
       "timeoutInMinutes": 720
     },
@@ -461,15 +493,23 @@
         "eks:DescribeCluster",
         "eks:CreateAccessEntry",
         "eks:DeleteAccessEntry",
+        "eks:AssociateAccessPolicy",
         "iam:PassRole",
+        "kms:DescribeKey",
+        "kms:CreateGrant",
         "sagemaker:BatchAddClusterNodes",
-        "sagemaker:BatchDeleteClusterNodes"
+        "sagemaker:BatchDeleteClusterNodes",
+        "ec2:DescribeImages",
+        "ec2:DescribeSnapshots",
+        "ec2:ModifyImageAttribute",
+        "ec2:ModifySnapshotAttribute"
       ],
       "timeoutInMinutes": 720
     }
   },
   "primaryIdentifier": ["/properties/ClusterArn"],
   "properties": {
+    "AutoScaling": { "$ref": "#/definitions/ClusterAutoScalingConfig" },
     "ClusterArn": {
       "description": "The Amazon Resource Name (ARN) of the HyperPod Cluster.",
       "maxLength": 256,
@@ -481,6 +521,13 @@
       "maxLength": 63,
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$",
+      "type": "string"
+    },
+    "ClusterRole": {
+      "description": "The cluster role for the autoscaler to assume.",
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "^arn:aws[a-z\\-]*:iam::\\d{12}:role/?[a-zA-Z_0-9+=,.@\\-_/]+$",
       "type": "string"
     },
     "ClusterStatus": {

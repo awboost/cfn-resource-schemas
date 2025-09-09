@@ -1,5 +1,5 @@
 {
-  "$hash": "df197cdc29eb885dc0c30575d16f9a5dd92ae0f7",
+  "$hash": "a1d310d3bd7f50b622a9ed77f72927e39173a749",
   "$id": "aws-omics-workflowversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,7 +10,12 @@
     "/properties/Main",
     "/properties/ParameterTemplate",
     "/properties/Accelerators",
-    "/properties/WorkflowBucketOwnerId"
+    "/properties/WorkflowBucketOwnerId",
+    "/properties/Accelerators",
+    "/properties/DefinitionRepository",
+    "/properties/ParameterTemplatePath",
+    "/properties/readmePath",
+    "/properties/readmeUri"
   ],
   "definitions": {
     "Accelerators": {
@@ -18,6 +23,32 @@
       "maxLength": 64,
       "minLength": 1,
       "type": "string"
+    },
+    "DefinitionRepository": {
+      "properties": {
+        "connectionArn": {
+          "maxLength": 256,
+          "minLength": 1,
+          "pattern": "^arn:aws(-[\\\\w]+)*:.+:.+:[0-9]{12}:.+$",
+          "type": "string"
+        },
+        "excludeFilePatterns": {
+          "items": { "type": "string" },
+          "maxItems": 50,
+          "minItems": 1,
+          "type": "array"
+        },
+        "fullRepositoryId": { "pattern": ".+/.+", "type": "string" },
+        "sourceReference": { "$ref": "#/definitions/SourceReference" }
+      },
+      "type": "object"
+    },
+    "SourceReference": {
+      "properties": {
+        "type": { "enum": ["BRANCH", "TAG", "COMMIT"], "type": "string" },
+        "value": { "type": "string" }
+      },
+      "type": "object"
     },
     "StorageType": {
       "enum": ["STATIC", "DYNAMIC"],
@@ -106,7 +137,10 @@
         "kms:GenerateDataKey",
         "kms:GenerateDataKeyPair",
         "kms:GenerateDataKeyPairWithoutPlaintext",
-        "kms:GenerateDataKeyWithoutPlaintext"
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "codeconnections:UseConnection",
+        "codeconnections:GetConnection",
+        "codeconnections:GetHost"
       ]
     },
     "delete": {
@@ -136,6 +170,7 @@
       "type": "string"
     },
     "CreationTime": { "format": "date-time", "type": "string" },
+    "DefinitionRepository": { "$ref": "#/definitions/DefinitionRepository" },
     "DefinitionUri": {
       "maxLength": 256,
       "minLength": 1,
@@ -156,6 +191,11 @@
       "type": "string"
     },
     "ParameterTemplate": { "$ref": "#/definitions/WorkflowParameterTemplate" },
+    "ParameterTemplatePath": {
+      "description": "Path to the primary workflow parameter template JSON file inside the repository",
+      "pattern": "^[\\S]+$",
+      "type": "string"
+    },
     "Status": { "$ref": "#/definitions/WorkflowStatus" },
     "StorageCapacity": { "maximum": 100000, "minimum": 0, "type": "number" },
     "StorageType": { "$ref": "#/definitions/StorageType" },
@@ -184,6 +224,22 @@
       "minLength": 1,
       "pattern": "^[0-9]+$",
       "type": "string"
+    },
+    "readmeMarkdown": {
+      "description": "The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.",
+      "type": "string"
+    },
+    "readmePath": {
+      "description": "The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.",
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$",
+      "type": "string"
+    },
+    "readmeUri": {
+      "description": "The S3 URI of the README file for the workflow. This file provides documentation and usage information for the workflow. The S3 URI must begin with s3://USER-OWNED-BUCKET/. The requester must have access to the S3 bucket and object. The max README content length is 500 KiB.",
+      "pattern": "^s3://([a-z0-9][a-z0-9-.]{1,61}[a-z0-9])/((.{1,1024}))$",
+      "type": "string"
     }
   },
   "readOnlyProperties": [
@@ -207,5 +263,11 @@
     "taggable": true
   },
   "typeName": "AWS::Omics::WorkflowVersion",
-  "writeOnlyProperties": ["/properties/DefinitionUri"]
+  "writeOnlyProperties": [
+    "/properties/DefinitionUri",
+    "/properties/ParameterTemplatePath",
+    "/properties/DefinitionRepository",
+    "/properties/readmeUri",
+    "/properties/readmeMarkdown"
+  ]
 }

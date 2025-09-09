@@ -1,5 +1,5 @@
 {
-  "$hash": "aa7d008f405589fededfda11a97df06793de5588",
+  "$hash": "d48b9c9b75f01cc3b232a9f1ef76c3458b23c8c4",
   "$id": "aws-omics-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -251,7 +251,6 @@
     "/properties/WorkflowBucketOwnerId",
     "/properties/ParameterTemplatePath",
     "/properties/DefinitionRepository",
-    "/properties/readmePath",
     "/properties/readmeUri",
     "/properties/readmeMarkdown"
   ]

@@ -6,12 +6,23 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SageMakerClusterProperties = {
   /**
+   * Configuration for cluster auto-scaling
+   */
+  AutoScaling?: ClusterAutoScalingConfig;
+  /**
    * The name of the HyperPod Cluster.
    * @minLength `1`
    * @maxLength `63`
    * @pattern `^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,62}$`
    */
   ClusterName?: string;
+  /**
+   * The cluster role for the autoscaler to assume.
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:aws[a-z\-]*:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
+   */
+  ClusterRole?: string;
   /**
    * The instance groups of the SageMaker HyperPod cluster.
    * @minLength `1`
@@ -129,11 +140,33 @@ export type CapacitySizeConfig = {
   Value: number;
 };
 /**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterAutoScalingConfig`.
+ * Configuration for cluster auto-scaling
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterautoscalingconfig.html}
+ */
+export type ClusterAutoScalingConfig = {
+  /**
+   * The type of auto-scaler to use
+   */
+  AutoScalerType?: "Karpenter";
+  /**
+   * The auto-scaling mode for the cluster
+   */
+  Mode: "Enable" | "Disable";
+};
+/**
  * Type definition for `AWS::SageMaker::Cluster.ClusterEbsVolumeConfig`.
  * Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html}
  */
 export type ClusterEbsVolumeConfig = {
+  RootVolume?: boolean;
+  /**
+   * @minLength `0`
+   * @maxLength `2048`
+   * @pattern `^[a-zA-Z0-9:/_-]*$`
+   */
+  VolumeKmsKeyId?: string;
   /**
    * The size in gigabytes (GB) of the additional EBS volume to be attached to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
    * @min `1`
