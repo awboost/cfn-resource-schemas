@@ -34,6 +34,9 @@ export type EC2VPNConnectionProperties = {
      Default: ``PublicIpv4``
      */
   OutsideIpAddressType?: string;
+  /**
+   * Describes the storage location for an instance store-backed AMI.
+   */
   PreSharedKeyStorage?: "Standard" | "SecretsManager";
   /**
      * The IPv4 CIDR on the AWS side of the VPN connection.

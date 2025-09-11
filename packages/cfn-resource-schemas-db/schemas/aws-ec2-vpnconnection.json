@@ -1,5 +1,5 @@
 {
-  "$hash": "218d2ccad2aaea85cdc8c29a3f4cbee05996c399",
+  "$hash": "5e4e51aa0daf28af9107d1cd63ce45021b03e269",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -324,7 +324,7 @@
       "type": "string"
     },
     "PreSharedKeyStorage": {
-      "description": "",
+      "description": "Describes the storage location for an instance store-backed AMI.",
       "enum": ["Standard", "SecretsManager"],
       "type": "string"
     },

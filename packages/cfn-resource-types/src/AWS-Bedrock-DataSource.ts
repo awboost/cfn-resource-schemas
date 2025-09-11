@@ -504,7 +504,7 @@ export type S3DataSourceConfiguration = {
    * The ARN of the bucket that contains the data source.
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^arn:aws(|-cn|-us-gov):s3:::[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$`
+   * @pattern `^arn:aws(-cn|-us-gov|-eusc|-iso(-[b-f])?)?:s3:::[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$`
    */
   BucketArn: string;
   /**
@@ -630,7 +630,7 @@ export type ServerSideEncryptionConfiguration = {
    * The ARN of the AWS KMS key used to encrypt the resource.
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
+   * @pattern `^arn:aws(-cn|-us-gov|-eusc|-iso(-[b-f])?)?:kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
    */
   KmsKeyArn?: string;
 };

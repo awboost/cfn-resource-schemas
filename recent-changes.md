@@ -1,39 +1,14 @@
-- updated `AWS::AIOps::InvestigationGroup`
-  - added `resourceLink`
-- updated `AWS::Omics::Workflow`
-  - updated `writeOnlyProperties`
-- updated `AWS::Omics::WorkflowVersion`
-  - added definition `DefinitionRepository`
-  - added definition `SourceReference`
-  - added property `DefinitionRepository`
-  - added property `ParameterTemplatePath`
-  - added property `readmeMarkdown`
-  - added property `readmePath`
-  - added property `readmeUri`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
+- updated `AWS::Bedrock::DataSource`
+  - updated definition `S3DataSourceConfiguration`
+  - updated definition `ServerSideEncryptionConfiguration`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - updated definition `OpenSearchManagedClusterConfiguration`
+- updated `AWS::DMS::MigrationProject`
   - updated handler permissions
-- updated `AWS::S3::Bucket`
-  - updated definition `InventoryConfiguration`
-  - updated definition `InventoryTableConfiguration`
-  - updated definition `JournalTableConfiguration`
-  - updated definition `MetadataConfiguration`
-  - updated definition `MetadataDestination`
-  - updated definition `MetadataTableConfiguration`
-  - updated definition `MetadataTableEncryptionConfiguration`
-  - updated definition `RecordExpiration`
-  - updated definition `ReplicationDestination`
-  - updated definition `S3TablesDestination`
-  - updated property `InventoryConfigurations`
-  - updated property `MetadataConfiguration`
-- updated `AWS::SageMaker::Cluster`
-  - added definition `ClusterAutoScalingConfig`
-  - added property `AutoScaling`
-  - added property `ClusterRole`
-  - updated definition `ClusterEbsVolumeConfig`
+- updated `AWS::EC2::VPNConnection`
+  - updated property `PreSharedKeyStorage`
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - added `writeOnlyProperties`
+  - added property `EnableCapacityReservationProvisionStabilize`
+  - updated definition `LoadBalancerAttribute`
   - updated handler permissions
-- updated `AWS::WorkspacesInstances::WorkspaceInstance`
-  - updated definition `IamInstanceProfileSpecification`
-  - updated definition `Placement`
-  - updated definition `SpotMarketOptions`
-  - updated property `ManagedInstance`

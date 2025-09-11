@@ -1,5 +1,5 @@
 {
-  "$hash": "614d1fdff2495b25dfe201925dc2695728fabe6b",
+  "$hash": "66c9a3a916a7c3b7a3f9549d513eac9008eb6fef",
   "$id": "aws-bedrock-knowledgebase.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -278,7 +278,7 @@
         "DomainArn": {
           "description": "The Amazon Resource Name (ARN) of the OpenSearch domain.",
           "maxLength": 2048,
-          "pattern": "^arn:aws(|-cn|-us-gov|-iso):es:[a-z]{2}(-gov)?-[a-z]+-\\d{1}:\\d{12}:domain/[a-z][a-z0-9-]{3,28}$",
+          "pattern": "^arn:aws(-cn|-us-gov|-eusc|-iso(-[b-f])?)?:es:([a-z]{2,}-){2,}\\d:\\d{12}:domain/[a-z][a-z0-9-]{3,28}$",
           "type": "string"
         },
         "DomainEndpoint": {

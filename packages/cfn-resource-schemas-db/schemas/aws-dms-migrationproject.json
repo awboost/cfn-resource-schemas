@@ -1,5 +1,5 @@
 {
-  "$hash": "24bc6188e3fd7b7240d654956ecf8c48e33b8310",
+  "$hash": "928efbc33e08053e708a2bf0ead177c049c26d37",
   "$id": "aws-dms-migrationproject.json",
   "additionalIdentifiers": [["/properties/MigrationProjectName"]],
   "additionalProperties": false,
@@ -44,7 +44,6 @@
       "permissions": [
         "dms:CreateMigrationProject",
         "dms:ListMigrationProjects",
-        "dms:DescribeMigrationProjects",
         "dms:AddTagsToResource",
         "dms:ListTagsForResource",
         "iam:PassRole"
@@ -52,18 +51,10 @@
     },
     "delete": { "permissions": ["dms:DeleteMigrationProject"] },
     "list": {
-      "permissions": [
-        "dms:ListMigrationProjects",
-        "dms:DescribeMigrationProjects",
-        "dms:ListTagsForResource"
-      ]
+      "permissions": ["dms:ListMigrationProjects", "dms:ListTagsForResource"]
     },
     "read": {
-      "permissions": [
-        "dms:DescribeMigrationProjects",
-        "dms:ListMigrationProjects",
-        "dms:ListTagsForResource"
-      ]
+      "permissions": ["dms:ListMigrationProjects", "dms:ListTagsForResource"]
     },
     "update": {
       "permissions": [
