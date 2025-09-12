@@ -276,6 +276,12 @@ export type ArcThicknessOptions = "SMALL" | "MEDIUM" | "LARGE";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-assetoptions.html}
  */
 export type AssetOptions = {
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  ExcludedDataSetArns?: string[];
+  QBusinessInsightsStatus?: QBusinessInsightsStatus;
   Timezone?: string;
   WeekStart?: DayOfTheWeek;
 };
@@ -1584,6 +1590,7 @@ export type DashboardPublishOptions = {
    * <p>The data point tooltip options.</p>
    */
   DataPointTooltipOption?: DataPointTooltipOption;
+  DataQAEnabledOption?: DataQAEnabledOption;
   /**
    * <p>Export to .csv option.</p>
    */
@@ -1932,6 +1939,13 @@ export type DataPointMenuLabelOption = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datapointtooltipoption.html}
  */
 export type DataPointTooltipOption = {
+  AvailabilityStatus?: DashboardBehavior;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DataQAEnabledOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dataqaenabledoption.html}
+ */
+export type DataQAEnabledOption = {
   AvailabilityStatus?: DashboardBehavior;
 };
 /**
@@ -6246,6 +6260,11 @@ export type PrimaryValueDisplayType = "HIDDEN" | "COMPARISON" | "ACTUAL";
 export type ProgressBarOptions = {
   Visibility?: Visibility;
 };
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.QBusinessInsightsStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-qbusinessinsightsstatus.html}
+ */
+export type QBusinessInsightsStatus = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::QuickSight::Dashboard.RadarChartAggregatedFieldWells`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-radarchartaggregatedfieldwells.html}

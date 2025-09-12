@@ -1,14 +1,12 @@
-- updated `AWS::Bedrock::DataSource`
-  - updated definition `S3DataSourceConfiguration`
-  - updated definition `ServerSideEncryptionConfiguration`
-- updated `AWS::Bedrock::KnowledgeBase`
-  - updated definition `OpenSearchManagedClusterConfiguration`
-- updated `AWS::DMS::MigrationProject`
-  - updated handler permissions
-- updated `AWS::EC2::VPNConnection`
-  - updated property `PreSharedKeyStorage`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - added `writeOnlyProperties`
-  - added property `EnableCapacityReservationProvisionStabilize`
-  - updated definition `LoadBalancerAttribute`
-  - updated handler permissions
+- added `AWS::SMSVOICE::ConfigurationSet`
+- added `AWS::SMSVOICE::OptOutList`
+- added `AWS::SMSVOICE::PhoneNumber`
+- added `AWS::SMSVOICE::Pool`
+- added `AWS::SMSVOICE::ProtectConfiguration`
+- added `AWS::SMSVOICE::ResourcePolicy`
+- added `AWS::SMSVOICE::SenderId`
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `DataQAEnabledOption`
+  - added definition `QBusinessInsightsStatus`
+  - updated definition `AssetOptions`
+  - updated definition `DashboardPublishOptions`

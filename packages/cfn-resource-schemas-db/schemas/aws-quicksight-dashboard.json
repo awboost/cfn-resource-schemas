@@ -1,5 +1,5 @@
 {
-  "$hash": "30549ae344fa6380f12b48ed1eb0c6412fae8050",
+  "$hash": "ec1643b9d247e709cbb54e735180f8659de464b4",
   "$id": "aws-quicksight-dashboard.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -113,6 +113,15 @@
     "AssetOptions": {
       "additionalProperties": false,
       "properties": {
+        "ExcludedDataSetArns": {
+          "items": { "type": "string" },
+          "maxItems": 100,
+          "minItems": 0,
+          "type": "array"
+        },
+        "QBusinessInsightsStatus": {
+          "$ref": "#/definitions/QBusinessInsightsStatus"
+        },
         "Timezone": { "type": "string" },
         "WeekStart": { "$ref": "#/definitions/DayOfTheWeek" }
       },
@@ -1475,6 +1484,7 @@
         "DataPointTooltipOption": {
           "$ref": "#/definitions/DataPointTooltipOption"
         },
+        "DataQAEnabledOption": { "$ref": "#/definitions/DataQAEnabledOption" },
         "ExportToCSVOption": { "$ref": "#/definitions/ExportToCSVOption" },
         "ExportWithHiddenFieldsOption": {
           "$ref": "#/definitions/ExportWithHiddenFieldsOption"
@@ -1780,6 +1790,13 @@
     "DataPointTooltipOption": {
       "additionalProperties": false,
       "description": "<p>The data point tooltip options.</p>",
+      "properties": {
+        "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
+      },
+      "type": "object"
+    },
+    "DataQAEnabledOption": {
+      "additionalProperties": false,
       "properties": {
         "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
       },
@@ -6387,6 +6404,10 @@
       "additionalProperties": false,
       "properties": { "Visibility": { "$ref": "#/definitions/Visibility" } },
       "type": "object"
+    },
+    "QBusinessInsightsStatus": {
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
     },
     "RadarChartAggregatedFieldWells": {
       "additionalProperties": false,
