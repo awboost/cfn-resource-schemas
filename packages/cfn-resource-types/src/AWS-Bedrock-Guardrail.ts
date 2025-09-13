@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type BedrockGuardrailProperties = {
   /**
+   * Optional configuration for integrating Automated Reasoning policies with the guardrail.
+   */
+  AutomatedReasoningPolicyConfig?: AutomatedReasoningPolicyConfig;
+  /**
    * Messaging for when violations are detected in text
    * @minLength `1`
    * @maxLength `500`
@@ -112,6 +116,25 @@ export type BedrockGuardrailAttributes = {
    * @pattern `^(([1-9][0-9]{0,7})|(DRAFT))$`
    */
   Version: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::Guardrail.AutomatedReasoningPolicyConfig`.
+ * Optional configuration for integrating Automated Reasoning policies with the guardrail.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-automatedreasoningpolicyconfig.html}
+ */
+export type AutomatedReasoningPolicyConfig = {
+  /**
+   * The confidence threshold for triggering guardrail actions based on Automated Reasoning policy violations.
+   * @min `0`
+   * @max `1`
+   */
+  ConfidenceThreshold?: number;
+  /**
+   * The list of Automated Reasoning policy ARNs to include in the guardrail configuration
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  Policies: string[];
 };
 /**
  * Type definition for `AWS::Bedrock::Guardrail.ContentFilterAction`.

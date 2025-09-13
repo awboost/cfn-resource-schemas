@@ -1,12 +1,13 @@
-- added `AWS::SMSVOICE::ConfigurationSet`
-- added `AWS::SMSVOICE::OptOutList`
-- added `AWS::SMSVOICE::PhoneNumber`
-- added `AWS::SMSVOICE::Pool`
-- added `AWS::SMSVOICE::ProtectConfiguration`
-- added `AWS::SMSVOICE::ResourcePolicy`
-- added `AWS::SMSVOICE::SenderId`
-- updated `AWS::QuickSight::Dashboard`
-  - added definition `DataQAEnabledOption`
-  - added definition `QBusinessInsightsStatus`
-  - updated definition `AssetOptions`
-  - updated definition `DashboardPublishOptions`
+- updated `AWS::APS::Scraper`
+  - added definition `CloudWatchLogDestination`
+  - added definition `ComponentConfig`
+  - added definition `ScraperComponentType`
+  - added definition `ScraperComponent`
+  - added definition `ScraperLoggingConfiguration`
+  - added definition `ScraperLoggingDestination`
+  - added property `ScraperLoggingConfiguration`
+  - updated handler permissions
+  - updated property `Arn`
+- updated `AWS::Bedrock::Guardrail`
+  - added definition `AutomatedReasoningPolicyConfig`
+  - added property `AutomatedReasoningPolicyConfig`

@@ -25,6 +25,10 @@ export type APSScraperProperties = {
    */
   ScrapeConfiguration: ScrapeConfiguration;
   /**
+   * Configuration for scraper logging
+   */
+  ScraperLoggingConfiguration?: ScraperLoggingConfiguration;
+  /**
    * Scraper metrics source
    */
   Source: Source;
@@ -40,7 +44,7 @@ export type APSScraperProperties = {
 export type APSScraperAttributes = {
   /**
    * Scraper ARN.
-   * @pattern `^arn:(aws|aws-us-gov|aws-cn):aps:(af|ap|ca|eu|me|sa|us)-(central|north|(north(?:east|west))|south|south(?:east|west)|east|west)-[0-9]+:[0-9]+:scraper/s-[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$`
+   * @pattern `^arn:(aws|aws-us-gov|aws-cn):aps:[a-z0-9-]+:[0-9]+:scraper/s-[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$`
    */
   Arn: string;
   /**
@@ -57,6 +61,26 @@ export type APSScraperAttributes = {
    * @pattern `^s-[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}$`
    */
   ScraperId: string;
+};
+/**
+ * Type definition for `AWS::APS::Scraper.CloudWatchLogDestination`.
+ * Represents a cloudwatch logs destination for scraper logging
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-cloudwatchlogdestination.html}
+ */
+export type CloudWatchLogDestination = {
+  /**
+   * ARN of the CloudWatch log group
+   * @minLength `0`
+   * @maxLength `512`
+   */
+  LogGroupArn?: string;
+};
+/**
+ * Type definition for `AWS::APS::Scraper.ComponentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-componentconfig.html}
+ */
+export type ComponentConfig = {
+  Options?: Record<string, string>;
 };
 /**
  * Type definition for `AWS::APS::Scraper.Destination`.
@@ -100,6 +124,52 @@ export type ScrapeConfiguration = {
    * Prometheus compatible scrape configuration in base64 encoded blob format
    */
   ConfigurationBlob?: string;
+};
+/**
+ * Type definition for `AWS::APS::Scraper.ScraperComponent`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapercomponent.html}
+ */
+export type ScraperComponent = {
+  Config?: ComponentConfig;
+  /**
+   * Type of scraper component
+   */
+  Type: ScraperComponentType;
+};
+/**
+ * Type definition for `AWS::APS::Scraper.ScraperComponentType`.
+ * Type of scraper component
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapercomponenttype.html}
+ */
+export type ScraperComponentType =
+  | "SERVICE_DISCOVERY"
+  | "COLLECTOR"
+  | "EXPORTER";
+/**
+ * Type definition for `AWS::APS::Scraper.ScraperLoggingConfiguration`.
+ * Configuration for scraper logging
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scraperloggingconfiguration.html}
+ */
+export type ScraperLoggingConfiguration = {
+  /**
+   * Destination for scraper logging
+   */
+  LoggingDestination: ScraperLoggingDestination;
+  /**
+   * @minLength `1`
+   */
+  ScraperComponents: ScraperComponent[];
+};
+/**
+ * Type definition for `AWS::APS::Scraper.ScraperLoggingDestination`.
+ * Destination for scraper logging
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scraperloggingdestination.html}
+ */
+export type ScraperLoggingDestination = {
+  /**
+   * Represents a cloudwatch logs destination for scraper logging
+   */
+  CloudWatchLogs?: CloudWatchLogDestination;
 };
 /**
  * Type definition for `AWS::APS::Scraper.Source`.
