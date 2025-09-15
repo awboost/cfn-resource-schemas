@@ -1,13 +1,6 @@
-- updated `AWS::APS::Scraper`
-  - added definition `CloudWatchLogDestination`
-  - added definition `ComponentConfig`
-  - added definition `ScraperComponentType`
-  - added definition `ScraperComponent`
-  - added definition `ScraperLoggingConfiguration`
-  - added definition `ScraperLoggingDestination`
-  - added property `ScraperLoggingConfiguration`
-  - updated handler permissions
-  - updated property `Arn`
-- updated `AWS::Bedrock::Guardrail`
-  - added definition `AutomatedReasoningPolicyConfig`
-  - added property `AutomatedReasoningPolicyConfig`
+- updated `AWS::OpenSearchServerless::Index`
+  - updated definition `PropertyMapping`
+- updated `AWS::OpenSearchServerless::SecurityConfig`
+  - added definition `IamFederationConfigOptions`
+  - added property `IamFederationOptions`
+  - updated definition `SecurityConfigType`

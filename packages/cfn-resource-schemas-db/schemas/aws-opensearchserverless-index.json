@@ -1,5 +1,5 @@
 {
-  "$hash": "cbed159d5d6820405bff8152f8c79bef0af21a51",
+  "$hash": "5b714e82e16381134cfc285ac702c25f5cce79c7",
   "$id": "aws-opensearchserverless-index.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -87,7 +87,7 @@
               "type": "string"
             }
           },
-          "required": ["Name", "Engine"],
+          "required": ["Name"],
           "type": "object"
         },
         "Properties": {

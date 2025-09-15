@@ -79,7 +79,7 @@ export type PropertyMapping = {
     /**
      * The k-NN search engine to use
      */
-    Engine: "nmslib" | "faiss" | "lucene";
+    Engine?: "nmslib" | "faiss" | "lucene";
     /**
      * The algorithm name for k-NN search
      */

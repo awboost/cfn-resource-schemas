@@ -13,6 +13,10 @@ export type OpenSearchServerlessSecurityConfigProperties = {
    */
   Description?: string;
   /**
+   * Describe IAM federation options in form of key value map
+   */
+  IamFederationOptions?: IamFederationConfigOptions;
+  /**
    * Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
    */
   IamIdentityCenterOptions?: IamIdentityCenterConfigOptions;
@@ -60,6 +64,21 @@ export type OpenSearchServerlessSecurityConfigAttributes = {
    * @maxLength `100`
    */
   Id: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchServerless::SecurityConfig.IamFederationConfigOptions`.
+ * Describe IAM federation options in form of key value map
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamfederationconfigoptions.html}
+ */
+export type IamFederationConfigOptions = {
+  /**
+   * Group attribute for this IAM federation integration
+   */
+  GroupAttribute?: string;
+  /**
+   * User attribute for this IAM federation integration
+   */
+  UserAttribute?: string;
 };
 /**
  * Type definition for `AWS::OpenSearchServerless::SecurityConfig.IamIdentityCenterConfigOptions`.
@@ -124,7 +143,7 @@ export type SamlConfigOptions = {
  * Config type for security config
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-securityconfigtype.html}
  */
-export type SecurityConfigType = "saml" | "iamidentitycenter";
+export type SecurityConfigType = "saml" | "iamidentitycenter" | "iamfederation";
 /**
  * Resource type definition for `AWS::OpenSearchServerless::SecurityConfig`.
  * Amazon OpenSearchServerless security config resource
