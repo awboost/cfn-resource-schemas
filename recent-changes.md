@@ -1,6 +1,2 @@
-- updated `AWS::OpenSearchServerless::Index`
-  - updated definition `PropertyMapping`
-- updated `AWS::OpenSearchServerless::SecurityConfig`
-  - added definition `IamFederationConfigOptions`
-  - added property `IamFederationOptions`
-  - updated definition `SecurityConfigType`
+- updated `AWS::ECS::Service`
+  - updated definition `ForceNewDeployment`
