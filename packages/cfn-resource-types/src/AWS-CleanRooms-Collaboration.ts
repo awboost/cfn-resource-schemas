@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CleanRoomsCollaborationProperties = {
   AnalyticsEngine?: AnalyticsEngine;
+  AutoApprovedChangeTypes?: AutoApprovedChangeType[];
   /**
    * @minLength `1`
    * @maxLength `100`
@@ -62,6 +63,11 @@ export type CleanRoomsCollaborationAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-analyticsengine.html}
  */
 export type AnalyticsEngine = "CLEAN_ROOMS_SQL" | "SPARK";
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.AutoApprovedChangeType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-autoapprovedchangetype.html}
+ */
+export type AutoApprovedChangeType = "ADD_MEMBER";
 /**
  * Type definition for `AWS::CleanRooms::Collaboration.CollaborationJobLogStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-collaborationjoblogstatus.html}

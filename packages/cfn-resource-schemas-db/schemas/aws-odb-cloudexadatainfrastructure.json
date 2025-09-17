@@ -1,5 +1,5 @@
 {
-  "$hash": "7129ffae5e795d6a527433e034657128783b0a09",
+  "$hash": "b0a969d05a8109c59410c281bf644042bf2982ac",
   "$id": "aws-odb-cloudexadatainfrastructure.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -21,6 +21,88 @@
         "Email": {
           "description": "The email address of the contact.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MaintenanceWindow": {
+      "additionalProperties": false,
+      "description": "The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.",
+      "properties": {
+        "CustomActionTimeoutInMins": {
+          "description": "The timeout duration for custom actions in minutes.",
+          "maximum": 120,
+          "minimum": 15,
+          "type": "integer"
+        },
+        "DaysOfWeek": {
+          "description": "The days of the week when maintenance can be performed.",
+          "items": {
+            "enum": [
+              "MONDAY",
+              "TUESDAY",
+              "WEDNESDAY",
+              "THURSDAY",
+              "FRIDAY",
+              "SATURDAY",
+              "SUNDAY"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "HoursOfDay": {
+          "description": "The hours of the day when maintenance can be performed.",
+          "items": { "type": "integer" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "IsCustomActionTimeoutEnabled": {
+          "description": "Indicates whether custom action timeout is enabled.",
+          "type": "boolean"
+        },
+        "LeadTimeInWeeks": {
+          "description": "The lead time in weeks before the maintenance window.",
+          "maximum": 4,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "Months": {
+          "description": "The months when maintenance can be performed.",
+          "items": {
+            "enum": [
+              "JANUARY",
+              "FEBRUARY",
+              "MARCH",
+              "APRIL",
+              "MAY",
+              "JUNE",
+              "JULY",
+              "AUGUST",
+              "SEPTEMBER",
+              "OCTOBER",
+              "NOVEMBER",
+              "DECEMBER"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "PatchingMode": {
+          "description": "The patching mode for the maintenance window.",
+          "type": "string"
+        },
+        "Preference": {
+          "description": "The preference for the maintenance window scheduling.",
+          "type": "string"
+        },
+        "WeeksOfMonth": {
+          "description": "The weeks of the month when maintenance can be performed.",
+          "items": { "type": "integer" },
+          "type": "array",
+          "uniqueItems": true
         }
       },
       "type": "object"
@@ -188,6 +270,10 @@
       "pattern": "^[a-zA-Z_](?!.*--)[a-zA-Z0-9_-]*$",
       "type": "string"
     },
+    "MaintenanceWindow": {
+      "$ref": "#/definitions/MaintenanceWindow",
+      "description": "The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window."
+    },
     "MaxCpuCount": {
       "description": "The total number of CPU cores available on the Exadata infrastructure.",
       "type": "integer"
@@ -277,6 +363,7 @@
     "/properties/TotalStorageSizeInGBs",
     "/properties/DbServerIds"
   ],
+  "replacementStrategy": "delete_then_create",
   "tagging": {
     "cloudFormationSystemTags": true,
     "permissions": [

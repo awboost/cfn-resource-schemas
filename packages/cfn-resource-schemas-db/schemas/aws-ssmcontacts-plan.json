@@ -1,5 +1,5 @@
 {
-  "$hash": "b64b3821430048cb17486e78ca2ec4bfb497e17d",
+  "$hash": "126c000093b5d98b80d49bb6a820b86494e04162",
   "$id": "aws-ssmcontacts-plan.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ContactId"],
@@ -83,6 +83,9 @@
         "ssm-contacts:GetContact",
         "ssm-contacts:AssociateContact"
       ]
+    },
+    "list": {
+      "permissions": ["ssm-contacts:ListContacts", "ssm-contacts:GetContact"]
     },
     "read": { "permissions": ["ssm-contacts:GetContact"] },
     "update": {

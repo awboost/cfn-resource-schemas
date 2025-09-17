@@ -30,6 +30,12 @@ export type ODBOdbNetworkProperties = {
    */
   ClientSubnetCidr?: string;
   /**
+   * The domain name to use for the resources in the ODB network.
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  CustomDomainName?: string;
+  /**
    * The DNS prefix to the default DNS domain name. The default DNS domain name is oraclevcn.com.
    * @minLength `1`
    * @maxLength `255`
@@ -47,15 +53,104 @@ export type ODBOdbNetworkProperties = {
    */
   DisplayName?: string;
   /**
+   * Specifies the configuration for Amazon S3 access from the ODB network.
+   */
+  S3Access?: "ENABLED" | "DISABLED";
+  /**
+   * Specifies the endpoint policy for Amazon S3 access from the ODB network.
+   */
+  S3PolicyDocument?: string;
+  /**
    * Tags to assign to the Odb Network.
    */
   Tags?: Tag[];
+  /**
+   * Specifies the configuration for Zero-ETL access from the ODB network.
+   */
+  ZeroEtlAccess?: "ENABLED" | "DISABLED";
 };
 /**
  * Attribute type definition for `AWS::ODB::OdbNetwork`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-odb-odbnetwork.html#aws-resource-odb-odbnetwork-return-values}
  */
 export type ODBOdbNetworkAttributes = {
+  /**
+   * The managed services configuration for the ODB network.
+   */
+  ManagedServices: {
+    /**
+     * The managed Amazon S3 backup access configuration.
+     */
+    ManagedS3BackupAccess: {
+      /**
+       * The IPv4 addresses for the managed Amazon S3 backup access.
+       */
+      Ipv4Addresses: string[];
+      /**
+       * The status of the managed Amazon S3 backup access.
+       */
+      Status: ManagedResourceStatus;
+    };
+    /**
+     * The IPv4 CIDR blocks for the managed services.
+     */
+    ManagedServicesIpv4Cidrs: string[];
+    /**
+     * The Amazon Resource Name (ARN) of the resource gateway.
+     */
+    ResourceGatewayArn: string;
+    /**
+     * The Amazon S3 access configuration.
+     */
+    S3Access: {
+      /**
+       * The domain name for the Amazon S3 access.
+       */
+      DomainName: string;
+      /**
+       * The IPv4 addresses for the Amazon S3 access.
+       */
+      Ipv4Addresses: string[];
+      /**
+       * The endpoint policy for the Amazon S3 access.
+       */
+      S3PolicyDocument: string;
+      /**
+       * The status of the Amazon S3 access.
+       */
+      Status: ManagedResourceStatus;
+    };
+    /**
+     * The Amazon Resource Name (ARN) of the service network.
+     */
+    ServiceNetworkArn: string;
+    /**
+     * The service network endpoint configuration.
+     */
+    ServiceNetworkEndpoint: {
+      /**
+       * The identifier of the VPC endpoint.
+       */
+      VpcEndpointId: string;
+      /**
+       * The type of the VPC endpoint.
+       */
+      VpcEndpointType: "SERVICENETWORK";
+    };
+    /**
+     * The Zero-ETL access configuration.
+     */
+    ZeroEtlAccess: {
+      /**
+       * The CIDR block for the Zero-ETL access.
+       */
+      Cidr: string;
+      /**
+       * The status of the Zero-ETL access.
+       */
+      Status: ManagedResourceStatus;
+    };
+  };
   /**
    * The unique identifier of the OCI network anchor for the ODB network.
    * @minLength `1`
@@ -78,6 +173,95 @@ export type ODBOdbNetworkAttributes = {
    * The unique identifier of the ODB network.
    */
   OdbNetworkId: string;
+};
+/**
+ * Type definition for `AWS::ODB::OdbNetwork.ManagedResourceStatus`.
+ * The status of the managed resource access.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedresourcestatus.html}
+ */
+export type ManagedResourceStatus =
+  | "ENABLED"
+  | "ENABLING"
+  | "DISABLED"
+  | "DISABLING";
+/**
+ * Type definition for `AWS::ODB::OdbNetwork.ManagedServices`.
+ * The managed services configuration for the ODB network.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html}
+ */
+export type ManagedServices = {
+  /**
+   * The managed Amazon S3 backup access configuration.
+   */
+  ManagedS3BackupAccess?: {
+    /**
+     * The IPv4 addresses for the managed Amazon S3 backup access.
+     */
+    Ipv4Addresses?: string[];
+    /**
+     * The status of the managed Amazon S3 backup access.
+     */
+    Status?: ManagedResourceStatus;
+  };
+  /**
+   * The IPv4 CIDR blocks for the managed services.
+   */
+  ManagedServicesIpv4Cidrs?: string[];
+  /**
+   * The Amazon Resource Name (ARN) of the resource gateway.
+   */
+  ResourceGatewayArn?: string;
+  /**
+   * The Amazon S3 access configuration.
+   */
+  S3Access?: {
+    /**
+     * The domain name for the Amazon S3 access.
+     */
+    DomainName?: string;
+    /**
+     * The IPv4 addresses for the Amazon S3 access.
+     */
+    Ipv4Addresses?: string[];
+    /**
+     * The endpoint policy for the Amazon S3 access.
+     */
+    S3PolicyDocument?: string;
+    /**
+     * The status of the Amazon S3 access.
+     */
+    Status?: ManagedResourceStatus;
+  };
+  /**
+   * The Amazon Resource Name (ARN) of the service network.
+   */
+  ServiceNetworkArn?: string;
+  /**
+   * The service network endpoint configuration.
+   */
+  ServiceNetworkEndpoint?: {
+    /**
+     * The identifier of the VPC endpoint.
+     */
+    VpcEndpointId?: string;
+    /**
+     * The type of the VPC endpoint.
+     */
+    VpcEndpointType?: "SERVICENETWORK";
+  };
+  /**
+   * The Zero-ETL access configuration.
+   */
+  ZeroEtlAccess?: {
+    /**
+     * The CIDR block for the Zero-ETL access.
+     */
+    Cidr?: string;
+    /**
+     * The status of the Zero-ETL access.
+     */
+    Status?: ManagedResourceStatus;
+  };
 };
 /**
  * Type definition for `AWS::ODB::OdbNetwork.Tag`.

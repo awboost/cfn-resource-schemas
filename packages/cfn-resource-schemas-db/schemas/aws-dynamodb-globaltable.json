@@ -1,12 +1,13 @@
 {
-  "$hash": "58c7fbe4e4e796843ceeadf907a1a30f47525272",
+  "$hash": "14a7bc0d7bda73b782e8b2c06f579e7a704ee451",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LocalSecondaryIndexes",
     "/properties/TableName",
-    "/properties/KeySchema"
+    "/properties/KeySchema",
+    "/properties/GlobalTableSourceArn"
   ],
   "definitions": {
     "AttributeDefinition": {
@@ -342,6 +343,7 @@
         "dynamodb:CreateTable",
         "dynamodb:CreateTableReplica",
         "dynamodb:Describe*",
+        "dynamodb:UpdateTable",
         "dynamodb:UpdateTimeToLive",
         "dynamodb:UpdateContributorInsights",
         "dynamodb:UpdateContinuousBackups",
@@ -357,7 +359,6 @@
         "dynamodb:EnableKinesisStreamingDestination",
         "dynamodb:DisableKinesisStreamingDestination",
         "dynamodb:UpdateTableReplicaAutoScaling",
-        "dynamodb:TagResource",
         "dynamodb:GetResourcePolicy",
         "dynamodb:PutResourcePolicy",
         "application-autoscaling:DeleteScalingPolicy",
@@ -469,6 +470,11 @@
       "type": "array",
       "uniqueItems": true
     },
+    "GlobalTableSettingsReplicationMode": {
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
+    "GlobalTableSourceArn": { "type": "string" },
     "GlobalTableWitnesses": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/GlobalTableWitness" },
@@ -528,6 +534,7 @@
     "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity",
     "/properties/Replicas/*/GlobalSecondaryIndexes/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity",
     "/properties/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity",
-    "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity"
+    "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity",
+    "/properties/GlobalTableSourceArn"
   ]
 }

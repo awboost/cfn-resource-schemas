@@ -17,6 +17,7 @@ export type CleanRoomsAnalysisTemplateProperties = {
    * @pattern `^[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDBFF-\uDC00\uDFFF\t\r\n]*$`
    */
   Description?: string;
+  ErrorMessageConfiguration?: ErrorMessageConfiguration;
   Format: "SQL" | "PYSPARK_1_0";
   /**
    * @minLength `36`
@@ -176,6 +177,13 @@ export type AnalysisTemplateArtifacts = {
    * @maxLength `512`
    */
   RoleArn: string;
+};
+/**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.ErrorMessageConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-errormessageconfiguration.html}
+ */
+export type ErrorMessageConfiguration = {
+  Type: "DETAILED";
 };
 /**
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.Hash`.

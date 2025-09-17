@@ -40,6 +40,10 @@ export type ODBCloudExadataInfrastructureProperties = {
    */
   DisplayName?: string;
   /**
+   * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+   */
+  MaintenanceWindow?: MaintenanceWindow;
+  /**
    * The model name of the Exadata infrastructure.
    * @minLength `1`
    * @maxLength `255`
@@ -162,6 +166,74 @@ export type CustomerContact = {
    * The email address of the contact.
    */
   Email?: string;
+};
+/**
+ * Type definition for `AWS::ODB::CloudExadataInfrastructure.MaintenanceWindow`.
+ * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-cloudexadatainfrastructure-maintenancewindow.html}
+ */
+export type MaintenanceWindow = {
+  /**
+   * The timeout duration for custom actions in minutes.
+   * @min `15`
+   * @max `120`
+   */
+  CustomActionTimeoutInMins?: number;
+  /**
+   * The days of the week when maintenance can be performed.
+   */
+  DaysOfWeek?: (
+    | "MONDAY"
+    | "TUESDAY"
+    | "WEDNESDAY"
+    | "THURSDAY"
+    | "FRIDAY"
+    | "SATURDAY"
+    | "SUNDAY"
+  )[];
+  /**
+   * The hours of the day when maintenance can be performed.
+   */
+  HoursOfDay?: number[];
+  /**
+   * Indicates whether custom action timeout is enabled.
+   */
+  IsCustomActionTimeoutEnabled?: boolean;
+  /**
+   * The lead time in weeks before the maintenance window.
+   * @min `1`
+   * @max `4`
+   */
+  LeadTimeInWeeks?: number;
+  /**
+   * The months when maintenance can be performed.
+   */
+  Months?: (
+    | "JANUARY"
+    | "FEBRUARY"
+    | "MARCH"
+    | "APRIL"
+    | "MAY"
+    | "JUNE"
+    | "JULY"
+    | "AUGUST"
+    | "SEPTEMBER"
+    | "OCTOBER"
+    | "NOVEMBER"
+    | "DECEMBER"
+  )[];
+  /**
+   * The patching mode for the maintenance window.
+   */
+  PatchingMode?: string;
+  /**
+   * The preference for the maintenance window scheduling.
+   */
+  Preference?: string;
+  /**
+   * The weeks of the month when maintenance can be performed.
+   */
+  WeeksOfMonth?: number[];
 };
 /**
  * Type definition for `AWS::ODB::CloudExadataInfrastructure.Tag`.

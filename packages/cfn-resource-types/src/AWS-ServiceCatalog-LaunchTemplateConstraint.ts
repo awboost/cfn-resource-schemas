@@ -5,10 +5,25 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchtemplateconstraint.html}
  */
 export type ServiceCatalogLaunchTemplateConstraintProperties = {
+  /**
+   * The language code.
+   */
   AcceptLanguage?: string;
+  /**
+   * The description of the constraint.
+   */
   Description?: string;
+  /**
+   * The portfolio identifier.
+   */
   PortfolioId: string;
+  /**
+   * The product identifier.
+   */
   ProductId: string;
+  /**
+   * A json encoded string of the template constraint rules
+   */
   Rules: string;
 };
 /**
@@ -16,6 +31,9 @@ export type ServiceCatalogLaunchTemplateConstraintProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchtemplateconstraint.html#aws-resource-servicecatalog-launchtemplateconstraint-return-values}
  */
 export type ServiceCatalogLaunchTemplateConstraintAttributes = {
+  /**
+   * Unique identifier for the constraint
+   */
   Id: string;
 };
 /**

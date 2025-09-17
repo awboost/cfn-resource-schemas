@@ -1,7 +1,8 @@
 {
-  "$hash": "39d049bb9c94041a72af5a1bf00a9d6cf4137663",
+  "$hash": "97fd2e325afb9bed4dac035f136bf4a753796b97",
   "$id": "aws-odb-cloudvmcluster.json",
   "additionalProperties": false,
+  "conditionalCreateOnlyProperties": ["/properties/DbNodes"],
   "createOnlyProperties": [
     "/properties/CloudExadataInfrastructureId",
     "/properties/DataCollectionOptions",
@@ -10,7 +11,6 @@
     "/properties/OdbNetworkId",
     "/properties/GiVersion",
     "/properties/ClusterName",
-    "/properties/DbServers",
     "/properties/LicenseModel",
     "/properties/Hostname",
     "/properties/IsLocalBackupEnabled",
@@ -21,7 +21,9 @@
     "/properties/SshPublicKeys",
     "/properties/CpuCoreCount",
     "/properties/DisplayName",
-    "/properties/MemorySizeInGBs"
+    "/properties/MemorySizeInGBs",
+    "/properties/DbServers",
+    "/properties/DbNodes/*/DbServerId"
   ],
   "definitions": {
     "DataCollectionOptions": {
@@ -41,6 +43,74 @@
           "type": "boolean"
         }
       },
+      "type": "object"
+    },
+    "DbNode": {
+      "additionalProperties": false,
+      "description": "A DbNode is a virtual machine that hosts Oracle database instances and provides access to shared storage servers within a VM Cluster",
+      "properties": {
+        "BackupIpId": {
+          "description": "The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.",
+          "type": "string"
+        },
+        "BackupVnic2Id": {
+          "description": "The OCID of the second backup virtual network interface card (VNIC) for the DB node.",
+          "type": "string"
+        },
+        "CpuCoreCount": {
+          "description": "The number of CPU cores enabled on the DB node.",
+          "type": "integer"
+        },
+        "DbNodeArn": {
+          "description": "The Amazon Resource Name (ARN) of the DB node.",
+          "type": "string"
+        },
+        "DbNodeId": {
+          "description": "The unique identifier of the DB node.",
+          "type": "string"
+        },
+        "DbNodeStorageSizeInGBs": {
+          "description": "The amount of local node storage, in gigabytes (GB), that's allocated on the DB node.",
+          "type": "integer"
+        },
+        "DbServerId": {
+          "description": "The unique identifier of the database server that's associated with the DB node.",
+          "type": "string"
+        },
+        "DbSystemId": {
+          "description": "The OCID of the DB system.",
+          "type": "string"
+        },
+        "HostIpId": {
+          "description": "The OCID of the host IP address that's associated with the DB node.",
+          "type": "string"
+        },
+        "Hostname": {
+          "description": "The host name for the DB node.",
+          "type": "string"
+        },
+        "MemorySizeInGBs": {
+          "description": "The amount of memory, in gigabytes (GB), that allocated on the DB node.",
+          "type": "integer"
+        },
+        "Ocid": { "description": "The OCID of the DB node.", "type": "string" },
+        "Status": {
+          "description": "The current status of the DB node.",
+          "type": "string"
+        },
+        "Tags": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/Tag" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "Vnic2Id": {
+          "description": "The OCID of the second VNIC.",
+          "type": "string"
+        },
+        "VnicId": { "description": "The OCID of the VNIC.", "type": "string" }
+      },
+      "required": ["DbServerId"],
       "type": "object"
     },
     "Tag": {
@@ -75,6 +145,8 @@
         "odb:ListTagsForResource",
         "sts:GetCallerIdentity",
         "ec2:DescribeAvailabilityZones",
+        "odb:ListDbNodes",
+        "odb:GetDbNode",
         "odb:CreateDbNode"
       ],
       "timeoutInMinutes": 2160
@@ -94,6 +166,8 @@
       "permissions": [
         "odb:ListCloudVmClusters",
         "odb:ListTagsForResource",
+        "odb:ListDbNodes",
+        "odb:GetDbNode",
         "sts:GetCallerIdentity"
       ]
     },
@@ -101,6 +175,8 @@
       "permissions": [
         "odb:GetCloudVmCluster",
         "odb:ListTagsForResource",
+        "odb:ListDbNodes",
+        "odb:GetDbNode",
         "sts:GetCallerIdentity"
       ]
     },
@@ -111,6 +187,8 @@
         "odb:GetCloudVmCluster",
         "odb:ListCloudVmClusters",
         "odb:ListTagsForResource",
+        "odb:ListDbNodes",
+        "odb:GetDbNode",
         "sts:GetCallerIdentity"
       ]
     }
@@ -157,6 +235,14 @@
     "DbNodeStorageSizeInGBs": {
       "description": "The amount of local node storage, in gigabytes (GB), that's allocated for the VM cluster.",
       "type": "integer"
+    },
+    "DbNodes": {
+      "description": "The DB nodes that are implicitly created and managed as part of this VM Cluster.",
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/DbNode" },
+      "minLength": 1,
+      "type": "array",
+      "uniqueItems": true
     },
     "DbServers": {
       "description": "The list of database servers for the VM cluster.",
@@ -286,6 +372,10 @@
       "uniqueItems": false
     }
   },
+  "propertyTransform": {
+    "/properties/CloudExadataInfrastructureId": "$split(CloudExadataInfrastructureId, \"cloud-exadata-infrastructure/\")[-1] $OR CloudExadataInfrastructureId",
+    "/properties/OdbNetworkId": "$split(OdbNetworkId, \"odb-network/\")[-1] $OR OdbNetworkId"
+  },
   "readOnlyProperties": [
     "/properties/CloudVmClusterArn",
     "/properties/CloudVmClusterId",
@@ -301,8 +391,23 @@
     "/properties/ScanIpIds",
     "/properties/Shape",
     "/properties/StorageSizeInGBs",
-    "/properties/VipIds"
+    "/properties/VipIds",
+    "/properties/DbNodes/*/DbNodeId",
+    "/properties/DbNodes/*/Status",
+    "/properties/DbNodes/*/MemorySizeInGBs",
+    "/properties/DbNodes/*/DbNodeStorageSizeInGBs",
+    "/properties/DbNodes/*/CpuCoreCount",
+    "/properties/DbNodes/*/Hostname",
+    "/properties/DbNodes/*/DbNodeArn",
+    "/properties/DbNodes/*/Ocid",
+    "/properties/DbNodes/*/DbSystemId",
+    "/properties/DbNodes/*/BackupIpId",
+    "/properties/DbNodes/*/BackupVnic2Id",
+    "/properties/DbNodes/*/VnicId",
+    "/properties/DbNodes/*/Vnic2Id",
+    "/properties/DbNodes/*/HostIpId"
   ],
+  "replacementStrategy": "delete_then_create",
   "tagging": {
     "cloudFormationSystemTags": true,
     "permissions": [

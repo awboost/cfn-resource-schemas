@@ -1,5 +1,5 @@
 {
-  "$hash": "67ba7c87ddf987436a1d1bb183b868556ac71e65",
+  "$hash": "a6f4a3ed4dd582ce05477e5ee382a272517d0100",
   "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,12 +10,20 @@
     "/properties/JobLogStatus",
     "/properties/QueryLogStatus",
     "/properties/Members",
-    "/properties/CreatorPaymentConfiguration"
+    "/properties/CreatorPaymentConfiguration",
+    "/properties/AutoApprovedChangeTypes"
   ],
   "definitions": {
     "AnalyticsEngine": {
       "enum": ["CLEAN_ROOMS_SQL", "SPARK"],
       "type": "string"
+    },
+    "AutoApprovedChangeType": { "enum": ["ADD_MEMBER"], "type": "string" },
+    "AutoApprovedChangeTypeList": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AutoApprovedChangeType" },
+      "type": "array",
+      "uniqueItems": true
     },
     "CollaborationJobLogStatus": {
       "enum": ["ENABLED", "DISABLED"],
@@ -199,6 +207,9 @@
   "properties": {
     "AnalyticsEngine": { "$ref": "#/definitions/AnalyticsEngine" },
     "Arn": { "maxLength": 100, "type": "string" },
+    "AutoApprovedChangeTypes": {
+      "$ref": "#/definitions/AutoApprovedChangeTypeList"
+    },
     "CollaborationIdentifier": {
       "maxLength": 36,
       "minLength": 36,

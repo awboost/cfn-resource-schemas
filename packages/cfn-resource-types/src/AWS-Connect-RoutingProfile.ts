@@ -28,6 +28,12 @@ export type ConnectRoutingProfileProperties = {
    */
   InstanceArn: string;
   /**
+   * The manual assignment queues to associate with this routing profile.
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  ManualAssignmentQueueConfigs?: RoutingProfileManualAssignmentQueueConfig[];
+  /**
    * The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
    */
   MediaConcurrencies: MediaConcurrency[];
@@ -102,6 +108,17 @@ export type MediaConcurrency = {
    * Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
    */
   CrossChannelBehavior?: CrossChannelBehavior;
+};
+/**
+ * Type definition for `AWS::Connect::RoutingProfile.RoutingProfileManualAssignmentQueueConfig`.
+ * Contains information about the manual assignment queue and channel
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilemanualassignmentqueueconfig.html}
+ */
+export type RoutingProfileManualAssignmentQueueConfig = {
+  /**
+   * Contains the channel and queue identifier for a routing profile.
+   */
+  QueueReference: RoutingProfileQueueReference;
 };
 /**
  * Type definition for `AWS::Connect::RoutingProfile.RoutingProfileQueueConfig`.

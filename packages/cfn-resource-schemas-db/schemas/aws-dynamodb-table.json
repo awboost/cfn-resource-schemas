@@ -1,5 +1,5 @@
 {
-  "$hash": "b8977bcfb2c9161c7e4c5542caed9baa2c86edba",
+  "$hash": "af800703d3513d3e060a26e33eff298f2ab7c337",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/KeySchema"],
@@ -26,14 +26,14 @@
     },
     "ContributorInsightsSpecification": {
       "additionalProperties": false,
-      "description": "The settings used to enable or disable CloudWatch Contributor Insights.",
+      "description": "Configures contributor insights settings for a table or one of its indexes.",
       "properties": {
         "Enabled": {
           "description": "Indicates whether CloudWatch Contributor Insights are to be enabled (true) or disabled (false).",
           "type": "boolean"
         },
         "Mode": {
-          "description": "",
+          "description": "Specifies the CloudWatch Contributor Insights mode for a table. Valid values are ``ACCESSED_AND_THROTTLED_KEYS`` (tracks all access and throttled events) or ``THROTTLED_KEYS`` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the table.",
           "enum": ["ACCESSED_AND_THROTTLED_KEYS", "THROTTLED_KEYS"],
           "type": "string"
         }
@@ -83,7 +83,7 @@
       "properties": {
         "ContributorInsightsSpecification": {
           "$ref": "#/definitions/ContributorInsightsSpecification",
-          "description": "The settings used to enable or disable CloudWatch Contributor Insights for the specified global secondary index."
+          "description": "The settings used to specify whether to enable CloudWatch Contributor Insights for the global table and define which events to monitor."
         },
         "IndexName": {
           "description": "The name of the global secondary index. The name must be unique among all other indexes on this table.",
@@ -353,7 +353,7 @@
       "properties": {
         "ResourcePolicy": {
           "$ref": "#/definitions/ResourcePolicy",
-          "description": "Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.\n In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html)."
+          "description": "Creates or updates a resource-based policy document that contains the permissions for DDB resources, such as a table's streams. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.\n  When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.\n  In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html)."
         },
         "StreamViewType": {
           "description": "When an item in the table is modified, ``StreamViewType`` determines what information is written to the stream for this table. Valid values for ``StreamViewType`` are:\n  +  ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.\n  +  ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.\n  +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.\n  +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.",
@@ -439,6 +439,15 @@
         "dynamodb:UpdateTable",
         "dynamodb:GetResourcePolicy",
         "dynamodb:PutResourcePolicy",
+        "dynamodb:CreateTableReplica",
+        "dynamodb:Scan",
+        "dynamodb:Query",
+        "dynamodb:UpdateItem",
+        "dynamodb:PutItem",
+        "dynamodb:GetItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:AssociateTableReplica",
         "kinesis:DescribeStream",
         "kinesis:PutRecords",
         "iam:CreateServiceLinkedRole",
@@ -472,7 +481,8 @@
         "dynamodb:DescribeContributorInsights",
         "dynamodb:DescribeKinesisStreamingDestination",
         "dynamodb:ListTagsOfResource",
-        "dynamodb:GetResourcePolicy"
+        "dynamodb:GetResourcePolicy",
+        "dynamodb:DescribeTimeToLive"
       ]
     },
     "update": {
@@ -495,6 +505,16 @@
         "dynamodb:GetResourcePolicy",
         "dynamodb:PutResourcePolicy",
         "dynamodb:DeleteResourcePolicy",
+        "dynamodb:CreateTable",
+        "dynamodb:CreateTableReplica",
+        "dynamodb:Scan",
+        "dynamodb:Query",
+        "dynamodb:UpdateItem",
+        "dynamodb:PutItem",
+        "dynamodb:GetItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:BatchWriteItem",
+        "dynamodb:AssociateTableReplica",
         "kinesis:DescribeStream",
         "kinesis:PutRecords",
         "iam:CreateServiceLinkedRole",
@@ -521,7 +541,7 @@
     },
     "ContributorInsightsSpecification": {
       "$ref": "#/definitions/ContributorInsightsSpecification",
-      "description": "The settings used to enable or disable CloudWatch Contributor Insights for the specified table."
+      "description": "The settings used to specify whether to enable CloudWatch Contributor Insights for the table and define which events to monitor."
     },
     "DeletionProtectionEnabled": {
       "description": "Determines if a table is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Developer Guide*.",
@@ -532,6 +552,11 @@
       "items": { "$ref": "#/definitions/GlobalSecondaryIndex" },
       "type": "array",
       "uniqueItems": false
+    },
+    "GlobalTableSettingsReplicationMode": {
+      "description": "",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
     },
     "ImportSourceSpecification": {
       "$ref": "#/definitions/ImportSourceSpecification",
@@ -581,7 +606,7 @@
     "StreamArn": { "description": "", "type": "string" },
     "StreamSpecification": {
       "$ref": "#/definitions/StreamSpecification",
-      "description": "The settings for the DDB table stream, which capture changes to items stored in the table."
+      "description": "The settings for the DDB table stream, which captures changes to items stored in the table. Including this property in your CFNlong template automatically enables streaming."
     },
     "TableClass": {
       "description": "The table class of the new table. Valid values are ``STANDARD`` and ``STANDARD_INFREQUENT_ACCESS``.",

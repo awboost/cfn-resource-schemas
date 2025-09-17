@@ -1,5 +1,5 @@
 {
-  "$hash": "7fbbffdffa385947bf59b611e1f62cf8e7f45a8e",
+  "$hash": "1b98bf3fe49f768419f8dd5e83436f0b726ab060",
   "$id": "aws-odb-cloudautonomousvmcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -355,6 +355,10 @@
       "type": "integer"
     }
   },
+  "propertyTransform": {
+    "/properties/CloudExadataInfrastructureId": "$split(CloudExadataInfrastructureId, \"cloud-exadata-infrastructure/\")[-1] $OR CloudExadataInfrastructureId",
+    "/properties/OdbNetworkId": "$split(OdbNetworkId, \"odb-network/\")[-1] $OR OdbNetworkId"
+  },
   "readOnlyProperties": [
     "/properties/CloudAutonomousVmClusterId",
     "/properties/CloudAutonomousVmClusterArn",
@@ -385,6 +389,7 @@
     "/properties/ReservedCpus",
     "/properties/Shape"
   ],
+  "replacementStrategy": "delete_then_create",
   "tagging": {
     "cloudFormationSystemTags": true,
     "permissions": [

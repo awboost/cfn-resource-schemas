@@ -35,6 +35,10 @@ export type ODBCloudVmClusterProperties = {
    */
   DbNodeStorageSizeInGBs?: number;
   /**
+   * The DB nodes that are implicitly created and managed as part of this VM Cluster.
+   */
+  DbNodes?: DbNode[];
+  /**
    * The list of database servers for the VM cluster.
    */
   DbServers?: string[];
@@ -123,6 +127,67 @@ export type ODBCloudVmClusterAttributes = {
    */
   ComputeModel: string;
   /**
+   * The DB nodes that are implicitly created and managed as part of this VM Cluster.
+   */
+  DbNodes: {
+    /**
+     * The Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
+     */
+    BackupIpId: string;
+    /**
+     * The OCID of the second backup virtual network interface card (VNIC) for the DB node.
+     */
+    BackupVnic2Id: string;
+    /**
+     * The number of CPU cores enabled on the DB node.
+     */
+    CpuCoreCount: number;
+    /**
+     * The Amazon Resource Name (ARN) of the DB node.
+     */
+    DbNodeArn: string;
+    /**
+     * The unique identifier of the DB node.
+     */
+    DbNodeId: string;
+    /**
+     * The amount of local node storage, in gigabytes (GB), that's allocated on the DB node.
+     */
+    DbNodeStorageSizeInGBs: number;
+    /**
+     * The OCID of the DB system.
+     */
+    DbSystemId: string;
+    /**
+     * The OCID of the host IP address that's associated with the DB node.
+     */
+    HostIpId: string;
+    /**
+     * The host name for the DB node.
+     */
+    Hostname: string;
+    /**
+     * The amount of memory, in gigabytes (GB), that allocated on the DB node.
+     */
+    MemorySizeInGBs: number;
+    /**
+     * The OCID of the DB node.
+     */
+    Ocid: string;
+    /**
+     * The current status of the DB node.
+     */
+    Status: string;
+    /**
+     * The OCID of the second VNIC.
+     */
+    Vnic2Id: string;
+    /**
+     * The OCID of the VNIC.
+     */
+    VnicId: string;
+  }[];
+  /**
    * The type of redundancy configured for the VM cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy.
    */
   DiskRedundancy: string;
@@ -189,6 +254,18 @@ export type DataCollectionOptions = {
    * Indicates whether incident logs are enabled for the cloud VM cluster.
    */
   IsIncidentLogsEnabled?: boolean;
+};
+/**
+ * Type definition for `AWS::ODB::CloudVmCluster.DbNode`.
+ * A DbNode is a virtual machine that hosts Oracle database instances and provides access to shared storage servers within a VM Cluster
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-cloudvmcluster-dbnode.html}
+ */
+export type DbNode = {
+  /**
+   * The unique identifier of the database server that's associated with the DB node.
+   */
+  DbServerId: string;
+  Tags?: Tag[];
 };
 /**
  * Type definition for `AWS::ODB::CloudVmCluster.Tag`.

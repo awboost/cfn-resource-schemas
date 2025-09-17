@@ -11,6 +11,8 @@ export type DynamoDBGlobalTableProperties = {
   AttributeDefinitions: AttributeDefinition[];
   BillingMode?: string;
   GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
+  GlobalTableSettingsReplicationMode?: "ENABLED" | "DISABLED";
+  GlobalTableSourceArn?: string;
   /**
    * @minLength `1`
    * @maxLength `1`

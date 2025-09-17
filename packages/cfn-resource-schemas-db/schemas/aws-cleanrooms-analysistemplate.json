@@ -1,5 +1,5 @@
 {
-  "$hash": "21aa62754e5d69ed3bb8e9d5eaaf20c01ae30391",
+  "$hash": "4dd2c4f6e6d30a2fb842bd4a698ebc3d9fb0303d",
   "$id": "aws-cleanrooms-analysistemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8,7 +8,8 @@
     "/properties/Source",
     "/properties/Format",
     "/properties/AnalysisParameters",
-    "/properties/Schema"
+    "/properties/Schema",
+    "/properties/ErrorMessageConfiguration"
   ],
   "definitions": {
     "AnalysisParameter": {
@@ -138,6 +139,12 @@
       "required": ["EntryPoint", "RoleArn"],
       "type": "object"
     },
+    "ErrorMessageConfiguration": {
+      "additionalProperties": false,
+      "properties": { "Type": { "enum": ["DETAILED"], "type": "string" } },
+      "required": ["Type"],
+      "type": "object"
+    },
     "Hash": {
       "additionalProperties": false,
       "properties": { "Sha256": { "type": "string" } },
@@ -252,6 +259,9 @@
       "maxLength": 255,
       "pattern": "^[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t\\r\\n]*$",
       "type": "string"
+    },
+    "ErrorMessageConfiguration": {
+      "$ref": "#/definitions/ErrorMessageConfiguration"
     },
     "Format": { "enum": ["SQL", "PYSPARK_1_0"], "type": "string" },
     "MembershipArn": { "maxLength": 100, "type": "string" },
