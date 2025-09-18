@@ -1,5 +1,5 @@
 {
-  "$hash": "dd52d0841fd120eb912a2dfbdbf23c32e6ef1e9a",
+  "$hash": "bede56dbbc7ccaafe3b97319b2a6166a74e6d927",
   "$id": "aws-chatbot-microsoftteamschannelconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,10 +11,10 @@
     "Tag": {
       "additionalProperties": false,
       "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" }
+        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
+        "Value": { "maxLength": 256, "minLength": 0, "type": "string" }
       },
-      "required": ["Value", "Key"],
+      "required": ["Key", "Value"],
       "type": "object"
     }
   },

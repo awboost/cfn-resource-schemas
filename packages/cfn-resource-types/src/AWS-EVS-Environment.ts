@@ -32,6 +32,11 @@ export type EVSEnvironmentProperties = {
     ExpansionVlan1: InitialVlanInfo;
     ExpansionVlan2: InitialVlanInfo;
     Hcx: InitialVlanInfo;
+    /**
+     * @pattern `^acl-[a-zA-Z0-9_-]+$`
+     */
+    HcxNetworkAclId?: string;
+    IsHcxPublic?: boolean;
     NsxUpLink: InitialVlanInfo;
     VMotion: InitialVlanInfo;
     VSan: InitialVlanInfo;

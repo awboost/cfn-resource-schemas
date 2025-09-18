@@ -419,6 +419,7 @@ export type DeploymentController = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html}
  */
 export type DeploymentLifecycleHook = {
+  HookDetails?: string | Record<string, any>;
   /**
      * The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
      You must provide this parameter when configuring a deployment lifecycle hook.

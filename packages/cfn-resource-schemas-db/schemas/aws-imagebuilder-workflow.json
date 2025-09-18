@@ -1,5 +1,5 @@
 {
-  "$hash": "ae3df7fb1d05d0d742c6de01917777241b8f86c2",
+  "$hash": "d0b0e34f73ed5e49e20843be4ce21654b98c8d79",
   "$id": "aws-imagebuilder-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -12,6 +12,7 @@
     "/properties/Type",
     "/properties/KmsKeyId"
   ],
+  "definitions": {},
   "description": "Resource schema for AWS::ImageBuilder::Workflow",
   "handlers": {
     "create": {

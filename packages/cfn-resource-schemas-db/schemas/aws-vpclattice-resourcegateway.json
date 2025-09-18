@@ -1,5 +1,5 @@
 {
-  "$hash": "dd3ed70fad002e6d1adfc87237e2c44b6e76fe71",
+  "$hash": "ec18da928252e4c8ebcfa1b5114f10fad6a0dcce",
   "$id": "aws-vpclattice-resourcegateway.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -20,7 +20,7 @@
       "type": "object"
     }
   },
-  "description": "Creates a resource gateway for a service.",
+  "description": "Creates a resource gateway for a service. ",
   "handlers": {
     "create": {
       "permissions": [
@@ -77,10 +77,6 @@
     "IpAddressType": {
       "enum": ["IPV4", "IPV6", "DUALSTACK"],
       "type": "string"
-    },
-    "Ipv4AddressesPerEni": {
-      "description": "The number of IPv4 addresses to allocate per ENI for the resource gateway",
-      "type": "integer"
     },
     "Name": {
       "maxLength": 40,

@@ -1,5 +1,5 @@
 {
-  "$hash": "3b8da40c844f165ce6e4572c54a184774ec4ad21",
+  "$hash": "cd1df0d5b93006b90147dfc90c548fe7f93e49fc",
   "$id": "aws-chatbot-slackchannelconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,10 +10,10 @@
     "Tag": {
       "additionalProperties": false,
       "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" }
+        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
+        "Value": { "maxLength": 256, "minLength": 0, "type": "string" }
       },
-      "required": ["Value", "Key"],
+      "required": ["Key", "Value"],
       "type": "object"
     }
   },

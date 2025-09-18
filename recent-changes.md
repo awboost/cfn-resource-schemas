@@ -1,75 +1,17 @@
-- added `AWS::ODB::OdbPeeringConnection`
-- updated `AWS::CleanRooms::AnalysisTemplate`
-  - added definition `ErrorMessageConfiguration`
-  - added property `ErrorMessageConfiguration`
-  - updated `createOnlyProperties`
-- updated `AWS::CleanRooms::Collaboration`
-  - added definition `AutoApprovedChangeTypeList`
-  - added definition `AutoApprovedChangeType`
-  - added property `AutoApprovedChangeTypes`
-  - updated `createOnlyProperties`
-- updated `AWS::Connect::RoutingProfile`
-  - added definition `RoutingProfileManualAssignmentQueueConfig`
-  - added property `ManualAssignmentQueueConfigs`
+- updated `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`
+  - updated definition `Tag`
+- updated `AWS::Chatbot::SlackChannelConfiguration`
+  - updated definition `Tag`
+- updated `AWS::ECS::Service`
+  - updated definition `DeploymentLifecycleHook`
+- updated `AWS::EVS::Environment`
+  - added definition `NetworkAclId`
+  - updated property `InitialVlans`
+- updated `AWS::ImageBuilder::Component`
+  - updated definition `undefined`
+- updated `AWS::ImageBuilder::Workflow`
+  - updated definition `undefined`
+- updated `AWS::SSO::Instance`
   - updated handler permissions
-- updated `AWS::DynamoDB::GlobalTable`
-  - added property `GlobalTableSettingsReplicationMode`
-  - added property `GlobalTableSourceArn`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::DynamoDB::Table`
-  - added property `GlobalTableSettingsReplicationMode`
-  - updated definition `ContributorInsightsSpecification`
-  - updated definition `GlobalSecondaryIndex`
-  - updated definition `StreamSpecification`
-  - updated handler permissions
-  - updated property `ContributorInsightsSpecification`
-  - updated property `StreamSpecification`
-- updated `AWS::Logs::LogGroup`
-  - updated property `DataProtectionPolicy`
-  - updated property `ResourcePolicyDocument`
-  - updated property `RetentionInDays`
-- updated `AWS::ODB::CloudAutonomousVmCluster`
-  - added `propertyTransform`
-  - added `replacementStrategy`
-- updated `AWS::ODB::CloudExadataInfrastructure`
-  - added `replacementStrategy`
-  - added definition `MaintenanceWindow`
-  - added property `MaintenanceWindow`
-- updated `AWS::ODB::CloudVmCluster`
-  - added `conditionalCreateOnlyProperties`
-  - added `propertyTransform`
-  - added `replacementStrategy`
-  - added definition `DbNode`
-  - added property `DbNodes`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::ODB::OdbNetwork`
-  - added `replacementStrategy`
-  - added definition `ManagedResourceStatus`
-  - added definition `ManagedServices`
-  - added property `CustomDomainName`
-  - added property `ManagedServices`
-  - added property `S3Access`
-  - added property `S3PolicyDocument`
-  - added property `ZeroEtlAccess`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::SSMContacts::Plan`
-  - updated handler permissions
-- updated `AWS::ServiceCatalog::LaunchTemplateConstraint`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - updated `required`
-  - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `Description`
-  - updated property `Id`
-  - updated property `PortfolioId`
-  - updated property `ProductId`
-  - updated property `Rules`
+- updated `AWS::VpcLattice::ResourceGateway`
+  - removed property `Ipv4AddressesPerEni`

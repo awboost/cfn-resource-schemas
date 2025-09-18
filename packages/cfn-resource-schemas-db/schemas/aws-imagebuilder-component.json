@@ -1,5 +1,5 @@
 {
-  "$hash": "b40d026ecd5b2b8b56cb563b68bcafff46e4ce39",
+  "$hash": "7c0c48ebb5dfbf1cc0320cbfdc903150be11edee",
   "$id": "aws-imagebuilder-component.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -13,6 +13,7 @@
     "/properties/KmsKeyId",
     "/properties/SupportedOsVersions"
   ],
+  "definitions": {},
   "description": "Resource schema for AWS::ImageBuilder::Component",
   "handlers": {
     "create": {

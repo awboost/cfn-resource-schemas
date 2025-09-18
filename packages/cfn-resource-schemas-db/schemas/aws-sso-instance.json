@@ -1,5 +1,5 @@
 {
-  "$hash": "e5c35ac3aae8edf074f6b0ad47a3dcb11f5e3473",
+  "$hash": "bdafae79f89e079556dedb94752d54ed33f784d9",
   "$id": "aws-sso-instance.json",
   "additionalProperties": false,
   "definitions": {
@@ -33,10 +33,13 @@
         "sso:TagResource",
         "iam:CreateServiceLinkedRole",
         "sso:TagInstance",
-        "sso:ListTagsForResource"
+        "sso:ListTagsForResource",
+        "identitystore:CreateIdentityStore"
       ]
     },
-    "delete": { "permissions": ["sso:DeleteInstance"] },
+    "delete": {
+      "permissions": ["sso:DeleteInstance", "identitystore:DeleteIdentityStore"]
+    },
     "list": { "permissions": ["sso:ListInstances"] },
     "read": {
       "permissions": ["sso:DescribeInstance", "sso:ListTagsForResource"]

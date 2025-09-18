@@ -87,7 +87,15 @@ export type ChatbotMicrosoftTeamsChannelConfigurationAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-chatbot-microsoftteamschannelconfiguration-tag.html}
  */
 export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
   Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   */
   Value: string;
 };
 /**
