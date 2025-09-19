@@ -18,7 +18,7 @@ export type DataZoneConnectionProperties = {
   Description?: string;
   /**
    * The identifier of the domain in which the connection is created.
-   * @pattern `^dzd[_][a-zA-Z0-9_-]{1,36}$`
+   * @pattern `^dzd[_-][a-zA-Z0-9_-]{1,36}$`
    */
   DomainIdentifier: string;
   /**
@@ -46,7 +46,7 @@ export type DataZoneConnectionAttributes = {
   ConnectionId: string;
   /**
    * The ID of the domain in which the connection is created.
-   * @pattern `^dzd[_][a-zA-Z0-9_-]{1,36}$`
+   * @pattern `^dzd[_-][a-zA-Z0-9_-]{1,36}$`
    */
   DomainId: string;
   /**

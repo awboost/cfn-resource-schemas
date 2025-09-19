@@ -1,5 +1,5 @@
 {
-  "$hash": "eead15a9ba6d890109064bd3bbc399842f7d66f7",
+  "$hash": "4f327ec0764a2ecd6d57fec6e6570afe86b8be75",
   "$id": "aws-datazone-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -665,12 +665,12 @@
     },
     "DomainId": {
       "description": "The ID of the domain in which the connection is created.",
-      "pattern": "^dzd[_][a-zA-Z0-9_-]{1,36}$",
+      "pattern": "^dzd[_-][a-zA-Z0-9_-]{1,36}$",
       "type": "string"
     },
     "DomainIdentifier": {
       "description": "The identifier of the domain in which the connection is created.",
-      "pattern": "^dzd[_][a-zA-Z0-9_-]{1,36}$",
+      "pattern": "^dzd[_-][a-zA-Z0-9_-]{1,36}$",
       "type": "string"
     },
     "DomainUnitId": {

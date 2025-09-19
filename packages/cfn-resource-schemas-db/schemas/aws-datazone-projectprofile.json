@@ -1,5 +1,5 @@
 {
-  "$hash": "1be518e83a5a0b139b3c8270a0077c0102bfab12",
+  "$hash": "b64388fe857896e0c9d5fe9079bad2e3d4e59910",
   "$id": "aws-datazone-projectprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainIdentifier"],
@@ -144,9 +144,9 @@
     "CreatedAt": { "format": "date-time", "type": "string" },
     "CreatedBy": { "type": "string" },
     "Description": { "maxLength": 2048, "type": "string" },
-    "DomainId": { "pattern": "^dzd[_][a-zA-Z0-9_-]{1,36}$", "type": "string" },
+    "DomainId": { "pattern": "^dzd[_-][a-zA-Z0-9_-]{1,36}$", "type": "string" },
     "DomainIdentifier": {
-      "pattern": "^dzd[_][a-zA-Z0-9_-]{1,36}$",
+      "pattern": "^dzd[_-][a-zA-Z0-9_-]{1,36}$",
       "type": "string"
     },
     "DomainUnitId": {

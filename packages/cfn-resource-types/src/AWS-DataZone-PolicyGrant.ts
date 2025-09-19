@@ -13,7 +13,7 @@ export type DataZonePolicyGrantProperties = {
   DomainIdentifier: string;
   EntityIdentifier: string;
   EntityType: TargetEntityType;
-  PolicyType: string;
+  PolicyType: ManagedPolicyType;
   Principal?: PolicyGrantPrincipal;
 };
 /**
@@ -157,6 +157,24 @@ export type GroupPolicyGrantPrincipal = {
   GroupIdentifier: string;
 };
 /**
+ * Type definition for `AWS::DataZone::PolicyGrant.ManagedPolicyType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-managedpolicytype.html}
+ */
+export type ManagedPolicyType =
+  | "CREATE_DOMAIN_UNIT"
+  | "OVERRIDE_DOMAIN_UNIT_OWNERS"
+  | "ADD_TO_PROJECT_MEMBER_POOL"
+  | "OVERRIDE_PROJECT_OWNERS"
+  | "CREATE_GLOSSARY"
+  | "CREATE_FORM_TYPE"
+  | "CREATE_ASSET_TYPE"
+  | "CREATE_PROJECT"
+  | "CREATE_ENVIRONMENT_PROFILE"
+  | "DELEGATE_CREATE_ENVIRONMENT_PROFILE"
+  | "CREATE_ENVIRONMENT"
+  | "CREATE_ENVIRONMENT_FROM_BLUEPRINT"
+  | "CREATE_PROJECT_FROM_PROJECT_PROFILE";
+/**
  * Type definition for `AWS::DataZone::PolicyGrant.OverrideDomainUnitOwnersPolicyGrantDetail`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-overridedomainunitownerspolicygrantdetail.html}
  */
@@ -263,9 +281,6 @@ export type ProjectPolicyGrantPrincipal = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-policygrant-targetentitytype.html}
  */
 export type TargetEntityType =
-  | "DomainUnit"
-  | "EnvironmentBlueprintConfiguration"
-  | "EnvironmentProfile"
   | "DOMAIN_UNIT"
   | "ENVIRONMENT_BLUEPRINT_CONFIGURATION"
   | "ENVIRONMENT_PROFILE"

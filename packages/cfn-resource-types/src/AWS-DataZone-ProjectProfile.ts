@@ -10,7 +10,7 @@ export type DataZoneProjectProfileProperties = {
    */
   Description?: string;
   /**
-   * @pattern `^dzd[_][a-zA-Z0-9_-]{1,36}$`
+   * @pattern `^dzd[_-][a-zA-Z0-9_-]{1,36}$`
    */
   DomainIdentifier?: string;
   /**
@@ -36,7 +36,7 @@ export type DataZoneProjectProfileAttributes = {
   CreatedAt: string;
   CreatedBy: string;
   /**
-   * @pattern `^dzd[_][a-zA-Z0-9_-]{1,36}$`
+   * @pattern `^dzd[_-][a-zA-Z0-9_-]{1,36}$`
    */
   DomainId: string;
   /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "7abbea20bbfc2991d2afae1b368798ff09c62ce2",
+  "$hash": "bdc008064418e8d41273373f16406fc03e0b6813",
   "$id": "aws-datazone-policygrant.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -134,7 +134,24 @@
         }
       ]
     },
-    "ManagedPolicyType": { "type": "string" },
+    "ManagedPolicyType": {
+      "enum": [
+        "CREATE_DOMAIN_UNIT",
+        "OVERRIDE_DOMAIN_UNIT_OWNERS",
+        "ADD_TO_PROJECT_MEMBER_POOL",
+        "OVERRIDE_PROJECT_OWNERS",
+        "CREATE_GLOSSARY",
+        "CREATE_FORM_TYPE",
+        "CREATE_ASSET_TYPE",
+        "CREATE_PROJECT",
+        "CREATE_ENVIRONMENT_PROFILE",
+        "DELEGATE_CREATE_ENVIRONMENT_PROFILE",
+        "CREATE_ENVIRONMENT",
+        "CREATE_ENVIRONMENT_FROM_BLUEPRINT",
+        "CREATE_PROJECT_FROM_PROJECT_PROFILE"
+      ],
+      "type": "string"
+    },
     "OverrideDomainUnitOwnersPolicyGrantDetail": {
       "additionalProperties": false,
       "properties": { "IncludeChildDomainUnits": { "type": "boolean" } },
@@ -361,9 +378,6 @@
     },
     "TargetEntityType": {
       "enum": [
-        "DomainUnit",
-        "EnvironmentBlueprintConfiguration",
-        "EnvironmentProfile",
         "DOMAIN_UNIT",
         "ENVIRONMENT_BLUEPRINT_CONFIGURATION",
         "ENVIRONMENT_PROFILE",

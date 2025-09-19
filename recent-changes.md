@@ -1,17 +1,26 @@
-- updated `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`
-  - updated definition `Tag`
-- updated `AWS::Chatbot::SlackChannelConfiguration`
-  - updated definition `Tag`
-- updated `AWS::ECS::Service`
-  - updated definition `DeploymentLifecycleHook`
-- updated `AWS::EVS::Environment`
-  - added definition `NetworkAclId`
-  - updated property `InitialVlans`
-- updated `AWS::ImageBuilder::Component`
-  - updated definition `undefined`
-- updated `AWS::ImageBuilder::Workflow`
-  - updated definition `undefined`
-- updated `AWS::SSO::Instance`
+- updated `AWS::DataZone::Connection`
+  - updated property `DomainId`
+  - updated property `DomainIdentifier`
+- updated `AWS::DataZone::PolicyGrant`
+  - updated definition `ManagedPolicyType`
+  - updated definition `TargetEntityType`
+- updated `AWS::DataZone::ProjectProfile`
+  - updated property `DomainId`
+  - updated property `DomainIdentifier`
+- updated `AWS::NeptuneGraph::Graph`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::VpcLattice::ResourceGateway`
-  - removed property `Ipv4AddressesPerEni`
+- updated `AWS::ServiceCatalog::PortfolioPrincipalAssociation`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated `required`
+  - updated handler permissions
+  - updated property `AcceptLanguage`
+  - updated property `PortfolioId`
+  - updated property `PrincipalARN`
+  - updated property `PrincipalType`
