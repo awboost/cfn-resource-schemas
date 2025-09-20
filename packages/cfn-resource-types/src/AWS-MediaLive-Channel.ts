@@ -60,6 +60,13 @@ export type Ac3Settings = {
   MetadataControl?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.AdditionalDestinations`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-additionaldestinations.html}
+ */
+export type AdditionalDestinations = {
+  Destination?: OutputLocationRef;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.AncillarySourceSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-ancillarysourcesettings.html}
  */
@@ -369,6 +376,7 @@ export type BurnInDestinationSettings = {
   ShadowOpacity?: number;
   ShadowXOffset?: number;
   ShadowYOffset?: number;
+  SubtitleRows?: string;
   TeletextGridControl?: string;
   XPosition?: number;
   YPosition?: number;
@@ -474,6 +482,7 @@ export type CmafIngestCaptionLanguageMapping = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html}
  */
 export type CmafIngestGroupSettings = {
+  AdditionalDestinations?: AdditionalDestinations[];
   CaptionLanguageMappings?: CmafIngestCaptionLanguageMapping[];
   Destination?: OutputLocationRef;
   Id3Behavior?: string;
@@ -562,6 +571,7 @@ export type DvbSubDestinationSettings = {
   ShadowOpacity?: number;
   ShadowXOffset?: number;
   ShadowYOffset?: number;
+  SubtitleRows?: string;
   TeletextGridControl?: string;
   XPosition?: number;
   YPosition?: number;

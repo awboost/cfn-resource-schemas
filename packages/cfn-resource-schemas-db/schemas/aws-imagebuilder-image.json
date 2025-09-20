@@ -1,5 +1,5 @@
 {
-  "$hash": "ec9328b9de3919d2c547932263e69eda93709f34",
+  "$hash": "fd9a73e17b2be46d2c2e70889b99cff6e23b1662",
   "$id": "aws-imagebuilder-image.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -137,8 +137,7 @@
       "handlerSchema": {
         "properties": {
           "Arn": { "$ref": "resource-schema.json#/properties/Arn" }
-        },
-        "required": ["Arn"]
+        }
       },
       "permissions": [
         "imagebuilder:ListImages",

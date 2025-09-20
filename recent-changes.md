@@ -1,24 +1,21 @@
-- updated `AWS::DataZone::Connection`
-  - updated property `DomainId`
-  - updated property `DomainIdentifier`
-- updated `AWS::DataZone::PolicyGrant`
-  - updated definition `ManagedPolicyType`
-  - updated definition `TargetEntityType`
-- updated `AWS::DataZone::ProjectProfile`
-  - updated property `DomainId`
-  - updated property `DomainIdentifier`
-- updated `AWS::NeptuneGraph::Graph`
-  - updated `tagging`
+- updated `AWS::ImageBuilder::Component`
   - updated handler permissions
+- updated `AWS::ImageBuilder::Image`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Workflow`
+  - updated handler permissions
+- updated `AWS::MediaLive::Channel`
+  - added definition `AdditionalDestinations`
+  - updated definition `BurnInDestinationSettings`
+  - updated definition `CmafIngestGroupSettings`
+  - updated definition `DvbSubDestinationSettings`
 - updated `AWS::ServiceCatalog::PortfolioPrincipalAssociation`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `createOnlyProperties`
+  - added `readOnlyProperties`
+  - added property `Id`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - removed `writeOnlyProperties`
   - updated `primaryIdentifier`
-  - updated `required`
   - updated handler permissions
   - updated property `AcceptLanguage`
   - updated property `PortfolioId`

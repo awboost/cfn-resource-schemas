@@ -1,5 +1,5 @@
 {
-  "$hash": "d0b0e34f73ed5e49e20843be4ce21654b98c8d79",
+  "$hash": "64d423a27960ce8cfb49faceb9635ab9e39f354b",
   "$id": "aws-imagebuilder-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -43,8 +43,7 @@
       "handlerSchema": {
         "properties": {
           "Arn": { "$ref": "resource-schema.json#/properties/Arn" }
-        },
-        "required": ["Arn"]
+        }
       },
       "permissions": [
         "imagebuilder:ListWorkflows",

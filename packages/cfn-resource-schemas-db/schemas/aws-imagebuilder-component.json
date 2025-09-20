@@ -1,5 +1,5 @@
 {
-  "$hash": "7c0c48ebb5dfbf1cc0320cbfdc903150be11edee",
+  "$hash": "ed6db2cbf2aa5be0e4d2e1dc82e599dd051f9331",
   "$id": "aws-imagebuilder-component.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -45,8 +45,7 @@
       "handlerSchema": {
         "properties": {
           "Arn": { "$ref": "resource-schema.json#/properties/Arn" }
-        },
-        "required": ["Arn"]
+        }
       },
       "permissions": [
         "imagebuilder:ListComponents",
