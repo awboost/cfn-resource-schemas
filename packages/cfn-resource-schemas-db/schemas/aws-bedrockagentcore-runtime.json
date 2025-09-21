@@ -1,0 +1,330 @@
+{
+  "$hash": "2356c6c6a5eeb93e2fdbb0a2ac89b2a72ac68187",
+  "$id": "aws-bedrockagentcore-runtime.json",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/AgentRuntimeName"],
+  "definitions": {
+    "AgentRuntimeArn": {
+      "maxLength": 2048,
+      "pattern": "arn:(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:agent/[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}:([0-9]{0,4}[1-9][0-9]{0,4})",
+      "type": "string"
+    },
+    "AgentRuntimeArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "ContainerConfiguration": {
+          "$ref": "#/definitions/ContainerConfiguration"
+        }
+      },
+      "type": "object"
+    },
+    "AgentRuntimeId": {
+      "pattern": "[a-zA-Z][a-zA-Z0-9_]{0,99}-[a-zA-Z0-9]{10}",
+      "type": "string"
+    },
+    "AgentRuntimeName": {
+      "pattern": "[a-zA-Z][a-zA-Z0-9_]{0,47}",
+      "type": "string"
+    },
+    "AgentRuntimeVersion": {
+      "maxLength": 5,
+      "minLength": 1,
+      "pattern": "([1-9][0-9]{0,4})",
+      "type": "string"
+    },
+    "AgentStatus": {
+      "enum": [
+        "CREATING",
+        "CREATE_FAILED",
+        "UPDATING",
+        "UPDATE_FAILED",
+        "READY",
+        "DELETING"
+      ],
+      "type": "string"
+    },
+    "AllowedAudience": {
+      "description": "Allowed audience value",
+      "type": "string"
+    },
+    "AllowedAudienceList": {
+      "description": "List of allowed audiences",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AllowedAudience" },
+      "minItems": 1,
+      "type": "array"
+    },
+    "AllowedClient": {
+      "description": "Allowed client value",
+      "type": "string"
+    },
+    "AllowedClientsList": {
+      "description": "List of allowed clients",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AllowedClient" },
+      "minItems": 1,
+      "type": "array"
+    },
+    "AuthorizerConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration for the authorizer",
+      "properties": {
+        "CustomJWTAuthorizer": {
+          "$ref": "#/definitions/CustomJWTAuthorizerConfiguration"
+        }
+      },
+      "type": "object"
+    },
+    "ClientToken": {
+      "maxLength": 256,
+      "minLength": 33,
+      "pattern": "^[a-zA-Z0-9-_]+$",
+      "type": "string"
+    },
+    "ContainerConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ContainerUri": { "$ref": "#/definitions/RuntimeContainerUri" }
+      },
+      "required": ["ContainerUri"],
+      "type": "object"
+    },
+    "CreatedAt": { "type": "string" },
+    "CustomJWTAuthorizerConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration for custom JWT authorizer",
+      "properties": {
+        "AllowedAudience": { "$ref": "#/definitions/AllowedAudienceList" },
+        "AllowedClients": { "$ref": "#/definitions/AllowedClientsList" },
+        "DiscoveryUrl": { "$ref": "#/definitions/DiscoveryUrl" }
+      },
+      "required": ["DiscoveryUrl"],
+      "type": "object"
+    },
+    "Description": { "maxLength": 1200, "minLength": 1, "type": "string" },
+    "DiscoveryUrl": {
+      "description": "OpenID Connect discovery URL",
+      "pattern": "^.+/\\.well-known/openid-configuration$",
+      "type": "string"
+    },
+    "EnvironmentVariableKey": {
+      "description": "Environment variable key",
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z_][a-zA-Z0-9_]*$",
+      "type": "string"
+    },
+    "EnvironmentVariableValue": {
+      "description": "Environment variable value",
+      "maxLength": 2048,
+      "type": "string"
+    },
+    "EnvironmentVariablesMap": {
+      "additionalProperties": false,
+      "description": "Environment variable attributes",
+      "maxProperties": 50,
+      "patternProperties": {
+        "^[a-zA-Z_][a-zA-Z0-9_]*$": {
+          "description": "Environment variable value",
+          "maxLength": 2048,
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LastUpdatedAt": { "type": "string" },
+    "NetworkConfiguration": {
+      "additionalProperties": false,
+      "properties": { "NetworkMode": { "$ref": "#/definitions/NetworkMode" } },
+      "required": ["NetworkMode"],
+      "type": "object"
+    },
+    "NetworkMode": {
+      "description": "Network mode configuration type",
+      "enum": ["PUBLIC"],
+      "type": "string"
+    },
+    "ProtocolConfiguration": { "enum": ["MCP", "HTTP"], "type": "string" },
+    "RoleArn": {
+      "pattern": "arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/.+",
+      "type": "string"
+    },
+    "RuntimeContainerUri": {
+      "description": "The ECR URI of the container",
+      "maxLength": 1024,
+      "minLength": 1,
+      "pattern": "^\\d{12}\\.dkr\\.ecr\\.([a-z0-9-]+)\\.amazonaws\\.com/((?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)([:@]\\S+)$",
+      "type": "string"
+    },
+    "TagsMap": {
+      "additionalProperties": false,
+      "description": "A map of tag keys and values",
+      "patternProperties": {
+        "^[a-zA-Z0-9\\s._:/=+@-]*$": {
+          "description": "Value of a tag",
+          "maxLength": 256,
+          "minLength": 0,
+          "pattern": "^[a-zA-Z0-9\\s._:/=+@-]*$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WorkloadIdentityArn": {
+      "description": "ARN of the workload identity",
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    },
+    "WorkloadIdentityDetails": {
+      "additionalProperties": false,
+      "description": "Configuration for workload identity",
+      "properties": {
+        "WorkloadIdentityArn": { "$ref": "#/definitions/WorkloadIdentityArn" }
+      },
+      "required": ["WorkloadIdentityArn"],
+      "type": "object"
+    }
+  },
+  "description": "Resource Type definition for AWS::BedrockAgentCore::Runtime",
+  "handlers": {
+    "create": {
+      "permissions": [
+        "bedrock-agentcore:CreateAgentRuntime",
+        "bedrock-agentcore:CreateAgentRuntimeEndpoint",
+        "bedrock-agentcore:GetAgentRuntime",
+        "bedrock-agentcore:GetAgentRuntimeEndpoint",
+        "bedrock-agentcore:CreateWorkloadIdentity",
+        "bedrock-agentcore:TagResource",
+        "bedrock-agentcore:ListTagsForResource",
+        "iam:PassRole"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "bedrock-agentcore:DeleteAgentRuntime",
+        "bedrock-agentcore:DeleteAgentRuntimeEndpoint",
+        "bedrock-agentcore:GetAgentRuntime",
+        "bedrock-agentcore:GetAgentRuntimeEndpoint"
+      ]
+    },
+    "list": {
+      "permissions": [
+        "bedrock-agentcore:ListAgentRuntimes",
+        "bedrock-agentcore:ListAgentRuntimeEndpoints"
+      ]
+    },
+    "read": {
+      "permissions": [
+        "bedrock-agentcore:GetAgentRuntime",
+        "bedrock-agentcore:GetAgentRuntimeEndpoint",
+        "bedrock-agentcore:ListTagsForResource"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "bedrock-agentcore:UpdateAgentRuntime",
+        "bedrock-agentcore:UpdateAgentRuntimeEndpoint",
+        "bedrock-agentcore:GetAgentRuntime",
+        "bedrock-agentcore:GetAgentRuntimeEndpoint",
+        "bedrock-agentcore:TagResource",
+        "bedrock-agentcore:UntagResource",
+        "bedrock-agentcore:ListTagsForResource",
+        "iam:PassRole"
+      ]
+    }
+  },
+  "primaryIdentifier": ["/properties/AgentRuntimeId"],
+  "properties": {
+    "AgentRuntimeArn": {
+      "$ref": "#/definitions/AgentRuntimeArn",
+      "description": "The Amazon Resource Name(ARN) that uniquely identifies the Agent"
+    },
+    "AgentRuntimeArtifact": {
+      "$ref": "#/definitions/AgentRuntimeArtifact",
+      "description": "The artifact of the agent"
+    },
+    "AgentRuntimeId": {
+      "$ref": "#/definitions/AgentRuntimeId",
+      "description": "Identifier for a resource"
+    },
+    "AgentRuntimeName": {
+      "$ref": "#/definitions/AgentRuntimeName",
+      "description": "Name for a resource"
+    },
+    "AgentRuntimeVersion": {
+      "$ref": "#/definitions/AgentRuntimeVersion",
+      "description": "Version of the Agent"
+    },
+    "AuthorizerConfiguration": {
+      "$ref": "#/definitions/AuthorizerConfiguration",
+      "description": "Authorizer configuration for the agent runtime"
+    },
+    "CreatedAt": {
+      "$ref": "#/definitions/CreatedAt",
+      "description": "Timestamp when the Agent was created"
+    },
+    "Description": {
+      "$ref": "#/definitions/Description",
+      "description": "Description of the resource"
+    },
+    "EnvironmentVariables": {
+      "$ref": "#/definitions/EnvironmentVariablesMap",
+      "description": "Environment variables for the agent runtime"
+    },
+    "LastUpdatedAt": {
+      "$ref": "#/definitions/LastUpdatedAt",
+      "description": "When resource was last updated"
+    },
+    "NetworkConfiguration": {
+      "$ref": "#/definitions/NetworkConfiguration",
+      "description": "Network access configuration for the Agent"
+    },
+    "ProtocolConfiguration": {
+      "$ref": "#/definitions/ProtocolConfiguration",
+      "description": "Protocol configuration for the agent runtime"
+    },
+    "RoleArn": {
+      "$ref": "#/definitions/RoleArn",
+      "description": "Amazon Resource Name (ARN) of an IAM role"
+    },
+    "Status": {
+      "$ref": "#/definitions/AgentStatus",
+      "description": "Current status of the agent"
+    },
+    "Tags": { "$ref": "#/definitions/TagsMap" },
+    "WorkloadIdentityDetails": {
+      "$ref": "#/definitions/WorkloadIdentityDetails",
+      "description": "Workload identity details for the agent"
+    }
+  },
+  "readOnlyProperties": [
+    "/properties/AgentRuntimeArn",
+    "/properties/AgentRuntimeId",
+    "/properties/AgentRuntimeVersion",
+    "/properties/Status",
+    "/properties/CreatedAt",
+    "/properties/LastUpdatedAt",
+    "/properties/WorkloadIdentityDetails"
+  ],
+  "replacementStrategy": "create_then_delete",
+  "required": [
+    "AgentRuntimeName",
+    "AgentRuntimeArtifact",
+    "RoleArn",
+    "NetworkConfiguration"
+  ],
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "bedrock-agentcore:TagResource",
+      "bedrock-agentcore:UntagResource",
+      "bedrock-agentcore:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::BedrockAgentCore::Runtime"
+}

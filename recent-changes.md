@@ -1,23 +1,4 @@
-- updated `AWS::ImageBuilder::Component`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::Image`
-  - updated handler permissions
-- updated `AWS::ImageBuilder::Workflow`
-  - updated handler permissions
-- updated `AWS::MediaLive::Channel`
-  - added definition `AdditionalDestinations`
-  - updated definition `BurnInDestinationSettings`
-  - updated definition `CmafIngestGroupSettings`
-  - updated definition `DvbSubDestinationSettings`
-- updated `AWS::ServiceCatalog::PortfolioPrincipalAssociation`
-  - added `readOnlyProperties`
-  - added property `Id`
-  - removed `sourceUrl`
-  - removed `tagging`
-  - removed `writeOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `PortfolioId`
-  - updated property `PrincipalARN`
-  - updated property `PrincipalType`
+- added `AWS::BedrockAgentCore::BrowserCustom`
+- added `AWS::BedrockAgentCore::CodeInterpreterCustom`
+- added `AWS::BedrockAgentCore::Runtime`
+- added `AWS::BedrockAgentCore::RuntimeEndpoint`
