@@ -1,5 +1,5 @@
 {
-  "$hash": "d48b9c9b75f01cc3b232a9f1ef76c3458b23c8c4",
+  "$hash": "2864b4467bed361e1f89e97e9dbdca3a8187332e",
   "$id": "aws-omics-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -13,7 +13,9 @@
     "/properties/ParameterTemplatePath",
     "/properties/readmePath",
     "/properties/readmeUri",
-    "/properties/WorkflowBucketOwnerId"
+    "/properties/WorkflowBucketOwnerId",
+    "/properties/ContainerRegistryMap",
+    "/properties/ContainerRegistryMapUri"
   ],
   "definitions": {
     "Accelerators": {
@@ -21,6 +23,20 @@
       "maxLength": 64,
       "minLength": 1,
       "type": "string"
+    },
+    "ContainerRegistryMap": {
+      "additionalProperties": false,
+      "properties": {
+        "ImageMappings": {
+          "items": { "$ref": "#/definitions/ImageMapping" },
+          "type": "array"
+        },
+        "RegistryMappings": {
+          "items": { "$ref": "#/definitions/RegistryMapping" },
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "DefinitionRepository": {
       "properties": {
@@ -38,6 +54,54 @@
         },
         "fullRepositoryId": { "pattern": ".+/.+", "type": "string" },
         "sourceReference": { "$ref": "#/definitions/SourceReference" }
+      },
+      "type": "object"
+    },
+    "ImageMapping": {
+      "additionalProperties": false,
+      "properties": {
+        "DestinationImage": {
+          "maxLength": 750,
+          "minLength": 1,
+          "pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$",
+          "type": "string"
+        },
+        "SourceImage": {
+          "maxLength": 750,
+          "minLength": 1,
+          "pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RegistryMapping": {
+      "additionalProperties": false,
+      "properties": {
+        "EcrAccountId": {
+          "maxLength": 12,
+          "minLength": 12,
+          "pattern": "^[0-9]+$",
+          "type": "string"
+        },
+        "EcrRepositoryPrefix": {
+          "maxLength": 256,
+          "minLength": 1,
+          "pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$",
+          "type": "string"
+        },
+        "UpstreamRegistryUrl": {
+          "maxLength": 750,
+          "minLength": 1,
+          "pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$",
+          "type": "string"
+        },
+        "UpstreamRepositoryPrefix": {
+          "maxLength": 30,
+          "minLength": 2,
+          "pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$",
+          "type": "string"
+        }
       },
       "type": "object"
     },
@@ -158,6 +222,13 @@
       "pattern": "^arn:.+$",
       "type": "string"
     },
+    "ContainerRegistryMap": { "$ref": "#/definitions/ContainerRegistryMap" },
+    "ContainerRegistryMapUri": {
+      "maxLength": 750,
+      "minLength": 1,
+      "pattern": "^[\\p{L}||\\p{M}||\\p{Z}||\\p{S}||\\p{N}||\\p{P}]+$",
+      "type": "string"
+    },
     "CreationTime": { "format": "date-time", "type": "string" },
     "DefinitionRepository": { "$ref": "#/definitions/DefinitionRepository" },
     "DefinitionUri": {
@@ -252,6 +323,7 @@
     "/properties/ParameterTemplatePath",
     "/properties/DefinitionRepository",
     "/properties/readmeUri",
-    "/properties/readmeMarkdown"
+    "/properties/readmeMarkdown",
+    "/properties/ContainerRegistryMapUri"
   ]
 }

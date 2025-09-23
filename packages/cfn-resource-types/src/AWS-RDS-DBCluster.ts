@@ -277,6 +277,7 @@ export type RDSDBClusterProperties = {
       +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
      */
   ManageMasterUserPassword?: boolean;
+  MasterUserAuthenticationType?: string;
   /**
      * The master password for the DB instance.
       If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.

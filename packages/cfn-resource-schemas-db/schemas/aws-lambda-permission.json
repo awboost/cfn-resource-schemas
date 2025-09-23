@@ -1,10 +1,11 @@
 {
-  "$hash": "9e7a8f6955480cd2dfd6a61d8eb7139f2783792b",
+  "$hash": "adabd485132acd588bb9f32cebabf45fd18d61a4",
   "$id": "aws-lambda-permission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/FunctionName",
     "/properties/FunctionUrlAuthType",
+    "/properties/InvokedViaFunctionUrl",
     "/properties/SourceAccount",
     "/properties/SourceArn",
     "/properties/Principal",
@@ -68,6 +69,7 @@
       "pattern": "^.*$",
       "type": "string"
     },
+    "InvokedViaFunctionUrl": { "description": "", "type": "boolean" },
     "Principal": {
       "description": "The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.",
       "maxLength": 256,

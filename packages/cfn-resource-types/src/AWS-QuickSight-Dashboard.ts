@@ -1591,6 +1591,8 @@ export type DashboardPublishOptions = {
    */
   DataPointTooltipOption?: DataPointTooltipOption;
   DataQAEnabledOption?: DataQAEnabledOption;
+  DataStoriesSharingOption?: DataStoriesSharingOption;
+  ExecutiveSummaryOption?: ExecutiveSummaryOption;
   /**
    * <p>Export to .csv option.</p>
    */
@@ -1975,6 +1977,13 @@ export type DataSetReference = {
    * @pattern `\S`
    */
   DataSetPlaceholder: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.DataStoriesSharingOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datastoriessharingoption.html}
+ */
+export type DataStoriesSharingOption = {
+  AvailabilityStatus?: DashboardBehavior;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.DateAggregationFunction`.
@@ -2452,6 +2461,13 @@ export type ExcludePeriodConfiguration = {
   Amount: number;
   Granularity: TimeGranularity;
   Status?: WidgetStatus;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.ExecutiveSummaryOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-executivesummaryoption.html}
+ */
+export type ExecutiveSummaryOption = {
+  AvailabilityStatus?: DashboardBehavior;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.ExplicitHierarchy`.

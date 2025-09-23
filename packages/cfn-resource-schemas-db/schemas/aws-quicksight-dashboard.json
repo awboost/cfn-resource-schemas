@@ -1,5 +1,5 @@
 {
-  "$hash": "ec1643b9d247e709cbb54e735180f8659de464b4",
+  "$hash": "9d1201d55aa1f5762bf3a49bfcf44fbbee2a5a31",
   "$id": "aws-quicksight-dashboard.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -1485,6 +1485,12 @@
           "$ref": "#/definitions/DataPointTooltipOption"
         },
         "DataQAEnabledOption": { "$ref": "#/definitions/DataQAEnabledOption" },
+        "DataStoriesSharingOption": {
+          "$ref": "#/definitions/DataStoriesSharingOption"
+        },
+        "ExecutiveSummaryOption": {
+          "$ref": "#/definitions/ExecutiveSummaryOption"
+        },
         "ExportToCSVOption": { "$ref": "#/definitions/ExportToCSVOption" },
         "ExportWithHiddenFieldsOption": {
           "$ref": "#/definitions/ExportWithHiddenFieldsOption"
@@ -1826,6 +1832,13 @@
         }
       },
       "required": ["DataSetArn", "DataSetPlaceholder"],
+      "type": "object"
+    },
+    "DataStoriesSharingOption": {
+      "additionalProperties": false,
+      "properties": {
+        "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
+      },
       "type": "object"
     },
     "DateAggregationFunction": {
@@ -2353,6 +2366,13 @@
         "Status": { "$ref": "#/definitions/WidgetStatus" }
       },
       "required": ["Amount", "Granularity"],
+      "type": "object"
+    },
+    "ExecutiveSummaryOption": {
+      "additionalProperties": false,
+      "properties": {
+        "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
+      },
       "type": "object"
     },
     "ExplicitHierarchy": {

@@ -1,23 +1,56 @@
 {
-  "$hash": "a291a8b7b963912867e79f51545f948ca0e63198",
+  "$hash": "c6e21383f322d0a27d96489643b6f8e108a580cf",
   "$id": "aws-servicecatalog-portfolioproductassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/SourcePortfolioId",
-    "/properties/PortfolioId",
     "/properties/AcceptLanguage",
+    "/properties/PortfolioId",
     "/properties/ProductId"
   ],
   "description": "Resource Type definition for AWS::ServiceCatalog::PortfolioProductAssociation",
-  "primaryIdentifier": ["/properties/Id"],
-  "properties": {
-    "AcceptLanguage": { "type": "string" },
-    "Id": { "type": "string" },
-    "PortfolioId": { "type": "string" },
-    "ProductId": { "type": "string" },
-    "SourcePortfolioId": { "type": "string" }
+  "handlers": {
+    "create": {
+      "permissions": [
+        "servicecatalog:AssociateProductWithPortfolio",
+        "servicecatalog:ListPortfoliosForProduct"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "servicecatalog:DisassociateProductFromPortfolio",
+        "servicecatalog:ListPortfoliosForProduct"
+      ]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "ProductId": { "$ref": "resource-schema.json#/properties/ProductId" }
+        },
+        "required": ["ProductId"]
+      },
+      "permissions": ["servicecatalog:ListPortfoliosForProduct"]
+    },
+    "read": { "permissions": ["servicecatalog:ListPortfoliosForProduct"] }
   },
-  "readOnlyProperties": ["/properties/Id"],
-  "required": ["PortfolioId", "ProductId"],
-  "typeName": "AWS::ServiceCatalog::PortfolioProductAssociation"
+  "primaryIdentifier": ["/properties/PortfolioId", "/properties/ProductId"],
+  "properties": {
+    "AcceptLanguage": { "description": "The language code.", "type": "string" },
+    "PortfolioId": {
+      "description": "The portfolio identifier.",
+      "type": "string"
+    },
+    "ProductId": { "description": "The product identifier.", "type": "string" },
+    "SourcePortfolioId": {
+      "description": "The identifier of the source portfolio. The source portfolio must be a portfolio imported from a different account than the one creating the association. This account must have previously shared this portfolio with the account creating the association.",
+      "type": "string"
+    }
+  },
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-servicecatalog/tree/master/aws-servicecatalog-portfolioproductassociation.git",
+  "tagging": { "taggable": false },
+  "typeName": "AWS::ServiceCatalog::PortfolioProductAssociation",
+  "writeOnlyProperties": [
+    "/properties/SourcePortfolioId",
+    "/properties/AcceptLanguage"
+  ]
 }

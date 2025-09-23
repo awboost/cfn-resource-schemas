@@ -95,6 +95,10 @@ export type NetworkManagerConnectPeerAttributes = {
    */
   EdgeLocation: string;
   /**
+   * Errors from the last modification of the connect peer.
+   */
+  LastModificationErrors: string[];
+  /**
    * State of the connect peer.
    */
   State: string;

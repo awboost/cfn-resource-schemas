@@ -510,6 +510,7 @@ export type RDSDBInstanceProperties = {
       +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
      */
   ManageMasterUserPassword?: boolean;
+  MasterUserAuthenticationType?: string;
   /**
      * The password for the master user. The password can include any printable ASCII character except "/", """, or "@".
       *Amazon Aurora*

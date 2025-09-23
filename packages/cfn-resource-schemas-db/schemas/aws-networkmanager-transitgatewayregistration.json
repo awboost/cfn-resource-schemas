@@ -1,5 +1,5 @@
 {
-  "$hash": "b72c3a81c9877c19321dbec5957a96085acf798f",
+  "$hash": "2f8a56bfaab733c46ac4e9b87f67a4ee46436835",
   "$id": "aws-networkmanager-transitgatewayregistration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,7 +11,8 @@
     "create": {
       "permissions": [
         "networkmanager:RegisterTransitGateway",
-        "networkmanager:GetTransitGatewayRegistrations"
+        "networkmanager:GetTransitGatewayRegistrations",
+        "ec2:DescribeRegions"
       ],
       "timeoutInMinutes": 30
     },

@@ -1,4 +1,55 @@
-- added `AWS::BedrockAgentCore::BrowserCustom`
-- added `AWS::BedrockAgentCore::CodeInterpreterCustom`
-- added `AWS::BedrockAgentCore::Runtime`
-- added `AWS::BedrockAgentCore::RuntimeEndpoint`
+- updated `AWS::EC2::NetworkInterfaceAttachment`
+  - added property `EnaQueueCount`
+  - updated definition `EnaSrdSpecification`
+  - updated property `AttachmentId`
+  - updated property `DeleteOnTermination`
+  - updated property `DeviceIndex`
+  - updated property `EnaSrdSpecification`
+- updated `AWS::Lambda::Permission`
+  - added property `InvokedViaFunctionUrl`
+  - updated `createOnlyProperties`
+- updated `AWS::NetworkManager::ConnectPeer`
+  - added property `LastModificationErrors`
+  - updated `readOnlyProperties`
+- updated `AWS::NetworkManager::TransitGatewayRegistration`
+  - updated handler permissions
+- updated `AWS::Omics::Workflow`
+  - added definition `ContainerRegistryMap`
+  - added definition `ImageMapping`
+  - added definition `RegistryMapping`
+  - added property `ContainerRegistryMapUri`
+  - added property `ContainerRegistryMap`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::Omics::WorkflowVersion`
+  - added definition `ContainerRegistryMap`
+  - added definition `ImageMapping`
+  - added definition `RegistryMapping`
+  - added property `ContainerRegistryMapUri`
+  - added property `ContainerRegistryMap`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `DataStoriesSharingOption`
+  - added definition `ExecutiveSummaryOption`
+  - updated definition `DashboardPublishOptions`
+- updated `AWS::RDS::DBCluster`
+  - added property `MasterUserAuthenticationType`
+  - updated `writeOnlyProperties`
+- updated `AWS::RDS::DBInstance`
+  - added property `MasterUserAuthenticationType`
+  - updated `writeOnlyProperties`
+- updated `AWS::ServiceCatalog::PortfolioProductAssociation`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed `readOnlyProperties`
+  - removed `required`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated handler permissions
+  - updated property `AcceptLanguage`
+  - updated property `PortfolioId`
+  - updated property `ProductId`
+  - updated property `SourcePortfolioId`

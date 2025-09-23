@@ -10,6 +10,13 @@ export type OmicsWorkflowProperties = {
    * @maxLength `64`
    */
   Accelerators?: Accelerators;
+  ContainerRegistryMap?: ContainerRegistryMap;
+  /**
+   * @minLength `1`
+   * @maxLength `750`
+   * @pattern `^[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+$`
+   */
+  ContainerRegistryMapUri?: string;
   DefinitionRepository?: DefinitionRepository;
   /**
    * @minLength `1`
@@ -121,6 +128,14 @@ export type OmicsWorkflowAttributes = {
  */
 export type Accelerators = "GPU";
 /**
+ * Type definition for `AWS::Omics::Workflow.ContainerRegistryMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-containerregistrymap.html}
+ */
+export type ContainerRegistryMap = {
+  ImageMappings?: ImageMapping[];
+  RegistryMappings?: RegistryMapping[];
+};
+/**
  * Type definition for `AWS::Omics::Workflow.DefinitionRepository`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-definitionrepository.html}
  */
@@ -141,6 +156,54 @@ export type DefinitionRepository = {
    */
   fullRepositoryId?: string;
   sourceReference?: SourceReference;
+};
+/**
+ * Type definition for `AWS::Omics::Workflow.ImageMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-imagemapping.html}
+ */
+export type ImageMapping = {
+  /**
+   * @minLength `1`
+   * @maxLength `750`
+   * @pattern `^[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+$`
+   */
+  DestinationImage?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `750`
+   * @pattern `^[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+$`
+   */
+  SourceImage?: string;
+};
+/**
+ * Type definition for `AWS::Omics::Workflow.RegistryMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-omics-workflow-registrymapping.html}
+ */
+export type RegistryMapping = {
+  /**
+   * @minLength `12`
+   * @maxLength `12`
+   * @pattern `^[0-9]+$`
+   */
+  EcrAccountId?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+$`
+   */
+  EcrRepositoryPrefix?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `750`
+   * @pattern `^[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+$`
+   */
+  UpstreamRegistryUrl?: string;
+  /**
+   * @minLength `2`
+   * @maxLength `30`
+   * @pattern `^[\p{L}||\p{M}||\p{Z}||\p{S}||\p{N}||\p{P}]+$`
+   */
+  UpstreamRepositoryPrefix?: string;
 };
 /**
  * Type definition for `AWS::Omics::Workflow.SourceReference`.
