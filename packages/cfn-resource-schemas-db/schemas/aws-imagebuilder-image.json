@@ -1,5 +1,5 @@
 {
-  "$hash": "fd9a73e17b2be46d2c2e70889b99cff6e23b1662",
+  "$hash": "dcf0e9faee5c392f294680c4b8007b89ca257272",
   "$id": "aws-imagebuilder-image.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -26,6 +26,21 @@
         "RepositoryName": {
           "description": "The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ImagePipelineExecutionSettings": {
+      "additionalProperties": false,
+      "description": "The settings for starting an image pipeline execution.",
+      "properties": {
+        "DeploymentId": {
+          "description": "The deployment ID of the pipeline, used to trigger new image pipeline executions.",
+          "type": "string"
+        },
+        "OnUpdate": {
+          "description": "Whether to trigger the image pipeline when the pipeline is updated. False by default.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -152,6 +167,7 @@
   "oneOf": [
     { "required": ["ContainerRecipeArn", "InfrastructureConfigurationArn"] },
     { "required": ["ImageRecipeArn", "InfrastructureConfigurationArn"] },
+    { "required": ["ImagePipelineExecutionSettings"] },
     { "required": ["ImportDiskImageSettings"] }
   ],
   "primaryIdentifier": ["/properties/Arn"],

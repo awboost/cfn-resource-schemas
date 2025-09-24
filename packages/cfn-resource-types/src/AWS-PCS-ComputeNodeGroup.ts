@@ -41,9 +41,9 @@ export type PCSComputeNodeGroupProperties = {
    */
   Name?: string;
   /**
-   * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
+   * Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.
    */
-  PurchaseOption?: "ONDEMAND" | "SPOT";
+  PurchaseOption?: "ONDEMAND" | "SPOT" | "CAPACITY_BLOCK";
   /**
    * Specifies the boundaries of the compute node group auto scaling.
    */

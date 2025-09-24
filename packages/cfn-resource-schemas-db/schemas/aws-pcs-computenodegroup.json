@@ -1,5 +1,5 @@
 {
-  "$hash": "60449ab9bb679f66047f2cdf2f79a858427f1a21",
+  "$hash": "c772fc489c3904bbf941aef5acdce959f2d12a2c",
   "$id": "aws-pcs-computenodegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -192,8 +192,8 @@
       "type": "string"
     },
     "PurchaseOption": {
-      "description": "Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand and Spot instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.",
-      "enum": ["ONDEMAND", "SPOT"],
+      "description": "Specifies how EC2 instances are purchased on your behalf. AWS PCS supports On-Demand, Spot and Capacity Block instances. For more information, see Instance purchasing options in the Amazon Elastic Compute Cloud User Guide. If you don't provide this option, it defaults to On-Demand.",
+      "enum": ["ONDEMAND", "SPOT", "CAPACITY_BLOCK"],
       "type": "string"
     },
     "ScalingConfiguration": {

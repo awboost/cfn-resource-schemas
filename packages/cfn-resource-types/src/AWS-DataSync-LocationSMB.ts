@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource schema for AWS::DataSync::LocationSMB.
+ * Resource Type definition for AWS::DataSync::LocationSMB.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html}
  */
 export type DataSyncLocationSMBProperties = {
@@ -15,6 +15,14 @@ export type DataSyncLocationSMBProperties = {
    * The authentication mode used to determine identity of user.
    */
   AuthenticationType?: "NTLM" | "KERBEROS";
+  /**
+   * Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+   */
+  CmkSecretConfig?: CmkSecretConfig;
+  /**
+   * Specifies configuration information for a customer-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+   */
+  CustomSecretConfig?: CustomSecretConfig;
   /**
    * Specifies the IPv4 addresses for the DNS servers that your SMB file server belongs to. This parameter applies only if AuthenticationType is set to KERBEROS. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server.
    * @maxLength `2`
@@ -83,6 +91,17 @@ export type DataSyncLocationSMBProperties = {
  */
 export type DataSyncLocationSMBAttributes = {
   /**
+   * Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+   */
+  CmkSecretConfig: {
+    /**
+     * Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+     * @maxLength `2048`
+     * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+     */
+    SecretArn: string;
+  };
+  /**
    * The Amazon Resource Name (ARN) of the SMB location that is created.
    * @maxLength `128`
    * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
@@ -94,6 +113,62 @@ export type DataSyncLocationSMBAttributes = {
    * @pattern `^(efs|nfs|s3|smb|fsxw)://[a-zA-Z0-9./\-]+$`
    */
   LocationUri: string;
+  /**
+   * Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+   */
+  ManagedSecretConfig: {
+    /**
+     * Specifies the ARN for an AWS Secrets Manager secret.
+     * @maxLength `2048`
+     * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+     */
+    SecretArn: string;
+  };
+};
+/**
+ * Type definition for `AWS::DataSync::LocationSMB.CmkSecretConfig`.
+ * Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-cmksecretconfig.html}
+ */
+export type CmkSecretConfig = {
+  /**
+   * Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):kms:[a-z-0-9]+:[0-9]{12}:key/.*|)$`
+   */
+  KmsKeyArn?: string;
+};
+/**
+ * Type definition for `AWS::DataSync::LocationSMB.CustomSecretConfig`.
+ * Specifies configuration information for a customer-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-customsecretconfig.html}
+ */
+export type CustomSecretConfig = {
+  /**
+   * Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*|)$`
+   */
+  SecretAccessRoleArn: string;
+  /**
+   * Specifies the ARN for a customer created AWS Secrets Manager secret.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+   */
+  SecretArn: string;
+};
+/**
+ * Type definition for `AWS::DataSync::LocationSMB.ManagedSecretConfig`.
+ * Specifies configuration information for a DataSync-managed secret, such as a password or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-managedsecretconfig.html}
+ */
+export type ManagedSecretConfig = {
+  /**
+   * Specifies the ARN for an AWS Secrets Manager secret.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+   */
+  SecretArn: string;
 };
 /**
  * Type definition for `AWS::DataSync::LocationSMB.MountOptions`.
@@ -128,7 +203,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource schema for AWS::DataSync::LocationSMB.
+ * Resource Type definition for AWS::DataSync::LocationSMB.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html}
  */
 export class DataSyncLocationSMB extends $Resource<

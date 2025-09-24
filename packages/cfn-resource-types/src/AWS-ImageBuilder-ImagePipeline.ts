@@ -126,6 +126,10 @@ export type ImageTestsConfiguration = {
  */
 export type Schedule = {
   /**
+   * The auto-disable policy for the image pipeline.
+   */
+  AutoDisablePolicy?: any;
+  /**
    * The condition configures when the pipeline should trigger a new image build.
    */
   PipelineExecutionStartCondition?:

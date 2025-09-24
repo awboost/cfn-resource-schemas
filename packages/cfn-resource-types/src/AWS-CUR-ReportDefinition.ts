@@ -66,9 +66,30 @@ export type CURReportDefinitionProperties = {
    */
   S3Region: string;
   /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  Tags?: Tag[];
+  /**
    * The granularity of the line items in the report.
    */
   TimeUnit: "HOURLY" | "DAILY" | "MONTHLY";
+};
+/**
+ * Type definition for `AWS::CUR::ReportDefinition.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cur-reportdefinition-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * The AWS::CUR::ReportDefinition resource creates a Cost & Usage Report with user-defined settings. You can use this resource to define settings like time granularity (hourly, daily, monthly), file format (Parquet, CSV), and S3 bucket for delivery of these reports.

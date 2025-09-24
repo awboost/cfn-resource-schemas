@@ -1,5 +1,5 @@
 {
-  "$hash": "6026b4b14bc6ea6e21b2089257e23c2c40612d8d",
+  "$hash": "98a61a1d70ccaae8b0d3c2795e45fc2af1df40e9",
   "$id": "aws-datasync-locationfsxontap.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -210,5 +210,8 @@
     "taggable": true
   },
   "typeName": "AWS::DataSync::LocationFSxONTAP",
-  "writeOnlyProperties": ["/properties/Protocol", "/properties/Subdirectory"]
+  "writeOnlyProperties": [
+    "/properties/Protocol/SMB/Password",
+    "/properties/Subdirectory"
+  ]
 }

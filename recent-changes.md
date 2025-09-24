@@ -1,55 +1,27 @@
-- updated `AWS::EC2::NetworkInterfaceAttachment`
-  - added property `EnaQueueCount`
-  - updated definition `EnaSrdSpecification`
-  - updated property `AttachmentId`
-  - updated property `DeleteOnTermination`
-  - updated property `DeviceIndex`
-  - updated property `EnaSrdSpecification`
-- updated `AWS::Lambda::Permission`
-  - added property `InvokedViaFunctionUrl`
-  - updated `createOnlyProperties`
-- updated `AWS::NetworkManager::ConnectPeer`
-  - added property `LastModificationErrors`
+- updated `AWS::CUR::ReportDefinition`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DataSync::LocationFSxONTAP`
+  - updated `writeOnlyProperties`
+- updated `AWS::DataSync::LocationSMB`
+  - added definition `CmkSecretConfig`
+  - added definition `CustomSecretConfig`
+  - added definition `ManagedSecretConfig`
+  - added property `CmkSecretConfig`
+  - added property `CustomSecretConfig`
+  - added property `ManagedSecretConfig`
   - updated `readOnlyProperties`
-- updated `AWS::NetworkManager::TransitGatewayRegistration`
   - updated handler permissions
-- updated `AWS::Omics::Workflow`
-  - added definition `ContainerRegistryMap`
-  - added definition `ImageMapping`
-  - added definition `RegistryMapping`
-  - added property `ContainerRegistryMapUri`
-  - added property `ContainerRegistryMap`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::Omics::WorkflowVersion`
-  - added definition `ContainerRegistryMap`
-  - added definition `ImageMapping`
-  - added definition `RegistryMapping`
-  - added property `ContainerRegistryMapUri`
-  - added property `ContainerRegistryMap`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::QuickSight::Dashboard`
-  - added definition `DataStoriesSharingOption`
-  - added definition `ExecutiveSummaryOption`
-  - updated definition `DashboardPublishOptions`
-- updated `AWS::RDS::DBCluster`
-  - added property `MasterUserAuthenticationType`
-  - updated `writeOnlyProperties`
-- updated `AWS::RDS::DBInstance`
-  - added property `MasterUserAuthenticationType`
-  - updated `writeOnlyProperties`
-- updated `AWS::ServiceCatalog::PortfolioProductAssociation`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - removed `readOnlyProperties`
-  - removed `required`
-  - removed property `Id`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `PortfolioId`
-  - updated property `ProductId`
-  - updated property `SourcePortfolioId`
+- updated `AWS::ECS::Service`
+  - updated definition `DeploymentConfiguration`
+  - updated definition `DeploymentLifecycleHook`
+  - updated property `AvailabilityZoneRebalancing`
+  - updated property `HealthCheckGracePeriodSeconds`
+- updated `AWS::ImageBuilder::Image`
+  - added definition `ImagePipelineExecutionSettings`
+  - updated `oneOf`
+- updated `AWS::ImageBuilder::ImagePipeline`
+  - updated definition `Schedule`
+- updated `AWS::PCS::ComputeNodeGroup`
+  - updated property `PurchaseOption`

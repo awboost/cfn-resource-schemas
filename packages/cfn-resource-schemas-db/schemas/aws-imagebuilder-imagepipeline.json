@@ -1,5 +1,5 @@
 {
-  "$hash": "1f163fe41d278786b39b4a79d1141f441f60d3a4",
+  "$hash": "044b726384f5f978d48da1ef3cc9b8c5a33d935d",
   "$id": "aws-imagebuilder-imagepipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -57,6 +57,9 @@
       "additionalProperties": false,
       "description": "The schedule of the image pipeline.",
       "properties": {
+        "AutoDisablePolicy": {
+          "description": "The auto-disable policy for the image pipeline."
+        },
         "PipelineExecutionStartCondition": {
           "description": "The condition configures when the pipeline should trigger a new image build.",
           "enum": [
