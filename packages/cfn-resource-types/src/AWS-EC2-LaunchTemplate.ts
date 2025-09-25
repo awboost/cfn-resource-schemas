@@ -927,6 +927,9 @@ export type NetworkInterface = {
      If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
      */
   DeviceIndex?: number;
+  /**
+   * The number of ENA queues to be created with the instance.
+   */
   EnaQueueCount?: number;
   /**
    * The ENA Express configuration for the network interface.
@@ -1035,8 +1038,9 @@ export type Placement = {
    */
   Affinity?: string;
   /**
-   * The Availability Zone for the instance.
-   */
+     * The Availability Zone for the instance.
+     Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both
+     */
   AvailabilityZone?: string;
   /**
    * The Group Id of a placement group. You must specify the Placement Group *Group Id* to launch an instance in a shared placement group.

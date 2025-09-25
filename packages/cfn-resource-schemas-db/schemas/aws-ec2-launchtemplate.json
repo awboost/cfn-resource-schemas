@@ -1,5 +1,5 @@
 {
-  "$hash": "a139e59b5cf134645273310e207b2950d9bf4503",
+  "$hash": "43e6f2ed245bba3f7ad6ed1c3c70dcfe6f6d5052",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -737,7 +737,10 @@
           "description": "The device index for the network interface attachment. The primary network interface has a device index of 0. If the network interface is of type ``interface``, you must specify a device index.\n If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.",
           "type": "integer"
         },
-        "EnaQueueCount": { "description": "", "type": "integer" },
+        "EnaQueueCount": {
+          "description": "The number of ENA queues to be created with the instance.",
+          "type": "integer"
+        },
         "EnaSrdSpecification": {
           "$ref": "#/definitions/EnaSrdSpecification",
           "description": "The ENA Express configuration for the network interface."
@@ -850,7 +853,7 @@
           "type": "string"
         },
         "AvailabilityZone": {
-          "description": "The Availability Zone for the instance.",
+          "description": "The Availability Zone for the instance.\n Either ``AvailabilityZone`` or ``AvailabilityZoneId`` can be specified, but not both",
           "type": "string"
         },
         "GroupId": {

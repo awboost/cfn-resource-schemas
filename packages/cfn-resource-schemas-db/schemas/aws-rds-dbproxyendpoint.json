@@ -1,10 +1,11 @@
 {
-  "$hash": "f1b5bbff226a5cc7f8b2a2084f3382173a33c7e1",
+  "$hash": "4112c51f8b252d76c3f8f47dff0f526d1a072623",
   "$id": "aws-rds-dbproxyendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DBProxyName",
     "/properties/DBProxyEndpointName",
+    "/properties/EndpointNetworkType",
     "/properties/VpcSubnetIds"
   ],
   "definitions": {
@@ -73,6 +74,11 @@
     "Endpoint": {
       "description": "The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.",
       "maxLength": 256,
+      "type": "string"
+    },
+    "EndpointNetworkType": {
+      "description": "The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.",
+      "enum": ["IPV4", "IPV6", "DUAL"],
       "type": "string"
     },
     "IsDefault": {

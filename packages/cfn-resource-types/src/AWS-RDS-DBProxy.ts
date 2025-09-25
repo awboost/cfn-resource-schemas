@@ -9,7 +9,7 @@ export type RDSDBProxyProperties = {
    * The authorization mechanism that the proxy uses.
    * @minLength `1`
    */
-  Auth: AuthFormat[];
+  Auth?: AuthFormat[];
   /**
    * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
    * @maxLength `64`
@@ -20,6 +20,14 @@ export type RDSDBProxyProperties = {
    * Whether the proxy includes detailed information about SQL statements in its logs.
    */
   DebugLogging?: boolean;
+  /**
+   * The default authentication scheme that the proxy uses for client connections to the proxy and connections from the proxy to the underlying database.
+   */
+  DefaultAuthScheme?: "IAM_AUTH" | "NONE";
+  /**
+   * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+   */
+  EndpointNetworkType?: "IPV4" | "IPV6" | "DUAL";
   /**
    * The kinds of databases that the proxy can connect to.
    */
@@ -40,6 +48,10 @@ export type RDSDBProxyProperties = {
    * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
    */
   Tags?: TagFormat[];
+  /**
+   * The network type that the proxy uses to connect to the target database. The network type determines the IP version that the proxy uses for connections to the database.
+   */
+  TargetConnectionNetworkType?: "IPV4" | "IPV6";
   /**
    * VPC security group IDs to associate with the new proxy.
    * @minLength `1`

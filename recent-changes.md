@@ -1,27 +1,14 @@
-- updated `AWS::CUR::ReportDefinition`
-  - added property `Tags`
-  - updated `tagging`
+- updated `AWS::ApplicationSignals::Discovery`
   - updated handler permissions
-- updated `AWS::DataSync::LocationFSxONTAP`
-  - updated `writeOnlyProperties`
-- updated `AWS::DataSync::LocationSMB`
-  - added definition `CmkSecretConfig`
-  - added definition `CustomSecretConfig`
-  - added definition `ManagedSecretConfig`
-  - added property `CmkSecretConfig`
-  - added property `CustomSecretConfig`
-  - added property `ManagedSecretConfig`
-  - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::ECS::Service`
-  - updated definition `DeploymentConfiguration`
-  - updated definition `DeploymentLifecycleHook`
-  - updated property `AvailabilityZoneRebalancing`
-  - updated property `HealthCheckGracePeriodSeconds`
-- updated `AWS::ImageBuilder::Image`
-  - added definition `ImagePipelineExecutionSettings`
-  - updated `oneOf`
-- updated `AWS::ImageBuilder::ImagePipeline`
-  - updated definition `Schedule`
-- updated `AWS::PCS::ComputeNodeGroup`
-  - updated property `PurchaseOption`
+- updated `AWS::EC2::LaunchTemplate`
+  - updated definition `NetworkInterface`
+  - updated definition `Placement`
+- updated `AWS::RDS::DBProxy`
+  - added property `DefaultAuthScheme`
+  - added property `EndpointNetworkType`
+  - added property `TargetConnectionNetworkType`
+  - updated `createOnlyProperties`
+  - updated `required`
+- updated `AWS::RDS::DBProxyEndpoint`
+  - added property `EndpointNetworkType`
+  - updated `createOnlyProperties`

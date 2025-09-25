@@ -18,6 +18,10 @@ export type RDSDBProxyEndpointProperties = {
    */
   DBProxyName: string;
   /**
+   * The network type of the DB proxy endpoint. The network type determines the IP version that the proxy endpoint supports.
+   */
+  EndpointNetworkType?: "IPV4" | "IPV6" | "DUAL";
+  /**
    * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
    */
   Tags?: TagFormat[];

@@ -1,5 +1,5 @@
 {
-  "$hash": "e36ac6e74304566a8524a1ca2b08173430838a58",
+  "$hash": "13d24744b460f31a196d820058ee332311aabafe",
   "$id": "aws-applicationsignals-discovery.json",
   "additionalProperties": false,
   "definitions": {
@@ -17,7 +17,8 @@
       "permissions": [
         "application-signals:StartDiscovery",
         "application-signals:ListServices",
-        "iam:CreateServiceLinkedRole"
+        "iam:CreateServiceLinkedRole",
+        "cloudtrail:CreateServiceLinkedChannel"
       ]
     },
     "delete": { "permissions": ["application-signals:ListServices"] },
