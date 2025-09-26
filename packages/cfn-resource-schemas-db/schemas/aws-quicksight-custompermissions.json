@@ -1,5 +1,5 @@
 {
-  "$hash": "754d9703b0c531b35d4263a4e3ee5528c5945420",
+  "$hash": "c42a761ef150fa738821e99d0dd1e8b97d9dbc17",
   "$id": "aws-quicksight-custompermissions.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -13,6 +13,7 @@
         "AddOrRunAnomalyDetectionForAnalyses": {
           "$ref": "#/definitions/CapabilityState"
         },
+        "Analysis": { "$ref": "#/definitions/CapabilityState" },
         "CreateAndUpdateDashboardEmailReports": {
           "$ref": "#/definitions/CapabilityState"
         },
@@ -26,6 +27,7 @@
         },
         "CreateSPICEDataset": { "$ref": "#/definitions/CapabilityState" },
         "CreateSharedFolders": { "$ref": "#/definitions/CapabilityState" },
+        "Dashboard": { "$ref": "#/definitions/CapabilityState" },
         "ExportToCsv": { "$ref": "#/definitions/CapabilityState" },
         "ExportToCsvInScheduledReports": {
           "$ref": "#/definitions/CapabilityState"

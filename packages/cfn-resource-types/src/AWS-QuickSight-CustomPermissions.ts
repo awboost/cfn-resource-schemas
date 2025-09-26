@@ -37,6 +37,7 @@ export type QuickSightCustomPermissionsAttributes = {
  */
 export type Capabilities = {
   AddOrRunAnomalyDetectionForAnalyses?: CapabilityState;
+  Analysis?: CapabilityState;
   CreateAndUpdateDashboardEmailReports?: CapabilityState;
   CreateAndUpdateDataSources?: CapabilityState;
   CreateAndUpdateDatasets?: CapabilityState;
@@ -44,6 +45,7 @@ export type Capabilities = {
   CreateAndUpdateThresholdAlerts?: CapabilityState;
   CreateSPICEDataset?: CapabilityState;
   CreateSharedFolders?: CapabilityState;
+  Dashboard?: CapabilityState;
   ExportToCsv?: CapabilityState;
   ExportToCsvInScheduledReports?: CapabilityState;
   ExportToExcel?: CapabilityState;

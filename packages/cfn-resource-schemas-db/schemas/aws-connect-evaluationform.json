@@ -1,5 +1,5 @@
 {
-  "$hash": "5e757f8dfd757c8081357f31f2f82642be2ab32f",
+  "$hash": "05f7d2ce132077930913f3b392f94c7a63a7a98e",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -40,7 +40,6 @@
       "additionalProperties": false,
       "description": "Information about the automation configuration in numeric questions.",
       "properties": {
-        "AnswerSource": { "description": "" },
         "PropertyValue": {
           "$ref": "#/definitions/NumericQuestionPropertyValueAutomation",
           "description": "The property value of the automation."

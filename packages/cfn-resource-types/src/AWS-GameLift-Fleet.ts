@@ -225,10 +225,10 @@ export type IpPermission = {
  */
 export type LocationCapacity = {
   /**
-   * The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+   * Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
    * @min `0`
    */
-  DesiredEC2Instances: number;
+  DesiredEC2Instances?: number;
   /**
    * The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
    * @min `0`

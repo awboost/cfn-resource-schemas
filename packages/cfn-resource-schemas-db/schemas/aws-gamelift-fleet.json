@@ -1,5 +1,5 @@
 {
-  "$hash": "eb592a568429e15086e331e7969108672cef7b2e",
+  "$hash": "d138d85d3b04e5df2ea91b1936635104e9cbfdbc",
   "$id": "aws-gamelift-fleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -86,7 +86,7 @@
       "description": "Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.",
       "properties": {
         "DesiredEC2Instances": {
-          "description": "The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.",
+          "description": "Defaults to MinSize if not defined. The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.",
           "minimum": 0,
           "type": "integer"
         },
@@ -101,7 +101,7 @@
           "type": "integer"
         }
       },
-      "required": ["DesiredEC2Instances", "MinSize", "MaxSize"],
+      "required": ["MinSize", "MaxSize"],
       "type": "object"
     },
     "LocationConfiguration": {

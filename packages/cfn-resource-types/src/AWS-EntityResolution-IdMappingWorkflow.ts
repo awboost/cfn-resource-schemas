@@ -87,6 +87,7 @@ export type IdMappingRuleBasedProperties = {
  */
 export type IdMappingTechniques = {
   IdMappingType?: "PROVIDER" | "RULE_BASED";
+  NormalizationVersion?: string;
   ProviderProperties?: ProviderProperties;
   RuleBasedProperties?: IdMappingRuleBasedProperties;
 };

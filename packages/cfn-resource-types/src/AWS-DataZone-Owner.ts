@@ -25,6 +25,14 @@ export type DataZoneOwnerProperties = {
   Owner: OwnerProperties;
 };
 /**
+ * Attribute type definition for `AWS::DataZone::Owner`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-owner.html#aws-resource-datazone-owner-return-values}
+ */
+export type DataZoneOwnerAttributes = {
+  OwnerIdentifier: string;
+  OwnerType: "USER" | "GROUP";
+};
+/**
  * Type definition for `AWS::DataZone::Owner.OwnerGroupProperties`.
  * The properties of the domain unit owners group.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-owner-ownergroupproperties.html}
@@ -74,7 +82,7 @@ export type OwnerUserProperties = {
 export class DataZoneOwner extends $Resource<
   "AWS::DataZone::Owner",
   DataZoneOwnerProperties,
-  Record<string, never>
+  DataZoneOwnerAttributes
 > {
   public static readonly Type = "AWS::DataZone::Owner";
   constructor(

@@ -17,6 +17,14 @@ export type DataZoneProjectMembershipProperties = {
   ProjectIdentifier: string;
 };
 /**
+ * Attribute type definition for `AWS::DataZone::ProjectMembership`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html#aws-resource-datazone-projectmembership-return-values}
+ */
+export type DataZoneProjectMembershipAttributes = {
+  MemberIdentifier: string;
+  MemberIdentifierType: MemberIdentifierType;
+};
+/**
  * Type definition for `AWS::DataZone::ProjectMembership.Member`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectmembership-member.html}
  */
@@ -27,6 +35,11 @@ export type Member =
   | {
       GroupIdentifier: string;
     };
+/**
+ * Type definition for `AWS::DataZone::ProjectMembership.MemberIdentifierType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectmembership-memberidentifiertype.html}
+ */
+export type MemberIdentifierType = "USER_IDENTIFIER" | "GROUP_IDENTIFIER";
 /**
  * Type definition for `AWS::DataZone::ProjectMembership.UserDesignation`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectmembership-userdesignation.html}
@@ -44,7 +57,7 @@ export type UserDesignation =
 export class DataZoneProjectMembership extends $Resource<
   "AWS::DataZone::ProjectMembership",
   DataZoneProjectMembershipProperties,
-  Record<string, never>
+  DataZoneProjectMembershipAttributes
 > {
   public static readonly Type = "AWS::DataZone::ProjectMembership";
   constructor(

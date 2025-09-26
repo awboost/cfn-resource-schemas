@@ -1,5 +1,5 @@
 {
-  "$hash": "2b2d5aa682abaf1f9df07b72ac738604a74ed2f5",
+  "$hash": "cd5ea48c3d6eadbadb6c33adf4c5dcf6fa8c19c5",
   "$id": "aws-entityresolution-idmappingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
@@ -62,6 +62,7 @@
           "enum": ["PROVIDER", "RULE_BASED"],
           "type": "string"
         },
+        "NormalizationVersion": { "type": "string" },
         "ProviderProperties": { "$ref": "#/definitions/ProviderProperties" },
         "RuleBasedProperties": {
           "$ref": "#/definitions/IdMappingRuleBasedProperties"

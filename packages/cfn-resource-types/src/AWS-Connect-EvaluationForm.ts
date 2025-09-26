@@ -96,7 +96,6 @@ export type EvaluationFormItem = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html}
  */
 export type EvaluationFormNumericQuestionAutomation = {
-  AnswerSource?: any;
   /**
    * The property value of the automation.
    */

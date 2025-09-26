@@ -1,5 +1,5 @@
 {
-  "$hash": "a1eb8a73d3a06ec4ddc3dcfc1bee07e5435dd4cb",
+  "$hash": "f09266e88eda385a31c4b84925bc70116ca6f23b",
   "$id": "aws-datazone-owner.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -150,8 +150,14 @@
     "Owner": {
       "$ref": "#/definitions/OwnerProperties",
       "description": "The owner that you want to add to the entity."
-    }
+    },
+    "OwnerIdentifier": { "type": "string" },
+    "OwnerType": { "enum": ["USER", "GROUP"], "type": "string" }
   },
+  "readOnlyProperties": [
+    "/properties/OwnerType",
+    "/properties/OwnerIdentifier"
+  ],
   "required": ["DomainIdentifier", "EntityIdentifier", "EntityType", "Owner"],
   "tagging": {
     "cloudFormationSystemTags": false,

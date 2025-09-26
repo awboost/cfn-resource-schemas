@@ -17,10 +17,18 @@ export type BCMDataExportsExportProperties = {
  * @see {@link https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DataExports_CreateExport.html#API_DataExports_CreateExport_RequestSyntax}
  */
 export type BCMDataExportsExportAttributes = {
+  Export: {
+    /**
+     * @minLength `20`
+     * @maxLength `2048`
+     * @pattern `^arn:aws[-a-z0-9]*:(bcm-data-exports):[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+$`
+     */
+    ExportArn: string;
+  };
   /**
    * @minLength `20`
    * @maxLength `2048`
-   * @pattern `^arn:aws[-a-z0-9]*:[-a-z0-9]+:[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+$`
+   * @pattern `^arn:aws[-a-z0-9]*:(bcm-data-exports):[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+$`
    */
   ExportArn: string;
 };
@@ -62,12 +70,6 @@ export type Export = {
    */
   Description?: string;
   DestinationConfigurations: DestinationConfigurations;
-  /**
-   * @minLength `20`
-   * @maxLength `2048`
-   * @pattern `^arn:aws[-a-z0-9]*:[-a-z0-9]+:[-a-z0-9]*:[0-9]{12}:[-a-zA-Z0-9/:_]+$`
-   */
-  ExportArn?: string;
   /**
    * @minLength `1`
    * @maxLength `128`
