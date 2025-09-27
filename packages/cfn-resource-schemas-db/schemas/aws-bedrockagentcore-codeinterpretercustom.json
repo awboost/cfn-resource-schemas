@@ -1,5 +1,5 @@
 {
-  "$hash": "792521bd00da126310c9bc7107d3210dad705be6",
+  "$hash": "f51579c06b9312e5b4cca0a8d7765c9ef5ef5893",
   "$id": "aws-bedrockagentcore-codeinterpretercustom.json",
   "additionalIdentifiers": [["/properties/CodeInterpreterArn"]],
   "additionalProperties": false,
@@ -12,7 +12,7 @@
   "definitions": {
     "CodeInterpreterArn": {
       "description": "The ARN of a CodeInterpreter resource.",
-      "pattern": "^arn:(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:(aws|[0-9]{12}):code-interpreter(-custom)?/(aws\\.codeinterpreter\\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10})$",
+      "pattern": "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:(aws|[0-9]{12}):code-interpreter(-custom)?\\/(aws\\.codeinterpreter\\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10})$",
       "type": "string"
     },
     "CodeInterpreterId": {

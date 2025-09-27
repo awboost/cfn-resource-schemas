@@ -1,24 +1,10 @@
-- added `AWS::DataZone::FormType`
-- updated `AWS::BCMDataExports::Export`
-  - updated `readOnlyProperties`
-  - updated definition `Export`
-  - updated definition `TableProperties`
-  - updated property `ExportArn`
-- updated `AWS::Connect::EvaluationForm`
-  - updated definition `EvaluationFormNumericQuestionAutomation`
-- updated `AWS::DataZone::Owner`
-  - added `readOnlyProperties`
-  - added property `OwnerIdentifier`
-  - added property `OwnerType`
-- updated `AWS::DataZone::ProjectMembership`
-  - added `readOnlyProperties`
-  - added property `MemberIdentifierType`
-  - added property `MemberIdentifier`
-- updated `AWS::EntityResolution::IdMappingWorkflow`
-  - updated definition `IdMappingTechniques`
-- updated `AWS::GameLift::ContainerFleet`
-  - updated definition `LocationCapacity`
-- updated `AWS::GameLift::Fleet`
-  - updated definition `LocationCapacity`
-- updated `AWS::QuickSight::CustomPermissions`
-  - updated definition `Capabilities`
+- updated `AWS::BedrockAgentCore::BrowserCustom`
+  - updated definition `BrowserArn`
+- updated `AWS::BedrockAgentCore::CodeInterpreterCustom`
+  - updated definition `CodeInterpreterArn`
+- updated `AWS::EC2::TransitGateway`
+  - updated handler permissions
+- updated `AWS::Lambda::Function`
+  - updated `writeOnlyProperties`
+  - updated definition `FileSystemConfig`
+  - updated property `CodeSigningConfigArn`
