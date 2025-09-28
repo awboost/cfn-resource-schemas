@@ -1,5 +1,5 @@
 {
-  "$hash": "9fe9023408c03ee74c02289a49fee15139b4c5d1",
+  "$hash": "1ba8f71c6efdd73b33ccfb8c6eff41f18c15a909",
   "$id": "aws-amazonmq-configuration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -33,6 +33,7 @@
     "read": { "permissions": ["mq:DescribeConfiguration", "mq:ListTags"] },
     "update": {
       "permissions": [
+        "mq:DescribeConfiguration",
         "mq:UpdateConfiguration",
         "mq:CreateTags",
         "mq:DeleteTags"

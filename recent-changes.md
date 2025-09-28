@@ -1,10 +1,2 @@
-- updated `AWS::BedrockAgentCore::BrowserCustom`
-  - updated definition `BrowserArn`
-- updated `AWS::BedrockAgentCore::CodeInterpreterCustom`
-  - updated definition `CodeInterpreterArn`
-- updated `AWS::EC2::TransitGateway`
+- updated `AWS::AmazonMQ::Configuration`
   - updated handler permissions
-- updated `AWS::Lambda::Function`
-  - updated `writeOnlyProperties`
-  - updated definition `FileSystemConfig`
-  - updated property `CodeSigningConfigArn`
