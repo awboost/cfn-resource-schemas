@@ -1,2 +1,2 @@
-- updated `AWS::AmazonMQ::Configuration`
-  - updated handler permissions
+- added `AWS::EC2::LocalGatewayVirtualInterface`
+- added `AWS::EC2::LocalGatewayVirtualInterfaceGroup`
