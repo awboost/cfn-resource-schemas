@@ -1,2 +1,38 @@
-- added `AWS::EC2::LocalGatewayVirtualInterface`
-- added `AWS::EC2::LocalGatewayVirtualInterfaceGroup`
+- updated `AWS::AmazonMQ::Broker`
+  - added `propertyTransform`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - added property `EngineVersionCurrent`
+  - updated `readOnlyProperties`
+  - updated `required`
+  - updated definition `EncryptionOptions`
+  - updated definition `LdapServerMetadata`
+  - updated definition `MaintenanceWindow`
+  - updated definition `TagsEntry`
+  - updated definition `User`
+  - updated handler permissions
+  - updated property `AmqpEndpoints`
+  - updated property `Arn`
+  - updated property `AuthenticationStrategy`
+  - updated property `BrokerName`
+  - updated property `ConfigurationId`
+  - updated property `ConfigurationRevision`
+  - updated property `Configuration`
+  - updated property `ConsoleURLs`
+  - updated property `DataReplicationMode`
+  - updated property `DataReplicationPrimaryBrokerArn`
+  - updated property `DeploymentMode`
+  - updated property `EngineType`
+  - updated property `EngineVersion`
+  - updated property `IpAddresses`
+  - updated property `MqttEndpoints`
+  - updated property `OpenWireEndpoints`
+  - updated property `SecurityGroups`
+  - updated property `StompEndpoints`
+  - updated property `StorageType`
+  - updated property `SubnetIds`
+  - updated property `Tags`
+  - updated property `Users`
+  - updated property `WssEndpoints`
+- updated `AWS::ServiceCatalog::PortfolioPrincipalAssociation`
+  - updated `required`

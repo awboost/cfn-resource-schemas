@@ -1,5 +1,5 @@
 {
-  "$hash": "adde78b551c45b998afece439fc0ff262bd6db0d",
+  "$hash": "49705538d2dc9057799c880d9b77449c35ab63f4",
   "$id": "aws-servicecatalog-portfolioprincipalassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -18,6 +18,6 @@
     "PrincipalType": { "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": ["PrincipalType"],
+  "required": ["PrincipalARN", "PortfolioId", "PrincipalType"],
   "typeName": "AWS::ServiceCatalog::PortfolioPrincipalAssociation"
 }

@@ -6,8 +6,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ServiceCatalogPortfolioPrincipalAssociationProperties = {
   AcceptLanguage?: string;
-  PortfolioId?: string;
-  PrincipalARN?: string;
+  PortfolioId: string;
+  PrincipalARN: string;
   PrincipalType: string;
 };
 /**
