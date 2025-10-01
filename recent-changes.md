@@ -1,38 +1,37 @@
-- updated `AWS::AmazonMQ::Broker`
-  - added `propertyTransform`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - added property `EngineVersionCurrent`
-  - updated `readOnlyProperties`
-  - updated `required`
-  - updated definition `EncryptionOptions`
-  - updated definition `LdapServerMetadata`
-  - updated definition `MaintenanceWindow`
-  - updated definition `TagsEntry`
-  - updated definition `User`
+- updated `AWS::Bedrock::DataAutomationProject`
+  - added definition `AudioExtractionCategoryTypeConfiguration`
+  - added definition `ChannelLabelingConfiguration`
+  - added definition `SpeakerLabelingConfiguration`
+  - added definition `TranscriptConfiguration`
+  - updated definition `AudioExtractionCategory`
+- updated `AWS::CloudFront::CachePolicy`
+  - updated definition `CachePolicyConfig`
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `CacheBehavior`
+  - updated definition `CustomOriginConfig`
+  - updated definition `DefaultCacheBehavior`
+  - updated definition `DistributionConfig`
+  - updated definition `Origin`
+  - updated definition `S3OriginConfig`
+  - updated definition `VpcOriginConfig`
   - updated handler permissions
-  - updated property `AmqpEndpoints`
-  - updated property `Arn`
-  - updated property `AuthenticationStrategy`
-  - updated property `BrokerName`
-  - updated property `ConfigurationId`
-  - updated property `ConfigurationRevision`
-  - updated property `Configuration`
-  - updated property `ConsoleURLs`
-  - updated property `DataReplicationMode`
-  - updated property `DataReplicationPrimaryBrokerArn`
-  - updated property `DeploymentMode`
-  - updated property `EngineType`
-  - updated property `EngineVersion`
-  - updated property `IpAddresses`
-  - updated property `MqttEndpoints`
-  - updated property `OpenWireEndpoints`
-  - updated property `SecurityGroups`
-  - updated property `StompEndpoints`
-  - updated property `StorageType`
-  - updated property `SubnetIds`
-  - updated property `Tags`
-  - updated property `Users`
-  - updated property `WssEndpoints`
-- updated `AWS::ServiceCatalog::PortfolioPrincipalAssociation`
-  - updated `required`
+- updated `AWS::ECS::CapacityProvider`
+  - added definition `AcceleratorCountRequest`
+  - added definition `AcceleratorTotalMemoryMiBRequest`
+  - added definition `BaselineEbsBandwidthMbpsRequest`
+  - added definition `InstanceLaunchTemplate`
+  - added definition `InstanceRequirementsRequest`
+  - added definition `ManagedInstancesMonitoringOptions`
+  - added definition `ManagedInstancesNetworkConfiguration`
+  - added definition `ManagedInstancesProvider`
+  - added definition `ManagedInstancesStorageConfiguration`
+  - added definition `MemoryGiBPerVCpuRequest`
+  - added definition `MemoryMiBRequest`
+  - added definition `NetworkBandwidthGbpsRequest`
+  - added definition `NetworkInterfaceCountRequest`
+  - added definition `TotalLocalStorageGBRequest`
+  - added definition `VCpuCountRangeRequest`
+  - added property `ClusterName`
+  - added property `ManagedInstancesProvider`
+  - updated `createOnlyProperties`
+  - updated handler permissions

@@ -76,6 +76,7 @@ export type BedrockDataAutomationProjectAttributes = {
  */
 export type AudioExtractionCategory = {
   State: State;
+  TypeConfiguration?: AudioExtractionCategoryTypeConfiguration;
   Types?: AudioExtractionCategoryType[];
 };
 /**
@@ -86,6 +87,13 @@ export type AudioExtractionCategoryType =
   | "AUDIO_CONTENT_MODERATION"
   | "TRANSCRIPT"
   | "TOPIC_CONTENT_MODERATION";
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.AudioExtractionCategoryTypeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audioextractioncategorytypeconfiguration.html}
+ */
+export type AudioExtractionCategoryTypeConfiguration = {
+  Transcript?: TranscriptConfiguration;
+};
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.AudioOverrideConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html}
@@ -153,6 +161,13 @@ export type BlueprintItem = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-blueprintstage.html}
  */
 export type BlueprintStage = "DEVELOPMENT" | "LIVE";
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.ChannelLabelingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-channellabelingconfiguration.html}
+ */
+export type ChannelLabelingConfiguration = {
+  State: State;
+};
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.CustomOutputConfiguration`.
  * Custom output configuration
@@ -360,6 +375,13 @@ export type OverrideConfiguration = {
   Video?: VideoOverrideConfiguration;
 };
 /**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.SpeakerLabelingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-speakerlabelingconfiguration.html}
+ */
+export type SpeakerLabelingConfiguration = {
+  State: State;
+};
+/**
  * Type definition for `AWS::Bedrock::DataAutomationProject.SplitterConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-splitterconfiguration.html}
  */
@@ -402,6 +424,14 @@ export type Tag = {
    * @pattern `^[a-zA-Z0-9\s._:/=+@-]*$`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.TranscriptConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-transcriptconfiguration.html}
+ */
+export type TranscriptConfiguration = {
+  ChannelLabeling?: ChannelLabelingConfiguration;
+  SpeakerLabeling?: SpeakerLabelingConfiguration;
 };
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.VideoBoundingBox`.
