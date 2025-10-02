@@ -510,6 +510,14 @@ export type RDSDBInstanceProperties = {
       +  Can't manage the master user password with AWS Secrets Manager if ``MasterUserPassword`` is specified.
      */
   ManageMasterUserPassword?: boolean;
+  /**
+     * Specifies the authentication type for the master user. With IAM master user authentication, you can configure the master DB user with IAM database authentication when you create a DB instance.
+     You can specify one of the following values:
+      +  ``password`` - Use standard database authentication with a password.
+      +  ``iam-db-auth`` - Use IAM database authentication for the master user.
+      
+     This option is only valid for RDS for MySQL, RDS for MariaDB, RDS for PostgreSQL, Aurora MySQL, and Aurora PostgreSQL engines.
+     */
   MasterUserAuthenticationType?: string;
   /**
      * The password for the master user. The password can include any printable ASCII character except "/", """, or "@".

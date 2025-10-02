@@ -1,37 +1,6 @@
-- updated `AWS::Bedrock::DataAutomationProject`
-  - added definition `AudioExtractionCategoryTypeConfiguration`
-  - added definition `ChannelLabelingConfiguration`
-  - added definition `SpeakerLabelingConfiguration`
-  - added definition `TranscriptConfiguration`
-  - updated definition `AudioExtractionCategory`
-- updated `AWS::CloudFront::CachePolicy`
-  - updated definition `CachePolicyConfig`
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `CacheBehavior`
-  - updated definition `CustomOriginConfig`
-  - updated definition `DefaultCacheBehavior`
-  - updated definition `DistributionConfig`
-  - updated definition `Origin`
-  - updated definition `S3OriginConfig`
-  - updated definition `VpcOriginConfig`
-  - updated handler permissions
-- updated `AWS::ECS::CapacityProvider`
-  - added definition `AcceleratorCountRequest`
-  - added definition `AcceleratorTotalMemoryMiBRequest`
-  - added definition `BaselineEbsBandwidthMbpsRequest`
-  - added definition `InstanceLaunchTemplate`
-  - added definition `InstanceRequirementsRequest`
-  - added definition `ManagedInstancesMonitoringOptions`
-  - added definition `ManagedInstancesNetworkConfiguration`
-  - added definition `ManagedInstancesProvider`
-  - added definition `ManagedInstancesStorageConfiguration`
-  - added definition `MemoryGiBPerVCpuRequest`
-  - added definition `MemoryMiBRequest`
-  - added definition `NetworkBandwidthGbpsRequest`
-  - added definition `NetworkInterfaceCountRequest`
-  - added definition `TotalLocalStorageGBRequest`
-  - added definition `VCpuCountRangeRequest`
-  - added property `ClusterName`
-  - added property `ManagedInstancesProvider`
-  - updated `createOnlyProperties`
+- updated `AWS::RDS::DBCluster`
+  - updated property `MasterUserAuthenticationType`
+- updated `AWS::RDS::DBInstance`
+  - updated property `MasterUserAuthenticationType`
+- updated `AWS::SSMQuickSetup::ConfigurationManager`
   - updated handler permissions

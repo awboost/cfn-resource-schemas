@@ -1,5 +1,5 @@
 {
-  "$hash": "b8766e84fa038ec8cca56c16f116e959f2243798",
+  "$hash": "f9547e1cb5a5bb01f320305d8a7e9d3d3d622b06",
   "$id": "aws-ssmquicksetup-configurationmanager.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -122,7 +122,8 @@
         "organizations:RegisterDelegatedAdministrator",
         "organizations:DeregisterDelegatedAdministrator",
         "organizations:EnableAWSServiceAccess"
-      ]
+      ],
+      "timeoutInMinutes": 2160
     },
     "delete": {
       "permissions": [
@@ -165,7 +166,8 @@
         "organizations:RegisterDelegatedAdministrator",
         "organizations:DeregisterDelegatedAdministrator",
         "organizations:EnableAWSServiceAccess"
-      ]
+      ],
+      "timeoutInMinutes": 2160
     },
     "list": { "permissions": ["ssm-quicksetup:ListConfigurationManagers"] },
     "read": {
@@ -218,7 +220,8 @@
         "organizations:RegisterDelegatedAdministrator",
         "organizations:DeregisterDelegatedAdministrator",
         "organizations:EnableAWSServiceAccess"
-      ]
+      ],
+      "timeoutInMinutes": 2160
     }
   },
   "primaryIdentifier": ["/properties/ManagerArn"],
