@@ -1,5 +1,5 @@
 {
-  "$hash": "bbeb06028d4f8190073b2295526deab99ddb095a",
+  "$hash": "1ba86101766eab17f85790f3c095b0800970e527",
   "$id": "aws-sqs-queue.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FifoQueue", "/properties/QueueName"],
@@ -120,7 +120,7 @@
   "readOnlyProperties": ["/properties/QueueUrl", "/properties/Arn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sqs.git",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": ["sqs:TagQueue", "sqs:UntagQueue", "sqs:ListQueueTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

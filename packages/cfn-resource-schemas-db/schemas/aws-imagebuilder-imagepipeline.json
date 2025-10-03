@@ -1,9 +1,22 @@
 {
-  "$hash": "044b726384f5f978d48da1ef3cc9b8c5a33d935d",
+  "$hash": "967c7205f3b8cc3a468a30e90ef582fc0091fee5",
   "$id": "aws-imagebuilder-imagepipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
+    "AutoDisablePolicy": {
+      "additionalProperties": false,
+      "description": "The auto-disable policy configuration for the image pipeline.",
+      "properties": {
+        "FailureCount": {
+          "description": "The number of consecutive failures after which the pipeline should be automatically disabled.",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": ["FailureCount"],
+      "type": "object"
+    },
     "EcrConfiguration": {
       "additionalProperties": false,
       "description": "Settings for Image Builder to configure the ECR repository and output container images that are scanned.",
@@ -53,11 +66,27 @@
       },
       "type": "object"
     },
+    "PipelineLoggingConfiguration": {
+      "additionalProperties": false,
+      "description": "The logging configuration settings for the image pipeline.",
+      "properties": {
+        "ImageLogGroupName": {
+          "description": "The name of the log group for image build logs.",
+          "type": "string"
+        },
+        "PipelineLogGroupName": {
+          "description": "The name of the log group for pipeline execution logs.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Schedule": {
       "additionalProperties": false,
       "description": "The schedule of the image pipeline.",
       "properties": {
         "AutoDisablePolicy": {
+          "$ref": "#/definitions/AutoDisablePolicy",
           "description": "The auto-disable policy for the image pipeline."
         },
         "PipelineExecutionStartCondition": {
@@ -208,6 +237,10 @@
     "InfrastructureConfigurationArn": {
       "description": "The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.",
       "type": "string"
+    },
+    "LoggingConfiguration": {
+      "$ref": "#/definitions/PipelineLoggingConfiguration",
+      "description": "The logging configuration settings for the image pipeline."
     },
     "Name": {
       "description": "The name of the image pipeline.",

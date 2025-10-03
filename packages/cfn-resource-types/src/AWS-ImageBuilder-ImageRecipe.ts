@@ -10,6 +10,10 @@ export type ImageBuilderImageRecipeProperties = {
    */
   AdditionalInstanceConfiguration?: AdditionalInstanceConfiguration;
   /**
+   * The tags to apply to the AMI created by this image recipe.
+   */
+  AmiTags?: Record<string, string>;
+  /**
    * The block device mappings to apply when creating images from this recipe.
    */
   BlockDeviceMappings?: InstanceBlockDeviceMapping[];

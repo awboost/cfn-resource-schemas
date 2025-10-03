@@ -57,6 +57,7 @@ export type ARCRegionSwitchPlanAttributes = {
    * @pattern `^\d{12}$`
    */
   Owner: string;
+  PlanHealthChecks: string[];
   Route53HealthChecks: {
     HealthCheckIds: string[];
     HostedZoneIds: string[];

@@ -42,6 +42,10 @@ export type ImageBuilderImagePipelineProperties = {
    */
   InfrastructureConfigurationArn?: string;
   /**
+   * The logging configuration settings for the image pipeline.
+   */
+  LoggingConfiguration?: PipelineLoggingConfiguration;
+  /**
    * The name of the image pipeline.
    */
   Name?: string;
@@ -71,6 +75,18 @@ export type ImageBuilderImagePipelineAttributes = {
    * The Amazon Resource Name (ARN) of the image pipeline.
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::ImageBuilder::ImagePipeline.AutoDisablePolicy`.
+ * The auto-disable policy configuration for the image pipeline.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-autodisablepolicy.html}
+ */
+export type AutoDisablePolicy = {
+  /**
+   * The number of consecutive failures after which the pipeline should be automatically disabled.
+   * @min `1`
+   */
+  FailureCount: number;
 };
 /**
  * Type definition for `AWS::ImageBuilder::ImagePipeline.EcrConfiguration`.
@@ -120,6 +136,21 @@ export type ImageTestsConfiguration = {
   TimeoutMinutes?: number;
 };
 /**
+ * Type definition for `AWS::ImageBuilder::ImagePipeline.PipelineLoggingConfiguration`.
+ * The logging configuration settings for the image pipeline.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-pipelineloggingconfiguration.html}
+ */
+export type PipelineLoggingConfiguration = {
+  /**
+   * The name of the log group for image build logs.
+   */
+  ImageLogGroupName?: string;
+  /**
+   * The name of the log group for pipeline execution logs.
+   */
+  PipelineLogGroupName?: string;
+};
+/**
  * Type definition for `AWS::ImageBuilder::ImagePipeline.Schedule`.
  * The schedule of the image pipeline.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html}
@@ -128,7 +159,7 @@ export type Schedule = {
   /**
    * The auto-disable policy for the image pipeline.
    */
-  AutoDisablePolicy?: any;
+  AutoDisablePolicy?: AutoDisablePolicy;
   /**
    * The condition configures when the pipeline should trigger a new image build.
    */

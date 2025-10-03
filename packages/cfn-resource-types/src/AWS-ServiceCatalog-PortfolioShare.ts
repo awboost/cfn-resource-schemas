@@ -5,17 +5,23 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html}
  */
 export type ServiceCatalogPortfolioShareProperties = {
+  /**
+   * The language code.
+   */
   AcceptLanguage?: string;
+  /**
+   * The AWS account ID.
+   * @pattern `^[0-9]{12}$`
+   */
   AccountId: string;
+  /**
+   * The portfolio identifier.
+   */
   PortfolioId: string;
+  /**
+   * Enables or disables TagOptions sharing when creating the portfolio share.
+   */
   ShareTagOptions?: boolean;
-};
-/**
- * Attribute type definition for `AWS::ServiceCatalog::PortfolioShare`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html#aws-resource-servicecatalog-portfolioshare-return-values}
- */
-export type ServiceCatalogPortfolioShareAttributes = {
-  Id: string;
 };
 /**
  * Resource Type definition for AWS::ServiceCatalog::PortfolioShare
@@ -24,7 +30,7 @@ export type ServiceCatalogPortfolioShareAttributes = {
 export class ServiceCatalogPortfolioShare extends $Resource<
   "AWS::ServiceCatalog::PortfolioShare",
   ServiceCatalogPortfolioShareProperties,
-  ServiceCatalogPortfolioShareAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::ServiceCatalog::PortfolioShare";
   constructor(

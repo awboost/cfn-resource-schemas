@@ -1,6 +1,29 @@
-- updated `AWS::RDS::DBCluster`
-  - updated property `MasterUserAuthenticationType`
-- updated `AWS::RDS::DBInstance`
-  - updated property `MasterUserAuthenticationType`
-- updated `AWS::SSMQuickSetup::ConfigurationManager`
+- added `AWS::ApplicationSignals::GroupingConfiguration`
+- added `AWS::BedrockAgentCore::Gateway`
+- added `AWS::BedrockAgentCore::GatewayTarget`
+- updated `AWS::ARCRegionSwitch::Plan`
+  - added property `PlanHealthChecks`
+  - updated `deprecatedProperties`
+  - updated `readOnlyProperties`
+- updated `AWS::ImageBuilder::ImagePipeline`
+  - added definition `AutoDisablePolicy`
+  - added definition `PipelineLoggingConfiguration`
+  - added property `LoggingConfiguration`
+  - updated definition `Schedule`
+- updated `AWS::ImageBuilder::ImageRecipe`
+  - added property `AmiTags`
+- updated `AWS::SQS::Queue`
+  - updated `tagging`
+- updated `AWS::ServiceCatalog::PortfolioShare`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
   - updated handler permissions
+  - updated property `AcceptLanguage`
+  - updated property `AccountId`
+  - updated property `PortfolioId`
+  - updated property `ShareTagOptions`
