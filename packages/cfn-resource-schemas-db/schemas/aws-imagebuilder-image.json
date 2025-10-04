@@ -1,5 +1,5 @@
 {
-  "$hash": "dcf0e9faee5c392f294680c4b8007b89ca257272",
+  "$hash": "411c5a8d7cd38dafb866fc66c55b3aefb5ec0bcb",
   "$id": "aws-imagebuilder-image.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -13,6 +13,18 @@
     "/properties/EnhancedImageMetadataEnabled"
   ],
   "definitions": {
+    "DeletionSettings": {
+      "additionalProperties": false,
+      "description": "The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.",
+      "properties": {
+        "ExecutionRole": {
+          "description": "The execution role to use for deleting the image, as well as underlying resources.",
+          "type": "string"
+        }
+      },
+      "required": ["ExecutionRole"],
+      "type": "object"
+    },
     "EcrConfiguration": {
       "additionalProperties": false,
       "description": "Settings for Image Builder to configure the ECR repository and output container images that are scanned.",
@@ -25,6 +37,17 @@
         },
         "RepositoryName": {
           "description": "The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ImageLoggingConfiguration": {
+      "additionalProperties": false,
+      "description": "The logging configuration settings for the image.",
+      "properties": {
+        "LogGroupName": {
+          "description": "The name of the log group for image build logs.",
           "type": "string"
         }
       },
@@ -215,6 +238,10 @@
     "InfrastructureConfigurationArn": {
       "description": "The Amazon Resource Name (ARN) of the infrastructure configuration.",
       "type": "string"
+    },
+    "LoggingConfiguration": {
+      "$ref": "#/definitions/ImageLoggingConfiguration",
+      "description": "The logging configuration settings for the image."
     },
     "Name": { "description": "The name of the image.", "type": "string" },
     "Tags": {

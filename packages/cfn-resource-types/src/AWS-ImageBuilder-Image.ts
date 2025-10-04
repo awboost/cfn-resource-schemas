@@ -38,6 +38,10 @@ export type ImageBuilderImageProperties = {
    */
   InfrastructureConfigurationArn?: string;
   /**
+   * The logging configuration settings for the image.
+   */
+  LoggingConfiguration?: ImageLoggingConfiguration;
+  /**
    * The tags associated with the image.
    */
   Tags?: Record<string, string>;
@@ -82,6 +86,17 @@ export type EcrConfiguration = {
    * The name of the container repository that Amazon Inspector scans to identify findings for your container images. The name includes the path for the repository location. If you don’t provide this information, Image Builder creates a repository in your account named image-builder-image-scanning-repository to use for vulnerability scans for your output container images.
    */
   RepositoryName?: string;
+};
+/**
+ * Type definition for `AWS::ImageBuilder::Image.ImageLoggingConfiguration`.
+ * The logging configuration settings for the image.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imageloggingconfiguration.html}
+ */
+export type ImageLoggingConfiguration = {
+  /**
+   * The name of the log group for image build logs.
+   */
+  LogGroupName?: string;
 };
 /**
  * Type definition for `AWS::ImageBuilder::Image.ImageScanningConfiguration`.

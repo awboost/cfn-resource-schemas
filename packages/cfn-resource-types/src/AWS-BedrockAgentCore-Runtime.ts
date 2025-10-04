@@ -172,13 +172,17 @@ export type NetworkConfiguration = {
    * Network mode configuration type
    */
   NetworkMode: NetworkMode;
+  /**
+   * Network mode configuration for VPC
+   */
+  NetworkModeConfig?: VpcConfig;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.NetworkMode`.
  * Network mode configuration type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-networkmode.html}
  */
-export type NetworkMode = "PUBLIC";
+export type NetworkMode = "PUBLIC" | "VPC";
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.ProtocolConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-protocolconfiguration.html}
@@ -190,6 +194,25 @@ export type ProtocolConfiguration = "MCP" | "HTTP";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-tagsmap.html}
  */
 export type TagsMap = Record<string, string>;
+/**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.VpcConfig`.
+ * Network mode configuration for VPC
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-vpcconfig.html}
+ */
+export type VpcConfig = {
+  /**
+   * Security groups for VPC
+   * @minLength `1`
+   * @maxLength `16`
+   */
+  SecurityGroups: string[];
+  /**
+   * Subnets for VPC
+   * @minLength `1`
+   * @maxLength `16`
+   */
+  Subnets: string[];
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.WorkloadIdentityDetails`.
  * Configuration for workload identity

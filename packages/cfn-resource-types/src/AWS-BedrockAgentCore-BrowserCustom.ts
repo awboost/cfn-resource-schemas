@@ -51,6 +51,10 @@ export type BedrockAgentCoreBrowserCustomAttributes = {
    */
   CreatedAt: string;
   /**
+   * The reason for failure if the browser creation or operation failed.
+   */
+  FailureReason: string;
+  /**
    * Timestamp when the browser was last updated.
    */
   LastUpdatedAt: string;
@@ -69,13 +73,17 @@ export type BrowserNetworkConfiguration = {
    * Network modes supported by browser
    */
   NetworkMode: BrowserNetworkMode;
+  /**
+   * Network mode configuration for VPC
+   */
+  VpcConfig?: VpcConfig;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::BrowserCustom.BrowserNetworkMode`.
  * Network modes supported by browser
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-browsernetworkmode.html}
  */
-export type BrowserNetworkMode = "PUBLIC";
+export type BrowserNetworkMode = "PUBLIC" | "VPC";
 /**
  * Type definition for `AWS::BedrockAgentCore::BrowserCustom.BrowserStatus`.
  * Status of browser
@@ -121,6 +129,25 @@ export type S3Location = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-tagsmap.html}
  */
 export type TagsMap = Record<string, string>;
+/**
+ * Type definition for `AWS::BedrockAgentCore::BrowserCustom.VpcConfig`.
+ * Network mode configuration for VPC
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-vpcconfig.html}
+ */
+export type VpcConfig = {
+  /**
+   * Security groups for VPC
+   * @minLength `1`
+   * @maxLength `16`
+   */
+  SecurityGroups: string[];
+  /**
+   * Subnets for VPC
+   * @minLength `1`
+   * @maxLength `16`
+   */
+  Subnets: string[];
+};
 /**
  * Resource definition for AWS::BedrockAgentCore::BrowserCustom
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-browsercustom.html}

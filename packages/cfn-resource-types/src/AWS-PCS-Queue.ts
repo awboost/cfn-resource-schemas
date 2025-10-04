@@ -18,6 +18,15 @@ export type PCSQueueProperties = {
    */
   Name?: string;
   /**
+   * The Slurm configuration for the queue.
+   */
+  SlurmConfiguration?: {
+    /**
+     * Custom Slurm parameters that directly map to Slurm configuration settings.
+     */
+    SlurmCustomSettings?: SlurmCustomSetting[];
+  };
+  /**
    * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
    */
   Tags?: Record<string, string>;
@@ -86,6 +95,21 @@ export type ErrorInfo = {
    * The detailed error information.
    */
   Message?: string;
+};
+/**
+ * Type definition for `AWS::PCS::Queue.SlurmCustomSetting`.
+ * Additional settings that directly map to Slurm settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-queue-slurmcustomsetting.html}
+ */
+export type SlurmCustomSetting = {
+  /**
+   * AWS PCS supports configuration of the Slurm parameters for queues:.
+   */
+  ParameterName: string;
+  /**
+   * The value for the configured Slurm setting.
+   */
+  ParameterValue: string;
 };
 /**
  * AWS::PCS::Queue resource creates an AWS PCS queue.

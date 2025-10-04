@@ -305,6 +305,7 @@ export type Av1Settings = {
   Level?: string;
   LookAheadRateControl?: string;
   MaxBitrate?: number;
+  MinBitrate?: number;
   MinIInterval?: number;
   ParDenominator?: number;
   ParNumerator?: number;
@@ -845,6 +846,7 @@ export type H264Settings = {
   Level?: string;
   LookAheadRateControl?: string;
   MaxBitrate?: number;
+  MinBitrate?: number;
   MinIInterval?: number;
   MinQp?: number;
   NumRefFrames?: number;
@@ -903,12 +905,15 @@ export type H265Settings = {
   FlickerAq?: string;
   FramerateDenominator?: number;
   FramerateNumerator?: number;
+  GopBReference?: string;
   GopClosedCadence?: number;
+  GopNumBFrames?: number;
   GopSize?: number;
   GopSizeUnits?: string;
   Level?: string;
   LookAheadRateControl?: string;
   MaxBitrate?: number;
+  MinBitrate?: number;
   MinIInterval?: number;
   MinQp?: number;
   MvOverPictureBoundaries?: string;
@@ -921,6 +926,7 @@ export type H265Settings = {
   ScanType?: string;
   SceneChangeDetect?: string;
   Slices?: number;
+  SubgopLength?: string;
   Tier?: string;
   TileHeight?: number;
   TilePadding?: string;

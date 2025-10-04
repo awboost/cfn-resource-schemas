@@ -1,5 +1,5 @@
 {
-  "$hash": "cf6fe721391e01d8ff5ebbdee564f98c1ba6e41f",
+  "$hash": "95eb20bd9d2ff9ee802e22f523aaed8df9123ab9",
   "$id": "aws-events-eventbus.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -25,7 +25,12 @@
         "events:TagResource",
         "kms:DescribeKey",
         "kms:GenerateDataKey",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncrypt",
+        "kms:ReEncryptFrom",
+        "kms:ReEncryptTo",
+        "kms:Encrypt"
       ]
     },
     "delete": {
@@ -53,7 +58,12 @@
         "events:UpdateEventBus",
         "kms:DescribeKey",
         "kms:GenerateDataKey",
-        "kms:Decrypt"
+        "kms:Decrypt",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncrypt",
+        "kms:ReEncryptFrom",
+        "kms:ReEncryptTo",
+        "kms:Encrypt"
       ]
     }
   },

@@ -47,6 +47,10 @@ export type BedrockAgentCoreCodeInterpreterCustomAttributes = {
    */
   CreatedAt: string;
   /**
+   * The reason for failure if the code interpreter creation or operation failed.
+   */
+  FailureReason: string;
+  /**
    * Timestamp when the code interpreter was last updated.
    */
   LastUpdatedAt: string;
@@ -65,13 +69,17 @@ export type CodeInterpreterNetworkConfiguration = {
    * Network modes supported by code interpreter
    */
   NetworkMode: CodeInterpreterNetworkMode;
+  /**
+   * Network mode configuration for VPC
+   */
+  VpcConfig?: VpcConfig;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::CodeInterpreterCustom.CodeInterpreterNetworkMode`.
  * Network modes supported by code interpreter
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-codeinterpretercustom-codeinterpreternetworkmode.html}
  */
-export type CodeInterpreterNetworkMode = "PUBLIC" | "SANDBOX";
+export type CodeInterpreterNetworkMode = "PUBLIC" | "SANDBOX" | "VPC";
 /**
  * Type definition for `AWS::BedrockAgentCore::CodeInterpreterCustom.CodeInterpreterStatus`.
  * Status of Code interpreter
@@ -90,6 +98,25 @@ export type CodeInterpreterStatus =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-codeinterpretercustom-tagsmap.html}
  */
 export type TagsMap = Record<string, string>;
+/**
+ * Type definition for `AWS::BedrockAgentCore::CodeInterpreterCustom.VpcConfig`.
+ * Network mode configuration for VPC
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-codeinterpretercustom-vpcconfig.html}
+ */
+export type VpcConfig = {
+  /**
+   * Security groups for VPC
+   * @minLength `1`
+   * @maxLength `16`
+   */
+  SecurityGroups: string[];
+  /**
+   * Subnets for VPC
+   * @minLength `1`
+   * @maxLength `16`
+   */
+  Subnets: string[];
+};
 /**
  * Resource definition for AWS::BedrockAgentCore::CodeInterpreterCustom
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-codeinterpretercustom.html}

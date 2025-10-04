@@ -1,29 +1,77 @@
-- added `AWS::ApplicationSignals::GroupingConfiguration`
-- added `AWS::BedrockAgentCore::Gateway`
-- added `AWS::BedrockAgentCore::GatewayTarget`
-- updated `AWS::ARCRegionSwitch::Plan`
-  - added property `PlanHealthChecks`
-  - updated `deprecatedProperties`
+- added `AWS::ObservabilityAdmin::OrganizationCentralizationRule`
+- updated `AWS::BedrockAgentCore::BrowserCustom`
+  - added definition `SecurityGroupId`
+  - added definition `SecurityGroups`
+  - added definition `SubnetId`
+  - added definition `Subnets`
+  - added definition `VpcConfig`
+  - added property `FailureReason`
   - updated `readOnlyProperties`
-- updated `AWS::ImageBuilder::ImagePipeline`
-  - added definition `AutoDisablePolicy`
-  - added definition `PipelineLoggingConfiguration`
+  - updated definition `BrowserNetworkConfiguration`
+  - updated definition `BrowserNetworkMode`
+  - updated handler permissions
+- updated `AWS::BedrockAgentCore::CodeInterpreterCustom`
+  - added definition `SecurityGroupId`
+  - added definition `SecurityGroups`
+  - added definition `SubnetId`
+  - added definition `Subnets`
+  - added definition `VpcConfig`
+  - added property `FailureReason`
+  - updated `readOnlyProperties`
+  - updated definition `CodeInterpreterNetworkConfiguration`
+  - updated definition `CodeInterpreterNetworkMode`
+  - updated handler permissions
+- updated `AWS::BedrockAgentCore::Runtime`
+  - added definition `SecurityGroupId`
+  - added definition `SecurityGroups`
+  - added definition `SubnetId`
+  - added definition `Subnets`
+  - added definition `VpcConfig`
+  - updated definition `NetworkConfiguration`
+  - updated definition `NetworkMode`
+  - updated handler permissions
+- updated `AWS::Events::EventBus`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::Image`
+  - added definition `DeletionSettings`
+  - added definition `ImageLoggingConfiguration`
   - added property `LoggingConfiguration`
-  - updated definition `Schedule`
-- updated `AWS::ImageBuilder::ImageRecipe`
-  - added property `AmiTags`
-- updated `AWS::SQS::Queue`
-  - updated `tagging`
-- updated `AWS::ServiceCatalog::PortfolioShare`
+- updated `AWS::MediaLive::Channel`
+  - updated definition `Av1Settings`
+  - updated definition `H264Settings`
+  - updated definition `H265Settings`
+- updated `AWS::Neptune::EventSubscription`
+  - added `propertyTransform`
+  - added `required`
   - added `sourceUrl`
   - added `tagging`
-  - added `writeOnlyProperties`
+  - added property `SubscriptionName`
+  - added property `Tags`
   - removed `readOnlyProperties`
   - removed property `Id`
   - updated `createOnlyProperties`
   - updated `primaryIdentifier`
+  - updated definition `undefined`
   - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `AccountId`
-  - updated property `PortfolioId`
-  - updated property `ShareTagOptions`
+  - updated property `Enabled`
+  - updated property `EventCategories`
+  - updated property `SnsTopicArn`
+  - updated property `SourceIds`
+  - updated property `SourceType`
+- updated `AWS::PCS::Queue`
+  - added definition `SlurmCustomSetting`
+  - added property `SlurmConfiguration`
+- updated `AWS::S3::Bucket`
+  - updated definition `InventoryConfiguration`
+  - updated definition `InventoryTableConfiguration`
+  - updated definition `JournalTableConfiguration`
+  - updated definition `MetadataConfiguration`
+  - updated definition `MetadataDestination`
+  - updated definition `MetadataTableConfiguration`
+  - updated definition `MetadataTableEncryptionConfiguration`
+  - updated definition `RecordExpiration`
+  - updated definition `ReplicationDestination`
+  - updated definition `S3TablesDestination`
+  - updated property `InventoryConfigurations`
+  - updated property `MetadataConfiguration`
+  - updated property `ObjectLockConfiguration`

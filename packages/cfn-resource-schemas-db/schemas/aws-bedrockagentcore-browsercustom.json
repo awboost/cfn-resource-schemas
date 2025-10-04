@@ -1,5 +1,5 @@
 {
-  "$hash": "bedbc50efaa67b4e92f2e2f7717b2e547e0e292f",
+  "$hash": "9a6a1ac966c73c1d7fb90cff72c59f4ac6834eb3",
   "$id": "aws-bedrockagentcore-browsercustom.json",
   "additionalIdentifiers": [["/properties/BrowserArn"]],
   "additionalProperties": false,
@@ -28,14 +28,15 @@
         "NetworkMode": {
           "$ref": "#/definitions/BrowserNetworkMode",
           "default": "PUBLIC"
-        }
+        },
+        "VpcConfig": { "$ref": "#/definitions/VpcConfig" }
       },
       "required": ["NetworkMode"],
       "type": "object"
     },
     "BrowserNetworkMode": {
       "description": "Network modes supported by browser",
-      "enum": ["PUBLIC"],
+      "enum": ["PUBLIC", "VPC"],
       "type": "string"
     },
     "BrowserStatus": {
@@ -97,6 +98,32 @@
       "required": ["Bucket", "Prefix"],
       "type": "object"
     },
+    "SecurityGroupId": {
+      "description": "Security group id",
+      "pattern": "^sg-[0-9a-zA-Z]{8,17}$",
+      "type": "string"
+    },
+    "SecurityGroups": {
+      "description": "Security groups for VPC",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/SecurityGroupId" },
+      "maxItems": 16,
+      "minItems": 1,
+      "type": "array"
+    },
+    "SubnetId": {
+      "description": "Subnet id",
+      "pattern": "^subnet-[0-9a-zA-Z]{8,17}$",
+      "type": "string"
+    },
+    "Subnets": {
+      "description": "Subnets for VPC",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/SubnetId" },
+      "maxItems": 16,
+      "minItems": 1,
+      "type": "array"
+    },
     "TagsMap": {
       "additionalProperties": false,
       "description": "A map of tag keys and values",
@@ -110,6 +137,16 @@
         }
       },
       "type": "object"
+    },
+    "VpcConfig": {
+      "additionalProperties": false,
+      "description": "Network mode configuration for VPC",
+      "properties": {
+        "SecurityGroups": { "$ref": "#/definitions/SecurityGroups" },
+        "Subnets": { "$ref": "#/definitions/Subnets" }
+      },
+      "required": ["SecurityGroups", "Subnets"],
+      "type": "object"
     }
   },
   "description": "Resource definition for AWS::BedrockAgentCore::BrowserCustom",
@@ -120,6 +157,7 @@
         "bedrock-agentcore:GetBrowser",
         "bedrock-agentcore:TagResource",
         "bedrock-agentcore:ListTagsForResource",
+        "iam:CreateServiceLinkedRole",
         "iam:PassRole"
       ]
     },
@@ -169,6 +207,10 @@
       "$ref": "#/definitions/RoleArn",
       "description": "The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources."
     },
+    "FailureReason": {
+      "description": "The reason for failure if the browser creation or operation failed.",
+      "type": "string"
+    },
     "LastUpdatedAt": {
       "description": "Timestamp when the browser was last updated.",
       "format": "date-time",
@@ -193,6 +235,7 @@
     "/properties/BrowserId",
     "/properties/BrowserArn",
     "/properties/Status",
+    "/properties/FailureReason",
     "/properties/CreatedAt",
     "/properties/LastUpdatedAt"
   ],
