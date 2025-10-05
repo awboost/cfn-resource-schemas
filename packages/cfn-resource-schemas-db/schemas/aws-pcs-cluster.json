@@ -1,13 +1,12 @@
 {
-  "$hash": "f94936c18e3b106431188bdc3d8e76a79677a88e",
+  "$hash": "c3acb970765605b0e4d7310d418cf8731c7f477c",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",
     "/properties/Networking",
     "/properties/Scheduler",
-    "/properties/Size",
-    "/properties/SlurmConfiguration"
+    "/properties/Size"
   ],
   "definitions": {
     "Accounting": {
@@ -160,6 +159,7 @@
     "update": {
       "permissions": [
         "pcs:GetCluster",
+        "pcs:UpdateCluster",
         "pcs:ListTagsForResource",
         "pcs:TagResource",
         "pcs:UntagResource"
