@@ -1,3 +1,1 @@
-- updated `AWS::PCS::Cluster`
-  - updated `createOnlyProperties`
-  - updated handler permissions
+- added `AWS::Lightsail::DiskSnapshot`
