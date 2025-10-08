@@ -1,1 +1,11 @@
-- added `AWS::Lightsail::DiskSnapshot`
+- updated `AWS::ServiceCatalog::ResourceUpdateConstraint`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated handler permissions
+  - updated property `AcceptLanguage`
+  - updated property `Description`
+  - updated property `Id`
+  - updated property `PortfolioId`
+  - updated property `ProductId`
+  - updated property `TagUpdateOnProvisionedProduct`
