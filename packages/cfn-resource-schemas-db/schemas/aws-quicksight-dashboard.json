@@ -1,5 +1,5 @@
 {
-  "$hash": "9d1201d55aa1f5762bf3a49bfcf44fbbee2a5a31",
+  "$hash": "135d5a44d6b84a33caa90e11b3e86000a7bcf06e",
   "$id": "aws-quicksight-dashboard.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -1494,6 +1494,9 @@
         "ExportToCSVOption": { "$ref": "#/definitions/ExportToCSVOption" },
         "ExportWithHiddenFieldsOption": {
           "$ref": "#/definitions/ExportWithHiddenFieldsOption"
+        },
+        "QuickSuiteActionsOption": {
+          "$ref": "#/definitions/QuickSuiteActionsOption"
         },
         "SheetControlsOption": { "$ref": "#/definitions/SheetControlsOption" },
         "SheetLayoutElementMaximizationOption": {
@@ -6428,6 +6431,13 @@
     "QBusinessInsightsStatus": {
       "enum": ["ENABLED", "DISABLED"],
       "type": "string"
+    },
+    "QuickSuiteActionsOption": {
+      "additionalProperties": false,
+      "properties": {
+        "AvailabilityStatus": { "$ref": "#/definitions/DashboardBehavior" }
+      },
+      "type": "object"
     },
     "RadarChartAggregatedFieldWells": {
       "additionalProperties": false,

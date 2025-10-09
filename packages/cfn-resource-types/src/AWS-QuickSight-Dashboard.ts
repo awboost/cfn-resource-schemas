@@ -1601,6 +1601,7 @@ export type DashboardPublishOptions = {
    * <p>Determines whether or not hidden fields are visible on exported dashbaords.</p>
    */
   ExportWithHiddenFieldsOption?: ExportWithHiddenFieldsOption;
+  QuickSuiteActionsOption?: QuickSuiteActionsOption;
   /**
    * <p>Sheet controls option.</p>
    */
@@ -6281,6 +6282,13 @@ export type ProgressBarOptions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-qbusinessinsightsstatus.html}
  */
 export type QBusinessInsightsStatus = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.QuickSuiteActionsOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-quicksuiteactionsoption.html}
+ */
+export type QuickSuiteActionsOption = {
+  AvailabilityStatus?: DashboardBehavior;
+};
 /**
  * Type definition for `AWS::QuickSight::Dashboard.RadarChartAggregatedFieldWells`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-radarchartaggregatedfieldwells.html}

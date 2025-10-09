@@ -39,7 +39,7 @@ export type BedrockAgentProperties = {
    * A KMS key ARN
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
+   * @pattern `^arn:aws(-[^:]+)?:kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
    */
   CustomerEncryptionKeyArn?: string;
   /**
@@ -62,7 +62,7 @@ export type BedrockAgentProperties = {
   /**
    * Max Session Time.
    * @min `60`
-   * @max `3600`
+   * @max `5400`
    */
   IdleSessionTTLInSeconds?: number;
   /**
@@ -107,7 +107,7 @@ export type BedrockAgentAttributes = {
   /**
    * Arn representation of the Agent.
    * @maxLength `2048`
-   * @pattern `^arn:aws(|-cn|-us-gov):bedrock:[a-z0-9-]{1,20}:[0-9]{12}:agent/[0-9a-zA-Z]{10}$`
+   * @pattern `^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:agent/[0-9a-zA-Z]{10}$`
    */
   AgentArn: string;
   /**
@@ -159,7 +159,7 @@ export type ActionGroupExecutor =
       /**
        * ARN of a Lambda.
        * @maxLength `2048`
-       * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_\.]+(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+       * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:[a-z0-9-]{1,20}:\d{12}:function:[a-zA-Z0-9-_\.]+(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
        */
       Lambda: string;
     }
@@ -252,7 +252,7 @@ export type AgentCollaborator = {
   AgentDescriptor: {
     /**
      * Alias ARN for agent descriptor
-     * @pattern `^arn:aws(|-cn|-us-gov):bedrock:[a-z0-9-]{1,20}:[0-9]{12}:agent-alias/[0-9a-zA-Z]{10}/[0-9a-zA-Z]{10}$`
+     * @pattern `^arn:(aws[a-zA-Z-]*)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:agent-alias/[0-9a-zA-Z]{10}/[0-9a-zA-Z]{10}$`
      */
     AliasArn?: string;
   };
@@ -410,7 +410,7 @@ export type InferenceConfiguration = {
   /**
    * Maximum length of output
    * @min `0`
-   * @max `4096`
+   * @max `131072`
    */
   MaximumLength?: number;
   /**
@@ -478,7 +478,7 @@ export type OrchestrationExecutor = {
   /**
    * ARN of a Lambda.
    * @maxLength `2048`
-   * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_\.]+(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+   * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:[a-z0-9-]{1,20}:\d{12}:function:[a-zA-Z0-9-_\.]+(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
    */
   Lambda: string;
 };
@@ -568,7 +568,7 @@ export type PromptOverrideConfiguration = {
   /**
    * ARN of a Lambda.
    * @maxLength `2048`
-   * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}(-gov)?-[a-z]+-\d{1}:\d{12}:function:[a-zA-Z0-9-_\.]+(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+   * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:[a-z0-9-]{1,20}:\d{12}:function:[a-zA-Z0-9-_\.]+(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
    */
   OverrideLambda?: string;
   /**

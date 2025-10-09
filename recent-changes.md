@@ -1,11 +1,12 @@
-- updated `AWS::ServiceCatalog::ResourceUpdateConstraint`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `Description`
-  - updated property `Id`
-  - updated property `PortfolioId`
-  - updated property `ProductId`
-  - updated property `TagUpdateOnProvisionedProduct`
+- updated `AWS::Bedrock::Agent`
+  - updated definition `ActionGroupExecutor`
+  - updated definition `AgentCollaborator`
+  - updated definition `InferenceConfiguration`
+  - updated definition `OrchestrationExecutor`
+  - updated definition `PromptOverrideConfiguration`
+  - updated property `AgentArn`
+  - updated property `CustomerEncryptionKeyArn`
+  - updated property `IdleSessionTTLInSeconds`
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `QuickSuiteActionsOption`
+  - updated definition `DashboardPublishOptions`
