@@ -1,5 +1,5 @@
 {
-  "$hash": "88b11647f17bc053b603504fc85b6a0c63260e9a",
+  "$hash": "b8d281f9853b02182cf31c498c45c64ab8c579f9",
   "$id": "aws-logs-subscriptionfilter.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-cli/master/src/rpdk/core/data/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -50,6 +50,18 @@
     "Distribution": {
       "description": "The method used to distribute log data to the destination, which can be either random or grouped by log stream.",
       "enum": ["Random", "ByLogStream"],
+      "type": "string"
+    },
+    "EmitSystemFields": {
+      "description": "",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array"
+    },
+    "FieldSelectionCriteria": {
+      "description": "",
+      "maxLength": 2000,
+      "minLength": 0,
       "type": "string"
     },
     "FilterName": {

@@ -11,6 +11,12 @@ export type LogsMetricFilterProperties = {
      If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
      */
   ApplyOnTransformedLogs?: boolean;
+  EmitSystemFieldDimensions?: string[];
+  /**
+   * @minLength `0`
+   * @maxLength `2000`
+   */
+  FieldSelectionCriteria?: string;
   /**
    * The name of the metric filter.
    * @minLength `1`

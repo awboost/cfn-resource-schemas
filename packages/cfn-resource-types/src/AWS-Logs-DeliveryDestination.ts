@@ -17,6 +17,13 @@ export type LogsDeliveryDestinationProperties = {
      */
   DeliveryDestinationPolicy?: DestinationPolicy;
   /**
+   * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.
+   * @minLength `1`
+   * @maxLength `12`
+   * @pattern `^[0-9A-Za-z]+$`
+   */
+  DeliveryDestinationType?: string;
+  /**
    * The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
    * @minLength `16`
    * @maxLength `2048`
@@ -54,13 +61,6 @@ export type LogsDeliveryDestinationAttributes = {
    * @pattern `[\w#+=/:,.@-]*\*?`
    */
   Arn: string;
-  /**
-   * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
-   * @minLength `1`
-   * @maxLength `12`
-   * @pattern `^[0-9A-Za-z]+$`
-   */
-  DeliveryDestinationType: string;
 };
 /**
  * Type definition for `AWS::Logs::DeliveryDestination.DestinationPolicy`.

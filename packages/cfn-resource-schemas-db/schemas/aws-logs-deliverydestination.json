@@ -1,11 +1,12 @@
 {
-  "$hash": "94ddb797211c16177565c7a7210b0dd715b684fd",
+  "$hash": "05cb3ca3f7ff629ac3e476df07466ea9cd621d3b",
   "$id": "aws-logs-deliverydestination.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",
     "/properties/OutputFormat",
-    "/properties/DestinationResourceArn"
+    "/properties/DestinationResourceArn",
+    "/properties/DeliveryDestinationType"
   ],
   "definitions": {
     "Arn": {
@@ -109,7 +110,7 @@
       "type": "object"
     },
     "DeliveryDestinationType": {
-      "description": "Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.",
+      "description": "Displays whether this delivery destination is CloudWatch Logs, Amazon S3, Kinesis Data Firehose, or XRay.",
       "maxLength": 12,
       "minLength": 1,
       "pattern": "^[0-9A-Za-z]+$",
@@ -141,10 +142,7 @@
       "uniqueItems": true
     }
   },
-  "readOnlyProperties": [
-    "/properties/Arn",
-    "/properties/DeliveryDestinationType"
-  ],
+  "readOnlyProperties": ["/properties/Arn"],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-logs.git",
   "tagging": {

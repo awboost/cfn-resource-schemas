@@ -1,12 +1,11 @@
-- updated `AWS::Bedrock::Agent`
-  - updated definition `ActionGroupExecutor`
-  - updated definition `AgentCollaborator`
-  - updated definition `InferenceConfiguration`
-  - updated definition `OrchestrationExecutor`
-  - updated definition `PromptOverrideConfiguration`
-  - updated property `AgentArn`
-  - updated property `CustomerEncryptionKeyArn`
-  - updated property `IdleSessionTTLInSeconds`
-- updated `AWS::QuickSight::Dashboard`
-  - added definition `QuickSuiteActionsOption`
-  - updated definition `DashboardPublishOptions`
+- added `AWS::BedrockAgentCore::Memory`
+- updated `AWS::Logs::DeliveryDestination`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated property `DeliveryDestinationType`
+- updated `AWS::Logs::MetricFilter`
+  - added property `EmitSystemFieldDimensions`
+  - added property `FieldSelectionCriteria`
+- updated `AWS::Logs::SubscriptionFilter`
+  - added property `EmitSystemFields`
+  - added property `FieldSelectionCriteria`

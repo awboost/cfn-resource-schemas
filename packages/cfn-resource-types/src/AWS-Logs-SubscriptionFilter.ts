@@ -24,6 +24,12 @@ export type LogsSubscriptionFilterProperties = {
    * The method used to distribute log data to the destination, which can be either random or grouped by log stream.
    */
   Distribution?: "Random" | "ByLogStream";
+  EmitSystemFields?: string[];
+  /**
+   * @minLength `0`
+   * @maxLength `2000`
+   */
+  FieldSelectionCriteria?: string;
   /**
    * The name of the subscription filter.
    */
