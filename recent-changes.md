@@ -1,11 +1,7 @@
-- added `AWS::BedrockAgentCore::Memory`
-- updated `AWS::Logs::DeliveryDestination`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated property `DeliveryDestinationType`
-- updated `AWS::Logs::MetricFilter`
-  - added property `EmitSystemFieldDimensions`
-  - added property `FieldSelectionCriteria`
-- updated `AWS::Logs::SubscriptionFilter`
-  - added property `EmitSystemFields`
-  - added property `FieldSelectionCriteria`
+- updated `AWS::VpcLattice::AccessLogSubscription`
+  - updated handler permissions
+  - updated property `ResourceArn`
+- updated `AWS::VpcLattice::ResourceGateway`
+  - added property `Ipv4AddressesPerEni`
+- updated `AWS::VpcLattice::ResourcePolicy`
+  - updated property `ResourceArn`
