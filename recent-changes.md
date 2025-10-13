@@ -1,7 +1,10 @@
-- updated `AWS::VpcLattice::AccessLogSubscription`
+- updated `AWS::BedrockAgentCore::Memory`
+  - added definition `InvocationConfigurationInput`
+  - added definition `MessageBasedTriggerInput`
+  - added definition `SelfManagedConfiguration`
+  - added definition `TimeBasedTriggerInput`
+  - added definition `TokenBasedTriggerInput`
+  - added definition `TriggerConditionInput`
+  - added definition `TriggerConditionList`
+  - updated definition `CustomConfigurationInput`
   - updated handler permissions
-  - updated property `ResourceArn`
-- updated `AWS::VpcLattice::ResourceGateway`
-  - added property `Ipv4AddressesPerEni`
-- updated `AWS::VpcLattice::ResourcePolicy`
-  - updated property `ResourceArn`

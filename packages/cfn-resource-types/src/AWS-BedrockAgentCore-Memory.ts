@@ -169,6 +169,7 @@ export type BedrockAgentCoreMemoryAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-customconfigurationinput.html}
  */
 export type CustomConfigurationInput = {
+  SelfManagedConfiguration?: SelfManagedConfiguration;
   SemanticOverride?: SemanticOverride;
   SummaryOverride?: SummaryOverride;
   UserPreferenceOverride?: UserPreferenceOverride;
@@ -195,6 +196,21 @@ export type CustomMemoryStrategy = {
   Namespaces?: string[];
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Memory.InvocationConfigurationInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-invocationconfigurationinput.html}
+ */
+export type InvocationConfigurationInput = {
+  /**
+   * @pattern `^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$`
+   */
+  PayloadDeliveryBucketName?: string;
+  /**
+   * ARN format
+   * @pattern `^arn:aws:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
+   */
+  TopicArn?: string;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Memory.MemoryStatus`.
  * Status of the Memory resource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-memorystatus.html}
@@ -209,6 +225,33 @@ export type MemoryStrategy = {
   SemanticMemoryStrategy?: SemanticMemoryStrategy;
   SummaryMemoryStrategy?: SummaryMemoryStrategy;
   UserPreferenceMemoryStrategy?: UserPreferenceMemoryStrategy;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.MessageBasedTriggerInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-messagebasedtriggerinput.html}
+ */
+export type MessageBasedTriggerInput = {
+  /**
+   * @min `1`
+   * @max `50`
+   */
+  MessageCount?: number;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.SelfManagedConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-selfmanagedconfiguration.html}
+ */
+export type SelfManagedConfiguration = {
+  /**
+   * @min `0`
+   * @max `50`
+   */
+  HistoricalContextWindowSize?: number;
+  InvocationConfiguration?: InvocationConfigurationInput;
+  /**
+   * @minLength `1`
+   */
+  TriggerConditions?: TriggerConditionInput[];
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Memory.SemanticMemoryStrategy`.
@@ -310,6 +353,37 @@ export type SummaryOverrideConsolidationConfigurationInput = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-tagsmap.html}
  */
 export type TagsMap = Record<string, string>;
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.TimeBasedTriggerInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-timebasedtriggerinput.html}
+ */
+export type TimeBasedTriggerInput = {
+  /**
+   * @min `10`
+   * @max `3000`
+   */
+  IdleSessionTimeout?: number;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.TokenBasedTriggerInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-tokenbasedtriggerinput.html}
+ */
+export type TokenBasedTriggerInput = {
+  /**
+   * @min `100`
+   * @max `500000`
+   */
+  TokenCount?: number;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.TriggerConditionInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-triggerconditioninput.html}
+ */
+export type TriggerConditionInput = {
+  MessageBasedTrigger?: MessageBasedTriggerInput;
+  TimeBasedTrigger?: TimeBasedTriggerInput;
+  TokenBasedTrigger?: TokenBasedTriggerInput;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::Memory.UserPreferenceMemoryStrategy`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-userpreferencememorystrategy.html}
