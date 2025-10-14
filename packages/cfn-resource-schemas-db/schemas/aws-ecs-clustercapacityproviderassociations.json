@@ -1,5 +1,5 @@
 {
-  "$hash": "6d0fd8cba4963adb5953a76425d6b18ec7937353",
+  "$hash": "fd64e952e8b02cef0fd74a714c5a4d2e7ae15226",
   "$id": "aws-ecs-clustercapacityproviderassociations.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Cluster"],
@@ -55,7 +55,11 @@
     "list": { "permissions": ["ecs:DescribeClusters", "ecs:ListClusters"] },
     "read": { "permissions": ["ecs:DescribeClusters"] },
     "update": {
-      "permissions": ["ecs:DescribeClusters", "ecs:PutClusterCapacityProviders"]
+      "permissions": [
+        "ecs:DescribeClusters",
+        "ecs:DescribeCapacityProviders",
+        "ecs:PutClusterCapacityProviders"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/Cluster"],
@@ -66,11 +70,7 @@
       "$ref": "#/definitions/DefaultCapacityProviderStrategy"
     }
   },
-  "required": [
-    "CapacityProviders",
-    "Cluster",
-    "DefaultCapacityProviderStrategy"
-  ],
+  "required": ["Cluster", "DefaultCapacityProviderStrategy"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": false,

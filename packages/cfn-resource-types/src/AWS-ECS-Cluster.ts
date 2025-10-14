@@ -118,7 +118,7 @@ export type ClusterConfiguration = {
  */
 export type ClusterSettings = {
   /**
-   * The name of the cluster setting. The value is ``containerInsights`` .
+   * The name of the cluster setting. The value is ``containerInsights``.
    */
   Name?: string;
   /**

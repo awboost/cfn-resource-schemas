@@ -9,7 +9,7 @@ export type ECSClusterCapacityProviderAssociationsProperties = {
   /**
    * List of capacity providers to associate with the cluster
    */
-  CapacityProviders: CapacityProvider[];
+  CapacityProviders?: CapacityProvider[];
   /**
    * The name of the cluster
    * @minLength `1`

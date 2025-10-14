@@ -16,6 +16,9 @@ export type ServiceCatalogLaunchNotificationConstraintProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html#aws-resource-servicecatalog-launchnotificationconstraint-return-values}
  */
 export type ServiceCatalogLaunchNotificationConstraintAttributes = {
+  /**
+   * Unique identifier for the constraint
+   */
   Id: string;
 };
 /**

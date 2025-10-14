@@ -1,10 +1,28 @@
-- updated `AWS::BedrockAgentCore::Memory`
-  - added definition `InvocationConfigurationInput`
-  - added definition `MessageBasedTriggerInput`
-  - added definition `SelfManagedConfiguration`
-  - added definition `TimeBasedTriggerInput`
-  - added definition `TokenBasedTriggerInput`
-  - added definition `TriggerConditionInput`
-  - added definition `TriggerConditionList`
-  - updated definition `CustomConfigurationInput`
+- updated `AWS::ECS::Cluster`
+  - updated definition `ClusterSettings`
+- updated `AWS::ECS::ClusterCapacityProviderAssociations`
+  - updated `required`
   - updated handler permissions
+- updated `AWS::ECS::Service`
+  - added definition `CanaryConfiguration`
+  - added definition `LinearConfiguration`
+  - updated definition `DeploymentConfiguration`
+- updated `AWS::ServiceCatalog::LaunchNotificationConstraint`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated handler permissions
+  - updated property `Id`
+- updated `AWS::ServiceCatalog::PortfolioPrincipalAssociation`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `required`
+  - updated handler permissions
+  - updated property `AcceptLanguage`
+  - updated property `PortfolioId`
+  - updated property `PrincipalARN`
+  - updated property `PrincipalType`
