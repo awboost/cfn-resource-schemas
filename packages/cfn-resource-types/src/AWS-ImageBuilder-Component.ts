@@ -62,6 +62,27 @@ export type ImageBuilderComponentAttributes = {
    */
   Encrypted: boolean;
   /**
+   * The latest version references of the component.
+   */
+  LatestVersion: {
+    /**
+     * The latest version ARN of the created component.
+     */
+    Arn: string;
+    /**
+     * The latest version ARN of the created component, with the same major version.
+     */
+    Major: string;
+    /**
+     * The latest version ARN of the created component, with the same minor version.
+     */
+    Minor: string;
+    /**
+     * The latest version ARN of the created component, with the same patch version.
+     */
+    Patch: string;
+  };
+  /**
    * The type of the component denotes whether the component is used to build the image or only to test it.
    */
   Type: "BUILD" | "TEST";

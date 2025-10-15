@@ -1,5 +1,5 @@
 {
-  "$hash": "2b3b4fc3b92de3b3827f5c8dbee6d2f4c89512a7",
+  "$hash": "280b932a08151bbb1de1aef6b06930749186de34",
   "$id": "aws-backup-restoretestingplan.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RestoreTestingPlanName"],
@@ -65,7 +65,8 @@
         "backup:CreateRestoreTestingPlan",
         "backup:TagResource",
         "backup:GetRestoreTestingPlan",
-        "backup:ListTags"
+        "backup:ListTags",
+        "iam:CreateServiceLinkedRole"
       ],
       "timeoutInMinutes": 5
     },

@@ -1,5 +1,5 @@
 {
-  "$hash": "20614ff54874e9a8ef71e9356783ce8311a5d1e5",
+  "$hash": "4bd1b4df712e063375bf4dfd6a124aef838c0b37",
   "$id": "aws-medialive-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -85,6 +85,7 @@
         "ecs:RegisterTaskDefinition",
         "ecs:TagResource",
         "ecs:CreateService",
+        "iam:CreateServiceLinkedRole",
         "iam:PassRole",
         "medialive:ListTagsForResource"
       ]

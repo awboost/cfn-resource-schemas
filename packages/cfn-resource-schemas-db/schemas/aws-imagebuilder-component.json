@@ -1,5 +1,5 @@
 {
-  "$hash": "ed6db2cbf2aa5be0e4d2e1dc82e599dd051f9331",
+  "$hash": "5677732c191eede79e3a9a7b654d5be28fdb53f7",
   "$id": "aws-imagebuilder-component.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -13,7 +13,31 @@
     "/properties/KmsKeyId",
     "/properties/SupportedOsVersions"
   ],
-  "definitions": {},
+  "definitions": {
+    "LatestVersion": {
+      "additionalProperties": false,
+      "description": "The latest version references of the component.",
+      "properties": {
+        "Arn": {
+          "description": "The latest version ARN of the created component.",
+          "type": "string"
+        },
+        "Major": {
+          "description": "The latest version ARN of the created component, with the same major version.",
+          "type": "string"
+        },
+        "Minor": {
+          "description": "The latest version ARN of the created component, with the same minor version.",
+          "type": "string"
+        },
+        "Patch": {
+          "description": "The latest version ARN of the created component, with the same patch version.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
   "description": "Resource schema for AWS::ImageBuilder::Component",
   "handlers": {
     "create": {
@@ -85,6 +109,10 @@
       "description": "The KMS key identifier used to encrypt the component.",
       "type": "string"
     },
+    "LatestVersion": {
+      "$ref": "#/definitions/LatestVersion",
+      "description": "The latest version references of the component."
+    },
     "Name": { "description": "The name of the component.", "type": "string" },
     "Platform": {
       "description": "The platform of the component.",
@@ -117,7 +145,12 @@
   "readOnlyProperties": [
     "/properties/Arn",
     "/properties/Type",
-    "/properties/Encrypted"
+    "/properties/Encrypted",
+    "/properties/LatestVersion",
+    "/properties/LatestVersion/Arn",
+    "/properties/LatestVersion/Major",
+    "/properties/LatestVersion/Minor",
+    "/properties/LatestVersion/Patch"
   ],
   "required": ["Name", "Platform", "Version"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder",

@@ -59,7 +59,7 @@ export type DataZoneProjectProfileAttributes = {
     /**
      * @pattern `^[a-zA-Z0-9_-]{1,36}$`
      */
-    Id: string;
+    EnvironmentConfigurationId: string;
   }[];
   /**
    * @pattern `^[a-zA-Z0-9_-]{1,36}$`

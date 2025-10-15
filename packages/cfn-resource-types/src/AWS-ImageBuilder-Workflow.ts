@@ -53,6 +53,27 @@ export type ImageBuilderWorkflowAttributes = {
    * The Amazon Resource Name (ARN) of the workflow.
    */
   Arn: string;
+  /**
+   * The latest version references of the workflow.
+   */
+  LatestVersion: {
+    /**
+     * The latest version ARN of the created workflow.
+     */
+    Arn: string;
+    /**
+     * The latest version ARN of the created workflow, with the same major version.
+     */
+    Major: string;
+    /**
+     * The latest version ARN of the created workflow, with the same minor version.
+     */
+    Minor: string;
+    /**
+     * The latest version ARN of the created workflow, with the same patch version.
+     */
+    Patch: string;
+  };
 };
 /**
  * Resource schema for AWS::ImageBuilder::Workflow

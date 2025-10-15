@@ -68,6 +68,27 @@ export type ImageBuilderImageAttributes = {
    */
   ImageUri: string;
   /**
+   * The latest version references of the image.
+   */
+  LatestVersion: {
+    /**
+     * The latest version ARN of the created image.
+     */
+    Arn: string;
+    /**
+     * The latest version ARN of the created image, with the same major version.
+     */
+    Major: string;
+    /**
+     * The latest version ARN of the created image, with the same minor version.
+     */
+    Minor: string;
+    /**
+     * The latest version ARN of the created image, with the same patch version.
+     */
+    Patch: string;
+  };
+  /**
    * The name of the image.
    */
   Name: string;

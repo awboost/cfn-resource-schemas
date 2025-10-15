@@ -1,5 +1,5 @@
 {
-  "$hash": "411c5a8d7cd38dafb866fc66c55b3aefb5ec0bcb",
+  "$hash": "e4e8cdb12300722edd0d71d782c19e0baa9feeb6",
   "$id": "aws-imagebuilder-image.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -96,6 +96,29 @@
           "maximum": 1440,
           "minimum": 60,
           "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "LatestVersion": {
+      "additionalProperties": false,
+      "description": "The latest version references of the image.",
+      "properties": {
+        "Arn": {
+          "description": "The latest version ARN of the created image.",
+          "type": "string"
+        },
+        "Major": {
+          "description": "The latest version ARN of the created image, with the same major version.",
+          "type": "string"
+        },
+        "Minor": {
+          "description": "The latest version ARN of the created image, with the same minor version.",
+          "type": "string"
+        },
+        "Patch": {
+          "description": "The latest version ARN of the created image, with the same patch version.",
+          "type": "string"
         }
       },
       "type": "object"
@@ -239,6 +262,10 @@
       "description": "The Amazon Resource Name (ARN) of the infrastructure configuration.",
       "type": "string"
     },
+    "LatestVersion": {
+      "$ref": "#/definitions/LatestVersion",
+      "description": "The latest version references of the image."
+    },
     "LoggingConfiguration": {
       "$ref": "#/definitions/ImageLoggingConfiguration",
       "description": "The logging configuration settings for the image."
@@ -261,7 +288,12 @@
     "/properties/Arn",
     "/properties/Name",
     "/properties/ImageId",
-    "/properties/ImageUri"
+    "/properties/ImageUri",
+    "/properties/LatestVersion",
+    "/properties/LatestVersion/Arn",
+    "/properties/LatestVersion/Major",
+    "/properties/LatestVersion/Minor",
+    "/properties/LatestVersion/Patch"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder",
   "tagging": {

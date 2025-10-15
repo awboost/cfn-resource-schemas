@@ -1,16 +1,47 @@
 {
-  "$hash": "bd1d2bb62b33e857d85100391ada3962159ab2a4",
+  "$hash": "31d8b6f1c4470ab13fb75b390dec7e516d9fb84e",
   "$id": "aws-servicecatalog-tagoptionassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TagOptionId", "/properties/ResourceId"],
   "description": "Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation",
-  "primaryIdentifier": ["/properties/Id"],
-  "properties": {
-    "Id": { "type": "string" },
-    "ResourceId": { "type": "string" },
-    "TagOptionId": { "type": "string" }
+  "handlers": {
+    "create": {
+      "permissions": [
+        "servicecatalog:AssociateTagOptionWithResource",
+        "servicecatalog:ListResourcesForTagOption"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "servicecatalog:DisassociateTagOptionFromResource",
+        "servicecatalog:ListResourcesForTagOption"
+      ]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "TagOptionId": {
+            "$ref": "resource-schema.json#/properties/TagOptionId"
+          }
+        },
+        "required": ["TagOptionId"]
+      },
+      "permissions": ["servicecatalog:ListResourcesForTagOption"]
+    },
+    "read": { "permissions": ["servicecatalog:ListResourcesForTagOption"] }
   },
-  "readOnlyProperties": ["/properties/Id"],
-  "required": ["TagOptionId", "ResourceId"],
+  "primaryIdentifier": ["/properties/TagOptionId", "/properties/ResourceId"],
+  "properties": {
+    "ResourceId": {
+      "description": "The CloudformationProduct or Portfolio identifier.",
+      "type": "string"
+    },
+    "TagOptionId": {
+      "description": "The TagOption identifier.",
+      "type": "string"
+    }
+  },
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-servicecatalog/tree/master/aws-servicecatalog-tagoptionassociation.git",
+  "tagging": { "taggable": false },
   "typeName": "AWS::ServiceCatalog::TagOptionAssociation"
 }

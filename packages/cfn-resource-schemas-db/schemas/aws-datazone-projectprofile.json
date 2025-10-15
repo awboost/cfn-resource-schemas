@@ -1,5 +1,5 @@
 {
-  "$hash": "b64388fe857896e0c9d5fe9079bad2e3d4e59910",
+  "$hash": "bee49e2ba5b18b10f1e7211fa4472db6846456d3",
   "$id": "aws-datazone-projectprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainIdentifier"],
@@ -41,7 +41,10 @@
           "pattern": "^[a-zA-Z0-9_-]{1,36}$",
           "type": "string"
         },
-        "Id": { "pattern": "^[a-zA-Z0-9_-]{1,36}$", "type": "string" },
+        "EnvironmentConfigurationId": {
+          "pattern": "^[a-zA-Z0-9_-]{1,36}$",
+          "type": "string"
+        },
         "Name": {
           "maxLength": 64,
           "minLength": 1,
@@ -184,7 +187,7 @@
     "/properties/Id",
     "/properties/Identifier",
     "/properties/LastUpdatedAt",
-    "/properties/EnvironmentConfigurations/*/Id",
+    "/properties/EnvironmentConfigurations/*/EnvironmentConfigurationId",
     "/properties/EnvironmentConfigurations/*/ConfigurationParameters/ResolvedParameters"
   ],
   "required": ["Name"],

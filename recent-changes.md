@@ -1,24 +1,44 @@
-- updated `AWS::ECS::Cluster`
-  - updated definition `ClusterSettings`
-- updated `AWS::ECS::ClusterCapacityProviderAssociations`
-  - updated `required`
+- added `AWS::SSMQuickSetup::LifecycleAutomation`
+- updated `AWS::Backup::RestoreTestingPlan`
   - updated handler permissions
-- updated `AWS::ECS::Service`
-  - added definition `CanaryConfiguration`
-  - added definition `LinearConfiguration`
-  - updated definition `DeploymentConfiguration`
-- updated `AWS::ServiceCatalog::LaunchNotificationConstraint`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
+- updated `AWS::DataZone::Domain`
+  - updated property `ServiceRole`
+- updated `AWS::DataZone::EnvironmentBlueprintConfiguration`
+  - updated property `ProvisioningRoleArn`
+- updated `AWS::DataZone::ProjectProfile`
+  - updated `readOnlyProperties`
+  - updated definition `EnvironmentConfiguration`
+- updated `AWS::EC2::Subnet`
+  - added `propertyTransform`
+- updated `AWS::ImageBuilder::Component`
+  - added definition `LatestVersion`
+  - added property `LatestVersion`
+  - updated `readOnlyProperties`
+- updated `AWS::ImageBuilder::Image`
+  - added definition `LatestVersion`
+  - added property `LatestVersion`
+  - updated `readOnlyProperties`
+- updated `AWS::ImageBuilder::Workflow`
+  - added definition `LatestVersion`
+  - added property `LatestVersion`
+  - updated `readOnlyProperties`
+- updated `AWS::MediaLive::Cluster`
   - updated handler permissions
-  - updated property `Id`
+- updated `AWS::SageMaker::App`
+  - updated definition `ResourceSpec`
+- updated `AWS::SageMaker::Domain`
+  - added definition `IpAddressType`
+  - updated definition `AppInstanceType`
+  - updated definition `DomainSettings`
+  - updated definition `ResourceSpec`
+- updated `AWS::SageMaker::UserProfile`
+  - updated definition `ResourceSpec`
 - updated `AWS::ServiceCatalog::PortfolioPrincipalAssociation`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - removed `readOnlyProperties`
-  - removed property `Id`
+  - added `readOnlyProperties`
+  - added property `Id`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - removed `writeOnlyProperties`
   - updated `primaryIdentifier`
   - updated `required`
   - updated handler permissions
@@ -26,3 +46,13 @@
   - updated property `PortfolioId`
   - updated property `PrincipalARN`
   - updated property `PrincipalType`
+- updated `AWS::ServiceCatalog::TagOptionAssociation`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed `required`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated handler permissions
+  - updated property `ResourceId`
+  - updated property `TagOptionId`
