@@ -1,5 +1,5 @@
 {
-  "$hash": "7d57c00374356398731b4ecac3c9ce7155bdaec4",
+  "$hash": "d17a9fdc560e0752a8807544d6db806c742ca586",
   "$id": "aws-transfer-server.json",
   "additionalIdentifiers": [["/properties/ServerId"]],
   "additionalProperties": false,
@@ -8,10 +8,7 @@
     "/properties/EndpointDetails/AddressAllocationIds",
     "/properties/IpAddressType"
   ],
-  "createOnlyProperties": [
-    "/properties/Domain",
-    "/properties/IdentityProviderType"
-  ],
+  "createOnlyProperties": ["/properties/Domain"],
   "definitions": {
     "As2Transport": { "enum": ["HTTP"], "type": "string" },
     "DirectoryListingOptimization": {
@@ -248,6 +245,9 @@
     "update": {
       "permissions": [
         "apigateway:GET",
+        "ds:AuthorizeApplication",
+        "ds:DescribeDirectories",
+        "ds:UnauthorizeApplication",
         "ec2:AssociateAddress",
         "ec2:CreateVpcEndpoint",
         "ec2:DeleteVpcEndpoints",
@@ -380,6 +380,5 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::Transfer::Server",
-  "writeOnlyProperties": ["/properties/IdentityProviderType"]
+  "typeName": "AWS::Transfer::Server"
 }

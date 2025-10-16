@@ -1,29 +1,15 @@
 {
-  "$hash": "2eaba6b50dd2efcbcfc47607f1a64099531fa4e5",
+  "$hash": "7a08a95431347a919aec9bfbae76bb9a19923eb2",
   "$id": "aws-ec2-natgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
+    "/properties/VpcId",
     "/properties/SubnetId",
     "/properties/ConnectivityType",
     "/properties/AllocationId",
     "/properties/PrivateIpAddress"
   ],
   "definitions": {
-    "AvailabilityZoneAddress": {
-      "additionalProperties": false,
-      "description": "",
-      "properties": {
-        "AllocationIds": {
-          "insertionOrder": false,
-          "items": { "type": "string" },
-          "type": "array",
-          "uniqueItems": true
-        },
-        "AvailabilityZone": { "type": "string" }
-      },
-      "required": ["AvailabilityZone", "AllocationIds"],
-      "type": "object"
-    },
     "Tag": {
       "additionalProperties": false,
       "description": "Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
@@ -58,7 +44,8 @@
         "ec2:DisassociateNatGatewayAddress",
         "ec2:AssignPrivateNatGatewayAddress",
         "ec2:UnassignPrivateNatGatewayAddress"
-      ]
+      ],
+      "timeoutInMinutes": 90
     }
   },
   "primaryIdentifier": ["/properties/NatGatewayId"],
@@ -71,6 +58,7 @@
       "description": "Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.",
       "type": "string"
     },
+    "EniId": { "description": "", "type": "string" },
     "MaxDrainDurationSeconds": {
       "description": "The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.",
       "type": "integer"
@@ -109,9 +97,10 @@
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
-    }
+    },
+    "VpcId": { "description": "", "type": "string" }
   },
-  "readOnlyProperties": ["/properties/NatGatewayId"],
+  "readOnlyProperties": ["/properties/NatGatewayId", "/properties/EniId"],
   "tagging": {
     "cloudFormationSystemTags": true,
     "permissions": ["ec2:DeleteTags", "ec2:CreateTags"],

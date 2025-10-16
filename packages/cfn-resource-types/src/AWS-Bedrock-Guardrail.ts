@@ -472,7 +472,7 @@ export type TopicConfig = {
   /**
    * Definition of topic in topic policy
    * @minLength `1`
-   * @maxLength `200`
+   * @maxLength `1000`
    */
   Definition: string;
   /**

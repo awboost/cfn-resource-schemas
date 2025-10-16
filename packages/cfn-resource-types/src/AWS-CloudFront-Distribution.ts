@@ -240,6 +240,9 @@ export type CustomOriginConfig = {
    * The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
    */
   HTTPSPort?: number;
+  /**
+   * Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.
+   */
   IpAddressType?: "ipv4" | "ipv6" | "dualstack";
   /**
      * Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.

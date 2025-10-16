@@ -1,5 +1,5 @@
 {
-  "$hash": "30c2396cb034d18817a8725309d2acf563a65319",
+  "$hash": "79e41379da36f1898ff2132221a02686dd943798",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -174,7 +174,7 @@
           "type": "integer"
         },
         "IpAddressType": {
-          "description": "",
+          "description": "Specifies which IP protocol CloudFront uses when connecting to your origin. If your origin uses both IPv4 and IPv6 protocols, you can choose ``dualstack`` to help optimize reliability.",
           "enum": ["ipv4", "ipv6", "dualstack"],
           "type": "string"
         },

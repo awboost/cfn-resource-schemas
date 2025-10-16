@@ -1,5 +1,5 @@
 {
-  "$hash": "d1d0bcff8ada36069d2a61d5769879c767bf69c0",
+  "$hash": "8e5d9225f869c9192a866a42e083e632a27b4fc8",
   "$id": "aws-bedrock-guardrail.json",
   "additionalProperties": false,
   "definitions": {
@@ -329,7 +329,7 @@
       "properties": {
         "Definition": {
           "description": "Definition of topic in topic policy",
-          "maxLength": 200,
+          "maxLength": 1000,
           "minLength": 1,
           "type": "string"
         },

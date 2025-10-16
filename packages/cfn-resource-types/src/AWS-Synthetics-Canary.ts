@@ -151,11 +151,15 @@ export type BrowserType = "CHROME" | "FIREFOX";
  */
 export type Code = {
   /**
+   * @maxLength `1`
+   */
+  BlueprintTypes?: string[];
+  /**
    * List of Lambda layers to attach to the canary
    * @maxLength `1`
    */
   Dependencies?: Dependency[];
-  Handler: string;
+  Handler?: string;
   S3Bucket?: string;
   S3Key?: string;
   S3ObjectVersion?: string;

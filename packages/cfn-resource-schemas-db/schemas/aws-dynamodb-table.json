@@ -1,5 +1,5 @@
 {
-  "$hash": "af800703d3513d3e060a26e33eff298f2ab7c337",
+  "$hash": "4055c778babb0029d617ed24318d0be9d25e1769",
   "$id": "aws-dynamodb-table.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/KeySchema"],
@@ -552,11 +552,6 @@
       "items": { "$ref": "#/definitions/GlobalSecondaryIndex" },
       "type": "array",
       "uniqueItems": false
-    },
-    "GlobalTableSettingsReplicationMode": {
-      "description": "",
-      "enum": ["ENABLED", "DISABLED"],
-      "type": "string"
     },
     "ImportSourceSpecification": {
       "$ref": "#/definitions/ImportSourceSpecification",

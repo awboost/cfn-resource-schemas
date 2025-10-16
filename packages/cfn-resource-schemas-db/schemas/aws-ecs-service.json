@@ -1,5 +1,5 @@
 {
-  "$hash": "587d9b0e41f6799dbfa6c4955edfd47bba77016a",
+  "$hash": "ed7065b1254952cf333d30c51cf47a76e32e2db0",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -754,7 +754,7 @@
       "description": "Determines whether to force a new deployment of the service. By default, deployments aren't forced. You can use this option to start a new deployment with no service definition changes. For example, you can update a service's tasks to use a newer Docker image with the same image/tag combination (``my_image:latest``) or to roll Fargate tasks onto a newer platform version."
     },
     "HealthCheckGracePeriodSeconds": {
-      "description": "The period of time, in seconds, that the Amazon Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.\n If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.",
+      "description": "The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used. If you do not use any of the health checks, then ``healthCheckGracePeriodSeconds`` is unused.\n If your service has more running tasks than desired, unhealthy tasks in the grace period might be stopped to reach the desired count.",
       "type": "integer"
     },
     "LaunchType": {

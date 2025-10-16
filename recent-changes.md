@@ -1,58 +1,42 @@
-- added `AWS::SSMQuickSetup::LifecycleAutomation`
-- updated `AWS::Backup::RestoreTestingPlan`
-  - updated handler permissions
-- updated `AWS::DataZone::Domain`
-  - updated property `ServiceRole`
-- updated `AWS::DataZone::EnvironmentBlueprintConfiguration`
-  - updated property `ProvisioningRoleArn`
-- updated `AWS::DataZone::ProjectProfile`
-  - updated `readOnlyProperties`
-  - updated definition `EnvironmentConfiguration`
-- updated `AWS::EC2::Subnet`
-  - added `propertyTransform`
-- updated `AWS::ImageBuilder::Component`
-  - added definition `LatestVersion`
-  - added property `LatestVersion`
-  - updated `readOnlyProperties`
-- updated `AWS::ImageBuilder::Image`
-  - added definition `LatestVersion`
-  - added property `LatestVersion`
-  - updated `readOnlyProperties`
-- updated `AWS::ImageBuilder::Workflow`
-  - added definition `LatestVersion`
-  - added property `LatestVersion`
-  - updated `readOnlyProperties`
-- updated `AWS::MediaLive::Cluster`
-  - updated handler permissions
-- updated `AWS::SageMaker::App`
-  - updated definition `ResourceSpec`
-- updated `AWS::SageMaker::Domain`
+- updated `AWS::AmazonMQ::Broker`
+  - updated property `AuthenticationStrategy`
+- updated `AWS::Bedrock::Guardrail`
+  - updated definition `TopicConfig`
+- updated `AWS::CloudFront::AnycastIpList`
   - added definition `IpAddressType`
-  - updated definition `AppInstanceType`
-  - updated definition `DomainSettings`
-  - updated definition `ResourceSpec`
-- updated `AWS::SageMaker::UserProfile`
-  - updated definition `ResourceSpec`
-- updated `AWS::ServiceCatalog::PortfolioPrincipalAssociation`
-  - added `readOnlyProperties`
-  - added property `Id`
-  - removed `sourceUrl`
-  - removed `tagging`
+  - added property `IpAddressType`
+  - updated `tagging`
+  - updated definition `AnycastIpList`
+  - updated handler permissions
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `CustomOriginConfig`
+- updated `AWS::CloudFront::PublicKey`
+  - updated definition `PublicKeyConfig`
+- updated `AWS::CustomerProfiles::ObjectType`
+  - updated definition `ObjectTypeKey`
+- updated `AWS::DynamoDB::GlobalTable`
+  - removed property `GlobalTableSettingsReplicationMode`
+  - removed property `GlobalTableSourceArn`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::DynamoDB::Table`
+  - removed property `GlobalTableSettingsReplicationMode`
+- updated `AWS::EC2::NatGateway`
+  - added property `EniId`
+  - added property `VpcId`
+  - removed definition `AvailabilityZoneAddress`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::ECS::Service`
+  - updated property `HealthCheckGracePeriodSeconds`
+- updated `AWS::ECS::TaskDefinition`
+  - updated property `RequiresCompatibilities`
+- updated `AWS::RDS::DBCluster`
+  - updated property `PubliclyAccessible`
+- updated `AWS::Synthetics::Canary`
+  - updated definition `Code`
+- updated `AWS::Transfer::Server`
   - removed `writeOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated `required`
+  - updated `createOnlyProperties`
   - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `PortfolioId`
-  - updated property `PrincipalARN`
-  - updated property `PrincipalType`
-- updated `AWS::ServiceCatalog::TagOptionAssociation`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed `required`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated handler permissions
-  - updated property `ResourceId`
-  - updated property `TagOptionId`

@@ -41,7 +41,6 @@ export type DynamoDBTableProperties = {
       +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
      */
   GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
-  GlobalTableSettingsReplicationMode?: "ENABLED" | "DISABLED";
   /**
      * Specifies the properties of data being imported from the S3 bucket source to the" table.
       If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.

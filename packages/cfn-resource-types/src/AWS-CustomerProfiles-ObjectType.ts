@@ -168,6 +168,15 @@ export type ObjectTypeKey = {
     | "ASSET"
     | "CASE"
     | "ORDER"
+    | "AIR_PREFERENCE"
+    | "AIR_BOOKING"
+    | "AIR_SEGMENT"
+    | "HOTEL_PREFERENCE"
+    | "HOTEL_STAY_REVENUE"
+    | "HOTEL_RESERVATION"
+    | "LOYALTY"
+    | "LOYALTY_TRANSACTION"
+    | "LOYALTY_PROMOTION"
   )[];
 };
 /**

@@ -94,7 +94,7 @@ export type ECSTaskDefinitionProperties = {
      */
   ProxyConfiguration?: ProxyConfiguration;
   /**
-   * The task launch types the task definition was validated against. The valid values are ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
+   * The task launch types the task definition was validated against. The valid values are ``MANAGED_INSTANCES``, ``EC2``, ``FARGATE``, and ``EXTERNAL``. For more information, see [Amazon ECS launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.
    */
   RequiresCompatibilities?: string[];
   /**

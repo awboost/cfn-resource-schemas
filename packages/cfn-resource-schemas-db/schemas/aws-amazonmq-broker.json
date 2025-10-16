@@ -1,5 +1,5 @@
 {
-  "$hash": "82d7edde4c27edc8372d5c99cfbea862d76ff597",
+  "$hash": "56b6d09519075689aa0f90b8c6f4693ce60d5d27",
   "$id": "aws-amazonmq-broker.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -230,14 +230,7 @@
       "uniqueItems": false
     },
     "Arn": { "pattern": "^arn:.*", "type": "string" },
-    "AuthenticationStrategy": {
-      "anyOf": [
-        { "enum": ["SIMPLE", "LDAP"], "type": "string" },
-        { "pattern": "^[Ss][Ii][Mm][Pp][Ll][Ee]$" },
-        { "pattern": "^[Ll][Dd][Aa][Pp]$" }
-      ],
-      "type": "string"
-    },
+    "AuthenticationStrategy": { "type": "string" },
     "AutoMinorVersionUpgrade": { "type": "boolean" },
     "BrokerName": { "pattern": "^[0-9A-Za-z_-]{1,50}$", "type": "string" },
     "Configuration": {

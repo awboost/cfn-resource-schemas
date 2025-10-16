@@ -1,5 +1,5 @@
 {
-  "$hash": "479fa4a5e0db3e977cb758bf71767603570946ec",
+  "$hash": "0e0da6ba0f670371f88458fc8debbb33d34dbcf9",
   "$id": "aws-cloudfront-anycastiplist.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -24,6 +24,10 @@
         "Id": {
           "description": "The ID of the Anycast static IP list.",
           "type": "string"
+        },
+        "IpAddressType": {
+          "$ref": "#/definitions/IpAddressType",
+          "description": ""
         },
         "IpCount": {
           "description": "The number of IP addresses in the Anycast static IP list.",
@@ -57,6 +61,7 @@
       ],
       "type": "object"
     },
+    "IpAddressType": { "enum": ["ipv4", "dualstack"], "type": "string" },
     "Tag": {
       "additionalProperties": false,
       "description": "A complex type that contains ``Tag`` key and ``Tag`` value.",
@@ -112,6 +117,15 @@
         "cloudfront:GetAnycastIpList",
         "cloudfront:ListTagsForResource"
       ]
+    },
+    "update": {
+      "permissions": [
+        "cloudfront:UpdateAnycastIpList",
+        "cloudfront:GetAnycastIpList",
+        "cloudfront:ListTagsForResource",
+        "cloudfront:TagResource",
+        "cloudfront:UntagResource"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/Id"],
@@ -122,6 +136,10 @@
     },
     "ETag": { "description": "", "type": "string" },
     "Id": { "description": "", "type": "string" },
+    "IpAddressType": {
+      "$ref": "#/definitions/IpAddressType",
+      "description": ""
+    },
     "IpCount": {
       "description": "The number of IP addresses in the Anycast static IP list.",
       "type": "integer"
@@ -146,7 +164,11 @@
   "required": ["IpCount", "Name"],
   "tagging": {
     "cloudFormationSystemTags": false,
-    "permissions": ["cloudfront:TagResource", "cloudfront:ListTagsForResource"],
+    "permissions": [
+      "cloudfront:TagResource",
+      "cloudfront:UntagResource",
+      "cloudfront:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": false,

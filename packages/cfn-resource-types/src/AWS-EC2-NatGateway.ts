@@ -48,12 +48,14 @@ export type EC2NatGatewayProperties = {
    * The tags for the NAT gateway.
    */
   Tags?: Tag[];
+  VpcId?: string;
 };
 /**
  * Attribute type definition for `AWS::EC2::NatGateway`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#aws-resource-ec2-natgateway-return-values}
  */
 export type EC2NatGatewayAttributes = {
+  EniId: string;
   NatGatewayId: string;
 };
 /**

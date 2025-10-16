@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html}
  */
 export type CloudFrontAnycastIpListProperties = {
+  IpAddressType?: IpAddressType;
   /**
    * The number of IP addresses in the Anycast static IP list.
    */
@@ -43,6 +44,7 @@ export type CloudFrontAnycastIpListAttributes = {
      * The ID of the Anycast static IP list.
      */
     Id: string;
+    IpAddressType: IpAddressType;
     /**
      * The number of IP addresses in the Anycast static IP list.
      */
@@ -84,6 +86,7 @@ export type AnycastIpList = {
    * The ID of the Anycast static IP list.
    */
   Id: string;
+  IpAddressType?: IpAddressType;
   /**
    * The number of IP addresses in the Anycast static IP list.
    */
@@ -104,6 +107,11 @@ export type AnycastIpList = {
    */
   Status: string;
 };
+/**
+ * Type definition for `AWS::CloudFront::AnycastIpList.IpAddressType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-ipaddresstype.html}
+ */
+export type IpAddressType = "ipv4" | "dualstack";
 /**
  * Type definition for `AWS::CloudFront::AnycastIpList.Tag`.
  * A complex type that contains ``Tag`` key and ``Tag`` value.

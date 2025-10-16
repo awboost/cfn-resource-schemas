@@ -1,13 +1,12 @@
 {
-  "$hash": "14a7bc0d7bda73b782e8b2c06f579e7a704ee451",
+  "$hash": "481146d14f702ca8b24fa95cee8a6babd6d01589",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LocalSecondaryIndexes",
     "/properties/TableName",
-    "/properties/KeySchema",
-    "/properties/GlobalTableSourceArn"
+    "/properties/KeySchema"
   ],
   "definitions": {
     "AttributeDefinition": {
@@ -470,11 +469,6 @@
       "type": "array",
       "uniqueItems": true
     },
-    "GlobalTableSettingsReplicationMode": {
-      "enum": ["ENABLED", "DISABLED"],
-      "type": "string"
-    },
-    "GlobalTableSourceArn": { "type": "string" },
     "GlobalTableWitnesses": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/GlobalTableWitness" },
@@ -534,7 +528,6 @@
     "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity",
     "/properties/Replicas/*/GlobalSecondaryIndexes/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity",
     "/properties/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity",
-    "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity",
-    "/properties/GlobalTableSourceArn"
+    "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity"
   ]
 }
