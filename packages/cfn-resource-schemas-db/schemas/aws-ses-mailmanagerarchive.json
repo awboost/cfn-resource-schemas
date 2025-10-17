@@ -1,5 +1,5 @@
 {
-  "$hash": "85edbc19a73466caa80bad4ad06216eb24b506d3",
+  "$hash": "e593abd560ed7c2eb63d867e56c298ff60b61eec",
   "$id": "aws-ses-mailmanagerarchive.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn"],
@@ -70,6 +70,7 @@
         "ses:ListTagsForResource",
         "ses:GetArchive",
         "ses:CreateArchive",
+        "iam:CreateServiceLinkedRole",
         "kms:DescribeKey",
         "kms:Decrypt",
         "kms:GenerateDataKey"

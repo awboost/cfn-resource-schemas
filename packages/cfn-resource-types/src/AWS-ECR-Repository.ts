@@ -14,8 +14,9 @@ export type ECRRepositoryProperties = {
    */
   EncryptionConfiguration?: EncryptionConfiguration;
   /**
-   * The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
-   */
+     * The ``imageScanningConfiguration`` parameter is being deprecated, in favor of specifying the image scanning configuration at the registry level. For more information, see ``PutRegistryScanningConfiguration``.
+      The image scanning configuration for the repository. This determines whether images are scanned for known vulnerabilities after being pushed to the repository.
+     */
   ImageScanningConfiguration?: ImageScanningConfiguration;
   /**
    * The tag mutability setting for the repository. If this parameter is omitted, the default setting of ``MUTABLE`` will be used which will allow image tags to be overwritten. If ``IMMUTABLE`` is specified, all image tags within the repository will be immutable which will prevent them from being overwritten.
@@ -26,7 +27,7 @@ export type ECRRepositoryProperties = {
     | "MUTABLE_WITH_EXCLUSION"
     | "IMMUTABLE_WITH_EXCLUSION";
   /**
-   * The image tag mutability exclusion filters associated with the repository. These filters specify which image tags can override the repository's default image tag mutability setting.
+   * A list of filters that specify which image tags are excluded from the repository's image tag mutability setting.
    * @minLength `1`
    * @maxLength `5`
    */
@@ -104,7 +105,7 @@ export type ImageScanningConfiguration = {
 };
 /**
  * Type definition for `AWS::ECR::Repository.ImageTagMutabilityExclusionFilter`.
- * Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+ * A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagetagmutabilityexclusionfilter.html}
  */
 export type ImageTagMutabilityExclusionFilter = {

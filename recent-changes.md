@@ -1,42 +1,6 @@
-- updated `AWS::AmazonMQ::Broker`
-  - updated property `AuthenticationStrategy`
-- updated `AWS::Bedrock::Guardrail`
-  - updated definition `TopicConfig`
-- updated `AWS::CloudFront::AnycastIpList`
-  - added definition `IpAddressType`
-  - added property `IpAddressType`
-  - updated `tagging`
-  - updated definition `AnycastIpList`
-  - updated handler permissions
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `CustomOriginConfig`
-- updated `AWS::CloudFront::PublicKey`
-  - updated definition `PublicKeyConfig`
-- updated `AWS::CustomerProfiles::ObjectType`
-  - updated definition `ObjectTypeKey`
-- updated `AWS::DynamoDB::GlobalTable`
-  - removed property `GlobalTableSettingsReplicationMode`
-  - removed property `GlobalTableSourceArn`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::DynamoDB::Table`
-  - removed property `GlobalTableSettingsReplicationMode`
-- updated `AWS::EC2::NatGateway`
-  - added property `EniId`
-  - added property `VpcId`
-  - removed definition `AvailabilityZoneAddress`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::ECS::Service`
-  - updated property `HealthCheckGracePeriodSeconds`
-- updated `AWS::ECS::TaskDefinition`
-  - updated property `RequiresCompatibilities`
-- updated `AWS::RDS::DBCluster`
-  - updated property `PubliclyAccessible`
-- updated `AWS::Synthetics::Canary`
-  - updated definition `Code`
-- updated `AWS::Transfer::Server`
-  - removed `writeOnlyProperties`
-  - updated `createOnlyProperties`
+- updated `AWS::ECR::Repository`
+  - updated definition `ImageTagMutabilityExclusionFilter`
+  - updated property `ImageScanningConfiguration`
+  - updated property `ImageTagMutabilityExclusionFilters`
+- updated `AWS::SES::MailManagerArchive`
   - updated handler permissions
