@@ -1,5 +1,5 @@
 {
-  "$hash": "c16dc8811efcbb3b2616671fb07391f7509fe974",
+  "$hash": "18c6a33e62831dc034c6f7f2bd02ef6b14eb1bb5",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
@@ -406,6 +406,23 @@
       "required": ["Key", "Value"],
       "type": "object"
     },
+    "TieredStorageConfig": {
+      "additionalProperties": false,
+      "description": "Configuration for tiered storage in the SageMaker HyperPod cluster.",
+      "properties": {
+        "InstanceMemoryAllocationPercentage": {
+          "description": "The percentage of instance memory to allocate for tiered storage.",
+          "type": "integer"
+        },
+        "Mode": {
+          "description": "The mode of tiered storage.",
+          "enum": ["Enable", "Disable"],
+          "type": "string"
+        }
+      },
+      "required": ["Mode"],
+      "type": "object"
+    },
     "VpcConfig": {
       "additionalProperties": false,
       "description": "Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.",
@@ -574,6 +591,7 @@
       "type": "array",
       "uniqueItems": true
     },
+    "TieredStorageConfig": { "$ref": "#/definitions/TieredStorageConfig" },
     "VpcConfig": { "$ref": "#/definitions/VpcConfig" }
   },
   "readOnlyProperties": [

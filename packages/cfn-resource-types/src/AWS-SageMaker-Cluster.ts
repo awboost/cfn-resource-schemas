@@ -51,6 +51,10 @@ export type SageMakerClusterProperties = {
    */
   Tags?: Tag[];
   /**
+   * Configuration for tiered storage in the SageMaker HyperPod cluster.
+   */
+  TieredStorageConfig?: TieredStorageConfig;
+  /**
    * Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
    */
   VpcConfig?: VpcConfig;
@@ -467,6 +471,21 @@ export type Tag = {
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.TieredStorageConfig`.
+ * Configuration for tiered storage in the SageMaker HyperPod cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-tieredstorageconfig.html}
+ */
+export type TieredStorageConfig = {
+  /**
+   * The percentage of instance memory to allocate for tiered storage.
+   */
+  InstanceMemoryAllocationPercentage?: number;
+  /**
+   * The mode of tiered storage.
+   */
+  Mode: "Enable" | "Disable";
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.VpcConfig`.

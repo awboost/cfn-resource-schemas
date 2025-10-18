@@ -56,6 +56,10 @@ export type NeptuneDBInstanceProperties = {
    */
   PreferredMaintenanceWindow?: string;
   /**
+   * Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster
+   */
+  PubliclyAccessible?: boolean;
+  /**
    * An arbitrary set of tags (key-value pairs) for this DB instance.
    */
   Tags?: Tag[];

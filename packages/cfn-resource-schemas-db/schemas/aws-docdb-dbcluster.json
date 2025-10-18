@@ -1,5 +1,5 @@
 {
-  "$hash": "fe62598f20409e4c16d2687323b0d33cdbe47298",
+  "$hash": "c96ab86d1455daff3cc4c453405bc67c2f921a96",
   "$id": "aws-docdb-dbcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,7 +7,6 @@
     "/properties/KmsKeyId",
     "/properties/MasterUsername",
     "/properties/SourceDBClusterIdentifier",
-    "/properties/GlobalClusterIdentifier",
     "/properties/DBClusterIdentifier",
     "/properties/AvailabilityZones",
     "/properties/DBSubnetGroupName",

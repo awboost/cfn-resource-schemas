@@ -1297,6 +1297,15 @@ export type MediaPackageV2DestinationSettings = {
  */
 export type MediaPackageV2GroupSettings = {
   CaptionLanguageMappings?: CaptionLanguageMapping[];
+  Id3Behavior?: string;
+  KlvBehavior?: string;
+  NielsenId3Behavior?: string;
+  Scte35Type?: string;
+  SegmentLength?: number;
+  SegmentLengthUnits?: string;
+  TimedMetadataId3Frame?: string;
+  TimedMetadataId3Period?: number;
+  TimedMetadataPassthrough?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.MotionGraphicsConfiguration`.

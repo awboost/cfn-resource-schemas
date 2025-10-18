@@ -1,5 +1,5 @@
 {
-  "$hash": "7eecf9627695ba7969b4094f8a009c27b21c6a56",
+  "$hash": "a2c16387548ae87b06ad9c282f10e9d0f0e722eb",
   "$id": "aws-neptune-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -145,6 +145,10 @@
     "PreferredMaintenanceWindow": {
       "description": "Specifies the weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).",
       "type": "string"
+    },
+    "PubliclyAccessible": {
+      "description": "Indicates that public accessibility is enabled. This should be enabled in combination with IAM Auth enabled on the DBCluster",
+      "type": "boolean"
     },
     "Tags": {
       "description": "An arbitrary set of tags (key-value pairs) for this DB instance.",

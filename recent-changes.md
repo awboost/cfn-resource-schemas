@@ -1,6 +1,10 @@
-- updated `AWS::ECR::Repository`
-  - updated definition `ImageTagMutabilityExclusionFilter`
-  - updated property `ImageScanningConfiguration`
-  - updated property `ImageTagMutabilityExclusionFilters`
-- updated `AWS::SES::MailManagerArchive`
-  - updated handler permissions
+- added `AWS::APS::AnomalyDetector`
+- updated `AWS::DocDB::DBCluster`
+  - updated `createOnlyProperties`
+- updated `AWS::MediaLive::Channel`
+  - updated definition `MediaPackageV2GroupSettings`
+- updated `AWS::Neptune::DBInstance`
+  - added property `PubliclyAccessible`
+- updated `AWS::SageMaker::Cluster`
+  - added definition `TieredStorageConfig`
+  - added property `TieredStorageConfig`

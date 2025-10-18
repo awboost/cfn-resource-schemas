@@ -1,5 +1,5 @@
 {
-  "$hash": "c12d86040c1652af77cc87ba7b92f7982e77c4a1",
+  "$hash": "09896632c5d8dd247f86d7128fd1a2386d6403ce",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -1419,7 +1419,16 @@
           "items": { "$ref": "#/definitions/CaptionLanguageMapping" },
           "type": "array",
           "uniqueItems": false
-        }
+        },
+        "Id3Behavior": { "type": "string" },
+        "KlvBehavior": { "type": "string" },
+        "NielsenId3Behavior": { "type": "string" },
+        "Scte35Type": { "type": "string" },
+        "SegmentLength": { "type": "integer" },
+        "SegmentLengthUnits": { "type": "string" },
+        "TimedMetadataId3Frame": { "type": "string" },
+        "TimedMetadataId3Period": { "type": "integer" },
+        "TimedMetadataPassthrough": { "type": "string" }
       },
       "type": "object"
     },
