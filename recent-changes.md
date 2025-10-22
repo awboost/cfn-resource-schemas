@@ -1,2 +1,15 @@
-- updated `AWS::Wisdom::AIPrompt`
-  - updated definition `AIPromptType`
+- updated `AWS::Events::EventBusPolicy`
+  - added `deprecatedProperties`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated definition `Condition`
+  - updated handler permissions
+  - updated property `Action`
+  - updated property `EventBusName`
+  - updated property `Principal`
+  - updated property `StatementId`
+  - updated property `Statement`
