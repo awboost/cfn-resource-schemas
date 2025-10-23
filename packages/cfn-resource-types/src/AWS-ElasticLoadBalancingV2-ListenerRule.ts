@@ -26,6 +26,7 @@ export type ElasticLoadBalancingV2ListenerRuleProperties = {
      If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.
      */
   Priority: number;
+  Transforms?: Transform[];
 };
 /**
  * Attribute type definition for `AWS::ElasticLoadBalancingV2::ListenerRule`.
@@ -54,8 +55,9 @@ export type Action = {
    */
   FixedResponseConfig?: FixedResponseConfig;
   /**
-   * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
-   */
+     * Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+     If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+     */
   ForwardConfig?: ForwardConfig;
   /**
    * The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
@@ -66,7 +68,7 @@ export type Action = {
    */
   RedirectConfig?: RedirectConfig;
   /**
-   * The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+   * The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
    */
   TargetGroupArn?: string;
   /**
@@ -198,7 +200,8 @@ export type FixedResponseConfig = {
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::ListenerRule.ForwardConfig`.
- * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+ * Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+ If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html}
  */
 export type ForwardConfig = {
@@ -217,6 +220,7 @@ export type ForwardConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-hostheaderconfig.html}
  */
 export type HostHeaderConfig = {
+  RegexValues?: string[];
   /**
      * The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
      If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
@@ -234,6 +238,7 @@ export type HttpHeaderConfig = {
    * The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.
    */
   HttpHeaderName?: string;
+  RegexValues?: string[];
   /**
      * The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
      If the same header appears multiple times in the request, we search them in order until a match is found.
@@ -260,6 +265,7 @@ export type HttpRequestMethodConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html}
  */
 export type PathPatternConfig = {
+  RegexValues?: string[];
   /**
      * The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
      If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string.
@@ -335,6 +341,21 @@ export type RedirectConfig = {
   StatusCode: string;
 };
 /**
+ * Type definition for `AWS::ElasticLoadBalancingV2::ListenerRule.RewriteConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rewriteconfig.html}
+ */
+export type RewriteConfig = {
+  Regex: string;
+  Replace: string;
+};
+/**
+ * Type definition for `AWS::ElasticLoadBalancingV2::ListenerRule.RewriteConfigObject`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rewriteconfigobject.html}
+ */
+export type RewriteConfigObject = {
+  Rewrites: RewriteConfig[];
+};
+/**
  * Type definition for `AWS::ElasticLoadBalancingV2::ListenerRule.RuleCondition`.
  * Specifies a condition for a listener rule.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html}
@@ -370,6 +391,7 @@ export type RuleCondition = {
    * Information for a query string condition. Specify only when ``Field`` is ``query-string``.
    */
   QueryStringConfig?: QueryStringConfig;
+  RegexValues?: string[];
   /**
    * Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.
    */
@@ -411,7 +433,7 @@ export type SourceIpConfig = {
  */
 export type TargetGroupStickinessConfig = {
   /**
-   * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+   * [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
    */
   DurationSeconds?: number;
   /**
@@ -433,6 +455,15 @@ export type TargetGroupTuple = {
    * The weight. The range is 0 to 999.
    */
   Weight?: number;
+};
+/**
+ * Type definition for `AWS::ElasticLoadBalancingV2::ListenerRule.Transform`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-transform.html}
+ */
+export type Transform = {
+  HostHeaderRewriteConfig?: RewriteConfigObject;
+  Type: string;
+  UrlRewriteConfig?: RewriteConfigObject;
 };
 /**
  * Resource type definition for `AWS::ElasticLoadBalancingV2::ListenerRule`.

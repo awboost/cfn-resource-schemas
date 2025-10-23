@@ -1,5 +1,5 @@
 {
-  "$hash": "7f3b4ca01feed4ae7593b2acdaba924c311cdd77",
+  "$hash": "32eb2c19c7b4878a265dd1a3815c69fce9f6bd64",
   "$id": "aws-billingconductor-billinggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PrimaryAccountId"],
@@ -28,7 +28,7 @@
       "properties": {
         "PricingPlanArn": {
           "description": "ARN of the attached pricing plan",
-          "pattern": "arn:aws(-cn)?:billingconductor::[0-9]{12}:pricingplan/[a-zA-Z0-9]{10}",
+          "pattern": "arn:aws(-cn)?:billingconductor::(aws|[0-9]{12}):pricingplan/(BasicPricingPlan|[a-zA-Z0-9]{10})",
           "type": "string"
         }
       },

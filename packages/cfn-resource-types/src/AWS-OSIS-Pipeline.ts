@@ -44,6 +44,14 @@ export type OSISPipelineProperties = {
    */
   PipelineName: string;
   /**
+   * The Pipeline Role (ARN) for the pipeline.
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:(aws|aws\-cn|aws\-us\-gov|aws\-iso|aws\-iso\-b|aws\-iso\-e|aws\-iso\-f):iam::[0-9]+:role\/.*$`
+   */
+  PipelineRoleArn?: string;
+  ResourcePolicy?: ResourcePolicy;
+  /**
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];
@@ -64,7 +72,7 @@ export type OSISPipelineAttributes = {
   /**
    * The Amazon Resource Name (ARN) of the pipeline.
    * @minLength `46`
-   * @maxLength `76`
+   * @maxLength `78`
    * @pattern `^arn:(aws|aws\-cn|aws\-us\-gov|aws\-iso|aws\-iso\-b):osis:.+:pipeline\/.+$`
    */
   PipelineArn: string;
@@ -162,6 +170,13 @@ export type LogPublishingOptions = {
    * Whether logs should be published.
    */
   IsLoggingEnabled?: boolean;
+};
+/**
+ * Type definition for `AWS::OSIS::Pipeline.ResourcePolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-resourcepolicy.html}
+ */
+export type ResourcePolicy = {
+  Policy: Record<string, any>;
 };
 /**
  * Type definition for `AWS::OSIS::Pipeline.Tag`.

@@ -1,15 +1,48 @@
-- updated `AWS::Events::EventBusPolicy`
-  - added `deprecatedProperties`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated definition `Condition`
+- updated `AWS::BillingConductor::BillingGroup`
+  - updated definition `ComputationPreference`
+- updated `AWS::BillingConductor::PricingPlan`
+  - updated property `Arn`
+- updated `AWS::Connect::EvaluationForm`
+  - added definition `AutomaticFailConfiguration`
+  - added definition `EvaluationFormItemEnablementConditionOperand`
+  - added definition `EvaluationFormItemEnablementCondition`
+  - added definition `EvaluationFormItemEnablementConfiguration`
+  - added definition `EvaluationFormItemEnablementExpression`
+  - added definition `EvaluationFormItemEnablementSourceValue`
+  - added definition `EvaluationFormItemEnablementSource`
+  - added definition `EvaluationFormQuestionAutomationAnswerSource`
+  - added definition `EvaluationFormTextQuestionAutomation`
+  - added definition `EvaluationFormTextQuestionProperties`
+  - updated definition `EvaluationFormNumericQuestionAutomation`
+  - updated definition `EvaluationFormNumericQuestionOption`
+  - updated definition `EvaluationFormQuestionTypeProperties`
+  - updated definition `EvaluationFormQuestion`
+  - updated definition `EvaluationFormSingleSelectQuestionAutomation`
+  - updated definition `EvaluationFormSingleSelectQuestionOption`
+- updated `AWS::ECS::Service`
+  - updated definition `CanaryConfiguration`
+  - updated definition `LinearConfiguration`
+  - updated property `LaunchType`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated definition `Action`
+  - updated definition `ForwardConfig`
+  - updated definition `TargetGroupStickinessConfig`
+- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
+  - added definition `RewriteConfigList`
+  - added definition `RewriteConfigObject`
+  - added definition `RewriteConfig`
+  - added definition `Transform`
+  - added property `Transforms`
+  - updated definition `Action`
+  - updated definition `ForwardConfig`
+  - updated definition `HostHeaderConfig`
+  - updated definition `HttpHeaderConfig`
+  - updated definition `PathPatternConfig`
+  - updated definition `RuleCondition`
+  - updated definition `TargetGroupStickinessConfig`
+- updated `AWS::OSIS::Pipeline`
+  - added definition `ResourcePolicy`
+  - added property `PipelineRoleArn`
+  - added property `ResourcePolicy`
   - updated handler permissions
-  - updated property `Action`
-  - updated property `EventBusName`
-  - updated property `Principal`
-  - updated property `StatementId`
-  - updated property `Statement`
+  - updated property `PipelineArn`

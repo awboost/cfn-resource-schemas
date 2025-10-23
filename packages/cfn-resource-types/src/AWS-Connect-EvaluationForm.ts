@@ -65,6 +65,17 @@ export type AutoEvaluationConfiguration = {
   Enabled?: boolean;
 };
 /**
+ * Type definition for `AWS::Connect::EvaluationForm.AutomaticFailConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-automaticfailconfiguration.html}
+ */
+export type AutomaticFailConfiguration = {
+  /**
+   * The target section refId to control failure propagation boundary.
+   * @pattern `^[a-zA-Z0-9._-]{1,40}$`
+   */
+  TargetSection?: string;
+};
+/**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormBaseItem`.
  * An item at the root level. All items must be sections.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformbaseitem.html}
@@ -91,11 +102,104 @@ export type EvaluationFormItem = {
   Section?: EvaluationFormSection;
 };
 /**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementcondition.html}
+ */
+export type EvaluationFormItemEnablementCondition = {
+  /**
+   * The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.
+   * @minLength `1`
+   */
+  Operands: EvaluationFormItemEnablementConditionOperand[];
+  /**
+   * The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+   */
+  Operator?: "OR" | "AND";
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementConditionOperand`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconditionoperand.html}
+ */
+export type EvaluationFormItemEnablementConditionOperand = {
+  /**
+   * A direct comparison expression that evaluates a form item's value against specified criteria.
+   */
+  Expression?: EvaluationFormItemEnablementExpression;
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconfiguration.html}
+ */
+export type EvaluationFormItemEnablementConfiguration = {
+  /**
+   * Defines the enablement status to be applied when the specified condition is met.
+   */
+  Action: "DISABLE" | "ENABLE";
+  /**
+   * Specifies the logical condition that determines when to apply the enablement rules.
+   */
+  Condition: EvaluationFormItemEnablementCondition;
+  /**
+   * Specifies the default enablement status to be applied when the condition is not satisfied.
+   */
+  DefaultAction?: "DISABLE" | "ENABLE";
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementExpression`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementexpression.html}
+ */
+export type EvaluationFormItemEnablementExpression = {
+  /**
+   * Specifies the comparison method to determine if the source value matches any of the specified values.
+   */
+  Comparator: "IN" | "NOT_IN";
+  /**
+   * Identifies the form item whose value will be evaluated in the expression.
+   */
+  Source: EvaluationFormItemEnablementSource;
+  /**
+   * The list of possible values to compare against the source form item's value.
+   * @minLength `1`
+   */
+  Values: EvaluationFormItemEnablementSourceValue[];
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementsource.html}
+ */
+export type EvaluationFormItemEnablementSource = {
+  /**
+   * The identifier to reference the item.
+   * @pattern `^[a-zA-Z0-9._-]{1,40}$`
+   */
+  RefId?: string;
+  /**
+   * The type of the source entity.
+   */
+  Type: "QUESTION_REF_ID";
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementSourceValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementsourcevalue.html}
+ */
+export type EvaluationFormItemEnablementSourceValue = {
+  /**
+   * The reference id of the source entity value.
+   * @pattern `^[a-zA-Z0-9._-]{1,40}$`
+   */
+  RefId?: string;
+  /**
+   * Type of the source entity value.
+   */
+  Type?: "OPTION_REF_ID";
+};
+/**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormNumericQuestionAutomation`.
  * Information about the automation configuration in numeric questions.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html}
  */
 export type EvaluationFormNumericQuestionAutomation = {
+  AnswerSource?: EvaluationFormQuestionAutomationAnswerSource;
   /**
    * The property value of the automation.
    */
@@ -111,6 +215,7 @@ export type EvaluationFormNumericQuestionOption = {
    * The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
    */
   AutomaticFail?: boolean;
+  AutomaticFailConfiguration?: AutomaticFailConfiguration;
   /**
    * The maximum answer value of the range option.
    */
@@ -159,6 +264,7 @@ export type EvaluationFormNumericQuestionProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html}
  */
 export type EvaluationFormQuestion = {
+  Enablement?: EvaluationFormItemEnablementConfiguration;
   /**
    * The instructions of the section.
    *Length Constraints*: Minimum length of 0. Maximum length of 1024.
@@ -201,6 +307,16 @@ export type EvaluationFormQuestion = {
   Weight?: number;
 };
 /**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormQuestionAutomationAnswerSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestionautomationanswersource.html}
+ */
+export type EvaluationFormQuestionAutomationAnswerSource = {
+  /**
+   * The type of the answer sourcr
+   */
+  SourceType: "CONTACT_LENS_DATA" | "GEN_AI";
+};
+/**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormQuestionTypeProperties`.
  * Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html}
@@ -214,6 +330,7 @@ export type EvaluationFormQuestionTypeProperties = {
    * The properties of the numeric question.
    */
   SingleSelect?: EvaluationFormSingleSelectQuestionProperties;
+  Text?: EvaluationFormTextQuestionProperties;
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormSection`.
@@ -261,6 +378,7 @@ export type EvaluationFormSection = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html}
  */
 export type EvaluationFormSingleSelectQuestionAutomation = {
+  AnswerSource?: EvaluationFormQuestionAutomationAnswerSource;
   /**
    * The identifier of the default answer option, when none of the automation options match the criteria.
    *Length Constraints*: Minimum length of 1. Maximum length of 40.
@@ -297,6 +415,7 @@ export type EvaluationFormSingleSelectQuestionOption = {
    * The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
    */
   AutomaticFail?: boolean;
+  AutomaticFailConfiguration?: AutomaticFailConfiguration;
   /**
    * The identifier of the answer option. An identifier must be unique within the question.
    *Length Constraints*: Minimum length of 1. Maximum length of 40.
@@ -342,6 +461,26 @@ export type EvaluationFormSingleSelectQuestionProperties = {
    * @maxLength `256`
    */
   Options: EvaluationFormSingleSelectQuestionOption[];
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormTextQuestionAutomation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionautomation.html}
+ */
+export type EvaluationFormTextQuestionAutomation = {
+  /**
+   * The source of automation answer of the question.
+   */
+  AnswerSource?: EvaluationFormQuestionAutomationAnswerSource;
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormTextQuestionProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionproperties.html}
+ */
+export type EvaluationFormTextQuestionProperties = {
+  /**
+   * Specifies how the question can be automatically answered.
+   */
+  Automation?: EvaluationFormTextQuestionAutomation;
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.NumericQuestionPropertyValueAutomation`.

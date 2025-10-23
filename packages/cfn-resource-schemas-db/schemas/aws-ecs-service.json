@@ -1,5 +1,5 @@
 {
-  "$hash": "ed7065b1254952cf333d30c51cf47a76e32e2db0",
+  "$hash": "77766907116577539c0837372c5c996bc5314e0b",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -69,7 +69,7 @@
         },
         "CanaryPercent": {
           "maximum": 100,
-          "minimum": 1,
+          "minimum": 0.1,
           "multipleOf": 0.1,
           "type": "number"
         }
@@ -274,7 +274,7 @@
         },
         "StepPercent": {
           "maximum": 100,
-          "minimum": 1,
+          "minimum": 3,
           "multipleOf": 0.1,
           "type": "number"
         }
@@ -758,7 +758,7 @@
       "type": "integer"
     },
     "LaunchType": {
-      "description": "The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.",
+      "description": "The launch type on which to run your service. For more information, see [Amazon ECS Launch Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html) in the *Amazon Elastic Container Service Developer Guide*.\n  If you want to use Managed Instances, you must use the ``capacityProviderStrategy`` request parameter",
       "enum": ["EC2", "FARGATE", "EXTERNAL"],
       "type": "string"
     },

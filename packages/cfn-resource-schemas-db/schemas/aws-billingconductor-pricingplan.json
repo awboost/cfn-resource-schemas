@@ -1,5 +1,5 @@
 {
-  "$hash": "4de0bc87509dcdfe96c5669032cf895da5fc757d",
+  "$hash": "7a7d070c1558ea456413c5a451402b4e19ac31d4",
   "$id": "aws-billingconductor-pricingplan.json",
   "additionalProperties": false,
   "definitions": {
@@ -66,7 +66,7 @@
   "properties": {
     "Arn": {
       "description": "Pricing Plan ARN",
-      "pattern": "arn:aws(-cn)?:billingconductor::[0-9]{12}:pricingplan/[a-zA-Z0-9]{10}",
+      "pattern": "arn:aws(-cn)?:billingconductor::(aws|[0-9]{12}):pricingplan/(BasicPricingPlan|[a-zA-Z0-9]{10})",
       "type": "string"
     },
     "CreationTime": {

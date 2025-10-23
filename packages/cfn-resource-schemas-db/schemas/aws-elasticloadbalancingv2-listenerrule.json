@@ -1,5 +1,5 @@
 {
-  "$hash": "c95473216da2e05cdfd1ed44670b7933cbc7077a",
+  "$hash": "0a4b874280fdef870dedec7ed092545482c2b8d4",
   "$id": "aws-elasticloadbalancingv2-listenerrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ListenerArn"],
@@ -22,7 +22,7 @@
         },
         "ForwardConfig": {
           "$ref": "#/definitions/ForwardConfig",
-          "description": "Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``."
+          "description": "Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.\n If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``."
         },
         "Order": {
           "description": "The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.",
@@ -33,7 +33,7 @@
           "description": "[Application Load Balancer] Information for creating a redirect action. Specify only when ``Type`` is ``redirect``."
         },
         "TargetGroupArn": {
-          "description": "The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.",
+          "description": "The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.",
           "type": "string"
         },
         "Type": { "description": "The type of action.", "type": "string" }
@@ -170,7 +170,7 @@
     },
     "ForwardConfig": {
       "additionalProperties": false,
-      "description": "Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.",
+      "description": "Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.\n If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.",
       "properties": {
         "TargetGroupStickinessConfig": {
           "$ref": "#/definitions/TargetGroupStickinessConfig",
@@ -190,6 +190,10 @@
       "additionalProperties": false,
       "description": "Information about a host header condition.",
       "properties": {
+        "RegexValues": {
+          "$ref": "#/definitions/ListOfStrings",
+          "description": ""
+        },
         "Values": {
           "$ref": "#/definitions/ListOfStrings",
           "description": "The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one \".\" character. You can include only alphabetical characters after the final \".\" character.\n If you specify multiple strings, the condition is satisfied if one of the strings matches the host name."
@@ -204,6 +208,10 @@
         "HttpHeaderName": {
           "description": "The name of the HTTP header field. The maximum size is 40 characters. The header name is case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not supported.",
           "type": "string"
+        },
+        "RegexValues": {
+          "$ref": "#/definitions/ListOfStrings",
+          "description": ""
         },
         "Values": {
           "$ref": "#/definitions/ListOfStrings",
@@ -233,6 +241,10 @@
       "additionalProperties": false,
       "description": "Information about a path pattern condition.",
       "properties": {
+        "RegexValues": {
+          "$ref": "#/definitions/ListOfStrings",
+          "description": ""
+        },
         "Values": {
           "$ref": "#/definitions/ListOfStrings",
           "description": "The path patterns to compare against the request URL. The maximum size of each string is 128 characters. The comparison is case sensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).\n If you specify multiple strings, the condition is satisfied if one of them matches the request URL. The path pattern is compared only to the path of the URL, not to its query string."
@@ -298,6 +310,31 @@
       "required": ["StatusCode"],
       "type": "object"
     },
+    "RewriteConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Regex": { "type": "string" },
+        "Replace": { "type": "string" }
+      },
+      "required": ["Regex", "Replace"],
+      "type": "object"
+    },
+    "RewriteConfigList": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/RewriteConfig" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "RewriteConfigObject": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Rewrites": { "$ref": "#/definitions/RewriteConfigList" }
+      },
+      "required": ["Rewrites"],
+      "type": "object"
+    },
     "RuleCondition": {
       "additionalProperties": false,
       "description": "Specifies a condition for a listener rule.",
@@ -325,6 +362,10 @@
         "QueryStringConfig": {
           "$ref": "#/definitions/QueryStringConfig",
           "description": "Information for a query string condition. Specify only when ``Field`` is ``query-string``."
+        },
+        "RegexValues": {
+          "$ref": "#/definitions/ListOfStrings",
+          "description": ""
         },
         "SourceIpConfig": {
           "$ref": "#/definitions/SourceIpConfig",
@@ -356,7 +397,7 @@
       "description": "Information about the target group stickiness for a rule.",
       "properties": {
         "DurationSeconds": {
-          "description": "The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.",
+          "description": "[Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.",
           "type": "integer"
         },
         "Enabled": {
@@ -379,6 +420,23 @@
           "type": "integer"
         }
       },
+      "type": "object"
+    },
+    "Transform": {
+      "additionalProperties": false,
+      "description": "",
+      "oneOf": [
+        { "required": ["HostHeaderRewriteConfig"] },
+        { "required": ["UrlRewriteConfig"] }
+      ],
+      "properties": {
+        "HostHeaderRewriteConfig": {
+          "$ref": "#/definitions/RewriteConfigObject"
+        },
+        "Type": { "type": "string" },
+        "UrlRewriteConfig": { "$ref": "#/definitions/RewriteConfigObject" }
+      },
+      "required": ["Type"],
       "type": "object"
     }
   },
@@ -451,7 +509,14 @@
       "description": "The rule priority. A listener can't have multiple rules with the same priority.\n If you try to reorder rules by updating their priorities, do not specify a new priority if an existing rule already uses this priority, as this can cause an error. If you need to reuse a priority with a different rule, you must remove it as a priority first, and then specify it in a subsequent update.",
       "type": "integer"
     },
-    "RuleArn": { "description": "", "type": "string" }
+    "RuleArn": { "description": "", "type": "string" },
+    "Transforms": {
+      "description": "",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Transform" },
+      "type": "array",
+      "uniqueItems": true
+    }
   },
   "readOnlyProperties": ["/properties/RuleArn", "/properties/IsDefault"],
   "required": ["Actions", "Priority", "Conditions"],

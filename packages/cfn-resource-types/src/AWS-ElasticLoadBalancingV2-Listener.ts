@@ -73,8 +73,9 @@ export type Action = {
    */
   FixedResponseConfig?: FixedResponseConfig;
   /**
-   * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
-   */
+     * Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+     If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+     */
   ForwardConfig?: ForwardConfig;
   /**
    * The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
@@ -85,7 +86,7 @@ export type Action = {
    */
   RedirectConfig?: RedirectConfig;
   /**
-   * The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to one or more target groups, use ``ForwardConfig`` instead.
+   * The Amazon Resource Name (ARN) of the target group. Specify only when ``Type`` is ``forward`` and you want to route to a single target group. To route to multiple target groups, you must use ``ForwardConfig`` instead.
    */
   TargetGroupArn?: string;
   /**
@@ -228,7 +229,8 @@ export type FixedResponseConfig = {
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::Listener.ForwardConfig`.
- * Information for creating an action that distributes requests among one or more target groups. For Network Load Balancers, you can specify a single target group. Specify only when ``Type`` is ``forward``. If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
+ * Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.
+ If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html}
  */
 export type ForwardConfig = {
@@ -349,7 +351,7 @@ export type RedirectConfig = {
  */
 export type TargetGroupStickinessConfig = {
   /**
-   * The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
+   * [Application Load Balancers] The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days). You must specify this value when enabling target group stickiness.
    */
   DurationSeconds?: number;
   /**

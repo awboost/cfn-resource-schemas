@@ -1,5 +1,5 @@
 {
-  "$hash": "05f7d2ce132077930913f3b392f94c7a63a7a98e",
+  "$hash": "7652adfe66d40367261dea452534673023a7c095",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -7,6 +7,18 @@
       "additionalProperties": false,
       "description": "",
       "properties": { "Enabled": { "description": "", "type": "boolean" } },
+      "type": "object"
+    },
+    "AutomaticFailConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "TargetSection": {
+          "description": "The target section refId to control failure propagation boundary.",
+          "pattern": "^[a-zA-Z0-9._-]{1,40}$",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "EvaluationFormBaseItem": {
@@ -36,10 +48,125 @@
       },
       "type": "object"
     },
+    "EvaluationFormItemEnablementCondition": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Operands": {
+          "description": "The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.",
+          "insertionOrder": true,
+          "items": {
+            "$ref": "#/definitions/EvaluationFormItemEnablementConditionOperand"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "Operator": {
+          "description": "The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.",
+          "enum": ["OR", "AND"],
+          "type": "string"
+        }
+      },
+      "required": ["Operands"],
+      "type": "object"
+    },
+    "EvaluationFormItemEnablementConditionOperand": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Expression": {
+          "$ref": "#/definitions/EvaluationFormItemEnablementExpression",
+          "description": "A direct comparison expression that evaluates a form item's value against specified criteria."
+        }
+      },
+      "type": "object"
+    },
+    "EvaluationFormItemEnablementConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Action": {
+          "description": "Defines the enablement status to be applied when the specified condition is met.",
+          "enum": ["DISABLE", "ENABLE"],
+          "type": "string"
+        },
+        "Condition": {
+          "$ref": "#/definitions/EvaluationFormItemEnablementCondition",
+          "description": "Specifies the logical condition that determines when to apply the enablement rules."
+        },
+        "DefaultAction": {
+          "description": "Specifies the default enablement status to be applied when the condition is not satisfied.",
+          "enum": ["DISABLE", "ENABLE"],
+          "type": "string"
+        }
+      },
+      "required": ["Condition", "Action"],
+      "type": "object"
+    },
+    "EvaluationFormItemEnablementExpression": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Comparator": {
+          "description": "Specifies the comparison method to determine if the source value matches any of the specified values.",
+          "enum": ["IN", "NOT_IN"],
+          "type": "string"
+        },
+        "Source": {
+          "$ref": "#/definitions/EvaluationFormItemEnablementSource",
+          "description": "Identifies the form item whose value will be evaluated in the expression."
+        },
+        "Values": {
+          "description": "The list of possible values to compare against the source form item's value.",
+          "insertionOrder": true,
+          "items": {
+            "$ref": "#/definitions/EvaluationFormItemEnablementSourceValue"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["Source", "Values", "Comparator"],
+      "type": "object"
+    },
+    "EvaluationFormItemEnablementSource": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "RefId": { "$ref": "#/definitions/RefId" },
+        "Type": {
+          "description": "The type of the source entity.",
+          "enum": ["QUESTION_REF_ID"],
+          "type": "string"
+        }
+      },
+      "required": ["Type"],
+      "type": "object"
+    },
+    "EvaluationFormItemEnablementSourceValue": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "RefId": {
+          "$ref": "#/definitions/RefId",
+          "description": "The reference id of the source entity value."
+        },
+        "Type": {
+          "description": "Type of the source entity value.",
+          "enum": ["OPTION_REF_ID"],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "EvaluationFormNumericQuestionAutomation": {
       "additionalProperties": false,
       "description": "Information about the automation configuration in numeric questions.",
       "properties": {
+        "AnswerSource": {
+          "$ref": "#/definitions/EvaluationFormQuestionAutomationAnswerSource",
+          "description": ""
+        },
         "PropertyValue": {
           "$ref": "#/definitions/NumericQuestionPropertyValueAutomation",
           "description": "The property value of the automation."
@@ -54,6 +181,10 @@
         "AutomaticFail": {
           "description": "The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.",
           "type": "boolean"
+        },
+        "AutomaticFailConfiguration": {
+          "$ref": "#/definitions/AutomaticFailConfiguration",
+          "description": ""
         },
         "MaxValue": {
           "description": "The maximum answer value of the range option.",
@@ -105,6 +236,10 @@
       "additionalProperties": false,
       "description": "Information about a question from an evaluation form.",
       "properties": {
+        "Enablement": {
+          "$ref": "#/definitions/EvaluationFormItemEnablementConfiguration",
+          "description": ""
+        },
         "Instructions": {
           "description": "The instructions of the section.\n *Length Constraints*: Minimum length of 0. Maximum length of 1024.",
           "maxLength": 1024,
@@ -141,6 +276,19 @@
       "required": ["RefId", "Title", "QuestionType"],
       "type": "object"
     },
+    "EvaluationFormQuestionAutomationAnswerSource": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "SourceType": {
+          "description": "The type of the answer sourcr",
+          "enum": ["CONTACT_LENS_DATA", "GEN_AI"],
+          "type": "string"
+        }
+      },
+      "required": ["SourceType"],
+      "type": "object"
+    },
     "EvaluationFormQuestionTypeProperties": {
       "additionalProperties": false,
       "description": "Information about properties for a question in an evaluation form. The question type properties must be either for a numeric question or a single select question.",
@@ -152,6 +300,10 @@
         "SingleSelect": {
           "$ref": "#/definitions/EvaluationFormSingleSelectQuestionProperties",
           "description": "The properties of the numeric question."
+        },
+        "Text": {
+          "$ref": "#/definitions/EvaluationFormTextQuestionProperties",
+          "description": ""
         }
       },
       "type": "object"
@@ -195,6 +347,10 @@
       "additionalProperties": false,
       "description": "Information about the automation configuration in single select questions. Automation options are evaluated in order, and the first matched option is applied. If no automation option matches, and there is a default option, then the default option is applied.",
       "properties": {
+        "AnswerSource": {
+          "$ref": "#/definitions/EvaluationFormQuestionAutomationAnswerSource",
+          "description": ""
+        },
         "DefaultOptionRefId": {
           "$ref": "#/definitions/RefId",
           "description": "The identifier of the default answer option, when none of the automation options match the criteria.\n *Length Constraints*: Minimum length of 1. Maximum length of 40."
@@ -232,6 +388,10 @@
         "AutomaticFail": {
           "description": "The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.",
           "type": "boolean"
+        },
+        "AutomaticFailConfiguration": {
+          "$ref": "#/definitions/AutomaticFailConfiguration",
+          "description": ""
         },
         "RefId": {
           "$ref": "#/definitions/RefId",
@@ -276,6 +436,28 @@
         }
       },
       "required": ["Options"],
+      "type": "object"
+    },
+    "EvaluationFormTextQuestionAutomation": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "AnswerSource": {
+          "$ref": "#/definitions/EvaluationFormQuestionAutomationAnswerSource",
+          "description": "The source of automation answer of the question."
+        }
+      },
+      "type": "object"
+    },
+    "EvaluationFormTextQuestionProperties": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Automation": {
+          "$ref": "#/definitions/EvaluationFormTextQuestionAutomation",
+          "description": "Specifies how the question can be automatically answered."
+        }
+      },
       "type": "object"
     },
     "NumericQuestionPropertyValueAutomation": {
