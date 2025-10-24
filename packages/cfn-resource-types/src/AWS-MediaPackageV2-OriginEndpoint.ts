@@ -42,6 +42,10 @@ export type MediaPackageV2OriginEndpointProperties = {
    */
   LowLatencyHlsManifests?: LowLatencyHlsManifestConfiguration[];
   /**
+   * <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+   */
+  MssManifests?: MssManifestConfiguration[];
+  /**
    * @minLength `1`
    * @maxLength `256`
    * @pattern `^[a-zA-Z0-9_-]+$`
@@ -97,6 +101,7 @@ export type MediaPackageV2OriginEndpointAttributes = {
    * <p>The date and time the origin endpoint was modified.</p>
    */
   ModifiedAt: string;
+  MssManifestUrls: string[];
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.AdMarkerDash`.
@@ -107,7 +112,7 @@ export type AdMarkerDash = "BINARY" | "XML";
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.AdMarkerHls`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-admarkerhls.html}
  */
-export type AdMarkerHls = "DATERANGE";
+export type AdMarkerHls = "DATERANGE" | "SCTE35_ENHANCED";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.CmafEncryptionMethod`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-cmafencryptionmethod.html}
@@ -117,7 +122,7 @@ export type CmafEncryptionMethod = "CENC" | "CBCS";
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ContainerType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-containertype.html}
  */
-export type ContainerType = "TS" | "CMAF";
+export type ContainerType = "TS" | "CMAF" | "ISM";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashBaseUrl`.
  * <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
@@ -459,6 +464,7 @@ export type EncryptionContractConfiguration = {
  */
 export type EncryptionMethod = {
   CmafEncryptionMethod?: CmafEncryptionMethod;
+  IsmEncryptionMethod?: IsmEncryptionMethod;
   TsEncryptionMethod?: TsEncryptionMethod;
 };
 /**
@@ -558,6 +564,11 @@ export type HlsManifestConfiguration = {
   UrlEncodeChildManifest?: boolean;
 };
 /**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.IsmEncryptionMethod`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-ismencryptionmethod.html}
+ */
+export type IsmEncryptionMethod = "CENC";
+/**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.LowLatencyHlsManifestConfiguration`.
  * <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-lowlatencyhlsmanifestconfiguration.html}
@@ -602,6 +613,34 @@ export type LowLatencyHlsManifestConfiguration = {
    */
   UrlEncodeChildManifest?: boolean;
 };
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.MssManifestConfiguration`.
+ * <p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-mssmanifestconfiguration.html}
+ */
+export type MssManifestConfiguration = {
+  /**
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
+  ManifestLayout?: MssManifestLayout;
+  /**
+   * <p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[a-zA-Z0-9-]+$`
+   */
+  ManifestName: string;
+  /**
+   * <p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>
+   */
+  ManifestWindowSeconds?: number;
+};
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.MssManifestLayout`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-mssmanifestlayout.html}
+ */
+export type MssManifestLayout = "FULL" | "COMPACT";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.PresetSpeke20Audio`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-presetspeke20audio.html}

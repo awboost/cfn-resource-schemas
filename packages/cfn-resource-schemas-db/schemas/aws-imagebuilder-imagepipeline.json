@@ -1,5 +1,5 @@
 {
-  "$hash": "967c7205f3b8cc3a468a30e90ef582fc0091fee5",
+  "$hash": "fddf3578104595a8c830b3dac8005286a53f4f55",
   "$id": "aws-imagebuilder-imagepipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -206,6 +206,10 @@
       "description": "The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.",
       "type": "string"
     },
+    "DeploymentId": {
+      "description": "The deployment ID of the pipeline, used for resource create/update triggers.",
+      "type": "string"
+    },
     "Description": {
       "description": "The description of the image pipeline.",
       "type": "string"
@@ -268,7 +272,7 @@
       "type": "array"
     }
   },
-  "readOnlyProperties": ["/properties/Arn"],
+  "readOnlyProperties": ["/properties/Arn", "/properties/DeploymentId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
   "tagging": {
     "cloudFormationSystemTags": true,

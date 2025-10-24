@@ -1,5 +1,5 @@
 {
-  "$hash": "96e43e6fdeab8296c973287354316b794e7b44d6",
+  "$hash": "049bb9cf51954c2024e0f7e3214186142e16e56e",
   "$id": "aws-mediapackagev2-originendpoint.json",
   "additionalIdentifiers": [
     [
@@ -16,9 +16,12 @@
   ],
   "definitions": {
     "AdMarkerDash": { "enum": ["BINARY", "XML"], "type": "string" },
-    "AdMarkerHls": { "enum": ["DATERANGE"], "type": "string" },
+    "AdMarkerHls": {
+      "enum": ["DATERANGE", "SCTE35_ENHANCED"],
+      "type": "string"
+    },
     "CmafEncryptionMethod": { "enum": ["CENC", "CBCS"], "type": "string" },
-    "ContainerType": { "enum": ["TS", "CMAF"], "type": "string" },
+    "ContainerType": { "enum": ["TS", "CMAF", "ISM"], "type": "string" },
     "DashBaseUrl": {
       "additionalProperties": false,
       "description": "<p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>",
@@ -327,6 +330,7 @@
         "CmafEncryptionMethod": {
           "$ref": "#/definitions/CmafEncryptionMethod"
         },
+        "IsmEncryptionMethod": { "$ref": "#/definitions/IsmEncryptionMethod" },
         "TsEncryptionMethod": { "$ref": "#/definitions/TsEncryptionMethod" }
       },
       "type": "object"
@@ -427,6 +431,7 @@
       "required": ["ManifestName"],
       "type": "object"
     },
+    "IsmEncryptionMethod": { "enum": ["CENC"], "type": "string" },
     "LowLatencyHlsManifestConfiguration": {
       "additionalProperties": false,
       "description": "<p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>",
@@ -468,6 +473,28 @@
       "required": ["ManifestName"],
       "type": "object"
     },
+    "MssManifestConfiguration": {
+      "additionalProperties": false,
+      "description": "<p>Configuration details for a Microsoft Smooth Streaming (MSS) manifest associated with an origin endpoint. This includes all the settings and properties that define how the MSS content is packaged and delivered.</p>",
+      "properties": {
+        "FilterConfiguration": { "$ref": "#/definitions/FilterConfiguration" },
+        "ManifestLayout": { "$ref": "#/definitions/MssManifestLayout" },
+        "ManifestName": {
+          "description": "<p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>",
+          "maxLength": 256,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9-]+$",
+          "type": "string"
+        },
+        "ManifestWindowSeconds": {
+          "description": "<p>The duration (in seconds) of the manifest window. This represents the total amount of content available in the manifest at any given time.</p>",
+          "type": "integer"
+        }
+      },
+      "required": ["ManifestName"],
+      "type": "object"
+    },
+    "MssManifestLayout": { "enum": ["FULL", "COMPACT"], "type": "string" },
     "PresetSpeke20Audio": {
       "enum": [
         "PRESET_AUDIO_1",
@@ -740,6 +767,12 @@
       "format": "date-time",
       "type": "string"
     },
+    "MssManifestUrls": { "items": { "type": "string" }, "type": "array" },
+    "MssManifests": {
+      "description": "<p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>",
+      "items": { "$ref": "#/definitions/MssManifestConfiguration" },
+      "type": "array"
+    },
     "OriginEndpointName": {
       "maxLength": 256,
       "minLength": 1,
@@ -763,6 +796,7 @@
     "/properties/Arn",
     "/properties/CreatedAt",
     "/properties/DashManifestUrls",
+    "/properties/MssManifestUrls",
     "/properties/HlsManifestUrls",
     "/properties/LowLatencyHlsManifestUrls",
     "/properties/ModifiedAt",

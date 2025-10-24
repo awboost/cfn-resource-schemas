@@ -1,7 +1,10 @@
 {
-  "$hash": "e4e8cdb12300722edd0d71d782c19e0baa9feeb6",
+  "$hash": "53199919936c2046a83a4ab58e33711b62af28b9",
   "$id": "aws-imagebuilder-image.json",
   "additionalProperties": false,
+  "conditionalCreateOnlyProperties": [
+    "/properties/ImagePipelineExecutionSettings"
+  ],
   "createOnlyProperties": [
     "/properties/ImageRecipeArn",
     "/properties/ContainerRecipeArn",
@@ -242,6 +245,25 @@
       "description": "The AMI ID of the EC2 AMI in current region.",
       "type": "string"
     },
+    "ImagePipelineExecutionSettings": {
+      "$ref": "#/definitions/ImagePipelineExecutionSettings",
+      "dependencies": {
+        "ImagePipelineExecutionSettings": {
+          "oneOf": [
+            { "required": ["ImageRecipeArn"] },
+            { "required": ["ContainerRecipeArn"] },
+            { "required": ["InfrastructureConfigurationArn"] },
+            { "required": ["Workflows"] },
+            { "required": ["DistributionConfigurationArn"] },
+            { "required": ["ImageTestsConfiguration"] },
+            { "required": ["ImageScanningConfiguration"] },
+            { "required": ["EnhancedImageMetadataEnabled"] },
+            { "required": ["ImportDiskImageSettings"] }
+          ]
+        }
+      },
+      "description": "The image pipeline execution settings of the image."
+    },
     "ImageRecipeArn": {
       "description": "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.",
       "type": "string"
@@ -304,5 +326,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::ImageBuilder::Image"
+  "typeName": "AWS::ImageBuilder::Image",
+  "writeOnlyProperties": ["/properties/ImagePipelineExecutionSettings"]
 }

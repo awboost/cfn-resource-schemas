@@ -1,48 +1,17 @@
-- updated `AWS::BillingConductor::BillingGroup`
-  - updated definition `ComputationPreference`
-- updated `AWS::BillingConductor::PricingPlan`
-  - updated property `Arn`
-- updated `AWS::Connect::EvaluationForm`
-  - added definition `AutomaticFailConfiguration`
-  - added definition `EvaluationFormItemEnablementConditionOperand`
-  - added definition `EvaluationFormItemEnablementCondition`
-  - added definition `EvaluationFormItemEnablementConfiguration`
-  - added definition `EvaluationFormItemEnablementExpression`
-  - added definition `EvaluationFormItemEnablementSourceValue`
-  - added definition `EvaluationFormItemEnablementSource`
-  - added definition `EvaluationFormQuestionAutomationAnswerSource`
-  - added definition `EvaluationFormTextQuestionAutomation`
-  - added definition `EvaluationFormTextQuestionProperties`
-  - updated definition `EvaluationFormNumericQuestionAutomation`
-  - updated definition `EvaluationFormNumericQuestionOption`
-  - updated definition `EvaluationFormQuestionTypeProperties`
-  - updated definition `EvaluationFormQuestion`
-  - updated definition `EvaluationFormSingleSelectQuestionAutomation`
-  - updated definition `EvaluationFormSingleSelectQuestionOption`
-- updated `AWS::ECS::Service`
-  - updated definition `CanaryConfiguration`
-  - updated definition `LinearConfiguration`
-  - updated property `LaunchType`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `Action`
-  - updated definition `ForwardConfig`
-  - updated definition `TargetGroupStickinessConfig`
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - added definition `RewriteConfigList`
-  - added definition `RewriteConfigObject`
-  - added definition `RewriteConfig`
-  - added definition `Transform`
-  - added property `Transforms`
-  - updated definition `Action`
-  - updated definition `ForwardConfig`
-  - updated definition `HostHeaderConfig`
-  - updated definition `HttpHeaderConfig`
-  - updated definition `PathPatternConfig`
-  - updated definition `RuleCondition`
-  - updated definition `TargetGroupStickinessConfig`
-- updated `AWS::OSIS::Pipeline`
-  - added definition `ResourcePolicy`
-  - added property `PipelineRoleArn`
-  - added property `ResourcePolicy`
-  - updated handler permissions
-  - updated property `PipelineArn`
+- updated `AWS::ImageBuilder::Image`
+  - added `conditionalCreateOnlyProperties`
+  - added `writeOnlyProperties`
+  - added property `ImagePipelineExecutionSettings`
+- updated `AWS::ImageBuilder::ImagePipeline`
+  - added property `DeploymentId`
+  - updated `readOnlyProperties`
+- updated `AWS::MediaPackageV2::OriginEndpoint`
+  - added definition `IsmEncryptionMethod`
+  - added definition `MssManifestConfiguration`
+  - added definition `MssManifestLayout`
+  - added property `MssManifestUrls`
+  - added property `MssManifests`
+  - updated `readOnlyProperties`
+  - updated definition `AdMarkerHls`
+  - updated definition `ContainerType`
+  - updated definition `EncryptionMethod`

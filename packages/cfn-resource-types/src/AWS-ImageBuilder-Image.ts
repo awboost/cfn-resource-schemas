@@ -22,6 +22,10 @@ export type ImageBuilderImageProperties = {
    */
   ExecutionRole?: string;
   /**
+   * The image pipeline execution settings of the image.
+   */
+  ImagePipelineExecutionSettings?: ImagePipelineExecutionSettings;
+  /**
    * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
    */
   ImageRecipeArn?: string;
@@ -118,6 +122,21 @@ export type ImageLoggingConfiguration = {
    * The name of the log group for image build logs.
    */
   LogGroupName?: string;
+};
+/**
+ * Type definition for `AWS::ImageBuilder::Image.ImagePipelineExecutionSettings`.
+ * The settings for starting an image pipeline execution.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagepipelineexecutionsettings.html}
+ */
+export type ImagePipelineExecutionSettings = {
+  /**
+   * The deployment ID of the pipeline, used to trigger new image pipeline executions.
+   */
+  DeploymentId?: string;
+  /**
+   * Whether to trigger the image pipeline when the pipeline is updated. False by default.
+   */
+  OnUpdate?: boolean;
 };
 /**
  * Type definition for `AWS::ImageBuilder::Image.ImageScanningConfiguration`.

@@ -75,6 +75,10 @@ export type ImageBuilderImagePipelineAttributes = {
    * The Amazon Resource Name (ARN) of the image pipeline.
    */
   Arn: string;
+  /**
+   * The deployment ID of the pipeline, used for resource create/update triggers.
+   */
+  DeploymentId: string;
 };
 /**
  * Type definition for `AWS::ImageBuilder::ImagePipeline.AutoDisablePolicy`.
