@@ -1,5 +1,5 @@
 {
-  "$hash": "79e41379da36f1898ff2132221a02686dd943798",
+  "$hash": "3e0d5a7e6a4a4aa99d517fed31d4355bbbaa1a15",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -915,6 +915,7 @@
           "description": "Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.\n For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.",
           "type": "integer"
         },
+        "OwnerAccountId": { "description": "", "type": "string" },
         "VpcOriginId": { "description": "The VPC origin ID.", "type": "string" }
       },
       "required": ["VpcOriginId"],
@@ -935,6 +936,7 @@
         "cloudfront:GetConnectionGroup",
         "cloudfront:GetDistribution",
         "cloudfront:GetDistributionConfig",
+        "cloudfront:GetVpcOrigin",
         "cloudfront:TagResource"
       ],
       "timeoutInMinutes": 60
@@ -964,6 +966,7 @@
         "cloudfront:GetConnectionGroup",
         "cloudfront:GetDistribution",
         "cloudfront:GetDistributionConfig",
+        "cloudfront:GetVpcOrigin",
         "cloudfront:UpdateDistribution",
         "cloudfront:UpdateDistributionWithStagingConfig",
         "cloudfront:ListTagsForResource",

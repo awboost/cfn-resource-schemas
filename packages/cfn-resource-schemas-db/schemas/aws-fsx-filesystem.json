@@ -1,5 +1,5 @@
 {
-  "$hash": "935364ca67e07c371238a8cdb46c9255d1f8e59c",
+  "$hash": "9ac2bbbeeaafbe344ab0c85b652065ba4fb3e488",
   "$id": "aws-fsx-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -103,6 +103,7 @@
           "$ref": "#/definitions/DiskIopsConfiguration"
         },
         "EndpointIpAddressRange": { "type": "string" },
+        "EndpointIpv6AddressRange": { "type": "string" },
         "FsxAdminPassword": { "type": "string" },
         "HAPairs": { "type": "integer" },
         "PreferredSubnetId": { "type": "string" },

@@ -1,5 +1,5 @@
 {
-  "$hash": "1fbb2233f428d537edb0802089f3a56c2fab66df",
+  "$hash": "0efd341b2136848995fb18bfa4bd31dd5060228f",
   "$id": "aws-networkmanager-directconnectgatewayattachment.json",
   "additionalIdentifiers": [
     ["/properties/CoreNetworkId", "/properties/DirectConnectGatewayArn"]
@@ -141,6 +141,11 @@
       "items": { "type": "string" },
       "type": "array"
     },
+    "LastModificationErrors": {
+      "description": "Errors from the last modification of the attachment.",
+      "items": { "type": "string" },
+      "type": "array"
+    },
     "NetworkFunctionGroupName": {
       "description": "The name of the network function group attachment.",
       "type": "string"
@@ -189,7 +194,8 @@
     "/properties/AttachmentPolicyRuleNumber",
     "/properties/SegmentName",
     "/properties/NetworkFunctionGroupName",
-    "/properties/ResourceArn"
+    "/properties/ResourceArn",
+    "/properties/LastModificationErrors"
   ],
   "required": ["CoreNetworkId", "DirectConnectGatewayArn", "EdgeLocations"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-networkmanager/aws-networkmanager-directconnectgatewayattachment",

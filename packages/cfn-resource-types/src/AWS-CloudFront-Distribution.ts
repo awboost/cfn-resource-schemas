@@ -1068,6 +1068,7 @@ export type VpcOriginConfig = {
      For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
      */
   OriginReadTimeout?: number;
+  OwnerAccountId?: string;
   /**
    * The VPC origin ID.
    */

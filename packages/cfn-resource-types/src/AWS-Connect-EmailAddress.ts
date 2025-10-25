@@ -6,6 +6,11 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ConnectEmailAddressProperties = {
   /**
+   * List of alias configurations for the email address
+   * @maxLength `1`
+   */
+  AliasConfigurations?: AliasConfiguration[];
+  /**
    * A description for the email address.
    * @minLength `1`
    * @maxLength `250`
@@ -46,6 +51,18 @@ export type ConnectEmailAddressProperties = {
 export type ConnectEmailAddressAttributes = {
   /**
    * The identifier of the email address.
+   * @pattern `^arn:(aws|aws-us-gov):connect:[a-z]{2}-[a-z]+-[0-9]{1}:[0-9]{1,20}:instance/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/email-address/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
+   */
+  EmailAddressArn: string;
+};
+/**
+ * Type definition for `AWS::Connect::EmailAddress.AliasConfiguration`.
+ * Configuration for an email address alias
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-emailaddress-aliasconfiguration.html}
+ */
+export type AliasConfiguration = {
+  /**
+   * The identifier of the email address alias
    * @pattern `^arn:(aws|aws-us-gov):connect:[a-z]{2}-[a-z]+-[0-9]{1}:[0-9]{1,20}:instance/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/email-address/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
    */
   EmailAddressArn: string;

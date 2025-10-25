@@ -111,6 +111,7 @@ export type OntapConfiguration = {
   DeploymentType: string;
   DiskIopsConfiguration?: DiskIopsConfiguration;
   EndpointIpAddressRange?: string;
+  EndpointIpv6AddressRange?: string;
   FsxAdminPassword?: string;
   HAPairs?: number;
   PreferredSubnetId?: string;

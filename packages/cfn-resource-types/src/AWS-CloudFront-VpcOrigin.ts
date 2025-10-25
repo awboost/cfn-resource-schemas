@@ -20,6 +20,7 @@ export type CloudFrontVpcOriginProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-vpcorigin.html#aws-resource-cloudfront-vpcorigin-return-values}
  */
 export type CloudFrontVpcOriginAttributes = {
+  AccountId: string;
   Arn: string;
   CreatedTime: string;
   Id: string;

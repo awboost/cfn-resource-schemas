@@ -1,5 +1,5 @@
 {
-  "$hash": "62a0e57fcd19024a792c58405eba0e7d3cc206e3",
+  "$hash": "33f9d490644ed0257acd90f51ca58cec40559b7a",
   "$id": "aws-networkmanager-sitetositevpnattachment.json",
   "additionalIdentifiers": [
     ["/properties/CoreNetworkId", "/properties/VpnConnectionArn"]
@@ -132,6 +132,11 @@
       "description": "The Region where the edge is located.",
       "type": "string"
     },
+    "LastModificationErrors": {
+      "description": "Errors from the last modification of the attachment.",
+      "items": { "type": "string" },
+      "type": "array"
+    },
     "NetworkFunctionGroupName": {
       "description": "The name of the network function group attachment.",
       "type": "string"
@@ -187,7 +192,8 @@
     "/properties/OwnerAccountId",
     "/properties/EdgeLocation",
     "/properties/AttachmentPolicyRuleNumber",
-    "/properties/SegmentName"
+    "/properties/SegmentName",
+    "/properties/LastModificationErrors"
   ],
   "required": ["CoreNetworkId", "VpnConnectionArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-networkmanager/aws-networkmanager-sitetositevpnattachment",

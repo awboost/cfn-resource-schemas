@@ -1,17 +1,32 @@
-- updated `AWS::ImageBuilder::Image`
-  - added `conditionalCreateOnlyProperties`
-  - added `writeOnlyProperties`
-  - added property `ImagePipelineExecutionSettings`
-- updated `AWS::ImageBuilder::ImagePipeline`
-  - added property `DeploymentId`
+- added `AWS::RTBFabric::Link`
+- added `AWS::RTBFabric::RequesterGateway`
+- added `AWS::RTBFabric::ResponderGateway`
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `VpcOriginConfig`
+  - updated handler permissions
+- updated `AWS::CloudFront::VpcOrigin`
+  - added property `AccountId`
   - updated `readOnlyProperties`
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - added definition `IsmEncryptionMethod`
-  - added definition `MssManifestConfiguration`
-  - added definition `MssManifestLayout`
-  - added property `MssManifestUrls`
-  - added property `MssManifests`
+- updated `AWS::Connect::EmailAddress`
+  - added definition `AliasConfiguration`
+  - added property `AliasConfigurations`
+  - updated handler permissions
+- updated `AWS::FSx::FileSystem`
+  - updated definition `OntapConfiguration`
+- updated `AWS::Lambda::Version`
+  - updated handler permissions
+- updated `AWS::NetworkManager::ConnectAttachment`
+  - added property `LastModificationErrors`
   - updated `readOnlyProperties`
-  - updated definition `AdMarkerHls`
-  - updated definition `ContainerType`
-  - updated definition `EncryptionMethod`
+- updated `AWS::NetworkManager::DirectConnectGatewayAttachment`
+  - added property `LastModificationErrors`
+  - updated `readOnlyProperties`
+- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
+  - added property `LastModificationErrors`
+  - updated `readOnlyProperties`
+- updated `AWS::NetworkManager::TransitGatewayPeering`
+  - added property `LastModificationErrors`
+  - updated `readOnlyProperties`
+- updated `AWS::NetworkManager::VpcAttachment`
+  - added property `LastModificationErrors`
+  - updated `readOnlyProperties`

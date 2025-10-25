@@ -1,5 +1,5 @@
 {
-  "$hash": "6f9df722621e67095dfb24b6f36e6c67fe622443",
+  "$hash": "9b6e9b167110d257123eb6999f37833fd10bd078",
   "$id": "aws-cloudfront-vpcorigin.json",
   "additionalProperties": false,
   "definitions": {
@@ -109,6 +109,7 @@
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
+    "AccountId": { "description": "", "type": "string" },
     "Arn": { "description": "", "type": "string" },
     "CreatedTime": { "description": "", "type": "string" },
     "Id": { "description": "", "type": "string" },
@@ -128,6 +129,7 @@
   "readOnlyProperties": [
     "/properties/Id",
     "/properties/Arn",
+    "/properties/AccountId",
     "/properties/Status",
     "/properties/CreatedTime",
     "/properties/LastModifiedTime"
