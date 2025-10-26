@@ -1,5 +1,5 @@
 {
-  "$hash": "baedfcdcd48f8f5bcdcd417d0fcdb9165a596fe5",
+  "$hash": "647b09000519addabd1f7981bcb7181cf93b0430",
   "$id": "aws-networkmanager-transitgatewaypeering.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -80,11 +80,6 @@
       "description": "The location of the transit gateway peering",
       "type": "string"
     },
-    "LastModificationErrors": {
-      "description": "Errors from the last modification of the transit gateway peering.",
-      "items": { "type": "string" },
-      "type": "array"
-    },
     "OwnerAccountId": {
       "description": "Peering owner account Id",
       "type": "string"
@@ -130,8 +125,7 @@
     "/properties/EdgeLocation",
     "/properties/ResourceArn",
     "/properties/CreatedAt",
-    "/properties/TransitGatewayPeeringAttachmentId",
-    "/properties/LastModificationErrors"
+    "/properties/TransitGatewayPeeringAttachmentId"
   ],
   "required": ["CoreNetworkId", "TransitGatewayArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-networkmanager/aws-networkmanager-transitgatewaypeering",

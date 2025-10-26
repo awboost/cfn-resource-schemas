@@ -1,5 +1,5 @@
 {
-  "$hash": "9e06bfd544bb1185226b6c5b0ff9687f9a69f9c4",
+  "$hash": "256d0e3dbe93889d670ce4e6b8ec32d4daa06958",
   "$id": "aws-networkmanager-connectattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -140,11 +140,6 @@
       "description": "Edge location of the attachment.",
       "type": "string"
     },
-    "LastModificationErrors": {
-      "description": "Errors from the last modification of the attachment.",
-      "items": { "type": "string" },
-      "type": "array"
-    },
     "NetworkFunctionGroupName": {
       "description": "The name of the network function group attachment.",
       "type": "string"
@@ -200,8 +195,7 @@
     "/properties/AttachmentId",
     "/properties/OwnerAccountId",
     "/properties/AttachmentPolicyRuleNumber",
-    "/properties/SegmentName",
-    "/properties/LastModificationErrors"
+    "/properties/SegmentName"
   ],
   "required": [
     "CoreNetworkId",

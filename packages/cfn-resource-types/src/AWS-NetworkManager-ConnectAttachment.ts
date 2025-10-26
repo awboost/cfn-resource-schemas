@@ -64,10 +64,6 @@ export type NetworkManagerConnectAttachmentAttributes = {
    */
   CreatedAt: string;
   /**
-   * Errors from the last modification of the attachment.
-   */
-  LastModificationErrors: string[];
-  /**
    * The ID of the attachment account owner.
    */
   OwnerAccountId: string;

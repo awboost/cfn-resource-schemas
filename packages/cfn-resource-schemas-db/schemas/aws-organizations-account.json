@@ -1,5 +1,5 @@
 {
-  "$hash": "4cbff12839017403a87a75691da7b422fddb82fd",
+  "$hash": "46cf09515064f924193ecc17a89524d41f141f1e",
   "$id": "aws-organizations-account.json",
   "additionalProperties": false,
   "definitions": {
@@ -115,6 +115,17 @@
       "pattern": "[\\w+=,.@-]{1,64}",
       "type": "string"
     },
+    "State": {
+      "description": "The state of the account in the organization.",
+      "enum": [
+        "PENDING_ACTIVATION",
+        "ACTIVE",
+        "SUSPENDED",
+        "PENDING_CLOSURE",
+        "CLOSED"
+      ],
+      "type": "string"
+    },
     "Status": {
       "description": "The status of the account in the organization.",
       "enum": ["ACTIVE", "SUSPENDED", "PENDING_CLOSURE"],
@@ -131,6 +142,7 @@
   "readOnlyProperties": [
     "/properties/AccountId",
     "/properties/Status",
+    "/properties/State",
     "/properties/JoinedTimestamp",
     "/properties/JoinedMethod",
     "/properties/Arn"

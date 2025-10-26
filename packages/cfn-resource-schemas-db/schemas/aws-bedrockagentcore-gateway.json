@@ -1,5 +1,5 @@
 {
-  "$hash": "2332719b3fe6045e0266970c1e879b15415f744d",
+  "$hash": "3cc03ccead9d9a66ba46b710bf053f8e3f31dce8",
   "$id": "aws-bedrockagentcore-gateway.json",
   "additionalProperties": false,
   "definitions": {
@@ -148,7 +148,8 @@
         "iam:PassRole",
         "kms:Decrypt",
         "kms:DescribeKey",
-        "kms:GenerateDataKey"
+        "kms:GenerateDataKey",
+        "kms:ListGrants"
       ]
     }
   },

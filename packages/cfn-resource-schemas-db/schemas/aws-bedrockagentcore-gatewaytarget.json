@@ -1,5 +1,5 @@
 {
-  "$hash": "b7fda746690fdf65cd931a2a6d295dc364fdaff9",
+  "$hash": "a3050527df97053a27c072abd47ea9ef18c5e89f",
   "$id": "aws-bedrockagentcore-gatewaytarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayIdentifier"],
@@ -263,6 +263,7 @@
         "bedrock-agentcore:SynchronizeGatewayTargets",
         "kms:Decrypt",
         "kms:GenerateDataKey",
+        "kms:ListGrants",
         "s3:GetObject",
         "secretsmanager:GetSecretValue"
       ]
@@ -272,7 +273,8 @@
         "bedrock-agentcore:DeleteGatewayTarget",
         "bedrock-agentcore:GetGatewayTarget",
         "kms:Decrypt",
-        "kms:GenerateDataKey"
+        "kms:GenerateDataKey",
+        "kms:ListGrants"
       ]
     },
     "list": { "permissions": ["bedrock-agentcore:ListGatewayTargets"] },
@@ -286,6 +288,7 @@
         "bedrock-agentcore:UpdateGatewayTarget",
         "kms:Decrypt",
         "kms:GenerateDataKey",
+        "kms:ListGrants",
         "s3:GetObject",
         "secretsmanager:GetSecretValue"
       ]

@@ -60,6 +60,15 @@ export type OrganizationsAccountAttributes = {
    */
   JoinedTimestamp: string;
   /**
+   * The state of the account in the organization.
+   */
+  State:
+    | "PENDING_ACTIVATION"
+    | "ACTIVE"
+    | "SUSPENDED"
+    | "PENDING_CLOSURE"
+    | "CLOSED";
+  /**
    * The status of the account in the organization.
    */
   Status: "ACTIVE" | "SUSPENDED" | "PENDING_CLOSURE";

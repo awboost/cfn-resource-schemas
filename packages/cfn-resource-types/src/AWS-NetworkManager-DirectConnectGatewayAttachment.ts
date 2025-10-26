@@ -56,10 +56,6 @@ export type NetworkManagerDirectConnectGatewayAttachmentAttributes = {
    */
   CreatedAt: string;
   /**
-   * Errors from the last modification of the attachment.
-   */
-  LastModificationErrors: string[];
-  /**
    * The name of the network function group attachment.
    */
   NetworkFunctionGroupName: string;

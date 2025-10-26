@@ -1,32 +1,26 @@
-- added `AWS::RTBFabric::Link`
-- added `AWS::RTBFabric::RequesterGateway`
-- added `AWS::RTBFabric::ResponderGateway`
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `VpcOriginConfig`
+- added `AWS::EC2::CapacityManagerDataExport`
+- updated `AWS::BedrockAgentCore::Gateway`
   - updated handler permissions
-- updated `AWS::CloudFront::VpcOrigin`
-  - added property `AccountId`
-  - updated `readOnlyProperties`
-- updated `AWS::Connect::EmailAddress`
-  - added definition `AliasConfiguration`
-  - added property `AliasConfigurations`
+- updated `AWS::BedrockAgentCore::GatewayTarget`
   - updated handler permissions
-- updated `AWS::FSx::FileSystem`
-  - updated definition `OntapConfiguration`
-- updated `AWS::Lambda::Version`
+- updated `AWS::MediaTailor::PlaybackConfiguration`
+  - updated `tagging`
   - updated handler permissions
 - updated `AWS::NetworkManager::ConnectAttachment`
-  - added property `LastModificationErrors`
+  - removed property `LastModificationErrors`
   - updated `readOnlyProperties`
 - updated `AWS::NetworkManager::DirectConnectGatewayAttachment`
-  - added property `LastModificationErrors`
+  - removed property `LastModificationErrors`
   - updated `readOnlyProperties`
 - updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
-  - added property `LastModificationErrors`
+  - removed property `LastModificationErrors`
   - updated `readOnlyProperties`
 - updated `AWS::NetworkManager::TransitGatewayPeering`
-  - added property `LastModificationErrors`
+  - removed property `LastModificationErrors`
   - updated `readOnlyProperties`
 - updated `AWS::NetworkManager::VpcAttachment`
-  - added property `LastModificationErrors`
+  - removed property `LastModificationErrors`
+  - updated `readOnlyProperties`
+- updated `AWS::Organizations::Account`
+  - added property `State`
   - updated `readOnlyProperties`
