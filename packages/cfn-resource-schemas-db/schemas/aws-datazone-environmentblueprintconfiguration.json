@@ -1,5 +1,5 @@
 {
-  "$hash": "f57261e5cc12be8cf3a6d9c7b68a5d51edd329f7",
+  "$hash": "2e77b7f59f5915b7f7588adfcf7972cff156e430",
   "$id": "aws-datazone-environmentblueprintconfiguration.json",
   "additionalIdentifiers": [
     [
@@ -28,7 +28,7 @@
           "type": "array"
         },
         "LocationRegistrationRole": {
-          "pattern": "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$",
+          "pattern": "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$",
           "type": "string"
         }
       },
@@ -140,7 +140,7 @@
       "type": "string"
     },
     "ManageAccessRoleArn": {
-      "pattern": "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$",
+      "pattern": "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$",
       "type": "string"
     },
     "ProvisioningConfigurations": {

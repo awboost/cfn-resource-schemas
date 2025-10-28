@@ -232,7 +232,7 @@ export type GlueRunConfigurationInput = {
   CatalogName?: string;
   /**
    * The data access role included in the configuration details of the AWS Glue data source.
-   * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]{1,128}$`
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)/‍*[a-zA-Z0-9+=,.@_-]+$`
    */
   DataAccessRole?: string;
   /**
@@ -286,7 +286,7 @@ export type RedshiftCredentialConfiguration = {
 export type RedshiftRunConfigurationInput = {
   /**
    * The data access role included in the configuration details of the Amazon Redshift data source.
-   * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]{1,128}$`
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)/‍*[a-zA-Z0-9+=,.@_-]+$`
    */
   DataAccessRole?: string;
   /**

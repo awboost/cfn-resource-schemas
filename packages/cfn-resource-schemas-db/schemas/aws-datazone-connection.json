@@ -1,5 +1,5 @@
 {
-  "$hash": "4f327ec0764a2ecd6d57fec6e6570afe86b8be75",
+  "$hash": "d7b8710d1abbdaa9922cb6b7582d16d19324c4c0",
   "$id": "aws-datazone-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -68,7 +68,7 @@
       "properties": {
         "AccessRole": {
           "maxLength": 2048,
-          "pattern": "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$",
+          "pattern": "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$",
           "type": "string"
         },
         "AwsAccountId": { "pattern": "^\\d{12}$", "type": "string" },
@@ -178,6 +178,15 @@
           },
           "required": ["SparkGlueProperties"],
           "title": "SparkGlueProperties",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "S3Properties": { "$ref": "#/definitions/S3PropertiesInput" }
+          },
+          "required": ["S3Properties"],
+          "title": "S3Properties",
           "type": "object"
         }
       ]
@@ -495,6 +504,28 @@
         }
       ]
     },
+    "S3PropertiesInput": {
+      "additionalProperties": false,
+      "description": "S3 Properties Input",
+      "properties": {
+        "S3AccessGrantLocationId": {
+          "description": "The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.",
+          "maxLength": 64,
+          "minLength": 0,
+          "pattern": "[a-zA-Z0-9\\-]+",
+          "type": "string"
+        },
+        "S3Uri": {
+          "description": "The Amazon S3 URI that's part of the Amazon S3 properties of a connection.",
+          "maxLength": 2048,
+          "minLength": 0,
+          "pattern": "s3://.+",
+          "type": "string"
+        }
+      },
+      "required": ["S3Uri"],
+      "type": "object"
+    },
     "SparkEmrPropertiesInput": {
       "additionalProperties": false,
       "description": "Spark EMR Properties Input.",
@@ -506,7 +537,7 @@
         },
         "InstanceProfileArn": {
           "maxLength": 2048,
-          "pattern": "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$",
+          "pattern": "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$",
           "type": "string"
         },
         "JavaVirtualEnv": {
@@ -526,7 +557,7 @@
         },
         "RuntimeRole": {
           "maxLength": 2048,
-          "pattern": "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$",
+          "pattern": "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$",
           "type": "string"
         },
         "TrustedCertificatesS3Uri": {

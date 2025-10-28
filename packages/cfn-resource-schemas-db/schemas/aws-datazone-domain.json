@@ -1,5 +1,5 @@
 {
-  "$hash": "3faf5d97fcf10fb50d02a3dcfab9d4b17db20f8e",
+  "$hash": "34ceb7e539440f431b2094e969c71ee41b12431b",
   "$id": "aws-datazone-domain.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -137,7 +137,7 @@
     },
     "DomainExecutionRole": {
       "description": "The domain execution role that is created when an Amazon DataZone domain is created. The domain execution role is created in the AWS account that houses the Amazon DataZone domain.",
-      "pattern": "^arn:aws[^:]*:iam::\\d{12}:(role|role/service-role)/[\\w+=,.@-]*$",
+      "pattern": "^arn:aws[^:]*:iam::\\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)*/[a-zA-Z0-9+=,.@_-]+$",
       "type": "string"
     },
     "DomainVersion": {

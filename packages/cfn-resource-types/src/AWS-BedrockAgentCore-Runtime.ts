@@ -187,7 +187,7 @@ export type NetworkMode = "PUBLIC" | "VPC";
  * Type definition for `AWS::BedrockAgentCore::Runtime.ProtocolConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-protocolconfiguration.html}
  */
-export type ProtocolConfiguration = "MCP" | "HTTP";
+export type ProtocolConfiguration = "MCP" | "HTTP" | "A2A";
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.TagsMap`.
  * A map of tag keys and values

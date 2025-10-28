@@ -26,7 +26,7 @@ export type SignerSigningProfileProperties = {
 export type SignerSigningProfileAttributes = {
   /**
    * The Amazon Resource Name (ARN) of the specified signing profile.
-   * @pattern `^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
+   * @pattern `^arn:aws(-[a-z]{1,4}){0,2}:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
    */
   Arn: string;
   /**
@@ -43,7 +43,7 @@ export type SignerSigningProfileAttributes = {
   ProfileVersion: string;
   /**
    * The Amazon Resource Name (ARN) of the specified signing profile version.
-   * @pattern `^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
+   * @pattern `^arn:aws(-[a-z]{1,4}){0,2}:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$`
    */
   ProfileVersionArn: string;
 };

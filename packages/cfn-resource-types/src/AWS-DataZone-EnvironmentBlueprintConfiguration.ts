@@ -22,7 +22,7 @@ export type DataZoneEnvironmentBlueprintConfigurationProperties = {
    */
   EnvironmentRolePermissionBoundary?: string;
   /**
-   * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]*$`
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)/‍*[a-zA-Z0-9+=,.@_-]+$`
    */
   ManageAccessRoleArn?: string;
   ProvisioningConfigurations?: ProvisioningConfiguration[];
@@ -59,7 +59,7 @@ export type LakeFormationConfiguration = {
    */
   LocationRegistrationExcludeS3Locations?: string[];
   /**
-   * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]*$`
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)/‍*[a-zA-Z0-9+=,.@_-]+$`
    */
   LocationRegistrationRole?: string;
 };

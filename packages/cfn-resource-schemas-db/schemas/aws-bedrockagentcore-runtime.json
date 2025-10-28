@@ -1,5 +1,5 @@
 {
-  "$hash": "e4aa66b7bb901b8b3909a6253daad87054e8a0ed",
+  "$hash": "ad09c4bec742fd1367dcb91d1ea819964d51418f",
   "$id": "aws-bedrockagentcore-runtime.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentRuntimeName"],
@@ -147,7 +147,10 @@
       "enum": ["PUBLIC", "VPC"],
       "type": "string"
     },
-    "ProtocolConfiguration": { "enum": ["MCP", "HTTP"], "type": "string" },
+    "ProtocolConfiguration": {
+      "enum": ["MCP", "HTTP", "A2A"],
+      "type": "string"
+    },
     "RoleArn": {
       "pattern": "arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/.+",
       "type": "string"

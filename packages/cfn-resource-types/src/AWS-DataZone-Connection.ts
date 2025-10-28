@@ -148,7 +148,7 @@ export type AuthorizationCodeProperties = {
 export type AwsLocation = {
   /**
    * @maxLength `2048`
-   * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]*$`
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)/‍*[a-zA-Z0-9+=,.@_-]+$`
    */
   AccessRole?: string;
   /**
@@ -234,6 +234,12 @@ export type ConnectionPropertiesInput =
        * Spark Glue Properties Input.
        */
       SparkGlueProperties: SparkGluePropertiesInput;
+    }
+  | {
+      /**
+       * S3 Properties Input
+       */
+      S3Properties: S3PropertiesInput;
     };
 /**
  * Type definition for `AWS::DataZone::Connection.CredentialMap`.
@@ -540,6 +546,27 @@ export type RedshiftStorageProperties =
       WorkgroupName: string;
     };
 /**
+ * Type definition for `AWS::DataZone::Connection.S3PropertiesInput`.
+ * S3 Properties Input
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-s3propertiesinput.html}
+ */
+export type S3PropertiesInput = {
+  /**
+   * The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
+   * @minLength `0`
+   * @maxLength `64`
+   * @pattern `[a-zA-Z0-9\-]+`
+   */
+  S3AccessGrantLocationId?: string;
+  /**
+   * The Amazon S3 URI that's part of the Amazon S3 properties of a connection.
+   * @minLength `0`
+   * @maxLength `2048`
+   * @pattern `s3://.+`
+   */
+  S3Uri: string;
+};
+/**
  * Type definition for `AWS::DataZone::Connection.SparkEmrPropertiesInput`.
  * Spark EMR Properties Input.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html}
@@ -552,7 +579,7 @@ export type SparkEmrPropertiesInput = {
   ComputeArn?: string;
   /**
    * @maxLength `2048`
-   * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]*$`
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)/‍*[a-zA-Z0-9+=,.@_-]+$`
    */
   InstanceProfileArn?: string;
   /**
@@ -572,7 +599,7 @@ export type SparkEmrPropertiesInput = {
   PythonVirtualEnv?: string;
   /**
    * @maxLength `2048`
-   * @pattern `^arn:aws[^:]*:iam::\d{12}:(role|role/service-role)/[\w+=,.@-]*$`
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)/‍*[a-zA-Z0-9+=,.@_-]+$`
    */
   RuntimeRole?: string;
   /**

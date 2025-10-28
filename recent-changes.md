@@ -1,26 +1,25 @@
-- added `AWS::EC2::CapacityManagerDataExport`
-- updated `AWS::BedrockAgentCore::Gateway`
-  - updated handler permissions
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - updated handler permissions
-- updated `AWS::MediaTailor::PlaybackConfiguration`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::NetworkManager::ConnectAttachment`
-  - removed property `LastModificationErrors`
-  - updated `readOnlyProperties`
+- updated `AWS::BedrockAgentCore::Runtime`
+  - updated definition `ProtocolConfiguration`
+- updated `AWS::DataZone::Connection`
+  - added definition `S3PropertiesInput`
+  - updated definition `AwsLocation`
+  - updated definition `ConnectionPropertiesInput`
+  - updated definition `SparkEmrPropertiesInput`
+- updated `AWS::DataZone::DataSource`
+  - updated definition `DataAccessRole`
+- updated `AWS::DataZone::Domain`
+  - updated property `DomainExecutionRole`
+- updated `AWS::DataZone::EnvironmentBlueprintConfiguration`
+  - updated definition `LakeFormationConfiguration`
+  - updated property `ManageAccessRoleArn`
 - updated `AWS::NetworkManager::DirectConnectGatewayAttachment`
-  - removed property `LastModificationErrors`
-  - updated `readOnlyProperties`
-- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
-  - removed property `LastModificationErrors`
-  - updated `readOnlyProperties`
-- updated `AWS::NetworkManager::TransitGatewayPeering`
-  - removed property `LastModificationErrors`
+  - added property `LastModificationErrors`
   - updated `readOnlyProperties`
 - updated `AWS::NetworkManager::VpcAttachment`
-  - removed property `LastModificationErrors`
+  - added property `LastModificationErrors`
   - updated `readOnlyProperties`
-- updated `AWS::Organizations::Account`
-  - added property `State`
-  - updated `readOnlyProperties`
+- updated `AWS::SageMaker::UserProfile`
+  - updated definition `AppInstanceType`
+  - updated definition `ResourceSpec`
+- updated `AWS::Signer::SigningProfile`
+  - updated definition `Arn`
