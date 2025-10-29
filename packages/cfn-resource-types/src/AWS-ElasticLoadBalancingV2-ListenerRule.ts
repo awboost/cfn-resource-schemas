@@ -222,7 +222,7 @@ export type ForwardConfig = {
 export type HostHeaderConfig = {
   RegexValues?: string[];
   /**
-     * The host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
+     * The host names. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). You must include at least one "." character. You can include only alphabetical characters after the final "." character.
      If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
      */
   Values?: string[];
@@ -240,7 +240,7 @@ export type HttpHeaderConfig = {
   HttpHeaderName?: string;
   RegexValues?: string[];
   /**
-     * The strings to compare against the value of the HTTP header. The maximum size of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
+     * The strings to compare against the value of the HTTP header. The maximum length of each string is 128 characters. The comparison strings are case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
      If the same header appears multiple times in the request, we search them in order until a match is found.
      If you specify multiple strings, the condition is satisfied if one of the strings matches the value of the HTTP header. To require that all of the strings are a match, create one condition per string.
      */
@@ -254,7 +254,7 @@ export type HttpHeaderConfig = {
  */
 export type HttpRequestMethodConfig = {
   /**
-     * The name of the request method. The maximum size is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
+     * The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.
      If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached.
      */
   Values?: string[];
@@ -280,7 +280,7 @@ export type PathPatternConfig = {
  */
 export type QueryStringConfig = {
   /**
-     * The key/value pairs or values to find in the query string. The maximum size of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
+     * The key/value pairs or values to find in the query string. The maximum length of each string is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character). To search for a literal '*' or '?' character in a query string, you must escape these characters in ``Values`` using a '\' character.
      If you specify multiple key/value pairs or values, the condition is satisfied if one of them is found in the query string.
      */
   Values?: QueryStringKeyValue[];

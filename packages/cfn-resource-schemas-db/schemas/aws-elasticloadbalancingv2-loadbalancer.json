@@ -1,5 +1,5 @@
 {
-  "$hash": "eebd431f3c6a3e908a6d76f2cf92c632fd50c1ed",
+  "$hash": "c2a30041585f45651411ef5d5a9b633cc369ef05",
   "$id": "aws-elasticloadbalancingv2-loadbalancer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -119,7 +119,7 @@
     "DNSName": { "description": "", "type": "string" },
     "EnableCapacityReservationProvisionStabilize": {
       "default": false,
-      "description": "",
+      "description": "Indicates whether to enable stabilization when creating or updating an LCU reservation. This ensures that the final stack status reflects the status of the LCU reservation. The default is ``false``.",
       "type": "boolean"
     },
     "EnablePrefixForIpv6SourceNat": {

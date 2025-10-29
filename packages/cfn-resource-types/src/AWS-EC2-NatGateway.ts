@@ -48,6 +48,9 @@ export type EC2NatGatewayProperties = {
    * The tags for the NAT gateway.
    */
   Tags?: Tag[];
+  /**
+   * The ID of the VPC in which the NAT gateway is located.
+   */
   VpcId?: string;
 };
 /**

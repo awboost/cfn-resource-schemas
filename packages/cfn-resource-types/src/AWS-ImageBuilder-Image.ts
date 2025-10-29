@@ -10,6 +10,10 @@ export type ImageBuilderImageProperties = {
    */
   ContainerRecipeArn?: string;
   /**
+   * The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+   */
+  DeletionSettings?: DeletionSettings;
+  /**
    * The Amazon Resource Name (ARN) of the distribution configuration.
    */
   DistributionConfigurationArn?: string;
@@ -96,6 +100,17 @@ export type ImageBuilderImageAttributes = {
    * The name of the image.
    */
   Name: string;
+};
+/**
+ * Type definition for `AWS::ImageBuilder::Image.DeletionSettings`.
+ * The deletion settings of the image, indicating whether to delete the underlying resources in addition to the image.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-deletionsettings.html}
+ */
+export type DeletionSettings = {
+  /**
+   * The execution role to use for deleting the image, as well as underlying resources.
+   */
+  ExecutionRole: string;
 };
 /**
  * Type definition for `AWS::ImageBuilder::Image.EcrConfiguration`.

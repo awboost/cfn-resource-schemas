@@ -12,6 +12,7 @@ export type RTBFabricLinkProperties = {
   HttpResponderAllowed?: boolean;
   LinkAttributes?: LinkAttributes;
   LinkLogSettings: LinkLogSettings;
+  ModuleConfigurationList?: ModuleConfiguration[];
   /**
    * @pattern `^rtb-gw-[a-z0-9-]{1,25}$`
    */
@@ -42,6 +43,32 @@ export type RTBFabricLinkAttributes = {
   LinkId: string;
   LinkStatus: LinkStatus;
   UpdatedTimestamp: string;
+};
+/**
+ * Type definition for `AWS::RTBFabric::Link.Filter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-filter.html}
+ */
+export type Filter = {
+  Criteria: FilterCriterion[];
+};
+/**
+ * Type definition for `AWS::RTBFabric::Link.FilterCriterion`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-filtercriterion.html}
+ */
+export type FilterCriterion = {
+  Path: string;
+  /**
+   * @minLength `1`
+   */
+  Values: string[];
+};
+/**
+ * Type definition for `AWS::RTBFabric::Link.HeaderTagAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-headertagaction.html}
+ */
+export type HeaderTagAction = {
+  Name: string;
+  Value: string;
 };
 /**
  * Type definition for `AWS::RTBFabric::Link.LinkAttributes`.
@@ -99,6 +126,85 @@ export type LinkStatus =
   | "ISOLATED"
   | "PENDING_RESTORATION"
   | "UNKNOWN_TO_SDK_VERSION";
+/**
+ * Type definition for `AWS::RTBFabric::Link.ModuleConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-moduleconfiguration.html}
+ */
+export type ModuleConfiguration = {
+  DependsOn?: string[];
+  ModuleParameters?: ModuleParameters;
+  /**
+   * @pattern `^[A-Za-z0-9 -]+$`
+   */
+  Name: string;
+  /**
+   * @pattern `^[a-z0-9]{1,25}$`
+   */
+  Version?: string;
+};
+/**
+ * Type definition for `AWS::RTBFabric::Link.ModuleParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-moduleparameters.html}
+ */
+export type ModuleParameters =
+  | {
+      NoBid: NoBidModuleParameters;
+    }
+  | {
+      OpenRtbAttribute: OpenRtbAttributeModuleParameters;
+    };
+/**
+ * Type definition for `AWS::RTBFabric::Link.NoBidAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-nobidaction.html}
+ */
+export type NoBidAction = {
+  /**
+   * @min `0`
+   */
+  NoBidReasonCode?: number;
+};
+/**
+ * Type definition for `AWS::RTBFabric::Link.NoBidModuleParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-nobidmoduleparameters.html}
+ */
+export type NoBidModuleParameters = {
+  /**
+   * @min `0`
+   * @max `100`
+   */
+  PassThroughPercentage?: number;
+  /**
+   * @minLength `1`
+   * @maxLength `50`
+   * @pattern `^[a-zA-Z0-9]*$`
+   */
+  Reason?: string;
+  /**
+   * @min `0`
+   * @max `10`
+   */
+  ReasonCode?: number;
+};
+/**
+ * Type definition for `AWS::RTBFabric::Link.OpenRtbAttributeModuleParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-openrtbattributemoduleparameters.html}
+ */
+export type OpenRtbAttributeModuleParameters = {
+  Action:
+    | {
+        NoBid: NoBidAction;
+      }
+    | {
+        HeaderTag: HeaderTagAction;
+      };
+  FilterConfiguration: Filter[];
+  FilterType: "INCLUDE" | "EXCLUDE";
+  /**
+   * @min `0`
+   * @max `100`
+   */
+  HoldbackPercentage: number;
+};
 /**
  * Type definition for `AWS::RTBFabric::Link.ResponderErrorMaskingForHttpCode`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-link-respondererrormaskingforhttpcode.html}

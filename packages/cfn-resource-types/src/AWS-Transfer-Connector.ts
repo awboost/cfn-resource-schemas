@@ -80,6 +80,14 @@ export type TransferConnectorProperties = {
     SigningAlgorithm?: "SHA256" | "SHA384" | "SHA512" | "SHA1" | "NONE";
   };
   /**
+   * Egress configuration for the connector.
+   */
+  EgressConfig?: ConnectorEgressConfig;
+  /**
+   * Specifies the egress type for the connector.
+   */
+  EgressType?: ConnectorEgressType;
+  /**
    * Specifies the logging role for the connector.
    * @minLength `20`
    * @maxLength `2048`
@@ -123,7 +131,7 @@ export type TransferConnectorProperties = {
    * URL for Connector
    * @maxLength `255`
    */
-  Url: string;
+  Url?: string;
 };
 /**
  * Attribute type definition for `AWS::Transfer::Connector`.
@@ -148,6 +156,43 @@ export type TransferConnectorAttributes = {
    * The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
    */
   ServiceManagedEgressIpAddresses: string[];
+  Status: ConnectorStatus;
+};
+/**
+ * Type definition for `AWS::Transfer::Connector.ConnectorEgressConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-connectoregressconfig.html}
+ */
+export type ConnectorEgressConfig = {
+  VpcLattice: ConnectorVpcLatticeEgressConfig;
+};
+/**
+ * Type definition for `AWS::Transfer::Connector.ConnectorEgressType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-connectoregresstype.html}
+ */
+export type ConnectorEgressType = "SERVICE_MANAGED" | "VPC_LATTICE";
+/**
+ * Type definition for `AWS::Transfer::Connector.ConnectorStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-connectorstatus.html}
+ */
+export type ConnectorStatus = "ACTIVE" | "PENDING" | "ERRORED";
+/**
+ * Type definition for `AWS::Transfer::Connector.ConnectorVpcLatticeEgressConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-connectorvpclatticeegressconfig.html}
+ */
+export type ConnectorVpcLatticeEgressConfig = {
+  /**
+   * Port to connect to on the target VPC Lattice resource
+   * @min `1`
+   * @max `65535`
+   */
+  PortNumber?: number;
+  /**
+   * ARN of the VPC Lattice resource configuration
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}$`
+   */
+  ResourceConfigurationArn: string;
 };
 /**
  * Type definition for `AWS::Transfer::Connector.Tag`.

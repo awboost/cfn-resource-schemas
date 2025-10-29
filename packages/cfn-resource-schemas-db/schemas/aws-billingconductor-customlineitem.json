@@ -1,10 +1,12 @@
 {
-  "$hash": "54c39b801aefe1360adde4099c08eb292753ea33",
+  "$hash": "8dd1b918202f7c654bf5ac473674fc74a78bd717",
   "$id": "aws-billingconductor-customlineitem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/BillingGroupArn",
     "/properties/AccountId",
+    "/properties/ComputationRule",
+    "/properties/PresentationDetails",
     "/properties/BillingPeriodRange/InclusiveStartBillingPeriod",
     "/properties/BillingPeriodRange/ExclusiveEndBillingPeriod",
     "/properties/CustomLineItemChargeDetails/Type"
@@ -173,6 +175,11 @@
       "type": "string"
     },
     "BillingPeriodRange": { "$ref": "#/definitions/BillingPeriodRange" },
+    "ComputationRule": {
+      "description": "The display settings of the Custom Line Item.",
+      "enum": ["CONSOLIDATED"],
+      "type": "string"
+    },
     "CreationTime": {
       "description": "Creation timestamp in UNIX epoch time format",
       "type": "integer"
@@ -191,6 +198,14 @@
       "minLength": 1,
       "pattern": "[a-zA-Z0-9_\\+=\\.\\-@]+",
       "type": "string"
+    },
+    "PresentationDetails": {
+      "additionalProperties": false,
+      "properties": {
+        "Service": { "pattern": "^[a-zA-Z0-9]+$", "type": "string" }
+      },
+      "required": ["Service"],
+      "type": "object"
     },
     "ProductCode": { "maxLength": 29, "minLength": 1, "type": "string" },
     "Tags": {

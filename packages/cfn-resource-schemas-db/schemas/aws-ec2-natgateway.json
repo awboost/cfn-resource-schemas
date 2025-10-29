@@ -1,5 +1,5 @@
 {
-  "$hash": "7a08a95431347a919aec9bfbae76bb9a19923eb2",
+  "$hash": "9ad36caec2e2b367b0c0eda1f0d36cc9e1ac3452",
   "$id": "aws-ec2-natgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -98,7 +98,10 @@
       "type": "array",
       "uniqueItems": false
     },
-    "VpcId": { "description": "", "type": "string" }
+    "VpcId": {
+      "description": "The ID of the VPC in which the NAT gateway is located.",
+      "type": "string"
+    }
   },
   "readOnlyProperties": ["/properties/NatGatewayId", "/properties/EniId"],
   "tagging": {

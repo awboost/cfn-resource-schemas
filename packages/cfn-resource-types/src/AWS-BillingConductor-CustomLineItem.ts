@@ -17,6 +17,10 @@ export type BillingConductorCustomLineItemProperties = {
    */
   BillingGroupArn: string;
   BillingPeriodRange?: BillingPeriodRange;
+  /**
+   * The display settings of the Custom Line Item.
+   */
+  ComputationRule?: "CONSOLIDATED";
   CustomLineItemChargeDetails?: CustomLineItemChargeDetails;
   /**
    * @maxLength `255`
@@ -28,6 +32,12 @@ export type BillingConductorCustomLineItemProperties = {
    * @pattern `[a-zA-Z0-9_\+=\.\-@]+`
    */
   Name: string;
+  PresentationDetails?: {
+    /**
+     * @pattern `^[a-zA-Z0-9]+$`
+     */
+    Service: string;
+  };
   Tags?: Tag[];
 };
 /**

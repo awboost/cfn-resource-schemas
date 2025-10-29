@@ -24,13 +24,17 @@ export type DataZoneConnectionProperties = {
   /**
    * The identifier of the environment in which the connection is created.
    */
-  EnvironmentIdentifier: string;
+  EnvironmentIdentifier?: string;
   /**
    * The name of the connection.
    * @maxLength `64`
    * @pattern `^[\w][\w\.\-\_]*$`
    */
   Name: string;
+  /**
+   * The identifier of the project in which the connection should be created. If
+   */
+  ProjectIdentifier?: string;
   Props?: ConnectionPropertiesInput;
 };
 /**

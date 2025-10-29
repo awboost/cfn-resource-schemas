@@ -1,10 +1,11 @@
 {
-  "$hash": "d7b8710d1abbdaa9922cb6b7582d16d19324c4c0",
+  "$hash": "64d0d89120d5911f12aa1663ded0e3d0c615acd6",
   "$id": "aws-datazone-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DomainIdentifier",
     "/properties/EnvironmentIdentifier",
+    "/properties/ProjectIdentifier",
     "/properties/Name"
   ],
   "definitions": {
@@ -650,7 +651,8 @@
       "permissions": [
         "datazone:CreateConnection",
         "datazone:GetConnection",
-        "datazone:DeleteConnection"
+        "datazone:DeleteConnection",
+        "datazone:ListEnvironments"
       ]
     },
     "delete": {
@@ -735,6 +737,10 @@
       "pattern": "^[a-zA-Z0-9_-]{1,36}$",
       "type": "string"
     },
+    "ProjectIdentifier": {
+      "description": "The identifier of the project in which the connection should be created. If ",
+      "type": "string"
+    },
     "Props": { "$ref": "#/definitions/ConnectionPropertiesInput" },
     "Type": { "$ref": "#/definitions/ConnectionType" }
   },
@@ -747,7 +753,7 @@
     "/properties/ProjectId",
     "/properties/Type"
   ],
-  "required": ["DomainIdentifier", "EnvironmentIdentifier", "Name"],
+  "required": ["DomainIdentifier", "Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datazone",
   "tagging": {
     "cloudFormationSystemTags": false,
@@ -760,6 +766,7 @@
     "/properties/AwsLocation",
     "/properties/DomainIdentifier",
     "/properties/EnvironmentIdentifier",
+    "/properties/ProjectIdentifier",
     "/properties/Props"
   ]
 }

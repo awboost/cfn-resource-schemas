@@ -65,6 +65,12 @@ export type ConnectCampaignsV2CampaignAttributes = {
   Arn: string;
 };
 /**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.AgentAction`.
+ * Actions that can performed on a contact by an agent
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-agentaction.html}
+ */
+export type AgentAction = "DISCARD";
+/**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.AgentlessConfig`.
  * Agentless config
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-agentlessconfig.html}
@@ -331,6 +337,27 @@ export type PredictiveConfig = {
   BandwidthAllocation: number;
 };
 /**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.PreviewConfig`.
+ * Preview config
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-previewconfig.html}
+ */
+export type PreviewConfig = {
+  /**
+   * Actions that can be performed by agent during preview phase
+   */
+  AgentActions?: AgentAction[];
+  /**
+   * The bandwidth allocation of a queue resource.
+   * @min `0`
+   * @max `1`
+   */
+  BandwidthAllocation: number;
+  /**
+   * Timeout Config for preview contacts
+   */
+  TimeoutConfig: TimeoutConfig;
+};
+/**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.ProgressiveConfig`.
  * Progressive config
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-progressiveconfig.html}
@@ -547,9 +574,26 @@ export type TelephonyOutboundMode = {
    */
   PredictiveConfig?: PredictiveConfig;
   /**
+   * Preview config
+   */
+  PreviewConfig?: PreviewConfig;
+  /**
    * Progressive config
    */
   ProgressiveConfig?: ProgressiveConfig;
+};
+/**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.TimeoutConfig`.
+ * Timeout Config for preview contacts
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-timeoutconfig.html}
+ */
+export type TimeoutConfig = {
+  /**
+   * Timeout duration for a preview contact in seconds
+   * @min `10`
+   * @max `300`
+   */
+  DurationInSeconds?: number;
 };
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.TimeRange`.

@@ -229,6 +229,22 @@ export type AwsVpcConfiguration = {
   Subnets?: string[];
 };
 /**
+ * Type definition for `AWS::ECS::Service.CanaryConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-canaryconfiguration.html}
+ */
+export type CanaryConfiguration = {
+  /**
+   * @min `0`
+   * @max `1440`
+   */
+  CanaryBakeTimeInMinutes?: number;
+  /**
+   * @min `0.1`
+   * @max `100`
+   */
+  CanaryPercent?: number;
+};
+/**
  * Type definition for `AWS::ECS::Service.CapacityProviderStrategyItem`.
  * The details of a capacity provider strategy. A capacity provider strategy can be set when using the ``RunTask`` or ``CreateService`` APIs or as the default capacity provider strategy for a cluster with the ``CreateCluster`` API.
  Only capacity providers that are already associated with a cluster and have an ``ACTIVE`` or ``UPDATING`` status can be used in a capacity provider strategy. The ``PutClusterCapacityProviders`` API is used to associate a capacity provider with a cluster.
@@ -329,7 +345,7 @@ export type DeploymentConfiguration = {
      * @max `1440`
      */
   BakeTimeInMinutes?: number;
-  CanaryConfiguration?: any;
+  CanaryConfiguration?: CanaryConfiguration;
   /**
      * The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
       The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
@@ -339,7 +355,7 @@ export type DeploymentConfiguration = {
    * An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
    */
   LifecycleHooks?: DeploymentLifecycleHook[];
-  LinearConfiguration?: any;
+  LinearConfiguration?: LinearConfiguration;
   /**
      * If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
      The Amazon ECS scheduler uses this parameter to replace unhealthy tasks by starting replacement tasks first and then stopping the unhealthy tasks, as long as cluster resources for starting replacement tasks are available. For more information about how the scheduler replaces unhealthy tasks, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
@@ -515,6 +531,22 @@ export type ForceNewDeployment = {
    * @maxLength `255`
    */
   ForceNewDeploymentNonce?: string;
+};
+/**
+ * Type definition for `AWS::ECS::Service.LinearConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-linearconfiguration.html}
+ */
+export type LinearConfiguration = {
+  /**
+   * @min `0`
+   * @max `1440`
+   */
+  StepBakeTimeInMinutes?: number;
+  /**
+   * @min `3`
+   * @max `100`
+   */
+  StepPercent?: number;
 };
 /**
  * Type definition for `AWS::ECS::Service.LoadBalancer`.
