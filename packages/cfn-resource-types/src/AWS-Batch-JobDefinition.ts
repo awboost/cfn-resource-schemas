@@ -17,6 +17,7 @@ export type BatchJobDefinitionProperties = {
   Parameters?: Record<string, string>;
   PlatformCapabilities?: string[];
   PropagateTags?: boolean;
+  ResourceRetentionPolicy?: ResourceRetentionPolicy;
   RetryStrategy?: RetryStrategy;
   SchedulingPriority?: number;
   /**
@@ -427,6 +428,13 @@ export type RepositoryCredentials = {
 export type ResourceRequirement = {
   Type?: string;
   Value?: string;
+};
+/**
+ * Type definition for `AWS::Batch::JobDefinition.ResourceRetentionPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourceretentionpolicy.html}
+ */
+export type ResourceRetentionPolicy = {
+  SkipDeregisterOnUpdate?: boolean;
 };
 /**
  * Type definition for `AWS::Batch::JobDefinition.RetryStrategy`.

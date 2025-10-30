@@ -1,5 +1,5 @@
 {
-  "$hash": "426b718da3d3943b3dd43096e5d1a04b78582b66",
+  "$hash": "12cc8fcf7123864f304253ceeae89a8b888f2130",
   "$id": "aws-batch-jobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/JobDefinitionName"],
@@ -618,6 +618,13 @@
       },
       "type": "object"
     },
+    "ResourceRetentionPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "SkipDeregisterOnUpdate": { "default": false, "type": "boolean" }
+      },
+      "type": "object"
+    },
     "RetryStrategy": {
       "additionalProperties": false,
       "properties": {
@@ -820,6 +827,9 @@
       "uniqueItems": false
     },
     "PropagateTags": { "type": "boolean" },
+    "ResourceRetentionPolicy": {
+      "$ref": "#/definitions/ResourceRetentionPolicy"
+    },
     "RetryStrategy": { "$ref": "#/definitions/RetryStrategy" },
     "SchedulingPriority": { "type": "integer" },
     "Tags": {
@@ -842,5 +852,9 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::Batch::JobDefinition"
+  "typeName": "AWS::Batch::JobDefinition",
+  "writeOnlyProperties": [
+    "/properties/ResourceRetentionPolicy",
+    "/properties/ResourceRetentionPolicy/SkipDeregisterOnUpdate"
+  ]
 }

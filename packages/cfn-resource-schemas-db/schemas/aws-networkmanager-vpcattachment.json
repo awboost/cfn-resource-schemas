@@ -1,5 +1,5 @@
 {
-  "$hash": "02e934b66cd162b706e13b379a1bcbddbd0eb722",
+  "$hash": "61704d83bee3a68874fe974860021778801d7fa2",
   "$id": "aws-networkmanager-vpcattachment.json",
   "additionalIdentifiers": [
     ["/properties/CoreNetworkId", "/properties/VpcArn"]
@@ -157,6 +157,11 @@
       "description": "The Region where the edge is located.",
       "type": "string"
     },
+    "LastModificationErrors": {
+      "description": "Errors from the last modification of the attachment.",
+      "items": { "type": "string" },
+      "type": "array"
+    },
     "NetworkFunctionGroupName": {
       "description": "The name of the network function group attachment.",
       "type": "string"
@@ -217,7 +222,8 @@
     "/properties/AttachmentPolicyRuleNumber",
     "/properties/SegmentName",
     "/properties/NetworkFunctionGroupName",
-    "/properties/ResourceArn"
+    "/properties/ResourceArn",
+    "/properties/LastModificationErrors"
   ],
   "required": ["CoreNetworkId", "VpcArn", "SubnetArns"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-networkmanager/aws-networkmanager-vpcattachment",

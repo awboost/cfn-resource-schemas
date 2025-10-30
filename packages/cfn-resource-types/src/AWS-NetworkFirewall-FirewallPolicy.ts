@@ -76,6 +76,7 @@ export type Dimension = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html}
  */
 export type FirewallPolicy = {
+  EnableTLSSessionHolding?: boolean;
   PolicyVariables?: {
     RuleVariables?: RuleVariables;
   };

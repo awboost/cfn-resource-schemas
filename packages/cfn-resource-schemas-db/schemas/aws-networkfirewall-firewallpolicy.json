@@ -1,5 +1,5 @@
 {
-  "$hash": "a29a1075a1a24dcfe2a4d521c77811e2b8f1030c",
+  "$hash": "44b55a0dbc971d13e28dcd43632aa235f07e2eb2",
   "$id": "aws-networkfirewall-firewallpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FirewallPolicyName"],
@@ -41,6 +41,7 @@
     "FirewallPolicy": {
       "additionalProperties": false,
       "properties": {
+        "EnableTLSSessionHolding": { "type": "boolean" },
         "PolicyVariables": {
           "additionalProperties": false,
           "properties": {

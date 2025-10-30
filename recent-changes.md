@@ -1,62 +1,23 @@
-- updated `AWS::BillingConductor::CustomLineItem`
-  - added property `ComputationRule`
-  - added property `PresentationDetails`
-  - updated `createOnlyProperties`
-- updated `AWS::ConnectCampaignsV2::Campaign`
-  - added definition `AgentAction`
-  - added definition `AgentActions`
-  - added definition `PreviewConfig`
-  - added definition `TimeoutConfig`
-  - added definition `TimeoutDuration`
-  - updated definition `TelephonyOutboundMode`
-- updated `AWS::DataZone::Connection`
-  - added property `ProjectIdentifier`
-  - updated `createOnlyProperties`
-  - updated `required`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `Ebs`
-- updated `AWS::EC2::NatGateway`
-  - updated property `VpcId`
-- updated `AWS::ECS::Service`
-  - updated definition `DeploymentConfiguration`
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - updated definition `HostHeaderConfig`
-  - updated definition `HttpHeaderConfig`
-  - updated definition `HttpRequestMethodConfig`
-  - updated definition `QueryStringConfig`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - updated property `EnableCapacityReservationProvisionStabilize`
-- updated `AWS::ImageBuilder::Image`
-  - added property `DeletionSettings`
-  - updated `writeOnlyProperties`
+- updated `AWS::Batch::JobDefinition`
+  - added `writeOnlyProperties`
+  - added definition `ResourceRetentionPolicy`
+  - added property `ResourceRetentionPolicy`
+- updated `AWS::NetworkFirewall::FirewallPolicy`
+  - updated definition `FirewallPolicy`
+- updated `AWS::NetworkFirewall::RuleGroup`
+  - updated definition `GeneratedRulesType`
+- updated `AWS::NetworkManager::ConnectAttachment`
+  - added property `LastModificationErrors`
+  - updated `readOnlyProperties`
 - updated `AWS::NetworkManager::DirectConnectGatewayAttachment`
-  - removed property `LastModificationErrors`
+  - added property `LastModificationErrors`
+  - updated `readOnlyProperties`
+- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
+  - added property `LastModificationErrors`
+  - updated `readOnlyProperties`
+- updated `AWS::NetworkManager::TransitGatewayPeering`
+  - added property `LastModificationErrors`
   - updated `readOnlyProperties`
 - updated `AWS::NetworkManager::VpcAttachment`
-  - removed property `LastModificationErrors`
+  - added property `LastModificationErrors`
   - updated `readOnlyProperties`
-- updated `AWS::RTBFabric::Link`
-  - added definition `FilterCriterion`
-  - added definition `Filter`
-  - added definition `HeaderTagAction`
-  - added definition `ModuleConfigurationList`
-  - added definition `ModuleConfiguration`
-  - added definition `ModuleParameters`
-  - added definition `NoBidAction`
-  - added definition `NoBidModuleParameters`
-  - added definition `OpenRtbAttributeModuleParameters`
-  - added property `ModuleConfigurationList`
-  - updated `writeOnlyProperties`
-- updated `AWS::Transfer::Connector`
-  - added definition `ConnectorEgressConfig`
-  - added definition `ConnectorEgressType`
-  - added definition `ConnectorStatus`
-  - added definition `ConnectorVpcLatticeEgressConfig`
-  - added property `EgressConfig`
-  - added property `EgressType`
-  - added property `Status`
-  - updated `readOnlyProperties`
-  - updated `required`
-  - updated handler permissions

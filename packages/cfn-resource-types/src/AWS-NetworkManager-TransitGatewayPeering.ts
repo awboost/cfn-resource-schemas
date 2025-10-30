@@ -36,6 +36,10 @@ export type NetworkManagerTransitGatewayPeeringAttributes = {
    */
   EdgeLocation: string;
   /**
+   * Errors from the last modification of the transit gateway peering.
+   */
+  LastModificationErrors: string[];
+  /**
    * Peering owner account Id
    */
   OwnerAccountId: string;

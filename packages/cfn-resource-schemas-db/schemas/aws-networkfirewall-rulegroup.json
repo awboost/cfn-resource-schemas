@@ -1,5 +1,5 @@
 {
-  "$hash": "b3d29cabfea0aa1276b2aa66478e3f8ba29fb7e3",
+  "$hash": "be9138adacb077b361c145a87c27e0386dd677c6",
   "$id": "aws-networkfirewall-rulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -56,7 +56,7 @@
       "type": "object"
     },
     "GeneratedRulesType": {
-      "enum": ["ALLOWLIST", "DENYLIST"],
+      "enum": ["ALLOWLIST", "DENYLIST", "ALERTLIST", "REJECTLIST"],
       "type": "string"
     },
     "Header": {

@@ -92,7 +92,11 @@ export type Dimension = {
  * Type definition for `AWS::NetworkFirewall::RuleGroup.GeneratedRulesType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-generatedrulestype.html}
  */
-export type GeneratedRulesType = "ALLOWLIST" | "DENYLIST";
+export type GeneratedRulesType =
+  | "ALLOWLIST"
+  | "DENYLIST"
+  | "ALERTLIST"
+  | "REJECTLIST";
 /**
  * Type definition for `AWS::NetworkFirewall::RuleGroup.Header`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-header.html}
