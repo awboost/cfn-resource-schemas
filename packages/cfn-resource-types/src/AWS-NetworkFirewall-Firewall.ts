@@ -65,6 +65,12 @@ export type NetworkFirewallFirewallAttributes = {
    * @pattern `^([0-9a-f]{8})-([0-9a-f]{4}-){3}([0-9a-f]{12})$`
    */
   FirewallId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^tgw-attach-[0-9a-z]+$`
+   */
+  TransitGatewayAttachmentId: string;
 };
 /**
  * Type definition for `AWS::NetworkFirewall::Firewall.AvailabilityZoneMapping`.

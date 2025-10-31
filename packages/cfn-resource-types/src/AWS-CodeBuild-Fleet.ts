@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CodeBuildFleetProperties = {
   /**
-   * @min `1`
+   * @min `0`
    */
   BaseCapacity?: number;
   ComputeConfiguration?: ComputeConfiguration;
@@ -35,7 +35,7 @@ export type CodeBuildFleetProperties = {
   FleetServiceRole?: string;
   FleetVpcConfig?: VpcConfig;
   /**
-   * @pattern `^((aws/codebuild/[A-Za-z-]+:[0-9]+(-[0-9._]+)?)|ami-[a-z0-9]{1,1020})$`
+   * @pattern `^((aws/codebuild/([A-Za-z0-9._-]+|ami/[A-Za-z0-9._-]+):[A-Za-z0-9._-]+)|ami-[a-z0-9]{1,1020})$`
    */
   ImageId?: string;
   /**

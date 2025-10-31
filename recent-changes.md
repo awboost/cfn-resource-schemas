@@ -1,23 +1,21 @@
-- updated `AWS::Batch::JobDefinition`
-  - added `writeOnlyProperties`
-  - added definition `ResourceRetentionPolicy`
-  - added property `ResourceRetentionPolicy`
-- updated `AWS::NetworkFirewall::FirewallPolicy`
-  - updated definition `FirewallPolicy`
-- updated `AWS::NetworkFirewall::RuleGroup`
-  - updated definition `GeneratedRulesType`
-- updated `AWS::NetworkManager::ConnectAttachment`
-  - added property `LastModificationErrors`
+- added `AWS::S3Vectors::Index`
+- added `AWS::S3Vectors::VectorBucket`
+- added `AWS::S3Vectors::VectorBucketPolicy`
+- updated `AWS::CE::AnomalyMonitor`
+  - updated property `MonitorDimension`
+- updated `AWS::CodeBuild::Fleet`
+  - updated property `BaseCapacity`
+  - updated property `ImageId`
+- updated `AWS::DataZone::Connection`
+  - added property `EnableTrustedIdentityPropagation`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::ECS::Service`
+  - added definition `ServiceConnectAccessLogConfiguration`
+  - updated definition `ServiceConnectConfiguration`
+- updated `AWS::NetworkFirewall::Firewall`
+  - added property `TransitGatewayAttachmentId`
   - updated `readOnlyProperties`
-- updated `AWS::NetworkManager::DirectConnectGatewayAttachment`
-  - added property `LastModificationErrors`
-  - updated `readOnlyProperties`
-- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
-  - added property `LastModificationErrors`
-  - updated `readOnlyProperties`
-- updated `AWS::NetworkManager::TransitGatewayPeering`
-  - added property `LastModificationErrors`
-  - updated `readOnlyProperties`
-- updated `AWS::NetworkManager::VpcAttachment`
+- updated `AWS::NetworkManager::TransitGatewayRouteTableAttachment`
   - added property `LastModificationErrors`
   - updated `readOnlyProperties`

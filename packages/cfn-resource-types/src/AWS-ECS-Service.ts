@@ -691,6 +691,14 @@ export type Secret = {
   ValueFrom: string;
 };
 /**
+ * Type definition for `AWS::ECS::Service.ServiceConnectAccessLogConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectaccesslogconfiguration.html}
+ */
+export type ServiceConnectAccessLogConfiguration = {
+  Format: "TEXT" | "JSON";
+  IncludeQueryParameters?: "DISABLED" | "ENABLED";
+};
+/**
  * Type definition for `AWS::ECS::Service.ServiceConnectClientAlias`.
  * Each alias ("endpoint") is a fully-qualified name and port number that other tasks ("clients") can use to connect to this service.
  Each name and port mapping must be unique within the namespace.
@@ -721,6 +729,7 @@ export type ServiceConnectClientAlias = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html}
  */
 export type ServiceConnectConfiguration = {
+  AccessLogConfiguration?: ServiceConnectAccessLogConfiguration;
   /**
    * Specifies whether to use Service Connect with this service.
    */

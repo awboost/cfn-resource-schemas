@@ -22,6 +22,10 @@ export type DataZoneConnectionProperties = {
    */
   DomainIdentifier: string;
   /**
+   * Specifies whether the trusted identity propagation is enabled
+   */
+  EnableTrustedIdentityPropagation?: boolean;
+  /**
    * The identifier of the environment in which the connection is created.
    */
   EnvironmentIdentifier?: string;

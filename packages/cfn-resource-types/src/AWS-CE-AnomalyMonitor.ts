@@ -9,7 +9,7 @@ export type CEAnomalyMonitorProperties = {
   /**
    * The dimensions to evaluate
    */
-  MonitorDimension?: "SERVICE";
+  MonitorDimension?: "SERVICE" | "LINKED_ACCOUNT" | "TAG" | "COST_CATEGORY";
   /**
    * The name of the monitor.
    * @minLength `0`

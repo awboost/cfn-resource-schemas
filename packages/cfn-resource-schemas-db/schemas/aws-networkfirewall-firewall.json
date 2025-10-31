@@ -1,5 +1,5 @@
 {
-  "$hash": "be056a1e09117f5ddf432ac51335853bccd2c3b5",
+  "$hash": "e2d9e33c30e2834f1e0ccebf3aeb902e4be0f2ed",
   "$id": "aws-networkfirewall-firewall.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/VpcId", "/properties/FirewallName"],
@@ -155,6 +155,12 @@
       "type": "array",
       "uniqueItems": true
     },
+    "TransitGatewayAttachmentId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^tgw-attach-[0-9a-z]+$",
+      "type": "string"
+    },
     "TransitGatewayId": {
       "maxLength": 128,
       "pattern": "^tgw-[0-9a-z]+$",
@@ -170,6 +176,7 @@
   "readOnlyProperties": [
     "/properties/FirewallArn",
     "/properties/FirewallId",
+    "/properties/TransitGatewayAttachmentId",
     "/properties/EndpointIds"
   ],
   "required": ["FirewallName", "FirewallPolicyArn"],

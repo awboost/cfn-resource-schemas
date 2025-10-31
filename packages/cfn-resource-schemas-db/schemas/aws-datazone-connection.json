@@ -1,9 +1,10 @@
 {
-  "$hash": "64d0d89120d5911f12aa1663ded0e3d0c615acd6",
+  "$hash": "33541ceb60e0c6bc7a69536701d9f562f8518e82",
   "$id": "aws-datazone-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DomainIdentifier",
+    "/properties/EnableTrustedIdentityPropagation",
     "/properties/EnvironmentIdentifier",
     "/properties/ProjectIdentifier",
     "/properties/Name"
@@ -713,6 +714,10 @@
       "pattern": "^[a-z0-9_\\-]+$",
       "type": "string"
     },
+    "EnableTrustedIdentityPropagation": {
+      "description": "Specifies whether the trusted identity propagation is enabled",
+      "type": "boolean"
+    },
     "EnvironmentId": {
       "description": "The ID of the environment in which the connection is created.",
       "pattern": "^[a-zA-Z0-9_-]{1,36}$",
@@ -765,6 +770,7 @@
   "writeOnlyProperties": [
     "/properties/AwsLocation",
     "/properties/DomainIdentifier",
+    "/properties/EnableTrustedIdentityPropagation",
     "/properties/EnvironmentIdentifier",
     "/properties/ProjectIdentifier",
     "/properties/Props"

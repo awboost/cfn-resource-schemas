@@ -1,5 +1,5 @@
 {
-  "$hash": "e819d1b255edaba73bc88f30ce3ffa5a139bb58c",
+  "$hash": "98a97ab82effb48e08a5f9db9c442a8d05ad2903",
   "$id": "aws-ce-anomalymonitor.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -77,7 +77,7 @@
     "MonitorArn": { "$ref": "#/definitions/Arn" },
     "MonitorDimension": {
       "description": "The dimensions to evaluate",
-      "enum": ["SERVICE"],
+      "enum": ["SERVICE", "LINKED_ACCOUNT", "TAG", "COST_CATEGORY"],
       "type": "string"
     },
     "MonitorName": {

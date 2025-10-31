@@ -64,6 +64,10 @@ export type NetworkManagerTransitGatewayRouteTableAttachmentAttributes = {
    */
   EdgeLocation: string;
   /**
+   * Errors from the last modification of the attachment.
+   */
+  LastModificationErrors: string[];
+  /**
    * Owner account of the attachment.
    */
   OwnerAccountId: string;

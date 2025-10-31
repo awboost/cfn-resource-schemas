@@ -1,5 +1,5 @@
 {
-  "$hash": "614df5b62cadac7fa6fe62e50541bbec6d323b84",
+  "$hash": "ed76abf840dbf9f08b78a2e8859407547a249042",
   "$id": "aws-codebuild-fleet.json",
   "additionalProperties": false,
   "definitions": {
@@ -131,7 +131,7 @@
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
     "Arn": { "minLength": 1, "type": "string" },
-    "BaseCapacity": { "minimum": 1, "type": "integer" },
+    "BaseCapacity": { "minimum": 0, "type": "integer" },
     "ComputeConfiguration": { "$ref": "#/definitions/ComputeConfiguration" },
     "ComputeType": {
       "enum": [
@@ -166,7 +166,7 @@
     },
     "FleetVpcConfig": { "$ref": "#/definitions/VpcConfig" },
     "ImageId": {
-      "pattern": "^((aws/codebuild/[A-Za-z-]+:[0-9]+(-[0-9._]+)?)|ami-[a-z0-9]{1,1020})$",
+      "pattern": "^((aws/codebuild/([A-Za-z0-9._-]+|ami/[A-Za-z0-9._-]+):[A-Za-z0-9._-]+)|ami-[a-z0-9]{1,1020})$",
       "type": "string"
     },
     "Name": { "maxLength": 128, "minLength": 2, "type": "string" },
