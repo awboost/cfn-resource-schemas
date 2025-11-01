@@ -1,5 +1,5 @@
 {
-  "$hash": "97900aeebd7acb8acd2961c80c21a11b50a5086b",
+  "$hash": "7afd5264d440267066ae855ba55ce9a4824077d5",
   "$id": "aws-sso-permissionset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceArn", "/properties/Name"],
@@ -79,7 +79,20 @@
       ]
     },
     "delete": { "permissions": ["sso:DeletePermissionSet"] },
-    "list": { "permissions": ["sso:DescribePermissionSet"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "InstanceArn": {
+            "$ref": "resource-schema.json#/properties/InstanceArn"
+          },
+          "PermissionSetArn": {
+            "$ref": "resource-schema.json#/properties/PermissionSetArn"
+          }
+        },
+        "required": ["InstanceArn", "PermissionSetArn"]
+      },
+      "permissions": ["sso:DescribePermissionSet"]
+    },
     "read": {
       "permissions": [
         "sso:DescribePermissionSet",

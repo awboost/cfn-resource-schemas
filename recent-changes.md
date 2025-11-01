@@ -1,21 +1,13 @@
-- added `AWS::S3Vectors::Index`
-- added `AWS::S3Vectors::VectorBucket`
-- added `AWS::S3Vectors::VectorBucketPolicy`
-- updated `AWS::CE::AnomalyMonitor`
-  - updated property `MonitorDimension`
-- updated `AWS::CodeBuild::Fleet`
-  - updated property `BaseCapacity`
-  - updated property `ImageId`
-- updated `AWS::DataZone::Connection`
-  - added property `EnableTrustedIdentityPropagation`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::ECS::Service`
-  - added definition `ServiceConnectAccessLogConfiguration`
-  - updated definition `ServiceConnectConfiguration`
-- updated `AWS::NetworkFirewall::Firewall`
-  - added property `TransitGatewayAttachmentId`
-  - updated `readOnlyProperties`
-- updated `AWS::NetworkManager::TransitGatewayRouteTableAttachment`
-  - added property `LastModificationErrors`
-  - updated `readOnlyProperties`
+- updated `AWS::EC2::VPCEndpointConnectionNotification`
+  - updated handler permissions
+- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
+  - updated definition `RewriteConfigObject`
+  - updated definition `RewriteConfig`
+  - updated definition `RuleCondition`
+  - updated definition `Transform`
+- updated `AWS::SSO::Assignment`
+  - updated handler permissions
+  - updated property `PermissionSetArn`
+  - updated property `TargetType`
+- updated `AWS::SSO::PermissionSet`
+  - updated handler permissions

@@ -342,10 +342,17 @@ export type RedirectConfig = {
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::ListenerRule.RewriteConfig`.
+ * Information about a rewrite transform. This transform matches a pattern and replaces it with the specified string.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rewriteconfig.html}
  */
 export type RewriteConfig = {
+  /**
+   * The regular expression to match in the input string. The maximum length of the string is 1,024 characters.
+   */
   Regex: string;
+  /**
+   * The replacement string to use when rewriting the matched input. The maximum length of the string is 1,024 characters. You can specify capture groups in the regular expression (for example, $1 and $2).
+   */
   Replace: string;
 };
 /**
@@ -391,6 +398,9 @@ export type RuleCondition = {
    * Information for a query string condition. Specify only when ``Field`` is ``query-string``.
    */
   QueryStringConfig?: QueryStringConfig;
+  /**
+   * The regular expressions to match against the condition field. The maximum length of each string is 128 characters. Specify only when ``Field`` is ``http-header``, ``host-header``, or ``path-pattern``.
+   */
   RegexValues?: string[];
   /**
    * Information for a source IP condition. Specify only when ``Field`` is ``source-ip``.

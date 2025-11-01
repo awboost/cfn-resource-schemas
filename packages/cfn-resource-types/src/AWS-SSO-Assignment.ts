@@ -14,7 +14,7 @@ export type SSOAssignmentProperties = {
    */
   InstanceArn: string;
   /**
-   * The permission set that the assignemt will be assigned
+   * The permission set that the assignment will be assigned
    * @minLength `10`
    * @maxLength `1224`
    * @pattern `arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}`
@@ -37,7 +37,7 @@ export type SSOAssignmentProperties = {
    */
   TargetId: string;
   /**
-   * The type of resource to be provsioned to, only aws account now
+   * The type of resource to be provisioned to, only aws account now
    */
   TargetType: "AWS_ACCOUNT";
 };
