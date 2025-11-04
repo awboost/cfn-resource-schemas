@@ -1,7 +1,8 @@
 {
-  "$hash": "c0ddd373d20f83dfe1b9f4e40b7e894cdb80bd99",
+  "$hash": "1a93d38cf783f13b0d1e799cfc74397a21f40334",
   "$id": "aws-bedrock-automatedreasoningpolicy.json",
   "additionalProperties": false,
+  "createOnlyProperties": ["/properties/KmsKeyId", "/properties/ForceDelete"],
   "definitions": {
     "CreatedAt": {
       "description": "Time this policy was created",
@@ -18,6 +19,25 @@
     "Description": {
       "maxLength": 1024,
       "pattern": "^[\\s\\S]+$",
+      "type": "string"
+    },
+    "ForceDelete": {
+      "default": false,
+      "description": "Specifies whether to force delete the automated reasoning policy even if it has active resources. When false , Amazon Bedrock validates if all artifacts have been deleted (e.g. policy version, test case, test result) for a policy before deletion. When true , Amazon Bedrock will delete the policy and all its artifacts without validation. Default is false",
+      "type": "boolean"
+    },
+    "KmsKeyArn": {
+      "description": "The KMS key with which the Policy's assets will be encrypted at rest.",
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^arn:aws(-[^:]+)?:kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$",
+      "type": "string"
+    },
+    "KmsKeyId": {
+      "description": "The KMS key with which the Policy's assets will be encrypted at rest.",
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^(arn:aws(-[^:]+)?:kms:[a-zA-Z0-9-]*:[0-9]{12}:((key/[a-zA-Z0-9-]{36})|(alias/[a-zA-Z0-9-_/]+)))|([a-zA-Z0-9-]{36})|(alias/[a-zA-Z0-9-_/]+)$",
       "type": "string"
     },
     "Name": {
@@ -229,7 +249,10 @@
         "bedrock:GetAutomatedReasoningPolicy",
         "bedrock:ExportAutomatedReasoningPolicyVersion",
         "bedrock:TagResource",
-        "bedrock:ListTagsForResource"
+        "bedrock:ListTagsForResource",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
       ]
     },
     "delete": {
@@ -243,7 +266,10 @@
       "permissions": [
         "bedrock:GetAutomatedReasoningPolicy",
         "bedrock:ExportAutomatedReasoningPolicyVersion",
-        "bedrock:ListTagsForResource"
+        "bedrock:ListTagsForResource",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
       ]
     },
     "update": {
@@ -253,7 +279,10 @@
         "bedrock:ExportAutomatedReasoningPolicyVersion",
         "bedrock:ListTagsForResource",
         "bedrock:TagResource",
-        "bedrock:UntagResource"
+        "bedrock:UntagResource",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
       ]
     }
   },
@@ -262,6 +291,9 @@
     "CreatedAt": { "$ref": "#/definitions/CreatedAt" },
     "DefinitionHash": { "$ref": "#/definitions/DefinitionHash" },
     "Description": { "$ref": "#/definitions/Description" },
+    "ForceDelete": { "$ref": "#/definitions/ForceDelete" },
+    "KmsKeyArn": { "$ref": "#/definitions/KmsKeyArn" },
+    "KmsKeyId": { "$ref": "#/definitions/KmsKeyId" },
     "Name": { "$ref": "#/definitions/Name" },
     "PolicyArn": { "$ref": "#/definitions/PolicyArn" },
     "PolicyDefinition": { "$ref": "#/definitions/PolicyDefinition" },
@@ -276,7 +308,8 @@
     "/properties/PolicyArn",
     "/properties/DefinitionHash",
     "/properties/CreatedAt",
-    "/properties/UpdatedAt"
+    "/properties/UpdatedAt",
+    "/properties/KmsKeyArn"
   ],
   "required": ["Name"],
   "tagging": {
@@ -291,5 +324,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::Bedrock::AutomatedReasoningPolicy"
+  "typeName": "AWS::Bedrock::AutomatedReasoningPolicy",
+  "writeOnlyProperties": ["/properties/KmsKeyId", "/properties/ForceDelete"]
 }

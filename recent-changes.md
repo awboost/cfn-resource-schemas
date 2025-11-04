@@ -1,13 +1,31 @@
-- updated `AWS::EC2::VPCEndpointConnectionNotification`
+- updated `AWS::Bedrock::AutomatedReasoningPolicy`
+  - added `createOnlyProperties`
+  - added `writeOnlyProperties`
+  - added definition `ForceDelete`
+  - added definition `KmsKeyArn`
+  - added definition `KmsKeyId`
+  - added property `ForceDelete`
+  - added property `KmsKeyArn`
+  - added property `KmsKeyId`
+  - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - updated definition `RewriteConfigObject`
-  - updated definition `RewriteConfig`
-  - updated definition `RuleCondition`
-  - updated definition `Transform`
-- updated `AWS::SSO::Assignment`
+- updated `AWS::Bedrock::AutomatedReasoningPolicyVersion`
   - updated handler permissions
-  - updated property `PermissionSetArn`
-  - updated property `TargetType`
-- updated `AWS::SSO::PermissionSet`
-  - updated handler permissions
+- updated `AWS::CleanRooms::Collaboration`
+  - added definition `AllowedResultRegions`
+  - added definition `SupportedS3Region`
+  - added property `AllowedResultRegions`
+  - updated `createOnlyProperties`
+- updated `AWS::CleanRooms::ConfiguredTable`
+  - added definition `CommercialRegion`
+  - updated definition `AthenaTableReference`
+  - updated definition `GlueTableReference`
+- updated `AWS::CleanRooms::PrivacyBudgetTemplate`
+  - added definition `BudgetParameter`
+  - updated `createOnlyProperties`
+  - updated property `Parameters`
+  - updated property `PrivacyBudgetType`
+- updated `AWS::Location::APIKey`
+  - added definition `AndroidApp`
+  - added definition `AppleApp`
+  - updated definition `ApiKeyRestrictions`

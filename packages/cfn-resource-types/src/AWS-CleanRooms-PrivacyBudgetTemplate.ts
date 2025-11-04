@@ -15,17 +15,26 @@ export type CleanRoomsPrivacyBudgetTemplateProperties = {
   MembershipIdentifier: string;
   Parameters: {
     /**
+     * @minLength `1`
+     * @maxLength `2`
+     */
+    BudgetParameters?: BudgetParameter[];
+    /**
      * @min `1`
      * @max `20`
      */
-    Epsilon: number;
+    Epsilon?: number;
+    /**
+     * @maxLength `200`
+     */
+    ResourceArn?: string;
     /**
      * @min `10`
      * @max `100`
      */
-    UsersNoisePerQuery: number;
+    UsersNoisePerQuery?: number;
   };
-  PrivacyBudgetType: "DIFFERENTIAL_PRIVACY";
+  PrivacyBudgetType: "DIFFERENTIAL_PRIVACY" | "ACCESS_BUDGET";
   /**
    * An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.
    */
@@ -60,6 +69,18 @@ export type CleanRoomsPrivacyBudgetTemplateAttributes = {
    * @pattern `[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}`
    */
   PrivacyBudgetTemplateIdentifier: string;
+};
+/**
+ * Type definition for `AWS::CleanRooms::PrivacyBudgetTemplate.BudgetParameter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-privacybudgettemplate-budgetparameter.html}
+ */
+export type BudgetParameter = {
+  AutoRefresh?: "ENABLED" | "DISABLED";
+  /**
+   * @min `0`
+   */
+  Budget: number;
+  Type: "CALENDAR_DAY" | "CALENDAR_MONTH" | "CALENDAR_WEEK" | "LIFETIME";
 };
 /**
  * Type definition for `AWS::CleanRooms::PrivacyBudgetTemplate.Tag`.

@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html}
  */
 export type CleanRoomsCollaborationProperties = {
+  AllowedResultRegions?: SupportedS3Region[];
   AnalyticsEngine?: AnalyticsEngine;
   AutoApprovedChangeTypes?: AutoApprovedChangeType[];
   /**
@@ -173,6 +174,44 @@ export type PaymentConfiguration = {
 export type QueryComputePaymentConfig = {
   IsResponsible: boolean;
 };
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.SupportedS3Region`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-supporteds3region.html}
+ */
+export type SupportedS3Region =
+  | "us-west-1"
+  | "us-west-2"
+  | "us-east-1"
+  | "us-east-2"
+  | "af-south-1"
+  | "ap-east-1"
+  | "ap-east-2"
+  | "ap-south-2"
+  | "ap-southeast-1"
+  | "ap-southeast-2"
+  | "ap-southeast-3"
+  | "ap-southeast-5"
+  | "ap-southeast-4"
+  | "ap-southeast-7"
+  | "ap-south-1"
+  | "ap-northeast-3"
+  | "ap-northeast-1"
+  | "ap-northeast-2"
+  | "ca-central-1"
+  | "ca-west-1"
+  | "eu-south-1"
+  | "eu-west-3"
+  | "eu-south-2"
+  | "eu-central-2"
+  | "eu-central-1"
+  | "eu-north-1"
+  | "eu-west-1"
+  | "eu-west-2"
+  | "me-south-1"
+  | "me-central-1"
+  | "il-central-1"
+  | "sa-east-1"
+  | "mx-central-1";
 /**
  * Type definition for `AWS::CleanRooms::Collaboration.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-tag.html}

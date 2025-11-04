@@ -11,6 +11,17 @@ export type BedrockAutomatedReasoningPolicyProperties = {
    */
   Description?: string;
   /**
+   * Specifies whether to force delete the automated reasoning policy even if it has active resources. When false , Amazon Bedrock validates if all artifacts have been deleted (e.g. policy version, test case, test result) for a policy before deletion. When true , Amazon Bedrock will delete the policy and all its artifacts without validation. Default is false
+   */
+  ForceDelete?: boolean;
+  /**
+   * The KMS key with which the Policy's assets will be encrypted at rest.
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^(arn:aws(-[^:]+)?:kms:[a-zA-Z0-9-]*:[0-9]{12}:((key/[a-zA-Z0-9-]{36})|(alias/[a-zA-Z0-9-_/]+)))|([a-zA-Z0-9-]{36})|(alias/[a-zA-Z0-9-_/]+)$`
+   */
+  KmsKeyId?: string;
+  /**
    * @minLength `1`
    * @maxLength `256`
    * @pattern `^[0-9a-zA-Z-_ ]+$`
@@ -35,6 +46,13 @@ export type BedrockAutomatedReasoningPolicyAttributes = {
    * @pattern `^[0-9a-z]{128}$`
    */
   DefinitionHash: string;
+  /**
+   * The KMS key with which the Policy's assets will be encrypted at rest.
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-[^:]+)?:kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
+   */
+  KmsKeyArn: string;
   /**
    * @minLength `1`
    * @maxLength `2048`

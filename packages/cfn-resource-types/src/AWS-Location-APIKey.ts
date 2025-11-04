@@ -59,6 +59,24 @@ export type LocationAPIKeyAttributes = {
   UpdateTime: string;
 };
 /**
+ * Type definition for `AWS::Location::APIKey.AndroidApp`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-androidapp.html}
+ */
+export type AndroidApp = {
+  /**
+   * @minLength `59`
+   * @maxLength `59`
+   * @pattern `^([A-Fa-f0-9]{2}:){19}[A-Fa-f0-9]{2}$`
+   */
+  CertificateFingerprint: string;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   * @pattern `^([A-Za-z][A-Za-z\d_]*\.)+[A-Za-z][A-Za-z\d_]*$`
+   */
+  Package: string;
+};
+/**
  * Type definition for `AWS::Location::APIKey.ApiKeyRestrictions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html}
  */
@@ -69,7 +87,17 @@ export type ApiKeyRestrictions = {
    */
   AllowActions: string[];
   /**
-   * @minLength `1`
+   * @minLength `0`
+   * @maxLength `5`
+   */
+  AllowAndroidApps?: AndroidApp[];
+  /**
+   * @minLength `0`
+   * @maxLength `5`
+   */
+  AllowAppleApps?: AppleApp[];
+  /**
+   * @minLength `0`
    * @maxLength `5`
    */
   AllowReferers?: string[];
@@ -78,6 +106,18 @@ export type ApiKeyRestrictions = {
    * @maxLength `8`
    */
   AllowResources: string[];
+};
+/**
+ * Type definition for `AWS::Location::APIKey.AppleApp`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-appleapp.html}
+ */
+export type AppleApp = {
+  /**
+   * @minLength `1`
+   * @maxLength `155`
+   * @pattern `^[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)+$`
+   */
+  BundleId: string;
 };
 /**
  * Type definition for `AWS::Location::APIKey.Tag`.

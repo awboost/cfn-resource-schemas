@@ -1,13 +1,32 @@
 {
-  "$hash": "7cdf027ceb87c47daa51841688cfc689f706f6ea",
+  "$hash": "1ded2eb09f1dbec39d69c4bc52d126aa687a9116",
   "$id": "aws-cleanrooms-privacybudgettemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/MembershipIdentifier",
     "/properties/PrivacyBudgetType",
-    "/properties/AutoRefresh"
+    "/properties/AutoRefresh",
+    "/properties/Parameters/ResourceArn"
   ],
   "definitions": {
+    "BudgetParameter": {
+      "additionalProperties": false,
+      "properties": {
+        "AutoRefresh": { "enum": ["ENABLED", "DISABLED"], "type": "string" },
+        "Budget": { "minimum": 0, "type": "integer" },
+        "Type": {
+          "enum": [
+            "CALENDAR_DAY",
+            "CALENDAR_MONTH",
+            "CALENDAR_WEEK",
+            "LIFETIME"
+          ],
+          "type": "string"
+        }
+      },
+      "required": ["Type", "Budget"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -89,14 +108,21 @@
     "Parameters": {
       "additionalProperties": false,
       "properties": {
+        "BudgetParameters": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/BudgetParameter" },
+          "maxItems": 2,
+          "minItems": 1,
+          "type": "array"
+        },
         "Epsilon": { "maximum": 20, "minimum": 1, "type": "integer" },
+        "ResourceArn": { "maxLength": 200, "type": "string" },
         "UsersNoisePerQuery": {
           "maximum": 100,
           "minimum": 10,
           "type": "integer"
         }
       },
-      "required": ["Epsilon", "UsersNoisePerQuery"],
       "type": "object"
     },
     "PrivacyBudgetTemplateIdentifier": {
@@ -105,7 +131,10 @@
       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}",
       "type": "string"
     },
-    "PrivacyBudgetType": { "enum": ["DIFFERENTIAL_PRIVACY"], "type": "string" },
+    "PrivacyBudgetType": {
+      "enum": ["DIFFERENTIAL_PRIVACY", "ACCESS_BUDGET"],
+      "type": "string"
+    },
     "Tags": {
       "description": "An arbitrary set of tags (key-value pairs) for this cleanrooms privacy budget template.",
       "insertionOrder": false,
