@@ -1,5 +1,5 @@
 {
-  "$hash": "25aa8f3291c6b46102ce5e141474fc702f942ca3",
+  "$hash": "4f22f87b6a56382928284f15d490770f7ec34a63",
   "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -101,7 +101,8 @@
               "t4",
               "t4g",
               "vu9p",
-              "v100"
+              "v100",
+              "l40s"
             ],
             "type": "string"
           },

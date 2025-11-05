@@ -40,6 +40,10 @@ export type DataZoneConnectionProperties = {
    */
   ProjectIdentifier?: string;
   Props?: ConnectionPropertiesInput;
+  /**
+   * The scope of the connection.
+   */
+  Scope?: "DOMAIN" | "PROJECT";
 };
 /**
  * Attribute type definition for `AWS::DataZone::Connection`.
@@ -82,6 +86,29 @@ export type DataZoneConnectionAttributes = {
    * Connection Type
    */
   Type: string;
+};
+/**
+ * Type definition for `AWS::DataZone::Connection.AmazonQPropertiesInput`.
+ * Amazon Q properties of the connection.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-amazonqpropertiesinput.html}
+ */
+export type AmazonQPropertiesInput = {
+  /**
+   * The authentication mode of the connection's AmazonQ properties
+   * @minLength `0`
+   * @maxLength `128`
+   */
+  AuthMode?: string;
+  /**
+   * Specifies whether Amazon Q is enabled for the connection
+   */
+  IsEnabled?: boolean;
+  /**
+   * @minLength `0`
+   * @maxLength `2048`
+   * @pattern `arn:aws[a-z\-]*:[a-z0-9\-]+:[a-z0-9\-]*:[0-9]*:.*`
+   */
+  ProfileArn?: string;
 };
 /**
  * Type definition for `AWS::DataZone::Connection.AthenaPropertiesInput`.
@@ -236,6 +263,12 @@ export type ConnectionPropertiesInput =
        * Spark EMR Properties Input.
        */
       SparkEmrProperties: SparkEmrPropertiesInput;
+    }
+  | {
+      /**
+       * Amazon Q properties of the connection.
+       */
+      AmazonQProperties: AmazonQPropertiesInput;
     }
   | {
       /**

@@ -1,5 +1,5 @@
 {
-  "$hash": "33541ceb60e0c6bc7a69536701d9f562f8518e82",
+  "$hash": "758f4cca1d4f50e6b1a7572bd0cce0aed47d2cee",
   "$id": "aws-datazone-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,9 +7,33 @@
     "/properties/EnableTrustedIdentityPropagation",
     "/properties/EnvironmentIdentifier",
     "/properties/ProjectIdentifier",
-    "/properties/Name"
+    "/properties/Name",
+    "/properties/Scope"
   ],
   "definitions": {
+    "AmazonQPropertiesInput": {
+      "additionalProperties": false,
+      "description": "Amazon Q properties of the connection.",
+      "properties": {
+        "AuthMode": {
+          "description": "The authentication mode of the connection's AmazonQ properties",
+          "maxLength": 128,
+          "minLength": 0,
+          "type": "string"
+        },
+        "IsEnabled": {
+          "description": "Specifies whether Amazon Q is enabled for the connection",
+          "type": "boolean"
+        },
+        "ProfileArn": {
+          "maxLength": 2048,
+          "minLength": 0,
+          "pattern": "arn:aws[a-z\\-]*:[a-z0-9\\-]+:[a-z0-9\\-]*:[0-9]*:.*",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "AthenaPropertiesInput": {
       "additionalProperties": false,
       "description": "Athena Properties Input",
@@ -169,6 +193,17 @@
           },
           "required": ["SparkEmrProperties"],
           "title": "SparkEmrProperties",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "AmazonQProperties": {
+              "$ref": "#/definitions/AmazonQPropertiesInput"
+            }
+          },
+          "required": ["AmazonQProperties"],
+          "title": "AmazonQProperties",
           "type": "object"
         },
         {
@@ -747,6 +782,11 @@
       "type": "string"
     },
     "Props": { "$ref": "#/definitions/ConnectionPropertiesInput" },
+    "Scope": {
+      "description": "The scope of the connection.",
+      "enum": ["DOMAIN", "PROJECT"],
+      "type": "string"
+    },
     "Type": { "$ref": "#/definitions/ConnectionType" }
   },
   "readOnlyProperties": [
@@ -773,6 +813,7 @@
     "/properties/EnableTrustedIdentityPropagation",
     "/properties/EnvironmentIdentifier",
     "/properties/ProjectIdentifier",
-    "/properties/Props"
+    "/properties/Props",
+    "/properties/Scope"
   ]
 }

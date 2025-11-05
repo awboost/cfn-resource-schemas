@@ -85,6 +85,7 @@ export type InstanceRequirementsRequest = {
     | "t4g"
     | "vu9p"
     | "v100"
+    | "l40s"
   )[];
   AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
   AcceleratorTypes?: ("gpu" | "fpga" | "inference")[];

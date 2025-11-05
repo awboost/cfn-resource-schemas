@@ -7,6 +7,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type WAFv2WebACLProperties = {
   /**
+   * Collection of application attributes.
+   */
+  ApplicationConfig?: ApplicationConfig;
+  /**
    * AssociationConfig for body inspection
    */
   AssociationConfig?: AssociationConfig;
@@ -107,6 +111,39 @@ export type AllowAction = {
  */
 export type AndStatement = {
   Statements: Statement[];
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.ApplicationAttribute`.
+ * Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-applicationattribute.html}
+ */
+export type ApplicationAttribute = {
+  /**
+   * Specifies the attribute name.
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[\w\-]+$`
+   */
+  Name: string;
+  /**
+   * Contains a list of values for that attribute
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  Values: string[];
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.ApplicationConfig`.
+ * Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-applicationconfig.html}
+ */
+export type ApplicationConfig = {
+  /**
+   * Contains the attribute name and a list of values for that attribute.
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  Attributes: ApplicationAttribute[];
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.AsnMatchStatement`.

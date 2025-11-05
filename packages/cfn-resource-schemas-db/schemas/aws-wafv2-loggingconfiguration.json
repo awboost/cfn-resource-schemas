@@ -1,5 +1,5 @@
 {
-  "$hash": "894086a2737b3d1bcb9ffd8ca9eab826eb7a28a1",
+  "$hash": "e5ff9b5369f2c37d6af87ed1b9fd109a6762a17f",
   "$id": "aws-wafv2-loggingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn"],
@@ -179,6 +179,9 @@
       "description": "The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/RedactedFields/*/SingleHeader/Name": "$lowercase(Name)"
   },
   "readOnlyProperties": ["/properties/ManagedByFirewallManager"],
   "required": ["ResourceArn", "LogDestinationConfigs"],

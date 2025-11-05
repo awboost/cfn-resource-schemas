@@ -1,31 +1,33 @@
-- updated `AWS::Bedrock::AutomatedReasoningPolicy`
-  - added `createOnlyProperties`
+- added `AWS::BedrockAgentCore::WorkloadIdentity`
+- added `AWS::Glue::IntegrationResourceProperty`
+- updated `AWS::DataZone::Connection`
+  - added definition `AmazonQPropertiesInput`
+  - added property `Scope`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated definition `ConnectionPropertiesInput`
+- updated `AWS::ECS::CapacityProvider`
+  - updated definition `InstanceRequirementsRequest`
+- updated `AWS::ServiceCatalog::PortfolioPrincipalAssociation`
+  - added `sourceUrl`
+  - added `tagging`
   - added `writeOnlyProperties`
-  - added definition `ForceDelete`
-  - added definition `KmsKeyArn`
-  - added definition `KmsKeyId`
-  - added property `ForceDelete`
-  - added property `KmsKeyArn`
-  - added property `KmsKeyId`
-  - updated `readOnlyProperties`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `required`
   - updated handler permissions
-- updated `AWS::Bedrock::AutomatedReasoningPolicyVersion`
-  - updated handler permissions
-- updated `AWS::CleanRooms::Collaboration`
-  - added definition `AllowedResultRegions`
-  - added definition `SupportedS3Region`
-  - added property `AllowedResultRegions`
-  - updated `createOnlyProperties`
-- updated `AWS::CleanRooms::ConfiguredTable`
-  - added definition `CommercialRegion`
-  - updated definition `AthenaTableReference`
-  - updated definition `GlueTableReference`
-- updated `AWS::CleanRooms::PrivacyBudgetTemplate`
-  - added definition `BudgetParameter`
-  - updated `createOnlyProperties`
-  - updated property `Parameters`
-  - updated property `PrivacyBudgetType`
-- updated `AWS::Location::APIKey`
-  - added definition `AndroidApp`
-  - added definition `AppleApp`
-  - updated definition `ApiKeyRestrictions`
+  - updated property `AcceptLanguage`
+  - updated property `PortfolioId`
+  - updated property `PrincipalARN`
+  - updated property `PrincipalType`
+- updated `AWS::WAFv2::LoggingConfiguration`
+  - added `propertyTransform`
+- updated `AWS::WAFv2::WebACL`
+  - added definition `ApplicationAttribute`
+  - added definition `ApplicationAttributes`
+  - added definition `ApplicationConfig`
+  - added definition `AttributeName`
+  - added definition `AttributeValue`
+  - added definition `AttributeValues`
+  - added property `ApplicationConfig`

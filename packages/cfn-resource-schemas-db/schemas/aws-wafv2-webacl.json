@@ -1,5 +1,5 @@
 {
-  "$hash": "0a9b930858041be9cb8fd83d8546048a9c204662",
+  "$hash": "bbbeceedeff2611be71d78541f36408c7e66199b",
   "$id": "aws-wafv2-webacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -73,6 +73,32 @@
       "required": ["Statements"],
       "type": "object"
     },
+    "ApplicationAttribute": {
+      "additionalProperties": false,
+      "description": "Application details defined during the &webacl; creation process. Application attributes help WAF; give recommendations for protection packs.",
+      "properties": {
+        "Name": { "$ref": "#/definitions/AttributeName" },
+        "Values": { "$ref": "#/definitions/AttributeValues" }
+      },
+      "required": ["Name", "Values"],
+      "type": "object"
+    },
+    "ApplicationAttributes": {
+      "description": "Contains the attribute name and a list of values for that attribute.",
+      "items": { "$ref": "#/definitions/ApplicationAttribute" },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "ApplicationConfig": {
+      "additionalProperties": false,
+      "description": "Configures the ability for the WAF; console to store and retrieve application attributes during the webacl; creation process. Application attributes help WAF; give recommendations for protection packs.",
+      "properties": {
+        "Attributes": { "$ref": "#/definitions/ApplicationAttributes" }
+      },
+      "required": ["Attributes"],
+      "type": "object"
+    },
     "AsnMatchStatement": {
       "additionalProperties": false,
       "properties": {
@@ -91,6 +117,27 @@
       "description": "AssociationConfig for body inspection",
       "properties": { "RequestBody": { "$ref": "#/definitions/RequestBody" } },
       "type": "object"
+    },
+    "AttributeName": {
+      "description": "Specifies the attribute name.",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[\\w\\-]+$",
+      "type": "string"
+    },
+    "AttributeValue": {
+      "description": "Specifies the attribute value.",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[\\w\\-]+$",
+      "type": "string"
+    },
+    "AttributeValues": {
+      "description": "Contains a list of values for that attribute",
+      "items": { "$ref": "#/definitions/AttributeValue" },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
     },
     "BlockAction": {
       "additionalProperties": false,
@@ -1507,6 +1554,10 @@
     "/properties/Scope"
   ],
   "properties": {
+    "ApplicationConfig": {
+      "$ref": "#/definitions/ApplicationConfig",
+      "description": "Collection of application attributes."
+    },
     "Arn": { "$ref": "#/definitions/ResourceArn" },
     "AssociationConfig": { "$ref": "#/definitions/AssociationConfig" },
     "Capacity": { "minimum": 0, "type": "integer" },
