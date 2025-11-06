@@ -63,6 +63,10 @@ export type OpenSearchServerlessCollectionAttributes = {
    * @maxLength `40`
    */
   Id: string;
+  /**
+   * The ARN of the AWS KMS key used to encrypt the collection.
+   */
+  KmsKeyArn: string;
 };
 /**
  * Type definition for `AWS::OpenSearchServerless::Collection.CollectionType`.

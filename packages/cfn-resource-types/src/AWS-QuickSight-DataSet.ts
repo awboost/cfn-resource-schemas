@@ -24,6 +24,7 @@ export type QuickSightDataSetProperties = {
      * @minLength `1`
      */
   ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
+  DataPrepConfiguration?: DataPrepConfiguration;
   DataSetId?: string;
   /**
    * <p>The refresh properties of a dataset.</p>
@@ -79,6 +80,7 @@ export type QuickSightDataSetProperties = {
    * <p>The configuration of tags on a dataset to set row-level security. </p>
    */
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
+  SemanticModelConfiguration?: SemanticModelConfiguration;
   /**
    * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
    * @minLength `1`
@@ -121,6 +123,11 @@ export type QuickSightDataSetAttributes = {
      */
     Description: string;
     /**
+     * @minLength `1`
+     * @maxLength `64`
+     */
+    Id: string;
+    /**
      * <p>The display name of the column..</p>
      * @minLength `1`
      * @maxLength `127`
@@ -129,6 +136,79 @@ export type QuickSightDataSetAttributes = {
     SubType: ColumnDataSubType;
     Type: ColumnDataType;
   }[];
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.AggregateOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-aggregateoperation.html}
+ */
+export type AggregateOperation = {
+  /**
+   * @minLength `0`
+   * @maxLength `128`
+   */
+  Aggregations: Aggregation[];
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  /**
+   * @minLength `0`
+   * @maxLength `128`
+   */
+  GroupByColumnNames?: string[];
+  Source: TransformOperationSource;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.Aggregation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-aggregation.html}
+ */
+export type Aggregation = {
+  AggregationFunction: DataPrepAggregationFunction;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  NewColumnId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  NewColumnName: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.AppendedColumn`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-appendedcolumn.html}
+ */
+export type AppendedColumn = {
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  ColumnName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  NewColumnId: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.AppendOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-appendoperation.html}
+ */
+export type AppendOperation = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  /**
+   * @minLength `0`
+   * @maxLength `2048`
+   */
+  AppendedColumns: AppendedColumn[];
+  FirstSource?: TransformOperationSource;
+  SecondSource?: TransformOperationSource;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.CalculatedColumn`.
@@ -168,7 +248,7 @@ export type CastColumnTypeOperation = {
    * @minLength `1`
    * @maxLength `127`
    */
-  ColumnName?: string;
+  ColumnName: string;
   /**
      * <p>When casting a column from string to datetime type, you can supply a string in a
                 format supported by Amazon QuickSight to denote the source data format.</p>
@@ -178,6 +258,23 @@ export type CastColumnTypeOperation = {
   Format?: string;
   NewColumnType: ColumnDataType;
   SubType?: ColumnDataSubType;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.CastColumnTypesOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypesoperation.html}
+ */
+export type CastColumnTypesOperation = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  /**
+   * @minLength `0`
+   * @maxLength `2048`
+   */
+  CastColumnTypeOperations: CastColumnTypeOperation[];
+  Source: TransformOperationSource;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.ColumnDataSubType`.
@@ -262,6 +359,22 @@ export type ColumnTag = {
  */
 export type ColumnTagName = "COLUMN_GEOGRAPHIC_ROLE" | "COLUMN_DESCRIPTION";
 /**
+ * Type definition for `AWS::QuickSight::DataSet.ColumnToUnpivot`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntounpivot.html}
+ */
+export type ColumnToUnpivot = {
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  ColumnName?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `2047`
+   */
+  NewValue?: string;
+};
+/**
  * Type definition for `AWS::QuickSight::DataSet.CreateColumnsOperation`.
  * <p>A transform operation that creates calculated columns. Columns created in one such
             operation form a lexical closure.</p>
@@ -269,11 +382,17 @@ export type ColumnTagName = "COLUMN_GEOGRAPHIC_ROLE" | "COLUMN_DESCRIPTION";
  */
 export type CreateColumnsOperation = {
   /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias?: string;
+  /**
    * <p>Calculated columns to create.</p>
    * @minLength `0`
    * @maxLength `256`
    */
-  Columns?: CalculatedColumn[];
+  Columns: CalculatedColumn[];
+  Source?: TransformOperationSource;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.CustomSql`.
@@ -286,7 +405,7 @@ export type CustomSql = {
    * @minLength `0`
    * @maxLength `2048`
    */
-  Columns?: InputColumn[];
+  Columns: InputColumn[];
   /**
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
    */
@@ -305,10 +424,195 @@ export type CustomSql = {
   SqlQuery: string;
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.DataPrepAggregationFunction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-dataprepaggregationfunction.html}
+ */
+export type DataPrepAggregationFunction = {
+  ListAggregation?: DataPrepListAggregationFunction;
+  PercentileAggregation?: DataPrepPercentileAggregationFunction;
+  SimpleAggregation?: DataPrepSimpleAggregationFunction;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataPrepConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-dataprepconfiguration.html}
+ */
+export type DataPrepConfiguration = {
+  DestinationTableMap: DestinationTableMap;
+  SourceTableMap: SourceTableMap;
+  TransformStepMap: TransformStepMap;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataPrepListAggregationFunction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datapreplistaggregationfunction.html}
+ */
+export type DataPrepListAggregationFunction = {
+  Distinct: boolean;
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  InputColumnName?: string;
+  Separator: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataPrepPercentileAggregationFunction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datapreppercentileaggregationfunction.html}
+ */
+export type DataPrepPercentileAggregationFunction = {
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  InputColumnName?: string;
+  /**
+   * @min `0`
+   * @max `100`
+   */
+  PercentileValue: number;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataPrepSimpleAggregationFunction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-dataprepsimpleaggregationfunction.html}
+ */
+export type DataPrepSimpleAggregationFunction = {
+  FunctionType: DataPrepSimpleAggregationFunctionType;
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  InputColumnName?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataPrepSimpleAggregationFunctionType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-dataprepsimpleaggregationfunctiontype.html}
+ */
+export type DataPrepSimpleAggregationFunctionType =
+  | "COUNT"
+  | "DISTINCT_COUNT"
+  | "SUM"
+  | "AVERAGE"
+  | "MEDIAN"
+  | "MAX"
+  | "MIN"
+  | "VARIANCE"
+  | "STANDARD_DEVIATION";
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetColumnIdMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetcolumnidmapping.html}
+ */
+export type DataSetColumnIdMapping = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  SourceColumnId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  TargetColumnId: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetDateComparisonFilterCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetdatecomparisonfiltercondition.html}
+ */
+export type DataSetDateComparisonFilterCondition = {
+  Operator: DataSetDateComparisonFilterOperator;
+  Value?: DataSetDateFilterValue;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetDateComparisonFilterOperator`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetdatecomparisonfilteroperator.html}
+ */
+export type DataSetDateComparisonFilterOperator =
+  | "BEFORE"
+  | "BEFORE_OR_EQUALS_TO"
+  | "AFTER"
+  | "AFTER_OR_EQUALS_TO";
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetDateFilterCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetdatefiltercondition.html}
+ */
+export type DataSetDateFilterCondition = {
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  ColumnName?: string;
+  ComparisonFilterCondition?: DataSetDateComparisonFilterCondition;
+  RangeFilterCondition?: DataSetDateRangeFilterCondition;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetDateFilterValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetdatefiltervalue.html}
+ */
+export type DataSetDateFilterValue = {
+  StaticValue?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetDateRangeFilterCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetdaterangefiltercondition.html}
+ */
+export type DataSetDateRangeFilterCondition = {
+  IncludeMaximum?: boolean;
+  IncludeMinimum?: boolean;
+  RangeMaximum?: DataSetDateFilterValue;
+  RangeMinimum?: DataSetDateFilterValue;
+};
+/**
  * Type definition for `AWS::QuickSight::DataSet.DataSetImportMode`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetimportmode.html}
  */
 export type DataSetImportMode = "SPICE" | "DIRECT_QUERY";
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetNumericComparisonFilterCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetnumericcomparisonfiltercondition.html}
+ */
+export type DataSetNumericComparisonFilterCondition = {
+  Operator: DataSetNumericComparisonFilterOperator;
+  Value?: DataSetNumericFilterValue;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetNumericComparisonFilterOperator`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetnumericcomparisonfilteroperator.html}
+ */
+export type DataSetNumericComparisonFilterOperator =
+  | "EQUALS"
+  | "DOES_NOT_EQUAL"
+  | "GREATER_THAN"
+  | "GREATER_THAN_OR_EQUALS_TO"
+  | "LESS_THAN"
+  | "LESS_THAN_OR_EQUALS_TO";
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetNumericFilterCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetnumericfiltercondition.html}
+ */
+export type DataSetNumericFilterCondition = {
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  ColumnName?: string;
+  ComparisonFilterCondition?: DataSetNumericComparisonFilterCondition;
+  RangeFilterCondition?: DataSetNumericRangeFilterCondition;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetNumericFilterValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetnumericfiltervalue.html}
+ */
+export type DataSetNumericFilterValue = {
+  StaticValue?: number;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetNumericRangeFilterCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetnumericrangefiltercondition.html}
+ */
+export type DataSetNumericRangeFilterCondition = {
+  IncludeMaximum?: boolean;
+  IncludeMinimum?: boolean;
+  RangeMaximum?: DataSetNumericFilterValue;
+  RangeMinimum?: DataSetNumericFilterValue;
+};
 /**
  * Type definition for `AWS::QuickSight::DataSet.DatasetParameter`.
  * <p>A dataset parameter.</p>
@@ -348,6 +652,73 @@ export type DataSetRefreshProperties = {
    * <p>The refresh configuration of a dataset.</p>
    */
   RefreshConfiguration?: RefreshConfiguration;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetStringComparisonFilterCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringcomparisonfiltercondition.html}
+ */
+export type DataSetStringComparisonFilterCondition = {
+  Operator: DataSetStringComparisonFilterOperator;
+  Value?: DataSetStringFilterValue;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetStringComparisonFilterOperator`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringcomparisonfilteroperator.html}
+ */
+export type DataSetStringComparisonFilterOperator =
+  | "EQUALS"
+  | "DOES_NOT_EQUAL"
+  | "CONTAINS"
+  | "DOES_NOT_CONTAIN"
+  | "STARTS_WITH"
+  | "ENDS_WITH";
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetStringFilterCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringfiltercondition.html}
+ */
+export type DataSetStringFilterCondition = {
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  ColumnName?: string;
+  ComparisonFilterCondition?: DataSetStringComparisonFilterCondition;
+  ListFilterCondition?: DataSetStringListFilterCondition;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetStringFilterValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringfiltervalue.html}
+ */
+export type DataSetStringFilterValue = {
+  /**
+   * @minLength `0`
+   * @maxLength `512`
+   */
+  StaticValue?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetStringListFilterCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringlistfiltercondition.html}
+ */
+export type DataSetStringListFilterCondition = {
+  Operator: DataSetStringListFilterOperator;
+  Values?: DataSetStringListFilterValue;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetStringListFilterOperator`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringlistfilteroperator.html}
+ */
+export type DataSetStringListFilterOperator = "INCLUDE" | "EXCLUDE";
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetStringListFilterValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetstringlistfiltervalue.html}
+ */
+export type DataSetStringListFilterValue = {
+  /**
+   * @minLength `0`
+   * @maxLength `1000`
+   */
+  StaticValues?: string[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.DataSetUsageConfiguration`.
@@ -449,6 +820,35 @@ export type DecimalDatasetParameterDefaultValues = {
   StaticValues?: number[];
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.DestinationTable`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-destinationtable.html}
+ */
+export type DestinationTable = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  Source: DestinationTableSource;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DestinationTableMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-destinationtablemap.html}
+ */
+export type DestinationTableMap = Record<string, DestinationTable>;
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DestinationTableSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-destinationtablesource.html}
+ */
+export type DestinationTableSource = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[0-9a-zA-Z-]*$`
+   */
+  TransformOperationId: string;
+};
+/**
  * Type definition for `AWS::QuickSight::DataSet.FieldFolder`.
  * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html}
@@ -490,6 +890,26 @@ export type FilterOperation = {
      * @maxLength `4096`
      */
   ConditionExpression?: string;
+  DateFilterCondition?: DataSetDateFilterCondition;
+  NumericFilterCondition?: DataSetNumericFilterCondition;
+  StringFilterCondition?: DataSetStringFilterCondition;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.FiltersOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filtersoperation.html}
+ */
+export type FiltersOperation = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  /**
+   * @minLength `0`
+   * @maxLength `128`
+   */
+  FilterOperations: FilterOperation[];
+  Source: TransformOperationSource;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.GeoSpatialColumnGroup`.
@@ -533,6 +953,35 @@ export type GeoSpatialDataRole =
   | "CENSUS_BLOCK_GROUP"
   | "CENSUS_BLOCK";
 /**
+ * Type definition for `AWS::QuickSight::DataSet.ImportTableOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-importtableoperation.html}
+ */
+export type ImportTableOperation = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  Source: ImportTableOperationSource;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.ImportTableOperationSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-importtableoperationsource.html}
+ */
+export type ImportTableOperationSource = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  ColumnIdMappings?: DataSetColumnIdMapping[];
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[0-9a-zA-Z-]*$`
+   */
+  SourceTableId: string;
+};
+/**
  * Type definition for `AWS::QuickSight::DataSet.IncrementalRefresh`.
  * <p>The incremental refresh configuration for a dataset.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-incrementalrefresh.html}
@@ -568,6 +1017,11 @@ export type IngestionWaitPolicy = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html}
  */
 export type InputColumn = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Id?: string;
   /**
    * <p>The name of this column in the underlying data source.</p>
    * @minLength `1`
@@ -677,6 +1131,43 @@ export type JoinKeyProperties = {
   UniqueKey?: boolean;
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.JoinOperandProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinoperandproperties.html}
+ */
+export type JoinOperandProperties = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  OutputColumnNameOverrides: OutputColumnNameOverride[];
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.JoinOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinoperation.html}
+ */
+export type JoinOperation = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  LeftOperand: TransformOperationSource;
+  LeftOperandProperties?: JoinOperandProperties;
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   */
+  OnClause: string;
+  RightOperand: TransformOperationSource;
+  RightOperandProperties?: JoinOperandProperties;
+  Type: JoinOperationType;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.JoinOperationType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinoperationtype.html}
+ */
+export type JoinOperationType = "INNER" | "OUTER" | "LEFT" | "RIGHT";
+/**
  * Type definition for `AWS::QuickSight::DataSet.JoinType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-jointype.html}
  */
@@ -706,7 +1197,7 @@ export type LogicalTable = {
      * <p>Information about the source of a logical table. This is a variant type structure. For
                 this structure to be valid, only one of the attributes can be non-null.</p>
      */
-  Source?: LogicalTableSource;
+  Source: LogicalTableSource;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.LogicalTableMap`.
@@ -802,6 +1293,11 @@ export type OutputColumn = {
    */
   Description?: string;
   /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Id?: string;
+  /**
    * <p>The display name of the column..</p>
    * @minLength `1`
    * @maxLength `127`
@@ -809,6 +1305,22 @@ export type OutputColumn = {
   Name?: string;
   SubType?: ColumnDataSubType;
   Type?: ColumnDataType;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.OutputColumnNameOverride`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumnnameoverride.html}
+ */
+export type OutputColumnNameOverride = {
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  OutputColumnName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  SourceColumnName?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.OverrideDatasetParameterOperation`.
@@ -834,6 +1346,18 @@ export type OverrideDatasetParameterOperation = {
    * @pattern `^[a-zA-Z0-9]+$`
    */
   ParameterName: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.ParentDataSet`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-parentdataset.html}
+ */
+export type ParentDataSet = {
+  DataSetArn: string;
+  /**
+   * @minLength `0`
+   * @maxLength `2048`
+   */
+  InputColumns: InputColumn[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.PerformanceConfiguration`.
@@ -866,12 +1390,69 @@ export type PhysicalTable = {
    * <p>A physical table type for an S3 data source.</p>
    */
   S3Source?: S3Source;
+  SaaSTable?: SaaSTable;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.PhysicalTableMap`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltablemap.html}
  */
 export type PhysicalTableMap = Record<string, PhysicalTable>;
+/**
+ * Type definition for `AWS::QuickSight::DataSet.PivotConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-pivotconfiguration.html}
+ */
+export type PivotConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  LabelColumnName?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  PivotedLabels: PivotedLabel[];
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.PivotedLabel`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-pivotedlabel.html}
+ */
+export type PivotedLabel = {
+  /**
+   * @minLength `0`
+   * @maxLength `2047`
+   */
+  LabelName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  NewColumnId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  NewColumnName: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.PivotOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-pivotoperation.html}
+ */
+export type PivotOperation = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  /**
+   * @minLength `0`
+   * @maxLength `128`
+   */
+  GroupByColumnNames?: string[];
+  PivotConfiguration: PivotConfiguration;
+  Source: TransformOperationSource;
+  ValueColumnConfiguration: ValueColumnConfiguration;
+};
 /**
  * Type definition for `AWS::QuickSight::DataSet.ProjectOperation`.
  * <p>A transform operation that projects columns. Operations that come after a projection
@@ -880,11 +1461,17 @@ export type PhysicalTableMap = Record<string, PhysicalTable>;
  */
 export type ProjectOperation = {
   /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias?: string;
+  /**
    * <p>Projected columns.</p>
    * @minLength `0`
-   * @maxLength `2000`
+   * @maxLength `2048`
    */
   ProjectedColumns?: string[];
+  Source?: TransformOperationSource;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.RefreshConfiguration`.
@@ -937,7 +1524,7 @@ export type RelationalTable = {
    * @minLength `0`
    * @maxLength `2048`
    */
-  InputColumns?: InputColumn[];
+  InputColumns: InputColumn[];
   /**
    * <p>The name of the relational table.</p>
    * @minLength `1`
@@ -962,13 +1549,30 @@ export type RenameColumnOperation = {
    * @minLength `1`
    * @maxLength `127`
    */
-  ColumnName?: string;
+  ColumnName: string;
   /**
    * <p>The new name for the column.</p>
    * @minLength `1`
    * @maxLength `127`
    */
-  NewColumnName?: string;
+  NewColumnName: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.RenameColumnsOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnsoperation.html}
+ */
+export type RenameColumnsOperation = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  /**
+   * @minLength `0`
+   * @maxLength `2048`
+   */
+  RenameColumnOperations: RenameColumnOperation[];
+  Source: TransformOperationSource;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.ResourcePermission`.
@@ -1002,6 +1606,25 @@ export type ResourcePermission = {
      * @maxLength `256`
      */
   Principal: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.RowLevelPermissionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissionconfiguration.html}
+ */
+export type RowLevelPermissionConfiguration = {
+  /**
+     * <p>Information about a dataset that contains permissions for row-level security (RLS).
+                The permissions dataset maps fields to users or groups. For more information, see
+                <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+                    Guide</i>.</p>
+             <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
+                not supported for new RLS datasets.</p>
+     */
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
+  /**
+   * <p>The configuration of tags on a dataset to set row-level security. </p>
+   */
+  TagConfiguration?: RowLevelPermissionTagConfiguration;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.RowLevelPermissionDataSet`.
@@ -1068,7 +1691,7 @@ export type RowLevelPermissionTagRule = {
   /**
    * <p>The column name that a tag key is assigned to.</p>
    */
-  ColumnName?: string;
+  ColumnName: string;
   /**
    * <p>A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one. For example, you can use an asterisk as your match all value.</p>
    * @minLength `1`
@@ -1106,12 +1729,77 @@ export type S3Source = {
      * @minLength `0`
      * @maxLength `2048`
      */
-  InputColumns?: InputColumn[];
+  InputColumns: InputColumn[];
   /**
    * <p>Information about the format for a source file or files.</p>
    */
   UploadSettings?: UploadSettings;
 };
+/**
+ * Type definition for `AWS::QuickSight::DataSet.SaaSTable`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-saastable.html}
+ */
+export type SaaSTable = {
+  DataSourceArn: string;
+  /**
+   * @minLength `0`
+   * @maxLength `2048`
+   */
+  InputColumns: InputColumn[];
+  /**
+   * @minLength `1`
+   * @maxLength `32`
+   */
+  TablePath: TablePathElement[];
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.SemanticModelConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semanticmodelconfiguration.html}
+ */
+export type SemanticModelConfiguration = {
+  TableMap?: SemanticTableMap;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.SemanticTable`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictable.html}
+ */
+export type SemanticTable = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[0-9a-zA-Z-]*$`
+   */
+  DestinationTableId: string;
+  RowLevelPermissionConfiguration?: RowLevelPermissionConfiguration;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.SemanticTableMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictablemap.html}
+ */
+export type SemanticTableMap = Record<string, SemanticTable>;
+/**
+ * Type definition for `AWS::QuickSight::DataSet.SourceTable`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-sourcetable.html}
+ */
+export type SourceTable = {
+  DataSet?: ParentDataSet;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[0-9a-zA-Z-]*$`
+   */
+  PhysicalTableId?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.SourceTableMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-sourcetablemap.html}
+ */
+export type SourceTableMap = Record<string, SourceTable>;
 /**
  * Type definition for `AWS::QuickSight::DataSet.Status`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-status.html}
@@ -1155,6 +1843,22 @@ export type StringDatasetParameterDefaultValues = {
    * @maxLength `32`
    */
   StaticValues?: string[];
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.TablePathElement`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tablepathelement.html}
+ */
+export type TablePathElement = {
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Id?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Name?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.Tag`.
@@ -1260,6 +1964,53 @@ export type TransformOperation = {
   UntagColumnOperation?: UntagColumnOperation;
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.TransformOperationSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperationsource.html}
+ */
+export type TransformOperationSource = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  ColumnIdMappings?: DataSetColumnIdMapping[];
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[0-9a-zA-Z-]*$`
+   */
+  TransformOperationId: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.TransformStep`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformstep.html}
+ */
+export type TransformStep = {
+  AggregateStep?: AggregateOperation;
+  AppendStep?: AppendOperation;
+  CastColumnTypesStep?: CastColumnTypesOperation;
+  /**
+     * <p>A transform operation that creates calculated columns. Columns created in one such
+                operation form a lexical closure.</p>
+     */
+  CreateColumnsStep?: CreateColumnsOperation;
+  FiltersStep?: FiltersOperation;
+  ImportTableStep?: ImportTableOperation;
+  JoinStep?: JoinOperation;
+  PivotStep?: PivotOperation;
+  /**
+     * <p>A transform operation that projects columns. Operations that come after a projection
+                can only refer to projected columns.</p>
+     */
+  ProjectStep?: ProjectOperation;
+  RenameColumnsStep?: RenameColumnsOperation;
+  UnpivotStep?: UnpivotOperation;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.TransformStepMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformstepmap.html}
+ */
+export type TransformStepMap = Record<string, TransformStep>;
+/**
  * Type definition for `AWS::QuickSight::DataSet.UniqueKey`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uniquekey.html}
  */
@@ -1268,7 +2019,44 @@ export type UniqueKey = {
    * @minLength `1`
    * @maxLength `1`
    */
-  ColumnNames?: string[];
+  ColumnNames: string[];
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.UnpivotOperation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-unpivotoperation.html}
+ */
+export type UnpivotOperation = {
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  Alias: string;
+  /**
+   * @minLength `0`
+   * @maxLength `100`
+   */
+  ColumnsToUnpivot: ColumnToUnpivot[];
+  Source: TransformOperationSource;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  UnpivotedLabelColumnId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  UnpivotedLabelColumnName: string;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  UnpivotedValueColumnId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  UnpivotedValueColumnName: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.UntagColumnOperation`.
@@ -1310,6 +2098,13 @@ export type UploadSettings = {
    */
   StartFromRow?: number;
   TextQualifier?: TextQualifier;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.ValueColumnConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-valuecolumnconfiguration.html}
+ */
+export type ValueColumnConfiguration = {
+  AggregationFunction?: DataPrepAggregationFunction;
 };
 /**
  * Definition of the AWS::QuickSight::DataSet Resource Type.

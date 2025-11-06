@@ -1,5 +1,5 @@
 {
-  "$hash": "d6264e5a77f244ceb97792ca1d8e2d9ba9c8d244",
+  "$hash": "eda2bd7a1d279dfd1263205598266279fc11743f",
   "$id": "aws-quicksight-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -254,6 +254,7 @@
         "EXASOL",
         "FILE",
         "GITHUB",
+        "INTERNATIONAL_DATA_CORPORATION",
         "JIRA",
         "MARIADB",
         "MYSQL",

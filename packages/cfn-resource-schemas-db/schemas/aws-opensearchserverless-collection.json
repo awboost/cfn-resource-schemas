@@ -1,5 +1,5 @@
 {
-  "$hash": "aa2715b958fa3dc6b62315d2ba8b95fde8a5742c",
+  "$hash": "940d16f9e6c2c06ee300e6b9f0a02a169e50c08b",
   "$id": "aws-opensearchserverless-collection.json",
   "additionalIdentifiers": [["/properties/Name"], ["/properties/Arn"]],
   "additionalProperties": false,
@@ -83,6 +83,10 @@
       "minLength": 3,
       "type": "string"
     },
+    "KmsKeyArn": {
+      "description": "The ARN of the AWS KMS key used to encrypt the collection.",
+      "type": "string"
+    },
     "Name": {
       "description": "The name of the collection.\n\nThe name must meet the following criteria:\nUnique to your account and AWS Region\nStarts with a lowercase letter\nContains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)\nContains between 3 and 32 characters\n",
       "maxLength": 32,
@@ -105,7 +109,8 @@
     "/properties/Id",
     "/properties/Arn",
     "/properties/CollectionEndpoint",
-    "/properties/DashboardEndpoint"
+    "/properties/DashboardEndpoint",
+    "/properties/KmsKeyArn"
   ],
   "required": ["Name"],
   "tagging": {

@@ -416,6 +416,7 @@ export type DataSourceType =
   | "EXASOL"
   | "FILE"
   | "GITHUB"
+  | "INTERNATIONAL_DATA_CORPORATION"
   | "JIRA"
   | "MARIADB"
   | "MYSQL"

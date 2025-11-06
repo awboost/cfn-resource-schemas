@@ -28,10 +28,11 @@ export type CassandraKeyspaceProperties = {
 export type ReplicationSpecification = {
   /**
    * @minLength `2`
-   * @maxLength `17`
+   * @maxLength `20`
    */
   RegionList?: (
     | "af-south-1"
+    | "ap-east-1"
     | "ap-northeast-1"
     | "ap-northeast-2"
     | "ap-south-1"
@@ -43,6 +44,8 @@ export type ReplicationSpecification = {
     | "eu-west-1"
     | "eu-west-2"
     | "eu-west-3"
+    | "me-central-1"
+    | "me-south-1"
     | "sa-east-1"
     | "us-east-1"
     | "us-east-2"

@@ -1,5 +1,5 @@
 {
-  "$hash": "8a3764b46a938e5aab1a1b9f66fa26c9e0a3202c",
+  "$hash": "aa9fb3fe3e71912b5b8f0f39a9fb353b37296a78",
   "$id": "aws-athena-preparedstatement.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -61,6 +61,6 @@
   },
   "required": ["StatementName", "WorkGroup", "QueryStatement"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-athena.git",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::Athena::PreparedStatement"
 }
