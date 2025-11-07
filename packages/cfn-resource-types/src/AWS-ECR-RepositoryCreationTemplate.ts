@@ -35,7 +35,7 @@ export type ECRRepositoryCreationTemplateProperties = {
     | "IMMUTABLE_WITH_EXCLUSION"
     | "MUTABLE_WITH_EXCLUSION";
   /**
-   * Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.
+   * A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting.
    * @minLength `1`
    * @maxLength `5`
    */
@@ -108,7 +108,7 @@ export type EncryptionConfiguration = {
 export type EncryptionType = "AES256" | "KMS" | "KMS_DSSE";
 /**
  * Type definition for `AWS::ECR::RepositoryCreationTemplate.ImageTagMutabilityExclusionFilter`.
- * Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.
+ * A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-imagetagmutabilityexclusionfilter.html}
  */
 export type ImageTagMutabilityExclusionFilter = {

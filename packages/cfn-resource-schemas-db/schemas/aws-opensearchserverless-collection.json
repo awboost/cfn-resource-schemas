@@ -1,12 +1,13 @@
 {
-  "$hash": "940d16f9e6c2c06ee300e6b9f0a02a169e50c08b",
+  "$hash": "a95fba1ac4ac711333e623ead3b4744cf18256ef",
   "$id": "aws-opensearchserverless-collection.json",
   "additionalIdentifiers": [["/properties/Name"], ["/properties/Arn"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",
     "/properties/Tags",
-    "/properties/Type"
+    "/properties/Type",
+    "/properties/StandbyReplicas"
   ],
   "definitions": {
     "CollectionType": {

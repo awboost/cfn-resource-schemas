@@ -1,5 +1,5 @@
 {
-  "$hash": "7255e148ebdc6010f7f2128a412c2fdda6493424",
+  "$hash": "e860c73d8de818db3d902e5f3a900f5c514b72ed",
   "$id": "aws-ecr-repositorycreationtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Prefix"],
@@ -32,7 +32,7 @@
     },
     "ImageTagMutabilityExclusionFilter": {
       "additionalProperties": false,
-      "description": "Overrides the default image tag mutability setting of the repository for image tags that match the specified filters.",
+      "description": "A filter that specifies which image tags should be excluded from the repository's image tag mutability setting.",
       "properties": {
         "ImageTagMutabilityExclusionFilterType": {
           "description": "",
@@ -144,7 +144,7 @@
       "type": "string"
     },
     "ImageTagMutabilityExclusionFilters": {
-      "description": "Defines the image tag mutability exclusion filters to apply when creating repositories from this template. These filters specify which image tags can override the repository's default image tag mutability setting.",
+      "description": "A list of filters that specify which image tags are excluded from the repository creation template's image tag mutability setting.",
       "insertionOrder": true,
       "items": { "$ref": "#/definitions/ImageTagMutabilityExclusionFilter" },
       "maxItems": 5,

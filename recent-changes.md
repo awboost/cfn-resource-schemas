@@ -1,90 +1,42 @@
-- added `AWS::SES::MultiRegionEndpoint`
-- updated `AWS::Athena::NamedQuery`
-  - added `tagging`
-- updated `AWS::Athena::PreparedStatement`
-  - added `tagging`
-- updated `AWS::Cassandra::Keyspace`
-  - updated definition `RegionList`
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - updated definition `ImageTagMutabilityExclusionFilter`
+  - updated property `ImageTagMutabilityExclusionFilters`
+- updated `AWS::ECS::TaskDefinition`
+  - updated definition `ContainerDefinition`
+  - updated definition `RuntimePlatform`
+  - updated property `PidMode`
+  - updated property `RuntimePlatform`
+- updated `AWS::GameLift::Build`
+  - updated property `OperatingSystem`
 - updated `AWS::OpenSearchServerless::Collection`
-  - added property `KmsKeyArn`
+  - updated `createOnlyProperties`
+- updated `AWS::SSO::InstanceAccessControlAttributeConfiguration`
+  - updated handler permissions
+- updated `AWS::ServiceCatalog::CloudFormationProduct`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
   - updated `readOnlyProperties`
-- updated `AWS::QuickSight::DataSet`
-  - added `deprecatedProperties`
-  - added definition `AggregateOperation`
-  - added definition `Aggregation`
-  - added definition `AppendOperation`
-  - added definition `AppendedColumn`
-  - added definition `CastColumnTypesOperation`
-  - added definition `ColumnToUnpivot`
-  - added definition `DataPrepAggregationFunction`
-  - added definition `DataPrepConfiguration`
-  - added definition `DataPrepListAggregationFunction`
-  - added definition `DataPrepPercentileAggregationFunction`
-  - added definition `DataPrepSimpleAggregationFunctionType`
-  - added definition `DataPrepSimpleAggregationFunction`
-  - added definition `DataSetColumnIdMapping`
-  - added definition `DataSetDateComparisonFilterCondition`
-  - added definition `DataSetDateComparisonFilterOperator`
-  - added definition `DataSetDateFilterCondition`
-  - added definition `DataSetDateFilterValue`
-  - added definition `DataSetDateRangeFilterCondition`
-  - added definition `DataSetNumericComparisonFilterCondition`
-  - added definition `DataSetNumericComparisonFilterOperator`
-  - added definition `DataSetNumericFilterCondition`
-  - added definition `DataSetNumericFilterValue`
-  - added definition `DataSetNumericRangeFilterCondition`
-  - added definition `DataSetStringComparisonFilterCondition`
-  - added definition `DataSetStringComparisonFilterOperator`
-  - added definition `DataSetStringFilterCondition`
-  - added definition `DataSetStringFilterValue`
-  - added definition `DataSetStringListFilterCondition`
-  - added definition `DataSetStringListFilterOperator`
-  - added definition `DataSetStringListFilterValue`
-  - added definition `DestinationTableMap`
-  - added definition `DestinationTableSource`
-  - added definition `DestinationTable`
-  - added definition `FiltersOperation`
-  - added definition `ImportTableOperationSource`
-  - added definition `ImportTableOperation`
-  - added definition `JoinOperandProperties`
-  - added definition `JoinOperationType`
-  - added definition `JoinOperation`
-  - added definition `OutputColumnNameOverride`
-  - added definition `ParentDataSet`
-  - added definition `PivotConfiguration`
-  - added definition `PivotOperation`
-  - added definition `PivotedLabel`
-  - added definition `RenameColumnsOperation`
-  - added definition `RowLevelPermissionConfiguration`
-  - added definition `SaaSTable`
-  - added definition `SemanticModelConfiguration`
-  - added definition `SemanticTableMap`
-  - added definition `SemanticTable`
-  - added definition `SourceTableMap`
-  - added definition `SourceTable`
-  - added definition `TablePathElement`
-  - added definition `TransformOperationSource`
-  - added definition `TransformStepMap`
-  - added definition `TransformStep`
-  - added definition `UnpivotOperation`
-  - added definition `ValueColumnConfiguration`
-  - added property `DataPrepConfiguration`
-  - added property `SemanticModelConfiguration`
-  - updated definition `CastColumnTypeOperation`
-  - updated definition `CreateColumnsOperation`
-  - updated definition `CustomSql`
-  - updated definition `FilterOperation`
-  - updated definition `InputColumn`
-  - updated definition `IntegerDatasetParameterDefaultValues`
-  - updated definition `LogicalTable`
-  - updated definition `NewDefaultValues`
-  - updated definition `OutputColumn`
-  - updated definition `PhysicalTable`
-  - updated definition `ProjectOperation`
-  - updated definition `RelationalTable`
-  - updated definition `RenameColumnOperation`
-  - updated definition `RowLevelPermissionTagRule`
-  - updated definition `S3Source`
-  - updated definition `UniqueKey`
-- updated `AWS::QuickSight::DataSource`
-  - updated definition `DataSourceType`
+  - updated definition `CodeStarParameters`
+  - updated definition `ConnectionParameters`
+  - updated definition `ProvisioningArtifactProperties`
+  - updated definition `SourceConnection`
+  - updated definition `Tag`
+  - updated handler permissions
+  - updated property `AcceptLanguage`
+  - updated property `Description`
+  - updated property `Distributor`
+  - updated property `Id`
+  - updated property `Name`
+  - updated property `Owner`
+  - updated property `ProductName`
+  - updated property `ProductType`
+  - updated property `ProvisioningArtifactIds`
+  - updated property `ProvisioningArtifactNames`
+  - updated property `ProvisioningArtifactParameters`
+  - updated property `ReplaceProvisioningArtifacts`
+  - updated property `SourceConnection`
+  - updated property `SupportDescription`
+  - updated property `SupportEmail`
+  - updated property `SupportUrl`
+  - updated property `Tags`

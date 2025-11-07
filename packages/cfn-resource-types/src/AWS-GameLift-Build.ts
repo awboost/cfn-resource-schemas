@@ -17,7 +17,8 @@ export type GameLiftBuildProperties = {
     | "AMAZON_LINUX_2"
     | "AMAZON_LINUX_2023"
     | "WINDOWS_2012"
-    | "WINDOWS_2016";
+    | "WINDOWS_2016"
+    | "WINDOWS_2022";
   /**
    * A server SDK version you used when integrating your game server build with Amazon GameLift. By default Amazon GameLift sets this value to 4.0.2.
    */

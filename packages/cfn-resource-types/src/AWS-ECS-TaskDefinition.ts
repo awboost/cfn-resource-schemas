@@ -77,7 +77,7 @@ export type ECSTaskDefinitionProperties = {
      * The process namespace to use for the containers in the task. The valid values are ``host`` or ``task``. On Fargate for Linux containers, the only valid value is ``task``. For example, monitoring sidecars might need ``pidMode`` to access information about other containers running in the same task.
      If ``host`` is specified, all containers within the tasks that specified the ``host`` PID mode on the same container instance share the same process namespace with the host Amazon EC2 instance.
      If ``task`` is specified, all containers within the specified task share the same process namespace.
-     If no value is specified, the default is a private namespace for each container.
+     If no value is specified, the The default is a private namespace for each container.
      If the ``host`` PID mode is used, there's a heightened risk of undesired process namespace exposure.
       This parameter is not supported for Windows containers.
        This parameter is only supported for tasks that are hosted on FARGATElong if the tasks are using platform version ``1.4.0`` or later (Linux). This isn't supported for Windows containers on Fargate.
@@ -98,7 +98,7 @@ export type ECSTaskDefinitionProperties = {
    */
   RequiresCompatibilities?: string[];
   /**
-   * The operating system that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type.
+   * The operating system that your tasks definitions run on.
    */
   RuntimePlatform?: RuntimePlatform;
   /**
@@ -158,7 +158,7 @@ export type ContainerDefinition = {
    */
   Command?: string[];
   /**
-     * The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create commandand the ``--cpu-shares`` option to docker run.
+     * The number of ``cpu`` units reserved for the container. This parameter maps to ``CpuShares`` in the docker container create command and the ``--cpu-shares`` option to docker run.
      This field is optional for tasks using the Fargate launch type, and the only requirement is that the total amount of CPU reserved for all containers within a task be lower than the task-level ``cpu`` value.
       You can determine the number of CPU units that are available per EC2 instance type by multiplying the vCPUs listed for that instance type on the [Amazon EC2 Instances](https://docs.aws.amazon.com/ec2/instance-types/) detail page by 1,024.
       Linux containers share unallocated CPU units with other containers on the container instance with the same ratio as their allocated amount. For example, if you run a single-container task on a single-core instance type with 512 CPU units specified for that container, and that's the only task running on the container instance, that container could use the full 1,024 CPU unit share at any given time. However, if you launched another copy of the same task on that container instance, each task is guaranteed a minimum of 512 CPU units when needed. Moreover, each container could float to higher CPU usage if the other container was not using it. If both tasks were 100% active all of the time, they would be limited to 512 CPU units.
@@ -959,7 +959,7 @@ export type RestartPolicy = {
 export type RuntimePlatform = {
   /**
      * The CPU architecture.
-     You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance or Linux containers on Fargate.
+     You can run your Linux tasks on an ARM-based platform by setting the value to ``ARM64``. This option is available for tasks that run on Linux Amazon EC2 instance, Amazon ECS Managed Instances, or Linux containers on Fargate.
      */
   CpuArchitecture?: string;
   /**

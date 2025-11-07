@@ -1,5 +1,5 @@
 {
-  "$hash": "1ad47cd1c94e0aec48e4691a1bebdc0753e211c3",
+  "$hash": "4cb00c88bcbd9792e5cbe4e7646e5f5854ba730a",
   "$id": "aws-sso-instanceaccesscontrolattributeconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceArn"],
@@ -66,6 +66,14 @@
       ]
     },
     "list": {
+      "handlerSchema": {
+        "properties": {
+          "InstanceArn": {
+            "$ref": "resource-schema.json#/properties/InstanceArn"
+          }
+        },
+        "required": ["InstanceArn"]
+      },
       "permissions": ["sso:DescribeInstanceAccessControlAttributeConfiguration"]
     },
     "read": {

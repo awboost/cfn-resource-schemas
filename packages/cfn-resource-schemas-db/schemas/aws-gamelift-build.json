@@ -1,5 +1,5 @@
 {
-  "$hash": "385a780153a8b0221254d4678eb7ace7d19a4d28",
+  "$hash": "16b631cd2e6049184aedd81dfd9defe1b4825d16",
   "$id": "aws-gamelift-build.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -103,7 +103,8 @@
         "AMAZON_LINUX_2",
         "AMAZON_LINUX_2023",
         "WINDOWS_2012",
-        "WINDOWS_2016"
+        "WINDOWS_2016",
+        "WINDOWS_2022"
       ],
       "type": "string"
     },
