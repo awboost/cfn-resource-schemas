@@ -1,5 +1,5 @@
 {
-  "$hash": "8f7ca6d7deb7c97e46c9e25fa21ea441d9a3d62a",
+  "$hash": "9f680960ffb14c42bdc144ffad8f597ad21a4b3d",
   "$id": "aws-imagebuilder-containerrecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -196,7 +196,6 @@
       "required": [
         "Name",
         "Version",
-        "Components",
         "ParentImage",
         "TargetRepository",
         "ContainerType"

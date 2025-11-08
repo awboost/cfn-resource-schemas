@@ -1,5 +1,5 @@
 {
-  "$hash": "047923024bd5190c19dd649086c75844eb2b5a0e",
+  "$hash": "7030b17cc70dad16a769f3591f9732781e51bf83",
   "$id": "aws-kms-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -107,7 +107,8 @@
         "SM2",
         "ML_DSA_44",
         "ML_DSA_65",
-        "ML_DSA_87"
+        "ML_DSA_87",
+        "ECC_NIST_EDWARDS25519"
       ],
       "type": "string"
     },

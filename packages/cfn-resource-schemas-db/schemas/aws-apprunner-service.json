@@ -1,10 +1,11 @@
 {
-  "$hash": "cf78778369919a147c8c64db292ad7dd0535e70e",
+  "$hash": "95d00a283b88afcc3ead8b5bf7b625411eef3633",
   "$id": "aws-apprunner-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceName",
-    "/properties/EncryptionConfiguration"
+    "/properties/EncryptionConfiguration",
+    "/properties/Tags"
   ],
   "definitions": {
     "AuthenticationConfiguration": {
@@ -426,5 +427,8 @@
     "taggable": true
   },
   "typeName": "AWS::AppRunner::Service",
-  "writeOnlyProperties": ["/properties/AutoScalingConfigurationArn"]
+  "writeOnlyProperties": [
+    "/properties/AutoScalingConfigurationArn",
+    "/properties/Tags"
+  ]
 }

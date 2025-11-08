@@ -95,7 +95,7 @@ export type GlobalSecondaryIndex = {
   IndexName: string;
   /**
    * @minLength `1`
-   * @maxLength `2`
+   * @maxLength `8`
    */
   KeySchema: KeySchema[];
   Projection: Projection;
@@ -235,7 +235,7 @@ export type ReplicaSSESpecification = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicastreamspecification.html}
  */
 export type ReplicaStreamSpecification = {
-  ResourcePolicy: ResourcePolicy;
+  ResourcePolicy?: ResourcePolicy;
 };
 /**
  * Type definition for `AWS::DynamoDB::GlobalTable.ResourcePolicy`.

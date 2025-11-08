@@ -1,42 +1,33 @@
-- updated `AWS::ECR::RepositoryCreationTemplate`
-  - updated definition `ImageTagMutabilityExclusionFilter`
-  - updated property `ImageTagMutabilityExclusionFilters`
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `ContainerDefinition`
-  - updated definition `RuntimePlatform`
-  - updated property `PidMode`
-  - updated property `RuntimePlatform`
-- updated `AWS::GameLift::Build`
-  - updated property `OperatingSystem`
-- updated `AWS::OpenSearchServerless::Collection`
+- updated `AWS::AppRunner::ObservabilityConfiguration`
+  - updated `tagging`
+- updated `AWS::AppRunner::Service`
   - updated `createOnlyProperties`
-- updated `AWS::SSO::InstanceAccessControlAttributeConfiguration`
+  - updated `writeOnlyProperties`
+- updated `AWS::AppRunner::VpcConnector`
+  - updated `tagging`
+- updated `AWS::AppRunner::VpcIngressConnection`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::ServiceCatalog::CloudFormationProduct`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `CodeStarParameters`
-  - updated definition `ConnectionParameters`
-  - updated definition `ProvisioningArtifactProperties`
-  - updated definition `SourceConnection`
-  - updated definition `Tag`
+- updated `AWS::DynamoDB::GlobalTable`
+  - updated definition `GlobalSecondaryIndex`
+  - updated definition `ReplicaStreamSpecification`
+- updated `AWS::EC2::Volume`
+  - added `anyOf`
+  - added property `AvailabilityZoneId`
+  - added property `SourceVolumeId`
+  - removed `required`
   - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `Description`
-  - updated property `Distributor`
-  - updated property `Id`
-  - updated property `Name`
-  - updated property `Owner`
-  - updated property `ProductName`
-  - updated property `ProductType`
-  - updated property `ProvisioningArtifactIds`
-  - updated property `ProvisioningArtifactNames`
-  - updated property `ProvisioningArtifactParameters`
-  - updated property `ReplaceProvisioningArtifacts`
-  - updated property `SourceConnection`
-  - updated property `SupportDescription`
-  - updated property `SupportEmail`
-  - updated property `SupportUrl`
-  - updated property `Tags`
+  - updated property `Iops`
+  - updated property `Size`
+- updated `AWS::ImageBuilder::ContainerRecipe`
+  - updated `oneOf`
+- updated `AWS::ImageBuilder::ImageRecipe`
+  - updated `required`
+- updated `AWS::KMS::Key`
+  - updated property `KeySpec`
+- updated `AWS::Kinesis::Stream`
+  - added property `MaxRecordSizeInKiB`
+  - updated handler permissions
+- updated `AWS::SageMaker::Domain`
+  - added `conditionalCreateOnlyProperties`
+  - updated `createOnlyProperties`

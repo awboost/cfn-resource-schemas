@@ -11,6 +11,12 @@ export type KinesisStreamProperties = {
    */
   DesiredShardLevelMetrics?: EnhancedMetric[];
   /**
+   * Maximum size of a data record in KiB allowed to be put into Kinesis stream.
+   * @min `1024`
+   * @max `10240`
+   */
+  MaxRecordSizeInKiB?: number;
+  /**
    * The name of the Kinesis stream.
    * @minLength `1`
    * @maxLength `128`

@@ -1,6 +1,6 @@
 {
   "$comment": "Do not set SystemTags to true without implementing a fail-open mechanism. It should not fail when adding systemTags for customers without AddTagsToStream Permission. Cloudformation will automatically add system tags even if customer does not have the AddTagsToStream permission. COE: https://www.coe.a2z.com/coe/236297/content",
-  "$hash": "b21c26fb15a862361d8a948975896f2cf11f5504",
+  "$hash": "55efa5e5c470be2594b51d67deeffe45028da645",
   "$id": "aws-kinesis-stream.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -98,7 +98,8 @@
         "kinesis:StartStreamEncryption",
         "kinesis:AddTagsToStream",
         "kinesis:ListTagsForStream",
-        "kinesis:ListTagsForResource"
+        "kinesis:ListTagsForResource",
+        "kinesis:UpdateMaxRecordSize"
       ]
     },
     "delete": {
@@ -133,7 +134,8 @@
         "kinesis:RemoveTagsFromStream",
         "kinesis:UntagResource",
         "kinesis:ListTagsForStream",
-        "kinesis:ListTagsForResource"
+        "kinesis:ListTagsForResource",
+        "kinesis:UpdateMaxRecordSize"
       ],
       "timeoutInMinutes": 240
     }
@@ -151,6 +153,12 @@
       "maxItems": 7,
       "type": "array",
       "uniqueItems": true
+    },
+    "MaxRecordSizeInKiB": {
+      "description": "Maximum size of a data record in KiB allowed to be put into Kinesis stream.",
+      "maximum": 10240,
+      "minimum": 1024,
+      "type": "integer"
     },
     "Name": {
       "description": "The name of the Kinesis stream.",

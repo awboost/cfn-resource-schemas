@@ -1,5 +1,5 @@
 {
-  "$hash": "481146d14f702ca8b24fa95cee8a6babd6d01589",
+  "$hash": "a6cf7c587629e81079bf0bcdf12aa33bce525680",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -53,7 +53,7 @@
         "IndexName": { "maxLength": 255, "minLength": 3, "type": "string" },
         "KeySchema": {
           "items": { "$ref": "#/definitions/KeySchema" },
-          "maxItems": 2,
+          "maxItems": 8,
           "minItems": 1,
           "type": "array",
           "uniqueItems": true
@@ -250,10 +250,10 @@
     },
     "ReplicaStreamSpecification": {
       "additionalProperties": false,
+      "anyOf": [{ "required": ["ResourcePolicy"] }, { "required": ["Tags"] }],
       "properties": {
         "ResourcePolicy": { "$ref": "#/definitions/ResourcePolicy" }
       },
-      "required": ["ResourcePolicy"],
       "type": "object"
     },
     "ResourcePolicy": {

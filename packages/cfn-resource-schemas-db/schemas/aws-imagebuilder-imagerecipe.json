@@ -1,5 +1,5 @@
 {
-  "$hash": "cdffa3e64a85bc7eada772f2aca1c7160dc148c1",
+  "$hash": "f1a9966170f5deb65fab2c8f990cf3b3ae28b157",
   "$id": "aws-imagebuilder-imagerecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -220,7 +220,7 @@
     }
   },
   "readOnlyProperties": ["/properties/Arn"],
-  "required": ["Name", "Version", "Components", "ParentImage"],
+  "required": ["Name", "Version", "ParentImage"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
   "tagging": {
     "cloudFormationSystemTags": true,

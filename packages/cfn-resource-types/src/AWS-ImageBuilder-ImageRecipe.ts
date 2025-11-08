@@ -20,7 +20,7 @@ export type ImageBuilderImageRecipeProperties = {
   /**
    * The components of the image recipe.
    */
-  Components: ComponentConfiguration[];
+  Components?: ComponentConfiguration[];
   /**
    * The description of the image recipe.
    */

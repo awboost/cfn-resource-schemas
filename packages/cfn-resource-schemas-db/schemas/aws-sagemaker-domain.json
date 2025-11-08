@@ -1,13 +1,13 @@
 {
-  "$hash": "e2270b1fed949103418e221a5ded83ac82788bfa",
+  "$hash": "fa89a6e55a85ff11d22224e4c76edbb147366345",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
+  "conditionalCreateOnlyProperties": ["/properties/VpcId"],
   "createOnlyProperties": [
     "/properties/AuthMode",
     "/properties/DomainName",
     "/properties/DomainSettings/RStudioServerProDomainSettings/DefaultResourceSpec",
     "/properties/KmsKeyId",
-    "/properties/VpcId",
     "/properties/Tags"
   ],
   "definitions": {
