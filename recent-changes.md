@@ -1,33 +1,4 @@
-- updated `AWS::AppRunner::ObservabilityConfiguration`
-  - updated `tagging`
-- updated `AWS::AppRunner::Service`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-- updated `AWS::AppRunner::VpcConnector`
-  - updated `tagging`
-- updated `AWS::AppRunner::VpcIngressConnection`
-  - updated `tagging`
+- updated `AWS::Kendra::DataSource`
+  - added `deprecatedProperties`
+- updated `AWS::Kendra::Faq`
   - updated handler permissions
-- updated `AWS::DynamoDB::GlobalTable`
-  - updated definition `GlobalSecondaryIndex`
-  - updated definition `ReplicaStreamSpecification`
-- updated `AWS::EC2::Volume`
-  - added `anyOf`
-  - added property `AvailabilityZoneId`
-  - added property `SourceVolumeId`
-  - removed `required`
-  - updated handler permissions
-  - updated property `Iops`
-  - updated property `Size`
-- updated `AWS::ImageBuilder::ContainerRecipe`
-  - updated `oneOf`
-- updated `AWS::ImageBuilder::ImageRecipe`
-  - updated `required`
-- updated `AWS::KMS::Key`
-  - updated property `KeySpec`
-- updated `AWS::Kinesis::Stream`
-  - added property `MaxRecordSizeInKiB`
-  - updated handler permissions
-- updated `AWS::SageMaker::Domain`
-  - added `conditionalCreateOnlyProperties`
-  - updated `createOnlyProperties`

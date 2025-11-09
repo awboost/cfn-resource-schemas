@@ -1,5 +1,5 @@
 {
-  "$hash": "f6636f3aa2b9d3cbe0f4f25786d4862816b7924c",
+  "$hash": "8a6c13fc5811a5f279b050a3c2540969921a44f2",
   "$id": "aws-kendra-faq.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -109,6 +109,7 @@
     },
     "update": {
       "permissions": [
+        "kendra:DescribeFaq",
         "kendra:ListTagsForResource",
         "kendra:UntagResource",
         "kendra:TagResource"

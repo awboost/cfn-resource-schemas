@@ -1,5 +1,5 @@
 {
-  "$hash": "4b53ead797ac3faf6331038bbbabb3056c8e8c4e",
+  "$hash": "8d3f00dc72215c03466ee4d6ce87d406ba3eab18",
   "$id": "aws-kendra-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type", "/properties/IndexId"],
@@ -1249,6 +1249,18 @@
       "type": "object"
     }
   },
+  "deprecatedProperties": [
+    "/properties/DataSourceConfiguration/S3Configuration",
+    "/properties/DataSourceConfiguration/SharePointConfiguration",
+    "/properties/DataSourceConfiguration/SalesforceConfiguration",
+    "/properties/DataSourceConfiguration/OneDriveConfiguration",
+    "/properties/DataSourceConfiguration/ServiceNowConfiguration",
+    "/properties/DataSourceConfiguration/DatabaseConfiguration",
+    "/properties/DataSourceConfiguration/ConfluenceConfiguration",
+    "/properties/DataSourceConfiguration/GoogleDriveConfiguration",
+    "/properties/DataSourceConfiguration/WebCrawlerConfiguration",
+    "/properties/DataSourceConfiguration/WorkDocsConfiguration"
+  ],
   "description": "Kendra DataSource",
   "handlers": {
     "create": {
