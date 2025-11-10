@@ -29,6 +29,10 @@ export type BedrockAgentCoreRuntimeProperties = {
    */
   EnvironmentVariables?: EnvironmentVariablesMap;
   /**
+   * Lifecycle configuration for managing runtime sessions
+   */
+  LifecycleConfiguration?: LifecycleConfiguration;
+  /**
    * Network access configuration for the Agent
    */
   NetworkConfiguration: NetworkConfiguration;
@@ -36,6 +40,10 @@ export type BedrockAgentCoreRuntimeProperties = {
    * Protocol configuration for the agent runtime
    */
   ProtocolConfiguration?: ProtocolConfiguration;
+  /**
+   * Configuration for HTTP request headers
+   */
+  RequestHeaderConfiguration?: RequestHeaderConfiguration;
   /**
    * Amazon Resource Name (ARN) of an IAM role
    * @pattern `arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/.+`
@@ -94,10 +102,24 @@ export type BedrockAgentCoreRuntimeAttributes = {
   };
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.AgentManagedRuntimeType`.
+ * Managed runtime types
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-agentmanagedruntimetype.html}
+ */
+export type AgentManagedRuntimeType =
+  | "PYTHON_3_10"
+  | "PYTHON_3_11"
+  | "PYTHON_3_12"
+  | "PYTHON_3_13";
+/**
  * Type definition for `AWS::BedrockAgentCore::Runtime.AgentRuntimeArtifact`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-agentruntimeartifact.html}
  */
 export type AgentRuntimeArtifact = {
+  /**
+   * Representation of a code configuration
+   */
+  CodeConfiguration?: CodeConfiguration;
   ContainerConfiguration?: ContainerConfiguration;
 };
 /**
@@ -121,6 +143,38 @@ export type AuthorizerConfiguration = {
    * Configuration for custom JWT authorizer
    */
   CustomJWTAuthorizer?: CustomJWTAuthorizerConfiguration;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.Code`.
+ * Object represents source code from zip file
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-code.html}
+ */
+export type Code = {
+  /**
+   * S3 Location Configuration
+   */
+  S3?: S3Location;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.CodeConfiguration`.
+ * Representation of a code configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-codeconfiguration.html}
+ */
+export type CodeConfiguration = {
+  /**
+   * Object represents source code from zip file
+   */
+  Code: Code;
+  /**
+   * List of entry points
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  EntryPoint: string[];
+  /**
+   * Managed runtime types
+   */
+  Runtime: AgentManagedRuntimeType;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.ContainerConfiguration`.
@@ -164,6 +218,25 @@ export type CustomJWTAuthorizerConfiguration = {
  */
 export type EnvironmentVariablesMap = Record<string, string>;
 /**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.LifecycleConfiguration`.
+ * Configuration for managing the lifecycle of runtime sessions and resources
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-lifecycleconfiguration.html}
+ */
+export type LifecycleConfiguration = {
+  /**
+   * Timeout in seconds for idle runtime sessions
+   * @min `60`
+   * @max `28800`
+   */
+  IdleRuntimeSessionTimeout?: number;
+  /**
+   * Maximum lifetime in seconds for runtime sessions
+   * @min `60`
+   * @max `28800`
+   */
+  MaxLifetime?: number;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Runtime.NetworkConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-networkconfiguration.html}
  */
@@ -188,6 +261,43 @@ export type NetworkMode = "PUBLIC" | "VPC";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-protocolconfiguration.html}
  */
 export type ProtocolConfiguration = "MCP" | "HTTP" | "A2A";
+/**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.RequestHeaderConfiguration`.
+ * Configuration for HTTP request headers
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-requestheaderconfiguration.html}
+ */
+export type RequestHeaderConfiguration = {
+  /**
+   * List of allowed HTTP headers for agent runtime requests
+   * @minLength `1`
+   * @maxLength `20`
+   */
+  RequestHeaderAllowlist?: string[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.S3Location`.
+ * S3 Location Configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-s3location.html}
+ */
+export type S3Location = {
+  /**
+   * S3 bucket name
+   * @pattern `^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$`
+   */
+  Bucket: string;
+  /**
+   * S3 object key prefix
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  Prefix: string;
+  /**
+   * S3 object version ID
+   * @minLength `3`
+   * @maxLength `1024`
+   */
+  VersionId?: string;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.TagsMap`.
  * A map of tag keys and values

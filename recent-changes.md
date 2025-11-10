@@ -1,4 +1,18 @@
-- updated `AWS::Kendra::DataSource`
-  - added `deprecatedProperties`
-- updated `AWS::Kendra::Faq`
+- updated `AWS::BedrockAgentCore::BrowserCustom`
+  - added definition `BrowserSigning`
+  - added property `BrowserSigning`
+  - updated `createOnlyProperties`
+- updated `AWS::BedrockAgentCore::Runtime`
+  - added definition `AgentManagedRuntimeType`
+  - added definition `CodeConfiguration`
+  - added definition `Code`
+  - added definition `EntryPoints`
+  - added definition `HeaderName`
+  - added definition `LifecycleConfiguration`
+  - added definition `RequestHeaderAllowlist`
+  - added definition `RequestHeaderConfiguration`
+  - added definition `S3Location`
+  - added property `LifecycleConfiguration`
+  - added property `RequestHeaderConfiguration`
+  - updated definition `AgentRuntimeArtifact`
   - updated handler permissions

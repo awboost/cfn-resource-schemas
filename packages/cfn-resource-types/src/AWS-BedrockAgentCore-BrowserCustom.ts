@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type BedrockAgentCoreBrowserCustomProperties = {
   /**
+   * Browser signing configuration.
+   */
+  BrowserSigning?: BrowserSigning;
+  /**
    * The description of the browser.
    */
   Description?: string;
@@ -84,6 +88,14 @@ export type BrowserNetworkConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-browsernetworkmode.html}
  */
 export type BrowserNetworkMode = "PUBLIC" | "VPC";
+/**
+ * Type definition for `AWS::BedrockAgentCore::BrowserCustom.BrowserSigning`.
+ * Browser signing configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-browsersigning.html}
+ */
+export type BrowserSigning = {
+  Enabled?: boolean;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::BrowserCustom.BrowserStatus`.
  * Status of browser

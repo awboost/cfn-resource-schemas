@@ -1,5 +1,5 @@
 {
-  "$hash": "9a6a1ac966c73c1d7fb90cff72c59f4ac6834eb3",
+  "$hash": "49a9dd7294c27164bc361b0691e29d7c1d1ba4ba",
   "$id": "aws-bedrockagentcore-browsercustom.json",
   "additionalIdentifiers": [["/properties/BrowserArn"]],
   "additionalProperties": false,
@@ -8,6 +8,7 @@
     "/properties/Description",
     "/properties/NetworkConfiguration",
     "/properties/RecordingConfig",
+    "/properties/BrowserSigning",
     "/properties/ExecutionRoleArn"
   ],
   "definitions": {
@@ -38,6 +39,12 @@
       "description": "Network modes supported by browser",
       "enum": ["PUBLIC", "VPC"],
       "type": "string"
+    },
+    "BrowserSigning": {
+      "additionalProperties": false,
+      "description": "Browser signing configuration",
+      "properties": { "Enabled": { "default": false, "type": "boolean" } },
+      "type": "object"
     },
     "BrowserStatus": {
       "description": "Status of browser",
@@ -193,6 +200,10 @@
     "BrowserId": {
       "$ref": "#/definitions/BrowserId",
       "description": "The id of the browser."
+    },
+    "BrowserSigning": {
+      "$ref": "#/definitions/BrowserSigning",
+      "description": "Browser signing configuration."
     },
     "CreatedAt": {
       "description": "Timestamp when the browser was created.",
