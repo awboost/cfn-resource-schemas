@@ -34,6 +34,10 @@ export type S3TablesTableProperties = {
    */
   TableName: string;
   /**
+   * User tags (key-value pairs) to associate with the table.
+   */
+  Tags?: Tag[];
+  /**
    * Indicates that you don't want to specify a schema for the table. This property is mutually exclusive to 'IcebergMetadata', and its only possible value is 'Yes'.
    */
   WithoutMetadata?: WithoutMetadata;
@@ -139,6 +143,23 @@ export type SnapshotManagement = {
    * Indicates whether the SnapshotManagement maintenance action is enabled.
    */
   Status?: "enabled" | "disabled";
+};
+/**
+ * Type definition for `AWS::S3Tables::Table.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-tag.html}
+ */
+export type Tag = {
+  /**
+   * Tag key must be between 1 to 128 characters in length. Tag key cannot start with 'aws:' and can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * Tag value must be between 0 to 256 characters in length. Tag value can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::S3Tables::Table.WithoutMetadata`.

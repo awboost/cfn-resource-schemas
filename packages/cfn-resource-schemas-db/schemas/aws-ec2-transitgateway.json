@@ -1,5 +1,5 @@
 {
-  "$hash": "e3f75cb039b00e5e701aae88b23c129a175f064f",
+  "$hash": "e067d621f753e338efe469344644b536407e2383",
   "$id": "aws-ec2-transitgateway.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -65,6 +65,8 @@
     "DefaultRouteTablePropagation": { "type": "string" },
     "Description": { "type": "string" },
     "DnsSupport": { "type": "string" },
+    "EncryptionSupport": { "enum": ["disable", "enable"], "type": "string" },
+    "EncryptionSupportState": { "type": "string" },
     "Id": { "type": "string" },
     "MulticastSupport": { "type": "string" },
     "PropagationDefaultRouteTableId": { "type": "string" },
@@ -81,7 +83,11 @@
     },
     "VpnEcmpSupport": { "type": "string" }
   },
-  "readOnlyProperties": ["/properties/Id", "/properties/TransitGatewayArn"],
+  "readOnlyProperties": [
+    "/properties/Id",
+    "/properties/TransitGatewayArn",
+    "/properties/EncryptionSupportState"
+  ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-transitgateway",
   "tagging": {
     "cloudFormationSystemTags": true,
@@ -91,5 +97,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::EC2::TransitGateway"
+  "typeName": "AWS::EC2::TransitGateway",
+  "writeOnlyProperties": ["/properties/EncryptionSupport"]
 }

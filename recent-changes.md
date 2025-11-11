@@ -1,18 +1,22 @@
-- updated `AWS::BedrockAgentCore::BrowserCustom`
-  - added definition `BrowserSigning`
-  - added property `BrowserSigning`
-  - updated `createOnlyProperties`
-- updated `AWS::BedrockAgentCore::Runtime`
-  - added definition `AgentManagedRuntimeType`
-  - added definition `CodeConfiguration`
-  - added definition `Code`
-  - added definition `EntryPoints`
-  - added definition `HeaderName`
-  - added definition `LifecycleConfiguration`
-  - added definition `RequestHeaderAllowlist`
-  - added definition `RequestHeaderConfiguration`
-  - added definition `S3Location`
-  - added property `LifecycleConfiguration`
-  - added property `RequestHeaderConfiguration`
-  - updated definition `AgentRuntimeArtifact`
+- updated `AWS::AppConfig::Deployment`
+  - updated property `KmsKeyIdentifier`
+- updated `AWS::Backup::LogicallyAirGappedBackupVault`
+  - added property `MpaApprovalTeamArn`
+  - updated handler permissions
+- updated `AWS::EC2::TransitGateway`
+  - added `writeOnlyProperties`
+  - added property `EncryptionSupportState`
+  - added property `EncryptionSupport`
+  - updated `readOnlyProperties`
+- updated `AWS::KinesisAnalyticsV2::Application`
+  - updated `tagging`
+- updated `AWS::S3Tables::Table`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::S3Tables::TableBucket`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
   - updated handler permissions

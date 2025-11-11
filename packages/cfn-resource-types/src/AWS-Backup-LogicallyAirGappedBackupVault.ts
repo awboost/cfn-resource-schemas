@@ -13,6 +13,7 @@ export type BackupLogicallyAirGappedBackupVaultProperties = {
   BackupVaultTags?: Record<string, string>;
   MaxRetentionDays: number;
   MinRetentionDays: number;
+  MpaApprovalTeamArn?: string;
   Notifications?: NotificationObjectType;
 };
 /**

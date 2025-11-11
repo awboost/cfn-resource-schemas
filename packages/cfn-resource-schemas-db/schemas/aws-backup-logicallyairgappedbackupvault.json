@@ -1,5 +1,5 @@
 {
-  "$hash": "cd02cd9d297d181be7b6364c0aa7df5362d7471a",
+  "$hash": "59fd8a28f831abd3f3118fac1281b28a671adf04",
   "$id": "aws-backup-logicallyairgappedbackupvault.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -32,12 +32,14 @@
     "create": {
       "permissions": [
         "backup:TagResource",
+        "backup:AssociateBackupVaultMpaApprovalTeam",
         "backup:CreateLogicallyAirGappedBackupVault",
         "backup:PutBackupVaultAccessPolicy",
         "backup:PutBackupVaultNotifications",
         "backup-storage:Mount",
         "backup-storage:MountCapsule",
-        "backup:DescribeBackupVault"
+        "backup:DescribeBackupVault",
+        "mpa:GetApprovalTeam"
       ]
     },
     "delete": { "permissions": ["backup:DeleteBackupVault"] },
@@ -52,6 +54,7 @@
     },
     "update": {
       "permissions": [
+        "backup:AssociateBackupVaultMpaApprovalTeam",
         "backup:DescribeBackupVault",
         "backup:DeleteBackupVaultAccessPolicy",
         "backup:DeleteBackupVaultNotifications",
@@ -62,7 +65,8 @@
         "backup:UntagResource",
         "backup:PutBackupVaultAccessPolicy",
         "backup:PutBackupVaultNotifications",
-        "backup:PutBackupVaultLockConfiguration"
+        "backup:PutBackupVaultLockConfiguration",
+        "mpa:GetApprovalTeam"
       ]
     }
   },
@@ -79,6 +83,7 @@
     "EncryptionKeyArn": { "type": "string" },
     "MaxRetentionDays": { "type": "integer" },
     "MinRetentionDays": { "type": "integer" },
+    "MpaApprovalTeamArn": { "type": "string" },
     "Notifications": { "$ref": "#/definitions/NotificationObjectType" },
     "VaultState": { "type": "string" },
     "VaultType": { "type": "string" }

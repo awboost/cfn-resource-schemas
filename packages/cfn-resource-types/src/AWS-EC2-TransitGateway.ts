@@ -12,6 +12,7 @@ export type EC2TransitGatewayProperties = {
   DefaultRouteTablePropagation?: string;
   Description?: string;
   DnsSupport?: string;
+  EncryptionSupport?: "disable" | "enable";
   MulticastSupport?: string;
   PropagationDefaultRouteTableId?: string;
   SecurityGroupReferencingSupport?: string;
@@ -24,6 +25,7 @@ export type EC2TransitGatewayProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#aws-resource-ec2-transitgateway-return-values}
  */
 export type EC2TransitGatewayAttributes = {
+  EncryptionSupportState: string;
   Id: string;
   TransitGatewayArn: string;
 };
