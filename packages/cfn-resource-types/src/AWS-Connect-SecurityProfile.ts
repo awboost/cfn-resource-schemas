@@ -28,6 +28,12 @@ export type ConnectSecurityProfileProperties = {
    * @maxLength `250`
    */
   Description?: string;
+  GranularAccessControlConfiguration?: {
+    /**
+     * Defines the access control configuration for data tables.
+     */
+    DataTableAccessControlConfiguration?: DataTableAccessControlConfiguration;
+  };
   /**
    * The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect.
    * @maxLength `10`
@@ -98,6 +104,54 @@ export type Application = {
    * @maxLength `128`
    */
   Namespace: string;
+};
+/**
+ * Type definition for `AWS::Connect::SecurityProfile.DataTableAccessControlConfiguration`.
+ * Defines the access control configuration for data tables.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-datatableaccesscontrolconfiguration.html}
+ */
+export type DataTableAccessControlConfiguration = {
+  /**
+   * Contains the configuration for record-based access control.
+   */
+  PrimaryAttributeAccessControlConfiguration?: PrimaryAttributeAccessControlConfigurationItem;
+};
+/**
+ * Type definition for `AWS::Connect::SecurityProfile.PrimaryAttributeAccessControlConfigurationItem`.
+ * Contains the configuration for record-based access control.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributeaccesscontrolconfigurationitem.html}
+ */
+export type PrimaryAttributeAccessControlConfigurationItem = {
+  /**
+   * An array of PrimaryAttributeValue objects.
+   * @minLength `1`
+   * @maxLength `5`
+   */
+  PrimaryAttributeValues: PrimaryAttributeValue[];
+};
+/**
+ * Type definition for `AWS::Connect::SecurityProfile.PrimaryAttributeValue`.
+ * An object defining the access control for a specific attribute and its values.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-primaryattributevalue.html}
+ */
+export type PrimaryAttributeValue = {
+  /**
+   * Specifies the type of access granted. Currently, only "ALLOW" is supported
+   */
+  AccessType: "ALLOW";
+  /**
+   * The name of the primary attribute.
+   * @minLength `1`
+   * @maxLength `127`
+   * @pattern `^(?!aws:|connect:)[\p{L}\p{Z}\p{N}\-_.:=@'|]+$`
+   */
+  AttributeName: string;
+  /**
+   * An array of allowed primary values for the specified primary attribute.
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  Values: string[];
 };
 /**
  * Type definition for `AWS::Connect::SecurityProfile.Tag`.

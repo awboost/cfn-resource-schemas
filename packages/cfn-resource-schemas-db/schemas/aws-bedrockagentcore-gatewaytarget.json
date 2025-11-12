@@ -1,5 +1,5 @@
 {
-  "$hash": "a3050527df97053a27c072abd47ea9ef18c5e89f",
+  "$hash": "80fe1d05f40b0e1d1dfa2293d6e3da0b47067ca6",
   "$id": "aws-bedrockagentcore-gatewaytarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayIdentifier"],
@@ -105,6 +105,14 @@
       "required": ["LambdaArn", "ToolSchema"],
       "type": "object"
     },
+    "McpServerTargetConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Endpoint": { "pattern": "^https://.*", "type": "string" }
+      },
+      "required": ["Endpoint"],
+      "type": "object"
+    },
     "McpTargetConfiguration": {
       "oneOf": [
         {
@@ -132,6 +140,17 @@
           },
           "required": ["Lambda"],
           "title": "Lambda",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "McpServer": {
+              "$ref": "#/definitions/McpServerTargetConfiguration"
+            }
+          },
+          "required": ["McpServer"],
+          "title": "McpServer",
           "type": "object"
         }
       ]
@@ -213,7 +232,9 @@
         "UPDATE_UNSUCCESSFUL",
         "DELETING",
         "READY",
-        "FAILED"
+        "FAILED",
+        "SYNCHRONIZING",
+        "SYNCHRONIZE_UNSUCCESSFUL"
       ],
       "type": "string"
     },
@@ -315,6 +336,7 @@
       "pattern": "^([0-9a-z][-]?){1,100}-[0-9a-z]{10}$",
       "type": "string"
     },
+    "LastSynchronizedAt": { "format": "date-time", "type": "string" },
     "Name": { "pattern": "^([0-9a-zA-Z][-]?){1,100}$", "type": "string" },
     "Status": { "$ref": "#/definitions/TargetStatus" },
     "StatusReasons": {
@@ -329,6 +351,7 @@
   "readOnlyProperties": [
     "/properties/CreatedAt",
     "/properties/GatewayArn",
+    "/properties/LastSynchronizedAt",
     "/properties/Status",
     "/properties/StatusReasons",
     "/properties/TargetId",

@@ -42,10 +42,14 @@ export type KinesisStreamProperties = {
    */
   StreamModeDetails?: StreamModeDetails;
   /**
-   * An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+   * An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
    * @maxLength `50`
    */
   Tags?: Tag[];
+  /**
+   * Target warm throughput in MiB/s for the stream. This property can ONLY be set when StreamMode is ON_DEMAND.
+   */
+  WarmThroughputMiBps?: number;
 };
 /**
  * Attribute type definition for `AWS::Kinesis::Stream`.
@@ -56,6 +60,19 @@ export type KinesisStreamAttributes = {
    * The Amazon resource name (ARN) of the Kinesis stream
    */
   Arn: string;
+  /**
+   * Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+   */
+  WarmThroughputObject: {
+    /**
+     * Current warm throughput in MiB/s
+     */
+    CurrentMiBps: number;
+    /**
+     * Target warm throughput in MiB/s that a customer can write to a stream at any given time
+     */
+    TargetMiBps: number;
+  };
 };
 /**
  * Type definition for `AWS::Kinesis::Stream.EnhancedMetric`.
@@ -117,6 +134,21 @@ export type Tag = {
    * @maxLength `255`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::Kinesis::Stream.WarmThroughputObject`.
+ * Warm throughput configuration details for the stream. Only present for ON_DEMAND streams.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-warmthroughputobject.html}
+ */
+export type WarmThroughputObject = {
+  /**
+   * Current warm throughput in MiB/s
+   */
+  CurrentMiBps?: number;
+  /**
+   * Target warm throughput in MiB/s that a customer can write to a stream at any given time
+   */
+  TargetMiBps?: number;
 };
 /**
  * Resource Type definition for AWS::Kinesis::Stream

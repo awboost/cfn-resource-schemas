@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ControlTowerLandingZoneProperties = {
   Manifest: any;
+  RemediationTypes?: "INHERITANCE_DRIFT"[];
   Tags?: Tag[];
   /**
    * @minLength `3`

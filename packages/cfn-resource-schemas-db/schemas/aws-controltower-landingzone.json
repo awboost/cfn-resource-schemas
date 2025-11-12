@@ -1,5 +1,5 @@
 {
-  "$hash": "d977b665ae6aedc2db46be4a971bf8e522ad7b9f",
+  "$hash": "040d9dce50a725545337e879f6e58c9112a4d803",
   "$id": "aws-controltower-landingzone.json",
   "additionalProperties": false,
   "definitions": {
@@ -10,6 +10,10 @@
     "LandingZoneStatus": {
       "enum": ["ACTIVE", "PROCESSING", "FAILED"],
       "type": "string"
+    },
+    "RemediationTypes": {
+      "items": { "enum": ["INHERITANCE_DRIFT"], "type": "string" },
+      "type": "array"
     },
     "Tag": {
       "additionalProperties": false,
@@ -150,6 +154,7 @@
       "type": "string"
     },
     "Manifest": {},
+    "RemediationTypes": { "$ref": "#/definitions/RemediationTypes" },
     "Status": { "$ref": "#/definitions/LandingZoneStatus" },
     "Tags": { "items": { "$ref": "#/definitions/Tag" }, "type": "array" },
     "Version": {

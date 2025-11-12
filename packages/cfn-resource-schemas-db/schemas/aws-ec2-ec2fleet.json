@@ -1,5 +1,5 @@
 {
-  "$hash": "af3c60bc2bea25c88a3e3c78896ad91ed9f2b4b5",
+  "$hash": "83dd39b425623bd5ec81641f11ace80526d6eacb",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -189,7 +189,14 @@
               "t4",
               "t4g",
               "vu9p",
-              "v100"
+              "v100",
+              "l40s",
+              "l4",
+              "gaudi-hl-205",
+              "inferentia2",
+              "trainium",
+              "trainium2",
+              "u30"
             ],
             "type": "string"
           },
@@ -200,7 +207,10 @@
           "$ref": "#/definitions/AcceleratorTotalMemoryMiBRequest"
         },
         "AcceleratorTypes": {
-          "items": { "enum": ["gpu", "fpga", "inference"], "type": "string" },
+          "items": {
+            "enum": ["gpu", "fpga", "inference", "media"],
+            "type": "string"
+          },
           "type": "array",
           "uniqueItems": false
         },

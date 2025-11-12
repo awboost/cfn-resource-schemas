@@ -166,9 +166,16 @@ export type InstanceRequirementsRequest = {
     | "t4g"
     | "vu9p"
     | "v100"
+    | "l40s"
+    | "l4"
+    | "gaudi-hl-205"
+    | "inferentia2"
+    | "trainium"
+    | "trainium2"
+    | "u30"
   )[];
   AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
-  AcceleratorTypes?: ("gpu" | "fpga" | "inference")[];
+  AcceleratorTypes?: ("gpu" | "fpga" | "inference" | "media")[];
   AllowedInstanceTypes?: string[];
   BareMetal?: "included" | "required" | "excluded";
   BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;

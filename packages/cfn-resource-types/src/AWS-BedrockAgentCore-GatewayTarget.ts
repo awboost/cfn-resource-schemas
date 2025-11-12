@@ -35,6 +35,7 @@ export type BedrockAgentCoreGatewayTargetAttributes = {
    * @pattern `^arn:aws(|-cn|-us-gov):bedrock-agentcore:[a-z0-9-]{1,20}:[0-9]{12}:gateway/([0-9a-z][-]?){1,100}-[a-z0-9]{10}$`
    */
   GatewayArn: string;
+  LastSynchronizedAt: string;
   Status: TargetStatus;
   /**
    * @maxLength `100`
@@ -121,6 +122,16 @@ export type McpLambdaTargetConfiguration = {
   ToolSchema: ToolSchema;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpServerTargetConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html}
+ */
+export type McpServerTargetConfiguration = {
+  /**
+   * @pattern `^https://.*`
+   */
+  Endpoint: string;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpTargetConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptargetconfiguration.html}
  */
@@ -133,6 +144,9 @@ export type McpTargetConfiguration =
     }
   | {
       Lambda: McpLambdaTargetConfiguration;
+    }
+  | {
+      McpServer: McpServerTargetConfiguration;
     };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.OAuthCredentialProvider`.
@@ -212,7 +226,9 @@ export type TargetStatus =
   | "UPDATE_UNSUCCESSFUL"
   | "DELETING"
   | "READY"
-  | "FAILED";
+  | "FAILED"
+  | "SYNCHRONIZING"
+  | "SYNCHRONIZE_UNSUCCESSFUL";
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ToolDefinition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-tooldefinition.html}
