@@ -1,31 +1,22 @@
-- updated `AWS::AppConfig::Deployment`
-  - updated property `KmsKeyIdentifier`
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - added definition `McpServerTargetConfiguration`
-  - added property `LastSynchronizedAt`
-  - updated `readOnlyProperties`
-  - updated definition `McpTargetConfiguration`
-  - updated definition `TargetStatus`
-- updated `AWS::Connect::SecurityProfile`
-  - added definition `DataTableAccessControlConfiguration`
-  - added definition `PrimaryAttributeAccessControlConfigurationItem`
-  - added definition `PrimaryAttributeValue`
-  - added property `GranularAccessControlConfiguration`
-- updated `AWS::ControlTower::LandingZone`
-  - added definition `RemediationTypes`
-  - added property `RemediationTypes`
-- updated `AWS::EC2::EC2Fleet`
-  - updated definition `InstanceRequirementsRequest`
-- updated `AWS::EC2::SpotFleet`
-  - updated definition `InstanceRequirementsRequest`
-- updated `AWS::Kinesis::Stream`
-  - added `writeOnlyProperties`
-  - added definition `WarmThroughputObject`
-  - added property `WarmThroughputMiBps`
-  - added property `WarmThroughputObject`
-  - updated `readOnlyProperties`
+- updated `AWS::DynamoDB::GlobalTable`
+  - updated definition `ReplicaStreamSpecification`
+- updated `AWS::EC2::IPAMScope`
+  - added definition `IpamScopeExternalAuthorityConfiguration`
+  - added property `ExternalAuthorityConfiguration`
+- updated `AWS::ECS::Cluster`
+  - updated definition `CapacityProviderStrategyItem`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - added definition `JwtValidationActionAdditionalClaim`
+  - added definition `JwtValidationConfig`
+  - updated definition `Action`
+- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
+  - added definition `JwtValidationActionAdditionalClaim`
+  - added definition `JwtValidationConfig`
+  - updated definition `Action`
+- updated `AWS::Rekognition::Project`
+  - added `tagging`
+  - added definition `Tag`
+  - added property `Tags`
   - updated handler permissions
-  - updated property `Tags`
-- updated `AWS::Lambda::Permission`
-  - updated property `FunctionUrlAuthType`
-  - updated property `InvokedViaFunctionUrl`
+- updated `AWS::Route53Resolver::FirewallRuleGroup`
+  - updated definition `FirewallRule`

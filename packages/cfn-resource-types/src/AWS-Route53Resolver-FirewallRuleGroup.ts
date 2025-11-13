@@ -131,7 +131,7 @@ export type FirewallRule = {
   /**
    * FirewallDomainRedirectionAction
    */
-  DnsThreatProtection?: "DGA" | "DNS_TUNNELING";
+  DnsThreatProtection?: "DGA" | "DNS_TUNNELING" | "DICTIONARY_DGA";
   /**
    * ResourceId
    * @minLength `1`

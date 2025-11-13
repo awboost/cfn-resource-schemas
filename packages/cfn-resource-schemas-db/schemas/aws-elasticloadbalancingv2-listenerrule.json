@@ -1,5 +1,5 @@
 {
-  "$hash": "9a93f3b853804d4aeb23baf054371de594a36dc1",
+  "$hash": "a3205508f8e2ca4f1cea3b46306f87aca3e5fb0c",
   "$id": "aws-elasticloadbalancingv2-listenerrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ListenerArn"],
@@ -23,6 +23,10 @@
         "ForwardConfig": {
           "$ref": "#/definitions/ForwardConfig",
           "description": "Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.\n If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``."
+        },
+        "JwtValidationConfig": {
+          "$ref": "#/definitions/JwtValidationConfig",
+          "description": ""
         },
         "Order": {
           "description": "The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.",
@@ -229,6 +233,38 @@
           "description": "The name of the request method. The maximum length is 40 characters. The allowed characters are A-Z, hyphen (-), and underscore (_). The comparison is case sensitive. Wildcards are not supported; therefore, the method name must be an exact match.\n If you specify multiple strings, the condition is satisfied if one of the strings matches the HTTP request method. We recommend that you route GET and HEAD requests in the same way, because the response to a HEAD request may be cached."
         }
       },
+      "type": "object"
+    },
+    "JwtValidationActionAdditionalClaim": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Format": { "type": "string" },
+        "Name": { "type": "string" },
+        "Values": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": ["Format", "Name", "Values"],
+      "type": "object"
+    },
+    "JwtValidationConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "AdditionalClaims": {
+          "items": {
+            "$ref": "#/definitions/JwtValidationActionAdditionalClaim"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "Issuer": { "type": "string" },
+        "JwksEndpoint": { "type": "string" }
+      },
+      "required": ["JwksEndpoint", "Issuer"],
       "type": "object"
     },
     "ListOfStrings": {

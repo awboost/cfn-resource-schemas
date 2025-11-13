@@ -7,6 +7,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type EC2IPAMScopeProperties = {
   Description?: string;
   /**
+   * External service configuration to connect your AWS IPAM scope.
+   */
+  ExternalAuthorityConfiguration?: IpamScopeExternalAuthorityConfiguration;
+  /**
    * The Id of the IPAM this scope is a part of.
    */
   IpamId: string;
@@ -44,6 +48,21 @@ export type EC2IPAMScopeAttributes = {
    * The number of pools that currently exist in this scope.
    */
   PoolCount: number;
+};
+/**
+ * Type definition for `AWS::EC2::IPAMScope.IpamScopeExternalAuthorityConfiguration`.
+ * External service configuration to connect your AWS IPAM scope.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamscope-ipamscopeexternalauthorityconfiguration.html}
+ */
+export type IpamScopeExternalAuthorityConfiguration = {
+  /**
+   * Resource identifier of the scope in the external service connecting to your AWS IPAM scope.
+   */
+  ExternalResourceIdentifier: string;
+  /**
+   * An external service connecting to your AWS IPAM scope.
+   */
+  IpamScopeExternalAuthorityType: "infoblox";
 };
 /**
  * Type definition for `AWS::EC2::IPAMScope.Tag`.

@@ -77,6 +77,7 @@ export type Action = {
      If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
      */
   ForwardConfig?: ForwardConfig;
+  JwtValidationConfig?: JwtValidationConfig;
   /**
    * The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
    */
@@ -242,6 +243,24 @@ export type ForwardConfig = {
    * Information about how traffic will be distributed between multiple target groups in a forward rule.
    */
   TargetGroups?: TargetGroupTuple[];
+};
+/**
+ * Type definition for `AWS::ElasticLoadBalancingV2::Listener.JwtValidationActionAdditionalClaim`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-jwtvalidationactionadditionalclaim.html}
+ */
+export type JwtValidationActionAdditionalClaim = {
+  Format: string;
+  Name: string;
+  Values: string[];
+};
+/**
+ * Type definition for `AWS::ElasticLoadBalancingV2::Listener.JwtValidationConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-jwtvalidationconfig.html}
+ */
+export type JwtValidationConfig = {
+  AdditionalClaims?: JwtValidationActionAdditionalClaim[];
+  Issuer: string;
+  JwksEndpoint: string;
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::Listener.ListenerAttribute`.

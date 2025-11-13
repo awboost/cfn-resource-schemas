@@ -1,5 +1,5 @@
 {
-  "$hash": "2d084235a4cb6d756ca6cc173d683de59898de15",
+  "$hash": "9b20a42850fe5053e2fcc6e8c1186730ad941212",
   "$id": "aws-rekognition-project.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProjectName"],
@@ -15,12 +15,36 @@
       "minLength": 1,
       "pattern": "[a-zA-Z0-9][a-zA-Z0-9_\\-]*",
       "type": "string"
+    },
+    "Tag": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "properties": {
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 128,
+          "pattern": "\\A(?!aws:)[a-zA-Z0-9+\\-=\\._\\:\\/@]+$",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 256,
+          "pattern": "\\A[a-zA-Z0-9+\\-=\\._\\:\\/@]+$",
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
     }
   },
   "description": "The AWS::Rekognition::Project type creates an Amazon Rekognition CustomLabels Project. A project is a grouping of the resources needed to create and manage Dataset and ProjectVersions.",
   "handlers": {
     "create": {
-      "permissions": ["rekognition:CreateProject"],
+      "permissions": [
+        "rekognition:CreateProject",
+        "rekognition:TagResource",
+        "rekognition:ListTagsForResource"
+      ],
       "timeoutInMinutes": 15
     },
     "delete": {
@@ -35,18 +59,50 @@
       "timeoutInMinutes": 15
     },
     "read": {
-      "permissions": ["rekognition:DescribeProjects"],
+      "permissions": [
+        "rekognition:DescribeProjects",
+        "rekognition:ListTagsForResource"
+      ],
       "timeoutInMinutes": 15
     },
-    "update": { "permissions": [], "timeoutInMinutes": 15 }
+    "update": {
+      "permissions": [
+        "rekognition:DescribeProjects",
+        "rekognition:TagResource",
+        "rekognition:UntagResource",
+        "rekognition:ListTagsForResource"
+      ],
+      "timeoutInMinutes": 15
+    }
   },
   "primaryIdentifier": ["/properties/ProjectName"],
   "properties": {
     "Arn": { "$ref": "#/definitions/Arn" },
-    "ProjectName": { "$ref": "#/definitions/ProjectName" }
+    "ProjectName": { "$ref": "#/definitions/ProjectName" },
+    "Tags": {
+      "description": "An array of key-value pairs to apply to this resource.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 200,
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    }
   },
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["ProjectName"],
   "sourceUrl": "https://docs.aws.amazon.com/rekognition/latest/customlabels-dg/cp-manage-project.html",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "rekognition:ListTagsForResource",
+      "rekognition:TagResource",
+      "rekognition:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::Rekognition::Project"
 }

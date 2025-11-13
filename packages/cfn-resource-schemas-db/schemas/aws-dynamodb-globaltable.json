@@ -1,5 +1,5 @@
 {
-  "$hash": "a6cf7c587629e81079bf0bcdf12aa33bce525680",
+  "$hash": "d574df1382f212209d20c78dd3b074f10b6fb915",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -250,10 +250,10 @@
     },
     "ReplicaStreamSpecification": {
       "additionalProperties": false,
-      "anyOf": [{ "required": ["ResourcePolicy"] }, { "required": ["Tags"] }],
       "properties": {
         "ResourcePolicy": { "$ref": "#/definitions/ResourcePolicy" }
       },
+      "required": ["ResourcePolicy"],
       "type": "object"
     },
     "ResourcePolicy": {

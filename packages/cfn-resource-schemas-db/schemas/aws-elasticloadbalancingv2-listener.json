@@ -1,5 +1,5 @@
 {
-  "$hash": "842745a3afa24e67a11f8f863ed7b4691bbf1243",
+  "$hash": "1a2ed68c6d67437805529efb0329e26541f26a95",
   "$id": "aws-elasticloadbalancingv2-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoadBalancerArn"],
@@ -23,6 +23,10 @@
         "ForwardConfig": {
           "$ref": "#/definitions/ForwardConfig",
           "description": "Information for creating an action that distributes requests among multiple target groups. Specify only when ``Type`` is ``forward``.\n If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``."
+        },
+        "JwtValidationConfig": {
+          "$ref": "#/definitions/JwtValidationConfig",
+          "description": ""
         },
         "Order": {
           "description": "The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.",
@@ -220,6 +224,38 @@
           "uniqueItems": true
         }
       },
+      "type": "object"
+    },
+    "JwtValidationActionAdditionalClaim": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Format": { "type": "string" },
+        "Name": { "type": "string" },
+        "Values": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": ["Format", "Name", "Values"],
+      "type": "object"
+    },
+    "JwtValidationConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "AdditionalClaims": {
+          "items": {
+            "$ref": "#/definitions/JwtValidationActionAdditionalClaim"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "Issuer": { "type": "string" },
+        "JwksEndpoint": { "type": "string" }
+      },
+      "required": ["JwksEndpoint", "Issuer"],
       "type": "object"
     },
     "ListenerAttribute": {

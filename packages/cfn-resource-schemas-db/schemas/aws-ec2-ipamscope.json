@@ -1,9 +1,29 @@
 {
-  "$hash": "3d785d44f781b25065e7f5b473c7f851ec7d2256",
+  "$hash": "2c1cb0f721c0a9f544942ec1402d3aae73b0d659",
   "$id": "aws-ec2-ipamscope.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/IpamId"],
   "definitions": {
+    "IpamScopeExternalAuthorityConfiguration": {
+      "additionalProperties": false,
+      "description": "External service configuration to connect your AWS IPAM scope.",
+      "properties": {
+        "ExternalResourceIdentifier": {
+          "description": "Resource identifier of the scope in the external service connecting to your AWS IPAM scope.",
+          "type": "string"
+        },
+        "IpamScopeExternalAuthorityType": {
+          "description": "An external service connecting to your AWS IPAM scope.",
+          "enum": ["infoblox"],
+          "type": "string"
+        }
+      },
+      "required": [
+        "IpamScopeExternalAuthorityType",
+        "ExternalResourceIdentifier"
+      ],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
@@ -59,6 +79,9 @@
       "type": "string"
     },
     "Description": { "type": "string" },
+    "ExternalAuthorityConfiguration": {
+      "$ref": "#/definitions/IpamScopeExternalAuthorityConfiguration"
+    },
     "IpamArn": {
       "description": "The Amazon Resource Name (ARN) of the IPAM this scope is a part of.",
       "type": "string"

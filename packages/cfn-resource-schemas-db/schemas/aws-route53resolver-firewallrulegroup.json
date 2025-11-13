@@ -1,5 +1,5 @@
 {
-  "$hash": "31bd8316f95671fbe780b00991657acc8ce4816b",
+  "$hash": "8ba475204c5029cd5af2cf65a9064cbe3e8f18b6",
   "$id": "aws-route53resolver-firewallrulegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -42,7 +42,7 @@
         },
         "DnsThreatProtection": {
           "description": "FirewallDomainRedirectionAction",
-          "enum": ["DGA", "DNS_TUNNELING"],
+          "enum": ["DGA", "DNS_TUNNELING", "DICTIONARY_DGA"],
           "type": "string"
         },
         "FirewallDomainListId": {
