@@ -51,7 +51,7 @@ export type RTBFabricResponderGatewayAttributes = {
   /**
    * @minLength `20`
    * @maxLength `2048`
-   * @pattern `^arn:aws:(rtbfabric|rtbfabric):[a-zA-Z0-9_-]+:[0-9]{12}:gateway/[a-zA-Z0-9-]+$`
+   * @pattern `^arn:aws:rtbfabric:[a-zA-Z0-9_-]+:[0-9]{12}:gateway/[a-zA-Z0-9-]+$`
    */
   Arn: string;
   CreatedTimestamp: string;

@@ -23,6 +23,10 @@ export type DSQLClusterProperties = {
      */
     WitnessRegion?: string;
   };
+  /**
+   * The IAM policy applied to the cluster resource.
+   */
+  PolicyDocument?: string;
   Tags?: Tag[];
 };
 /**
@@ -55,6 +59,10 @@ export type DSQLClusterAttributes = {
    * The ID of the created cluster.
    */
   Identifier: string;
+  /**
+   * The version number of the cluster's resource based policy
+   */
+  PolicyVersion: string;
   /**
    * The Amazon Resource Name (ARN) for the cluster.
    */

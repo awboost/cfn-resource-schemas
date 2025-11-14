@@ -1,5 +1,5 @@
 {
-  "$hash": "4317c10995987afbd17dcd5e18d27cad254e179d",
+  "$hash": "e4dee49ee84cc7e6c01279ba09e32ee92098b5d8",
   "$id": "aws-rtbfabric-respondergateway.json",
   "additionalIdentifiers": [["/properties/GatewayId"]],
   "additionalProperties": false,
@@ -19,7 +19,7 @@
     "Arn": {
       "maxLength": 2048,
       "minLength": 20,
-      "pattern": "^arn:aws:(rtbfabric|rtbfabric):[a-zA-Z0-9_-]+:[0-9]{12}:gateway/[a-zA-Z0-9-]+$",
+      "pattern": "^arn:aws:rtbfabric:[a-zA-Z0-9_-]+:[0-9]{12}:gateway/[a-zA-Z0-9-]+$",
       "type": "string"
     },
     "AutoScalingGroupNameList": {

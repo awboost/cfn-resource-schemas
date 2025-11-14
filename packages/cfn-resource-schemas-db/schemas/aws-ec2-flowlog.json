@@ -1,5 +1,5 @@
 {
-  "$hash": "fb75d8ed7d3f46d3009ad3efcf42ad673b404ee4",
+  "$hash": "45dbbace47a337b511faafa4d7cc1c1918cfeaa7",
   "$id": "aws-ec2-flowlog.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -113,7 +113,8 @@
         "Subnet",
         "VPC",
         "TransitGateway",
-        "TransitGatewayAttachment"
+        "TransitGatewayAttachment",
+        "RegionalNatGateway"
       ],
       "type": "string"
     },

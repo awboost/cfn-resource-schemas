@@ -5,7 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * Adds or updates an inline policy document that is embedded in the specified IAM group, user or role.
  An IAM user can also have a managed policy attached to it. For information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
  The Groups, Roles, and Users properties are optional. However, you must specify at least one of these properties.
- For information about policy documents see [Creating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *User Guide*.
+ For information about policy documents, see [Creating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *User Guide*.
  For information about limits on the number of inline policies that you can embed in an identity, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
   This resource does not support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html). The following inline policy resource types support drift detection:
   +   [AWS::IAM::GroupPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-grouppolicy.html)
@@ -59,7 +59,7 @@ export type IAMPolicyAttributes = {
  * Adds or updates an inline policy document that is embedded in the specified IAM group, user or role.
  An IAM user can also have a managed policy attached to it. For information about policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *User Guide*.
  The Groups, Roles, and Users properties are optional. However, you must specify at least one of these properties.
- For information about policy documents see [Creating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *User Guide*.
+ For information about policy documents, see [Creating policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *User Guide*.
  For information about limits on the number of inline policies that you can embed in an identity, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
   This resource does not support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html). The following inline policy resource types support drift detection:
   +   [AWS::IAM::GroupPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-grouppolicy.html)

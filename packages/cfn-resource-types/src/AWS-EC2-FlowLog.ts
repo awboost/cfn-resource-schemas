@@ -51,7 +51,8 @@ export type EC2FlowLogProperties = {
     | "Subnet"
     | "VPC"
     | "TransitGateway"
-    | "TransitGatewayAttachment";
+    | "TransitGatewayAttachment"
+    | "RegionalNatGateway";
   /**
    * The tags to apply to the flow logs.
    */

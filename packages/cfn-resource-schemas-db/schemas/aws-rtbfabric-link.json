@@ -1,5 +1,5 @@
 {
-  "$hash": "4c493d63db62ad62e94003fbbc3b58ce6abf43ae",
+  "$hash": "118d7a419a9aa6aa61df6ccd095be8ce5f7f92a5",
   "$id": "aws-rtbfabric-link.json",
   "additionalIdentifiers": [["/properties/GatewayId", "/properties/LinkId"]],
   "additionalProperties": false,
@@ -103,7 +103,7 @@
         "REQUESTED",
         "ACCEPTED",
         "ACTIVE",
-        "DECLINED",
+        "REJECTED",
         "FAILED",
         "PENDING_DELETION",
         "DELETED",
@@ -347,7 +347,7 @@
   ],
   "required": ["GatewayId", "PeerGatewayId", "LinkLogSettings"],
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "rtbfabric:TagResource",
       "rtbfabric:UntagResource",

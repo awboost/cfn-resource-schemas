@@ -1,5 +1,5 @@
 {
-  "$hash": "079ed252387d17a46a020bc9cd018a4d21b2c0b8",
+  "$hash": "7290035596eb45763e29da8e7ddfb7420cc8d0ba",
   "$id": "aws-dsql-cluster.json",
   "additionalProperties": false,
   "definitions": {
@@ -31,12 +31,14 @@
         "dsql:CreateCluster",
         "dsql:UpdateCluster",
         "dsql:GetCluster",
+        "dsql:GetClusterPolicy",
         "dsql:TagResource",
         "dsql:GetVpcEndpointServiceName",
         "dsql:ListTagsForResource",
         "iam:CreateServiceLinkedRole",
         "dsql:PutMultiRegionProperties",
         "dsql:AddPeerCluster",
+        "dsql:PutClusterPolicy",
         "dsql:PutWitnessRegion",
         "kms:Decrypt",
         "kms:Encrypt",
@@ -62,6 +64,7 @@
     "read": {
       "permissions": [
         "dsql:GetCluster",
+        "dsql:GetClusterPolicy",
         "dsql:GetVpcEndpointServiceName",
         "dsql:ListTagsForResource",
         "tag:GetTagKeys",
@@ -72,14 +75,17 @@
       "permissions": [
         "dsql:UpdateCluster",
         "dsql:GetCluster",
+        "dsql:GetClusterPolicy",
         "dsql:UntagResource",
         "dsql:TagResource",
         "dsql:GetVpcEndpointServiceName",
         "dsql:ListTagsForResource",
+        "dsql:PutClusterPolicy",
         "dsql:PutMultiRegionProperties",
         "dsql:PutWitnessRegion",
         "dsql:AddPeerCluster",
         "dsql:RemovePeerCluster",
+        "dsql:DeleteClusterPolicy",
         "kms:Decrypt",
         "kms:Encrypt",
         "kms:GenerateDataKey",
@@ -144,6 +150,14 @@
       },
       "type": "object"
     },
+    "PolicyDocument": {
+      "description": "The IAM policy applied to the cluster resource.",
+      "type": "string"
+    },
+    "PolicyVersion": {
+      "description": "The version number of the cluster's resource based policy",
+      "type": "string"
+    },
     "ResourceArn": {
       "description": "The Amazon Resource Name (ARN) for the cluster.",
       "type": "string"
@@ -166,7 +180,8 @@
     "/properties/CreationTime",
     "/properties/Status",
     "/properties/VpcEndpointServiceName",
-    "/properties/EncryptionDetails"
+    "/properties/EncryptionDetails",
+    "/properties/PolicyVersion"
   ],
   "required": [],
   "tagging": {

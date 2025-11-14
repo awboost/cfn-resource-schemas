@@ -1,22 +1,24 @@
-- updated `AWS::DynamoDB::GlobalTable`
-  - updated definition `ReplicaStreamSpecification`
-- updated `AWS::EC2::IPAMScope`
-  - added definition `IpamScopeExternalAuthorityConfiguration`
-  - added property `ExternalAuthorityConfiguration`
-- updated `AWS::ECS::Cluster`
-  - updated definition `CapacityProviderStrategyItem`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - added definition `JwtValidationActionAdditionalClaim`
-  - added definition `JwtValidationConfig`
-  - updated definition `Action`
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - added definition `JwtValidationActionAdditionalClaim`
-  - added definition `JwtValidationConfig`
-  - updated definition `Action`
-- updated `AWS::Rekognition::Project`
-  - added `tagging`
-  - added definition `Tag`
-  - added property `Tags`
+- added `AWS::RTBFabric::InboundExternalLink`
+- updated `AWS::APS::Scraper`
+  - updated definition `Source`
   - updated handler permissions
-- updated `AWS::Route53Resolver::FirewallRuleGroup`
-  - updated definition `FirewallRule`
+- updated `AWS::CloudTrail::Trail`
+  - updated definition `AdvancedEventSelector`
+  - updated handler permissions
+- updated `AWS::DSQL::Cluster`
+  - added property `PolicyDocument`
+  - added property `PolicyVersion`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::EC2::FlowLog`
+  - updated property `ResourceType`
+- updated `AWS::ECS::CapacityProvider`
+  - added `conditionalCreateOnlyProperties`
+- updated `AWS::IAM::Policy`
+- updated `AWS::RTBFabric::Link`
+  - updated `tagging`
+  - updated definition `LinkStatus`
+- updated `AWS::RTBFabric::RequesterGateway`
+  - updated definition `Arn`
+- updated `AWS::RTBFabric::ResponderGateway`
+  - updated definition `Arn`

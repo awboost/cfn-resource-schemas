@@ -83,7 +83,7 @@ export type CloudTrailTrailAttributes = {
 };
 /**
  * Type definition for `AWS::CloudTrail::Trail.AdvancedEventSelector`.
- * Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
+ * Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedeventselector.html}
  */
 export type AdvancedEventSelector = {

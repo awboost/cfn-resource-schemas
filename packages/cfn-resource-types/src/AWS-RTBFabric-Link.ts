@@ -117,7 +117,7 @@ export type LinkStatus =
   | "REQUESTED"
   | "ACCEPTED"
   | "ACTIVE"
-  | "DECLINED"
+  | "REJECTED"
   | "FAILED"
   | "PENDING_DELETION"
   | "DELETED"

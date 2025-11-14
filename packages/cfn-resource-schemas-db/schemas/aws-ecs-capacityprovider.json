@@ -1,7 +1,10 @@
 {
-  "$hash": "4f22f87b6a56382928284f15d490770f7ec34a63",
+  "$hash": "4a9409070efc26f7bfaf21b5aa999e955cee4e76",
   "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
+  "conditionalCreateOnlyProperties": [
+    "/properties/ManagedInstancesProvider/InstanceLaunchTemplate/CapacityOptionType"
+  ],
   "createOnlyProperties": [
     "/properties/AutoScalingGroupProvider/AutoScalingGroupArn",
     "/properties/Name",

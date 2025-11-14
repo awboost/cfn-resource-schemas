@@ -1,12 +1,12 @@
 {
-  "$hash": "3aad5fc054cf214dd7760f0da8ada241c88960fe",
+  "$hash": "9f3666c1bbd2352601d57e24b5f6c4c778ae0cb9",
   "$id": "aws-cloudtrail-trail.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TrailName"],
   "definitions": {
     "AdvancedEventSelector": {
       "additionalProperties": false,
-      "description": "Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.",
+      "description": "Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record fields. They help you control costs by logging only those events that are important to you.",
       "properties": {
         "FieldSelectors": {
           "description": "Contains all selector statements in an advanced event selector.",
@@ -204,6 +204,7 @@
         "CloudTrail:AddTags",
         "CloudTrail:PutEventSelectors",
         "CloudTrail:PutInsightSelectors",
+        "CloudTrail:PutEventConfiguration",
         "iam:GetRole",
         "iam:PassRole",
         "iam:CreateServiceLinkedRole",
@@ -230,6 +231,7 @@
         "CloudTrail:ListTags",
         "CloudTrail:GetEventSelectors",
         "CloudTrail:GetInsightSelectors",
+        "CloudTrail:GetEventConfiguration",
         "CloudTrail:DescribeTrails"
       ]
     },
@@ -242,6 +244,7 @@
         "CloudTrail:RemoveTags",
         "CloudTrail:PutEventSelectors",
         "CloudTrail:PutInsightSelectors",
+        "CloudTrail:PutEventConfiguration",
         "iam:GetRole",
         "iam:PassRole",
         "iam:CreateServiceLinkedRole",

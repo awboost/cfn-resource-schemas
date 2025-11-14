@@ -195,6 +195,19 @@ export type Source = {
      */
     SubnetIds: string[];
   };
+  /**
+   * Configuration for VPC metrics source
+   */
+  VpcConfiguration?: {
+    /**
+     * List of security group IDs
+     */
+    SecurityGroupIds: string[];
+    /**
+     * List of subnet IDs
+     */
+    SubnetIds: string[];
+  };
 };
 /**
  * Type definition for `AWS::APS::Scraper.Tag`.
