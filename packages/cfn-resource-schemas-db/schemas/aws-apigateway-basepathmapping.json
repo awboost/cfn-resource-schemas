@@ -1,9 +1,9 @@
 {
-  "$hash": "ca4693af66026fd4db64c9c79bde3c8036eee859",
+  "$hash": "8af1cfc6fbd96e9df5914abd264b3e38cf49b585",
   "$id": "aws-apigateway-basepathmapping.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName", "/properties/BasePath"],
-  "description": "The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.",
+  "description": "The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL. Supported only for public custom domain names.",
   "handlers": {
     "create": { "permissions": ["apigateway:POST", "apigateway:GET"] },
     "delete": { "permissions": ["apigateway:DELETE"] },

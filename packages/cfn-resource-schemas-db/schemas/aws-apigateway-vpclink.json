@@ -1,15 +1,21 @@
 {
-  "$hash": "a23cb817475111e6262d10b97dd96b8614a99295",
+  "$hash": "35865fe0c26db6e04157d132f4289251ab3164fc",
   "$id": "aws-apigateway-vpclink.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TargetArns"],
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "",
+      "description": "An array of key-value pairs to apply to this resource.\n For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" }
+        "Key": {
+          "description": "A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the specified tag key.",
+          "type": "string"
+        }
       },
       "required": ["Value", "Key"],
       "type": "object"

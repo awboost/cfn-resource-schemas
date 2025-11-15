@@ -60,7 +60,7 @@ export type MediaConnectFlowOutputProperties = {
   /**
    * The protocol that is used by the source or output.
    */
-  Protocol:
+  Protocol?:
     | "zixi-push"
     | "rtp-fec"
     | "rtp"
@@ -76,6 +76,11 @@ export type MediaConnectFlowOutputProperties = {
    * The remote ID for the Zixi-pull stream.
    */
   RemoteId?: string;
+  RouterIntegrationState?: "ENABLED" | "DISABLED";
+  /**
+   * The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+   */
+  RouterIntegrationTransitEncryption?: FlowTransitEncryption;
   /**
    * The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
    */
@@ -99,6 +104,12 @@ export type MediaConnectFlowOutputAttributes = {
    */
   OutputArn: string;
 };
+/**
+ * Type definition for `AWS::MediaConnect::FlowOutput.AutomaticEncryptionKeyConfiguration`.
+ * Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-automaticencryptionkeyconfiguration.html}
+ */
+export type AutomaticEncryptionKeyConfiguration = Record<string, any>;
 /**
  * Type definition for `AWS::MediaConnect::FlowOutput.DestinationConfiguration`.
  * The definition of a media stream that is associated with the output.
@@ -157,6 +168,41 @@ export type Encryption = {
   SecretArn: string;
 };
 /**
+ * Type definition for `AWS::MediaConnect::FlowOutput.FlowTransitEncryption`.
+ * The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-flowtransitencryption.html}
+ */
+export type FlowTransitEncryption = {
+  /**
+   * Configuration settings for flow transit encryption keys.
+   */
+  EncryptionKeyConfiguration: FlowTransitEncryptionKeyConfiguration;
+  EncryptionKeyType?: FlowTransitEncryptionKeyType;
+};
+/**
+ * Type definition for `AWS::MediaConnect::FlowOutput.FlowTransitEncryptionKeyConfiguration`.
+ * Configuration settings for flow transit encryption keys.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-flowtransitencryptionkeyconfiguration.html}
+ */
+export type FlowTransitEncryptionKeyConfiguration =
+  | {
+      /**
+       * The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
+       */
+      SecretsManager: SecretsManagerEncryptionKeyConfiguration;
+    }
+  | {
+      /**
+       * Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+       */
+      Automatic: AutomaticEncryptionKeyConfiguration;
+    };
+/**
+ * Type definition for `AWS::MediaConnect::FlowOutput.FlowTransitEncryptionKeyType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-flowtransitencryptionkeytype.html}
+ */
+export type FlowTransitEncryptionKeyType = "SECRETS_MANAGER" | "AUTOMATIC";
+/**
  * Type definition for `AWS::MediaConnect::FlowOutput.Interface`.
  * The VPC interface that you want to use for the media stream associated with the output.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-interface.html}
@@ -189,6 +235,23 @@ export type MediaStreamOutputConfiguration = {
    * A name that helps you distinguish one media stream from another.
    */
   MediaStreamName: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::FlowOutput.SecretsManagerEncryptionKeyConfiguration`.
+ * The configuration settings for transit encryption of a flow output using AWS Secrets Manager, including the secret ARN and role ARN.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-secretsmanagerencryptionkeyconfiguration.html}
+ */
+export type SecretsManagerEncryptionKeyConfiguration = {
+  /**
+   * The ARN of the IAM role used for transit encryption to the router input using AWS Secrets Manager.
+   * @pattern `^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$`
+   */
+  RoleArn: string;
+  /**
+   * The ARN of the AWS Secrets Manager secret used for transit encryption to the router input.
+   * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
+   */
+  SecretArn: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::FlowOutput.VpcInterfaceAttachment`.

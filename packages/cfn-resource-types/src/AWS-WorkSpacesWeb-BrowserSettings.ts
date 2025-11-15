@@ -9,7 +9,7 @@ export type WorkSpacesWebBrowserSettingsProperties = {
   /**
    * @minLength `2`
    * @maxLength `131072`
-   * @pattern `\{[\S\s]*\}\s*`
+   * @pattern `^\{[\S\s]*\}\s*$`
    */
   BrowserPolicy?: string;
   /**
@@ -23,6 +23,7 @@ export type WorkSpacesWebBrowserSettingsProperties = {
    * @maxLength `200`
    */
   Tags?: Tag[];
+  WebContentFilteringPolicy?: WebContentFilteringPolicy;
 };
 /**
  * Attribute type definition for `AWS::WorkSpacesWeb::BrowserSettings`.
@@ -37,6 +38,38 @@ export type WorkSpacesWebBrowserSettingsAttributes = {
    */
   BrowserSettingsArn: string;
 };
+/**
+ * Type definition for `AWS::WorkSpacesWeb::BrowserSettings.Category`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-browsersettings-category.html}
+ */
+export type Category =
+  | "Cults"
+  | "Gambling"
+  | "Nudity"
+  | "Pornography"
+  | "SexEducation"
+  | "Tasteless"
+  | "Violence"
+  | "DownloadSites"
+  | "ImageSharing"
+  | "PeerToPeer"
+  | "StreamingMediaAndDownloads"
+  | "GenerativeAI"
+  | "CriminalActivity"
+  | "Hacking"
+  | "HateAndIntolerance"
+  | "IllegalDrug"
+  | "IllegalSoftware"
+  | "SchoolCheating"
+  | "SelfHarm"
+  | "Weapons"
+  | "Chat"
+  | "Games"
+  | "InstantMessaging"
+  | "ProfessionalNetwork"
+  | "SocialNetworking"
+  | "WebBasedEmail"
+  | "ParkedDomains";
 /**
  * Type definition for `AWS::WorkSpacesWeb::BrowserSettings.EncryptionContextMap`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-browsersettings-encryptioncontextmap.html}
@@ -59,6 +92,27 @@ export type Tag = {
    * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::WorkSpacesWeb::BrowserSettings.WebContentFilteringPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-browsersettings-webcontentfilteringpolicy.html}
+ */
+export type WebContentFilteringPolicy = {
+  /**
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  AllowedUrls?: string[];
+  /**
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  BlockedCategories?: Category[];
+  /**
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  BlockedUrls?: string[];
 };
 /**
  * Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type

@@ -22,10 +22,18 @@ export type ApiGatewayVpcLinkAttributes = {
 };
 /**
  * Type definition for `AWS::ApiGateway::VpcLink.Tag`.
+ * An array of key-value pairs to apply to this resource.
+ For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-vpclink-tag.html}
  */
 export type Tag = {
+  /**
+   * A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+   */
   Key: string;
+  /**
+   * The value for the specified tag key.
+   */
   Value: string;
 };
 /**

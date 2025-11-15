@@ -1,7 +1,8 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+ * The ``AWS::ApiGateway::DomainName`` resource specifies a public custom domain name for your API in API Gateway.
+ To create a custom domain name for private APIs, use [AWS::ApiGateway::DomainNameV2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html).
  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html}
  */
@@ -9,9 +10,8 @@ export type ApiGatewayDomainNameProperties = {
   CertificateArn?: string;
   DomainName?: string;
   /**
-     * The ``EndpointConfiguration`` property type specifies the endpoint types of an Amazon API Gateway domain name.
-     ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
-     */
+   * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
+   */
   EndpointConfiguration?: EndpointConfiguration;
   MutualTlsAuthentication?: MutualTlsAuthentication;
   /**
@@ -39,7 +39,7 @@ export type ApiGatewayDomainNameAttributes = {
 };
 /**
  * Type definition for `AWS::ApiGateway::DomainName.EndpointConfiguration`.
- * The ``EndpointConfiguration`` property type specifies the endpoint types of an Amazon API Gateway domain name.
+ * The ``EndpointConfiguration`` property type specifies the endpoint types and IP address types of an Amazon API Gateway domain name.
  ``EndpointConfiguration`` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html}
  */
@@ -57,14 +57,23 @@ export type MutualTlsAuthentication = {
 };
 /**
  * Type definition for `AWS::ApiGateway::DomainName.Tag`.
+ * An array of key-value pairs to apply to this resource.
+ For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-tag.html}
  */
 export type Tag = {
+  /**
+   * A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+   */
   Key?: string;
+  /**
+   * The value for the specified tag key.
+   */
   Value?: string;
 };
 /**
- * The ``AWS::ApiGateway::DomainName`` resource specifies a custom domain name for your API in API Gateway.
+ * The ``AWS::ApiGateway::DomainName`` resource specifies a public custom domain name for your API in API Gateway.
+ To create a custom domain name for private APIs, use [AWS::ApiGateway::DomainNameV2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html).
  You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html}
  */

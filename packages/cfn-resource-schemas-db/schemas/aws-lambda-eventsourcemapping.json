@@ -1,5 +1,5 @@
 {
-  "$hash": "c774bb190dd8c6882cb4707fd1679dcd9e35fa8f",
+  "$hash": "57725829dc446bae4b68b2b8adde97c96995c378",
   "$id": "aws-lambda-eventsourcemapping.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -116,6 +116,18 @@
       },
       "type": "object"
     },
+    "LoggingConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "SystemLogLevel": {
+          "description": "Event source mapping log granularity level override",
+          "enum": ["DEBUG", "INFO", "WARN"],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "MaximumConcurrency": {
       "description": "The maximum number of concurrent functions that an event source can invoke.",
       "maximum": 1000,
@@ -128,8 +140,11 @@
       "properties": {
         "Metrics": {
           "description": "The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).",
-          "items": { "enum": ["EventCount"], "type": "string" },
-          "maxItems": 1,
+          "items": {
+            "enum": ["EventCount", "ErrorCount", "KafkaMetrics"],
+            "type": "string"
+          },
+          "maxItems": 3,
           "minItems": 0,
           "type": "array",
           "uniqueItems": true
@@ -142,10 +157,10 @@
       "description": "A destination for events that failed processing. For more information, see [Adding a destination](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations).",
       "properties": {
         "Destination": {
-          "description": "The Amazon Resource Name (ARN) of the destination resource.\n To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.\n To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.",
+          "description": "The Amazon Resource Name (ARN) of the destination resource.\n To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.\n  Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).\n  To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.",
           "maxLength": 1024,
           "minLength": 12,
-          "pattern": "arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:((eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
+          "pattern": "^$|kafka://([^.]([a-zA-Z0-9\\-_.]{0,248}))|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\\-])+:((eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1})?:(\\d{12})?:(.*)",
           "type": "string"
         }
       },
@@ -166,6 +181,12 @@
           "maximum": 200,
           "minimum": 1,
           "type": "integer"
+        },
+        "PollerGroupName": {
+          "description": "",
+          "maxLength": 128,
+          "minLength": 0,
+          "type": "string"
         }
       },
       "type": "object"
@@ -438,6 +459,10 @@
       "minLength": 12,
       "pattern": "(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()",
       "type": "string"
+    },
+    "LoggingConfig": {
+      "$ref": "#/definitions/LoggingConfig",
+      "description": ""
     },
     "MaximumBatchingWindowInSeconds": {
       "description": "The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.\n *Default (, , event sources)*: 0\n *Default (, Kafka, , event sources)*: 500 ms\n *Related setting:* For SQS event sources, when you set ``BatchSize`` to a value greater than 10, you must set ``MaximumBatchingWindowInSeconds`` to at least 1.",

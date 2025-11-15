@@ -55,17 +55,19 @@ export type QuotaSettings = {
 };
 /**
  * Type definition for `AWS::ApiGateway::UsagePlan.Tag`.
+ * An array of key-value pairs to apply to this resource.
+ For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-tag.html}
  */
 export type Tag = {
   /**
-   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
    * @minLength `1`
    * @maxLength `128`
    */
   Key: string;
   /**
-   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * The value for the specified tag key.
    * @minLength `0`
    * @maxLength `256`
    */

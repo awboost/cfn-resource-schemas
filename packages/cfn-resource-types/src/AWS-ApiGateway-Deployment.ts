@@ -27,7 +27,7 @@ export type ApiGatewayDeploymentAttributes = {
 /**
  * Type definition for `AWS::ApiGateway::Deployment.AccessLogSetting`.
  * The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
-  ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
+ ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html}
  */
 export type AccessLogSetting = {
@@ -162,15 +162,17 @@ export type StageDescription = {
 };
 /**
  * Type definition for `AWS::ApiGateway::Deployment.Tag`.
+ * An array of key-value pairs to apply to this resource.
+ For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-tag.html}
  */
 export type Tag = {
   /**
-   * The key name of the tag
+   * A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
    */
   Key: string;
   /**
-   * The value for the tag
+   * The value for the specified tag key.
    */
   Value: string;
 };

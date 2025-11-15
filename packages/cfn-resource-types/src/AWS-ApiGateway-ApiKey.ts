@@ -11,7 +11,7 @@ export type ApiGatewayApiKeyProperties = {
   GenerateDistinctId?: boolean;
   /**
      * A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
-     If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+      If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
   Name?: string;
   StageKeys?: StageKey[];
@@ -36,17 +36,19 @@ export type StageKey = {
 };
 /**
  * Type definition for `AWS::ApiGateway::ApiKey.Tag`.
+ * An array of key-value pairs to apply to this resource.
+ For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-tag.html}
  */
 export type Tag = {
   /**
-   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
    * @minLength `1`
    * @maxLength `128`
    */
   Key: string;
   /**
-   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+   * The value for the specified tag key.
    * @maxLength `256`
    */
   Value: string;

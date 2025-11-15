@@ -1,14 +1,20 @@
 {
-  "$hash": "8476fa6ee48621962995a9403d9f12a7ce03b163",
+  "$hash": "88eba21d5eadc95dfc16e5cf4e95221de33905bc",
   "$id": "aws-apigateway-clientcertificate.json",
   "additionalProperties": false,
   "definitions": {
     "Tag": {
       "additionalProperties": false,
-      "description": "",
+      "description": "An array of key-value pairs to apply to this resource.\n For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" }
+        "Key": {
+          "description": "A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the specified tag key.",
+          "type": "string"
+        }
       },
       "required": ["Value", "Key"],
       "type": "object"

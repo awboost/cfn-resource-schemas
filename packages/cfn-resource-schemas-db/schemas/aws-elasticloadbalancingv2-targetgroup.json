@@ -1,5 +1,5 @@
 {
-  "$hash": "eeb43cd1d2f00637d7cbe2d3fa30d491ccedbfb3",
+  "$hash": "ec0a98f4bee75f104e82d5456a76425424d32cd8",
   "$id": "aws-elasticloadbalancingv2-targetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -52,6 +52,10 @@
         "Port": {
           "description": "The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.",
           "type": "integer"
+        },
+        "QuicServerId": {
+          "description": "The Server ID used by targets when using QUIC or TCP_QUIC protocols.",
+          "type": "string"
         }
       },
       "required": ["Id"],

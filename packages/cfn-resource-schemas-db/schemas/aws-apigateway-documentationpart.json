@@ -1,12 +1,12 @@
 {
-  "$hash": "75fe23a798d431c1243c7b1c14fd96609f5aff72",
+  "$hash": "a9c8f5eeb8eddd40a200bb35424d7c00f4e87bb4",
   "$id": "aws-apigateway-documentationpart.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Location", "/properties/RestApiId"],
   "definitions": {
     "Location": {
       "additionalProperties": false,
-      "description": "The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.\n For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.",
+      "description": "The ``Location`` property specifies the location of the Amazon API Gateway API entity that the documentation applies to. ``Location`` is a property of the [AWS::ApiGateway::DocumentationPart](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html) resource.\n  For more information about each property, including constraints and valid values, see [DocumentationPart](https://docs.aws.amazon.com/apigateway/latest/api/API_DocumentationPartLocation.html) in the *Amazon API Gateway REST API Reference*.",
       "properties": {
         "Method": { "description": "", "type": "string" },
         "Name": { "description": "", "type": "string" },

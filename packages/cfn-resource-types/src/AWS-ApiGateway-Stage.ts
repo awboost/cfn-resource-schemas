@@ -7,7 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type ApiGatewayStageProperties = {
   /**
      * The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
-      ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
+     ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
      */
   AccessLogSetting?: AccessLogSetting;
   CacheClusterEnabled?: boolean;
@@ -30,7 +30,7 @@ export type ApiGatewayStageProperties = {
 /**
  * Type definition for `AWS::ApiGateway::Stage.AccessLogSetting`.
  * The ``AccessLogSetting`` property type specifies settings for logging access in this stage.
-  ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
+ ``AccessLogSetting`` is a property of the [AWS::ApiGateway::Stage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html) resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html}
  */
 export type AccessLogSetting = {
@@ -89,17 +89,19 @@ export type MethodSetting = {
 };
 /**
  * Type definition for `AWS::ApiGateway::Stage.Tag`.
+ * An array of key-value pairs to apply to this resource.
+ For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-tag.html}
  */
 export type Tag = {
   /**
-   * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
+   * A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
    * @minLength `1`
    * @maxLength `128`
    */
   Key: string;
   /**
-   * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
+   * The value for the specified tag key.
    * @minLength `0`
    * @maxLength `256`
    */

@@ -149,6 +149,10 @@ export type TargetDescription = {
    * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
    */
   Port?: number;
+  /**
+   * The Server ID used by targets when using QUIC or TCP_QUIC protocols.
+   */
+  QuicServerId?: string;
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::TargetGroup.TargetGroupAttribute`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "35b79db05e60458462e32ea59dfde2855fd652ca",
+  "$hash": "5ce2ff49861e5381d9337db63457442ab62c6711",
   "$id": "aws-cloudtrail-eventdatastore.json",
   "additionalProperties": false,
   "definitions": {
@@ -355,8 +355,7 @@
     "/properties/EventDataStoreArn",
     "/properties/CreatedTimestamp",
     "/properties/UpdatedTimestamp",
-    "/properties/Status",
-    "/properties/FederationStatus"
+    "/properties/Status"
   ],
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudtrail.git",

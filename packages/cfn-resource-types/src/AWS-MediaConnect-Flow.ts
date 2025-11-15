@@ -115,6 +115,12 @@ export type AudioMonitoringSetting = {
   SilentAudio?: SilentAudio;
 };
 /**
+ * Type definition for `AWS::MediaConnect::Flow.AutomaticEncryptionKeyConfiguration`.
+ * Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-automaticencryptionkeyconfiguration.html}
+ */
+export type AutomaticEncryptionKeyConfiguration = Record<string, any>;
+/**
  * Type definition for `AWS::MediaConnect::Flow.BlackFrames`.
  * Configures settings for the BlackFrames metric.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-blackframes.html}
@@ -197,6 +203,41 @@ export type FailoverConfig = {
   };
   State?: "ENABLED" | "DISABLED";
 };
+/**
+ * Type definition for `AWS::MediaConnect::Flow.FlowTransitEncryption`.
+ * The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-flowtransitencryption.html}
+ */
+export type FlowTransitEncryption = {
+  /**
+   * Configuration settings for flow transit encryption keys.
+   */
+  EncryptionKeyConfiguration: FlowTransitEncryptionKeyConfiguration;
+  EncryptionKeyType?: FlowTransitEncryptionKeyType;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.FlowTransitEncryptionKeyConfiguration`.
+ * Configuration settings for flow transit encryption keys.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-flowtransitencryptionkeyconfiguration.html}
+ */
+export type FlowTransitEncryptionKeyConfiguration =
+  | {
+      /**
+       * The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
+       */
+      SecretsManager: SecretsManagerEncryptionKeyConfiguration;
+    }
+  | {
+      /**
+       * Configuration settings for automatic encryption key management, where MediaConnect handles key creation and rotation.
+       */
+      Automatic: AutomaticEncryptionKeyConfiguration;
+    };
+/**
+ * Type definition for `AWS::MediaConnect::Flow.FlowTransitEncryptionKeyType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-flowtransitencryptionkeytype.html}
+ */
+export type FlowTransitEncryptionKeyType = "SECRETS_MANAGER" | "AUTOMATIC";
 /**
  * Type definition for `AWS::MediaConnect::Flow.Fmtp`.
  * A set of parameters that define the media stream.
@@ -434,6 +475,23 @@ export type NdiDiscoveryServerConfig = {
   VpcInterfaceAdapter: string;
 };
 /**
+ * Type definition for `AWS::MediaConnect::Flow.SecretsManagerEncryptionKeyConfiguration`.
+ * The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-secretsmanagerencryptionkeyconfiguration.html}
+ */
+export type SecretsManagerEncryptionKeyConfiguration = {
+  /**
+   * The ARN of the IAM role used for transit encryption from the router output using AWS Secrets Manager.
+   * @pattern `^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$`
+   */
+  RoleArn: string;
+  /**
+   * The ARN of the AWS Secrets Manager secret used for transit encryption from the router output.
+   * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
+   */
+  SecretArn: string;
+};
+/**
  * Type definition for `AWS::MediaConnect::Flow.SilentAudio`.
  * Configures settings for the SilentAudio metric.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-silentaudio.html}
@@ -511,6 +569,11 @@ export type Source = {
     | "srt-caller"
     | "st2110-jpegxs"
     | "cdi";
+  RouterIntegrationState?: "ENABLED" | "DISABLED";
+  /**
+   * The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
+   */
+  RouterIntegrationTransitDecryption?: FlowTransitEncryption;
   /**
    * The port that the flow uses to send outbound requests to initiate connection with the sender for fujitsu-qos protocol.
    */

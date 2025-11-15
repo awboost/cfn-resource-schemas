@@ -91,6 +91,7 @@ export type LambdaEventSourceMappingProperties = {
    * @pattern `(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()`
    */
   KmsKeyArn?: string;
+  LoggingConfig?: LoggingConfig;
   /**
    * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
    *Default (, , event sources)*: 0
@@ -294,6 +295,16 @@ export type FilterCriteria = {
   Filters?: Filter[];
 };
 /**
+ * Type definition for `AWS::Lambda::EventSourceMapping.LoggingConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-loggingconfig.html}
+ */
+export type LoggingConfig = {
+  /**
+   * Event source mapping log granularity level override
+   */
+  SystemLogLevel?: "DEBUG" | "INFO" | "WARN";
+};
+/**
  * Type definition for `AWS::Lambda::EventSourceMapping.MetricsConfig`.
  * The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.html}
@@ -302,9 +313,9 @@ export type MetricsConfig = {
   /**
    * The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
    * @minLength `0`
-   * @maxLength `1`
+   * @maxLength `3`
    */
-  Metrics?: "EventCount"[];
+  Metrics?: ("EventCount" | "ErrorCount" | "KafkaMetrics")[];
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.OnFailure`.
@@ -315,10 +326,11 @@ export type OnFailure = {
   /**
      * The Amazon Resource Name (ARN) of the destination resource.
      To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
-     To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+      Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending ``OnFailure`` event to the destination. For details on this behavior, refer to [Retaining records of asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html).
+      To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
      * @minLength `12`
      * @maxLength `1024`
-     * @pattern `arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:((eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
+     * @pattern `^$|kafka://([^.]([a-zA-Z0-9\-_.]{0,248}))|arn:(aws[a-zA-Z0-9-]*):([a-zA-Z0-9\-])+:((eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1})?:(\d{12})?:(.*)`
      */
   Destination?: string;
 };
@@ -340,6 +352,11 @@ export type ProvisionedPollerConfig = {
    * @max `200`
    */
   MinimumPollers?: number;
+  /**
+   * @minLength `0`
+   * @maxLength `128`
+   */
+  PollerGroupName?: string;
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.ScalingConfig`.

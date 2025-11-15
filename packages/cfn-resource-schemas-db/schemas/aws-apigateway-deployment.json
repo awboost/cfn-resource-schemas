@@ -1,5 +1,5 @@
 {
-  "$hash": "064a1884e2adf36aceb875780f789d18dfbac4eb",
+  "$hash": "a508f315e4502af70e9128b50632c1f93220719f",
   "$id": "aws-apigateway-deployment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,7 +9,7 @@
   "definitions": {
     "AccessLogSetting": {
       "additionalProperties": false,
-      "description": "The ``AccessLogSetting`` property type specifies settings for logging access in this stage.\n  ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.",
+      "description": "The ``AccessLogSetting`` property type specifies settings for logging access in this stage.\n ``AccessLogSetting`` is a property of the [StageDescription](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html) property type.",
       "properties": {
         "DestinationArn": { "description": "", "type": "string" },
         "Format": { "description": "", "type": "string" }
@@ -156,10 +156,16 @@
     },
     "Tag": {
       "additionalProperties": false,
-      "description": "",
+      "description": "An array of key-value pairs to apply to this resource.\n For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).",
       "properties": {
-        "Key": { "description": "The key name of the tag", "type": "string" },
-        "Value": { "description": "The value for the tag", "type": "string" }
+        "Key": {
+          "description": "A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.",
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the specified tag key.",
+          "type": "string"
+        }
       },
       "required": ["Value", "Key"],
       "type": "object"

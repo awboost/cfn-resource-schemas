@@ -1,5 +1,5 @@
 {
-  "$hash": "c03f876449211cf2e7f8e4c66b612bfd292c2b5b",
+  "$hash": "47a843d5b18c0992e83318fbfa364209294b0bca",
   "$id": "aws-apigateway-domainnameaccessassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -15,7 +15,7 @@
         "Key": { "type": "string" },
         "Value": { "type": "string" }
       },
-      "required": ["Value", "Key"],
+      "required": ["Key", "Value"],
       "type": "object"
     }
   },
