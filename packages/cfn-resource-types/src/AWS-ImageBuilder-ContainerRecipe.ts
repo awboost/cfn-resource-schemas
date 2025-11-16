@@ -75,6 +75,27 @@ export type ImageBuilderContainerRecipeAttributes = {
    * The Amazon Resource Name (ARN) of the container recipe.
    */
   Arn: string;
+  /**
+   * The latest version references of the container recipe.
+   */
+  LatestVersion: {
+    /**
+     * The latest version ARN of the created container recipe.
+     */
+    Arn: string;
+    /**
+     * The latest version ARN of the created container recipe, with the same major version.
+     */
+    Major: string;
+    /**
+     * The latest version ARN of the created container recipe, with the same minor version.
+     */
+    Minor: string;
+    /**
+     * The latest version ARN of the created container recipe, with the same patch version.
+     */
+    Patch: string;
+  };
 };
 /**
  * Type definition for `AWS::ImageBuilder::ContainerRecipe.ComponentConfiguration`.

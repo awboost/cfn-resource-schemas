@@ -1,96 +1,13 @@
-- added `AWS::MediaConnect::RouterInput`
-- added `AWS::MediaConnect::RouterNetworkInterface`
-- added `AWS::MediaConnect::RouterOutput`
-- added `Dev::FSx::StorageVirtualMachine`
-- updated `AWS::ApiGateway::Account`
-- updated `AWS::ApiGateway::ApiKey`
-  - updated definition `Tag`
-  - updated property `Name`
-- updated `AWS::ApiGateway::BasePathMapping`
-- updated `AWS::ApiGateway::ClientCertificate`
-  - updated definition `Tag`
-- updated `AWS::ApiGateway::Deployment`
-  - updated definition `AccessLogSetting`
-  - updated definition `Tag`
-- updated `AWS::ApiGateway::DocumentationPart`
-  - updated definition `Location`
-- updated `AWS::ApiGateway::DomainName`
-  - updated definition `EndpointConfiguration`
-  - updated definition `Tag`
-  - updated property `EndpointConfiguration`
-- updated `AWS::ApiGateway::DomainNameAccessAssociation`
-  - updated definition `Tag`
-- updated `AWS::ApiGateway::GatewayResponse`
-- updated `AWS::ApiGateway::RestApi`
-  - updated definition `EndpointConfiguration`
-  - updated definition `S3Location`
-  - updated definition `Tag`
-  - updated property `EndpointConfiguration`
-- updated `AWS::ApiGateway::Stage`
-  - updated definition `AccessLogSetting`
-  - updated definition `Tag`
-- updated `AWS::ApiGateway::UsagePlan`
-  - updated definition `Tag`
-- updated `AWS::ApiGateway::VpcLink`
-  - updated definition `Tag`
-- updated `AWS::CloudTrail::EventDataStore`
+- updated `AWS::ImageBuilder::ContainerRecipe`
+  - added definition `LatestVersion`
+  - added property `LatestVersion`
   - updated `readOnlyProperties`
-- updated `AWS::ElasticLoadBalancingV2::TargetGroup`
-  - updated definition `TargetDescription`
-- updated `AWS::Lambda::EventSourceMapping`
-  - added definition `LoggingConfig`
-  - added property `LoggingConfig`
-  - updated definition `MetricsConfig`
-  - updated definition `OnFailure`
-  - updated definition `ProvisionedPollerConfig`
-- updated `AWS::MediaConnect::Flow`
-  - added definition `AutomaticEncryptionKeyConfiguration`
-  - added definition `FlowTransitEncryptionKeyConfiguration`
-  - added definition `FlowTransitEncryptionKeyType`
-  - added definition `FlowTransitEncryption`
-  - added definition `SecretsManagerEncryptionKeyConfiguration`
-  - updated definition `Source`
-- updated `AWS::MediaConnect::FlowOutput`
-  - added definition `AutomaticEncryptionKeyConfiguration`
-  - added definition `FlowTransitEncryptionKeyConfiguration`
-  - added definition `FlowTransitEncryptionKeyType`
-  - added definition `FlowTransitEncryption`
-  - added definition `SecretsManagerEncryptionKeyConfiguration`
-  - added property `RouterIntegrationState`
-  - added property `RouterIntegrationTransitEncryption`
-  - updated `required`
-- updated `AWS::ServiceCatalog::CloudFormationProduct`
-  - added definition `Info`
-  - removed `sourceUrl`
-  - removed `tagging`
-  - removed `writeOnlyProperties`
+- updated `AWS::ImageBuilder::ImageRecipe`
+  - added definition `LatestVersion`
+  - added property `LatestVersion`
   - updated `readOnlyProperties`
-  - updated definition `CodeStarParameters`
-  - updated definition `ConnectionParameters`
-  - updated definition `ProvisioningArtifactProperties`
-  - updated definition `SourceConnection`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `Description`
-  - updated property `Distributor`
-  - updated property `Id`
-  - updated property `Name`
-  - updated property `Owner`
-  - updated property `ProductName`
-  - updated property `ProductType`
-  - updated property `ProvisioningArtifactIds`
-  - updated property `ProvisioningArtifactNames`
-  - updated property `ProvisioningArtifactParameters`
-  - updated property `ReplaceProvisioningArtifacts`
-  - updated property `SourceConnection`
-  - updated property `SupportDescription`
-  - updated property `SupportEmail`
-  - updated property `SupportUrl`
-  - updated property `Tags`
-- updated `AWS::WorkSpacesWeb::BrowserSettings`
-  - added definition `Category`
-  - added definition `Unit`
-  - added definition `WebContentFilteringPolicy`
-  - added property `WebContentFilteringPolicy`
-  - updated property `BrowserPolicy`
+- updated `AWS::Organizations::Policy`
+  - updated property `Type`
+- updated `AWS::S3::Bucket`
+  - updated definition `DeleteMarkerReplication`
+  - updated definition `VersioningConfiguration`

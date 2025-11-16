@@ -1,5 +1,5 @@
 {
-  "$hash": "f1a9966170f5deb65fab2c8f990cf3b3ae28b157",
+  "$hash": "f2e5b773a7ad615feb3056ffa19ec283a11efcd8",
   "$id": "aws-imagebuilder-imagerecipe.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -125,6 +125,29 @@
       },
       "type": "object"
     },
+    "LatestVersion": {
+      "additionalProperties": false,
+      "description": "The latest version references of the image recipe.",
+      "properties": {
+        "Arn": {
+          "description": "The latest version ARN of the created image recipe.",
+          "type": "string"
+        },
+        "Major": {
+          "description": "The latest version ARN of the created image recipe, with the same major version.",
+          "type": "string"
+        },
+        "Minor": {
+          "description": "The latest version ARN of the created image recipe, with the same minor version.",
+          "type": "string"
+        },
+        "Patch": {
+          "description": "The latest version ARN of the created image recipe, with the same patch version.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "SystemsManagerAgent": {
       "additionalProperties": false,
       "description": "Contains settings for the SSM agent on your build instance.",
@@ -196,6 +219,10 @@
       "description": "The description of the image recipe.",
       "type": "string"
     },
+    "LatestVersion": {
+      "$ref": "#/definitions/LatestVersion",
+      "description": "The latest version references of the image recipe."
+    },
     "Name": {
       "description": "The name of the image recipe.",
       "type": "string"
@@ -219,7 +246,14 @@
       "type": "string"
     }
   },
-  "readOnlyProperties": ["/properties/Arn"],
+  "readOnlyProperties": [
+    "/properties/Arn",
+    "/properties/LatestVersion",
+    "/properties/LatestVersion/Arn",
+    "/properties/LatestVersion/Major",
+    "/properties/LatestVersion/Minor",
+    "/properties/LatestVersion/Patch"
+  ],
   "required": ["Name", "Version", "ParentImage"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
   "tagging": {

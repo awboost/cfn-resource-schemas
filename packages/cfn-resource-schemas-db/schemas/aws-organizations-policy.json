@@ -1,5 +1,5 @@
 {
-  "$hash": "cd7ef4364b535a5a7c1c13dac866f82075592ed3",
+  "$hash": "ea06680753c98b06a5625087adb08d0fd097ecee",
   "$id": "aws-organizations-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
@@ -130,7 +130,7 @@
       "uniqueItems": true
     },
     "Type": {
-      "description": "The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY",
+      "description": "The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2, SECURITYHUB_POLICY, S3_POLICY, INSPECTOR_POLICY, BEDROCK_POLICY, NETWORK_SECURITY_DIRECTOR_POLICY, UPGRADE_ROLLOUT_POLICY",
       "enum": [
         "SERVICE_CONTROL_POLICY",
         "AISERVICES_OPT_OUT_POLICY",
@@ -139,7 +139,12 @@
         "CHATBOT_POLICY",
         "RESOURCE_CONTROL_POLICY",
         "DECLARATIVE_POLICY_EC2",
-        "SECURITYHUB_POLICY"
+        "SECURITYHUB_POLICY",
+        "S3_POLICY",
+        "INSPECTOR_POLICY",
+        "BEDROCK_POLICY",
+        "NETWORK_SECURITY_DIRECTOR_POLICY",
+        "UPGRADE_ROLLOUT_POLICY"
       ],
       "type": "string"
     }
