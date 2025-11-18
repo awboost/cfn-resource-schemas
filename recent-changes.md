@@ -1,13 +1,11 @@
-- updated `AWS::ImageBuilder::ContainerRecipe`
-  - added definition `LatestVersion`
-  - added property `LatestVersion`
-  - updated `readOnlyProperties`
-- updated `AWS::ImageBuilder::ImageRecipe`
-  - added definition `LatestVersion`
-  - added property `LatestVersion`
-  - updated `readOnlyProperties`
-- updated `AWS::Organizations::Policy`
-  - updated property `Type`
-- updated `AWS::S3::Bucket`
-  - updated definition `DeleteMarkerReplication`
-  - updated definition `VersioningConfiguration`
+- updated `AWS::Lex::BotVersion`
+  - added `tagging`
+- updated `AWS::Lex::ResourcePolicy`
+  - added `createOnlyProperties`
+  - added `tagging`
+  - updated `required`
+  - updated handler permissions
+- updated `AWS::S3Tables::TableBucket`
+  - added definition `MetricsConfiguration`
+  - added property `MetricsConfiguration`
+  - updated handler permissions

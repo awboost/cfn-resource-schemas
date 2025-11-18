@@ -1,5 +1,5 @@
 {
-  "$hash": "d865ca5ca5de7b317914452d067414dffe9a9dd1",
+  "$hash": "b3ec1368bddb260225eadc6ee26d96b314f2d510",
   "$id": "aws-lex-botversion.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BotId"],
@@ -55,7 +55,7 @@
       "type": "string"
     }
   },
-  "description": "A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.",
+  "description": "Resource Type definition for bot versions, a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.",
   "handlers": {
     "create": {
       "permissions": [
@@ -84,7 +84,7 @@
   "readOnlyProperties": ["/properties/BotVersion"],
   "required": ["BotId", "BotVersionLocaleSpecification"],
   "sourceUrl": "https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBotVersion.html",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::Lex::BotVersion",
   "writeOnlyProperties": ["/properties/BotVersionLocaleSpecification"]
 }

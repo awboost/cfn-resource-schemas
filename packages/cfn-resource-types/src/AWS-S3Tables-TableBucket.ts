@@ -11,6 +11,10 @@ export type S3TablesTableBucketProperties = {
    */
   EncryptionConfiguration?: EncryptionConfiguration;
   /**
+   * Settings governing the Metric configuration for the table bucket.
+   */
+  MetricsConfiguration?: MetricsConfiguration;
+  /**
    * A name for the table bucket.
    * @minLength `3`
    * @maxLength `63`
@@ -49,6 +53,17 @@ export type EncryptionConfiguration = {
    * Server-side encryption algorithm
    */
   SSEAlgorithm?: "AES256" | "aws:kms";
+};
+/**
+ * Type definition for `AWS::S3Tables::TableBucket.MetricsConfiguration`.
+ * Settings governing the Metric configuration for the table bucket.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-metricsconfiguration.html}
+ */
+export type MetricsConfiguration = {
+  /**
+   * Indicates whether Metrics are enabled.
+   */
+  Status?: "Enabled" | "Disabled";
 };
 /**
  * Type definition for `AWS::S3Tables::TableBucket.Tag`.

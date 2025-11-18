@@ -2,7 +2,7 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Lex::ResourcePolicy`.
- * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+ * Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-resourcepolicy.html}
  */
 export type LexResourcePolicyProperties = {
@@ -42,7 +42,7 @@ export type LexResourcePolicyAttributes = {
 export type Policy = Record<string, any>;
 /**
  * Resource type definition for `AWS::Lex::ResourcePolicy`.
- * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
+ * Resource Type definition for a resource policy with specified policy statements that attaches to a Lex bot or bot alias.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-resourcepolicy.html}
  */
 export class LexResourcePolicy extends $Resource<
