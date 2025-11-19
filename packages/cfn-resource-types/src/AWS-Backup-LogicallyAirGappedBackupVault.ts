@@ -11,6 +11,7 @@ export type BackupLogicallyAirGappedBackupVaultProperties = {
    */
   BackupVaultName: string;
   BackupVaultTags?: Record<string, string>;
+  EncryptionKeyArn?: string;
   MaxRetentionDays: number;
   MinRetentionDays: number;
   MpaApprovalTeamArn?: string;
@@ -22,7 +23,6 @@ export type BackupLogicallyAirGappedBackupVaultProperties = {
  */
 export type BackupLogicallyAirGappedBackupVaultAttributes = {
   BackupVaultArn: string;
-  EncryptionKeyArn: string;
   VaultState: string;
   VaultType: string;
 };

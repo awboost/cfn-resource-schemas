@@ -1,5 +1,5 @@
 {
-  "$hash": "ca7a1fb24a77bcc2ea0777d383eb956656947bdf",
+  "$hash": "3d63c0868e518f2f4fb84806ec19641c5a81f433",
   "$id": "aws-servicecatalog-cloudformationproduct.json",
   "additionalProperties": false,
   "definitions": {
@@ -21,20 +21,12 @@
       },
       "type": "object"
     },
-    "Info": {
-      "additionalProperties": false,
-      "properties": {
-        "ImportFromPhysicalId": { "type": "string" },
-        "LoadTemplateFromURL": { "type": "string" }
-      },
-      "type": "object"
-    },
     "ProvisioningArtifactProperties": {
       "additionalProperties": false,
       "properties": {
         "Description": { "type": "string" },
         "DisableTemplateValidation": { "type": "boolean" },
-        "Info": { "$ref": "#/definitions/Info" },
+        "Info": { "type": "object" },
         "Name": { "type": "string" },
         "Type": { "type": "string" }
       },

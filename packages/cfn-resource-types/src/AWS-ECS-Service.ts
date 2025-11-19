@@ -230,15 +230,21 @@ export type AwsVpcConfiguration = {
 };
 /**
  * Type definition for `AWS::ECS::Service.CanaryConfiguration`.
+ * Configuration for a canary deployment strategy that shifts a fixed percentage of traffic to the new service revision, waits for a specified bake time, then shifts the remaining traffic.
+ The following validation applies only to Canary deployments created through CFN. CFN operations time out after 36 hours. Canary deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+  ``BakeTimeInMinutes + CanaryBakeTimeInMinutes``
+ Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-canaryconfiguration.html}
  */
 export type CanaryConfiguration = {
   /**
+   * The amount of time in minutes to wait during the canary phase before shifting the remaining production traffic to the new service revision. Valid values are 0 to 1440 minutes (24 hours). The default value is 10.
    * @min `0`
    * @max `1440`
    */
   CanaryBakeTimeInMinutes?: number;
   /**
+   * The percentage of production traffic to shift to the new service revision during the canary phase. Valid values are multiples of 0.1 from 0.1 to 100.0. The default value is 5.0.
    * @min `0.1`
    * @max `100`
    */
@@ -257,13 +263,13 @@ export type CapacityProviderStrategyItem = {
      * The *base* value designates how many tasks, at a minimum, to run on the specified capacity provider for each service. Only one capacity provider in a capacity provider strategy can have a *base* defined. If no value is specified, the default value of ``0`` is used.
      Base value characteristics:
       +  Only one capacity provider in a strategy can have a base defined
-      +  Default value is ``0`` if not specified
-      +  Valid range: 0 to 100,000
+      +  The default value is ``0`` if not specified
+      +  The valid range is 0 to 100,000
       +  Base requirements are satisfied first before weight distribution
      */
   Base?: number;
   /**
-   * The short name of the capacity provider.
+   * The short name of the capacity provider. This can be either an AWS managed capacity provider (``FARGATE`` or ``FARGATE_SPOT``) or the name of a custom capacity provider that you created.
    */
   CapacityProvider?: string;
   /**
@@ -271,8 +277,8 @@ export type CapacityProviderStrategyItem = {
      If no ``weight`` value is specified, the default value of ``0`` is used. When multiple capacity providers are specified within a capacity provider strategy, at least one of the capacity providers must have a weight value greater than zero and any capacity providers with a weight of ``0`` can't be used to place tasks. If you specify multiple capacity providers in a strategy that all have a weight of ``0``, any ``RunTask`` or ``CreateService`` actions using the capacity provider strategy will fail.
      Weight value characteristics:
       +  Weight is considered after the base value is satisfied
-      +  Default value is ``0`` if not specified
-      +  Valid range: 0 to 1,000
+      +  The default value is ``0`` if not specified
+      +  The valid range is 0 to 1,000
       +  At least one capacity provider must have a weight greater than zero
       +  Capacity providers with weight of ``0`` cannot place tasks
       
@@ -345,6 +351,9 @@ export type DeploymentConfiguration = {
      * @max `1440`
      */
   BakeTimeInMinutes?: number;
+  /**
+   * Configuration for canary deployment strategy. Only valid when the deployment strategy is ``CANARY``. This configuration enables shifting a fixed percentage of traffic for testing, followed by shifting the remaining traffic after a bake period.
+   */
   CanaryConfiguration?: CanaryConfiguration;
   /**
      * The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
@@ -355,6 +364,9 @@ export type DeploymentConfiguration = {
    * An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
    */
   LifecycleHooks?: DeploymentLifecycleHook[];
+  /**
+   * Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
+   */
   LinearConfiguration?: LinearConfiguration;
   /**
      * If a service is using the rolling update (``ECS``) deployment type, the ``maximumPercent`` parameter represents an upper limit on the number of your service's tasks that are allowed in the ``RUNNING`` or ``PENDING`` state during a deployment, as a percentage of the ``desiredCount`` (rounded down to the nearest integer). This parameter enables you to define the deployment batch size. For example, if your service is using the ``REPLICA`` service scheduler and has a ``desiredCount`` of four tasks and a ``maximumPercent`` value of 200%, the scheduler may start four new tasks before stopping the four older tasks (provided that the cluster resources required to do this are available). The default ``maximumPercent`` value for a service using the ``REPLICA`` service scheduler is 200%.
@@ -534,15 +546,26 @@ export type ForceNewDeployment = {
 };
 /**
  * Type definition for `AWS::ECS::Service.LinearConfiguration`.
+ * Configuration for a linear deployment strategy that shifts production traffic in equal percentage increments with configurable wait times between each step until 100 percent of traffic is shifted to the new service revision.
+ The following validation applies only to Linear deployments created through CFN. CFN operations time out after 36 hours. Linear deployments can approach this limit because of their extended duration. This can cause CFN to roll back the deployment. To prevent timeout-related rollbacks, CFN rejects deployments when the calculated deployment time exceeds 33 hours based on your template configuration:
+  ``BakeTimeInMinutes + (StepBakeTimeInMinutes × Number of deployment steps)``
+ Where the number of deployment steps is calculated as follows:
+  +  *If StepPercent evenly divides by 100*: The number of deployment steps equals ``(100 ÷ StepPercent) - 1``
+  +  *Otherwise*: The number of deployment steps equals the floor of ``100 ÷ StepPercent``. For example, if ``StepPercent`` is 11, the number of deployment steps is 9 (not 9.1).
+  
+ This calculation reflects that CFN doesn't apply the step bake time after the final traffic shift reaches 100%. For example, with a ``StepPercent`` of 50%, there are actually two traffic shifts, but only one deployment step is counted for validation purposes because the bake time is applied only after the first 50% shift, not after reaching 100%.
+ Additional backend processes (such as task scaling and running lifecycle hooks) can extend deployment time beyond these calculations. Even deployments under the 33-hour threshold might still time out if these processes cause the total duration to exceed 36 hours.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-linearconfiguration.html}
  */
 export type LinearConfiguration = {
   /**
+   * The amount of time in minutes to wait between each traffic shifting step during a linear deployment. Valid values are 0 to 1440 minutes (24 hours). The default value is 6. This bake time is not applied after reaching 100 percent traffic.
    * @min `0`
    * @max `1440`
    */
   StepBakeTimeInMinutes?: number;
   /**
+   * The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.
    * @min `3`
    * @max `100`
    */
@@ -692,10 +715,19 @@ export type Secret = {
 };
 /**
  * Type definition for `AWS::ECS::Service.ServiceConnectAccessLogConfiguration`.
+ * Configuration for Service Connect access logging. Access logs provide detailed information about requests made to your service, including request patterns, response codes, and timing data for debugging and monitoring purposes.
+  To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectaccesslogconfiguration.html}
  */
 export type ServiceConnectAccessLogConfiguration = {
+  /**
+   * The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.
+   */
   Format: "TEXT" | "JSON";
+  /**
+     * Specifies whether to include query parameters in Service Connect access logs.
+     When enabled, query parameters from HTTP requests are included in the access logs. Consider security and privacy implications when enabling this feature, as query parameters may contain sensitive information such as request IDs and tokens. By default, this parameter is ``DISABLED``.
+     */
   IncludeQueryParameters?: "DISABLED" | "ENABLED";
 };
 /**
@@ -729,6 +761,10 @@ export type ServiceConnectClientAlias = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html}
  */
 export type ServiceConnectConfiguration = {
+  /**
+     * The configuration for Service Connect access logging. Access logs capture detailed information about requests made to your service, including request patterns, response codes, and timing data. They can be useful for debugging connectivity issues, monitoring service performance, and auditing service-to-service communication for security and compliance purposes.
+      To enable access logs, you must also specify a ``logConfiguration`` in the ``serviceConnectConfiguration``.
+     */
   AccessLogConfiguration?: ServiceConnectAccessLogConfiguration;
   /**
    * Specifies whether to use Service Connect with this service.

@@ -7,10 +7,25 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type OpenSearchServerlessCollectionProperties = {
   /**
+     * The name of the collection group.
+    
+    The name must meet the following criteria:
+    Unique to your account and AWS Region
+    Starts with a lowercase letter
+    Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
+    Contains between 3 and 32 characters
+    
+     */
+  CollectionGroupName?: string;
+  /**
    * The description of the collection
    * @maxLength `1000`
    */
   Description?: string;
+  /**
+   * The configuration to encrypt the collection
+   */
+  EncryptionConfig?: EncryptionConfig;
   /**
      * The name of the collection.
     
@@ -74,6 +89,21 @@ export type OpenSearchServerlessCollectionAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-collectiontype.html}
  */
 export type CollectionType = "SEARCH" | "TIMESERIES" | "VECTORSEARCH";
+/**
+ * Type definition for `AWS::OpenSearchServerless::Collection.EncryptionConfig`.
+ * The configuration to encrypt the collection
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-encryptionconfig.html}
+ */
+export type EncryptionConfig = {
+  /**
+   * The configuration to encrypt the collection with AWS owned key
+   */
+  AWSOwnedKey?: boolean;
+  /**
+   * The ARN of the KMS key to encrypt the collection with
+   */
+  KmsKeyArn?: string;
+};
 /**
  * Type definition for `AWS::OpenSearchServerless::Collection.StandbyReplicas`.
  * The possible standby replicas for the collection

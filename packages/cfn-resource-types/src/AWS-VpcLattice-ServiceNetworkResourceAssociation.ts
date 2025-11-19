@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkresourceassociation.html}
  */
 export type VpcLatticeServiceNetworkResourceAssociationProperties = {
+  PrivateDnsEnabled?: boolean;
   /**
    * @minLength `17`
    * @maxLength `2048`

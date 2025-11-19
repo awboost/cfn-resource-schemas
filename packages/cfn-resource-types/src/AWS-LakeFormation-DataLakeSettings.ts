@@ -14,6 +14,7 @@ export type LakeFormationDataLakeSettingsProperties = {
   ExternalDataFilteringAllowList?: ExternalDataFilteringAllowList;
   MutationType?: string;
   Parameters?: Record<string, any>;
+  ReadOnlyAdmins?: ReadOnlyAdmins;
   TrustedResourceOwners?: string[];
 };
 /**
@@ -43,6 +44,11 @@ export type CreateTableDefaultPermissions = Record<string, any>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-externaldatafilteringallowlist.html}
  */
 export type ExternalDataFilteringAllowList = Record<string, any>;
+/**
+ * Type definition for `AWS::LakeFormation::DataLakeSettings.ReadOnlyAdmins`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-readonlyadmins.html}
+ */
+export type ReadOnlyAdmins = Record<string, any>;
 /**
  * Resource Type definition for AWS::LakeFormation::DataLakeSettings
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html}

@@ -47,21 +47,13 @@ export type ConnectionParameters = {
   CodeStar?: CodeStarParameters;
 };
 /**
- * Type definition for `AWS::ServiceCatalog::CloudFormationProduct.Info`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-info.html}
- */
-export type Info = {
-  ImportFromPhysicalId?: string;
-  LoadTemplateFromURL?: string;
-};
-/**
  * Type definition for `AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactProperties`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html}
  */
 export type ProvisioningArtifactProperties = {
   Description?: string;
   DisableTemplateValidation?: boolean;
-  Info: Info;
+  Info: Record<string, any>;
   Name?: string;
   Type?: string;
 };

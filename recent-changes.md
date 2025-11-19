@@ -1,11 +1,42 @@
-- updated `AWS::Lex::BotVersion`
-  - added `tagging`
-- updated `AWS::Lex::ResourcePolicy`
-  - added `createOnlyProperties`
-  - added `tagging`
-  - updated `required`
+- added `AWS::Glue::Integration`
+- added `AWS::VpcLattice::DomainVerification`
+- removed `Dev::FSx::StorageVirtualMachine`
+- updated `AWS::Backup::LogicallyAirGappedBackupVault`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::S3Tables::TableBucket`
-  - added definition `MetricsConfiguration`
-  - added property `MetricsConfiguration`
+- updated `AWS::ECS::Service`
+  - updated definition `CanaryConfiguration`
+  - updated definition `CapacityProviderStrategyItem`
+  - updated definition `DeploymentConfiguration`
+  - updated definition `LinearConfiguration`
+  - updated definition `ServiceConnectAccessLogConfiguration`
+  - updated definition `ServiceConnectConfiguration`
+- updated `AWS::LakeFormation::DataLakeSettings`
+  - added definition `ReadOnlyAdmins`
+  - added property `ReadOnlyAdmins`
+- updated `AWS::NotificationsContacts::EmailContact`
   - updated handler permissions
+- updated `AWS::OpenSearchServerless::Collection`
+  - added definition `EncryptionConfig`
+  - added property `CollectionGroupName`
+  - added property `EncryptionConfig`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::ServiceCatalog::CloudFormationProduct`
+  - removed definition `Info`
+  - updated definition `ProvisioningArtifactProperties`
+- updated `AWS::VpcLattice::ResourceConfiguration`
+  - added property `CustomDomainName`
+  - added property `DomainVerificationId`
+  - added property `GroupDomain`
+  - updated `createOnlyProperties`
+- updated `AWS::VpcLattice::ServiceNetworkResourceAssociation`
+  - added property `PrivateDnsEnabled`
+  - updated `createOnlyProperties`
+- updated `AWS::VpcLattice::ServiceNetworkVpcAssociation`
+  - added definition `DnsOptions`
+  - added property `DnsOptions`
+  - added property `PrivateDnsEnabled`
+  - updated `createOnlyProperties`

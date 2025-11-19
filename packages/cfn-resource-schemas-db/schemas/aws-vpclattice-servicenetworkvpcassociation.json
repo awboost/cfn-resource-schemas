@@ -1,5 +1,5 @@
 {
-  "$hash": "6c1022b97283e068567134b41a0cf35af4777c33",
+  "$hash": "4ac75d16d69ffdc1f48816079f2aef442990c30e",
   "$id": "aws-vpclattice-servicenetworkvpcassociation.json",
   "additionalIdentifiers": [
     ["/properties/Id"],
@@ -8,9 +8,36 @@
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceNetworkIdentifier",
-    "/properties/VpcIdentifier"
+    "/properties/VpcIdentifier",
+    "/properties/PrivateDnsEnabled",
+    "/properties/DnsOptions",
+    "/properties/DnsOptions/PrivateDnsPreference",
+    "/properties/DnsOptions/PrivateDnsSpecifiedDomains"
   ],
   "definitions": {
+    "DnsOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "PrivateDnsPreference": {
+          "enum": [
+            "VERIFIED_DOMAINS_ONLY",
+            "ALL_DOMAINS",
+            "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS",
+            "SPECIFIED_DOMAINS_ONLY"
+          ],
+          "type": "string"
+        },
+        "PrivateDnsSpecifiedDomains": {
+          "insertionOrder": false,
+          "items": { "maxLength": 255, "minLength": 1, "type": "string" },
+          "maxItems": 10,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -87,12 +114,14 @@
       "type": "string"
     },
     "CreatedAt": { "type": "string" },
+    "DnsOptions": { "$ref": "#/definitions/DnsOptions" },
     "Id": {
       "maxLength": 22,
       "minLength": 22,
       "pattern": "^snva-[0-9a-z]{17}$",
       "type": "string"
     },
+    "PrivateDnsEnabled": { "type": "boolean" },
     "SecurityGroupIds": {
       "insertionOrder": false,
       "items": {

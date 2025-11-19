@@ -1,11 +1,12 @@
 {
-  "$hash": "f9f4a250d9ee4900d4e31b29f30d35c8fae4ae44",
+  "$hash": "f568deb6a75b19df15855d4368ea8b18c4e7b925",
   "$id": "aws-vpclattice-servicenetworkresourceassociation.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ResourceConfigurationId",
-    "/properties/ServiceNetworkId"
+    "/properties/ServiceNetworkId",
+    "/properties/PrivateDnsEnabled"
   ],
   "definitions": {
     "Tag": {
@@ -68,6 +69,7 @@
       "pattern": "^snra-[0-9a-f]{17}$",
       "type": "string"
     },
+    "PrivateDnsEnabled": { "type": "boolean" },
     "ResourceConfigurationId": {
       "maxLength": 2048,
       "minLength": 17,

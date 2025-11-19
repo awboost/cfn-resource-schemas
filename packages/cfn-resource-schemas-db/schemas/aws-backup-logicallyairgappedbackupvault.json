@@ -1,11 +1,12 @@
 {
-  "$hash": "59fd8a28f831abd3f3118fac1281b28a671adf04",
+  "$hash": "2c9d8bb99e9935c8cfeed47d376495f3305ada4a",
   "$id": "aws-backup-logicallyairgappedbackupvault.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/BackupVaultName",
     "/properties/MinRetentionDays",
-    "/properties/MaxRetentionDays"
+    "/properties/MaxRetentionDays",
+    "/properties/EncryptionKeyArn"
   ],
   "definitions": {
     "BackupVaultNamePattern": {
@@ -39,7 +40,9 @@
         "backup-storage:Mount",
         "backup-storage:MountCapsule",
         "backup:DescribeBackupVault",
-        "mpa:GetApprovalTeam"
+        "mpa:GetApprovalTeam",
+        "kms:DescribeKey",
+        "kms:CreateGrant"
       ]
     },
     "delete": { "permissions": ["backup:DeleteBackupVault"] },
@@ -90,7 +93,6 @@
   },
   "readOnlyProperties": [
     "/properties/BackupVaultArn",
-    "/properties/EncryptionKeyArn",
     "/properties/VaultState",
     "/properties/VaultType"
   ],

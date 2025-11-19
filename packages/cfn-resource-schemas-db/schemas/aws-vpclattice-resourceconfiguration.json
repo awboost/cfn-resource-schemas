@@ -1,5 +1,5 @@
 {
-  "$hash": "34fd25d9eb06d108f0b1a4a0564ce8bcb65bbdd8",
+  "$hash": "e95a3614c742f5d908aed93d0c90d707c4f9d40d",
   "$id": "aws-vpclattice-resourceconfiguration.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -7,7 +7,10 @@
     "/properties/ResourceGatewayId",
     "/properties/ResourceConfigurationType",
     "/properties/ProtocolType",
-    "/properties/ResourceConfigurationAuthType"
+    "/properties/ResourceConfigurationAuthType",
+    "/properties/CustomDomainName",
+    "/properties/GroupDomain",
+    "/properties/DomainVerificationId"
   ],
   "definitions": {
     "ArnResource": { "maxLength": 1224, "pattern": "^arn.*", "type": "string" },
@@ -91,6 +94,14 @@
       "pattern": "^arn:[a-z0-9f\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}$",
       "type": "string"
     },
+    "CustomDomainName": { "maxLength": 255, "minLength": 3, "type": "string" },
+    "DomainVerificationId": {
+      "maxLength": 20,
+      "minLength": 20,
+      "pattern": "^dv-[a-fA-F0-9]{17}$",
+      "type": "string"
+    },
+    "GroupDomain": { "maxLength": 255, "minLength": 3, "type": "string" },
     "Id": { "$ref": "#/definitions/Id" },
     "Name": {
       "maxLength": 40,

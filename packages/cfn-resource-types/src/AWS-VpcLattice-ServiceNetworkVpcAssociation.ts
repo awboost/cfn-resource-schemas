@@ -6,6 +6,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkvpcassociation.html}
  */
 export type VpcLatticeServiceNetworkVpcAssociationProperties = {
+  DnsOptions?: DnsOptions;
+  PrivateDnsEnabled?: boolean;
   SecurityGroupIds?: string[];
   /**
    * @minLength `20`
@@ -74,6 +76,22 @@ export type VpcLatticeServiceNetworkVpcAssociationAttributes = {
    * @pattern `^vpc-(([0-9a-z]{8})|([0-9a-z]{17}))$`
    */
   VpcId: string;
+};
+/**
+ * Type definition for `AWS::VpcLattice::ServiceNetworkVpcAssociation.DnsOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetworkvpcassociation-dnsoptions.html}
+ */
+export type DnsOptions = {
+  PrivateDnsPreference?:
+    | "VERIFIED_DOMAINS_ONLY"
+    | "ALL_DOMAINS"
+    | "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS"
+    | "SPECIFIED_DOMAINS_ONLY";
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  PrivateDnsSpecifiedDomains?: string[];
 };
 /**
  * Type definition for `AWS::VpcLattice::ServiceNetworkVpcAssociation.Tag`.

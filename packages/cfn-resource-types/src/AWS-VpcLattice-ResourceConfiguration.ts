@@ -9,6 +9,22 @@ export type VpcLatticeResourceConfigurationProperties = {
   AllowAssociationToSharableServiceNetwork?: boolean;
   /**
    * @minLength `3`
+   * @maxLength `255`
+   */
+  CustomDomainName?: string;
+  /**
+   * @minLength `20`
+   * @maxLength `20`
+   * @pattern `^dv-[a-fA-F0-9]{17}$`
+   */
+  DomainVerificationId?: string;
+  /**
+   * @minLength `3`
+   * @maxLength `255`
+   */
+  GroupDomain?: string;
+  /**
+   * @minLength `3`
    * @maxLength `40`
    * @pattern `^(?!rcfg-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`
    */
