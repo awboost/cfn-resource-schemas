@@ -1,42 +1,55 @@
-- added `AWS::Glue::Integration`
-- added `AWS::VpcLattice::DomainVerification`
-- removed `Dev::FSx::StorageVirtualMachine`
-- updated `AWS::Backup::LogicallyAirGappedBackupVault`
-  - updated `createOnlyProperties`
+- added `AWS::EC2::VPNConcentrator`
+- updated `AWS::ApiGateway::DomainName`
+  - added property `EndpointAccessMode`
+- updated `AWS::ApiGateway::DomainNameV2`
+  - added property `EndpointAccessMode`
+- updated `AWS::ApiGateway::Method`
+  - updated definition `Integration`
+- updated `AWS::ApiGateway::RestApi`
+  - added property `EndpointAccessMode`
+  - added property `SecurityPolicy`
+- updated `AWS::ApplicationInsights::Application`
+  - updated handler permissions
+- updated `AWS::Bedrock::DataAutomationProject`
+  - added definition `AudioGenerativeOutputLanguage`
+  - added definition `AudioLanguageConfiguration`
+  - added definition `Language`
+  - updated definition `AudioOverrideConfiguration`
+- updated `AWS::BillingConductor::BillingGroup`
+  - added `anyOf`
+  - updated `required`
+  - updated definition `AccountGrouping`
+  - updated handler permissions
+  - updated property `Arn`
+- updated `AWS::CloudTrail::Trail`
+  - added definition `SourceEventCategory`
+  - updated definition `InsightSelector`
+- updated `AWS::DSQL::Cluster`
+  - added property `Endpoint`
   - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::ECS::Service`
-  - updated definition `CanaryConfiguration`
-  - updated definition `CapacityProviderStrategyItem`
-  - updated definition `DeploymentConfiguration`
-  - updated definition `LinearConfiguration`
-  - updated definition `ServiceConnectAccessLogConfiguration`
-  - updated definition `ServiceConnectConfiguration`
-- updated `AWS::LakeFormation::DataLakeSettings`
-  - added definition `ReadOnlyAdmins`
-  - added property `ReadOnlyAdmins`
-- updated `AWS::NotificationsContacts::EmailContact`
-  - updated handler permissions
-- updated `AWS::OpenSearchServerless::Collection`
-  - added definition `EncryptionConfig`
-  - added property `CollectionGroupName`
-  - added property `EncryptionConfig`
+- updated `AWS::EC2::VPCEndpoint`
   - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::ServiceCatalog::CloudFormationProduct`
-  - removed definition `Info`
-  - updated definition `ProvisioningArtifactProperties`
-- updated `AWS::VpcLattice::ResourceConfiguration`
-  - added property `CustomDomainName`
-  - added property `DomainVerificationId`
-  - added property `GroupDomain`
+  - updated definition `DnsOptionsSpecification`
+- updated `AWS::EC2::VPNConnection`
+  - added property `TunnelBandwidth`
+  - added property `VpnConcentratorId`
   - updated `createOnlyProperties`
-- updated `AWS::VpcLattice::ServiceNetworkResourceAssociation`
-  - added property `PrivateDnsEnabled`
+  - updated definition `CloudwatchLogOptionsSpecification`
+- updated `AWS::ECS::CapacityProvider`
+  - updated definition `ManagedInstancesProvider`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated definition `JwtValidationActionAdditionalClaim`
+  - updated definition `JwtValidationConfig`
+- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
+  - updated definition `JwtValidationActionAdditionalClaim`
+  - updated definition `JwtValidationConfig`
+- updated `AWS::ElasticLoadBalancingV2::TargetGroup`
+  - added property `TargetControlPort`
+- updated `AWS::Lambda::Function`
+  - added definition `TenancyConfig`
+  - added property `TenancyConfig`
   - updated `createOnlyProperties`
-- updated `AWS::VpcLattice::ServiceNetworkVpcAssociation`
-  - added definition `DnsOptions`
-  - added property `DnsOptions`
-  - added property `PrivateDnsEnabled`
-  - updated `createOnlyProperties`
+- updated `AWS::OpenSearchService::Domain`
+  - added definition `AIMLOptions`
+  - added definition `S3VectorsEngine`
+  - added property `AIMLOptions`

@@ -1,10 +1,11 @@
 {
-  "$hash": "549fc31146f88ffdb3d336cc892a4ab9fbdc1ee2",
+  "$hash": "53484a8d25d3b003ecabfcb9c589b661287370af",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/FunctionName",
-    "/properties/PackageType"
+    "/properties/PackageType",
+    "/properties/TenancyConfig"
   ],
   "definitions": {
     "Code": {
@@ -231,6 +232,19 @@
         }
       },
       "required": ["Key"],
+      "type": "object"
+    },
+    "TenancyConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "TenantIsolationMode": {
+          "description": "Determines how your Lambda function isolates execution environments between tenants.",
+          "enum": ["PER_TENANT"],
+          "type": "string"
+        }
+      },
+      "required": ["TenantIsolationMode"],
       "type": "object"
     },
     "TracingConfig": {
@@ -462,6 +476,10 @@
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": true
+    },
+    "TenancyConfig": {
+      "$ref": "#/definitions/TenancyConfig",
+      "description": ""
     },
     "Timeout": {
       "description": "The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).",

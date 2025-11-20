@@ -9,6 +9,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type ApiGatewayDomainNameProperties = {
   CertificateArn?: string;
   DomainName?: string;
+  EndpointAccessMode?: string;
   /**
    * The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name.
    */

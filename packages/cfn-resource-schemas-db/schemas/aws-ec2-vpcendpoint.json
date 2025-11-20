@@ -1,5 +1,5 @@
 {
-  "$hash": "baf9d0ba2f324db18f098bc3402e9f01fe26bce1",
+  "$hash": "f689d9a17f165a6ab109664cd1bf4b7951334eec",
   "$id": "aws-ec2-vpcendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8,7 +8,9 @@
     "/properties/VpcId",
     "/properties/ServiceNetworkArn",
     "/properties/ResourceConfigurationArn",
-    "/properties/ServiceRegion"
+    "/properties/ServiceRegion",
+    "/properties/DnsOptions/PrivateDnsPreference",
+    "/properties/DnsOptions/PrivateDnsSpecifiedDomains"
   ],
   "definitions": {
     "DnsOptionsSpecification": {
@@ -30,6 +32,23 @@
           "description": "Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.",
           "enum": ["OnlyInboundResolver", "AllResolvers", "NotSpecified"],
           "type": "string"
+        },
+        "PrivateDnsPreference": {
+          "description": "",
+          "enum": [
+            "VERIFIED_DOMAINS_ONLY",
+            "ALL_DOMAINS",
+            "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS",
+            "SPECIFIED_DOMAINS_ONLY"
+          ],
+          "type": "string"
+        },
+        "PrivateDnsSpecifiedDomains": {
+          "description": "",
+          "items": { "maxLength": 255, "minLength": 1, "type": "string" },
+          "maxItems": 10,
+          "minItems": 1,
+          "type": "array"
         }
       },
       "type": "object"

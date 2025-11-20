@@ -1,5 +1,5 @@
 {
-  "$hash": "a3205508f8e2ca4f1cea3b46306f87aca3e5fb0c",
+  "$hash": "744d557b2bbb1c9069976a1f97a766a1291be12f",
   "$id": "aws-elasticloadbalancingv2-listenerrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ListenerArn"],
@@ -239,9 +239,10 @@
       "additionalProperties": false,
       "description": "",
       "properties": {
-        "Format": { "type": "string" },
-        "Name": { "type": "string" },
+        "Format": { "description": "", "type": "string" },
+        "Name": { "description": "", "type": "string" },
         "Values": {
+          "description": "",
           "items": { "type": "string" },
           "type": "array",
           "uniqueItems": true
@@ -255,14 +256,15 @@
       "description": "",
       "properties": {
         "AdditionalClaims": {
+          "description": "",
           "items": {
             "$ref": "#/definitions/JwtValidationActionAdditionalClaim"
           },
           "type": "array",
           "uniqueItems": true
         },
-        "Issuer": { "type": "string" },
-        "JwksEndpoint": { "type": "string" }
+        "Issuer": { "description": "", "type": "string" },
+        "JwksEndpoint": { "description": "", "type": "string" }
       },
       "required": ["JwksEndpoint", "Issuer"],
       "type": "object"

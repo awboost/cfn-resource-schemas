@@ -22,7 +22,7 @@ export type BillingConductorBillingGroupProperties = {
    * This account will act as a virtual payer account of the billing group
    * @pattern `[0-9]{12}`
    */
-  PrimaryAccountId: string;
+  PrimaryAccountId?: string;
   Tags?: Tag[];
 };
 /**
@@ -32,7 +32,7 @@ export type BillingConductorBillingGroupProperties = {
 export type BillingConductorBillingGroupAttributes = {
   /**
    * Billing Group ARN
-   * @pattern `arn:aws(-cn)?:billingconductor::[0-9]{12}:billinggroup/?[0-9]{12}`
+   * @pattern `arn:aws(-cn)?:billingconductor::[0-9]{12}:billinggroup/?[a-zA-Z0-9]{10,12}`
    */
   Arn: string;
   /**
@@ -59,7 +59,11 @@ export type AccountGrouping = {
   /**
    * @minLength `1`
    */
-  LinkedAccountIds: string[];
+  LinkedAccountIds?: string[];
+  /**
+   * @pattern `arn:[a-z0-9][a-z0-9-.]{0,62}:organizations::[0-9]{12}:transfer/o-[a-z0-9]{10,32}/(billing)/(inbound|outbound)/rt-[0-9a-z]{8,32}`
+   */
+  ResponsibilityTransferArn?: string;
 };
 /**
  * Type definition for `AWS::BillingConductor::BillingGroup.BillingGroupStatus`.

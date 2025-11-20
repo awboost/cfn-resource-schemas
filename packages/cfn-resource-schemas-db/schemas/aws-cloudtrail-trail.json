@@ -1,5 +1,5 @@
 {
-  "$hash": "9f3666c1bbd2352601d57e24b5f6c4c778ae0cb9",
+  "$hash": "48ef0947e0425aaf3950c5047b829152bac83354",
   "$id": "aws-cloudtrail-trail.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TrailName"],
@@ -171,12 +171,24 @@
       "additionalProperties": false,
       "description": "A string that contains insight types that are logged on a trail.",
       "properties": {
+        "EventCategories": {
+          "description": "The categories of events for which to log insights. By default, insights are logged for management events only.",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/SourceEventCategory" },
+          "type": "array",
+          "uniqueItems": true
+        },
         "InsightType": {
           "description": "The type of insight to log on a trail.",
           "type": "string"
         }
       },
       "type": "object"
+    },
+    "SourceEventCategory": {
+      "description": "Event category for an insight selector.",
+      "enum": ["Management", "Data"],
+      "type": "string"
     },
     "Tag": {
       "additionalProperties": false,

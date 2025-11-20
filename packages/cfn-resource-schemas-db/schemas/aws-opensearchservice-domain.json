@@ -1,5 +1,5 @@
 {
-  "$hash": "7a8db80cf4db2e65c60477ae728f9c9b8cec9bb3",
+  "$hash": "557a0abd1108b3e7e448af4c5df4e08297f8104f",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -8,6 +8,13 @@
   ],
   "createOnlyProperties": ["/properties/DomainName"],
   "definitions": {
+    "AIMLOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "S3VectorsEngine": { "$ref": "#/definitions/S3VectorsEngine" }
+      },
+      "type": "object"
+    },
     "AdvancedSecurityOptionsInput": {
       "additionalProperties": false,
       "properties": {
@@ -213,6 +220,17 @@
       "enum": ["GroupName", "GroupId"],
       "type": "string"
     },
+    "S3VectorsEngine": {
+      "additionalProperties": false,
+      "properties": {
+        "Enabled": {
+          "description": "Whether to enable S3 vectors engine.",
+          "type": "boolean"
+        }
+      },
+      "required": ["Enabled"],
+      "type": "object"
+    },
     "SAMLOptions": {
       "additionalProperties": false,
       "properties": {
@@ -333,6 +351,7 @@
   },
   "primaryIdentifier": ["/properties/DomainName"],
   "properties": {
+    "AIMLOptions": { "$ref": "#/definitions/AIMLOptions" },
     "AccessPolicies": { "type": "object" },
     "AdvancedOptions": {
       "additionalProperties": false,

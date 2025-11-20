@@ -1,5 +1,5 @@
 {
-  "$hash": "4a9409070efc26f7bfaf21b5aa999e955cee4e76",
+  "$hash": "5e4fe69f4914baeb2dcad701d7d34057099543b4",
   "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -209,6 +209,19 @@
     "ManagedInstancesProvider": {
       "additionalProperties": false,
       "properties": {
+        "InfrastructureOptimization": {
+          "additionalProperties": false,
+          "description": "Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.",
+          "properties": {
+            "ScaleInAfter": {
+              "description": "This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.",
+              "maximum": 3600,
+              "minimum": -1,
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        },
         "InfrastructureRoleArn": { "type": "string" },
         "InstanceLaunchTemplate": {
           "$ref": "#/definitions/InstanceLaunchTemplate"

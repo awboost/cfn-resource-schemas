@@ -1,5 +1,5 @@
 {
-  "$hash": "acbf570859cd0baf1006f7d7a48cc3e737b8c727",
+  "$hash": "a1eb74c69503cd18bc386dfcb13b0d8044b104c7",
   "$id": "aws-apigateway-domainnamev2.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -61,6 +61,7 @@
       "type": "string"
     },
     "DomainNameId": { "type": "string" },
+    "EndpointAccessMode": { "type": "string" },
     "EndpointConfiguration": { "$ref": "#/definitions/EndpointConfiguration" },
     "Policy": { "type": ["object", "string"] },
     "RoutingMode": {

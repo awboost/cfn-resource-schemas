@@ -1,5 +1,5 @@
 {
-  "$hash": "ec0a98f4bee75f104e82d5456a76425424d32cd8",
+  "$hash": "96c028bc5b772da995548c49bd642d82b669f7bf",
   "$id": "aws-elasticloadbalancingv2-targetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -183,6 +183,10 @@
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
+    },
+    "TargetControlPort": {
+      "description": "The port that the target control agent uses to communicate the available capacity of targets to the load balancer.",
+      "type": "integer"
     },
     "TargetGroupArn": {
       "description": "The ARN of the Target Group",

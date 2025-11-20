@@ -1,5 +1,5 @@
 {
-  "$hash": "0b617e67846fff0ffff3ea681d67ce17d5b89333",
+  "$hash": "cc234e818c01c75523437cc17351513639ef9823",
   "$id": "aws-apigateway-method.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -38,6 +38,7 @@
           "type": "array",
           "uniqueItems": true
         },
+        "IntegrationTarget": { "description": "", "type": "string" },
         "PassthroughBehavior": {
           "description": "",
           "enum": ["WHEN_NO_MATCH", "WHEN_NO_TEMPLATES", "NEVER"],
@@ -54,6 +55,12 @@
           "description": "",
           "patternProperties": { "[a-zA-Z0-9]+": { "type": "string" } },
           "type": "object"
+        },
+        "ResponseTransferMode": {
+          "default": "BUFFERED",
+          "description": "",
+          "enum": ["BUFFERED", "STREAM"],
+          "type": "string"
         },
         "TimeoutInMillis": {
           "description": "",

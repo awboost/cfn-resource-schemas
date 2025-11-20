@@ -56,6 +56,10 @@ export type DSQLClusterAttributes = {
     KmsKeyArn: string;
   };
   /**
+   * The DSQL cluster endpoint.
+   */
+  Endpoint: string;
+  /**
    * The ID of the created cluster.
    */
   Identifier: string;

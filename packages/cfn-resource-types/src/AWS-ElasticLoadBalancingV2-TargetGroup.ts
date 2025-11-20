@@ -62,6 +62,10 @@ export type ElasticLoadBalancingV2TargetGroupProperties = {
    */
   Tags?: Tag[];
   /**
+   * The port that the target control agent uses to communicate the available capacity of targets to the load balancer.
+   */
+  TargetControlPort?: number;
+  /**
    * The attributes.
    */
   TargetGroupAttributes?: TargetGroupAttribute[];

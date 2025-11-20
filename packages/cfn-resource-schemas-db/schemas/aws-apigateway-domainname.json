@@ -1,5 +1,5 @@
 {
-  "$hash": "75a83a897fe3b2f5236a21476927c3cba4877298",
+  "$hash": "1a822cbd5f4d77fba08987d5f222a793f3805e17",
   "$id": "aws-apigateway-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -61,6 +61,7 @@
     "DistributionHostedZoneId": { "description": "", "type": "string" },
     "DomainName": { "description": "", "type": "string" },
     "DomainNameArn": { "description": "", "type": "string" },
+    "EndpointAccessMode": { "description": "", "type": "string" },
     "EndpointConfiguration": {
       "$ref": "#/definitions/EndpointConfiguration",
       "description": "The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name."

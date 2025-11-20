@@ -185,10 +185,20 @@ export type EventSelector = {
  */
 export type InsightSelector = {
   /**
+   * The categories of events for which to log insights. By default, insights are logged for management events only.
+   */
+  EventCategories?: SourceEventCategory[];
+  /**
    * The type of insight to log on a trail.
    */
   InsightType?: string;
 };
+/**
+ * Type definition for `AWS::CloudTrail::Trail.SourceEventCategory`.
+ * Event category for an insight selector.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-sourceeventcategory.html}
+ */
+export type SourceEventCategory = "Management" | "Data";
 /**
  * Type definition for `AWS::CloudTrail::Trail.Tag`.
  * An arbitrary set of tags (key-value pairs) for this trail.

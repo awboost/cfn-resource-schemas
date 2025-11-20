@@ -1,5 +1,5 @@
 {
-  "$hash": "58be62d8824f288b5c4e67a5e3a8e061bdb2f860",
+  "$hash": "d4e36df29332f6dcff2754f1e81ddff0b28ea800",
   "$id": "aws-apigateway-restapi.json",
   "additionalProperties": false,
   "definitions": {
@@ -117,6 +117,7 @@
     "CloneFrom": { "description": "", "type": "string" },
     "Description": { "description": "", "type": "string" },
     "DisableExecuteApiEndpoint": { "description": "", "type": "boolean" },
+    "EndpointAccessMode": { "description": "", "type": "string" },
     "EndpointConfiguration": {
       "$ref": "#/definitions/EndpointConfiguration",
       "description": "A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property."
@@ -143,6 +144,7 @@
     },
     "RestApiId": { "description": "", "type": "string" },
     "RootResourceId": { "description": "", "type": "string" },
+    "SecurityPolicy": { "description": "", "type": "string" },
     "Tags": {
       "description": "",
       "items": { "$ref": "#/definitions/Tag" },

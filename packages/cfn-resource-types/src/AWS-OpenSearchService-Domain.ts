@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html}
  */
 export type OpenSearchServiceDomainProperties = {
+  AIMLOptions?: AIMLOptions;
   AccessPolicies?: Record<string, any>;
   AdvancedOptions?: Record<string, string>;
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
@@ -83,6 +84,13 @@ export type AdvancedSecurityOptionsInput = {
   JWTOptions?: JWTOptions;
   MasterUserOptions?: MasterUserOptions;
   SAMLOptions?: SAMLOptions;
+};
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.AIMLOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-aimloptions.html}
+ */
+export type AIMLOptions = {
+  S3VectorsEngine?: S3VectorsEngine;
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.ClusterConfig`.
@@ -266,6 +274,16 @@ export type OffPeakWindowOptions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-roleskeyidctype.html}
  */
 export type RolesKeyIdcType = "GroupName" | "GroupId";
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.S3VectorsEngine`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-s3vectorsengine.html}
+ */
+export type S3VectorsEngine = {
+  /**
+   * Whether to enable S3 vectors engine.
+   */
+  Enabled: boolean;
+};
 /**
  * Type definition for `AWS::OpenSearchService::Domain.SAMLOptions`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-samloptions.html}

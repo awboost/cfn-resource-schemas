@@ -67,6 +67,7 @@ export type EC2VPNConnectionProperties = {
      Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
   TransportTransitGatewayAttachmentId?: string;
+  TunnelBandwidth?: "standard" | "large";
   /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
      Default: ``ipv4``
@@ -76,6 +77,7 @@ export type EC2VPNConnectionProperties = {
    * The type of VPN connection.
    */
   Type: string;
+  VpnConcentratorId?: string;
   /**
      * The ID of the virtual private gateway at the AWS side of the VPN connection.
      You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
@@ -99,6 +101,9 @@ export type EC2VPNConnectionAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html}
  */
 export type CloudwatchLogOptionsSpecification = {
+  BgpLogEnabled?: boolean;
+  BgpLogGroupArn?: string;
+  BgpLogOutputFormat?: "json" | "text";
   /**
      * Enable or disable VPN tunnel logging feature. Default value is ``False``.
      Valid values: ``True`` | ``False``

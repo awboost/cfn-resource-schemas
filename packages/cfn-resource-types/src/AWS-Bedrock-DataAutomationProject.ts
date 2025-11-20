@@ -95,10 +95,25 @@ export type AudioExtractionCategoryTypeConfiguration = {
   Transcript?: TranscriptConfiguration;
 };
 /**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.AudioGenerativeOutputLanguage`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiogenerativeoutputlanguage.html}
+ */
+export type AudioGenerativeOutputLanguage = "DEFAULT" | "EN";
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.AudioLanguageConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiolanguageconfiguration.html}
+ */
+export type AudioLanguageConfiguration = {
+  GenerativeOutputLanguage?: AudioGenerativeOutputLanguage;
+  IdentifyMultipleLanguages?: boolean;
+  InputLanguages?: Language[];
+};
+/**
  * Type definition for `AWS::Bedrock::DataAutomationProject.AudioOverrideConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html}
  */
 export type AudioOverrideConfiguration = {
+  LanguageConfiguration?: AudioLanguageConfiguration;
   ModalityProcessing?: ModalityProcessingConfiguration;
 };
 /**
@@ -341,6 +356,22 @@ export type ImageStandardOutputConfiguration = {
   Extraction?: ImageStandardExtraction;
   GenerativeField?: ImageStandardGenerativeField;
 };
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.Language`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-language.html}
+ */
+export type Language =
+  | "EN"
+  | "DE"
+  | "ES"
+  | "FR"
+  | "IT"
+  | "PT"
+  | "JA"
+  | "KO"
+  | "CN"
+  | "TW"
+  | "HK";
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.ModalityProcessingConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-modalityprocessingconfiguration.html}

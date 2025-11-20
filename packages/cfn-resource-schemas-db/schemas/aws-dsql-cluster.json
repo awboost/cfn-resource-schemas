@@ -1,5 +1,5 @@
 {
-  "$hash": "7290035596eb45763e29da8e7ddfb7420cc8d0ba",
+  "$hash": "3b826d83f680fd30b3578808b782b139905a49b4",
   "$id": "aws-dsql-cluster.json",
   "additionalProperties": false,
   "definitions": {
@@ -122,6 +122,10 @@
       },
       "type": "object"
     },
+    "Endpoint": {
+      "description": "The DSQL cluster endpoint.",
+      "type": "string"
+    },
     "Identifier": {
       "description": "The ID of the created cluster.",
       "type": "string"
@@ -181,7 +185,8 @@
     "/properties/Status",
     "/properties/VpcEndpointServiceName",
     "/properties/EncryptionDetails",
-    "/properties/PolicyVersion"
+    "/properties/PolicyVersion",
+    "/properties/Endpoint"
   ],
   "required": [],
   "tagging": {

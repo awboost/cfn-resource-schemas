@@ -109,6 +109,16 @@ export type DnsOptionsSpecification = {
     | "OnlyInboundResolver"
     | "AllResolvers"
     | "NotSpecified";
+  PrivateDnsPreference?:
+    | "VERIFIED_DOMAINS_ONLY"
+    | "ALL_DOMAINS"
+    | "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS"
+    | "SPECIFIED_DOMAINS_ONLY";
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  PrivateDnsSpecifiedDomains?: string[];
 };
 /**
  * Type definition for `AWS::EC2::VPCEndpoint.Tag`.

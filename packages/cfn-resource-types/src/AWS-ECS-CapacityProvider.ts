@@ -127,6 +127,17 @@ export type ManagedInstancesNetworkConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesprovider.html}
  */
 export type ManagedInstancesProvider = {
+  /**
+   * Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
+   */
+  InfrastructureOptimization?: {
+    /**
+     * This parameter defines the number of seconds Amazon ECS Managed Instances waits before optimizing EC2 instances that have become idle or underutilized. A longer delay increases the likelihood of placing new tasks on idle instances, reducing startup time. A shorter delay helps reduce infrastructure costs by optimizing idle instances more quickly. Valid values are: Not set (null) - Uses the default optimization behavior, `-1` - Disables automatic infrastructure optimization, `0` to `3600` (inclusive) - Specifies the number of seconds to wait before optimizing instances.
+     * @min `-1`
+     * @max `3600`
+     */
+    ScaleInAfter?: number;
+  };
   InfrastructureRoleArn: string;
   InstanceLaunchTemplate: InstanceLaunchTemplate;
   PropagateTags?: "CAPACITY_PROVIDER" | "NONE";

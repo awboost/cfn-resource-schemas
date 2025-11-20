@@ -40,9 +40,11 @@ export type Integration = {
   Credentials?: string;
   IntegrationHttpMethod?: string;
   IntegrationResponses?: IntegrationResponse[];
+  IntegrationTarget?: string;
   PassthroughBehavior?: "WHEN_NO_MATCH" | "WHEN_NO_TEMPLATES" | "NEVER";
   RequestParameters?: Record<string, string>;
   RequestTemplates?: Record<string, string>;
+  ResponseTransferMode?: "BUFFERED" | "STREAM";
   /**
    * @min `50`
    */

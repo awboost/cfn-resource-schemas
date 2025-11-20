@@ -130,6 +130,7 @@ export type LambdaFunctionProperties = {
       You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
      */
   Tags?: Tag[];
+  TenancyConfig?: TenancyConfig;
   /**
    * The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
    * @min `1`
@@ -367,6 +368,16 @@ export type Tag = {
    * @maxLength `256`
    */
   Value?: string;
+};
+/**
+ * Type definition for `AWS::Lambda::Function.TenancyConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tenancyconfig.html}
+ */
+export type TenancyConfig = {
+  /**
+   * Determines how your Lambda function isolates execution environments between tenants.
+   */
+  TenantIsolationMode: "PER_TENANT";
 };
 /**
  * Type definition for `AWS::Lambda::Function.TracingConfig`.

@@ -19,6 +19,7 @@ export type ApiGatewayRestApiProperties = {
   CloneFrom?: string;
   Description?: string;
   DisableExecuteApiEndpoint?: boolean;
+  EndpointAccessMode?: string;
   /**
    * A list of the endpoint types and IP address types of the API. Use this property when creating an API. When importing an existing API, specify the endpoint configuration types using the ``Parameters`` property.
    */
@@ -43,6 +44,7 @@ export type ApiGatewayRestApiProperties = {
    * A policy document that contains the permissions for the ``RestApi`` resource. To set the ARN for the policy, use the ``!Join`` intrinsic function with ``""`` as delimiter and values of ``"execute-api:/"`` and ``"*"``.
    */
   Policy?: Record<string, any> | string;
+  SecurityPolicy?: string;
   Tags?: Tag[];
 };
 /**
