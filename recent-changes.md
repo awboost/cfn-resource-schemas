@@ -1,55 +1,55 @@
-- added `AWS::EC2::VPNConcentrator`
-- updated `AWS::ApiGateway::DomainName`
-  - added property `EndpointAccessMode`
-- updated `AWS::ApiGateway::DomainNameV2`
-  - added property `EndpointAccessMode`
-- updated `AWS::ApiGateway::Method`
-  - updated definition `Integration`
-- updated `AWS::ApiGateway::RestApi`
-  - added property `EndpointAccessMode`
-  - added property `SecurityPolicy`
-- updated `AWS::ApplicationInsights::Application`
-  - updated handler permissions
-- updated `AWS::Bedrock::DataAutomationProject`
-  - added definition `AudioGenerativeOutputLanguage`
-  - added definition `AudioLanguageConfiguration`
-  - added definition `Language`
-  - updated definition `AudioOverrideConfiguration`
-- updated `AWS::BillingConductor::BillingGroup`
-  - added `anyOf`
-  - updated `required`
-  - updated definition `AccountGrouping`
-  - updated handler permissions
-  - updated property `Arn`
+- added `AWS::CloudFront::ConnectionFunction`
+- updated `AWS::BillingConductor::CustomLineItem`
+  - updated property `BillingGroupArn`
 - updated `AWS::CloudTrail::Trail`
-  - added definition `SourceEventCategory`
-  - updated definition `InsightSelector`
-- updated `AWS::DSQL::Cluster`
-  - added property `Endpoint`
+  - added definition `AggregationConfiguration`
+  - added definition `Template`
+  - added property `AggregationConfigurations`
+- updated `AWS::CustomerProfiles::Domain`
+  - added definition `DataStore`
+  - added definition `Readiness`
+  - added property `DataStore`
   - updated `readOnlyProperties`
-- updated `AWS::EC2::VPCEndpoint`
+  - updated handler permissions
+- updated `AWS::EC2::NatGateway`
+  - added definition `AvailabilityZoneAddress`
+  - added property `AutoProvisionZones`
+  - added property `AutoScalingIps`
+  - added property `AvailabilityMode`
+  - added property `AvailabilityZoneAddresses`
+  - added property `RouteTableId`
   - updated `createOnlyProperties`
-  - updated definition `DnsOptionsSpecification`
-- updated `AWS::EC2::VPNConnection`
-  - added property `TunnelBandwidth`
-  - added property `VpnConcentratorId`
+  - updated `readOnlyProperties`
+- updated `AWS::EntityResolution::MatchingWorkflow`
+  - updated definition `RuleBasedProperties`
+  - updated definition `RuleConditionProperties`
+- updated `AWS::ImageBuilder::Image`
+  - updated `oneOf`
+- updated `AWS::KMS::Key`
+  - updated property `KeySpec`
+- updated `AWS::Lambda::EventSourceMapping`
+  - updated definition `LoggingConfig`
+  - updated definition `ProvisionedPollerConfig`
+  - updated property `LoggingConfig`
+  - updated property `ProvisionedPollerConfig`
+  - updated property `ScalingConfig`
+- updated `AWS::MSK::Cluster`
+  - added definition `Rebalancing`
+  - added property `Rebalancing`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::RUM::AppMonitor`
+  - added property `Platform`
+  - removed `oneOf`
   - updated `createOnlyProperties`
-  - updated definition `CloudwatchLogOptionsSpecification`
-- updated `AWS::ECS::CapacityProvider`
-  - updated definition `ManagedInstancesProvider`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `JwtValidationActionAdditionalClaim`
-  - updated definition `JwtValidationConfig`
-- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
-  - updated definition `JwtValidationActionAdditionalClaim`
-  - updated definition `JwtValidationConfig`
-- updated `AWS::ElasticLoadBalancingV2::TargetGroup`
-  - added property `TargetControlPort`
-- updated `AWS::Lambda::Function`
-  - added definition `TenancyConfig`
-  - added property `TenancyConfig`
-  - updated `createOnlyProperties`
-- updated `AWS::OpenSearchService::Domain`
-  - added definition `AIMLOptions`
-  - added definition `S3VectorsEngine`
-  - added property `AIMLOptions`
+  - updated definition `MetricDefinition`
+- updated `AWS::S3::Bucket`
+  - added definition `BlockedEncryptionTypeList`
+  - added definition `BlockedEncryptionTypes`
+  - updated definition `ServerSideEncryptionRule`
+  - updated handler permissions
+- updated `AWS::SageMaker::PartnerApp`
+  - added property `AppVersion`
+  - added property `CurrentVersionEolDate`
+  - added property `EnableAutoMinorVersionUpgrade`
+  - updated `readOnlyProperties`

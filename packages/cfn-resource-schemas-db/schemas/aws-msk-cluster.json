@@ -1,5 +1,5 @@
 {
-  "$hash": "84393cfbb468f6c32316bb2889782bd7ac37f55f",
+  "$hash": "95813d4d7201a6733e6ba297351e35cfb0642049",
   "$id": "aws-msk-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -179,6 +179,14 @@
       },
       "type": "object"
     },
+    "Rebalancing": {
+      "additionalProperties": false,
+      "properties": {
+        "Status": { "enum": ["PAUSED", "ACTIVE"], "type": "string" }
+      },
+      "required": ["Status"],
+      "type": "object"
+    },
     "S3": {
       "additionalProperties": false,
       "properties": {
@@ -320,6 +328,7 @@
         "kafka:UpdateStorage",
         "kafka:UpdateSecurity",
         "kafka:UpdateConnectivity",
+        "kafka:UpdateRebalancing",
         "kafka:DescribeCluster",
         "kafka:DescribeClusterOperation",
         "kafka:TagResource",
@@ -327,6 +336,7 @@
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
         "ec2:DescribeSecurityGroups",
+        "ec2:DescribeRouteTables",
         "iam:AttachRolePolicy",
         "iam:CreateServiceLinkedRole",
         "iam:PutRolePolicy",
@@ -374,6 +384,7 @@
     "LoggingInfo": { "$ref": "#/definitions/LoggingInfo" },
     "NumberOfBrokerNodes": { "type": "integer" },
     "OpenMonitoring": { "$ref": "#/definitions/OpenMonitoring" },
+    "Rebalancing": { "$ref": "#/definitions/Rebalancing" },
     "StorageMode": {
       "enum": ["LOCAL", "TIERED"],
       "maxLength": 6,
@@ -389,7 +400,7 @@
       "type": "object"
     }
   },
-  "readOnlyProperties": ["/properties/Arn"],
+  "readOnlyProperties": ["/properties/Arn", "/properties/CurrentVersion"],
   "required": [
     "BrokerNodeGroupInfo",
     "KafkaVersion",

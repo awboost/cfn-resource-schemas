@@ -11,6 +11,11 @@ export type CloudTrailTrailProperties = {
    */
   AdvancedEventSelectors?: AdvancedEventSelector[];
   /**
+   * Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.
+   * @maxLength `1`
+   */
+  AggregationConfigurations?: AggregationConfiguration[];
+  /**
    * Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that represents the log group to which CloudTrail logs will be delivered. Not required unless you specify CloudWatchLogsRoleArn.
    */
   CloudWatchLogsLogGroupArn?: string;
@@ -144,6 +149,23 @@ export type AdvancedFieldSelector = {
   StartsWith?: string[];
 };
 /**
+ * Type definition for `AWS::CloudTrail::Trail.AggregationConfiguration`.
+ * Configure to add aggregation rules to aggregate CloudTrail Events.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-aggregationconfiguration.html}
+ */
+export type AggregationConfiguration = {
+  /**
+   * The category of events to be aggregated.
+   */
+  EventCategory: "Data";
+  /**
+   * Contains all templates in an aggregation configuration.
+   * @minLength `1`
+   * @maxLength `50`
+   */
+  Templates: Template[];
+};
+/**
  * Type definition for `AWS::CloudTrail::Trail.DataResource`.
  * CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html}
@@ -214,6 +236,12 @@ export type Tag = {
    */
   Value: string;
 };
+/**
+ * Type definition for `AWS::CloudTrail::Trail.Template`.
+ * A template used to configure aggregation rules.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-template.html}
+ */
+export type Template = "API_ACTIVITY" | "RESOURCE_ACCESS" | "USER_ACTIONS";
 /**
  * Resource type definition for `AWS::CloudTrail::Trail`.
  * Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.

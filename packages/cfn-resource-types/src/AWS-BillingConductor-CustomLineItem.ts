@@ -13,7 +13,7 @@ export type BillingConductorCustomLineItemProperties = {
   AccountId?: string;
   /**
    * Billing Group ARN
-   * @pattern `arn:aws(-cn)?:billingconductor::[0-9]{12}:billinggroup/?[0-9]{12}`
+   * @pattern `arn:aws(-cn)?:billingconductor::[0-9]{12}:billinggroup/?[a-zA-Z0-9]{10,12}`
    */
   BillingGroupArn: string;
   BillingPeriodRange?: BillingPeriodRange;

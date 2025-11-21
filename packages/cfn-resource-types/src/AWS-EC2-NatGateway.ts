@@ -13,6 +13,8 @@ export type EC2NatGatewayProperties = {
    * [Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway. This property is required for a public NAT gateway and cannot be specified with a private NAT gateway.
    */
   AllocationId?: string;
+  AvailabilityMode?: string;
+  AvailabilityZoneAddresses?: AvailabilityZoneAddress[];
   /**
    * Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.
    */
@@ -58,8 +60,20 @@ export type EC2NatGatewayProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#aws-resource-ec2-natgateway-return-values}
  */
 export type EC2NatGatewayAttributes = {
+  AutoProvisionZones: string;
+  AutoScalingIps: string;
   EniId: string;
   NatGatewayId: string;
+  RouteTableId: string;
+};
+/**
+ * Type definition for `AWS::EC2::NatGateway.AvailabilityZoneAddress`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-natgateway-availabilityzoneaddress.html}
+ */
+export type AvailabilityZoneAddress = {
+  AllocationIds: string[];
+  AvailabilityZone?: string;
+  AvailabilityZoneId?: string;
 };
 /**
  * Type definition for `AWS::EC2::NatGateway.Tag`.

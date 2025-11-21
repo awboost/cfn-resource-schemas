@@ -255,6 +255,16 @@ export type AnalyticsConfiguration = {
   TagFilters?: TagFilter[];
 };
 /**
+ * Type definition for `AWS::S3::Bucket.BlockedEncryptionTypes`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-blockedencryptiontypes.html}
+ */
+export type BlockedEncryptionTypes = {
+  /**
+   * List of encryption types.
+   */
+  EncryptionType?: ("NONE" | "SSE-C")[];
+};
+/**
  * Type definition for `AWS::S3::Bucket.BucketEncryption`.
  * Specifies default encryption for a bucket using server-side encryption with Amazon S3-managed keys (SSE-S3), AWS KMS-managed keys (SSE-KMS), or dual-layer server-side encryption with KMS-managed keys (DSSE-KMS). For information about the Amazon S3 default encryption feature, see [Amazon S3 Default Encryption for S3 Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) in the *Amazon S3 User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html}
@@ -1316,6 +1326,7 @@ export type ServerSideEncryptionByDefault = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html}
  */
 export type ServerSideEncryptionRule = {
+  BlockedEncryptionTypes?: BlockedEncryptionTypes;
   /**
      * Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the ``BucketKeyEnabled`` element to ``true`` causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
      For more information, see [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) in the *Amazon S3 User Guide*.

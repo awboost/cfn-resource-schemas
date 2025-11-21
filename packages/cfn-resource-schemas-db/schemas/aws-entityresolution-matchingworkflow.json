@@ -1,5 +1,5 @@
 {
-  "$hash": "cbbe306899aa59555570e1071b070990db7a6296",
+  "$hash": "9b5607c023037b7c4b01b41bbaf0f682c2f6c87b",
   "$id": "aws-entityresolution-matchingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
@@ -166,7 +166,7 @@
         "Rules": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/Rule" },
-          "maxItems": 15,
+          "maxItems": 25,
           "minItems": 1,
           "type": "array"
         }
@@ -188,7 +188,7 @@
         "Rules": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/RuleCondition" },
-          "maxItems": 15,
+          "maxItems": 25,
           "minItems": 1,
           "type": "array"
         }

@@ -7,6 +7,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CustomerProfilesDomainProperties = {
   /**
+   * Configuration and status of the data store for the domain.
+   */
+  DataStore?: DataStore;
+  /**
    * The URL of the SQS dead letter queue
    * @minLength `0`
    * @maxLength `255`
@@ -55,6 +59,26 @@ export type CustomerProfilesDomainAttributes = {
    * The time of this integration got created
    */
   CreatedAt: string;
+  /**
+   * Configuration and status of the data store for the domain.
+   */
+  DataStore: {
+    /**
+     * Progress information for data store setup.
+     */
+    Readiness: {
+      /**
+       * A message describing the current progress.
+       */
+      Message: string;
+      /**
+       * The percentage of progress completed.
+       * @min `0`
+       * @max `100`
+       */
+      ProgressPercentage: number;
+    };
+  };
   /**
    * The time of this integration got last updated at
    */
@@ -172,6 +196,17 @@ export type Consolidation = {
   MatchingAttributesList: string[][];
 };
 /**
+ * Type definition for `AWS::CustomerProfiles::Domain.DataStore`.
+ * Configuration and status of the data store for the domain.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-datastore.html}
+ */
+export type DataStore = {
+  /**
+   * Whether the data store is enabled.
+   */
+  Enabled?: boolean;
+};
+/**
  * Type definition for `AWS::CustomerProfiles::Domain.DomainStats`.
  * Usage-specific statistics about the domain.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-domainstats.html}
@@ -265,6 +300,23 @@ export type MatchingRule = {
    * @maxLength `15`
    */
   Rule: string[];
+};
+/**
+ * Type definition for `AWS::CustomerProfiles::Domain.Readiness`.
+ * Progress information for data store setup.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-readiness.html}
+ */
+export type Readiness = {
+  /**
+   * A message describing the current progress.
+   */
+  Message?: string;
+  /**
+   * The percentage of progress completed.
+   * @min `0`
+   * @max `100`
+   */
+  ProgressPercentage?: number;
 };
 /**
  * Type definition for `AWS::CustomerProfiles::Domain.RuleBasedMatching`.

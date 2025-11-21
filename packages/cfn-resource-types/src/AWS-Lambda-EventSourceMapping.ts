@@ -91,6 +91,9 @@ export type LambdaEventSourceMappingProperties = {
    * @pattern `(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()`
    */
   KmsKeyArn?: string;
+  /**
+   * The function's Amazon CloudWatch Logs configuration settings.
+   */
   LoggingConfig?: LoggingConfig;
   /**
    * The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.
@@ -125,7 +128,7 @@ export type LambdaEventSourceMappingProperties = {
    */
   ParallelizationFactor?: number;
   /**
-   * (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
+   * (Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
    */
   ProvisionedPollerConfig?: ProvisionedPollerConfig;
   /**
@@ -135,7 +138,7 @@ export type LambdaEventSourceMappingProperties = {
    */
   Queues?: string[];
   /**
-   * (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
+   * This property is for Amazon SQS event sources only. You cannot use ``ProvisionedPollerConfig`` while using ``ScalingConfig``. These options are mutually exclusive. To remove the scaling configuration, pass an empty value.
    */
   ScalingConfig?: ScalingConfig;
   /**
@@ -296,11 +299,12 @@ export type FilterCriteria = {
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.LoggingConfig`.
+ * The function's Amazon CloudWatch Logs configuration settings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-loggingconfig.html}
  */
 export type LoggingConfig = {
   /**
-   * Event source mapping log granularity level override
+   * Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where ``DEBUG`` is the highest level and ``WARN`` is the lowest.
    */
   SystemLogLevel?: "DEBUG" | "INFO" | "WARN";
 };
@@ -336,18 +340,18 @@ export type OnFailure = {
 };
 /**
  * Type definition for `AWS::Lambda::EventSourceMapping.ProvisionedPollerConfig`.
- * The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
+ * The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers for your event source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html}
  */
 export type ProvisionedPollerConfig = {
   /**
-   * The maximum number of event pollers this event source can scale up to.
+   * The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.
    * @min `1`
    * @max `2000`
    */
   MaximumPollers?: number;
   /**
-   * The minimum number of event pollers this event source can scale down to.
+   * The minimum number of event pollers this event source can scale down to. For Amazon SQS events source mappings, default is 2, and minimum 2 required. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 1.
    * @min `1`
    * @max `200`
    */

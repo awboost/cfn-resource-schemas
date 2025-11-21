@@ -41,6 +41,7 @@ export type RUMAppMonitorProperties = {
    * @pattern `[\.\-_/#A-Za-z0-9]+`
    */
   Name: string;
+  Platform?: "Web" | "Android" | "iOS";
   /**
    * A structure that defines resource policy attached to your app monitor.
    */
@@ -224,11 +225,57 @@ export type MetricDefinition = {
     
     WebVitalsLargestContentfulPaint
     
+    WebVitalsInteractionToNextPaint
+    
     JsErrorCount
     
     HttpErrorCount
     
     SessionCount
+    
+    PageViewCount
+    
+    Http4xxCount
+    
+    Http5xxCount
+    
+    SessionDuration
+    
+    PageViewCountPerSession
+    
+    JsErrorCountPerSession
+    
+    Http4xxCountPerSession
+    
+    Http5xxCountPerSession
+    
+    JsErrorCountPerPageView
+    
+    Http4xxCountPerPageView
+    
+    Http5xxCountPerPageView
+    
+    TimeOnPage
+    
+    ColdLaunchTime
+    
+    WarmLaunchTime
+    
+    CrashCount
+    
+    ANRCount
+    
+    AppHangCount
+    
+    ScreenLoadCount
+    
+    ScreenLoadTime
+    
+    NetworkLatency
+    
+    SpanPayloadSize
+    
+    LogEventPayloadSize
      * @minLength `1`
      * @maxLength `255`
      */

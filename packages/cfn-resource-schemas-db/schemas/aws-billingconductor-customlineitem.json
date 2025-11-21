@@ -1,5 +1,5 @@
 {
-  "$hash": "8dd1b918202f7c654bf5ac473674fc74a78bd717",
+  "$hash": "5e70022a4fca0c0fa4df38eebda3bd935c0ac457",
   "$id": "aws-billingconductor-customlineitem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -171,7 +171,7 @@
     },
     "BillingGroupArn": {
       "description": "Billing Group ARN",
-      "pattern": "arn:aws(-cn)?:billingconductor::[0-9]{12}:billinggroup/?[0-9]{12}",
+      "pattern": "arn:aws(-cn)?:billingconductor::[0-9]{12}:billinggroup/?[a-zA-Z0-9]{10,12}",
       "type": "string"
     },
     "BillingPeriodRange": { "$ref": "#/definitions/BillingPeriodRange" },

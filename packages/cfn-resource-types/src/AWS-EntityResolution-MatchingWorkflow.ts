@@ -184,7 +184,7 @@ export type RuleBasedProperties = {
   MatchPurpose?: "IDENTIFIER_GENERATION" | "INDEXING";
   /**
    * @minLength `1`
-   * @maxLength `15`
+   * @maxLength `25`
    */
   Rules: Rule[];
 };
@@ -208,7 +208,7 @@ export type RuleCondition = {
 export type RuleConditionProperties = {
   /**
    * @minLength `1`
-   * @maxLength `15`
+   * @maxLength `25`
    */
   Rules: RuleCondition[];
 };

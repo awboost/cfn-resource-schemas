@@ -1,5 +1,5 @@
 {
-  "$hash": "48ef0947e0425aaf3950c5047b829152bac83354",
+  "$hash": "07a4cfb76157dc50b4b343a8348f1294984776d3",
   "$id": "aws-cloudtrail-trail.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TrailName"],
@@ -119,6 +119,28 @@
       "required": ["Field"],
       "type": "object"
     },
+    "AggregationConfiguration": {
+      "additionalProperties": false,
+      "description": "Configure to add aggregation rules to aggregate CloudTrail Events.",
+      "properties": {
+        "EventCategory": {
+          "description": "The category of events to be aggregated.",
+          "enum": ["Data"],
+          "type": "string"
+        },
+        "Templates": {
+          "description": "Contains all templates in an aggregation configuration.",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/Template" },
+          "maxItems": 50,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": ["EventCategory", "Templates"],
+      "type": "object"
+    },
     "DataResource": {
       "additionalProperties": false,
       "description": "CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.",
@@ -205,6 +227,11 @@
       },
       "required": ["Value", "Key"],
       "type": "object"
+    },
+    "Template": {
+      "description": "A template used to configure aggregation rules.",
+      "enum": ["API_ACTIVITY", "RESOURCE_ACCESS", "USER_ACTIONS"],
+      "type": "string"
     }
   },
   "description": "Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.",
@@ -273,6 +300,14 @@
       "description": "The advanced event selectors that were used to select events for the data store.",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/AdvancedEventSelector" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "AggregationConfigurations": {
+      "description": "Specifies the aggregation configuration to aggregate CloudTrail Events. A maximum of 1 aggregation configuration is allowed.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AggregationConfiguration" },
+      "maxItems": 1,
       "type": "array",
       "uniqueItems": true
     },

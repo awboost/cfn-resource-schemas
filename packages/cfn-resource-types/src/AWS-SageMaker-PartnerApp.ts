@@ -6,6 +6,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SageMakerPartnerAppProperties = {
   /**
+   * The version of the PartnerApp.
+   * @minLength `1`
+   * @maxLength `64`
+   */
+  AppVersion?: string;
+  /**
    * A collection of settings that specify the maintenance schedule for the PartnerApp.
    */
   ApplicationConfig?: PartnerAppConfig;
@@ -20,6 +26,10 @@ export type SageMakerPartnerAppProperties = {
    * @pattern `^[a-zA-Z0-9-]+$`
    */
   ClientToken?: string;
+  /**
+   * Enables automatic minor version upgrades for the PartnerApp.
+   */
+  EnableAutoMinorVersionUpgrade?: boolean;
   /**
    * Enables IAM Session based Identity for PartnerApp.
    */
@@ -82,6 +92,10 @@ export type SageMakerPartnerAppAttributes = {
    * @maxLength `2048`
    */
   BaseUrl: string;
+  /**
+   * The end-of-life date for the current version of the PartnerApp.
+   */
+  CurrentVersionEolDate: string;
 };
 /**
  * Type definition for `AWS::SageMaker::PartnerApp.PartnerAppConfig`.

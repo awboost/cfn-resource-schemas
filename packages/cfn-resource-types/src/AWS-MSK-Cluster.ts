@@ -13,10 +13,6 @@ export type MSKClusterProperties = {
    */
   ClusterName: string;
   ConfigurationInfo?: ConfigurationInfo;
-  /**
-   * The current version of the MSK cluster
-   */
-  CurrentVersion?: string;
   EncryptionInfo?: EncryptionInfo;
   /**
    * @minLength `7`
@@ -35,6 +31,7 @@ export type MSKClusterProperties = {
   LoggingInfo?: LoggingInfo;
   NumberOfBrokerNodes: number;
   OpenMonitoring?: OpenMonitoring;
+  Rebalancing?: Rebalancing;
   /**
    * @minLength `5`
    * @maxLength `6`
@@ -51,6 +48,10 @@ export type MSKClusterProperties = {
  */
 export type MSKClusterAttributes = {
   Arn: string;
+  /**
+   * The current version of the MSK cluster
+   */
+  CurrentVersion: string;
 };
 /**
  * Type definition for `AWS::MSK::Cluster.BrokerLogs`.
@@ -218,6 +219,13 @@ export type PublicAccess = {
    * @maxLength `23`
    */
   Type?: string;
+};
+/**
+ * Type definition for `AWS::MSK::Cluster.Rebalancing`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-rebalancing.html}
+ */
+export type Rebalancing = {
+  Status: "PAUSED" | "ACTIVE";
 };
 /**
  * Type definition for `AWS::MSK::Cluster.S3`.
