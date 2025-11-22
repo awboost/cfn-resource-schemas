@@ -152,7 +152,7 @@ export type EvaluationFormItemEnablementExpression = {
   /**
    * Specifies the comparison method to determine if the source value matches any of the specified values.
    */
-  Comparator: "IN" | "NOT_IN";
+  Comparator: "IN" | "NOT_IN" | "ALL_IN" | "EXACT";
   /**
    * Identifies the form item whose value will be evaluated in the expression.
    */
@@ -279,7 +279,12 @@ export type EvaluationFormQuestion = {
    * The type of the question.
    *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``
    */
-  QuestionType: "NUMERIC" | "SINGLESELECT" | "TEXT";
+  QuestionType:
+    | "NUMERIC"
+    | "SINGLESELECT"
+    | "TEXT"
+    | "MULTISELECT"
+    | "DATETIME";
   /**
    * The properties of the type of question. Text questions do not have to define question type properties.
    */
@@ -312,7 +317,7 @@ export type EvaluationFormQuestion = {
  */
 export type EvaluationFormQuestionAutomationAnswerSource = {
   /**
-   * The type of the answer sourcr
+   * The type of the answer source
    */
   SourceType: "CONTACT_LENS_DATA" | "GEN_AI";
 };
@@ -502,7 +507,8 @@ export type NumericQuestionPropertyValueAutomation = {
     | "CUSTOMER_HOLD_TIME"
     | "LONGEST_HOLD_DURATION"
     | "NUMBER_OF_HOLDS"
-    | "AGENT_INTERACTION_AND_HOLD_DURATION";
+    | "AGENT_INTERACTION_AND_HOLD_DURATION"
+    | "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT";
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.ScoringStrategy`.

@@ -62,6 +62,15 @@ export type AIAgentConfiguration =
     }
   | {
       SelfServiceAIAgentConfiguration: SelfServiceAIAgentConfiguration;
+    }
+  | {
+      EmailResponseAIAgentConfiguration: EmailResponseAIAgentConfiguration;
+    }
+  | {
+      EmailOverviewAIAgentConfiguration: EmailOverviewAIAgentConfiguration;
+    }
+  | {
+      EmailGenerativeAnswerAIAgentConfiguration: EmailGenerativeAnswerAIAgentConfiguration;
     };
 /**
  * Type definition for `AWS::Wisdom::AIAgent.AIAgentType`.
@@ -70,7 +79,10 @@ export type AIAgentConfiguration =
 export type AIAgentType =
   | "MANUAL_SEARCH"
   | "ANSWER_RECOMMENDATION"
-  | "SELF_SERVICE";
+  | "SELF_SERVICE"
+  | "EMAIL_RESPONSE"
+  | "EMAIL_OVERVIEW"
+  | "EMAIL_GENERATIVE_ANSWER";
 /**
  * Type definition for `AWS::Wisdom::AIAgent.AnswerRecommendationAIAgentConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html}
@@ -116,6 +128,58 @@ export type AssociationConfiguration = {
  */
 export type AssociationConfigurationData = {
   KnowledgeBaseAssociationConfigurationData: KnowledgeBaseAssociationConfigurationData;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.EmailGenerativeAnswerAIAgentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-emailgenerativeansweraiagentconfiguration.html}
+ */
+export type EmailGenerativeAnswerAIAgentConfiguration = {
+  AssociationConfigurations?: AssociationConfiguration[];
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  EmailGenerativeAnswerAIPromptId?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  EmailQueryReformulationAIPromptId?: string;
+  /**
+   * @minLength `1`
+   */
+  Locale?: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.EmailOverviewAIAgentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-emailoverviewaiagentconfiguration.html}
+ */
+export type EmailOverviewAIAgentConfiguration = {
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  EmailOverviewAIPromptId?: string;
+  /**
+   * @minLength `1`
+   */
+  Locale?: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.EmailResponseAIAgentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-emailresponseaiagentconfiguration.html}
+ */
+export type EmailResponseAIAgentConfiguration = {
+  AssociationConfigurations?: AssociationConfiguration[];
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  EmailQueryReformulationAIPromptId?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  EmailResponseAIPromptId?: string;
+  /**
+   * @minLength `1`
+   */
+  Locale?: string;
 };
 /**
  * Type definition for `AWS::Wisdom::AIAgent.KnowledgeBaseAssociationConfigurationData`.

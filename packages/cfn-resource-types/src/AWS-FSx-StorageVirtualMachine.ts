@@ -35,6 +35,7 @@ export type ActiveDirectoryConfiguration = {
  */
 export type SelfManagedActiveDirectoryConfiguration = {
   DnsIps?: string[];
+  DomainJoinServiceAccountSecret?: string;
   DomainName?: string;
   FileSystemAdministratorsGroup?: string;
   OrganizationalUnitDistinguishedName?: string;

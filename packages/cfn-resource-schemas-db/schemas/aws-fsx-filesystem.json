@@ -1,5 +1,5 @@
 {
-  "$hash": "9ac2bbbeeaafbe344ab0c85b652065ba4fb3e488",
+  "$hash": "cbdb12f9b8d4a257822373ddd636f1b42b8c107d",
   "$id": "aws-fsx-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -191,6 +191,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "DomainJoinServiceAccountSecret": { "type": "string" },
         "DomainName": { "type": "string" },
         "FileSystemAdministratorsGroup": { "type": "string" },
         "OrganizationalUnitDistinguishedName": { "type": "string" },

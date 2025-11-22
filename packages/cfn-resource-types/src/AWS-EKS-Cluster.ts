@@ -19,6 +19,10 @@ export type EKSClusterProperties = {
    */
   ComputeConfig?: ComputeConfig;
   /**
+   * Configuration for provisioned control plane scaling.
+   */
+  ControlPlaneScalingConfig?: ControlPlaneScalingConfig;
+  /**
    * Set this value to true to enable deletion protection for the cluster.
    */
   DeletionProtection?: boolean;
@@ -189,6 +193,17 @@ export type ControlPlanePlacement = {
    * Specify the placement group name of the control place machines for your cluster.
    */
   GroupName?: string;
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.ControlPlaneScalingConfig`.
+ * Configuration for provisioned control plane scaling.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplanescalingconfig.html}
+ */
+export type ControlPlaneScalingConfig = {
+  /**
+   * The scaling tier for the provisioned control plane.
+   */
+  Tier?: "standard" | "tier-xl" | "tier-2xl" | "tier-4xl";
 };
 /**
  * Type definition for `AWS::EKS::Cluster.ElasticLoadBalancing`.

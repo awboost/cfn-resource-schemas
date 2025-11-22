@@ -1,5 +1,5 @@
 {
-  "$hash": "58b35621cc58c621026d9b55331722e5689af666",
+  "$hash": "f21e7451551f4d952adf1897fdf0f8dfecb8461b",
   "$id": "aws-eks-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -72,6 +72,18 @@
       "properties": {
         "GroupName": {
           "description": "Specify the placement group name of the control place machines for your cluster.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ControlPlaneScalingConfig": {
+      "additionalProperties": false,
+      "description": "Configuration for provisioned control plane scaling.",
+      "properties": {
+        "Tier": {
+          "description": "The scaling tier for the provisioned control plane.",
+          "enum": ["standard", "tier-xl", "tier-2xl", "tier-4xl"],
           "type": "string"
         }
       },
@@ -402,6 +414,9 @@
       "type": "string"
     },
     "ComputeConfig": { "$ref": "#/definitions/ComputeConfig" },
+    "ControlPlaneScalingConfig": {
+      "$ref": "#/definitions/ControlPlaneScalingConfig"
+    },
     "DeletionProtection": {
       "description": "Set this value to true to enable deletion protection for the cluster.",
       "type": "boolean"

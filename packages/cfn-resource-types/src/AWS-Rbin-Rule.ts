@@ -27,7 +27,7 @@ export type RbinRuleProperties = {
   /**
    * The resource type retained by the retention rule.
    */
-  ResourceType: "EBS_SNAPSHOT" | "EC2_IMAGE";
+  ResourceType: "EBS_SNAPSHOT" | "EC2_IMAGE" | "EBS_VOLUME";
   /**
    * Information about the retention period for which the retention rule is to retain resources.
    */

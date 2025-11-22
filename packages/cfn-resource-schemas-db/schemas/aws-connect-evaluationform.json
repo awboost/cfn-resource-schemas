@@ -1,5 +1,5 @@
 {
-  "$hash": "7652adfe66d40367261dea452534673023a7c095",
+  "$hash": "d475e3eee3f56792d41dcd082583211272f81656",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -109,7 +109,7 @@
       "properties": {
         "Comparator": {
           "description": "Specifies the comparison method to determine if the source value matches any of the specified values.",
-          "enum": ["IN", "NOT_IN"],
+          "enum": ["IN", "NOT_IN", "ALL_IN", "EXACT"],
           "type": "string"
         },
         "Source": {
@@ -251,7 +251,13 @@
         },
         "QuestionType": {
           "description": "The type of the question.\n *Allowed values*: ``NUMERIC`` | ``SINGLESELECT`` | ``TEXT``",
-          "enum": ["NUMERIC", "SINGLESELECT", "TEXT"],
+          "enum": [
+            "NUMERIC",
+            "SINGLESELECT",
+            "TEXT",
+            "MULTISELECT",
+            "DATETIME"
+          ],
           "type": "string"
         },
         "QuestionTypeProperties": {
@@ -281,7 +287,7 @@
       "description": "",
       "properties": {
         "SourceType": {
-          "description": "The type of the answer sourcr",
+          "description": "The type of the answer source",
           "enum": ["CONTACT_LENS_DATA", "GEN_AI"],
           "type": "string"
         }
@@ -477,7 +483,8 @@
             "CUSTOMER_HOLD_TIME",
             "LONGEST_HOLD_DURATION",
             "NUMBER_OF_HOLDS",
-            "AGENT_INTERACTION_AND_HOLD_DURATION"
+            "AGENT_INTERACTION_AND_HOLD_DURATION",
+            "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT"
           ],
           "type": "string"
         }

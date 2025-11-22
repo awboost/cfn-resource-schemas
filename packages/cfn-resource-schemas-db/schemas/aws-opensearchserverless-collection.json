@@ -1,5 +1,5 @@
 {
-  "$hash": "a39b0aff0c4f7be7d848e03b73f4fb666359c5fa",
+  "$hash": "a95fba1ac4ac711333e623ead3b4744cf18256ef",
   "$id": "aws-opensearchserverless-collection.json",
   "additionalIdentifiers": [["/properties/Name"], ["/properties/Arn"]],
   "additionalProperties": false,
@@ -7,30 +7,13 @@
     "/properties/Name",
     "/properties/Tags",
     "/properties/Type",
-    "/properties/StandbyReplicas",
-    "/properties/CollectionGroupName",
-    "/properties/EncryptionConfig"
+    "/properties/StandbyReplicas"
   ],
   "definitions": {
     "CollectionType": {
       "description": "The possible types for the collection",
       "enum": ["SEARCH", "TIMESERIES", "VECTORSEARCH"],
       "type": "string"
-    },
-    "EncryptionConfig": {
-      "additionalProperties": false,
-      "description": "The configuration to encrypt the collection",
-      "properties": {
-        "AWSOwnedKey": {
-          "description": "The configuration to encrypt the collection with AWS owned key",
-          "type": "boolean"
-        },
-        "KmsKeyArn": {
-          "description": "The ARN of the KMS key to encrypt the collection with",
-          "type": "string"
-        }
-      },
-      "type": "object"
     },
     "StandbyReplicas": {
       "description": "The possible standby replicas for the collection",
@@ -64,10 +47,7 @@
       "permissions": [
         "aoss:CreateCollection",
         "aoss:BatchGetCollection",
-        "aoss:AddCollectionToCollectionGroup",
-        "iam:CreateServiceLinkedRole",
-        "kms:CreateGrant",
-        "kms:DescribeKey"
+        "iam:CreateServiceLinkedRole"
       ]
     },
     "delete": {
@@ -89,10 +69,6 @@
       "description": "The endpoint for the collection.",
       "type": "string"
     },
-    "CollectionGroupName": {
-      "description": "The name of the collection group.\n\nThe name must meet the following criteria:\nUnique to your account and AWS Region\nStarts with a lowercase letter\nContains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)\nContains between 3 and 32 characters\n",
-      "type": "string"
-    },
     "DashboardEndpoint": {
       "description": "The OpenSearch Dashboards endpoint for the collection.",
       "type": "string"
@@ -102,7 +78,6 @@
       "maxLength": 1000,
       "type": "string"
     },
-    "EncryptionConfig": { "$ref": "#/definitions/EncryptionConfig" },
     "Id": {
       "description": "The identifier of the collection",
       "maxLength": 40,
@@ -147,5 +122,5 @@
     "taggable": true
   },
   "typeName": "AWS::OpenSearchServerless::Collection",
-  "writeOnlyProperties": ["/properties/Tags", "/properties/EncryptionConfig"]
+  "writeOnlyProperties": ["/properties/Tags"]
 }

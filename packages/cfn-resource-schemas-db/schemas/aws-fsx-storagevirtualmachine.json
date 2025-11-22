@@ -1,5 +1,5 @@
 {
-  "$hash": "9e8c26f71040be88fd4935814b23996f41be305d",
+  "$hash": "2d9fd3dd00d0d225a07dfa00a3a61e45425f1afa",
   "$id": "aws-fsx-storagevirtualmachine.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -26,6 +26,7 @@
           "type": "array",
           "uniqueItems": false
         },
+        "DomainJoinServiceAccountSecret": { "type": "string" },
         "DomainName": { "type": "string" },
         "FileSystemAdministratorsGroup": { "type": "string" },
         "OrganizationalUnitDistinguishedName": { "type": "string" },

@@ -1,5 +1,5 @@
 {
-  "$hash": "c48c23573de72407e8138885c1e140c989a29abd",
+  "$hash": "85e73a131963210025b7b54d15dbc685602a40cc",
   "$id": "aws-backup-backupplan.json",
   "additionalProperties": false,
   "definitions": {
@@ -61,7 +61,8 @@
         "ScheduleExpression": { "type": "string" },
         "ScheduleExpressionTimezone": { "type": "string" },
         "StartWindowMinutes": { "type": "number" },
-        "TargetBackupVault": { "type": "string" }
+        "TargetBackupVault": { "type": "string" },
+        "TargetLogicallyAirGappedBackupVaultArn": { "type": "string" }
       },
       "required": ["TargetBackupVault", "RuleName"],
       "type": "object"

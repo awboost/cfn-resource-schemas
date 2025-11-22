@@ -57,6 +57,7 @@ export type SecretsManagerSecretProperties = {
       +  If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
      */
   Tags?: Tag[];
+  Type?: string;
 };
 /**
  * Attribute type definition for `AWS::SecretsManager::Secret`.

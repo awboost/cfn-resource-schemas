@@ -1,55 +1,42 @@
-- added `AWS::CloudFront::ConnectionFunction`
-- updated `AWS::BillingConductor::CustomLineItem`
-  - updated property `BillingGroupArn`
-- updated `AWS::CloudTrail::Trail`
-  - added definition `AggregationConfiguration`
-  - added definition `Template`
-  - added property `AggregationConfigurations`
-- updated `AWS::CustomerProfiles::Domain`
-  - added definition `DataStore`
-  - added definition `Readiness`
-  - added property `DataStore`
-  - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::EC2::NatGateway`
-  - added definition `AvailabilityZoneAddress`
-  - added property `AutoProvisionZones`
-  - added property `AutoScalingIps`
-  - added property `AvailabilityMode`
-  - added property `AvailabilityZoneAddresses`
-  - added property `RouteTableId`
+- added `AWS::Cognito::Terms`
+- added `AWS::EC2::TransitGatewayMeteringPolicy`
+- added `AWS::EC2::TransitGatewayMeteringPolicyEntry`
+- added `AWS::EC2::VPCEncryptionControl`
+- added `AWS::ECS::ExpressGatewayService`
+- updated `AWS::Backup::BackupPlan`
+  - updated definition `BackupRuleResourceType`
+- updated `AWS::Connect::EvaluationForm`
+  - updated definition `EvaluationFormItemEnablementExpression`
+  - updated definition `EvaluationFormQuestionAutomationAnswerSource`
+  - updated definition `EvaluationFormQuestion`
+  - updated definition `NumericQuestionPropertyValueAutomation`
+- updated `AWS::EKS::Cluster`
+  - added definition `ControlPlaneScalingConfig`
+  - added property `ControlPlaneScalingConfig`
+- updated `AWS::FSx::FileSystem`
+  - updated definition `SelfManagedActiveDirectoryConfiguration`
+- updated `AWS::FSx::StorageVirtualMachine`
+  - updated definition `SelfManagedActiveDirectoryConfiguration`
+- updated `AWS::OpenSearchServerless::Collection`
+  - removed definition `EncryptionConfig`
+  - removed property `CollectionGroupName`
+  - removed property `EncryptionConfig`
   - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-- updated `AWS::EntityResolution::MatchingWorkflow`
-  - updated definition `RuleBasedProperties`
-  - updated definition `RuleConditionProperties`
-- updated `AWS::ImageBuilder::Image`
-  - updated `oneOf`
-- updated `AWS::KMS::Key`
-  - updated property `KeySpec`
-- updated `AWS::Lambda::EventSourceMapping`
-  - updated definition `LoggingConfig`
-  - updated definition `ProvisionedPollerConfig`
-  - updated property `LoggingConfig`
-  - updated property `ProvisionedPollerConfig`
-  - updated property `ScalingConfig`
-- updated `AWS::MSK::Cluster`
-  - added definition `Rebalancing`
-  - added property `Rebalancing`
-  - updated `readOnlyProperties`
+  - updated `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::RUM::AppMonitor`
-  - added property `Platform`
-  - removed `oneOf`
-  - updated `createOnlyProperties`
-  - updated definition `MetricDefinition`
-- updated `AWS::S3::Bucket`
-  - added definition `BlockedEncryptionTypeList`
-  - added definition `BlockedEncryptionTypes`
-  - updated definition `ServerSideEncryptionRule`
-  - updated handler permissions
-- updated `AWS::SageMaker::PartnerApp`
-  - added property `AppVersion`
-  - added property `CurrentVersionEolDate`
-  - added property `EnableAutoMinorVersionUpgrade`
-  - updated `readOnlyProperties`
+- updated `AWS::PCS::Cluster`
+  - added definition `JwtAuth`
+  - added definition `JwtKey`
+  - added definition `SlurmRest`
+  - updated definition `Endpoint`
+  - updated property `SlurmConfiguration`
+- updated `AWS::Rbin::Rule`
+  - updated property `ResourceType`
+- updated `AWS::SecretsManager::Secret`
+  - added property `Type`
+- updated `AWS::Wisdom::AIAgent`
+  - added definition `EmailGenerativeAnswerAIAgentConfiguration`
+  - added definition `EmailOverviewAIAgentConfiguration`
+  - added definition `EmailResponseAIAgentConfiguration`
+  - updated definition `AIAgentConfiguration`
+  - updated definition `AIAgentType`

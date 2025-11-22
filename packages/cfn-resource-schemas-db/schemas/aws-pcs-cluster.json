@@ -1,5 +1,5 @@
 {
-  "$hash": "c3acb970765605b0e4d7310d418cf8731c7f477c",
+  "$hash": "34502a5b2cc7f7beee58c4f87d0b89486f65add9",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -67,7 +67,7 @@
         },
         "Type": {
           "description": "Indicates the type of endpoint running at the specific IP address.",
-          "enum": ["SLURMCTLD", "SLURMDBD"],
+          "enum": ["SLURMCTLD", "SLURMDBD", "SLURMRESTD"],
           "type": "string"
         }
       },
@@ -89,6 +89,28 @@
       },
       "type": "object"
     },
+    "JwtAuth": {
+      "additionalProperties": false,
+      "description": "JWT authentication configuration for Slurm.",
+      "properties": { "JwtKey": { "$ref": "#/definitions/JwtKey" } },
+      "type": "object"
+    },
+    "JwtKey": {
+      "additionalProperties": false,
+      "description": "JWT key configuration.",
+      "properties": {
+        "SecretArn": {
+          "description": "The Amazon Resource Name (ARN) of the JWT key secret.",
+          "type": "string"
+        },
+        "SecretVersion": {
+          "description": "The version of the JWT key secret.",
+          "type": "string"
+        }
+      },
+      "required": ["SecretArn", "SecretVersion"],
+      "type": "object"
+    },
     "SecurityGroupId": {
       "description": "A VPC security group ID.",
       "type": "string"
@@ -107,6 +129,20 @@
         }
       },
       "required": ["ParameterName", "ParameterValue"],
+      "type": "object"
+    },
+    "SlurmRest": {
+      "additionalProperties": false,
+      "description": "The SlurmRest configuration includes configurable settings for Slurm Rest.",
+      "properties": {
+        "Mode": {
+          "default": "NONE",
+          "description": "The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.",
+          "enum": ["STANDARD", "NONE"],
+          "type": "string"
+        }
+      },
+      "required": ["Mode"],
       "type": "object"
     },
     "SubnetId": { "description": "A VPC subnet ID.", "type": "string" },
@@ -247,6 +283,7 @@
       "properties": {
         "Accounting": { "$ref": "#/definitions/Accounting" },
         "AuthKey": { "$ref": "#/definitions/AuthKey" },
+        "JwtAuth": { "$ref": "#/definitions/JwtAuth" },
         "ScaleDownIdleTimeInSeconds": {
           "description": "The time before an idle node is scaled down.",
           "minimum": 1,
@@ -257,7 +294,8 @@
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/SlurmCustomSetting" },
           "type": "array"
-        }
+        },
+        "SlurmRest": { "$ref": "#/definitions/SlurmRest" }
       },
       "type": "object"
     },

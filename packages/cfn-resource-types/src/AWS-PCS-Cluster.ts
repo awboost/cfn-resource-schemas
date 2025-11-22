@@ -56,6 +56,10 @@ export type PCSClusterProperties = {
      */
     AuthKey?: AuthKey;
     /**
+     * JWT authentication configuration for Slurm.
+     */
+    JwtAuth?: JwtAuth;
+    /**
      * The time before an idle node is scaled down.
      * @min `1`
      */
@@ -64,6 +68,10 @@ export type PCSClusterProperties = {
      * Additional Slurm-specific configuration that directly maps to Slurm settings.
      */
     SlurmCustomSettings?: SlurmCustomSetting[];
+    /**
+     * The SlurmRest configuration includes configurable settings for Slurm Rest.
+     */
+    SlurmRest?: SlurmRest;
   };
   /**
    * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
@@ -102,7 +110,7 @@ export type PCSClusterAttributes = {
     /**
      * Indicates the type of endpoint running at the specific IP address.
      */
-    Type: "SLURMCTLD" | "SLURMDBD";
+    Type: "SLURMCTLD" | "SLURMDBD" | "SLURMRESTD";
   }[];
   /**
    * The list of errors that occurred during cluster provisioning.
@@ -191,7 +199,7 @@ export type Endpoint = {
   /**
    * Indicates the type of endpoint running at the specific IP address.
    */
-  Type: "SLURMCTLD" | "SLURMDBD";
+  Type: "SLURMCTLD" | "SLURMDBD" | "SLURMRESTD";
 };
 /**
  * Type definition for `AWS::PCS::Cluster.ErrorInfo`.
@@ -209,6 +217,32 @@ export type ErrorInfo = {
   Message?: string;
 };
 /**
+ * Type definition for `AWS::PCS::Cluster.JwtAuth`.
+ * JWT authentication configuration for Slurm.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-jwtauth.html}
+ */
+export type JwtAuth = {
+  /**
+   * JWT key configuration.
+   */
+  JwtKey?: JwtKey;
+};
+/**
+ * Type definition for `AWS::PCS::Cluster.JwtKey`.
+ * JWT key configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-jwtkey.html}
+ */
+export type JwtKey = {
+  /**
+   * The Amazon Resource Name (ARN) of the JWT key secret.
+   */
+  SecretArn: string;
+  /**
+   * The version of the JWT key secret.
+   */
+  SecretVersion: string;
+};
+/**
  * Type definition for `AWS::PCS::Cluster.SlurmCustomSetting`.
  * Additional settings that directly map to Slurm settings.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmcustomsetting.html}
@@ -222,6 +256,17 @@ export type SlurmCustomSetting = {
    * The value for the configured Slurm setting.
    */
   ParameterValue: string;
+};
+/**
+ * Type definition for `AWS::PCS::Cluster.SlurmRest`.
+ * The SlurmRest configuration includes configurable settings for Slurm Rest.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmrest.html}
+ */
+export type SlurmRest = {
+  /**
+   * The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+   */
+  Mode: "STANDARD" | "NONE";
 };
 /**
  * AWS::PCS::Cluster resource creates an AWS PCS cluster.

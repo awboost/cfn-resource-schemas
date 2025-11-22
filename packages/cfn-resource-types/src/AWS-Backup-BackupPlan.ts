@@ -50,6 +50,7 @@ export type BackupRuleResourceType = {
   ScheduleExpressionTimezone?: string;
   StartWindowMinutes?: number;
   TargetBackupVault: string;
+  TargetLogicallyAirGappedBackupVaultArn?: string;
 };
 /**
  * Type definition for `AWS::Backup::BackupPlan.CopyActionResourceType`.

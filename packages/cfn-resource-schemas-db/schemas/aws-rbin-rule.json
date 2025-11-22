@@ -1,5 +1,5 @@
 {
-  "$hash": "ebd0c0c94df2156841dbcbf0b00f4166b28551e0",
+  "$hash": "40173d67a509d69e5e30f13d0a65a36fb82fe698",
   "$id": "aws-rbin-rule.json",
   "additionalIdentifiers": [["/properties/Identifier"]],
   "additionalProperties": false,
@@ -183,7 +183,7 @@
     },
     "ResourceType": {
       "description": "The resource type retained by the retention rule.",
-      "enum": ["EBS_SNAPSHOT", "EC2_IMAGE"],
+      "enum": ["EBS_SNAPSHOT", "EC2_IMAGE", "EBS_VOLUME"],
       "type": "string"
     },
     "RetentionPeriod": {
