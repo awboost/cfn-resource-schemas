@@ -1,5 +1,5 @@
 {
-  "$hash": "3983bb86263ba62b3b729e61840ae864459d149a",
+  "$hash": "c7dc66f277f1bcd322053a212604a0207cb00c01",
   "$id": "aws-cloudformation-stackset.json",
   "additionalIdentifiers": [["/properties/StackSetName"]],
   "additionalProperties": false,
@@ -20,6 +20,13 @@
     "AutoDeployment": {
       "additionalProperties": false,
       "properties": {
+        "DependsOn": {
+          "description": "A list of StackSet ARNs that this StackSet depends on for auto-deployment operations. When auto-deployment is triggered, operations will be sequenced to ensure all dependencies complete successfully before this StackSet's operation begins.",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/StackSetArn" },
+          "type": "array",
+          "uniqueItems": true
+        },
         "Enabled": {
           "description": "If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.",
           "type": "boolean"
@@ -154,6 +161,10 @@
       },
       "required": ["DeploymentTargets", "Regions"],
       "type": "object"
+    },
+    "StackSetArn": {
+      "description": "The Amazon Resource Number (ARN) of a stack set.",
+      "type": "string"
     },
     "Tag": {
       "additionalProperties": false,

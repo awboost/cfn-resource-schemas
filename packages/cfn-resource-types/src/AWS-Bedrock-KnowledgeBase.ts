@@ -181,6 +181,7 @@ export type KnowledgeBaseStorageType =
   | "RDS"
   | "MONGO_DB_ATLAS"
   | "NEPTUNE_ANALYTICS"
+  | "S3_VECTORS"
   | "OPENSEARCH_MANAGED_CLUSTER";
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KnowledgeBaseType`.
@@ -807,6 +808,27 @@ export type S3Location = {
   URI: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.S3VectorsConfiguration`.
+ * Contains the storage configuration of the knowledge base for S3 vectors.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3vectorsconfiguration.html}
+ */
+export type S3VectorsConfiguration = {
+  /**
+   * The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.
+   */
+  IndexArn?: string;
+  /**
+   * The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.
+   * @minLength `3`
+   * @maxLength `63`
+   */
+  IndexName?: string;
+  /**
+   * The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.
+   */
+  VectorBucketArn?: string;
+};
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.SqlKnowledgeBaseConfiguration`.
  * Configurations for a SQL knowledge base
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-sqlknowledgebaseconfiguration.html}
@@ -851,6 +873,10 @@ export type StorageConfiguration = {
    * Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
    */
   RdsConfiguration?: RdsConfiguration;
+  /**
+   * Contains the storage configuration of the knowledge base for S3 vectors.
+   */
+  S3VectorsConfiguration?: S3VectorsConfiguration;
   /**
    * The storage type of a knowledge base.
    */

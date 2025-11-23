@@ -1,42 +1,44 @@
-- added `AWS::Cognito::Terms`
-- added `AWS::EC2::TransitGatewayMeteringPolicy`
-- added `AWS::EC2::TransitGatewayMeteringPolicyEntry`
-- added `AWS::EC2::VPCEncryptionControl`
-- added `AWS::ECS::ExpressGatewayService`
-- updated `AWS::Backup::BackupPlan`
-  - updated definition `BackupRuleResourceType`
-- updated `AWS::Connect::EvaluationForm`
-  - updated definition `EvaluationFormItemEnablementExpression`
-  - updated definition `EvaluationFormQuestionAutomationAnswerSource`
-  - updated definition `EvaluationFormQuestion`
-  - updated definition `NumericQuestionPropertyValueAutomation`
-- updated `AWS::EKS::Cluster`
-  - added definition `ControlPlaneScalingConfig`
-  - added property `ControlPlaneScalingConfig`
-- updated `AWS::FSx::FileSystem`
-  - updated definition `SelfManagedActiveDirectoryConfiguration`
-- updated `AWS::FSx::StorageVirtualMachine`
-  - updated definition `SelfManagedActiveDirectoryConfiguration`
-- updated `AWS::OpenSearchServerless::Collection`
-  - removed definition `EncryptionConfig`
-  - removed property `CollectionGroupName`
-  - removed property `EncryptionConfig`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
+- added `AWS::ECR::PullTimeUpdateExclusion`
+- added `AWS::ECR::SigningConfiguration`
+- updated `AWS::Athena::WorkGroup`
+  - added definition `Classification`
+  - added definition `CloudWatchLoggingConfiguration`
+  - added definition `EngineConfiguration`
+  - added definition `ManagedLoggingConfiguration`
+  - added definition `MonitoringConfiguration`
+  - added definition `S3LoggingConfiguration`
+  - updated definition `ExecutionRole`
+  - updated definition `WorkGroupConfigurationUpdates`
+  - updated definition `WorkGroupConfiguration`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - added definition `S3VectorsConfiguration`
+  - updated definition `KnowledgeBaseStorageType`
+  - updated definition `StorageConfiguration`
+- updated `AWS::Cassandra::Table`
+  - added definition `WarmThroughput`
+  - added property `WarmThroughput`
+- updated `AWS::CloudFormation::StackSet`
+  - added definition `StackSetArn`
+  - updated definition `AutoDeployment`
+- updated `AWS::KinesisVideo::Stream`
+  - added definition `StreamStorageConfiguration`
+  - added property `StreamStorageConfiguration`
   - updated handler permissions
-- updated `AWS::PCS::Cluster`
-  - added definition `JwtAuth`
-  - added definition `JwtKey`
-  - added definition `SlurmRest`
-  - updated definition `Endpoint`
-  - updated property `SlurmConfiguration`
-- updated `AWS::Rbin::Rule`
-  - updated property `ResourceType`
-- updated `AWS::SecretsManager::Secret`
-  - added property `Type`
-- updated `AWS::Wisdom::AIAgent`
-  - added definition `EmailGenerativeAnswerAIAgentConfiguration`
-  - added definition `EmailOverviewAIAgentConfiguration`
-  - added definition `EmailResponseAIAgentConfiguration`
-  - updated definition `AIAgentConfiguration`
-  - updated definition `AIAgentType`
+- updated `AWS::S3::Bucket`
+  - added property `AbacStatus`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::SageMaker::Cluster`
+  - added definition `ClusterCapacityRequirements`
+  - added definition `ClusterKubernetesConfig`
+  - added definition `ClusterKubernetesLabels`
+  - added definition `ClusterKubernetesTaint`
+  - added definition `ClusterKubernetesTaints`
+  - added definition `ClusterOnDemandOptions`
+  - added definition `ClusterSpotOptions`
+  - updated definition `ClusterInstanceGroup`
+- updated `AWS::SecretsManager::RotationSchedule`
+  - added definition `ExternalSecretRotationMetadataItem`
+  - added property `ExternalSecretRotationMetadata`
+  - added property `ExternalSecretRotationRoleArn`
+  - updated handler permissions

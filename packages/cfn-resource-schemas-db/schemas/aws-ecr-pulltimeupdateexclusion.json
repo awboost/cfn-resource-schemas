@@ -1,0 +1,32 @@
+{
+  "$hash": "5eaf6d0ba7afe1681d5579fdd932b09e937b4da8",
+  "$id": "aws-ecr-pulltimeupdateexclusion.json",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/PrincipalArn"],
+  "definitions": {
+    "PrincipalArn": {
+      "description": "Principal arn that should not update image pull times.",
+      "maxLength": 200,
+      "pattern": "^arn:aws(-[a-z]+)*:iam::[0-9]{12}:(role|user)/[\\w+=,.@-]+(/[\\w+=,.@-]+)*$",
+      "type": "string"
+    }
+  },
+  "description": "Resource Type definition for AWS::ECR::PullTimeUpdateExclusion controls the exclusion configuration for ecr image pull time update.",
+  "handlers": {
+    "create": {
+      "permissions": [
+        "ecr:RegisterPullTimeUpdateExclusion",
+        "ecr:ListPullTimeUpdateExclusions"
+      ]
+    },
+    "delete": { "permissions": ["ecr:DeregisterPullTimeUpdateExclusion"] },
+    "list": { "permissions": ["ecr:ListPullTimeUpdateExclusions"] },
+    "read": { "permissions": ["ecr:ListPullTimeUpdateExclusions"] }
+  },
+  "primaryIdentifier": ["/properties/PrincipalArn"],
+  "properties": { "PrincipalArn": { "$ref": "#/definitions/PrincipalArn" } },
+  "required": ["PrincipalArn"],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ecr.git",
+  "tagging": { "taggable": false },
+  "typeName": "AWS::ECR::PullTimeUpdateExclusion"
+}

@@ -87,6 +87,44 @@ export type AclConfiguration = {
   S3AclOption: S3AclOption;
 };
 /**
+ * Type definition for `AWS::Athena::WorkGroup.Classification`.
+ * A classification refers to a set of specific configurations.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-classification.html}
+ */
+export type Classification = {
+  /**
+   * The name of the configuration classification.
+   */
+  Name?: string;
+  /**
+   * A set of properties specified within a configuration classification.
+   */
+  Properties?: Record<string, string>;
+};
+/**
+ * Type definition for `AWS::Athena::WorkGroup.CloudWatchLoggingConfiguration`.
+ * Configuration settings for delivering logs to Amazon CloudWatch log groups.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-cloudwatchloggingconfiguration.html}
+ */
+export type CloudWatchLoggingConfiguration = {
+  /**
+   * Enables CloudWatch logging.
+   */
+  Enabled?: boolean;
+  /**
+   * The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+   */
+  LogGroup?: string;
+  /**
+   * Prefix for the CloudWatch log stream name.
+   */
+  LogStreamNamePrefix?: string;
+  /**
+   * The types of logs that you want to publish to CloudWatch.
+   */
+  LogTypes?: Record<string, string[]>;
+};
+/**
  * Type definition for `AWS::Athena::WorkGroup.CustomerContentEncryptionConfiguration`.
  * Indicates the KMS key for encrypting notebook content.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html}
@@ -119,6 +157,37 @@ export type EncryptionConfiguration = {
  */
 export type EncryptionOption = "SSE_S3" | "SSE_KMS" | "CSE_KMS";
 /**
+ * Type definition for `AWS::Athena::WorkGroup.EngineConfiguration`.
+ * The engine configuration for running queries.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineconfiguration.html}
+ */
+export type EngineConfiguration = {
+  /**
+   * Contains additional notebook engine MAP<string, string> parameter mappings in the form of key-value pairs. To specify an Athena notebook that the Jupyter server will download and serve, specify a value for the StartSessionRequest$NotebookVersion field, and then add a key named NotebookId to AdditionalConfigs that has the value of the Athena notebook ID.
+   */
+  AdditionalConfigs?: Record<string, string>;
+  /**
+   * The configuration classifications that can be specified for the engine.
+   */
+  Classifications?: Classification[];
+  /**
+   * The number of DPUs to use for the coordinator. A coordinator is a special executor that orchestrates processing work and manages other executors in a notebook session. The default is 1.
+   */
+  CoordinatorDpuSize?: number;
+  /**
+   * The default number of DPUs to use for executors. An executor is the smallest unit of compute that a notebook session can request from Athena. The default is 1.
+   */
+  DefaultExecutorDpuSize?: number;
+  /**
+   * The maximum number of DPUs that can run concurrently.
+   */
+  MaxConcurrentDpus?: number;
+  /**
+   * Specifies custom jar files and Spark properties for use cases like cluster encryption, table formats, and general Spark tuning.
+   */
+  SparkProperties?: Record<string, string>;
+};
+/**
  * Type definition for `AWS::Athena::WorkGroup.EngineVersion`.
  * The Athena engine version for running queries.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html}
@@ -128,6 +197,21 @@ export type EngineVersion = {
    * The engine version requested by the user. Possible values are determined by the output of ListEngineVersions, including Auto. The default is Auto.
    */
   SelectedEngineVersion?: string;
+};
+/**
+ * Type definition for `AWS::Athena::WorkGroup.ManagedLoggingConfiguration`.
+ * Configuration settings for managed log persistence.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-managedloggingconfiguration.html}
+ */
+export type ManagedLoggingConfiguration = {
+  /**
+   * Enables managed log persistence.
+   */
+  Enabled?: boolean;
+  /**
+   * The KMS key ARN to encrypt the logs stored in managed log persistence.
+   */
+  KmsKey?: string;
 };
 /**
  * Type definition for `AWS::Athena::WorkGroup.ManagedQueryResultsConfiguration`.
@@ -151,6 +235,25 @@ export type ManagedStorageEncryptionConfiguration = {
    * For SSE-KMS and CSE-KMS, this is the KMS key ARN or ID.
    */
   KmsKey?: string;
+};
+/**
+ * Type definition for `AWS::Athena::WorkGroup.MonitoringConfiguration`.
+ * Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-monitoringconfiguration.html}
+ */
+export type MonitoringConfiguration = {
+  /**
+   * Configuration settings for delivering logs to Amazon CloudWatch log groups.
+   */
+  CloudWatchLoggingConfiguration?: CloudWatchLoggingConfiguration;
+  /**
+   * Configuration settings for managed log persistence.
+   */
+  ManagedLoggingConfiguration?: ManagedLoggingConfiguration;
+  /**
+   * Configuration settings for delivering logs to Amazon S3 buckets.
+   */
+  S3LoggingConfiguration?: S3LoggingConfiguration;
 };
 /**
  * Type definition for `AWS::Athena::WorkGroup.ResultConfiguration`.
@@ -210,6 +313,25 @@ export type ResultConfigurationUpdates = {
  */
 export type S3AclOption = "BUCKET_OWNER_FULL_CONTROL";
 /**
+ * Type definition for `AWS::Athena::WorkGroup.S3LoggingConfiguration`.
+ * Configuration settings for delivering logs to Amazon S3 buckets.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-s3loggingconfiguration.html}
+ */
+export type S3LoggingConfiguration = {
+  /**
+   * Enables S3 log delivery.
+   */
+  Enabled?: boolean;
+  /**
+   * The KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+   */
+  KmsKey?: string;
+  /**
+   * The Amazon S3 destination URI for log publishing.
+   */
+  LogLocation?: string;
+};
+/**
  * Type definition for `AWS::Athena::WorkGroup.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-tag.html}
  */
@@ -248,17 +370,25 @@ export type WorkGroupConfiguration = {
    */
   EnforceWorkGroupConfiguration?: boolean;
   /**
+   * The engine configuration for running queries.
+   */
+  EngineConfiguration?: EngineConfiguration;
+  /**
    * The Athena engine version for running queries.
    */
   EngineVersion?: EngineVersion;
   /**
-   * Execution Role ARN required to run Athena Spark Calculations
+   * The ARN of the execution role used to access user resources for Spark sessions and Identity Center enabled workgroups. This property applies only to Spark enabled workgroups and Identity Center enabled workgroups.
    */
   ExecutionRole?: string;
   /**
    * The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
    */
   ManagedQueryResultsConfiguration?: ManagedQueryResultsConfiguration;
+  /**
+   * Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+   */
+  MonitoringConfiguration?: MonitoringConfiguration;
   /**
    * Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
    */
@@ -297,17 +427,25 @@ export type WorkGroupConfigurationUpdates = {
    */
   EnforceWorkGroupConfiguration?: boolean;
   /**
+   * The engine configuration for running queries.
+   */
+  EngineConfiguration?: EngineConfiguration;
+  /**
    * The Athena engine version for running queries.
    */
   EngineVersion?: EngineVersion;
   /**
-   * Execution Role ARN required to run Athena Spark Calculations
+   * The ARN of the execution role used to access user resources for Spark sessions and Identity Center enabled workgroups. This property applies only to Spark enabled workgroups and Identity Center enabled workgroups.
    */
   ExecutionRole?: string;
   /**
    * The configuration for the managed query results and encryption option. ResultConfiguration and ManagedQueryResultsConfiguration cannot be set at the same time
    */
   ManagedQueryResultsConfiguration?: ManagedQueryResultsConfiguration;
+  /**
+   * Contains the configuration settings for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc.
+   */
+  MonitoringConfiguration?: MonitoringConfiguration;
   /**
    * Indicates that the Amazon CloudWatch metrics are enabled for the workgroup.
    */

@@ -159,6 +159,21 @@ export type ClusterAutoScalingConfig = {
   Mode: "Enable" | "Disable";
 };
 /**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterCapacityRequirements`.
+ * Specifies the capacity requirements configuration for an instance group
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clustercapacityrequirements.html}
+ */
+export type ClusterCapacityRequirements = {
+  /**
+   * Options for OnDemand capacity
+   */
+  OnDemand?: ClusterOnDemandOptions;
+  /**
+   * Options for Spot capacity
+   */
+  Spot?: ClusterSpotOptions;
+};
+/**
  * Type definition for `AWS::SageMaker::Cluster.ClusterEbsVolumeConfig`.
  * Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html}
@@ -184,6 +199,10 @@ export type ClusterEbsVolumeConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html}
  */
 export type ClusterInstanceGroup = {
+  /**
+   * Specifies the capacity requirements configuration for an instance group
+   */
+  CapacityRequirements?: ClusterCapacityRequirements;
   /**
    * The execution role for the instance group to assume.
    * @minLength `20`
@@ -219,6 +238,10 @@ export type ClusterInstanceGroup = {
    * The instance type of the instance group of a SageMaker HyperPod cluster.
    */
   InstanceType: string;
+  /**
+   * Kubernetes configuration for cluster nodes including labels and taints.
+   */
+  KubernetesConfig?: ClusterKubernetesConfig;
   /**
    * The lifecycle configuration for a SageMaker HyperPod cluster.
    */
@@ -260,6 +283,47 @@ export type ClusterInstanceStorageConfig = {
   EbsVolumeConfig?: ClusterEbsVolumeConfig;
 };
 /**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterKubernetesConfig`.
+ * Kubernetes configuration for cluster nodes including labels and taints.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterkubernetesconfig.html}
+ */
+export type ClusterKubernetesConfig = {
+  /**
+   * A map of Kubernetes labels to apply to cluster nodes.
+   */
+  Labels?: ClusterKubernetesLabels;
+  /**
+   * A list of Kubernetes taints to apply to cluster nodes. Maximum of 50 taints.
+   * @maxLength `50`
+   */
+  Taints?: ClusterKubernetesTaint[];
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterKubernetesLabels`.
+ * A map of Kubernetes labels to apply to cluster nodes.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterkuberneteslabels.html}
+ */
+export type ClusterKubernetesLabels = Record<string, string>;
+/**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterKubernetesTaint`.
+ * A Kubernetes taint to apply to cluster nodes.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterkubernetestaint.html}
+ */
+export type ClusterKubernetesTaint = {
+  /**
+   * The effect of the taint.
+   */
+  Effect: "NoSchedule" | "PreferNoSchedule" | "NoExecute";
+  /**
+   * The key of the taint.
+   */
+  Key: string;
+  /**
+   * The value of the taint.
+   */
+  Value?: string;
+};
+/**
  * Type definition for `AWS::SageMaker::Cluster.ClusterLifeCycleConfig`.
  * The lifecycle configuration for a SageMaker HyperPod cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterlifecycleconfig.html}
@@ -279,6 +343,12 @@ export type ClusterLifeCycleConfig = {
    */
   SourceS3Uri: string;
 };
+/**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterOnDemandOptions`.
+ * Options for OnDemand capacity
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterondemandoptions.html}
+ */
+export type ClusterOnDemandOptions = Record<string, any>;
 /**
  * Type definition for `AWS::SageMaker::Cluster.ClusterOrchestratorEksConfig`.
  * Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
@@ -350,6 +420,12 @@ export type ClusterRestrictedInstanceGroup = {
    */
   TrainingPlanArn?: string;
 };
+/**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterSpotOptions`.
+ * Options for Spot capacity
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterspotoptions.html}
+ */
+export type ClusterSpotOptions = Record<string, any>;
 /**
  * Type definition for `AWS::SageMaker::Cluster.DeepHealthCheckType`.
  * The type of deep health check(s) to be performed on the instances in the SageMaker HyperPod cluster instance group.

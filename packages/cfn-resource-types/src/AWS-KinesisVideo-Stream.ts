@@ -40,6 +40,10 @@ export type KinesisVideoStreamProperties = {
    */
   Name?: string;
   /**
+   * Configuration for the storage tier of the Kinesis Video Stream.
+   */
+  StreamStorageConfiguration?: StreamStorageConfiguration;
+  /**
    * An array of key-value pairs associated with the Kinesis Video Stream.
    * @minLength `1`
    * @maxLength `50`
@@ -55,6 +59,17 @@ export type KinesisVideoStreamAttributes = {
    * The Amazon Resource Name (ARN) of the Kinesis Video stream.
    */
   Arn: string;
+};
+/**
+ * Type definition for `AWS::KinesisVideo::Stream.StreamStorageConfiguration`.
+ * Configuration for the storage tier of the Kinesis Video Stream.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisvideo-stream-streamstorageconfiguration.html}
+ */
+export type StreamStorageConfiguration = {
+  /**
+   * The storage tier for the Kinesis Video Stream. Determines the storage class used for stream data.
+   */
+  DefaultStorageTier?: "HOT" | "WARM";
 };
 /**
  * Type definition for `AWS::KinesisVideo::Stream.Tag`.

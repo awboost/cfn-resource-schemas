@@ -1,5 +1,5 @@
 {
-  "$hash": "66c9a3a916a7c3b7a3f9549d513eac9008eb6fef",
+  "$hash": "804149d84f0cadf9985641239a5a29571a37c540",
   "$id": "aws-bedrock-knowledgebase.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -135,6 +135,7 @@
         "RDS",
         "MONGO_DB_ATLAS",
         "NEPTUNE_ANALYTICS",
+        "S3_VECTORS",
         "OPENSEARCH_MANAGED_CLUSTER"
       ],
       "type": "string"
@@ -815,6 +816,31 @@
       "required": ["URI"],
       "type": "object"
     },
+    "S3VectorsConfiguration": {
+      "additionalProperties": false,
+      "description": "Contains the storage configuration of the knowledge base for S3 vectors.",
+      "oneOf": [
+        { "required": ["IndexArn"] },
+        { "required": ["VectorBucketArn", "IndexName"] }
+      ],
+      "properties": {
+        "IndexArn": {
+          "description": "The Amazon Resource Name (ARN) of the vector index used for the knowledge base. This ARN identifies the specific vector index resource within Amazon Bedrock.",
+          "type": "string"
+        },
+        "IndexName": {
+          "description": "The name of the vector index used for the knowledge base. This name identifies the vector index within the Amazon Bedrock service.",
+          "maxLength": 63,
+          "minLength": 3,
+          "type": "string"
+        },
+        "VectorBucketArn": {
+          "description": "The Amazon Resource Name (ARN) of the S3 bucket where vector embeddings are stored. This bucket contains the vector data used by the knowledge base.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "SecretArn": {
       "description": "Arn of a SecretsManager Secret",
       "pattern": "^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$",
@@ -846,6 +872,7 @@
         { "required": ["PineconeConfiguration"] },
         { "required": ["RdsConfiguration"] },
         { "required": ["NeptuneAnalyticsConfiguration"] },
+        { "required": ["S3VectorsConfiguration"] },
         { "required": ["MongoDbAtlasConfiguration"] },
         { "required": ["OpensearchManagedClusterConfiguration"] }
       ],
@@ -866,6 +893,9 @@
           "$ref": "#/definitions/PineconeConfiguration"
         },
         "RdsConfiguration": { "$ref": "#/definitions/RdsConfiguration" },
+        "S3VectorsConfiguration": {
+          "$ref": "#/definitions/S3VectorsConfiguration"
+        },
         "Type": { "$ref": "#/definitions/KnowledgeBaseStorageType" }
       },
       "required": ["Type"],

@@ -6,6 +6,14 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SecretsManagerRotationScheduleProperties = {
   /**
+   * The list of metadata needed to successfully rotate a managed external secret.
+   */
+  ExternalSecretRotationMetadata?: ExternalSecretRotationMetadataItem[];
+  /**
+   * The ARN of the IAM role that is used by Secrets Manager to rotate a managed external secret.
+   */
+  ExternalSecretRotationRoleArn?: string;
+  /**
    * Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead.
    */
   HostedRotationLambda?: HostedRotationLambda;
@@ -35,6 +43,21 @@ export type SecretsManagerRotationScheduleAttributes = {
    * The ARN of the secret.
    */
   Id: string;
+};
+/**
+ * Type definition for `AWS::SecretsManager::RotationSchedule.ExternalSecretRotationMetadataItem`.
+ * The metadata needed to successfully rotate a managed external secret. Each metadata item is a key and value pair of strings in a JSON text string.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-externalsecretrotationmetadataitem.html}
+ */
+export type ExternalSecretRotationMetadataItem = {
+  /**
+   * The key name of the metadata item. You can specify a value that's 1 to 256 characters in length.
+   */
+  Key: string;
+  /**
+   * The value for the metadata item. You can specify a value that's 1 to 2048 characters in length.
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::SecretsManager::RotationSchedule.HostedRotationLambda`.

@@ -64,6 +64,10 @@ export type CassandraTableProperties = {
    * @maxLength `50`
    */
   Tags?: Tag[];
+  /**
+   * Warm throughput configuration for the table
+   */
+  WarmThroughput?: WarmThroughput;
 };
 /**
  * Type definition for `AWS::Cassandra::Table.AutoScalingSetting`.
@@ -267,6 +271,21 @@ export type TargetTrackingScalingPolicyConfiguration = {
   ScaleInCooldown?: number;
   ScaleOutCooldown?: number;
   TargetValue: number;
+};
+/**
+ * Type definition for `AWS::Cassandra::Table.WarmThroughput`.
+ * Warm throughput configuration for the table
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-warmthroughput.html}
+ */
+export type WarmThroughput = {
+  /**
+   * @min `1`
+   */
+  ReadUnitsPerSecond?: number;
+  /**
+   * @min `1`
+   */
+  WriteUnitsPerSecond?: number;
 };
 /**
  * Resource schema for AWS::Cassandra::Table
