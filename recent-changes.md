@@ -1,44 +1,9 @@
-- added `AWS::ECR::PullTimeUpdateExclusion`
-- added `AWS::ECR::SigningConfiguration`
-- updated `AWS::Athena::WorkGroup`
-  - added definition `Classification`
-  - added definition `CloudWatchLoggingConfiguration`
-  - added definition `EngineConfiguration`
-  - added definition `ManagedLoggingConfiguration`
-  - added definition `MonitoringConfiguration`
-  - added definition `S3LoggingConfiguration`
-  - updated definition `ExecutionRole`
-  - updated definition `WorkGroupConfigurationUpdates`
-  - updated definition `WorkGroupConfiguration`
-- updated `AWS::Bedrock::KnowledgeBase`
-  - added definition `S3VectorsConfiguration`
-  - updated definition `KnowledgeBaseStorageType`
-  - updated definition `StorageConfiguration`
-- updated `AWS::Cassandra::Table`
-  - added definition `WarmThroughput`
-  - added property `WarmThroughput`
-- updated `AWS::CloudFormation::StackSet`
-  - added definition `StackSetArn`
-  - updated definition `AutoDeployment`
-- updated `AWS::KinesisVideo::Stream`
-  - added definition `StreamStorageConfiguration`
-  - added property `StreamStorageConfiguration`
-  - updated handler permissions
-- updated `AWS::S3::Bucket`
-  - added property `AbacStatus`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::SageMaker::Cluster`
-  - added definition `ClusterCapacityRequirements`
-  - added definition `ClusterKubernetesConfig`
-  - added definition `ClusterKubernetesLabels`
-  - added definition `ClusterKubernetesTaint`
-  - added definition `ClusterKubernetesTaints`
-  - added definition `ClusterOnDemandOptions`
-  - added definition `ClusterSpotOptions`
-  - updated definition `ClusterInstanceGroup`
-- updated `AWS::SecretsManager::RotationSchedule`
-  - added definition `ExternalSecretRotationMetadataItem`
-  - added property `ExternalSecretRotationMetadata`
-  - added property `ExternalSecretRotationRoleArn`
+- added `AWS::CloudFront::TrustStore`
+- updated `AWS::CloudFront::Distribution`
+  - added definition `ConnectionFunctionAssociation`
+  - added definition `TrustStoreConfig`
+  - added definition `ViewerMtlsConfig`
+  - added definition `ViewerMtlsMode`
+  - updated definition `DistributionConfig`
+- updated `AWS::Lambda::Function`
   - updated handler permissions

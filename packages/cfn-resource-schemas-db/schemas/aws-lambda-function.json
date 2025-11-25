@@ -1,5 +1,5 @@
 {
-  "$hash": "53484a8d25d3b003ecabfcb9c589b661287370af",
+  "$hash": "0048e813446a8334e6e8071d92764b497891a401",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -325,7 +325,8 @@
       "permissions": [
         "lambda:GetFunction",
         "lambda:GetFunctionCodeSigningConfig",
-        "lambda:GetFunctionRecursionConfig"
+        "lambda:GetFunctionRecursionConfig",
+        "lambda:GetRuntimeManagementConfig"
       ]
     },
     "update": {

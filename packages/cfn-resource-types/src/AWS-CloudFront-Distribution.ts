@@ -157,6 +157,13 @@ export type CacheBehavior = {
   ViewerProtocolPolicy: string;
 };
 /**
+ * Type definition for `AWS::CloudFront::Distribution.ConnectionFunctionAssociation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-connectionfunctionassociation.html}
+ */
+export type ConnectionFunctionAssociation = {
+  Id: string;
+};
+/**
  * Type definition for `AWS::CloudFront::Distribution.ConnectionMode`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-connectionmode.html}
  */
@@ -416,6 +423,7 @@ export type DistributionConfig = {
    * A comment to describe the distribution. The comment cannot be longer than 128 characters.
    */
   Comment?: string;
+  ConnectionFunctionAssociation?: ConnectionFunctionAssociation;
   /**
    * This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
    */
@@ -520,6 +528,7 @@ export type DistributionConfig = {
    * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
    */
   ViewerCertificate?: ViewerCertificate;
+  ViewerMtlsConfig?: ViewerMtlsConfig;
   /**
      * Multi-tenant distributions only support WAF V2 web ACLs.
       A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
@@ -990,6 +999,15 @@ export type Tag = {
   Value: string;
 };
 /**
+ * Type definition for `AWS::CloudFront::Distribution.TrustStoreConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-truststoreconfig.html}
+ */
+export type TrustStoreConfig = {
+  AdvertiseTrustStoreCaNames?: boolean;
+  IgnoreCertificateExpiry?: boolean;
+  TrustStoreId: string;
+};
+/**
  * Type definition for `AWS::CloudFront::Distribution.ViewerCertificate`.
  * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
  If the distribution doesn't use ``Aliases`` (also known as alternate domain names or CNAMEs)—that is, if the distribution uses the CloudFront domain name such as ``d111111abcdef8.cloudfront.net``—set ``CloudFrontDefaultCertificate`` to ``true`` and leave all other fields empty.
@@ -1052,6 +1070,19 @@ export type ViewerCertificate = {
      */
   SslSupportMethod?: string;
 };
+/**
+ * Type definition for `AWS::CloudFront::Distribution.ViewerMtlsConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewermtlsconfig.html}
+ */
+export type ViewerMtlsConfig = {
+  Mode?: ViewerMtlsMode;
+  TrustStoreConfig?: TrustStoreConfig;
+};
+/**
+ * Type definition for `AWS::CloudFront::Distribution.ViewerMtlsMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewermtlsmode.html}
+ */
+export type ViewerMtlsMode = "required" | "optional";
 /**
  * Type definition for `AWS::CloudFront::Distribution.VpcOriginConfig`.
  * An Amazon CloudFront VPC origin configuration.
