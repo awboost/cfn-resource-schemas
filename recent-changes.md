@@ -1,9 +1,3 @@
-- added `AWS::CloudFront::TrustStore`
-- updated `AWS::CloudFront::Distribution`
-  - added definition `ConnectionFunctionAssociation`
-  - added definition `TrustStoreConfig`
-  - added definition `ViewerMtlsConfig`
-  - added definition `ViewerMtlsMode`
-  - updated definition `DistributionConfig`
-- updated `AWS::Lambda::Function`
-  - updated handler permissions
+- updated `AWS::SecurityHub::AutomationRuleV2`
+  - updated definition `OcsfNumberFilter`
+  - updated definition `OcsfStringField`

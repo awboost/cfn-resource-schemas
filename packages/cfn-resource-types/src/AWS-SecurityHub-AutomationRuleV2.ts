@@ -348,9 +348,8 @@ export type OcsfNumberFilter = {
     | "activity_id"
     | "compliance.status_id"
     | "confidence_score"
-    | "severity_id"
-    | "status_id"
-    | "finding_info.related_events_count";
+    | "finding_info.related_events_count"
+    | "vendor_attributes.severity_id";
   /**
    * A number filter for querying findings
    */
@@ -362,7 +361,6 @@ export type OcsfNumberFilter = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-automationrulev2-ocsfstringfield.html}
  */
 export type OcsfStringField =
-  | "metadata.uid"
   | "activity_name"
   | "cloud.account.name"
   | "cloud.account.uid"
@@ -392,11 +390,9 @@ export type OcsfStringField =
   | "resources.region"
   | "resources.type"
   | "resources.uid"
-  | "severity"
-  | "status"
-  | "comment"
   | "vulnerabilities.fix_coverage"
-  | "class_name";
+  | "class_name"
+  | "vendor_attributes.severity";
 /**
  * Type definition for `AWS::SecurityHub::AutomationRuleV2.OcsfStringFilter`.
  * Enables filtering of security findings based on string field values in OCSF
