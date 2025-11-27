@@ -9,7 +9,7 @@ export type CustomerProfilesSegmentDefinitionProperties = {
   /**
    * The description of the segment definition.
    * @minLength `1`
-   * @maxLength `1000`
+   * @maxLength `4000`
    */
   Description?: string;
   /**
@@ -35,7 +35,13 @@ export type CustomerProfilesSegmentDefinitionProperties = {
   /**
    * An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
    */
-  SegmentGroups: SegmentGroup;
+  SegmentGroups?: SegmentGroup;
+  /**
+   * The SQL query that defines the segment criteria.
+   * @minLength `1`
+   * @maxLength `50000`
+   */
+  SegmentSqlQuery?: string;
   /**
    * The tags used to organize, track, or control access for this resource.
    * @minLength `0`
@@ -58,6 +64,10 @@ export type CustomerProfilesSegmentDefinitionAttributes = {
    * @maxLength `255`
    */
   SegmentDefinitionArn: string;
+  /**
+   * The SQL query that defines the segment criteria.
+   */
+  SegmentType: "CLASSIC" | "ENHANCED";
 };
 /**
  * Type definition for `AWS::CustomerProfiles::SegmentDefinition.AddressDimension`.

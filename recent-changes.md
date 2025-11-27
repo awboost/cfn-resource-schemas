@@ -1,3 +1,14 @@
-- updated `AWS::SecurityHub::AutomationRuleV2`
-  - updated definition `OcsfNumberFilter`
-  - updated definition `OcsfStringField`
+- added `AWS::RTBFabric::OutboundExternalLink`
+- updated `AWS::CustomerProfiles::SegmentDefinition`
+  - added property `SegmentSqlQuery`
+  - added property `SegmentType`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated `required`
+  - updated handler permissions
+  - updated property `Description`
+- updated `AWS::Lambda::EventInvokeConfig`
+  - updated property `FunctionName`
+  - updated property `Qualifier`
+- updated `AWS::Lambda::EventSourceMapping`
+  - updated property `FunctionName`

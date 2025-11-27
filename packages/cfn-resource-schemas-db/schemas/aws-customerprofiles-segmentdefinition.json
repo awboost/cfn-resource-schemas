@@ -1,12 +1,13 @@
 {
-  "$hash": "ef78ae8975e5add0e58ef3d33007025300b79447",
+  "$hash": "06038cfb41efda6f857b2c6479451e9d02aac338",
   "$id": "aws-customerprofiles-segmentdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DomainName",
     "/properties/SegmentDefinitionName",
     "/properties/DisplayName",
-    "/properties/SegmentGroups"
+    "/properties/SegmentGroups",
+    "/properties/SegmentSqlQuery"
   ],
   "definitions": {
     "AddressDimension": {
@@ -343,9 +344,28 @@
   "description": "A segment definition resource of Amazon Connect Customer Profiles",
   "handlers": {
     "create": {
-      "permissions": ["profile:CreateSegmentDefinition", "profile:TagResource"]
+      "permissions": [
+        "profile:CreateSegmentDefinition",
+        "profile:TagResource",
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:GetKeyPolicy",
+        "kms:PutKeyPolicy",
+        "kms:ListGrants",
+        "kms:GenerateDataKey"
+      ]
     },
-    "delete": { "permissions": ["profile:DeleteSegmentDefinition"] },
+    "delete": {
+      "permissions": [
+        "profile:DeleteSegmentDefinition",
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:GetKeyPolicy",
+        "kms:PutKeyPolicy",
+        "kms:ListGrants",
+        "kms:GenerateDataKey"
+      ]
+    },
     "list": {
       "handlerSchema": {
         "properties": {
@@ -355,14 +375,38 @@
         },
         "required": ["DomainName"]
       },
-      "permissions": ["profile:ListSegmentDefinitions"]
+      "permissions": [
+        "profile:ListSegmentDefinitions",
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:GetKeyPolicy",
+        "kms:PutKeyPolicy",
+        "kms:ListGrants",
+        "kms:GenerateDataKey"
+      ]
     },
-    "read": { "permissions": ["profile:GetSegmentDefinition"] },
+    "read": {
+      "permissions": [
+        "profile:GetSegmentDefinition",
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:GetKeyPolicy",
+        "kms:PutKeyPolicy",
+        "kms:ListGrants",
+        "kms:GenerateDataKey"
+      ]
+    },
     "update": {
       "permissions": [
         "profile:GetSegmentDefinition",
         "profile:UntagResource",
-        "profile:TagResource"
+        "profile:TagResource",
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:GetKeyPolicy",
+        "kms:PutKeyPolicy",
+        "kms:ListGrants",
+        "kms:GenerateDataKey"
       ]
     }
   },
@@ -378,7 +422,7 @@
     },
     "Description": {
       "description": "The description of the segment definition.",
-      "maxLength": 1000,
+      "maxLength": 4000,
       "minLength": 1,
       "type": "string"
     },
@@ -412,6 +456,17 @@
       "$ref": "#/definitions/SegmentGroup",
       "description": "An array that defines the set of segment criteria to evaluate when handling segment groups for the segment."
     },
+    "SegmentSqlQuery": {
+      "description": "The SQL query that defines the segment criteria.",
+      "maxLength": 50000,
+      "minLength": 1,
+      "type": "string"
+    },
+    "SegmentType": {
+      "description": "The SQL query that defines the segment criteria.",
+      "enum": ["CLASSIC", "ENHANCED"],
+      "type": "string"
+    },
     "Tags": {
       "description": "The tags used to organize, track, or control access for this resource.",
       "insertionOrder": false,
@@ -424,14 +479,10 @@
   },
   "readOnlyProperties": [
     "/properties/CreatedAt",
-    "/properties/SegmentDefinitionArn"
+    "/properties/SegmentDefinitionArn",
+    "/properties/SegmentType"
   ],
-  "required": [
-    "DomainName",
-    "DisplayName",
-    "SegmentDefinitionName",
-    "SegmentGroups"
-  ],
+  "required": ["DomainName", "DisplayName", "SegmentDefinitionName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-customer-profiles",
   "tagging": {
     "cloudFormationSystemTags": true,
