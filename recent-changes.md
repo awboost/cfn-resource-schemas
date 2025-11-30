@@ -1,1 +1,2 @@
-- added `AWS::EKS::Capability`
+- updated `AWS::Organizations::Policy`
+  - updated property `Type`
