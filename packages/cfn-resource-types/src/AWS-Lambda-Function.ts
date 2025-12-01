@@ -17,6 +17,7 @@ export type LambdaFunctionProperties = {
    * @maxLength `1`
    */
   Architectures?: ("x86_64" | "arm64")[];
+  CapacityProviderConfig?: CapacityProviderConfig;
   /**
      * The code for the function. You can define your function code in multiple ways:
       +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
@@ -58,6 +59,7 @@ export type LambdaFunctionProperties = {
      * @minLength `1`
      */
   FunctionName?: string;
+  FunctionScalingConfig?: FunctionScalingConfig;
   /**
    * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
    * @maxLength `128`
@@ -95,6 +97,7 @@ export type LambdaFunctionProperties = {
    * The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
    */
   PackageType?: "Image" | "Zip";
+  PublishToLatestPublished?: boolean;
   /**
      * The status of your function's recursive loop detection configuration.
      When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.
@@ -164,6 +167,13 @@ export type LambdaFunctionAttributes = {
      */
     OptimizationStatus: "On" | "Off";
   };
+};
+/**
+ * Type definition for `AWS::Lambda::Function.CapacityProviderConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-capacityproviderconfig.html}
+ */
+export type CapacityProviderConfig = {
+  LambdaManagedInstancesCapacityProviderConfig: LambdaManagedInstancesCapacityProviderConfig;
 };
 /**
  * Type definition for `AWS::Lambda::Function.Code`.
@@ -266,6 +276,24 @@ export type FileSystemConfig = {
   LocalMountPath: string;
 };
 /**
+ * Type definition for `AWS::Lambda::Function.FunctionScalingConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-functionscalingconfig.html}
+ */
+export type FunctionScalingConfig = {
+  /**
+   * The maximum number of execution environments that can be provisioned for the function.
+   * @min `0`
+   * @max `15000`
+   */
+  MaxExecutionEnvironments?: number;
+  /**
+   * The minimum number of execution environments to maintain for the function.
+   * @min `0`
+   * @max `15000`
+   */
+  MinExecutionEnvironments?: number;
+};
+/**
  * Type definition for `AWS::Lambda::Function.ImageConfig`.
  * Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html}
@@ -285,6 +313,31 @@ export type ImageConfig = {
    * Specifies the working directory. The length of the directory string cannot exceed 1,000 characters.
    */
   WorkingDirectory?: string;
+};
+/**
+ * Type definition for `AWS::Lambda::Function.LambdaManagedInstancesCapacityProviderConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-lambdamanagedinstancescapacityproviderconfig.html}
+ */
+export type LambdaManagedInstancesCapacityProviderConfig = {
+  /**
+   * The Amazon Resource Name (ARN) of the capacity provider.
+   * @minLength `1`
+   * @maxLength `140`
+   * @pattern `^arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:capacity-provider:[a-zA-Z0-9-_]+$`
+   */
+  CapacityProviderArn: string;
+  /**
+   * The amount of memory in GiB allocated per vCPU for execution environments.
+   * @min `2`
+   * @max `8`
+   */
+  ExecutionEnvironmentMemoryGiBPerVCpu?: number;
+  /**
+   * The maximum number of concurrent execution environments that can run on each compute instance.
+   * @min `1`
+   * @max `1600`
+   */
+  PerExecutionEnvironmentMaxConcurrency?: number;
 };
 /**
  * Type definition for `AWS::Lambda::Function.LoggingConfig`.

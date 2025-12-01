@@ -1,5 +1,5 @@
 {
-  "$hash": "01d9257bb9ea4b47bcab0ac82652d8e3198e655b",
+  "$hash": "0ed8ca7e6a2fc9087f4c1930ddcf6490711f2d87",
   "$id": "aws-lambda-version.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,6 +10,23 @@
     "/properties/RuntimePolicy"
   ],
   "definitions": {
+    "FunctionScalingConfig": {
+      "additionalProperties": false,
+      "description": "Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.",
+      "properties": {
+        "MaxExecutionEnvironments": {
+          "description": "The maximum number of execution environments that can be provisioned for the function.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "MinExecutionEnvironments": {
+          "description": "The minimum number of execution environments to maintain for the function.",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "ProvisionedConcurrencyConfiguration": {
       "additionalProperties": false,
       "description": "A provisioned concurrency configuration for a function's version.",
@@ -51,7 +68,8 @@
         "lambda:PutProvisionedConcurrencyConfig",
         "lambda:GetProvisionedConcurrencyConfig",
         "lambda:PutRuntimeManagementConfig",
-        "lambda:GetRuntimeManagementConfig"
+        "lambda:GetRuntimeManagementConfig",
+        "lambda:PutFunctionScalingConfig"
       ],
       "timeoutInMinutes": 180
     },
@@ -80,10 +98,16 @@
       "permissions": [
         "lambda:GetFunctionConfiguration",
         "lambda:GetProvisionedConcurrencyConfig",
-        "lambda:GetRuntimeManagementConfig"
+        "lambda:GetRuntimeManagementConfig",
+        "lambda:GetFunctionScalingConfig"
       ]
     },
-    "update": { "permissions": ["lambda:GetFunctionConfiguration"] }
+    "update": {
+      "permissions": [
+        "lambda:GetFunctionConfiguration",
+        "lambda:PutFunctionScalingConfig"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/FunctionArn"],
   "properties": {
@@ -108,6 +132,10 @@
       "minLength": 1,
       "pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?((eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
       "type": "string"
+    },
+    "FunctionScalingConfig": {
+      "$ref": "#/definitions/FunctionScalingConfig",
+      "description": "The scaling configuration to apply to the function, including minimum and maximum execution environment limits."
     },
     "ProvisionedConcurrencyConfig": {
       "$ref": "#/definitions/ProvisionedConcurrencyConfiguration",

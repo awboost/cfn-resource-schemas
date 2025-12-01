@@ -23,6 +23,10 @@ export type LambdaVersionProperties = {
    */
   FunctionName: string;
   /**
+   * The scaling configuration to apply to the function, including minimum and maximum execution environment limits.
+   */
+  FunctionScalingConfig?: FunctionScalingConfig;
+  /**
    * Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
    */
   ProvisionedConcurrencyConfig?: ProvisionedConcurrencyConfiguration;
@@ -45,6 +49,23 @@ export type LambdaVersionAttributes = {
    * The version number.
    */
   Version: string;
+};
+/**
+ * Type definition for `AWS::Lambda::Version.FunctionScalingConfig`.
+ * Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-version-functionscalingconfig.html}
+ */
+export type FunctionScalingConfig = {
+  /**
+   * The maximum number of execution environments that can be provisioned for the function.
+   * @min `0`
+   */
+  MaxExecutionEnvironments?: number;
+  /**
+   * The minimum number of execution environments to maintain for the function.
+   * @min `0`
+   */
+  MinExecutionEnvironments?: number;
 };
 /**
  * Type definition for `AWS::Lambda::Version.ProvisionedConcurrencyConfiguration`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "0048e813446a8334e6e8071d92764b497891a401",
+  "$hash": "b06221dbc7525000f73f537b3afcf3df620938c2",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -8,6 +8,17 @@
     "/properties/TenancyConfig"
   ],
   "definitions": {
+    "CapacityProviderConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "LambdaManagedInstancesCapacityProviderConfig": {
+          "$ref": "#/definitions/LambdaManagedInstancesCapacityProviderConfig"
+        }
+      },
+      "required": ["LambdaManagedInstancesCapacityProviderConfig"],
+      "type": "object"
+    },
     "Code": {
       "additionalProperties": false,
       "description": "The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.\n  When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.\n  Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.",
@@ -108,6 +119,25 @@
       "required": ["Arn", "LocalMountPath"],
       "type": "object"
     },
+    "FunctionScalingConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "MaxExecutionEnvironments": {
+          "description": "The maximum number of execution environments that can be provisioned for the function.",
+          "maximum": 15000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "MinExecutionEnvironments": {
+          "description": "The minimum number of execution environments to maintain for the function.",
+          "maximum": 15000,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "ImageConfig": {
       "additionalProperties": false,
       "description": "Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).",
@@ -131,6 +161,33 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "LambdaManagedInstancesCapacityProviderConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "CapacityProviderArn": {
+          "description": "The Amazon Resource Name (ARN) of the capacity provider.",
+          "maxLength": 140,
+          "minLength": 1,
+          "pattern": "^arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:capacity-provider:[a-zA-Z0-9-_]+$",
+          "type": "string"
+        },
+        "ExecutionEnvironmentMemoryGiBPerVCpu": {
+          "description": "The amount of memory in GiB allocated per vCPU for execution environments.",
+          "maximum": 8,
+          "minimum": 2,
+          "type": "number"
+        },
+        "PerExecutionEnvironmentMaxConcurrency": {
+          "description": "The maximum number of concurrent execution environments that can run on each compute instance.",
+          "maximum": 1600,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": ["CapacityProviderArn"],
       "type": "object"
     },
     "LoggingConfig": {
@@ -310,7 +367,9 @@
         "lambda:PutRuntimeManagementConfig",
         "lambda:TagResource",
         "lambda:PutFunctionRecursionConfig",
-        "lambda:GetFunctionRecursionConfig"
+        "lambda:GetFunctionRecursionConfig",
+        "lambda:PutFunctionScalingConfig",
+        "lambda:PassCapacityProvider"
       ]
     },
     "delete": {
@@ -326,7 +385,8 @@
         "lambda:GetFunction",
         "lambda:GetFunctionCodeSigningConfig",
         "lambda:GetFunctionRecursionConfig",
-        "lambda:GetRuntimeManagementConfig"
+        "lambda:GetRuntimeManagementConfig",
+        "lambda:GetFunctionScalingConfig"
       ]
     },
     "update": {
@@ -355,7 +415,10 @@
         "lambda:GetCodeSigningConfig",
         "lambda:GetFunctionCodeSigningConfig",
         "lambda:PutFunctionRecursionConfig",
-        "lambda:GetFunctionRecursionConfig"
+        "lambda:GetFunctionRecursionConfig",
+        "lambda:PutFunctionScalingConfig",
+        "lambda:PublishVersion",
+        "lambda:PassCapacityProvider"
       ]
     }
   },
@@ -370,6 +433,10 @@
       "uniqueItems": true
     },
     "Arn": { "description": "", "type": "string" },
+    "CapacityProviderConfig": {
+      "$ref": "#/definitions/CapacityProviderConfig",
+      "description": ""
+    },
     "Code": {
       "$ref": "#/definitions/Code",
       "description": "The code for the function. You can define your function code in multiple ways:\n  +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.\n  +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.\n  +  For container images, specify the URI of your container image in the ECR registry in the ``ImageUri`` property."
@@ -407,6 +474,10 @@
       "minLength": 1,
       "type": "string"
     },
+    "FunctionScalingConfig": {
+      "$ref": "#/definitions/FunctionScalingConfig",
+      "description": ""
+    },
     "Handler": {
       "description": "The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).",
       "maxLength": 128,
@@ -441,6 +512,7 @@
       "enum": ["Image", "Zip"],
       "type": "string"
     },
+    "PublishToLatestPublished": { "description": "", "type": "boolean" },
     "RecursiveLoop": {
       "$ref": "#/definitions/RecursiveLoop",
       "description": "The status of your function's recursive loop detection configuration.\n When this value is set to ``Allow``and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.\n When this value is set to ``Terminate`` and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you."
@@ -524,6 +596,7 @@
     "/properties/Code/S3Key",
     "/properties/Code/S3ObjectVersion",
     "/properties/Code/ZipFile",
-    "/properties/Code/SourceKMSKeyArn"
+    "/properties/Code/SourceKMSKeyArn",
+    "/properties/PublishToLatestPublished"
   ]
 }

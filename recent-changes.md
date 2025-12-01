@@ -1,2 +1,14 @@
-- updated `AWS::Organizations::Policy`
-  - updated property `Type`
+- added `AWS::Lambda::CapacityProvider`
+- updated `AWS::Lambda::Function`
+  - added definition `CapacityProviderConfig`
+  - added definition `FunctionScalingConfig`
+  - added definition `LambdaManagedInstancesCapacityProviderConfig`
+  - added property `CapacityProviderConfig`
+  - added property `FunctionScalingConfig`
+  - added property `PublishToLatestPublished`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Lambda::Version`
+  - added definition `FunctionScalingConfig`
+  - added property `FunctionScalingConfig`
+  - updated handler permissions
