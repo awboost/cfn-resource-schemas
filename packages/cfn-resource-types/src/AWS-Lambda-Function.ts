@@ -39,6 +39,7 @@ export type LambdaFunctionProperties = {
    * @maxLength `256`
    */
   Description?: string;
+  DurableConfig?: DurableConfig;
   /**
    * Environment variables that are accessible from function code during execution.
    */
@@ -230,6 +231,24 @@ export type DeadLetterConfig = {
    * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
    */
   TargetArn?: string;
+};
+/**
+ * Type definition for `AWS::Lambda::Function.DurableConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-durableconfig.html}
+ */
+export type DurableConfig = {
+  /**
+   * The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+   * @min `1`
+   * @max `31622400`
+   */
+  ExecutionTimeout: number;
+  /**
+   * The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+   * @min `1`
+   * @max `90`
+   */
+  RetentionPeriodInDays?: number;
 };
 /**
  * Type definition for `AWS::Lambda::Function.Environment`.

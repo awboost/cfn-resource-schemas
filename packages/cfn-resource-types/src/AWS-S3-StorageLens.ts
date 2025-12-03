@@ -34,6 +34,10 @@ export type AccountLevel = {
    */
   AdvancedDataProtectionMetrics?: AdvancedDataProtectionMetrics;
   /**
+   * Advanced Performance Metrics.
+   */
+  AdvancedPerformanceMetrics?: AdvancedPerformanceMetrics;
+  /**
    * Bucket-level metrics configurations.
    */
   BucketLevel: BucketLevel;
@@ -80,6 +84,17 @@ export type AdvancedDataProtectionMetrics = {
   IsEnabled?: boolean;
 };
 /**
+ * Type definition for `AWS::S3::StorageLens.AdvancedPerformanceMetrics`.
+ * Advanced Performance Metrics.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedperformancemetrics.html}
+ */
+export type AdvancedPerformanceMetrics = {
+  /**
+   * Specifies whether the Advanced Performance Metrics is enabled or disabled.
+   */
+  IsEnabled?: boolean;
+};
+/**
  * Type definition for `AWS::S3::StorageLens.AwsOrg`.
  * The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html}
@@ -108,6 +123,10 @@ export type BucketLevel = {
    * Enables advanced data protection metrics.
    */
   AdvancedDataProtectionMetrics?: AdvancedDataProtectionMetrics;
+  /**
+   * Advanced Performance Metrics.
+   */
+  AdvancedPerformanceMetrics?: AdvancedPerformanceMetrics;
   /**
    * Enables detailed status codes metrics.
    */
@@ -151,6 +170,10 @@ export type DataExport = {
    * S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
    */
   S3BucketDestination?: S3BucketDestination;
+  /**
+   * S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+   */
+  StorageLensTableDestination?: StorageLensTableDestination;
 };
 /**
  * Type definition for `AWS::S3::StorageLens.DetailedStatusCodesMetrics`.
@@ -287,6 +310,10 @@ export type StorageLensConfiguration = {
    */
   Exclude?: BucketsAndRegions;
   /**
+   * Expanded Prefixes Data Export.
+   */
+  ExpandedPrefixesDataExport?: StorageLensExpandedPrefixesDataExport;
+  /**
    * The ID that identifies the Amazon S3 Storage Lens configuration.
    * @minLength `1`
    * @maxLength `64`
@@ -301,6 +328,25 @@ export type StorageLensConfiguration = {
    * Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
    */
   IsEnabled: boolean;
+  /**
+   * The delimiter to divide S3 key into hierarchy of prefixes.
+   */
+  PrefixDelimiter?: string;
+};
+/**
+ * Type definition for `AWS::S3::StorageLens.StorageLensExpandedPrefixesDataExport`.
+ * Expanded Prefixes Data Export.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensexpandedprefixesdataexport.html}
+ */
+export type StorageLensExpandedPrefixesDataExport = {
+  /**
+   * S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
+   */
+  S3BucketDestination?: S3BucketDestination;
+  /**
+   * S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+   */
+  StorageLensTableDestination?: StorageLensTableDestination;
 };
 /**
  * Type definition for `AWS::S3::StorageLens.StorageLensGroupLevel`.
@@ -321,6 +367,21 @@ export type StorageLensGroupLevel = {
 export type StorageLensGroupSelectionCriteria = {
   Exclude?: string[];
   Include?: string[];
+};
+/**
+ * Type definition for `AWS::S3::StorageLens.StorageLensTableDestination`.
+ * S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelenstabledestination.html}
+ */
+export type StorageLensTableDestination = {
+  /**
+   * Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
+   */
+  Encryption?: Encryption;
+  /**
+   * Specifies whether the export to S3 Tables is enabled or disabled.
+   */
+  IsEnabled: boolean;
 };
 /**
  * Type definition for `AWS::S3::StorageLens.Tag`.

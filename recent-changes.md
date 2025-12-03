@@ -1,14 +1,15 @@
-- added `AWS::Lambda::CapacityProvider`
+- added `AWS::DevOpsAgent::AgentSpace`
+- added `AWS::DevOpsAgent::Association`
 - updated `AWS::Lambda::Function`
-  - added definition `CapacityProviderConfig`
-  - added definition `FunctionScalingConfig`
-  - added definition `LambdaManagedInstancesCapacityProviderConfig`
-  - added property `CapacityProviderConfig`
-  - added property `FunctionScalingConfig`
-  - added property `PublishToLatestPublished`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::Lambda::Version`
-  - added definition `FunctionScalingConfig`
-  - added property `FunctionScalingConfig`
+  - added `conditionalCreateOnlyProperties`
+  - added definition `DurableConfig`
+  - added property `DurableConfig`
+- updated `AWS::S3::StorageLens`
+  - added definition `AdvancedPerformanceMetrics`
+  - added definition `StorageLensExpandedPrefixesDataExport`
+  - added definition `StorageLensTableDestination`
+  - updated definition `AccountLevel`
+  - updated definition `BucketLevel`
+  - updated definition `DataExport`
+  - updated definition `StorageLensConfiguration`
   - updated handler permissions

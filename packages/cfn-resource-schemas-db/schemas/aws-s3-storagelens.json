@@ -1,5 +1,5 @@
 {
-  "$hash": "158a1b7b7361853be0c6bd7b23c42118f8009b34",
+  "$hash": "c66bb1077c255831a65fef75b3981d55820ef818",
   "$id": "aws-s3-storagelens.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/StorageLensConfiguration/Id"],
@@ -14,6 +14,9 @@
         },
         "AdvancedDataProtectionMetrics": {
           "$ref": "#/definitions/AdvancedDataProtectionMetrics"
+        },
+        "AdvancedPerformanceMetrics": {
+          "$ref": "#/definitions/AdvancedPerformanceMetrics"
         },
         "BucketLevel": { "$ref": "#/definitions/BucketLevel" },
         "DetailedStatusCodesMetrics": {
@@ -59,6 +62,17 @@
       },
       "type": "object"
     },
+    "AdvancedPerformanceMetrics": {
+      "additionalProperties": false,
+      "description": "Advanced Performance Metrics.",
+      "properties": {
+        "IsEnabled": {
+          "description": "Specifies whether the Advanced Performance Metrics is enabled or disabled.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Arn": {
       "description": "The Amazon Resource Name (ARN) of the specified resource.",
       "type": "string"
@@ -80,6 +94,9 @@
         },
         "AdvancedDataProtectionMetrics": {
           "$ref": "#/definitions/AdvancedDataProtectionMetrics"
+        },
+        "AdvancedPerformanceMetrics": {
+          "$ref": "#/definitions/AdvancedPerformanceMetrics"
         },
         "DetailedStatusCodesMetrics": {
           "$ref": "#/definitions/DetailedStatusCodesMetrics"
@@ -124,7 +141,10 @@
       "description": "Specifies how Amazon S3 Storage Lens metrics should be exported.",
       "properties": {
         "CloudWatchMetrics": { "$ref": "#/definitions/CloudWatchMetrics" },
-        "S3BucketDestination": { "$ref": "#/definitions/S3BucketDestination" }
+        "S3BucketDestination": { "$ref": "#/definitions/S3BucketDestination" },
+        "StorageLensTableDestination": {
+          "$ref": "#/definitions/StorageLensTableDestination"
+        }
       },
       "type": "object"
     },
@@ -258,11 +278,18 @@
         "AwsOrg": { "$ref": "#/definitions/AwsOrg" },
         "DataExport": { "$ref": "#/definitions/DataExport" },
         "Exclude": { "$ref": "#/definitions/BucketsAndRegions" },
+        "ExpandedPrefixesDataExport": {
+          "$ref": "#/definitions/StorageLensExpandedPrefixesDataExport"
+        },
         "Id": { "$ref": "#/definitions/Id" },
         "Include": { "$ref": "#/definitions/BucketsAndRegions" },
         "IsEnabled": {
           "description": "Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.",
           "type": "boolean"
+        },
+        "PrefixDelimiter": {
+          "description": "The delimiter to divide S3 key into hierarchy of prefixes.",
+          "type": "string"
         },
         "StorageLensArn": {
           "description": "The ARN for the Amazon S3 Storage Lens configuration.",
@@ -270,6 +297,17 @@
         }
       },
       "required": ["Id", "AccountLevel", "IsEnabled"],
+      "type": "object"
+    },
+    "StorageLensExpandedPrefixesDataExport": {
+      "additionalProperties": false,
+      "description": "Expanded Prefixes Data Export.",
+      "properties": {
+        "S3BucketDestination": { "$ref": "#/definitions/S3BucketDestination" },
+        "StorageLensTableDestination": {
+          "$ref": "#/definitions/StorageLensTableDestination"
+        }
+      },
       "type": "object"
     },
     "StorageLensGroupArn": {
@@ -305,6 +343,19 @@
       },
       "type": "object"
     },
+    "StorageLensTableDestination": {
+      "additionalProperties": false,
+      "description": "S3 Tables destination settings for the Amazon S3 Storage Lens metrics export.",
+      "properties": {
+        "Encryption": { "$ref": "#/definitions/Encryption" },
+        "IsEnabled": {
+          "description": "Specifies whether the export to S3 Tables is enabled or disabled.",
+          "type": "boolean"
+        }
+      },
+      "required": ["IsEnabled"],
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -333,6 +384,8 @@
         "s3:PutStorageLensConfigurationTagging",
         "s3:GetStorageLensConfiguration",
         "s3:GetStorageLensConfigurationTagging",
+        "s3tables:CreateTableBucket",
+        "s3tables:PutTableBucketPolicy",
         "organizations:DescribeOrganization",
         "organizations:ListAccounts",
         "organizations:ListAWSServiceAccessForOrganization",
@@ -359,6 +412,8 @@
         "s3:PutStorageLensConfigurationTagging",
         "s3:GetStorageLensConfiguration",
         "s3:GetStorageLensConfigurationTagging",
+        "s3tables:CreateTableBucket",
+        "s3tables:PutTableBucketPolicy",
         "organizations:DescribeOrganization",
         "organizations:ListAccounts",
         "organizations:ListAWSServiceAccessForOrganization",
