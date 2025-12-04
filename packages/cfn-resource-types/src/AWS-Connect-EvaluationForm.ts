@@ -6,6 +6,9 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-evaluationform.html}
  */
 export type ConnectEvaluationFormProperties = {
+  /**
+   * The automatic evaluation configuration of an evaluation form.
+   */
   AutoEvaluationConfiguration?: AutoEvaluationConfiguration;
   /**
    * The description of the evaluation form.
@@ -26,6 +29,7 @@ export type ConnectEvaluationFormProperties = {
    * @maxLength `200`
    */
   Items: EvaluationFormBaseItem[];
+  LanguageConfiguration?: EvaluationFormLanguageConfiguration;
   /**
    * A scoring strategy of the evaluation form.
    */
@@ -40,6 +44,7 @@ export type ConnectEvaluationFormProperties = {
    * @maxLength `50`
    */
   Tags?: Tag[];
+  TargetConfiguration?: EvaluationFormTargetConfiguration;
   /**
    * A title of the evaluation form.
    * @minLength `1`
@@ -59,6 +64,7 @@ export type ConnectEvaluationFormAttributes = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.AutoEvaluationConfiguration`.
+ * Configuration information about automated evaluations.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-autoevaluationconfiguration.html}
  */
 export type AutoEvaluationConfiguration = {
@@ -66,11 +72,12 @@ export type AutoEvaluationConfiguration = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.AutomaticFailConfiguration`.
+ * Information about automatic fail configuration for an evaluation form.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-automaticfailconfiguration.html}
  */
 export type AutomaticFailConfiguration = {
   /**
-   * The target section refId to control failure propagation boundary.
+   * The referenceId of the target section for auto failure.
    * @pattern `^[a-zA-Z0-9._-]{1,40}$`
    */
   TargetSection?: string;
@@ -103,95 +110,178 @@ export type EvaluationFormItem = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementCondition`.
+ * A condition for item enablement.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementcondition.html}
  */
 export type EvaluationFormItemEnablementCondition = {
   /**
-   * The list of operands that compose the condition. Each operand represents a specific criteria to be evaluated.
+   * Operands of the enablement condition.
    * @minLength `1`
    */
   Operands: EvaluationFormItemEnablementConditionOperand[];
   /**
-   * The logical operator used to combine multiple operands, determining how the condition is evaluated as a whole.
+   * The operator to be used to be applied to operands if more than one provided.
    */
   Operator?: "OR" | "AND";
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementConditionOperand`.
+ * An operand of the enablement condition.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconditionoperand.html}
  */
 export type EvaluationFormItemEnablementConditionOperand = {
   /**
-   * A direct comparison expression that evaluates a form item's value against specified criteria.
+   * An expression of the enablement condition.
    */
   Expression?: EvaluationFormItemEnablementExpression;
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementConfiguration`.
+ * An item enablement configuration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementconfiguration.html}
  */
 export type EvaluationFormItemEnablementConfiguration = {
   /**
-   * Defines the enablement status to be applied when the specified condition is met.
+   * An enablement action that if condition is satisfied.
    */
   Action: "DISABLE" | "ENABLE";
   /**
-   * Specifies the logical condition that determines when to apply the enablement rules.
+   * A condition for item enablement configuration.
    */
   Condition: EvaluationFormItemEnablementCondition;
   /**
-   * Specifies the default enablement status to be applied when the condition is not satisfied.
+   * An enablement action that if condition is not satisfied.
    */
   DefaultAction?: "DISABLE" | "ENABLE";
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementExpression`.
+ * An expression that defines a basic building block of conditional enablement.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementexpression.html}
  */
 export type EvaluationFormItemEnablementExpression = {
   /**
-   * Specifies the comparison method to determine if the source value matches any of the specified values.
+   * A comparator to be used against list of values.
    */
   Comparator: "IN" | "NOT_IN" | "ALL_IN" | "EXACT";
   /**
-   * Identifies the form item whose value will be evaluated in the expression.
+   * A source item of enablement expression.
    */
   Source: EvaluationFormItemEnablementSource;
   /**
-   * The list of possible values to compare against the source form item's value.
+   * A list of values from source item.
    * @minLength `1`
    */
   Values: EvaluationFormItemEnablementSourceValue[];
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementSource`.
+ * An enablement expression source item.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementsource.html}
  */
 export type EvaluationFormItemEnablementSource = {
   /**
-   * The identifier to reference the item.
+   * A referenceId of the source item.
    * @pattern `^[a-zA-Z0-9._-]{1,40}$`
    */
   RefId?: string;
   /**
-   * The type of the source entity.
+   * A type of source item.
    */
   Type: "QUESTION_REF_ID";
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormItemEnablementSourceValue`.
+ * An enablement expression source value.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformitemenablementsourcevalue.html}
  */
 export type EvaluationFormItemEnablementSourceValue = {
   /**
-   * The reference id of the source entity value.
+   * A referenceId of the source value.
    * @pattern `^[a-zA-Z0-9._-]{1,40}$`
    */
   RefId?: string;
   /**
-   * Type of the source entity value.
+   * A type of source item value.
    */
   Type?: "OPTION_REF_ID";
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormLanguageConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformlanguageconfiguration.html}
+ */
+export type EvaluationFormLanguageConfiguration = {
+  /**
+   * The language of the form
+   */
+  FormLanguage?: "de-DE" | "en-US" | "es-ES" | "fr-FR" | "it-IT" | "pt-BR";
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionAutomation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html}
+ */
+export type EvaluationFormMultiSelectQuestionAutomation = {
+  /**
+   * The source of automation answer of the question.
+   */
+  AnswerSource?: EvaluationFormQuestionAutomationAnswerSource;
+  /**
+   * The option reference identifiers of the default answers.
+   */
+  DefaultOptionRefIds?: string[];
+  /**
+   * The answer options for the automation.
+   * @minLength `1`
+   * @maxLength `20`
+   */
+  Options: EvaluationFormMultiSelectQuestionAutomationOption[];
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionAutomationOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomationoption.html}
+ */
+export type EvaluationFormMultiSelectQuestionAutomationOption = {
+  /**
+   * The automation option based on Rules categories.
+   */
+  RuleCategory: MultiSelectQuestionRuleCategoryAutomation;
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionOption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html}
+ */
+export type EvaluationFormMultiSelectQuestionOption = {
+  /**
+   * The identifier used to reference the option.
+   * @pattern `^[a-zA-Z0-9._-]{1,40}$`
+   */
+  RefId: string;
+  /**
+   * The title of the option.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Text: string;
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html}
+ */
+export type EvaluationFormMultiSelectQuestionProperties = {
+  /**
+   * The automation properties for the multi-select question.
+   */
+  Automation?: EvaluationFormMultiSelectQuestionAutomation;
+  /**
+   * The display mode of the multi-select question.
+   */
+  DisplayAs?: "DROPDOWN" | "CHECKBOX";
+  /**
+   * The list of options for the question.
+   * @minLength `2`
+   * @maxLength `256`
+   */
+  Options: EvaluationFormMultiSelectQuestionOption[];
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormNumericQuestionAutomation`.
@@ -199,6 +289,9 @@ export type EvaluationFormItemEnablementSourceValue = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html}
  */
 export type EvaluationFormNumericQuestionAutomation = {
+  /**
+   * A source of automation answer for numeric question.
+   */
   AnswerSource?: EvaluationFormQuestionAutomationAnswerSource;
   /**
    * The property value of the automation.
@@ -215,6 +308,9 @@ export type EvaluationFormNumericQuestionOption = {
    * The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
    */
   AutomaticFail?: boolean;
+  /**
+   * A configuration for automatic fail.
+   */
   AutomaticFailConfiguration?: AutomaticFailConfiguration;
   /**
    * The maximum answer value of the range option.
@@ -264,6 +360,9 @@ export type EvaluationFormNumericQuestionProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html}
  */
 export type EvaluationFormQuestion = {
+  /**
+   * A question conditional enablement.
+   */
   Enablement?: EvaluationFormItemEnablementConfiguration;
   /**
    * The instructions of the section.
@@ -313,11 +412,12 @@ export type EvaluationFormQuestion = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormQuestionAutomationAnswerSource`.
+ * A question automation answer.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestionautomationanswersource.html}
  */
 export type EvaluationFormQuestionAutomationAnswerSource = {
   /**
-   * The type of the answer source
+   * The automation answer source type.
    */
   SourceType: "CONTACT_LENS_DATA" | "GEN_AI";
 };
@@ -327,6 +427,7 @@ export type EvaluationFormQuestionAutomationAnswerSource = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html}
  */
 export type EvaluationFormQuestionTypeProperties = {
+  MultiSelect?: EvaluationFormMultiSelectQuestionProperties;
   /**
    * The properties of the numeric question.
    */
@@ -335,6 +436,9 @@ export type EvaluationFormQuestionTypeProperties = {
    * The properties of the numeric question.
    */
   SingleSelect?: EvaluationFormSingleSelectQuestionProperties;
+  /**
+   * The properties of the text question.
+   */
   Text?: EvaluationFormTextQuestionProperties;
 };
 /**
@@ -383,6 +487,9 @@ export type EvaluationFormSection = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html}
  */
 export type EvaluationFormSingleSelectQuestionAutomation = {
+  /**
+   * Automation answer source.
+   */
   AnswerSource?: EvaluationFormQuestionAutomationAnswerSource;
   /**
    * The identifier of the default answer option, when none of the automation options match the criteria.
@@ -420,6 +527,9 @@ export type EvaluationFormSingleSelectQuestionOption = {
    * The flag to mark the option as automatic fail. If an automatic fail answer is provided, the overall evaluation gets a score of 0.
    */
   AutomaticFail?: boolean;
+  /**
+   * Whether automatic fail is configured on a single select question.
+   */
   AutomaticFailConfiguration?: AutomaticFailConfiguration;
   /**
    * The identifier of the answer option. An identifier must be unique within the question.
@@ -468,24 +578,56 @@ export type EvaluationFormSingleSelectQuestionProperties = {
   Options: EvaluationFormSingleSelectQuestionOption[];
 };
 /**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormTargetConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtargetconfiguration.html}
+ */
+export type EvaluationFormTargetConfiguration = {
+  /**
+   * The interaction type of a contact
+   */
+  ContactInteractionType: "AGENT" | "AUTOMATED";
+};
+/**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormTextQuestionAutomation`.
+ * Information about the automation configuration in text questions.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionautomation.html}
  */
 export type EvaluationFormTextQuestionAutomation = {
   /**
-   * The source of automation answer of the question.
+   * Automation answer source.
    */
   AnswerSource?: EvaluationFormQuestionAutomationAnswerSource;
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormTextQuestionProperties`.
+ * Information about properties for a text question in an evaluation form.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtextquestionproperties.html}
  */
 export type EvaluationFormTextQuestionProperties = {
   /**
-   * Specifies how the question can be automatically answered.
+   * The automation properties of the text question.
    */
   Automation?: EvaluationFormTextQuestionAutomation;
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.MultiSelectQuestionRuleCategoryAutomation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-multiselectquestionrulecategoryautomation.html}
+ */
+export type MultiSelectQuestionRuleCategoryAutomation = {
+  /**
+   * The category name as defined in Rules.
+   * @minLength `1`
+   * @maxLength `50`
+   */
+  Category: string;
+  /**
+   * The automation condition applied on contact categories.
+   */
+  Condition: "PRESENT" | "NOT_PRESENT";
+  /**
+   * The option identifiers referencing the options to be selected when the automation option is triggered.
+   */
+  OptionRefIds: string[];
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.NumericQuestionPropertyValueAutomation`.
@@ -508,7 +650,8 @@ export type NumericQuestionPropertyValueAutomation = {
     | "LONGEST_HOLD_DURATION"
     | "NUMBER_OF_HOLDS"
     | "AGENT_INTERACTION_AND_HOLD_DURATION"
-    | "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT";
+    | "CUSTOMER_SENTIMENT_SCORE_WITHOUT_AGENT"
+    | "CUSTOMER_SENTIMENT_SCORE_WITH_AGENT";
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.ScoringStrategy`.

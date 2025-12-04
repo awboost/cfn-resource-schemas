@@ -1,15 +1,35 @@
-- added `AWS::DevOpsAgent::AgentSpace`
-- added `AWS::DevOpsAgent::Association`
-- updated `AWS::Lambda::Function`
-  - added `conditionalCreateOnlyProperties`
-  - added definition `DurableConfig`
-  - added property `DurableConfig`
-- updated `AWS::S3::StorageLens`
-  - added definition `AdvancedPerformanceMetrics`
-  - added definition `StorageLensExpandedPrefixesDataExport`
-  - added definition `StorageLensTableDestination`
-  - updated definition `AccountLevel`
-  - updated definition `BucketLevel`
-  - updated definition `DataExport`
-  - updated definition `StorageLensConfiguration`
-  - updated handler permissions
+- added `AWS::Connect::DataTable`
+- added `AWS::Connect::DataTableAttribute`
+- added `AWS::ObservabilityAdmin::S3TableIntegration`
+- added `AWS::ObservabilityAdmin::TelemetryPipelines`
+- added `AWS::SecurityHub::ConnectorV2`
+- updated `AWS::Connect::EvaluationForm`
+  - added definition `EvaluationFormLanguageConfiguration`
+  - added definition `EvaluationFormMultiSelectQuestionAutomationOption`
+  - added definition `EvaluationFormMultiSelectQuestionAutomation`
+  - added definition `EvaluationFormMultiSelectQuestionOption`
+  - added definition `EvaluationFormMultiSelectQuestionProperties`
+  - added definition `EvaluationFormTargetConfiguration`
+  - added definition `MultiSelectQuestionRuleCategoryAutomation`
+  - added definition `ReferenceIdList`
+  - added property `LanguageConfiguration`
+  - added property `TargetConfiguration`
+  - updated definition `AutoEvaluationConfiguration`
+  - updated definition `AutomaticFailConfiguration`
+  - updated definition `EvaluationFormItemEnablementConditionOperand`
+  - updated definition `EvaluationFormItemEnablementCondition`
+  - updated definition `EvaluationFormItemEnablementConfiguration`
+  - updated definition `EvaluationFormItemEnablementExpression`
+  - updated definition `EvaluationFormItemEnablementSourceValue`
+  - updated definition `EvaluationFormItemEnablementSource`
+  - updated definition `EvaluationFormNumericQuestionAutomation`
+  - updated definition `EvaluationFormNumericQuestionOption`
+  - updated definition `EvaluationFormQuestionAutomationAnswerSource`
+  - updated definition `EvaluationFormQuestionTypeProperties`
+  - updated definition `EvaluationFormQuestion`
+  - updated definition `EvaluationFormSingleSelectQuestionAutomation`
+  - updated definition `EvaluationFormSingleSelectQuestionOption`
+  - updated definition `EvaluationFormTextQuestionAutomation`
+  - updated definition `EvaluationFormTextQuestionProperties`
+  - updated definition `NumericQuestionPropertyValueAutomation`
+  - updated property `AutoEvaluationConfiguration`
