@@ -26,6 +26,10 @@ export type S3TablesTableProperties = {
    */
   SnapshotManagement?: SnapshotManagement;
   /**
+   * Specifies storage class settings for the table
+   */
+  StorageClassConfiguration?: StorageClassConfiguration;
+  /**
    * The Amazon Resource Name (ARN) of the specified table bucket.
    */
   TableBucketARN: string;
@@ -143,6 +147,17 @@ export type SnapshotManagement = {
    * Indicates whether the SnapshotManagement maintenance action is enabled.
    */
   Status?: "enabled" | "disabled";
+};
+/**
+ * Type definition for `AWS::S3Tables::Table.StorageClassConfiguration`.
+ * Specifies storage class settings for the table
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-storageclassconfiguration.html}
+ */
+export type StorageClassConfiguration = {
+  /**
+   * The storage class for the table
+   */
+  StorageClass?: "STANDARD" | "INTELLIGENT_TIERING";
 };
 /**
  * Type definition for `AWS::S3Tables::Table.Tag`.

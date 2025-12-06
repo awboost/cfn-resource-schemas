@@ -15,6 +15,10 @@ export type S3TablesTableBucketProperties = {
    */
   MetricsConfiguration?: MetricsConfiguration;
   /**
+   * Specifies storage class settings for the table bucket
+   */
+  StorageClassConfiguration?: StorageClassConfiguration;
+  /**
    * A name for the table bucket.
    * @minLength `3`
    * @maxLength `63`
@@ -64,6 +68,17 @@ export type MetricsConfiguration = {
    * Indicates whether Metrics are enabled.
    */
   Status?: "Enabled" | "Disabled";
+};
+/**
+ * Type definition for `AWS::S3Tables::TableBucket.StorageClassConfiguration`.
+ * Specifies storage class settings for the table bucket
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-storageclassconfiguration.html}
+ */
+export type StorageClassConfiguration = {
+  /**
+   * The storage class for the table bucket
+   */
+  StorageClass?: "STANDARD" | "INTELLIGENT_TIERING";
 };
 /**
  * Type definition for `AWS::S3Tables::TableBucket.Tag`.

@@ -1,35 +1,22 @@
-- added `AWS::Connect::DataTable`
-- added `AWS::Connect::DataTableAttribute`
-- added `AWS::ObservabilityAdmin::S3TableIntegration`
-- added `AWS::ObservabilityAdmin::TelemetryPipelines`
-- added `AWS::SecurityHub::ConnectorV2`
-- updated `AWS::Connect::EvaluationForm`
-  - added definition `EvaluationFormLanguageConfiguration`
-  - added definition `EvaluationFormMultiSelectQuestionAutomationOption`
-  - added definition `EvaluationFormMultiSelectQuestionAutomation`
-  - added definition `EvaluationFormMultiSelectQuestionOption`
-  - added definition `EvaluationFormMultiSelectQuestionProperties`
-  - added definition `EvaluationFormTargetConfiguration`
-  - added definition `MultiSelectQuestionRuleCategoryAutomation`
-  - added definition `ReferenceIdList`
-  - added property `LanguageConfiguration`
-  - added property `TargetConfiguration`
-  - updated definition `AutoEvaluationConfiguration`
-  - updated definition `AutomaticFailConfiguration`
-  - updated definition `EvaluationFormItemEnablementConditionOperand`
-  - updated definition `EvaluationFormItemEnablementCondition`
-  - updated definition `EvaluationFormItemEnablementConfiguration`
-  - updated definition `EvaluationFormItemEnablementExpression`
-  - updated definition `EvaluationFormItemEnablementSourceValue`
-  - updated definition `EvaluationFormItemEnablementSource`
-  - updated definition `EvaluationFormNumericQuestionAutomation`
-  - updated definition `EvaluationFormNumericQuestionOption`
-  - updated definition `EvaluationFormQuestionAutomationAnswerSource`
-  - updated definition `EvaluationFormQuestionTypeProperties`
-  - updated definition `EvaluationFormQuestion`
-  - updated definition `EvaluationFormSingleSelectQuestionAutomation`
-  - updated definition `EvaluationFormSingleSelectQuestionOption`
-  - updated definition `EvaluationFormTextQuestionAutomation`
-  - updated definition `EvaluationFormTextQuestionProperties`
-  - updated definition `NumericQuestionPropertyValueAutomation`
-  - updated property `AutoEvaluationConfiguration`
+- added `AWS::Connect::DataTableRecord`
+- added `AWS::Glue::IdentityCenterConfiguration`
+- updated `AWS::GameLift::Script`
+  - updated property `SizeOnDisk`
+- updated `AWS::MediaLive::Channel`
+  - added definition `Hlg2020Settings`
+  - updated definition `Av1Settings`
+  - updated definition `H265ColorSpaceSettings`
+- updated `AWS::MediaLive::Input`
+  - added definition `RouterDestinationSettings`
+  - added definition `RouterSettings`
+  - added property `RouterSettings`
+  - updated `createOnlyProperties`
+- updated `AWS::S3Tables::Table`
+  - added definition `StorageClassConfiguration`
+  - added property `StorageClassConfiguration`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::S3Tables::TableBucket`
+  - added definition `StorageClassConfiguration`
+  - added property `StorageClassConfiguration`
+  - updated handler permissions

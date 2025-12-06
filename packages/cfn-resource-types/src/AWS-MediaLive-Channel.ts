@@ -312,6 +312,8 @@ export type Av1Settings = {
   QvbrQualityLevel?: number;
   RateControlMode?: string;
   SceneChangeDetect?: string;
+  SpatialAq?: string;
+  TemporalAq?: string;
   TimecodeBurninSettings?: TimecodeBurninSettings;
 };
 /**
@@ -876,6 +878,7 @@ export type H265ColorSpaceSettings = {
   ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
   DolbyVision81Settings?: DolbyVision81Settings;
   Hdr10Settings?: Hdr10Settings;
+  Hlg2020Settings?: Hlg2020Settings;
   Rec601Settings?: Rec601Settings;
   Rec709Settings?: Rec709Settings;
 };
@@ -943,6 +946,11 @@ export type Hdr10Settings = {
   MaxCll?: number;
   MaxFall?: number;
 };
+/**
+ * Type definition for `AWS::MediaLive::Channel.Hlg2020Settings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlg2020settings.html}
+ */
+export type Hlg2020Settings = Record<string, any>;
 /**
  * Type definition for `AWS::MediaLive::Channel.HlsAkamaiSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-hlsakamaisettings.html}

@@ -1,10 +1,11 @@
 {
-  "$hash": "85578c690d9169de54283ae314c76d193067dc79",
+  "$hash": "b149abc4170cbbc4fad8c2c1a1d1aaade8154db1",
   "$id": "aws-medialive-input.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Vpc",
     "/properties/Type",
+    "/properties/RouterSettings",
     "/properties/InputNetworkLocation"
   ],
   "definitions": {
@@ -89,6 +90,24 @@
       "properties": {
         "SourceIp": { "type": "string" },
         "Url": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "RouterDestinationSettings": {
+      "additionalProperties": false,
+      "properties": { "AvailabilityZoneName": { "type": "string" } },
+      "type": "object"
+    },
+    "RouterSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "Destinations": {
+          "items": { "$ref": "#/definitions/RouterDestinationSettings" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "EncryptionType": { "type": "string" },
+        "SecretArn": { "type": "string" }
       },
       "type": "object"
     },
@@ -191,6 +210,7 @@
     },
     "Name": { "type": "string" },
     "RoleArn": { "type": "string" },
+    "RouterSettings": { "$ref": "#/definitions/RouterSettings" },
     "SdiSources": {
       "items": { "type": "string" },
       "type": "array",

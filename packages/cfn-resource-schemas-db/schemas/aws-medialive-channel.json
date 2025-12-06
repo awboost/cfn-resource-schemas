@@ -1,5 +1,5 @@
 {
-  "$hash": "09896632c5d8dd247f86d7128fd1a2386d6403ce",
+  "$hash": "4869d44defbf3ce8ec90d9bec6eb607a2f9fb26c",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -299,6 +299,8 @@
         "QvbrQualityLevel": { "type": "integer" },
         "RateControlMode": { "type": "string" },
         "SceneChangeDetect": { "type": "string" },
+        "SpatialAq": { "type": "string" },
+        "TemporalAq": { "type": "string" },
         "TimecodeBurninSettings": {
           "$ref": "#/definitions/TimecodeBurninSettings"
         }
@@ -958,6 +960,7 @@
           "$ref": "#/definitions/DolbyVision81Settings"
         },
         "Hdr10Settings": { "$ref": "#/definitions/Hdr10Settings" },
+        "Hlg2020Settings": { "$ref": "#/definitions/Hlg2020Settings" },
         "Rec601Settings": { "$ref": "#/definitions/Rec601Settings" },
         "Rec709Settings": { "$ref": "#/definitions/Rec709Settings" }
       },
@@ -1035,6 +1038,7 @@
       },
       "type": "object"
     },
+    "Hlg2020Settings": { "additionalProperties": false, "type": "object" },
     "HlsAkamaiSettings": {
       "additionalProperties": false,
       "properties": {

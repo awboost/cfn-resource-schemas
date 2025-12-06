@@ -48,7 +48,7 @@ export type GameLiftScriptAttributes = {
   Id: string;
   /**
    * The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
-   * @min `1`
+   * @min `0`
    */
   SizeOnDisk: number;
 };

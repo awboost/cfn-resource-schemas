@@ -1,12 +1,13 @@
 {
-  "$hash": "a0ef8327d004f2c7a61a7022021836b155fe9f22",
+  "$hash": "aaed9d301e2760aba91d8aa364383f320d56a738",
   "$id": "aws-s3tables-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TableBucketARN",
     "/properties/OpenTableFormat",
     "/properties/IcebergMetadata",
-    "/properties/WithoutMetadata"
+    "/properties/WithoutMetadata",
+    "/properties/StorageClassConfiguration"
   ],
   "definitions": {
     "Compaction": {
@@ -95,6 +96,18 @@
       },
       "type": "object"
     },
+    "StorageClassConfiguration": {
+      "additionalProperties": false,
+      "description": "Specifies storage class settings for the table",
+      "properties": {
+        "StorageClass": {
+          "description": "The storage class for the table",
+          "enum": ["STANDARD", "INTELLIGENT_TIERING"],
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "TableARN": {
       "description": "The Amazon Resource Name (ARN) of the specified table.",
       "examples": [
@@ -151,6 +164,8 @@
         "s3tables:GetTable",
         "s3tables:PutTableMaintenanceConfiguration",
         "s3tables:GetTableMaintenanceConfiguration",
+        "s3tables:PutTableStorageClass",
+        "s3tables:GetTableStorageClass",
         "s3tables:TagResource",
         "s3tables:ListTagsForResource"
       ]
@@ -183,6 +198,7 @@
       "permissions": [
         "s3tables:GetTable",
         "s3tables:GetTableMaintenanceConfiguration",
+        "s3tables:GetTableStorageClass",
         "s3tables:ListTagsForResource"
       ]
     },
@@ -205,6 +221,9 @@
     "Namespace": { "$ref": "#/definitions/Namespace" },
     "OpenTableFormat": { "$ref": "#/definitions/OpenTableFormat" },
     "SnapshotManagement": { "$ref": "#/definitions/SnapshotManagement" },
+    "StorageClassConfiguration": {
+      "$ref": "#/definitions/StorageClassConfiguration"
+    },
     "TableARN": { "$ref": "#/definitions/TableARN" },
     "TableBucketARN": { "$ref": "#/definitions/TableBucketARN" },
     "TableName": { "$ref": "#/definitions/TableName" },

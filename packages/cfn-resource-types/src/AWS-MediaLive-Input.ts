@@ -13,6 +13,7 @@ export type MediaLiveInputProperties = {
   MulticastSettings?: MulticastSettingsCreateRequest;
   Name?: string;
   RoleArn?: string;
+  RouterSettings?: RouterSettings;
   SdiSources?: string[];
   Smpte2110ReceiverGroupSettings?: Smpte2110ReceiverGroupSettings;
   Sources?: InputSourceRequest[];
@@ -100,6 +101,22 @@ export type MulticastSettingsCreateRequest = {
 export type MulticastSourceCreateRequest = {
   SourceIp?: string;
   Url?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.RouterDestinationSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-routerdestinationsettings.html}
+ */
+export type RouterDestinationSettings = {
+  AvailabilityZoneName?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Input.RouterSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-routersettings.html}
+ */
+export type RouterSettings = {
+  Destinations?: RouterDestinationSettings[];
+  EncryptionType?: string;
+  SecretArn?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Input.Smpte2110ReceiverGroup`.

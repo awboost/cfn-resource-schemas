@@ -1,5 +1,5 @@
 {
-  "$hash": "65a16b222cb928aab73c0b1795956929fb05e69c",
+  "$hash": "bfbad38a25ca099ac5543b2c6a50a779b9e79de0",
   "$id": "aws-gamelift-script.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -110,7 +110,7 @@
     },
     "SizeOnDisk": {
       "description": "The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at \"0\".",
-      "minimum": 1,
+      "minimum": 0,
       "type": "integer"
     },
     "StorageLocation": {
