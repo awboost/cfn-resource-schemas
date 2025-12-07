@@ -1,5 +1,5 @@
 {
-  "$hash": "fd5d0da9af21194c6316f5a27d9d6534e7503014",
+  "$hash": "32b8f83a704622d2b72b4a7a9c57f10b8da03c26",
   "$id": "aws-s3-accessgrantslocation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
@@ -71,7 +71,7 @@
     "/properties/AccessGrantsLocationArn",
     "/properties/AccessGrantsLocationId"
   ],
-  "required": [],
+  "required": ["IamRoleArn", "LocationScope"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-s3",
   "tagging": {
     "cloudFormationSystemTags": false,

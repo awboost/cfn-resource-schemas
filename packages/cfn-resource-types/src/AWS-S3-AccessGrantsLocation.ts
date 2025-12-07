@@ -8,11 +8,11 @@ export type S3AccessGrantsLocationProperties = {
   /**
    * The Amazon Resource Name (ARN) of the access grant location's associated IAM role.
    */
-  IamRoleArn?: string;
+  IamRoleArn: string;
   /**
    * Descriptor for where the location actually points
    */
-  LocationScope?: string;
+  LocationScope: string;
   Tags?: Tag[];
 };
 /**

@@ -1,22 +1,20 @@
-- added `AWS::Connect::DataTableRecord`
-- added `AWS::Glue::IdentityCenterConfiguration`
-- updated `AWS::GameLift::Script`
-  - updated property `SizeOnDisk`
-- updated `AWS::MediaLive::Channel`
-  - added definition `Hlg2020Settings`
-  - updated definition `Av1Settings`
-  - updated definition `H265ColorSpaceSettings`
-- updated `AWS::MediaLive::Input`
-  - added definition `RouterDestinationSettings`
-  - added definition `RouterSettings`
-  - added property `RouterSettings`
-  - updated `createOnlyProperties`
-- updated `AWS::S3Tables::Table`
-  - added definition `StorageClassConfiguration`
-  - added property `StorageClassConfiguration`
-  - updated `createOnlyProperties`
+- updated `AWS::IoTFleetHub::Application`
+  - removed `sourceUrl`
+  - updated `readOnlyProperties`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::S3Tables::TableBucket`
-  - added definition `StorageClassConfiguration`
-  - added property `StorageClassConfiguration`
-  - updated handler permissions
+  - updated property `ApplicationArn`
+  - updated property `ApplicationCreationDate`
+  - updated property `ApplicationDescription`
+  - updated property `ApplicationId`
+  - updated property `ApplicationLastUpdateDate`
+  - updated property `ApplicationName`
+  - updated property `ApplicationState`
+  - updated property `ApplicationUrl`
+  - updated property `ErrorMessage`
+  - updated property `RoleArn`
+  - updated property `SsoClientId`
+  - updated property `Tags`
+- updated `AWS::S3::AccessGrant`
+- updated `AWS::S3::AccessGrantsLocation`
+  - updated `required`

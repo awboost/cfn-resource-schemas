@@ -1,5 +1,5 @@
 {
-  "$hash": "f85331d4f24327fa4edcf63b3abfb7ef93efd141",
+  "$hash": "af2130264340314f27777806e539ff2c0a2c4395",
   "$id": "aws-s3-accessgrant.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/S3PrefixType", "/properties/Tags"],
@@ -45,7 +45,7 @@
       "type": "object"
     }
   },
-  "description": "The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.",
+  "description": "The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance. ",
   "handlers": {
     "create": { "permissions": ["s3:CreateAccessGrant", "s3:TagResource"] },
     "delete": { "permissions": ["s3:DeleteAccessGrant"] },
