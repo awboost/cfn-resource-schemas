@@ -1,11 +1,8 @@
 {
-  "$hash": "d4f2d02f4a20bfbd3830a67e226e45707976d353",
+  "$hash": "a2b908799d01990d950ba1c72fedbee0b17f0ad9",
   "$id": "aws-s3-bucket.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/BucketName",
-    "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration"
-  ],
+  "createOnlyProperties": ["/properties/BucketName"],
   "definitions": {
     "AbortIncompleteMultipartUpload": {
       "additionalProperties": false,

@@ -1,20 +1,2 @@
-- updated `AWS::IoTFleetHub::Application`
-  - removed `sourceUrl`
-  - updated `readOnlyProperties`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `ApplicationArn`
-  - updated property `ApplicationCreationDate`
-  - updated property `ApplicationDescription`
-  - updated property `ApplicationId`
-  - updated property `ApplicationLastUpdateDate`
-  - updated property `ApplicationName`
-  - updated property `ApplicationState`
-  - updated property `ApplicationUrl`
-  - updated property `ErrorMessage`
-  - updated property `RoleArn`
-  - updated property `SsoClientId`
-  - updated property `Tags`
-- updated `AWS::S3::AccessGrant`
-- updated `AWS::S3::AccessGrantsLocation`
-  - updated `required`
+- updated `AWS::S3::Bucket`
+  - updated `createOnlyProperties`
