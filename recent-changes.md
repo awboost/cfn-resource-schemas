@@ -1,2 +1,55 @@
-- updated `AWS::S3::Bucket`
+- added `AWS::Connect::Workspace`
+- updated `AWS::Bedrock::DataAutomationProject`
+  - added definition `PIIEntitiesConfiguration`
+  - added definition `PIIEntityTypes`
+  - added definition `PIIRedactionMaskMode`
+  - added definition `SensitiveDataConfiguration`
+  - added definition `SensitiveDataDetectionMode`
+  - added definition `SensitiveDataDetectionScope`
+  - added property `ProjectType`
   - updated `createOnlyProperties`
+  - updated definition `AudioOverrideConfiguration`
+  - updated definition `DocumentOverrideConfiguration`
+  - updated definition `ImageOverrideConfiguration`
+  - updated definition `VideoOverrideConfiguration`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - added definition `AudioConfiguration`
+  - added definition `AudioConfigurations`
+  - added definition `AudioSegmentationConfiguration`
+  - added definition `FixedLengthDuration`
+  - added definition `VideoConfiguration`
+  - added definition `VideoConfigurations`
+  - added definition `VideoSegmentationConfiguration`
+  - updated definition `BedrockEmbeddingModelConfiguration`
+- updated `AWS::DevOpsAgent::Association`
+  - added property `LinkedAssociationIds`
+  - updated `writeOnlyProperties`
+- updated `AWS::ECS::ExpressGatewayService`
+  - added definition `AutoScalingArns`
+  - added definition `ECSManagedResourceArns`
+  - added definition `IngressPathArns`
+  - added property `ECSManagedResourceArns`
+  - added property `Endpoint`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::FSx::DataRepositoryAssociation`
+  - updated definition `AutoExportPolicy`
+  - updated definition `AutoImportPolicy`
+  - updated definition `S3`
+  - updated definition `Tag`
+  - updated property `AssociationId`
+  - updated property `BatchImportMetaDataOnCreate`
+  - updated property `DataRepositoryPath`
+  - updated property `FileSystemId`
+  - updated property `FileSystemPath`
+  - updated property `ImportedFileChunkSize`
+  - updated property `ResourceARN`
+  - updated property `Tags`
+- updated `AWS::Lambda::LayerVersionPermission`
+  - updated `propertyTransform`
+- updated `AWS::LaunchWizard::Deployment`
+  - updated handler permissions
+- updated `AWS::Route53::HostedZone`
+  - added definition `HostedZoneFeatures`
+  - added property `HostedZoneFeatures`
+  - updated handler permissions

@@ -1,5 +1,5 @@
 {
-  "$hash": "c9b3b8571c5e53b5d421bc3b30185b33ce75876b",
+  "$hash": "5893969f08b0ec1fce063a1469a373befa578e90",
   "$id": "aws-route53-hostedzone.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -12,6 +12,17 @@
           "description": "Any comments that you want to include about the hosted zone.",
           "maxLength": 256,
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "HostedZoneFeatures": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "EnableAcceleratedRecovery": {
+          "description": "Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -71,6 +82,8 @@
         "route53:CreateQueryLoggingConfig",
         "route53:ChangeTagsForResource",
         "route53:GetChange",
+        "route53:GetHostedZone",
+        "route53:UpdateHostedZoneFeatures",
         "route53:AssociateVPCWithHostedZone",
         "ec2:DescribeVpcs"
       ]
@@ -80,6 +93,8 @@
         "route53:DeleteHostedZone",
         "route53:DeleteQueryLoggingConfig",
         "route53:ListQueryLoggingConfigs",
+        "route53:UpdateHostedZoneFeatures",
+        "route53:GetHostedZone",
         "route53:GetChange"
       ]
     },
@@ -105,6 +120,7 @@
         "route53:ListTagsForResource",
         "route53:ListQueryLoggingConfigs",
         "route53:UpdateHostedZoneComment",
+        "route53:UpdateHostedZoneFeatures",
         "route53:ChangeTagsForResource",
         "route53:AssociateVPCWithHostedZone",
         "route53:DisassociateVPCFromHostedZone",
@@ -119,6 +135,10 @@
     "HostedZoneConfig": {
       "$ref": "#/definitions/HostedZoneConfig",
       "description": "A complex type that contains an optional comment.\n If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements."
+    },
+    "HostedZoneFeatures": {
+      "$ref": "#/definitions/HostedZoneFeatures",
+      "description": ""
     },
     "HostedZoneTags": {
       "description": "Adds, edits, or deletes tags for a health check or a hosted zone.\n For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.",

@@ -1,5 +1,5 @@
 {
-  "$hash": "9599721428aac94dbc0be31821157e23004b4b86",
+  "$hash": "782533d5504ac04fb9fbfc6fb59378de6c51d276",
   "$id": "aws-launchwizard-deployment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -101,7 +101,8 @@
         "sqs:GetQueueAttributes",
         "sqs:ListQueueTags",
         "sqs:CreateQueue",
-        "sqs:SetQueueAttributes"
+        "sqs:SetQueueAttributes",
+        "ec2:DescribeInstances"
       ],
       "timeoutInMinutes": 370
     },

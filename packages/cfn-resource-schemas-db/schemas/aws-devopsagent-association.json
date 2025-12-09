@@ -1,5 +1,5 @@
 {
-  "$hash": "9bdf9c89fd2068298d08550e0ec4ee13dd3eda66",
+  "$hash": "cd07a2364d460d064c24e9fa2be8eff8a0525e9f",
   "$id": "aws-devopsagent-association.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentSpaceId"],
@@ -534,6 +534,11 @@
       "format": "date-time",
       "type": "string"
     },
+    "LinkedAssociationIds": {
+      "description": "Set of linked association IDs for parent-child relationships",
+      "items": { "$ref": "#/definitions/AssociationId" },
+      "type": "array"
+    },
     "ServiceId": {
       "$ref": "#/definitions/ServiceId",
       "description": "The identifier for the associated service"
@@ -560,6 +565,7 @@
     "/properties/Configuration/MCPServerDatadog/EnableWebhookUpdates",
     "/properties/Configuration/MCPServerSplunk/EnableWebhookUpdates",
     "/properties/Configuration/GitLab/EnableWebhookUpdates",
-    "/properties/Configuration/EventChannel/EnableWebhookUpdates"
+    "/properties/Configuration/EventChannel/EnableWebhookUpdates",
+    "/properties/LinkedAssociationIds"
   ]
 }

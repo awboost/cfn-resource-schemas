@@ -35,6 +35,10 @@ export type BedrockDataAutomationProjectProperties = {
    */
   ProjectName: string;
   /**
+   * Type of the DataAutomationProject - Sync or Async
+   */
+  ProjectType?: "ASYNC" | "SYNC";
+  /**
    * Standard output configuration
    */
   StandardOutputConfiguration?: StandardOutputConfiguration;
@@ -115,6 +119,7 @@ export type AudioLanguageConfiguration = {
 export type AudioOverrideConfiguration = {
   LanguageConfiguration?: AudioLanguageConfiguration;
   ModalityProcessing?: ModalityProcessingConfiguration;
+  SensitiveDataConfiguration?: SensitiveDataConfiguration;
 };
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.AudioStandardExtraction`.
@@ -271,6 +276,7 @@ export type DocumentOutputTextFormatType =
  */
 export type DocumentOverrideConfiguration = {
   ModalityProcessing?: ModalityProcessingConfiguration;
+  SensitiveDataConfiguration?: SensitiveDataConfiguration;
   Splitter?: SplitterConfiguration;
 };
 /**
@@ -326,6 +332,7 @@ export type ImageExtractionCategoryType =
  */
 export type ImageOverrideConfiguration = {
   ModalityProcessing?: ModalityProcessingConfiguration;
+  SensitiveDataConfiguration?: SensitiveDataConfiguration;
 };
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.ImageStandardExtraction`.
@@ -405,6 +412,77 @@ export type OverrideConfiguration = {
   ModalityRouting?: ModalityRoutingConfiguration;
   Video?: VideoOverrideConfiguration;
 };
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.PIIEntitiesConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-piientitiesconfiguration.html}
+ */
+export type PIIEntitiesConfiguration = {
+  PiiEntityTypes?: PIIEntityTypes[];
+  RedactionMaskMode?: PIIRedactionMaskMode;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.PIIEntityTypes`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-piientitytypes.html}
+ */
+export type PIIEntityTypes =
+  | "ALL"
+  | "ADDRESS"
+  | "AGE"
+  | "NAME"
+  | "EMAIL"
+  | "PHONE"
+  | "USERNAME"
+  | "PASSWORD"
+  | "DRIVER_ID"
+  | "LICENSE_PLATE"
+  | "VEHICLE_IDENTIFICATION_NUMBER"
+  | "CREDIT_DEBIT_CARD_CVV"
+  | "CREDIT_DEBIT_CARD_EXPIRY"
+  | "CREDIT_DEBIT_CARD_NUMBER"
+  | "PIN"
+  | "INTERNATIONAL_BANK_ACCOUNT_NUMBER"
+  | "SWIFT_CODE"
+  | "IP_ADDRESS"
+  | "MAC_ADDRESS"
+  | "URL"
+  | "AWS_ACCESS_KEY"
+  | "AWS_SECRET_KEY"
+  | "US_BANK_ACCOUNT_NUMBER"
+  | "US_BANK_ROUTING_NUMBER"
+  | "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER"
+  | "US_PASSPORT_NUMBER"
+  | "US_SOCIAL_SECURITY_NUMBER"
+  | "CA_HEALTH_NUMBER"
+  | "CA_SOCIAL_INSURANCE_NUMBER"
+  | "UK_NATIONAL_HEALTH_SERVICE_NUMBER"
+  | "UK_NATIONAL_INSURANCE_NUMBER"
+  | "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER";
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.PIIRedactionMaskMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-piiredactionmaskmode.html}
+ */
+export type PIIRedactionMaskMode = "PII" | "ENTITY_TYPE";
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.SensitiveDataConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-sensitivedataconfiguration.html}
+ */
+export type SensitiveDataConfiguration = {
+  DetectionMode?: SensitiveDataDetectionMode;
+  DetectionScope?: SensitiveDataDetectionScope[];
+  PiiEntitiesConfiguration?: PIIEntitiesConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.SensitiveDataDetectionMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-sensitivedatadetectionmode.html}
+ */
+export type SensitiveDataDetectionMode =
+  | "DETECTION"
+  | "DETECTION_AND_REDACTION";
+/**
+ * Type definition for `AWS::Bedrock::DataAutomationProject.SensitiveDataDetectionScope`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-sensitivedatadetectionscope.html}
+ */
+export type SensitiveDataDetectionScope = "STANDARD" | "CUSTOM";
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.SpeakerLabelingConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-speakerlabelingconfiguration.html}
@@ -494,6 +572,7 @@ export type VideoExtractionCategoryType =
  */
 export type VideoOverrideConfiguration = {
   ModalityProcessing?: ModalityProcessingConfiguration;
+  SensitiveDataConfiguration?: SensitiveDataConfiguration;
 };
 /**
  * Type definition for `AWS::Bedrock::DataAutomationProject.VideoStandardExtraction`.

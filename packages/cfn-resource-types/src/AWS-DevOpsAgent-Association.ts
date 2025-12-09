@@ -16,6 +16,10 @@ export type DevOpsAgentAssociationProperties = {
    */
   Configuration: ServiceConfiguration;
   /**
+   * Set of linked association IDs for parent-child relationships
+   */
+  LinkedAssociationIds?: string[];
+  /**
    * The identifier for the associated service
    * @minLength `1`
    * @maxLength `255`

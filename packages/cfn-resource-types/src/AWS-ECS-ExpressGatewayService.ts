@@ -67,6 +67,24 @@ export type ECSExpressGatewayServiceAttributes = {
     TaskRoleArn: string;
   }[];
   CreatedAt: string;
+  ECSManagedResourceArns: {
+    AutoScaling: {
+      ApplicationAutoScalingPolicies: string[];
+      ScalableTarget: string;
+    };
+    IngressPath: {
+      CertificateArn: string;
+      ListenerArn: string;
+      ListenerRuleArn: string;
+      LoadBalancerArn: string;
+      LoadBalancerSecurityGroups: string[];
+      TargetGroupArns: string[];
+    };
+    LogGroups: string[];
+    MetricAlarms: string[];
+    ServiceSecurityGroups: string[];
+  };
+  Endpoint: string;
   ServiceArn: string;
   Status: {
     StatusCode: ExpressGatewayServiceStatusCode;

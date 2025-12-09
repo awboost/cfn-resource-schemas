@@ -26,6 +26,7 @@ export type Route53HostedZoneProperties = {
      If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
      */
   HostedZoneConfig?: HostedZoneConfig;
+  HostedZoneFeatures?: HostedZoneFeatures;
   /**
      * Adds, edits, or deletes tags for a health check or a hosted zone.
      For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.
@@ -73,6 +74,16 @@ export type HostedZoneConfig = {
    * @maxLength `256`
    */
   Comment?: string;
+};
+/**
+ * Type definition for `AWS::Route53::HostedZone.HostedZoneFeatures`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonefeatures.html}
+ */
+export type HostedZoneFeatures = {
+  /**
+   * Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
+   */
+  EnableAcceleratedRecovery?: boolean;
 };
 /**
  * Type definition for `AWS::Route53::HostedZone.HostedZoneTag`.

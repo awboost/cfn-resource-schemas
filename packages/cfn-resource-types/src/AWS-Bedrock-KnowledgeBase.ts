@@ -71,11 +71,41 @@ export type BedrockKnowledgeBaseAttributes = {
   UpdatedAt: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.AudioConfiguration`.
+ * Configure the audio configuration for multi modal ingestion.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-audioconfiguration.html}
+ */
+export type AudioConfiguration = {
+  /**
+   * Configure the audio segmentation configuration for multi modal ingestion.
+   */
+  SegmentationConfiguration: AudioSegmentationConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.AudioSegmentationConfiguration`.
+ * Configure the audio segmentation configuration for multi modal ingestion.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-audiosegmentationconfiguration.html}
+ */
+export type AudioSegmentationConfiguration = {
+  /**
+   * Duration in seconds to segment the multi modal media
+   * @min `1`
+   * @max `30`
+   */
+  FixedLengthDuration: number;
+};
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.BedrockEmbeddingModelConfiguration`.
  * The vector configuration details for the Bedrock embeddings model.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html}
  */
 export type BedrockEmbeddingModelConfiguration = {
+  /**
+   * List of audio configurations for multi modal ingestion.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  Audio?: AudioConfiguration[];
   /**
    * The dimensions details for the vector configuration used on the Bedrock embeddings model.
    * @min `0`
@@ -86,6 +116,12 @@ export type BedrockEmbeddingModelConfiguration = {
    * The data type for the vectors when using a model to convert text into vector embeddings.
    */
   EmbeddingDataType?: "FLOAT32" | "BINARY";
+  /**
+   * List of video configurations for multi modal ingestion.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  Video?: VideoConfiguration[];
 };
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.CuratedQuery`.
@@ -943,6 +979,30 @@ export type VectorKnowledgeBaseConfiguration = {
    * Configurations for supplemental data storage.
    */
   SupplementalDataStorageConfiguration?: SupplementalDataStorageConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.VideoConfiguration`.
+ * Configure the video configuration for multi modal ingestion.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-videoconfiguration.html}
+ */
+export type VideoConfiguration = {
+  /**
+   * Configure the video segmentation configuration for multi modal ingestion.
+   */
+  SegmentationConfiguration: VideoSegmentationConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.VideoSegmentationConfiguration`.
+ * Configure the video segmentation configuration for multi modal ingestion.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-videosegmentationconfiguration.html}
+ */
+export type VideoSegmentationConfiguration = {
+  /**
+   * Duration in seconds to segment the multi modal media
+   * @min `1`
+   * @max `30`
+   */
+  FixedLengthDuration: number;
 };
 /**
  * Definition of AWS::Bedrock::KnowledgeBase Resource Type
