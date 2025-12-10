@@ -1,5 +1,5 @@
 {
-  "$hash": "26812e64f7d926a33883cfddb6bb7cdab29dd88c",
+  "$hash": "035bc99097539d1519d06648973b6bf581819cb3",
   "$id": "aws-s3vectors-index.json",
   "additionalIdentifiers": [
     ["/properties/IndexName", "/properties/VectorBucketName"]
@@ -9,6 +9,7 @@
     "/properties/DataType",
     "/properties/Dimension",
     "/properties/DistanceMetric",
+    "/properties/EncryptionConfiguration",
     "/properties/IndexName",
     "/properties/MetadataConfiguration",
     "/properties/VectorBucketArn",
@@ -35,6 +36,25 @@
       "description": "The distance metric to be used for similarity search.",
       "enum": ["cosine", "euclidean"],
       "type": "string"
+    },
+    "EncryptionConfiguration": {
+      "additionalProperties": false,
+      "description": "The encryption configuration for the index.",
+      "properties": {
+        "KmsKeyArn": {
+          "description": "AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms",
+          "maxLength": 2048,
+          "minLength": 1,
+          "pattern": "^(arn:aws[-a-z0-9]*:kms:[-a-z0-9]*:[0-9]{12}:key/.+)$",
+          "type": "string"
+        },
+        "SseType": {
+          "description": "Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.",
+          "enum": ["AES256", "aws:kms"],
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "IndexArn": {
       "description": "The Amazon Resource Name (ARN) of the index",
@@ -82,10 +102,20 @@
   "description": "Resource Type definition for AWS::S3Vectors::Index",
   "handlers": {
     "create": {
-      "permissions": ["s3vectors:GetIndex", "s3vectors:CreateIndex"]
+      "permissions": [
+        "s3vectors:GetIndex",
+        "s3vectors:CreateIndex",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ]
     },
     "delete": {
-      "permissions": ["s3vectors:GetIndex", "s3vectors:DeleteIndex"]
+      "permissions": [
+        "s3vectors:GetIndex",
+        "s3vectors:DeleteIndex",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ]
     },
     "list": {
       "handlerSchema": {
@@ -102,9 +132,19 @@
           }
         }
       },
-      "permissions": ["s3vectors:ListIndexes"]
+      "permissions": [
+        "s3vectors:ListIndexes",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ]
     },
-    "read": { "permissions": ["s3vectors:GetIndex"] }
+    "read": {
+      "permissions": [
+        "s3vectors:GetIndex",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/IndexArn"],
   "properties": {
@@ -112,6 +152,9 @@
     "DataType": { "$ref": "#/definitions/DataType" },
     "Dimension": { "$ref": "#/definitions/Dimension" },
     "DistanceMetric": { "$ref": "#/definitions/DistanceMetric" },
+    "EncryptionConfiguration": {
+      "$ref": "#/definitions/EncryptionConfiguration"
+    },
     "IndexArn": { "$ref": "#/definitions/IndexArn" },
     "IndexName": { "$ref": "#/definitions/IndexName" },
     "MetadataConfiguration": { "$ref": "#/definitions/MetadataConfiguration" },

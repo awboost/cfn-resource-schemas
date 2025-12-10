@@ -20,6 +20,10 @@ export type S3VectorsIndexProperties = {
    */
   DistanceMetric: DistanceMetric;
   /**
+   * The encryption configuration for the index.
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+  /**
    * The name of the vector index to create.
    * @minLength `3`
    * @maxLength `63`
@@ -66,6 +70,24 @@ export type DataType = "float32";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3vectors-index-distancemetric.html}
  */
 export type DistanceMetric = "cosine" | "euclidean";
+/**
+ * Type definition for `AWS::S3Vectors::Index.EncryptionConfiguration`.
+ * The encryption configuration for the index.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3vectors-index-encryptionconfiguration.html}
+ */
+export type EncryptionConfiguration = {
+  /**
+   * AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if sseType is set to aws:kms
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^(arn:aws[-a-z0-9]*:kms:[-a-z0-9]*:[0-9]{12}:key/.+)$`
+   */
+  KmsKeyArn?: string;
+  /**
+   * Defines the server-side encryption type for index encryption configuration. Defaults to the parent vector bucket's encryption settings when unspecified.
+   */
+  SseType?: "AES256" | "aws:kms";
+};
 /**
  * Type definition for `AWS::S3Vectors::Index.MetadataConfiguration`.
  * The metadata configuration for the vector index.

@@ -153,6 +153,11 @@ export type TransferConnectorAttributes = {
    */
   ConnectorId: string;
   /**
+   * Detailed error message when Connector in ERRORED status
+   * @maxLength `2048`
+   */
+  ErrorMessage: string;
+  /**
    * The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.
    */
   ServiceManagedEgressIpAddresses: string[];

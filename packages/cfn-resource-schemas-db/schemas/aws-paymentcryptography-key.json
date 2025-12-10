@@ -1,5 +1,5 @@
 {
-  "$hash": "d9a81320d6f6a8abcd7cbb7eab960decbc1afdf3",
+  "$hash": "234e99338ea298f40fd31490f346016e4c527343",
   "$id": "aws-paymentcryptography-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -91,6 +91,11 @@
       "enum": ["EXTERNAL", "AWS_PAYMENT_CRYPTOGRAPHY"],
       "type": "string"
     },
+    "KeyReplicationState": {
+      "description": "Defines the replication state of a key",
+      "enum": ["IN_PROGRESS", "DELETE_IN_PROGRESS", "FAILED", "SYNCHRONIZED"],
+      "type": "string"
+    },
     "KeyState": {
       "description": "Defines the state of a key",
       "enum": [
@@ -128,6 +133,24 @@
         "TR31_K2_TR34_ASYMMETRIC_KEY"
       ],
       "type": "string"
+    },
+    "ReplicationStatus": {
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-z]{2}-[a-z]{1,16}-[0-9]+$": {
+          "$ref": "#/definitions/ReplicationStatusType"
+        }
+      },
+      "type": "object"
+    },
+    "ReplicationStatusType": {
+      "additionalProperties": false,
+      "properties": {
+        "Status": { "$ref": "#/definitions/KeyReplicationState" },
+        "StatusMessage": { "type": "string" }
+      },
+      "required": ["Status"],
+      "type": "object"
     },
     "Tag": {
       "additionalProperties": false,
@@ -168,7 +191,9 @@
         "payment-cryptography:TagResource",
         "payment-cryptography:UntagResource",
         "payment-cryptography:StartKeyUsage",
-        "payment-cryptography:StopKeyUsage"
+        "payment-cryptography:StopKeyUsage",
+        "payment-cryptography:AddKeyReplicationRegions",
+        "payment-cryptography:RemoveKeyReplicationRegions"
       ]
     }
   },
@@ -189,6 +214,11 @@
     },
     "KeyOrigin": { "$ref": "#/definitions/KeyOrigin" },
     "KeyState": { "$ref": "#/definitions/KeyState" },
+    "ReplicationRegions": {
+      "items": { "pattern": "^[a-z]{2}-[a-z]{1,16}-[0-9]+$", "type": "string" },
+      "type": "array"
+    },
+    "ReplicationStatus": { "$ref": "#/definitions/ReplicationStatus" },
     "Tags": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
@@ -200,7 +230,8 @@
   "readOnlyProperties": [
     "/properties/KeyIdentifier",
     "/properties/KeyOrigin",
-    "/properties/KeyState"
+    "/properties/KeyState",
+    "/properties/ReplicationStatus"
   ],
   "required": ["Exportable", "KeyAttributes"],
   "tagging": {
@@ -215,5 +246,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::PaymentCryptography::Key"
+  "typeName": "AWS::PaymentCryptography::Key",
+  "writeOnlyProperties": ["/properties/ReplicationRegions"]
 }

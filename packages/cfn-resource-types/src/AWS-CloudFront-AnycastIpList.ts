@@ -11,6 +11,7 @@ export type CloudFrontAnycastIpListProperties = {
    * The number of IP addresses in the Anycast static IP list.
    */
   IpCount: number;
+  IpamCidrConfigs?: IpamCidrConfig[];
   /**
    * The name of the Anycast static IP list.
    * @minLength `1`
@@ -49,6 +50,12 @@ export type CloudFrontAnycastIpListAttributes = {
      * The number of IP addresses in the Anycast static IP list.
      */
     IpCount: number;
+    IpamCidrConfigResults: {
+      AnycastIp: string;
+      Cidr: string;
+      IpamPoolArn: string;
+      Status: string;
+    }[];
     /**
      * The last time the Anycast static IP list was modified.
      */
@@ -67,6 +74,12 @@ export type CloudFrontAnycastIpListAttributes = {
   };
   ETag: string;
   Id: string;
+  IpamCidrConfigResults: {
+    AnycastIp: string;
+    Cidr: string;
+    IpamPoolArn: string;
+    Status: string;
+  }[];
 };
 /**
  * Type definition for `AWS::CloudFront::AnycastIpList.AnycastIpList`.
@@ -91,6 +104,7 @@ export type AnycastIpList = {
    * The number of IP addresses in the Anycast static IP list.
    */
   IpCount: number;
+  IpamCidrConfigResults?: IpamCidrConfigResult[];
   /**
    * The last time the Anycast static IP list was modified.
    */
@@ -112,6 +126,24 @@ export type AnycastIpList = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-ipaddresstype.html}
  */
 export type IpAddressType = "ipv4" | "dualstack";
+/**
+ * Type definition for `AWS::CloudFront::AnycastIpList.IpamCidrConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-ipamcidrconfig.html}
+ */
+export type IpamCidrConfig = {
+  Cidr: string;
+  IpamPoolArn: string;
+};
+/**
+ * Type definition for `AWS::CloudFront::AnycastIpList.IpamCidrConfigResult`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-ipamcidrconfigresult.html}
+ */
+export type IpamCidrConfigResult = {
+  AnycastIp?: string;
+  Cidr?: string;
+  IpamPoolArn?: string;
+  Status?: string;
+};
 /**
  * Type definition for `AWS::CloudFront::AnycastIpList.Tag`.
  * A complex type that contains ``Tag`` key and ``Tag`` value.

@@ -10,6 +10,7 @@ export type PaymentCryptographyKeyProperties = {
   Exportable: boolean;
   KeyAttributes: KeyAttributes;
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
+  ReplicationRegions?: string[];
   /**
    * @minLength `0`
    * @maxLength `200`
@@ -35,6 +36,16 @@ export type PaymentCryptographyKeyAttributes = {
    * Defines the state of a key
    */
   KeyState: KeyState;
+  ReplicationStatus: Record<
+    string,
+    {
+      /**
+       * Defines the replication state of a key
+       */
+      Status: KeyReplicationState;
+      StatusMessage: string;
+    }
+  >;
 };
 /**
  * Type definition for `AWS::PaymentCryptography::Key.DeriveKeyUsage`.
@@ -126,6 +137,16 @@ export type KeyModesOfUse = {
  */
 export type KeyOrigin = "EXTERNAL" | "AWS_PAYMENT_CRYPTOGRAPHY";
 /**
+ * Type definition for `AWS::PaymentCryptography::Key.KeyReplicationState`.
+ * Defines the replication state of a key
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keyreplicationstate.html}
+ */
+export type KeyReplicationState =
+  | "IN_PROGRESS"
+  | "DELETE_IN_PROGRESS"
+  | "FAILED"
+  | "SYNCHRONIZED";
+/**
  * Type definition for `AWS::PaymentCryptography::Key.KeyState`.
  * Defines the state of a key
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-keystate.html}
@@ -163,6 +184,22 @@ export type KeyUsage =
   | "TR31_V1_IBM3624_PIN_VERIFICATION_KEY"
   | "TR31_V2_VISA_PIN_VERIFICATION_KEY"
   | "TR31_K2_TR34_ASYMMETRIC_KEY";
+/**
+ * Type definition for `AWS::PaymentCryptography::Key.ReplicationStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatus.html}
+ */
+export type ReplicationStatus = Record<string, ReplicationStatusType>;
+/**
+ * Type definition for `AWS::PaymentCryptography::Key.ReplicationStatusType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-replicationstatustype.html}
+ */
+export type ReplicationStatusType = {
+  /**
+   * Defines the replication state of a key
+   */
+  Status: KeyReplicationState;
+  StatusMessage?: string;
+};
 /**
  * Type definition for `AWS::PaymentCryptography::Key.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-paymentcryptography-key-tag.html}

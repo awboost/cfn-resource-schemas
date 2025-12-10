@@ -1,5 +1,5 @@
 {
-  "$hash": "4dd2c4f6e6d30a2fb842bd4a698ebc3d9fb0303d",
+  "$hash": "fc03a123f1d770962088ddfd02b59d2c304fea42",
   "$id": "aws-cleanrooms-analysistemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,7 +9,8 @@
     "/properties/Format",
     "/properties/AnalysisParameters",
     "/properties/Schema",
-    "/properties/ErrorMessageConfiguration"
+    "/properties/ErrorMessageConfiguration",
+    "/properties/SyntheticDataParameters"
   ],
   "definitions": {
     "AnalysisParameter": {
@@ -139,6 +140,20 @@
       "required": ["EntryPoint", "RoleArn"],
       "type": "object"
     },
+    "ColumnClassificationDetails": {
+      "additionalProperties": false,
+      "properties": {
+        "ColumnMapping": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/SyntheticDataColumnProperties" },
+          "maxItems": 1000,
+          "minItems": 5,
+          "type": "array"
+        }
+      },
+      "required": ["ColumnMapping"],
+      "type": "object"
+    },
     "ErrorMessageConfiguration": {
       "additionalProperties": false,
       "properties": { "Type": { "enum": ["DETAILED"], "type": "string" } },
@@ -148,6 +163,26 @@
     "Hash": {
       "additionalProperties": false,
       "properties": { "Sha256": { "type": "string" } },
+      "type": "object"
+    },
+    "MLSyntheticDataParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "ColumnClassification": {
+          "$ref": "#/definitions/ColumnClassificationDetails"
+        },
+        "Epsilon": { "maximum": 10, "minimum": 0.0001, "type": "number" },
+        "MaxMembershipInferenceAttackScore": {
+          "maximum": 1,
+          "minimum": 0.5,
+          "type": "number"
+        }
+      },
+      "required": [
+        "Epsilon",
+        "MaxMembershipInferenceAttackScore",
+        "ColumnClassification"
+      ],
       "type": "object"
     },
     "ReferencedTables": {
@@ -164,6 +199,38 @@
       },
       "required": ["Bucket", "Key"],
       "type": "object"
+    },
+    "SyntheticDataColumnProperties": {
+      "additionalProperties": false,
+      "properties": {
+        "ColumnName": {
+          "maxLength": 128,
+          "pattern": "^[a-z0-9_](([a-z0-9_]+-)*([a-z0-9_]+))?$",
+          "type": "string"
+        },
+        "ColumnType": {
+          "enum": ["CATEGORICAL", "NUMERICAL"],
+          "type": "string"
+        },
+        "IsPredictiveValue": { "type": "boolean" }
+      },
+      "required": ["ColumnName", "ColumnType", "IsPredictiveValue"],
+      "type": "object"
+    },
+    "SyntheticDataParameters": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "MlSyntheticDataParameters": {
+              "$ref": "#/definitions/MLSyntheticDataParameters"
+            }
+          },
+          "required": ["MlSyntheticDataParameters"],
+          "title": "MlSyntheticDataParameters",
+          "type": "object"
+        }
+      ]
     },
     "TableName": {
       "maxLength": 128,
@@ -279,6 +346,9 @@
     "Schema": { "$ref": "#/definitions/AnalysisSchema" },
     "Source": { "$ref": "#/definitions/AnalysisSource" },
     "SourceMetadata": { "$ref": "#/definitions/AnalysisSourceMetadata" },
+    "SyntheticDataParameters": {
+      "$ref": "#/definitions/SyntheticDataParameters"
+    },
     "Tags": {
       "description": "An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.",
       "insertionOrder": false,

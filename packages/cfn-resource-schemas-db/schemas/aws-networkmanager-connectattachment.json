@@ -1,12 +1,13 @@
 {
-  "$hash": "9e06bfd544bb1185226b6c5b0ff9687f9a69f9c4",
+  "$hash": "3891d17da87d09a54ca3be347c61e76b58e3ab96",
   "$id": "aws-networkmanager-connectattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/CoreNetworkId",
     "/properties/EdgeLocation",
     "/properties/TransportAttachmentId",
-    "/properties/Options"
+    "/properties/Options",
+    "/properties/RoutingPolicyLabel"
   ],
   "definitions": {
     "ConnectAttachmentOptions": {
@@ -169,6 +170,10 @@
       "description": "The attachment resource ARN.",
       "type": "string"
     },
+    "RoutingPolicyLabel": {
+      "description": "Routing policy label",
+      "type": "string"
+    },
     "SegmentName": {
       "description": "The name of the segment attachment.",
       "type": "string"
@@ -222,5 +227,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::NetworkManager::ConnectAttachment"
+  "typeName": "AWS::NetworkManager::ConnectAttachment",
+  "writeOnlyProperties": ["/properties/RoutingPolicyLabel"]
 }

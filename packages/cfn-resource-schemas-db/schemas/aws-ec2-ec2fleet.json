@@ -1,5 +1,5 @@
 {
-  "$hash": "83dd39b425623bd5ec81641f11ace80526d6eacb",
+  "$hash": "f6e6ff2a59569a39d847fb05f800753f7d58f06a",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,7 +11,9 @@
     "/properties/TerminateInstancesWithExpiration",
     "/properties/Type",
     "/properties/ValidFrom",
-    "/properties/ValidUntil"
+    "/properties/ValidUntil",
+    "/properties/TargetCapacitySpecification/TargetCapacityUnitType",
+    "/properties/TargetCapacitySpecification/DefaultTargetCapacityType"
   ],
   "definitions": {
     "AcceleratorCountRequest": {
@@ -280,6 +282,7 @@
           "$ref": "#/definitions/NetworkInterfaceCountRequest"
         },
         "OnDemandMaxPricePercentageOverLowestPrice": { "type": "integer" },
+        "RequireEncryptionInTransit": { "type": "boolean" },
         "RequireHibernateSupport": { "type": "boolean" },
         "SpotMaxPricePercentageOverLowestPrice": { "type": "integer" },
         "TotalLocalStorageGB": {
@@ -502,8 +505,23 @@
   },
   "description": "Resource Type definition for AWS::EC2::EC2Fleet",
   "handlers": {
-    "create": { "permissions": ["ec2:CreateFleet", "ec2:DescribeFleets"] },
-    "delete": { "permissions": ["ec2:DescribeFleets", "ec2:DeleteFleets"] },
+    "create": {
+      "permissions": [
+        "ec2:CreateFleet",
+        "ec2:DescribeFleets",
+        "ec2:CreateTags",
+        "ec2:RunInstances",
+        "iam:PassRole",
+        "ec2:DescribeCapacityReservations"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "ec2:DescribeFleets",
+        "ec2:DeleteFleets",
+        "ec2:TerminateInstances"
+      ]
+    },
     "list": {
       "handlerSchema": {
         "properties": {
@@ -549,5 +567,14 @@
   "required": ["TargetCapacitySpecification", "LaunchTemplateConfigs"],
   "sourceUrl": "https://github.com/aws-cloudformation",
   "tagging": { "taggable": false },
-  "typeName": "AWS::EC2::EC2Fleet"
+  "typeName": "AWS::EC2::EC2Fleet",
+  "writeOnlyProperties": [
+    "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/HostResourceGroupArn",
+    "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/Affinity",
+    "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/SpreadDomain",
+    "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/AvailabilityZone",
+    "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/PartitionNumber",
+    "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/HostId",
+    "/properties/LaunchTemplateConfigs/*/Overrides/*/Placement/Tenancy"
+  ]
 }

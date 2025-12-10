@@ -1,5 +1,5 @@
 {
-  "$hash": "758f4cca1d4f50e6b1a7572bd0cce0aed47d2cee",
+  "$hash": "4ed73ead5bfd6e4ddec5138df53be3cfd869aec3",
   "$id": "aws-datazone-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -225,6 +225,17 @@
           "required": ["S3Properties"],
           "title": "S3Properties",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "MlflowProperties": {
+              "$ref": "#/definitions/MlflowPropertiesInput"
+            }
+          },
+          "required": ["MlflowProperties"],
+          "title": "MlflowProperties",
+          "type": "object"
         }
       ]
     },
@@ -356,6 +367,17 @@
       "properties": {
         "Schedule": {
           "pattern": "^cron\\((\\b[0-5]?[0-9]\\b) (\\b2[0-3]\\b|\\b[0-1]?[0-9]\\b) ([-?*,/\\dLW]){1,83} ([-*,/\\d]|[a-zA-Z]{3}){1,23} ([-?#*,/\\dL]|[a-zA-Z]{3}){1,13} ([^\\)]+)\\)$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MlflowPropertiesInput": {
+      "additionalProperties": false,
+      "description": "MLflow Properties Input",
+      "properties": {
+        "TrackingServerArn": {
+          "description": "The ARN of the MLflow tracking server",
           "type": "string"
         }
       },
@@ -569,7 +591,7 @@
       "properties": {
         "ComputeArn": {
           "maxLength": 2048,
-          "pattern": "^arn:aws(-(cn|us-gov|iso(-[bef])?))?:(elasticmapreduce|emr-serverless):.*",
+          "pattern": "^arn:aws(-(cn|us-gov|iso(-[bef])?))?:(elasticmapreduce|emr-serverless|emr-containers):.*",
           "type": "string"
         },
         "InstanceProfileArn": {
@@ -587,6 +609,7 @@
           "pattern": "^s3://.+$",
           "type": "string"
         },
+        "ManagedEndpointArn": { "maxLength": 2048, "type": "string" },
         "PythonVirtualEnv": {
           "maxLength": 256,
           "pattern": "^[\\S]*$",

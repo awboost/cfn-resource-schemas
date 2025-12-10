@@ -1,5 +1,5 @@
 {
-  "$hash": "ade8484399f3c4a560ca00b8bcf00f0c1d37eeab",
+  "$hash": "4deb29af0a3720fe6658f9c341de8ebb86130ab3",
   "$id": "aws-connectcampaignsv2-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceId"],
@@ -337,6 +337,12 @@
       },
       "type": "object"
     },
+    "RingTimeout": {
+      "description": "Maximum ring time for outbound calls in seconds",
+      "maximum": 60,
+      "minimum": 15,
+      "type": "integer"
+    },
     "Schedule": {
       "additionalProperties": false,
       "description": "Campaign schedule",
@@ -434,7 +440,8 @@
         "ConnectContactFlowId": { "$ref": "#/definitions/ContactFlowId" },
         "ConnectSourcePhoneNumber": {
           "$ref": "#/definitions/SourcePhoneNumber"
-        }
+        },
+        "RingTimeout": { "$ref": "#/definitions/RingTimeout" }
       },
       "required": ["ConnectContactFlowId"],
       "type": "object"

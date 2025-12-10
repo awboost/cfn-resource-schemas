@@ -76,6 +76,10 @@ export type DSQLClusterAttributes = {
    */
   Status: string;
   /**
+   * The DSQL cluster VPC endpoint.
+   */
+  VpcEndpoint: string;
+  /**
    * The VPC endpoint service name.
    */
   VpcEndpointServiceName: string;

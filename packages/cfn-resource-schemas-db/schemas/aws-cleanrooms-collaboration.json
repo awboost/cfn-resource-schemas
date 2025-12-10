@@ -1,5 +1,5 @@
 {
-  "$hash": "313197367ff837b4f5588391649461fb01f2d2b5",
+  "$hash": "41d24e6815a80273e8c911046b58495f453518cd",
   "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -88,7 +88,10 @@
         "ModelInference": {
           "$ref": "#/definitions/ModelInferencePaymentConfig"
         },
-        "ModelTraining": { "$ref": "#/definitions/ModelTrainingPaymentConfig" }
+        "ModelTraining": { "$ref": "#/definitions/ModelTrainingPaymentConfig" },
+        "SyntheticDataGeneration": {
+          "$ref": "#/definitions/SyntheticDataGenerationPaymentConfig"
+        }
       },
       "type": "object"
     },
@@ -194,6 +197,12 @@
         "mx-central-1"
       ],
       "type": "string"
+    },
+    "SyntheticDataGenerationPaymentConfig": {
+      "additionalProperties": false,
+      "properties": { "IsResponsible": { "type": "boolean" } },
+      "required": ["IsResponsible"],
+      "type": "object"
     },
     "Tag": {
       "additionalProperties": false,

@@ -1,55 +1,84 @@
-- added `AWS::Connect::Workspace`
-- updated `AWS::Bedrock::DataAutomationProject`
-  - added definition `PIIEntitiesConfiguration`
-  - added definition `PIIEntityTypes`
-  - added definition `PIIRedactionMaskMode`
-  - added definition `SensitiveDataConfiguration`
-  - added definition `SensitiveDataDetectionMode`
-  - added definition `SensitiveDataDetectionScope`
-  - added property `ProjectType`
+- added `AWS::NetworkManager::CoreNetworkPrefixListAssociation`
+- removed `AWS::IoTFleetHub::Application`
+- removed `AWS::LookoutMetrics::Alert`
+- removed `AWS::LookoutMetrics::AnomalyDetector`
+- removed `AWS::RoboMaker::Fleet`
+- removed `AWS::RoboMaker::Robot`
+- removed `AWS::RoboMaker::RobotApplication`
+- removed `AWS::RoboMaker::RobotApplicationVersion`
+- removed `AWS::RoboMaker::SimulationApplication`
+- removed `AWS::RoboMaker::SimulationApplicationVersion`
+- updated `AWS::CleanRooms::AnalysisTemplate`
+  - added definition `ColumnClassificationDetails`
+  - added definition `MLSyntheticDataParameters`
+  - added definition `SyntheticDataColumnProperties`
+  - added definition `SyntheticDataParameters`
+  - added property `SyntheticDataParameters`
   - updated `createOnlyProperties`
-  - updated definition `AudioOverrideConfiguration`
-  - updated definition `DocumentOverrideConfiguration`
-  - updated definition `ImageOverrideConfiguration`
-  - updated definition `VideoOverrideConfiguration`
-- updated `AWS::Bedrock::KnowledgeBase`
-  - added definition `AudioConfiguration`
-  - added definition `AudioConfigurations`
-  - added definition `AudioSegmentationConfiguration`
-  - added definition `FixedLengthDuration`
-  - added definition `VideoConfiguration`
-  - added definition `VideoConfigurations`
-  - added definition `VideoSegmentationConfiguration`
-  - updated definition `BedrockEmbeddingModelConfiguration`
-- updated `AWS::DevOpsAgent::Association`
-  - added property `LinkedAssociationIds`
-  - updated `writeOnlyProperties`
-- updated `AWS::ECS::ExpressGatewayService`
-  - added definition `AutoScalingArns`
-  - added definition `ECSManagedResourceArns`
-  - added definition `IngressPathArns`
-  - added property `ECSManagedResourceArns`
-  - added property `Endpoint`
+- updated `AWS::CleanRooms::Collaboration`
+  - added definition `SyntheticDataGenerationPaymentConfig`
+  - updated definition `MLPaymentConfig`
+- updated `AWS::CloudFront::AnycastIpList`
+  - added `writeOnlyProperties`
+  - added definition `IpamCidrConfigResult`
+  - added definition `IpamCidrConfigResults`
+  - added definition `IpamCidrConfig`
+  - added definition `IpamCidrConfigs`
+  - added property `IpamCidrConfigResults`
+  - added property `IpamCidrConfigs`
+  - updated `readOnlyProperties`
+  - updated definition `AnycastIpList`
+- updated `AWS::ConnectCampaignsV2::Campaign`
+  - added definition `RingTimeout`
+  - updated definition `TelephonyOutboundConfig`
+- updated `AWS::DSQL::Cluster`
+  - added property `VpcEndpoint`
+  - updated `readOnlyProperties`
+- updated `AWS::DataZone::Connection`
+  - added definition `MlflowPropertiesInput`
+  - updated definition `ConnectionPropertiesInput`
+  - updated definition `SparkEmrPropertiesInput`
+- updated `AWS::DataZone::Domain`
+  - added `writeOnlyProperties`
+- updated `AWS::EC2::EC2Fleet`
+  - added `writeOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated definition `InstanceRequirementsRequest`
+  - updated handler permissions
+- updated `AWS::NetworkManager::ConnectAttachment`
+  - added `writeOnlyProperties`
+  - added property `RoutingPolicyLabel`
+  - updated `createOnlyProperties`
+- updated `AWS::NetworkManager::DirectConnectGatewayAttachment`
+  - added `writeOnlyProperties`
+  - added property `RoutingPolicyLabel`
+  - updated `createOnlyProperties`
+- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
+  - added `writeOnlyProperties`
+  - added property `RoutingPolicyLabel`
+  - updated `createOnlyProperties`
+- updated `AWS::NetworkManager::TransitGatewayRouteTableAttachment`
+  - added `writeOnlyProperties`
+  - added property `RoutingPolicyLabel`
+  - updated `createOnlyProperties`
+- updated `AWS::NetworkManager::VpcAttachment`
+  - added `writeOnlyProperties`
+  - added property `RoutingPolicyLabel`
+  - updated `createOnlyProperties`
+- updated `AWS::PaymentCryptography::Key`
+  - added `writeOnlyProperties`
+  - added definition `KeyReplicationState`
+  - added definition `ReplicationStatusType`
+  - added definition `ReplicationStatus`
+  - added property `ReplicationRegions`
+  - added property `ReplicationStatus`
   - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::FSx::DataRepositoryAssociation`
-  - updated definition `AutoExportPolicy`
-  - updated definition `AutoImportPolicy`
-  - updated definition `S3`
-  - updated definition `Tag`
-  - updated property `AssociationId`
-  - updated property `BatchImportMetaDataOnCreate`
-  - updated property `DataRepositoryPath`
-  - updated property `FileSystemId`
-  - updated property `FileSystemPath`
-  - updated property `ImportedFileChunkSize`
-  - updated property `ResourceARN`
-  - updated property `Tags`
-- updated `AWS::Lambda::LayerVersionPermission`
-  - updated `propertyTransform`
-- updated `AWS::LaunchWizard::Deployment`
+- updated `AWS::S3Vectors::Index`
+  - added definition `EncryptionConfiguration`
+  - added property `EncryptionConfiguration`
+  - updated `createOnlyProperties`
   - updated handler permissions
-- updated `AWS::Route53::HostedZone`
-  - added definition `HostedZoneFeatures`
-  - added property `HostedZoneFeatures`
-  - updated handler permissions
+- updated `AWS::Transfer::Connector`
+  - added property `ErrorMessage`
+  - updated `readOnlyProperties`

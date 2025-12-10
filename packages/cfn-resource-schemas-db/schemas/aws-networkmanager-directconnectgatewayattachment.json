@@ -1,5 +1,5 @@
 {
-  "$hash": "0efd341b2136848995fb18bfa4bd31dd5060228f",
+  "$hash": "2c7a4c474aca2c97e2a7085511875e2006102bc1",
   "$id": "aws-networkmanager-directconnectgatewayattachment.json",
   "additionalIdentifiers": [
     ["/properties/CoreNetworkId", "/properties/DirectConnectGatewayArn"]
@@ -7,7 +7,8 @@
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/CoreNetworkId",
-    "/properties/DirectConnectGatewayArn"
+    "/properties/DirectConnectGatewayArn",
+    "/properties/RoutingPolicyLabel"
   ],
   "definitions": {
     "ProposedNetworkFunctionGroupChange": {
@@ -166,6 +167,10 @@
       "description": "The ARN of the Resource.",
       "type": "string"
     },
+    "RoutingPolicyLabel": {
+      "description": "Routing policy label",
+      "type": "string"
+    },
     "SegmentName": {
       "description": "The name of the segment attachment..",
       "type": "string"
@@ -211,5 +216,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::NetworkManager::DirectConnectGatewayAttachment"
+  "typeName": "AWS::NetworkManager::DirectConnectGatewayAttachment",
+  "writeOnlyProperties": ["/properties/RoutingPolicyLabel"]
 }

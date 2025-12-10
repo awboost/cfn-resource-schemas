@@ -193,6 +193,7 @@ export type InstanceRequirementsRequest = {
   NetworkBandwidthGbps?: NetworkBandwidthGbpsRequest;
   NetworkInterfaceCount?: NetworkInterfaceCountRequest;
   OnDemandMaxPricePercentageOverLowestPrice?: number;
+  RequireEncryptionInTransit?: boolean;
   RequireHibernateSupport?: boolean;
   SpotMaxPricePercentageOverLowestPrice?: number;
   TotalLocalStorageGB?: TotalLocalStorageGBRequest;

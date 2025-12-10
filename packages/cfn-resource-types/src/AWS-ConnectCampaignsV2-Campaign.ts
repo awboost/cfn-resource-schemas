@@ -558,6 +558,12 @@ export type TelephonyOutboundConfig = {
    * @maxLength `100`
    */
   ConnectSourcePhoneNumber?: string;
+  /**
+   * Maximum ring time for outbound calls in seconds
+   * @min `15`
+   * @max `60`
+   */
+  RingTimeout?: number;
 };
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.TelephonyOutboundMode`.

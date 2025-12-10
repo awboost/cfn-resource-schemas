@@ -33,6 +33,7 @@ export type CleanRoomsAnalysisTemplateProperties = {
   Schema?: AnalysisSchema;
   Source: AnalysisSource;
   SourceMetadata?: AnalysisSourceMetadata;
+  SyntheticDataParameters?: SyntheticDataParameters;
   /**
    * An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
    */
@@ -179,6 +180,17 @@ export type AnalysisTemplateArtifacts = {
   RoleArn: string;
 };
 /**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.ColumnClassificationDetails`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-columnclassificationdetails.html}
+ */
+export type ColumnClassificationDetails = {
+  /**
+   * @minLength `5`
+   * @maxLength `1000`
+   */
+  ColumnMapping: SyntheticDataColumnProperties[];
+};
+/**
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.ErrorMessageConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-errormessageconfiguration.html}
  */
@@ -193,6 +205,23 @@ export type Hash = {
   Sha256?: string;
 };
 /**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.MLSyntheticDataParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-mlsyntheticdataparameters.html}
+ */
+export type MLSyntheticDataParameters = {
+  ColumnClassification: ColumnClassificationDetails;
+  /**
+   * @min `0.0001`
+   * @max `10`
+   */
+  Epsilon: number;
+  /**
+   * @min `0.5`
+   * @max `1`
+   */
+  MaxMembershipInferenceAttackScore: number;
+};
+/**
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.S3Location`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-s3location.html}
  */
@@ -203,6 +232,26 @@ export type S3Location = {
    */
   Bucket: string;
   Key: string;
+};
+/**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.SyntheticDataColumnProperties`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-syntheticdatacolumnproperties.html}
+ */
+export type SyntheticDataColumnProperties = {
+  /**
+   * @maxLength `128`
+   * @pattern `^[a-z0-9_](([a-z0-9_]+-)*([a-z0-9_]+))?$`
+   */
+  ColumnName: string;
+  ColumnType: "CATEGORICAL" | "NUMERICAL";
+  IsPredictiveValue: boolean;
+};
+/**
+ * Type definition for `AWS::CleanRooms::AnalysisTemplate.SyntheticDataParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-syntheticdataparameters.html}
+ */
+export type SyntheticDataParameters = {
+  MlSyntheticDataParameters: MLSyntheticDataParameters;
 };
 /**
  * Type definition for `AWS::CleanRooms::AnalysisTemplate.Tag`.

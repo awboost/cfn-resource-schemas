@@ -22,6 +22,10 @@ export type NetworkManagerTransitGatewayRouteTableAttachmentProperties = {
    */
   ProposedSegmentChange?: ProposedSegmentChange;
   /**
+   * Routing policy label
+   */
+  RoutingPolicyLabel?: string;
+  /**
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];

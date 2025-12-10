@@ -281,6 +281,12 @@ export type ConnectionPropertiesInput =
        * S3 Properties Input
        */
       S3Properties: S3PropertiesInput;
+    }
+  | {
+      /**
+       * MLflow Properties Input
+       */
+      MlflowProperties: MlflowPropertiesInput;
     };
 /**
  * Type definition for `AWS::DataZone::Connection.CredentialMap`.
@@ -414,6 +420,17 @@ export type LineageSyncSchedule = {
    * @pattern `^cron\((\b[0-5]?[0-9]\b) (\b2[0-3]\b|\b[0-1]?[0-9]\b) ([-?*,/\dLW]){1,83} ([-*,/\d]|[a-zA-Z]{3}){1,23} ([-?#*,/\dL]|[a-zA-Z]{3}){1,13} ([^\)]+)\)$`
    */
   Schedule?: string;
+};
+/**
+ * Type definition for `AWS::DataZone::Connection.MlflowPropertiesInput`.
+ * MLflow Properties Input
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-mlflowpropertiesinput.html}
+ */
+export type MlflowPropertiesInput = {
+  /**
+   * The ARN of the MLflow tracking server
+   */
+  TrackingServerArn?: string;
 };
 /**
  * Type definition for `AWS::DataZone::Connection.OAuth2ClientApplication`.
@@ -615,7 +632,7 @@ export type S3PropertiesInput = {
 export type SparkEmrPropertiesInput = {
   /**
    * @maxLength `2048`
-   * @pattern `^arn:aws(-(cn|us-gov|iso(-[bef])?))?:(elasticmapreduce|emr-serverless):.*`
+   * @pattern `^arn:aws(-(cn|us-gov|iso(-[bef])?))?:(elasticmapreduce|emr-serverless|emr-containers):.*`
    */
   ComputeArn?: string;
   /**
@@ -633,6 +650,10 @@ export type SparkEmrPropertiesInput = {
    * @pattern `^s3://.+$`
    */
   LogUri?: string;
+  /**
+   * @maxLength `2048`
+   */
+  ManagedEndpointArn?: string;
   /**
    * @maxLength `256`
    * @pattern `^[\S]*$`

@@ -26,6 +26,10 @@ export type NetworkManagerDirectConnectGatewayAttachmentProperties = {
    */
   ProposedSegmentChange?: ProposedSegmentChange;
   /**
+   * Routing policy label
+   */
+  RoutingPolicyLabel?: string;
+  /**
    * Tags for the attachment.
    */
   Tags?: Tag[];

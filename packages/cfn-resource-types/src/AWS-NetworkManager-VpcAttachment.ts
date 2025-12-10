@@ -22,6 +22,10 @@ export type NetworkManagerVpcAttachmentProperties = {
    */
   ProposedSegmentChange?: ProposedSegmentChange;
   /**
+   * Routing policy label
+   */
+  RoutingPolicyLabel?: string;
+  /**
    * Subnet Arn list
    */
   SubnetArns: string[];

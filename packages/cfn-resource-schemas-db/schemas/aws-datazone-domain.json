@@ -1,5 +1,5 @@
 {
-  "$hash": "34ceb7e539440f431b2094e969c71ee41b12431b",
+  "$hash": "a32ab5b8beeac3c97f6ea8b6bc03bb658d930f96",
   "$id": "aws-datazone-domain.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -221,5 +221,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::DataZone::Domain"
+  "typeName": "AWS::DataZone::Domain",
+  "writeOnlyProperties": ["/properties/ServiceRole"]
 }

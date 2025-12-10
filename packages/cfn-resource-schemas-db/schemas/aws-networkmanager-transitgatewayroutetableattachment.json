@@ -1,10 +1,11 @@
 {
-  "$hash": "8190e05b71c24081fe54008c611f5583ef9e2fe8",
+  "$hash": "dcbe9583d44dfa9b878eae1605071d6715d25f22",
   "$id": "aws-networkmanager-transitgatewayroutetableattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/PeeringId",
-    "/properties/TransitGatewayRouteTableArn"
+    "/properties/TransitGatewayRouteTableArn",
+    "/properties/RoutingPolicyLabel"
   ],
   "definitions": {
     "ProposedNetworkFunctionGroupChange": {
@@ -160,6 +161,10 @@
       "description": "The ARN of the Resource.",
       "type": "string"
     },
+    "RoutingPolicyLabel": {
+      "description": "Routing policy label",
+      "type": "string"
+    },
     "SegmentName": {
       "description": "The name of the segment that attachment is in.",
       "type": "string"
@@ -213,5 +218,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::NetworkManager::TransitGatewayRouteTableAttachment"
+  "typeName": "AWS::NetworkManager::TransitGatewayRouteTableAttachment",
+  "writeOnlyProperties": ["/properties/RoutingPolicyLabel"]
 }

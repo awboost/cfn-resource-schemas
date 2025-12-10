@@ -143,6 +143,7 @@ export type MLMemberAbilities = {
 export type MLPaymentConfig = {
   ModelInference?: ModelInferencePaymentConfig;
   ModelTraining?: ModelTrainingPaymentConfig;
+  SyntheticDataGeneration?: SyntheticDataGenerationPaymentConfig;
 };
 /**
  * Type definition for `AWS::CleanRooms::Collaboration.ModelInferencePaymentConfig`.
@@ -212,6 +213,13 @@ export type SupportedS3Region =
   | "il-central-1"
   | "sa-east-1"
   | "mx-central-1";
+/**
+ * Type definition for `AWS::CleanRooms::Collaboration.SyntheticDataGenerationPaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-syntheticdatagenerationpaymentconfig.html}
+ */
+export type SyntheticDataGenerationPaymentConfig = {
+  IsResponsible: boolean;
+};
 /**
  * Type definition for `AWS::CleanRooms::Collaboration.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-tag.html}

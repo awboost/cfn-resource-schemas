@@ -1,5 +1,5 @@
 {
-  "$hash": "709971dd2031e0b545fa5b0147a8e84ed080fbb7",
+  "$hash": "9abccc4072fe9dc4efe3b46cae12efbcc1dc572b",
   "$id": "aws-transfer-connector.json",
   "additionalProperties": false,
   "definitions": {
@@ -198,6 +198,11 @@
       "$ref": "#/definitions/ConnectorEgressType",
       "description": "Specifies the egress type for the connector."
     },
+    "ErrorMessage": {
+      "description": "Detailed error message when Connector in ERRORED status",
+      "maxLength": 2048,
+      "type": "string"
+    },
     "LoggingRole": {
       "description": "Specifies the logging role for the connector.",
       "maxLength": 2048,
@@ -267,7 +272,8 @@
     "/properties/Arn",
     "/properties/ConnectorId",
     "/properties/ServiceManagedEgressIpAddresses",
-    "/properties/Status"
+    "/properties/Status",
+    "/properties/ErrorMessage"
   ],
   "required": ["AccessRole"],
   "tagging": {
