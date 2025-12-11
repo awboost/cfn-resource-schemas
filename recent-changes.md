@@ -1,84 +1,18 @@
-- added `AWS::NetworkManager::CoreNetworkPrefixListAssociation`
-- removed `AWS::IoTFleetHub::Application`
-- removed `AWS::LookoutMetrics::Alert`
-- removed `AWS::LookoutMetrics::AnomalyDetector`
-- removed `AWS::RoboMaker::Fleet`
-- removed `AWS::RoboMaker::Robot`
-- removed `AWS::RoboMaker::RobotApplication`
-- removed `AWS::RoboMaker::RobotApplicationVersion`
-- removed `AWS::RoboMaker::SimulationApplication`
-- removed `AWS::RoboMaker::SimulationApplicationVersion`
-- updated `AWS::CleanRooms::AnalysisTemplate`
-  - added definition `ColumnClassificationDetails`
-  - added definition `MLSyntheticDataParameters`
-  - added definition `SyntheticDataColumnProperties`
-  - added definition `SyntheticDataParameters`
-  - added property `SyntheticDataParameters`
-  - updated `createOnlyProperties`
-- updated `AWS::CleanRooms::Collaboration`
-  - added definition `SyntheticDataGenerationPaymentConfig`
-  - updated definition `MLPaymentConfig`
-- updated `AWS::CloudFront::AnycastIpList`
+- updated `AWS::BillingConductor::CustomLineItem`
+  - added definition `AttributeValue`
+  - updated definition `LineItemFilter`
+  - updated property `ComputationRule`
+- updated `AWS::CleanRooms::Membership`
+  - added definition `MembershipSyntheticDataGenerationPaymentConfig`
+  - updated definition `MembershipMLPaymentConfig`
+- updated `AWS::EC2::NetworkInterface`
   - added `writeOnlyProperties`
-  - added definition `IpamCidrConfigResult`
-  - added definition `IpamCidrConfigResults`
-  - added definition `IpamCidrConfig`
-  - added definition `IpamCidrConfigs`
-  - added property `IpamCidrConfigResults`
-  - added property `IpamCidrConfigs`
+  - added definition `PublicIpDnsNameOptions`
+  - added property `PublicIpDnsHostnameTypeSpecification`
+  - added property `PublicIpDnsNameOptions`
   - updated `readOnlyProperties`
-  - updated definition `AnycastIpList`
-- updated `AWS::ConnectCampaignsV2::Campaign`
-  - added definition `RingTimeout`
-  - updated definition `TelephonyOutboundConfig`
-- updated `AWS::DSQL::Cluster`
-  - added property `VpcEndpoint`
-  - updated `readOnlyProperties`
-- updated `AWS::DataZone::Connection`
-  - added definition `MlflowPropertiesInput`
-  - updated definition `ConnectionPropertiesInput`
-  - updated definition `SparkEmrPropertiesInput`
-- updated `AWS::DataZone::Domain`
-  - added `writeOnlyProperties`
-- updated `AWS::EC2::EC2Fleet`
-  - added `writeOnlyProperties`
-  - updated `createOnlyProperties`
+- updated `AWS::EC2::SpotFleet`
+  - added property `Tags`
   - updated definition `InstanceRequirementsRequest`
-  - updated handler permissions
-- updated `AWS::NetworkManager::ConnectAttachment`
-  - added `writeOnlyProperties`
-  - added property `RoutingPolicyLabel`
-  - updated `createOnlyProperties`
-- updated `AWS::NetworkManager::DirectConnectGatewayAttachment`
-  - added `writeOnlyProperties`
-  - added property `RoutingPolicyLabel`
-  - updated `createOnlyProperties`
-- updated `AWS::NetworkManager::SiteToSiteVpnAttachment`
-  - added `writeOnlyProperties`
-  - added property `RoutingPolicyLabel`
-  - updated `createOnlyProperties`
-- updated `AWS::NetworkManager::TransitGatewayRouteTableAttachment`
-  - added `writeOnlyProperties`
-  - added property `RoutingPolicyLabel`
-  - updated `createOnlyProperties`
-- updated `AWS::NetworkManager::VpcAttachment`
-  - added `writeOnlyProperties`
-  - added property `RoutingPolicyLabel`
-  - updated `createOnlyProperties`
-- updated `AWS::PaymentCryptography::Key`
-  - added `writeOnlyProperties`
-  - added definition `KeyReplicationState`
-  - added definition `ReplicationStatusType`
-  - added definition `ReplicationStatus`
-  - added property `ReplicationRegions`
-  - added property `ReplicationStatus`
-  - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::S3Vectors::Index`
-  - added definition `EncryptionConfiguration`
-  - added property `EncryptionConfiguration`
-  - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::Transfer::Connector`
-  - added property `ErrorMessage`
-  - updated `readOnlyProperties`
+- updated `AWS::Organizations::Policy`
+  - updated property `Type`

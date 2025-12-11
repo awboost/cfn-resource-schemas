@@ -1,5 +1,5 @@
 {
-  "$hash": "bf1e4d1d5b04a00c3fc4374cedca6e79cc1c1146",
+  "$hash": "0bb075979cdc8e93f72ac64d7a39fccb68145b33",
   "$id": "aws-ec2-spotfleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -296,6 +296,7 @@
           "$ref": "#/definitions/NetworkInterfaceCountRequest"
         },
         "OnDemandMaxPricePercentageOverLowestPrice": { "type": "integer" },
+        "RequireEncryptionInTransit": { "type": "boolean" },
         "RequireHibernateSupport": { "type": "boolean" },
         "SpotMaxPricePercentageOverLowestPrice": { "type": "integer" },
         "TotalLocalStorageGB": {
@@ -672,6 +673,12 @@
     "Id": { "type": "string" },
     "SpotFleetRequestConfigData": {
       "$ref": "#/definitions/SpotFleetRequestConfigData"
+    },
+    "Tags": {
+      "description": "The tags to specify in SpotFleetRequestConfigData",
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
     }
   },
   "readOnlyProperties": ["/properties/Id"],

@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type EC2SpotFleetProperties = {
   SpotFleetRequestConfigData: SpotFleetRequestConfigData;
+  /**
+   * The tags to specify in SpotFleetRequestConfigData
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::EC2::SpotFleet`.
@@ -192,6 +196,7 @@ export type InstanceRequirementsRequest = {
   NetworkBandwidthGbps?: NetworkBandwidthGbpsRequest;
   NetworkInterfaceCount?: NetworkInterfaceCountRequest;
   OnDemandMaxPricePercentageOverLowestPrice?: number;
+  RequireEncryptionInTransit?: boolean;
   RequireHibernateSupport?: boolean;
   SpotMaxPricePercentageOverLowestPrice?: number;
   TotalLocalStorageGB?: TotalLocalStorageGBRequest;

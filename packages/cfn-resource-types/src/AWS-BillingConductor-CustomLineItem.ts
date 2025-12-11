@@ -20,7 +20,7 @@ export type BillingConductorCustomLineItemProperties = {
   /**
    * The display settings of the Custom Line Item.
    */
-  ComputationRule?: "CONSOLIDATED";
+  ComputationRule?: "CONSOLIDATED" | "ITEMIZED";
   CustomLineItemChargeDetails?: CustomLineItemChargeDetails;
   /**
    * @maxLength `255`
@@ -121,9 +121,10 @@ export type CustomLineItemPercentageChargeDetails = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-lineitemfilter.html}
  */
 export type LineItemFilter = {
-  Attribute: "LINE_ITEM_TYPE";
-  MatchOption: "NOT_EQUAL";
-  Values: LineItemFilterValue[];
+  Attribute: "LINE_ITEM_TYPE" | "SERVICE";
+  AttributeValues?: string[];
+  MatchOption: "NOT_EQUAL" | "EQUAL";
+  Values?: LineItemFilterValue[];
 };
 /**
  * Type definition for `AWS::BillingConductor::CustomLineItem.LineItemFilterValue`.

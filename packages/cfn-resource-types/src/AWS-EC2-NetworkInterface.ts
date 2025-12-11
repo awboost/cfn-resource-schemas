@@ -55,6 +55,13 @@ export type EC2NetworkInterfaceProperties = {
    */
   PrivateIpAddresses?: PrivateIpAddressSpecification[];
   /**
+   * Public IP DNS hostname type
+   */
+  PublicIpDnsHostnameTypeSpecification?:
+    | "public-dual-stack-dns-name"
+    | "public-ipv4-dns-name"
+    | "public-ipv6-dns-name";
+  /**
    * The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses
    */
   SecondaryPrivateIpAddressCount?: number;
@@ -88,6 +95,15 @@ export type EC2NetworkInterfaceAttributes = {
    * Returns the primary private IP address of the network interface.
    */
   PrimaryPrivateIpAddress: string;
+  /**
+   * Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
+   */
+  PublicIpDnsNameOptions: {
+    DnsHostnameType: string;
+    PublicDualStackDnsName: string;
+    PublicIpv4DnsName: string;
+    PublicIpv6DnsName: string;
+  };
   /**
    * Returns the secondary private IP addresses of the network interface.
    */
@@ -134,6 +150,17 @@ export type Ipv6PrefixSpecification = {
 export type PrivateIpAddressSpecification = {
   Primary: boolean;
   PrivateIpAddress: string;
+};
+/**
+ * Type definition for `AWS::EC2::NetworkInterface.PublicIpDnsNameOptions`.
+ * Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-publicipdnsnameoptions.html}
+ */
+export type PublicIpDnsNameOptions = {
+  DnsHostnameType?: string;
+  PublicDualStackDnsName?: string;
+  PublicIpv4DnsName?: string;
+  PublicIpv6DnsName?: string;
 };
 /**
  * Type definition for `AWS::EC2::NetworkInterface.Tag`.

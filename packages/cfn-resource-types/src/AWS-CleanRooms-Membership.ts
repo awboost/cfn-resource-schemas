@@ -67,6 +67,7 @@ export type MembershipJobLogStatus = "ENABLED" | "DISABLED";
 export type MembershipMLPaymentConfig = {
   ModelInference?: MembershipModelInferencePaymentConfig;
   ModelTraining?: MembershipModelTrainingPaymentConfig;
+  SyntheticDataGeneration?: MembershipSyntheticDataGenerationPaymentConfig;
 };
 /**
  * Type definition for `AWS::CleanRooms::Membership.MembershipModelInferencePaymentConfig`.
@@ -141,6 +142,13 @@ export type MembershipQueryComputePaymentConfig = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerylogstatus.html}
  */
 export type MembershipQueryLogStatus = "ENABLED" | "DISABLED";
+/**
+ * Type definition for `AWS::CleanRooms::Membership.MembershipSyntheticDataGenerationPaymentConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipsyntheticdatagenerationpaymentconfig.html}
+ */
+export type MembershipSyntheticDataGenerationPaymentConfig = {
+  IsResponsible: boolean;
+};
 /**
  * Type definition for `AWS::CleanRooms::Membership.ProtectedJobS3OutputConfigurationInput`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedjobs3outputconfigurationinput.html}

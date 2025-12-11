@@ -1,5 +1,5 @@
 {
-  "$hash": "cb7039cd57de79ede35ece928d89131301b48deb",
+  "$hash": "ea06680753c98b06a5625087adb08d0fd097ecee",
   "$id": "aws-organizations-policy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Type"],
@@ -143,6 +143,7 @@
         "S3_POLICY",
         "INSPECTOR_POLICY",
         "BEDROCK_POLICY",
+        "NETWORK_SECURITY_DIRECTOR_POLICY",
         "UPGRADE_ROLLOUT_POLICY"
       ],
       "type": "string"

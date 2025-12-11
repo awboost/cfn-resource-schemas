@@ -1,5 +1,5 @@
 {
-  "$hash": "2ee5915bc52ae3029b9608a0a4933605004c5dd9",
+  "$hash": "e63c29a4e615afa791d78d492d1f79d157994091",
   "$id": "aws-ec2-networkinterface.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -48,6 +48,17 @@
         "PrivateIpAddress": { "type": "string" }
       },
       "required": ["PrivateIpAddress", "Primary"],
+      "type": "object"
+    },
+    "PublicIpDnsNameOptions": {
+      "additionalProperties": false,
+      "description": "Describes the public hostname type options, including public hostname type, IPv4-enabled public hostname, IPv6-enabled public hostname, and dual-stack public hostname.",
+      "properties": {
+        "DnsHostnameType": { "type": "string" },
+        "PublicDualStackDnsName": { "type": "string" },
+        "PublicIpv4DnsName": { "type": "string" },
+        "PublicIpv6DnsName": { "type": "string" }
+      },
       "type": "object"
     },
     "Tag": {
@@ -170,6 +181,18 @@
       "type": "array",
       "uniqueItems": false
     },
+    "PublicIpDnsHostnameTypeSpecification": {
+      "description": "Public IP DNS hostname type",
+      "enum": [
+        "public-dual-stack-dns-name",
+        "public-ipv4-dns-name",
+        "public-ipv6-dns-name"
+      ],
+      "type": "string"
+    },
+    "PublicIpDnsNameOptions": {
+      "$ref": "#/definitions/PublicIpDnsNameOptions"
+    },
     "SecondaryPrivateIpAddressCount": {
       "description": "The number of secondary private IPv4 addresses to assign to a network interface. When you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses within the subnet's IPv4 CIDR range. You can't specify this option and specify more than one private IP address using privateIpAddresses",
       "type": "integer"
@@ -203,7 +226,8 @@
     "/properties/SecondaryPrivateIpAddresses",
     "/properties/PrimaryPrivateIpAddress",
     "/properties/PrimaryIpv6Address",
-    "/properties/VpcId"
+    "/properties/VpcId",
+    "/properties/PublicIpDnsNameOptions"
   ],
   "required": ["SubnetId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2/networkinterface",
@@ -215,5 +239,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::EC2::NetworkInterface"
+  "typeName": "AWS::EC2::NetworkInterface",
+  "writeOnlyProperties": ["/properties/PublicIpDnsHostnameTypeSpecification"]
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "5e70022a4fca0c0fa4df38eebda3bd935c0ac457",
+  "$hash": "3bd3a9904fff51829855e4492beaa85719916242",
   "$id": "aws-billingconductor-customlineitem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -12,6 +12,12 @@
     "/properties/CustomLineItemChargeDetails/Type"
   ],
   "definitions": {
+    "AttributeValue": {
+      "maxLength": 256,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9]+$",
+      "type": "string"
+    },
     "BillingPeriodRange": {
       "additionalProperties": false,
       "properties": {
@@ -73,8 +79,17 @@
     "LineItemFilter": {
       "additionalProperties": false,
       "properties": {
-        "Attribute": { "enum": ["LINE_ITEM_TYPE"], "type": "string" },
-        "MatchOption": { "enum": ["NOT_EQUAL"], "type": "string" },
+        "Attribute": {
+          "enum": ["LINE_ITEM_TYPE", "SERVICE"],
+          "type": "string"
+        },
+        "AttributeValues": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/AttributeValue" },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "MatchOption": { "enum": ["NOT_EQUAL", "EQUAL"], "type": "string" },
         "Values": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/LineItemFilterValue" },
@@ -82,7 +97,7 @@
           "uniqueItems": true
         }
       },
-      "required": ["Attribute", "MatchOption", "Values"],
+      "required": ["Attribute", "MatchOption"],
       "type": "object"
     },
     "LineItemFilterValue": {
@@ -177,7 +192,7 @@
     "BillingPeriodRange": { "$ref": "#/definitions/BillingPeriodRange" },
     "ComputationRule": {
       "description": "The display settings of the Custom Line Item.",
-      "enum": ["CONSOLIDATED"],
+      "enum": ["CONSOLIDATED", "ITEMIZED"],
       "type": "string"
     },
     "CreationTime": {
