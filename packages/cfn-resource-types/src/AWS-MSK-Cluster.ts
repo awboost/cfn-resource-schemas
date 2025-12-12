@@ -112,6 +112,7 @@ export type ConfigurationInfo = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html}
  */
 export type ConnectivityInfo = {
+  NetworkType?: NetworkType;
   PublicAccess?: PublicAccess;
   VpcConnectivity?: VpcConnectivity;
 };
@@ -179,6 +180,11 @@ export type JmxExporter = {
 export type LoggingInfo = {
   BrokerLogs: BrokerLogs;
 };
+/**
+ * Type definition for `AWS::MSK::Cluster.NetworkType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-networktype.html}
+ */
+export type NetworkType = "IPV4" | "DUAL";
 /**
  * Type definition for `AWS::MSK::Cluster.NodeExporter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-nodeexporter.html}

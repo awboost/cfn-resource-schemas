@@ -1,5 +1,5 @@
 {
-  "$hash": "95813d4d7201a6733e6ba297351e35cfb0642049",
+  "$hash": "053c6e88374e1492eb4128a50c0b55c7f9574bcc",
   "$id": "aws-msk-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -77,6 +77,7 @@
     "ConnectivityInfo": {
       "additionalProperties": false,
       "properties": {
+        "NetworkType": { "$ref": "#/definitions/NetworkType" },
         "PublicAccess": { "$ref": "#/definitions/PublicAccess" },
         "VpcConnectivity": { "$ref": "#/definitions/VpcConnectivity" }
       },
@@ -144,6 +145,7 @@
       "required": ["BrokerLogs"],
       "type": "object"
     },
+    "NetworkType": { "enum": ["IPV4", "DUAL"], "type": "string" },
     "NodeExporter": {
       "additionalProperties": false,
       "properties": { "EnabledInBroker": { "type": "boolean" } },
@@ -333,6 +335,7 @@
         "kafka:DescribeClusterOperation",
         "kafka:TagResource",
         "kafka:UntagResource",
+        "ec2:CreateTags",
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
         "ec2:DescribeSecurityGroups",

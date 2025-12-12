@@ -59,6 +59,9 @@ export type Action = {
      If you specify both ``ForwardConfig`` and ``TargetGroupArn``, you can specify only one target group using ``ForwardConfig`` and it must be the same target group specified in ``TargetGroupArn``.
      */
   ForwardConfig?: ForwardConfig;
+  /**
+   * [HTTPS listeners] Information for validating JWT access tokens in client requests. Specify only when ``Type`` is ``jwt-validation``.
+   */
   JwtValidationConfig?: JwtValidationConfig;
   /**
    * The order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first.
@@ -262,11 +265,21 @@ export type HttpRequestMethodConfig = {
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancingV2::ListenerRule.JwtValidationActionAdditionalClaim`.
+ * Information about an additional claim to validate.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-jwtvalidationactionadditionalclaim.html}
  */
 export type JwtValidationActionAdditionalClaim = {
+  /**
+   * The format of the claim value.
+   */
   Format: string;
+  /**
+   * The name of the claim. You can't specify ``exp``, ``iss``, ``nbf``, or ``iat`` because we validate them by default.
+   */
   Name: string;
+  /**
+   * The claim value. The maximum size of the list is 10. Each value can be up to 256 characters in length. If the format is ``space-separated-values``, the values can't include spaces.
+   */
   Values: string[];
 };
 /**

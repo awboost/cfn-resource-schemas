@@ -8,7 +8,7 @@ export type ConnectCampaignsV2CampaignProperties = {
   /**
    * The possible types of channel subtype config parameters
    */
-  ChannelSubtypeConfig: ChannelSubtypeConfig;
+  ChannelSubtypeConfig?: ChannelSubtypeConfig;
   /**
    * Communication limits config
    */
@@ -50,6 +50,10 @@ export type ConnectCampaignsV2CampaignProperties = {
    * @maxLength `50`
    */
   Tags?: Tag[];
+  /**
+   * Campaign type
+   */
+  Type?: CampaignType;
 };
 /**
  * Attribute type definition for `AWS::ConnectCampaignsV2::Campaign`.
@@ -92,6 +96,12 @@ export type AnswerMachineDetectionConfig = {
   EnableAnswerMachineDetection: boolean;
 };
 /**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.CampaignType`.
+ * Campaign type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-campaigntype.html}
+ */
+export type CampaignType = "MANAGED" | "JOURNEY";
+/**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.ChannelSubtypeConfig`.
  * The possible types of channel subtype config parameters
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html}
@@ -109,6 +119,10 @@ export type ChannelSubtypeConfig = {
    * Telephony Channel Subtype config
    */
   Telephony?: TelephonyChannelSubtypeConfig;
+  /**
+   * WhatsApp Channel Subtype config
+   */
+  WhatsApp?: WhatsAppChannelSubtypeConfig;
 };
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.CommunicationLimit`.
@@ -183,6 +197,10 @@ export type CommunicationTimeConfig = {
    * Time window config
    */
   Telephony?: TimeWindow;
+  /**
+   * Time window config
+   */
+  WhatsApp?: TimeWindow;
 };
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.DailyHour`.
@@ -225,7 +243,7 @@ export type EmailChannelSubtypeConfig = {
    */
   Capacity?: number;
   /**
-   * Default SMS outbound config
+   * Default Email outbound config
    */
   DefaultOutboundConfig: EmailOutboundConfig;
   /**
@@ -235,7 +253,7 @@ export type EmailChannelSubtypeConfig = {
 };
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.EmailOutboundConfig`.
- * Default SMS outbound config
+ * Default Email outbound config
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-emailoutboundconfig.html}
  */
 export type EmailOutboundConfig = {
@@ -632,6 +650,59 @@ export type TimeWindow = {
    * Restricted period config
    */
   RestrictedPeriods?: RestrictedPeriods;
+};
+/**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.WhatsAppChannelSubtypeConfig`.
+ * WhatsApp Channel Subtype config
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-whatsappchannelsubtypeconfig.html}
+ */
+export type WhatsAppChannelSubtypeConfig = {
+  /**
+   * Allocates outbound capacity for the specific channel of this campaign between multiple active campaigns
+   * @min `0.01`
+   * @max `1`
+   */
+  Capacity?: number;
+  /**
+   * Default WhatsApp outbound config
+   */
+  DefaultOutboundConfig: WhatsAppOutboundConfig;
+  /**
+   * WhatsApp Outbound Mode
+   */
+  OutboundMode: WhatsAppOutboundMode;
+};
+/**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.WhatsAppOutboundConfig`.
+ * Default WhatsApp outbound config
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-whatsappoutboundconfig.html}
+ */
+export type WhatsAppOutboundConfig = {
+  /**
+   * Arn
+   * @minLength `20`
+   * @maxLength `500`
+   * @pattern `^arn:.*$`
+   */
+  ConnectSourcePhoneNumberArn: string;
+  /**
+   * Arn
+   * @minLength `20`
+   * @maxLength `500`
+   * @pattern `^arn:.*$`
+   */
+  WisdomTemplateArn: string;
+};
+/**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.WhatsAppOutboundMode`.
+ * WhatsApp Outbound Mode
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-whatsappoutboundmode.html}
+ */
+export type WhatsAppOutboundMode = {
+  /**
+   * Agentless config
+   */
+  AgentlessConfig?: AgentlessConfig;
 };
 /**
  * Definition of AWS::ConnectCampaignsV2::Campaign Resource Type

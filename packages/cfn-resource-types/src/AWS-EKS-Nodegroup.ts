@@ -121,6 +121,56 @@ export type NodeRepairConfig = {
    * Set this value to true to enable node auto repair for the node group.
    */
   Enabled?: boolean;
+  /**
+   * Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a count of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedPercentage at the same time.
+   * @min `1`
+   */
+  MaxParallelNodesRepairedCount?: number;
+  /**
+   * Specify the maximum number of nodes that can be repaired concurrently or in parallel, expressed as a percentage of unhealthy nodes. This gives you finer-grained control over the pace of node replacements. When using this, you cannot also set MaxParallelNodesRepairedCount at the same time.
+   * @min `1`
+   * @max `100`
+   */
+  MaxParallelNodesRepairedPercentage?: number;
+  /**
+   * Specify a count threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdPercentage at the same time.
+   * @min `1`
+   */
+  MaxUnhealthyNodeThresholdCount?: number;
+  /**
+   * Specify a percentage threshold of unhealthy nodes, above which node auto repair actions will stop. When using this, you cannot also set MaxUnhealthyNodeThresholdCount at the same time.
+   * @min `1`
+   * @max `100`
+   */
+  MaxUnhealthyNodeThresholdPercentage?: number;
+  /**
+   * Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
+   */
+  NodeRepairConfigOverrides?: NodeRepairConfigOverrides[];
+};
+/**
+ * Type definition for `AWS::EKS::Nodegroup.NodeRepairConfigOverrides`.
+ * Specify granular overrides for specific repair actions. These overrides control the repair action and the repair delay time before a node is considered eligible for repair. If you use this, you must specify all the values.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-noderepairconfigoverrides.html}
+ */
+export type NodeRepairConfigOverrides = {
+  /**
+   * Specify the minimum time in minutes to wait before attempting to repair a node with this specific NodeMonitoringCondition and NodeUnhealthyReason.
+   * @min `1`
+   */
+  MinRepairWaitTimeMins?: number;
+  /**
+   * Specify an unhealthy condition reported by the node monitoring agent that this override would apply to.
+   */
+  NodeMonitoringCondition?: string;
+  /**
+   * Specify a reason reported by the node monitoring agent that this override would apply to.
+   */
+  NodeUnhealthyReason?: string;
+  /**
+   * Specify the repair action to take for nodes when all of the specified conditions are met.
+   */
+  RepairAction?: "Replace" | "Reboot" | "NoAction";
 };
 /**
  * Type definition for `AWS::EKS::Nodegroup.RemoteAccess`.

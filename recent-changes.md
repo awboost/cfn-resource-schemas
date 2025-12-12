@@ -1,18 +1,105 @@
-- updated `AWS::BillingConductor::CustomLineItem`
-  - added definition `AttributeValue`
-  - updated definition `LineItemFilter`
-  - updated property `ComputationRule`
-- updated `AWS::CleanRooms::Membership`
-  - added definition `MembershipSyntheticDataGenerationPaymentConfig`
-  - updated definition `MembershipMLPaymentConfig`
-- updated `AWS::EC2::NetworkInterface`
-  - added `writeOnlyProperties`
-  - added definition `PublicIpDnsNameOptions`
-  - added property `PublicIpDnsHostnameTypeSpecification`
-  - added property `PublicIpDnsNameOptions`
-  - updated `readOnlyProperties`
-- updated `AWS::EC2::SpotFleet`
-  - added property `Tags`
-  - updated definition `InstanceRequirementsRequest`
-- updated `AWS::Organizations::Policy`
+- updated `AWS::ConnectCampaignsV2::Campaign`
+  - added definition `CampaignType`
+  - added definition `WhatsAppChannelSubtypeConfig`
+  - added definition `WhatsAppOutboundConfig`
+  - added definition `WhatsAppOutboundMode`
+  - added property `Type`
+  - updated `required`
+  - updated definition `ChannelSubtypeConfig`
+  - updated definition `CommunicationTimeConfig`
+  - updated definition `EmailOutboundConfig`
+- updated `AWS::EKS::Nodegroup`
+  - added definition `NodeRepairConfigOverrides`
+  - updated definition `NodeRepairConfig`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated definition `Action`
+  - updated definition `JwtValidationActionAdditionalClaim`
+  - updated property `Protocol`
+- updated `AWS::ElasticLoadBalancingV2::ListenerRule`
+  - updated definition `Action`
+  - updated definition `JwtValidationActionAdditionalClaim`
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - updated definition `LoadBalancerAttribute`
+  - updated handler permissions
+- updated `AWS::FSx::S3AccessPointAttachment`
+  - added `oneOf`
+  - added definition `OntapFileSystemIdentity`
+  - added definition `OntapUnixFileSystemUser`
+  - added definition `OntapWindowsFileSystemUser`
+  - added definition `S3AccessPointOntapConfiguration`
+  - added property `OntapConfiguration`
+  - updated `createOnlyProperties`
+  - updated `required`
+  - updated definition `FileSystemGID`
+  - updated definition `OpenZFSFileSystemIdentity`
+  - updated definition `OpenZFSPosixFileSystemUser`
+  - updated definition `S3AccessPointOpenZFSConfiguration`
+  - updated definition `S3AccessPointVpcConfiguration`
+  - updated definition `S3AccessPoint`
+  - updated property `Name`
+  - updated property `OpenZFSConfiguration`
+  - updated property `S3AccessPoint`
   - updated property `Type`
+- updated `AWS::MSK::Cluster`
+  - added definition `NetworkType`
+  - updated definition `ConnectivityInfo`
+  - updated handler permissions
+- updated `AWS::ObservabilityAdmin::OrganizationTelemetryRule`
+  - added definition `ActionCondition`
+  - added definition `Action`
+  - added definition `AdvancedEventSelector`
+  - added definition `AdvancedFieldSelector`
+  - added definition `CloudtrailParameters`
+  - added definition `Condition`
+  - added definition `Conditions`
+  - added definition `ELBLoadBalancerLoggingParameters`
+  - added definition `FieldToMatch`
+  - added definition `FilterBehavior`
+  - added definition `FilterRequirement`
+  - added definition `Filter`
+  - added definition `Filters`
+  - added definition `LabelNameCondition`
+  - added definition `LoggingFilter`
+  - added definition `RedactedFields`
+  - added definition `SingleHeader`
+  - added definition `TelemetrySourceType`
+  - added definition `TelemetrySourceTypes`
+  - added definition `WAFLogType`
+  - added definition `WAFLoggingParameters`
+  - updated definition `ResourceType`
+  - updated definition `TelemetryDestinationConfiguration`
+  - updated definition `TelemetryRule`
+- updated `AWS::ObservabilityAdmin::TelemetryRule`
+  - added definition `ActionCondition`
+  - added definition `Action`
+  - added definition `AdvancedEventSelector`
+  - added definition `AdvancedFieldSelector`
+  - added definition `CloudtrailParameters`
+  - added definition `Condition`
+  - added definition `Conditions`
+  - added definition `ELBLoadBalancerLoggingParameters`
+  - added definition `FieldToMatch`
+  - added definition `FilterBehavior`
+  - added definition `FilterRequirement`
+  - added definition `Filter`
+  - added definition `Filters`
+  - added definition `LabelNameCondition`
+  - added definition `LoggingFilter`
+  - added definition `RedactedFields`
+  - added definition `SingleHeader`
+  - added definition `TelemetrySourceType`
+  - added definition `TelemetrySourceTypes`
+  - added definition `WAFLogType`
+  - added definition `WAFLoggingParameters`
+  - updated definition `ResourceType`
+  - updated definition `TelemetryDestinationConfiguration`
+  - updated definition `TelemetryRule`
+  - updated definition `TelemetryType`
+  - updated handler permissions
+- updated `AWS::RAM::ResourceShare`
+  - added property `CreationTime`
+  - added property `FeatureSet`
+  - added property `LastUpdatedTime`
+  - added property `OwningAccountId`
+  - added property `Status`
+  - updated `readOnlyProperties`
