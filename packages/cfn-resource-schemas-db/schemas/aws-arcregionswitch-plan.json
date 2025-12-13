@@ -1,5 +1,5 @@
 {
-  "$hash": "2ff35c5b94fc9cd33699de817532cd36045128ea",
+  "$hash": "370a4471d811fa0c1601033ea58ef89bd91bda18",
   "$id": "aws-arcregionswitch-plan.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -40,7 +40,7 @@
       "additionalProperties": false,
       "properties": {
         "Arn": {
-          "pattern": "^arn:aws:autoscaling:[a-z0-9-]+:\\d{12}:autoScalingGroup:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:autoScalingGroupName/[\\S\\s]{1,255}$",
+          "pattern": "^arn:aws[a-zA-Z-]*:autoscaling:[a-z0-9-]+:\\d{12}:autoScalingGroup:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:autoScalingGroupName/[\\S\\s]{1,255}$",
           "type": "string"
         },
         "CrossAccountRole": {
@@ -570,7 +570,7 @@
       "additionalProperties": false,
       "properties": {
         "ClusterArn": {
-          "pattern": "^arn:aws:ecs:[a-z0-9-]+:\\d{12}:cluster/[a-zA-Z0-9_-]{1,255}$",
+          "pattern": "^arn:aws[a-zA-Z-]*:ecs:[a-z0-9-]+:\\d{12}:cluster/[a-zA-Z0-9_-]{1,255}$",
           "type": "string"
         },
         "CrossAccountRole": {
@@ -579,7 +579,7 @@
         },
         "ExternalId": { "type": "string" },
         "ServiceArn": {
-          "pattern": "^arn:aws:ecs:[a-z0-9-]+:\\d{12}:service/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]{1,255}$",
+          "pattern": "^arn:aws[a-zA-Z-]*:ecs:[a-z0-9-]+:\\d{12}:service/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]{1,255}$",
           "type": "string"
         }
       },

@@ -35,6 +35,10 @@ export type Route53ProfilesProfileAttributes = {
    * The ID of the profile.
    */
   Id: string;
+  /**
+   * The sharing status of the profile.
+   */
+  ShareStatus: "NOT_SHARED" | "SHARED_WITH_ME" | "SHARED_BY_ME";
 };
 /**
  * Type definition for `AWS::Route53Profiles::Profile.Tag`.

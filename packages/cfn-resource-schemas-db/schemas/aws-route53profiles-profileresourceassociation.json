@@ -1,5 +1,5 @@
 {
-  "$hash": "d431f9f83b1465ab2afc0a2050f9dd44da509a01",
+  "$hash": "a6352d0afc9b7e9ca83521c3d0d3135147991596",
   "$id": "aws-route53profiles-profileresourceassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -16,6 +16,7 @@
         "route53resolver:GetFirewallRuleGroup",
         "route53resolver:GetResolverRule",
         "route53:GetHostedZone",
+        "route53profiles:ListProfileResourceAssociations",
         "route53resolver:GetResolverQueryLogConfig",
         "ec2:DescribeVpcEndpoints"
       ]

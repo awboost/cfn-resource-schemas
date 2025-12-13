@@ -1,5 +1,5 @@
 {
-  "$hash": "37f3b75f294eb33e387d75ba3939852369651cec",
+  "$hash": "859921a27fca3e455fe5efd7741ef17d01c3d3f2",
   "$id": "aws-route53profiles-profile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -82,6 +82,11 @@
       "minLength": 1,
       "type": "string"
     },
+    "ShareStatus": {
+      "description": "The sharing status of the profile.",
+      "enum": ["NOT_SHARED", "SHARED_WITH_ME", "SHARED_BY_ME"],
+      "type": "string"
+    },
     "Tags": {
       "description": "An array of key-value pairs to apply to this resource.",
       "insertionOrder": false,
@@ -93,7 +98,8 @@
   "readOnlyProperties": [
     "/properties/Arn",
     "/properties/Id",
-    "/properties/ClientToken"
+    "/properties/ClientToken",
+    "/properties/ShareStatus"
   ],
   "required": ["Name"],
   "tagging": {

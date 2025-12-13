@@ -106,7 +106,7 @@ export type ArcRoutingControlState = {
  */
 export type Asg = {
   /**
-   * @pattern `^arn:aws:autoscaling:[a-z0-9-]+:\d{12}:autoScalingGroup:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:autoScalingGroupName/[\S\s]{1,255}$`
+   * @pattern `^arn:aws[a-zA-Z-]*:autoscaling:[a-z0-9-]+:\d{12}:autoScalingGroup:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:autoScalingGroupName/[\S\s]{1,255}$`
    */
   Arn?: string;
   /**
@@ -501,7 +501,7 @@ export type RoutingControlStateChange = "On" | "Off";
  */
 export type Service = {
   /**
-   * @pattern `^arn:aws:ecs:[a-z0-9-]+:\d{12}:cluster/[a-zA-Z0-9_-]{1,255}$`
+   * @pattern `^arn:aws[a-zA-Z-]*:ecs:[a-z0-9-]+:\d{12}:cluster/[a-zA-Z0-9_-]{1,255}$`
    */
   ClusterArn?: string;
   /**
@@ -510,7 +510,7 @@ export type Service = {
   CrossAccountRole?: string;
   ExternalId?: string;
   /**
-   * @pattern `^arn:aws:ecs:[a-z0-9-]+:\d{12}:service/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]{1,255}$`
+   * @pattern `^arn:aws[a-zA-Z-]*:ecs:[a-z0-9-]+:\d{12}:service/[a-zA-Z0-9_-]+/[a-zA-Z0-9_-]{1,255}$`
    */
   ServiceArn?: string;
 };
