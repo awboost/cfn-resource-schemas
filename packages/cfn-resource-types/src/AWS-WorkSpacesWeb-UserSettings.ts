@@ -6,6 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type WorkSpacesWebUserSettingsProperties = {
   AdditionalEncryptionContext?: EncryptionContextMap;
+  BrandingConfiguration?: BrandingConfiguration;
   CookieSynchronizationConfiguration?: CookieSynchronizationConfiguration;
   CopyAllowed: EnabledType;
   /**
@@ -42,6 +43,38 @@ export type WorkSpacesWebUserSettingsProperties = {
  */
 export type WorkSpacesWebUserSettingsAttributes = {
   AssociatedPortalArns: string[];
+  BrandingConfiguration: {
+    FaviconMetadata: {
+      /**
+       * @minLength `0`
+       * @maxLength `131072`
+       * @pattern `^[\s\S]*$`
+       */
+      FileExtension: string;
+      LastUploadTimestamp: string;
+      MimeType: MimeType;
+    };
+    LogoMetadata: {
+      /**
+       * @minLength `0`
+       * @maxLength `131072`
+       * @pattern `^[\s\S]*$`
+       */
+      FileExtension: string;
+      LastUploadTimestamp: string;
+      MimeType: MimeType;
+    };
+    WallpaperMetadata: {
+      /**
+       * @minLength `0`
+       * @maxLength `131072`
+       * @pattern `^[\s\S]*$`
+       */
+      FileExtension: string;
+      LastUploadTimestamp: string;
+      MimeType: MimeType;
+    };
+  };
   /**
    * @minLength `20`
    * @maxLength `2048`
@@ -49,6 +82,35 @@ export type WorkSpacesWebUserSettingsAttributes = {
    */
   UserSettingsArn: string;
 };
+/**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.BrandingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-brandingconfiguration.html}
+ */
+export type BrandingConfiguration = {
+  ColorTheme?: ColorTheme;
+  /**
+   * @pattern `(^s3://[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]/.+$)|(^(?=(.{4})*$)[A-Za-z0-9+/]*={0,2}$)`
+   */
+  Favicon?: string;
+  LocalizedStrings?: LocalizedBrandingStringMap;
+  /**
+   * @pattern `(^s3://[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]/.+$)|(^(?=(.{4})*$)[A-Za-z0-9+/]*={0,2}$)`
+   */
+  Logo?: string;
+  /**
+   * @maxLength `153600`
+   */
+  TermsOfService?: string;
+  /**
+   * @pattern `(^s3://[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]/.+$)|(^(?=(.{4})*$)[A-Za-z0-9+/]*={0,2}$)`
+   */
+  Wallpaper?: string;
+};
+/**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.ColorTheme`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-colortheme.html}
+ */
+export type ColorTheme = "Light" | "Dark";
 /**
  * Type definition for `AWS::WorkSpacesWeb::UserSettings.CookieSpecification`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-cookiespecification.html}
@@ -99,6 +161,66 @@ export type EnabledType = "Disabled" | "Enabled";
  */
 export type EncryptionContextMap = Record<string, string>;
 /**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.ImageMetadata`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-imagemetadata.html}
+ */
+export type ImageMetadata = {
+  /**
+   * @minLength `0`
+   * @maxLength `131072`
+   * @pattern `^[\s\S]*$`
+   */
+  FileExtension: string;
+  LastUploadTimestamp: string;
+  MimeType: MimeType;
+};
+/**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.LocalizedBrandingStringMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-localizedbrandingstringmap.html}
+ */
+export type LocalizedBrandingStringMap = Record<
+  string,
+  LocalizedBrandingStrings
+>;
+/**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.LocalizedBrandingStrings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-localizedbrandingstrings.html}
+ */
+export type LocalizedBrandingStrings = {
+  /**
+   * @pattern `^[^<>&'`~\\]*$`
+   */
+  BrowserTabTitle: string;
+  /**
+   * @pattern `^[^<>&'`~\\]*$`
+   */
+  ContactButtonText?: string;
+  /**
+   * @pattern `^(https?://|mailto:).*`
+   */
+  ContactLink?: string;
+  /**
+   * @pattern `^[^<>&'`~\\]*$`
+   */
+  LoadingText?: string;
+  /**
+   * @pattern `^[^<>&'`~\\]*$`
+   */
+  LoginButtonText?: string;
+  /**
+   * @pattern `^[^<>&'`~\\]*$`
+   */
+  LoginDescription?: string;
+  /**
+   * @pattern `^[^<>&'`~\\]*$`
+   */
+  LoginTitle?: string;
+  /**
+   * @pattern `^[^<>&'`~\\]*$`
+   */
+  WelcomeText: string;
+};
+/**
  * Type definition for `AWS::WorkSpacesWeb::UserSettings.MaxDisplayResolution`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-maxdisplayresolution.html}
  */
@@ -111,6 +233,11 @@ export type MaxDisplayResolution =
   | "size1280X720"
   | "size1024X768"
   | "size800X600";
+/**
+ * Type definition for `AWS::WorkSpacesWeb::UserSettings.MimeType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-mimetype.html}
+ */
+export type MimeType = "image/png" | "image/jpeg" | "image/x-icon";
 /**
  * Type definition for `AWS::WorkSpacesWeb::UserSettings.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-tag.html}

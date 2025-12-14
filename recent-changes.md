@@ -1,8 +1,18 @@
-- updated `AWS::ARCRegionSwitch::Plan`
-  - updated definition `Asg`
-  - updated definition `Service`
-- updated `AWS::Route53Profiles::Profile`
-  - added property `ShareStatus`
+- updated `AWS::EntityResolution::MatchingWorkflow`
+  - added definition `CustomerProfilesDomainArn`
+  - added definition `CustomerProfilesIntegrationConfig`
+  - added definition `CustomerProfilesObjectTypeArn`
+  - updated definition `OutputSource`
+  - updated handler permissions
+- updated `AWS::WorkSpacesWeb::UserSettings`
+  - added `writeOnlyProperties`
+  - added definition `BrandingConfiguration`
+  - added definition `ColorTheme`
+  - added definition `ImageMetadata`
+  - added definition `Locale`
+  - added definition `LocalizedBrandingStringMap`
+  - added definition `LocalizedBrandingStrings`
+  - added definition `MimeType`
+  - added property `BrandingConfiguration`
   - updated `readOnlyProperties`
-- updated `AWS::Route53Profiles::ProfileResourceAssociation`
   - updated handler permissions

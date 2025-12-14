@@ -61,6 +61,20 @@ export type EntityResolutionMatchingWorkflowAttributes = {
   WorkflowArn: string;
 };
 /**
+ * Type definition for `AWS::EntityResolution::MatchingWorkflow.CustomerProfilesIntegrationConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-customerprofilesintegrationconfig.html}
+ */
+export type CustomerProfilesIntegrationConfig = {
+  /**
+   * @pattern `^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255})$`
+   */
+  DomainArn: string;
+  /**
+   * @pattern `^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255}/object-types/[a-zA-Z_0-9-]{1,255})$`
+   */
+  ObjectTypeArn: string;
+};
+/**
  * Type definition for `AWS::EntityResolution::MatchingWorkflow.IncrementalRunConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-incrementalrunconfig.html}
  */
@@ -113,6 +127,7 @@ export type OutputAttribute = {
  */
 export type OutputSource = {
   ApplyNormalization?: boolean;
+  CustomerProfilesIntegrationConfig?: CustomerProfilesIntegrationConfig;
   /**
    * @pattern `^arn:(aws|aws-us-gov|aws-cn):kms:.*:[0-9]+:.*$`
    */
@@ -126,7 +141,7 @@ export type OutputSource = {
    * The S3 path to which Entity Resolution will write the output table
    * @pattern `^s3://([^/]+)/?(.*?([^/]+)/?)$`
    */
-  OutputS3Path: string;
+  OutputS3Path?: string;
 };
 /**
  * Type definition for `AWS::EntityResolution::MatchingWorkflow.ProviderProperties`.

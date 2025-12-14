@@ -1,5 +1,5 @@
 {
-  "$hash": "9b5607c023037b7c4b01b41bbaf0f682c2f6c87b",
+  "$hash": "1448f889ac94c361a78390748f1f12389da72619",
   "$id": "aws-entityresolution-matchingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
@@ -12,6 +12,25 @@
     },
     "CreatedAt": {
       "description": "The time of this MatchingWorkflow got created",
+      "type": "string"
+    },
+    "CustomerProfilesDomainArn": {
+      "pattern": "^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255})$",
+      "type": "string"
+    },
+    "CustomerProfilesIntegrationConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "DomainArn": { "$ref": "#/definitions/CustomerProfilesDomainArn" },
+        "ObjectTypeArn": {
+          "$ref": "#/definitions/CustomerProfilesObjectTypeArn"
+        }
+      },
+      "required": ["DomainArn", "ObjectTypeArn"],
+      "type": "object"
+    },
+    "CustomerProfilesObjectTypeArn": {
+      "pattern": "^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255}/object-types/[a-zA-Z_0-9-]{1,255})$",
       "type": "string"
     },
     "Description": { "maxLength": 255, "minLength": 0, "type": "string" },
@@ -79,6 +98,9 @@
       "additionalProperties": false,
       "properties": {
         "ApplyNormalization": { "type": "boolean" },
+        "CustomerProfilesIntegrationConfig": {
+          "$ref": "#/definitions/CustomerProfilesIntegrationConfig"
+        },
         "KMSArn": { "$ref": "#/definitions/KMSArn" },
         "Output": {
           "insertionOrder": false,
@@ -93,7 +115,7 @@
           "type": "string"
         }
       },
-      "required": ["Output", "OutputS3Path"],
+      "required": ["Output"],
       "type": "object"
     },
     "ProviderProperties": {
@@ -239,7 +261,8 @@
         "events:PutRule",
         "events:DeleteRule",
         "events:PutTargets",
-        "events:ListTargetsByRule"
+        "events:ListTargetsByRule",
+        "profile:PutIntegration"
       ]
     },
     "delete": {
@@ -251,7 +274,8 @@
         "events:DeleteRule",
         "events:PutTargets",
         "events:RemoveTargets",
-        "events:ListTargetsByRule"
+        "events:ListTargetsByRule",
+        "profile:DeleteIntegration"
       ]
     },
     "list": { "permissions": ["entityresolution:ListMatchingWorkflows"] },
