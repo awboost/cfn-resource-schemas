@@ -1,18 +1,2 @@
-- updated `AWS::EntityResolution::MatchingWorkflow`
-  - added definition `CustomerProfilesDomainArn`
-  - added definition `CustomerProfilesIntegrationConfig`
-  - added definition `CustomerProfilesObjectTypeArn`
-  - updated definition `OutputSource`
-  - updated handler permissions
-- updated `AWS::WorkSpacesWeb::UserSettings`
-  - added `writeOnlyProperties`
-  - added definition `BrandingConfiguration`
-  - added definition `ColorTheme`
-  - added definition `ImageMetadata`
-  - added definition `Locale`
-  - added definition `LocalizedBrandingStringMap`
-  - added definition `LocalizedBrandingStrings`
-  - added definition `MimeType`
-  - added property `BrandingConfiguration`
-  - updated `readOnlyProperties`
-  - updated handler permissions
+- updated `AWS::SageMaker::Cluster`
+  - updated definition `ClusterInstanceGroup`

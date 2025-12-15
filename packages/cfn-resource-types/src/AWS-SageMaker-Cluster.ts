@@ -247,6 +247,11 @@ export type ClusterInstanceGroup = {
    */
   LifeCycleConfig: ClusterLifeCycleConfig;
   /**
+   * The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
+   * @min `0`
+   */
+  MinInstanceCount?: number;
+  /**
    * Nodes will undergo advanced stress test to detect and replace faulty instances, based on the type of deep health check(s) passed in.
    */
   OnStartDeepHealthChecks?: DeepHealthCheckType[];

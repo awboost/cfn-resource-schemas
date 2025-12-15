@@ -1,5 +1,5 @@
 {
-  "$hash": "d11f5a0863ef1537670ee94be76b29b14cc9f8c1",
+  "$hash": "01e0dfb0516661fc3f6e273c1ac7cfe1dbaa1c69",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
@@ -132,6 +132,11 @@
         "InstanceType": { "$ref": "#/definitions/InstanceType" },
         "KubernetesConfig": { "$ref": "#/definitions/ClusterKubernetesConfig" },
         "LifeCycleConfig": { "$ref": "#/definitions/ClusterLifeCycleConfig" },
+        "MinInstanceCount": {
+          "description": "The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.",
+          "minimum": 0,
+          "type": "integer"
+        },
         "OnStartDeepHealthChecks": {
           "$ref": "#/definitions/OnStartDeepHealthChecks"
         },
