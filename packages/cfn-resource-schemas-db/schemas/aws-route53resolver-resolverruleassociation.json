@@ -1,5 +1,5 @@
 {
-  "$hash": "fdc51de234cc3220e2d4fb51674c7d7b1c014ef5",
+  "$hash": "b0b9c40be5a5781da7f40a16181bd49af75322e8",
   "$id": "aws-route53resolver-resolverruleassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -33,7 +33,7 @@
   "primaryIdentifier": ["/properties/ResolverRuleAssociationId"],
   "properties": {
     "Name": {
-      "description": "The name of an association between a Resolver rule and a VPC.",
+      "description": "The name of an association between a Resolver rule and a VPC.\n The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.",
       "type": "string"
     },
     "ResolverRuleAssociationId": { "description": "", "type": "string" },

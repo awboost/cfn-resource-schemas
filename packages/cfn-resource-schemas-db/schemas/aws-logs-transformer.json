@@ -1,5 +1,5 @@
 {
-  "$hash": "d350fb887a05f0c9965a67fdbc88cffd96910d0f",
+  "$hash": "c86324cc4df771d51e941220c6e6c0267bf8eca6",
   "$id": "aws-logs-transformer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupIdentifier"],
@@ -35,6 +35,12 @@
       ],
       "type": "string"
     },
+    "MappingVersion": {
+      "maxLength": 10,
+      "minLength": 1,
+      "pattern": "^v\\d+\\.\\d+(\\.\\d+)?$",
+      "type": "string"
+    },
     "MatchPattern": { "$ref": "#/definitions/NonEmptyString" },
     "MaxLengthString": { "maxLength": 128, "type": "string" },
     "MoveKeyEntry": {
@@ -53,7 +59,7 @@
       "type": "string"
     },
     "NonEmptyString": { "pattern": "^.*[a-zA-Z0-9]+.*$", "type": "string" },
-    "OcsfVersion": { "enum": ["V1.1"], "type": "string" },
+    "OcsfVersion": { "enum": ["V1.1", "V1.5"], "type": "string" },
     "ParseCloudfront": {
       "additionalProperties": false,
       "properties": { "Source": { "$ref": "#/definitions/NonEmptyString" } },
@@ -73,6 +79,7 @@
       "additionalProperties": false,
       "properties": {
         "EventSource": { "$ref": "#/definitions/EventSource" },
+        "MappingVersion": { "$ref": "#/definitions/MappingVersion" },
         "OcsfVersion": { "$ref": "#/definitions/OcsfVersion" },
         "Source": { "$ref": "#/definitions/NonEmptyString" }
       },

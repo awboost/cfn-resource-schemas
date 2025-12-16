@@ -37,6 +37,10 @@ export type Route53ResolverResolverEndpointProperties = {
    */
   ResolverEndpointType?: "IPV6" | "IPV4" | "DUALSTACK";
   /**
+   * Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
+   */
+  RniEnhancedMetricsEnabled?: boolean;
+  /**
    * The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
    */
   SecurityGroupIds: string[];
@@ -44,6 +48,10 @@ export type Route53ResolverResolverEndpointProperties = {
    * An array of key-value pairs to apply to this resource.
    */
   Tags?: Tag[];
+  /**
+   * Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
+   */
+  TargetNameServerMetricsEnabled?: boolean;
 };
 /**
  * Attribute type definition for `AWS::Route53Resolver::ResolverEndpoint`.

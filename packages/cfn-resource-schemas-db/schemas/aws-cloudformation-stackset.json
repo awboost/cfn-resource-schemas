@@ -1,5 +1,5 @@
 {
-  "$hash": "c7dc66f277f1bcd322053a212604a0207cb00c01",
+  "$hash": "aa398ad0d1c42901aa22407dcf182a6cdbb41c37",
   "$id": "aws-cloudformation-stackset.json",
   "additionalIdentifiers": [["/properties/StackSetName"]],
   "additionalProperties": false,
@@ -213,14 +213,7 @@
       ],
       "timeoutInMinutes": 2160
     },
-    "list": {
-      "permissions": [
-        "cloudformation:ListStackSets",
-        "cloudformation:DescribeStackSet",
-        "cloudformation:ListStackInstances",
-        "cloudformation:DescribeStackInstance"
-      ]
-    },
+    "list": { "permissions": ["cloudformation:ListStackSets"] },
     "read": {
       "permissions": [
         "cloudformation:DescribeStackSet",

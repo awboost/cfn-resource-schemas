@@ -82,7 +82,7 @@ export type MoveKeyEntry = {
  * Type definition for `AWS::Logs::Transformer.OcsfVersion`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-ocsfversion.html}
  */
-export type OcsfVersion = "V1.1";
+export type OcsfVersion = "V1.1" | "V1.5";
 /**
  * Type definition for `AWS::Logs::Transformer.ParseCloudfront`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsecloudfront.html}
@@ -119,6 +119,12 @@ export type ParseRoute53 = {
  */
 export type ParseToOCSF = {
   EventSource: EventSource;
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   * @pattern `^v\d+\.\d+(\.\d+)?$`
+   */
+  MappingVersion?: string;
   OcsfVersion: OcsfVersion;
   /**
    * @pattern `^.*[a-zA-Z0-9]+.*$`

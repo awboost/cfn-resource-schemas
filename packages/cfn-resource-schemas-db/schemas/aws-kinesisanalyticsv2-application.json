@@ -1,5 +1,5 @@
 {
-  "$hash": "fd1230fc0f48ea552dab2904a0b676dbe35caaa4",
+  "$hash": "df7e8e116b74f29cb5ca2971204fcad22d227386",
   "$id": "aws-kinesisanalyticsv2-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -813,6 +813,7 @@
         "kinesisanalytics:DescribeApplication",
         "kinesisanalytics:ListTagsForResource",
         "kinesisanalytics:UpdateApplicationMaintenanceConfiguration",
+        "kinesisanalytics:TagResource",
         "kms:Decrypt",
         "kms:DescribeKey",
         "kms:GenerateDataKey",
@@ -835,6 +836,7 @@
     },
     "update": {
       "permissions": [
+        "iam:PassRole",
         "kinesisanalytics:UpdateApplication",
         "kinesisanalytics:DescribeApplication",
         "kinesisanalytics:TagResource",

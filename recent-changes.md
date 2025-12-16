@@ -1,2 +1,31 @@
-- updated `AWS::SageMaker::Cluster`
-  - updated definition `ClusterInstanceGroup`
+- updated `AWS::CloudFormation::StackSet`
+  - updated handler permissions
+- updated `AWS::FMS::NotificationChannel`
+  - added `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::KinesisAnalyticsV2::Application`
+  - updated handler permissions
+- updated `AWS::Logs::Transformer`
+  - added definition `MappingVersion`
+  - updated definition `OcsfVersion`
+  - updated definition `ParseToOCSF`
+- updated `AWS::Route53Resolver::ResolverEndpoint`
+  - added property `RniEnhancedMetricsEnabled`
+  - added property `TargetNameServerMetricsEnabled`
+- updated `AWS::Route53Resolver::ResolverRuleAssociation`
+  - updated property `Name`
+- updated `AWS::SSM::MaintenanceWindowTarget`
+  - added `sourceUrl`
+  - added `tagging`
+  - added property `WindowTargetId`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `Targets`
+  - updated handler permissions
+  - updated property `Description`
+  - updated property `Name`
+  - updated property `OwnerInformation`
+  - updated property `ResourceType`
+  - updated property `Targets`
+  - updated property `WindowId`

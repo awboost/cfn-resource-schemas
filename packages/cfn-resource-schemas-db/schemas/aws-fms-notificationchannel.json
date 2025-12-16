@@ -1,7 +1,8 @@
 {
-  "$hash": "7feb5d168bd91ddfffa15aa234e8462d38c9cc3f",
+  "$hash": "6762bdc66c0222bf4d361b0318c4bb0af5cd35b6",
   "$id": "aws-fms-notificationchannel.json",
   "additionalProperties": false,
+  "createOnlyProperties": ["/properties/SnsTopicArn"],
   "definitions": {
     "ResourceArn": {
       "description": "A resource ARN.",
@@ -13,11 +14,28 @@
   },
   "description": "Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.",
   "handlers": {
-    "create": { "permissions": ["fms:PutNotificationChannel", "iam:PassRole"] },
-    "delete": { "permissions": ["fms:DeleteNotificationChannel"] },
+    "create": {
+      "permissions": [
+        "fms:PutNotificationChannel",
+        "iam:PassRole",
+        "fms:GetNotificationChannel"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "fms:GetNotificationChannel",
+        "fms:DeleteNotificationChannel"
+      ]
+    },
     "list": { "permissions": ["fms:GetNotificationChannel"] },
     "read": { "permissions": ["fms:GetNotificationChannel"] },
-    "update": { "permissions": ["fms:PutNotificationChannel", "iam:PassRole"] }
+    "update": {
+      "permissions": [
+        "fms:PutNotificationChannel",
+        "iam:PassRole",
+        "fms:GetNotificationChannel"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/SnsTopicArn"],
   "properties": {
