@@ -1,31 +1,62 @@
-- updated `AWS::CloudFormation::StackSet`
-  - updated handler permissions
-- updated `AWS::FMS::NotificationChannel`
-  - added `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::KinesisAnalyticsV2::Application`
-  - updated handler permissions
-- updated `AWS::Logs::Transformer`
-  - added definition `MappingVersion`
-  - updated definition `OcsfVersion`
-  - updated definition `ParseToOCSF`
-- updated `AWS::Route53Resolver::ResolverEndpoint`
-  - added property `RniEnhancedMetricsEnabled`
-  - added property `TargetNameServerMetricsEnabled`
-- updated `AWS::Route53Resolver::ResolverRuleAssociation`
-  - updated property `Name`
-- updated `AWS::SSM::MaintenanceWindowTarget`
+- added `AWS::GroundStation::DataflowEndpointGroupV2`
+- added `AWS::SES::Tenant`
+- updated `AWS::BedrockAgentCore::Gateway`
+  - added definition `GatewayInterceptionPoint`
+  - added definition `GatewayInterceptorConfiguration`
+  - added definition `InterceptorConfiguration`
+  - added definition `InterceptorInputConfiguration`
+  - added definition `LambdaInterceptorConfiguration`
+  - added property `InterceptorConfigurations`
+  - updated definition `AuthorizerType`
+- updated `AWS::Deadline::Fleet`
+  - updated definition `ServiceManagedEc2InstanceCapabilities`
+- updated `AWS::EC2::CapacityReservation`
+  - updated `tagging`
+- updated `AWS::EC2::NetworkInterfaceAttachment`
+  - updated definition `EnaSrdSpecification`
+  - updated property `AttachmentId`
+  - updated property `DeleteOnTermination`
+  - updated property `DeviceIndex`
+  - updated property `EnaQueueCount`
+  - updated property `EnaSrdSpecification`
+- updated `AWS::ECR::SigningConfiguration`
+  - updated definition `Filter`
+- updated `AWS::ECS::Service`
+  - added `conditionalCreateOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated definition `DeploymentConfiguration`
+- updated `AWS::KafkaConnect::Connector`
+  - added property `NetworkType`
+  - updated `createOnlyProperties`
+- updated `AWS::S3::Bucket`
+  - updated definition `BlockedEncryptionTypes`
+  - updated definition `InventoryConfiguration`
+  - updated definition `PublicAccessBlockConfiguration`
+  - updated definition `ServerSideEncryptionRule`
+  - updated property `AbacStatus`
+- updated `AWS::SSM::MaintenanceWindowTask`
   - added `sourceUrl`
   - added `tagging`
-  - added property `WindowTargetId`
+  - added definition `ParameterValues`
+  - added property `WindowTaskId`
   - removed property `Id`
   - updated `primaryIdentifier`
   - updated `readOnlyProperties`
-  - updated definition `Targets`
+  - updated definition `CloudWatchOutputConfig`
   - updated handler permissions
+  - updated property `CutoffBehavior`
   - updated property `Description`
+  - updated property `LoggingInfo`
+  - updated property `MaxConcurrency`
+  - updated property `MaxErrors`
   - updated property `Name`
-  - updated property `OwnerInformation`
-  - updated property `ResourceType`
+  - updated property `Priority`
+  - updated property `ServiceRoleArn`
   - updated property `Targets`
+  - updated property `TaskArn`
+  - updated property `TaskInvocationParameters`
+  - updated property `TaskParameters`
+  - updated property `TaskType`
   - updated property `WindowId`
+- updated `AWS::SecretsManager::Secret`
+  - updated property `Type`

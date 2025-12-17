@@ -1,5 +1,5 @@
 {
-  "$hash": "ffbe3ce9add55de71d97153ae0ff03ddbd84b4c3",
+  "$hash": "2c84eda10f16044c1c6c18f4b0419927618350d3",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -268,10 +268,7 @@
           "$ref": "#/definitions/AcceleratorCapabilities"
         },
         "AllowedInstanceTypes": {
-          "items": {
-            "pattern": "^[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$",
-            "type": "string"
-          },
+          "items": { "maxLength": 100, "minLength": 1, "type": "string" },
           "maxItems": 100,
           "minItems": 1,
           "type": "array"
@@ -290,10 +287,7 @@
           "type": "array"
         },
         "ExcludedInstanceTypes": {
-          "items": {
-            "pattern": "^[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$",
-            "type": "string"
-          },
+          "items": { "maxLength": 100, "minLength": 1, "type": "string" },
           "maxItems": 100,
           "minItems": 1,
           "type": "array"

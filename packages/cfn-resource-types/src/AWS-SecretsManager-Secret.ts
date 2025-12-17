@@ -57,6 +57,9 @@ export type SecretsManagerSecretProperties = {
       +  If you use your tagging schema across multiple services and resources, other services might have restrictions on allowed characters. Generally allowed characters: letters, spaces, and numbers representable in UTF-8, plus the following special characters: + - = . _ : / @.
      */
   Tags?: Tag[];
+  /**
+   * The exact string that identifies the third-party partner that holds the external secret. For more information, see [Managed external secret partners](https://docs.aws.amazon.com/secretsmanager/latest/userguide/mes-partners.html).
+   */
   Type?: string;
 };
 /**

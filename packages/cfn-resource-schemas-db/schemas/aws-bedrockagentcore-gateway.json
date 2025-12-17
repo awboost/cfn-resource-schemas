@@ -1,5 +1,5 @@
 {
-  "$hash": "3cc03ccead9d9a66ba46b710bf053f8e3f31dce8",
+  "$hash": "1e82363e16c8011cd64685cb7ec9587fbf832968",
   "$id": "aws-bedrockagentcore-gateway.json",
   "additionalProperties": false,
   "definitions": {
@@ -18,7 +18,10 @@
         }
       ]
     },
-    "AuthorizerType": { "enum": ["CUSTOM_JWT", "AWS_IAM"], "type": "string" },
+    "AuthorizerType": {
+      "enum": ["CUSTOM_JWT", "AWS_IAM", "NONE"],
+      "type": "string"
+    },
     "CustomJWTAuthorizerConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -41,6 +44,27 @@
       "type": "object"
     },
     "ExceptionLevel": { "enum": ["DEBUG"], "type": "string" },
+    "GatewayInterceptionPoint": {
+      "enum": ["REQUEST", "RESPONSE"],
+      "type": "string"
+    },
+    "GatewayInterceptorConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "InputConfiguration": {
+          "$ref": "#/definitions/InterceptorInputConfiguration"
+        },
+        "InterceptionPoints": {
+          "items": { "$ref": "#/definitions/GatewayInterceptionPoint" },
+          "maxItems": 2,
+          "minItems": 1,
+          "type": "array"
+        },
+        "Interceptor": { "$ref": "#/definitions/InterceptorConfiguration" }
+      },
+      "required": ["Interceptor", "InterceptionPoints"],
+      "type": "object"
+    },
     "GatewayProtocolConfiguration": {
       "oneOf": [
         {
@@ -65,6 +89,38 @@
         "FAILED"
       ],
       "type": "string"
+    },
+    "InterceptorConfiguration": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Lambda": { "$ref": "#/definitions/LambdaInterceptorConfiguration" }
+          },
+          "required": ["Lambda"],
+          "title": "Lambda",
+          "type": "object"
+        }
+      ]
+    },
+    "InterceptorInputConfiguration": {
+      "additionalProperties": false,
+      "properties": { "PassRequestHeaders": { "type": "boolean" } },
+      "required": ["PassRequestHeaders"],
+      "type": "object"
+    },
+    "LambdaInterceptorConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Arn": {
+          "maxLength": 170,
+          "minLength": 1,
+          "pattern": "^arn:(aws[a-zA-Z-]*)?:lambda:([a-z]{2}(-gov)?-[a-z]+-\\d{1}):(\\d{12}):function:([a-zA-Z0-9-_.]+)(:(\\$LATEST|[a-zA-Z0-9-_]+))?$",
+          "type": "string"
+        }
+      },
+      "required": ["Arn"],
+      "type": "object"
     },
     "MCPGatewayConfiguration": {
       "additionalProperties": false,
@@ -171,6 +227,12 @@
       "type": "string"
     },
     "GatewayUrl": { "maxLength": 1024, "minLength": 1, "type": "string" },
+    "InterceptorConfigurations": {
+      "items": { "$ref": "#/definitions/GatewayInterceptorConfiguration" },
+      "maxItems": 2,
+      "minItems": 1,
+      "type": "array"
+    },
     "KmsKeyArn": {
       "maxLength": 2048,
       "minLength": 1,

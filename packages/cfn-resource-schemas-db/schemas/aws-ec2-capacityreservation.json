@@ -1,5 +1,5 @@
 {
-  "$hash": "b66e0e943a92288bce4e5ffea1dde66635627179",
+  "$hash": "43cd67805d15743cae564eb50674de9bdc3b5a1f",
   "$id": "aws-ec2-capacityreservation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -146,7 +146,7 @@
     "cloudFormationSystemTags": true,
     "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
-    "tagProperty": "/properties/TagSpecifications",
+    "tagProperty": "/properties/TagSpecifications/*/Tags",
     "tagUpdatable": true,
     "taggable": true
   },

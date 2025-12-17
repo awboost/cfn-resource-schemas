@@ -45,6 +45,10 @@ export type KafkaConnectConnectorProperties = {
    */
   LogDelivery?: LogDelivery;
   /**
+   * The network type of the Connector.
+   */
+  NetworkType?: "IPV4" | "DUAL";
+  /**
    * List of plugins to use with the connector.
    * @minLength `1`
    */

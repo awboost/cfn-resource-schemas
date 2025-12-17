@@ -15,6 +15,11 @@ export type BedrockAgentCoreGatewayProperties = {
   ExceptionLevel?: ExceptionLevel;
   /**
    * @minLength `1`
+   * @maxLength `2`
+   */
+  InterceptorConfigurations?: GatewayInterceptorConfiguration[];
+  /**
+   * @minLength `1`
    * @maxLength `2048`
    * @pattern `^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
    */
@@ -77,7 +82,7 @@ export type AuthorizerConfiguration = {
  * Type definition for `AWS::BedrockAgentCore::Gateway.AuthorizerType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-authorizertype.html}
  */
-export type AuthorizerType = "CUSTOM_JWT" | "AWS_IAM";
+export type AuthorizerType = "CUSTOM_JWT" | "AWS_IAM" | "NONE";
 /**
  * Type definition for `AWS::BedrockAgentCore::Gateway.CustomJWTAuthorizerConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html}
@@ -102,6 +107,24 @@ export type CustomJWTAuthorizerConfiguration = {
  */
 export type ExceptionLevel = "DEBUG";
 /**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.GatewayInterceptionPoint`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewayinterceptionpoint.html}
+ */
+export type GatewayInterceptionPoint = "REQUEST" | "RESPONSE";
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.GatewayInterceptorConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewayinterceptorconfiguration.html}
+ */
+export type GatewayInterceptorConfiguration = {
+  InputConfiguration?: InterceptorInputConfiguration;
+  /**
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  InterceptionPoints: GatewayInterceptionPoint[];
+  Interceptor: InterceptorConfiguration;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Gateway.GatewayProtocolConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewayprotocolconfiguration.html}
  */
@@ -124,6 +147,32 @@ export type GatewayStatus =
   | "DELETING"
   | "READY"
   | "FAILED";
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.InterceptorConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-interceptorconfiguration.html}
+ */
+export type InterceptorConfiguration = {
+  Lambda: LambdaInterceptorConfiguration;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.InterceptorInputConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-interceptorinputconfiguration.html}
+ */
+export type InterceptorInputConfiguration = {
+  PassRequestHeaders: boolean;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.LambdaInterceptorConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-lambdainterceptorconfiguration.html}
+ */
+export type LambdaInterceptorConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `170`
+   * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:([a-z]{2}(-gov)?-[a-z]+-\d{1}):(\d{12}):function:([a-zA-Z0-9-_.]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+   */
+  Arn: string;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::Gateway.MCPGatewayConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-mcpgatewayconfiguration.html}

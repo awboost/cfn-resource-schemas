@@ -1,5 +1,5 @@
 {
-  "$hash": "b2f3ec0fc474bb78a63d764516b4ac350da4ff7c",
+  "$hash": "46c469e030b27ce940c26e769d47dfd709b85292",
   "$id": "aws-ecr-signingconfiguration.json",
   "additionalProperties": false,
   "definitions": {
@@ -7,7 +7,7 @@
       "description": "Repository name pattern (supports '*' wildcard).",
       "maxLength": 256,
       "minLength": 1,
-      "pattern": "^(?=.{1,256}$)(?:[a-z0-9*]+(?:[._-][a-z0-9*]*)*/)*[a-z0-9*]*(?:[._-][a-z0-9*]*)*$",
+      "pattern": "^(?:[a-z0-9*]+(?:[._-][a-z0-9*]+)*/)*[a-z0-9*]+(?:[._-][a-z0-9*]+)*$",
       "type": "string"
     },
     "FilterType": {
