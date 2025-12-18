@@ -18,7 +18,7 @@ export type DataSyncLocationFSxONTAPProperties = {
   /**
    * The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
    * @maxLength `162`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):fsx:[a-z\-0-9]+:[0-9]{12}:storage-virtual-machine/fs-[0-9a-f]+/svm-[0-9a-f]{17,}$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):fsx:[a-z\-0-9]+:[0-9]{12}:storage-virtual-machine/fs-[0-9a-f]+/svm-[0-9a-f]{17,}$`
    */
   StorageVirtualMachineArn: string;
   /**
@@ -42,13 +42,13 @@ export type DataSyncLocationFSxONTAPAttributes = {
   /**
    * The Amazon Resource Name (ARN) for the FSx ONAP file system.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):fsx:[a-z\-0-9]+:[0-9]{12}:file-system/fs-[0-9a-f]+$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):fsx:[a-z\-0-9]+:[0-9]{12}:file-system/fs-[0-9a-f]+$`
    */
   FsxFilesystemArn: string;
   /**
    * The Amazon Resource Name (ARN) of the Amazon FSx ONTAP file system location that is created.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
    */
   LocationArn: string;
   /**

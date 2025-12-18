@@ -2,7 +2,7 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Lex::BotAlias`.
- * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+ * Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html}
  */
 export type LexBotAliasProperties = {
@@ -62,6 +62,7 @@ export type LexBotAliasProperties = {
  */
 export type LexBotAliasAttributes = {
   /**
+   * The Amazon Resource Name (ARN) of the bot alias.
    * @maxLength `1000`
    */
   Arn: string;
@@ -267,7 +268,7 @@ export type TextLogSetting = {
 };
 /**
  * Resource type definition for `AWS::Lex::BotAlias`.
- * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+ * Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-botalias.html}
  */
 export class LexBotAlias extends $Resource<

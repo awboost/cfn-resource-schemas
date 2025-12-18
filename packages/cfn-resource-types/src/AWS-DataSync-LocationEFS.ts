@@ -8,7 +8,7 @@ export type DataSyncLocationEFSProperties = {
   /**
    * The Amazon Resource Name (ARN) for the Amazon EFS Access point that DataSync uses when accessing the EFS file system.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):elasticfilesystem:[a-z\-0-9]+:[0-9]{12}:access-point/fsap-[0-9a-f]{8,40}$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):elasticfilesystem:[a-z\-0-9]+:[0-9]{12}:access-point/fsap-[0-9a-f]{8,40}$`
    */
   AccessPointArn?: string;
   /**
@@ -18,13 +18,13 @@ export type DataSyncLocationEFSProperties = {
   /**
    * The Amazon Resource Name (ARN) for the Amazon EFS file system.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):elasticfilesystem:[a-z\-0-9]*:[0-9]{12}:file-system/fs-.*$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):elasticfilesystem:[a-z\-0-9]*:[0-9]{12}:file-system/fs-.*$`
    */
   EfsFilesystemArn?: string;
   /**
    * The Amazon Resource Name (ARN) of the AWS IAM role that the DataSync will assume when mounting the EFS file system.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*$`
    */
   FileSystemAccessRoleArn?: string;
   /**
@@ -51,7 +51,7 @@ export type DataSyncLocationEFSAttributes = {
   /**
    * The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
    */
   LocationArn: string;
   /**
@@ -76,7 +76,7 @@ export type Ec2Config = {
   /**
    * The ARN of the subnet that DataSync uses to access the target EFS file system.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:subnet/.*$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):ec2:[a-z\-0-9]*:[0-9]{12}:subnet/.*$`
    */
   SubnetArn: string;
 };

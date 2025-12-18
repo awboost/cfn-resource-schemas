@@ -1,10 +1,14 @@
 {
-  "$hash": "88359657a25485de32dec9ec5aa6213fe9113a32",
+  "$hash": "c93ea36cab22bdeff5caaaa002173c8b6ebfd544",
   "$id": "aws-lex-botalias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BotId"],
   "definitions": {
-    "Arn": { "maxLength": 1000, "type": "string" },
+    "Arn": {
+      "description": "The Amazon Resource Name (ARN) of the bot alias.",
+      "maxLength": 1000,
+      "type": "string"
+    },
     "AudioLogDestination": {
       "additionalProperties": false,
       "description": "The location of audio log files collected when conversation logging is enabled for a bot.",
@@ -241,12 +245,24 @@
       "uniqueItems": true
     }
   },
-  "description": "A Bot Alias enables you to change the version of a bot without updating applications that use the bot",
+  "description": "Resource Type definition for a Bot Alias, which enables you to change the version of a bot without updating applications that use the bot",
   "handlers": {
-    "create": { "permissions": ["lex:CreateBotAlias", "lex:DescribeBot"] },
+    "create": {
+      "permissions": [
+        "lex:CreateBotAlias",
+        "lex:DescribeBot",
+        "lex:DescribeBotAlias",
+        "lex:TagResource",
+        "lex:ListTagsForResource"
+      ]
+    },
     "delete": { "permissions": ["lex:DeleteBotAlias"] },
-    "list": { "permissions": ["lex:ListBotAliases"] },
-    "read": { "permissions": ["lex:DescribeBotAlias"] },
+    "list": {
+      "permissions": ["lex:ListBotAliases", "lex:ListTagsForResource"]
+    },
+    "read": {
+      "permissions": ["lex:DescribeBotAlias", "lex:ListTagsForResource"]
+    },
     "update": {
       "permissions": [
         "lex:UpdateBotAlias",
@@ -300,7 +316,17 @@
   ],
   "required": ["BotId", "BotAliasName"],
   "sourceUrl": "https://docs.aws.amazon.com/lexv2/latest/dg/API_CreateBotAlias.html",
-  "taggable": false,
-  "typeName": "AWS::Lex::BotAlias",
-  "writeOnlyProperties": ["/properties/BotAliasTags"]
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "lex:ListTagsForResource",
+      "lex:TagResource",
+      "lex:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/BotAliasTags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::Lex::BotAlias"
 }

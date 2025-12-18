@@ -39,7 +39,7 @@ export type DataSyncLocationNFSAttributes = {
   /**
    * The Amazon Resource Name (ARN) of the NFS location.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
    */
   LocationArn: string;
   /**
@@ -69,7 +69,7 @@ export type OnPremConfig = {
   /**
    * ARN(s) of the agent(s) to use for an NFS location.
    * @minLength `1`
-   * @maxLength `4`
+   * @maxLength `8`
    */
   AgentArns: string[];
 };

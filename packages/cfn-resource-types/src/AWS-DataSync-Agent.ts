@@ -45,7 +45,7 @@ export type DataSyncAgentAttributes = {
   /**
    * The DataSync Agent ARN.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$`
    */
   AgentArn: string;
   /**

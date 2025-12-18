@@ -8,7 +8,7 @@ export type DataSyncLocationFSxLustreProperties = {
   /**
    * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):fsx:[a-z\-0-9]+:[0-9]{12}:file-system/fs-[0-9a-f]+$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):fsx:[a-z\-0-9]+:[0-9]{12}:file-system/fs-[0-9a-f]+$`
    */
   FsxFilesystemArn?: string;
   /**
@@ -38,7 +38,7 @@ export type DataSyncLocationFSxLustreAttributes = {
   /**
    * The Amazon Resource Name (ARN) of the Amazon FSx for Lustre file system location that is created.
    * @maxLength `128`
-   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$`
    */
   LocationArn: string;
   /**

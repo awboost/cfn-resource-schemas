@@ -1,5 +1,5 @@
 {
-  "$hash": "581022b25590e3ea52433842fd7efe5a6b658046",
+  "$hash": "ce1d81032957d8792b1e3d4b58a929a1ecf7ee63",
   "$id": "aws-datasync-locationnfs.json",
   "additionalProperties": false,
   "definitions": {
@@ -24,10 +24,10 @@
           "insertionOrder": false,
           "items": {
             "maxLength": 128,
-            "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$",
+            "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$",
             "type": "string"
           },
-          "maxItems": 4,
+          "maxItems": 8,
           "minItems": 1,
           "type": "array"
         }
@@ -91,7 +91,7 @@
     "LocationArn": {
       "description": "The Amazon Resource Name (ARN) of the NFS location.",
       "maxLength": 128,
-      "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):datasync:[a-z\\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$",
+      "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\\-0-9]+:[0-9]{12}:location/loc-[0-9a-z]{17}$",
       "type": "string"
     },
     "LocationUri": {

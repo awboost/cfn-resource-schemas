@@ -1,62 +1,89 @@
-- added `AWS::GroundStation::DataflowEndpointGroupV2`
-- added `AWS::SES::Tenant`
-- updated `AWS::BedrockAgentCore::Gateway`
-  - added definition `GatewayInterceptionPoint`
-  - added definition `GatewayInterceptorConfiguration`
-  - added definition `InterceptorConfiguration`
-  - added definition `InterceptorInputConfiguration`
-  - added definition `LambdaInterceptorConfiguration`
-  - added property `InterceptorConfigurations`
-  - updated definition `AuthorizerType`
-- updated `AWS::Deadline::Fleet`
-  - updated definition `ServiceManagedEc2InstanceCapabilities`
-- updated `AWS::EC2::CapacityReservation`
-  - updated `tagging`
-- updated `AWS::EC2::NetworkInterfaceAttachment`
-  - updated definition `EnaSrdSpecification`
-  - updated property `AttachmentId`
-  - updated property `DeleteOnTermination`
-  - updated property `DeviceIndex`
-  - updated property `EnaQueueCount`
-  - updated property `EnaSrdSpecification`
-- updated `AWS::ECR::SigningConfiguration`
-  - updated definition `Filter`
-- updated `AWS::ECS::Service`
-  - added `conditionalCreateOnlyProperties`
-  - updated `createOnlyProperties`
-  - updated definition `DeploymentConfiguration`
-- updated `AWS::KafkaConnect::Connector`
-  - added property `NetworkType`
-  - updated `createOnlyProperties`
-- updated `AWS::S3::Bucket`
-  - updated definition `BlockedEncryptionTypes`
-  - updated definition `InventoryConfiguration`
-  - updated definition `PublicAccessBlockConfiguration`
-  - updated definition `ServerSideEncryptionRule`
-  - updated property `AbacStatus`
-- updated `AWS::SSM::MaintenanceWindowTask`
+- updated `AWS::DAX::SubnetGroup`
+  - added `propertyTransform`
   - added `sourceUrl`
   - added `tagging`
-  - added definition `ParameterValues`
-  - added property `WindowTaskId`
+  - removed `readOnlyProperties`
   - removed property `Id`
   - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `CloudWatchOutputConfig`
   - updated handler permissions
-  - updated property `CutoffBehavior`
-  - updated property `Description`
-  - updated property `LoggingInfo`
-  - updated property `MaxConcurrency`
-  - updated property `MaxErrors`
-  - updated property `Name`
-  - updated property `Priority`
-  - updated property `ServiceRoleArn`
-  - updated property `Targets`
+- updated `AWS::DataSync::Agent`
+  - updated property `AgentArn`
+  - updated property `SecurityGroupArns`
+  - updated property `SubnetArns`
+- updated `AWS::DataSync::LocationAzureBlob`
+  - updated definition `CmkSecretConfig`
+  - updated definition `CustomSecretConfig`
+  - updated definition `ManagedSecretConfig`
+  - updated property `AgentArns`
+  - updated property `LocationArn`
+- updated `AWS::DataSync::LocationEFS`
+  - updated definition `Ec2Config`
+  - updated property `AccessPointArn`
+  - updated property `EfsFilesystemArn`
+  - updated property `FileSystemAccessRoleArn`
+  - updated property `LocationArn`
+- updated `AWS::DataSync::LocationFSxLustre`
+  - updated property `FsxFilesystemArn`
+  - updated property `LocationArn`
+  - updated property `SecurityGroupArns`
+- updated `AWS::DataSync::LocationFSxONTAP`
+  - updated property `FsxFilesystemArn`
+  - updated property `LocationArn`
+  - updated property `SecurityGroupArns`
+  - updated property `StorageVirtualMachineArn`
+- updated `AWS::DataSync::LocationFSxOpenZFS`
+  - updated property `FsxFilesystemArn`
+  - updated property `LocationArn`
+  - updated property `SecurityGroupArns`
+- updated `AWS::DataSync::LocationFSxWindows`
+  - updated property `FsxFilesystemArn`
+  - updated property `LocationArn`
+  - updated property `SecurityGroupArns`
+- updated `AWS::DataSync::LocationHDFS`
+  - updated property `AgentArns`
+  - updated property `LocationArn`
+- updated `AWS::DataSync::LocationNFS`
+  - updated definition `OnPremConfig`
+  - updated property `LocationArn`
+- updated `AWS::DataSync::LocationObjectStorage`
+  - updated definition `CmkSecretConfig`
+  - updated definition `CustomSecretConfig`
+  - updated definition `ManagedSecretConfig`
+  - updated property `AgentArns`
+  - updated property `LocationArn`
+- updated `AWS::DataSync::LocationS3`
+  - updated definition `S3Config`
+  - updated property `LocationArn`
+  - updated property `S3BucketArn`
+- updated `AWS::DataSync::LocationSMB`
+  - updated definition `CmkSecretConfig`
+  - updated definition `CustomSecretConfig`
+  - updated definition `ManagedSecretConfig`
+  - updated property `AgentArns`
+  - updated property `LocationArn`
+- updated `AWS::DataSync::Task`
+  - updated definition `ManifestConfigSourceS3`
+  - updated definition `TaskReportConfigDestinationS3`
+  - updated property `CloudWatchLogGroupArn`
+  - updated property `DestinationLocationArn`
+  - updated property `SourceLocationArn`
   - updated property `TaskArn`
-  - updated property `TaskInvocationParameters`
-  - updated property `TaskParameters`
-  - updated property `TaskType`
-  - updated property `WindowId`
-- updated `AWS::SecretsManager::Secret`
-  - updated property `Type`
+- updated `AWS::Lex::Bot`
+  - added `tagging`
+  - added definition `DisplayName`
+  - added definition `IntentDisambiguationSettings`
+  - added definition `SpeechDetectionSensitivity`
+  - added definition `UnifiedSpeechSettings`
+  - removed `taggable`
+  - updated `writeOnlyProperties`
+  - updated definition `BotLocale`
+  - updated definition `GenerativeAISettings`
+  - updated definition `Intent`
+  - updated definition `Specifications`
+  - updated definition `SubSlotTypeComposition`
+  - updated handler permissions
+- updated `AWS::Lex::BotAlias`
+  - added `tagging`
+  - removed `writeOnlyProperties`
+  - updated definition `Arn`
+  - updated handler permissions

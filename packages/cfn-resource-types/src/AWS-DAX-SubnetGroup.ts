@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::DAX::SubnetGroup
+ * Resource type definition for AWS::DAX::SubnetGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html}
  */
 export type DAXSubnetGroupProperties = {
@@ -10,20 +10,13 @@ export type DAXSubnetGroupProperties = {
   SubnetIds: string[];
 };
 /**
- * Attribute type definition for `AWS::DAX::SubnetGroup`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html#aws-resource-dax-subnetgroup-return-values}
- */
-export type DAXSubnetGroupAttributes = {
-  Id: string;
-};
-/**
- * Resource Type definition for AWS::DAX::SubnetGroup
+ * Resource type definition for AWS::DAX::SubnetGroup
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html}
  */
 export class DAXSubnetGroup extends $Resource<
   "AWS::DAX::SubnetGroup",
   DAXSubnetGroupProperties,
-  DAXSubnetGroupAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::DAX::SubnetGroup";
   constructor(

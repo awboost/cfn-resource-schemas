@@ -2,7 +2,7 @@ import { Resource as $Resource } from "@awboost/cfn-template-builder/template/re
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
  * Resource type definition for `AWS::Lex::Bot`.
- * Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+ * Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html}
  */
 export type LexBotProperties = {
@@ -228,6 +228,8 @@ export type BotLocale = {
    * @maxLength `250`
    */
   SlotTypes?: SlotType[];
+  SpeechDetectionSensitivity?: SpeechDetectionSensitivity;
+  UnifiedSpeechSettings?: UnifiedSpeechSettings;
   VoiceSettings?: VoiceSettings;
 };
 /**
@@ -560,7 +562,9 @@ export type GenerativeAISettings = {
   };
   RuntimeSettings?: {
     NluImprovementSpecification?: {
+      AssistedNluMode?: "Primary" | "Fallback";
       Enabled: boolean;
+      IntentDisambiguationSettings?: IntentDisambiguationSettings;
     };
     SlotResolutionImprovementSpecification?: {
       BedrockModelSpecification?: BedrockModelSpecification;
@@ -653,11 +657,16 @@ export type InputContext = {
 export type Intent = {
   BedrockAgentIntentConfiguration?: BedrockAgentIntentConfiguration;
   /**
-   * Description of thr intent.
+   * Resource Type definition for the intent.
    * @maxLength `2000`
    */
   Description?: string;
   DialogCodeHook?: DialogCodeHookSetting;
+  /**
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  DisplayName?: string;
   FulfillmentCodeHook?: FulfillmentCodeHookSetting;
   InitialResponseSetting?: InitialResponseSetting;
   /**
@@ -715,6 +724,23 @@ export type IntentConfirmationSetting = {
   FailureResponse?: ResponseSpecification;
   IsActive?: boolean;
   PromptSpecification: PromptSpecification;
+};
+/**
+ * Type definition for `AWS::Lex::Bot.IntentDisambiguationSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentdisambiguationsettings.html}
+ */
+export type IntentDisambiguationSettings = {
+  /**
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  CustomDisambiguationMessage?: string;
+  Enabled: boolean;
+  /**
+   * @min `2`
+   * @max `5`
+   */
+  MaxDisambiguationIntents?: number;
 };
 /**
  * Type definition for `AWS::Lex::Bot.IntentOverride`.
@@ -1284,9 +1310,18 @@ export type Specifications = {
    * @maxLength `25`
    * @pattern `^((AMAZON\.)[a-zA-Z_]+?|[0-9a-zA-Z]+)$`
    */
-  SlotTypeId: string;
+  SlotTypeId?: string;
+  SlotTypeName?: string;
   ValueElicitationSetting: SubSlotValueElicitationSetting;
 };
+/**
+ * Type definition for `AWS::Lex::Bot.SpeechDetectionSensitivity`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-speechdetectionsensitivity.html}
+ */
+export type SpeechDetectionSensitivity =
+  | "Default"
+  | "HighNoiseTolerance"
+  | "MaximumNoiseTolerance";
 /**
  * Type definition for `AWS::Lex::Bot.SSMLMessage`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html}
@@ -1349,7 +1384,8 @@ export type SubSlotTypeComposition = {
    * @maxLength `25`
    * @pattern `^((AMAZON\.)[a-zA-Z_]+?|[0-9a-zA-Z]+)$`
    */
-  SlotTypeId: string;
+  SlotTypeId?: string;
+  SlotTypeName?: string;
 };
 /**
  * Type definition for `AWS::Lex::Bot.SubSlotValueElicitationSetting`.
@@ -1422,6 +1458,16 @@ export type TextLogSetting = {
   Enabled: boolean;
 };
 /**
+ * Type definition for `AWS::Lex::Bot.UnifiedSpeechSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-unifiedspeechsettings.html}
+ */
+export type UnifiedSpeechSettings = {
+  SpeechFoundationModel: {
+    ModelArn: string;
+    VoiceId?: string;
+  };
+};
+/**
  * Type definition for `AWS::Lex::Bot.VoiceSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-voicesettings.html}
  */
@@ -1441,7 +1487,7 @@ export type WaitAndContinueSpecification = {
 };
 /**
  * Resource type definition for `AWS::Lex::Bot`.
- * Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
+ * Resource Type definition for an Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html}
  */
 export class LexBot extends $Resource<
