@@ -1,5 +1,5 @@
 {
-  "$hash": "c260e6a3f391df97d66ba68d3f2a1362e5a99a42",
+  "$hash": "19e48934b89c8b7f09e3deb35bf679ad6301e7a1",
   "$id": "aws-mediaconnect-flowentitlement.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -63,13 +63,16 @@
     "delete": {
       "permissions": [
         "mediaconnect:DescribeFlow",
+        "mediaconnect:ListFlows",
         "mediaconnect:RevokeFlowEntitlement"
       ]
     },
     "list": {
       "permissions": ["mediaconnect:DescribeFlow", "mediaconnect:ListFlows"]
     },
-    "read": { "permissions": ["mediaconnect:DescribeFlow"] },
+    "read": {
+      "permissions": ["mediaconnect:DescribeFlow", "mediaconnect:ListFlows"]
+    },
     "update": {
       "permissions": [
         "mediaconnect:DescribeFlow",

@@ -1,8 +1,12 @@
 {
-  "$hash": "d46596e1831ff659989cfb40f965e83873a85835",
+  "$hash": "dfa1dd4da231c5514cbf086009fee21c9d5c86bb",
   "$id": "aws-connect-contactflowmodule.json",
   "additionalProperties": false,
   "definitions": {
+    "Enabled": {
+      "description": "Specifies whether the flow module resource is enabled for external invocation",
+      "type": "boolean"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
@@ -77,6 +81,13 @@
       "pattern": ".*\\S.*",
       "type": "string"
     },
+    "ExternalInvocationConfiguration": {
+      "additionalProperties": false,
+      "description": "Defines the external invocation configuration of the flow module resource",
+      "properties": { "Enabled": { "$ref": "#/definitions/Enabled" } },
+      "required": ["Enabled"],
+      "type": "object"
+    },
     "InstanceArn": {
       "description": "The identifier of the Amazon Connect instance (ARN).",
       "maxLength": 256,
@@ -89,6 +100,11 @@
       "maxLength": 127,
       "minLength": 1,
       "pattern": ".*\\S.*",
+      "type": "string"
+    },
+    "Settings": {
+      "description": "The schema of the settings for contact flow module in JSON Schema V4 format.",
+      "maxLength": 256000,
       "type": "string"
     },
     "State": {

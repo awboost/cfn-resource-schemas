@@ -36,6 +36,7 @@ export type WorkSpacesWebUserSettingsProperties = {
   Tags?: Tag[];
   ToolbarConfiguration?: ToolbarConfiguration;
   UploadAllowed: EnabledType;
+  WebAuthnAllowed?: EnabledType;
 };
 /**
  * Attribute type definition for `AWS::WorkSpacesWeb::UserSettings`.

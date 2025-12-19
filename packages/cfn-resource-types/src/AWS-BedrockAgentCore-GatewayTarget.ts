@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+ * Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html}
  */
 export type BedrockAgentCoreGatewayTargetProperties = {
@@ -155,6 +155,14 @@ export type McpTargetConfiguration =
 export type OAuthCredentialProvider = {
   CustomParameters?: OAuthCustomParameters;
   /**
+   * Return URL for OAuth callback.
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `\w+:(\/?\/?)[^\s]+`
+   */
+  DefaultReturnUrl?: string;
+  GrantType?: OAuthGrantType;
+  /**
    * @pattern `^arn:([^:]*):([^:]*):([^:]*):([0-9]{12})?:(.+)$`
    */
   ProviderArn: string;
@@ -168,6 +176,11 @@ export type OAuthCredentialProvider = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthcustomparameters.html}
  */
 export type OAuthCustomParameters = Record<string, string>;
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.OAuthGrantType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthgranttype.html}
+ */
+export type OAuthGrantType = "AUTHORIZATION_CODE" | "CLIENT_CREDENTIALS";
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.S3Configuration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-s3configuration.html}
@@ -251,7 +264,7 @@ export type ToolSchema =
       InlinePayload: ToolDefinition[];
     };
 /**
- * Definition of AWS::BedrockAgentCore::GatewayTarget Resource Type
+ * Resource Type definition for AWS::BedrockAgentCore::GatewayTarget
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html}
  */
 export class BedrockAgentCoreGatewayTarget extends $Resource<

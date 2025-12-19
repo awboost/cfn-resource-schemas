@@ -1,5 +1,5 @@
 {
-  "$hash": "a85cb1f137ccb51e09069834da639178a5172b18",
+  "$hash": "758fbc10a6f0d030b5c41cbf3d585a7e51d4a55b",
   "$id": "aws-workspacesweb-usersettings.json",
   "additionalProperties": false,
   "definitions": {
@@ -318,7 +318,8 @@
       "minLength": 20,
       "pattern": "^arn:[\\w+=\\/,.@-]+:[a-zA-Z0-9\\-]+:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\\/[a-fA-F0-9\\-]{36})+$",
       "type": "string"
-    }
+    },
+    "WebAuthnAllowed": { "$ref": "#/definitions/EnabledType" }
   },
   "readOnlyProperties": [
     "/properties/AssociatedPortalArns",

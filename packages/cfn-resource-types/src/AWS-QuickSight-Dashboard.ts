@@ -1731,7 +1731,7 @@ export type DashboardVersionDefinition = {
   Options?: AssetOptions;
   /**
    * @minLength `0`
-   * @maxLength `200`
+   * @maxLength `400`
    */
   ParameterDeclarations?: ParameterDeclaration[];
   /**
@@ -3158,6 +3158,11 @@ export type FreeFormLayoutConfiguration = {
  */
 export type FreeFormLayoutElement = {
   BackgroundStyle?: FreeFormLayoutElementBackgroundStyle;
+  /**
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  BorderRadius?: string;
   BorderStyle?: FreeFormLayoutElementBorderStyle;
   /**
    * @minLength `1`
@@ -3171,6 +3176,11 @@ export type FreeFormLayoutElement = {
    */
   Height: string;
   LoadingAnimation?: LoadingAnimation;
+  /**
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  Padding?: string;
   /**
    * @minLength `0`
    * @maxLength `10000`
@@ -3212,6 +3222,12 @@ export type FreeFormLayoutElementBorderStyle = {
    */
   Color?: string;
   Visibility?: Visibility;
+  /**
+   * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  Width?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.FreeFormLayoutScreenCanvasSizeOptions`.
@@ -3977,6 +3993,13 @@ export type GridLayoutConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html}
  */
 export type GridLayoutElement = {
+  BackgroundStyle?: GridLayoutElementBackgroundStyle;
+  /**
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  BorderRadius?: string;
+  BorderStyle?: GridLayoutElementBorderStyle;
   /**
    * @min `0`
    * @max `35`
@@ -3994,6 +4017,12 @@ export type GridLayoutElement = {
    */
   ElementId: string;
   ElementType: LayoutElementType;
+  LoadingAnimation?: LoadingAnimation;
+  /**
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  Padding?: string;
   /**
    * @min `0`
    * @max `9009`
@@ -4004,6 +4033,35 @@ export type GridLayoutElement = {
    * @max `21`
    */
   RowSpan: number;
+  SelectedBorderStyle?: GridLayoutElementBorderStyle;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GridLayoutElementBackgroundStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelementbackgroundstyle.html}
+ */
+export type GridLayoutElementBackgroundStyle = {
+  /**
+   * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
+   */
+  Color?: string;
+  Visibility?: Visibility;
+};
+/**
+ * Type definition for `AWS::QuickSight::Dashboard.GridLayoutElementBorderStyle`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelementborderstyle.html}
+ */
+export type GridLayoutElementBorderStyle = {
+  /**
+   * @pattern `^#[A-F0-9]{6}(?:[A-F0-9]{2})?$`
+   */
+  Color?: string;
+  Visibility?: Visibility;
+  /**
+   * String to encapsulate the most generic way Width can be formatted with whatever units (px, em etc)
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  Width?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::Dashboard.GridLayoutScreenCanvasSizeOptions`.

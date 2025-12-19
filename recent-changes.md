@@ -1,89 +1,48 @@
-- updated `AWS::DAX::SubnetGroup`
-  - added `propertyTransform`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
+- added `AWS::Cases::CaseRule`
+- added `AWS::Cases::Domain`
+- added `AWS::Cases::Field`
+- added `AWS::Cases::Layout`
+- added `AWS::Cases::Template`
+- updated `AWS::BedrockAgentCore::GatewayTarget`
+  - added definition `OAuthGrantType`
+  - updated definition `OAuthCredentialProvider`
+- updated `AWS::CodePipeline::CustomActionType`
+  - added `deprecatedProperties`
+- updated `AWS::Connect::ContactFlowModule`
+  - added definition `Enabled`
+  - added property `ExternalInvocationConfiguration`
+  - added property `Settings`
+- updated `AWS::EC2::Volume`
+  - updated property `AutoEnableIO`
+  - updated property `AvailabilityZoneId`
+  - updated property `AvailabilityZone`
+  - updated property `Encrypted`
+  - updated property `KmsKeyId`
+  - updated property `OutpostArn`
+  - updated property `Size`
+  - updated property `SnapshotId`
+  - updated property `SourceVolumeId`
+  - updated property `VolumeType`
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - updated definition `AppliedForItem`
+- updated `AWS::ECS::CapacityProvider`
+  - updated definition `InstanceLaunchTemplate`
+- updated `AWS::EMR::Step`
+  - added property `EncryptionKeyArn`
+  - added property `LogUri`
+  - updated `createOnlyProperties`
+- updated `AWS::MediaConnect::FlowEntitlement`
   - updated handler permissions
-- updated `AWS::DataSync::Agent`
-  - updated property `AgentArn`
-  - updated property `SecurityGroupArns`
-  - updated property `SubnetArns`
-- updated `AWS::DataSync::LocationAzureBlob`
-  - updated definition `CmkSecretConfig`
-  - updated definition `CustomSecretConfig`
-  - updated definition `ManagedSecretConfig`
-  - updated property `AgentArns`
-  - updated property `LocationArn`
-- updated `AWS::DataSync::LocationEFS`
-  - updated definition `Ec2Config`
-  - updated property `AccessPointArn`
-  - updated property `EfsFilesystemArn`
-  - updated property `FileSystemAccessRoleArn`
-  - updated property `LocationArn`
-- updated `AWS::DataSync::LocationFSxLustre`
-  - updated property `FsxFilesystemArn`
-  - updated property `LocationArn`
-  - updated property `SecurityGroupArns`
-- updated `AWS::DataSync::LocationFSxONTAP`
-  - updated property `FsxFilesystemArn`
-  - updated property `LocationArn`
-  - updated property `SecurityGroupArns`
-  - updated property `StorageVirtualMachineArn`
-- updated `AWS::DataSync::LocationFSxOpenZFS`
-  - updated property `FsxFilesystemArn`
-  - updated property `LocationArn`
-  - updated property `SecurityGroupArns`
-- updated `AWS::DataSync::LocationFSxWindows`
-  - updated property `FsxFilesystemArn`
-  - updated property `LocationArn`
-  - updated property `SecurityGroupArns`
-- updated `AWS::DataSync::LocationHDFS`
-  - updated property `AgentArns`
-  - updated property `LocationArn`
-- updated `AWS::DataSync::LocationNFS`
-  - updated definition `OnPremConfig`
-  - updated property `LocationArn`
-- updated `AWS::DataSync::LocationObjectStorage`
-  - updated definition `CmkSecretConfig`
-  - updated definition `CustomSecretConfig`
-  - updated definition `ManagedSecretConfig`
-  - updated property `AgentArns`
-  - updated property `LocationArn`
-- updated `AWS::DataSync::LocationS3`
-  - updated definition `S3Config`
-  - updated property `LocationArn`
-  - updated property `S3BucketArn`
-- updated `AWS::DataSync::LocationSMB`
-  - updated definition `CmkSecretConfig`
-  - updated definition `CustomSecretConfig`
-  - updated definition `ManagedSecretConfig`
-  - updated property `AgentArns`
-  - updated property `LocationArn`
-- updated `AWS::DataSync::Task`
-  - updated definition `ManifestConfigSourceS3`
-  - updated definition `TaskReportConfigDestinationS3`
-  - updated property `CloudWatchLogGroupArn`
-  - updated property `DestinationLocationArn`
-  - updated property `SourceLocationArn`
-  - updated property `TaskArn`
-- updated `AWS::Lex::Bot`
-  - added `tagging`
-  - added definition `DisplayName`
-  - added definition `IntentDisambiguationSettings`
-  - added definition `SpeechDetectionSensitivity`
-  - added definition `UnifiedSpeechSettings`
-  - removed `taggable`
-  - updated `writeOnlyProperties`
-  - updated definition `BotLocale`
-  - updated definition `GenerativeAISettings`
-  - updated definition `Intent`
-  - updated definition `Specifications`
-  - updated definition `SubSlotTypeComposition`
+- updated `AWS::MediaConnect::FlowOutput`
   - updated handler permissions
-- updated `AWS::Lex::BotAlias`
-  - added `tagging`
-  - removed `writeOnlyProperties`
-  - updated definition `Arn`
+- updated `AWS::MediaConnect::FlowSource`
   - updated handler permissions
+- updated `AWS::QuickSight::Dashboard`
+  - added definition `GridLayoutElementBackgroundStyle`
+  - added definition `GridLayoutElementBorderStyle`
+  - updated definition `DashboardVersionDefinition`
+  - updated definition `FreeFormLayoutElementBorderStyle`
+  - updated definition `FreeFormLayoutElement`
+  - updated definition `GridLayoutElement`
+- updated `AWS::WorkSpacesWeb::UserSettings`
+  - added property `WebAuthnAllowed`

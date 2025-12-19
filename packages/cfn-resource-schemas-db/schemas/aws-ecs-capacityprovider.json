@@ -1,5 +1,5 @@
 {
-  "$hash": "5e4fe69f4914baeb2dcad701d7d34057099543b4",
+  "$hash": "4476ec983087b461bba4f91a42f2cc2b36fa0659",
   "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -55,6 +55,10 @@
     "InstanceLaunchTemplate": {
       "additionalProperties": false,
       "properties": {
+        "CapacityOptionType": {
+          "enum": ["ON_DEMAND", "SPOT"],
+          "type": "string"
+        },
         "Ec2InstanceProfileArn": { "type": "string" },
         "InstanceRequirements": {
           "$ref": "#/definitions/InstanceRequirementsRequest"

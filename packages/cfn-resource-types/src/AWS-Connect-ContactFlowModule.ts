@@ -18,6 +18,15 @@ export type ConnectContactFlowModuleProperties = {
    */
   Description?: string;
   /**
+   * Defines the external invocation configuration of the flow module resource
+   */
+  ExternalInvocationConfiguration?: {
+    /**
+     * Specifies whether the flow module resource is enabled for external invocation
+     */
+    Enabled: boolean;
+  };
+  /**
    * The identifier of the Amazon Connect instance (ARN).
    * @minLength `1`
    * @maxLength `256`
@@ -31,6 +40,11 @@ export type ConnectContactFlowModuleProperties = {
    * @pattern `.*\S.*`
    */
   Name: string;
+  /**
+   * The schema of the settings for contact flow module in JSON Schema V4 format.
+   * @maxLength `256000`
+   */
+  Settings?: string;
   /**
    * The state of the contact flow module.
    * @maxLength `500`

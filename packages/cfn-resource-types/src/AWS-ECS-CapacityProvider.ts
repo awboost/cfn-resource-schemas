@@ -53,6 +53,7 @@ export type BaselineEbsBandwidthMbpsRequest = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html}
  */
 export type InstanceLaunchTemplate = {
+  CapacityOptionType?: "ON_DEMAND" | "SPOT";
   Ec2InstanceProfileArn: string;
   InstanceRequirements?: InstanceRequirementsRequest;
   Monitoring?: ManagedInstancesMonitoringOptions;

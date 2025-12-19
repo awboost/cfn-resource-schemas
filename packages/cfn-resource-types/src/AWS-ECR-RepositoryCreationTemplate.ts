@@ -76,7 +76,10 @@ export type ECRRepositoryCreationTemplateAttributes = {
  * Enumerable Strings representing the repository creation scenarios that the template will apply towards.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repositorycreationtemplate-appliedforitem.html}
  */
-export type AppliedForItem = "REPLICATION" | "PULL_THROUGH_CACHE";
+export type AppliedForItem =
+  | "REPLICATION"
+  | "PULL_THROUGH_CACHE"
+  | "CREATE_ON_PUSH";
 /**
  * Type definition for `AWS::ECR::RepositoryCreationTemplate.EncryptionConfiguration`.
  * The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.

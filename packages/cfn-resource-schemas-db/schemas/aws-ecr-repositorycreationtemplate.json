@@ -1,12 +1,12 @@
 {
-  "$hash": "e860c73d8de818db3d902e5f3a900f5c514b72ed",
+  "$hash": "bf79538fff69653947b6903e80ab789ec95ab712",
   "$id": "aws-ecr-repositorycreationtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Prefix"],
   "definitions": {
     "AppliedForItem": {
       "description": "Enumerable Strings representing the repository creation scenarios that the template will apply towards.",
-      "enum": ["REPLICATION", "PULL_THROUGH_CACHE"],
+      "enum": ["REPLICATION", "PULL_THROUGH_CACHE", "CREATE_ON_PUSH"],
       "type": "string"
     },
     "EncryptionConfiguration": {
