@@ -1,5 +1,5 @@
 {
-  "$hash": "97fd2e325afb9bed4dac035f136bf4a753796b97",
+  "$hash": "7e98fb2d926e2aba1dc6ae7632ff182eaf958846",
   "$id": "aws-odb-cloudvmcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/DbNodes"],
@@ -138,6 +138,7 @@
   "handlers": {
     "create": {
       "permissions": [
+        "iam:CreateServiceLinkedRole",
         "odb:CreateCloudVmCluster",
         "odb:TagResource",
         "odb:GetCloudVmCluster",

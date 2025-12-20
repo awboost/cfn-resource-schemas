@@ -27,7 +27,7 @@ export type SecurityHubConnectorV2Properties = {
    */
   Name: string;
   /**
-   * The provider configuration of the connector
+   * The third-party provider configuration for the connector
    */
   Provider: Provider;
   /**
@@ -79,57 +79,56 @@ export type SecurityHubConnectorV2Attributes = {
   Message: string;
 };
 /**
- * Type definition for `AWS::SecurityHub::ConnectorV2.AuthStatus`.
- * The auth status of the connector
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-authstatus.html}
+ * Type definition for `AWS::SecurityHub::ConnectorV2.JiraCloudProviderConfiguration`.
+ * The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-jiracloudproviderconfiguration.html}
  */
-export type AuthStatus = "ACTIVE" | "FAILED";
+export type JiraCloudProviderConfiguration = {
+  /**
+   * The project key for a Jira Cloud instance
+   * @minLength `2`
+   * @maxLength `10`
+   */
+  ProjectKey: string;
+};
 /**
  * Type definition for `AWS::SecurityHub::ConnectorV2.Provider`.
- * The provider configuration of the connector
+ * The third-party provider configuration for the connector
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-provider.html}
  */
 export type Provider =
   | {
-      JiraCloud: {
-        /**
-         * The auth status of the connector
-         */
-        AuthStatus?: AuthStatus;
-        /**
-         * The authUrl of the JiraCloud connector
-         * @pattern `.*\S.*`
-         */
-        AuthUrl?: string;
-        CloudId?: string;
-        Domain?: string;
-        /**
-         * @minLength `2`
-         * @maxLength `10`
-         */
-        ProjectKey: string;
-      };
+      /**
+       * The initial configuration settings required to establish an integration between Security Hub and Jira Cloud
+       */
+      JiraCloud: JiraCloudProviderConfiguration;
     }
   | {
-      ServiceNow: {
-        /**
-         * The auth status of the connector
-         */
-        AuthStatus?: AuthStatus;
-        /**
-         * @minLength `1`
-         * @maxLength `128`
-         */
-        InstanceName: string;
-        /**
-         * The ARN of secrets manager containing ClientId and ClientSecret
-         * @minLength `20`
-         * @maxLength `2048`
-         * @pattern `.*\S.*`
-         */
-        SecretArn: string;
-      };
+      /**
+       * The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+       */
+      ServiceNow: ServiceNowProviderConfiguration;
     };
+/**
+ * Type definition for `AWS::SecurityHub::ConnectorV2.ServiceNowProviderConfiguration`.
+ * The initial configuration settings required to establish an integration between Security Hub and ServiceNow ITSM
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-connectorv2-servicenowproviderconfiguration.html}
+ */
+export type ServiceNowProviderConfiguration = {
+  /**
+   * The instance name of ServiceNow ITSM
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  InstanceName: string;
+  /**
+   * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `.*\S.*`
+   */
+  SecretArn: string;
+};
 /**
  * Type definition for `AWS::SecurityHub::ConnectorV2.Tags`.
  * A key-value pair to associate with a resource.

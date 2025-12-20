@@ -1,12 +1,14 @@
 {
-  "$hash": "2fccecb4c26fd1b09f5bf4e320734a45106be916",
+  "$hash": "83e5d71069c05c44449750159531cd7c1257f90b",
   "$id": "aws-ec2-clientvpnendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/TransportProtocol",
     "/properties/ClientCidrBlock",
     "/properties/TagSpecifications",
-    "/properties/AuthenticationOptions"
+    "/properties/AuthenticationOptions",
+    "/properties/EndpointIpAddressType",
+    "/properties/TrafficIpAddressType"
   ],
   "definitions": {
     "CertificateAuthenticationRequest": {
@@ -127,6 +129,7 @@
       "type": "array",
       "uniqueItems": false
     },
+    "EndpointIpAddressType": { "type": "string" },
     "Id": { "type": "string" },
     "SecurityGroupIds": {
       "items": { "type": "string" },
@@ -142,6 +145,7 @@
       "type": "array",
       "uniqueItems": false
     },
+    "TrafficIpAddressType": { "type": "string" },
     "TransportProtocol": { "type": "string" },
     "VpcId": { "type": "string" },
     "VpnPort": { "type": "integer" }

@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ODBOdbPeeringConnectionProperties = {
   /**
+   * The additional CIDR blocks for the ODB peering connection.
+   */
+  AdditionalPeerNetworkCidrs?: string[];
+  /**
    * The name of the ODB peering connection.
    * @minLength `1`
    * @maxLength `255`
@@ -52,6 +56,10 @@ export type ODBOdbPeeringConnectionAttributes = {
    * The Amazon Resource Name (ARN) of the peer network.
    */
   PeerNetworkArn: string;
+  /**
+   * The CIDR blocks for the ODB peering connection.
+   */
+  PeerNetworkCidrs: string[];
 };
 /**
  * Type definition for `AWS::ODB::OdbPeeringConnection.Tag`.

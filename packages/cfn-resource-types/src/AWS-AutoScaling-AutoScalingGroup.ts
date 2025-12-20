@@ -80,6 +80,7 @@ export type AutoScalingAutoScalingGroupProperties = {
      If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
      */
   InstanceId?: string;
+  InstanceLifecyclePolicy?: InstanceLifecyclePolicy;
   /**
    * An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
    */
@@ -313,6 +314,13 @@ export type CpuPerformanceFactorRequest = {
       Currently only one instance family can be specified in the list.
      */
   References?: PerformanceFactorReferenceRequest[];
+};
+/**
+ * Type definition for `AWS::AutoScaling::AutoScalingGroup.InstanceLifecyclePolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancelifecyclepolicy.html}
+ */
+export type InstanceLifecyclePolicy = {
+  RetentionTriggers?: RetentionTriggers;
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.InstanceMaintenancePolicy`.
@@ -584,6 +592,7 @@ export type LaunchTemplate = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html}
  */
 export type LaunchTemplateOverrides = {
+  ImageId?: string;
   /**
      * The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
      You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template.
@@ -848,6 +857,13 @@ export type PerformanceFactorReferenceRequest = {
      If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response.
      */
   InstanceFamily?: string;
+};
+/**
+ * Type definition for `AWS::AutoScaling::AutoScalingGroup.RetentionTriggers`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-retentiontriggers.html}
+ */
+export type RetentionTriggers = {
+  TerminateHookAbandon?: string;
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.TagProperty`.

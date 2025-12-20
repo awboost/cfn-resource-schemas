@@ -1,11 +1,10 @@
 {
-  "$hash": "b3c69ebfe38445fe5fd39990fa442f2dfdf1b54d",
+  "$hash": "080291655ef9c8560fa7e599b3f7f5f4e4741014",
   "$id": "aws-odb-odbpeeringconnection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/OdbNetworkId",
-    "/properties/PeerNetworkId",
-    "/properties/DisplayName"
+    "/properties/PeerNetworkId"
   ],
   "definitions": {
     "Tag": {
@@ -38,6 +37,7 @@
         "iam:CreateServiceLinkedRole",
         "ec2:DescribeVpcs",
         "ec2:CreateOdbNetworkPeering",
+        "ec2:ModifyOdbNetworkPeering",
         "odb:GetOdbPeeringConnection",
         "odb:ListTagsForResource",
         "sts:GetCallerIdentity"
@@ -65,15 +65,26 @@
     },
     "update": {
       "permissions": [
+        "odb:UpdateOdbPeeringConnection",
         "odb:GetOdbPeeringConnection",
         "odb:TagResource",
         "odb:UntagResource",
-        "odb:ListTagsForResource"
+        "odb:ListTagsForResource",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyOdbNetworkPeering",
+        "sts:GetCallerIdentity"
       ]
     }
   },
   "primaryIdentifier": ["/properties/OdbPeeringConnectionArn"],
   "properties": {
+    "AdditionalPeerNetworkCidrs": {
+      "description": "The additional CIDR blocks for the ODB peering connection.",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "DisplayName": {
       "description": "The name of the ODB peering connection.",
       "maxLength": 255,
@@ -104,6 +115,13 @@
       "description": "The Amazon Resource Name (ARN) of the peer network.",
       "type": "string"
     },
+    "PeerNetworkCidrs": {
+      "description": "The CIDR blocks for the ODB peering connection.",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "PeerNetworkId": {
       "description": "The unique identifier of the peer network.",
       "maxLength": 2048,
@@ -123,7 +141,8 @@
     "/properties/OdbPeeringConnectionArn",
     "/properties/OdbPeeringConnectionId",
     "/properties/OdbNetworkArn",
-    "/properties/PeerNetworkArn"
+    "/properties/PeerNetworkArn",
+    "/properties/PeerNetworkCidrs"
   ],
   "replacementStrategy": "delete_then_create",
   "tagging": {
@@ -141,6 +160,7 @@
   "typeName": "AWS::ODB::OdbPeeringConnection",
   "writeOnlyProperties": [
     "/properties/OdbNetworkId",
-    "/properties/PeerNetworkId"
+    "/properties/PeerNetworkId",
+    "/properties/AdditionalPeerNetworkCidrs"
   ]
 }

@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ConnectHoursOfOperationProperties = {
   /**
+   * List of child hours of operations.
+   */
+  ChildHoursOfOperations?: HoursOfOperationsIdentifier[];
+  /**
    * Configuration information for the hours of operation: day, start time, and end time.
    * @maxLength `100`
    */
@@ -32,6 +36,10 @@ export type ConnectHoursOfOperationProperties = {
    * @maxLength `127`
    */
   Name: string;
+  /**
+   * List of parent hours of operations.
+   */
+  ParentHoursOfOperations?: HoursOfOperationsIdentifier[];
   /**
    * One or more tags.
    * @maxLength `50`
@@ -117,6 +125,14 @@ export type HoursOfOperationOverride = {
    * @maxLength `127`
    */
   OverrideName: string;
+  /**
+   * The type of hours of operation override.
+   */
+  OverrideType?: OverrideType;
+  /**
+   * Configuration for recurring hours of operation overrides.
+   */
+  RecurrenceConfig?: RecurrenceConfig;
 };
 /**
  * Type definition for `AWS::Connect::HoursOfOperation.HoursOfOperationOverrideConfig`.
@@ -143,6 +159,23 @@ export type HoursOfOperationOverrideConfig = {
    * The new start time that your contact center opens for the overriden days.
    */
   StartTime: OverrideTimeSlice;
+};
+/**
+ * Type definition for `AWS::Connect::HoursOfOperation.HoursOfOperationsIdentifier`.
+ * Identifier for hours of operation.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationsidentifier.html}
+ */
+export type HoursOfOperationsIdentifier = {
+  /**
+   * The identifier for the hours of operation.
+   */
+  Id: string;
+  /**
+   * The name of the hours of operation.
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  Name?: string;
 };
 /**
  * Type definition for `AWS::Connect::HoursOfOperation.HoursOfOperationTimeSlice`.
@@ -181,6 +214,58 @@ export type OverrideTimeSlice = {
    * @max `59`
    */
   Minutes: number;
+};
+/**
+ * Type definition for `AWS::Connect::HoursOfOperation.OverrideType`.
+ * The type of hours of operation override.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-overridetype.html}
+ */
+export type OverrideType = "STANDARD" | "OPEN" | "CLOSED";
+/**
+ * Type definition for `AWS::Connect::HoursOfOperation.RecurrenceConfig`.
+ * Configuration for recurring hours of operation overrides.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-recurrenceconfig.html}
+ */
+export type RecurrenceConfig = {
+  /**
+   * Pattern for recurring hours of operation overrides.
+   */
+  RecurrencePattern: RecurrencePattern;
+};
+/**
+ * Type definition for `AWS::Connect::HoursOfOperation.RecurrenceFrequency`.
+ * The frequency of recurrence for hours of operation overrides.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-recurrencefrequency.html}
+ */
+export type RecurrenceFrequency = "WEEKLY" | "MONTHLY" | "YEARLY";
+/**
+ * Type definition for `AWS::Connect::HoursOfOperation.RecurrencePattern`.
+ * Pattern for recurring hours of operation overrides.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-recurrencepattern.html}
+ */
+export type RecurrencePattern = {
+  /**
+   * List of months (1-12) for recurrence pattern.
+   */
+  ByMonth?: number[];
+  /**
+   * List of month days (-1 to 31) for recurrence pattern.
+   */
+  ByMonthDay?: number[];
+  /**
+   * @minLength `0`
+   * @maxLength `1`
+   */
+  ByWeekdayOccurrence?: number[];
+  /**
+   * The frequency of recurrence for hours of operation overrides.
+   */
+  Frequency?: RecurrenceFrequency;
+  /**
+   * @min `1`
+   * @max `6`
+   */
+  Interval?: number;
 };
 /**
  * Type definition for `AWS::Connect::HoursOfOperation.Tag`.

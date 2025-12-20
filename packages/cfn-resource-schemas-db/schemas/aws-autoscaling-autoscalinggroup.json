@@ -1,5 +1,5 @@
 {
-  "$hash": "32e5ffbc2af231692a3b348b1bb1dca9418e1f20",
+  "$hash": "a9685369c89e42e3257a8e017cca73c8ab8f3f06",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -143,6 +143,14 @@
           "$ref": "#/definitions/PerformanceFactorReferenceSetRequest",
           "description": "Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences. \n  Currently only one instance family can be specified in the list."
         }
+      },
+      "type": "object"
+    },
+    "InstanceLifecyclePolicy": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "RetentionTriggers": { "$ref": "#/definitions/RetentionTriggers" }
       },
       "type": "object"
     },
@@ -351,6 +359,7 @@
       "additionalProperties": false,
       "description": "Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:\n  +  Override the instance type that is specified in the launch template.\n  +  Use multiple instance types.\n  \n Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.\n After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.\n ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.",
       "properties": {
+        "ImageId": { "description": "", "type": "string" },
         "InstanceRequirements": {
           "$ref": "#/definitions/InstanceRequirements",
           "description": "The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.\n You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. \n  If you specify ``InstanceRequirements``, you can't specify ``InstanceType``."
@@ -555,6 +564,12 @@
       "type": "array",
       "uniqueItems": true
     },
+    "RetentionTriggers": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": { "TerminateHookAbandon": { "type": "string" } },
+      "type": "object"
+    },
     "TagProperty": {
       "additionalProperties": false,
       "description": "A structure that specifies a tag for the ``Tags`` property of [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.\n For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.\n CloudFormation adds the following tags to all Auto Scaling groups and associated instances: \n  +  aws:cloudformation:stack-name\n  +  aws:cloudformation:stack-id\n  +  aws:cloudformation:logical-id",
@@ -751,6 +766,10 @@
     "InstanceId": {
       "description": "The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.\n If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.",
       "type": "string"
+    },
+    "InstanceLifecyclePolicy": {
+      "$ref": "#/definitions/InstanceLifecyclePolicy",
+      "description": ""
     },
     "InstanceMaintenancePolicy": {
       "$ref": "#/definitions/InstanceMaintenancePolicy",

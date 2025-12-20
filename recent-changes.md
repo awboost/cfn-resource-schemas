@@ -1,48 +1,49 @@
-- added `AWS::Cases::CaseRule`
-- added `AWS::Cases::Domain`
-- added `AWS::Cases::Field`
-- added `AWS::Cases::Layout`
-- added `AWS::Cases::Template`
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - added definition `OAuthGrantType`
-  - updated definition `OAuthCredentialProvider`
-- updated `AWS::CodePipeline::CustomActionType`
-  - added `deprecatedProperties`
-- updated `AWS::Connect::ContactFlowModule`
-  - added definition `Enabled`
-  - added property `ExternalInvocationConfiguration`
-  - added property `Settings`
-- updated `AWS::EC2::Volume`
-  - updated property `AutoEnableIO`
-  - updated property `AvailabilityZoneId`
-  - updated property `AvailabilityZone`
-  - updated property `Encrypted`
-  - updated property `KmsKeyId`
-  - updated property `OutpostArn`
-  - updated property `Size`
-  - updated property `SnapshotId`
-  - updated property `SourceVolumeId`
-  - updated property `VolumeType`
-- updated `AWS::ECR::RepositoryCreationTemplate`
-  - updated definition `AppliedForItem`
-- updated `AWS::ECS::CapacityProvider`
-  - updated definition `InstanceLaunchTemplate`
-- updated `AWS::EMR::Step`
-  - added property `EncryptionKeyArn`
-  - added property `LogUri`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - added definition `InstanceLifecyclePolicy`
+  - added definition `RetentionTriggers`
+  - added property `InstanceLifecyclePolicy`
+  - updated definition `LaunchTemplateOverrides`
+- updated `AWS::CodeGuruReviewer::RepositoryAssociation`
+  - added `tagging`
+- updated `AWS::Connect::HoursOfOperation`
+  - added definition `HoursOfOperationsIdentifier`
+  - added definition `MonthDayList`
+  - added definition `MonthList`
+  - added definition `OverrideType`
+  - added definition `RecurrenceConfig`
+  - added definition `RecurrenceFrequency`
+  - added definition `RecurrencePattern`
+  - added property `ChildHoursOfOperations`
+  - added property `ParentHoursOfOperations`
+  - updated definition `HoursOfOperationOverride`
+  - updated handler permissions
+- updated `AWS::DAX::SubnetGroup`
+  - added `readOnlyProperties`
+  - added property `Id`
+  - removed `propertyTransform`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - updated `primaryIdentifier`
+  - updated handler permissions
+- updated `AWS::EC2::ClientVpnEndpoint`
+  - added property `EndpointIpAddressType`
+  - added property `TrafficIpAddressType`
   - updated `createOnlyProperties`
-- updated `AWS::MediaConnect::FlowEntitlement`
+- updated `AWS::Logs::LogGroup`
+  - added property `DeletionProtectionEnabled`
   - updated handler permissions
-- updated `AWS::MediaConnect::FlowOutput`
+- updated `AWS::ODB::CloudVmCluster`
   - updated handler permissions
-- updated `AWS::MediaConnect::FlowSource`
+- updated `AWS::ODB::OdbPeeringConnection`
+  - added property `AdditionalPeerNetworkCidrs`
+  - added property `PeerNetworkCidrs`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::QuickSight::Dashboard`
-  - added definition `GridLayoutElementBackgroundStyle`
-  - added definition `GridLayoutElementBorderStyle`
-  - updated definition `DashboardVersionDefinition`
-  - updated definition `FreeFormLayoutElementBorderStyle`
-  - updated definition `FreeFormLayoutElement`
-  - updated definition `GridLayoutElement`
-- updated `AWS::WorkSpacesWeb::UserSettings`
-  - added property `WebAuthnAllowed`
+- updated `AWS::SecurityHub::ConnectorV2`
+  - added definition `JiraCloudProviderConfiguration`
+  - added definition `ServiceNowProviderConfiguration`
+  - updated `readOnlyProperties`
+  - updated definition `AuthStatus`
+  - updated definition `Provider`

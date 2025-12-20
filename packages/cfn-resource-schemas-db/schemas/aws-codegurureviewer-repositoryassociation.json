@@ -1,5 +1,5 @@
 {
-  "$hash": "7020a9a454300c6b1b67691b58522a0a6c6d0de6",
+  "$hash": "13fc29b73a9b6fe041ce366fc79503899c458de5",
   "$id": "aws-codegurureviewer-repositoryassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -126,5 +126,16 @@
   "readOnlyProperties": ["/properties/AssociationArn"],
   "required": ["Name", "Type"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-codegurureviewer",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "codeguru-reviewer:TagResource",
+      "codeguru-reviewer:UntagResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": false,
+    "taggable": true
+  },
   "typeName": "AWS::CodeGuruReviewer::RepositoryAssociation"
 }

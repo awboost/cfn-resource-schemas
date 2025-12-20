@@ -14,12 +14,14 @@ export type EC2ClientVpnEndpointProperties = {
   Description?: string;
   DisconnectOnSessionTimeout?: boolean;
   DnsServers?: string[];
+  EndpointIpAddressType?: string;
   SecurityGroupIds?: string[];
   SelfServicePortal?: string;
   ServerCertificateArn: string;
   SessionTimeoutHours?: number;
   SplitTunnel?: boolean;
   TagSpecifications?: TagSpecification[];
+  TrafficIpAddressType?: string;
   TransportProtocol?: string;
   VpcId?: string;
   VpnPort?: number;
