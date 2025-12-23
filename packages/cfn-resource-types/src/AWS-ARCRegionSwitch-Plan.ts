@@ -33,6 +33,7 @@ export type ARCRegionSwitchPlanProperties = {
    * @maxLength `2`
    */
   Regions: string[];
+  ReportConfiguration?: ReportConfiguration;
   Tags?: Tags;
   Triggers?: Trigger[];
   Workflows: Workflow[];
@@ -151,6 +152,40 @@ export type CustomActionLambdaConfiguration = {
   TimeoutMinutes?: number;
   Ungraceful?: LambdaUngraceful;
 };
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.DocumentDbConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-documentdbconfiguration.html}
+ */
+export type DocumentDbConfiguration = {
+  Behavior: any;
+  /**
+   * @pattern `^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$`
+   */
+  CrossAccountRole?: string;
+  DatabaseClusterArns: string[];
+  ExternalId?: string;
+  /**
+   * @pattern `^[A-Za-z][0-9A-Za-z-:._]*$`
+   */
+  GlobalClusterIdentifier: string;
+  /**
+   * @min `1`
+   */
+  TimeoutMinutes?: number;
+  Ungraceful?: DocumentDbUngraceful;
+};
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.DocumentDbUngraceful`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-documentdbungraceful.html}
+ */
+export type DocumentDbUngraceful = {
+  Ungraceful?: DocumentDbUngracefulBehavior;
+};
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.DocumentDbUngracefulBehavior`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-documentdbungracefulbehavior.html}
+ */
+export type DocumentDbUngracefulBehavior = "failover";
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.Ec2AsgCapacityIncreaseConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-ec2asgcapacityincreaseconfiguration.html}
@@ -305,6 +340,9 @@ export type ExecutionBlockConfiguration =
     }
   | {
       Route53HealthCheckConfig: Route53HealthCheckConfiguration;
+    }
+  | {
+      DocumentDbConfig: DocumentDbConfiguration;
     };
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.ExecutionBlockType`.
@@ -320,7 +358,8 @@ export type ExecutionBlockType =
   | "Parallel"
   | "ECSServiceScaling"
   | "EKSResourceScaling"
-  | "Route53HealthCheck";
+  | "Route53HealthCheck"
+  | "DocumentDb";
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.GlobalAuroraConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-globalauroraconfiguration.html}
@@ -450,6 +489,24 @@ export type RegionSwitchPlanConfiguration = {
  */
 export type RegionToRunIn = "activatingRegion" | "deactivatingRegion";
 /**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.ReportConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-reportconfiguration.html}
+ */
+export type ReportConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  ReportOutput?: ReportOutputConfiguration[];
+};
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.ReportOutputConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-reportoutputconfiguration.html}
+ */
+export type ReportOutputConfiguration = {
+  S3Configuration: S3ReportOutputConfiguration;
+};
+/**
  * Type definition for `AWS::ARCRegionSwitch::Plan.Route53HealthCheckConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-route53healthcheckconfiguration.html}
  */
@@ -495,6 +552,22 @@ export type Route53ResourceRecordSet = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-routingcontrolstatechange.html}
  */
 export type RoutingControlStateChange = "On" | "Off";
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.S3ReportOutputConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-s3reportoutputconfiguration.html}
+ */
+export type S3ReportOutputConfiguration = {
+  /**
+   * @pattern `^\d{12}$`
+   */
+  BucketOwner?: string;
+  /**
+   * @minLength `3`
+   * @maxLength `512`
+   * @pattern `^(?:s3://)?[a-z0-9][a-z0-9-]{1,61}[a-z0-9](?:/[^/ ][^/]*)/‍*?$`
+   */
+  BucketPath?: string;
+};
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.Service`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-service.html}

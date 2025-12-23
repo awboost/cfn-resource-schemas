@@ -72,6 +72,15 @@ export type AssetPropertyVariant = {
   StringValue?: string;
 };
 /**
+ * Type definition for `AWS::IoT::TopicRule.BatchConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-batchconfig.html}
+ */
+export type BatchConfig = {
+  MaxBatchOpenMs?: number;
+  MaxBatchSize?: number;
+  MaxBatchSizeBytes?: number;
+};
+/**
  * Type definition for `AWS::IoT::TopicRule.CannedAccessControlList`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cannedaccesscontrollist.html}
  */
@@ -165,7 +174,9 @@ export type FirehoseAction = {
  */
 export type HttpAction = {
   Auth?: HttpAuthorization;
+  BatchConfig?: BatchConfig;
   ConfirmationUrl?: string;
+  EnableBatching?: boolean;
   Headers?: HttpActionHeader[];
   Url: string;
 };

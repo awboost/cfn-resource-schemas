@@ -1,5 +1,5 @@
 {
-  "$hash": "06daa541e7d8861506ef6e32d8df1474a8715c15",
+  "$hash": "396cfafb438f0cc461e655b419057b7f2c212d29",
   "$id": "aws-iot-topicrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
@@ -58,6 +58,15 @@
         "DoubleValue": { "type": "string" },
         "IntegerValue": { "type": "string" },
         "StringValue": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "BatchConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "MaxBatchOpenMs": { "type": "integer" },
+        "MaxBatchSize": { "type": "integer" },
+        "MaxBatchSizeBytes": { "type": "integer" }
       },
       "type": "object"
     },
@@ -165,7 +174,9 @@
       "additionalProperties": false,
       "properties": {
         "Auth": { "$ref": "#/definitions/HttpAuthorization" },
+        "BatchConfig": { "$ref": "#/definitions/BatchConfig" },
         "ConfirmationUrl": { "type": "string" },
+        "EnableBatching": { "type": "boolean" },
         "Headers": {
           "items": { "$ref": "#/definitions/HttpActionHeader" },
           "type": "array",

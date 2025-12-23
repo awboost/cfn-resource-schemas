@@ -1,5 +1,5 @@
 {
-  "$hash": "370a4471d811fa0c1601033ea58ef89bd91bda18",
+  "$hash": "88fa658414c45c6374fa4d2cf7c50ec7d2b5b70b",
   "$id": "aws-arcregionswitch-plan.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -89,6 +89,53 @@
       "required": ["Lambdas", "RegionToRun", "RetryIntervalMinutes"],
       "type": "object"
     },
+    "DocumentDbConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Behavior": {
+          "allOf": [
+            { "$ref": "#/definitions/DocumentDbDefaultBehavior" },
+            { "default": "switchoverOnly" }
+          ]
+        },
+        "CrossAccountRole": {
+          "pattern": "^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$",
+          "type": "string"
+        },
+        "DatabaseClusterArns": {
+          "items": {
+            "pattern": "^arn:aws[a-zA-Z-]*:rds:[a-z0-9-]+:\\d{12}:cluster:[a-zA-Z0-9][a-zA-Z0-9-_]{0,99}$",
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ExternalId": { "type": "string" },
+        "GlobalClusterIdentifier": {
+          "pattern": "^[A-Za-z][0-9A-Za-z-:._]*$",
+          "type": "string"
+        },
+        "TimeoutMinutes": { "default": 60, "minimum": 1, "type": "number" },
+        "Ungraceful": { "$ref": "#/definitions/DocumentDbUngraceful" }
+      },
+      "required": [
+        "Behavior",
+        "DatabaseClusterArns",
+        "GlobalClusterIdentifier"
+      ],
+      "type": "object"
+    },
+    "DocumentDbDefaultBehavior": {
+      "enum": ["switchoverOnly", "failover"],
+      "type": "string"
+    },
+    "DocumentDbUngraceful": {
+      "additionalProperties": false,
+      "properties": {
+        "Ungraceful": { "$ref": "#/definitions/DocumentDbUngracefulBehavior" }
+      },
+      "type": "object"
+    },
+    "DocumentDbUngracefulBehavior": { "enum": ["failover"], "type": "string" },
     "Ec2AsgCapacityIncreaseConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -346,6 +393,17 @@
           "required": ["Route53HealthCheckConfig"],
           "title": "Route53HealthCheckConfig",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "DocumentDbConfig": {
+              "$ref": "#/definitions/DocumentDbConfiguration"
+            }
+          },
+          "required": ["DocumentDbConfig"],
+          "title": "DocumentDbConfig",
+          "type": "object"
         }
       ]
     },
@@ -360,7 +418,8 @@
         "Parallel",
         "ECSServiceScaling",
         "EKSResourceScaling",
-        "Route53HealthCheck"
+        "Route53HealthCheck",
+        "DocumentDb"
       ],
       "type": "string"
     },
@@ -534,6 +593,33 @@
       },
       "type": "object"
     },
+    "ReportConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ReportOutput": {
+          "items": { "$ref": "#/definitions/ReportOutputConfiguration" },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ReportOutputConfiguration": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "S3Configuration": {
+              "$ref": "#/definitions/S3ReportOutputConfiguration"
+            }
+          },
+          "required": ["S3Configuration"],
+          "title": "S3Configuration",
+          "type": "object"
+        }
+      ]
+    },
     "Route53HealthCheckConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -566,6 +652,19 @@
       "type": "object"
     },
     "RoutingControlStateChange": { "enum": ["On", "Off"], "type": "string" },
+    "S3ReportOutputConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "BucketOwner": { "pattern": "^\\d{12}$", "type": "string" },
+        "BucketPath": {
+          "maxLength": 512,
+          "minLength": 3,
+          "pattern": "^(?:s3://)?[a-z0-9][a-z0-9-]{1,61}[a-z0-9](?:/[^/ ][^/]*)*/?$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "Service": {
       "additionalProperties": false,
       "properties": {
@@ -742,6 +841,7 @@
       "minItems": 2,
       "type": "array"
     },
+    "ReportConfiguration": { "$ref": "#/definitions/ReportConfiguration" },
     "Route53HealthChecks": {
       "additionalProperties": false,
       "properties": {
