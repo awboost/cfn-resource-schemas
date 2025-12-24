@@ -10,6 +10,10 @@ export type MediaTailorPlaybackConfigurationProperties = {
    */
   AdConditioningConfiguration?: AdConditioningConfiguration;
   /**
+   * The configuration for the request to the specified Ad Decision Server URL.
+   */
+  AdDecisionServerConfiguration?: AdDecisionServerConfiguration;
+  /**
    * The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.
    */
   AdDecisionServerUrl: string;
@@ -122,6 +126,23 @@ export type AdConditioningConfiguration = {
   StreamingMediaFileConditioning: StreamingMediaFileConditioning;
 };
 /**
+ * Type definition for `AWS::MediaTailor::PlaybackConfiguration.AdDecisionServerConfiguration`.
+ * The configuration for the request to the specified Ad Decision Server URL.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-addecisionserverconfiguration.html}
+ */
+export type AdDecisionServerConfiguration = {
+  /**
+   * The configuration for the request to the Ad Decision Server URL.
+   */
+  HttpRequest: HttpRequest;
+};
+/**
+ * Type definition for `AWS::MediaTailor::PlaybackConfiguration.AdDecisionServerConfigurationHttpHeaders`.
+ * The headers in the request sent to the Ad Decision Server URL. The max length is 10,000 characters.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-addecisionserverconfigurationhttpheaders.html}
+ */
+export type AdDecisionServerConfigurationHttpHeaders = Record<string, string>;
+/**
  * Type definition for `AWS::MediaTailor::PlaybackConfiguration.AdMarkerPassthrough`.
  * For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-admarkerpassthrough.html}
@@ -215,6 +236,29 @@ export type DashConfiguration = {
    * The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
    */
   OriginManifestType?: "SINGLE_PERIOD" | "MULTI_PERIOD";
+};
+/**
+ * Type definition for `AWS::MediaTailor::PlaybackConfiguration.HttpRequest`.
+ * The configuration for the request to the Ad Decision Server URL.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-httprequest.html}
+ */
+export type HttpRequest = {
+  /**
+   * The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.
+   */
+  Body?: string;
+  /**
+   * The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.
+   */
+  CompressRequest?: "NONE" | "GZIP";
+  /**
+   * The headers in the request sent to the Ad Decision Server URL. The max length is 10,000 characters.
+   */
+  Headers?: AdDecisionServerConfigurationHttpHeaders;
+  /**
+   * Supported HTTP Methods for the request to the Ad Decision Server URL.
+   */
+  HttpMethod?: "GET" | "POST";
 };
 /**
  * Type definition for `AWS::MediaTailor::PlaybackConfiguration.InsertionMode`.

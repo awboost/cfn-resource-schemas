@@ -1,14 +1,5 @@
-- updated `AWS::ARCRegionSwitch::Plan`
-  - added definition `DocumentDbConfiguration`
-  - added definition `DocumentDbDefaultBehavior`
-  - added definition `DocumentDbUngracefulBehavior`
-  - added definition `DocumentDbUngraceful`
-  - added definition `ReportConfiguration`
-  - added definition `ReportOutputConfiguration`
-  - added definition `S3ReportOutputConfiguration`
-  - added property `ReportConfiguration`
-  - updated definition `ExecutionBlockConfiguration`
-  - updated definition `ExecutionBlockType`
-- updated `AWS::IoT::TopicRule`
-  - added definition `BatchConfig`
-  - updated definition `HttpAction`
+- updated `AWS::MediaTailor::PlaybackConfiguration`
+  - added definition `AdDecisionServerConfigurationHttpHeaders`
+  - added definition `AdDecisionServerConfiguration`
+  - added definition `HttpRequest`
+  - added property `AdDecisionServerConfiguration`

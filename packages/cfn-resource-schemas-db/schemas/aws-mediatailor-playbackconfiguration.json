@@ -1,5 +1,5 @@
 {
-  "$hash": "32f016c0da351cd6432f712c43ca7f550b7ba4b6",
+  "$hash": "5fc73206c010f9637b539e4e49d0fca355258e73",
   "$id": "aws-mediatailor-playbackconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -13,6 +13,19 @@
         }
       },
       "required": ["StreamingMediaFileConditioning"],
+      "type": "object"
+    },
+    "AdDecisionServerConfiguration": {
+      "additionalProperties": false,
+      "description": "The configuration for the request to the specified Ad Decision Server URL.",
+      "properties": { "HttpRequest": { "$ref": "#/definitions/HttpRequest" } },
+      "required": ["HttpRequest"],
+      "type": "object"
+    },
+    "AdDecisionServerConfigurationHttpHeaders": {
+      "additionalProperties": false,
+      "description": "The headers in the request sent to the Ad Decision Server URL. The max length is 10,000 characters.",
+      "patternProperties": { ".*": { "type": "string" } },
       "type": "object"
     },
     "AdMarkerPassthrough": {
@@ -123,6 +136,30 @@
       "properties": {
         "ManifestEndpointPrefix": {
           "description": "The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "HttpRequest": {
+      "additionalProperties": false,
+      "description": "The configuration for the request to the Ad Decision Server URL.",
+      "properties": {
+        "Body": {
+          "description": "The body of the request to the Ad Decision Server URL. The maximum length is 100,000 characters.",
+          "type": "string"
+        },
+        "CompressRequest": {
+          "description": "The compression type of the request sent to the Ad Decision Server URL. Only the POST HTTP Method permits compression other than NONE.",
+          "enum": ["NONE", "GZIP"],
+          "type": "string"
+        },
+        "Headers": {
+          "$ref": "#/definitions/AdDecisionServerConfigurationHttpHeaders"
+        },
+        "HttpMethod": {
+          "description": "Supported HTTP Methods for the request to the Ad Decision Server URL.",
+          "enum": ["GET", "POST"],
           "type": "string"
         }
       },
@@ -244,6 +281,9 @@
   "properties": {
     "AdConditioningConfiguration": {
       "$ref": "#/definitions/AdConditioningConfiguration"
+    },
+    "AdDecisionServerConfiguration": {
+      "$ref": "#/definitions/AdDecisionServerConfiguration"
     },
     "AdDecisionServerUrl": {
       "description": "The URL for the ad decision server (ADS). This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing you can provide a static VAST URL. The maximum length is 25,000 characters.",
