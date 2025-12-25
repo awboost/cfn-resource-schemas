@@ -1,5 +1,5 @@
 {
-  "$hash": "55c5d5cbdcb3e40e01da3860639e5d240554e522",
+  "$hash": "043a0724b3f5ae3e75b61725f0c22893d68424fe",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -164,10 +164,10 @@
     },
     "EvaluationFormLanguageConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Language configuration for an evaluation form.",
       "properties": {
         "FormLanguage": {
-          "description": "The language of the form",
+          "description": "The language for the evaluation form.",
           "enum": ["de-DE", "en-US", "es-ES", "fr-FR", "it-IT", "pt-BR"],
           "type": "string"
         }
@@ -176,18 +176,18 @@
     },
     "EvaluationFormMultiSelectQuestionAutomation": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Automation configuration for multi-select questions.",
       "properties": {
         "AnswerSource": {
           "$ref": "#/definitions/EvaluationFormQuestionAutomationAnswerSource",
-          "description": "The source of automation answer of the question."
+          "description": ""
         },
         "DefaultOptionRefIds": {
           "$ref": "#/definitions/ReferenceIdList",
-          "description": "The option reference identifiers of the default answers."
+          "description": "Reference IDs of default options."
         },
         "Options": {
-          "description": "The answer options for the automation.",
+          "description": "Automation options for the multi-select question.",
           "insertionOrder": true,
           "items": {
             "$ref": "#/definitions/EvaluationFormMultiSelectQuestionAutomationOption"
@@ -202,11 +202,11 @@
     },
     "EvaluationFormMultiSelectQuestionAutomationOption": {
       "additionalProperties": false,
-      "description": "",
+      "description": "An automation option for a multi-select question.",
       "properties": {
         "RuleCategory": {
           "$ref": "#/definitions/MultiSelectQuestionRuleCategoryAutomation",
-          "description": "The automation option based on Rules categories."
+          "description": "Rule category configuration for this automation option."
         }
       },
       "required": ["RuleCategory"],
@@ -214,14 +214,14 @@
     },
     "EvaluationFormMultiSelectQuestionOption": {
       "additionalProperties": false,
-      "description": "",
+      "description": "An option for a multi-select question in an evaluation form.",
       "properties": {
         "RefId": {
           "$ref": "#/definitions/RefId",
-          "description": "The identifier used to reference the option."
+          "description": "Reference identifier for this option."
         },
         "Text": {
-          "description": "The title of the option.",
+          "description": "Display text for this option.",
           "maxLength": 128,
           "minLength": 1,
           "type": "string"
@@ -232,19 +232,19 @@
     },
     "EvaluationFormMultiSelectQuestionProperties": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Properties for a multi-select question in an evaluation form.",
       "properties": {
         "Automation": {
           "$ref": "#/definitions/EvaluationFormMultiSelectQuestionAutomation",
-          "description": "The automation properties for the multi-select question."
+          "description": "Automation configuration for this multi-select question."
         },
         "DisplayAs": {
-          "description": "The display mode of the multi-select question.",
+          "description": "Display format for the multi-select question.",
           "enum": ["DROPDOWN", "CHECKBOX"],
           "type": "string"
         },
         "Options": {
-          "description": "The list of options for the question.",
+          "description": "Options available for this multi-select question.",
           "insertionOrder": true,
           "items": {
             "$ref": "#/definitions/EvaluationFormMultiSelectQuestionOption"
@@ -399,7 +399,7 @@
       "properties": {
         "MultiSelect": {
           "$ref": "#/definitions/EvaluationFormMultiSelectQuestionProperties",
-          "description": ""
+          "description": "Properties for multi-select question types."
         },
         "Numeric": {
           "$ref": "#/definitions/EvaluationFormNumericQuestionProperties",
@@ -548,10 +548,10 @@
     },
     "EvaluationFormTargetConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Configuration that specifies the target for an evaluation form.",
       "properties": {
         "ContactInteractionType": {
-          "description": "The interaction type of a contact",
+          "description": "The contact interaction type for this evaluation form.",
           "enum": ["AGENT", "AUTOMATED"],
           "type": "string"
         }
@@ -583,22 +583,22 @@
     },
     "MultiSelectQuestionRuleCategoryAutomation": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Automation rule for multi-select questions based on rule categories.",
       "properties": {
         "Category": {
-          "description": "The category name as defined in Rules.",
+          "description": "The category name for this automation rule.",
           "maxLength": 50,
           "minLength": 1,
           "type": "string"
         },
         "Condition": {
-          "description": "The automation condition applied on contact categories.",
+          "description": "The condition for this automation rule.",
           "enum": ["PRESENT", "NOT_PRESENT"],
           "type": "string"
         },
         "OptionRefIds": {
           "$ref": "#/definitions/ReferenceIdList",
-          "description": "The option identifiers referencing the options to be selected when the automation option is triggered."
+          "description": "Reference IDs of options for this automation rule."
         }
       },
       "required": ["Category", "Condition", "OptionRefIds"],
@@ -776,7 +776,7 @@
     },
     "LanguageConfiguration": {
       "$ref": "#/definitions/EvaluationFormLanguageConfiguration",
-      "description": ""
+      "description": "Configuration for language settings of this evaluation form."
     },
     "ScoringStrategy": {
       "$ref": "#/definitions/ScoringStrategy",
@@ -798,7 +798,7 @@
     },
     "TargetConfiguration": {
       "$ref": "#/definitions/EvaluationFormTargetConfiguration",
-      "description": ""
+      "description": "Configuration that specifies the target for this evaluation form."
     },
     "Title": {
       "description": "A title of the evaluation form.",

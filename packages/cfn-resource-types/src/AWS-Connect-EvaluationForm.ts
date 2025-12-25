@@ -29,6 +29,9 @@ export type ConnectEvaluationFormProperties = {
    * @maxLength `200`
    */
   Items: EvaluationFormBaseItem[];
+  /**
+   * Configuration for language settings of this evaluation form.
+   */
   LanguageConfiguration?: EvaluationFormLanguageConfiguration;
   /**
    * A scoring strategy of the evaluation form.
@@ -44,6 +47,9 @@ export type ConnectEvaluationFormProperties = {
    * @maxLength `50`
    */
   Tags?: Tag[];
+  /**
+   * Configuration that specifies the target for this evaluation form.
+   */
   TargetConfiguration?: EvaluationFormTargetConfiguration;
   /**
    * A title of the evaluation form.
@@ -208,29 +214,31 @@ export type EvaluationFormItemEnablementSourceValue = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormLanguageConfiguration`.
+ * Language configuration for an evaluation form.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformlanguageconfiguration.html}
  */
 export type EvaluationFormLanguageConfiguration = {
   /**
-   * The language of the form
+   * The language for the evaluation form.
    */
   FormLanguage?: "de-DE" | "en-US" | "es-ES" | "fr-FR" | "it-IT" | "pt-BR";
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionAutomation`.
+ * Automation configuration for multi-select questions.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomation.html}
  */
 export type EvaluationFormMultiSelectQuestionAutomation = {
   /**
-   * The source of automation answer of the question.
+   * A question automation answer.
    */
   AnswerSource?: EvaluationFormQuestionAutomationAnswerSource;
   /**
-   * The option reference identifiers of the default answers.
+   * Reference IDs of default options.
    */
   DefaultOptionRefIds?: string[];
   /**
-   * The answer options for the automation.
+   * Automation options for the multi-select question.
    * @minLength `1`
    * @maxLength `20`
    */
@@ -238,26 +246,28 @@ export type EvaluationFormMultiSelectQuestionAutomation = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionAutomationOption`.
+ * An automation option for a multi-select question.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionautomationoption.html}
  */
 export type EvaluationFormMultiSelectQuestionAutomationOption = {
   /**
-   * The automation option based on Rules categories.
+   * Rule category configuration for this automation option.
    */
   RuleCategory: MultiSelectQuestionRuleCategoryAutomation;
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionOption`.
+ * An option for a multi-select question in an evaluation form.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionoption.html}
  */
 export type EvaluationFormMultiSelectQuestionOption = {
   /**
-   * The identifier used to reference the option.
+   * Reference identifier for this option.
    * @pattern `^[a-zA-Z0-9._-]{1,40}$`
    */
   RefId: string;
   /**
-   * The title of the option.
+   * Display text for this option.
    * @minLength `1`
    * @maxLength `128`
    */
@@ -265,19 +275,20 @@ export type EvaluationFormMultiSelectQuestionOption = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionProperties`.
+ * Properties for a multi-select question in an evaluation form.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformmultiselectquestionproperties.html}
  */
 export type EvaluationFormMultiSelectQuestionProperties = {
   /**
-   * The automation properties for the multi-select question.
+   * Automation configuration for this multi-select question.
    */
   Automation?: EvaluationFormMultiSelectQuestionAutomation;
   /**
-   * The display mode of the multi-select question.
+   * Display format for the multi-select question.
    */
   DisplayAs?: "DROPDOWN" | "CHECKBOX";
   /**
-   * The list of options for the question.
+   * Options available for this multi-select question.
    * @minLength `2`
    * @maxLength `256`
    */
@@ -427,6 +438,9 @@ export type EvaluationFormQuestionAutomationAnswerSource = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html}
  */
 export type EvaluationFormQuestionTypeProperties = {
+  /**
+   * Properties for multi-select question types.
+   */
   MultiSelect?: EvaluationFormMultiSelectQuestionProperties;
   /**
    * The properties of the numeric question.
@@ -579,11 +593,12 @@ export type EvaluationFormSingleSelectQuestionProperties = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormTargetConfiguration`.
+ * Configuration that specifies the target for an evaluation form.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformtargetconfiguration.html}
  */
 export type EvaluationFormTargetConfiguration = {
   /**
-   * The interaction type of a contact
+   * The contact interaction type for this evaluation form.
    */
   ContactInteractionType: "AGENT" | "AUTOMATED";
 };
@@ -611,21 +626,22 @@ export type EvaluationFormTextQuestionProperties = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.MultiSelectQuestionRuleCategoryAutomation`.
+ * Automation rule for multi-select questions based on rule categories.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-multiselectquestionrulecategoryautomation.html}
  */
 export type MultiSelectQuestionRuleCategoryAutomation = {
   /**
-   * The category name as defined in Rules.
+   * The category name for this automation rule.
    * @minLength `1`
    * @maxLength `50`
    */
   Category: string;
   /**
-   * The automation condition applied on contact categories.
+   * The condition for this automation rule.
    */
   Condition: "PRESENT" | "NOT_PRESENT";
   /**
-   * The option identifiers referencing the options to be selected when the automation option is triggered.
+   * Reference IDs of options for this automation rule.
    */
   OptionRefIds: string[];
 };
