@@ -1,11 +1,2 @@
-- updated `AWS::Connect::EvaluationForm`
-  - updated definition `EvaluationFormLanguageConfiguration`
-  - updated definition `EvaluationFormMultiSelectQuestionAutomationOption`
-  - updated definition `EvaluationFormMultiSelectQuestionAutomation`
-  - updated definition `EvaluationFormMultiSelectQuestionOption`
-  - updated definition `EvaluationFormMultiSelectQuestionProperties`
-  - updated definition `EvaluationFormQuestionTypeProperties`
-  - updated definition `EvaluationFormTargetConfiguration`
-  - updated definition `MultiSelectQuestionRuleCategoryAutomation`
-  - updated property `LanguageConfiguration`
-  - updated property `TargetConfiguration`
+- updated `AWS::ECR::PullTimeUpdateExclusion`
+  - updated property `PrincipalArn`
