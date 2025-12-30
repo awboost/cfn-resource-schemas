@@ -1,8 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource type definition for `AWS::ApiGatewayV2::Integration`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::ApiGatewayV2::Integration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html}
  */
 export type ApiGatewayV2IntegrationProperties = {
@@ -24,6 +23,7 @@ export type ApiGatewayV2IntegrationProperties = {
   ContentHandlingStrategy?: string;
   /**
    * Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string arn:aws:iam::*:user/*. To use resource-based permissions on supported AWS services, don't specify this parameter.
+   * @pattern `arn:(aws|aws-cn|aws-us-gov):iam::[0-9]*:(role|user|group)\/.*`
    */
   CredentialsArn?: string;
   /**
@@ -118,8 +118,7 @@ export type TlsConfig = {
   ServerNameToVerify?: string;
 };
 /**
- * Resource type definition for `AWS::ApiGatewayV2::Integration`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::ApiGatewayV2::Integration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html}
  */
 export class ApiGatewayV2Integration extends $Resource<

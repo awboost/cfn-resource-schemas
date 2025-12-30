@@ -1,2 +1,7 @@
-- updated `AWS::ECR::PullTimeUpdateExclusion`
-  - updated property `PrincipalArn`
+- updated `AWS::ApiGatewayV2::Integration`
+  - updated property `CredentialsArn`
+- updated `AWS::ECS::ExpressGatewayService`
+  - updated `createOnlyProperties`
+- updated `AWS::PCS::Cluster`
+  - updated definition `Accounting`
+  - updated definition `SlurmRest`

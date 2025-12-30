@@ -155,7 +155,7 @@ export type Accounting = {
    */
   DefaultPurgeTimeInDays?: number;
   /**
-   * The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.
+   * The default value is `NONE`. A value of `STANDARD` means that Slurm accounting is enabled.
    */
   Mode: "STANDARD" | "NONE";
 };
@@ -264,7 +264,7 @@ export type SlurmCustomSetting = {
  */
 export type SlurmRest = {
   /**
-   * The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.
+   * The default value is `NONE`. A value of `STANDARD` means that Slurm Rest is enabled.
    */
   Mode: "STANDARD" | "NONE";
 };

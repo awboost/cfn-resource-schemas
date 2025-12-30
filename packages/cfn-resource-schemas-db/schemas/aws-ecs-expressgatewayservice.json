@@ -1,13 +1,12 @@
 {
-  "$hash": "c2fb3096e515996ee4f685e50bb6f7cb680e127e",
+  "$hash": "ce302017028c9ce3934d9be1eb37345cc10b542f",
   "$id": "aws-ecs-expressgatewayservice.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceName",
     "/properties/Cluster",
     "/properties/InfrastructureRoleArn",
-    "/properties/Tags",
-    "/properties/ScalingTarget"
+    "/properties/Tags"
   ],
   "definitions": {
     "AccessType": { "enum": ["PUBLIC", "PRIVATE"], "type": "string" },

@@ -1,5 +1,5 @@
 {
-  "$hash": "34502a5b2cc7f7beee58c4f87d0b89486f65add9",
+  "$hash": "fed8c8ccc69fde6f9e485e1db28b89d9761ab046",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -21,7 +21,7 @@
         },
         "Mode": {
           "default": "NONE",
-          "description": "The default value is `STANDARD`. A value of `STANDARD` means that Slurm accounting is enabled.",
+          "description": "The default value is `NONE`. A value of `STANDARD` means that Slurm accounting is enabled.",
           "enum": ["STANDARD", "NONE"],
           "type": "string"
         }
@@ -137,7 +137,7 @@
       "properties": {
         "Mode": {
           "default": "NONE",
-          "description": "The default value is `STANDARD`. A value of `STANDARD` means that Slurm Rest is enabled.",
+          "description": "The default value is `NONE`. A value of `STANDARD` means that Slurm Rest is enabled.",
           "enum": ["STANDARD", "NONE"],
           "type": "string"
         }
