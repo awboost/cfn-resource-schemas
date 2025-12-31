@@ -1,5 +1,5 @@
 {
-  "$hash": "cc4ee13360499a0171140785ad7af8baf6e18fed",
+  "$hash": "aafea818ce44d9c8648648c55e4e20c3deec831e",
   "$id": "aws-wisdom-aiprompt.json",
   "additionalIdentifiers": [
     ["/properties/AIPromptArn", "/properties/AssistantArn"]
@@ -50,7 +50,10 @@
         "EMAIL_RESPONSE",
         "EMAIL_OVERVIEW",
         "EMAIL_GENERATIVE_ANSWER",
-        "EMAIL_QUERY_REFORMULATION"
+        "EMAIL_QUERY_REFORMULATION",
+        "ORCHESTRATION",
+        "NOTE_TAKING",
+        "CASE_SUMMARIZATION"
       ],
       "type": "string"
     },

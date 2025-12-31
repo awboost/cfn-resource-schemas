@@ -256,6 +256,7 @@ export type CustomOriginConfig = {
      For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
      */
   OriginKeepaliveTimeout?: number;
+  OriginMtlsConfig?: OriginMtlsConfig;
   /**
      * Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
       +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.
@@ -892,6 +893,13 @@ export type OriginGroups = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupselectioncriteria.html}
  */
 export type OriginGroupSelectionCriteria = "default" | "media-quality-based";
+/**
+ * Type definition for `AWS::CloudFront::Distribution.OriginMtlsConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originmtlsconfig.html}
+ */
+export type OriginMtlsConfig = {
+  ClientCertificateArn: string;
+};
 /**
  * Type definition for `AWS::CloudFront::Distribution.OriginShield`.
  * CloudFront Origin Shield.

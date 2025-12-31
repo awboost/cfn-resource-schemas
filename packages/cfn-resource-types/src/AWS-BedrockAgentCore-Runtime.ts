@@ -82,6 +82,10 @@ export type BedrockAgentCoreRuntimeAttributes = {
    */
   CreatedAt: string;
   /**
+   * The reason for failure if the agent is in a failed state.
+   */
+  FailureReason: string;
+  /**
    * When resource was last updated
    */
   LastUpdatedAt: string;

@@ -1,5 +1,5 @@
 {
-  "$hash": "7a80afd3a88de62778c31c84a014b2ca52824330",
+  "$hash": "029989407e36ed92ab56ec9e4e0cb0dfcc61cbc0",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -189,6 +189,10 @@
           "default": 5,
           "description": "Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 5 seconds.\n For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.",
           "type": "integer"
+        },
+        "OriginMtlsConfig": {
+          "$ref": "#/definitions/OriginMtlsConfig",
+          "description": ""
         },
         "OriginProtocolPolicy": {
           "description": "Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:\n  +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.\n  +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.\n  +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.",
@@ -780,6 +784,13 @@
         }
       },
       "required": ["Quantity"],
+      "type": "object"
+    },
+    "OriginMtlsConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": { "ClientCertificateArn": { "type": "string" } },
+      "required": ["ClientCertificateArn"],
       "type": "object"
     },
     "OriginShield": {

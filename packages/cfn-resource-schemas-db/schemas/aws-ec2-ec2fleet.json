@@ -1,5 +1,5 @@
 {
-  "$hash": "f6e6ff2a59569a39d847fb05f800753f7d58f06a",
+  "$hash": "b97228cf32fec81340847e9d69aa5518b262d1c3",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -127,6 +127,7 @@
       "additionalProperties": false,
       "properties": {
         "AvailabilityZone": { "type": "string" },
+        "AvailabilityZoneId": { "type": "string" },
         "BlockDeviceMappings": {
           "items": { "$ref": "#/definitions/BlockDeviceMapping" },
           "type": "array",

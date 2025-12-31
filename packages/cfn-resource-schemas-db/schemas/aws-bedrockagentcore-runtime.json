@@ -1,5 +1,5 @@
 {
-  "$hash": "7f99fcf9f45fd6ed5782026f81c0e94970bc9209",
+  "$hash": "ceea89f7e84224a77b29075f1e9665ea418c5884",
   "$id": "aws-bedrockagentcore-runtime.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentRuntimeName"],
@@ -423,6 +423,10 @@
       "$ref": "#/definitions/EnvironmentVariablesMap",
       "description": "Environment variables for the agent runtime"
     },
+    "FailureReason": {
+      "description": "The reason for failure if the agent is in a failed state.",
+      "type": "string"
+    },
     "LastUpdatedAt": {
       "$ref": "#/definitions/LastUpdatedAt",
       "description": "When resource was last updated"
@@ -464,7 +468,8 @@
     "/properties/Status",
     "/properties/CreatedAt",
     "/properties/LastUpdatedAt",
-    "/properties/WorkloadIdentityDetails"
+    "/properties/WorkloadIdentityDetails",
+    "/properties/FailureReason"
   ],
   "replacementStrategy": "create_then_delete",
   "required": [

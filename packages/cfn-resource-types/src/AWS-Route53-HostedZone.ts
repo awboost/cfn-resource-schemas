@@ -26,6 +26,9 @@ export type Route53HostedZoneProperties = {
      If you don't want to specify a comment, omit the ``HostedZoneConfig`` and ``Comment`` elements.
      */
   HostedZoneConfig?: HostedZoneConfig;
+  /**
+   * The features configuration for the hosted zone, including accelerated recovery settings and status information.
+   */
   HostedZoneFeatures?: HostedZoneFeatures;
   /**
      * Adds, edits, or deletes tags for a health check or a hosted zone.
@@ -77,12 +80,10 @@ export type HostedZoneConfig = {
 };
 /**
  * Type definition for `AWS::Route53::HostedZone.HostedZoneFeatures`.
+ * Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonefeatures.html}
  */
 export type HostedZoneFeatures = {
-  /**
-   * Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.
-   */
   EnableAcceleratedRecovery?: boolean;
 };
 /**

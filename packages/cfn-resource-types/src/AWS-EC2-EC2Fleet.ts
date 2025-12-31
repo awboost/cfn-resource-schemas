@@ -118,6 +118,7 @@ export type FleetLaunchTemplateConfigRequest = {
  */
 export type FleetLaunchTemplateOverridesRequest = {
   AvailabilityZone?: string;
+  AvailabilityZoneId?: string;
   BlockDeviceMappings?: BlockDeviceMapping[];
   InstanceRequirements?: InstanceRequirementsRequest;
   InstanceType?: string;

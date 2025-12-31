@@ -1,5 +1,5 @@
 {
-  "$hash": "0d70a5f588b4e1c3335ba3d77cbd43b097df3361",
+  "$hash": "a1c99b975ba0dc1b31721f939f718eebb320ad63",
   "$id": "aws-s3-bucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BucketName"],
@@ -1458,7 +1458,7 @@
     },
     "iso8601UTC": {
       "description": "The date value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ssZ)",
-      "pattern": "^([0-2]\\d{3})-(0[0-9]|1[0-2])-([0-2]\\d|3[01])T([01]\\d|2[0-4]):([0-5]\\d):([0-6]\\d)((\\.\\d{3})?)Z$",
+      "pattern": "^(\\d{4})-(0[0-9]|1[0-2])-([0-2]\\d|3[01])T([01]\\d|2[0-4]):([0-5]\\d):([0-6]\\d)((\\.\\d{3})?)Z$",
       "type": "string"
     }
   },

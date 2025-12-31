@@ -35,17 +35,37 @@ export type WisdomAssistantAssociationAttributes = {
  * Type definition for `AWS::Wisdom::AssistantAssociation.AssociationData`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html}
  */
-export type AssociationData = {
-  /**
-   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
-   */
-  KnowledgeBaseId: string;
-};
+export type AssociationData =
+  | {
+      /**
+       * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
+       */
+      KnowledgeBaseId: string;
+    }
+  | {
+      ExternalBedrockKnowledgeBaseConfig: ExternalBedrockKnowledgeBaseConfig;
+    };
 /**
  * Type definition for `AWS::Wisdom::AssistantAssociation.AssociationType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationtype.html}
  */
-export type AssociationType = "KNOWLEDGE_BASE";
+export type AssociationType =
+  | "KNOWLEDGE_BASE"
+  | "EXTERNAL_BEDROCK_KNOWLEDGE_BASE";
+/**
+ * Type definition for `AWS::Wisdom::AssistantAssociation.ExternalBedrockKnowledgeBaseConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-externalbedrockknowledgebaseconfig.html}
+ */
+export type ExternalBedrockKnowledgeBaseConfig = {
+  /**
+   * @pattern `^arn:aws:iam::[0-9]{12}:role/(?:service-role/)?[a-zA-Z0-9_+=,.@-]{1,64}$`
+   */
+  AccessRoleArn: string;
+  /**
+   * @pattern `^arn:aws(|-cn|-us-gov):bedrock:[a-zA-Z0-9-]*:[0-9]{12}:knowledge-base/[0-9a-zA-Z]+$`
+   */
+  BedrockKnowledgeBaseArn: string;
+};
 /**
  * Type definition for `AWS::Wisdom::AssistantAssociation.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-tag.html}

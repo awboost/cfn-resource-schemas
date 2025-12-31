@@ -79,7 +79,41 @@ export type BedrockAgentCoreMemoryAttributes = {
       /**
        * Type of memory strategy
        */
-      Type: "SEMANTIC" | "SUMMARIZATION" | "USER_PREFERENCE" | "CUSTOM";
+      Type:
+        | "SEMANTIC"
+        | "SUMMARIZATION"
+        | "USER_PREFERENCE"
+        | "CUSTOM"
+        | "EPISODIC";
+      /**
+       * Last update timestamp of the memory strategy
+       */
+      UpdatedAt: string;
+    };
+    EpisodicMemoryStrategy: {
+      /**
+       * Creation timestamp of the memory strategy
+       */
+      CreatedAt: string;
+      /**
+       * Status of the memory strategy
+       */
+      Status: "CREATING" | "ACTIVE" | "DELETING" | "FAILED";
+      /**
+       * Unique identifier for the memory strategy
+       * @minLength `12`
+       * @pattern `^[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$`
+       */
+      StrategyId: string;
+      /**
+       * Type of memory strategy
+       */
+      Type:
+        | "SEMANTIC"
+        | "SUMMARIZATION"
+        | "USER_PREFERENCE"
+        | "CUSTOM"
+        | "EPISODIC";
       /**
        * Last update timestamp of the memory strategy
        */
@@ -103,7 +137,12 @@ export type BedrockAgentCoreMemoryAttributes = {
       /**
        * Type of memory strategy
        */
-      Type: "SEMANTIC" | "SUMMARIZATION" | "USER_PREFERENCE" | "CUSTOM";
+      Type:
+        | "SEMANTIC"
+        | "SUMMARIZATION"
+        | "USER_PREFERENCE"
+        | "CUSTOM"
+        | "EPISODIC";
       /**
        * Last update timestamp of the memory strategy
        */
@@ -127,7 +166,12 @@ export type BedrockAgentCoreMemoryAttributes = {
       /**
        * Type of memory strategy
        */
-      Type: "SEMANTIC" | "SUMMARIZATION" | "USER_PREFERENCE" | "CUSTOM";
+      Type:
+        | "SEMANTIC"
+        | "SUMMARIZATION"
+        | "USER_PREFERENCE"
+        | "CUSTOM"
+        | "EPISODIC";
       /**
        * Last update timestamp of the memory strategy
        */
@@ -151,7 +195,12 @@ export type BedrockAgentCoreMemoryAttributes = {
       /**
        * Type of memory strategy
        */
-      Type: "SEMANTIC" | "SUMMARIZATION" | "USER_PREFERENCE" | "CUSTOM";
+      Type:
+        | "SEMANTIC"
+        | "SUMMARIZATION"
+        | "USER_PREFERENCE"
+        | "CUSTOM"
+        | "EPISODIC";
       /**
        * Last update timestamp of the memory strategy
        */
@@ -169,6 +218,7 @@ export type BedrockAgentCoreMemoryAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-customconfigurationinput.html}
  */
 export type CustomConfigurationInput = {
+  EpisodicOverride?: EpisodicOverride;
   SelfManagedConfiguration?: SelfManagedConfiguration;
   SemanticOverride?: SemanticOverride;
   SummaryOverride?: SummaryOverride;
@@ -194,6 +244,91 @@ export type CustomMemoryStrategy = {
    * @minLength `1`
    */
   Namespaces?: string[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.EpisodicMemoryStrategy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicmemorystrategy.html}
+ */
+export type EpisodicMemoryStrategy = {
+  /**
+   * Description of the Memory resource
+   */
+  Description?: string;
+  /**
+   * Name of the Memory resource
+   * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
+   */
+  Name: string;
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
+  Namespaces?: string[];
+  ReflectionConfiguration?: EpisodicReflectionConfigurationInput;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.EpisodicOverride`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicoverride.html}
+ */
+export type EpisodicOverride = {
+  Consolidation?: EpisodicOverrideConsolidationConfigurationInput;
+  Extraction?: EpisodicOverrideExtractionConfigurationInput;
+  Reflection?: EpisodicOverrideReflectionConfigurationInput;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.EpisodicOverrideConsolidationConfigurationInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicoverrideconsolidationconfigurationinput.html}
+ */
+export type EpisodicOverrideConsolidationConfigurationInput = {
+  /**
+   * Text prompt for model instructions
+   * @minLength `1`
+   * @maxLength `30000`
+   */
+  AppendToPrompt: string;
+  ModelId: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.EpisodicOverrideExtractionConfigurationInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicoverrideextractionconfigurationinput.html}
+ */
+export type EpisodicOverrideExtractionConfigurationInput = {
+  /**
+   * Text prompt for model instructions
+   * @minLength `1`
+   * @maxLength `30000`
+   */
+  AppendToPrompt: string;
+  ModelId: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.EpisodicOverrideReflectionConfigurationInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicoverridereflectionconfigurationinput.html}
+ */
+export type EpisodicOverrideReflectionConfigurationInput = {
+  /**
+   * Text prompt for model instructions
+   * @minLength `1`
+   * @maxLength `30000`
+   */
+  AppendToPrompt: string;
+  ModelId: string;
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
+  Namespaces?: string[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.EpisodicReflectionConfigurationInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicreflectionconfigurationinput.html}
+ */
+export type EpisodicReflectionConfigurationInput = {
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
+  Namespaces: string[];
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Memory.InvocationConfigurationInput`.
@@ -222,6 +357,7 @@ export type MemoryStatus = "CREATING" | "ACTIVE" | "FAILED" | "DELETING";
  */
 export type MemoryStrategy = {
   CustomMemoryStrategy?: CustomMemoryStrategy;
+  EpisodicMemoryStrategy?: EpisodicMemoryStrategy;
   SemanticMemoryStrategy?: SemanticMemoryStrategy;
   SummaryMemoryStrategy?: SummaryMemoryStrategy;
   UserPreferenceMemoryStrategy?: UserPreferenceMemoryStrategy;

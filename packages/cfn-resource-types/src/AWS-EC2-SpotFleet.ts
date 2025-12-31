@@ -216,6 +216,7 @@ export type LaunchTemplateConfig = {
  */
 export type LaunchTemplateOverrides = {
   AvailabilityZone?: string;
+  AvailabilityZoneId?: string;
   InstanceRequirements?: InstanceRequirementsRequest;
   InstanceType?: string;
   Priority?: number;
@@ -423,6 +424,7 @@ export type SpotMaintenanceStrategies = {
  */
 export type SpotPlacement = {
   AvailabilityZone?: string;
+  AvailabilityZoneId?: string;
   GroupName?: string;
   Tenancy?: "dedicated" | "default" | "host";
 };

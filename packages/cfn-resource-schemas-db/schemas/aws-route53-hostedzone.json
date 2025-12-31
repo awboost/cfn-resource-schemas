@@ -1,5 +1,5 @@
 {
-  "$hash": "5893969f08b0ec1fce063a1469a373befa578e90",
+  "$hash": "a97687cda94802445150c67af3a74068e72d9841",
   "$id": "aws-route53-hostedzone.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -18,12 +18,9 @@
     },
     "HostedZoneFeatures": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Represents the features configuration for a hosted zone, including the status of various features and any associated failure reasons.",
       "properties": {
-        "EnableAcceleratedRecovery": {
-          "description": "Enable accelerated recovery on your public hosted zone to gain the ability to make changes to DNS records in the event of us-east-1 unavailability.",
-          "type": "boolean"
-        }
+        "EnableAcceleratedRecovery": { "description": "", "type": "boolean" }
       },
       "type": "object"
     },
@@ -138,7 +135,7 @@
     },
     "HostedZoneFeatures": {
       "$ref": "#/definitions/HostedZoneFeatures",
-      "description": ""
+      "description": "The features configuration for the hosted zone, including accelerated recovery settings and status information."
     },
     "HostedZoneTags": {
       "description": "Adds, edits, or deletes tags for a health check or a hosted zone.\n For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *User Guide*.",

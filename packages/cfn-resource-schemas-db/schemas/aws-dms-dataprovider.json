@@ -1,5 +1,5 @@
 {
-  "$hash": "98dff9c324f18144f773c207fd71b36d9f623d20",
+  "$hash": "e7cb58168a03c2c9c098c7cba6cdb2610d5e8884",
   "$id": "aws-dms-dataprovider.json",
   "additionalIdentifiers": [["/properties/DataProviderName"]],
   "additionalProperties": false,
@@ -16,6 +16,10 @@
     "MongoDbAuthType": { "enum": ["no", "password"], "type": "string" },
     "MongoDbSslModeValue": {
       "enum": ["none", "require", "verify-full"],
+      "type": "string"
+    },
+    "SybaseSslModeValue": {
+      "enum": ["none", "require", "verify-ca"],
       "type": "string"
     },
     "Tag": {
@@ -123,7 +127,8 @@
         "mongodb",
         "docdb",
         "db2",
-        "db2_zos"
+        "db2_zos",
+        "sybase"
       ],
       "type": "string"
     },
@@ -144,7 +149,8 @@
         { "required": ["MariaDbSettings"] },
         { "required": ["MongoDbSettings"] },
         { "required": ["IbmDb2LuwSettings"] },
-        { "required": ["IbmDb2zOsSettings"] }
+        { "required": ["IbmDb2zOsSettings"] },
+        { "required": ["SybaseAseSettings"] }
       ],
       "description": "The property identifies the exact type of settings for the data provider.",
       "properties": {
@@ -282,6 +288,20 @@
             "ServerName": { "type": "string" }
           },
           "required": ["ServerName", "Port", "DatabaseName"],
+          "type": "object"
+        },
+        "SybaseAseSettings": {
+          "additionalProperties": false,
+          "description": "SybaseAseSettings property identifier.",
+          "properties": {
+            "CertificateArn": { "type": "string" },
+            "DatabaseName": { "type": "string" },
+            "EncryptPassword": { "type": "boolean" },
+            "Port": { "type": "integer" },
+            "ServerName": { "type": "string" },
+            "SslMode": { "$ref": "#/definitions/SybaseSslModeValue" }
+          },
+          "required": ["ServerName", "Port", "SslMode"],
           "type": "object"
         }
       },

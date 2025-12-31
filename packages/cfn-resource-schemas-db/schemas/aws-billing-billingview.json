@@ -1,12 +1,8 @@
 {
-  "$hash": "9396b5ee55859b8d638fc595f60f55ab491fe882",
+  "$hash": "0e4d7f76033d1f8b46b23d976d41aed230ba1353",
   "$id": "aws-billing-billingview.json",
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/SourceViews",
-    "/properties/Description",
-    "/properties/Name"
-  ],
+  "createOnlyProperties": ["/properties/Description", "/properties/Name"],
   "definitions": {
     "Arn": {
       "pattern": "arn:aws[a-z-]*:(billing)::[0-9]{12}:billingview/[a-zA-Z0-9/:_\\+=\\.\\-@]{0,75}[a-zA-Z0-9]",
@@ -36,6 +32,11 @@
       },
       "required": ["Key", "Value"],
       "type": "object"
+    },
+    "Timestamp": {
+      "description": "The time in ISO 8601 format, UTC time (YYYY-MM-DDTHH:MM:SSZ).",
+      "format": "date-time",
+      "type": "string"
     }
   },
   "description": "A billing view is a container of cost & usage metadata.",
@@ -43,10 +44,12 @@
     "create": {
       "permissions": [
         "billing:CreateBillingView",
+        "billing:AssociateSourceViews",
         "billing:TagResource",
         "billing:ListTagsForResource",
         "billing:GetBillingView",
-        "billing:ListSourceViewsForBillingView"
+        "billing:ListSourceViewsForBillingView",
+        "billing:UseSourceView"
       ]
     },
     "delete": {
@@ -63,10 +66,13 @@
     "update": {
       "permissions": [
         "billing:UpdateBillingView",
+        "billing:DisassociateSourceViews",
+        "billing:AssociateSourceViews",
         "billing:GetBillingView",
         "billing:ListTagsForResource",
         "billing:TagResource",
         "billing:UntagResource",
+        "billing:UseSourceView",
         "billing:ListSourceViewsForBillingView"
       ]
     }
@@ -117,6 +123,14 @@
               "minItems": 1,
               "type": "array"
             }
+          },
+          "type": "object"
+        },
+        "TimeRange": {
+          "additionalProperties": false,
+          "properties": {
+            "BeginDateInclusive": { "$ref": "#/definitions/Timestamp" },
+            "EndDateInclusive": { "$ref": "#/definitions/Timestamp" }
           },
           "type": "object"
         }

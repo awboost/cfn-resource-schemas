@@ -1,5 +1,5 @@
 {
-  "$hash": "0bb075979cdc8e93f72ac64d7a39fccb68145b33",
+  "$hash": "fb4362fa317099f80a1e7ce0777cd93b61c6c485",
   "$id": "aws-ec2-spotfleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -324,6 +324,7 @@
       "additionalProperties": false,
       "properties": {
         "AvailabilityZone": { "type": "string" },
+        "AvailabilityZoneId": { "type": "string" },
         "InstanceRequirements": {
           "$ref": "#/definitions/InstanceRequirementsRequest"
         },
@@ -590,6 +591,7 @@
       "additionalProperties": false,
       "properties": {
         "AvailabilityZone": { "type": "string" },
+        "AvailabilityZoneId": { "type": "string" },
         "GroupName": { "type": "string" },
         "Tenancy": {
           "enum": ["dedicated", "default", "host"],

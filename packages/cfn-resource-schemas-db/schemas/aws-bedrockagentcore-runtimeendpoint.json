@@ -1,13 +1,9 @@
 {
-  "$hash": "bd72e47130c37f5bcf6df94d19224506824612c3",
+  "$hash": "4a9453c76633c123a864c8c11f7749d4cf61c62c",
   "$id": "aws-bedrockagentcore-runtimeendpoint.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
-  "createOnlyProperties": [
-    "/properties/AgentRuntimeId",
-    "/properties/Name",
-    "/properties/AgentRuntimeVersion"
-  ],
+  "createOnlyProperties": ["/properties/AgentRuntimeId", "/properties/Name"],
   "definitions": {
     "AgentEndpointDescription": {
       "maxLength": 256,
@@ -198,6 +194,5 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::BedrockAgentCore::RuntimeEndpoint",
-  "writeOnlyProperties": ["/properties/AgentRuntimeVersion"]
+  "typeName": "AWS::BedrockAgentCore::RuntimeEndpoint"
 }

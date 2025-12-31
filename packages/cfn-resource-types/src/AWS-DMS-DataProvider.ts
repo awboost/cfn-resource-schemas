@@ -38,7 +38,8 @@ export type DMSDataProviderProperties = {
     | "mongodb"
     | "docdb"
     | "db2"
-    | "db2_zos";
+    | "db2_zos"
+    | "sybase";
   /**
    * The property describes the exact settings which can be modified
    */
@@ -151,6 +152,17 @@ export type DMSDataProviderProperties = {
       Port: number;
       ServerName: string;
     };
+    /**
+     * SybaseAseSettings property identifier.
+     */
+    SybaseAseSettings?: {
+      CertificateArn?: string;
+      DatabaseName?: string;
+      EncryptPassword?: boolean;
+      Port: number;
+      ServerName: string;
+      SslMode: SybaseSslModeValue;
+    };
   };
   /**
    * An array of key-value pairs to apply to this resource.
@@ -200,6 +212,11 @@ export type MongoDbAuthType = "no" | "password";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mongodbsslmodevalue.html}
  */
 export type MongoDbSslModeValue = "none" | "require" | "verify-full";
+/**
+ * Type definition for `AWS::DMS::DataProvider.SybaseSslModeValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-sybasesslmodevalue.html}
+ */
+export type SybaseSslModeValue = "none" | "require" | "verify-ca";
 /**
  * Type definition for `AWS::DMS::DataProvider.Tag`.
  * A key-value pair to associate with a resource.

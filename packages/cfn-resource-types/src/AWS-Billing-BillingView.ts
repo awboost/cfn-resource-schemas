@@ -27,6 +27,16 @@ export type BillingBillingViewProperties = {
        */
       Values?: string[];
     };
+    TimeRange?: {
+      /**
+       * The time in ISO 8601 format, UTC time (YYYY-MM-DDTHH:MM:SSZ).
+       */
+      BeginDateInclusive?: string;
+      /**
+       * The time in ISO 8601 format, UTC time (YYYY-MM-DDTHH:MM:SSZ).
+       */
+      EndDateInclusive?: string;
+    };
   };
   /**
    * @maxLength `1024`
