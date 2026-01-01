@@ -67,6 +67,9 @@ export type EC2VPNConnectionProperties = {
      Required if ``OutsideIpAddressType`` is set to ``PrivateIpv4``.
      */
   TransportTransitGatewayAttachmentId?: string;
+  /**
+   * The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.
+   */
   TunnelBandwidth?: "standard" | "large";
   /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.
@@ -77,6 +80,9 @@ export type EC2VPNConnectionProperties = {
    * The type of VPN connection.
    */
   Type: string;
+  /**
+   * The ID of the VPN connection.
+   */
   VpnConcentratorId?: string;
   /**
      * The ID of the virtual private gateway at the AWS side of the VPN connection.
@@ -101,8 +107,19 @@ export type EC2VPNConnectionAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html}
  */
 export type CloudwatchLogOptionsSpecification = {
+  /**
+     * Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.
+     Valid values: ``True`` | ``False``
+     */
   BgpLogEnabled?: boolean;
+  /**
+   * The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.
+   */
   BgpLogGroupArn?: string;
+  /**
+     * The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.
+     Valid values: ``json`` | ``text``
+     */
   BgpLogOutputFormat?: "json" | "text";
   /**
      * Enable or disable VPN tunnel logging feature. Default value is ``False``.

@@ -1,50 +1,11 @@
-- updated `AWS::BedrockAgentCore::Memory`
-  - added definition `EpisodicMemoryStrategy`
-  - added definition `EpisodicOverrideConsolidationConfigurationInput`
-  - added definition `EpisodicOverrideExtractionConfigurationInput`
-  - added definition `EpisodicOverrideReflectionConfigurationInput`
-  - added definition `EpisodicOverride`
-  - added definition `EpisodicReflectionConfigurationInput`
-  - updated `readOnlyProperties`
-  - updated definition `CustomConfigurationInput`
-  - updated definition `CustomMemoryStrategy`
-  - updated definition `MemoryStrategy`
-  - updated definition `SemanticMemoryStrategy`
-  - updated definition `StrategyConfiguration`
-  - updated definition `SummaryMemoryStrategy`
-  - updated definition `UserPreferenceMemoryStrategy`
-- updated `AWS::BedrockAgentCore::Runtime`
-  - added property `FailureReason`
-  - updated `readOnlyProperties`
-- updated `AWS::BedrockAgentCore::RuntimeEndpoint`
-  - removed `writeOnlyProperties`
-  - updated `createOnlyProperties`
-- updated `AWS::Billing::BillingView`
-  - added definition `Timestamp`
-  - updated `createOnlyProperties`
-  - updated handler permissions
-  - updated property `DataFilterExpression`
-- updated `AWS::CloudFront::Distribution`
-  - added definition `OriginMtlsConfig`
-  - updated definition `CustomOriginConfig`
-- updated `AWS::DMS::DataProvider`
-  - added definition `SybaseSslModeValue`
-  - updated property `Engine`
-  - updated property `Settings`
-- updated `AWS::EC2::EC2Fleet`
-  - updated definition `FleetLaunchTemplateOverridesRequest`
-- updated `AWS::EC2::SpotFleet`
-  - updated definition `LaunchTemplateOverrides`
-  - updated definition `SpotPlacement`
-- updated `AWS::Route53::HostedZone`
-  - updated definition `HostedZoneFeatures`
-  - updated property `HostedZoneFeatures`
-- updated `AWS::S3::Bucket`
-  - updated definition `iso8601UTC`
-- updated `AWS::Wisdom::AIPrompt`
-  - updated definition `AIPromptType`
-- updated `AWS::Wisdom::AssistantAssociation`
-  - added definition `ExternalBedrockKnowledgeBaseConfig`
-  - updated definition `AssociationData`
-  - updated definition `AssociationType`
-  - updated handler permissions
+- updated `AWS::EC2::VPNConcentrator`
+  - updated definition `Tag`
+  - updated property `TransitGatewayAttachmentId`
+  - updated property `TransitGatewayId`
+  - updated property `Type`
+  - updated property `VpnConcentratorId`
+- updated `AWS::EC2::VPNConnection`
+  - updated `tagging`
+  - updated definition `CloudwatchLogOptionsSpecification`
+  - updated property `TunnelBandwidth`
+  - updated property `VpnConcentratorId`

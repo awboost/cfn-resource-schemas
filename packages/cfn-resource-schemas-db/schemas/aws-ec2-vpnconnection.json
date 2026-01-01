@@ -1,5 +1,5 @@
 {
-  "$hash": "51b7ecae6ba9f73d0da41492e5c03d35b2b9879c",
+  "$hash": "e3fe4fdb2674deee4bfda74c2bcfc4eb732336f6",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -27,10 +27,16 @@
       "additionalProperties": false,
       "description": "Options for sending VPN tunnel logs to CloudWatch.",
       "properties": {
-        "BgpLogEnabled": { "description": "", "type": "boolean" },
-        "BgpLogGroupArn": { "description": "", "type": "string" },
+        "BgpLogEnabled": {
+          "description": "Specifies whether to enable BGP logging for the VPN connection. Default value is ``False``.\n Valid values: ``True`` | ``False``",
+          "type": "boolean"
+        },
+        "BgpLogGroupArn": {
+          "description": "The Amazon Resource Name (ARN) of the CloudWatch log group where BGP logs will be sent.",
+          "type": "string"
+        },
         "BgpLogOutputFormat": {
-          "description": "",
+          "description": "The desired output format for BGP logs to be sent to CloudWatch. Default format is ``json``.\n Valid values: ``json`` | ``text``",
           "enum": ["json", "text"],
           "type": "string"
         },
@@ -366,7 +372,7 @@
     },
     "TunnelBandwidth": {
       "default": "standard",
-      "description": "",
+      "description": "The desired bandwidth specification for the VPN tunnel, used when creating or modifying VPN connection options to set the tunnel's throughput capacity. ``standard`` supports up to 1.25 Gbps per tunnel, while ``large`` supports up to 5 Gbps per tunnel. The default value is ``standard``. Existing VPN connections without a bandwidth setting will automatically default to ``standard``.",
       "enum": ["standard", "large"],
       "type": "string"
     },
@@ -375,7 +381,10 @@
       "type": "string"
     },
     "Type": { "description": "The type of VPN connection.", "type": "string" },
-    "VpnConcentratorId": { "description": "", "type": "string" },
+    "VpnConcentratorId": {
+      "description": "The ID of the VPN connection.",
+      "type": "string"
+    },
     "VpnConnectionId": { "description": "", "type": "string" },
     "VpnGatewayId": {
       "description": "The ID of the virtual private gateway at the AWS side of the VPN connection.\n You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.",
@@ -393,7 +402,7 @@
   "replacementStrategy": "delete_then_create",
   "required": ["Type", "CustomerGatewayId"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
