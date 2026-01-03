@@ -1,11 +1,4 @@
-- updated `AWS::EC2::VPNConcentrator`
-  - updated definition `Tag`
-  - updated property `TransitGatewayAttachmentId`
-  - updated property `TransitGatewayId`
-  - updated property `Type`
-  - updated property `VpnConcentratorId`
-- updated `AWS::EC2::VPNConnection`
-  - updated `tagging`
-  - updated definition `CloudwatchLogOptionsSpecification`
-  - updated property `TunnelBandwidth`
-  - updated property `VpnConcentratorId`
+- updated `AWS::CustomerProfiles::Domain`
+  - updated definition `DataStore`
+  - updated definition `Readiness`
+  - updated handler permissions
