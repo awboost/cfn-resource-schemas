@@ -11,8 +11,12 @@ export type LogsMetricFilterProperties = {
      If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
      */
   ApplyOnTransformedLogs?: boolean;
+  /**
+   * The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.
+   */
   EmitSystemFieldDimensions?: string[];
   /**
+   * The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.
    * @minLength `0`
    * @maxLength `2000`
    */

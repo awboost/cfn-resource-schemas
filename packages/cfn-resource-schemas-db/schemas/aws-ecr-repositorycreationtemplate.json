@@ -1,5 +1,5 @@
 {
-  "$hash": "bf79538fff69653947b6903e80ab789ec95ab712",
+  "$hash": "e2496486d33e70821c7ad57f05f4201bab949d60",
   "$id": "aws-ecr-repositorycreationtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Prefix"],
@@ -110,7 +110,7 @@
   "primaryIdentifier": ["/properties/Prefix"],
   "properties": {
     "AppliedFor": {
-      "description": "A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The two supported scenarios are PULL_THROUGH_CACHE and REPLICATION",
+      "description": "A list of enumerable Strings representing the repository creation scenarios that this template will apply towards. The supported scenarios are PULL_THROUGH_CACHE, REPLICATION, and CREATE_ON_PUSH",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/AppliedForItem" },
       "type": "array",

@@ -1,5 +1,5 @@
 {
-  "$hash": "1649107e8ef72156d73f915bccc8341e011a4cfd",
+  "$hash": "3e823a46aef8da0f6d8a8462a3a0f42f5e1f6e76",
   "$id": "aws-logs-loggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupName"],
@@ -104,7 +104,7 @@
     },
     "DeletionProtectionEnabled": {
       "default": false,
-      "description": "",
+      "description": "Indicates whether deletion protection is enabled for this log group. When enabled, deletion protection blocks all deletion operations until it is explicitly disabled.",
       "type": "boolean"
     },
     "FieldIndexPolicies": {

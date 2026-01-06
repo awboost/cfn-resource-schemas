@@ -84,6 +84,65 @@ export type AuthorizerConfiguration = {
  */
 export type AuthorizerType = "CUSTOM_JWT" | "AWS_IAM" | "NONE";
 /**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.AuthorizingClaimMatchValueType`.
+ * The value or values in the custom claim to match and relationship of match
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-authorizingclaimmatchvaluetype.html}
+ */
+export type AuthorizingClaimMatchValueType = {
+  /**
+   * The relationship between the claim field value and the value or values being matched
+   */
+  ClaimMatchOperator: ClaimMatchOperator;
+  /**
+   * The value or values in the custom claim to match for
+   */
+  ClaimMatchValue: ClaimMatchValueType;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.ClaimMatchOperator`.
+ * The relationship between the claim field value and the value or values being matched
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-claimmatchoperator.html}
+ */
+export type ClaimMatchOperator = "EQUALS" | "CONTAINS" | "CONTAINS_ANY";
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.ClaimMatchValueType`.
+ * The value or values in the custom claim to match for
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-claimmatchvaluetype.html}
+ */
+export type ClaimMatchValueType = {
+  /**
+   * The string value to match for
+   * @pattern `[A-Za-z0-9_.-]+`
+   */
+  MatchValueString?: string;
+  /**
+   * The list of strings to check for a match
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  MatchValueStringList?: string[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.CustomClaimValidationType`.
+ * Required custom claim
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customclaimvalidationtype.html}
+ */
+export type CustomClaimValidationType = {
+  /**
+   * The value or values in the custom claim to match and relationship of match
+   */
+  AuthorizingClaimMatchValue: AuthorizingClaimMatchValueType;
+  /**
+   * The name of the custom claim to validate
+   * @pattern `[A-Za-z0-9_.-:]+`
+   */
+  InboundTokenClaimName: string;
+  /**
+   * Token claim data type
+   */
+  InboundTokenClaimValueType: InboundTokenClaimValueType;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Gateway.CustomJWTAuthorizerConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-customjwtauthorizerconfiguration.html}
  */
@@ -96,6 +155,14 @@ export type CustomJWTAuthorizerConfiguration = {
    * @minLength `1`
    */
   AllowedClients?: string[];
+  /**
+   * @minLength `1`
+   */
+  AllowedScopes?: string[];
+  /**
+   * @minLength `1`
+   */
+  CustomClaims?: CustomClaimValidationType[];
   /**
    * @pattern `^.+/\.well-known/openid-configuration$`
    */
@@ -147,6 +214,12 @@ export type GatewayStatus =
   | "DELETING"
   | "READY"
   | "FAILED";
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.InboundTokenClaimValueType`.
+ * Token claim data type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-inboundtokenclaimvaluetype.html}
+ */
+export type InboundTokenClaimValueType = "STRING" | "STRING_ARRAY";
 /**
  * Type definition for `AWS::BedrockAgentCore::Gateway.InterceptorConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-interceptorconfiguration.html}

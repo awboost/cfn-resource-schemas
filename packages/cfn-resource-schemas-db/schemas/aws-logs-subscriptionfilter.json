@@ -1,5 +1,5 @@
 {
-  "$hash": "b8d281f9853b02182cf31c498c45c64ab8c579f9",
+  "$hash": "024af9a0cae65d9341f84baf8009861959531637",
   "$id": "aws-logs-subscriptionfilter.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-cli/master/src/rpdk/core/data/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -53,13 +53,13 @@
       "type": "string"
     },
     "EmitSystemFields": {
-      "description": "",
+      "description": "The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.",
       "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array"
     },
     "FieldSelectionCriteria": {
-      "description": "",
+      "description": "The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.",
       "maxLength": 2000,
       "minLength": 0,
       "type": "string"

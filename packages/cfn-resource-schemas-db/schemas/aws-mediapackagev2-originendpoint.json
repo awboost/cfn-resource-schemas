@@ -1,5 +1,5 @@
 {
-  "$hash": "049bb9cf51954c2024e0f7e3214186142e16e56e",
+  "$hash": "10973a06851e165b9d254a5c921164be103c7163",
   "$id": "aws-mediapackagev2-originendpoint.json",
   "additionalIdentifiers": [
     [
@@ -530,7 +530,8 @@
           "maxItems": 100,
           "minItems": 0,
           "type": "array"
-        }
+        },
+        "ScteInSegments": { "$ref": "#/definitions/ScteInSegments" }
       },
       "type": "object"
     },
@@ -562,6 +563,7 @@
       "properties": { "AdMarkerHls": { "$ref": "#/definitions/AdMarkerHls" } },
       "type": "object"
     },
+    "ScteInSegments": { "enum": ["NONE", "ALL"], "type": "string" },
     "Segment": {
       "additionalProperties": false,
       "description": "<p>The segment configuration, including the segment name, duration, and other configuration values.</p>",

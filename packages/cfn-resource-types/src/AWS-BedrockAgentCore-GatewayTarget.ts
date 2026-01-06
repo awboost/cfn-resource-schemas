@@ -19,6 +19,7 @@ export type BedrockAgentCoreGatewayTargetProperties = {
    * @pattern `^([0-9a-z][-]?){1,100}-[0-9a-z]{10}$`
    */
   GatewayIdentifier?: string;
+  MetadataConfiguration?: MetadataConfiguration;
   /**
    * @pattern `^([0-9a-zA-Z][-]?){1,100}$`
    */
@@ -148,6 +149,15 @@ export type McpTargetConfiguration =
   | {
       McpServer: McpServerTargetConfiguration;
     };
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.MetadataConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-metadataconfiguration.html}
+ */
+export type MetadataConfiguration = {
+  AllowedQueryParameters?: string[];
+  AllowedRequestHeaders?: string[];
+  AllowedResponseHeaders?: string[];
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.OAuthCredentialProvider`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthcredentialprovider.html}

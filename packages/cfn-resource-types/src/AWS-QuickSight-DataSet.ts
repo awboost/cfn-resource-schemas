@@ -12,7 +12,7 @@ export type QuickSightDataSetProperties = {
    */
   AwsAccountId?: string;
   /**
-   * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+   * <p>Groupings of columns that work together in certain Quick Suite features. Currently, only geospatial hierarchy is supported.</p>
    * @minLength `1`
    * @maxLength `8`
    */
@@ -42,7 +42,7 @@ export type QuickSightDataSetProperties = {
   DatasetParameters?: DatasetParameter[];
   FieldFolders?: FieldFolderMap;
   /**
-   * <p>When you create the dataset, Amazon QuickSight adds the dataset to these folders.</p>
+   * <p>When you create the dataset, Quick Suite adds the dataset to these folders.</p>
    * @minLength `0`
    * @maxLength `10`
    */
@@ -70,7 +70,7 @@ export type QuickSightDataSetProperties = {
   /**
      * <p>Information about a dataset that contains permissions for row-level security (RLS).
                 The permissions dataset maps fields to users or groups. For more information, see
-                <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+                <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon Quick Suite User
                     Guide</i>.</p>
              <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
                 not supported for new RLS datasets.</p>
@@ -218,7 +218,7 @@ export type AppendOperation = {
 export type CalculatedColumn = {
   /**
      * <p>A unique ID to identify a calculated column. During a dataset update, if the column ID
-                of a calculated column matches that of an existing calculated column, Amazon QuickSight
+                of a calculated column matches that of an existing calculated column, Amazon Quick Suite
                 preserves the existing calculated column.</p>
      * @minLength `1`
      * @maxLength `64`
@@ -251,7 +251,7 @@ export type CastColumnTypeOperation = {
   ColumnName: string;
   /**
      * <p>When casting a column from string to datetime type, you can supply a string in a
-                format supported by Amazon QuickSight to denote the source data format.</p>
+                format supported by Amazon Quick Suite to denote the source data format.</p>
      * @minLength `0`
      * @maxLength `32`
      */
@@ -301,7 +301,7 @@ export type ColumnDescription = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.ColumnGroup`.
- * <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+ * <p>Groupings of columns that work together in certain Amazon Quick Suite features. This is
             a variant type structure. For this structure to be valid, only one of the attributes can
             be non-null.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html}
@@ -329,7 +329,7 @@ export type ColumnLevelPermissionRule = {
    */
   ColumnNames?: string[];
   /**
-   * <p>An array of Amazon Resource Names (ARNs) for Amazon QuickSight users or groups.</p>
+   * <p>An array of Amazon Resource Names (ARNs) for Quick Suite users or groups.</p>
    * @minLength `1`
    * @maxLength `100`
    */
@@ -1126,7 +1126,7 @@ export type JoinInstruction = {
 export type JoinKeyProperties = {
   /**
      * <p>A value that indicates that a row in a table is uniquely identified by the columns in
-                a join key. This is used by Amazon QuickSight to optimize query performance.</p>
+                a join key. This is used by Quick Suite to optimize query performance.</p>
      */
   UniqueKey?: boolean;
 };
@@ -1591,10 +1591,10 @@ export type ResourcePermission = {
                 following:</p>
              <ul>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)</p>
                 </li>
                 <li>
-                   <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                   <p>The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                 </li>
                 <li>
                    <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -1615,7 +1615,7 @@ export type RowLevelPermissionConfiguration = {
   /**
      * <p>Information about a dataset that contains permissions for row-level security (RLS).
                 The permissions dataset maps fields to users or groups. For more information, see
-                <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+                <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon Quick Suite User
                     Guide</i>.</p>
              <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
                 not supported for new RLS datasets.</p>
@@ -1630,7 +1630,7 @@ export type RowLevelPermissionConfiguration = {
  * Type definition for `AWS::QuickSight::DataSet.RowLevelPermissionDataSet`.
  * <p>Information about a dataset that contains permissions for row-level security (RLS).
             The permissions dataset maps fields to users or groups. For more information, see
-            <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon QuickSight User
+            <a href="https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html">Using Row-Level Security (RLS) to Restrict Access to a Dataset</a> in the <i>Amazon Quick Suite User
                 Guide</i>.</p>
          <p>The option to deny permissions by setting <code>PermissionPolicy</code> to <code>DENY_ACCESS</code> is
             not supported for new RLS datasets.</p>

@@ -24,8 +24,12 @@ export type LogsSubscriptionFilterProperties = {
    * The method used to distribute log data to the destination, which can be either random or grouped by log stream.
    */
   Distribution?: "Random" | "ByLogStream";
+  /**
+   * The list of system fields that are included in the log events sent to the subscription destination. Returns the ``emitSystemFields`` value if it was specified when the subscription filter was created.
+   */
   EmitSystemFields?: string[];
   /**
+   * The filter expression that specifies which log events are processed by this subscription filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the subscription filter was created.
    * @minLength `0`
    * @maxLength `2000`
    */

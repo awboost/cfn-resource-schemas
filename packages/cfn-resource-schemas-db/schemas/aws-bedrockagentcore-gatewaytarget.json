@@ -1,5 +1,5 @@
 {
-  "$hash": "ab4b4c917cb9aa7db8d35c95d08da9fcad378003",
+  "$hash": "fda9014ae65f66afb9181670b5434d021c973606",
   "$id": "aws-bedrockagentcore-gatewaytarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayIdentifier"],
@@ -154,6 +154,24 @@
           "type": "object"
         }
       ]
+    },
+    "MetadataConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "AllowedQueryParameters": {
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "AllowedRequestHeaders": {
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "AllowedResponseHeaders": {
+          "items": { "type": "string" },
+          "type": "array"
+        }
+      },
+      "type": "object"
     },
     "OAuthCredentialProvider": {
       "additionalProperties": false,
@@ -349,6 +367,7 @@
       "type": "string"
     },
     "LastSynchronizedAt": { "format": "date-time", "type": "string" },
+    "MetadataConfiguration": { "$ref": "#/definitions/MetadataConfiguration" },
     "Name": { "pattern": "^([0-9a-zA-Z][-]?){1,100}$", "type": "string" },
     "Status": { "$ref": "#/definitions/TargetStatus" },
     "StatusReasons": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "cc68c8be835b8f091fb925c2948d57f55278763d",
+  "$hash": "d12761138d873b9f72f9e321166cf64193510871",
   "$id": "aws-sagemaker-processingjob.json",
   "additionalIdentifiers": [["/properties/ProcessingJobName"]],
   "additionalProperties": false,
@@ -677,6 +677,7 @@
         "ec2:DescribeSubnets",
         "ec2:DescribeSecurityGroups",
         "sagemaker:StopProcessingJob",
+        "sagemaker:DeleteProcessingJob",
         "sagemaker:DescribeProcessingJob",
         "sagemaker:ListTags",
         "sagemaker:DeleteTags"

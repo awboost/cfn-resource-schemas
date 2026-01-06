@@ -1,8 +1,13 @@
 {
-  "$hash": "1e82363e16c8011cd64685cb7ec9587fbf832968",
+  "$hash": "be6868e591081a5c93d282a9cdaf0c7bf8b589da",
   "$id": "aws-bedrockagentcore-gateway.json",
   "additionalProperties": false,
   "definitions": {
+    "AllowedScope": {
+      "description": "Allowed scope value",
+      "pattern": "[\\x21\\x23-\\x5B\\x5D-\\x7E]+",
+      "type": "string"
+    },
     "AuthorizerConfiguration": {
       "oneOf": [
         {
@@ -22,6 +27,55 @@
       "enum": ["CUSTOM_JWT", "AWS_IAM", "NONE"],
       "type": "string"
     },
+    "AuthorizingClaimMatchValueType": {
+      "additionalProperties": false,
+      "description": "The value or values in the custom claim to match and relationship of match",
+      "properties": {
+        "ClaimMatchOperator": { "$ref": "#/definitions/ClaimMatchOperator" },
+        "ClaimMatchValue": { "$ref": "#/definitions/ClaimMatchValueType" }
+      },
+      "required": ["ClaimMatchOperator", "ClaimMatchValue"],
+      "type": "object"
+    },
+    "ClaimMatchOperator": {
+      "description": "The relationship between the claim field value and the value or values being matched",
+      "enum": ["EQUALS", "CONTAINS", "CONTAINS_ANY"],
+      "type": "string"
+    },
+    "ClaimMatchValueType": {
+      "additionalProperties": false,
+      "description": "The value or values in the custom claim to match for",
+      "oneOf": [
+        { "required": ["MatchValueString"] },
+        { "required": ["MatchValueStringList"] }
+      ],
+      "properties": {
+        "MatchValueString": { "$ref": "#/definitions/MatchValueString" },
+        "MatchValueStringList": { "$ref": "#/definitions/MatchValueStringList" }
+      },
+      "type": "object"
+    },
+    "CustomClaimValidationType": {
+      "additionalProperties": false,
+      "description": "Required custom claim",
+      "properties": {
+        "AuthorizingClaimMatchValue": {
+          "$ref": "#/definitions/AuthorizingClaimMatchValueType"
+        },
+        "InboundTokenClaimName": {
+          "$ref": "#/definitions/InboundTokenClaimName"
+        },
+        "InboundTokenClaimValueType": {
+          "$ref": "#/definitions/InboundTokenClaimValueType"
+        }
+      },
+      "required": [
+        "AuthorizingClaimMatchValue",
+        "InboundTokenClaimName",
+        "InboundTokenClaimValueType"
+      ],
+      "type": "object"
+    },
     "CustomJWTAuthorizerConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -32,6 +86,16 @@
         },
         "AllowedClients": {
           "items": { "type": "string" },
+          "minItems": 1,
+          "type": "array"
+        },
+        "AllowedScopes": {
+          "items": { "$ref": "#/definitions/AllowedScope" },
+          "minItems": 1,
+          "type": "array"
+        },
+        "CustomClaims": {
+          "items": { "$ref": "#/definitions/CustomClaimValidationType" },
           "minItems": 1,
           "type": "array"
         },
@@ -90,6 +154,16 @@
       ],
       "type": "string"
     },
+    "InboundTokenClaimName": {
+      "description": "The name of the custom claim to validate",
+      "pattern": "[A-Za-z0-9_.-:]+",
+      "type": "string"
+    },
+    "InboundTokenClaimValueType": {
+      "description": "Token claim data type",
+      "enum": ["STRING", "STRING_ARRAY"],
+      "type": "string"
+    },
     "InterceptorConfiguration": {
       "oneOf": [
         {
@@ -133,6 +207,19 @@
         }
       },
       "type": "object"
+    },
+    "MatchValueString": {
+      "description": "The string value to match for",
+      "pattern": "[A-Za-z0-9_.-]+",
+      "type": "string"
+    },
+    "MatchValueStringList": {
+      "description": "The list of strings to check for a match",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/MatchValueString" },
+      "maxItems": 255,
+      "minItems": 1,
+      "type": "array"
     },
     "SearchType": { "enum": ["SEMANTIC"], "type": "string" },
     "TagsMap": {

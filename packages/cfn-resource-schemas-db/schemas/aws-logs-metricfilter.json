@@ -1,5 +1,5 @@
 {
-  "$hash": "62c0571c821913b042155d71e1fce304c4d38e36",
+  "$hash": "0f85751efba4e9377fc43e962aea9c874ae2ecfe",
   "$id": "aws-logs-metricfilter.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -123,13 +123,13 @@
       "type": "boolean"
     },
     "EmitSystemFieldDimensions": {
-      "description": "",
+      "description": "The list of system fields that are emitted as additional dimensions in the generated metrics. Returns the ``emitSystemFieldDimensions`` value if it was specified when the metric filter was created.",
       "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array"
     },
     "FieldSelectionCriteria": {
-      "description": "",
+      "description": "The filter expression that specifies which log events are processed by this metric filter based on system fields. Returns the ``fieldSelectionCriteria`` value if it was specified when the metric filter was created.",
       "maxLength": 2000,
       "minLength": 0,
       "type": "string"

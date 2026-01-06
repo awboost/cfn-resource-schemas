@@ -678,6 +678,7 @@ export type Scte = {
    * @maxLength `100`
    */
   ScteFilter?: ScteFilter[];
+  ScteInSegments?: ScteInSegments;
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ScteDash`.
@@ -709,6 +710,11 @@ export type ScteFilter =
 export type ScteHls = {
   AdMarkerHls?: AdMarkerHls;
 };
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ScteInSegments`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scteinsegments.html}
+ */
+export type ScteInSegments = "NONE" | "ALL";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.Segment`.
  * <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
