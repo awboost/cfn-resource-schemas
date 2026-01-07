@@ -1,5 +1,5 @@
 {
-  "$hash": "17788b8470f0a05ec645f9afa9cc7bed26f5bd9e",
+  "$hash": "fbd74ba9d1b7f2d8293e7826f671b44393249ade",
   "$id": "aws-bedrock-dataautomationproject.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -112,7 +112,7 @@
         "BlueprintArn": {
           "description": "ARN of a Blueprint",
           "maxLength": 128,
-          "pattern": "^arn:aws(|-cn|-us-gov):bedrock:[a-zA-Z0-9-]*:(aws|[0-9]{12}):blueprint/(bedrock-data-automation-public-[a-zA-Z0-9-_]{1,30}|[a-zA-Z0-9-]{12,36})$",
+          "pattern": "^arn:aws(|-cn|-us-gov|-iso|-iso-[a-z]):bedrock:[a-zA-Z0-9-]*:(aws|[0-9]{12}):blueprint/(bedrock-data-automation-public-[a-zA-Z0-9-_]{1,30}|[a-zA-Z0-9-]{12,36})$",
           "type": "string"
         },
         "BlueprintStage": { "$ref": "#/definitions/BlueprintStage" },
@@ -652,7 +652,7 @@
     "ProjectArn": {
       "description": "ARN of a DataAutomationProject",
       "maxLength": 128,
-      "pattern": "^arn:aws(|-cn|-us-gov):bedrock:[a-zA-Z0-9-]*:(aws|[0-9]{12}):data-automation-project/[a-zA-Z0-9-]{12,36}$",
+      "pattern": "^arn:aws(|-cn|-us-gov|-iso|-iso-[a-z]):bedrock:[a-zA-Z0-9-]*:(aws|[0-9]{12}):data-automation-project/[a-zA-Z0-9-]{12,36}$",
       "type": "string"
     },
     "ProjectDescription": {

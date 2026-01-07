@@ -1,47 +1,8 @@
-- updated `AWS::BedrockAgentCore::Gateway`
-  - added definition `AllowedScope`
-  - added definition `AuthorizingClaimMatchValueType`
-  - added definition `ClaimMatchOperator`
-  - added definition `ClaimMatchValueType`
-  - added definition `CustomClaimValidationType`
-  - added definition `InboundTokenClaimName`
-  - added definition `InboundTokenClaimValueType`
-  - added definition `MatchValueStringList`
-  - added definition `MatchValueString`
-  - updated definition `CustomJWTAuthorizerConfiguration`
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - added definition `MetadataConfiguration`
-  - added property `MetadataConfiguration`
-- updated `AWS::ECR::RepositoryCreationTemplate`
-  - updated property `AppliedFor`
-- updated `AWS::Logs::LogGroup`
-  - updated property `DeletionProtectionEnabled`
-- updated `AWS::Logs::MetricFilter`
-  - updated property `EmitSystemFieldDimensions`
-  - updated property `FieldSelectionCriteria`
-- updated `AWS::Logs::SubscriptionFilter`
-  - updated property `EmitSystemFields`
-  - updated property `FieldSelectionCriteria`
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - added definition `ScteInSegments`
-  - updated definition `Scte`
-- updated `AWS::QuickSight::DataSet`
-  - updated definition `CalculatedColumn`
-  - updated definition `CastColumnTypeOperation`
-  - updated definition `ColumnGroup`
-  - updated definition `ColumnLevelPermissionRule`
-  - updated definition `JoinKeyProperties`
-  - updated definition `ResourcePermission`
-  - updated definition `RowLevelPermissionDataSet`
-  - updated property `ColumnGroups`
-  - updated property `FolderArns`
-- updated `AWS::QuickSight::DataSource`
-  - added definition `KeyPairCredentials`
-  - updated definition `AuthenticationType`
-  - updated definition `DataSourceCredentials`
-  - updated definition `DataSourceParameters`
-  - updated definition `RedshiftIAMParameters`
-  - updated definition `ResourcePermission`
-  - updated definition `SslProperties`
-- updated `AWS::SageMaker::ProcessingJob`
-  - updated handler permissions
+- updated `AWS::Bedrock::Blueprint`
+  - updated property `BlueprintArn`
+- updated `AWS::Bedrock::DataAutomationProject`
+  - updated definition `BlueprintItem`
+  - updated property `ProjectArn`
+- updated `AWS::RDS::DBInstance`
+  - added definition `AdditionalStorageVolume`
+  - added property `AdditionalStorageVolumes`

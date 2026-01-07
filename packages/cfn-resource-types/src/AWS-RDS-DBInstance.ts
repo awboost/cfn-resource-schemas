@@ -25,6 +25,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html}
  */
 export type RDSDBInstanceProperties = {
+  AdditionalStorageVolumes?: AdditionalStorageVolume[];
   /**
      * The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
       If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).
@@ -922,6 +923,37 @@ export type RDSDBInstanceAttributes = {
      */
     StatusType: string;
   }[];
+};
+/**
+ * Type definition for `AWS::RDS::DBInstance.AdditionalStorageVolume`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-additionalstoragevolume.html}
+ */
+export type AdditionalStorageVolume = {
+  /**
+   * The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).
+   * @pattern `^[0-9]*$`
+   */
+  AllocatedStorage?: string;
+  /**
+   * The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
+   */
+  Iops?: number;
+  /**
+   * The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
+   */
+  MaxAllocatedStorage?: number;
+  /**
+   * The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+   */
+  StorageThroughput?: number;
+  /**
+   * The storage type for the additional storage volume.
+   */
+  StorageType?: string;
+  /**
+   * The name of the additional storage volume.
+   */
+  VolumeName?: string;
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.DBInstanceRole`.

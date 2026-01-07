@@ -1,5 +1,5 @@
 {
-  "$hash": "26ee369a4eb29a4f2739a36334aa7f83c5ea06cf",
+  "$hash": "fbfd1496103754e389de593d1fc6c7f133bf8dbc",
   "$id": "aws-bedrock-blueprint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BlueprintName", "/properties/Type"],
@@ -75,7 +75,7 @@
     "BlueprintArn": {
       "description": "ARN of a Blueprint",
       "maxLength": 128,
-      "pattern": "^arn:aws(|-cn|-us-gov):bedrock:[a-zA-Z0-9-]*:(aws|[0-9]{12}):blueprint/(bedrock-data-automation-public-[a-zA-Z0-9-_]{1,30}|[a-zA-Z0-9-]{12,36})$",
+      "pattern": "^arn:aws(|-cn|-us-gov|-iso|-iso-[a-z]):bedrock:[a-zA-Z0-9-]*:(aws|[0-9]{12}):blueprint/(bedrock-data-automation-public-[a-zA-Z0-9-_]{1,30}|[a-zA-Z0-9-]{12,36})$",
       "type": "string"
     },
     "BlueprintName": {
