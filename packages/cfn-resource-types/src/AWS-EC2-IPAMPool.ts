@@ -32,7 +32,7 @@ export type EC2IPAMPoolProperties = {
   /**
    * Limits which service in Amazon Web Services that the pool can be used in.
    */
-  AwsService?: "ec2";
+  AwsService?: "ec2" | "global-services";
   Description?: string;
   /**
    * The Id of the scope this pool is a part of.

@@ -1,5 +1,5 @@
 {
-  "$hash": "e3fe4fdb2674deee4bfda74c2bcfc4eb732336f6",
+  "$hash": "636bdd49851e7bac9ad9db04e26c8385e9b300df",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -382,7 +382,7 @@
     },
     "Type": { "description": "The type of VPN connection.", "type": "string" },
     "VpnConcentratorId": {
-      "description": "The ID of the VPN connection.",
+      "description": "The ID of the VPN concentrator to associate with the VPN connection.",
       "type": "string"
     },
     "VpnConnectionId": { "description": "", "type": "string" },

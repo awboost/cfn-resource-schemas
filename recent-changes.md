@@ -1,8 +1,16 @@
-- updated `AWS::Bedrock::Blueprint`
-  - updated property `BlueprintArn`
-- updated `AWS::Bedrock::DataAutomationProject`
-  - updated definition `BlueprintItem`
-  - updated property `ProjectArn`
-- updated `AWS::RDS::DBInstance`
-  - added definition `AdditionalStorageVolume`
-  - added property `AdditionalStorageVolumes`
+- updated `AWS::DynamoDB::GlobalTable`
+  - added `propertyTransform`
+- updated `AWS::EC2::IPAMPool`
+  - updated property `AwsService`
+- updated `AWS::EC2::VPNConnection`
+  - updated property `VpnConcentratorId`
+- updated `AWS::QuickSight::CustomPermissions`
+  - updated definition `Capabilities`
+- updated `AWS::RDS::DBProxy`
+  - added `propertyTransform`
+- updated `AWS::RDS::DBProxyEndpoint`
+  - added `propertyTransform`
+- updated `AWS::RDS::DBProxyTargetGroup`
+  - added `propertyTransform`
+- updated `AWS::SES::ConfigurationSet`
+  - updated definition `SuppressionOptions`

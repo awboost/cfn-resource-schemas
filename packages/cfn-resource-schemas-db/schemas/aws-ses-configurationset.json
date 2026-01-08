@@ -1,5 +1,5 @@
 {
-  "$hash": "402c4154e8e6e0dbc0af8ebc4c9be10035b85ad2",
+  "$hash": "465eb70edbf7c88c4596c12d97c4c5a99661a7c3",
   "$id": "aws-ses-configurationset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -86,6 +86,40 @@
           },
           "type": "array",
           "uniqueItems": false
+        },
+        "ValidationOptions": {
+          "additionalProperties": false,
+          "description": "An object that contains information about the validation options for your account.",
+          "properties": {
+            "ConditionThreshold": {
+              "additionalProperties": false,
+              "description": "The condition threshold settings for suppression validation.",
+              "properties": {
+                "ConditionThresholdEnabled": {
+                  "description": "Whether the condition threshold is enabled or disabled.",
+                  "pattern": "ENABLED|DISABLED",
+                  "type": "string"
+                },
+                "OverallConfidenceThreshold": {
+                  "additionalProperties": false,
+                  "description": "The overall confidence threshold settings.",
+                  "properties": {
+                    "ConfidenceVerdictThreshold": {
+                      "description": "The confidence verdict threshold level.",
+                      "pattern": "MEDIUM|HIGH|MANAGED",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["ConfidenceVerdictThreshold"],
+                  "type": "object"
+                }
+              },
+              "required": ["ConditionThresholdEnabled"],
+              "type": "object"
+            }
+          },
+          "required": ["ConditionThreshold"],
+          "type": "object"
         }
       },
       "type": "object"

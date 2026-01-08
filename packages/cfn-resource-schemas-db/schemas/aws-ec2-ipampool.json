@@ -1,5 +1,5 @@
 {
-  "$hash": "8e04df444c7ad2ad44794238c372c05889688c31",
+  "$hash": "45b44823cc61c9f14ebced9a419ad94da8a451da",
   "$id": "aws-ec2-ipampool.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -133,7 +133,7 @@
     },
     "AwsService": {
       "description": "Limits which service in Amazon Web Services that the pool can be used in.",
-      "enum": ["ec2"],
+      "enum": ["ec2", "global-services"],
       "type": "string"
     },
     "Description": { "type": "string" },

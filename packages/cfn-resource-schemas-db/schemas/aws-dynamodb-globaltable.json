@@ -1,5 +1,5 @@
 {
-  "$hash": "d574df1382f212209d20c78dd3b074f10b6fb915",
+  "$hash": "e691d6bfc2f92c54e7b67d76fe0ccb6f9a598f1e",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -516,6 +516,9 @@
     "WriteProvisionedThroughputSettings": {
       "$ref": "#/definitions/WriteProvisionedThroughputSettings"
     }
+  },
+  "propertyTransform": {
+    "/properties/Replicas/*/GlobalTableSettingsReplicationMode": "GlobalTableSettingsReplicationMode $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"DISABLED\") $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"ENABLED_WITH_OVERRIDES\")"
   },
   "readOnlyProperties": [
     "/properties/Arn",

@@ -1,5 +1,5 @@
 {
-  "$hash": "51216567801c5b20f1cb434b716abd020060b746",
+  "$hash": "6d55315d01b058c1797adb912e125aecb877a5ca",
   "$id": "aws-rds-dbproxytargetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -97,6 +97,10 @@
       "enum": ["default"],
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/DBProxyName": "$lowercase(DBProxyName)",
+    "/properties/TargetGroupName": "$lowercase(TargetGroupName)"
   },
   "readOnlyProperties": ["/properties/TargetGroupArn"],
   "required": ["DBProxyName", "TargetGroupName"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "c42a761ef150fa738821e99d0dd1e8b97d9dbc17",
+  "$hash": "24e0eb2b9299da58ff2fff1569d314b6554a1aa9",
   "$id": "aws-quicksight-custompermissions.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,10 +10,13 @@
     "Capabilities": {
       "additionalProperties": false,
       "properties": {
+        "Action": { "$ref": "#/definitions/CapabilityState" },
         "AddOrRunAnomalyDetectionForAnalyses": {
           "$ref": "#/definitions/CapabilityState"
         },
         "Analysis": { "$ref": "#/definitions/CapabilityState" },
+        "Automate": { "$ref": "#/definitions/CapabilityState" },
+        "ChatAgent": { "$ref": "#/definitions/CapabilityState" },
         "CreateAndUpdateDashboardEmailReports": {
           "$ref": "#/definitions/CapabilityState"
         },
@@ -25,6 +28,7 @@
         "CreateAndUpdateThresholdAlerts": {
           "$ref": "#/definitions/CapabilityState"
         },
+        "CreateChatAgents": { "$ref": "#/definitions/CapabilityState" },
         "CreateSPICEDataset": { "$ref": "#/definitions/CapabilityState" },
         "CreateSharedFolders": { "$ref": "#/definitions/CapabilityState" },
         "Dashboard": { "$ref": "#/definitions/CapabilityState" },
@@ -40,18 +44,26 @@
         "ExportToPdfInScheduledReports": {
           "$ref": "#/definitions/CapabilityState"
         },
+        "Flow": { "$ref": "#/definitions/CapabilityState" },
         "IncludeContentInScheduledReportsEmail": {
           "$ref": "#/definitions/CapabilityState"
         },
+        "KnowledgeBase": { "$ref": "#/definitions/CapabilityState" },
+        "PerformFlowUiTask": { "$ref": "#/definitions/CapabilityState" },
         "PrintReports": { "$ref": "#/definitions/CapabilityState" },
+        "PublishWithoutApproval": { "$ref": "#/definitions/CapabilityState" },
         "RenameSharedFolders": { "$ref": "#/definitions/CapabilityState" },
+        "Research": { "$ref": "#/definitions/CapabilityState" },
         "ShareAnalyses": { "$ref": "#/definitions/CapabilityState" },
         "ShareDashboards": { "$ref": "#/definitions/CapabilityState" },
         "ShareDataSources": { "$ref": "#/definitions/CapabilityState" },
         "ShareDatasets": { "$ref": "#/definitions/CapabilityState" },
+        "Space": { "$ref": "#/definitions/CapabilityState" },
         "SubscribeDashboardEmailReports": {
           "$ref": "#/definitions/CapabilityState"
         },
+        "UseAgentWebSearch": { "$ref": "#/definitions/CapabilityState" },
+        "UseBedrockModels": { "$ref": "#/definitions/CapabilityState" },
         "ViewAccountSPICECapacity": { "$ref": "#/definitions/CapabilityState" }
       },
       "type": "object"

@@ -116,6 +116,31 @@ export type SuppressionOptions = {
    * A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
    */
   SuppressedReasons?: string[];
+  /**
+   * An object that contains information about the validation options for your account.
+   */
+  ValidationOptions?: {
+    /**
+     * The condition threshold settings for suppression validation.
+     */
+    ConditionThreshold: {
+      /**
+       * Whether the condition threshold is enabled or disabled.
+       * @pattern `ENABLED|DISABLED`
+       */
+      ConditionThresholdEnabled: string;
+      /**
+       * The overall confidence threshold settings.
+       */
+      OverallConfidenceThreshold?: {
+        /**
+         * The confidence verdict threshold level.
+         * @pattern `MEDIUM|HIGH|MANAGED`
+         */
+        ConfidenceVerdictThreshold: string;
+      };
+    };
+  };
 };
 /**
  * Type definition for `AWS::SES::ConfigurationSet.Tag`.

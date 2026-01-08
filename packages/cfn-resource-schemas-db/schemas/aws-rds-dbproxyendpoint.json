@@ -1,5 +1,5 @@
 {
-  "$hash": "4112c51f8b252d76c3f8f47dff0f526d1a072623",
+  "$hash": "af0fbb607f501955c6ac8e02e7ccffbb88e35bfc",
   "$id": "aws-rds-dbproxyendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -114,6 +114,10 @@
       "minItems": 2,
       "type": "array"
     }
+  },
+  "propertyTransform": {
+    "/properties/DBProxyEndpointName": "$lowercase(DBProxyEndpointName)",
+    "/properties/DBProxyName": "$lowercase(DBProxyName)"
   },
   "readOnlyProperties": [
     "/properties/DBProxyEndpointArn",

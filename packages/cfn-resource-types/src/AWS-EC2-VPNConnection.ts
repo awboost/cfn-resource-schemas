@@ -81,7 +81,7 @@ export type EC2VPNConnectionProperties = {
    */
   Type: string;
   /**
-   * The ID of the VPN connection.
+   * The ID of the VPN concentrator to associate with the VPN connection.
    */
   VpnConcentratorId?: string;
   /**

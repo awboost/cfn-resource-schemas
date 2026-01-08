@@ -36,13 +36,17 @@ export type QuickSightCustomPermissionsAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html}
  */
 export type Capabilities = {
+  Action?: CapabilityState;
   AddOrRunAnomalyDetectionForAnalyses?: CapabilityState;
   Analysis?: CapabilityState;
+  Automate?: CapabilityState;
+  ChatAgent?: CapabilityState;
   CreateAndUpdateDashboardEmailReports?: CapabilityState;
   CreateAndUpdateDataSources?: CapabilityState;
   CreateAndUpdateDatasets?: CapabilityState;
   CreateAndUpdateThemes?: CapabilityState;
   CreateAndUpdateThresholdAlerts?: CapabilityState;
+  CreateChatAgents?: CapabilityState;
   CreateSPICEDataset?: CapabilityState;
   CreateSharedFolders?: CapabilityState;
   Dashboard?: CapabilityState;
@@ -52,14 +56,22 @@ export type Capabilities = {
   ExportToExcelInScheduledReports?: CapabilityState;
   ExportToPdf?: CapabilityState;
   ExportToPdfInScheduledReports?: CapabilityState;
+  Flow?: CapabilityState;
   IncludeContentInScheduledReportsEmail?: CapabilityState;
+  KnowledgeBase?: CapabilityState;
+  PerformFlowUiTask?: CapabilityState;
   PrintReports?: CapabilityState;
+  PublishWithoutApproval?: CapabilityState;
   RenameSharedFolders?: CapabilityState;
+  Research?: CapabilityState;
   ShareAnalyses?: CapabilityState;
   ShareDashboards?: CapabilityState;
   ShareDataSources?: CapabilityState;
   ShareDatasets?: CapabilityState;
+  Space?: CapabilityState;
   SubscribeDashboardEmailReports?: CapabilityState;
+  UseAgentWebSearch?: CapabilityState;
+  UseBedrockModels?: CapabilityState;
   ViewAccountSPICECapacity?: CapabilityState;
 };
 /**
