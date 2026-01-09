@@ -22,6 +22,10 @@ export type DataZoneEnvironmentBlueprintConfigurationProperties = {
    */
   EnvironmentRolePermissionBoundary?: string;
   /**
+   * Region-agnostic environment blueprint parameters.
+   */
+  GlobalParameters?: Record<string, string>;
+  /**
    * @pattern `^arn:aws[^:]*:iam::\d{12}:role(/[a-zA-Z0-9+=,.@_-]+)/‍*[a-zA-Z0-9+=,.@_-]+$`
    */
   ManageAccessRoleArn?: string;

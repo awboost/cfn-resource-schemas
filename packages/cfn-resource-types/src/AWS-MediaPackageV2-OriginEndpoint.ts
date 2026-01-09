@@ -487,6 +487,12 @@ export type FilterConfiguration = {
    */
   ClipStartTime?: string;
   /**
+   * <p>Optionally specify one or more DRM settings for all of your manifest egress requests. When you include a DRM setting, note that you cannot use an identical DRM setting query parameter for this manifest's endpoint URL.</p>
+   * @minLength `1`
+   * @maxLength `1024`
+   */
+  DrmSettings?: string;
+  /**
    * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
    */
   End?: string;
@@ -761,6 +767,13 @@ export type Segment = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-spekekeyprovider.html}
  */
 export type SpekeKeyProvider = {
+  /**
+   * <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:([^:\n]+):acm:([^:\n]+):([0-9]+):certificate/[a-zA-Z0-9-_]+$`
+   */
+  CertificateArn?: string;
   /**
    * <p>The DRM solution provider you're using to protect your content during distribution.</p>
    * @minLength `1`

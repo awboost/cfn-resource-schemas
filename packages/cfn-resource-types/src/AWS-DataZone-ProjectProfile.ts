@@ -27,6 +27,7 @@ export type DataZoneProjectProfileProperties = {
    */
   Name: string;
   Status?: Status;
+  UseDefaultConfigurations?: boolean;
 };
 /**
  * Attribute type definition for `AWS::DataZone::ProjectProfile`.

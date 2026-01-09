@@ -1,16 +1,20 @@
-- updated `AWS::DynamoDB::GlobalTable`
-  - added `propertyTransform`
-- updated `AWS::EC2::IPAMPool`
-  - updated property `AwsService`
-- updated `AWS::EC2::VPNConnection`
-  - updated property `VpnConcentratorId`
-- updated `AWS::QuickSight::CustomPermissions`
-  - updated definition `Capabilities`
-- updated `AWS::RDS::DBProxy`
-  - added `propertyTransform`
-- updated `AWS::RDS::DBProxyEndpoint`
-  - added `propertyTransform`
-- updated `AWS::RDS::DBProxyTargetGroup`
-  - added `propertyTransform`
-- updated `AWS::SES::ConfigurationSet`
-  - updated definition `SuppressionOptions`
+- added `AWS::DocDB::GlobalCluster`
+- updated `AWS::DataZone::EnvironmentBlueprintConfiguration`
+  - added property `GlobalParameters`
+  - updated `writeOnlyProperties`
+- updated `AWS::DataZone::ProjectProfile`
+  - added property `UseDefaultConfigurations`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::MediaPackageV2::OriginEndpoint`
+  - updated definition `FilterConfiguration`
+  - updated definition `SpekeKeyProvider`
+  - updated handler permissions
+- updated `AWS::SageMaker::UserProfile`
+  - added `tagging`
+  - removed `writeOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated definition `ResourceSpec`
+  - updated definition `UserSettings`
+  - updated handler permissions

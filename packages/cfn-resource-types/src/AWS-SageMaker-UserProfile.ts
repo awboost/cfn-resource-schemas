@@ -566,7 +566,7 @@ export type ResourceSpec = {
   /**
    * The ARN of the image version created on the instance.
    * @maxLength `256`
-   * @pattern `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])/‍*[0-9]+$`
+   * @pattern `^(arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])/‍*[0-9]+|None)`
    */
   SageMakerImageVersionArn?: string;
 };
@@ -685,7 +685,7 @@ export type UserSettings = {
   CodeEditorAppSettings?: CodeEditorAppSettings;
   /**
    * @minLength `0`
-   * @maxLength `2`
+   * @maxLength `10`
    */
   CustomFileSystemConfigs?: CustomFileSystemConfig[];
   CustomPosixUserConfig?: CustomPosixUserConfig;

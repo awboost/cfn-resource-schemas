@@ -1,8 +1,11 @@
 {
-  "$hash": "bee49e2ba5b18b10f1e7211fa4472db6846456d3",
+  "$hash": "ae718d2ef7c0ee264f5eb3fef11efd652d20f7d3",
   "$id": "aws-datazone-projectprofile.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/DomainIdentifier"],
+  "createOnlyProperties": [
+    "/properties/DomainIdentifier",
+    "/properties/UseDefaultConfigurations"
+  ],
   "definitions": {
     "AwsAccount": {
       "additionalProperties": false,
@@ -118,6 +121,7 @@
       "permissions": [
         "datazone:CreateProjectProfile",
         "datazone:GetProjectProfile",
+        "datazone:ListEnvironmentBlueprints",
         "ssm:GetParameter"
       ]
     },
@@ -177,7 +181,8 @@
       "pattern": "^[\\w -]+$",
       "type": "string"
     },
-    "Status": { "$ref": "#/definitions/Status" }
+    "Status": { "$ref": "#/definitions/Status" },
+    "UseDefaultConfigurations": { "type": "boolean" }
   },
   "readOnlyProperties": [
     "/properties/CreatedAt",
@@ -198,5 +203,8 @@
     "taggable": false
   },
   "typeName": "AWS::DataZone::ProjectProfile",
-  "writeOnlyProperties": ["/properties/DomainUnitIdentifier"]
+  "writeOnlyProperties": [
+    "/properties/DomainUnitIdentifier",
+    "/properties/UseDefaultConfigurations"
+  ]
 }
