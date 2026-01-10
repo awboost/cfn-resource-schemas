@@ -238,7 +238,7 @@ export type LocationCapacity = {
    * The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
    * @min `0`
    */
-  MinSize: number;
+  MinSize?: number;
 };
 /**
  * Type definition for `AWS::GameLift::Fleet.LocationConfiguration`.

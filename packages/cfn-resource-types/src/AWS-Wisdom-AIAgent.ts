@@ -71,6 +71,15 @@ export type AIAgentConfiguration =
     }
   | {
       EmailGenerativeAnswerAIAgentConfiguration: EmailGenerativeAnswerAIAgentConfiguration;
+    }
+  | {
+      OrchestrationAIAgentConfiguration: OrchestrationAIAgentConfiguration;
+    }
+  | {
+      NoteTakingAIAgentConfiguration: NoteTakingAIAgentConfiguration;
+    }
+  | {
+      CaseSummarizationAIAgentConfiguration: CaseSummarizationAIAgentConfiguration;
     };
 /**
  * Type definition for `AWS::Wisdom::AIAgent.AIAgentType`.
@@ -82,7 +91,15 @@ export type AIAgentType =
   | "SELF_SERVICE"
   | "EMAIL_RESPONSE"
   | "EMAIL_OVERVIEW"
-  | "EMAIL_GENERATIVE_ANSWER";
+  | "EMAIL_GENERATIVE_ANSWER"
+  | "ORCHESTRATION"
+  | "NOTE_TAKING"
+  | "CASE_SUMMARIZATION";
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.Annotation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-annotation.html}
+ */
+export type Annotation = Record<string, any>;
 /**
  * Type definition for `AWS::Wisdom::AIAgent.AnswerRecommendationAIAgentConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-answerrecommendationaiagentconfiguration.html}
@@ -128,6 +145,24 @@ export type AssociationConfiguration = {
  */
 export type AssociationConfigurationData = {
   KnowledgeBaseAssociationConfigurationData: KnowledgeBaseAssociationConfigurationData;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.CaseSummarizationAIAgentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-casesummarizationaiagentconfiguration.html}
+ */
+export type CaseSummarizationAIAgentConfiguration = {
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  CaseSummarizationAIGuardrailId?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  CaseSummarizationAIPromptId?: string;
+  /**
+   * @minLength `1`
+   */
+  Locale?: string;
 };
 /**
  * Type definition for `AWS::Wisdom::AIAgent.EmailGenerativeAnswerAIAgentConfiguration`.
@@ -219,6 +254,49 @@ export type ManualSearchAIAgentConfiguration = {
   Locale?: string;
 };
 /**
+ * Type definition for `AWS::Wisdom::AIAgent.NoteTakingAIAgentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-notetakingaiagentconfiguration.html}
+ */
+export type NoteTakingAIAgentConfiguration = {
+  /**
+   * @minLength `1`
+   */
+  Locale?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  NoteTakingAIGuardrailId?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  NoteTakingAIPromptId?: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.OrchestrationAIAgentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orchestrationaiagentconfiguration.html}
+ */
+export type OrchestrationAIAgentConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:[a-z-]+?:[a-z-]+?:[a-z0-9-]*?:([0-9]{12})?:[a-zA-Z0-9-:/]+$`
+   */
+  ConnectInstanceArn?: string;
+  /**
+   * @minLength `1`
+   */
+  Locale?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  OrchestrationAIGuardrailId?: string;
+  /**
+   * @pattern `^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$`
+   */
+  OrchestrationAIPromptId: string;
+  ToolConfigurations?: ToolConfiguration[];
+};
+/**
  * Type definition for `AWS::Wisdom::AIAgent.OrCondition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-orcondition.html}
  */
@@ -284,6 +362,118 @@ export type TagFilter =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tags.html}
  */
 export type Tags = Record<string, string>;
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.ToolConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-toolconfiguration.html}
+ */
+export type ToolConfiguration = {
+  Annotations?: Annotation;
+  /**
+   * @minLength `1`
+   */
+  Description?: string;
+  InputSchema?: Record<string, any>;
+  Instruction?: ToolInstruction;
+  OutputFilters?: ToolOutputFilter[];
+  OutputSchema?: Record<string, any>;
+  OverrideInputValues?: ToolOverrideInputValue[];
+  /**
+   * @minLength `1`
+   */
+  Title?: string;
+  /**
+   * @minLength `1`
+   */
+  ToolId?: string;
+  /**
+   * @minLength `1`
+   */
+  ToolName: string;
+  ToolType: ToolType;
+  UserInteractionConfiguration?: UserInteractionConfiguration;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.ToolInstruction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-toolinstruction.html}
+ */
+export type ToolInstruction = {
+  Examples?: string[];
+  Instruction?: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.ToolOutputConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tooloutputconfiguration.html}
+ */
+export type ToolOutputConfiguration = {
+  /**
+   * @minLength `1`
+   */
+  OutputVariableNameOverride?: string;
+  /**
+   * @minLength `1`
+   */
+  SessionDataNamespace?: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.ToolOutputFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tooloutputfilter.html}
+ */
+export type ToolOutputFilter = {
+  /**
+   * @minLength `1`
+   */
+  JsonPath: string;
+  OutputConfiguration?: ToolOutputConfiguration;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.ToolOverrideConstantInputValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tooloverrideconstantinputvalue.html}
+ */
+export type ToolOverrideConstantInputValue = {
+  Type: ToolOverrideInputValueType;
+  /**
+   * @minLength `1`
+   */
+  Value: string;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.ToolOverrideInputValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tooloverrideinputvalue.html}
+ */
+export type ToolOverrideInputValue = {
+  /**
+   * @minLength `1`
+   */
+  JsonPath: string;
+  Value: ToolOverrideInputValueConfiguration;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.ToolOverrideInputValueConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tooloverrideinputvalueconfiguration.html}
+ */
+export type ToolOverrideInputValueConfiguration = {
+  Constant: ToolOverrideConstantInputValue;
+};
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.ToolOverrideInputValueType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tooloverrideinputvaluetype.html}
+ */
+export type ToolOverrideInputValueType = "STRING" | "NUMBER" | "JSON_STRING";
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.ToolType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-tooltype.html}
+ */
+export type ToolType =
+  | "MODEL_CONTEXT_PROTOCOL"
+  | "RETURN_TO_CONTROL"
+  | "CONSTANT";
+/**
+ * Type definition for `AWS::Wisdom::AIAgent.UserInteractionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-userinteractionconfiguration.html}
+ */
+export type UserInteractionConfiguration = {
+  IsUserConfirmationRequired?: boolean;
+};
 /**
  * Definition of AWS::Wisdom::AIAgent Resource Type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-aiagent.html}

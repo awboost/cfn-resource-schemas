@@ -1,5 +1,5 @@
 {
-  "$hash": "d138d85d3b04e5df2ea91b1936635104e9cbfdbc",
+  "$hash": "ac7b9610ad719b7f9f8eb86cc8d7eca578c8fc83",
   "$id": "aws-gamelift-fleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -101,7 +101,7 @@
           "type": "integer"
         }
       },
-      "required": ["MinSize", "MaxSize"],
+      "required": ["MaxSize"],
       "type": "object"
     },
     "LocationConfiguration": {

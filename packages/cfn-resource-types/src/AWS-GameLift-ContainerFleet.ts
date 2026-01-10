@@ -277,7 +277,7 @@ export type LocationCapacity = {
    * The minimum value allowed for the fleet's instance count for a location.
    * @min `0`
    */
-  MinSize: number;
+  MinSize?: number;
 };
 /**
  * Type definition for `AWS::GameLift::ContainerFleet.LocationConfiguration`.

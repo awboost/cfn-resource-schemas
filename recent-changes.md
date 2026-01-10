@@ -1,20 +1,27 @@
-- added `AWS::DocDB::GlobalCluster`
-- updated `AWS::DataZone::EnvironmentBlueprintConfiguration`
-  - added property `GlobalParameters`
-  - updated `writeOnlyProperties`
-- updated `AWS::DataZone::ProjectProfile`
-  - added property `UseDefaultConfigurations`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - updated definition `FilterConfiguration`
-  - updated definition `SpekeKeyProvider`
-  - updated handler permissions
-- updated `AWS::SageMaker::UserProfile`
-  - added `tagging`
-  - removed `writeOnlyProperties`
-  - updated `createOnlyProperties`
-  - updated definition `ResourceSpec`
-  - updated definition `UserSettings`
+- added `AWS::QuickSight::ActionConnector`
+- updated `AWS::GameLift::ContainerFleet`
+  - updated definition `LocationCapacity`
+- updated `AWS::GameLift::Fleet`
+  - updated definition `LocationCapacity`
+- updated `AWS::Wisdom::AIAgent`
+  - added definition `Annotation`
+  - added definition `CaseSummarizationAIAgentConfiguration`
+  - added definition `NoteTakingAIAgentConfiguration`
+  - added definition `OrchestrationAIAgentConfiguration`
+  - added definition `ToolConfigurationList`
+  - added definition `ToolConfiguration`
+  - added definition `ToolExampleList`
+  - added definition `ToolInstruction`
+  - added definition `ToolOutputConfiguration`
+  - added definition `ToolOutputFilterList`
+  - added definition `ToolOutputFilter`
+  - added definition `ToolOverrideConstantInputValue`
+  - added definition `ToolOverrideInputValueConfiguration`
+  - added definition `ToolOverrideInputValueList`
+  - added definition `ToolOverrideInputValueType`
+  - added definition `ToolOverrideInputValue`
+  - added definition `ToolType`
+  - added definition `UserInteractionConfiguration`
+  - updated definition `AIAgentConfiguration`
+  - updated definition `AIAgentType`
   - updated handler permissions
