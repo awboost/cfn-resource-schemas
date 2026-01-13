@@ -1,5 +1,5 @@
 {
-  "$hash": "4476ec983087b461bba4f91a42f2cc2b36fa0659",
+  "$hash": "0d076e05304eb7d1cdb25ef9a98946088e21d4b1",
   "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -7,6 +7,7 @@
   ],
   "createOnlyProperties": [
     "/properties/AutoScalingGroupProvider/AutoScalingGroupArn",
+    "/properties/ManagedInstancesProvider/InstanceLaunchTemplate/FipsEnabled",
     "/properties/Name",
     "/properties/ClusterName"
   ],
@@ -207,7 +208,7 @@
         "SecurityGroups": { "items": { "type": "string" }, "type": "array" },
         "Subnets": { "items": { "type": "string" }, "type": "array" }
       },
-      "required": ["Subnets"],
+      "required": ["SecurityGroups", "Subnets"],
       "type": "object"
     },
     "ManagedInstancesProvider": {

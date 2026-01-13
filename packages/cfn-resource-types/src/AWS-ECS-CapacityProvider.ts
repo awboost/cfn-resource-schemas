@@ -120,7 +120,7 @@ export type ManagedInstancesMonitoringOptions = "BASIC" | "DETAILED";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesnetworkconfiguration.html}
  */
 export type ManagedInstancesNetworkConfiguration = {
-  SecurityGroups?: string[];
+  SecurityGroups: string[];
   Subnets: string[];
 };
 /**

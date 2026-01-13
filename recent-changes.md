@@ -1,27 +1,3 @@
-- added `AWS::QuickSight::ActionConnector`
-- updated `AWS::GameLift::ContainerFleet`
-  - updated definition `LocationCapacity`
-- updated `AWS::GameLift::Fleet`
-  - updated definition `LocationCapacity`
-- updated `AWS::Wisdom::AIAgent`
-  - added definition `Annotation`
-  - added definition `CaseSummarizationAIAgentConfiguration`
-  - added definition `NoteTakingAIAgentConfiguration`
-  - added definition `OrchestrationAIAgentConfiguration`
-  - added definition `ToolConfigurationList`
-  - added definition `ToolConfiguration`
-  - added definition `ToolExampleList`
-  - added definition `ToolInstruction`
-  - added definition `ToolOutputConfiguration`
-  - added definition `ToolOutputFilterList`
-  - added definition `ToolOutputFilter`
-  - added definition `ToolOverrideConstantInputValue`
-  - added definition `ToolOverrideInputValueConfiguration`
-  - added definition `ToolOverrideInputValueList`
-  - added definition `ToolOverrideInputValueType`
-  - added definition `ToolOverrideInputValue`
-  - added definition `ToolType`
-  - added definition `UserInteractionConfiguration`
-  - updated definition `AIAgentConfiguration`
-  - updated definition `AIAgentType`
-  - updated handler permissions
+- updated `AWS::ECS::CapacityProvider`
+  - updated `createOnlyProperties`
+  - updated definition `ManagedInstancesNetworkConfiguration`
