@@ -1,3 +1,13 @@
-- updated `AWS::ECS::CapacityProvider`
-  - updated `createOnlyProperties`
-  - updated definition `ManagedInstancesNetworkConfiguration`
+- updated `AWS::CloudFront::KeyValueStore`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::KafkaConnect::Connector`
+  - updated definition `ProvisionedCapacity`
+- updated `AWS::RTBFabric::InboundExternalLink`
+  - added definition `DomainName`
+  - added property `DomainName`
+  - updated `readOnlyProperties`
+- updated `AWS::S3Express::DirectoryBucket`
+  - updated handler permissions

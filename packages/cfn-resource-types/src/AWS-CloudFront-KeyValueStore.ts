@@ -18,6 +18,7 @@ export type CloudFrontKeyValueStoreProperties = {
    * The name of the key value store.
    */
   Name: string;
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::CloudFront::KeyValueStore`.
@@ -42,6 +43,24 @@ export type ImportSource = {
    * The source type of the import source for the key value store.
    */
   SourceType: string;
+};
+/**
+ * Type definition for `AWS::CloudFront::KeyValueStore.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keyvaluestore-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+   */
+  Value: string;
 };
 /**
  * Resource type definition for `AWS::CloudFront::KeyValueStore`.

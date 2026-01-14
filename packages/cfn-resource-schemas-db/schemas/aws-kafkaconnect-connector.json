@@ -1,5 +1,5 @@
 {
-  "$hash": "8a29d3cbe49478e06355d614db3611e6b7838412",
+  "$hash": "ea3db91086621a0aa97b50ff3cbac33acc9254ff",
   "$id": "aws-kafkaconnect-connector.json",
   "additionalIdentifiers": [["/properties/ConnectorName"]],
   "additionalProperties": false,
@@ -196,7 +196,7 @@
           "type": "integer"
         }
       },
-      "required": ["WorkerCount"],
+      "required": ["McuCount", "WorkerCount"],
       "type": "object"
     },
     "S3LogDelivery": {

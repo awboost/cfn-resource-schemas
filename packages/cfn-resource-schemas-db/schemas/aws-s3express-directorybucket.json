@@ -1,5 +1,5 @@
 {
-  "$hash": "27e8393b7a4bc6d528c4ca6051ff04f64eb48ff0",
+  "$hash": "d61c6c8f9d6ffdb87134a86ee2164fe252e111f0",
   "$id": "aws-s3express-directorybucket.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -150,6 +150,7 @@
         "s3express:ListAllMyDirectoryBuckets",
         "s3express:PutEncryptionConfiguration",
         "s3express:PutLifecycleConfiguration",
+        "s3express:PutMetricsConfiguration",
         "s3express:TagResource"
       ]
     },
@@ -166,6 +167,7 @@
         "ec2:DescribeAvailabilityZones",
         "s3express:GetEncryptionConfiguration",
         "s3express:GetLifecycleConfiguration",
+        "s3express:GetMetricsConfiguration",
         "s3express:ListTagsForResource"
       ]
     },
@@ -175,6 +177,7 @@
         "kms:Decrypt",
         "s3express:PutEncryptionConfiguration",
         "s3express:PutLifecycleConfiguration",
+        "s3express:PutMetricsConfiguration",
         "s3express:TagResource",
         "s3express:UntagResource"
       ]

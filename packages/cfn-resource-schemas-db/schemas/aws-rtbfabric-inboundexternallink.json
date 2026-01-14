@@ -1,5 +1,5 @@
 {
-  "$hash": "067730d2dbd1fd08456e96c6aeeb86e4ea2de100",
+  "$hash": "2dae3d2e47444a6389fb4dd594848e15f4373499",
   "$id": "aws-rtbfabric-inboundexternallink.json",
   "additionalIdentifiers": [["/properties/GatewayId", "/properties/LinkId"]],
   "additionalProperties": false,
@@ -16,6 +16,10 @@
       "type": "string"
     },
     "CreatedTimestamp": { "type": "string" },
+    "DomainName": {
+      "pattern": "^(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)(?:\\.(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?))+$",
+      "type": "string"
+    },
     "GatewayId": { "pattern": "^rtb-gw-[a-z0-9-]{1,25}$", "type": "string" },
     "LinkAttributes": {
       "additionalProperties": false,
@@ -185,6 +189,7 @@
   "properties": {
     "Arn": { "$ref": "#/definitions/Arn" },
     "CreatedTimestamp": { "$ref": "#/definitions/CreatedTimestamp" },
+    "DomainName": { "$ref": "#/definitions/DomainName" },
     "GatewayId": { "$ref": "#/definitions/GatewayId" },
     "LinkAttributes": { "$ref": "#/definitions/LinkAttributes" },
     "LinkId": { "$ref": "#/definitions/LinkId" },
@@ -196,6 +201,7 @@
   "readOnlyProperties": [
     "/properties/LinkId",
     "/properties/Arn",
+    "/properties/DomainName",
     "/properties/LinkStatus",
     "/properties/CreatedTimestamp",
     "/properties/UpdatedTimestamp"

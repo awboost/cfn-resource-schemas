@@ -258,7 +258,7 @@ export type ProvisionedCapacity = {
   /**
    * Specifies how many MSK Connect Units (MCU) are allocated to the connector.
    */
-  McuCount?: 1 | 2 | 4 | 8;
+  McuCount: 1 | 2 | 4 | 8;
   /**
    * Number of workers for a connector.
    */

@@ -31,6 +31,10 @@ export type RTBFabricInboundExternalLinkAttributes = {
   Arn: string;
   CreatedTimestamp: string;
   /**
+   * @pattern `^(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)(?:\.(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?))+$`
+   */
+  DomainName: string;
+  /**
    * @pattern `^link-[a-z0-9-]{1,25}$`
    */
   LinkId: string;
