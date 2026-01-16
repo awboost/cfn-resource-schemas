@@ -12,6 +12,11 @@ export type GameLiftScriptProperties = {
    */
   Name?: string;
   /**
+   * The Node.js version used for execution of the Realtime script.
+   * @pattern `^\d+\.[x0-9]+$`
+   */
+  NodeJsVersion?: string;
+  /**
    * The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
    */
   StorageLocation: S3Location;

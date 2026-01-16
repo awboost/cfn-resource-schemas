@@ -1,5 +1,5 @@
 {
-  "$hash": "c310b16e43bffd060cad162d6f48861e14beabdb",
+  "$hash": "c8e472fc41ab095473c4182ef9da4ad1275a3fa9",
   "$id": "aws-ivs-ingestconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -125,7 +125,7 @@
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ivs:TagResource",
       "ivs:UntagResource",

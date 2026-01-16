@@ -25,6 +25,9 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html}
  */
 export type RDSDBInstanceProperties = {
+  /**
+   * The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+   */
   AdditionalStorageVolumes?: AdditionalStorageVolume[];
   /**
      * The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
@@ -926,6 +929,7 @@ export type RDSDBInstanceAttributes = {
 };
 /**
  * Type definition for `AWS::RDS::DBInstance.AdditionalStorageVolume`.
+ * Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-additionalstoragevolume.html}
  */
 export type AdditionalStorageVolume = {
@@ -943,16 +947,18 @@ export type AdditionalStorageVolume = {
    */
   MaxAllocatedStorage?: number;
   /**
-   * The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.
+   * The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
    */
   StorageThroughput?: number;
   /**
-   * The storage type for the additional storage volume.
-   */
+     * The storage type for the additional storage volume.
+     Valid Values: ``GP3 | IO2``
+     */
   StorageType?: string;
   /**
-   * The name of the additional storage volume.
-   */
+     * The name of the additional storage volume.
+     Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``
+     */
   VolumeName?: string;
 };
 /**

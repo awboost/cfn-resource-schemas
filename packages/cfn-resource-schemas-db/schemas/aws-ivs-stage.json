@@ -1,5 +1,5 @@
 {
-  "$hash": "7e05cdad02b1c92dbe51f5e5ce1a416e97443bd7",
+  "$hash": "856a8f9a2e06242e35d5bb08dd1dada1214e3502",
   "$id": "aws-ivs-stage.json",
   "additionalProperties": false,
   "definitions": {
@@ -182,7 +182,7 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/ActiveSessionId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ivs:TagResource",
       "ivs:UntagResource",

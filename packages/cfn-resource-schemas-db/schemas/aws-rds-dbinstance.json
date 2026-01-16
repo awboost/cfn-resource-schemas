@@ -1,5 +1,5 @@
 {
-  "$hash": "78f359360204146c2d0baa3c6a9bc85393dbc4de",
+  "$hash": "9328eee2ab8d6a5fdc6756c0ab67e717068356e5",
   "$id": "aws-rds-dbinstance.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -40,7 +40,7 @@
   "definitions": {
     "AdditionalStorageVolume": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Contains details about an additional storage volume for a DB instance. RDS support additional storage volumes for RDS for Oracle and RDS for SQL Server.",
       "properties": {
         "AllocatedStorage": {
           "description": "The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).",
@@ -56,15 +56,15 @@
           "type": "integer"
         },
         "StorageThroughput": {
-          "description": "The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD gp3 storage type.",
+          "description": "The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.",
           "type": "integer"
         },
         "StorageType": {
-          "description": "The storage type for the additional storage volume.",
+          "description": "The storage type for the additional storage volume.\n Valid Values: ``GP3 | IO2``",
           "type": "string"
         },
         "VolumeName": {
-          "description": "The name of the additional storage volume.",
+          "description": "The name of the additional storage volume.\n Valid Values: ``RDSDBDATA2 | RDSDBDATA3 | RDSDBDATA4``",
           "type": "string"
         }
       },
@@ -298,7 +298,7 @@
   "primaryIdentifier": ["/properties/DBInstanceIdentifier"],
   "properties": {
     "AdditionalStorageVolumes": {
-      "description": "",
+      "description": "The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.",
       "items": { "$ref": "#/definitions/AdditionalStorageVolume" },
       "type": "array"
     },

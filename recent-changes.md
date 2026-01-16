@@ -2,3 +2,33 @@
   - updated property `KmsKeyIdentifier`
 - updated `AWS::AppConfig::Deployment`
   - updated property `KmsKeyIdentifier`
+- updated `AWS::EC2::NatGateway`
+  - updated definition `AvailabilityZoneAddress`
+  - updated property `AvailabilityMode`
+  - updated property `AvailabilityZoneAddresses`
+- updated `AWS::GameLift::Script`
+  - added `createOnlyProperties`
+  - added property `NodeJsVersion`
+- updated `AWS::IVS::Channel`
+  - updated `tagging`
+- updated `AWS::IVS::EncoderConfiguration`
+  - updated `tagging`
+- updated `AWS::IVS::IngestConfiguration`
+  - updated `tagging`
+- updated `AWS::IVS::PlaybackKeyPair`
+  - updated `tagging`
+- updated `AWS::IVS::PlaybackRestrictionPolicy`
+  - updated `tagging`
+- updated `AWS::IVS::PublicKey`
+  - updated `tagging`
+- updated `AWS::IVS::RecordingConfiguration`
+  - updated `tagging`
+- updated `AWS::IVS::Stage`
+  - updated `tagging`
+- updated `AWS::IVS::StorageConfiguration`
+  - updated `tagging`
+- updated `AWS::IVS::StreamKey`
+  - updated `tagging`
+- updated `AWS::RDS::DBInstance`
+  - updated definition `AdditionalStorageVolume`
+  - updated property `AdditionalStorageVolumes`

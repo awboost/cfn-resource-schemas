@@ -1,5 +1,5 @@
 {
-  "$hash": "2034e14d154430c3cd1c5cfd5c8981ed9ed94cf8",
+  "$hash": "6d0d776a725711467bb69805432cac30ed345466",
   "$id": "aws-ivs-publickey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PublicKeyMaterial", "/properties/Name"],
@@ -65,7 +65,7 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/Fingerprint"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ivs:TagResource",
       "ivs:UntagResource",

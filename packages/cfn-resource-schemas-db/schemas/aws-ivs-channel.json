@@ -1,5 +1,5 @@
 {
-  "$hash": "57f6d31b5f019b5e7b46608eaca36067a0c89ca6",
+  "$hash": "d8de4762ba8ddaedb87c105afeb8c1ac96eb6953",
   "$id": "aws-ivs-channel.json",
   "additionalProperties": false,
   "definitions": {
@@ -147,7 +147,7 @@
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ivs:TagResource",
       "ivs:UntagResource",
