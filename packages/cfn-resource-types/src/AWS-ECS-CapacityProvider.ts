@@ -55,6 +55,7 @@ export type BaselineEbsBandwidthMbpsRequest = {
 export type InstanceLaunchTemplate = {
   CapacityOptionType?: "ON_DEMAND" | "SPOT";
   Ec2InstanceProfileArn: string;
+  FipsEnabled?: boolean;
   InstanceRequirements?: InstanceRequirementsRequest;
   Monitoring?: ManagedInstancesMonitoringOptions;
   NetworkConfiguration: ManagedInstancesNetworkConfiguration;

@@ -1,5 +1,5 @@
 {
-  "$hash": "dab384dc7568c438815a04146b083a97b947669d",
+  "$hash": "ffd0abaf423cd227ff23a5d900efa745644aefb8",
   "$id": "aws-evs-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -324,7 +324,7 @@
       ],
       "type": "object"
     },
-    "VcfVersion": { "enum": ["VCF-5.2.1"], "type": "string" },
+    "VcfVersion": { "enum": ["VCF-5.2.1", "VCF-5.2.2"], "type": "string" },
     "VpcId": {
       "maxLength": 21,
       "minLength": 12,

@@ -1,5 +1,5 @@
 {
-  "$hash": "0d076e05304eb7d1cdb25ef9a98946088e21d4b1",
+  "$hash": "85cb4080c4c2bd45127db18341aebbafc0591cfe",
   "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -61,6 +61,7 @@
           "type": "string"
         },
         "Ec2InstanceProfileArn": { "type": "string" },
+        "FipsEnabled": { "type": "boolean" },
         "InstanceRequirements": {
           "$ref": "#/definitions/InstanceRequirementsRequest"
         },

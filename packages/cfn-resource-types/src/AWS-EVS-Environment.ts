@@ -111,7 +111,7 @@ export type EVSEnvironmentProperties = {
      */
     VCenter: string;
   };
-  VcfVersion: "VCF-5.2.1";
+  VcfVersion: "VCF-5.2.1" | "VCF-5.2.2";
   /**
    * @minLength `12`
    * @maxLength `21`
