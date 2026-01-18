@@ -1,6 +1,5 @@
-- updated `AWS::ECS::CapacityProvider`
-  - updated definition `InstanceLaunchTemplate`
-- updated `AWS::EVS::Environment`
-  - updated property `VcfVersion`
-- updated `AWS::WorkSpaces::WorkspacesPool`
-  - updated `tagging`
+- updated `AWS::Connect::EvaluationForm`
+  - added definition `EvaluationReviewConfiguration`
+  - added definition `EvaluationReviewNotificationRecipientValue`
+  - added definition `EvaluationReviewNotificationRecipient`
+  - added property `ReviewConfiguration`

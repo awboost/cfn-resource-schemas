@@ -1,5 +1,5 @@
 {
-  "$hash": "043a0724b3f5ae3e75b61725f0c22893d68424fe",
+  "$hash": "ad4b19da08a743cf61c28b11d21aed55135fa430",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -581,6 +581,55 @@
       },
       "type": "object"
     },
+    "EvaluationReviewConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "EligibilityDays": {
+          "description": "Number of days during which a request for review can be submitted for evaluations created from this form.",
+          "maximum": 90,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "ReviewNotificationRecipients": {
+          "description": "List of recipients who should be notified when a review is requested.",
+          "items": {
+            "$ref": "#/definitions/EvaluationReviewNotificationRecipient"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["ReviewNotificationRecipients"],
+      "type": "object"
+    },
+    "EvaluationReviewNotificationRecipient": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Type": {
+          "description": "The type of notification recipient.",
+          "enum": ["USER_ID"],
+          "type": "string"
+        },
+        "Value": {
+          "$ref": "#/definitions/EvaluationReviewNotificationRecipientValue",
+          "description": "The value associated with the notification recipient type."
+        }
+      },
+      "required": ["Type", "Value"],
+      "type": "object"
+    },
+    "EvaluationReviewNotificationRecipientValue": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "UserId": {
+          "description": "The user identifier for the notification recipient.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "MultiSelectQuestionRuleCategoryAutomation": {
       "additionalProperties": false,
       "description": "Automation rule for multi-select questions based on rule categories.",
@@ -777,6 +826,10 @@
     "LanguageConfiguration": {
       "$ref": "#/definitions/EvaluationFormLanguageConfiguration",
       "description": "Configuration for language settings of this evaluation form."
+    },
+    "ReviewConfiguration": {
+      "$ref": "#/definitions/EvaluationReviewConfiguration",
+      "description": ""
     },
     "ScoringStrategy": {
       "$ref": "#/definitions/ScoringStrategy",

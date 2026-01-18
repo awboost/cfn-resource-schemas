@@ -33,6 +33,7 @@ export type ConnectEvaluationFormProperties = {
    * Configuration for language settings of this evaluation form.
    */
   LanguageConfiguration?: EvaluationFormLanguageConfiguration;
+  ReviewConfiguration?: EvaluationReviewConfiguration;
   /**
    * A scoring strategy of the evaluation form.
    */
@@ -623,6 +624,46 @@ export type EvaluationFormTextQuestionProperties = {
    * The automation properties of the text question.
    */
   Automation?: EvaluationFormTextQuestionAutomation;
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationReviewConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationreviewconfiguration.html}
+ */
+export type EvaluationReviewConfiguration = {
+  /**
+   * Number of days during which a request for review can be submitted for evaluations created from this form.
+   * @min `1`
+   * @max `90`
+   */
+  EligibilityDays?: number;
+  /**
+   * List of recipients who should be notified when a review is requested.
+   */
+  ReviewNotificationRecipients: EvaluationReviewNotificationRecipient[];
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationReviewNotificationRecipient`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationreviewnotificationrecipient.html}
+ */
+export type EvaluationReviewNotificationRecipient = {
+  /**
+   * The type of notification recipient.
+   */
+  Type: "USER_ID";
+  /**
+   * The value associated with the notification recipient type.
+   */
+  Value: EvaluationReviewNotificationRecipientValue;
+};
+/**
+ * Type definition for `AWS::Connect::EvaluationForm.EvaluationReviewNotificationRecipientValue`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationreviewnotificationrecipientvalue.html}
+ */
+export type EvaluationReviewNotificationRecipientValue = {
+  /**
+   * The user identifier for the notification recipient.
+   */
+  UserId?: string;
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.MultiSelectQuestionRuleCategoryAutomation`.
