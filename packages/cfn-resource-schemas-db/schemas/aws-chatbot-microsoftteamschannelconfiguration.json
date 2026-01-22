@@ -1,5 +1,5 @@
 {
-  "$hash": "bede56dbbc7ccaafe3b97319b2a6166a74e6d927",
+  "$hash": "d07c5f43813a1140a3414f2d215dfc855e06f438",
   "$id": "aws-chatbot-microsoftteamschannelconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -47,7 +47,8 @@
     "read": {
       "permissions": [
         "chatbot:GetMicrosoftTeamsChannelConfiguration",
-        "chatbot:ListAssociations"
+        "chatbot:ListAssociations",
+        "chatbot:ListTagsForResource"
       ]
     },
     "update": {

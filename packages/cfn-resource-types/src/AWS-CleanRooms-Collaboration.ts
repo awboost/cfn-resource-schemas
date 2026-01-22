@@ -68,7 +68,10 @@ export type AnalyticsEngine = "CLEAN_ROOMS_SQL" | "SPARK";
  * Type definition for `AWS::CleanRooms::Collaboration.AutoApprovedChangeType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-autoapprovedchangetype.html}
  */
-export type AutoApprovedChangeType = "ADD_MEMBER";
+export type AutoApprovedChangeType =
+  | "ADD_MEMBER"
+  | "GRANT_RECEIVE_RESULTS_ABILITY"
+  | "REVOKE_RECEIVE_RESULTS_ABILITY";
 /**
  * Type definition for `AWS::CleanRooms::Collaboration.CollaborationJobLogStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-collaborationjoblogstatus.html}

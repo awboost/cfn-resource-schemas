@@ -1,5 +1,5 @@
 {
-  "$hash": "c201f2daf8ad7aea1974d694512fcfe58e2da7dd",
+  "$hash": "1ae677a3f34d6b5e6168294b3b35ecf54850375e",
   "$id": "aws-config-organizationconformancepack.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/OrganizationConformancePackName"],
@@ -17,7 +17,7 @@
     "ParameterName": { "maxLength": 255, "minLength": 0, "type": "string" },
     "ParameterValue": { "maxLength": 4096, "minLength": 0, "type": "string" }
   },
-  "description": "Resource schema for AWS::Config::OrganizationConformancePack.",
+  "description": "Resource Type definition for AWS::Config::OrganizationConformancePack.",
   "documentationUrl": "https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html",
   "handlers": {
     "create": {

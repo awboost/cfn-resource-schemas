@@ -1,5 +1,5 @@
 {
-  "$hash": "85e73a131963210025b7b54d15dbc685602a40cc",
+  "$hash": "20e49bd3f6b64238e03faffa5c804e1425dc0009",
   "$id": "aws-backup-backupplan.json",
   "additionalProperties": false,
   "definitions": {
@@ -27,6 +27,12 @@
         "BackupPlanRule": {
           "insertionOrder": true,
           "items": { "$ref": "#/definitions/BackupRuleResourceType" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "ScanSettings": {
+          "insertionOrder": true,
+          "items": { "$ref": "#/definitions/ScanSettingResourceType" },
           "type": "array",
           "uniqueItems": false
         }
@@ -58,6 +64,12 @@
           "type": "object"
         },
         "RuleName": { "type": "string" },
+        "ScanActions": {
+          "insertionOrder": true,
+          "items": { "$ref": "#/definitions/ScanActionResourceType" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "ScheduleExpression": { "type": "string" },
         "ScheduleExpressionTimezone": { "type": "string" },
         "StartWindowMinutes": { "type": "number" },
@@ -92,12 +104,31 @@
       },
       "type": "object"
     },
+    "MalwareScanner": { "enum": ["GUARDDUTY"], "type": "string" },
     "ResourceType": { "type": "string" },
     "ResourceTypes": {
       "insertionOrder": true,
       "items": { "$ref": "#/definitions/ResourceType" },
       "type": "array",
       "uniqueItems": true
+    },
+    "ScanActionResourceType": {
+      "additionalProperties": false,
+      "properties": {
+        "MalwareScanner": { "$ref": "#/definitions/MalwareScanner" },
+        "ScanMode": { "$ref": "#/definitions/ScanMode" }
+      },
+      "type": "object"
+    },
+    "ScanMode": { "enum": ["FULL_SCAN", "INCREMENTAL_SCAN"], "type": "string" },
+    "ScanSettingResourceType": {
+      "additionalProperties": false,
+      "properties": {
+        "MalwareScanner": { "$ref": "#/definitions/MalwareScanner" },
+        "ResourceTypes": { "$ref": "#/definitions/ResourceTypes" },
+        "ScannerRoleArn": { "type": "string" }
+      },
+      "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::Backup::BackupPlan",
@@ -106,7 +137,8 @@
       "permissions": [
         "backup:GetBackupPlan",
         "backup:TagResource",
-        "backup:CreateBackupPlan"
+        "backup:CreateBackupPlan",
+        "iam:PassRole"
       ]
     },
     "delete": {
@@ -119,7 +151,8 @@
         "backup:UpdateBackupPlan",
         "backup:ListTags",
         "backup:TagResource",
-        "backup:UntagResource"
+        "backup:UntagResource",
+        "iam:PassRole"
       ]
     }
   },

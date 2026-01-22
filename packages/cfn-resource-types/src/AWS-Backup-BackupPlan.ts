@@ -33,6 +33,7 @@ export type BackupPlanResourceType = {
   AdvancedBackupSettings?: AdvancedBackupSettingResourceType[];
   BackupPlanName: string;
   BackupPlanRule: BackupRuleResourceType[];
+  ScanSettings?: ScanSettingResourceType[];
 };
 /**
  * Type definition for `AWS::Backup::BackupPlan.BackupRuleResourceType`.
@@ -46,6 +47,7 @@ export type BackupRuleResourceType = {
   Lifecycle?: LifecycleResourceType;
   RecoveryPointTags?: Record<string, string>;
   RuleName: string;
+  ScanActions?: ScanActionResourceType[];
   ScheduleExpression?: string;
   ScheduleExpressionTimezone?: string;
   StartWindowMinutes?: number;
@@ -75,6 +77,33 @@ export type LifecycleResourceType = {
   DeleteAfterDays?: number;
   MoveToColdStorageAfterDays?: number;
   OptInToArchiveForSupportedResources?: boolean;
+};
+/**
+ * Type definition for `AWS::Backup::BackupPlan.MalwareScanner`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-malwarescanner.html}
+ */
+export type MalwareScanner = "GUARDDUTY";
+/**
+ * Type definition for `AWS::Backup::BackupPlan.ScanActionResourceType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-scanactionresourcetype.html}
+ */
+export type ScanActionResourceType = {
+  MalwareScanner?: MalwareScanner;
+  ScanMode?: ScanMode;
+};
+/**
+ * Type definition for `AWS::Backup::BackupPlan.ScanMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-scanmode.html}
+ */
+export type ScanMode = "FULL_SCAN" | "INCREMENTAL_SCAN";
+/**
+ * Type definition for `AWS::Backup::BackupPlan.ScanSettingResourceType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-scansettingresourcetype.html}
+ */
+export type ScanSettingResourceType = {
+  MalwareScanner?: MalwareScanner;
+  ResourceTypes?: string[];
+  ScannerRoleArn?: string;
 };
 /**
  * Resource Type definition for AWS::Backup::BackupPlan

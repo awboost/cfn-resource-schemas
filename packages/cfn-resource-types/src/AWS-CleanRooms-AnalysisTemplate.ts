@@ -9,7 +9,7 @@ export type CleanRoomsAnalysisTemplateProperties = {
   /**
    * The member who can query can provide this placeholder for a literal data value in an analysis template
    * @minLength `0`
-   * @maxLength `10`
+   * @maxLength `50`
    */
   AnalysisParameters?: AnalysisParameter[];
   /**
@@ -76,7 +76,7 @@ export type CleanRoomsAnalysisTemplateAttributes = {
 export type AnalysisParameter = {
   /**
    * @minLength `0`
-   * @maxLength `250`
+   * @maxLength `1000`
    */
   DefaultValue?: string;
   /**

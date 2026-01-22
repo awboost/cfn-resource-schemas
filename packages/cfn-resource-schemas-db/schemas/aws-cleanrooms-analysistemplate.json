@@ -1,5 +1,5 @@
 {
-  "$hash": "fc03a123f1d770962088ddfd02b59d2c304fea42",
+  "$hash": "f8c550306e9d43a58fa13a25062fd5fc773f9eed",
   "$id": "aws-cleanrooms-analysistemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -16,7 +16,7 @@
     "AnalysisParameter": {
       "additionalProperties": false,
       "properties": {
-        "DefaultValue": { "maxLength": 250, "minLength": 0, "type": "string" },
+        "DefaultValue": { "maxLength": 1000, "minLength": 0, "type": "string" },
         "Name": {
           "maxLength": 100,
           "minLength": 1,
@@ -304,7 +304,7 @@
       "description": "The member who can query can provide this placeholder for a literal data value in an analysis template",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/AnalysisParameter" },
-      "maxItems": 10,
+      "maxItems": 50,
       "minItems": 0,
       "type": "array"
     },

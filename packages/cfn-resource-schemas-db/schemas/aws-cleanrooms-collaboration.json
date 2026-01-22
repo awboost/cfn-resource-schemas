@@ -1,5 +1,5 @@
 {
-  "$hash": "41d24e6815a80273e8c911046b58495f453518cd",
+  "$hash": "9997746e6288a4e71976e452cbf9d66e1ac2568a",
   "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -25,7 +25,14 @@
       "enum": ["CLEAN_ROOMS_SQL", "SPARK"],
       "type": "string"
     },
-    "AutoApprovedChangeType": { "enum": ["ADD_MEMBER"], "type": "string" },
+    "AutoApprovedChangeType": {
+      "enum": [
+        "ADD_MEMBER",
+        "GRANT_RECEIVE_RESULTS_ABILITY",
+        "REVOKE_RECEIVE_RESULTS_ABILITY"
+      ],
+      "type": "string"
+    },
     "AutoApprovedChangeTypeList": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/AutoApprovedChangeType" },

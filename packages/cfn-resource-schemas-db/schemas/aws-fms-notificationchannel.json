@@ -1,5 +1,5 @@
 {
-  "$hash": "6762bdc66c0222bf4d361b0318c4bb0af5cd35b6",
+  "$hash": "3b2b5379220b675adfdfe658459da69e080bce67",
   "$id": "aws-fms-notificationchannel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SnsTopicArn"],
@@ -44,5 +44,6 @@
   },
   "required": ["SnsRoleName", "SnsTopicArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-fms.git",
+  "tagging": { "taggable": false },
   "typeName": "AWS::FMS::NotificationChannel"
 }

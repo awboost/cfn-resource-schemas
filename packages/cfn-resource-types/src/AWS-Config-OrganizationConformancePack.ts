@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource schema for AWS::Config::OrganizationConformancePack.
+ * Resource Type definition for AWS::Config::OrganizationConformancePack.
  * @see {@link https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html}
  */
 export type ConfigOrganizationConformancePackProperties = {
@@ -68,7 +68,7 @@ export type ConformancePackInputParameter = {
   ParameterValue: string;
 };
 /**
- * Resource schema for AWS::Config::OrganizationConformancePack.
+ * Resource Type definition for AWS::Config::OrganizationConformancePack.
  * @see {@link https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html}
  */
 export class ConfigOrganizationConformancePack extends $Resource<

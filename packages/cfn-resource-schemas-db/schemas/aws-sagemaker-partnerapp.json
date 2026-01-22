@@ -1,5 +1,5 @@
 {
-  "$hash": "a79a76f5e88406492c7b7bfaf7ccadee7d627086",
+  "$hash": "db85c008d4a4e34512f98edee184da6d747d143b",
   "$id": "aws-sagemaker-partnerapp.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -213,7 +213,7 @@
     "/properties/BaseUrl",
     "/properties/CurrentVersionEolDate"
   ],
-  "replacementStrategy": "delete_then_create",
+  "replacementStrategy": "create_then_delete",
   "required": ["Name", "Type", "AuthType", "ExecutionRoleArn", "Tier"],
   "tagging": {
     "cloudFormationSystemTags": false,

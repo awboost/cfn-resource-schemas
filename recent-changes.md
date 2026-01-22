@@ -1,5 +1,24 @@
-- updated `AWS::Connect::EvaluationForm`
-  - added definition `EvaluationReviewConfiguration`
-  - added definition `EvaluationReviewNotificationRecipientValue`
-  - added definition `EvaluationReviewNotificationRecipient`
-  - added property `ReviewConfiguration`
+- added `AWS::Backup::TieringConfiguration`
+- added `AWS::MWAAServerless::Workflow`
+- updated `AWS::Backup::BackupPlan`
+  - added definition `MalwareScanner`
+  - added definition `ScanActionResourceType`
+  - added definition `ScanMode`
+  - added definition `ScanSettingResourceType`
+  - updated definition `BackupPlanResourceType`
+  - updated definition `BackupRuleResourceType`
+  - updated handler permissions
+- updated `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`
+  - updated handler permissions
+- updated `AWS::CleanRooms::AnalysisTemplate`
+  - updated definition `AnalysisParameter`
+  - updated property `AnalysisParameters`
+- updated `AWS::CleanRooms::Collaboration`
+  - updated definition `AutoApprovedChangeType`
+- updated `AWS::Config::OrganizationConformancePack`
+- updated `AWS::FMS::NotificationChannel`
+  - added `tagging`
+- updated `AWS::IoT::Logging`
+  - added definition `EventConfiguration`
+  - added property `EventConfigurations`
+- updated `AWS::SageMaker::PartnerApp`
