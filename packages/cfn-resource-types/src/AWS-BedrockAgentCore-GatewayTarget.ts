@@ -9,7 +9,7 @@ export type BedrockAgentCoreGatewayTargetProperties = {
    * @minLength `1`
    * @maxLength `1`
    */
-  CredentialProviderConfigurations: CredentialProviderConfiguration[];
+  CredentialProviderConfigurations?: CredentialProviderConfiguration[];
   /**
    * @minLength `1`
    * @maxLength `200`
@@ -47,6 +47,41 @@ export type BedrockAgentCoreGatewayTargetAttributes = {
    */
   TargetId: string;
   UpdatedAt: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ApiGatewayTargetConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-apigatewaytargetconfiguration.html}
+ */
+export type ApiGatewayTargetConfiguration = {
+  ApiGatewayToolConfiguration: ApiGatewayToolConfiguration;
+  RestApiId: string;
+  Stage: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ApiGatewayToolConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-apigatewaytoolconfiguration.html}
+ */
+export type ApiGatewayToolConfiguration = {
+  ToolFilters: ApiGatewayToolFilter[];
+  ToolOverrides?: ApiGatewayToolOverride[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ApiGatewayToolFilter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-apigatewaytoolfilter.html}
+ */
+export type ApiGatewayToolFilter = {
+  FilterPath: string;
+  Methods: RestApiMethod[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ApiGatewayToolOverride`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-apigatewaytooloverride.html}
+ */
+export type ApiGatewayToolOverride = {
+  Description?: string;
+  Method: RestApiMethod;
+  Name: string;
+  Path: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ApiKeyCredentialLocation`.
@@ -148,6 +183,9 @@ export type McpTargetConfiguration =
     }
   | {
       McpServer: McpServerTargetConfiguration;
+    }
+  | {
+      ApiGateway: ApiGatewayTargetConfiguration;
     };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.MetadataConfiguration`.
@@ -191,6 +229,18 @@ export type OAuthCustomParameters = Record<string, string>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthgranttype.html}
  */
 export type OAuthGrantType = "AUTHORIZATION_CODE" | "CLIENT_CREDENTIALS";
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.RestApiMethod`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-restapimethod.html}
+ */
+export type RestApiMethod =
+  | "GET"
+  | "DELETE"
+  | "HEAD"
+  | "OPTIONS"
+  | "PATCH"
+  | "PUT"
+  | "POST";
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.S3Configuration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-s3configuration.html}

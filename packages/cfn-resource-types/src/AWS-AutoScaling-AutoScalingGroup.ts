@@ -15,11 +15,11 @@ export type AutoScalingAutoScalingGroupProperties = {
      */
   AutoScalingGroupName?: string;
   /**
-   * The instance capacity distribution across Availability Zones.
+   * The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
    */
   AvailabilityZoneDistribution?: AvailabilityZoneDistribution;
   /**
-   * The Availability Zone impairment policy.
+   * The Availability Zone impairment policy for the Auto Scaling group.
    */
   AvailabilityZoneImpairmentPolicy?: AvailabilityZoneImpairmentPolicy;
   /**
@@ -31,7 +31,7 @@ export type AutoScalingAutoScalingGroupProperties = {
    */
   CapacityRebalance?: boolean;
   /**
-   * The capacity reservation specification.
+   * The capacity reservation specification for the Auto Scaling group.
    */
   CapacityReservationSpecification?: CapacityReservationSpecification;
   /**
@@ -80,6 +80,9 @@ export type AutoScalingAutoScalingGroupProperties = {
      If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
      */
   InstanceId?: string;
+  /**
+   * The instance lifecycle policy for the Auto Scaling group.
+   */
   InstanceLifecyclePolicy?: InstanceLifecyclePolicy;
   /**
    * An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -317,9 +320,14 @@ export type CpuPerformanceFactorRequest = {
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.InstanceLifecyclePolicy`.
+ * The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a ``Retained`` state instead of automatic termination.
+ For more information, see [Control instance retention with instance lifecycle policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancelifecyclepolicy.html}
  */
 export type InstanceLifecyclePolicy = {
+  /**
+   * Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a ``Retained`` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail.
+   */
   RetentionTriggers?: RetentionTriggers;
 };
 /**
@@ -592,6 +600,13 @@ export type LaunchTemplate = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html}
  */
 export type LaunchTemplateOverrides = {
+  /**
+     * The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with ``ReplaceRootVolume`` strategy, this specifies the AMI for root volume replacement operations.
+      For ``ReplaceRootVolume`` operations:
+      +  All overrides in the ``MixedInstancesPolicy`` must specify an ImageId
+      +  The AMI must contain only a single root volume
+      +  Root volume replacement doesn't support multi-volume AMIs
+     */
   ImageId?: string;
   /**
      * The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.
@@ -860,9 +875,15 @@ export type PerformanceFactorReferenceRequest = {
 };
 /**
  * Type definition for `AWS::AutoScaling::AutoScalingGroup.RetentionTriggers`.
+ * Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-retentiontriggers.html}
  */
 export type RetentionTriggers = {
+  /**
+     * Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
+      Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior.
+      Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
+     */
   TerminateHookAbandon?: string;
 };
 /**

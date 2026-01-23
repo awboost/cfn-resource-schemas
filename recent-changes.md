@@ -1,24 +1,33 @@
-- added `AWS::Backup::TieringConfiguration`
-- added `AWS::MWAAServerless::Workflow`
-- updated `AWS::Backup::BackupPlan`
-  - added definition `MalwareScanner`
-  - added definition `ScanActionResourceType`
-  - added definition `ScanMode`
-  - added definition `ScanSettingResourceType`
-  - updated definition `BackupPlanResourceType`
-  - updated definition `BackupRuleResourceType`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - updated definition `InstanceLifecyclePolicy`
+  - updated definition `LaunchTemplateOverrides`
+  - updated definition `RetentionTriggers`
+  - updated property `AvailabilityZoneDistribution`
+  - updated property `AvailabilityZoneImpairmentPolicy`
+  - updated property `CapacityReservationSpecification`
+  - updated property `InstanceLifecyclePolicy`
+- updated `AWS::BedrockAgentCore::GatewayTarget`
+  - added definition `ApiGatewayTargetConfiguration`
+  - added definition `ApiGatewayToolConfiguration`
+  - added definition `ApiGatewayToolFilter`
+  - added definition `ApiGatewayToolOverride`
+  - added definition `RestApiMethod`
+  - updated `required`
+  - updated definition `McpTargetConfiguration`
   - updated handler permissions
-- updated `AWS::Chatbot::MicrosoftTeamsChannelConfiguration`
+- updated `AWS::EKS::FargateProfile`
+  - updated `tagging`
+- updated `AWS::OpenSearchServerless::Collection`
+  - added definition `EncryptionConfig`
+  - added property `CollectionGroupName`
+  - added property `EncryptionConfig`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::CleanRooms::AnalysisTemplate`
-  - updated definition `AnalysisParameter`
-  - updated property `AnalysisParameters`
-- updated `AWS::CleanRooms::Collaboration`
-  - updated definition `AutoApprovedChangeType`
-- updated `AWS::Config::OrganizationConformancePack`
-- updated `AWS::FMS::NotificationChannel`
-  - added `tagging`
-- updated `AWS::IoT::Logging`
-  - added definition `EventConfiguration`
-  - added property `EventConfigurations`
-- updated `AWS::SageMaker::PartnerApp`
+  - updated property `KmsKeyArn`
+- updated `AWS::OpenSearchServerless::VpcEndpoint`
+  - added `replacementStrategy`
+- updated `AWS::Organizations::Policy`
+  - updated property `Type`
+- updated `AWS::WAFv2::WebACLAssociation`
+  - updated handler permissions

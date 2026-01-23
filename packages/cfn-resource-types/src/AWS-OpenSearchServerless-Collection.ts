@@ -7,10 +7,18 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type OpenSearchServerlessCollectionProperties = {
   /**
+   * The name of the collection group to associate with the collection.
+   */
+  CollectionGroupName?: string;
+  /**
    * The description of the collection
    * @maxLength `1000`
    */
   Description?: string;
+  /**
+   * Encryption settings for the collection
+   */
+  EncryptionConfig?: EncryptionConfig;
   /**
      * The name of the collection.
     
@@ -64,7 +72,7 @@ export type OpenSearchServerlessCollectionAttributes = {
    */
   Id: string;
   /**
-   * The ARN of the AWS KMS key used to encrypt the collection.
+   * Key Management Service key used to encrypt the collection.
    */
   KmsKeyArn: string;
 };
@@ -74,6 +82,21 @@ export type OpenSearchServerlessCollectionAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-collectiontype.html}
  */
 export type CollectionType = "SEARCH" | "TIMESERIES" | "VECTORSEARCH";
+/**
+ * Type definition for `AWS::OpenSearchServerless::Collection.EncryptionConfig`.
+ * Encryption settings for the collection
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-encryptionconfig.html}
+ */
+export type EncryptionConfig = {
+  /**
+   * Indicates whether to use an AWS owned key for encryption.
+   */
+  AWSOwnedKey?: boolean;
+  /**
+   * Key Management Service key used to encrypt the collection.
+   */
+  KmsKeyArn?: string;
+};
 /**
  * Type definition for `AWS::OpenSearchServerless::Collection.StandbyReplicas`.
  * The possible standby replicas for the collection

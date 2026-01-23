@@ -1,5 +1,5 @@
 {
-  "$hash": "83fcbe4937ead585d8fe324f81d1843bcf64a76c",
+  "$hash": "74facbb0b6fa3c5647577f87fba6b91ab8772c02",
   "$id": "aws-wafv2-webaclassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn", "/properties/WebACLArn"],
@@ -30,7 +30,10 @@
         "ec2:DescribeVerifiedAccessInstanceWebAclAssociations",
         "ec2:GetVerifiedAccessInstanceWebAcl",
         "amplify:AssociateWebACL",
-        "amplify:GetWebACLForResource"
+        "amplify:GetWebACLForResource",
+        "elasticloadbalancing:CreateWebACLAssociation",
+        "elasticloadbalancing:DeleteWebACLAssociation",
+        "elasticloadbalancing:GetLoadBalancerWebACL"
       ]
     },
     "delete": {
@@ -54,7 +57,10 @@
         "ec2:DescribeVerifiedAccessInstanceWebAclAssociations",
         "ec2:GetVerifiedAccessInstanceWebAcl",
         "amplify:DisassociateWebACL",
-        "amplify:GetWebACLForResource"
+        "amplify:GetWebACLForResource",
+        "elasticloadbalancing:CreateWebACLAssociation",
+        "elasticloadbalancing:DeleteWebACLAssociation",
+        "elasticloadbalancing:GetLoadBalancerWebACL"
       ]
     },
     "read": {
@@ -76,7 +82,10 @@
         "ec2:DisassociateVerifiedAccessInstanceWebAcl",
         "ec2:DescribeVerifiedAccessInstanceWebAclAssociations",
         "ec2:GetVerifiedAccessInstanceWebAcl",
-        "amplify:GetWebACLForResource"
+        "amplify:GetWebACLForResource",
+        "elasticloadbalancing:CreateWebACLAssociation",
+        "elasticloadbalancing:DeleteWebACLAssociation",
+        "elasticloadbalancing:GetLoadBalancerWebACL"
       ]
     },
     "update": {
@@ -97,7 +106,10 @@
         "ec2:AssociateVerifiedAccessInstanceWebAcl",
         "ec2:DisassociateVerifiedAccessInstanceWebAcl",
         "ec2:DescribeVerifiedAccessInstanceWebAclAssociations",
-        "ec2:GetVerifiedAccessInstanceWebAcl"
+        "ec2:GetVerifiedAccessInstanceWebAcl",
+        "elasticloadbalancing:CreateWebACLAssociation",
+        "elasticloadbalancing:DeleteWebACLAssociation",
+        "elasticloadbalancing:GetLoadBalancerWebACL"
       ]
     }
   },

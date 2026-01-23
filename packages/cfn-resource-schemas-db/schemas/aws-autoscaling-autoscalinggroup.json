@@ -1,5 +1,5 @@
 {
-  "$hash": "a9685369c89e42e3257a8e017cca73c8ab8f3f06",
+  "$hash": "e400e2121f7b9f2d4feb5250940d4b7c2dc9d87f",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -148,9 +148,12 @@
     },
     "InstanceLifecyclePolicy": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a ``Retained`` state instead of automatic termination. \n For more information, see [Control instance retention with instance lifecycle policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.",
       "properties": {
-        "RetentionTriggers": { "$ref": "#/definitions/RetentionTriggers" }
+        "RetentionTriggers": {
+          "$ref": "#/definitions/RetentionTriggers",
+          "description": "Specifies the conditions that trigger instance retention behavior. These triggers determine when instances should move to a ``Retained`` state instead of automatic termination. This allows you to maintain control over instance management when lifecycles transition and operations fail."
+        }
       },
       "type": "object"
     },
@@ -359,7 +362,10 @@
       "additionalProperties": false,
       "description": "Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed instances policy:\n  +  Override the instance type that is specified in the launch template.\n  +  Use multiple instance types.\n  \n Specify the instance types that you want, or define your instance requirements instead and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements. This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when fulfilling Spot and On-Demand capacities. You can view which instance types are matched before you apply the instance requirements to your Auto Scaling group.\n After you define your instance requirements, you don't have to keep updating these settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance requirements of the Auto Scaling group to determine whether a new EC2 instance type can be used.\n ``LaunchTemplateOverrides`` is a property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html) property type.",
       "properties": {
-        "ImageId": { "description": "", "type": "string" },
+        "ImageId": {
+          "description": "The ID of the Amazon Machine Image (AMI) to use for instances launched with this override. When using Instance Refresh with ``ReplaceRootVolume`` strategy, this specifies the AMI for root volume replacement operations. \n  For ``ReplaceRootVolume`` operations: \n  +  All overrides in the ``MixedInstancesPolicy`` must specify an ImageId\n  +  The AMI must contain only a single root volume\n  +  Root volume replacement doesn't support multi-volume AMIs",
+          "type": "string"
+        },
         "InstanceRequirements": {
           "$ref": "#/definitions/InstanceRequirements",
           "description": "The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify instance types. Then, it uses your On-Demand and Spot allocation strategies to launch instances from these instance types.\n You can specify up to four separate sets of instance requirements per Auto Scaling group. This is useful for provisioning instances from different Amazon Machine Images (AMIs) in the same Auto Scaling group. To do this, create the AMIs and create a new launch template for each AMI. Then, create a compatible set of instance requirements for each launch template. \n  If you specify ``InstanceRequirements``, you can't specify ``InstanceType``."
@@ -566,8 +572,13 @@
     },
     "RetentionTriggers": {
       "additionalProperties": false,
-      "description": "",
-      "properties": { "TerminateHookAbandon": { "type": "string" } },
+      "description": "Defines the specific triggers that cause instances to be retained in a Retained state rather than terminated. Each trigger corresponds to a different failure scenario during the instance lifecycle. This allows fine-grained control over when to preserve instances for manual intervention.",
+      "properties": {
+        "TerminateHookAbandon": {
+          "description": "Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction). \n  Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior. \n  Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "TagProperty": {
@@ -716,11 +727,11 @@
     },
     "AvailabilityZoneDistribution": {
       "$ref": "#/definitions/AvailabilityZoneDistribution",
-      "description": "The instance capacity distribution across Availability Zones."
+      "description": "The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group."
     },
     "AvailabilityZoneImpairmentPolicy": {
       "$ref": "#/definitions/AvailabilityZoneImpairmentPolicy",
-      "description": "The Availability Zone impairment policy."
+      "description": "The Availability Zone impairment policy for the Auto Scaling group."
     },
     "AvailabilityZones": {
       "description": "A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.",
@@ -735,7 +746,7 @@
     },
     "CapacityReservationSpecification": {
       "$ref": "#/definitions/CapacityReservationSpecification",
-      "description": "The capacity reservation specification."
+      "description": "The capacity reservation specification for the Auto Scaling group."
     },
     "Context": { "description": "Reserved.", "type": "string" },
     "Cooldown": {
@@ -769,7 +780,7 @@
     },
     "InstanceLifecyclePolicy": {
       "$ref": "#/definitions/InstanceLifecyclePolicy",
-      "description": ""
+      "description": "The instance lifecycle policy for the Auto Scaling group."
     },
     "InstanceMaintenancePolicy": {
       "$ref": "#/definitions/InstanceMaintenancePolicy",

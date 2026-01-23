@@ -1,5 +1,5 @@
 {
-  "$hash": "4d6ae6b23175d688087dd3b4377c783f6cb18deb",
+  "$hash": "2f252f39e8a176526a3f0cc233fc0e938a215168",
   "$id": "aws-opensearchserverless-vpcendpoint.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -129,6 +129,7 @@
     }
   },
   "readOnlyProperties": ["/properties/Id"],
+  "replacementStrategy": "delete_then_create",
   "required": ["Name", "VpcId", "SubnetIds"],
   "tagging": {
     "cloudFormationSystemTags": false,
