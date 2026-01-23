@@ -1,6 +1,6 @@
 {
   "name": "@awboost/cfn-resource-types",
-  "version": "0.1.528",
+  "version": "0.1.529",
   "publishConfig": {
     "access": "public"
   },
