@@ -1,5 +1,5 @@
 {
-  "$hash": "140c928aceb3424cf91eb6ca6c2638a44ac19d0d",
+  "$hash": "7619009265192c9f410aedc51c1411ce4733cc8e",
   "$id": "aws-cases-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -94,7 +94,11 @@
   "required": ["Name"],
   "tagging": {
     "cloudFormationSystemTags": true,
-    "permissions": ["cases:TagResource", "cases:UntagResource"],
+    "permissions": [
+      "cases:GetDomain",
+      "cases:TagResource",
+      "cases:UntagResource"
+    ],
     "tagOnCreate": false,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

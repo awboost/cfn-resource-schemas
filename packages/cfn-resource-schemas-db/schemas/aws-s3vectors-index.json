@@ -1,5 +1,5 @@
 {
-  "$hash": "035bc99097539d1519d06648973b6bf581819cb3",
+  "$hash": "5aabf1bb9ff1dbc8c71866b85e1df7c8aed93a82",
   "$id": "aws-s3vectors-index.json",
   "additionalIdentifiers": [
     ["/properties/IndexName", "/properties/VectorBucketName"]
@@ -110,12 +110,7 @@
       ]
     },
     "delete": {
-      "permissions": [
-        "s3vectors:GetIndex",
-        "s3vectors:DeleteIndex",
-        "kms:GenerateDataKey",
-        "kms:Decrypt"
-      ]
+      "permissions": ["s3vectors:GetIndex", "s3vectors:DeleteIndex"]
     },
     "list": {
       "handlerSchema": {
@@ -132,19 +127,9 @@
           }
         }
       },
-      "permissions": [
-        "s3vectors:ListIndexes",
-        "kms:GenerateDataKey",
-        "kms:Decrypt"
-      ]
+      "permissions": ["s3vectors:ListIndexes"]
     },
-    "read": {
-      "permissions": [
-        "s3vectors:GetIndex",
-        "kms:GenerateDataKey",
-        "kms:Decrypt"
-      ]
-    }
+    "read": { "permissions": ["s3vectors:GetIndex"] }
   },
   "primaryIdentifier": ["/properties/IndexArn"],
   "properties": {

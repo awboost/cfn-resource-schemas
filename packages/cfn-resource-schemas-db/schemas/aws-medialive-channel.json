@@ -1,5 +1,5 @@
 {
-  "$hash": "4869d44defbf3ce8ec90d9bec6eb607a2f9fb26c",
+  "$hash": "a1e11015682afe9915b1edecd94df87d54b04ebf",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -814,6 +814,14 @@
       },
       "type": "object"
     },
+    "FollowerChannelSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "LinkedChannelType": { "type": "string" },
+        "PrimaryChannelArn": { "type": "string" }
+      },
+      "type": "object"
+    },
     "FrameCaptureCdnSettings": {
       "additionalProperties": false,
       "properties": {
@@ -1288,6 +1296,18 @@
       "additionalProperties": false,
       "properties": {
         "StaticKeySettings": { "$ref": "#/definitions/StaticKeySettings" }
+      },
+      "type": "object"
+    },
+    "LinkedChannelSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "FollowerChannelSettings": {
+          "$ref": "#/definitions/FollowerChannelSettings"
+        },
+        "PrimaryChannelSettings": {
+          "$ref": "#/definitions/PrimaryChannelSettings"
+        }
       },
       "type": "object"
     },
@@ -1783,6 +1803,12 @@
     "PassThroughSettings": { "additionalProperties": false, "type": "object" },
     "PipelineLockingSettings": {
       "additionalProperties": false,
+      "properties": { "PipelineLockingMethod": { "type": "string" } },
+      "type": "object"
+    },
+    "PrimaryChannelSettings": {
+      "additionalProperties": false,
+      "properties": { "LinkedChannelType": { "type": "string" } },
       "type": "object"
     },
     "RawSettings": { "additionalProperties": false, "type": "object" },
@@ -2131,6 +2157,7 @@
       "type": "array",
       "uniqueItems": false
     },
+    "LinkedChannelSettings": { "$ref": "#/definitions/LinkedChannelSettings" },
     "LogLevel": { "type": "string" },
     "Maintenance": { "$ref": "#/definitions/MaintenanceCreateSettings" },
     "Name": { "type": "string" },

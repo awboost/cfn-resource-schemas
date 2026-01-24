@@ -1,5 +1,5 @@
 {
-  "$hash": "218ea8cc3930c458abffd73d49210049f5f187f3",
+  "$hash": "7f551f846c4575a6a8236ed5fd08ea9b7bfa96bc",
   "$id": "aws-s3vectors-vectorbucket.json",
   "additionalIdentifiers": [["/properties/VectorBucketName"]],
   "additionalProperties": false,
@@ -59,16 +59,11 @@
     "delete": {
       "permissions": [
         "s3vectors:GetVectorBucket",
-        "s3vectors:DeleteVectorBucket",
-        "kms:GenerateDataKey"
+        "s3vectors:DeleteVectorBucket"
       ]
     },
-    "list": {
-      "permissions": ["s3vectors:ListVectorBuckets", "kms:GenerateDataKey"]
-    },
-    "read": {
-      "permissions": ["s3vectors:GetVectorBucket", "kms:GenerateDataKey"]
-    }
+    "list": { "permissions": ["s3vectors:ListVectorBuckets"] },
+    "read": { "permissions": ["s3vectors:GetVectorBucket"] }
   },
   "primaryIdentifier": ["/properties/VectorBucketArn"],
   "properties": {

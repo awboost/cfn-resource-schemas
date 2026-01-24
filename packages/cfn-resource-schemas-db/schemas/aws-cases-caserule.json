@@ -1,5 +1,5 @@
 {
-  "$hash": "7097a9c72b9c4f4078bf929d47ca33c5fab5f667",
+  "$hash": "908d23e584b0bd5e99f2819bd2cf72992b4b86df",
   "$id": "aws-cases-caserule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainId"],
@@ -289,7 +289,11 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,
-    "permissions": ["cases:TagResource", "cases:UntagResource"],
+    "permissions": [
+      "cases:BatchGetCaseRule",
+      "cases:TagResource",
+      "cases:UntagResource"
+    ],
     "tagOnCreate": false,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

@@ -14,6 +14,7 @@ export type MediaLiveChannelProperties = {
   EncoderSettings?: EncoderSettings;
   InputAttachments?: InputAttachment[];
   InputSpecification?: InputSpecification;
+  LinkedChannelSettings?: LinkedChannelSettings;
   LogLevel?: string;
   Maintenance?: MaintenanceCreateSettings;
   Name?: string;
@@ -748,6 +749,14 @@ export type Fmp4HlsSettings = {
   TimedMetadataBehavior?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.FollowerChannelSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-followerchannelsettings.html}
+ */
+export type FollowerChannelSettings = {
+  LinkedChannelType?: string;
+  PrimaryChannelArn?: string;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.FrameCaptureCdnSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturecdnsettings.html}
  */
@@ -1179,6 +1188,14 @@ export type KeyProviderSettings = {
   StaticKeySettings?: StaticKeySettings;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.LinkedChannelSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-linkedchannelsettings.html}
+ */
+export type LinkedChannelSettings = {
+  FollowerChannelSettings?: FollowerChannelSettings;
+  PrimaryChannelSettings?: PrimaryChannelSettings;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.M2tsSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html}
  */
@@ -1599,7 +1616,16 @@ export type PassThroughSettings = Record<string, any>;
  * Type definition for `AWS::MediaLive::Channel.PipelineLockingSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-pipelinelockingsettings.html}
  */
-export type PipelineLockingSettings = Record<string, any>;
+export type PipelineLockingSettings = {
+  PipelineLockingMethod?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.PrimaryChannelSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-primarychannelsettings.html}
+ */
+export type PrimaryChannelSettings = {
+  LinkedChannelType?: string;
+};
 /**
  * Type definition for `AWS::MediaLive::Channel.RawSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-rawsettings.html}

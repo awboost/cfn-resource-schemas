@@ -1,33 +1,24 @@
-- updated `AWS::AutoScaling::AutoScalingGroup`
-  - updated definition `InstanceLifecyclePolicy`
-  - updated definition `LaunchTemplateOverrides`
-  - updated definition `RetentionTriggers`
-  - updated property `AvailabilityZoneDistribution`
-  - updated property `AvailabilityZoneImpairmentPolicy`
-  - updated property `CapacityReservationSpecification`
-  - updated property `InstanceLifecyclePolicy`
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - added definition `ApiGatewayTargetConfiguration`
-  - added definition `ApiGatewayToolConfiguration`
-  - added definition `ApiGatewayToolFilter`
-  - added definition `ApiGatewayToolOverride`
-  - added definition `RestApiMethod`
-  - updated `required`
-  - updated definition `McpTargetConfiguration`
-  - updated handler permissions
-- updated `AWS::EKS::FargateProfile`
+- added `AWS::EMRContainers::Endpoint`
+- added `AWS::EMRContainers::SecurityConfiguration`
+- updated `AWS::Cases::CaseRule`
   - updated `tagging`
-- updated `AWS::OpenSearchServerless::Collection`
-  - added definition `EncryptionConfig`
-  - added property `CollectionGroupName`
-  - added property `EncryptionConfig`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
+- updated `AWS::Cases::Domain`
+  - updated `tagging`
+- updated `AWS::Cases::Field`
+  - updated `tagging`
+- updated `AWS::Cases::Layout`
+  - updated `tagging`
+- updated `AWS::Cases::Template`
+  - updated `tagging`
+- updated `AWS::CloudWatch::Dashboard`
+  - updated definition `undefined`
+- updated `AWS::MediaLive::Channel`
+  - added definition `FollowerChannelSettings`
+  - added definition `LinkedChannelSettings`
+  - added definition `PrimaryChannelSettings`
+  - added property `LinkedChannelSettings`
+  - updated definition `PipelineLockingSettings`
+- updated `AWS::S3Vectors::Index`
   - updated handler permissions
-  - updated property `KmsKeyArn`
-- updated `AWS::OpenSearchServerless::VpcEndpoint`
-  - added `replacementStrategy`
-- updated `AWS::Organizations::Policy`
-  - updated property `Type`
-- updated `AWS::WAFv2::WebACLAssociation`
+- updated `AWS::S3Vectors::VectorBucket`
   - updated handler permissions
