@@ -1,5 +1,5 @@
 {
-  "$hash": "2af78793394bbda942a2d1a068bf15288ab02898",
+  "$hash": "dee31c71cc5bd0ff104315f6ffac30b3f0de658f",
   "$id": "aws-datazone-environment.json",
   "additionalIdentifiers": [["/properties/DomainIdentifier"]],
   "additionalProperties": false,
@@ -9,7 +9,10 @@
     "/properties/ProjectIdentifier",
     "/properties/UserParameters",
     "/properties/EnvironmentAccountIdentifier",
-    "/properties/EnvironmentAccountRegion"
+    "/properties/EnvironmentAccountRegion",
+    "/properties/EnvironmentBlueprintIdentifier",
+    "/properties/DeploymentOrder",
+    "/properties/EnvironmentConfigurationId"
   ],
   "definitions": {
     "EnvironmentParameter": {
@@ -108,6 +111,10 @@
       "description": "The Amazon DataZone user who created the environment.",
       "type": "string"
     },
+    "DeploymentOrder": {
+      "description": "The deployment order for the environment.",
+      "type": "integer"
+    },
     "Description": {
       "description": "The description of the Amazon DataZone environment.",
       "maxLength": 2048,
@@ -136,6 +143,14 @@
     "EnvironmentBlueprintId": {
       "description": "The ID of the blueprint with which the Amazon DataZone environment was created.",
       "pattern": "^[a-zA-Z0-9_-]{1,36}$",
+      "type": "string"
+    },
+    "EnvironmentBlueprintIdentifier": {
+      "description": "The identifier of the environment blueprint.",
+      "type": "string"
+    },
+    "EnvironmentConfigurationId": {
+      "description": "The identifier of the environment configuration.",
       "type": "string"
     },
     "EnvironmentProfileId": {
@@ -169,7 +184,6 @@
       "description": "The name of the environment.",
       "maxLength": 64,
       "minLength": 1,
-      "pattern": "^[\\w -]+$",
       "type": "string"
     },
     "ProjectId": {
@@ -226,6 +240,9 @@
     "/properties/DomainIdentifier",
     "/properties/EnvironmentAccountIdentifier",
     "/properties/EnvironmentAccountRegion",
-    "/properties/EnvironmentRoleArn"
+    "/properties/EnvironmentRoleArn",
+    "/properties/EnvironmentBlueprintIdentifier",
+    "/properties/DeploymentOrder",
+    "/properties/EnvironmentConfigurationId"
   ]
 }

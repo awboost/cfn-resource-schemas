@@ -1,24 +1,7 @@
-- added `AWS::EMRContainers::Endpoint`
-- added `AWS::EMRContainers::SecurityConfiguration`
-- updated `AWS::Cases::CaseRule`
-  - updated `tagging`
-- updated `AWS::Cases::Domain`
-  - updated `tagging`
-- updated `AWS::Cases::Field`
-  - updated `tagging`
-- updated `AWS::Cases::Layout`
-  - updated `tagging`
-- updated `AWS::Cases::Template`
-  - updated `tagging`
-- updated `AWS::CloudWatch::Dashboard`
-  - updated definition `undefined`
-- updated `AWS::MediaLive::Channel`
-  - added definition `FollowerChannelSettings`
-  - added definition `LinkedChannelSettings`
-  - added definition `PrimaryChannelSettings`
-  - added property `LinkedChannelSettings`
-  - updated definition `PipelineLockingSettings`
-- updated `AWS::S3Vectors::Index`
-  - updated handler permissions
-- updated `AWS::S3Vectors::VectorBucket`
-  - updated handler permissions
+- updated `AWS::DataZone::Environment`
+  - added property `DeploymentOrder`
+  - added property `EnvironmentBlueprintIdentifier`
+  - added property `EnvironmentConfigurationId`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated property `Name`

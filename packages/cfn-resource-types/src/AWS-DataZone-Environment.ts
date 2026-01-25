@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type DataZoneEnvironmentProperties = {
   /**
+   * The deployment order for the environment.
+   */
+  DeploymentOrder?: number;
+  /**
    * The description of the Amazon DataZone environment.
    * @maxLength `2048`
    */
@@ -26,6 +30,14 @@ export type DataZoneEnvironmentProperties = {
    */
   EnvironmentAccountRegion?: string;
   /**
+   * The identifier of the environment blueprint.
+   */
+  EnvironmentBlueprintIdentifier?: string;
+  /**
+   * The identifier of the environment configuration.
+   */
+  EnvironmentConfigurationId?: string;
+  /**
    * The ID of the environment profile with which the Amazon DataZone environment would be created.
    * @pattern `^[a-zA-Z0-9_-]{0,36}$`
    */
@@ -44,7 +56,6 @@ export type DataZoneEnvironmentProperties = {
    * The name of the environment.
    * @minLength `1`
    * @maxLength `64`
-   * @pattern `^[\w -]+$`
    */
   Name: string;
   /**
