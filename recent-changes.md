@@ -1,7 +1,4 @@
-- updated `AWS::DataZone::Environment`
-  - added property `DeploymentOrder`
-  - added property `EnvironmentBlueprintIdentifier`
-  - added property `EnvironmentConfigurationId`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated property `Name`
+- updated `AWS::DSQL::Cluster`
+  - updated handler permissions
+- updated `AWS::EC2::VPCEndpoint`
+  - updated definition `DnsOptionsSpecification`

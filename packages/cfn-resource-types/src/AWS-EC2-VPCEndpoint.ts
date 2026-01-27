@@ -109,12 +109,16 @@ export type DnsOptionsSpecification = {
     | "OnlyInboundResolver"
     | "AllResolvers"
     | "NotSpecified";
+  /**
+   * The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.
+   */
   PrivateDnsPreference?:
     | "VERIFIED_DOMAINS_ONLY"
     | "ALL_DOMAINS"
     | "VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS"
     | "SPECIFIED_DOMAINS_ONLY";
   /**
+   * Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is ``VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`` or ``SPECIFIED_DOMAINS_ONLY``.
    * @minLength `1`
    * @maxLength `10`
    */

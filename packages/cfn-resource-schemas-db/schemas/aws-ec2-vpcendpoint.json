@@ -1,5 +1,5 @@
 {
-  "$hash": "f689d9a17f165a6ab109664cd1bf4b7951334eec",
+  "$hash": "04e4ecdb01a36bdc49a41521ecaca28f884b6d59",
   "$id": "aws-ec2-vpcendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -34,7 +34,7 @@
           "type": "string"
         },
         "PrivateDnsPreference": {
-          "description": "",
+          "description": "The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.",
           "enum": [
             "VERIFIED_DOMAINS_ONLY",
             "ALL_DOMAINS",
@@ -44,7 +44,7 @@
           "type": "string"
         },
         "PrivateDnsSpecifiedDomains": {
-          "description": "",
+          "description": "Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is ``VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`` or ``SPECIFIED_DOMAINS_ONLY``.",
           "items": { "maxLength": 255, "minLength": 1, "type": "string" },
           "maxItems": 10,
           "minItems": 1,

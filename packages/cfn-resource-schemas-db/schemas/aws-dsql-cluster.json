@@ -1,5 +1,5 @@
 {
-  "$hash": "c979027c0531963b33973ebcbbded5f519a3f696",
+  "$hash": "2a3c4ecc290830104c153b2df5f662e769eb9896",
   "$id": "aws-dsql-cluster.json",
   "additionalProperties": false,
   "definitions": {
@@ -54,21 +54,14 @@
       ]
     },
     "list": {
-      "permissions": [
-        "dsql:ListClusters",
-        "dsql:ListTagsForResource",
-        "tag:GetTagKeys",
-        "tag:GetTagValues"
-      ]
+      "permissions": ["dsql:ListClusters", "dsql:ListTagsForResource"]
     },
     "read": {
       "permissions": [
         "dsql:GetCluster",
         "dsql:GetClusterPolicy",
         "dsql:GetVpcEndpointServiceName",
-        "dsql:ListTagsForResource",
-        "tag:GetTagKeys",
-        "tag:GetTagValues"
+        "dsql:ListTagsForResource"
       ]
     },
     "update": {
