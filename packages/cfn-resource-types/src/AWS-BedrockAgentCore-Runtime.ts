@@ -149,6 +149,45 @@ export type AuthorizerConfiguration = {
   CustomJWTAuthorizer?: CustomJWTAuthorizerConfiguration;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.AuthorizingClaimMatchValueType`.
+ * The value or values in the custom claim to match and relationship of match
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-authorizingclaimmatchvaluetype.html}
+ */
+export type AuthorizingClaimMatchValueType = {
+  /**
+   * The relationship between the claim field value and the value or values being matched
+   */
+  ClaimMatchOperator: ClaimMatchOperator;
+  /**
+   * The value or values in the custom claim to match for
+   */
+  ClaimMatchValue: ClaimMatchValueType;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.ClaimMatchOperator`.
+ * The relationship between the claim field value and the value or values being matched
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-claimmatchoperator.html}
+ */
+export type ClaimMatchOperator = "EQUALS" | "CONTAINS" | "CONTAINS_ANY";
+/**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.ClaimMatchValueType`.
+ * The value or values in the custom claim to match for
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-claimmatchvaluetype.html}
+ */
+export type ClaimMatchValueType = {
+  /**
+   * The string value to match for
+   * @pattern `[A-Za-z0-9_.-]+`
+   */
+  MatchValueString?: string;
+  /**
+   * The list of strings to check for a match
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  MatchValueStringList?: string[];
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Runtime.Code`.
  * Object represents source code from zip file
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-code.html}
@@ -194,6 +233,26 @@ export type ContainerConfiguration = {
   ContainerUri: string;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.CustomClaimValidationType`.
+ * Required custom claim
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customclaimvalidationtype.html}
+ */
+export type CustomClaimValidationType = {
+  /**
+   * The value or values in the custom claim to match and relationship of match
+   */
+  AuthorizingClaimMatchValue: AuthorizingClaimMatchValueType;
+  /**
+   * The name of the custom claim to validate
+   * @pattern `[A-Za-z0-9_.-:]+`
+   */
+  InboundTokenClaimName: string;
+  /**
+   * Token claim data type
+   */
+  InboundTokenClaimValueType: InboundTokenClaimValueType;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Runtime.CustomJWTAuthorizerConfiguration`.
  * Configuration for custom JWT authorizer
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-customjwtauthorizerconfiguration.html}
@@ -210,6 +269,16 @@ export type CustomJWTAuthorizerConfiguration = {
    */
   AllowedClients?: string[];
   /**
+   * List of allowed scopes
+   * @minLength `1`
+   */
+  AllowedScopes?: string[];
+  /**
+   * List of required custom claims
+   * @minLength `1`
+   */
+  CustomClaims?: CustomClaimValidationType[];
+  /**
    * OpenID Connect discovery URL
    * @pattern `^.+/\.well-known/openid-configuration$`
    */
@@ -221,6 +290,12 @@ export type CustomJWTAuthorizerConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-environmentvariablesmap.html}
  */
 export type EnvironmentVariablesMap = Record<string, string>;
+/**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.InboundTokenClaimValueType`.
+ * Token claim data type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-inboundtokenclaimvaluetype.html}
+ */
+export type InboundTokenClaimValueType = "STRING" | "STRING_ARRAY";
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.LifecycleConfiguration`.
  * Configuration for managing the lifecycle of runtime sessions and resources

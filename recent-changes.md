@@ -1,4 +1,41 @@
-- updated `AWS::DSQL::Cluster`
+- added `AWS::Lightsail::DatabaseSnapshot`
+- updated `AWS::BedrockAgentCore::Memory`
+  - updated property `EventExpiryDuration`
+- updated `AWS::BedrockAgentCore::Runtime`
+  - added definition `AllowedScope`
+  - added definition `AllowedScopesList`
+  - added definition `AuthorizingClaimMatchValueType`
+  - added definition `ClaimMatchOperator`
+  - added definition `ClaimMatchValueType`
+  - added definition `CustomClaimValidationType`
+  - added definition `CustomClaimsList`
+  - added definition `InboundTokenClaimName`
+  - added definition `InboundTokenClaimValueType`
+  - added definition `MatchValueStringList`
+  - added definition `MatchValueString`
+  - updated definition `CustomJWTAuthorizerConfiguration`
+- updated `AWS::EC2::EC2Fleet`
   - updated handler permissions
-- updated `AWS::EC2::VPCEndpoint`
-  - updated definition `DnsOptionsSpecification`
+- updated `AWS::EC2::NatGateway`
+  - updated definition `AvailabilityZoneAddress`
+  - updated property `AvailabilityMode`
+  - updated property `AvailabilityZoneAddresses`
+- updated `AWS::IoT::Command`
+  - added definition `AwsJsonSubstitutionCommandPreprocessorConfig`
+  - added definition `CommandParameterType`
+  - added definition `CommandParameterValueComparisonOperand`
+  - added definition `CommandParameterValueComparisonOperator`
+  - added definition `CommandParameterValueConditionList`
+  - added definition `CommandParameterValueCondition`
+  - added definition `CommandParameterValueNumberRange`
+  - added definition `CommandParameterValueStringList`
+  - added definition `CommandPreprocessor`
+  - added definition `OutputFormat`
+  - added property `PayloadTemplate`
+  - added property `Preprocessor`
+  - updated `createOnlyProperties`
+  - updated definition `CommandParameter`
+- updated `AWS::SES::ConfigurationSet`
+  - added definition `ArchivingOptions`
+  - added property `ArchivingOptions`
+  - updated handler permissions

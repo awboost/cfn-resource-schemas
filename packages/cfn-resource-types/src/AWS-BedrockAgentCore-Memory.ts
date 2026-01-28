@@ -16,7 +16,7 @@ export type BedrockAgentCoreMemoryProperties = {
   EncryptionKeyArn?: string;
   /**
    * Duration in days until memory events expire
-   * @min `7`
+   * @min `3`
    * @max `365`
    */
   EventExpiryDuration: number;

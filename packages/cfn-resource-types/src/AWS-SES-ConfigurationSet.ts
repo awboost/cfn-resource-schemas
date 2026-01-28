@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SESConfigurationSetProperties = {
   /**
+   * An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+   */
+  ArchivingOptions?: ArchivingOptions;
+  /**
    * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
    */
   DeliveryOptions?: DeliveryOptions;
@@ -40,6 +44,17 @@ export type SESConfigurationSetProperties = {
    * An object that contains Virtual Deliverability Manager (VDM) settings for this configuration set.
    */
   VdmOptions?: VdmOptions;
+};
+/**
+ * Type definition for `AWS::SES::ConfigurationSet.ArchivingOptions`.
+ * An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-archivingoptions.html}
+ */
+export type ArchivingOptions = {
+  /**
+   * The ARN of the MailManager archive to associate with the configuration set.
+   */
+  ArchiveArn?: string;
 };
 /**
  * Type definition for `AWS::SES::ConfigurationSet.DashboardOptions`.

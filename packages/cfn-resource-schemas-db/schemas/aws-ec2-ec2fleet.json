@@ -1,5 +1,5 @@
 {
-  "$hash": "b97228cf32fec81340847e9d69aa5518b262d1c3",
+  "$hash": "0d9d74ac5cbb856bb7232d9d5512184d4552afb1",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -519,9 +519,12 @@
     "delete": {
       "permissions": [
         "ec2:DescribeFleets",
+        "ec2:DescribeFleetInstances",
+        "ec2:DescribeInstanceStatus",
         "ec2:DeleteFleets",
         "ec2:TerminateInstances"
-      ]
+      ],
+      "timeoutInMinutes": 40
     },
     "list": {
       "handlerSchema": {

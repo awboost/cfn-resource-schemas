@@ -1,5 +1,5 @@
 {
-  "$hash": "ceea89f7e84224a77b29075f1e9665ea418c5884",
+  "$hash": "fcaa68cf0be07d576260d286f6bd34f000c6a03d",
   "$id": "aws-bedrockagentcore-runtime.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentRuntimeName"],
@@ -71,6 +71,18 @@
       "minItems": 1,
       "type": "array"
     },
+    "AllowedScope": {
+      "description": "Allowed scope value",
+      "pattern": "[\\x21\\x23-\\x5B\\x5D-\\x7E]+",
+      "type": "string"
+    },
+    "AllowedScopesList": {
+      "description": "List of allowed scopes",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AllowedScope" },
+      "minItems": 1,
+      "type": "array"
+    },
     "AuthorizerConfiguration": {
       "additionalProperties": false,
       "description": "Configuration for the authorizer",
@@ -78,6 +90,30 @@
         "CustomJWTAuthorizer": {
           "$ref": "#/definitions/CustomJWTAuthorizerConfiguration"
         }
+      },
+      "type": "object"
+    },
+    "AuthorizingClaimMatchValueType": {
+      "additionalProperties": false,
+      "description": "The value or values in the custom claim to match and relationship of match",
+      "properties": {
+        "ClaimMatchOperator": { "$ref": "#/definitions/ClaimMatchOperator" },
+        "ClaimMatchValue": { "$ref": "#/definitions/ClaimMatchValueType" }
+      },
+      "required": ["ClaimMatchOperator", "ClaimMatchValue"],
+      "type": "object"
+    },
+    "ClaimMatchOperator": {
+      "description": "The relationship between the claim field value and the value or values being matched",
+      "enum": ["EQUALS", "CONTAINS", "CONTAINS_ANY"],
+      "type": "string"
+    },
+    "ClaimMatchValueType": {
+      "additionalProperties": false,
+      "description": "The value or values in the custom claim to match for",
+      "properties": {
+        "MatchValueString": { "$ref": "#/definitions/MatchValueString" },
+        "MatchValueStringList": { "$ref": "#/definitions/MatchValueStringList" }
       },
       "type": "object"
     },
@@ -113,12 +149,42 @@
       "type": "object"
     },
     "CreatedAt": { "type": "string" },
+    "CustomClaimValidationType": {
+      "additionalProperties": false,
+      "description": "Required custom claim",
+      "properties": {
+        "AuthorizingClaimMatchValue": {
+          "$ref": "#/definitions/AuthorizingClaimMatchValueType"
+        },
+        "InboundTokenClaimName": {
+          "$ref": "#/definitions/InboundTokenClaimName"
+        },
+        "InboundTokenClaimValueType": {
+          "$ref": "#/definitions/InboundTokenClaimValueType"
+        }
+      },
+      "required": [
+        "AuthorizingClaimMatchValue",
+        "InboundTokenClaimName",
+        "InboundTokenClaimValueType"
+      ],
+      "type": "object"
+    },
+    "CustomClaimsList": {
+      "description": "List of required custom claims",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/CustomClaimValidationType" },
+      "minItems": 1,
+      "type": "array"
+    },
     "CustomJWTAuthorizerConfiguration": {
       "additionalProperties": false,
       "description": "Configuration for custom JWT authorizer",
       "properties": {
         "AllowedAudience": { "$ref": "#/definitions/AllowedAudienceList" },
         "AllowedClients": { "$ref": "#/definitions/AllowedClientsList" },
+        "AllowedScopes": { "$ref": "#/definitions/AllowedScopesList" },
+        "CustomClaims": { "$ref": "#/definitions/CustomClaimsList" },
         "DiscoveryUrl": { "$ref": "#/definitions/DiscoveryUrl" }
       },
       "required": ["DiscoveryUrl"],
@@ -170,6 +236,16 @@
       "pattern": "^(Authorization|X-Amzn-Bedrock-AgentCore-Runtime-Custom-[a-zA-Z0-9_-]+)$",
       "type": "string"
     },
+    "InboundTokenClaimName": {
+      "description": "The name of the custom claim to validate",
+      "pattern": "[A-Za-z0-9_.-:]+",
+      "type": "string"
+    },
+    "InboundTokenClaimValueType": {
+      "description": "Token claim data type",
+      "enum": ["STRING", "STRING_ARRAY"],
+      "type": "string"
+    },
     "LastUpdatedAt": { "type": "string" },
     "LifecycleConfiguration": {
       "additionalProperties": false,
@@ -189,6 +265,19 @@
         }
       },
       "type": "object"
+    },
+    "MatchValueString": {
+      "description": "The string value to match for",
+      "pattern": "[A-Za-z0-9_.-]+",
+      "type": "string"
+    },
+    "MatchValueStringList": {
+      "description": "The list of strings to check for a match",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/MatchValueString" },
+      "maxItems": 255,
+      "minItems": 1,
+      "type": "array"
     },
     "NetworkConfiguration": {
       "additionalProperties": false,

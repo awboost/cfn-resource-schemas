@@ -1,9 +1,20 @@
 {
-  "$hash": "465eb70edbf7c88c4596c12d97c4c5a99661a7c3",
+  "$hash": "f6c5022ab1eb1f07d9730be1ecbb4adabd41dcbb",
   "$id": "aws-ses-configurationset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
+    "ArchivingOptions": {
+      "additionalProperties": false,
+      "description": "An object that defines a MailManager archive that is used to preserve emails that you send using the configuration set.",
+      "properties": {
+        "ArchiveArn": {
+          "description": "The ARN of the MailManager archive to associate with the configuration set.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "DashboardOptions": {
       "additionalProperties": false,
       "description": "Preferences regarding the Dashboard feature.",
@@ -183,6 +194,7 @@
         "ses:PutConfigurationSetSendingOptions",
         "ses:PutConfigurationSetSuppressionOptions",
         "ses:PutConfigurationSetVdmOptions",
+        "ses:PutConfigurationSetArchivingOptions",
         "ses:DescribeConfigurationSet",
         "ses:UntagResource",
         "ses:TagResource"
@@ -191,6 +203,7 @@
   },
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
+    "ArchivingOptions": { "$ref": "#/definitions/ArchivingOptions" },
     "DeliveryOptions": { "$ref": "#/definitions/DeliveryOptions" },
     "Name": {
       "description": "The name of the configuration set.",

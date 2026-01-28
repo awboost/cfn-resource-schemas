@@ -48,9 +48,18 @@ export type IoTCommandProperties = {
    */
   Payload?: CommandPayload;
   /**
+   * The payload template associated with the command.
+   * @maxLength `32768`
+   */
+  PayloadTemplate?: string;
+  /**
    * A flag indicating whether the command is pending deletion.
    */
   PendingDeletion?: boolean;
+  /**
+   * The command preprocessor configuration.
+   */
+  Preprocessor?: CommandPreprocessor;
   /**
    * The customer role associated with the command.
    * @minLength `20`
@@ -73,6 +82,13 @@ export type IoTCommandAttributes = {
   CommandArn: string;
 };
 /**
+ * Type definition for `AWS::IoT::Command.AwsJsonSubstitutionCommandPreprocessorConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-awsjsonsubstitutioncommandpreprocessorconfig.html}
+ */
+export type AwsJsonSubstitutionCommandPreprocessorConfig = {
+  OutputFormat: OutputFormat;
+};
+/**
  * Type definition for `AWS::IoT::Command.CommandParameter`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparameter.html}
  */
@@ -88,8 +104,25 @@ export type CommandParameter = {
    * @pattern `^[.$a-zA-Z0-9_-]+$`
    */
   Name: string;
+  Type?: CommandParameterType;
   Value?: CommandParameterValue;
+  /**
+   * @minLength `1`
+   */
+  ValueConditions?: CommandParameterValueCondition[];
 };
+/**
+ * Type definition for `AWS::IoT::Command.CommandParameterType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparametertype.html}
+ */
+export type CommandParameterType =
+  | "STRING"
+  | "INTEGER"
+  | "DOUBLE"
+  | "LONG"
+  | "UNSIGNEDLONG"
+  | "BOOLEAN"
+  | "BINARY";
 /**
  * Type definition for `AWS::IoT::Command.CommandParameterValue`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparametervalue.html}
@@ -119,6 +152,62 @@ export type CommandParameterValue = {
   UL?: string;
 };
 /**
+ * Type definition for `AWS::IoT::Command.CommandParameterValueComparisonOperand`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparametervaluecomparisonoperand.html}
+ */
+export type CommandParameterValueComparisonOperand = {
+  Number?: string;
+  NumberRange?: CommandParameterValueNumberRange;
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  Numbers?: string[];
+  String?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  Strings?: string[];
+};
+/**
+ * Type definition for `AWS::IoT::Command.CommandParameterValueComparisonOperator`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparametervaluecomparisonoperator.html}
+ */
+export type CommandParameterValueComparisonOperator =
+  | "EQUALS"
+  | "NOT_EQUALS"
+  | "LESS_THAN"
+  | "LESS_THAN_EQUALS"
+  | "GREATER_THAN"
+  | "GREATER_THAN_EQUALS"
+  | "IN_SET"
+  | "NOT_IN_SET"
+  | "IN_RANGE"
+  | "NOT_IN_RANGE";
+/**
+ * Type definition for `AWS::IoT::Command.CommandParameterValueCondition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparametervaluecondition.html}
+ */
+export type CommandParameterValueCondition = {
+  ComparisonOperator: CommandParameterValueComparisonOperator;
+  Operand: CommandParameterValueComparisonOperand;
+};
+/**
+ * Type definition for `AWS::IoT::Command.CommandParameterValueNumberRange`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparametervaluenumberrange.html}
+ */
+export type CommandParameterValueNumberRange = {
+  /**
+   * @minLength `1`
+   */
+  Max: string;
+  /**
+   * @minLength `1`
+   */
+  Min: string;
+};
+/**
  * Type definition for `AWS::IoT::Command.CommandPayload`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandpayload.html}
  */
@@ -129,6 +218,18 @@ export type CommandPayload = {
    */
   ContentType?: string;
 };
+/**
+ * Type definition for `AWS::IoT::Command.CommandPreprocessor`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandpreprocessor.html}
+ */
+export type CommandPreprocessor = {
+  AwsJsonSubstitution?: AwsJsonSubstitutionCommandPreprocessorConfig;
+};
+/**
+ * Type definition for `AWS::IoT::Command.OutputFormat`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-outputformat.html}
+ */
+export type OutputFormat = "JSON" | "CBOR";
 /**
  * Type definition for `AWS::IoT::Command.Tag`.
  * A key-value pair to associate with a resource.

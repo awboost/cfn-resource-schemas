@@ -1,5 +1,5 @@
 {
-  "$hash": "766d215be9316277aceae2bc4fdcd5ddf9d9ccfd",
+  "$hash": "df82ba967b45cb5c7d6396d907039e26dc52e6dd",
   "$id": "aws-bedrockagentcore-memory.json",
   "additionalIdentifiers": [["/properties/MemoryId"]],
   "additionalProperties": false,
@@ -666,7 +666,7 @@
     "EventExpiryDuration": {
       "description": "Duration in days until memory events expire",
       "maximum": 365,
-      "minimum": 7,
+      "minimum": 3,
       "type": "integer"
     },
     "FailureReason": { "type": "string" },
