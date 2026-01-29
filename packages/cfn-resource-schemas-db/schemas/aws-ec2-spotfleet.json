@@ -1,5 +1,5 @@
 {
-  "$hash": "fb4362fa317099f80a1e7ce0777cd93b61c6c485",
+  "$hash": "fa77e97bb0c34e01af19477bcd763ec188586814",
   "$id": "aws-ec2-spotfleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -658,8 +658,11 @@
     "delete": {
       "permissions": [
         "ec2:DescribeSpotFleetRequests",
+        "ec2:DescribeSpotFleetInstances",
+        "ec2:DescribeInstanceStatus",
         "ec2:CancelSpotFleetRequests"
-      ]
+      ],
+      "timeoutInMinutes": 40
     },
     "list": { "permissions": ["ec2:DescribeSpotFleetRequests"] },
     "read": { "permissions": ["ec2:DescribeSpotFleetRequests"] },

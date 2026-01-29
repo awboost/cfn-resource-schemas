@@ -1,5 +1,5 @@
 {
-  "$hash": "7b585cf6ee3375eaf3ddcb70693173bfc920217e",
+  "$hash": "d4de8e8cec42d3d5f4dc246c63ea7f0248f300fc",
   "$id": "aws-rolesanywhere-crl.json",
   "additionalProperties": false,
   "definitions": {
@@ -61,6 +61,9 @@
       "pattern": "^arn:aws(-[^:]+)?:rolesanywhere(:.*){2}(:trust-anchor.*)$",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/CrlData": "$replace(CrlData, /\\s+$/, '')"
   },
   "readOnlyProperties": ["/properties/CrlId"],
   "required": ["Name", "CrlData"],

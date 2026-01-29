@@ -229,6 +229,7 @@ export type Ebs = {
    * Indicates whether the EBS volume is deleted on instance termination.
    */
   DeleteOnTermination?: boolean;
+  EbsCardIndex?: number;
   /**
    * Indicates whether the EBS volume is encrypted. Encrypted volumes can only be attached to instances that support Amazon EBS encryption. If you are creating a volume from a snapshot, you can't specify an encryption value.
    */
