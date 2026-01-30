@@ -1,5 +1,5 @@
 {
-  "$hash": "b41b78107a84a6908f6aa99ee9f8861846fd596d",
+  "$hash": "10dc2e0f2d9ff9886037f931f71d36520265abd6",
   "$id": "aws-connect-datatableattribute.json",
   "additionalIdentifiers": [
     ["/properties/InstanceArn", "/properties/DataTableArn", "/properties/Name"]
@@ -39,7 +39,12 @@
   },
   "description": "Resource Type definition for AWS::Connect::DataTableAttribute",
   "handlers": {
-    "create": { "permissions": ["connect:CreateDataTableAttribute"] },
+    "create": {
+      "permissions": [
+        "connect:CreateDataTableAttribute",
+        "connect:ListDataTableAttributes"
+      ]
+    },
     "delete": {
       "permissions": [
         "connect:DeleteDataTableAttribute",

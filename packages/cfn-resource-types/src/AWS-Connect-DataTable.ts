@@ -43,7 +43,12 @@ export type ConnectDataTableProperties = {
   /**
    * The value lock level of the Data Table
    */
-  ValueLockLevel?: "NONE";
+  ValueLockLevel?:
+    | "NONE"
+    | "DATA_TABLE"
+    | "PRIMARY_VALUE"
+    | "ATTRIBUTE"
+    | "VALUE";
 };
 /**
  * Attribute type definition for `AWS::Connect::DataTable`.

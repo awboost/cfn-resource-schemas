@@ -1,15 +1,12 @@
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `Ebs`
-- updated `AWS::EC2::SpotFleet`
-  - updated handler permissions
-- updated `AWS::EC2::VPNConnection`
-  - updated `createOnlyProperties`
+- updated `AWS::Connect::DataTable`
+  - updated property `ValueLockLevel`
+- updated `AWS::Connect::DataTableAttribute`
   - updated handler permissions
 - updated `AWS::GameLift::ContainerFleet`
-  - added definition `ManagedCapacityConfiguration`
+  - removed definition `ManagedCapacityConfiguration`
   - updated definition `LocationCapacity`
 - updated `AWS::GameLift::Fleet`
-  - added definition `ManagedCapacityConfiguration`
+  - removed definition `ManagedCapacityConfiguration`
   - updated definition `LocationCapacity`
-- updated `AWS::RolesAnywhere::CRL`
-  - added `propertyTransform`
+- updated `AWS::QuickSight::DataSet`
+  - updated definition `InputColumnDataType`

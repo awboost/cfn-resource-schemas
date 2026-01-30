@@ -1042,7 +1042,8 @@ export type InputColumnDataType =
   | "DATETIME"
   | "BIT"
   | "BOOLEAN"
-  | "JSON";
+  | "JSON"
+  | "SEMISTRUCT";
 /**
  * Type definition for `AWS::QuickSight::DataSet.IntegerDatasetParameter`.
  * <p>An integer parameter for a dataset.</p>
