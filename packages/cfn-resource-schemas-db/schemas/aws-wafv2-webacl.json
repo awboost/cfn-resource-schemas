@@ -1,5 +1,5 @@
 {
-  "$hash": "bbbeceedeff2611be71d78541f36408c7e66199b",
+  "$hash": "10ee5ead117c618da1b191949333f8e8d8531fe9",
   "$id": "aws-wafv2-webacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -454,6 +454,7 @@
         },
         "Body": { "$ref": "#/definitions/Body" },
         "Cookies": { "$ref": "#/definitions/Cookies" },
+        "HeaderOrder": { "$ref": "#/definitions/HeaderOrder" },
         "Headers": { "$ref": "#/definitions/Headers" },
         "JA3Fingerprint": { "$ref": "#/definitions/JA3Fingerprint" },
         "JA4Fingerprint": { "$ref": "#/definitions/JA4Fingerprint" },
@@ -570,6 +571,15 @@
           "type": "array"
         }
       },
+      "type": "object"
+    },
+    "HeaderOrder": {
+      "additionalProperties": false,
+      "description": "The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.",
+      "properties": {
+        "OversizeHandling": { "$ref": "#/definitions/OversizeHandling" }
+      },
+      "required": ["OversizeHandling"],
       "type": "object"
     },
     "Headers": {

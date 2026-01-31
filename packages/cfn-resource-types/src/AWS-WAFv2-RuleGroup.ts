@@ -352,6 +352,10 @@ export type FieldToMatch = {
    */
   Cookies?: Cookies;
   /**
+   * The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+   */
+  HeaderOrder?: HeaderOrder;
+  /**
    * Includes headers of a web request.
    */
   Headers?: Headers;
@@ -432,6 +436,17 @@ export type HeaderMatchPattern = {
    * @maxLength `199`
    */
   IncludedHeaders?: string[];
+};
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.HeaderOrder`.
+ * The string containing the list of a web request's header names, ordered as they appear in the web request, separated by colons.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-headerorder.html}
+ */
+export type HeaderOrder = {
+  /**
+   * Handling of requests containing oversize fields
+   */
+  OversizeHandling: OversizeHandling;
 };
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.Headers`.

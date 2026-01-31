@@ -1,12 +1,16 @@
-- updated `AWS::Connect::DataTable`
-  - updated property `ValueLockLevel`
-- updated `AWS::Connect::DataTableAttribute`
-  - updated handler permissions
+- updated `AWS::EC2::VolumeAttachment`
+  - added definition `EbsCardIndex`
+  - added property `EbsCardIndex`
+  - updated `createOnlyProperties`
 - updated `AWS::GameLift::ContainerFleet`
-  - removed definition `ManagedCapacityConfiguration`
+  - added definition `ManagedCapacityConfiguration`
   - updated definition `LocationCapacity`
 - updated `AWS::GameLift::Fleet`
-  - removed definition `ManagedCapacityConfiguration`
+  - added definition `ManagedCapacityConfiguration`
   - updated definition `LocationCapacity`
-- updated `AWS::QuickSight::DataSet`
-  - updated definition `InputColumnDataType`
+- updated `AWS::WAFv2::RuleGroup`
+  - added definition `HeaderOrder`
+  - updated definition `FieldToMatch`
+- updated `AWS::WAFv2::WebACL`
+  - added definition `HeaderOrder`
+  - updated definition `FieldToMatch`

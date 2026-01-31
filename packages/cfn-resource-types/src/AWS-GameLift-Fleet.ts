@@ -230,6 +230,10 @@ export type LocationCapacity = {
    */
   DesiredEC2Instances?: number;
   /**
+   * Configuration options for Amazon GameLift Servers-managed capacity behavior.
+   */
+  ManagedCapacityConfiguration?: ManagedCapacityConfiguration;
+  /**
    * The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
    * @min `0`
    */
@@ -256,6 +260,23 @@ export type LocationConfiguration = {
    * Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
    */
   LocationCapacity?: LocationCapacity;
+};
+/**
+ * Type definition for `AWS::GameLift::Fleet.ManagedCapacityConfiguration`.
+ * Configuration options for Amazon GameLift Servers-managed capacity behavior.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-managedcapacityconfiguration.html}
+ */
+export type ManagedCapacityConfiguration = {
+  /**
+   * Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.
+   * @min `5`
+   * @max `1440`
+   */
+  ScaleInAfterInactivityMinutes?: number;
+  /**
+   * The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
+   */
+  ZeroCapacityStrategy: "SCALE_TO_AND_FROM_ZERO" | "MANUAL";
 };
 /**
  * Type definition for `AWS::GameLift::Fleet.ResourceCreationLimitPolicy`.

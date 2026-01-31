@@ -14,6 +14,10 @@ export type EC2VolumeAttachmentProperties = {
    */
   Device?: string;
   /**
+   * The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0.
+   */
+  EbsCardIndex?: number;
+  /**
    * The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance.
    */
   InstanceId: string;
