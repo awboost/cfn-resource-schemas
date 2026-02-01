@@ -17,6 +17,10 @@ export type TransferConnectorProperties = {
    */
   As2Config?: {
     /**
+     * Configuration for an AS2 connector with ASYNC MDN Response
+     */
+    AsyncMdnConfig?: ConnectorAsyncMdnConfig;
+    /**
      * ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
      * @minLength `0`
      * @maxLength `2048`
@@ -45,7 +49,7 @@ export type TransferConnectorProperties = {
     /**
      * MDN Response setting for this AS2 connector configuration.
      */
-    MdnResponse?: "SYNC" | "NONE";
+    MdnResponse?: "SYNC" | "ASYNC" | "NONE";
     /**
      * MDN Signing algorithm for this AS2 connector configuration.
      */
@@ -162,6 +166,21 @@ export type TransferConnectorAttributes = {
    */
   ServiceManagedEgressIpAddresses: string[];
   Status: ConnectorStatus;
+};
+/**
+ * Type definition for `AWS::Transfer::Connector.ConnectorAsyncMdnConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-connectorasyncmdnconfig.html}
+ */
+export type ConnectorAsyncMdnConfig = {
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  ServerIds: string[];
+  /**
+   * URL of the server to receive the MDN response on
+   */
+  Url: string;
 };
 /**
  * Type definition for `AWS::Transfer::Connector.ConnectorEgressConfig`.

@@ -1,13 +1,20 @@
 {
-  "$hash": "07f94dc8bb29f9a3d39993023610cd7223e335ca",
+  "$hash": "46be7e897438dcd1be8517e9324f29f092852eb8",
   "$id": "aws-transfer-webapp.json",
   "additionalIdentifiers": [["/properties/WebAppId"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/WebAppEndpointPolicy",
-    "/properties/IdentityProviderDetails/InstanceArn"
+    "/properties/IdentityProviderDetails/InstanceArn",
+    "/properties/EndpointDetails/Vpc/VpcId",
+    "/properties/EndpointDetails/Vpc/SecurityGroupIds"
   ],
   "definitions": {
+    "EndpointDetails": {
+      "additionalProperties": false,
+      "properties": { "Vpc": { "$ref": "#/definitions/Vpc" } },
+      "type": "object"
+    },
     "IdentityProviderDetails": {
       "additionalProperties": false,
       "description": "You can provide a structure that contains the details for the identity provider to use with your web app.",
@@ -43,6 +50,41 @@
         "Value": { "maxLength": 256, "minLength": 0, "type": "string" }
       },
       "required": ["Key", "Value"],
+      "type": "object"
+    },
+    "Vpc": {
+      "additionalProperties": false,
+      "description": "You can provide a structure that contains the details for the VPC endpoint to use with your web app.",
+      "properties": {
+        "SecurityGroupIds": {
+          "insertionOrder": false,
+          "items": {
+            "maxLength": 20,
+            "minLength": 11,
+            "pattern": "^sg-[0-9a-f]{8,17}$",
+            "type": "string"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "SubnetIds": {
+          "insertionOrder": true,
+          "items": {
+            "maxLength": 24,
+            "minLength": 15,
+            "pattern": "^subnet-[0-9a-f]{8,17}$",
+            "type": "string"
+          },
+          "maxItems": 10,
+          "type": "array"
+        },
+        "VpcId": {
+          "maxLength": 21,
+          "minLength": 12,
+          "pattern": "^vpc-[0-9a-f]{8,17}$",
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "WebAppCustomization": {
@@ -104,14 +146,18 @@
         "sso:ListApplicationAuthenticationMethods",
         "sso:PutApplicationAccessScope",
         "sso:GetApplicationAccessScope",
-        "sso:ListApplicationAccessScopes"
+        "sso:ListApplicationAccessScopes",
+        "ec2:CreateVpcEndpoint",
+        "ec2:DescribeVpcEndpoints"
       ]
     },
     "delete": {
       "permissions": [
         "transfer:DeleteWebApp",
         "sso:DescribeApplication",
-        "sso:DeleteApplication"
+        "sso:DeleteApplication",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DeleteVpcEndpoints"
       ]
     },
     "list": { "permissions": ["transfer:ListWebApps"] },
@@ -136,7 +182,8 @@
         "sso:ListApplicationGrants",
         "sso:UpdateApplication",
         "sso:DescribeApplication",
-        "sso:ListApplications"
+        "sso:ListApplications",
+        "ec2:ModifyVpcEndpoint"
       ]
     }
   },
@@ -155,6 +202,7 @@
       "pattern": "arn:.*",
       "type": "string"
     },
+    "EndpointDetails": { "$ref": "#/definitions/EndpointDetails" },
     "IdentityProviderDetails": {
       "$ref": "#/definitions/IdentityProviderDetails"
     },
@@ -164,6 +212,12 @@
       "items": { "$ref": "#/definitions/Tag" },
       "maxItems": 50,
       "type": "array"
+    },
+    "VpcEndpointId": {
+      "maxLength": 22,
+      "minLength": 13,
+      "pattern": "^vpce-[0-9a-f]{8,17}$",
+      "type": "string"
     },
     "WebAppCustomization": { "$ref": "#/definitions/WebAppCustomization" },
     "WebAppEndpointPolicy": { "$ref": "#/definitions/WebAppEndpointPolicy" },
@@ -179,7 +233,8 @@
   "readOnlyProperties": [
     "/properties/Arn",
     "/properties/WebAppId",
-    "/properties/IdentityProviderDetails/ApplicationArn"
+    "/properties/IdentityProviderDetails/ApplicationArn",
+    "/properties/VpcEndpointId"
   ],
   "required": ["IdentityProviderDetails"],
   "tagging": {
@@ -194,5 +249,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::Transfer::WebApp"
+  "typeName": "AWS::Transfer::WebApp",
+  "writeOnlyProperties": ["/properties/EndpointDetails/Vpc/SecurityGroupIds"]
 }

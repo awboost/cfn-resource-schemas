@@ -11,6 +11,7 @@ export type TransferWebAppProperties = {
    * @maxLength `1024`
    */
   AccessEndpoint?: string;
+  EndpointDetails?: EndpointDetails;
   /**
    * You can provide a structure that contains the details for the identity provider to use with your web app.
    */
@@ -51,12 +52,28 @@ export type TransferWebAppAttributes = {
     ApplicationArn: string;
   };
   /**
+   * @minLength `13`
+   * @maxLength `22`
+   * @pattern `^vpce-[0-9a-f]{8,17}$`
+   */
+  VpcEndpointId: string;
+  /**
    * A unique identifier for the web app.
    * @minLength `24`
    * @maxLength `24`
    * @pattern `^webapp-([0-9a-f]{17})$`
    */
   WebAppId: string;
+};
+/**
+ * Type definition for `AWS::Transfer::WebApp.EndpointDetails`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-endpointdetails.html}
+ */
+export type EndpointDetails = {
+  /**
+   * You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+   */
+  Vpc?: Vpc;
 };
 /**
  * Type definition for `AWS::Transfer::WebApp.IdentityProviderDetails`.
@@ -95,6 +112,27 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::Transfer::WebApp.Vpc`.
+ * You can provide a structure that contains the details for the VPC endpoint to use with your web app.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-vpc.html}
+ */
+export type Vpc = {
+  /**
+   * @maxLength `10`
+   */
+  SecurityGroupIds?: string[];
+  /**
+   * @maxLength `10`
+   */
+  SubnetIds?: string[];
+  /**
+   * @minLength `12`
+   * @maxLength `21`
+   * @pattern `^vpc-[0-9a-f]{8,17}$`
+   */
+  VpcId?: string;
 };
 /**
  * Type definition for `AWS::Transfer::WebApp.WebAppCustomization`.

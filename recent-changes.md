@@ -1,16 +1,13 @@
-- updated `AWS::EC2::VolumeAttachment`
-  - added definition `EbsCardIndex`
-  - added property `EbsCardIndex`
+- updated `AWS::Transfer::Connector`
+  - added definition `ConnectorAsyncMdnConfig`
+  - added definition `ServerId`
+  - updated property `As2Config`
+- updated `AWS::Transfer::WebApp`
+  - added `writeOnlyProperties`
+  - added definition `EndpointDetails`
+  - added definition `Vpc`
+  - added property `EndpointDetails`
+  - added property `VpcEndpointId`
   - updated `createOnlyProperties`
-- updated `AWS::GameLift::ContainerFleet`
-  - added definition `ManagedCapacityConfiguration`
-  - updated definition `LocationCapacity`
-- updated `AWS::GameLift::Fleet`
-  - added definition `ManagedCapacityConfiguration`
-  - updated definition `LocationCapacity`
-- updated `AWS::WAFv2::RuleGroup`
-  - added definition `HeaderOrder`
-  - updated definition `FieldToMatch`
-- updated `AWS::WAFv2::WebACL`
-  - added definition `HeaderOrder`
-  - updated definition `FieldToMatch`
+  - updated `readOnlyProperties`
+  - updated handler permissions
