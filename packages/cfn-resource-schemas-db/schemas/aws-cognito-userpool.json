@@ -1,5 +1,5 @@
 {
-  "$hash": "9c1e9c73041221b9b98027a777b638f4a58ef82c",
+  "$hash": "d55988b70b9b91037714823afd1f8dbbe8f66d7c",
   "$id": "aws-cognito-userpool.json",
   "additionalProperties": false,
   "definitions": {
@@ -64,6 +64,14 @@
       },
       "type": "object"
     },
+    "InboundFederation": {
+      "additionalProperties": false,
+      "properties": {
+        "LambdaArn": { "type": "string" },
+        "LambdaVersion": { "type": "string" }
+      },
+      "type": "object"
+    },
     "InviteMessageTemplate": {
       "additionalProperties": false,
       "properties": {
@@ -81,6 +89,7 @@
         "CustomMessage": { "type": "string" },
         "CustomSMSSender": { "$ref": "#/definitions/CustomSMSSender" },
         "DefineAuthChallenge": { "type": "string" },
+        "InboundFederation": { "$ref": "#/definitions/InboundFederation" },
         "KMSKeyID": { "type": "string" },
         "PostAuthentication": { "type": "string" },
         "PostConfirmation": { "type": "string" },

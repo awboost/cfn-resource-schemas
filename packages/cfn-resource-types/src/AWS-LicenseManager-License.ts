@@ -8,7 +8,7 @@ export type LicenseManagerLicenseProperties = {
   /**
    * Beneficiary of the license.
    */
-  Beneficiary?: string;
+  Beneficiary: string;
   ConsumptionConfiguration: ConsumptionConfiguration;
   Entitlements: Entitlement[];
   /**
@@ -30,8 +30,12 @@ export type LicenseManagerLicenseProperties = {
    * @minLength `1`
    * @maxLength `1024`
    */
-  ProductSKU?: string;
+  ProductSKU: string;
   Status?: string;
+  /**
+   * A list of tags to attach.
+   */
+  Tags?: Tag[];
   Validity: ValidityDateFormat;
 };
 /**
@@ -100,6 +104,21 @@ export type Metadata = {
  */
 export type ProvisionalConfiguration = {
   MaxTimeToLiveInMinutes: number;
+};
+/**
+ * Type definition for `AWS::LicenseManager::License.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag.
+   */
+  Key: string;
+  /**
+   * The value for the tag.
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::LicenseManager::License.ValidityDateFormat`.

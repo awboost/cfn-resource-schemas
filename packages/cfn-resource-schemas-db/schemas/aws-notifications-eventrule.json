@@ -1,5 +1,5 @@
 {
-  "$hash": "9d238115354faee36e41c435732a7007ba8ff5f2",
+  "$hash": "6b89086de44b75aed87c0bd4fa3cbf7b7778810e",
   "$id": "aws-notifications-eventrule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -51,7 +51,7 @@
       "handlerSchema": {
         "properties": {
           "NotificationConfigurationArn": {
-            "pattern": "^arn:aws:notifications::[0-9]{12}:configuration\\/[a-z0-9]{27}$",
+            "pattern": "^arn:[a-z-]{3,10}:notifications::[0-9]{12}:configuration/[a-z0-9]{27}$",
             "type": "string"
           }
         },
@@ -73,7 +73,7 @@
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
     "Arn": {
-      "pattern": "^arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}/rule/[a-z0-9]{27}$",
+      "pattern": "^arn:[a-z-]{3,10}:notifications::[0-9]{12}:configuration/[a-z0-9]{27}/rule/[a-z0-9]{27}$",
       "type": "string"
     },
     "CreationTime": { "format": "date-time", "type": "string" },
@@ -86,22 +86,17 @@
     },
     "ManagedRules": {
       "items": {
-        "pattern": "^arn:aws:events:[a-z-\\d]{2,25}:\\d{12}:rule\\/[a-zA-Z-\\d]{1,1024}$",
+        "pattern": "^arn:[a-z-]{3,10}:events:[a-z-\\d]{2,25}:\\d{12}:rule\\/[a-zA-Z-\\d]{1,1024}$",
         "type": "string"
       },
       "type": "array"
     },
     "NotificationConfigurationArn": {
-      "pattern": "^arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}$",
+      "pattern": "^arn:[a-z-]{3,10}:notifications::[0-9]{12}:configuration/[a-z0-9]{27}$",
       "type": "string"
     },
     "Regions": {
-      "items": {
-        "maxLength": 25,
-        "minLength": 2,
-        "pattern": "^([a-z]{1,2})-([a-z]{1,15}-)+([0-9])$",
-        "type": "string"
-      },
+      "items": { "maxLength": 25, "minLength": 2, "type": "string" },
       "minItems": 1,
       "type": "array"
     },

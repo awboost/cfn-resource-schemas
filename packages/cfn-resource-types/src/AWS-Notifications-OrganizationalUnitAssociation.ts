@@ -8,7 +8,7 @@ export type NotificationsOrganizationalUnitAssociationProperties = {
   /**
      * ARN identifier of the NotificationConfiguration.
     Example: arn:aws:notifications::123456789012:configuration/a01jes88qxwkbj05xv9c967pgm1
-     * @pattern `^arn:aws:notifications::[0-9]{12}:configuration\/[a-z0-9]{27}$`
+     * @pattern `^arn:[a-z-]{3,10}:notifications::[0-9]{12}:configuration/[a-z0-9]{27}$`
      */
   NotificationConfigurationArn: string;
   /**

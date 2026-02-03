@@ -1,15 +1,48 @@
 {
-  "$hash": "0e24c1b0012dcc8bf527d95b74e7dc2b71937158",
+  "$hash": "15b013abf00d7eabe1d0f3568aab32fbe9b29edd",
   "$id": "aws-licensemanager-grant.json",
   "additionalProperties": false,
-  "definitions": { "Arn": { "maxLength": 2048, "type": "string" } },
+  "definitions": {
+    "Arn": { "maxLength": 2048, "type": "string" },
+    "Tag": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "properties": {
+        "Key": { "description": "The key name of the tag.", "type": "string" },
+        "Value": { "description": "The value for the tag.", "type": "string" }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    }
+  },
   "description": "An example resource schema demonstrating some basic constructs and validation rules.",
   "handlers": {
-    "create": { "permissions": ["license-manager:CreateGrant"] },
-    "delete": { "permissions": ["license-manager:DeleteGrant"] },
+    "create": {
+      "permissions": [
+        "license-manager:CreateGrant",
+        "license-manager:CreateGrantVersion",
+        "license-manager:GetGrant",
+        "license-manager:TagResource"
+      ]
+    },
+    "delete": {
+      "permissions": ["license-manager:DeleteGrant", "license-manager:GetGrant"]
+    },
     "list": { "permissions": ["license-manager:ListDistributedGrants"] },
-    "read": { "permissions": ["license-manager:GetGrant"] },
-    "update": { "permissions": ["license-manager:CreateGrantVersion"] }
+    "read": {
+      "permissions": [
+        "license-manager:GetGrant",
+        "license-manager:ListTagsForResource"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "license-manager:CreateGrantVersion",
+        "license-manager:GetGrant",
+        "license-manager:TagResource",
+        "license-manager:UntagResource"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/GrantArn"],
   "properties": {
@@ -40,6 +73,13 @@
       "uniqueItems": true
     },
     "Status": { "type": "string" },
+    "Tags": {
+      "description": "A list of tags to attach.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "Version": { "description": "The version of the grant.", "type": "string" }
   },
   "readOnlyProperties": ["/properties/GrantArn", "/properties/Version"],
@@ -49,6 +89,7 @@
   "writeOnlyProperties": [
     "/properties/Principals",
     "/properties/AllowedOperations",
-    "/properties/Status"
+    "/properties/Status",
+    "/properties/Tags"
   ]
 }

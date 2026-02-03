@@ -22,6 +22,10 @@ export type LicenseManagerGrantProperties = {
   LicenseArn?: string;
   Principals?: string[];
   Status?: string;
+  /**
+   * A list of tags to attach.
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::LicenseManager::Grant`.
@@ -37,6 +41,21 @@ export type LicenseManagerGrantAttributes = {
    * The version of the grant.
    */
   Version: string;
+};
+/**
+ * Type definition for `AWS::LicenseManager::Grant.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-grant-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag.
+   */
+  Key: string;
+  /**
+   * The value for the tag.
+   */
+  Value: string;
 };
 /**
  * Resource type definition for `AWS::LicenseManager::Grant`.

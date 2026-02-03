@@ -1,5 +1,5 @@
 {
-  "$hash": "6896c2881d245035a7c78e4158a0e7167579e6fd",
+  "$hash": "08570875edf5848839beca41e9eecabc10586fb2",
   "$id": "aws-notifications-managednotificationaccountcontactassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -19,7 +19,7 @@
     },
     "ManagedNotificationConfigurationArn": {
       "description": "The managed notification configuration ARN, against which the account contact association will be created",
-      "pattern": "^arn:[-.a-z0-9]{1,63}:notifications::[0-9]{12}:managed-notification-configuration/category/[a-zA-Z0-9-]{3,64}/sub-category/[a-zA-Z0-9-]{3,64}$",
+      "pattern": "^arn:[a-z-]{3,10}:notifications::([0-9]{12}|):managed-notification-configuration/category/[a-zA-Z0-9\\-]{3,64}/sub-category/[a-zA-Z0-9\\-]{3,64}$",
       "type": "string"
     }
   },
@@ -41,7 +41,7 @@
       "handlerSchema": {
         "properties": {
           "ManagedNotificationConfigurationArn": {
-            "pattern": "^arn:[-.a-z0-9]{1,63}:notifications::([0-9]{12}|):managed-notification-configuration/category/[a-zA-Z0-9-]{3,64}/sub-category/[a-zA-Z0-9-]{3,64}$",
+            "pattern": "^arn:[a-z-]{3,10}:notifications::([0-9]{12}|):managed-notification-configuration/category/[a-zA-Z0-9\\-]{3,64}/sub-category/[a-zA-Z0-9\\-]{3,64}$",
             "type": "string"
           }
         },

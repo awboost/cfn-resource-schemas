@@ -1,13 +1,40 @@
-- updated `AWS::Transfer::Connector`
-  - added definition `ConnectorAsyncMdnConfig`
-  - added definition `ServerId`
-  - updated property `As2Config`
-- updated `AWS::Transfer::WebApp`
-  - added `writeOnlyProperties`
-  - added definition `EndpointDetails`
-  - added definition `Vpc`
-  - added property `EndpointDetails`
-  - added property `VpcEndpointId`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
+- updated `AWS::Cognito::UserPool`
+  - added definition `InboundFederation`
+  - updated definition `LambdaConfig`
+- updated `AWS::EC2::NatGateway`
+  - updated definition `AvailabilityZoneAddress`
+  - updated property `AvailabilityMode`
+  - updated property `AvailabilityZoneAddresses`
+- updated `AWS::LicenseManager::Grant`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `writeOnlyProperties`
   - updated handler permissions
+- updated `AWS::LicenseManager::License`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `required`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Notifications::ChannelAssociation`
+  - updated handler permissions
+  - updated property `Arn`
+  - updated property `NotificationConfigurationArn`
+- updated `AWS::Notifications::EventRule`
+  - updated handler permissions
+  - updated property `Arn`
+  - updated property `ManagedRules`
+  - updated property `NotificationConfigurationArn`
+  - updated property `Regions`
+- updated `AWS::Notifications::ManagedNotificationAccountContactAssociation`
+  - updated definition `ManagedNotificationConfigurationArn`
+  - updated handler permissions
+- updated `AWS::Notifications::ManagedNotificationAdditionalChannelAssociation`
+  - updated property `ChannelArn`
+  - updated property `ManagedNotificationConfigurationArn`
+- updated `AWS::Notifications::NotificationConfiguration`
+  - updated handler permissions
+  - updated property `Arn`
+- updated `AWS::Notifications::OrganizationalUnitAssociation`
+  - updated handler permissions
+  - updated property `NotificationConfigurationArn`

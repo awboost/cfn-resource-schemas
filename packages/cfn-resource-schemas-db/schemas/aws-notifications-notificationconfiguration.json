@@ -1,5 +1,5 @@
 {
-  "$hash": "6a88b959afa6d479508487ef14748cd744b46fa3",
+  "$hash": "158f001ec555051d424925fc0e9110b005bfdd39",
   "$id": "aws-notifications-notificationconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
@@ -54,9 +54,7 @@
     "read": {
       "permissions": [
         "notifications:GetNotificationConfiguration",
-        "notifications:ListTagsForResource",
-        "notifications:TagResource",
-        "notifications:UntagResource"
+        "notifications:ListTagsForResource"
       ]
     },
     "update": {
@@ -74,7 +72,7 @@
   "properties": {
     "AggregationDuration": { "$ref": "#/definitions/AggregationDuration" },
     "Arn": {
-      "pattern": "^arn:aws:notifications::[0-9]{12}:configuration/[a-z0-9]{27}$",
+      "pattern": "^arn:[a-z-]{3,10}:notifications::[0-9]{12}:configuration/[a-z0-9]{27}$",
       "type": "string"
     },
     "CreationTime": { "format": "date-time", "type": "string" },

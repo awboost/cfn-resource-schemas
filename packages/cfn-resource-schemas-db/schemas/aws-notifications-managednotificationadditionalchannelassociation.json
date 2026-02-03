@@ -1,5 +1,5 @@
 {
-  "$hash": "5a49b820bf176de1490f0c89506327d4308f93ba",
+  "$hash": "03c0fb2ca80ec7eab423dace5f9ab333b16e168d",
   "$id": "aws-notifications-managednotificationadditionalchannelassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -42,12 +42,12 @@
   "properties": {
     "ChannelArn": {
       "description": "ARN identifier of the channel.\nExample: arn:aws:chatbot::123456789012:chat-configuration/slack-channel/security-ops",
-      "pattern": "^arn:aws:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$",
+      "pattern": "^arn:[a-z-]{3,10}:(chatbot|consoleapp|notifications-contacts):[a-zA-Z0-9-]*:[0-9]{12}:[a-zA-Z0-9-_.@]+/[a-zA-Z0-9/_.@:-]+$",
       "type": "string"
     },
     "ManagedNotificationConfigurationArn": {
       "description": "ARN identifier of the Managed Notification.\nExample: arn:aws:notifications::381491923782:managed-notification-configuration/category/AWS-Health/sub-category/Billing",
-      "pattern": "^arn:[-.a-z0-9]{1,63}:notifications::[0-9]{12}:managed-notification-configuration/category/[a-zA-Z0-9-]{3,64}/sub-category/[a-zA-Z0-9-]{3,64}$",
+      "pattern": "^arn:[a-z-]{3,10}:notifications::([0-9]{12}|):managed-notification-configuration/category/[a-zA-Z0-9\\-]{3,64}/sub-category/[a-zA-Z0-9\\-]{3,64}$",
       "type": "string"
     }
   },

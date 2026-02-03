@@ -1,5 +1,5 @@
 {
-  "$hash": "704c2f06f8cb3a41943d95f7bb09333c6bb085b1",
+  "$hash": "062623c240535a533449a54658dae7c3354acd69",
   "$id": "aws-licensemanager-license.json",
   "additionalProperties": false,
   "definitions": {
@@ -62,6 +62,16 @@
       "required": ["MaxTimeToLiveInMinutes"],
       "type": "object"
     },
+    "Tag": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "properties": {
+        "Key": { "description": "The key name of the tag.", "type": "string" },
+        "Value": { "description": "The value for the tag.", "type": "string" }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
     "ValidityDateFormat": {
       "additionalProperties": false,
       "properties": {
@@ -82,11 +92,35 @@
   },
   "description": "Resource Type definition for AWS::LicenseManager::License",
   "handlers": {
-    "create": { "permissions": ["license-manager:CreateLicense"] },
-    "delete": { "permissions": ["license-manager:DeleteLicense"] },
+    "create": {
+      "permissions": [
+        "license-manager:CreateLicense",
+        "license-manager:GetLicense",
+        "license-manager:TagResource",
+        "kms:CreateGrant"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "license-manager:DeleteLicense",
+        "license-manager:GetLicense"
+      ]
+    },
     "list": { "permissions": ["license-manager:ListLicenses"] },
-    "read": { "permissions": ["license-manager:GetLicense"] },
-    "update": { "permissions": ["license-manager:CreateLicenseVersion"] }
+    "read": {
+      "permissions": [
+        "license-manager:GetLicense",
+        "license-manager:ListTagsForResource"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "license-manager:CreateLicenseVersion",
+        "license-manager:GetLicense",
+        "license-manager:TagResource",
+        "license-manager:UntagResource"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/LicenseArn"],
   "properties": {
@@ -131,6 +165,13 @@
       "type": "string"
     },
     "Status": { "$ref": "#/definitions/LicenseStatus" },
+    "Tags": {
+      "description": "A list of tags to attach.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "Validity": { "$ref": "#/definitions/ValidityDateFormat" },
     "Version": {
       "description": "The version of the license.",
@@ -145,9 +186,11 @@
     "HomeRegion",
     "Validity",
     "ConsumptionConfiguration",
-    "Entitlements"
+    "Entitlements",
+    "Beneficiary",
+    "ProductSKU"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-licensemanager.git",
   "typeName": "AWS::LicenseManager::License",
-  "writeOnlyProperties": ["/properties/Status"]
+  "writeOnlyProperties": ["/properties/Status", "/properties/Tags"]
 }

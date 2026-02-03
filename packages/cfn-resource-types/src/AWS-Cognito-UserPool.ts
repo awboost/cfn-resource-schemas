@@ -140,6 +140,14 @@ export type EmailConfiguration = {
   SourceArn?: string;
 };
 /**
+ * Type definition for `AWS::Cognito::UserPool.InboundFederation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-inboundfederation.html}
+ */
+export type InboundFederation = {
+  LambdaArn?: string;
+  LambdaVersion?: string;
+};
+/**
  * Type definition for `AWS::Cognito::UserPool.InviteMessageTemplate`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-invitemessagetemplate.html}
  */
@@ -158,6 +166,7 @@ export type LambdaConfig = {
   CustomMessage?: string;
   CustomSMSSender?: CustomSMSSender;
   DefineAuthChallenge?: string;
+  InboundFederation?: InboundFederation;
   KMSKeyID?: string;
   PostAuthentication?: string;
   PostConfirmation?: string;

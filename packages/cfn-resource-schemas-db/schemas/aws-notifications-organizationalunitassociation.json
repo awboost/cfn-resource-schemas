@@ -1,5 +1,5 @@
 {
-  "$hash": "66ce17306a26795d839a006280d442d3df7a51ff",
+  "$hash": "0cfed060c1b68c51d77f24f877c846f767e5ff06",
   "$id": "aws-notifications-organizationalunitassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -25,7 +25,7 @@
       "handlerSchema": {
         "properties": {
           "NotificationConfigurationArn": {
-            "pattern": "^arn:aws:notifications::[0-9]{12}:configuration\\/[a-z0-9]{27}$",
+            "pattern": "^arn:[a-z-]{3,10}:notifications::[0-9]{12}:configuration/[a-z0-9]{27}$",
             "type": "string"
           }
         },
@@ -42,7 +42,7 @@
   "properties": {
     "NotificationConfigurationArn": {
       "description": "ARN identifier of the NotificationConfiguration.\nExample: arn:aws:notifications::123456789012:configuration/a01jes88qxwkbj05xv9c967pgm1",
-      "pattern": "^arn:aws:notifications::[0-9]{12}:configuration\\/[a-z0-9]{27}$",
+      "pattern": "^arn:[a-z-]{3,10}:notifications::[0-9]{12}:configuration/[a-z0-9]{27}$",
       "type": "string"
     },
     "OrganizationalUnitId": {
