@@ -31,7 +31,7 @@ export type LambdaCodeSigningConfigProperties = {
 export type LambdaCodeSigningConfigAttributes = {
   /**
    * A unique Arn for CodeSigningConfig resource
-   * @pattern `arn:(aws[a-zA-Z-]*)?:lambda:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\d{1}:\d{12}:code-signing-config:csc-[a-z0-9]{17}`
+   * @pattern `arn:(aws[a-zA-Z-]*)?:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:code-signing-config:csc-[a-z0-9]{17}`
    */
   CodeSigningConfigArn: string;
   /**

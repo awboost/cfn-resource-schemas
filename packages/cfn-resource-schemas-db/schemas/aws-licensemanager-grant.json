@@ -1,5 +1,5 @@
 {
-  "$hash": "15b013abf00d7eabe1d0f3568aab32fbe9b29edd",
+  "$hash": "4fbf28e6cea9eb0b55309e27cc6702c5caf8b513",
   "$id": "aws-licensemanager-grant.json",
   "additionalProperties": false,
   "definitions": {
@@ -22,11 +22,16 @@
         "license-manager:CreateGrant",
         "license-manager:CreateGrantVersion",
         "license-manager:GetGrant",
-        "license-manager:TagResource"
+        "license-manager:TagResource",
+        "license-manager:ListTagsForResource"
       ]
     },
     "delete": {
-      "permissions": ["license-manager:DeleteGrant", "license-manager:GetGrant"]
+      "permissions": [
+        "license-manager:DeleteGrant",
+        "license-manager:GetGrant",
+        "license-manager:ListTagsForResource"
+      ]
     },
     "list": { "permissions": ["license-manager:ListDistributedGrants"] },
     "read": {
@@ -40,7 +45,8 @@
         "license-manager:CreateGrantVersion",
         "license-manager:GetGrant",
         "license-manager:TagResource",
-        "license-manager:UntagResource"
+        "license-manager:UntagResource",
+        "license-manager:ListTagsForResource"
       ]
     }
   },
@@ -85,11 +91,22 @@
   "readOnlyProperties": ["/properties/GrantArn", "/properties/Version"],
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "license-manager:TagResource",
+      "license-manager:UntagResource",
+      "license-manager:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::LicenseManager::Grant",
   "writeOnlyProperties": [
     "/properties/Principals",
     "/properties/AllowedOperations",
-    "/properties/Status",
-    "/properties/Tags"
+    "/properties/Status"
   ]
 }

@@ -6,6 +6,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SESTemplateProperties = {
   /**
+   * The tags (keys and values) associated with the email template.
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
+  /**
    * The content of the email, composed of a subject line, an HTML part, and a text-only part
    */
   Template?: Template;
@@ -16,6 +22,22 @@ export type SESTemplateProperties = {
  */
 export type SESTemplateAttributes = {
   Id: string;
+};
+/**
+ * Type definition for `AWS::SES::Template.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-template-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::SES::Template.Template`.

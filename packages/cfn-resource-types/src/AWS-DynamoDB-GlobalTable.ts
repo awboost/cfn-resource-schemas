@@ -8,9 +8,11 @@ export type DynamoDBGlobalTableProperties = {
   /**
    * @minLength `1`
    */
-  AttributeDefinitions: AttributeDefinition[];
+  AttributeDefinitions?: AttributeDefinition[];
   BillingMode?: string;
   GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
+  GlobalTableReadOnDemandThroughputSettings?: ReadOnDemandThroughputSettings;
+  GlobalTableReadProvisionedThroughputSettings?: GlobalReadProvisionedThroughputSettings;
   /**
    * @minLength `1`
    * @maxLength `1`
@@ -20,7 +22,7 @@ export type DynamoDBGlobalTableProperties = {
    * @minLength `1`
    * @maxLength `2`
    */
-  KeySchema: KeySchema[];
+  KeySchema?: KeySchema[];
   LocalSecondaryIndexes?: LocalSecondaryIndex[];
   MultiRegionConsistency?: "EVENTUAL" | "STRONG";
   /**
@@ -82,6 +84,16 @@ export type CapacityAutoScalingSettings = {
 export type ContributorInsightsSpecification = {
   Enabled: boolean;
   Mode?: "ACCESSED_AND_THROTTLED_KEYS" | "THROTTLED_KEYS";
+};
+/**
+ * Type definition for `AWS::DynamoDB::GlobalTable.GlobalReadProvisionedThroughputSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalreadprovisionedthroughputsettings.html}
+ */
+export type GlobalReadProvisionedThroughputSettings = {
+  /**
+   * @min `1`
+   */
+  ReadCapacityUnits?: number;
 };
 /**
  * Type definition for `AWS::DynamoDB::GlobalTable.GlobalSecondaryIndex`.

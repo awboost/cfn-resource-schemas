@@ -9,7 +9,6 @@ export type NotificationsNotificationHubProperties = {
    * Region that NotificationHub is present in.
    * @minLength `2`
    * @maxLength `25`
-   * @pattern `^([a-z]{1,2})-([a-z]{1,15}-)+([0-9])$`
    */
   Region: string;
 };

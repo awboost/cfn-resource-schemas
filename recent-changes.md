@@ -1,40 +1,27 @@
-- updated `AWS::Cognito::UserPool`
-  - added definition `InboundFederation`
-  - updated definition `LambdaConfig`
-- updated `AWS::EC2::NatGateway`
-  - updated definition `AvailabilityZoneAddress`
-  - updated property `AvailabilityMode`
-  - updated property `AvailabilityZoneAddresses`
+- updated `AWS::DynamoDB::GlobalTable`
+  - added `conditionalCreateOnlyProperties`
+  - added definition `GlobalReadProvisionedThroughputSettings`
+  - added property `GlobalTableReadOnDemandThroughputSettings`
+  - added property `GlobalTableReadProvisionedThroughputSettings`
+  - updated `createOnlyProperties`
+  - updated `required`
+- updated `AWS::Lambda::CodeSigningConfig`
+  - updated definition `AllowedPublishers`
+  - updated property `CodeSigningConfigArn`
 - updated `AWS::LicenseManager::Grant`
-  - added definition `Tag`
-  - added property `Tags`
+  - added `tagging`
   - updated `writeOnlyProperties`
   - updated handler permissions
 - updated `AWS::LicenseManager::License`
+  - added `tagging`
+  - removed `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Notifications::NotificationHub`
+  - updated definition `Region`
+- updated `AWS::PCS::Cluster`
+  - updated handler permissions
+- updated `AWS::SES::Template`
   - added definition `Tag`
   - added property `Tags`
-  - updated `required`
-  - updated `writeOnlyProperties`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::Notifications::ChannelAssociation`
-  - updated handler permissions
-  - updated property `Arn`
-  - updated property `NotificationConfigurationArn`
-- updated `AWS::Notifications::EventRule`
-  - updated handler permissions
-  - updated property `Arn`
-  - updated property `ManagedRules`
-  - updated property `NotificationConfigurationArn`
-  - updated property `Regions`
-- updated `AWS::Notifications::ManagedNotificationAccountContactAssociation`
-  - updated definition `ManagedNotificationConfigurationArn`
-  - updated handler permissions
-- updated `AWS::Notifications::ManagedNotificationAdditionalChannelAssociation`
-  - updated property `ChannelArn`
-  - updated property `ManagedNotificationConfigurationArn`
-- updated `AWS::Notifications::NotificationConfiguration`
-  - updated handler permissions
-  - updated property `Arn`
-- updated `AWS::Notifications::OrganizationalUnitAssociation`
-  - updated handler permissions
-  - updated property `NotificationConfigurationArn`

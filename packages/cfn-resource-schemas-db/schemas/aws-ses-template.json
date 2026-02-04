@@ -1,9 +1,18 @@
 {
-  "$hash": "fd4e0921612ed647a41e6b56bdd166e47dd28b49",
+  "$hash": "763c2a5c2a70f9da81a1bf0d7438a6ad354c5396",
   "$id": "aws-ses-template.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Template/TemplateName"],
   "definitions": {
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "maxLength": 128, "minLength": 1, "type": "string" },
+        "Value": { "maxLength": 256, "minLength": 0, "type": "string" }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
     "Template": {
       "additionalProperties": false,
       "description": "The content of the email, composed of a subject line, an HTML part, and a text-only part",
@@ -39,30 +48,58 @@
         "ses:CreateEmailTemplate",
         "ses:GetEmailTemplate",
         "ses:CreateTemplate",
-        "ses:GetTemplate"
+        "ses:GetTemplate",
+        "ses:TagResource"
       ]
     },
     "delete": {
       "permissions": ["ses:DeleteEmailTemplate", "ses:DeleteTemplate"]
     },
     "list": { "permissions": ["ses:ListEmailTemplates", "ses:ListTemplates"] },
-    "read": { "permissions": ["ses:GetEmailTemplate", "ses:GetTemplate"] },
+    "read": {
+      "permissions": [
+        "ses:GetEmailTemplate",
+        "ses:GetTemplate",
+        "ses:ListTagsForResource"
+      ]
+    },
     "update": {
       "permissions": [
         "ses:GetEmailTemplate",
         "ses:UpdateEmailTemplate",
         "ses:GetTemplate",
-        "ses:UpdateTemplate"
+        "ses:UpdateTemplate",
+        "ses:TagResource",
+        "ses:UntagResource"
       ]
     }
   },
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
     "Id": { "type": "string" },
+    "Tags": {
+      "description": "The tags (keys and values) associated with the email template.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
     "Template": { "$ref": "#/definitions/Template" }
   },
   "readOnlyProperties": ["/properties/Id"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ses.git",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "ses:TagResource",
+      "ses:UntagResource",
+      "ses:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::SES::Template"
 }

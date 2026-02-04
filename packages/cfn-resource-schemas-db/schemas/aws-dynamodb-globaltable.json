@@ -1,13 +1,13 @@
 {
-  "$hash": "e691d6bfc2f92c54e7b67d76fe0ccb6f9a598f1e",
+  "$hash": "8621ce3a0d99879faf148a149bdfb826c83d5e7f",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
-  "createOnlyProperties": [
+  "conditionalCreateOnlyProperties": [
     "/properties/LocalSecondaryIndexes",
-    "/properties/TableName",
     "/properties/KeySchema"
   ],
+  "createOnlyProperties": ["/properties/TableName"],
   "definitions": {
     "AttributeDefinition": {
       "additionalProperties": false,
@@ -45,6 +45,13 @@
         }
       },
       "required": ["Enabled"],
+      "type": "object"
+    },
+    "GlobalReadProvisionedThroughputSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "ReadCapacityUnits": { "minimum": 1, "type": "integer" }
+      },
       "type": "object"
     },
     "GlobalSecondaryIndex": {
@@ -469,6 +476,12 @@
       "type": "array",
       "uniqueItems": true
     },
+    "GlobalTableReadOnDemandThroughputSettings": {
+      "$ref": "#/definitions/ReadOnDemandThroughputSettings"
+    },
+    "GlobalTableReadProvisionedThroughputSettings": {
+      "$ref": "#/definitions/GlobalReadProvisionedThroughputSettings"
+    },
     "GlobalTableWitnesses": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/GlobalTableWitness" },
@@ -525,7 +538,7 @@
     "/properties/StreamArn",
     "/properties/TableId"
   ],
-  "required": ["KeySchema", "AttributeDefinitions", "Replicas"],
+  "required": ["Replicas"],
   "typeName": "AWS::DynamoDB::GlobalTable",
   "writeOnlyProperties": [
     "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity",

@@ -1,5 +1,5 @@
 {
-  "$hash": "fed8c8ccc69fde6f9e485e1db28b89d9761ab046",
+  "$hash": "03387d16285b06cd608a480a8056dcf036f9e450",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -184,11 +184,11 @@
         "pcs:ListTagsForResource",
         "pcs:TagResource"
       ],
-      "timeoutInMinutes": 60
+      "timeoutInMinutes": 130
     },
     "delete": {
       "permissions": ["pcs:DeleteCluster", "pcs:GetCluster"],
-      "timeoutInMinutes": 60
+      "timeoutInMinutes": 130
     },
     "list": { "permissions": ["pcs:ListClusters"] },
     "read": { "permissions": ["pcs:GetCluster", "pcs:ListTagsForResource"] },
@@ -200,7 +200,7 @@
         "pcs:TagResource",
         "pcs:UntagResource"
       ],
-      "timeoutInMinutes": 60
+      "timeoutInMinutes": 130
     }
   },
   "primaryIdentifier": ["/properties/Arn"],

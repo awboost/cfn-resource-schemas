@@ -1,5 +1,5 @@
 {
-  "$hash": "ef6832a80433602e692431f57f91f9c233e6b193",
+  "$hash": "905cdaa59174b1fa0632ede1e0be2236e80558c7",
   "$id": "aws-notifications-notificationhub.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Region"],
@@ -23,7 +23,6 @@
       "description": "Region that NotificationHub is present in.",
       "maxLength": 25,
       "minLength": 2,
-      "pattern": "^([a-z]{1,2})-([a-z]{1,15}-)+([0-9])$",
       "type": "string"
     }
   },
