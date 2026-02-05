@@ -91,6 +91,7 @@ export type AdvancedSecurityOptionsInput = {
  */
 export type AIMLOptions = {
   S3VectorsEngine?: S3VectorsEngine;
+  ServerlessVectorAcceleration?: ServerlessVectorAcceleration;
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.ClusterConfig`.
@@ -296,6 +297,16 @@ export type SAMLOptions = {
   RolesKey?: string;
   SessionTimeoutMinutes?: number;
   SubjectKey?: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.ServerlessVectorAcceleration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-serverlessvectoracceleration.html}
+ */
+export type ServerlessVectorAcceleration = {
+  /**
+   * Whether to enable serverless vector acceleration.
+   */
+  Enabled?: boolean;
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.ServiceSoftwareOptions`.

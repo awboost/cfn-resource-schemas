@@ -31,7 +31,7 @@ export type FMSPolicyProperties = {
   ResourceSetIds?: string[];
   ResourceTagLogicalOperator?: "AND" | "OR";
   /**
-   * @maxLength `8`
+   * @maxLength `50`
    */
   ResourceTags?: ResourceTag[];
   /**

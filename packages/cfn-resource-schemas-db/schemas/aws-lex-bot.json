@@ -1,5 +1,5 @@
 {
-  "$hash": "b626b0acf3fda611ca4b363d8a097695bb97846d",
+  "$hash": "fd8dad7a1ec9ac1f19c40eb6d9c18e9754eaa81c",
   "$id": "aws-lex-bot.json",
   "additionalProperties": false,
   "definitions": {
@@ -204,6 +204,9 @@
         "SpeechDetectionSensitivity": {
           "$ref": "#/definitions/SpeechDetectionSensitivity"
         },
+        "SpeechRecognitionSettings": {
+          "$ref": "#/definitions/SpeechRecognitionSettings"
+        },
         "UnifiedSpeechSettings": {
           "$ref": "#/definitions/UnifiedSpeechSettings"
         },
@@ -376,6 +379,23 @@
       "additionalProperties": false,
       "properties": { "ChildDirected": { "type": "boolean" } },
       "required": ["ChildDirected"],
+      "type": "object"
+    },
+    "DeepgramModelId": {
+      "maxLength": 32,
+      "minLength": 4,
+      "pattern": "[A-Za-z0-9-_]+",
+      "type": "string"
+    },
+    "DeepgramSpeechModelConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "ApiTokenSecretArn": {
+          "$ref": "#/definitions/SecretsManagerSecretArn"
+        },
+        "ModelId": { "$ref": "#/definitions/DeepgramModelId" }
+      },
+      "required": ["ApiTokenSecretArn"],
       "type": "object"
     },
     "DefaultConditionalBranch": {
@@ -1226,6 +1246,12 @@
       "required": ["Value"],
       "type": "object"
     },
+    "SecretsManagerSecretArn": {
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "^arn:aws[A-Za-z-]*:secretsmanager:[a-z0-9-]{1,20}:[0-9]{12}:secret:[A-Za-z0-9/_+=.@-]{1,512}-[A-Za-z0-9]{6}$",
+      "type": "string"
+    },
     "SessionAttribute": {
       "additionalProperties": false,
       "properties": {
@@ -1449,6 +1475,27 @@
     "SpeechDetectionSensitivity": {
       "enum": ["Default", "HighNoiseTolerance", "MaximumNoiseTolerance"],
       "type": "string"
+    },
+    "SpeechModelConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "DeepgramConfig": { "$ref": "#/definitions/DeepgramSpeechModelConfig" }
+      },
+      "type": "object"
+    },
+    "SpeechModelPreference": {
+      "enum": ["Standard", "Neural", "Deepgram"],
+      "type": "string"
+    },
+    "SpeechRecognitionSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "SpeechModelConfig": { "$ref": "#/definitions/SpeechModelConfig" },
+        "SpeechModelPreference": {
+          "$ref": "#/definitions/SpeechModelPreference"
+        }
+      },
+      "type": "object"
     },
     "StillWaitingResponseFrequency": {
       "maximum": 300,

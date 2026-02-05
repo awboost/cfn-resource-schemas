@@ -11,8 +11,7 @@ export type DynamoDBGlobalTableProperties = {
   AttributeDefinitions?: AttributeDefinition[];
   BillingMode?: string;
   GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
-  GlobalTableReadOnDemandThroughputSettings?: ReadOnDemandThroughputSettings;
-  GlobalTableReadProvisionedThroughputSettings?: GlobalReadProvisionedThroughputSettings;
+  GlobalTableSourceArn?: string;
   /**
    * @minLength `1`
    * @maxLength `1`
@@ -25,6 +24,8 @@ export type DynamoDBGlobalTableProperties = {
   KeySchema?: KeySchema[];
   LocalSecondaryIndexes?: LocalSecondaryIndex[];
   MultiRegionConsistency?: "EVENTUAL" | "STRONG";
+  ReadOnDemandThroughputSettings?: ReadOnDemandThroughputSettings;
+  ReadProvisionedThroughputSettings?: GlobalReadProvisionedThroughputSettings;
   /**
    * @minLength `1`
    */
@@ -111,6 +112,8 @@ export type GlobalSecondaryIndex = {
    */
   KeySchema: KeySchema[];
   Projection: Projection;
+  ReadOnDemandThroughputSettings?: ReadOnDemandThroughputSettings;
+  ReadProvisionedThroughputSettings?: GlobalReadProvisionedThroughputSettings;
   WarmThroughput?: WarmThroughput;
   WriteOnDemandThroughputSettings?: WriteOnDemandThroughputSettings;
   WriteProvisionedThroughputSettings?: WriteProvisionedThroughputSettings;
@@ -224,6 +227,7 @@ export type ReplicaSpecification = {
   ContributorInsightsSpecification?: ContributorInsightsSpecification;
   DeletionProtectionEnabled?: boolean;
   GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexSpecification[];
+  GlobalTableSettingsReplicationMode?: "ENABLED" | "DISABLED";
   KinesisStreamSpecification?: KinesisStreamSpecification;
   PointInTimeRecoverySpecification?: PointInTimeRecoverySpecification;
   ReadOnDemandThroughputSettings?: ReadOnDemandThroughputSettings;

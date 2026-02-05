@@ -1,27 +1,31 @@
+- updated `AWS::Connect::Instance`
+  - added definition `MessageStreaming`
+  - updated definition `Attributes`
+- updated `AWS::Connect::IntegrationAssociation`
+  - updated definition `IntegrationAssociationId`
+  - updated definition `IntegrationType`
 - updated `AWS::DynamoDB::GlobalTable`
-  - added `conditionalCreateOnlyProperties`
-  - added definition `GlobalReadProvisionedThroughputSettings`
-  - added property `GlobalTableReadOnDemandThroughputSettings`
-  - added property `GlobalTableReadProvisionedThroughputSettings`
-  - updated `createOnlyProperties`
-  - updated `required`
-- updated `AWS::Lambda::CodeSigningConfig`
-  - updated definition `AllowedPublishers`
-  - updated property `CodeSigningConfigArn`
-- updated `AWS::LicenseManager::Grant`
-  - added `tagging`
+  - added property `GlobalTableSourceArn`
+  - added property `ReadOnDemandThroughputSettings`
+  - added property `ReadProvisionedThroughputSettings`
+  - removed property `GlobalTableReadOnDemandThroughputSettings`
+  - removed property `GlobalTableReadProvisionedThroughputSettings`
+  - updated `conditionalCreateOnlyProperties`
   - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::LicenseManager::License`
-  - added `tagging`
-  - removed `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::Notifications::NotificationHub`
-  - updated definition `Region`
-- updated `AWS::PCS::Cluster`
-  - updated handler permissions
-- updated `AWS::SES::Template`
-  - added definition `Tag`
-  - added property `Tags`
+  - updated definition `GlobalSecondaryIndex`
+  - updated definition `ReplicaSpecification`
+- updated `AWS::ElasticLoadBalancingV2::TrustStore`
   - updated `tagging`
-  - updated handler permissions
+- updated `AWS::FMS::Policy`
+  - updated property `ResourceTags`
+- updated `AWS::Lex::Bot`
+  - added definition `DeepgramModelId`
+  - added definition `DeepgramSpeechModelConfig`
+  - added definition `SecretsManagerSecretArn`
+  - added definition `SpeechModelConfig`
+  - added definition `SpeechModelPreference`
+  - added definition `SpeechRecognitionSettings`
+  - updated definition `BotLocale`
+- updated `AWS::OpenSearchService::Domain`
+  - added definition `ServerlessVectorAcceleration`
+  - updated definition `AIMLOptions`

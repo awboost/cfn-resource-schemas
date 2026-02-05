@@ -97,6 +97,10 @@ export type Attributes = {
    */
   InboundCalls: boolean;
   /**
+   * Boolean flag which enables MESSAGE_STREAMING on an instance.
+   */
+  MessageStreaming?: boolean;
+  /**
    * Boolean flag which enables MULTI_PARTY_CHAT_CONFERENCE on an instance.
    */
   MultiPartyChatConference?: boolean;

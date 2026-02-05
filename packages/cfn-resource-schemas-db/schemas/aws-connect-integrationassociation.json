@@ -1,5 +1,5 @@
 {
-  "$hash": "2c375bf41d52f68b2422b88f7dc8e9fb4040e668",
+  "$hash": "24be15b9fed6b8f39b04b994dddf62dbecac2021",
   "$id": "aws-connect-integrationassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -23,12 +23,11 @@
     },
     "IntegrationAssociationId": {
       "description": "Identifier of the association with Connect Instance",
-      "pattern": "^[a-zA-Z]{1}(?:-?[a-zA-Z0-9])*$",
       "type": "string"
     },
     "IntegrationType": {
       "description": "Specifies the integration type to be associated with the instance",
-      "enum": ["LEX_BOT", "LAMBDA_FUNCTION", "APPLICATION"],
+      "enum": ["LEX_BOT", "LAMBDA_FUNCTION", "APPLICATION", "CASES_DOMAIN"],
       "type": "string"
     }
   },

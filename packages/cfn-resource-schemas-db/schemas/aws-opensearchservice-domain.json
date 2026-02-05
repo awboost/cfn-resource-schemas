@@ -1,5 +1,5 @@
 {
-  "$hash": "557a0abd1108b3e7e448af4c5df4e08297f8104f",
+  "$hash": "16cdc77476191f592208fef8d956daa101df539e",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -11,7 +11,10 @@
     "AIMLOptions": {
       "additionalProperties": false,
       "properties": {
-        "S3VectorsEngine": { "$ref": "#/definitions/S3VectorsEngine" }
+        "S3VectorsEngine": { "$ref": "#/definitions/S3VectorsEngine" },
+        "ServerlessVectorAcceleration": {
+          "$ref": "#/definitions/ServerlessVectorAcceleration"
+        }
       },
       "type": "object"
     },
@@ -241,6 +244,16 @@
         "RolesKey": { "type": "string" },
         "SessionTimeoutMinutes": { "type": "integer" },
         "SubjectKey": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "ServerlessVectorAcceleration": {
+      "additionalProperties": false,
+      "properties": {
+        "Enabled": {
+          "description": "Whether to enable serverless vector acceleration.",
+          "type": "boolean"
+        }
       },
       "type": "object"
     },

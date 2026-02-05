@@ -1,5 +1,5 @@
 {
-  "$hash": "5e63dd62046b4e42ffede05abdd525735cefa950",
+  "$hash": "086b405f8aa062c34c88e140cff1551a58ef36dd",
   "$id": "aws-fms-policy.json",
   "additionalProperties": false,
   "definitions": {
@@ -351,7 +351,7 @@
     "ResourceTags": {
       "insertionOrder": true,
       "items": { "$ref": "#/definitions/ResourceTag" },
-      "maxItems": 8,
+      "maxItems": 50,
       "type": "array"
     },
     "ResourceType": { "$ref": "#/definitions/ResourceType" },

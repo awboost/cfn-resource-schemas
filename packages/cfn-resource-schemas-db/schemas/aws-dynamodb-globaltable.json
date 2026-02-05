@@ -1,10 +1,11 @@
 {
-  "$hash": "8621ce3a0d99879faf148a149bdfb826c83d5e7f",
+  "$hash": "0677a23654a81e86a02646b6a0c85afd11916256",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
     "/properties/LocalSecondaryIndexes",
+    "/properties/GlobalTableSourceArn",
     "/properties/KeySchema"
   ],
   "createOnlyProperties": ["/properties/TableName"],
@@ -66,6 +67,12 @@
           "uniqueItems": true
         },
         "Projection": { "$ref": "#/definitions/Projection" },
+        "ReadOnDemandThroughputSettings": {
+          "$ref": "#/definitions/ReadOnDemandThroughputSettings"
+        },
+        "ReadProvisionedThroughputSettings": {
+          "$ref": "#/definitions/GlobalReadProvisionedThroughputSettings"
+        },
         "WarmThroughput": { "$ref": "#/definitions/WarmThroughput" },
         "WriteOnDemandThroughputSettings": {
           "$ref": "#/definitions/WriteOnDemandThroughputSettings"
@@ -225,6 +232,10 @@
           },
           "type": "array",
           "uniqueItems": true
+        },
+        "GlobalTableSettingsReplicationMode": {
+          "enum": ["ENABLED", "DISABLED"],
+          "type": "string"
         },
         "KinesisStreamSpecification": {
           "$ref": "#/definitions/KinesisStreamSpecification"
@@ -476,12 +487,7 @@
       "type": "array",
       "uniqueItems": true
     },
-    "GlobalTableReadOnDemandThroughputSettings": {
-      "$ref": "#/definitions/ReadOnDemandThroughputSettings"
-    },
-    "GlobalTableReadProvisionedThroughputSettings": {
-      "$ref": "#/definitions/GlobalReadProvisionedThroughputSettings"
-    },
+    "GlobalTableSourceArn": { "type": "string" },
     "GlobalTableWitnesses": {
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/GlobalTableWitness" },
@@ -506,6 +512,12 @@
     "MultiRegionConsistency": {
       "enum": ["EVENTUAL", "STRONG"],
       "type": "string"
+    },
+    "ReadOnDemandThroughputSettings": {
+      "$ref": "#/definitions/ReadOnDemandThroughputSettings"
+    },
+    "ReadProvisionedThroughputSettings": {
+      "$ref": "#/definitions/GlobalReadProvisionedThroughputSettings"
     },
     "Replicas": {
       "insertionOrder": false,
@@ -544,6 +556,7 @@
     "/properties/Replicas/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity",
     "/properties/Replicas/*/GlobalSecondaryIndexes/*/ReadProvisionedThroughputSettings/ReadCapacityAutoScalingSettings/SeedCapacity",
     "/properties/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity",
-    "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity"
+    "/properties/GlobalSecondaryIndexes/*/WriteProvisionedThroughputSettings/WriteCapacityAutoScalingSettings/SeedCapacity",
+    "/properties/GlobalTableSourceArn"
   ]
 }

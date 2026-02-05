@@ -229,6 +229,7 @@ export type BotLocale = {
    */
   SlotTypes?: SlotType[];
   SpeechDetectionSensitivity?: SpeechDetectionSensitivity;
+  SpeechRecognitionSettings?: SpeechRecognitionSettings;
   UnifiedSpeechSettings?: UnifiedSpeechSettings;
   VoiceSettings?: VoiceSettings;
 };
@@ -376,6 +377,24 @@ export type CustomVocabularyItem = {
    * @max `3`
    */
   Weight?: number;
+};
+/**
+ * Type definition for `AWS::Lex::Bot.DeepgramSpeechModelConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-deepgramspeechmodelconfig.html}
+ */
+export type DeepgramSpeechModelConfig = {
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:aws[A-Za-z-]*:secretsmanager:[a-z0-9-]{1,20}:[0-9]{12}:secret:[A-Za-z0-9/_+=.@-]{1,512}-[A-Za-z0-9]{6}$`
+   */
+  ApiTokenSecretArn: string;
+  /**
+   * @minLength `4`
+   * @maxLength `32`
+   * @pattern `[A-Za-z0-9-_]+`
+   */
+  ModelId?: string;
 };
 /**
  * Type definition for `AWS::Lex::Bot.DefaultConditionalBranch`.
@@ -1322,6 +1341,26 @@ export type SpeechDetectionSensitivity =
   | "Default"
   | "HighNoiseTolerance"
   | "MaximumNoiseTolerance";
+/**
+ * Type definition for `AWS::Lex::Bot.SpeechModelConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-speechmodelconfig.html}
+ */
+export type SpeechModelConfig = {
+  DeepgramConfig?: DeepgramSpeechModelConfig;
+};
+/**
+ * Type definition for `AWS::Lex::Bot.SpeechModelPreference`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-speechmodelpreference.html}
+ */
+export type SpeechModelPreference = "Standard" | "Neural" | "Deepgram";
+/**
+ * Type definition for `AWS::Lex::Bot.SpeechRecognitionSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-speechrecognitionsettings.html}
+ */
+export type SpeechRecognitionSettings = {
+  SpeechModelConfig?: SpeechModelConfig;
+  SpeechModelPreference?: SpeechModelPreference;
+};
 /**
  * Type definition for `AWS::Lex::Bot.SSMLMessage`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-ssmlmessage.html}

@@ -1,5 +1,5 @@
 {
-  "$hash": "1bc6f05706e7325059b843d3aa638dfcc5647e5a",
+  "$hash": "ebbc4dc6eecfb518a142a2dfffd4bddba6ff1348",
   "$id": "aws-elasticloadbalancingv2-truststore.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -115,7 +115,7 @@
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-elasticloadbalancingv2",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "elasticloadbalancing:AddTags",
       "elasticloadbalancing:DescribeTags",
