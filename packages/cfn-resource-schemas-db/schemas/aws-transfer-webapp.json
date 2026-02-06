@@ -1,5 +1,5 @@
 {
-  "$hash": "46be7e897438dcd1be8517e9324f29f092852eb8",
+  "$hash": "982876e802ab71f30bc166b30d2958bffd5aab80",
   "$id": "aws-transfer-webapp.json",
   "additionalIdentifiers": [["/properties/WebAppId"]],
   "additionalProperties": false,
@@ -183,6 +183,7 @@
         "sso:UpdateApplication",
         "sso:DescribeApplication",
         "sso:ListApplications",
+        "ec2:DescribeVpcEndpoints",
         "ec2:ModifyVpcEndpoint"
       ]
     }

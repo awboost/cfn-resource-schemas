@@ -1,5 +1,5 @@
 {
-  "$hash": "f71f77fe8c5843bb1938c9057d803f285ae5968b",
+  "$hash": "64db067488522ae5cce90bd8d0e1359e17f46cd2",
   "$id": "aws-aiops-investigationgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/RetentionInDays"],
@@ -71,6 +71,7 @@
         "aiops:GetInvestigationGroup",
         "aiops:GetInvestigationGroupPolicy",
         "aiops:PutInvestigationGroupPolicy",
+        "aiops:ListInvestigationGroups",
         "aiops:TagResource",
         "aiops:ListTagsForResource",
         "iam:PassRole",
@@ -103,6 +104,7 @@
       "permissions": [
         "aiops:GetInvestigationGroup",
         "aiops:GetInvestigationGroupPolicy",
+        "aiops:ListInvestigationGroups",
         "aiops:ListTagsForResource",
         "kms:DescribeKey",
         "kms:ListAliases",
@@ -114,6 +116,7 @@
       "permissions": [
         "aiops:GetInvestigationGroup",
         "aiops:UpdateInvestigationGroup",
+        "aiops:ListInvestigationGroups",
         "aiops:GetInvestigationGroupPolicy",
         "aiops:PutInvestigationGroupPolicy",
         "aiops:DeleteInvestigationGroupPolicy",

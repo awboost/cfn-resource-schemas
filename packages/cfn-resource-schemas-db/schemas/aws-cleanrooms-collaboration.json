@@ -1,5 +1,5 @@
 {
-  "$hash": "9997746e6288a4e71976e452cbf9d66e1ac2568a",
+  "$hash": "fe470caa9d0c5128165437aec623fa129dbb6cb4",
   "$id": "aws-cleanrooms-collaboration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -293,6 +293,7 @@
       "pattern": "^(?!\\s*$)[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t\\r\\n]*$",
       "type": "string"
     },
+    "IsMetricsEnabled": { "type": "boolean" },
     "JobLogStatus": { "$ref": "#/definitions/CollaborationJobLogStatus" },
     "Members": {
       "insertionOrder": false,

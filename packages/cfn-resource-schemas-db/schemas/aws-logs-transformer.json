@@ -1,5 +1,5 @@
 {
-  "$hash": "c86324cc4df771d51e941220c6e6c0267bf8eca6",
+  "$hash": "fdc8a9dbaef463fd8b82592422520d0aa61d35df",
   "$id": "aws-logs-transformer.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupIdentifier"],
@@ -374,9 +374,9 @@
     "SubstituteStringEntry": {
       "additionalProperties": false,
       "properties": {
-        "From": { "$ref": "#/definitions/NonEmptyAndMaxLengthString" },
+        "From": { "$ref": "#/definitions/MaxLengthString" },
         "Source": { "$ref": "#/definitions/NonEmptyString" },
-        "To": { "$ref": "#/definitions/NonEmptyAndMaxLengthString" }
+        "To": { "$ref": "#/definitions/MaxLengthString" }
       },
       "required": ["Source", "From", "To"],
       "type": "object"

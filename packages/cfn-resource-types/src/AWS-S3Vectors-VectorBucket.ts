@@ -10,6 +10,10 @@ export type S3VectorsVectorBucketProperties = {
    */
   EncryptionConfiguration?: EncryptionConfiguration;
   /**
+   * User tags (key-value pairs) to associate with the vector bucket.
+   */
+  Tags?: Tag[];
+  /**
    * The name of the vector bucket.
    * @minLength `3`
    * @maxLength `63`
@@ -47,6 +51,23 @@ export type EncryptionConfiguration = {
    * The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically AES256.
    */
   SseType?: "AES256" | "aws:kms";
+};
+/**
+ * Type definition for `AWS::S3Vectors::VectorBucket.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3vectors-vectorbucket-tag.html}
+ */
+export type Tag = {
+  /**
+   * Tag key must be between 1 to 128 characters in length. Tag key cannot start with 'aws:' and can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * Tag value must be between 0 to 256 characters in length. Tag value can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::S3Vectors::VectorBucket

@@ -373,7 +373,6 @@ export type SplitStringEntry = {
 export type SubstituteStringEntry = {
   /**
    * @maxLength `128`
-   * @pattern `^.*[a-zA-Z0-9]+.*$`
    */
   From: string;
   /**
@@ -382,7 +381,6 @@ export type SubstituteStringEntry = {
   Source: string;
   /**
    * @maxLength `128`
-   * @pattern `^.*[a-zA-Z0-9]+.*$`
    */
   To: string;
 };

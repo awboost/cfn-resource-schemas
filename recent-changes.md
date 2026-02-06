@@ -1,31 +1,41 @@
-- updated `AWS::Connect::Instance`
-  - added definition `MessageStreaming`
-  - updated definition `Attributes`
-- updated `AWS::Connect::IntegrationAssociation`
-  - updated definition `IntegrationAssociationId`
-  - updated definition `IntegrationType`
-- updated `AWS::DynamoDB::GlobalTable`
-  - added property `GlobalTableSourceArn`
-  - added property `ReadOnDemandThroughputSettings`
-  - added property `ReadProvisionedThroughputSettings`
-  - removed property `GlobalTableReadOnDemandThroughputSettings`
-  - removed property `GlobalTableReadProvisionedThroughputSettings`
-  - updated `conditionalCreateOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated definition `GlobalSecondaryIndex`
-  - updated definition `ReplicaSpecification`
-- updated `AWS::ElasticLoadBalancingV2::TrustStore`
+- updated `AWS::AIOps::InvestigationGroup`
+  - updated handler permissions
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - added property `DeletionProtection`
+  - updated definition `RetentionTriggers`
+- updated `AWS::CleanRooms::Collaboration`
+  - added property `IsMetricsEnabled`
+- updated `AWS::CleanRooms::Membership`
+  - added property `IsMetricsEnabled`
+- updated `AWS::Connect::User`
+  - added definition `AfterContactWorkConfigPerChannel`
+  - added definition `AfterContactWorkConfig`
+  - added definition `AgentFirstCallbackAutoAccept`
+  - added definition `AutoAcceptConfig`
+  - added definition `Channel`
+  - added definition `PersistentConnectionConfig`
+  - added definition `PhoneNumberConfig`
+  - added definition `VoiceEnhancementConfig`
+  - added definition `VoiceEnhancementMode`
+  - added property `AfterContactWorkConfigs`
+  - added property `AutoAcceptConfigs`
+  - added property `PersistentConnectionConfigs`
+  - added property `PhoneNumberConfigs`
+  - added property `VoiceEnhancementConfigs`
+  - updated `required`
+  - updated definition `UserPhoneConfig`
+  - updated handler permissions
+- updated `AWS::Logs::Transformer`
+  - updated definition `SubstituteStringEntry`
+- updated `AWS::S3Vectors::Index`
+  - added definition `Tag`
+  - added property `Tags`
   - updated `tagging`
-- updated `AWS::FMS::Policy`
-  - updated property `ResourceTags`
-- updated `AWS::Lex::Bot`
-  - added definition `DeepgramModelId`
-  - added definition `DeepgramSpeechModelConfig`
-  - added definition `SecretsManagerSecretArn`
-  - added definition `SpeechModelConfig`
-  - added definition `SpeechModelPreference`
-  - added definition `SpeechRecognitionSettings`
-  - updated definition `BotLocale`
-- updated `AWS::OpenSearchService::Domain`
-  - added definition `ServerlessVectorAcceleration`
-  - updated definition `AIMLOptions`
+  - updated handler permissions
+- updated `AWS::S3Vectors::VectorBucket`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Transfer::WebApp`
+  - updated handler permissions

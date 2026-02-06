@@ -6,6 +6,14 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ConnectUserProperties = {
   /**
+   * After Contact Work configurations of a user.
+   */
+  AfterContactWorkConfigs?: AfterContactWorkConfigPerChannel[];
+  /**
+   * Auto-accept configurations of a user.
+   */
+  AutoAcceptConfigs?: AutoAcceptConfig[];
+  /**
    * The identifier of the user account in the directory used for identity management.
    */
   DirectoryUserId?: string;
@@ -29,9 +37,17 @@ export type ConnectUserProperties = {
    */
   Password?: string;
   /**
+   * Persistent Connection configurations of a user.
+   */
+  PersistentConnectionConfigs?: PersistentConnectionConfig[];
+  /**
    * The phone settings for the user.
    */
-  PhoneConfig: UserPhoneConfig;
+  PhoneConfig?: UserPhoneConfig;
+  /**
+   * Phone Number configurations of a user.
+   */
+  PhoneNumberConfigs?: PhoneNumberConfig[];
   /**
    * The identifier of the routing profile for the user.
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*routing-profile/[-a-zA-Z0-9]*$`
@@ -59,6 +75,10 @@ export type ConnectUserProperties = {
    * @pattern `[a-zA-Z0-9\_\-\.\@]+`
    */
   Username: string;
+  /**
+   * Voice Enhancement configurations of a user.
+   */
+  VoiceEnhancementConfigs?: VoiceEnhancementConfig[];
 };
 /**
  * Attribute type definition for `AWS::Connect::User`.
@@ -70,6 +90,96 @@ export type ConnectUserAttributes = {
    * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-zA-Z0-9]/‍*agent/[-a-zA-Z0-9]*$`
    */
   UserArn: string;
+};
+/**
+ * Type definition for `AWS::Connect::User.AfterContactWorkConfig`.
+ * After Contact Work configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-aftercontactworkconfig.html}
+ */
+export type AfterContactWorkConfig = {
+  /**
+   * The After Call Work (ACW) timeout setting, in seconds.
+   * @min `0`
+   */
+  AfterContactWorkTimeLimit?: number;
+};
+/**
+ * Type definition for `AWS::Connect::User.AfterContactWorkConfigPerChannel`.
+ * After Contact Work configuration per channel.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-aftercontactworkconfigperchannel.html}
+ */
+export type AfterContactWorkConfigPerChannel = {
+  /**
+   * After Contact Work configuration.
+   */
+  AfterContactWorkConfig: AfterContactWorkConfig;
+  /**
+   * After Contact Work configuration.
+   */
+  AgentFirstCallbackAfterContactWorkConfig?: AfterContactWorkConfig;
+  /**
+   * The channels that agents can handle in the Contact Control Panel (CCP).
+   */
+  Channel: Channel;
+};
+/**
+ * Type definition for `AWS::Connect::User.AutoAcceptConfig`.
+ * Auto-accept configuration per channel.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-autoacceptconfig.html}
+ */
+export type AutoAcceptConfig = {
+  /**
+   * The agent first callback auto accept setting.
+   */
+  AgentFirstCallbackAutoAccept?: boolean;
+  /**
+   * The Auto accept setting.
+   */
+  AutoAccept: boolean;
+  /**
+   * The channels that agents can handle in the Contact Control Panel (CCP).
+   */
+  Channel: Channel;
+};
+/**
+ * Type definition for `AWS::Connect::User.Channel`.
+ * The channels that agents can handle in the Contact Control Panel (CCP).
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-channel.html}
+ */
+export type Channel = "VOICE" | "CHAT" | "TASK" | "EMAIL";
+/**
+ * Type definition for `AWS::Connect::User.PersistentConnectionConfig`.
+ * Persistent Connection configuration per channel.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-persistentconnectionconfig.html}
+ */
+export type PersistentConnectionConfig = {
+  /**
+   * The channels that agents can handle in the Contact Control Panel (CCP).
+   */
+  Channel: Channel;
+  /**
+   * The Persistent Connection setting.
+   */
+  PersistentConnection: boolean;
+};
+/**
+ * Type definition for `AWS::Connect::User.PhoneNumberConfig`.
+ * Phone Number configuration per channel.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-phonenumberconfig.html}
+ */
+export type PhoneNumberConfig = {
+  /**
+   * The channels that agents can handle in the Contact Control Panel (CCP).
+   */
+  Channel: Channel;
+  /**
+   * The phone number for the user's desk phone.
+   */
+  PhoneNumber?: string;
+  /**
+   * The phone type.
+   */
+  PhoneType: PhoneType;
 };
 /**
  * Type definition for `AWS::Connect::User.PhoneType`.
@@ -151,7 +261,7 @@ export type UserPhoneConfig = {
   /**
    * The phone type.
    */
-  PhoneType: PhoneType;
+  PhoneType?: PhoneType;
 };
 /**
  * Type definition for `AWS::Connect::User.UserProficiency`.
@@ -178,6 +288,30 @@ export type UserProficiency = {
    */
   Level: number;
 };
+/**
+ * Type definition for `AWS::Connect::User.VoiceEnhancementConfig`.
+ * Voice Enhancement configuration per channel.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-voiceenhancementconfig.html}
+ */
+export type VoiceEnhancementConfig = {
+  /**
+   * The channels that agents can handle in the Contact Control Panel (CCP).
+   */
+  Channel: Channel;
+  /**
+   * The Voice Enhancement Mode setting.
+   */
+  VoiceEnhancementMode: VoiceEnhancementMode;
+};
+/**
+ * Type definition for `AWS::Connect::User.VoiceEnhancementMode`.
+ * The Voice Enhancement Mode setting.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-voiceenhancementmode.html}
+ */
+export type VoiceEnhancementMode =
+  | "NONE"
+  | "VOICE_ISOLATION"
+  | "NOISE_SUPPRESSION";
 /**
  * Resource Type definition for AWS::Connect::User
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html}

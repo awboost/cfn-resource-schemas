@@ -14,6 +14,7 @@ export type CleanRoomsMembershipProperties = {
   CollaborationIdentifier: string;
   DefaultJobResultConfiguration?: MembershipProtectedJobResultConfiguration;
   DefaultResultConfiguration?: MembershipProtectedQueryResultConfiguration;
+  IsMetricsEnabled?: boolean;
   JobLogStatus?: MembershipJobLogStatus;
   PaymentConfiguration?: MembershipPaymentConfiguration;
   QueryLogStatus: MembershipQueryLogStatus;

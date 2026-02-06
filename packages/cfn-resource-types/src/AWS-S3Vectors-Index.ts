@@ -34,6 +34,10 @@ export type S3VectorsIndexProperties = {
    */
   MetadataConfiguration?: MetadataConfiguration;
   /**
+   * User tags (key-value pairs) to associate with the index.
+   */
+  Tags?: Tag[];
+  /**
    * The Amazon Resource Name (ARN) of the vector bucket.
    */
   VectorBucketArn?: string;
@@ -100,6 +104,23 @@ export type MetadataConfiguration = {
    * @maxLength `10`
    */
   NonFilterableMetadataKeys?: string[];
+};
+/**
+ * Type definition for `AWS::S3Vectors::Index.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3vectors-index-tag.html}
+ */
+export type Tag = {
+  /**
+   * Tag key must be between 1 to 128 characters in length. Tag key cannot start with 'aws:' and can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * Tag value must be between 0 to 256 characters in length. Tag value can only contain alphanumeric characters, spaces, _, ., /, =, +, -, and @.
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::S3Vectors::Index

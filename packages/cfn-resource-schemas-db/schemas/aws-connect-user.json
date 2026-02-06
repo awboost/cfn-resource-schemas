@@ -1,12 +1,41 @@
 {
-  "$hash": "c30c483f3b18115f37928d7b4230e029a1d96dee",
+  "$hash": "3b228354b77fff6c3be0fce9ed430b854c94dbe4",
   "$id": "aws-connect-user.json",
   "additionalProperties": false,
   "definitions": {
+    "AfterContactWorkConfig": {
+      "additionalProperties": false,
+      "description": "After Contact Work configuration.",
+      "properties": {
+        "AfterContactWorkTimeLimit": {
+          "$ref": "#/definitions/AfterContactWorkTimeLimit"
+        }
+      },
+      "type": "object"
+    },
+    "AfterContactWorkConfigPerChannel": {
+      "additionalProperties": false,
+      "description": "After Contact Work configuration per channel.",
+      "properties": {
+        "AfterContactWorkConfig": {
+          "$ref": "#/definitions/AfterContactWorkConfig"
+        },
+        "AgentFirstCallbackAfterContactWorkConfig": {
+          "$ref": "#/definitions/AfterContactWorkConfig"
+        },
+        "Channel": { "$ref": "#/definitions/Channel" }
+      },
+      "required": ["Channel", "AfterContactWorkConfig"],
+      "type": "object"
+    },
     "AfterContactWorkTimeLimit": {
       "description": "The After Call Work (ACW) timeout setting, in seconds.",
       "minimum": 0,
       "type": "integer"
+    },
+    "AgentFirstCallbackAutoAccept": {
+      "description": "The agent first callback auto accept setting.",
+      "type": "boolean"
     },
     "AttributeName": {
       "description": "The name of user's proficiency. You must use name of predefined attribute present in the Amazon Connect instance.",
@@ -23,6 +52,24 @@
     "AutoAccept": {
       "description": "The Auto accept setting.",
       "type": "boolean"
+    },
+    "AutoAcceptConfig": {
+      "additionalProperties": false,
+      "description": "Auto-accept configuration per channel.",
+      "properties": {
+        "AgentFirstCallbackAutoAccept": {
+          "$ref": "#/definitions/AgentFirstCallbackAutoAccept"
+        },
+        "AutoAccept": { "$ref": "#/definitions/AutoAccept" },
+        "Channel": { "$ref": "#/definitions/Channel" }
+      },
+      "required": ["Channel", "AutoAccept"],
+      "type": "object"
+    },
+    "Channel": {
+      "description": "The channels that agents can handle in the Contact Control Panel (CCP).",
+      "enum": ["VOICE", "CHAT", "TASK", "EMAIL"],
+      "type": "string"
     },
     "DeskPhoneNumber": {
       "description": "The phone number for the user's desk phone.",
@@ -54,6 +101,27 @@
     "PersistentConnection": {
       "description": "The Persistent Connection setting.",
       "type": "boolean"
+    },
+    "PersistentConnectionConfig": {
+      "additionalProperties": false,
+      "description": "Persistent Connection configuration per channel.",
+      "properties": {
+        "Channel": { "$ref": "#/definitions/Channel" },
+        "PersistentConnection": { "$ref": "#/definitions/PersistentConnection" }
+      },
+      "required": ["Channel", "PersistentConnection"],
+      "type": "object"
+    },
+    "PhoneNumberConfig": {
+      "additionalProperties": false,
+      "description": "Phone Number configuration per channel.",
+      "properties": {
+        "Channel": { "$ref": "#/definitions/Channel" },
+        "PhoneNumber": { "$ref": "#/definitions/DeskPhoneNumber" },
+        "PhoneType": { "$ref": "#/definitions/PhoneType" }
+      },
+      "required": ["Channel", "PhoneType"],
+      "type": "object"
     },
     "PhoneType": {
       "description": "The phone type.",
@@ -116,7 +184,6 @@
         },
         "PhoneType": { "$ref": "#/definitions/PhoneType" }
       },
-      "required": ["PhoneType"],
       "type": "object"
     },
     "UserProficiency": {
@@ -129,6 +196,21 @@
       },
       "required": ["AttributeName", "AttributeValue", "Level"],
       "type": "object"
+    },
+    "VoiceEnhancementConfig": {
+      "additionalProperties": false,
+      "description": "Voice Enhancement configuration per channel.",
+      "properties": {
+        "Channel": { "$ref": "#/definitions/Channel" },
+        "VoiceEnhancementMode": { "$ref": "#/definitions/VoiceEnhancementMode" }
+      },
+      "required": ["Channel", "VoiceEnhancementMode"],
+      "type": "object"
+    },
+    "VoiceEnhancementMode": {
+      "description": "The Voice Enhancement Mode setting.",
+      "enum": ["NONE", "VOICE_ISOLATION", "NOISE_SUPPRESSION"],
+      "type": "string"
     }
   },
   "description": "Resource Type definition for AWS::Connect::User",
@@ -168,12 +250,25 @@
         "connect:UntagResource",
         "connect:AssociateUserProficiencies",
         "connect:DisassociateUserProficiencies",
-        "connect:UpdateUserProficiencies"
+        "connect:UpdateUserProficiencies",
+        "connect:UpdateUserConfig"
       ]
     }
   },
   "primaryIdentifier": ["/properties/UserArn"],
   "properties": {
+    "AfterContactWorkConfigs": {
+      "description": "After Contact Work configurations of a user.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AfterContactWorkConfigPerChannel" },
+      "type": "array"
+    },
+    "AutoAcceptConfigs": {
+      "description": "Auto-accept configurations of a user.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/AutoAcceptConfig" },
+      "type": "array"
+    },
     "DirectoryUserId": {
       "description": "The identifier of the user account in the directory used for identity management.",
       "type": "string"
@@ -197,9 +292,21 @@
       "pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d\\S]{8,64}$",
       "type": "string"
     },
+    "PersistentConnectionConfigs": {
+      "description": "Persistent Connection configurations of a user.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/PersistentConnectionConfig" },
+      "type": "array"
+    },
     "PhoneConfig": {
       "$ref": "#/definitions/UserPhoneConfig",
       "description": "The phone settings for the user."
+    },
+    "PhoneNumberConfigs": {
+      "description": "Phone Number configurations of a user.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/PhoneNumberConfig" },
+      "type": "array"
     },
     "RoutingProfileArn": {
       "description": "The identifier of the routing profile for the user.",
@@ -240,12 +347,17 @@
       "minLength": 1,
       "pattern": "[a-zA-Z0-9\\_\\-\\.\\@]+",
       "type": "string"
+    },
+    "VoiceEnhancementConfigs": {
+      "description": "Voice Enhancement configurations of a user.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/VoiceEnhancementConfig" },
+      "type": "array"
     }
   },
   "readOnlyProperties": ["/properties/UserArn"],
   "required": [
     "InstanceArn",
-    "PhoneConfig",
     "RoutingProfileArn",
     "SecurityProfileArns",
     "Username"

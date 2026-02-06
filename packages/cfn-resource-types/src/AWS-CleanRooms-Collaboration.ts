@@ -25,6 +25,7 @@ export type CleanRoomsCollaborationProperties = {
    * @pattern `^(?!\s*$)[\u0020-\uD7FF\uE000-\uFFFD\uD800\uDBFF-\uDC00\uDFFF\t\r\n]*$`
    */
   Description: string;
+  IsMetricsEnabled?: boolean;
   JobLogStatus?: CollaborationJobLogStatus;
   /**
    * @minLength `0`

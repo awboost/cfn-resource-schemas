@@ -51,6 +51,7 @@ export type AutoScalingAutoScalingGroupProperties = {
       Default: None
      */
   DefaultInstanceWarmup?: number;
+  DeletionProtection?: string;
   /**
      * The desired capacity is the initial capacity of the Auto Scaling group at the time of its creation and the capacity it attempts to maintain. It can scale beyond this capacity if you configure automatic scaling.
      The number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity when creating the stack, the default is the minimum size of the group.
@@ -881,7 +882,7 @@ export type PerformanceFactorReferenceRequest = {
 export type RetentionTriggers = {
   /**
      * Specifies the action when a termination lifecycle hook is abandoned due to failure, timeout, or explicit abandonment (calling CompleteLifecycleAction).
-      Set to ``Retain`` to move instances to a ``Retained`` state. Set to ``Terminate`` for default termination behavior.
+      Set to ``retain`` to move instances to a retained state. Set to ``terminate`` for default termination behavior.
       Retained instances don't count toward desired capacity and remain until you call ``TerminateInstanceInAutoScalingGroup``.
      */
   TerminateHookAbandon?: string;

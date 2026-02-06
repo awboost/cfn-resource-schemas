@@ -1,5 +1,5 @@
 {
-  "$hash": "f22bd5d4a8abafed49f09d102f33e6fed283b1a3",
+  "$hash": "9c5b55092a63fb96b1e4b036d36222309f4bae25",
   "$id": "aws-cleanrooms-membership.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/CollaborationIdentifier"],
@@ -232,6 +232,7 @@
     "DefaultResultConfiguration": {
       "$ref": "#/definitions/MembershipProtectedQueryResultConfiguration"
     },
+    "IsMetricsEnabled": { "type": "boolean" },
     "JobLogStatus": { "$ref": "#/definitions/MembershipJobLogStatus" },
     "MembershipIdentifier": {
       "maxLength": 36,
