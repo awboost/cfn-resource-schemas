@@ -50,6 +50,12 @@ export type WorkSpacesWebPortalProperties = {
    */
   NetworkSettingsArn?: string;
   /**
+   * @minLength `0`
+   * @maxLength `128`
+   * @pattern `^[a-zA-Z0-9]?((?!-)([A-Za-z0-9-]*[A-Za-z0-9])\.)+[a-zA-Z0-9]+$`
+   */
+  PortalCustomDomain?: string;
+  /**
    * @minLength `20`
    * @maxLength `2048`
    * @pattern `^arn:[\w+=\/,.@-]+:[a-zA-Z0-9\-]+:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:[a-zA-Z]+(\/[a-fA-F0-9\-]{36})+$`

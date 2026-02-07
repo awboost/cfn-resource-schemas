@@ -1,5 +1,5 @@
 {
-  "$hash": "a1e11015682afe9915b1edecd94df87d54b04ebf",
+  "$hash": "f1a5945d6952341d95593bb8abf84a507b1bf914",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -303,7 +303,8 @@
         "TemporalAq": { "type": "string" },
         "TimecodeBurninSettings": {
           "$ref": "#/definitions/TimecodeBurninSettings"
-        }
+        },
+        "TimecodeInsertion": { "type": "string" }
       },
       "type": "object"
     },
@@ -569,6 +570,11 @@
     },
     "ColorSpacePassthroughSettings": {
       "additionalProperties": false,
+      "type": "object"
+    },
+    "DisabledLockingSettings": {
+      "additionalProperties": false,
+      "properties": { "CustomEpoch": { "type": "string" } },
       "type": "object"
     },
     "DolbyVision81Settings": {
@@ -1398,6 +1404,13 @@
       },
       "type": "object"
     },
+    "MediaPackageAdditionalDestinations": {
+      "additionalProperties": false,
+      "properties": {
+        "Destination": { "$ref": "#/definitions/OutputLocationRef" }
+      },
+      "type": "object"
+    },
     "MediaPackageGroupSettings": {
       "additionalProperties": false,
       "properties": {
@@ -1411,9 +1424,11 @@
     "MediaPackageOutputDestinationSettings": {
       "additionalProperties": false,
       "properties": {
+        "ChannelEndpointId": { "type": "string" },
         "ChannelGroup": { "type": "string" },
         "ChannelId": { "type": "string" },
-        "ChannelName": { "type": "string" }
+        "ChannelName": { "type": "string" },
+        "MediaPackageRegionName": { "type": "string" }
       },
       "type": "object"
     },
@@ -1439,6 +1454,13 @@
     "MediaPackageV2GroupSettings": {
       "additionalProperties": false,
       "properties": {
+        "AdditionalDestinations": {
+          "items": {
+            "$ref": "#/definitions/MediaPackageAdditionalDestinations"
+          },
+          "type": "array",
+          "uniqueItems": false
+        },
         "CaptionLanguageMappings": {
           "items": { "$ref": "#/definitions/CaptionLanguageMapping" },
           "type": "array",
@@ -1763,6 +1785,9 @@
     "OutputLockingSettings": {
       "additionalProperties": false,
       "properties": {
+        "DisabledLockingSettings": {
+          "$ref": "#/definitions/DisabledLockingSettings"
+        },
         "EpochLockingSettings": {
           "$ref": "#/definitions/EpochLockingSettings"
         },
@@ -1803,7 +1828,10 @@
     "PassThroughSettings": { "additionalProperties": false, "type": "object" },
     "PipelineLockingSettings": {
       "additionalProperties": false,
-      "properties": { "PipelineLockingMethod": { "type": "string" } },
+      "properties": {
+        "CustomEpoch": { "type": "string" },
+        "PipelineLockingMethod": { "type": "string" }
+      },
       "type": "object"
     },
     "PrimaryChannelSettings": {

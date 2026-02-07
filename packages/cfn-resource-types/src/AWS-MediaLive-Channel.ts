@@ -316,6 +316,7 @@ export type Av1Settings = {
   SpatialAq?: string;
   TemporalAq?: string;
   TimecodeBurninSettings?: TimecodeBurninSettings;
+  TimecodeInsertion?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.AvailBlanking`.
@@ -532,6 +533,13 @@ export type ColorCorrectionSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorspacepassthroughsettings.html}
  */
 export type ColorSpacePassthroughSettings = Record<string, any>;
+/**
+ * Type definition for `AWS::MediaLive::Channel.DisabledLockingSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-disabledlockingsettings.html}
+ */
+export type DisabledLockingSettings = {
+  CustomEpoch?: string;
+};
 /**
  * Type definition for `AWS::MediaLive::Channel.DolbyVision81Settings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dolbyvision81settings.html}
@@ -1283,6 +1291,13 @@ export type MaintenanceCreateSettings = {
   MaintenanceStartTime?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.MediaPackageAdditionalDestinations`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageadditionaldestinations.html}
+ */
+export type MediaPackageAdditionalDestinations = {
+  Destination?: OutputLocationRef;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.MediaPackageGroupSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html}
  */
@@ -1295,9 +1310,11 @@ export type MediaPackageGroupSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html}
  */
 export type MediaPackageOutputDestinationSettings = {
+  ChannelEndpointId?: string;
   ChannelGroup?: string;
   ChannelId?: string;
   ChannelName?: string;
+  MediaPackageRegionName?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.MediaPackageOutputSettings`.
@@ -1321,6 +1338,7 @@ export type MediaPackageV2DestinationSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagev2groupsettings.html}
  */
 export type MediaPackageV2GroupSettings = {
+  AdditionalDestinations?: MediaPackageAdditionalDestinations[];
   CaptionLanguageMappings?: CaptionLanguageMapping[];
   Id3Behavior?: string;
   KlvBehavior?: string;
@@ -1588,6 +1606,7 @@ export type OutputLocationRef = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html}
  */
 export type OutputLockingSettings = {
+  DisabledLockingSettings?: DisabledLockingSettings;
   EpochLockingSettings?: EpochLockingSettings;
   PipelineLockingSettings?: PipelineLockingSettings;
 };
@@ -1617,6 +1636,7 @@ export type PassThroughSettings = Record<string, any>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-pipelinelockingsettings.html}
  */
 export type PipelineLockingSettings = {
+  CustomEpoch?: string;
   PipelineLockingMethod?: string;
 };
 /**

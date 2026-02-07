@@ -1,41 +1,11 @@
-- updated `AWS::AIOps::InvestigationGroup`
-  - updated handler permissions
-- updated `AWS::AutoScaling::AutoScalingGroup`
-  - added property `DeletionProtection`
-  - updated definition `RetentionTriggers`
-- updated `AWS::CleanRooms::Collaboration`
-  - added property `IsMetricsEnabled`
-- updated `AWS::CleanRooms::Membership`
-  - added property `IsMetricsEnabled`
-- updated `AWS::Connect::User`
-  - added definition `AfterContactWorkConfigPerChannel`
-  - added definition `AfterContactWorkConfig`
-  - added definition `AgentFirstCallbackAutoAccept`
-  - added definition `AutoAcceptConfig`
-  - added definition `Channel`
-  - added definition `PersistentConnectionConfig`
-  - added definition `PhoneNumberConfig`
-  - added definition `VoiceEnhancementConfig`
-  - added definition `VoiceEnhancementMode`
-  - added property `AfterContactWorkConfigs`
-  - added property `AutoAcceptConfigs`
-  - added property `PersistentConnectionConfigs`
-  - added property `PhoneNumberConfigs`
-  - added property `VoiceEnhancementConfigs`
-  - updated `required`
-  - updated definition `UserPhoneConfig`
-  - updated handler permissions
-- updated `AWS::Logs::Transformer`
-  - updated definition `SubstituteStringEntry`
-- updated `AWS::S3Vectors::Index`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::S3Vectors::VectorBucket`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Transfer::WebApp`
-  - updated handler permissions
+- added `AWS::Logs::ScheduledQuery`
+- updated `AWS::MediaLive::Channel`
+  - added definition `DisabledLockingSettings`
+  - added definition `MediaPackageAdditionalDestinations`
+  - updated definition `Av1Settings`
+  - updated definition `MediaPackageOutputDestinationSettings`
+  - updated definition `MediaPackageV2GroupSettings`
+  - updated definition `OutputLockingSettings`
+  - updated definition `PipelineLockingSettings`
+- updated `AWS::WorkSpacesWeb::Portal`
+  - added property `PortalCustomDomain`
