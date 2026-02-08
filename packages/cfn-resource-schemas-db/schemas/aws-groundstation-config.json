@@ -1,5 +1,5 @@
 {
-  "$hash": "08c6a3a95a2f86bf364e4b69632ec8f128fb6ee5",
+  "$hash": "cf47e6a90a7f33b6e949f30fb868a4a709af87b3",
   "$id": "aws-groundstation-config.json",
   "additionalProperties": false,
   "definitions": {
@@ -49,6 +49,7 @@
           "$ref": "#/definitions/DataflowEndpointConfig"
         },
         "S3RecordingConfig": { "$ref": "#/definitions/S3RecordingConfig" },
+        "TelemetrySinkConfig": { "$ref": "#/definitions/TelemetrySinkConfig" },
         "TrackingConfig": { "$ref": "#/definitions/TrackingConfig" },
         "UplinkEchoConfig": { "$ref": "#/definitions/UplinkEchoConfig" }
       },
@@ -106,6 +107,21 @@
       "pattern": "^[{}\\[\\]:.,\"0-9A-z\\-_\\s]{1,8192}$",
       "type": "string"
     },
+    "KinesisDataStreamArn": {
+      "pattern": "^arn:[a-z0-9-.]{1,63}:kinesis:[-a-z0-9]{1,50}:[0-9]{12}:stream/[a-zA-Z0-9_.-]{1,128}$",
+      "type": "string"
+    },
+    "KinesisDataStreamData": {
+      "additionalProperties": false,
+      "properties": {
+        "KinesisDataStreamArn": {
+          "$ref": "#/definitions/KinesisDataStreamArn"
+        },
+        "KinesisRoleArn": { "$ref": "#/definitions/RoleArn" }
+      },
+      "required": ["KinesisRoleArn", "KinesisDataStreamArn"],
+      "type": "object"
+    },
     "Polarization": {
       "enum": ["LEFT_HAND", "RIGHT_HAND", "NONE"],
       "type": "string"
@@ -150,6 +166,26 @@
       },
       "type": "object"
     },
+    "TelemetrySinkConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "TelemetrySinkData": { "$ref": "#/definitions/TelemetrySinkData" },
+        "TelemetrySinkType": { "$ref": "#/definitions/TelemetrySinkType" }
+      },
+      "required": ["TelemetrySinkType", "TelemetrySinkData"],
+      "type": "object"
+    },
+    "TelemetrySinkData": {
+      "additionalProperties": false,
+      "oneOf": [{ "required": ["KinesisDataStreamData"] }],
+      "properties": {
+        "KinesisDataStreamData": {
+          "$ref": "#/definitions/KinesisDataStreamData"
+        }
+      },
+      "type": "object"
+    },
+    "TelemetrySinkType": { "enum": ["KINESIS_DATA_STREAM"], "type": "string" },
     "TrackingConfig": {
       "additionalProperties": false,
       "properties": {

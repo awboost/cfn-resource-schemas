@@ -1,5 +1,5 @@
 {
-  "$hash": "0b49c7842c7140d9c4bdd6f9231a8fa15304732e",
+  "$hash": "5d4fbcfb9164bf4ffca4515810ae6192666cfb83",
   "$id": "aws-groundstation-missionprofile.json",
   "additionalProperties": false,
   "definitions": {
@@ -130,6 +130,11 @@
       "type": "string"
     },
     "Tags": { "items": { "$ref": "#/definitions/Tag" }, "type": "array" },
+    "TelemetrySinkConfigArn": {
+      "description": "ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.",
+      "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
+      "type": "string"
+    },
     "TrackingConfigArn": {
       "pattern": "^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$",
       "type": "string"

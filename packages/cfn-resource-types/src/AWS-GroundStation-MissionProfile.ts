@@ -37,6 +37,11 @@ export type GroundStationMissionProfileProperties = {
   StreamsKmsRole?: string;
   Tags?: Tag[];
   /**
+   * ARN of a Config resource of type TelemetrySinkConfig used for telemetry data sink configuration.
+   * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
+   */
+  TelemetrySinkConfigArn?: string;
+  /**
    * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
    */
   TrackingConfigArn: string;

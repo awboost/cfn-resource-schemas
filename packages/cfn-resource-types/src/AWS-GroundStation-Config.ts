@@ -65,6 +65,7 @@ export type ConfigData = {
   AntennaUplinkConfig?: AntennaUplinkConfig;
   DataflowEndpointConfig?: DataflowEndpointConfig;
   S3RecordingConfig?: S3RecordingConfig;
+  TelemetrySinkConfig?: TelemetrySinkConfig;
   TrackingConfig?: TrackingConfig;
   UplinkEchoConfig?: UplinkEchoConfig;
 };
@@ -131,6 +132,20 @@ export type FrequencyBandwidth = {
  */
 export type FrequencyUnits = "GHz" | "MHz" | "kHz";
 /**
+ * Type definition for `AWS::GroundStation::Config.KinesisDataStreamData`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-kinesisdatastreamdata.html}
+ */
+export type KinesisDataStreamData = {
+  /**
+   * @pattern `^arn:[a-z0-9-.]{1,63}:kinesis:[-a-z0-9]{1,50}:[0-9]{12}:stream/[a-zA-Z0-9_.-]{1,128}$`
+   */
+  KinesisDataStreamArn: string;
+  /**
+   * @pattern `^arn:[^:\n]+:iam::[^:\n]+:role\/.+$`
+   */
+  KinesisRoleArn: string;
+};
+/**
  * Type definition for `AWS::GroundStation::Config.Polarization`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-polarization.html}
  */
@@ -176,6 +191,26 @@ export type Tag = {
    */
   Value?: string;
 };
+/**
+ * Type definition for `AWS::GroundStation::Config.TelemetrySinkConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-telemetrysinkconfig.html}
+ */
+export type TelemetrySinkConfig = {
+  TelemetrySinkData: TelemetrySinkData;
+  TelemetrySinkType: TelemetrySinkType;
+};
+/**
+ * Type definition for `AWS::GroundStation::Config.TelemetrySinkData`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-telemetrysinkdata.html}
+ */
+export type TelemetrySinkData = {
+  KinesisDataStreamData?: KinesisDataStreamData;
+};
+/**
+ * Type definition for `AWS::GroundStation::Config.TelemetrySinkType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-telemetrysinktype.html}
+ */
+export type TelemetrySinkType = "KINESIS_DATA_STREAM";
 /**
  * Type definition for `AWS::GroundStation::Config.TrackingConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-trackingconfig.html}

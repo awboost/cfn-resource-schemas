@@ -1,11 +1,9 @@
-- added `AWS::Logs::ScheduledQuery`
-- updated `AWS::MediaLive::Channel`
-  - added definition `DisabledLockingSettings`
-  - added definition `MediaPackageAdditionalDestinations`
-  - updated definition `Av1Settings`
-  - updated definition `MediaPackageOutputDestinationSettings`
-  - updated definition `MediaPackageV2GroupSettings`
-  - updated definition `OutputLockingSettings`
-  - updated definition `PipelineLockingSettings`
-- updated `AWS::WorkSpacesWeb::Portal`
-  - added property `PortalCustomDomain`
+- updated `AWS::GroundStation::Config`
+  - added definition `KinesisDataStreamArn`
+  - added definition `KinesisDataStreamData`
+  - added definition `TelemetrySinkConfig`
+  - added definition `TelemetrySinkData`
+  - added definition `TelemetrySinkType`
+  - updated definition `ConfigData`
+- updated `AWS::GroundStation::MissionProfile`
+  - added property `TelemetrySinkConfigArn`
