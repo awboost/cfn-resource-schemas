@@ -1,9 +1,1 @@
-- updated `AWS::GroundStation::Config`
-  - added definition `KinesisDataStreamArn`
-  - added definition `KinesisDataStreamData`
-  - added definition `TelemetrySinkConfig`
-  - added definition `TelemetrySinkData`
-  - added definition `TelemetrySinkType`
-  - updated definition `ConfigData`
-- updated `AWS::GroundStation::MissionProfile`
-  - added property `TelemetrySinkConfigArn`
+- added `AWS::MSK::Topic`
