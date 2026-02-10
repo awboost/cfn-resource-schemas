@@ -1,9 +1,8 @@
 {
-  "$hash": "9b39283a2823f3c00f2209f6b5b986d9d2e43721",
+  "$hash": "4a60fe954c3b10eff5233a25e4be110d4634897f",
   "$id": "aws-cloudwatch-dashboard.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DashboardName"],
-  "definitions": {},
   "description": "Resource Type definition for AWS::CloudWatch::Dashboard",
   "handlers": {
     "create": {

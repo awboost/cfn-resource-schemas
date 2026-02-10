@@ -298,7 +298,7 @@ export type MetricDefinition = {
     
     If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you just want to count the number of events that the filter catches.
     
-    If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event.
+    If this metric is sent to Evidently, this field will be passed to Evidently raw and Evidently will handle data extraction from the event. Note: Evidently has been discontinued.
      * @minLength `1`
      * @maxLength `256`
      * @pattern `.*`
@@ -312,16 +312,18 @@ export type MetricDefinition = {
  */
 export type MetricDestination = {
   /**
-   * Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. If you specify Evidently, you must also specify the ARN of the Evidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
+   * Defines the destination to send the metrics to. Valid values are CloudWatch and Evidently. Note: Evidently has been discontinued and is no longer supported - requests with Evidently will be rejected.
    */
   Destination: "CloudWatch" | "Evidently";
   /**
-   * Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-   * @pattern `arn:[^:]*:[^:]*:[^:]*:[^:]*:.*`
-   */
+     * Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
+    
+    This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
+     * @pattern `arn:[^:]*:[^:]*:[^:]*:[^:]*:.*`
+     */
   DestinationArn?: string;
   /**
-     * This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
+     * Evidently has been discontinued and therefore this is no longer an acceptable field. If Destination is CloudWatch, do not use this parameter.
     
     This parameter specifies the ARN of an IAM role that RUM will assume to write to the Evidently experiment that you are sending metrics to. This role must have permission to write to that experiment.
      * @pattern `arn:[^:]*:[^:]*:[^:]*:[^:]*:.*`

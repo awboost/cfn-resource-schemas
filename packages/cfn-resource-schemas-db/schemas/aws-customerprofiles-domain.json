@@ -1,5 +1,5 @@
 {
-  "$hash": "a9295101506067eb04f86051e25c111e997d11c2",
+  "$hash": "be99d6ff9e3d2b23ad042d52618d34519d71331f",
   "$id": "aws-customerprofiles-domain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -93,7 +93,6 @@
       "type": "object"
     },
     "DataStore": {
-      "additionalProperties": false,
       "description": "Configuration and status of the data store for the domain.",
       "properties": {
         "Enabled": {
@@ -201,7 +200,6 @@
       "type": "array"
     },
     "Readiness": {
-      "additionalProperties": false,
       "description": "Progress information for data store setup.",
       "properties": {
         "Message": {
@@ -317,7 +315,16 @@
         "kms:ListGrants"
       ]
     },
-    "list": { "permissions": ["profile:ListDomains"] },
+    "list": {
+      "permissions": [
+        "profile:ListDomains",
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "kms:GetKeyPolicy",
+        "kms:PutKeyPolicy",
+        "kms:ListGrants"
+      ]
+    },
     "read": {
       "permissions": [
         "profile:GetDomain",
