@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::MediaConnect::FlowSource
+ * Resource schema for AWS::MediaConnect::FlowSource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html}
  */
 export type MediaConnectFlowSourceProperties = {
@@ -19,9 +19,8 @@ export type MediaConnectFlowSourceProperties = {
   EntitlementArn?: string;
   /**
    * The ARN of the flow.
-   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:flow:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
-  FlowArn: string;
+  FlowArn?: string;
   /**
    * The source configuration for cloud flows receiving a stream from a bridge.
    */
@@ -77,10 +76,6 @@ export type MediaConnectFlowSourceProperties = {
    */
   StreamId?: string;
   /**
-   * Key-value pairs that can be used to tag and organize this flow source.
-   */
-  Tags?: Tag[];
-  /**
    * The name of the VPC Interface this Source is configured with.
    */
   VpcInterfaceName?: string;
@@ -100,7 +95,6 @@ export type MediaConnectFlowSourceAttributes = {
   IngestIp: string;
   /**
    * The ARN of the source.
-   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:source:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
   SourceArn: string;
   /**
@@ -140,12 +134,10 @@ export type Encryption = {
   ResourceId?: string;
   /**
    * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
-   * @pattern `^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$`
    */
   RoleArn: string;
   /**
    *  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-   * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
    */
   SecretArn?: string;
   /**
@@ -161,21 +153,12 @@ export type Encryption = {
 export type GatewayBridgeSource = {
   /**
    * The ARN of the bridge feeding this flow.
-   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:bridge:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
   BridgeArn: string;
   /**
    * The name of the VPC interface attachment to use for this bridge source.
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
-};
-/**
- * Type definition for `AWS::MediaConnect::FlowSource.Tag`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-tag.html}
- */
-export type Tag = {
-  Key: string;
-  Value: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::FlowSource.VpcInterfaceAttachment`.
@@ -189,7 +172,7 @@ export type VpcInterfaceAttachment = {
   VpcInterfaceName?: string;
 };
 /**
- * Resource Type definition for AWS::MediaConnect::FlowSource
+ * Resource schema for AWS::MediaConnect::FlowSource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html}
  */
 export class MediaConnectFlowSource extends $Resource<

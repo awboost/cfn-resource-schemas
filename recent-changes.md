@@ -1,95 +1,37 @@
-- updated `AWS::BedrockAgentCore::Runtime`
-  - updated definition `AgentRuntimeArn`
-- updated `AWS::BedrockAgentCore::RuntimeEndpoint`
-  - updated definition `AgentRuntimeArn`
-- updated `AWS::CloudWatch::Dashboard`
-  - updated definition `undefined`
-- updated `AWS::CodeDeploy::DeploymentGroup`
-  - added `propertyTransform`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated definition `AlarmConfiguration`
-  - updated definition `Alarm`
-  - updated definition `AutoRollbackConfiguration`
-  - updated definition `BlueGreenDeploymentConfiguration`
-  - updated definition `BlueInstanceTerminationOption`
-  - updated definition `DeploymentReadyOption`
-  - updated definition `DeploymentStyle`
-  - updated definition `Deployment`
-  - updated definition `EC2TagFilter`
-  - updated definition `EC2TagSetListObject`
-  - updated definition `EC2TagSet`
-  - updated definition `ECSService`
-  - updated definition `ELBInfo`
-  - updated definition `GitHubLocation`
-  - updated definition `GreenFleetProvisioningOption`
-  - updated definition `LoadBalancerInfo`
-  - updated definition `OnPremisesTagSetListObject`
-  - updated definition `OnPremisesTagSet`
-  - updated definition `RevisionLocation`
-  - updated definition `S3Location`
-  - updated definition `TagFilter`
-  - updated definition `Tag`
-  - updated definition `TargetGroupInfo`
-  - updated definition `TargetGroupPairInfo`
-  - updated definition `TrafficRoute`
-  - updated definition `TriggerConfig`
-  - updated handler permissions
-  - updated property `AlarmConfiguration`
-  - updated property `ApplicationName`
-  - updated property `AutoRollbackConfiguration`
-  - updated property `AutoScalingGroups`
-  - updated property `BlueGreenDeploymentConfiguration`
-  - updated property `DeploymentConfigName`
-  - updated property `DeploymentGroupName`
-  - updated property `DeploymentStyle`
-  - updated property `Deployment`
-  - updated property `ECSServices`
-  - updated property `Ec2TagFilters`
-  - updated property `Ec2TagSet`
-  - updated property `LoadBalancerInfo`
-  - updated property `OnPremisesInstanceTagFilters`
-  - updated property `OnPremisesTagSet`
-  - updated property `OutdatedInstancesStrategy`
-  - updated property `ServiceRoleArn`
-  - updated property `Tags`
-  - updated property `TerminationHookEnabled`
-  - updated property `TriggerConfigurations`
-- updated `AWS::CustomerProfiles::Domain`
-  - updated definition `DataStore`
-  - updated definition `Readiness`
-  - updated handler permissions
+- updated `AWS::EC2::VolumeAttachment`
+  - updated property `EbsCardIndex`
+- updated `AWS::MPA::ApprovalTeam`
+  - updated `tagging`
+- updated `AWS::MPA::IdentitySource`
+  - updated `tagging`
 - updated `AWS::MediaConnect::Flow`
-  - added `deprecatedProperties`
-  - added `tagging`
-  - added definition `Tag`
-  - added property `Tags`
+  - removed `deprecatedProperties`
+  - removed `tagging`
+  - removed definition `Tag`
+  - removed property `Tags`
   - updated definition `MediaStream`
   - updated definition `NdiDiscoveryServerConfig`
   - updated definition `Source`
   - updated definition `VpcInterface`
   - updated handler permissions
 - updated `AWS::MediaConnect::FlowEntitlement`
-  - added `deprecatedProperties`
-  - added `tagging`
-  - added definition `Tag`
-  - added property `Tags`
+  - removed `deprecatedProperties`
+  - removed `tagging`
+  - removed definition `Tag`
+  - removed property `Tags`
   - updated `createOnlyProperties`
   - updated handler permissions
 - updated `AWS::MediaConnect::FlowOutput`
-  - added `tagging`
-  - added definition `Tag`
-  - added property `Tags`
+  - removed `tagging`
+  - removed definition `Tag`
+  - removed property `Tags`
   - updated `createOnlyProperties`
   - updated handler permissions
 - updated `AWS::MediaConnect::FlowSource`
-  - added `deprecatedProperties`
-  - added `tagging`
-  - added definition `Tag`
-  - added property `Tags`
+  - removed `deprecatedProperties`
+  - removed `tagging`
+  - removed definition `Tag`
+  - removed property `Tags`
   - updated `createOnlyProperties`
   - updated `required`
   - updated definition `Encryption`
@@ -97,14 +39,5 @@
   - updated handler permissions
   - updated property `FlowArn`
   - updated property `SourceArn`
-- updated `AWS::RUM::AppMonitor`
-  - added `deprecatedProperties`
-  - updated definition `MetricDefinition`
-  - updated definition `MetricDestination`
-- updated `AWS::SageMaker::UserProfile`
-  - added `writeOnlyProperties`
-  - removed `tagging`
-  - updated `createOnlyProperties`
-  - updated definition `ResourceSpec`
-  - updated definition `UserSettings`
+- updated `AWS::Notifications::NotificationConfiguration`
   - updated handler permissions

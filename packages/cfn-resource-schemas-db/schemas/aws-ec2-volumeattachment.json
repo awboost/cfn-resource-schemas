@@ -1,5 +1,5 @@
 {
-  "$hash": "5d1f281f1b14f62770b027bf9c38b1ccc943a94c",
+  "$hash": "daf45c5e438637b8444ea7b4c49e5dc5e1b49671",
   "$id": "aws-ec2-volumeattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -37,7 +37,10 @@
       "$ref": "#/definitions/Device",
       "description": "The device name (for example, ``/dev/sdh`` or ``xvdh``)."
     },
-    "EbsCardIndex": { "$ref": "#/definitions/EbsCardIndex", "description": "" },
+    "EbsCardIndex": {
+      "$ref": "#/definitions/EbsCardIndex",
+      "description": "The index of the EBS card. Some instance types support multiple EBS cards. The default EBS card index is 0."
+    },
     "InstanceId": {
       "$ref": "#/definitions/InstanceId",
       "description": "The ID of the instance to which the volume attaches. This value can be a reference to an [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) resource, or it can be the physical ID of an existing EC2 instance."

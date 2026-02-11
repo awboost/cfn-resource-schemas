@@ -1,5 +1,5 @@
 {
-  "$hash": "c7263f4e9b12e18a750b716f7cce72251d3c4caa",
+  "$hash": "6256721b1c9b06a29a2be763c03b3c632ff7f251",
   "$id": "aws-mediaconnect-flow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -331,12 +331,6 @@
           "enum": ["video", "audio", "ancillary-data"],
           "type": "string"
         },
-        "Tags": {
-          "description": "Key-value pairs that can be used to tag this media stream.",
-          "insertionOrder": false,
-          "items": { "$ref": "#/definitions/Tag" },
-          "type": "array"
-        },
         "VideoFormat": {
           "description": "The resolution of the video.",
           "enum": ["2160p", "1080p", "1080i", "720p", "480p"],
@@ -414,6 +408,7 @@
         },
         "DiscoveryServerPort": {
           "description": "The port for the NDI discovery server. Defaults to 5959 if a custom port isn't specified.",
+          "format": "int32",
           "type": "integer"
         },
         "VpcInterfaceAdapter": {
@@ -558,12 +553,6 @@
           "description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.",
           "type": "string"
         },
-        "Tags": {
-          "description": "Key-value pairs that can be used to tag this source.",
-          "insertionOrder": false,
-          "items": { "$ref": "#/definitions/Tag" },
-          "type": "array"
-        },
         "VpcInterfaceName": {
           "description": "The name of the VPC Interface this Source is configured with.",
           "type": "string"
@@ -600,15 +589,6 @@
           "type": "array"
         }
       },
-      "type": "object"
-    },
-    "Tag": {
-      "additionalProperties": false,
-      "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" }
-      },
-      "required": ["Key", "Value"],
       "type": "object"
     },
     "VideoMonitoringSetting": {
@@ -650,12 +630,6 @@
         "SubnetId": {
           "description": "Subnet must be in the AZ of the Flow",
           "type": "string"
-        },
-        "Tags": {
-          "description": "Key-value pairs that can be used to tag this VPC interface.",
-          "insertionOrder": false,
-          "items": { "$ref": "#/definitions/Tag" },
-          "type": "array"
         }
       },
       "required": ["Name", "RoleArn", "SecurityGroupIds", "SubnetId"],
@@ -673,15 +647,6 @@
       "type": "object"
     }
   },
-  "deprecatedProperties": [
-    "/properties/Source/SenderIpAddress",
-    "/properties/Source/SenderControlPort",
-    "/properties/Source/Decryption/ResourceId",
-    "/properties/Source/Decryption/ConstantInitializationVector",
-    "/properties/Source/Decryption/DeviceId",
-    "/properties/Source/Decryption/Region",
-    "/properties/Source/Decryption/Url"
-  ],
   "description": "Resource schema for AWS::MediaConnect::Flow",
   "handlers": {
     "create": {
@@ -690,9 +655,6 @@
         "mediaconnect:AddFlowMediaStreams",
         "mediaconnect:AddFlowSources",
         "mediaconnect:AddFlowVpcInterfaces",
-        "mediaconnect:DescribeFlow",
-        "mediaconnect:TagResource",
-        "mediaconnect:ListTagsForResource",
         "iam:PassRole"
       ]
     },
@@ -708,12 +670,7 @@
       ]
     },
     "list": { "permissions": ["mediaconnect:ListFlows"] },
-    "read": {
-      "permissions": [
-        "mediaconnect:DescribeFlow",
-        "mediaconnect:ListTagsForResource"
-      ]
-    },
+    "read": { "permissions": ["mediaconnect:DescribeFlow"] },
     "update": {
       "permissions": [
         "mediaconnect:DescribeFlow",
@@ -723,10 +680,7 @@
         "mediaconnect:AddFlowMediaStreams",
         "mediaconnect:RemoveFlowMediaStream",
         "mediaconnect:AddFlowVpcInterfaces",
-        "mediaconnect:RemoveFlowVpcInterface",
-        "mediaconnect:TagResource",
-        "mediaconnect:UntagResource",
-        "mediaconnect:ListTagsForResource"
+        "mediaconnect:RemoveFlowVpcInterface"
       ]
     }
   },
@@ -783,12 +737,6 @@
       "$ref": "#/definitions/SourceMonitoringConfig",
       "description": "The source monitoring config of the flow."
     },
-    "Tags": {
-      "description": "Key-value pairs that can be used to tag this flow.",
-      "insertionOrder": false,
-      "items": { "$ref": "#/definitions/Tag" },
-      "type": "array"
-    },
     "VpcInterfaces": {
       "description": "The VPC interfaces that you added to this flow.",
       "items": { "$ref": "#/definitions/VpcInterface" },
@@ -812,17 +760,5 @@
     "templateUri": "/mediaconnect/home?region=${awsRegion}#/flows/${flowArn}"
   },
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediaconnect.git",
-  "tagging": {
-    "cloudFormationSystemTags": true,
-    "permissions": [
-      "mediaconnect:ListTagsForResource",
-      "mediaconnect:TagResource",
-      "mediaconnect:UntagResource"
-    ],
-    "tagOnCreate": true,
-    "tagProperty": "/properties/Tags",
-    "tagUpdatable": true,
-    "taggable": true
-  },
   "typeName": "AWS::MediaConnect::Flow"
 }

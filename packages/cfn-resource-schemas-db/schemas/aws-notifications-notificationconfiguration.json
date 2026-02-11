@@ -1,5 +1,5 @@
 {
-  "$hash": "158f001ec555051d424925fc0e9110b005bfdd39",
+  "$hash": "b5520335e5e93e630db587f70ed5e585b4a33ad4",
   "$id": "aws-notifications-notificationconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Tags"],
@@ -43,7 +43,10 @@
       ]
     },
     "delete": {
-      "permissions": ["notifications:DeleteNotificationConfiguration"]
+      "permissions": [
+        "notifications:DeleteNotificationConfiguration",
+        "notifications:GetNotificationConfiguration"
+      ]
     },
     "list": {
       "permissions": [

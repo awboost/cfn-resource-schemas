@@ -90,10 +90,6 @@ export type MediaConnectFlowOutputProperties = {
    */
   StreamId?: string;
   /**
-   * Key-value pairs that can be used to tag and organize this flow output.
-   */
-  Tags?: Tag[];
-  /**
    * The name of the VPC interface attachment to use for this output.
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
@@ -256,14 +252,6 @@ export type SecretsManagerEncryptionKeyConfiguration = {
    * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
    */
   SecretArn: string;
-};
-/**
- * Type definition for `AWS::MediaConnect::FlowOutput.Tag`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-tag.html}
- */
-export type Tag = {
-  Key: string;
-  Value: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::FlowOutput.VpcInterfaceAttachment`.

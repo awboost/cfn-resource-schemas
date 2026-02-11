@@ -42,10 +42,6 @@ export type MediaConnectFlowProperties = {
    */
   SourceMonitoringConfig?: SourceMonitoringConfig;
   /**
-   * Key-value pairs that can be used to tag this flow.
-   */
-  Tags?: Tag[];
-  /**
    * The VPC interfaces that you added to this flow.
    */
   VpcInterfaces?: VpcInterface[];
@@ -402,10 +398,6 @@ export type MediaStream = {
    */
   MediaStreamType: "video" | "audio" | "ancillary-data";
   /**
-   * Key-value pairs that can be used to tag this media stream.
-   */
-  Tags?: Tag[];
-  /**
    * The resolution of the video.
    */
   VideoFormat?: "2160p" | "1080p" | "1080i" | "720p" | "480p";
@@ -603,10 +595,6 @@ export type Source = {
    */
   StreamId?: string;
   /**
-   * Key-value pairs that can be used to tag this source.
-   */
-  Tags?: Tag[];
-  /**
    * The name of the VPC Interface this Source is configured with.
    */
   VpcInterfaceName?: string;
@@ -637,14 +625,6 @@ export type SourceMonitoringConfig = {
    * Contains the settings for video stream metrics monitoring.
    */
   VideoMonitoringSettings?: VideoMonitoringSetting[];
-};
-/**
- * Type definition for `AWS::MediaConnect::Flow.Tag`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-tag.html}
- */
-export type Tag = {
-  Key: string;
-  Value: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.VideoMonitoringSetting`.
@@ -687,10 +667,6 @@ export type VpcInterface = {
    * Subnet must be in the AZ of the Flow
    */
   SubnetId: string;
-  /**
-   * Key-value pairs that can be used to tag this VPC interface.
-   */
-  Tags?: Tag[];
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.VpcInterfaceAttachment`.

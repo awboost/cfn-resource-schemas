@@ -1,5 +1,5 @@
 {
-  "$hash": "10800b5f348a9dfe30637b22957f045a08b81ec5",
+  "$hash": "1ec5acf9c6913c27b31fb610e74621ecfbd4d62b",
   "$id": "aws-mpa-identitysource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -121,7 +121,7 @@
   "required": ["IdentitySourceParameters"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "mpa:TagResource",
       "mpa:ListTagsForResource",

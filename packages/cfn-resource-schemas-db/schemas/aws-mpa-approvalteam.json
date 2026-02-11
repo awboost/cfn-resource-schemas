@@ -1,5 +1,5 @@
 {
-  "$hash": "b8ed3b35f71b0b17d425f64d13fe3d5249a58905",
+  "$hash": "186e39e0dfe7e7d4c72259cb2e295b6a938e5849",
   "$id": "aws-mpa-approvalteam.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -152,7 +152,7 @@
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "mpa:TagResource",
       "mpa:ListTagsForResource",

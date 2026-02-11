@@ -1,8 +1,8 @@
 {
-  "$hash": "0eacd7cb913ef5087631d24aabf9ca29929b3e61",
+  "$hash": "e976a16082b44d63e2812be982f3a47548058c38",
   "$id": "aws-mediaconnect-flowoutput.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Name", "/properties/FlowArn"],
+  "createOnlyProperties": ["/properties/Name"],
   "definitions": {
     "AutomaticEncryptionKeyConfiguration": {
       "additionalProperties": false,
@@ -174,15 +174,6 @@
       "required": ["RoleArn", "SecretArn"],
       "type": "object"
     },
-    "Tag": {
-      "additionalProperties": false,
-      "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" }
-      },
-      "required": ["Key", "Value"],
-      "type": "object"
-    },
     "VpcInterfaceAttachment": {
       "additionalProperties": false,
       "description": "The settings for attaching a VPC interface to an output.",
@@ -198,13 +189,7 @@
   "description": "Resource schema for AWS::MediaConnect::FlowOutput",
   "handlers": {
     "create": {
-      "permissions": [
-        "iam:PassRole",
-        "mediaconnect:AddFlowOutputs",
-        "mediaconnect:DescribeFlow",
-        "mediaconnect:TagResource",
-        "mediaconnect:ListTagsForResource"
-      ]
+      "permissions": ["iam:PassRole", "mediaconnect:AddFlowOutputs"]
     },
     "delete": {
       "permissions": [
@@ -214,29 +199,15 @@
       ]
     },
     "list": {
-      "handlerSchema": {
-        "properties": {
-          "FlowArn": { "$ref": "resource-schema.json#/properties/FlowArn" }
-        },
-        "required": ["FlowArn"]
-      },
       "permissions": ["mediaconnect:DescribeFlow", "mediaconnect:ListFlows"]
     },
     "read": {
-      "permissions": [
-        "mediaconnect:DescribeFlow",
-        "mediaconnect:ListFlows",
-        "mediaconnect:ListTagsForResource"
-      ]
+      "permissions": ["mediaconnect:DescribeFlow", "mediaconnect:ListFlows"]
     },
     "update": {
       "permissions": [
-        "iam:PassRole",
         "mediaconnect:DescribeFlow",
-        "mediaconnect:UpdateFlowOutput",
-        "mediaconnect:TagResource",
-        "mediaconnect:UntagResource",
-        "mediaconnect:ListTagsForResource"
+        "mediaconnect:UpdateFlowOutput"
       ]
     }
   },
@@ -334,13 +305,6 @@
       "description": "The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.",
       "type": "string"
     },
-    "Tags": {
-      "description": "Key-value pairs that can be used to tag and organize this flow output.",
-      "insertionOrder": false,
-      "items": { "$ref": "#/definitions/Tag" },
-      "type": "array",
-      "uniqueItems": true
-    },
     "VpcInterfaceAttachment": {
       "$ref": "#/definitions/VpcInterfaceAttachment",
       "description": "The name of the VPC interface attachment to use for this output."
@@ -349,17 +313,5 @@
   "readOnlyProperties": ["/properties/OutputArn"],
   "required": ["FlowArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediaconnect.git",
-  "tagging": {
-    "cloudFormationSystemTags": true,
-    "permissions": [
-      "mediaconnect:TagResource",
-      "mediaconnect:UntagResource",
-      "mediaconnect:ListTagsForResource"
-    ],
-    "tagOnCreate": true,
-    "tagProperty": "/properties/Tags",
-    "tagUpdatable": true,
-    "taggable": true
-  },
   "typeName": "AWS::MediaConnect::FlowOutput"
 }

@@ -33,10 +33,6 @@ export type MediaConnectFlowEntitlementProperties = {
    * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
    */
   Subscribers: string[];
-  /**
-   * Key-value pairs that can be used to tag and organize this flow entitlement.
-   */
-  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::MediaConnect::FlowEntitlement`.
@@ -90,14 +86,6 @@ export type Encryption = {
    * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
    */
   Url?: string;
-};
-/**
- * Type definition for `AWS::MediaConnect::FlowEntitlement.Tag`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-tag.html}
- */
-export type Tag = {
-  Key: string;
-  Value: string;
 };
 /**
  * Resource schema for AWS::MediaConnect::FlowEntitlement
