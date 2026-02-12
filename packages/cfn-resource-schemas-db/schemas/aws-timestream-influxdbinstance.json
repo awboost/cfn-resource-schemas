@@ -1,5 +1,5 @@
 {
-  "$hash": "133e255deb079a97640618712e1b1c83dcc5c467",
+  "$hash": "f183657552fc6a5e1bb58675ab1af32f3ada3f88",
   "$id": "aws-timestream-influxdbinstance.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -242,9 +242,12 @@
         "AVAILABLE",
         "DELETING",
         "MODIFYING",
+        "MAINTENANCE",
         "UPDATING",
         "UPDATING_DEPLOYMENT_TYPE",
         "UPDATING_INSTANCE_TYPE",
+        "REBOOTING",
+        "REBOOT_FAILED",
         "DELETED",
         "FAILED"
       ],

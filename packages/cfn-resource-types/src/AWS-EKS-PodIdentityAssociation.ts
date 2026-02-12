@@ -20,6 +20,11 @@ export type EKSPodIdentityAssociationProperties = {
    */
   Namespace: string;
   /**
+   * The policy of the pod identity association.
+   * @minLength `1`
+   */
+  Policy?: string;
+  /**
    * The IAM role ARN that the pod identity association is created for.
    */
   RoleArn: string;

@@ -1,43 +1,6 @@
-- updated `AWS::EC2::VolumeAttachment`
-  - updated property `EbsCardIndex`
-- updated `AWS::MPA::ApprovalTeam`
+- updated `AWS::CodeStarConnections::RepositoryLink`
   - updated `tagging`
-- updated `AWS::MPA::IdentitySource`
-  - updated `tagging`
-- updated `AWS::MediaConnect::Flow`
-  - removed `deprecatedProperties`
-  - removed `tagging`
-  - removed definition `Tag`
-  - removed property `Tags`
-  - updated definition `MediaStream`
-  - updated definition `NdiDiscoveryServerConfig`
-  - updated definition `Source`
-  - updated definition `VpcInterface`
-  - updated handler permissions
-- updated `AWS::MediaConnect::FlowEntitlement`
-  - removed `deprecatedProperties`
-  - removed `tagging`
-  - removed definition `Tag`
-  - removed property `Tags`
-  - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::MediaConnect::FlowOutput`
-  - removed `tagging`
-  - removed definition `Tag`
-  - removed property `Tags`
-  - updated `createOnlyProperties`
-  - updated handler permissions
-- updated `AWS::MediaConnect::FlowSource`
-  - removed `deprecatedProperties`
-  - removed `tagging`
-  - removed definition `Tag`
-  - removed property `Tags`
-  - updated `createOnlyProperties`
-  - updated `required`
-  - updated definition `Encryption`
-  - updated definition `GatewayBridgeSource`
-  - updated handler permissions
-  - updated property `FlowArn`
-  - updated property `SourceArn`
-- updated `AWS::Notifications::NotificationConfiguration`
-  - updated handler permissions
+- updated `AWS::EKS::PodIdentityAssociation`
+  - added property `Policy`
+- updated `AWS::Timestream::InfluxDBInstance`
+  - updated property `Status`

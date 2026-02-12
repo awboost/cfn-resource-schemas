@@ -1,5 +1,5 @@
 {
-  "$hash": "4c4fa9d2e30a989ae9d5db891d569811b80cef12",
+  "$hash": "64d88b9289edda8a043f8d553655d5932c022e3c",
   "$id": "aws-eks-podidentityassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -97,6 +97,11 @@
     },
     "Namespace": {
       "description": "The Kubernetes namespace that the pod identity association is created for.",
+      "type": "string"
+    },
+    "Policy": {
+      "description": "The policy of the pod identity association.",
+      "minLength": 1,
       "type": "string"
     },
     "RoleArn": {
