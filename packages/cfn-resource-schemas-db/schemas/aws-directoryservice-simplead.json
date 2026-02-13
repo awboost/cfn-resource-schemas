@@ -1,5 +1,5 @@
 {
-  "$hash": "a9eb0d40060f508322ed03d3d0408e3a731280ec",
+  "$hash": "4176909724a4afa67e1ee7de81f06d1a49b63af0",
   "$id": "aws-directoryservice-simplead.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -12,6 +12,26 @@
     "/properties/CreateAlias"
   ],
   "definitions": {
+    "Tag": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "properties": {
+        "Key": {
+          "description": "The key name of the tag",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag.",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
     "VpcSettings": {
       "$comment": "Contains VPC information",
       "additionalProperties": false,
@@ -41,6 +61,8 @@
         "ds:CreateAlias",
         "ds:EnableSso",
         "ds:DescribeDirectories",
+        "ds:AddTagsToResource",
+        "ds:ListTagsForResource",
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
         "ec2:CreateSecurityGroup",
@@ -49,6 +71,7 @@
         "ec2:AuthorizeSecurityGroupIngress",
         "ec2:AuthorizeSecurityGroupEgress",
         "ec2:CreateTags",
+        "ec2:DescribeTags",
         "ec2:RevokeSecurityGroupIngress",
         "ec2:RevokeSecurityGroupEgress"
       ],
@@ -68,9 +91,21 @@
       "timeoutInMinutes": 100
     },
     "list": { "permissions": ["ds:DescribeDirectories"] },
-    "read": { "permissions": ["ds:DescribeDirectories"] },
+    "read": {
+      "permissions": ["ds:DescribeDirectories", "ds:ListTagsForResource"]
+    },
     "update": {
-      "permissions": ["ds:EnableSso", "ds:DisableSso", "ds:DescribeDirectories"]
+      "permissions": [
+        "ds:EnableSso",
+        "ds:DisableSso",
+        "ds:DescribeDirectories",
+        "ds:AddTagsToResource",
+        "ds:RemoveTagsFromResource",
+        "ds:ListTagsForResource",
+        "ec2:CreateTags",
+        "ec2:DeleteTags",
+        "ec2:DescribeTags"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/DirectoryId"],
@@ -112,6 +147,12 @@
       "type": "string"
     },
     "Size": { "description": "The size of the directory.", "type": "string" },
+    "Tags": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "VpcSettings": {
       "$ref": "#/definitions/VpcSettings",
       "description": "VPC settings of the Simple AD directory server in AWS."
@@ -125,9 +166,15 @@
   "required": ["VpcSettings", "Size", "Name"],
   "tagging": {
     "cloudFormationSystemTags": false,
-    "tagOnCreate": false,
-    "tagUpdatable": false,
-    "taggable": false
+    "permissions": [
+      "ds:AddTagsToResource",
+      "ds:RemoveTagsFromResource",
+      "ds:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
   },
   "typeName": "AWS::DirectoryService::SimpleAD",
   "writeOnlyProperties": ["/properties/Password"]

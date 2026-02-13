@@ -33,6 +33,7 @@ export type DirectoryServiceSimpleADProperties = {
    * The size of the directory.
    */
   Size: string;
+  Tags?: Tag[];
   /**
    * VPC settings of the Simple AD directory server in AWS.
    */
@@ -55,6 +56,25 @@ export type DirectoryServiceSimpleADAttributes = {
    * The IP addresses of the DNS servers for the directory, such as [ "172.31.3.154", "172.31.63.203" ].
    */
   DnsIpAddresses: string[];
+};
+/**
+ * Type definition for `AWS::DirectoryService::SimpleAD.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::DirectoryService::SimpleAD.VpcSettings`.

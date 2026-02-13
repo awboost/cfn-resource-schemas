@@ -337,7 +337,7 @@ export type LogConfiguration = {
 export type LogDestination = "NONE" | "CLOUDWATCH" | "S3";
 /**
  * Type definition for `AWS::GameLift::ContainerFleet.ManagedCapacityConfiguration`.
- * Configuration options for GameLift-managed capacity behavior.
+ * Configuration options for Amazon GameLift Servers managed capacity behavior.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-managedcapacityconfiguration.html}
  */
 export type ManagedCapacityConfiguration = {

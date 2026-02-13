@@ -1,5 +1,5 @@
 {
-  "$hash": "83df0ac1b03e51ddfde99823b8ceb0ab3fe36420",
+  "$hash": "92cab7716153c4192bc6551adbc634e83b83c44d",
   "$id": "aws-ec2-transitgatewayroutetable.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TransitGatewayId"],
@@ -69,7 +69,7 @@
   "required": ["TransitGatewayId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-transitgateway.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

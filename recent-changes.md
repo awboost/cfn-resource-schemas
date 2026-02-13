@@ -1,6 +1,21 @@
-- updated `AWS::CodeStarConnections::RepositoryLink`
+- added `AWS::Connect::Notification`
+- added `AWS::SES::CustomVerificationEmailTemplate`
+- updated `AWS::DirectoryService::SimpleAD`
+  - added definition `Tag`
+  - added property `Tags`
   - updated `tagging`
-- updated `AWS::EKS::PodIdentityAssociation`
-  - added property `Policy`
-- updated `AWS::Timestream::InfluxDBInstance`
-  - updated property `Status`
+  - updated handler permissions
+- updated `AWS::EC2::TransitGatewayRouteTable`
+  - updated `tagging`
+- updated `AWS::GameLift::ContainerFleet`
+  - updated definition `ManagedCapacityConfiguration`
+- updated `AWS::S3Tables::Table`
+  - added definition `IcebergPartitionFieldList`
+  - added definition `IcebergPartitionField`
+  - added definition `IcebergPartitionSpec`
+  - added definition `IcebergSortFieldList`
+  - added definition `IcebergSortField`
+  - added definition `IcebergSortOrder`
+  - added definition `TableProperties`
+  - updated definition `IcebergMetadata`
+  - updated definition `SchemaField`

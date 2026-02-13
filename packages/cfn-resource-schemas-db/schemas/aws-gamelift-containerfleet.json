@@ -1,5 +1,5 @@
 {
-  "$hash": "cd563dee11cf994c74e9d4fee66dbb1ed74bc678",
+  "$hash": "67475e15b07b84dba3fb3d2e2de688ebd8e029f4",
   "$id": "aws-gamelift-containerfleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -185,7 +185,7 @@
     },
     "ManagedCapacityConfiguration": {
       "additionalProperties": false,
-      "description": "Configuration options for GameLift-managed capacity behavior.",
+      "description": "Configuration options for Amazon GameLift Servers managed capacity behavior.",
       "properties": {
         "ScaleInAfterInactivityMinutes": {
           "description": "Length of time, in minutes, that Amazon GameLift Servers will wait before scaling in your MinSize and DesiredInstances to 0 after a period with no game session activity.",

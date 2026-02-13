@@ -87,9 +87,59 @@ export type Compaction = {
  */
 export type IcebergMetadata = {
   /**
+   * Partition specification for an Iceberg table
+   */
+  IcebergPartitionSpec?: IcebergPartitionSpec;
+  /**
    * Contains details about the schema for an Iceberg table
    */
   IcebergSchema: IcebergSchema;
+  /**
+   * Sort order specification for an Iceberg table
+   */
+  IcebergSortOrder?: IcebergSortOrder;
+  /**
+   * Iceberg table properties (e.g., format-version, write.parquet.compression-codec)
+   */
+  TableProperties?: TableProperties;
+};
+/**
+ * Type definition for `AWS::S3Tables::Table.IcebergPartitionField`.
+ * A partition field specification for an Iceberg table
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergpartitionfield.html}
+ */
+export type IcebergPartitionField = {
+  /**
+   * The partition field ID (auto-assigned starting from 1000 if not specified)
+   */
+  FieldId?: number;
+  /**
+   * The name of the partition field
+   */
+  Name: string;
+  /**
+   * The source column ID to partition on
+   */
+  SourceId: number;
+  /**
+   * The partition transform function (identity, bucket[N], truncate[N], year, month, day, hour)
+   */
+  Transform: string;
+};
+/**
+ * Type definition for `AWS::S3Tables::Table.IcebergPartitionSpec`.
+ * Partition specification for an Iceberg table
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergpartitionspec.html}
+ */
+export type IcebergPartitionSpec = {
+  /**
+   * List of partition fields
+   */
+  Fields: IcebergPartitionField[];
+  /**
+   * The partition spec ID (defaults to 0 if not specified)
+   */
+  SpecId?: number;
 };
 /**
  * Type definition for `AWS::S3Tables::Table.IcebergSchema`.
@@ -103,6 +153,44 @@ export type IcebergSchema = {
   SchemaFieldList: SchemaField[];
 };
 /**
+ * Type definition for `AWS::S3Tables::Table.IcebergSortField`.
+ * A sort field specification for an Iceberg table
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergsortfield.html}
+ */
+export type IcebergSortField = {
+  /**
+   * Sort direction (asc or desc)
+   */
+  Direction: "asc" | "desc";
+  /**
+   * Null value ordering (nulls-first or nulls-last)
+   */
+  NullOrder: "nulls-first" | "nulls-last";
+  /**
+   * The source column ID to sort on
+   */
+  SourceId: number;
+  /**
+   * The sort transform function
+   */
+  Transform: string;
+};
+/**
+ * Type definition for `AWS::S3Tables::Table.IcebergSortOrder`.
+ * Sort order specification for an Iceberg table
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergsortorder.html}
+ */
+export type IcebergSortOrder = {
+  /**
+   * List of sort fields
+   */
+  Fields: IcebergSortField[];
+  /**
+   * The sort order ID (defaults to 1 if not specified, 0 is reserved for unsorted)
+   */
+  OrderId?: number;
+};
+/**
  * Type definition for `AWS::S3Tables::Table.OpenTableFormat`.
  * Format of the table.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-opentableformat.html}
@@ -114,6 +202,10 @@ export type OpenTableFormat = "ICEBERG";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-schemafield.html}
  */
 export type SchemaField = {
+  /**
+   * The unique identifier for the field
+   */
+  Id?: number;
   /**
    * The name of the field
    */
@@ -159,6 +251,12 @@ export type StorageClassConfiguration = {
    */
   StorageClass?: "STANDARD" | "INTELLIGENT_TIERING";
 };
+/**
+ * Type definition for `AWS::S3Tables::Table.TableProperties`.
+ * Iceberg table properties (e.g., format-version, write.parquet.compression-codec)
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-tableproperties.html}
+ */
+export type TableProperties = Record<string, string>;
 /**
  * Type definition for `AWS::S3Tables::Table.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-tag.html}
