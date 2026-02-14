@@ -12,6 +12,7 @@ export type VerifiedPermissionsPolicyStoreProperties = {
    * @maxLength `150`
    */
   Description?: string;
+  EncryptionSettings?: EncryptionSettings;
   Schema?: SchemaDefinition;
   /**
    * The tags to add to the policy store
@@ -30,6 +31,19 @@ export type VerifiedPermissionsPolicyStoreAttributes = {
    * @pattern `^arn:[^:]*:[^:]*:[^:]*:[^:]*:.*$`
    */
   Arn: string;
+  EncryptionState:
+    | {
+        KmsEncryptionState: {
+          EncryptionContext: Record<string, string>;
+          /**
+           * @pattern `^[a-zA-Z0-9:/_-]+$`
+           */
+          Key: string;
+        };
+      }
+    | {
+        Default: Record<string, any>;
+      };
   /**
    * @minLength `1`
    * @maxLength `200`
@@ -37,6 +51,11 @@ export type VerifiedPermissionsPolicyStoreAttributes = {
    */
   PolicyStoreId: string;
 };
+/**
+ * Type definition for `AWS::VerifiedPermissions::PolicyStore.Default`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-default.html}
+ */
+export type Default = Record<string, any>;
 /**
  * Type definition for `AWS::VerifiedPermissions::PolicyStore.DeletionMode`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-deletionmode.html}
@@ -48,6 +67,44 @@ export type DeletionMode = "ENABLED" | "DISABLED";
  */
 export type DeletionProtection = {
   Mode: DeletionMode;
+};
+/**
+ * Type definition for `AWS::VerifiedPermissions::PolicyStore.EncryptionContext`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-encryptioncontext.html}
+ */
+export type EncryptionContext = Record<string, string>;
+/**
+ * Type definition for `AWS::VerifiedPermissions::PolicyStore.EncryptionSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-encryptionsettings.html}
+ */
+export type EncryptionSettings =
+  | {
+      KmsEncryptionSettings: KmsEncryptionSettings;
+    }
+  | {
+      Default: Default;
+    };
+/**
+ * Type definition for `AWS::VerifiedPermissions::PolicyStore.KmsEncryptionSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-kmsencryptionsettings.html}
+ */
+export type KmsEncryptionSettings = {
+  EncryptionContext?: EncryptionContext;
+  /**
+   * @pattern `^[a-zA-Z0-9:/_-]+$`
+   */
+  Key: string;
+};
+/**
+ * Type definition for `AWS::VerifiedPermissions::PolicyStore.KmsEncryptionState`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-kmsencryptionstate.html}
+ */
+export type KmsEncryptionState = {
+  EncryptionContext: EncryptionContext;
+  /**
+   * @pattern `^[a-zA-Z0-9:/_-]+$`
+   */
+  Key: string;
 };
 /**
  * Type definition for `AWS::VerifiedPermissions::PolicyStore.SchemaDefinition`.

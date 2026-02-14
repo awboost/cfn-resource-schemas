@@ -1,5 +1,5 @@
 {
-  "$hash": "412293a0221110e91d63d330d02abf313a51291a",
+  "$hash": "95ba1425920026bba298bcb440cc58408626be6a",
   "$id": "aws-ec2-transitgatewaymulticastdomain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TransitGatewayId"],
@@ -115,7 +115,7 @@
   "required": ["TransitGatewayId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-transitgateway/aws-ec2-transitgatewaymulticastdomain",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

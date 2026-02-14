@@ -100,6 +100,10 @@ export type ApacheKafkaCluster = {
  */
 export type AutoScaling = {
   /**
+   * The maximum number of tasks allocated to the connector during autoscaling operations.
+   */
+  MaxAutoscalingTaskCount?: number;
+  /**
    * The maximum number of workers for a connector.
    */
   MaxWorkerCount: number;

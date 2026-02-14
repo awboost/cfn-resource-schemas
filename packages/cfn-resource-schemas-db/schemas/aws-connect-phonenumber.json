@@ -1,5 +1,5 @@
 {
-  "$hash": "c93d2a69231b5ebde26ca78a927a9bc2a308418c",
+  "$hash": "3c9ad4ecc59a37a41a4f037f37d8b26a5178cb3b",
   "$id": "aws-connect-phonenumber.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -122,7 +122,7 @@
   "required": ["TargetArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": ["connect:UntagResource", "connect:TagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

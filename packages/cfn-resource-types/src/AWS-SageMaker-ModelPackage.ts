@@ -51,10 +51,6 @@ export type SageMakerModelPackageProperties = {
    */
   InferenceSpecification?: InferenceSpecification;
   /**
-   * The time at which the model package was last modified.
-   */
-  LastModifiedTime?: string;
-  /**
    * Metadata properties of the tracking entity, trial, or trial component.
    */
   MetadataProperties?: MetadataProperties;
@@ -144,6 +140,10 @@ export type SageMakerModelPackageAttributes = {
    * The time at which the model package was created.
    */
   CreationTime: string;
+  /**
+   * The time at which the model package was last modified.
+   */
+  LastModifiedTime: string;
   /**
    * The Amazon Resource Name (ARN) of the model package group.
    * @minLength `1`

@@ -1,5 +1,5 @@
 {
-  "$hash": "1748b033f2df5713e66fa3f5ac991c46485755fe",
+  "$hash": "b166b012ad3e151a687fdc7682664c8e43ff91d0",
   "$id": "aws-sagemaker-modelpackage.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -989,6 +989,7 @@
   "readOnlyProperties": [
     "/properties/ModelPackageArn",
     "/properties/CreationTime",
+    "/properties/LastModifiedTime",
     "/properties/ModelPackageStatus"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sagemaker",

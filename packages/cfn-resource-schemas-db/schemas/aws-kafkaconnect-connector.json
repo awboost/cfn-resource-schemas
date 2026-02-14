@@ -1,5 +1,5 @@
 {
-  "$hash": "ea3db91086621a0aa97b50ff3cbac33acc9254ff",
+  "$hash": "28d27850dc282d9498bfb6e750051ae8e005dfce",
   "$id": "aws-kafkaconnect-connector.json",
   "additionalIdentifiers": [["/properties/ConnectorName"]],
   "additionalProperties": false,
@@ -34,6 +34,10 @@
       "additionalProperties": false,
       "description": "Details about auto scaling of a connector.",
       "properties": {
+        "MaxAutoscalingTaskCount": {
+          "description": "The maximum number of tasks allocated to the connector during autoscaling operations.",
+          "type": "integer"
+        },
         "MaxWorkerCount": {
           "description": "The maximum number of workers for a connector.",
           "type": "integer"

@@ -1,21 +1,25 @@
-- added `AWS::Connect::Notification`
-- added `AWS::SES::CustomVerificationEmailTemplate`
-- updated `AWS::DirectoryService::SimpleAD`
-  - added definition `Tag`
-  - added property `Tags`
+- added `AWS::EC2::IPAMPrefixListResolver`
+- updated `AWS::Connect::PhoneNumber`
   - updated `tagging`
+- updated `AWS::EC2::CapacityReservationFleet`
+  - updated `tagging`
+- updated `AWS::EC2::TransitGatewayConnect`
+  - updated `tagging`
+- updated `AWS::EC2::TransitGatewayMulticastDomain`
+  - updated `tagging`
+- updated `AWS::KafkaConnect::Connector`
+  - updated definition `AutoScaling`
+- updated `AWS::SageMaker::ModelPackage`
+  - updated `readOnlyProperties`
+- updated `AWS::VerifiedPermissions::PolicyStore`
+  - added `writeOnlyProperties`
+  - added definition `Default`
+  - added definition `EncryptionContext`
+  - added definition `EncryptionSettings`
+  - added definition `KmsEncryptionSettings`
+  - added definition `KmsEncryptionState`
+  - added definition `KmsKey`
+  - added property `EncryptionSettings`
+  - added property `EncryptionState`
+  - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::EC2::TransitGatewayRouteTable`
-  - updated `tagging`
-- updated `AWS::GameLift::ContainerFleet`
-  - updated definition `ManagedCapacityConfiguration`
-- updated `AWS::S3Tables::Table`
-  - added definition `IcebergPartitionFieldList`
-  - added definition `IcebergPartitionField`
-  - added definition `IcebergPartitionSpec`
-  - added definition `IcebergSortFieldList`
-  - added definition `IcebergSortField`
-  - added definition `IcebergSortOrder`
-  - added definition `TableProperties`
-  - updated definition `IcebergMetadata`
-  - updated definition `SchemaField`
