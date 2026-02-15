@@ -1,5 +1,5 @@
 {
-  "$hash": "264c72800ef5bf0041ae913a5856ae6e76dead89",
+  "$hash": "e781706d5be52353cae9321c4bc9c2029d1c76a8",
   "$id": "aws-guardduty-filter.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DetectorId", "/properties/Name"],
@@ -111,7 +111,7 @@
   },
   "required": ["DetectorId", "Name", "FindingCriteria"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "guardduty:TagResource",
       "guardduty:UntagResource",
