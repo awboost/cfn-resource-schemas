@@ -1,5 +1,5 @@
 {
-  "$hash": "021b808308b295ae125a8fcf22ddc743c714d85a",
+  "$hash": "bc22bb513f76f1f5c50771a4c6257610bd2a9384",
   "$id": "aws-securityhub-delegatedadmin.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AdminAccountId"],
@@ -35,7 +35,7 @@
   "primaryIdentifier": ["/properties/DelegatedAdminIdentifier"],
   "properties": {
     "AdminAccountId": {
-      "description": "The AWS-account identifier of the account to designate as the Security Hub administrator account.",
+      "description": "The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.",
       "pattern": "^[0-9]{12}$",
       "type": "string"
     },

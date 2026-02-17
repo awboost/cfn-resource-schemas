@@ -17,6 +17,7 @@ export type DevOpsAgentAgentSpaceProperties = {
    * @maxLength `255`
    */
   Name: string;
+  OperatorApp?: OperatorApp;
 };
 /**
  * Attribute type definition for `AWS::DevOpsAgent::AgentSpace`.
@@ -37,10 +38,44 @@ export type DevOpsAgentAgentSpaceAttributes = {
    * The timestamp when the resource was created.
    */
   CreatedAt: string;
+  OperatorApp: {
+    Iam: {
+      CreatedAt: string;
+      UpdatedAt: string;
+    };
+    Idc: {
+      CreatedAt: string;
+      IdcApplicationArn: string;
+      UpdatedAt: string;
+    };
+  };
   /**
    * The timestamp when the resource was last updated.
    */
   UpdatedAt: string;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::AgentSpace.IamAuthConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-iamauthconfiguration.html}
+ */
+export type IamAuthConfiguration = {
+  OperatorAppRoleArn: string;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::AgentSpace.IdcAuthConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-idcauthconfiguration.html}
+ */
+export type IdcAuthConfiguration = {
+  IdcInstanceArn: string;
+  OperatorAppRoleArn: string;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::AgentSpace.OperatorApp`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-operatorapp.html}
+ */
+export type OperatorApp = {
+  Iam?: IamAuthConfiguration;
+  Idc?: IdcAuthConfiguration;
 };
 /**
  * Resource Type definition for AWS::DevOpsAgent::AgentSpace

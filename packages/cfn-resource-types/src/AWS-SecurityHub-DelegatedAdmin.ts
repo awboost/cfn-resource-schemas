@@ -9,7 +9,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SecurityHubDelegatedAdminProperties = {
   /**
-   * The AWS-account identifier of the account to designate as the Security Hub administrator account.
+   * The AWS-account identifier of the account to designate as the Security Hub CSPM administrator account.
    * @pattern `^[0-9]{12}$`
    */
   AdminAccountId: string;

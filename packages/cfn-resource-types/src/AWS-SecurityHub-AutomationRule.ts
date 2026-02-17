@@ -22,7 +22,7 @@ export type SecurityHubAutomationRuleProperties = {
    */
   Description: string;
   /**
-   * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
+   * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
    */
   IsTerminal?: boolean;
   /**
@@ -32,7 +32,7 @@ export type SecurityHubAutomationRuleProperties = {
    */
   RuleName: string;
   /**
-   * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
+   * An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub CSPM applies rules with lower values for this parameter first.
    * @min `1`
    * @max `1000`
    */
@@ -88,7 +88,7 @@ export type AutomationRulesAction = {
    */
   FindingFieldsUpdate: AutomationRulesFindingFieldsUpdate;
   /**
-   * Specifies the type of action that Security Hub takes when a finding matches the defined criteria of a rule.
+   * Specifies the type of action that Security Hub CSPM takes when a finding matches the defined criteria of a rule.
    */
   Type: "FINDING_FIELDS_UPDATE";
 };
@@ -253,13 +253,13 @@ export type AutomationRulesFindingFilters = {
      */
   NoteUpdatedBy?: StringFilter[];
   /**
-     * The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub.
+     * The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub CSPM.
       Array Members: Minimum number of 1 item. Maximum number of 20 items.
      * @maxLength `20`
      */
   ProductArn?: StringFilter[];
   /**
-     * Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub.
+     * Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub CSPM.
       Array Members: Minimum number of 1 item. Maximum number of 20 items.
      * @maxLength `20`
      */
@@ -419,7 +419,7 @@ export type map = Record<string, string>;
  */
 export type MapFilter = {
   /**
-     * The condition to apply to the key value when filtering Security Hub findings with a map filter.
+     * The condition to apply to the key value when filtering Security Hub CSPM findings with a map filter.
      To search for values that have the filter value, use one of the following comparison operators:
       +  To search for values that include the filter value, use ``CONTAINS``. For example, for the ``ResourceTags`` field, the filter ``Department CONTAINS Security`` matches findings that include the value ``Security`` for the ``Department`` tag. In the same example, a finding with a value of ``Security team`` for the ``Department`` tag is a match.
       +  To search for values that exactly match the filter value, use ``EQUALS``. For example, for the ``ResourceTags`` field, the filter ``Department EQUALS Security`` matches findings that have the value ``Security`` for the ``Department`` tag.
@@ -538,7 +538,7 @@ export type SeverityUpdate = {
  */
 export type StringFilter = {
   /**
-     * The condition to apply to a string value when filtering Security Hub findings.
+     * The condition to apply to a string value when filtering Security Hub CSPM findings.
      To search for values that have the filter value, use one of the following comparison operators:
       +  To search for values that include the filter value, use ``CONTAINS``. For example, the filter ``Title CONTAINS CloudFront`` matches findings that have a ``Title`` that includes the string CloudFront.
       +  To search for values that exactly match the filter value, use ``EQUALS``. For example, the filter ``AwsAccountId EQUALS 123456789012`` only matches findings that have an account ID of ``123456789012``.
@@ -552,8 +552,8 @@ export type StringFilter = {
       
      ``NOT_CONTAINS``, ``NOT_EQUALS``, and ``PREFIX_NOT_EQUALS`` filters on the same field are joined by ``AND``. A finding matches only if it matches all of those filters. For example, the filters ``Title NOT_CONTAINS CloudFront AND Title NOT_CONTAINS CloudWatch`` match a finding that excludes both ``CloudFront`` and ``CloudWatch`` in the title.
      You can’t have both a ``CONTAINS`` filter and a ``NOT_CONTAINS`` filter on the same field. Similarly, you can't provide both an ``EQUALS`` filter and a ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filter on the same field. Combining filters in this way returns an error. ``CONTAINS`` filters can only be used with other ``CONTAINS`` filters. ``NOT_CONTAINS`` filters can only be used with other ``NOT_CONTAINS`` filters.
-     You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
-     For example, for the following filters, Security Hub first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
+     You can combine ``PREFIX`` filters with ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters for the same field. Security Hub CSPM first processes the ``PREFIX`` filters, and then the ``NOT_EQUALS`` or ``PREFIX_NOT_EQUALS`` filters.
+     For example, for the following filters, Security Hub CSPM first identifies findings that have resource types that start with either ``AwsIam`` or ``AwsEc2``. It then excludes findings that have a resource type of ``AwsIamPolicy`` and findings that have a resource type of ``AwsEc2NetworkInterface``.
       +   ``ResourceType PREFIX AwsIam``
       +   ``ResourceType PREFIX AwsEc2``
       +   ``ResourceType NOT_EQUALS AwsIamPolicy``
@@ -563,7 +563,7 @@ export type StringFilter = {
      */
   Comparison: StringFilterComparison;
   /**
-   * The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub``. If you provide ``security hub`` as the filter value, there's no match.
+   * The string filter value. Filter values are case sensitive. For example, the product name for control-based findings is ``Security Hub CSPM``. If you provide ``security hub`` as the filter value, there's no match.
    */
   Value: string;
 };
@@ -595,7 +595,7 @@ export type WorkflowUpdate = {
      * The status of the investigation into the finding. The workflow status is specific to an individual finding. It does not affect the generation of new findings. For example, setting the workflow status to ``SUPPRESSED`` or ``RESOLVED`` does not prevent a new finding for the same issue.
      The allowed values are the following.
       +  ``NEW`` - The initial state of a finding, before it is reviewed.
-     Security Hub also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
+     Security Hub CSPM also resets ``WorkFlowStatus`` from ``NOTIFIED`` or ``RESOLVED`` to ``NEW`` in the following cases:
       +  The record state changes from ``ARCHIVED`` to ``ACTIVE``.
       +  The compliance status changes from ``PASSED`` to either ``WARNING``, ``FAILED``, or ``NOT_AVAILABLE``.
       

@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type EC2VPCPeeringConnectionProperties = {
   /**
+   * The Region code to use when calling Security Token Service (STS) to assume the PeerRoleArn, if provided.
+   */
+  AssumeRoleRegion?: string;
+  /**
    * The AWS account ID of the owner of the accepter VPC.
    */
   PeerOwnerId?: string;

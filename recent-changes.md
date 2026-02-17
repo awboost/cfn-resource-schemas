@@ -1,2 +1,75 @@
-- updated `AWS::GuardDuty::Filter`
-  - updated `tagging`
+- updated `AWS::DevOpsAgent::AgentSpace`
+  - added definition `IamAuthConfiguration`
+  - added definition `IdcAuthConfiguration`
+  - added definition `OperatorApp`
+  - added property `OperatorApp`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::EC2::VPCPeeringConnection`
+  - added property `AssumeRoleRegion`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+- updated `AWS::QuickSight::Template`
+  - updated definition `AxisDisplayOptions`
+  - updated definition `BoxPlotOptions`
+  - updated definition `ChartAxisLabelOptions`
+  - updated definition `ColumnTooltipItem`
+  - updated definition `DataLabelOptions`
+  - updated definition `DataPathLabelType`
+  - updated definition `DateAxisOptions`
+  - updated definition `DateTimePickerControlDisplayOptions`
+  - updated definition `DonutCenterOptions`
+  - updated definition `FieldBasedTooltip`
+  - updated definition `FieldLabelType`
+  - updated definition `FieldTooltipItem`
+  - updated definition `FreeFormLayoutElementBackgroundStyle`
+  - updated definition `FreeFormLayoutElementBorderStyle`
+  - updated definition `FreeFormLayoutElement`
+  - updated definition `FunnelChartDataLabelOptions`
+  - updated definition `KPISparklineOptions`
+  - updated definition `LabelOptions`
+  - updated definition `LegendOptions`
+  - updated definition `LineChartLineStyleSettings`
+  - updated definition `LineChartMarkerStyleSettings`
+  - updated definition `ListControlSearchOptions`
+  - updated definition `ListControlSelectAllOptions`
+  - updated definition `LoadingAnimation`
+  - updated definition `MaximumLabelType`
+  - updated definition `MinimumLabelType`
+  - updated definition `PanelConfiguration`
+  - updated definition `PanelTitleOptions`
+  - updated definition `PivotTableFieldOption`
+  - updated definition `PivotTableOptions`
+  - updated definition `PivotTablePaginatedReportOptions`
+  - updated definition `PivotTableRowsLabelOptions`
+  - updated definition `PivotTotalOptions`
+  - updated definition `ProgressBarOptions`
+  - updated definition `RadarChartAreaStyleSettings`
+  - updated definition `RadarChartConfiguration`
+  - updated definition `RangeEndsLabelType`
+  - updated definition `ScrollBarOptions`
+  - updated definition `SecondaryValueOptions`
+  - updated definition `SheetControlInfoIconLabelOptions`
+  - updated definition `SheetElementConfigurationOverrides`
+  - updated definition `SheetImageTooltipConfiguration`
+  - updated definition `SubtotalOptions`
+  - updated definition `TableCellStyle`
+  - updated definition `TableFieldOption`
+  - updated definition `TablePaginatedReportOptions`
+  - updated definition `TextControlPlaceholderOptions`
+  - updated definition `ThousandSeparatorOptions`
+  - updated definition `TooltipOptions`
+  - updated definition `TotalOptions`
+  - updated definition `TrendArrowOptions`
+  - updated definition `VisualSubtitleLabelOptions`
+  - updated definition `VisualTitleLabelOptions`
+- updated `AWS::SecurityHub::AutomationRule`
+  - updated definition `AutomationRulesAction`
+  - updated definition `AutomationRulesFindingFilters`
+  - updated definition `MapFilter`
+  - updated definition `StringFilter`
+  - updated definition `WorkflowUpdate`
+  - updated property `IsTerminal`
+  - updated property `RuleOrder`
+- updated `AWS::SecurityHub::DelegatedAdmin`
+  - updated property `AdminAccountId`

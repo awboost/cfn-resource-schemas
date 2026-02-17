@@ -1,20 +1,92 @@
 {
-  "$hash": "1450b9b5322356d04ce1b07fa8df8e835035d0dc",
+  "$hash": "54c47568c4dbd01a57cbad6c0bf36f24565c95ee",
   "$id": "aws-devopsagent-agentspace.json",
   "additionalProperties": false,
-  "definitions": {},
+  "definitions": {
+    "IamAuthConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "CreatedAt": { "format": "date-time", "type": "string" },
+        "OperatorAppRoleArn": { "type": "string" },
+        "UpdatedAt": { "format": "date-time", "type": "string" }
+      },
+      "required": ["OperatorAppRoleArn"],
+      "type": "object"
+    },
+    "IdcAuthConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "CreatedAt": { "format": "date-time", "type": "string" },
+        "IdcApplicationArn": { "type": "string" },
+        "IdcInstanceArn": { "type": "string" },
+        "OperatorAppRoleArn": { "type": "string" },
+        "UpdatedAt": { "format": "date-time", "type": "string" }
+      },
+      "required": ["OperatorAppRoleArn", "IdcInstanceArn"],
+      "type": "object"
+    },
+    "OperatorApp": {
+      "additionalProperties": false,
+      "properties": {
+        "Iam": { "$ref": "#/definitions/IamAuthConfiguration" },
+        "Idc": { "$ref": "#/definitions/IdcAuthConfiguration" }
+      },
+      "type": "object"
+    }
+  },
   "description": "Resource Type definition for AWS::DevOpsAgent::AgentSpace",
   "handlers": {
     "create": {
-      "permissions": ["aidevops:CreateAgentSpace", "aidevops:GetAgentSpace"]
+      "permissions": [
+        "aidevops:CreateAgentSpace",
+        "aidevops:GetAgentSpace",
+        "aidevops:EnableOperatorApp",
+        "aidevops:GetOperatorAppTeams",
+        "iam:PassRole",
+        "sso:CreateApplication",
+        "sso:DeleteApplication",
+        "sso:PutApplicationAccessScope",
+        "sso:PutApplicationGrant",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:DeleteApplicationAccessScope",
+        "sso:DeleteApplicationAuthenticationMethod",
+        "sso:DeleteApplicationGrant"
+      ]
     },
     "delete": {
-      "permissions": ["aidevops:DeleteAgentSpace", "aidevops:GetAgentSpace"]
+      "permissions": [
+        "aidevops:DeleteAgentSpace",
+        "aidevops:GetAgentSpace",
+        "aidevops:DisableOperatorApp",
+        "sso:DeleteApplication",
+        "sso:DeleteApplicationAccessScope",
+        "sso:DeleteApplicationAuthenticationMethod",
+        "sso:DeleteApplicationGrant"
+      ]
     },
     "list": { "permissions": ["aidevops:ListAgentSpaces"] },
-    "read": { "permissions": ["aidevops:GetAgentSpace"] },
+    "read": {
+      "permissions": ["aidevops:GetAgentSpace", "aidevops:GetOperatorAppTeams"]
+    },
     "update": {
-      "permissions": ["aidevops:UpdateAgentSpace", "aidevops:GetAgentSpace"]
+      "permissions": [
+        "aidevops:UpdateAgentSpace",
+        "aidevops:GetAgentSpace",
+        "aidevops:EnableOperatorApp",
+        "aidevops:DisableOperatorApp",
+        "aidevops:GetOperatorAppTeams",
+        "iam:PassRole",
+        "sso:CreateApplication",
+        "sso:DeleteApplication",
+        "sso:PutApplicationAccessScope",
+        "sso:PutApplicationGrant",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:DeleteApplicationAccessScope",
+        "sso:DeleteApplicationAuthenticationMethod",
+        "sso:DeleteApplicationGrant"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/AgentSpaceId"],
@@ -46,6 +118,7 @@
       "minLength": 1,
       "type": "string"
     },
+    "OperatorApp": { "$ref": "#/definitions/OperatorApp" },
     "UpdatedAt": {
       "description": "The timestamp when the resource was last updated.",
       "format": "date-time",
@@ -56,7 +129,12 @@
     "/properties/AgentSpaceId",
     "/properties/CreatedAt",
     "/properties/UpdatedAt",
-    "/properties/Arn"
+    "/properties/Arn",
+    "/properties/OperatorApp/Iam/CreatedAt",
+    "/properties/OperatorApp/Iam/UpdatedAt",
+    "/properties/OperatorApp/Idc/IdcApplicationArn",
+    "/properties/OperatorApp/Idc/CreatedAt",
+    "/properties/OperatorApp/Idc/UpdatedAt"
   ],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
