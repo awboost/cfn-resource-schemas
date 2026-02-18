@@ -1,5 +1,5 @@
 {
-  "$hash": "c7d37dae87db5fde86db376ec64d972afc76dad1",
+  "$hash": "2ef3335423041711fdc08814849a9d713f65879f",
   "$id": "aws-eks-addon.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -164,7 +164,7 @@
   "required": ["ClusterName", "AddonName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-eks.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["eks:TagResource", "eks:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

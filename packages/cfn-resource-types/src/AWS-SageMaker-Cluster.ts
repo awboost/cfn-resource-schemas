@@ -37,7 +37,7 @@ export type SageMakerClusterProperties = {
    */
   NodeRecovery?: "Automatic" | "None";
   /**
-   * Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+   * Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
    */
   Orchestrator?: Orchestrator;
   /**
@@ -194,6 +194,55 @@ export type ClusterEbsVolumeConfig = {
   VolumeSizeInGB?: number;
 };
 /**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterFsxLustreConfig`.
+ * Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterfsxlustreconfig.html}
+ */
+export type ClusterFsxLustreConfig = {
+  /**
+   * The DNS name of the FSx for Lustre file system.
+   * @minLength `16`
+   * @maxLength `275`
+   * @pattern `^((fs|fc)i?-[0-9a-f]{8,}\..{4,253})$`
+   */
+  DnsName: string;
+  /**
+   * The mount name of the FSx for Lustre file system.
+   * @minLength `1`
+   * @maxLength `8`
+   * @pattern `^([A-Za-z0-9_-]{1,8})$`
+   */
+  MountName: string;
+  /**
+   * The mount path for the FSx for Lustre file system.
+   * @minLength `1`
+   * @maxLength `1024`
+   * @pattern `^/(?!/)(?!./‍*$)[a-zA-Z0-9._-]+(/[a-zA-Z0-9._-]+)*$`
+   */
+  MountPath?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterFsxOpenZfsConfig`.
+ * Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterfsxopenzfsconfig.html}
+ */
+export type ClusterFsxOpenZfsConfig = {
+  /**
+   * The DNS name of the FSx for OpenZFS file system.
+   * @minLength `16`
+   * @maxLength `275`
+   * @pattern `^((fs|fc)i?-[0-9a-f]{8,}\..{4,253})$`
+   */
+  DnsName: string;
+  /**
+   * The mount path for the FSx for OpenZFS file system.
+   * @minLength `1`
+   * @maxLength `1024`
+   * @pattern `^/(?!/)(?!./‍*$)[a-zA-Z0-9._-]+(/[a-zA-Z0-9._-]+)*$`
+   */
+  MountPath?: string;
+};
+/**
  * Type definition for `AWS::SageMaker::Cluster.ClusterInstanceGroup`.
  * Details of an instance group in a SageMaker HyperPod cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html}
@@ -231,7 +280,7 @@ export type ClusterInstanceGroup = {
   InstanceGroupName: string;
   /**
    * The instance storage configuration for the instance group.
-   * @maxLength `1`
+   * @maxLength `4`
    */
   InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
   /**
@@ -264,6 +313,10 @@ export type ClusterInstanceGroup = {
    */
   ScheduledUpdateConfig?: ScheduledUpdateConfig;
   /**
+   * Slurm configuration for the instance group.
+   */
+  SlurmConfig?: ClusterSlurmConfig;
+  /**
    * The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
    * @min `1`
    * @max `2`
@@ -279,14 +332,28 @@ export type ClusterInstanceGroup = {
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.ClusterInstanceStorageConfig`.
+ * Defines the configuration for attaching additional storage to the instances in the SageMaker HyperPod cluster instance group.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html}
  */
-export type ClusterInstanceStorageConfig = {
-  /**
-   * Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
-   */
-  EbsVolumeConfig?: ClusterEbsVolumeConfig;
-};
+export type ClusterInstanceStorageConfig =
+  | {
+      /**
+       * Defines the configuration for attaching additional Amazon Elastic Block Store (EBS) volumes to the instances in the SageMaker HyperPod cluster instance group. The additional EBS volume is attached to each instance within the SageMaker HyperPod cluster instance group and mounted to /opt/sagemaker.
+       */
+      EbsVolumeConfig?: ClusterEbsVolumeConfig;
+    }
+  | {
+      /**
+       * Configuration for mounting an Amazon FSx Lustre file system to the instances in the SageMaker HyperPod cluster instance group.
+       */
+      FsxLustreConfig?: ClusterFsxLustreConfig;
+    }
+  | {
+      /**
+       * Configuration for mounting an Amazon FSx OpenZFS file system to the instances in the SageMaker HyperPod cluster instance group.
+       */
+      FsxOpenZfsConfig?: ClusterFsxOpenZfsConfig;
+    };
 /**
  * Type definition for `AWS::SageMaker::Cluster.ClusterKubernetesConfig`.
  * Kubernetes configuration for cluster nodes including labels and taints.
@@ -366,6 +433,17 @@ export type ClusterOrchestratorEksConfig = {
   ClusterArn: string;
 };
 /**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterOrchestratorSlurmConfig`.
+ * Specifies parameter(s) related to Slurm as orchestrator.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterorchestratorslurmconfig.html}
+ */
+export type ClusterOrchestratorSlurmConfig = {
+  /**
+   * The strategy for managing Slurm configuration on the cluster.
+   */
+  SlurmConfigStrategy?: "Overwrite" | "Managed" | "Merge";
+};
+/**
  * Type definition for `AWS::SageMaker::Cluster.ClusterRestrictedInstanceGroup`.
  * Details of a restricted instance group in a SageMaker HyperPod cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterrestrictedinstancegroup.html}
@@ -396,7 +474,7 @@ export type ClusterRestrictedInstanceGroup = {
   InstanceGroupName: string;
   /**
    * The instance storage configuration for the instance group.
-   * @maxLength `1`
+   * @maxLength `4`
    */
   InstanceStorageConfigs?: ClusterInstanceStorageConfig[];
   /**
@@ -424,6 +502,23 @@ export type ClusterRestrictedInstanceGroup = {
    * @pattern `^arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:training-plan/.*$`
    */
   TrainingPlanArn?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterSlurmConfig`.
+ * Slurm configuration for the instance group.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterslurmconfig.html}
+ */
+export type ClusterSlurmConfig = {
+  /**
+   * The type of Slurm node for this instance group.
+   */
+  NodeType: "Controller" | "Login" | "Compute";
+  /**
+   * The Slurm partitions that this instance group belongs to. Maximum of 1 partition.
+   * @minLength `0`
+   * @maxLength `1`
+   */
+  PartitionNames?: string[];
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.ClusterSpotOptions`.
@@ -490,15 +585,22 @@ export type FSxLustreConfig = {
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.Orchestrator`.
- * Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster.
+ * Specifies parameter(s) specific to the orchestrator, e.g. specify the EKS cluster or Slurm configuration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html}
  */
-export type Orchestrator = {
-  /**
-   * Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
-   */
-  Eks: ClusterOrchestratorEksConfig;
-};
+export type Orchestrator =
+  | {
+      /**
+       * Specifies parameter(s) related to EKS as orchestrator, e.g. the EKS cluster nodes will attach to,
+       */
+      Eks?: ClusterOrchestratorEksConfig;
+    }
+  | {
+      /**
+       * Specifies parameter(s) related to Slurm as orchestrator.
+       */
+      Slurm?: ClusterOrchestratorSlurmConfig;
+    };
 /**
  * Type definition for `AWS::SageMaker::Cluster.RollingUpdatePolicy`.
  * The policy that SageMaker uses when updating the AMI versions of the cluster.

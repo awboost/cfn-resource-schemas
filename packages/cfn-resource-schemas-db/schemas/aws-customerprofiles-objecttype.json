@@ -1,5 +1,5 @@
 {
-  "$hash": "6f90f8544864009b97c9578583f9180d5f01ebec",
+  "$hash": "f6d6c2328ecebacad2b0d25bb2f1f86b23fef238",
   "$id": "aws-customerprofiles-objecttype.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -95,7 +95,9 @@
               "HOTEL_RESERVATION",
               "LOYALTY",
               "LOYALTY_TRANSACTION",
-              "LOYALTY_PROMOTION"
+              "LOYALTY_PROMOTION",
+              "WEB_ANALYTICS",
+              "DEVICE"
             ],
             "type": "string"
           },

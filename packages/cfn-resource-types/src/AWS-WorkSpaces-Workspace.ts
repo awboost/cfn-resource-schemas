@@ -20,6 +20,7 @@ export type WorkSpacesWorkspaceProperties = {
  */
 export type WorkSpacesWorkspaceAttributes = {
   Id: string;
+  WorkspaceId: string;
 };
 /**
  * Type definition for `AWS::WorkSpaces::Workspace.Tag`.

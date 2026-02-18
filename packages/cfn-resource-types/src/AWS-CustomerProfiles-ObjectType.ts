@@ -177,6 +177,8 @@ export type ObjectTypeKey = {
     | "LOYALTY"
     | "LOYALTY_TRANSACTION"
     | "LOYALTY_PROMOTION"
+    | "WEB_ANALYTICS"
+    | "DEVICE"
   )[];
 };
 /**
