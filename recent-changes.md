@@ -1,31 +1,3 @@
-- added `AWS::CloudWatch::AlarmMuteRule`
-- added `AWS::DevOpsAgent::Service`
-- updated `AWS::CustomerProfiles::Domain`
-  - updated definition `DataStore`
-  - updated definition `Readiness`
-  - updated handler permissions
-- updated `AWS::CustomerProfiles::ObjectType`
-  - updated definition `ObjectTypeKey`
-- updated `AWS::EKS::Addon`
-  - updated `tagging`
-- updated `AWS::SageMaker::Cluster`
-  - added definition `ClusterFsxLustreConfig`
-  - added definition `ClusterFsxOpenZfsConfig`
-  - added definition `ClusterOrchestratorSlurmConfig`
-  - added definition `ClusterSlurmConfig`
-  - updated `createOnlyProperties`
-  - updated definition `ClusterInstanceGroup`
-  - updated definition `ClusterInstanceStorageConfig`
-  - updated definition `ClusterInstanceStorageConfigs`
-  - updated definition `Orchestrator`
-- updated `AWS::WorkSpaces::Workspace`
-  - added `conditionalCreateOnlyProperties`
-  - added `sourceUrl`
-  - added `tagging`
-  - added property `WorkspaceId`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `Tags`
+- added `AWS::Timestream::InfluxDBCluster`
+- updated `AWS::RDS::DBCluster`
+  - updated property `Port`
