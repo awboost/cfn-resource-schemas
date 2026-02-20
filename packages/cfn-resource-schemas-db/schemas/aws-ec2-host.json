@@ -1,5 +1,5 @@
 {
-  "$hash": "2fd1b7a852588275d7ef0d4dc919a957061d35b0",
+  "$hash": "46f6f7676bb46981f4ef13d7ae9dcd572c6d6173",
   "$id": "aws-ec2-host.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -48,7 +48,9 @@
       "type": "string"
     },
     "AutoPlacement": {
+      "default": "on",
       "description": "Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.",
+      "enum": ["on", "off"],
       "type": "string"
     },
     "AvailabilityZone": {
@@ -57,11 +59,15 @@
     },
     "HostId": { "description": "ID of the host created.", "type": "string" },
     "HostMaintenance": {
+      "default": "off",
       "description": "Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.",
+      "enum": ["on", "off"],
       "type": "string"
     },
     "HostRecovery": {
+      "default": "off",
       "description": "Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.",
+      "enum": ["on", "off"],
       "type": "string"
     },
     "InstanceFamily": {
@@ -89,6 +95,7 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ec2.git",
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

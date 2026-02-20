@@ -1,5 +1,5 @@
 {
-  "$hash": "158ea6e9726f7c7abdf4cb878d496374020f9df0",
+  "$hash": "84e4009422587b07a416253454f7f89d0eb86501",
   "$id": "aws-controltower-enabledcontrol.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -95,17 +95,7 @@
       ],
       "timeoutInMinutes": 720
     },
-    "list": {
-      "handlerSchema": {
-        "properties": {
-          "TargetIdentifier": {
-            "$ref": "resource-schema.json#/properties/TargetIdentifier"
-          }
-        },
-        "required": ["TargetIdentifier"]
-      },
-      "permissions": ["controltower:ListEnabledControls"]
-    },
+    "list": { "permissions": ["controltower:ListEnabledControls"] },
     "read": {
       "permissions": [
         "controltower:ListEnabledControls",

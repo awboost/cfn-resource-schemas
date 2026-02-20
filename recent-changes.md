@@ -1,3 +1,18 @@
-- added `AWS::Timestream::InfluxDBCluster`
-- updated `AWS::RDS::DBCluster`
-  - updated property `Port`
+- updated `AWS::ControlTower::EnabledControl`
+  - updated handler permissions
+- updated `AWS::EC2::Host`
+  - updated `tagging`
+  - updated property `AutoPlacement`
+  - updated property `HostMaintenance`
+  - updated property `HostRecovery`
+- updated `AWS::Lambda::Function`
+  - updated definition `CapacityProviderConfig`
+  - updated definition `Code`
+  - updated definition `DurableConfig`
+  - updated definition `FunctionScalingConfig`
+  - updated definition `LambdaManagedInstancesCapacityProviderConfig`
+  - updated definition `TenancyConfig`
+  - updated property `CapacityProviderConfig`
+  - updated property `DurableConfig`
+  - updated property `FunctionScalingConfig`
+  - updated property `TenancyConfig`

@@ -17,6 +17,9 @@ export type LambdaFunctionProperties = {
    * @maxLength `1`
    */
   Architectures?: ("x86_64" | "arm64")[];
+  /**
+   * Configuration for the capacity provider that manages compute resources for Lambda functions.
+   */
   CapacityProviderConfig?: CapacityProviderConfig;
   /**
      * The code for the function. You can define your function code in multiple ways:
@@ -39,6 +42,9 @@ export type LambdaFunctionProperties = {
    * @maxLength `256`
    */
   Description?: string;
+  /**
+   * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
+   */
   DurableConfig?: DurableConfig;
   /**
    * Environment variables that are accessible from function code during execution.
@@ -60,6 +66,9 @@ export type LambdaFunctionProperties = {
      * @minLength `1`
      */
   FunctionName?: string;
+  /**
+   * Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+   */
   FunctionScalingConfig?: FunctionScalingConfig;
   /**
    * The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
@@ -134,6 +143,9 @@ export type LambdaFunctionProperties = {
       You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
      */
   Tags?: Tag[];
+  /**
+   * The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+   */
   TenancyConfig?: TenancyConfig;
   /**
    * The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
@@ -171,15 +183,19 @@ export type LambdaFunctionAttributes = {
 };
 /**
  * Type definition for `AWS::Lambda::Function.CapacityProviderConfig`.
+ * Configuration for the capacity provider that manages compute resources for Lambda functions.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-capacityproviderconfig.html}
  */
 export type CapacityProviderConfig = {
+  /**
+   * Configuration for Lambda-managed instances used by the capacity provider.
+   */
   LambdaManagedInstancesCapacityProviderConfig: LambdaManagedInstancesCapacityProviderConfig;
 };
 /**
  * Type definition for `AWS::Lambda::Function.Code`.
  * The [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) for a Lambda function. To deploy a function defined as a container image, you specify the location of a container image in the Amazon ECR registry. For a .zip file deployment package, you can specify the location of an object in Amazon S3. For Node.js and Python functions, you can specify the function code inline in the template.
-  When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+  When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
   Changes to a deployment package in Amazon S3 or a container image in ECR are not detected automatically during stack updates. To update the function code, change the object key or version in the template.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html}
  */
@@ -214,7 +230,8 @@ export type Code = {
   SourceKMSKeyArn?: string;
   /**
      * (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
-      When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that LAM treats the file as a CommonJS module. ES modules aren't supported for inline functions.
+      When you specify source code inline for a Node.js function, the ``index`` file that CFN creates uses the extension ``.js``. This means that Node.js treats the file as a CommonJS module.
+     When using Node.js 24 or later, Node.js can automatically detect if a ``.js`` file should be treated as CommonJS or as an ES module. To enable auto-detection, add the ``--experimental-detect-module`` flag to the ``NODE_OPTIONS`` environment variable. For more information, see [Experimental Node.js features](https://docs.aws.amazon.com//lambda/latest/dg/lambda-nodejs.html#nodejs-experimental-features).
        For JSON, you must escape quotes and special characters such as newline (``\n``) with a backslash.
      If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
      */
@@ -234,17 +251,18 @@ export type DeadLetterConfig = {
 };
 /**
  * Type definition for `AWS::Lambda::Function.DurableConfig`.
+ * Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout and retention period for execution history.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-durableconfig.html}
  */
 export type DurableConfig = {
   /**
-   * The amount of time (in seconds) that Lambda allows a durable function to run before stopping it. The maximum is one 366-day year or 31,622,400 seconds.
+   * The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.
    * @min `1`
    * @max `31622400`
    */
   ExecutionTimeout: number;
   /**
-   * The number of days after a durable execution is closed that Lambda retains its history, from one to 90 days. The default is 14 days.
+   * The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.
    * @min `1`
    * @max `90`
    */
@@ -296,6 +314,7 @@ export type FileSystemConfig = {
 };
 /**
  * Type definition for `AWS::Lambda::Function.FunctionScalingConfig`.
+ * Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-functionscalingconfig.html}
  */
 export type FunctionScalingConfig = {
@@ -335,6 +354,7 @@ export type ImageConfig = {
 };
 /**
  * Type definition for `AWS::Lambda::Function.LambdaManagedInstancesCapacityProviderConfig`.
+ * Configuration for Lambda-managed instances used by the capacity provider.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-lambdamanagedinstancescapacityproviderconfig.html}
  */
 export type LambdaManagedInstancesCapacityProviderConfig = {
@@ -352,7 +372,7 @@ export type LambdaManagedInstancesCapacityProviderConfig = {
    */
   ExecutionEnvironmentMemoryGiBPerVCpu?: number;
   /**
-   * The maximum number of concurrent execution environments that can run on each compute instance.
+   * The maximum number of concurrent executions that can run on each execution environment.
    * @min `1`
    * @max `1600`
    */
@@ -443,11 +463,12 @@ export type Tag = {
 };
 /**
  * Type definition for `AWS::Lambda::Function.TenancyConfig`.
+ * Specifies the tenant isolation mode configuration for a Lambda function. This allows you to configure specific tenant isolation strategies for your function invocations. Tenant isolation configuration cannot be modified after function creation.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tenancyconfig.html}
  */
 export type TenancyConfig = {
   /**
-   * Determines how your Lambda function isolates execution environments between tenants.
+   * Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.
    */
   TenantIsolationMode: "PER_TENANT";
 };

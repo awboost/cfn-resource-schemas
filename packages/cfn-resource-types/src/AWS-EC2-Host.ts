@@ -12,7 +12,7 @@ export type EC2HostProperties = {
   /**
    * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
    */
-  AutoPlacement?: string;
+  AutoPlacement?: "on" | "off";
   /**
    * The Availability Zone in which to allocate the Dedicated Host.
    */
@@ -20,11 +20,11 @@ export type EC2HostProperties = {
   /**
    * Automatically allocates a new dedicated host and moves your instances on to it if a degradation is detected on your current host.
    */
-  HostMaintenance?: string;
+  HostMaintenance?: "on" | "off";
   /**
    * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
    */
-  HostRecovery?: string;
+  HostRecovery?: "on" | "off";
   /**
    * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family.
    */
