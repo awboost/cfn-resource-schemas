@@ -1,5 +1,5 @@
 {
-  "$hash": "b149abc4170cbbc4fad8c2c1a1d1aaade8154db1",
+  "$hash": "54559e5ecb9b99f425b89c3e9afc7de28f07c08d",
   "$id": "aws-medialive-input.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -167,6 +167,23 @@
       },
       "type": "object"
     },
+    "SrtListenerDecryptionRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "Algorithm": { "type": "string" },
+        "PassphraseSecretArn": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "SrtListenerSettingsRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "Decryption": { "$ref": "#/definitions/SrtListenerDecryptionRequest" },
+        "MinimumLatency": { "type": "integer" },
+        "StreamId": { "type": "string" }
+      },
+      "type": "object"
+    },
     "SrtSettingsRequest": {
       "additionalProperties": false,
       "properties": {
@@ -174,6 +191,9 @@
           "items": { "$ref": "#/definitions/SrtCallerSourceRequest" },
           "type": "array",
           "uniqueItems": false
+        },
+        "SrtListenerSettings": {
+          "$ref": "#/definitions/SrtListenerSettingsRequest"
         }
       },
       "type": "object"

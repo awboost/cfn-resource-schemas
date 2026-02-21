@@ -1,18 +1,79 @@
-- updated `AWS::ControlTower::EnabledControl`
+- updated `AWS::ElastiCache::ReplicationGroup`
+  - added `conditionalCreateOnlyProperties`
+  - added `deprecatedProperties`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - added definition `Endpoint`
+  - added property `ConfigurationEndPoint`
+  - added property `PrimaryEndPoint`
+  - added property `ReadEndPoint`
+  - added property `ReaderEndPoint`
+  - removed property `ConfigurationEndPointAddress`
+  - removed property `ConfigurationEndPointPort`
+  - removed property `PrimaryEndPointAddress`
+  - removed property `PrimaryEndPointPort`
+  - removed property `ReadEndPointAddressesList`
+  - removed property `ReadEndPointAddresses`
+  - removed property `ReadEndPointPortsList`
+  - removed property `ReadEndPointPorts`
+  - removed property `ReaderEndPointAddress`
+  - removed property `ReaderEndPointPort`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated definition `CloudWatchLogsDestinationDetails`
+  - updated definition `DestinationDetails`
+  - updated definition `KinesisFirehoseDestinationDetails`
+  - updated definition `LogDeliveryConfigurationRequest`
+  - updated definition `NodeGroupConfiguration`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::EC2::Host`
+  - updated property `AtRestEncryptionEnabled`
+  - updated property `AuthToken`
+  - updated property `AutoMinorVersionUpgrade`
+  - updated property `AutomaticFailoverEnabled`
+  - updated property `CacheNodeType`
+  - updated property `CacheParameterGroupName`
+  - updated property `CacheSecurityGroupNames`
+  - updated property `CacheSubnetGroupName`
+  - updated property `ClusterMode`
+  - updated property `DataTieringEnabled`
+  - updated property `EngineVersion`
+  - updated property `Engine`
+  - updated property `GlobalReplicationGroupId`
+  - updated property `IpDiscovery`
+  - updated property `KmsKeyId`
+  - updated property `LogDeliveryConfigurations`
+  - updated property `MultiAZEnabled`
+  - updated property `NetworkType`
+  - updated property `NodeGroupConfiguration`
+  - updated property `NotificationTopicArn`
+  - updated property `NumCacheClusters`
+  - updated property `NumNodeGroups`
+  - updated property `Port`
+  - updated property `PreferredCacheClusterAZs`
+  - updated property `PreferredMaintenanceWindow`
+  - updated property `PrimaryClusterId`
+  - updated property `ReplicasPerNodeGroup`
+  - updated property `ReplicationGroupDescription`
+  - updated property `ReplicationGroupId`
+  - updated property `SecurityGroupIds`
+  - updated property `SnapshotArns`
+  - updated property `SnapshotName`
+  - updated property `SnapshotRetentionLimit`
+  - updated property `SnapshotWindow`
+  - updated property `SnapshottingClusterId`
+  - updated property `Tags`
+  - updated property `TransitEncryptionEnabled`
+  - updated property `TransitEncryptionMode`
+  - updated property `UserGroupIds`
+- updated `AWS::GuardDuty::ThreatIntelSet`
   - updated `tagging`
-  - updated property `AutoPlacement`
-  - updated property `HostMaintenance`
-  - updated property `HostRecovery`
-- updated `AWS::Lambda::Function`
-  - updated definition `CapacityProviderConfig`
-  - updated definition `Code`
-  - updated definition `DurableConfig`
-  - updated definition `FunctionScalingConfig`
-  - updated definition `LambdaManagedInstancesCapacityProviderConfig`
-  - updated definition `TenancyConfig`
-  - updated property `CapacityProviderConfig`
-  - updated property `DurableConfig`
-  - updated property `FunctionScalingConfig`
-  - updated property `TenancyConfig`
+- updated `AWS::MediaLive::Channel`
+  - added property `ChannelSecurityGroups`
+  - updated definition `Av1Settings`
+  - updated definition `SrtOutputDestinationSettings`
+- updated `AWS::MediaLive::Input`
+  - added definition `SrtListenerDecryptionRequest`
+  - added definition `SrtListenerSettingsRequest`
+  - updated definition `SrtSettingsRequest`

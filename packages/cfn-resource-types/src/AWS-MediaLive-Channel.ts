@@ -9,6 +9,7 @@ export type MediaLiveChannelProperties = {
   CdiInputSpecification?: CdiInputSpecification;
   ChannelClass?: string;
   ChannelEngineVersion?: ChannelEngineVersionRequest;
+  ChannelSecurityGroups?: string[];
   Destinations?: OutputDestination[];
   DryRun?: boolean;
   EncoderSettings?: EncoderSettings;
@@ -295,6 +296,7 @@ export type Av1ColorSpaceSettings = {
  */
 export type Av1Settings = {
   AfdSignaling?: string;
+  BitDepth?: string;
   Bitrate?: number;
   BufSize?: number;
   ColorSpaceSettings?: Av1ColorSpaceSettings;
@@ -1760,7 +1762,9 @@ export type SrtGroupSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-srtoutputdestinationsettings.html}
  */
 export type SrtOutputDestinationSettings = {
+  ConnectionMode?: string;
   EncryptionPassphraseSecretArn?: string;
+  ListenerPort?: number;
   StreamId?: string;
   Url?: string;
 };

@@ -1,5 +1,5 @@
 {
-  "$hash": "f1a5945d6952341d95593bb8abf84a507b1bf914",
+  "$hash": "9a0069f417bf3fa68615846745de5198eacacb1b",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -281,6 +281,7 @@
       "additionalProperties": false,
       "properties": {
         "AfdSignaling": { "type": "string" },
+        "BitDepth": { "type": "string" },
         "Bitrate": { "type": "integer" },
         "BufSize": { "type": "integer" },
         "ColorSpaceSettings": { "$ref": "#/definitions/Av1ColorSpaceSettings" },
@@ -1941,7 +1942,9 @@
     "SrtOutputDestinationSettings": {
       "additionalProperties": false,
       "properties": {
+        "ConnectionMode": { "type": "string" },
         "EncryptionPassphraseSecretArn": { "type": "string" },
+        "ListenerPort": { "type": "integer" },
         "StreamId": { "type": "string" },
         "Url": { "type": "string" }
       },
@@ -2165,6 +2168,11 @@
     "ChannelClass": { "type": "string" },
     "ChannelEngineVersion": {
       "$ref": "#/definitions/ChannelEngineVersionRequest"
+    },
+    "ChannelSecurityGroups": {
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": false
     },
     "Destinations": {
       "items": { "$ref": "#/definitions/OutputDestination" },
