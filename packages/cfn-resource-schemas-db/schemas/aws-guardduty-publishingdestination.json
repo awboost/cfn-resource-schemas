@@ -1,5 +1,5 @@
 {
-  "$hash": "b83eeb6a455f10cdf692b17934d4d8d7b50f639e",
+  "$hash": "80ddcdc6798f559ecedba2e898ef79dca6629adb",
   "$id": "aws-guardduty-publishingdestination.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DetectorId"],
@@ -105,7 +105,7 @@
   ],
   "required": ["DetectorId", "DestinationType", "DestinationProperties"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "guardduty:TagResource",
       "guardduty:UntagResource",
