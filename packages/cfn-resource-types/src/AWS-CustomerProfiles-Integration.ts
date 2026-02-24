@@ -32,6 +32,13 @@ export type CustomerProfilesIntegrationProperties = {
    */
   ObjectTypeNames?: ObjectTypeMapping[];
   /**
+   * Scope of the integration, such as 'PROFILE' or 'DOMAIN'
+   * @minLength `1`
+   * @maxLength `255`
+   * @pattern `^[a-zA-Z_][a-zA-Z_0-9-]*$`
+   */
+  Scope?: "PROFILE" | "DOMAIN";
+  /**
    * The tags (keys and values) associated with the integration
    * @minLength `0`
    * @maxLength `50`

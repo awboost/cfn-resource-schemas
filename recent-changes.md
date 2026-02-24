@@ -1,2 +1,77 @@
-- updated `AWS::GuardDuty::PublishingDestination`
-  - updated `tagging`
+- added `AWS::OpenSearchServerless::CollectionGroup`
+- updated `AWS::CustomerProfiles::Integration`
+  - added property `Scope`
+- updated `AWS::EC2::VPNConnection`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::EC2::Volume`
+  - updated property `Throughput`
+- updated `AWS::ElastiCache::ReplicationGroup`
+  - added property `ConfigurationEndPointAddress`
+  - added property `ConfigurationEndPointPort`
+  - added property `PrimaryEndPointAddress`
+  - added property `PrimaryEndPointPort`
+  - added property `ReadEndPointAddressesList`
+  - added property `ReadEndPointAddresses`
+  - added property `ReadEndPointPortsList`
+  - added property `ReadEndPointPorts`
+  - added property `ReaderEndPointAddress`
+  - added property `ReaderEndPointPort`
+  - removed `conditionalCreateOnlyProperties`
+  - removed `deprecatedProperties`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - removed `writeOnlyProperties`
+  - removed definition `Endpoint`
+  - removed property `ConfigurationEndPoint`
+  - removed property `PrimaryEndPoint`
+  - removed property `ReadEndPoint`
+  - removed property `ReaderEndPoint`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated definition `CloudWatchLogsDestinationDetails`
+  - updated definition `DestinationDetails`
+  - updated definition `KinesisFirehoseDestinationDetails`
+  - updated definition `LogDeliveryConfigurationRequest`
+  - updated definition `NodeGroupConfiguration`
+  - updated definition `Tag`
+  - updated handler permissions
+  - updated property `AtRestEncryptionEnabled`
+  - updated property `AuthToken`
+  - updated property `AutoMinorVersionUpgrade`
+  - updated property `AutomaticFailoverEnabled`
+  - updated property `CacheNodeType`
+  - updated property `CacheParameterGroupName`
+  - updated property `CacheSecurityGroupNames`
+  - updated property `CacheSubnetGroupName`
+  - updated property `ClusterMode`
+  - updated property `DataTieringEnabled`
+  - updated property `EngineVersion`
+  - updated property `Engine`
+  - updated property `GlobalReplicationGroupId`
+  - updated property `IpDiscovery`
+  - updated property `KmsKeyId`
+  - updated property `LogDeliveryConfigurations`
+  - updated property `MultiAZEnabled`
+  - updated property `NetworkType`
+  - updated property `NodeGroupConfiguration`
+  - updated property `NotificationTopicArn`
+  - updated property `NumCacheClusters`
+  - updated property `NumNodeGroups`
+  - updated property `Port`
+  - updated property `PreferredCacheClusterAZs`
+  - updated property `PreferredMaintenanceWindow`
+  - updated property `PrimaryClusterId`
+  - updated property `ReplicasPerNodeGroup`
+  - updated property `ReplicationGroupDescription`
+  - updated property `ReplicationGroupId`
+  - updated property `SecurityGroupIds`
+  - updated property `SnapshotArns`
+  - updated property `SnapshotName`
+  - updated property `SnapshotRetentionLimit`
+  - updated property `SnapshotWindow`
+  - updated property `SnapshottingClusterId`
+  - updated property `Tags`
+  - updated property `TransitEncryptionEnabled`
+  - updated property `TransitEncryptionMode`
+  - updated property `UserGroupIds`
