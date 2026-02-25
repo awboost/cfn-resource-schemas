@@ -1,5 +1,5 @@
 {
-  "$hash": "74facbb0b6fa3c5647577f87fba6b91ab8772c02",
+  "$hash": "5ea4eb3468e84aa4f4cec6d03d8898038a6744f9",
   "$id": "aws-wafv2-webaclassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn", "/properties/WebACLArn"],
@@ -33,7 +33,10 @@
         "amplify:GetWebACLForResource",
         "elasticloadbalancing:CreateWebACLAssociation",
         "elasticloadbalancing:DeleteWebACLAssociation",
-        "elasticloadbalancing:GetLoadBalancerWebACL"
+        "elasticloadbalancing:GetLoadBalancerWebACL",
+        "appsync:AssociateWebACL",
+        "appsync:DisassociateWebACL",
+        "appsync:GetWebACLForResource"
       ]
     },
     "delete": {
@@ -60,7 +63,10 @@
         "amplify:GetWebACLForResource",
         "elasticloadbalancing:CreateWebACLAssociation",
         "elasticloadbalancing:DeleteWebACLAssociation",
-        "elasticloadbalancing:GetLoadBalancerWebACL"
+        "elasticloadbalancing:GetLoadBalancerWebACL",
+        "appsync:AssociateWebACL",
+        "appsync:DisassociateWebACL",
+        "appsync:GetWebACLForResource"
       ]
     },
     "read": {
@@ -85,7 +91,10 @@
         "amplify:GetWebACLForResource",
         "elasticloadbalancing:CreateWebACLAssociation",
         "elasticloadbalancing:DeleteWebACLAssociation",
-        "elasticloadbalancing:GetLoadBalancerWebACL"
+        "elasticloadbalancing:GetLoadBalancerWebACL",
+        "appsync:AssociateWebACL",
+        "appsync:DisassociateWebACL",
+        "appsync:GetWebACLForResource"
       ]
     },
     "update": {
@@ -109,7 +118,10 @@
         "ec2:GetVerifiedAccessInstanceWebAcl",
         "elasticloadbalancing:CreateWebACLAssociation",
         "elasticloadbalancing:DeleteWebACLAssociation",
-        "elasticloadbalancing:GetLoadBalancerWebACL"
+        "elasticloadbalancing:GetLoadBalancerWebACL",
+        "appsync:AssociateWebACL",
+        "appsync:DisassociateWebACL",
+        "appsync:GetWebACLForResource"
       ]
     }
   },

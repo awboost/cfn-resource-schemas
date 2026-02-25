@@ -1,10 +1,11 @@
 {
-  "$hash": "7150acb77beec884e6f0152d5d6c2e311afe687e",
+  "$hash": "77ec3c2d7c592ce930648f0f534d76774f7228ed",
   "$id": "aws-pcaconnectorscep-connector.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/CertificateAuthorityArn",
-    "/properties/MobileDeviceManagement"
+    "/properties/MobileDeviceManagement",
+    "/properties/VpcEndpointId"
   ],
   "definitions": {
     "ConnectorType": {
@@ -118,7 +119,8 @@
     },
     "OpenIdConfiguration": { "$ref": "#/definitions/OpenIdConfiguration" },
     "Tags": { "$ref": "#/definitions/Tags" },
-    "Type": { "$ref": "#/definitions/ConnectorType" }
+    "Type": { "$ref": "#/definitions/ConnectorType" },
+    "VpcEndpointId": { "maxLength": 200, "minLength": 5, "type": "string" }
   },
   "readOnlyProperties": [
     "/properties/ConnectorArn",
@@ -140,5 +142,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::PCAConnectorSCEP::Connector"
+  "typeName": "AWS::PCAConnectorSCEP::Connector",
+  "writeOnlyProperties": ["/properties/VpcEndpointId"]
 }

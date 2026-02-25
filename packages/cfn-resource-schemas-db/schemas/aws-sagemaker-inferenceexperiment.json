@@ -1,5 +1,5 @@
 {
-  "$hash": "61d94fe202aebce346b58470ce71da37ea3d1466",
+  "$hash": "4eef096b9ba81e542eb971d77d962ff51d7d803d",
   "$id": "aws-sagemaker-inferenceexperiment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -370,10 +370,20 @@
   "required": ["Name", "Type", "RoleArn", "EndpointName", "ModelVariants"],
   "tagging": {
     "cloudFormationSystemTags": false,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:DeleteTags",
+      "sagemaker:ListTags"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::SageMaker::InferenceExperiment"
+  "typeName": "AWS::SageMaker::InferenceExperiment",
+  "writeOnlyProperties": [
+    "/properties/StatusReason",
+    "/properties/DesiredState",
+    "/properties/Schedule"
+  ]
 }

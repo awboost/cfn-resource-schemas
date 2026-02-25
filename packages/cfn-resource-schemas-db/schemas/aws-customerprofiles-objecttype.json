@@ -1,5 +1,5 @@
 {
-  "$hash": "f6d6c2328ecebacad2b0d25bb2f1f86b23fef238",
+  "$hash": "6af079f93ddc2988eb98a0f0aac7e14f12f46848",
   "$id": "aws-customerprofiles-objecttype.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -239,6 +239,11 @@
       "maxLength": 255,
       "minLength": 1,
       "type": "string"
+    },
+    "SourcePriority": {
+      "description": "Defines the priority order of object types. Lower value indicates higher priority.",
+      "minimum": 1,
+      "type": "integer"
     },
     "Tags": {
       "description": "The tags (keys and values) associated with the integration.",

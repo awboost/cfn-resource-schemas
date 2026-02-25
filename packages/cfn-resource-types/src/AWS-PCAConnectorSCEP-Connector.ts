@@ -14,6 +14,11 @@ export type PCAConnectorSCEPConnectorProperties = {
   CertificateAuthorityArn: string;
   MobileDeviceManagement?: MobileDeviceManagement;
   Tags?: Tags;
+  /**
+   * @minLength `5`
+   * @maxLength `200`
+   */
+  VpcEndpointId?: string;
 };
 /**
  * Attribute type definition for `AWS::PCAConnectorSCEP::Connector`.

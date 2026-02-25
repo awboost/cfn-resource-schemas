@@ -1,77 +1,29 @@
-- added `AWS::OpenSearchServerless::CollectionGroup`
-- updated `AWS::CustomerProfiles::Integration`
-  - added property `Scope`
-- updated `AWS::EC2::VPNConnection`
+- added `AWS::ComputeOptimizer::AutomationRule`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - updated property `DeletionProtection`
+- updated `AWS::CustomerProfiles::ObjectType`
+  - added property `SourcePriority`
+- updated `AWS::PCAConnectorSCEP::Connector`
+  - added `writeOnlyProperties`
+  - added property `VpcEndpointId`
   - updated `createOnlyProperties`
+- updated `AWS::SageMaker::Image`
+  - updated `tagging`
+- updated `AWS::SageMaker::InferenceExperiment`
+  - added `writeOnlyProperties`
+  - updated `tagging`
+- updated `AWS::ServiceCatalog::LaunchRoleConstraint`
+  - added `oneOf`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::EC2::Volume`
-  - updated property `Throughput`
-- updated `AWS::ElastiCache::ReplicationGroup`
-  - added property `ConfigurationEndPointAddress`
-  - added property `ConfigurationEndPointPort`
-  - added property `PrimaryEndPointAddress`
-  - added property `PrimaryEndPointPort`
-  - added property `ReadEndPointAddressesList`
-  - added property `ReadEndPointAddresses`
-  - added property `ReadEndPointPortsList`
-  - added property `ReadEndPointPorts`
-  - added property `ReaderEndPointAddress`
-  - added property `ReaderEndPointPort`
-  - removed `conditionalCreateOnlyProperties`
-  - removed `deprecatedProperties`
-  - removed `sourceUrl`
-  - removed `tagging`
-  - removed `writeOnlyProperties`
-  - removed definition `Endpoint`
-  - removed property `ConfigurationEndPoint`
-  - removed property `PrimaryEndPoint`
-  - removed property `ReadEndPoint`
-  - removed property `ReaderEndPoint`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `CloudWatchLogsDestinationDetails`
-  - updated definition `DestinationDetails`
-  - updated definition `KinesisFirehoseDestinationDetails`
-  - updated definition `LogDeliveryConfigurationRequest`
-  - updated definition `NodeGroupConfiguration`
-  - updated definition `Tag`
+  - updated property `AcceptLanguage`
+  - updated property `Description`
+  - updated property `Id`
+  - updated property `LocalRoleName`
+  - updated property `PortfolioId`
+  - updated property `ProductId`
+  - updated property `RoleArn`
+- updated `AWS::WAFv2::WebACLAssociation`
   - updated handler permissions
-  - updated property `AtRestEncryptionEnabled`
-  - updated property `AuthToken`
-  - updated property `AutoMinorVersionUpgrade`
-  - updated property `AutomaticFailoverEnabled`
-  - updated property `CacheNodeType`
-  - updated property `CacheParameterGroupName`
-  - updated property `CacheSecurityGroupNames`
-  - updated property `CacheSubnetGroupName`
-  - updated property `ClusterMode`
-  - updated property `DataTieringEnabled`
-  - updated property `EngineVersion`
-  - updated property `Engine`
-  - updated property `GlobalReplicationGroupId`
-  - updated property `IpDiscovery`
-  - updated property `KmsKeyId`
-  - updated property `LogDeliveryConfigurations`
-  - updated property `MultiAZEnabled`
-  - updated property `NetworkType`
-  - updated property `NodeGroupConfiguration`
-  - updated property `NotificationTopicArn`
-  - updated property `NumCacheClusters`
-  - updated property `NumNodeGroups`
-  - updated property `Port`
-  - updated property `PreferredCacheClusterAZs`
-  - updated property `PreferredMaintenanceWindow`
-  - updated property `PrimaryClusterId`
-  - updated property `ReplicasPerNodeGroup`
-  - updated property `ReplicationGroupDescription`
-  - updated property `ReplicationGroupId`
-  - updated property `SecurityGroupIds`
-  - updated property `SnapshotArns`
-  - updated property `SnapshotName`
-  - updated property `SnapshotRetentionLimit`
-  - updated property `SnapshotWindow`
-  - updated property `SnapshottingClusterId`
-  - updated property `Tags`
-  - updated property `TransitEncryptionEnabled`
-  - updated property `TransitEncryptionMode`
-  - updated property `UserGroupIds`

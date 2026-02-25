@@ -62,6 +62,11 @@ export type CustomerProfilesObjectTypeProperties = {
    */
   SourceLastUpdatedTimestampFormat?: string;
   /**
+   * Defines the priority order of object types. Lower value indicates higher priority.
+   * @min `1`
+   */
+  SourcePriority?: number;
+  /**
    * The tags (keys and values) associated with the integration.
    * @minLength `0`
    * @maxLength `50`
