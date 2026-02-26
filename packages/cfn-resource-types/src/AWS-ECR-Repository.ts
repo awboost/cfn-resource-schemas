@@ -42,7 +42,7 @@ export type ECRRepositoryProperties = {
       If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      * @minLength `2`
      * @maxLength `256`
-     * @pattern `^(?=.{2,256}$)((?:[a-z0-9]+(?:[._-][a-z0-9]+)/‍*)*[a-z0-9]+(?:[._-][a-z0-9]+)*)$`
+     * @pattern `^(?=.{2,256}$)([a-z0-9]+((\.|_|__|-+)[a-z0-9]+)*(\/[a-z0-9]+((\.|_|__|-+)[a-z0-9]+)*)*)$`
      */
   RepositoryName?: string;
   /**

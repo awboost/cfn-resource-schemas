@@ -1,10 +1,16 @@
 {
-  "$hash": "f0b0735b7521603d5147146d30d7041d94489636",
+  "$hash": "eb1a95d0cb3aa17c95b4c2c07453657ca08bc6b4",
   "$id": "aws-cases-field.json",
   "additionalIdentifiers": [["/properties/DomainId"]],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainId", "/properties/Type"],
   "definitions": {
+    "FieldAttributes": {
+      "additionalProperties": false,
+      "description": "Union of field attributes",
+      "properties": { "Text": { "$ref": "#/definitions/TextAttributes" } },
+      "type": "object"
+    },
     "FieldType": {
       "description": "The data type of the field, which determines validation rules, input constraints, and display format. Each type has specific constraints: Text (string input), Number (numeric values), Boolean (true/false), DateTime (date/time picker), SingleSelect (dropdown options), Url (URL validation), User (Amazon Connect user selection).",
       "enum": [
@@ -44,6 +50,18 @@
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
+    },
+    "TextAttributes": {
+      "additionalProperties": false,
+      "description": "Field attributes for Text field type",
+      "properties": {
+        "IsMultiline": {
+          "description": "Attribute that defines rendering component and validation",
+          "type": "boolean"
+        }
+      },
+      "required": ["IsMultiline"],
+      "type": "object"
     }
   },
   "description": "A field in the Cases domain. This field is used to define the case object model (that is, defines what data can be captured on cases) in a Cases domain.",
@@ -77,6 +95,10 @@
   },
   "primaryIdentifier": ["/properties/FieldArn"],
   "properties": {
+    "Attributes": {
+      "$ref": "#/definitions/FieldAttributes",
+      "description": "Field-type specific attributes that control rendering and validation behavior"
+    },
     "CreatedTime": {
       "description": "The time at which the field was created.",
       "format": "date-time",

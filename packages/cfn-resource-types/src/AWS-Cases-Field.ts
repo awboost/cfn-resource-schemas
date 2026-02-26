@@ -7,6 +7,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CasesFieldProperties = {
   /**
+   * Field-type specific attributes that control rendering and validation behavior
+   */
+  Attributes?: FieldAttributes;
+  /**
    * A description explaining the purpose and usage of this field in cases. Helps agents and administrators understand what information should be captured in this field.
    * @maxLength `255`
    */
@@ -64,6 +68,17 @@ export type CasesFieldAttributes = {
   Namespace: "System" | "Custom";
 };
 /**
+ * Type definition for `AWS::Cases::Field.FieldAttributes`.
+ * Union of field attributes
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cases-field-fieldattributes.html}
+ */
+export type FieldAttributes = {
+  /**
+   * Field attributes for Text field type
+   */
+  Text?: TextAttributes;
+};
+/**
  * Type definition for `AWS::Cases::Field.FieldType`.
  * The data type of the field, which determines validation rules, input constraints, and display format. Each type has specific constraints: Text (string input), Number (numeric values), Boolean (true/false), DateTime (date/time picker), SingleSelect (dropdown options), Url (URL validation), User (Amazon Connect user selection).
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cases-field-fieldtype.html}
@@ -94,6 +109,17 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::Cases::Field.TextAttributes`.
+ * Field attributes for Text field type
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cases-field-textattributes.html}
+ */
+export type TextAttributes = {
+  /**
+   * Attribute that defines rendering component and validation
+   */
+  IsMultiline: boolean;
 };
 /**
  * Resource type definition for `AWS::Cases::Field`.

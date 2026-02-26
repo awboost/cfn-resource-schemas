@@ -1,9 +1,9 @@
 {
-  "$hash": "f51ea202d4a59a0cceb6d6561b60a12b46642b1b",
+  "$hash": "dc80e4eee2cd8cc41be32b9ad3d67270537571fd",
   "$id": "aws-opensearchservice-application.json",
   "additionalIdentifiers": [["/properties/Arn"]],
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Name"],
+  "createOnlyProperties": ["/properties/Name", "/properties/KmsKeyArn"],
   "definitions": {
     "AppConfig": {
       "additionalProperties": false,
@@ -139,6 +139,13 @@
       "minLength": 3,
       "type": "string"
     },
+    "KmsKeyArn": {
+      "description": "The ARN of the KMS key used to encrypt the application.",
+      "maxLength": 2048,
+      "minLength": 20,
+      "pattern": "^arn:aws(-[a-z]+)*:kms:[a-z0-9-]+:\\d{12}:key/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$",
+      "type": "string"
+    },
     "Name": {
       "description": "The name of the application.",
       "maxLength": 40,
@@ -163,5 +170,6 @@
     "tagUpdatable": true,
     "taggable": true
   },
-  "typeName": "AWS::OpenSearchService::Application"
+  "typeName": "AWS::OpenSearchService::Application",
+  "writeOnlyProperties": ["/properties/KmsKeyArn"]
 }

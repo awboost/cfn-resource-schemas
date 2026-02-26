@@ -1,5 +1,5 @@
 {
-  "$hash": "8478679b3b4ae570559df1905284a6badf058b08",
+  "$hash": "1933b9ea99be843e239327b39037af1e51b57c78",
   "$id": "aws-ecr-repository.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -216,7 +216,7 @@
       "description": "The name to use for the repository. The repository name may be specified on its own (such as ``nginx-web-app``) or it can be prepended with a namespace to group the repository into a category (such as ``project-a/nginx-web-app``). If you don't specify a name, CFNlong generates a unique physical ID and uses that ID for the repository name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).\n The repository name must start with a letter and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes.\n  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
       "maxLength": 256,
       "minLength": 2,
-      "pattern": "^(?=.{2,256}$)((?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)$",
+      "pattern": "^(?=.{2,256}$)([a-z0-9]+((\\.|_|__|-+)[a-z0-9]+)*(\\/[a-z0-9]+((\\.|_|__|-+)[a-z0-9]+)*)*)$",
       "type": "string"
     },
     "RepositoryPolicyText": {

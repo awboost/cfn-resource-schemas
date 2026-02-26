@@ -1,20 +1,53 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::SSM::MaintenanceWindow
+ * Resource type definition for AWS::SSM::MaintenanceWindow
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html}
  */
 export type SSMMaintenanceWindowProperties = {
+  /**
+   * Enables a maintenance window task to run on managed instances, even if you have not registered those instances as targets. If enabled, then you must specify the unregistered instances (by instance ID) when you register a task with the maintenance window.
+   */
   AllowUnassociatedTargets: boolean;
+  /**
+   * The number of hours before the end of the maintenance window that AWS Systems Manager stops scheduling new tasks for execution.
+   */
   Cutoff: number;
+  /**
+   * A description of the maintenance window.
+   */
   Description?: string;
+  /**
+   * The duration of the maintenance window in hours.
+   */
   Duration: number;
+  /**
+   * The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become inactive.
+   */
   EndDate?: string;
+  /**
+   * The name of the maintenance window.
+   */
   Name: string;
+  /**
+   * The schedule of the maintenance window in the form of a cron or rate expression.
+   */
   Schedule: string;
+  /**
+   * The number of days to wait to run a maintenance window after the scheduled cron expression date and time.
+   */
   ScheduleOffset?: number;
+  /**
+   * The time zone that the scheduled maintenance window executions are based on, in Internet Assigned Numbers Authority (IANA) format.
+   */
   ScheduleTimezone?: string;
+  /**
+   * The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled to become active. StartDate allows you to delay activation of the maintenance window until the specified future date.
+   */
   StartDate?: string;
+  /**
+   * Optional metadata that you assign to a resource in the form of an arbitrary set of tags (key-value pairs). Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For example, you might want to tag a maintenance window to identify the type of tasks it will run, the types of targets, and the environment it will run in.
+   */
   Tags?: Tag[];
 };
 /**
@@ -22,18 +55,27 @@ export type SSMMaintenanceWindowProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#aws-resource-ssm-maintenancewindow-return-values}
  */
 export type SSMMaintenanceWindowAttributes = {
-  Id: string;
+  /**
+   * The ID of the maintenance window.
+   */
+  WindowId: string;
 };
 /**
  * Type definition for `AWS::SSM::MaintenanceWindow.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindow-tag.html}
  */
 export type Tag = {
+  /**
+   * The name of the tag.
+   */
   Key: string;
+  /**
+   * The value of the tag.
+   */
   Value: string;
 };
 /**
- * Resource Type definition for AWS::SSM::MaintenanceWindow
+ * Resource type definition for AWS::SSM::MaintenanceWindow
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html}
  */
 export class SSMMaintenanceWindow extends $Resource<

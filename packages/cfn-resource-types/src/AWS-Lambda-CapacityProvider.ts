@@ -1,12 +1,12 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::Lambda::CapacityProvider
+ * Resource type definition for `AWS::Lambda::CapacityProvider`.
+ * Creates a capacity provider that manages compute resources for Lambda functions
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html}
  */
 export type LambdaCapacityProviderProperties = {
   /**
-   * The name of the capacity provider. The name must be unique within your AWS account and region. If you don't specify a name, CloudFormation generates one.
    * @minLength `1`
    * @maxLength `140`
    * @pattern `^(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:capacity-provider:[a-zA-Z0-9-_]+)|[a-zA-Z0-9-_]+$`
@@ -17,26 +17,26 @@ export type LambdaCapacityProviderProperties = {
    */
   CapacityProviderScalingConfig?: CapacityProviderScalingConfig;
   /**
-   * Specifications for the types of EC2 instances that the capacity provider can use.
+   * The instance requirements for compute resources managed by the capacity provider.
    */
   InstanceRequirements?: InstanceRequirements;
   /**
-   * The ARN of the AWS Key Management Service (KMS) key used by the capacity provider.
+   * The ARN of the KMS key used to encrypt the capacity provider's resources.
    * @minLength `0`
    * @maxLength `10000`
    * @pattern `^(arn:(aws[a-zA-Z-]*)?:[a-z0-9-.]+:.*)|()$`
    */
   KmsKeyArn?: string;
   /**
-   * IAM permissions configuration for the capacity provider.
+   * The permissions configuration for the capacity provider.
    */
   PermissionsConfig: CapacityProviderPermissionsConfig;
   /**
-   * A list of tags to apply to the capacity provider.
+   * A key-value pair that provides metadata for the capacity provider.
    */
   Tags?: Tag[];
   /**
-   * VPC configuration for the capacity provider.
+   * The VPC configuration for the capacity provider.
    */
   VpcConfig: CapacityProviderVpcConfig;
 };
@@ -46,14 +46,13 @@ export type LambdaCapacityProviderProperties = {
  */
 export type LambdaCapacityProviderAttributes = {
   /**
-   * The Amazon Resource Name (ARN) of the capacity provider. This is a read-only property that is automatically generated when the capacity provider is created.
    * @minLength `1`
    * @maxLength `140`
    * @pattern `^arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:capacity-provider:[a-zA-Z0-9-_]+$`
    */
   Arn: string;
   /**
-   * The current state of the capacity provider.
+   * The current state of the capacity provider. Indicates whether the provider is being created, is active and ready for use, has failed, or is being deleted.
    */
   State: CapacityProviderState;
 };
@@ -65,12 +64,12 @@ export type LambdaCapacityProviderAttributes = {
 export type Architecture = "x86_64" | "arm64";
 /**
  * Type definition for `AWS::Lambda::CapacityProvider.CapacityProviderPermissionsConfig`.
- * IAM permissions configuration for the capacity provider.
+ * Configuration that specifies the permissions required for the capacity provider to manage compute resources.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderpermissionsconfig.html}
  */
 export type CapacityProviderPermissionsConfig = {
   /**
-   * The ARN of the IAM role that Lambda assumes to manage the capacity provider.
+   * The ARN of the IAM role that the capacity provider uses to manage compute instances and other AWS resources.
    * @minLength `0`
    * @maxLength `10000`
    * @pattern `^arn:(aws[a-zA-Z-]*)?:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+$`
@@ -86,18 +85,18 @@ export type CapacityProviderPredefinedMetricType =
   "LambdaCapacityProviderAverageCPUUtilization";
 /**
  * Type definition for `AWS::Lambda::CapacityProvider.CapacityProviderScalingConfig`.
- * The scaling configuration for the capacity provider.
+ * Configuration that defines how the capacity provider scales compute instances based on demand and policies.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderscalingconfig.html}
  */
 export type CapacityProviderScalingConfig = {
   /**
-   * The maximum number of EC2 instances that the capacity provider can scale up to.
+   * The maximum number of vCPUs that the capacity provider can provision across all compute instances.
    * @min `2`
    * @max `15000`
    */
   MaxVCpuCount?: number;
   /**
-   * The scaling mode for the capacity provider.
+   * The scaling mode that determines how the capacity provider responds to changes in demand.
    */
   ScalingMode?: CapacityProviderScalingMode;
   /**
@@ -125,18 +124,18 @@ export type CapacityProviderState =
   | "Deleting";
 /**
  * Type definition for `AWS::Lambda::CapacityProvider.CapacityProviderVpcConfig`.
- * VPC configuration for the capacity provider.
+ * VPC configuration that specifies the network settings for compute instances managed by the capacity provider.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityprovidervpcconfig.html}
  */
 export type CapacityProviderVpcConfig = {
   /**
-   * A list of security group IDs to associate with EC2 instances.
+   * A list of security group IDs that control network access for compute instances managed by the capacity provider.
    * @minLength `0`
    * @maxLength `5`
    */
   SecurityGroupIds: string[];
   /**
-   * A list of subnet IDs where the capacity provider can launch EC2 instances.
+   * A list of subnet IDs where the capacity provider launches compute instances.
    * @minLength `1`
    * @maxLength `16`
    */
@@ -144,24 +143,24 @@ export type CapacityProviderVpcConfig = {
 };
 /**
  * Type definition for `AWS::Lambda::CapacityProvider.InstanceRequirements`.
- * Specifications for the types of EC2 instances that the capacity provider can use.
+ * Specifications that define the characteristics and constraints for compute instances used by the capacity provider.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-instancerequirements.html}
  */
 export type InstanceRequirements = {
   /**
-   * A list of instance types that the capacity provider can use. Supports wildcards (for example, m5.*).
+   * A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.
    * @minLength `0`
    * @maxLength `400`
    */
   AllowedInstanceTypes?: string[];
   /**
-   * The instruction set architecture for EC2 instances. Specify either x86_64 or arm64.
+   * A list of supported CPU architectures for compute instances. Valid values include ``x86_64`` and ``arm64``.
    * @minLength `1`
    * @maxLength `1`
    */
   Architectures?: Architecture[];
   /**
-   * A list of instance types that the capacity provider should not use. Takes precedence over AllowedInstanceTypes.
+   * A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.
    * @minLength `0`
    * @maxLength `400`
    */
@@ -188,22 +187,23 @@ export type Tag = {
 };
 /**
  * Type definition for `AWS::Lambda::CapacityProvider.TargetTrackingScalingPolicy`.
- * A target tracking scaling policy for the capacity provider.
+ * A scaling policy for the capacity provider that automatically adjusts capacity to maintain a target value for a specific metric.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-targettrackingscalingpolicy.html}
  */
 export type TargetTrackingScalingPolicy = {
   /**
-   * The predefined metric for target tracking.
+   * The predefined metric type to track for scaling decisions.
    */
   PredefinedMetricType: CapacityProviderPredefinedMetricType;
   /**
-   * The target value for the metric as a percentage (for example, 70.0 for 70%).
+   * The target value for the metric that the scaling policy attempts to maintain through scaling actions.
    * @min `0`
    */
   TargetValue: number;
 };
 /**
- * Resource Type definition for AWS::Lambda::CapacityProvider
+ * Resource type definition for `AWS::Lambda::CapacityProvider`.
+ * Creates a capacity provider that manages compute resources for Lambda functions
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-capacityprovider.html}
  */
 export class LambdaCapacityProvider extends $Resource<

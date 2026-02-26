@@ -36,6 +36,13 @@ export type OpenSearchServiceApplicationProperties = {
     IamRoleForIdentityCenterApplicationArn?: string;
   };
   /**
+   * The ARN of the KMS key used to encrypt the application.
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-[a-z]+)*:kms:[a-z0-9-]+:\d{12}:key/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$`
+   */
+  KmsKeyArn?: string;
+  /**
    * The name of the application.
    * @minLength `3`
    * @maxLength `40`

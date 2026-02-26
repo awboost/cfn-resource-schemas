@@ -1,29 +1,50 @@
-- added `AWS::ComputeOptimizer::AutomationRule`
-- updated `AWS::AutoScaling::AutoScalingGroup`
-  - updated property `DeletionProtection`
-- updated `AWS::CustomerProfiles::ObjectType`
-  - added property `SourcePriority`
-- updated `AWS::PCAConnectorSCEP::Connector`
+- updated `AWS::Cases::Field`
+  - added definition `FieldAttributes`
+  - added definition `TextAttributes`
+  - added property `Attributes`
+- updated `AWS::ECR::PullThroughCacheRule`
+  - updated definition `EcrRepositoryPrefix`
+  - updated definition `UpstreamRepositoryPrefix`
+- updated `AWS::ECR::Repository`
+  - updated property `RepositoryName`
+- updated `AWS::Lambda::CapacityProvider`
+  - updated definition `CapacityProviderPermissionsConfig`
+  - updated definition `CapacityProviderScalingConfig`
+  - updated definition `CapacityProviderVpcConfig`
+  - updated definition `InstanceRequirements`
+  - updated definition `TargetTrackingScalingPolicy`
+  - updated property `Arn`
+  - updated property `CapacityProviderName`
+  - updated property `InstanceRequirements`
+  - updated property `KmsKeyArn`
+  - updated property `PermissionsConfig`
+  - updated property `State`
+  - updated property `Tags`
+  - updated property `VpcConfig`
+- updated `AWS::OpenSearchService::Application`
   - added `writeOnlyProperties`
-  - added property `VpcEndpointId`
+  - added property `KmsKeyArn`
   - updated `createOnlyProperties`
-- updated `AWS::SageMaker::Image`
-  - updated `tagging`
-- updated `AWS::SageMaker::InferenceExperiment`
-  - added `writeOnlyProperties`
-  - updated `tagging`
-- updated `AWS::ServiceCatalog::LaunchRoleConstraint`
-  - added `oneOf`
-  - added `sourceUrl`
+- updated `AWS::RDS::DBCluster`
+  - updated property `EngineVersion`
+- updated `AWS::RDS::DBInstance`
+  - updated property `PerformanceInsightsKMSKeyId`
+- updated `AWS::SSM::MaintenanceWindow`
   - added `tagging`
-  - added `writeOnlyProperties`
+  - added property `WindowId`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `Tag`
   - updated handler permissions
-  - updated property `AcceptLanguage`
+  - updated property `AllowUnassociatedTargets`
+  - updated property `Cutoff`
   - updated property `Description`
-  - updated property `Id`
-  - updated property `LocalRoleName`
-  - updated property `PortfolioId`
-  - updated property `ProductId`
-  - updated property `RoleArn`
-- updated `AWS::WAFv2::WebACLAssociation`
-  - updated handler permissions
+  - updated property `Duration`
+  - updated property `EndDate`
+  - updated property `Name`
+  - updated property `ScheduleOffset`
+  - updated property `ScheduleTimezone`
+  - updated property `Schedule`
+  - updated property `StartDate`
+  - updated property `Tags`

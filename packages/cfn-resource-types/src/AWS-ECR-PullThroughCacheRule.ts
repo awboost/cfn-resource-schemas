@@ -21,7 +21,7 @@ export type ECRPullThroughCacheRuleProperties = {
    * The Amazon ECR repository prefix associated with the pull through cache rule.
    * @minLength `2`
    * @maxLength `30`
-   * @pattern `^((?:[a-z0-9]+(?:[._-][a-z0-9]+)/‍*)*[a-z0-9]+(?:[._-][a-z0-9]+)/‍*?|ROOT)$`
+   * @pattern `^([a-z0-9]+((\.|_|__|-+)[a-z0-9]+)*(\/[a-z0-9]+((\.|_|__|-+)[a-z0-9]+)*)*\/?|ROOT)$`
    */
   EcrRepositoryPrefix?: string;
   /**
@@ -36,7 +36,7 @@ export type ECRPullThroughCacheRuleProperties = {
    * The upstream repository prefix associated with the pull through cache rule.
    * @minLength `2`
    * @maxLength `30`
-   * @pattern `^((?:[a-z0-9]+(?:[._-][a-z0-9]+)/‍*)*[a-z0-9]+(?:[._-][a-z0-9]+)/‍*?|ROOT)$`
+   * @pattern `^([a-z0-9]+((\.|_|__|-+)[a-z0-9]+)*(\/[a-z0-9]+((\.|_|__|-+)[a-z0-9]+)*)*\/?|ROOT)$`
    */
   UpstreamRepositoryPrefix?: string;
 };
