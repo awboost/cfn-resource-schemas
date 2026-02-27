@@ -44,6 +44,7 @@ export type ComputeResources = {
   MaxvCpus: number;
   MinvCpus?: number;
   PlacementGroup?: string;
+  ScalingPolicy?: ComputeScalingPolicy;
   SecurityGroupIds?: string[];
   SpotIamFleetRole?: string;
   Subnets: string[];
@@ -53,6 +54,13 @@ export type ComputeResources = {
   Tags?: Record<string, string>;
   Type: string;
   UpdateToLatestImageVersion?: boolean;
+};
+/**
+ * Type definition for `AWS::Batch::ComputeEnvironment.ComputeScalingPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computescalingpolicy.html}
+ */
+export type ComputeScalingPolicy = {
+  MinScaleDownDelayMinutes?: number;
 };
 /**
  * Type definition for `AWS::Batch::ComputeEnvironment.Ec2ConfigurationObject`.

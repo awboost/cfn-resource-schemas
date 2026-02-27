@@ -1,5 +1,5 @@
 {
-  "$hash": "29689442e71a41ddb7c5ed8a58cbc11942712585",
+  "$hash": "0f23b8a33b6011c401d04830adc563824d7543cf",
   "$id": "aws-docdb-globalcluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -131,7 +131,7 @@
   ],
   "required": ["GlobalClusterIdentifier"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "rds:AddTagsToResource",
       "rds:ListTagsForResource",

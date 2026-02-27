@@ -1,5 +1,5 @@
 {
-  "$hash": "d5803c9d0dbdb09a403804b4e837b97149e3d453",
+  "$hash": "8854eaaf1fffbd5c7de0f399a138bd6bf6aecf9c",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -698,6 +698,9 @@
         "autoscaling:DetachTrafficSources",
         "autoscaling:DeleteLifecycleHook",
         "autoscaling:PutLifecycleHook",
+        "autoscaling:StartInstanceRefresh",
+        "autoscaling:DescribeInstanceRefreshes",
+        "autoscaling:CancelInstanceRefresh",
         "cloudwatch:PutMetricAlarm",
         "ec2:Describe*",
         "ec2:Get*",

@@ -1,5 +1,5 @@
 {
-  "$hash": "868b897a06437470271f080db870d10e778aecb4",
+  "$hash": "a8ef2fad4370c0f41fa204797a1ad8d8bc5fc8c3",
   "$id": "aws-bedrockagentcore-runtime.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentRuntimeName"],
@@ -440,6 +440,7 @@
       "permissions": [
         "bedrock-agentcore:DeleteAgentRuntime",
         "bedrock-agentcore:DeleteAgentRuntimeEndpoint",
+        "bedrock-agentcore:DeleteWorkloadIdentity",
         "bedrock-agentcore:GetAgentRuntime",
         "bedrock-agentcore:GetAgentRuntimeEndpoint"
       ]

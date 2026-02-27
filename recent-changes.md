@@ -1,50 +1,28 @@
-- updated `AWS::Cases::Field`
-  - added definition `FieldAttributes`
-  - added definition `TextAttributes`
-  - added property `Attributes`
-- updated `AWS::ECR::PullThroughCacheRule`
-  - updated definition `EcrRepositoryPrefix`
-  - updated definition `UpstreamRepositoryPrefix`
-- updated `AWS::ECR::Repository`
-  - updated property `RepositoryName`
-- updated `AWS::Lambda::CapacityProvider`
-  - updated definition `CapacityProviderPermissionsConfig`
-  - updated definition `CapacityProviderScalingConfig`
-  - updated definition `CapacityProviderVpcConfig`
-  - updated definition `InstanceRequirements`
-  - updated definition `TargetTrackingScalingPolicy`
-  - updated property `Arn`
-  - updated property `CapacityProviderName`
-  - updated property `InstanceRequirements`
-  - updated property `KmsKeyArn`
-  - updated property `PermissionsConfig`
-  - updated property `State`
-  - updated property `Tags`
-  - updated property `VpcConfig`
-- updated `AWS::OpenSearchService::Application`
-  - added `writeOnlyProperties`
-  - added property `KmsKeyArn`
-  - updated `createOnlyProperties`
-- updated `AWS::RDS::DBCluster`
-  - updated property `EngineVersion`
-- updated `AWS::RDS::DBInstance`
-  - updated property `PerformanceInsightsKMSKeyId`
-- updated `AWS::SSM::MaintenanceWindow`
-  - added `tagging`
-  - added property `WindowId`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `Tag`
+- added `AWS::BedrockMantle::Project`
+- updated `AWS::ARCRegionSwitch::Plan`
+  - added definition `RdsCreateCrossRegionReplicaConfiguration`
+  - added definition `RdsDbInstanceArnMap`
+  - added definition `RdsPromoteReadReplicaConfiguration`
+  - updated definition `ExecutionBlockConfiguration`
+  - updated definition `ExecutionBlockType`
+  - updated definition `RegionToRunIn`
+  - updated definition `WorkflowTargetAction`
+- updated `AWS::AutoScaling::AutoScalingGroup`
   - updated handler permissions
-  - updated property `AllowUnassociatedTargets`
-  - updated property `Cutoff`
-  - updated property `Description`
-  - updated property `Duration`
-  - updated property `EndDate`
-  - updated property `Name`
-  - updated property `ScheduleOffset`
-  - updated property `ScheduleTimezone`
-  - updated property `Schedule`
-  - updated property `StartDate`
-  - updated property `Tags`
+- updated `AWS::Batch::ComputeEnvironment`
+  - added definition `ComputeScalingPolicy`
+  - updated `conditionalCreateOnlyProperties`
+  - updated definition `ComputeResources`
+- updated `AWS::BedrockAgentCore::Runtime`
+  - updated handler permissions
+- updated `AWS::DocDB::GlobalCluster`
+  - updated `tagging`
+- updated `AWS::ECS::CapacityProvider`
+  - added definition `CapacityReservationRequest`
+  - updated definition `InstanceLaunchTemplate`
+- updated `AWS::GuardDuty::IPSet`
+  - updated `tagging`
+- updated `AWS::ServiceCatalog::Portfolio`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated handler permissions

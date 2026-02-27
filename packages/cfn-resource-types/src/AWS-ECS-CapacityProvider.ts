@@ -49,11 +49,23 @@ export type BaselineEbsBandwidthMbpsRequest = {
   Min?: number;
 };
 /**
+ * Type definition for `AWS::ECS::CapacityProvider.CapacityReservationRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-capacityreservationrequest.html}
+ */
+export type CapacityReservationRequest = {
+  ReservationGroupArn?: string;
+  ReservationPreference?:
+    | "RESERVATIONS_ONLY"
+    | "RESERVATIONS_FIRST"
+    | "RESERVATIONS_EXCLUDED";
+};
+/**
  * Type definition for `AWS::ECS::CapacityProvider.InstanceLaunchTemplate`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-instancelaunchtemplate.html}
  */
 export type InstanceLaunchTemplate = {
-  CapacityOptionType?: "ON_DEMAND" | "SPOT";
+  CapacityOptionType?: "ON_DEMAND" | "SPOT" | "RESERVED";
+  CapacityReservations?: CapacityReservationRequest;
   Ec2InstanceProfileArn: string;
   FipsEnabled?: boolean;
   InstanceRequirements?: InstanceRequirementsRequest;

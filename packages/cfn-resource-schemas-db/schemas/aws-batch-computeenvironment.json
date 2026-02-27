@@ -1,5 +1,5 @@
 {
-  "$hash": "919e7dcf500997654981ddfa7bda76c0de5fb1d4",
+  "$hash": "8e909e18e485f805f51b8b75d3369b59ec31fbca",
   "$id": "aws-batch-computeenvironment.json",
   "additionalIdentifiers": [["/properties/ComputeEnvironmentName"]],
   "additionalProperties": false,
@@ -13,6 +13,7 @@
     "/properties/ComputeResources/InstanceTypes",
     "/properties/ComputeResources/LaunchTemplate",
     "/properties/ComputeResources/PlacementGroup",
+    "/properties/ComputeResources/ScalingPolicy",
     "/properties/ComputeResources/SecurityGroupIds",
     "/properties/ComputeResources/Subnets",
     "/properties/ComputeResources/Tags",
@@ -53,6 +54,7 @@
         "MaxvCpus": { "type": "integer" },
         "MinvCpus": { "type": "integer" },
         "PlacementGroup": { "type": "string" },
+        "ScalingPolicy": { "$ref": "#/definitions/ComputeScalingPolicy" },
         "SecurityGroupIds": {
           "insertionOrder": false,
           "items": { "type": "string" },
@@ -76,6 +78,11 @@
         "UpdateToLatestImageVersion": { "default": false, "type": "boolean" }
       },
       "required": ["Subnets", "Type", "MaxvCpus"],
+      "type": "object"
+    },
+    "ComputeScalingPolicy": {
+      "additionalProperties": false,
+      "properties": { "MinScaleDownDelayMinutes": { "type": "integer" } },
       "type": "object"
     },
     "Ec2ConfigurationObject": {

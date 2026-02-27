@@ -343,6 +343,12 @@ export type ExecutionBlockConfiguration =
     }
   | {
       DocumentDbConfig: DocumentDbConfiguration;
+    }
+  | {
+      RdsPromoteReadReplicaConfig: RdsPromoteReadReplicaConfiguration;
+    }
+  | {
+      RdsCreateCrossRegionReadReplicaConfig: RdsCreateCrossRegionReplicaConfiguration;
     };
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.ExecutionBlockType`.
@@ -359,7 +365,9 @@ export type ExecutionBlockType =
   | "ECSServiceScaling"
   | "EKSResourceScaling"
   | "Route53HealthCheck"
-  | "DocumentDb";
+  | "DocumentDb"
+  | "RdsPromoteReadReplica"
+  | "RdsCreateCrossRegionReplica";
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.GlobalAuroraConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-globalauroraconfiguration.html}
@@ -454,6 +462,43 @@ export type ParallelExecutionBlockConfiguration = {
   Steps: Step[];
 };
 /**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.RdsCreateCrossRegionReplicaConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-rdscreatecrossregionreplicaconfiguration.html}
+ */
+export type RdsCreateCrossRegionReplicaConfiguration = {
+  /**
+   * @pattern `^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$`
+   */
+  CrossAccountRole?: string;
+  DbInstanceArnMap: RdsDbInstanceArnMap;
+  ExternalId?: string;
+  /**
+   * @min `1`
+   */
+  TimeoutMinutes?: number;
+};
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.RdsDbInstanceArnMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-rdsdbinstancearnmap.html}
+ */
+export type RdsDbInstanceArnMap = Record<string, string>;
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.RdsPromoteReadReplicaConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-rdspromotereadreplicaconfiguration.html}
+ */
+export type RdsPromoteReadReplicaConfiguration = {
+  /**
+   * @pattern `^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$`
+   */
+  CrossAccountRole?: string;
+  DbInstanceArnMap: RdsDbInstanceArnMap;
+  ExternalId?: string;
+  /**
+   * @min `1`
+   */
+  TimeoutMinutes?: number;
+};
+/**
  * Type definition for `AWS::ARCRegionSwitch::Plan.RecoveryApproach`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-recoveryapproach.html}
  */
@@ -487,7 +532,11 @@ export type RegionSwitchPlanConfiguration = {
  * Type definition for `AWS::ARCRegionSwitch::Plan.RegionToRunIn`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regiontorunin.html}
  */
-export type RegionToRunIn = "activatingRegion" | "deactivatingRegion";
+export type RegionToRunIn =
+  | "activatingRegion"
+  | "deactivatingRegion"
+  | "activeRegion"
+  | "inactiveRegion";
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.ReportConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-reportconfiguration.html}
@@ -645,7 +694,7 @@ export type Workflow = {
  * Type definition for `AWS::ARCRegionSwitch::Plan.WorkflowTargetAction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-workflowtargetaction.html}
  */
-export type WorkflowTargetAction = "activate" | "deactivate";
+export type WorkflowTargetAction = "activate" | "deactivate" | "postRecovery";
 /**
  * Resource type definition for `AWS::ARCRegionSwitch::Plan`.
  * Represents a plan that specifies Regions, IAM roles, and workflows of logic required to perform the desired change to your multi-Region application

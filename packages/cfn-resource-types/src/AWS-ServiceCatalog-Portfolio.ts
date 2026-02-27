@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::ServiceCatalog::Portfolio
+ * Resource type definition for AWS::ServiceCatalog::Portfolio
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolio.html}
  */
 export type ServiceCatalogPortfolioProperties = {
@@ -28,7 +28,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource Type definition for AWS::ServiceCatalog::Portfolio
+ * Resource type definition for AWS::ServiceCatalog::Portfolio
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolio.html}
  */
 export class ServiceCatalogPortfolio extends $Resource<

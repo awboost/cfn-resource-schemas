@@ -1,5 +1,5 @@
 {
-  "$hash": "aeea2aa8b9256f40e4c5ab3858614d8042409473",
+  "$hash": "4e2936fb8b9aa5815a7f52bce49bb1477393f0f0",
   "$id": "aws-guardduty-ipset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Format", "/properties/DetectorId"],
@@ -68,7 +68,7 @@
   "readOnlyProperties": ["/properties/Id"],
   "required": ["Format", "Location"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "guardduty:TagResource",
       "guardduty:UntagResource",
