@@ -1,28 +1,9 @@
-- added `AWS::BedrockMantle::Project`
-- updated `AWS::ARCRegionSwitch::Plan`
-  - added definition `RdsCreateCrossRegionReplicaConfiguration`
-  - added definition `RdsDbInstanceArnMap`
-  - added definition `RdsPromoteReadReplicaConfiguration`
-  - updated definition `ExecutionBlockConfiguration`
-  - updated definition `ExecutionBlockType`
-  - updated definition `RegionToRunIn`
-  - updated definition `WorkflowTargetAction`
-- updated `AWS::AutoScaling::AutoScalingGroup`
-  - updated handler permissions
-- updated `AWS::Batch::ComputeEnvironment`
-  - added definition `ComputeScalingPolicy`
-  - updated `conditionalCreateOnlyProperties`
-  - updated definition `ComputeResources`
-- updated `AWS::BedrockAgentCore::Runtime`
-  - updated handler permissions
-- updated `AWS::DocDB::GlobalCluster`
-  - updated `tagging`
-- updated `AWS::ECS::CapacityProvider`
-  - added definition `CapacityReservationRequest`
-  - updated definition `InstanceLaunchTemplate`
-- updated `AWS::GuardDuty::IPSet`
-  - updated `tagging`
-- updated `AWS::ServiceCatalog::Portfolio`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - updated handler permissions
+- added `AWS::BedrockAgentCore::Evaluator`
+- added `AWS::BedrockAgentCore::OnlineEvaluationConfig`
+- added `AWS::DirectConnect::Connection`
+- added `AWS::DirectConnect::DirectConnectGateway`
+- added `AWS::DirectConnect::DirectConnectGatewayAssociation`
+- added `AWS::DirectConnect::Lag`
+- added `AWS::DirectConnect::PrivateVirtualInterface`
+- added `AWS::DirectConnect::PublicVirtualInterface`
+- added `AWS::DirectConnect::TransitVirtualInterface`
