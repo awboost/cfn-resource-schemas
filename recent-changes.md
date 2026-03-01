@@ -1,9 +1,1 @@
-- added `AWS::BedrockAgentCore::Evaluator`
-- added `AWS::BedrockAgentCore::OnlineEvaluationConfig`
-- added `AWS::DirectConnect::Connection`
-- added `AWS::DirectConnect::DirectConnectGateway`
-- added `AWS::DirectConnect::DirectConnectGatewayAssociation`
-- added `AWS::DirectConnect::Lag`
-- added `AWS::DirectConnect::PrivateVirtualInterface`
-- added `AWS::DirectConnect::PublicVirtualInterface`
-- added `AWS::DirectConnect::TransitVirtualInterface`
+- added `AWS::BedrockAgentCore::BrowserProfile`
