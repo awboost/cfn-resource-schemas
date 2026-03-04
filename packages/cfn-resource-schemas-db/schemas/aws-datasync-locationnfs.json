@@ -1,5 +1,5 @@
 {
-  "$hash": "ce1d81032957d8792b1e3d4b58a929a1ecf7ee63",
+  "$hash": "4a9ac61a941de522f32d8baf26aeafe604e1c748",
   "$id": "aws-datasync-locationnfs.json",
   "additionalProperties": false,
   "definitions": {
@@ -130,7 +130,7 @@
   "required": ["OnPremConfig"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datasync.git",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "datasync:TagResource",
       "datasync:UntagResource",

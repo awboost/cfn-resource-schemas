@@ -77,7 +77,20 @@ export type CentralizationRuleSource = {
  */
 export type DestinationLogsConfiguration = {
   BackupConfiguration?: LogsBackupConfiguration;
+  LogGroupNameConfiguration?: LogGroupNameConfiguration;
   LogsEncryptionConfiguration?: LogsEncryptionConfiguration;
+};
+/**
+ * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.LogGroupNameConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-loggroupnameconfiguration.html}
+ */
+export type LogGroupNameConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `^(?:[\._\-/#A-Za-z0-9]+|\$\{[A-Za-z]+(?:\.[A-Za-z]+){1,2}\})+$`
+   */
+  LogGroupNamePattern: string;
 };
 /**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.LogsBackupConfiguration`.

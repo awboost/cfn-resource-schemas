@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource schema for AWS::DataSync::LocationFSxONTAP.
+ * Resource Type definition for AWS::DataSync::LocationFSxONTAP.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html}
  */
 export type DataSyncLocationFSxONTAPProperties = {
@@ -57,6 +57,83 @@ export type DataSyncLocationFSxONTAPAttributes = {
    * @pattern `^(efs|nfs|s3|smb|hdfs|fsx[a-z0-9-]+)://[a-zA-Z0-9.:/\-]+$`
    */
   LocationUri: string;
+  /**
+   * Configuration settings for NFS or SMB protocol.
+   */
+  Protocol: {
+    /**
+     * SMB protocol configuration for FSx ONTAP file system.
+     */
+    SMB: {
+      /**
+       * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+       */
+      CmkSecretConfig: {
+        /**
+         * Specifies the ARN for an AWS Secrets Manager secret, managed by DataSync.
+         * @maxLength `2048`
+         * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+         */
+        SecretArn: string;
+      };
+      /**
+       * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+       */
+      ManagedSecretConfig: {
+        /**
+         * Specifies the ARN for an AWS Secrets Manager secret.
+         * @maxLength `2048`
+         * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+         */
+        SecretArn: string;
+      };
+    };
+  };
+};
+/**
+ * Type definition for `AWS::DataSync::LocationFSxONTAP.CmkSecretConfig`.
+ * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-cmksecretconfig.html}
+ */
+export type CmkSecretConfig = {
+  /**
+   * Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):kms:[a-z-0-9]+:[0-9]{12}:key/.*|)$`
+   */
+  KmsKeyArn?: string;
+};
+/**
+ * Type definition for `AWS::DataSync::LocationFSxONTAP.CustomSecretConfig`.
+ * Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-customsecretconfig.html}
+ */
+export type CustomSecretConfig = {
+  /**
+   * Specifies the ARN for the AWS Identity and Access Management role that DataSync uses to access the secret specified for SecretArn.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):iam::[0-9]{12}:role/.*|)$`
+   */
+  SecretAccessRoleArn: string;
+  /**
+   * Specifies the ARN for a customer created AWS Secrets Manager secret.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+   */
+  SecretArn: string;
+};
+/**
+ * Type definition for `AWS::DataSync::LocationFSxONTAP.ManagedSecretConfig`.
+ * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-managedsecretconfig.html}
+ */
+export type ManagedSecretConfig = {
+  /**
+   * Specifies the ARN for an AWS Secrets Manager secret.
+   * @maxLength `2048`
+   * @pattern `^(arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):secretsmanager:[a-z-0-9]+:[0-9]{12}:secret:.*|)$`
+   */
+  SecretArn: string;
 };
 /**
  * Type definition for `AWS::DataSync::LocationFSxONTAP.NFS`.
@@ -102,6 +179,14 @@ export type Protocol = {
  */
 export type SMB = {
   /**
+   * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
+   */
+  CmkSecretConfig?: CmkSecretConfig;
+  /**
+   * Specifies configuration information for a customer-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and an IAM role that DataSync can assume and access the customer-managed secret.
+   */
+  CustomSecretConfig?: CustomSecretConfig;
+  /**
    * The name of the Windows domain that the SMB server belongs to.
    * @maxLength `253`
    * @pattern `^([A-Za-z0-9]+[A-Za-z0-9-.]*)*[A-Za-z0-9-]*[A-Za-z0-9]$`
@@ -116,7 +201,7 @@ export type SMB = {
    * @maxLength `104`
    * @pattern `^.{0,104}$`
    */
-  Password: string;
+  Password?: string;
   /**
    * The user who can mount the share, has the permissions to access files and folders in the SMB share.
    * @maxLength `104`
@@ -157,7 +242,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Resource schema for AWS::DataSync::LocationFSxONTAP.
+ * Resource Type definition for AWS::DataSync::LocationFSxONTAP.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html}
  */
 export class DataSyncLocationFSxONTAP extends $Resource<

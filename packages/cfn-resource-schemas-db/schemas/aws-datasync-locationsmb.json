@@ -1,5 +1,5 @@
 {
-  "$hash": "9539f10234663ed5633dc82ed4a01e9f37ad09f1",
+  "$hash": "8c268383a3773a90d0217607cfe2dcd898e9e14e",
   "$id": "aws-datasync-locationsmb.json",
   "additionalProperties": false,
   "definitions": {
@@ -254,7 +254,7 @@
   "required": ["AgentArns"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datasync.git",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "datasync:TagResource",
       "datasync:UntagResource",

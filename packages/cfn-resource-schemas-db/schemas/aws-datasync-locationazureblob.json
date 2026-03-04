@@ -1,5 +1,5 @@
 {
-  "$hash": "41b483b04147a915f0198ab94ed6effa94a9649f",
+  "$hash": "aff5c2008074750fec2d5c92d8bc8fb18526dded",
   "$id": "aws-datasync-locationazureblob.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AzureBlobContainerUrl"],
@@ -222,7 +222,7 @@
   "required": ["AzureBlobAuthenticationType"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datasync.git",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "datasync:TagResource",
       "datasync:UntagResource",

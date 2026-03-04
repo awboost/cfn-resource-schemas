@@ -1,5 +1,5 @@
 {
-  "$hash": "6a507c1dcff89b6afd89ddde019202d7cde0a43c",
+  "$hash": "27e8d78031febda586a868decaf32eb7c3377b8d",
   "$id": "aws-observabilityadmin-organizationcentralizationrule.json",
   "additionalIdentifiers": [["/properties/RuleName"]],
   "additionalProperties": false,
@@ -52,10 +52,26 @@
         "BackupConfiguration": {
           "$ref": "#/definitions/LogsBackupConfiguration"
         },
+        "LogGroupNameConfiguration": {
+          "$ref": "#/definitions/LogGroupNameConfiguration"
+        },
         "LogsEncryptionConfiguration": {
           "$ref": "#/definitions/LogsEncryptionConfiguration"
         }
       },
+      "type": "object"
+    },
+    "LogGroupNameConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "LogGroupNamePattern": {
+          "maxLength": 512,
+          "minLength": 1,
+          "pattern": "^(?:[\\._\\-/#A-Za-z0-9]+|\\$\\{[A-Za-z]+(?:\\.[A-Za-z]+){1,2}\\})+$",
+          "type": "string"
+        }
+      },
+      "required": ["LogGroupNamePattern"],
       "type": "object"
     },
     "LogsBackupConfiguration": {

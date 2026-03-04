@@ -1,1 +1,63 @@
-- added `AWS::BedrockAgentCore::BrowserProfile`
+- added `AWS::BedrockAgentCore::Policy`
+- added `AWS::BedrockAgentCore::PolicyEngine`
+- added `AWS::Connect::ContactFlowModuleAlias`
+- added `AWS::Connect::ContactFlowModuleVersion`
+- updated `AWS::AppConfig::ConfigurationProfile`
+  - updated property `KmsKeyIdentifier`
+- updated `AWS::AppConfig::Deployment`
+  - updated property `KmsKeyIdentifier`
+- updated `AWS::BedrockAgentCore::Memory`
+  - updated handler permissions
+- updated `AWS::DataSync::Agent`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationAzureBlob`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationEFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationFSxLustre`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationFSxONTAP`
+  - added definition `CmkSecretConfig`
+  - added definition `CustomSecretConfig`
+  - added definition `ManagedSecretConfig`
+  - updated `readOnlyProperties`
+  - updated `tagging`
+  - updated definition `SMB`
+  - updated handler permissions
+- updated `AWS::DataSync::LocationFSxOpenZFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationFSxWindows`
+  - added definition `CmkSecretConfig`
+  - added definition `CustomSecretConfig`
+  - added definition `ManagedSecretConfig`
+  - added property `CmkSecretConfig`
+  - added property `CustomSecretConfig`
+  - added property `ManagedSecretConfig`
+  - updated `readOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DataSync::LocationHDFS`
+  - added definition `CmkSecretConfig`
+  - added definition `CustomSecretConfig`
+  - added definition `ManagedSecretConfig`
+  - added property `CmkSecretConfig`
+  - added property `CustomSecretConfig`
+  - added property `ManagedSecretConfig`
+  - updated `readOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DataSync::LocationNFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationObjectStorage`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationS3`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationSMB`
+  - updated `tagging`
+- updated `AWS::DataSync::Task`
+  - updated `tagging`
+- updated `AWS::ECR::RepositoryCreationTemplate`
+  - updated property `Prefix`
+- updated `AWS::ObservabilityAdmin::OrganizationCentralizationRule`
+  - added definition `LogGroupNameConfiguration`
+  - updated definition `DestinationLogsConfiguration`

@@ -1,5 +1,5 @@
 {
-  "$hash": "e2496486d33e70821c7ad57f05f4201bab949d60",
+  "$hash": "59fd706fa038d1de7cd4e1d332bed4f01df9696e",
   "$id": "aws-ecr-repositorycreationtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Prefix"],
@@ -161,7 +161,7 @@
       "description": "The repository namespace prefix associated with the repository creation template.",
       "maxLength": 256,
       "minLength": 1,
-      "pattern": "^((?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*/?|ROOT)$",
+      "pattern": "^([a-z0-9]+((\\.|_|__|-+)[a-z0-9]+)*(\\/[a-z0-9]+((\\.|_|__|-+)[a-z0-9]+)*)*\\/?|ROOT)$",
       "type": "string"
     },
     "RepositoryPolicy": {

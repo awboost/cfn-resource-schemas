@@ -50,7 +50,7 @@ export type ECRRepositoryCreationTemplateProperties = {
    * The repository namespace prefix associated with the repository creation template.
    * @minLength `1`
    * @maxLength `256`
-   * @pattern `^((?:[a-z0-9]+(?:[._-][a-z0-9]+)/‍*)*[a-z0-9]+(?:[._-][a-z0-9]+)/‍*?|ROOT)$`
+   * @pattern `^([a-z0-9]+((\.|_|__|-+)[a-z0-9]+)*(\/[a-z0-9]+((\.|_|__|-+)[a-z0-9]+)*)*\/?|ROOT)$`
    */
   Prefix: string;
   /**

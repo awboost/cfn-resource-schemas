@@ -1,5 +1,5 @@
 {
-  "$hash": "df82ba967b45cb5c7d6396d907039e26dc52e6dd",
+  "$hash": "971ef9506cb841f2225202edcc1792043a63b8f0",
   "$id": "aws-bedrockagentcore-memory.json",
   "additionalIdentifiers": [["/properties/MemoryId"]],
   "additionalProperties": false,
@@ -637,14 +637,20 @@
     "delete": {
       "permissions": [
         "bedrock-agentcore:DeleteMemory",
-        "bedrock-agentcore:GetMemory"
+        "bedrock-agentcore:GetMemory",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
       ]
     },
     "list": { "permissions": ["bedrock-agentcore:ListMemories"] },
     "read": {
       "permissions": [
         "bedrock-agentcore:GetMemory",
-        "bedrock-agentcore:ListTagsForResource"
+        "bedrock-agentcore:ListTagsForResource",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
       ]
     },
     "update": {
@@ -654,7 +660,13 @@
         "iam:PassRole",
         "bedrock-agentcore:TagResource",
         "bedrock-agentcore:UntagResource",
-        "bedrock-agentcore:ListTagsForResource"
+        "bedrock-agentcore:ListTagsForResource",
+        "kms:DescribeKey",
+        "kms:Decrypt",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:ReEncryptTo",
+        "kms:ReEncryptFrom",
+        "kms:GenerateDataKey"
       ]
     }
   },
