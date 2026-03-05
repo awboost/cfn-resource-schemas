@@ -113,6 +113,14 @@ export type GameLiftFleetProperties = {
    */
   PeerVpcId?: string;
   /**
+   * Configuration for player gateway.
+   */
+  PlayerGatewayConfiguration?: PlayerGatewayConfiguration;
+  /**
+   * The player gateway mode for the fleet.
+   */
+  PlayerGatewayMode?: "DISABLED" | "ENABLED" | "REQUIRED";
+  /**
    * A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
    */
   ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy;
@@ -167,6 +175,16 @@ export type GameLiftFleetAttributes = {
    * @pattern `^fleet-\S+`
    */
   FleetId: string;
+  /**
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  Locations: {
+    /**
+     * The player gateway status for the location.
+     */
+    PlayerGatewayStatus: "DISABLED" | "ENABLED";
+  }[];
 };
 /**
  * Type definition for `AWS::GameLift::Fleet.AnywhereConfiguration`.
@@ -277,6 +295,17 @@ export type ManagedCapacityConfiguration = {
    * The strategy Amazon GameLift Servers will use to automatically scale your capacity to and from zero in response to game session activity. Game session activity refers to any active running sessions or game session requests. When set to SCALE_TO_AND_FROM_ZERO, MinSize must not be specified and will be managed automatically. When set to MANUAL, MinSize is required.
    */
   ZeroCapacityStrategy: "SCALE_TO_AND_FROM_ZERO" | "MANUAL";
+};
+/**
+ * Type definition for `AWS::GameLift::Fleet.PlayerGatewayConfiguration`.
+ * Configuration for player gateway.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-playergatewayconfiguration.html}
+ */
+export type PlayerGatewayConfiguration = {
+  /**
+   * The IP protocol supported by the game server.
+   */
+  GameServerIpProtocolSupported?: "IPv4" | "DUAL_STACK";
 };
 /**
  * Type definition for `AWS::GameLift::Fleet.ResourceCreationLimitPolicy`.

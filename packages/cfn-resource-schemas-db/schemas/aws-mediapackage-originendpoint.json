@@ -1,5 +1,5 @@
 {
-  "$hash": "4f6296315aa63a52ce18e5718299c56f4d15356f",
+  "$hash": "4f43b266da2341bad6a3c53542d00e8dbf6ea9c4",
   "$id": "aws-mediapackage-originendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Id"],
@@ -545,7 +545,7 @@
   "required": ["Id", "ChannelId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["mediapackage:TagResource", "mediapackage:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

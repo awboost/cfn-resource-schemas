@@ -1,11 +1,12 @@
 {
-  "$hash": "67475e15b07b84dba3fb3d2e2de688ebd8e029f4",
+  "$hash": "621c465ebcdb924f33095b0415946a8302e9f4a5",
   "$id": "aws-gamelift-containerfleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/InstanceType",
-    "/properties/BillingType"
+    "/properties/BillingType",
+    "/properties/PlayerGatewayMode"
   ],
   "definitions": {
     "ConnectionPortRange": {
@@ -152,6 +153,11 @@
       "properties": {
         "Location": { "$ref": "#/definitions/Location" },
         "LocationCapacity": { "$ref": "#/definitions/LocationCapacity" },
+        "PlayerGatewayStatus": {
+          "description": "The player gateway status for the location.",
+          "enum": ["DISABLED", "ENABLED"],
+          "type": "string"
+        },
         "StoppedActions": { "$ref": "#/definitions/StoppedActions" }
       },
       "required": ["Location"],
@@ -490,6 +496,11 @@
       "pattern": "^[a-zA-Z0-9\\-]+$|^arn:.*:containergroupdefinition\\/[a-zA-Z0-9\\-]+(:[0-9]+)?$",
       "type": "string"
     },
+    "PlayerGatewayMode": {
+      "description": "The player gateway mode for the container fleet.",
+      "enum": ["DISABLED", "ENABLED", "REQUIRED"],
+      "type": "string"
+    },
     "ScalingPolicies": {
       "description": "A list of rules that control how a fleet is scaled.",
       "insertionOrder": false,
@@ -527,7 +538,8 @@
     "/properties/DeploymentDetails",
     "/properties/GameServerContainerGroupDefinitionArn",
     "/properties/PerInstanceContainerGroupDefinitionArn",
-    "/properties/MaximumGameServerContainerGroupsPerInstance"
+    "/properties/MaximumGameServerContainerGroupsPerInstance",
+    "/properties/Locations/*/PlayerGatewayStatus"
   ],
   "required": ["FleetRoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",

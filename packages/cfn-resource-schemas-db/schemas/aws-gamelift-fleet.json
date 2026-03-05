@@ -1,5 +1,5 @@
 {
-  "$hash": "81525618119a965883ca1357075b50af59d38601",
+  "$hash": "ef75f70a0f58bea1e153b20b220ffd635e09e978",
   "$id": "aws-gamelift-fleet.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -16,7 +16,9 @@
     "/properties/ScriptId",
     "/properties/ServerLaunchParameters",
     "/properties/ServerLaunchPath",
-    "/properties/ComputeType"
+    "/properties/ComputeType",
+    "/properties/PlayerGatewayMode",
+    "/properties/PlayerGatewayConfiguration"
   ],
   "definitions": {
     "AnywhereConfiguration": {
@@ -113,7 +115,12 @@
       "description": "A remote location where a multi-location fleet can deploy EC2 instances for game hosting.",
       "properties": {
         "Location": { "$ref": "#/definitions/Location" },
-        "LocationCapacity": { "$ref": "#/definitions/LocationCapacity" }
+        "LocationCapacity": { "$ref": "#/definitions/LocationCapacity" },
+        "PlayerGatewayStatus": {
+          "description": "The player gateway status for the location.",
+          "enum": ["DISABLED", "ENABLED"],
+          "type": "string"
+        }
       },
       "required": ["Location"],
       "type": "object"
@@ -135,6 +142,18 @@
         }
       },
       "required": ["ZeroCapacityStrategy"],
+      "type": "object"
+    },
+    "PlayerGatewayConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration for player gateway.",
+      "properties": {
+        "GameServerIpProtocolSupported": {
+          "description": "The IP protocol supported by the game server.",
+          "enum": ["IPv4", "DUAL_STACK"],
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "ResourceCreationLimitPolicy": {
@@ -540,6 +559,15 @@
       "pattern": "^vpc-\\S+",
       "type": "string"
     },
+    "PlayerGatewayConfiguration": {
+      "$ref": "#/definitions/PlayerGatewayConfiguration",
+      "description": "Configuration for player gateway."
+    },
+    "PlayerGatewayMode": {
+      "description": "The player gateway mode for the fleet.",
+      "enum": ["DISABLED", "ENABLED", "REQUIRED"],
+      "type": "string"
+    },
     "ResourceCreationLimitPolicy": {
       "$ref": "#/definitions/ResourceCreationLimitPolicy",
       "description": "A policy that limits the number of game sessions an individual player can create over a span of time for this fleet."
@@ -584,7 +612,11 @@
   "propertyTransform": {
     "/properties/AnywhereConfiguration/Cost": "$contains(Cost, \".\") ? Cost : Cost & \".0\""
   },
-  "readOnlyProperties": ["/properties/FleetId", "/properties/FleetArn"],
+  "readOnlyProperties": [
+    "/properties/FleetId",
+    "/properties/FleetArn",
+    "/properties/Locations/*/PlayerGatewayStatus"
+  ],
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
   "tagging": {

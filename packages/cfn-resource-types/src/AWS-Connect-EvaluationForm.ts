@@ -33,6 +33,9 @@ export type ConnectEvaluationFormProperties = {
    * Configuration for language settings of this evaluation form.
    */
   LanguageConfiguration?: EvaluationFormLanguageConfiguration;
+  /**
+   * Configuration for evaluation review settings of this evaluation form.
+   */
   ReviewConfiguration?: EvaluationReviewConfiguration;
   /**
    * A scoring strategy of the evaluation form.
@@ -627,6 +630,7 @@ export type EvaluationFormTextQuestionProperties = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationReviewConfiguration`.
+ * Configuration settings for evaluation reviews.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationreviewconfiguration.html}
  */
 export type EvaluationReviewConfiguration = {
@@ -643,6 +647,7 @@ export type EvaluationReviewConfiguration = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationReviewNotificationRecipient`.
+ * Information about a recipient who should be notified when an evaluation review is requested.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationreviewnotificationrecipient.html}
  */
 export type EvaluationReviewNotificationRecipient = {
@@ -657,6 +662,7 @@ export type EvaluationReviewNotificationRecipient = {
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationReviewNotificationRecipientValue`.
+ * The value information for an evaluation review notification recipient.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationreviewnotificationrecipientvalue.html}
  */
 export type EvaluationReviewNotificationRecipientValue = {

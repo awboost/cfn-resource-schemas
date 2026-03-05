@@ -1,5 +1,5 @@
 {
-  "$hash": "ad4b19da08a743cf61c28b11d21aed55135fa430",
+  "$hash": "8df588e6f415dc4337c5750f5c7b97a44aebb4b1",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -583,7 +583,7 @@
     },
     "EvaluationReviewConfiguration": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Configuration settings for evaluation reviews.",
       "properties": {
         "EligibilityDays": {
           "description": "Number of days during which a request for review can be submitted for evaluations created from this form.",
@@ -604,7 +604,7 @@
     },
     "EvaluationReviewNotificationRecipient": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Information about a recipient who should be notified when an evaluation review is requested.",
       "properties": {
         "Type": {
           "description": "The type of notification recipient.",
@@ -621,7 +621,7 @@
     },
     "EvaluationReviewNotificationRecipientValue": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The value information for an evaluation review notification recipient.",
       "properties": {
         "UserId": {
           "description": "The user identifier for the notification recipient.",
@@ -829,7 +829,7 @@
     },
     "ReviewConfiguration": {
       "$ref": "#/definitions/EvaluationReviewConfiguration",
-      "description": ""
+      "description": "Configuration for evaluation review settings of this evaluation form."
     },
     "ScoringStrategy": {
       "$ref": "#/definitions/ScoringStrategy",
@@ -864,7 +864,7 @@
   "required": ["Title", "InstanceArn", "Items", "Status"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "connect:ListTagsForResource",
       "connect:UntagResource",

@@ -18,6 +18,11 @@ export type ConnectSecurityProfileProperties = {
    */
   AllowedAccessControlTags?: Tag[];
   /**
+   * The list of flow-module resources to be linked to a security profile in Amazon Connect.
+   * @maxLength `10`
+   */
+  AllowedFlowModules?: FlowModule[];
+  /**
    * A list of third-party applications that the security profile will give access to.
    * @maxLength `10`
    */
@@ -104,6 +109,10 @@ export type Application = {
    * @maxLength `128`
    */
   Namespace: string;
+  /**
+   * The type of the application.
+   */
+  Type?: "MCP" | "THIRD_PARTY_APPLICATION";
 };
 /**
  * Type definition for `AWS::Connect::SecurityProfile.DataTableAccessControlConfiguration`.
@@ -115,6 +124,25 @@ export type DataTableAccessControlConfiguration = {
    * Contains the configuration for record-based access control.
    */
   PrimaryAttributeAccessControlConfiguration?: PrimaryAttributeAccessControlConfigurationItem;
+};
+/**
+ * Type definition for `AWS::Connect::SecurityProfile.FlowModule`.
+ * A first-party application's metadata.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-flowmodule.html}
+ */
+export type FlowModule = {
+  /**
+   * The identifier of the application that you want to give access to.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  FlowModuleId: string;
+  /**
+   * The type of the first-party application
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Type: string;
 };
 /**
  * Type definition for `AWS::Connect::SecurityProfile.PrimaryAttributeAccessControlConfigurationItem`.

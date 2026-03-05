@@ -1,5 +1,5 @@
 {
-  "$hash": "b5d09da05dcf5f59d8383b21dc949fbda2fd4bef",
+  "$hash": "81f4ef1ff51604d48f5ff37510064298ff5cd0eb",
   "$id": "aws-mediapackage-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Id", "/properties/Tags"],
@@ -37,7 +37,6 @@
           "type": "string"
         }
       },
-      "required": ["Id", "Username", "Password", "Url"],
       "type": "object"
     },
     "LogConfiguration": {

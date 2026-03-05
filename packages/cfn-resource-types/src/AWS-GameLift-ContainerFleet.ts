@@ -83,6 +83,10 @@ export type GameLiftContainerFleetProperties = {
    */
   PerInstanceContainerGroupDefinitionName?: string;
   /**
+   * The player gateway mode for the container fleet.
+   */
+  PlayerGatewayMode?: "DISABLED" | "ENABLED" | "REQUIRED";
+  /**
    * A list of rules that control how a fleet is scaled.
    * @maxLength `50`
    */
@@ -133,6 +137,15 @@ export type GameLiftContainerFleetAttributes = {
    * @pattern `^arn:.*:containergroupdefinition\/[a-zA-Z0-9\-]+(:[0-9]+)?$|^$`
    */
   GameServerContainerGroupDefinitionArn: string;
+  /**
+   * @maxLength `100`
+   */
+  Locations: {
+    /**
+     * The player gateway status for the location.
+     */
+    PlayerGatewayStatus: "DISABLED" | "ENABLED";
+  }[];
   /**
    * The maximum number of game server container groups per instance, a number between 1-5000.
    * @min `1`

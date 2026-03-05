@@ -1,5 +1,5 @@
 {
-  "$hash": "f32441dca287c32fd11e798ff81cef4a878217c4",
+  "$hash": "76dd5a1fd0a77fb67c4e51d494b0bdb93cdc949c",
   "$id": "aws-cloudwatch-alarm.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AlarmName"],
@@ -259,7 +259,6 @@
     }
   },
   "readOnlyProperties": ["/properties/Arn"],
-  "required": ["ComparisonOperator", "EvaluationPeriods"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudwatch.git",
   "tagging": {
     "cloudFormationSystemTags": true,

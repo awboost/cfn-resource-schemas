@@ -27,7 +27,7 @@ export type CloudWatchAlarmProperties = {
   /**
    * The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.
    */
-  ComparisonOperator: string;
+  ComparisonOperator?: string;
   /**
      * The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an "M out of N" alarm. In that case, this value is the M, and the value that you set for ``EvaluationPeriods`` is the N value. For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      If you omit this parameter, CW uses the same value here that you set for ``EvaluationPeriods``, and the alarm goes to alarm state if that many consecutive periods are breaching.
@@ -45,7 +45,7 @@ export type CloudWatchAlarmProperties = {
      * The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
      For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
      */
-  EvaluationPeriods: number;
+  EvaluationPeriods?: number;
   /**
      * The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
      For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
