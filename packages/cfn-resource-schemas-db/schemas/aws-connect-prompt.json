@@ -1,5 +1,5 @@
 {
-  "$hash": "35cf2124cf96cf24e654b25d583ad5042cadb7a0",
+  "$hash": "62fc388d41973f9a80ed7a5c6cad34d75f6340dc",
   "$id": "aws-connect-prompt.json",
   "additionalProperties": false,
   "definitions": {
@@ -52,7 +52,10 @@
       "permissions": [
         "connect:UpdatePrompt",
         "connect:TagResource",
-        "connect:UntagResource"
+        "connect:UntagResource",
+        "s3:GetObject",
+        "s3:GetObjectAcl",
+        "kms:Decrypt"
       ]
     }
   },

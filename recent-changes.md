@@ -1,29 +1,77 @@
-- updated `AWS::CloudWatch::Alarm`
-  - removed `required`
-- updated `AWS::Connect::EvaluationForm`
-  - updated `tagging`
-  - updated definition `EvaluationReviewConfiguration`
-  - updated definition `EvaluationReviewNotificationRecipientValue`
-  - updated definition `EvaluationReviewNotificationRecipient`
-  - updated property `ReviewConfiguration`
-- updated `AWS::Connect::SecurityProfile`
-  - added definition `FlowModule`
-  - added property `AllowedFlowModules`
-  - updated definition `Application`
+- updated `AWS::Connect::Prompt`
   - updated handler permissions
-- updated `AWS::GameLift::ContainerFleet`
-  - added property `PlayerGatewayMode`
+- updated `AWS::EKS::Cluster`
+  - updated definition `ControlPlaneScalingConfig`
+- updated `AWS::ElastiCache::ReplicationGroup`
+  - added `conditionalCreateOnlyProperties`
+  - added `deprecatedProperties`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - added definition `Endpoint`
+  - added property `ConfigurationEndPoint`
+  - added property `PrimaryEndPoint`
+  - added property `ReadEndPoint`
+  - added property `ReaderEndPoint`
+  - removed property `ConfigurationEndPointAddress`
+  - removed property `ConfigurationEndPointPort`
+  - removed property `PrimaryEndPointAddress`
+  - removed property `PrimaryEndPointPort`
+  - removed property `ReadEndPointAddressesList`
+  - removed property `ReadEndPointAddresses`
+  - removed property `ReadEndPointPortsList`
+  - removed property `ReadEndPointPorts`
+  - removed property `ReaderEndPointAddress`
+  - removed property `ReaderEndPointPort`
   - updated `createOnlyProperties`
   - updated `readOnlyProperties`
-  - updated definition `LocationConfiguration`
-- updated `AWS::GameLift::Fleet`
-  - added definition `PlayerGatewayConfiguration`
-  - added property `PlayerGatewayConfiguration`
-  - added property `PlayerGatewayMode`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `LocationConfiguration`
-- updated `AWS::MediaPackage::Channel`
-  - updated definition `IngestEndpoint`
-- updated `AWS::MediaPackage::OriginEndpoint`
-  - updated `tagging`
+  - updated definition `CloudWatchLogsDestinationDetails`
+  - updated definition `DestinationDetails`
+  - updated definition `KinesisFirehoseDestinationDetails`
+  - updated definition `LogDeliveryConfigurationRequest`
+  - updated definition `NodeGroupConfiguration`
+  - updated definition `Tag`
+  - updated handler permissions
+  - updated property `AtRestEncryptionEnabled`
+  - updated property `AuthToken`
+  - updated property `AutoMinorVersionUpgrade`
+  - updated property `AutomaticFailoverEnabled`
+  - updated property `CacheNodeType`
+  - updated property `CacheParameterGroupName`
+  - updated property `CacheSecurityGroupNames`
+  - updated property `CacheSubnetGroupName`
+  - updated property `ClusterMode`
+  - updated property `DataTieringEnabled`
+  - updated property `EngineVersion`
+  - updated property `Engine`
+  - updated property `GlobalReplicationGroupId`
+  - updated property `IpDiscovery`
+  - updated property `KmsKeyId`
+  - updated property `LogDeliveryConfigurations`
+  - updated property `MultiAZEnabled`
+  - updated property `NetworkType`
+  - updated property `NodeGroupConfiguration`
+  - updated property `NotificationTopicArn`
+  - updated property `NumCacheClusters`
+  - updated property `NumNodeGroups`
+  - updated property `Port`
+  - updated property `PreferredCacheClusterAZs`
+  - updated property `PreferredMaintenanceWindow`
+  - updated property `PrimaryClusterId`
+  - updated property `ReplicasPerNodeGroup`
+  - updated property `ReplicationGroupDescription`
+  - updated property `ReplicationGroupId`
+  - updated property `SecurityGroupIds`
+  - updated property `SnapshotArns`
+  - updated property `SnapshotName`
+  - updated property `SnapshotRetentionLimit`
+  - updated property `SnapshotWindow`
+  - updated property `SnapshottingClusterId`
+  - updated property `Tags`
+  - updated property `TransitEncryptionEnabled`
+  - updated property `TransitEncryptionMode`
+  - updated property `UserGroupIds`
+- updated `AWS::XRay::SamplingRule`
+  - added definition `SamplingRateBoost`
+  - updated definition `SamplingRuleUpdate`
+  - updated definition `SamplingRule`

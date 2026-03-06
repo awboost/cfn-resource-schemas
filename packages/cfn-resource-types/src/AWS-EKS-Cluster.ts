@@ -203,7 +203,13 @@ export type ControlPlaneScalingConfig = {
   /**
    * The scaling tier for the provisioned control plane.
    */
-  Tier?: "standard" | "tier-xl" | "tier-2xl" | "tier-4xl";
+  Tier?:
+    | "standard"
+    | "tier-xl"
+    | "tier-2xl"
+    | "tier-4xl"
+    | "tier-8xl"
+    | "ultra";
 };
 /**
  * Type definition for `AWS::EKS::Cluster.ElasticLoadBalancing`.

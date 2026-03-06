@@ -31,6 +31,23 @@ export type XRaySamplingRuleAttributes = {
   RuleARN: string;
 };
 /**
+ * Type definition for `AWS::XRay::SamplingRule.SamplingRateBoost`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrateboost.html}
+ */
+export type SamplingRateBoost = {
+  /**
+   * Time window (in minutes) in which only one sampling rate boost can be triggered. After a boost occurs, no further boosts are allowed until the next window.
+   * @min `1`
+   */
+  CooldownWindowMinutes: number;
+  /**
+   * The maximum sampling rate X-Ray will apply when it detects anomalies. X-Ray determines the appropriate rate between your baseline and the maximum, depending on anomaly activity.
+   * @min `0`
+   * @max `1`
+   */
+  MaxRate: number;
+};
+/**
  * Type definition for `AWS::XRay::SamplingRule.SamplingRule`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html}
  */
@@ -81,6 +98,7 @@ export type SamplingRule = {
    * @maxLength `32`
    */
   RuleName?: string;
+  SamplingRateBoost?: SamplingRateBoost;
   /**
    * Matches the name that the service uses to identify itself in segments.
    * @maxLength `64`
@@ -168,6 +186,7 @@ export type SamplingRuleUpdate = {
    * @maxLength `32`
    */
   RuleName?: string;
+  SamplingRateBoost?: SamplingRateBoost;
   /**
    * Matches the name that the service uses to identify itself in segments.
    * @maxLength `64`
