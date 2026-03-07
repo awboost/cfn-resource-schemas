@@ -1,28 +1,28 @@
-- updated `AWS::Connect::Prompt`
+- updated `AWS::Connect::Queue`
+  - added definition `EmailAddress`
+  - added property `AdditionalEmailAddresses`
   - updated handler permissions
-- updated `AWS::EKS::Cluster`
-  - updated definition `ControlPlaneScalingConfig`
 - updated `AWS::ElastiCache::ReplicationGroup`
-  - added `conditionalCreateOnlyProperties`
-  - added `deprecatedProperties`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - added definition `Endpoint`
-  - added property `ConfigurationEndPoint`
-  - added property `PrimaryEndPoint`
-  - added property `ReadEndPoint`
-  - added property `ReaderEndPoint`
-  - removed property `ConfigurationEndPointAddress`
-  - removed property `ConfigurationEndPointPort`
-  - removed property `PrimaryEndPointAddress`
-  - removed property `PrimaryEndPointPort`
-  - removed property `ReadEndPointAddressesList`
-  - removed property `ReadEndPointAddresses`
-  - removed property `ReadEndPointPortsList`
-  - removed property `ReadEndPointPorts`
-  - removed property `ReaderEndPointAddress`
-  - removed property `ReaderEndPointPort`
+  - added property `ConfigurationEndPointAddress`
+  - added property `ConfigurationEndPointPort`
+  - added property `PrimaryEndPointAddress`
+  - added property `PrimaryEndPointPort`
+  - added property `ReadEndPointAddressesList`
+  - added property `ReadEndPointAddresses`
+  - added property `ReadEndPointPortsList`
+  - added property `ReadEndPointPorts`
+  - added property `ReaderEndPointAddress`
+  - added property `ReaderEndPointPort`
+  - removed `conditionalCreateOnlyProperties`
+  - removed `deprecatedProperties`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - removed `writeOnlyProperties`
+  - removed definition `Endpoint`
+  - removed property `ConfigurationEndPoint`
+  - removed property `PrimaryEndPoint`
+  - removed property `ReadEndPoint`
+  - removed property `ReaderEndPoint`
   - updated `createOnlyProperties`
   - updated `readOnlyProperties`
   - updated definition `CloudWatchLogsDestinationDetails`
@@ -71,7 +71,3 @@
   - updated property `TransitEncryptionEnabled`
   - updated property `TransitEncryptionMode`
   - updated property `UserGroupIds`
-- updated `AWS::XRay::SamplingRule`
-  - added definition `SamplingRateBoost`
-  - updated definition `SamplingRuleUpdate`
-  - updated definition `SamplingRule`

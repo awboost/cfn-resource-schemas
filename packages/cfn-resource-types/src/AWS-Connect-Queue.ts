@@ -6,6 +6,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ConnectQueueProperties = {
   /**
+   * The email addresses that agents can use when replying to or initiating email contacts
+   * @minLength `0`
+   * @maxLength `50`
+   */
+  AdditionalEmailAddresses?: EmailAddress[];
+  /**
    * The description of the queue.
    * @minLength `1`
    * @maxLength `250`
@@ -69,6 +75,18 @@ export type ConnectQueueAttributes = {
    * The type of queue.
    */
   Type: "STANDARD" | "AGENT";
+};
+/**
+ * Type definition for `AWS::Connect::Queue.EmailAddress`.
+ * An email address configuration for the queue
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-emailaddress.html}
+ */
+export type EmailAddress = {
+  /**
+   * The Amazon Resource Name (ARN) of the email address
+   * @pattern `^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-f0-9]{8}-[-a-f0-9]{4}-[-a-f0-9]{4}-[-a-f0-9]{4}-[-a-f0-9]{12}/email-address/[-a-f0-9]{8}-[-a-f0-9]{4}-[-a-f0-9]{4}-[-a-f0-9]{4}-[-a-f0-9]{12}$`
+   */
+  EmailAddressArn: string;
 };
 /**
  * Type definition for `AWS::Connect::Queue.OutboundCallerConfig`.

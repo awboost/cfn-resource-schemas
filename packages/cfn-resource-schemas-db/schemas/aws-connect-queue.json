@@ -1,8 +1,21 @@
 {
-  "$hash": "0c38eea67f28c672366e605521207b203f5a0f00",
+  "$hash": "b3ef1308e4686d18c9ea1857a6fc7bd7d8f51284",
   "$id": "aws-connect-queue.json",
   "additionalProperties": false,
   "definitions": {
+    "EmailAddress": {
+      "additionalProperties": false,
+      "description": "An email address configuration for the queue",
+      "properties": {
+        "EmailAddressArn": {
+          "description": "The Amazon Resource Name (ARN) of the email address",
+          "pattern": "^arn:aws[-a-z0-9]*:connect:[-a-z0-9]*:[0-9]{12}:instance/[-a-f0-9]{8}-[-a-f0-9]{4}-[-a-f0-9]{4}-[-a-f0-9]{4}-[-a-f0-9]{12}/email-address/[-a-f0-9]{8}-[-a-f0-9]{4}-[-a-f0-9]{4}-[-a-f0-9]{4}-[-a-f0-9]{12}$",
+          "type": "string"
+        }
+      },
+      "required": ["EmailAddressArn"],
+      "type": "object"
+    },
     "Key": {
       "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
       "maxLength": 128,
@@ -81,9 +94,20 @@
   },
   "description": "Resource Type definition for AWS::Connect::Queue",
   "handlers": {
-    "create": { "permissions": ["connect:CreateQueue", "connect:TagResource"] },
+    "create": {
+      "permissions": [
+        "connect:CreateQueue",
+        "connect:TagResource",
+        "connect:AssociateQueueEmailAddresses"
+      ]
+    },
     "delete": {
-      "permissions": ["connect:DeleteQueue", "connect:UntagResource"]
+      "permissions": [
+        "connect:DeleteQueue",
+        "connect:UntagResource",
+        "connect:ListQueueEmailAddresses",
+        "connect:DisassociateQueueEmailAddresses"
+      ]
     },
     "list": {
       "handlerSchema": {
@@ -97,7 +121,11 @@
       "permissions": ["connect:ListQueues", "connect:ListQueueQuickConnects"]
     },
     "read": {
-      "permissions": ["connect:DescribeQueue", "connect:ListQueueQuickConnects"]
+      "permissions": [
+        "connect:DescribeQueue",
+        "connect:ListQueueQuickConnects",
+        "connect:ListQueueEmailAddresses"
+      ]
     },
     "update": {
       "permissions": [
@@ -109,6 +137,8 @@
         "connect:UpdateQueueStatus",
         "connect:AssociateQueueQuickConnects",
         "connect:DisassociateQueueQuickConnects",
+        "connect:AssociateQueueEmailAddresses",
+        "connect:DisassociateQueueEmailAddresses",
         "connect:TagResource",
         "connect:UntagResource"
       ]
@@ -116,6 +146,14 @@
   },
   "primaryIdentifier": ["/properties/QueueArn"],
   "properties": {
+    "AdditionalEmailAddresses": {
+      "description": "The email addresses that agents can use when replying to or initiating email contacts",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/EmailAddress" },
+      "maxItems": 50,
+      "minItems": 0,
+      "type": "array"
+    },
     "Description": {
       "description": "The description of the queue.",
       "maxLength": 250,
