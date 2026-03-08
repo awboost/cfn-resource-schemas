@@ -1,5 +1,5 @@
 {
-  "$hash": "971ef9506cb841f2225202edcc1792043a63b8f0",
+  "$hash": "4d4d05737d32c354a7077b99f39be502195bfb08",
   "$id": "aws-bedrockagentcore-memory.json",
   "additionalIdentifiers": [["/properties/MemoryId"]],
   "additionalProperties": false,
@@ -12,6 +12,23 @@
     },
     "ConsolidationConfiguration": {
       "oneOf": [{ "$ref": "#/definitions/CustomConsolidationConfiguration" }],
+      "type": "object"
+    },
+    "ContentConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Level": {
+          "description": "The level of content detail to deliver",
+          "enum": ["METADATA_ONLY", "FULL_CONTENT"],
+          "type": "string"
+        },
+        "Type": {
+          "description": "The type of content to deliver",
+          "enum": ["MEMORY_RECORDS"],
+          "type": "string"
+        }
+      },
+      "required": ["Type"],
       "type": "object"
     },
     "CustomConfigurationInput": {
@@ -202,6 +219,21 @@
         },
         "TopicArn": { "$ref": "#/definitions/Arn" }
       },
+      "type": "object"
+    },
+    "KinesisResource": {
+      "additionalProperties": false,
+      "properties": {
+        "ContentConfigurations": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/ContentConfiguration" },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        },
+        "DataStreamArn": { "$ref": "#/definitions/Arn" }
+      },
+      "required": ["DataStreamArn", "ContentConfigurations"],
       "type": "object"
     },
     "MemoryArn": {
@@ -400,6 +432,26 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "StreamDeliveryResource": {
+      "additionalProperties": false,
+      "maxProperties": 1,
+      "minProperties": 1,
+      "properties": { "Kinesis": { "$ref": "#/definitions/KinesisResource" } },
+      "type": "object"
+    },
+    "StreamDeliveryResources": {
+      "additionalProperties": false,
+      "properties": {
+        "Resources": {
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/StreamDeliveryResource" },
+          "maxItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["Resources"],
       "type": "object"
     },
     "SummaryConsolidationOverride": {
@@ -688,6 +740,9 @@
     "MemoryStrategies": { "$ref": "#/definitions/MemoryStrategies" },
     "Name": { "$ref": "#/definitions/Name" },
     "Status": { "$ref": "#/definitions/MemoryStatus" },
+    "StreamDeliveryResources": {
+      "$ref": "#/definitions/StreamDeliveryResources"
+    },
     "Tags": { "$ref": "#/definitions/TagsMap" },
     "UpdatedAt": { "format": "date-time", "type": "string" }
   },

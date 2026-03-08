@@ -34,6 +34,7 @@ export type BedrockAgentCoreMemoryProperties = {
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
    */
   Name: string;
+  StreamDeliveryResources?: StreamDeliveryResources;
   /**
    * A map of tag keys and values
    */
@@ -214,6 +215,20 @@ export type BedrockAgentCoreMemoryAttributes = {
   UpdatedAt: string;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Memory.ContentConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-contentconfiguration.html}
+ */
+export type ContentConfiguration = {
+  /**
+   * The level of content detail to deliver
+   */
+  Level?: "METADATA_ONLY" | "FULL_CONTENT";
+  /**
+   * The type of content to deliver
+   */
+  Type: "MEMORY_RECORDS";
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Memory.CustomConfigurationInput`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-customconfigurationinput.html}
  */
@@ -346,6 +361,22 @@ export type InvocationConfigurationInput = {
   TopicArn?: string;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Memory.KinesisResource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-kinesisresource.html}
+ */
+export type KinesisResource = {
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  ContentConfigurations: ContentConfiguration[];
+  /**
+   * ARN format
+   * @pattern `^arn:aws:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
+   */
+  DataStreamArn: string;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Memory.MemoryStatus`.
  * Status of the Memory resource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-memorystatus.html}
@@ -442,6 +473,23 @@ export type SemanticOverrideExtractionConfigurationInput = {
    */
   AppendToPrompt: string;
   ModelId: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.StreamDeliveryResource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-streamdeliveryresource.html}
+ */
+export type StreamDeliveryResource = {
+  Kinesis?: KinesisResource;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.StreamDeliveryResources`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-streamdeliveryresources.html}
+ */
+export type StreamDeliveryResources = {
+  /**
+   * @maxLength `1`
+   */
+  Resources: StreamDeliveryResource[];
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Memory.SummaryMemoryStrategy`.
