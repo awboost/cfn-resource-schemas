@@ -209,7 +209,7 @@ export type ControlPlaneScalingConfig = {
     | "tier-2xl"
     | "tier-4xl"
     | "tier-8xl"
-    | "ultra";
+    | "tier-ultra";
 };
 /**
  * Type definition for `AWS::EKS::Cluster.ElasticLoadBalancing`.
@@ -316,7 +316,7 @@ export type RemoteNetworkConfig = {
   /**
    * Network configuration of nodes run on-premises with EKS Hybrid Nodes.
    */
-  RemoteNodeNetworks: RemoteNodeNetwork[];
+  RemoteNodeNetworks?: RemoteNodeNetwork[];
   /**
    * Network configuration of pods run on-premises with EKS Hybrid Nodes.
    */
