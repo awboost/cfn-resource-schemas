@@ -78,7 +78,8 @@ export type TransitGatewayAttachmentResourceType =
   | "direct-connect-gateway"
   | "peering"
   | "network-function"
-  | "vpn-concentrator";
+  | "vpn-concentrator"
+  | "client-vpn";
 /**
  * Type definition for `AWS::EC2::TransitGatewayMeteringPolicyEntry.TransitGatewayMeteringPayerType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaymeteringpolicyentry-transitgatewaymeteringpayertype.html}

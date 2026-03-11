@@ -178,6 +178,12 @@ export type AnalysisRuleList = {
  */
 export type AthenaTableReference = {
   /**
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[a-zA-Z0-9_-]+$`
+   */
+  CatalogName?: string;
+  /**
    * @maxLength `128`
    */
   DatabaseName: string;

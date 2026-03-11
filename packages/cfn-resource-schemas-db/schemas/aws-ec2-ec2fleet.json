@@ -1,5 +1,5 @@
 {
-  "$hash": "0d9d74ac5cbb856bb7232d9d5512184d4552afb1",
+  "$hash": "03c0d0cbb18ed8e8549b9b311d34315b72d8af18",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -365,6 +365,20 @@
       },
       "type": "object"
     },
+    "ReservedCapacityOptionsRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "ReservationTypes": {
+          "items": {
+            "enum": ["interruptible-capacity-reservation"],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
+      "type": "object"
+    },
     "SpotOptionsRequest": {
       "additionalProperties": false,
       "properties": {
@@ -473,7 +487,7 @@
       "additionalProperties": false,
       "properties": {
         "DefaultTargetCapacityType": {
-          "enum": ["on-demand", "spot"],
+          "enum": ["on-demand", "spot", "reserved-capacity"],
           "type": "string"
         },
         "OnDemandTargetCapacity": { "type": "integer" },

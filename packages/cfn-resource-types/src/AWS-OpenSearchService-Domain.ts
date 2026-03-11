@@ -12,6 +12,7 @@ export type OpenSearchServiceDomainProperties = {
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
   ClusterConfig?: ClusterConfig;
   CognitoOptions?: CognitoOptions;
+  DeploymentStrategyOptions?: DeploymentStrategyOptions;
   DomainEndpointOptions?: DomainEndpointOptions;
   DomainName?: string;
   EBSOptions?: EBSOptions;
@@ -128,6 +129,13 @@ export type CognitoOptions = {
  */
 export type ColdStorageOptions = {
   Enabled?: boolean;
+};
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.DeploymentStrategyOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-deploymentstrategyoptions.html}
+ */
+export type DeploymentStrategyOptions = {
+  DeploymentStrategy?: "Default" | "CapacityOptimized";
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.DomainEndpointOptions`.

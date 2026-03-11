@@ -104,7 +104,7 @@ export type OptionalKeyword = {
   Action: "AUTOMATIC_RESPONSE" | "OPT_OUT" | "OPT_IN";
   /**
    * @maxLength `30`
-   * @pattern `^(?!.*(?i)(stop|help))[ \S]+`
+   * @pattern `^(?!(?i)(stop|help)$)[ \S]+`
    */
   Keyword: string;
   /**

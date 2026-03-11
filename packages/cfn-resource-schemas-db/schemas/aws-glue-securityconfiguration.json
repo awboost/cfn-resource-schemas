@@ -1,5 +1,5 @@
 {
-  "$hash": "b203975fb4111a81dfd46f65c418dcd2ff925730",
+  "$hash": "afc2cfb0df064e9af9a653e3f2e77f4bfc6b6cec",
   "$id": "aws-glue-securityconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -21,7 +21,11 @@
         "JobBookmarksEncryption": {
           "$ref": "#/definitions/JobBookmarksEncryption"
         },
-        "S3Encryptions": { "$ref": "#/definitions/S3Encryptions" }
+        "S3Encryptions": {
+          "items": { "$ref": "#/definitions/S3Encryption" },
+          "type": "array",
+          "uniqueItems": false
+        }
       },
       "type": "object"
     },
@@ -33,7 +37,14 @@
       },
       "type": "object"
     },
-    "S3Encryptions": { "additionalProperties": false, "type": "object" }
+    "S3Encryption": {
+      "additionalProperties": false,
+      "properties": {
+        "KmsKeyArn": { "type": "string" },
+        "S3EncryptionMode": { "type": "string" }
+      },
+      "type": "object"
+    }
   },
   "description": "Resource Type definition for AWS::Glue::SecurityConfiguration",
   "primaryIdentifier": ["/properties/Id"],

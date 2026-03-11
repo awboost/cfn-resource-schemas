@@ -1,5 +1,5 @@
 {
-  "$hash": "6c2cbb27ab34928d7a168f48d76fe004210840d4",
+  "$hash": "30a15f6325dcc660e828cc8c8fe2ac7a3a75316c",
   "$id": "aws-cleanrooms-configuredtable.json",
   "additionalProperties": false,
   "definitions": {
@@ -171,6 +171,12 @@
     "AthenaTableReference": {
       "additionalProperties": false,
       "properties": {
+        "CatalogName": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "type": "string"
+        },
         "DatabaseName": { "maxLength": 128, "type": "string" },
         "OutputLocation": {
           "maxLength": 1024,

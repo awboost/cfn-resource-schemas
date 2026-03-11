@@ -1,5 +1,5 @@
 {
-  "$hash": "6e8f88114219ce434ef5e3215606ad6fe9904573",
+  "$hash": "4fa7dc0983499fa0f26afed5ae19e25463f6882b",
   "$id": "aws-ec2-transitgatewaymeteringpolicyentry.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -24,7 +24,8 @@
         "direct-connect-gateway",
         "peering",
         "network-function",
-        "vpn-concentrator"
+        "vpn-concentrator",
+        "client-vpn"
       ],
       "type": "string"
     },

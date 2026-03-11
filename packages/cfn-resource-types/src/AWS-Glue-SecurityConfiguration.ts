@@ -30,7 +30,7 @@ export type CloudWatchEncryption = {
 export type EncryptionConfiguration = {
   CloudWatchEncryption?: CloudWatchEncryption;
   JobBookmarksEncryption?: JobBookmarksEncryption;
-  S3Encryptions?: S3Encryptions;
+  S3Encryptions?: S3Encryption[];
 };
 /**
  * Type definition for `AWS::Glue::SecurityConfiguration.JobBookmarksEncryption`.
@@ -41,10 +41,13 @@ export type JobBookmarksEncryption = {
   KmsKeyArn?: string;
 };
 /**
- * Type definition for `AWS::Glue::SecurityConfiguration.S3Encryptions`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryptions.html}
+ * Type definition for `AWS::Glue::SecurityConfiguration.S3Encryption`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-securityconfiguration-s3encryption.html}
  */
-export type S3Encryptions = Record<string, any>;
+export type S3Encryption = {
+  KmsKeyArn?: string;
+  S3EncryptionMode?: string;
+};
 /**
  * Resource Type definition for AWS::Glue::SecurityConfiguration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-securityconfiguration.html}

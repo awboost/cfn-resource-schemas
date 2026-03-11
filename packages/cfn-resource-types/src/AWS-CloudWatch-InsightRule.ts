@@ -9,7 +9,7 @@ export type CloudWatchInsightRuleProperties = {
   RuleBody: string;
   RuleName: string;
   RuleState: string;
-  Tags?: Tags;
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::CloudWatch::InsightRule`.
@@ -20,10 +20,13 @@ export type CloudWatchInsightRuleAttributes = {
   Id: string;
 };
 /**
- * Type definition for `AWS::CloudWatch::InsightRule.Tags`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-insightrule-tags.html}
+ * Type definition for `AWS::CloudWatch::InsightRule.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-insightrule-tag.html}
  */
-export type Tags = Record<string, any>;
+export type Tag = {
+  Key: string;
+  Value: string;
+};
 /**
  * Resource Type definition for AWS::CloudWatch::InsightRule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html}

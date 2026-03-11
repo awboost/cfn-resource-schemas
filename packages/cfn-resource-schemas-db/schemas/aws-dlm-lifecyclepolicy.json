@@ -1,5 +1,5 @@
 {
-  "$hash": "9490f44d07df3575527fa670c820b87cf88ceeae",
+  "$hash": "aa0c68fe30c5fb06dc5b438647c1287c6eeff66a",
   "$id": "aws-dlm-lifecyclepolicy.json",
   "additionalProperties": false,
   "definitions": {
@@ -98,8 +98,9 @@
       "required": ["Encrypted"],
       "type": "object"
     },
-    "CrossRegionCopyTargets": {
+    "CrossRegionCopyTarget": {
       "additionalProperties": false,
+      "properties": { "TargetRegion": { "type": "string" } },
       "type": "object"
     },
     "DeprecateRule": {
@@ -143,17 +144,20 @@
       "required": ["Type"],
       "type": "object"
     },
-    "ExcludeTags": { "additionalProperties": false, "type": "object" },
-    "ExcludeVolumeTypesList": {
-      "additionalProperties": false,
-      "type": "object"
-    },
     "Exclusions": {
       "additionalProperties": false,
       "properties": {
         "ExcludeBootVolumes": { "type": "boolean" },
-        "ExcludeTags": { "$ref": "#/definitions/ExcludeTags" },
-        "ExcludeVolumeTypes": { "$ref": "#/definitions/ExcludeVolumeTypesList" }
+        "ExcludeTags": {
+          "items": { "$ref": "#/definitions/Tag" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "ExcludeVolumeTypes": {
+          "items": { "$ref": "#/definitions/VolumeTypeValues" },
+          "type": "array",
+          "uniqueItems": false
+        }
       },
       "type": "object"
     },
@@ -195,7 +199,9 @@
         "CopyTags": { "type": "boolean" },
         "CreateInterval": { "type": "integer" },
         "CrossRegionCopyTargets": {
-          "$ref": "#/definitions/CrossRegionCopyTargets"
+          "items": { "$ref": "#/definitions/CrossRegionCopyTarget" },
+          "type": "array",
+          "uniqueItems": false
         },
         "EventSource": { "$ref": "#/definitions/EventSource" },
         "Exclusions": { "$ref": "#/definitions/Exclusions" },
@@ -316,7 +322,8 @@
       },
       "required": ["Value", "Key"],
       "type": "object"
-    }
+    },
+    "VolumeTypeValues": { "additionalProperties": false, "type": "object" }
   },
   "description": "Resource Type definition for AWS::DLM::LifecyclePolicy",
   "primaryIdentifier": ["/properties/Id"],
@@ -325,7 +332,9 @@
     "CopyTags": { "type": "boolean" },
     "CreateInterval": { "type": "integer" },
     "CrossRegionCopyTargets": {
-      "$ref": "#/definitions/CrossRegionCopyTargets"
+      "items": { "$ref": "#/definitions/CrossRegionCopyTarget" },
+      "type": "array",
+      "uniqueItems": false
     },
     "DefaultPolicy": { "type": "string" },
     "Description": { "type": "string" },

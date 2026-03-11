@@ -5,16 +5,16 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html}
  */
 export type LakeFormationDataLakeSettingsProperties = {
-  Admins?: Admins;
+  Admins?: DataLakePrincipal[];
   AllowExternalDataFiltering?: boolean;
   AllowFullTableExternalDataAccess?: boolean;
   AuthorizedSessionTagValueList?: string[];
-  CreateDatabaseDefaultPermissions?: CreateDatabaseDefaultPermissions;
-  CreateTableDefaultPermissions?: CreateTableDefaultPermissions;
-  ExternalDataFilteringAllowList?: ExternalDataFilteringAllowList;
+  CreateDatabaseDefaultPermissions?: PrincipalPermissions[];
+  CreateTableDefaultPermissions?: PrincipalPermissions[];
+  ExternalDataFilteringAllowList?: DataLakePrincipal[];
   MutationType?: string;
   Parameters?: Record<string, any>;
-  ReadOnlyAdmins?: ReadOnlyAdmins;
+  ReadOnlyAdmins?: DataLakePrincipal[];
   TrustedResourceOwners?: string[];
 };
 /**
@@ -25,30 +25,20 @@ export type LakeFormationDataLakeSettingsAttributes = {
   Id: string;
 };
 /**
- * Type definition for `AWS::LakeFormation::DataLakeSettings.Admins`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-admins.html}
+ * Type definition for `AWS::LakeFormation::DataLakeSettings.DataLakePrincipal`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-datalakeprincipal.html}
  */
-export type Admins = Record<string, any>;
+export type DataLakePrincipal = {
+  DataLakePrincipalIdentifier: string;
+};
 /**
- * Type definition for `AWS::LakeFormation::DataLakeSettings.CreateDatabaseDefaultPermissions`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-createdatabasedefaultpermissions.html}
+ * Type definition for `AWS::LakeFormation::DataLakeSettings.PrincipalPermissions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html}
  */
-export type CreateDatabaseDefaultPermissions = Record<string, any>;
-/**
- * Type definition for `AWS::LakeFormation::DataLakeSettings.CreateTableDefaultPermissions`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-createtabledefaultpermissions.html}
- */
-export type CreateTableDefaultPermissions = Record<string, any>;
-/**
- * Type definition for `AWS::LakeFormation::DataLakeSettings.ExternalDataFilteringAllowList`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-externaldatafilteringallowlist.html}
- */
-export type ExternalDataFilteringAllowList = Record<string, any>;
-/**
- * Type definition for `AWS::LakeFormation::DataLakeSettings.ReadOnlyAdmins`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-readonlyadmins.html}
- */
-export type ReadOnlyAdmins = Record<string, any>;
+export type PrincipalPermissions = {
+  Permissions: string[];
+  Principal: DataLakePrincipal;
+};
 /**
  * Resource Type definition for AWS::LakeFormation::DataLakeSettings
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datalakesettings.html}

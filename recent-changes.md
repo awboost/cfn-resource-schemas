@@ -1,79 +1,55 @@
-- added `AWS::Route53GlobalResolver::AccessSource`
-- added `AWS::Route53GlobalResolver::AccessToken`
-- added `AWS::Route53GlobalResolver::DnsView`
-- added `AWS::Route53GlobalResolver::FirewallDomainList`
-- added `AWS::Route53GlobalResolver::FirewallRule`
-- added `AWS::Route53GlobalResolver::GlobalResolver`
-- added `AWS::Route53GlobalResolver::HostedZoneAssociation`
-- updated `AWS::EKS::Cluster`
-  - updated definition `ControlPlaneScalingConfig`
-  - updated definition `RemoteNetworkConfig`
-- updated `AWS::ElastiCache::ReplicationGroup`
-  - added `conditionalCreateOnlyProperties`
-  - added `deprecatedProperties`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - added definition `Endpoint`
-  - added property `ConfigurationEndPoint`
-  - added property `PrimaryEndPoint`
-  - added property `ReadEndPoint`
-  - added property `ReaderEndPoint`
-  - removed property `ConfigurationEndPointAddress`
-  - removed property `ConfigurationEndPointPort`
-  - removed property `PrimaryEndPointAddress`
-  - removed property `PrimaryEndPointPort`
-  - removed property `ReadEndPointAddressesList`
-  - removed property `ReadEndPointAddresses`
-  - removed property `ReadEndPointPortsList`
-  - removed property `ReadEndPointPorts`
-  - removed property `ReaderEndPointAddress`
-  - removed property `ReaderEndPointPort`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `CloudWatchLogsDestinationDetails`
-  - updated definition `DestinationDetails`
-  - updated definition `KinesisFirehoseDestinationDetails`
-  - updated definition `LogDeliveryConfigurationRequest`
-  - updated definition `NodeGroupConfiguration`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `AtRestEncryptionEnabled`
-  - updated property `AuthToken`
-  - updated property `AutoMinorVersionUpgrade`
-  - updated property `AutomaticFailoverEnabled`
-  - updated property `CacheNodeType`
-  - updated property `CacheParameterGroupName`
-  - updated property `CacheSecurityGroupNames`
-  - updated property `CacheSubnetGroupName`
-  - updated property `ClusterMode`
-  - updated property `DataTieringEnabled`
-  - updated property `EngineVersion`
-  - updated property `Engine`
-  - updated property `GlobalReplicationGroupId`
-  - updated property `IpDiscovery`
-  - updated property `KmsKeyId`
-  - updated property `LogDeliveryConfigurations`
-  - updated property `MultiAZEnabled`
-  - updated property `NetworkType`
-  - updated property `NodeGroupConfiguration`
-  - updated property `NotificationTopicArn`
-  - updated property `NumCacheClusters`
-  - updated property `NumNodeGroups`
-  - updated property `Port`
-  - updated property `PreferredCacheClusterAZs`
-  - updated property `PreferredMaintenanceWindow`
-  - updated property `PrimaryClusterId`
-  - updated property `ReplicasPerNodeGroup`
-  - updated property `ReplicationGroupDescription`
-  - updated property `ReplicationGroupId`
-  - updated property `SecurityGroupIds`
-  - updated property `SnapshotArns`
-  - updated property `SnapshotName`
-  - updated property `SnapshotRetentionLimit`
-  - updated property `SnapshotWindow`
-  - updated property `SnapshottingClusterId`
+- added `AWS::CleanRoomsML::ConfiguredModelAlgorithm`
+- added `AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation`
+- removed `AWS::Config::RemediationConfiguration`
+- updated `AWS::CleanRooms::ConfiguredTable`
+  - updated definition `AthenaTableReference`
+- updated `AWS::CloudWatch::InsightRule`
+  - added definition `Tag`
+  - removed definition `Tags`
   - updated property `Tags`
-  - updated property `TransitEncryptionEnabled`
-  - updated property `TransitEncryptionMode`
-  - updated property `UserGroupIds`
+- updated `AWS::DLM::LifecyclePolicy`
+  - added definition `CrossRegionCopyTarget`
+  - added definition `VolumeTypeValues`
+  - removed definition `CrossRegionCopyTargets`
+  - removed definition `ExcludeTags`
+  - removed definition `ExcludeVolumeTypesList`
+  - updated definition `Exclusions`
+  - updated definition `PolicyDetails`
+  - updated property `CrossRegionCopyTargets`
+- updated `AWS::EC2::EC2Fleet`
+  - added definition `ReservedCapacityOptionsRequest`
+  - updated definition `TargetCapacitySpecificationRequest`
+- updated `AWS::EC2::TransitGatewayMeteringPolicyEntry`
+  - updated definition `TransitGatewayAttachmentResourceType`
+- updated `AWS::ElasticLoadBalancingV2::TargetGroup`
+  - updated `tagging`
+- updated `AWS::Glue::SecurityConfiguration`
+  - added definition `S3Encryption`
+  - removed definition `S3Encryptions`
+  - updated definition `EncryptionConfiguration`
+- updated `AWS::LakeFormation::DataLakeSettings`
+  - added definition `DataLakePrincipal`
+  - added definition `PrincipalPermissions`
+  - removed definition `Admins`
+  - removed definition `CreateDatabaseDefaultPermissions`
+  - removed definition `CreateTableDefaultPermissions`
+  - removed definition `ExternalDataFilteringAllowList`
+  - removed definition `ReadOnlyAdmins`
+  - updated property `Admins`
+  - updated property `CreateDatabaseDefaultPermissions`
+  - updated property `CreateTableDefaultPermissions`
+  - updated property `ExternalDataFilteringAllowList`
+  - updated property `ReadOnlyAdmins`
+- updated `AWS::OpenSearchService::Domain`
+  - added definition `DeploymentStrategyOptions`
+  - added property `DeploymentStrategyOptions`
+- updated `AWS::SMSVOICE::PhoneNumber`
+  - updated definition `OptionalKeyword`
+- updated `AWS::SMSVOICE::Pool`
+  - updated definition `OptionalKeyword`
+- updated `AWS::SQS::Queue`
+  - updated property `FifoQueue`
+  - updated property `KmsMasterKeyId`
+  - updated property `QueueName`
+  - updated property `RedriveAllowPolicy`
+  - updated property `RedrivePolicy`

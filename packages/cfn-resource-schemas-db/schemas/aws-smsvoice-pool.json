@@ -1,5 +1,5 @@
 {
-  "$hash": "830e7ab58b8795b477d7a9a61f219f21591ba690",
+  "$hash": "a646cb38ca63e1cbbb6c38ae983074022126e126",
   "$id": "aws-smsvoice-pool.json",
   "additionalProperties": false,
   "definitions": {
@@ -26,7 +26,7 @@
         },
         "Keyword": {
           "maxLength": 30,
-          "pattern": "^(?!.*(?i)(stop|help))[ \\S]+",
+          "pattern": "^(?!(?i)(stop|help)$)[ \\S]+",
           "type": "string"
         },
         "Message": {

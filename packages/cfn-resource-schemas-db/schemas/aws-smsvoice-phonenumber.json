@@ -1,5 +1,5 @@
 {
-  "$hash": "24b5cf16e5d5b16bc3bfaa1c2368524b88d304b9",
+  "$hash": "032c2eceb9ff8900200338866dc5c0c6e8c894de",
   "$id": "aws-smsvoice-phonenumber.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -31,7 +31,7 @@
         },
         "Keyword": {
           "maxLength": 30,
-          "pattern": "^(?!.*(?i)(stop|help))[ \\S]+",
+          "pattern": "^(?!(?i)(stop|help)$)[ \\S]+",
           "type": "string"
         },
         "Message": {

@@ -1,10 +1,18 @@
 {
-  "$hash": "e73f1f4fdcce6df4739a06679cd6d9a66469d50f",
+  "$hash": "9f067ceddb568af93cd0a51fc5cedd629a458d43",
   "$id": "aws-cloudwatch-insightrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
   "definitions": {
-    "Tags": { "additionalProperties": false, "type": "object" }
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": { "type": "string" }
+      },
+      "required": ["Value", "Key"],
+      "type": "object"
+    }
   },
   "description": "Resource Type definition for AWS::CloudWatch::InsightRule",
   "primaryIdentifier": ["/properties/Id"],
@@ -15,7 +23,11 @@
     "RuleBody": { "type": "string" },
     "RuleName": { "type": "string" },
     "RuleState": { "type": "string" },
-    "Tags": { "$ref": "#/definitions/Tags" }
+    "Tags": {
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
+    }
   },
   "readOnlyProperties": ["/properties/Id", "/properties/Arn"],
   "required": ["RuleState", "RuleBody", "RuleName"],

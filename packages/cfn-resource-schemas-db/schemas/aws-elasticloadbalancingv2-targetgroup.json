@@ -1,5 +1,5 @@
 {
-  "$hash": "96c028bc5b772da995548c49bd642d82b669f7bf",
+  "$hash": "feef4c9b9edecdc47d16aafaa6334f9ec78e51a6",
   "$id": "aws-elasticloadbalancingv2-targetgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -235,13 +235,13 @@
     "/properties/TargetGroupFullName"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "elasticloadbalancing:AddTags",
       "elasticloadbalancing:DescribeTags",
       "elasticloadbalancing:RemoveTags"
     ],
-    "tagOnCreate": false,
+    "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true

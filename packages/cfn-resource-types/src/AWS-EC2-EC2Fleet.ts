@@ -363,7 +363,7 @@ export type TagSpecification = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html}
  */
 export type TargetCapacitySpecificationRequest = {
-  DefaultTargetCapacityType?: "on-demand" | "spot";
+  DefaultTargetCapacityType?: "on-demand" | "spot" | "reserved-capacity";
   OnDemandTargetCapacity?: number;
   SpotTargetCapacity?: number;
   TargetCapacityUnitType?: "vcpu" | "memory-mib" | "units";

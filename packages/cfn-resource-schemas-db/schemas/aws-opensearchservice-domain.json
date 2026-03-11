@@ -1,5 +1,5 @@
 {
-  "$hash": "16cdc77476191f592208fef8d956daa101df539e",
+  "$hash": "7c5fa47608e5ae07e66736e11f3a9608269da868",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -69,6 +69,16 @@
     "ColdStorageOptions": {
       "additionalProperties": false,
       "properties": { "Enabled": { "type": "boolean" } },
+      "type": "object"
+    },
+    "DeploymentStrategyOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "DeploymentStrategy": {
+          "enum": ["Default", "CapacityOptimized"],
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "DomainEndpointOptions": {
@@ -377,6 +387,9 @@
     "Arn": { "type": "string" },
     "ClusterConfig": { "$ref": "#/definitions/ClusterConfig" },
     "CognitoOptions": { "$ref": "#/definitions/CognitoOptions" },
+    "DeploymentStrategyOptions": {
+      "$ref": "#/definitions/DeploymentStrategyOptions"
+    },
     "DomainArn": { "type": "string" },
     "DomainEndpoint": { "type": "string" },
     "DomainEndpointOptions": { "$ref": "#/definitions/DomainEndpointOptions" },
