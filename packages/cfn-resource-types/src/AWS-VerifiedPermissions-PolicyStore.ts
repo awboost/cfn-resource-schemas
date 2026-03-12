@@ -110,13 +110,9 @@ export type KmsEncryptionState = {
  * Type definition for `AWS::VerifiedPermissions::PolicyStore.SchemaDefinition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-schemadefinition.html}
  */
-export type SchemaDefinition =
-  | {
-      CedarJson: string;
-    }
-  | {
-      CedarFormat: string;
-    };
+export type SchemaDefinition = {
+  CedarJson?: string;
+};
 /**
  * Type definition for `AWS::VerifiedPermissions::PolicyStore.Tag`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-policystore-tag.html}

@@ -10,6 +10,11 @@ export type RedshiftServerlessWorkgroupProperties = {
    */
   BaseCapacity?: number;
   /**
+   * A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
+   * @minLength `1`
+   */
+  ConfigParameters?: ConfigParameter[];
+  /**
    * The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
    */
   EnhancedVpcRouting?: boolean;
@@ -89,85 +94,20 @@ export type RedshiftServerlessWorkgroupProperties = {
   WorkgroupName: string;
 };
 /**
- * Attribute type definition for `AWS::RedshiftServerless::Workgroup`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#aws-resource-redshiftserverless-workgroup-return-values}
+ * Type definition for `AWS::RedshiftServerless::Workgroup.ConfigParameter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-configparameter.html}
  */
-export type RedshiftServerlessWorkgroupAttributes = {
+export type ConfigParameter = {
   /**
-   * A list of parameters to set for finer control over a database. Available options are datestyle, enable_user_activity_logging, query_group, search_path, max_query_execution_time, and require_ssl.
-   * @minLength `1`
+   * @minLength `0`
+   * @maxLength `255`
    */
-  ConfigParameters: {
-    /**
-     * @minLength `0`
-     * @maxLength `255`
-     */
-    ParameterKey: string;
-    /**
-     * @minLength `0`
-     * @maxLength `15000`
-     */
-    ParameterValue: string;
-  }[];
+  ParameterKey?: string;
   /**
-   * Definition for workgroup resource
+   * @minLength `0`
+   * @maxLength `15000`
    */
-  Workgroup: {
-    BaseCapacity: number;
-    ConfigParameters: {
-      /**
-       * @minLength `0`
-       * @maxLength `255`
-       */
-      ParameterKey: string;
-      /**
-       * @minLength `0`
-       * @maxLength `15000`
-       */
-      ParameterValue: string;
-    }[];
-    CreationDate: string;
-    Endpoint: {
-      Address: string;
-      Port: number;
-      VpcEndpoints: {
-        NetworkInterfaces: {
-          AvailabilityZone: string;
-          NetworkInterfaceId: string;
-          PrivateIpAddress: string;
-          SubnetId: string;
-        }[];
-        VpcEndpointId: string;
-        VpcId: string;
-      }[];
-    };
-    EnhancedVpcRouting: boolean;
-    MaxCapacity: number;
-    /**
-     * @minLength `3`
-     * @maxLength `64`
-     * @pattern `^[a-z0-9-]+$`
-     */
-    NamespaceName: string;
-    PubliclyAccessible: boolean;
-    SecurityGroupIds: string[];
-    Status: WorkgroupStatus;
-    SubnetIds: string[];
-    /**
-     * @minLength `1`
-     * @maxLength `256`
-     * @pattern `^[a-zA-Z0-9_]+$`
-     */
-    TrackName: string;
-    WorkgroupArn: string;
-    WorkgroupId: string;
-    /**
-     * @minLength `3`
-     * @maxLength `64`
-     * @pattern `^[a-z0-9-]*$`
-     */
-    WorkgroupName: string;
-  };
+  ParameterValue?: string;
 };
 /**
  * Type definition for `AWS::RedshiftServerless::Workgroup.PerformanceTarget`.
@@ -225,7 +165,7 @@ export type WorkgroupStatus =
 export class RedshiftServerlessWorkgroup extends $Resource<
   "AWS::RedshiftServerless::Workgroup",
   RedshiftServerlessWorkgroupProperties,
-  RedshiftServerlessWorkgroupAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::RedshiftServerless::Workgroup";
   constructor(

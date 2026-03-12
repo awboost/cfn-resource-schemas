@@ -1,55 +1,26 @@
-- added `AWS::CleanRoomsML::ConfiguredModelAlgorithm`
-- added `AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation`
-- removed `AWS::Config::RemediationConfiguration`
-- updated `AWS::CleanRooms::ConfiguredTable`
-  - updated definition `AthenaTableReference`
-- updated `AWS::CloudWatch::InsightRule`
-  - added definition `Tag`
-  - removed definition `Tags`
-  - updated property `Tags`
-- updated `AWS::DLM::LifecyclePolicy`
-  - added definition `CrossRegionCopyTarget`
-  - added definition `VolumeTypeValues`
-  - removed definition `CrossRegionCopyTargets`
-  - removed definition `ExcludeTags`
-  - removed definition `ExcludeVolumeTypesList`
-  - updated definition `Exclusions`
-  - updated definition `PolicyDetails`
-  - updated property `CrossRegionCopyTargets`
-- updated `AWS::EC2::EC2Fleet`
-  - added definition `ReservedCapacityOptionsRequest`
-  - updated definition `TargetCapacitySpecificationRequest`
-- updated `AWS::EC2::TransitGatewayMeteringPolicyEntry`
-  - updated definition `TransitGatewayAttachmentResourceType`
-- updated `AWS::ElasticLoadBalancingV2::TargetGroup`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated handler permissions
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
   - updated `tagging`
-- updated `AWS::Glue::SecurityConfiguration`
-  - added definition `S3Encryption`
-  - removed definition `S3Encryptions`
-  - updated definition `EncryptionConfiguration`
-- updated `AWS::LakeFormation::DataLakeSettings`
-  - added definition `DataLakePrincipal`
-  - added definition `PrincipalPermissions`
-  - removed definition `Admins`
-  - removed definition `CreateDatabaseDefaultPermissions`
-  - removed definition `CreateTableDefaultPermissions`
-  - removed definition `ExternalDataFilteringAllowList`
-  - removed definition `ReadOnlyAdmins`
-  - updated property `Admins`
-  - updated property `CreateDatabaseDefaultPermissions`
-  - updated property `CreateTableDefaultPermissions`
-  - updated property `ExternalDataFilteringAllowList`
-  - updated property `ReadOnlyAdmins`
-- updated `AWS::OpenSearchService::Domain`
-  - added definition `DeploymentStrategyOptions`
-  - added property `DeploymentStrategyOptions`
-- updated `AWS::SMSVOICE::PhoneNumber`
-  - updated definition `OptionalKeyword`
-- updated `AWS::SMSVOICE::Pool`
-  - updated definition `OptionalKeyword`
-- updated `AWS::SQS::Queue`
-  - updated property `FifoQueue`
-  - updated property `KmsMasterKeyId`
-  - updated property `QueueName`
-  - updated property `RedriveAllowPolicy`
-  - updated property `RedrivePolicy`
+- updated `AWS::RedshiftServerless::Workgroup`
+  - updated `readOnlyProperties`
+- updated `AWS::ServiceCatalog::StackSetConstraint`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - updated handler permissions
+  - updated property `AcceptLanguage`
+  - updated property `AccountList`
+  - updated property `AdminRole`
+  - updated property `Description`
+  - updated property `ExecutionRole`
+  - updated property `Id`
+  - updated property `PortfolioId`
+  - updated property `ProductId`
+  - updated property `RegionList`
+  - updated property `StackInstanceControl`
+- updated `AWS::VerifiedPermissions::PolicyStore`
+  - removed definition `SchemaCedarFormat`
+  - updated definition `SchemaDefinition`
+- updated `AWS::WorkSpaces::WorkspacesPool`
+  - updated `tagging`

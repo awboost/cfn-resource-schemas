@@ -1,5 +1,5 @@
 {
-  "$hash": "dc0ed2066cbf606e2f133773021a137989b33b09",
+  "$hash": "616c0b976215b1da3714daba2926b43f092acf2c",
   "$id": "aws-elasticloadbalancingv2-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoadBalancerArn"],
@@ -413,7 +413,8 @@
         "elasticloadbalancing:ModifyListener",
         "elasticloadbalancing:DescribeListeners",
         "cognito-idp:DescribeUserPoolClient",
-        "elasticloadbalancing:ModifyListenerAttributes"
+        "elasticloadbalancing:ModifyListenerAttributes",
+        "elasticloadbalancing:DescribeListenerAttributes"
       ]
     }
   },

@@ -1,5 +1,5 @@
 {
-  "$hash": "9ad1e22a005ee71f1b2d10df8f4963fd19b197dd",
+  "$hash": "a3ae28e3ca52043825f69d7d21f449de4beaeda4",
   "$id": "aws-workspaces-workspacespool.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PoolName"],
@@ -156,7 +156,7 @@
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": true,
+    "tagUpdatable": false,
     "taggable": true
   },
   "typeName": "AWS::WorkSpaces::WorkspacesPool"
