@@ -31,6 +31,10 @@ export type ODBOdbPeeringConnectionProperties = {
    */
   PeerNetworkId?: string;
   /**
+   * The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
+   */
+  PeerNetworkRouteTableIds?: string[];
+  /**
    * Tags to assign to the Odb peering connection.
    */
   Tags?: Tag[];

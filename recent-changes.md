@@ -1,26 +1,25 @@
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated handler permissions
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - updated `tagging`
-- updated `AWS::RedshiftServerless::Workgroup`
+- added `AWS::ObservabilityAdmin::TelemetryEnrichment`
+- updated `AWS::ODB::CloudAutonomousVmCluster`
+  - added definition `IamRole`
+  - added property `IamRoles`
   - updated `readOnlyProperties`
-- updated `AWS::ServiceCatalog::StackSetConstraint`
-  - added `sourceUrl`
-  - added `tagging`
-  - added `writeOnlyProperties`
   - updated handler permissions
-  - updated property `AcceptLanguage`
-  - updated property `AccountList`
-  - updated property `AdminRole`
-  - updated property `Description`
-  - updated property `ExecutionRole`
-  - updated property `Id`
-  - updated property `PortfolioId`
-  - updated property `ProductId`
-  - updated property `RegionList`
-  - updated property `StackInstanceControl`
-- updated `AWS::VerifiedPermissions::PolicyStore`
-  - removed definition `SchemaCedarFormat`
-  - updated definition `SchemaDefinition`
-- updated `AWS::WorkSpaces::WorkspacesPool`
-  - updated `tagging`
+- updated `AWS::ODB::CloudVmCluster`
+  - added definition `IamRole`
+  - added property `IamRoles`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::ODB::OdbNetwork`
+  - added definition `CrossRegionS3RestoreSourcesAccess`
+  - added property `CrossRegionS3RestoreSources`
+  - added property `KmsAccess`
+  - added property `KmsPolicyDocument`
+  - added property `StsAccess`
+  - added property `StsPolicyDocument`
+  - updated `writeOnlyProperties`
+  - updated definition `ManagedServices`
+- updated `AWS::ODB::OdbPeeringConnection`
+  - added property `PeerNetworkRouteTableIds`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated handler permissions

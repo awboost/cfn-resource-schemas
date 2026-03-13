@@ -33,6 +33,10 @@ export type ODBCloudAutonomousVmClusterProperties = {
    */
   DisplayName?: string;
   /**
+   * The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+   */
+  IamRoles?: IamRole[];
+  /**
    * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster.
    */
   IsMtlsEnabledVmCluster?: boolean;
@@ -145,6 +149,15 @@ export type ODBCloudAutonomousVmClusterAttributes = {
    */
   Hostname: string;
   /**
+   * The AWS Identity and Access Management (IAM) service roles associated with the Autonomous VM cluster.
+   */
+  IamRoles: {
+    /**
+     * The current status of the AWS Identity and Access Management (IAM) service role.
+     */
+    Status: string;
+  }[];
+  /**
    * The minimum value to which you can scale down the maximum number of Autonomous CDBs.
    */
   MaxAcdsLowestScaledValue: number;
@@ -196,6 +209,21 @@ export type ODBCloudAutonomousVmClusterAttributes = {
    * The shape of the Exadata infrastructure for the Autonomous VM cluster.
    */
   Shape: string;
+};
+/**
+ * Type definition for `AWS::ODB::CloudAutonomousVmCluster.IamRole`.
+ * An AWS Identity and Access Management (IAM) service role associated with the Autonomous VM cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-cloudautonomousvmcluster-iamrole.html}
+ */
+export type IamRole = {
+  /**
+   * The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+   */
+  AwsIntegration?: string;
+  /**
+   * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+   */
+  IamRoleArn?: string;
 };
 /**
  * Type definition for `AWS::ODB::CloudAutonomousVmCluster.MaintenanceWindow`.

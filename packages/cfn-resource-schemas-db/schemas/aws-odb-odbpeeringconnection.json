@@ -1,10 +1,11 @@
 {
-  "$hash": "080291655ef9c8560fa7e599b3f7f5f4e4741014",
+  "$hash": "bb449e1224c6976f939fb1ca5e5523c55d847d43",
   "$id": "aws-odb-odbpeeringconnection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/OdbNetworkId",
-    "/properties/PeerNetworkId"
+    "/properties/PeerNetworkId",
+    "/properties/PeerNetworkRouteTableIds"
   ],
   "definitions": {
     "Tag": {
@@ -38,6 +39,8 @@
         "ec2:DescribeVpcs",
         "ec2:CreateOdbNetworkPeering",
         "ec2:ModifyOdbNetworkPeering",
+        "ec2:CreateRoute",
+        "ec2:DescribeRouteTables",
         "odb:GetOdbPeeringConnection",
         "odb:ListTagsForResource",
         "sts:GetCallerIdentity"
@@ -48,6 +51,8 @@
         "odb:DeleteOdbPeeringConnection",
         "ec2:DescribeVpcs",
         "ec2:DeleteOdbNetworkPeering",
+        "ec2:DeleteRoute",
+        "ec2:DescribeRouteTables",
         "odb:GetOdbPeeringConnection",
         "odb:UntagResource",
         "odb:ListTagsForResource",
@@ -129,6 +134,13 @@
       "pattern": "^(arn:(?:aws|aws-cn|aws-us-gov|aws-iso-{0,1}[a-z]{0,1}):[a-z0-9-]+:[a-z0-9-]*:[0-9]+:[a-z0-9-]+/[a-zA-Z0-9_~.-]{6,64}|[a-zA-Z0-9_~.-]{6,64})$",
       "type": "string"
     },
+    "PeerNetworkRouteTableIds": {
+      "description": "The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "Tags": {
       "description": "Tags to assign to the Odb peering connection.",
       "insertionOrder": false,
@@ -161,6 +173,7 @@
   "writeOnlyProperties": [
     "/properties/OdbNetworkId",
     "/properties/PeerNetworkId",
-    "/properties/AdditionalPeerNetworkCidrs"
+    "/properties/AdditionalPeerNetworkCidrs",
+    "/properties/PeerNetworkRouteTableIds"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "18dcacc248e1d0c51256334fad37341e8c8a756f",
+  "$hash": "3dde3f67ee6ddc54744ee571b1e516d22dd8fee1",
   "$id": "aws-odb-odbnetwork.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -11,6 +11,28 @@
     "/properties/DefaultDnsPrefix"
   ],
   "definitions": {
+    "CrossRegionS3RestoreSourcesAccess": {
+      "additionalProperties": false,
+      "description": "The configuration access for the cross-Region Amazon S3 database restore source for the ODB network.",
+      "properties": {
+        "Ipv4Addresses": {
+          "description": "The IPv4 addresses allowed for cross-Region Amazon S3 restore access.",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "Region": {
+          "description": "The AWS-Region for cross-Region Amazon S3 restore access.",
+          "type": "string"
+        },
+        "Status": {
+          "$ref": "#/definitions/ManagedResourceStatus",
+          "description": "The current status of the cross-Region Amazon S3 restore access configuration."
+        }
+      },
+      "type": "object"
+    },
     "ManagedResourceStatus": {
       "description": "The status of the managed resource access.",
       "enum": ["ENABLED", "ENABLING", "DISABLED", "DISABLING"],
@@ -20,6 +42,41 @@
       "additionalProperties": false,
       "description": "The managed services configuration for the ODB network.",
       "properties": {
+        "CrossRegionS3RestoreSourcesAccess": {
+          "description": "The access configuration for the cross-Region Amazon S3 database restore source.",
+          "insertionOrder": false,
+          "items": {
+            "$ref": "#/definitions/CrossRegionS3RestoreSourcesAccess"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "KmsAccess": {
+          "additionalProperties": false,
+          "description": "The AWS Key Management Service (KMS) access configuration.",
+          "properties": {
+            "DomainName": {
+              "description": "The domain name for the AWS KMS access.",
+              "type": "string"
+            },
+            "Ipv4Addresses": {
+              "description": "The IPv4 addresses for the AWS KMS access.",
+              "insertionOrder": false,
+              "items": { "type": "string" },
+              "type": "array",
+              "uniqueItems": false
+            },
+            "KmsPolicyDocument": {
+              "description": "The endpoint policy for the AWS KMS access.",
+              "type": "string"
+            },
+            "Status": {
+              "$ref": "#/definitions/ManagedResourceStatus",
+              "description": "The status of the AWS KMS access."
+            }
+          },
+          "type": "object"
+        },
         "ManagedS3BackupAccess": {
           "additionalProperties": false,
           "description": "The managed Amazon S3 backup access configuration.",
@@ -90,6 +147,32 @@
             "VpcEndpointType": {
               "description": "The type of the VPC endpoint.",
               "enum": ["SERVICENETWORK"],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "StsAccess": {
+          "additionalProperties": false,
+          "description": "The AWS Security Token Service (STS) access configuration.",
+          "properties": {
+            "DomainName": {
+              "description": "The domain name for the AWS STS access.",
+              "type": "string"
+            },
+            "Ipv4Addresses": {
+              "description": "The IPv4 addresses for the AWS STS access.",
+              "insertionOrder": false,
+              "items": { "type": "string" },
+              "type": "array",
+              "uniqueItems": false
+            },
+            "Status": {
+              "$ref": "#/definitions/ManagedResourceStatus",
+              "description": "The status of the AWS STS access."
+            },
+            "StsPolicyDocument": {
+              "description": "The endpoint policy for the AWS STS access.",
               "type": "string"
             }
           },
@@ -260,6 +343,13 @@
       "minLength": 1,
       "type": "string"
     },
+    "CrossRegionS3RestoreSources": {
+      "description": "The cross-Region Amazon S3 restore sources for the ODB network.",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "CustomDomainName": {
       "description": "The domain name to use for the resources in the ODB network.",
       "maxLength": 255,
@@ -281,6 +371,15 @@
       "maxLength": 255,
       "minLength": 1,
       "pattern": "^[a-zA-Z_](?!.*--)[a-zA-Z0-9_-]*$",
+      "type": "string"
+    },
+    "KmsAccess": {
+      "description": "The AWS Key Management Service (KMS) access configuration for the ODB network.",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
+    "KmsPolicyDocument": {
+      "description": "The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.",
       "type": "string"
     },
     "ManagedServices": { "$ref": "#/definitions/ManagedServices" },
@@ -313,6 +412,15 @@
     },
     "S3PolicyDocument": {
       "description": "Specifies the endpoint policy for Amazon S3 access from the ODB network.",
+      "type": "string"
+    },
+    "StsAccess": {
+      "description": "The AWS Security Token Service (STS) access configuration for the ODB network.",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
+    "StsPolicyDocument": {
+      "description": "The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.",
       "type": "string"
     },
     "Tags": {
@@ -355,6 +463,11 @@
     "/properties/DefaultDnsPrefix",
     "/properties/S3Access",
     "/properties/S3PolicyDocument",
+    "/properties/KmsAccess",
+    "/properties/KmsPolicyDocument",
+    "/properties/StsAccess",
+    "/properties/StsPolicyDocument",
+    "/properties/CrossRegionS3RestoreSources",
     "/properties/ZeroEtlAccess"
   ]
 }

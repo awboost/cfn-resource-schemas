@@ -30,6 +30,10 @@ export type ODBOdbNetworkProperties = {
    */
   ClientSubnetCidr?: string;
   /**
+   * The cross-Region Amazon S3 restore sources for the ODB network.
+   */
+  CrossRegionS3RestoreSources?: string[];
+  /**
    * The domain name to use for the resources in the ODB network.
    * @minLength `1`
    * @maxLength `255`
@@ -53,6 +57,14 @@ export type ODBOdbNetworkProperties = {
    */
   DisplayName?: string;
   /**
+   * The AWS Key Management Service (KMS) access configuration for the ODB network.
+   */
+  KmsAccess?: "ENABLED" | "DISABLED";
+  /**
+   * The AWS Key Management Service (KMS) policy document that defines permissions for key usage within the ODB network.
+   */
+  KmsPolicyDocument?: string;
+  /**
    * Specifies the configuration for Amazon S3 access from the ODB network.
    */
   S3Access?: "ENABLED" | "DISABLED";
@@ -60,6 +72,14 @@ export type ODBOdbNetworkProperties = {
    * Specifies the endpoint policy for Amazon S3 access from the ODB network.
    */
   S3PolicyDocument?: string;
+  /**
+   * The AWS Security Token Service (STS) access configuration for the ODB network.
+   */
+  StsAccess?: "ENABLED" | "DISABLED";
+  /**
+   * The AWS Security Token Service (STS) policy document that defines permissions for token service usage within the ODB network.
+   */
+  StsPolicyDocument?: string;
   /**
    * Tags to assign to the Odb Network.
    */
@@ -78,6 +98,44 @@ export type ODBOdbNetworkAttributes = {
    * The managed services configuration for the ODB network.
    */
   ManagedServices: {
+    /**
+     * The access configuration for the cross-Region Amazon S3 database restore source.
+     */
+    CrossRegionS3RestoreSourcesAccess: {
+      /**
+       * The IPv4 addresses allowed for cross-Region Amazon S3 restore access.
+       */
+      Ipv4Addresses: string[];
+      /**
+       * The AWS-Region for cross-Region Amazon S3 restore access.
+       */
+      Region: string;
+      /**
+       * The current status of the cross-Region Amazon S3 restore access configuration.
+       */
+      Status: ManagedResourceStatus;
+    }[];
+    /**
+     * The AWS Key Management Service (KMS) access configuration.
+     */
+    KmsAccess: {
+      /**
+       * The domain name for the AWS KMS access.
+       */
+      DomainName: string;
+      /**
+       * The IPv4 addresses for the AWS KMS access.
+       */
+      Ipv4Addresses: string[];
+      /**
+       * The endpoint policy for the AWS KMS access.
+       */
+      KmsPolicyDocument: string;
+      /**
+       * The status of the AWS KMS access.
+       */
+      Status: ManagedResourceStatus;
+    };
     /**
      * The managed Amazon S3 backup access configuration.
      */
@@ -138,6 +196,27 @@ export type ODBOdbNetworkAttributes = {
       VpcEndpointType: "SERVICENETWORK";
     };
     /**
+     * The AWS Security Token Service (STS) access configuration.
+     */
+    StsAccess: {
+      /**
+       * The domain name for the AWS STS access.
+       */
+      DomainName: string;
+      /**
+       * The IPv4 addresses for the AWS STS access.
+       */
+      Ipv4Addresses: string[];
+      /**
+       * The status of the AWS STS access.
+       */
+      Status: ManagedResourceStatus;
+      /**
+       * The endpoint policy for the AWS STS access.
+       */
+      StsPolicyDocument: string;
+    };
+    /**
      * The Zero-ETL access configuration.
      */
     ZeroEtlAccess: {
@@ -175,6 +254,25 @@ export type ODBOdbNetworkAttributes = {
   OdbNetworkId: string;
 };
 /**
+ * Type definition for `AWS::ODB::OdbNetwork.CrossRegionS3RestoreSourcesAccess`.
+ * The configuration access for the cross-Region Amazon S3 database restore source for the ODB network.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-crossregions3restoresourcesaccess.html}
+ */
+export type CrossRegionS3RestoreSourcesAccess = {
+  /**
+   * The IPv4 addresses allowed for cross-Region Amazon S3 restore access.
+   */
+  Ipv4Addresses?: string[];
+  /**
+   * The AWS-Region for cross-Region Amazon S3 restore access.
+   */
+  Region?: string;
+  /**
+   * The current status of the cross-Region Amazon S3 restore access configuration.
+   */
+  Status?: ManagedResourceStatus;
+};
+/**
  * Type definition for `AWS::ODB::OdbNetwork.ManagedResourceStatus`.
  * The status of the managed resource access.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedresourcestatus.html}
@@ -190,6 +288,31 @@ export type ManagedResourceStatus =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-odbnetwork-managedservices.html}
  */
 export type ManagedServices = {
+  /**
+   * The access configuration for the cross-Region Amazon S3 database restore source.
+   */
+  CrossRegionS3RestoreSourcesAccess?: CrossRegionS3RestoreSourcesAccess[];
+  /**
+   * The AWS Key Management Service (KMS) access configuration.
+   */
+  KmsAccess?: {
+    /**
+     * The domain name for the AWS KMS access.
+     */
+    DomainName?: string;
+    /**
+     * The IPv4 addresses for the AWS KMS access.
+     */
+    Ipv4Addresses?: string[];
+    /**
+     * The endpoint policy for the AWS KMS access.
+     */
+    KmsPolicyDocument?: string;
+    /**
+     * The status of the AWS KMS access.
+     */
+    Status?: ManagedResourceStatus;
+  };
   /**
    * The managed Amazon S3 backup access configuration.
    */
@@ -248,6 +371,27 @@ export type ManagedServices = {
      * The type of the VPC endpoint.
      */
     VpcEndpointType?: "SERVICENETWORK";
+  };
+  /**
+   * The AWS Security Token Service (STS) access configuration.
+   */
+  StsAccess?: {
+    /**
+     * The domain name for the AWS STS access.
+     */
+    DomainName?: string;
+    /**
+     * The IPv4 addresses for the AWS STS access.
+     */
+    Ipv4Addresses?: string[];
+    /**
+     * The status of the AWS STS access.
+     */
+    Status?: ManagedResourceStatus;
+    /**
+     * The endpoint policy for the AWS STS access.
+     */
+    StsPolicyDocument?: string;
   };
   /**
    * The Zero-ETL access configuration.

@@ -63,6 +63,10 @@ export type ODBCloudVmClusterProperties = {
    */
   Hostname?: string;
   /**
+   * The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+   */
+  IamRoles?: IamRole[];
+  /**
    * Indicates whether database backups to local Exadata storage is enabled for the VM cluster.
    */
   IsLocalBackupEnabled?: boolean;
@@ -196,6 +200,15 @@ export type ODBCloudVmClusterAttributes = {
    */
   Domain: string;
   /**
+   * The AWS Identity and Access Management (IAM) service roles associated with the VM cluster.
+   */
+  IamRoles: {
+    /**
+     * The current status of the AWS Identity and Access Management (IAM) service role.
+     */
+    Status: string;
+  }[];
+  /**
    * The port number configured for the listener on the VM cluster.
    */
   ListenerPort: number;
@@ -266,6 +279,21 @@ export type DbNode = {
    */
   DbServerId: string;
   Tags?: Tag[];
+};
+/**
+ * Type definition for `AWS::ODB::CloudVmCluster.IamRole`.
+ * An AWS Identity and Access Management (IAM) service role associated with the VM cluster.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-odb-cloudvmcluster-iamrole.html}
+ */
+export type IamRole = {
+  /**
+   * The AWS integration configuration settings for the AWS Identity and Access Management (IAM) service role.
+   */
+  AwsIntegration?: string;
+  /**
+   * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role.
+   */
+  IamRoleArn?: string;
 };
 /**
  * Type definition for `AWS::ODB::CloudVmCluster.Tag`.
