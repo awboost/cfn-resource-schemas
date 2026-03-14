@@ -33,6 +33,10 @@ export type MediaConnectFlowEntitlementProperties = {
    * The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
    */
   Subscribers: string[];
+  /**
+   * Key-value pairs that can be used to tag and organize this flow entitlement.
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::MediaConnect::FlowEntitlement`.
@@ -41,6 +45,7 @@ export type MediaConnectFlowEntitlementProperties = {
 export type MediaConnectFlowEntitlementAttributes = {
   /**
    * The ARN of the entitlement.
+   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:entitlement:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
   EntitlementArn: string;
 };
@@ -76,16 +81,26 @@ export type Encryption = {
   ResourceId?: string;
   /**
    * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+   * @pattern `^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$`
    */
   RoleArn: string;
   /**
    *  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+   * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
    */
   SecretArn?: string;
   /**
    * The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
    */
   Url?: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::FlowEntitlement.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowentitlement-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Resource schema for AWS::MediaConnect::FlowEntitlement

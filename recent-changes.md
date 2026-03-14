@@ -1,25 +1,58 @@
-- added `AWS::ObservabilityAdmin::TelemetryEnrichment`
-- updated `AWS::ODB::CloudAutonomousVmCluster`
-  - added definition `IamRole`
-  - added property `IamRoles`
+- added `AWS::ElementalInference::Feed`
+- updated `AWS::MediaConnect::Flow`
+  - added `deprecatedProperties`
+  - added `tagging`
+  - added definition `EncodingConfig`
+  - added definition `EncodingProfile`
+  - added definition `NdiSourceSettings`
+  - added definition `NdiState`
+  - added definition `Tag`
+  - added property `EncodingConfig`
+  - added property `Tags`
   - updated `readOnlyProperties`
+  - updated definition `Encryption`
+  - updated definition `GatewayBridgeSource`
+  - updated definition `MediaStream`
+  - updated definition `NdiConfig`
+  - updated definition `NdiDiscoveryServerConfig`
+  - updated definition `Source`
+  - updated definition `VpcInterface`
   - updated handler permissions
-- updated `AWS::ODB::CloudVmCluster`
-  - added definition `IamRole`
-  - added property `IamRoles`
-  - updated `readOnlyProperties`
-  - updated handler permissions
-- updated `AWS::ODB::OdbNetwork`
-  - added definition `CrossRegionS3RestoreSourcesAccess`
-  - added property `CrossRegionS3RestoreSources`
-  - added property `KmsAccess`
-  - added property `KmsPolicyDocument`
-  - added property `StsAccess`
-  - added property `StsPolicyDocument`
-  - updated `writeOnlyProperties`
-  - updated definition `ManagedServices`
-- updated `AWS::ODB::OdbPeeringConnection`
-  - added property `PeerNetworkRouteTableIds`
+  - updated property `FlowArn`
+  - updated property `FlowSize`
+  - updated property `NdiConfig`
+- updated `AWS::MediaConnect::FlowEntitlement`
+  - added `deprecatedProperties`
+  - added `tagging`
+  - added definition `Tag`
+  - added property `Tags`
   - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
+  - updated definition `Encryption`
   - updated handler permissions
+  - updated property `EntitlementArn`
+- updated `AWS::MediaConnect::FlowOutput`
+  - added `tagging`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `createOnlyProperties`
+  - updated definition `Encryption`
+  - updated handler permissions
+  - updated property `FlowArn`
+  - updated property `OutputArn`
+  - updated property `Protocol`
+- updated `AWS::MediaConnect::FlowSource`
+  - added `deprecatedProperties`
+  - added `tagging`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `createOnlyProperties`
+  - updated `required`
+  - updated definition `Encryption`
+  - updated definition `GatewayBridgeSource`
+  - updated handler permissions
+  - updated property `EntitlementArn`
+  - updated property `FlowArn`
+  - updated property `SourceArn`
+- updated `AWS::MediaConnect::FlowVpcInterface`
+  - updated property `FlowArn`
+  - updated property `RoleArn`

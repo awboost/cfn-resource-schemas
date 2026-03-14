@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type MediaConnectFlowVpcInterfaceProperties = {
   /**
    * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:flow:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
   FlowArn: string;
   /**
@@ -15,6 +16,7 @@ export type MediaConnectFlowVpcInterfaceProperties = {
   Name: string;
   /**
    * Role Arn MediaConnect can assume to create ENIs in customer's account.
+   * @pattern `^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$`
    */
   RoleArn: string;
   /**

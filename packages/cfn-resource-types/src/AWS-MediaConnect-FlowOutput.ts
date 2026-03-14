@@ -23,6 +23,7 @@ export type MediaConnectFlowOutputProperties = {
   Encryption?: Encryption;
   /**
    * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:flow:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
   FlowArn: string;
   /**
@@ -66,7 +67,6 @@ export type MediaConnectFlowOutputProperties = {
     | "rtp"
     | "zixi-pull"
     | "rist"
-    | "fujitsu-qos"
     | "srt-listener"
     | "srt-caller"
     | "st2110-jpegxs"
@@ -90,6 +90,10 @@ export type MediaConnectFlowOutputProperties = {
    */
   StreamId?: string;
   /**
+   * Key-value pairs that can be used to tag and organize this flow output.
+   */
+  Tags?: Tag[];
+  /**
    * The name of the VPC interface attachment to use for this output.
    */
   VpcInterfaceAttachment?: VpcInterfaceAttachment;
@@ -101,6 +105,7 @@ export type MediaConnectFlowOutputProperties = {
 export type MediaConnectFlowOutputAttributes = {
   /**
    * The ARN of the output.
+   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:output:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
   OutputArn: string;
 };
@@ -160,10 +165,12 @@ export type Encryption = {
   KeyType?: "static-key" | "srt-password";
   /**
    * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+   * @pattern `^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$`
    */
   RoleArn: string;
   /**
    *  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+   * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
    */
   SecretArn: string;
 };
@@ -252,6 +259,14 @@ export type SecretsManagerEncryptionKeyConfiguration = {
    * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
    */
   SecretArn: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::FlowOutput.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Type definition for `AWS::MediaConnect::FlowOutput.VpcInterfaceAttachment`.

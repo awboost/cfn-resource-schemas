@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource schema for AWS::MediaConnect::Flow
+ * Resource Type definition for AWS::MediaConnect::Flow
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html}
  */
 export type MediaConnectFlowProperties = {
@@ -10,9 +10,13 @@ export type MediaConnectFlowProperties = {
    */
   AvailabilityZone?: string;
   /**
-   * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI outputs on the flow.
+   * The encoding configuration to apply to the NDI source content when transcoding it to a transport stream (TS) for downstream distribution. You can choose between several predefined encoding profiles based on common use cases.
    */
-  FlowSize?: "MEDIUM" | "LARGE";
+  EncodingConfig?: EncodingConfig;
+  /**
+   * Determines the processing capacity and feature set of the flow. Set this optional parameter to LARGE if you want to enable NDI sources or outputs on the flow.
+   */
+  FlowSize?: "MEDIUM" | "LARGE" | "LARGE_4X";
   /**
    * The maintenance settings you want to use for the flow.
    */
@@ -26,7 +30,7 @@ export type MediaConnectFlowProperties = {
    */
   Name: string;
   /**
-   * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+   * Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
    */
   NdiConfig?: NdiConfig;
   /**
@@ -41,6 +45,10 @@ export type MediaConnectFlowProperties = {
    * The source monitoring config of the flow.
    */
   SourceMonitoringConfig?: SourceMonitoringConfig;
+  /**
+   * Key-value pairs that can be used to tag this flow.
+   */
+  Tags?: Tag[];
   /**
    * The VPC interfaces that you added to this flow.
    */
@@ -57,6 +65,7 @@ export type MediaConnectFlowAttributes = {
   EgressIp: string;
   /**
    * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:flow:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
   FlowArn: string;
   /**
@@ -68,15 +77,6 @@ export type MediaConnectFlowAttributes = {
    */
   FlowNdiMachineName: string;
   /**
-   * The media streams associated with the flow. You can associate any of these media streams with sources and outputs on the flow.
-   */
-  MediaStreams: {
-    /**
-     * The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
-     */
-    Fmt: number;
-  }[];
-  /**
    * The source of the flow.
    */
   Source: {
@@ -86,6 +86,7 @@ export type MediaConnectFlowAttributes = {
     IngestIp: string;
     /**
      * The ARN of the source.
+     * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:source:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
      */
     SourceArn: string;
     /**
@@ -93,15 +94,6 @@ export type MediaConnectFlowAttributes = {
      */
     SourceIngestPort: string;
   };
-  /**
-   * The VPC interfaces that you added to this flow.
-   */
-  VpcInterfaces: {
-    /**
-     * IDs of the network interfaces created in customer's account by MediaConnect.
-     */
-    NetworkInterfaceIds: string[];
-  }[];
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.AudioMonitoringSetting`.
@@ -136,6 +128,28 @@ export type BlackFrames = {
   ThresholdSeconds?: number;
 };
 /**
+ * Type definition for `AWS::MediaConnect::Flow.EncodingConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encodingconfig.html}
+ */
+export type EncodingConfig = {
+  /**
+   * The encoding profile to use when transcoding the NDI source to a Transport Stream. You can change this value while a flow is running.
+   */
+  EncodingProfile?: EncodingProfile;
+  /**
+   * The maximum video bitrate to use when transcoding the NDI source to a Transport Stream. This parameter enables you to override the default video bitrate within the encoding profile's supported range. The supported range is 10,000,000 - 50,000,000 bits per second (bps). If you do not specify a value, MediaConnect uses the default value of 20,000,000 bps.
+   */
+  VideoMaxBitrate?: number;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.EncodingProfile`.
+ * The encoding profile to use when transcoding the NDI source to a Transport Stream. You can change this value while a flow is running.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encodingprofile.html}
+ */
+export type EncodingProfile =
+  | "DISTRIBUTION_H264_DEFAULT"
+  | "CONTRIBUTION_H264_DEFAULT";
+/**
  * Type definition for `AWS::MediaConnect::Flow.Encryption`.
  * Information about the encryption of the flow.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-encryption.html}
@@ -167,10 +181,12 @@ export type Encryption = {
   ResourceId?: string;
   /**
    * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
+   * @pattern `^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$`
    */
   RoleArn: string;
   /**
    *  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
+   * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
    */
   SecretArn?: string;
   /**
@@ -312,6 +328,7 @@ export type FrozenFrames = {
 export type GatewayBridgeSource = {
   /**
    * The ARN of the bridge feeding this flow.
+   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:bridge:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
   BridgeArn: string;
   /**
@@ -386,6 +403,10 @@ export type MediaStream = {
    */
   Description?: string;
   /**
+   * The format type number (sometimes referred to as RTP payload type) of the media stream. MediaConnect assigns this value to the media stream. For ST 2110 JPEG XS outputs, you need to provide this value to the receiver.
+   */
+  Fmt?: number;
+  /**
    * A unique identifier for the media stream.
    */
   MediaStreamId: number;
@@ -397,6 +418,10 @@ export type MediaStream = {
    * The type of media stream.
    */
   MediaStreamType: "video" | "audio" | "ancillary-data";
+  /**
+   * Key-value pairs that can be used to tag this media stream.
+   */
+  Tags?: Tag[];
   /**
    * The resolution of the video.
    */
@@ -438,7 +463,7 @@ export type MediaStreamSourceConfiguration = {
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.NdiConfig`.
- * Specifies the configuration settings for NDI outputs. Required when the flow includes NDI outputs.
+ * Specifies the configuration settings for NDI sources and outputs. Required when the flow includes NDI sources or outputs.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-ndiconfig.html}
  */
 export type NdiConfig = {
@@ -451,9 +476,9 @@ export type NdiConfig = {
    */
   NdiDiscoveryServers?: NdiDiscoveryServerConfig[];
   /**
-   * A setting that controls whether NDI outputs can be used in the flow. Must be ENABLED to add NDI outputs. Default is DISABLED.
+   * A setting that controls whether NDI sources or outputs can be used in the flow. The default value is DISABLED. This value must be set as ENABLED for your flow to support NDI sources or outputs.
    */
-  NdiState?: "ENABLED" | "DISABLED";
+  NdiState?: NdiState;
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.NdiDiscoveryServerConfig`.
@@ -474,6 +499,18 @@ export type NdiDiscoveryServerConfig = {
    */
   VpcInterfaceAdapter: string;
 };
+/**
+ * Type definition for `AWS::MediaConnect::Flow.NdiSourceSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-ndisourcesettings.html}
+ */
+export type NdiSourceSettings = {
+  SourceName?: string;
+};
+/**
+ * Type definition for `AWS::MediaConnect::Flow.NdiState`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-ndistate.html}
+ */
+export type NdiState = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::MediaConnect::Flow.SecretsManagerEncryptionKeyConfiguration`.
  * The configuration settings for transit encryption of a flow source using AWS Secrets Manager, including the secret ARN and role ARN.
@@ -522,6 +559,7 @@ export type Source = {
   Description?: string;
   /**
    * The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+   * @pattern `^arn:(aws[a-zA-Z-]*):mediaconnect:[a-z0-9-]+:[0-9]{12}:entitlement:[a-zA-Z0-9-]+:[a-zA-Z0-9_-]+$`
    */
   EntitlementArn?: string;
   /**
@@ -557,6 +595,10 @@ export type Source = {
    */
   Name?: string;
   /**
+   * The settings for the NDI flow source. This includes the exact name of the upstream NDI sender that you want to connect to your flow source.
+   */
+  NdiSourceSettings?: NdiSourceSettings;
+  /**
    * The protocol that is used by the source.
    */
   Protocol?:
@@ -564,11 +606,11 @@ export type Source = {
     | "rtp-fec"
     | "rtp"
     | "rist"
-    | "fujitsu-qos"
     | "srt-listener"
     | "srt-caller"
     | "st2110-jpegxs"
-    | "cdi";
+    | "cdi"
+    | "ndi-speed-hq";
   RouterIntegrationState?: "ENABLED" | "DISABLED";
   /**
    * The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
@@ -594,6 +636,10 @@ export type Source = {
    * The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
    */
   StreamId?: string;
+  /**
+   * Key-value pairs that can be used to tag this source.
+   */
+  Tags?: Tag[];
   /**
    * The name of the VPC Interface this Source is configured with.
    */
@@ -627,6 +673,14 @@ export type SourceMonitoringConfig = {
   VideoMonitoringSettings?: VideoMonitoringSetting[];
 };
 /**
+ * Type definition for `AWS::MediaConnect::Flow.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
+};
+/**
  * Type definition for `AWS::MediaConnect::Flow.VideoMonitoringSetting`.
  * Specifies the configuration for video stream metrics monitoring.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-videomonitoringsetting.html}
@@ -652,11 +706,16 @@ export type VpcInterface = {
    */
   Name: string;
   /**
+   * IDs of the network interfaces created in customer's account by MediaConnect.
+   */
+  NetworkInterfaceIds?: string[];
+  /**
    * The type of network adapter that you want MediaConnect to use on this interface. If you don't set this value, it defaults to ENA.
    */
   NetworkInterfaceType?: "ena" | "efa";
   /**
    * Role Arn MediaConnect can assume to create ENIs in customer's account.
+   * @pattern `^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$`
    */
   RoleArn: string;
   /**
@@ -667,6 +726,10 @@ export type VpcInterface = {
    * Subnet must be in the AZ of the Flow
    */
   SubnetId: string;
+  /**
+   * Key-value pairs that can be used to tag this VPC interface.
+   */
+  Tags?: Tag[];
 };
 /**
  * Type definition for `AWS::MediaConnect::Flow.VpcInterfaceAttachment`.
@@ -680,7 +743,7 @@ export type VpcInterfaceAttachment = {
   VpcInterfaceName?: string;
 };
 /**
- * Resource schema for AWS::MediaConnect::Flow
+ * Resource Type definition for AWS::MediaConnect::Flow
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html}
  */
 export class MediaConnectFlow extends $Resource<
