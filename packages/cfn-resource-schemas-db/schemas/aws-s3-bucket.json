@@ -1,8 +1,12 @@
 {
-  "$hash": "a1c99b975ba0dc1b31721f939f718eebb320ad63",
+  "$hash": "206e77ac914f5f71ba9d22a1f76f7732229464e0",
   "$id": "aws-s3-bucket.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/BucketName"],
+  "createOnlyProperties": [
+    "/properties/BucketName",
+    "/properties/BucketNamePrefix",
+    "/properties/BucketNamespace"
+  ],
   "definitions": {
     "AbortIncompleteMultipartUpload": {
       "additionalProperties": false,
@@ -1630,6 +1634,12 @@
       "description": "A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the bucket name. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-) and must follow [Amazon S3 bucket restrictions and limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html). For more information, see [Rules for naming Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*. \n  If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.",
       "type": "string"
     },
+    "BucketNamePrefix": { "description": "", "type": "string" },
+    "BucketNamespace": {
+      "description": "",
+      "enum": ["global", "account-regional"],
+      "type": "string"
+    },
     "CorsConfiguration": {
       "$ref": "#/definitions/CorsConfiguration",
       "description": "Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*."
@@ -1773,6 +1783,8 @@
   "typeName": "AWS::S3::Bucket",
   "writeOnlyProperties": [
     "/properties/AccessControl",
+    "/properties/BucketNamePrefix",
+    "/properties/BucketNamespace",
     "/properties/MetadataConfiguration/JournalTableConfiguration/EncryptionConfiguration",
     "/properties/MetadataConfiguration/InventoryTableConfiguration/EncryptionConfiguration",
     "/properties/LifecycleConfiguration/Rules/*/NoncurrentVersionExpirationInDays",

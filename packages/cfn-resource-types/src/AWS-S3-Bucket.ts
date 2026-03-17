@@ -43,6 +43,8 @@ export type S3BucketProperties = {
       If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you need to replace the resource, specify a new name.
      */
   BucketName?: string;
+  BucketNamePrefix?: string;
+  BucketNamespace?: "global" | "account-regional";
   /**
    * Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) in the *Amazon S3 User Guide*.
    */
