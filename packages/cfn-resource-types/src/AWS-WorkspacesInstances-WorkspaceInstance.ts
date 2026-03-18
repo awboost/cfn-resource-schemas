@@ -20,7 +20,6 @@ export type WorkspacesInstancesWorkspaceInstanceProperties = {
      * @pattern `^ami-[0-9a-zA-Z]{1,63}$`
      */
     ImageId: string;
-    InstanceMarketOptions?: InstanceMarketOptionsRequest;
     /**
      * @pattern `^([a-z0-9-]+)\.([a-z0-9]+)$`
      */
@@ -209,14 +208,6 @@ export type InstanceMaintenanceOptionsRequest = {
   AutoRecovery?: "disabled" | "default";
 };
 /**
- * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.InstanceMarketOptionsRequest`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-instancemarketoptionsrequest.html}
- */
-export type InstanceMarketOptionsRequest = {
-  MarketType?: "spot" | "capacity-block";
-  SpotOptions?: SpotMarketOptions;
-};
-/**
  * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.InstanceMetadataOptionsRequest`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-instancemetadataoptionsrequest.html}
  */
@@ -303,22 +294,6 @@ export type PrivateDnsNameOptionsRequest = {
  */
 export type RunInstancesMonitoringEnabled = {
   Enabled?: boolean;
-};
-/**
- * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.SpotMarketOptions`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesinstances-workspaceinstance-spotmarketoptions.html}
- */
-export type SpotMarketOptions = {
-  InstanceInterruptionBehavior?: "hibernate" | "stop";
-  /**
-   * @maxLength `64`
-   */
-  MaxPrice?: string;
-  SpotInstanceType?: "one-time" | "persistent";
-  /**
-   * @maxLength `64`
-   */
-  ValidUntilUtc?: string;
 };
 /**
  * Type definition for `AWS::WorkspacesInstances::WorkspaceInstance.Tag`.

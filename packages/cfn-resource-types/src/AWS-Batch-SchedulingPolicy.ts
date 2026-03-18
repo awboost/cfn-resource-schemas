@@ -15,6 +15,10 @@ export type BatchSchedulingPolicyProperties = {
    */
   Name?: string;
   /**
+   * Quota Share Policy for the Job Queue.
+   */
+  QuotaSharePolicy?: QuotaSharePolicy;
+  /**
    * A key-value pair to associate with a resource.
    */
   Tags?: Record<string, string>;
@@ -49,6 +53,14 @@ export type FairsharePolicy = {
    * List of Share Attributes
    */
   ShareDistribution?: ShareAttributes[];
+};
+/**
+ * Type definition for `AWS::Batch::SchedulingPolicy.QuotaSharePolicy`.
+ * Quota Share Policy for the Job Queue.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-schedulingpolicy-quotasharepolicy.html}
+ */
+export type QuotaSharePolicy = {
+  IdleResourceAssignmentStrategy?: "FIFO";
 };
 /**
  * Type definition for `AWS::Batch::SchedulingPolicy.ShareAttributes`.

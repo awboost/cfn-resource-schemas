@@ -1,5 +1,5 @@
 {
-  "$hash": "8df588e6f415dc4337c5750f5c7b97a44aebb4b1",
+  "$hash": "e7162bacccccdd493ad62df9a9a1c5b5382ec7e4",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -864,7 +864,7 @@
   "required": ["Title", "InstanceArn", "Items", "Status"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "connect:ListTagsForResource",
       "connect:UntagResource",

@@ -1,5 +1,5 @@
 {
-  "$hash": "ab49952f4db2a374093875bf8152db9eb2c28014",
+  "$hash": "5e815b7f012119583d0b226dec017f314940e831",
   "$id": "aws-deadline-farm.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn"],
@@ -88,6 +88,12 @@
     "Arn": {
       "pattern": "^arn:(aws[a-zA-Z-]*):deadline:[a-z0-9-]+:[0-9]+:farm/farm-[0-9a-z]{32}$",
       "type": "string"
+    },
+    "CostScaleFactor": {
+      "default": 1,
+      "maximum": 100,
+      "minimum": 0,
+      "type": "number"
     },
     "Description": {
       "default": "",

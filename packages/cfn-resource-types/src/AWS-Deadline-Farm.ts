@@ -6,6 +6,11 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type DeadlineFarmProperties = {
   /**
+   * @min `0`
+   * @max `100`
+   */
+  CostScaleFactor?: number;
+  /**
    * @minLength `0`
    * @maxLength `100`
    */

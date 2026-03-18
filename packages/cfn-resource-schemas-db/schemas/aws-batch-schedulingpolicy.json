@@ -1,5 +1,5 @@
 {
-  "$hash": "2264abc74ff8865c9ba7d4d32f99289929c251ce",
+  "$hash": "a73bdfa723585cc65c9497d355dae3a4e47abda3",
   "$id": "aws-batch-schedulingpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -22,6 +22,14 @@
         }
       },
       "required": [],
+      "type": "object"
+    },
+    "QuotaSharePolicy": {
+      "additionalProperties": false,
+      "description": "Quota Share Policy for the Job Queue.",
+      "properties": {
+        "IdleResourceAssignmentStrategy": { "enum": ["FIFO"], "type": "string" }
+      },
       "type": "object"
     },
     "ResourceArn": {
@@ -64,6 +72,10 @@
       ]
     }
   },
+  "oneOf": [
+    { "required": ["FairsharePolicy"] },
+    { "required": ["QuotaSharePolicy"] }
+  ],
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
     "Arn": { "$ref": "#/definitions/ResourceArn" },
@@ -73,6 +85,7 @@
       "pattern": "",
       "type": "string"
     },
+    "QuotaSharePolicy": { "$ref": "#/definitions/QuotaSharePolicy" },
     "Tags": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",

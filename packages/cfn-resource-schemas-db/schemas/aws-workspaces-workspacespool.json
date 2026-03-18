@@ -1,5 +1,5 @@
 {
-  "$hash": "a3ae28e3ca52043825f69d7d21f449de4beaeda4",
+  "$hash": "98e9c202afdabc085e46df7e35cde17898b67a95",
   "$id": "aws-workspaces-workspacespool.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PoolName"],
@@ -148,7 +148,7 @@
   ],
   "required": ["PoolName", "BundleId", "DirectoryId", "Capacity"],
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "workspaces:CreateTags",
       "workspaces:DescribeTags",
@@ -156,7 +156,7 @@
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::WorkSpaces::WorkspacesPool"

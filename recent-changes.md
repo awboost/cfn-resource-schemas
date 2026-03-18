@@ -1,5 +1,24 @@
-- updated `AWS::S3::Bucket`
-  - added property `BucketNamePrefix`
-  - added property `BucketNamespace`
-  - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
+- added `AWS::Glue::Catalog`
+- updated `AWS::Batch::SchedulingPolicy`
+  - added `oneOf`
+  - added definition `QuotaSharePolicy`
+  - added property `QuotaSharePolicy`
+- updated `AWS::Connect::EvaluationForm`
+  - updated `tagging`
+- updated `AWS::Deadline::Farm`
+  - added property `CostScaleFactor`
+- updated `AWS::ElastiCache::ReplicationGroup`
+  - updated definition `NodeGroupConfiguration`
+  - updated handler permissions
+- updated `AWS::RUM::AppMonitor`
+  - updated property `DomainList`
+  - updated property `Domain`
+- updated `AWS::Redshift::Cluster`
+  - updated property `DeferMaintenanceDuration`
+- updated `AWS::WorkSpaces::WorkspacesPool`
+  - updated `tagging`
+- updated `AWS::WorkspacesInstances::WorkspaceInstance`
+  - removed definition `InstanceMarketOptionsRequest`
+  - removed definition `SpotMarketOptions`
+  - updated handler permissions
+  - updated property `ManagedInstance`
