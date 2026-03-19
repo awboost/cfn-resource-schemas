@@ -68,7 +68,9 @@ export type InstanceLaunchTemplate = {
   CapacityReservations?: CapacityReservationRequest;
   Ec2InstanceProfileArn: string;
   FipsEnabled?: boolean;
+  InstanceMetadataTagsPropagation?: boolean;
   InstanceRequirements?: InstanceRequirementsRequest;
+  LocalStorageConfiguration?: any;
   Monitoring?: ManagedInstancesMonitoringOptions;
   NetworkConfiguration: ManagedInstancesNetworkConfiguration;
   StorageConfiguration?: ManagedInstancesStorageConfiguration;

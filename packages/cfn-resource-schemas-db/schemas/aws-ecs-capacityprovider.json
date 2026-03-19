@@ -1,5 +1,5 @@
 {
-  "$hash": "e7e3b0fdcc0c5d833d3df8bc48da630c487709eb",
+  "$hash": "93663afc34befb033cdec22fd311814ea831a03c",
   "$id": "aws-ecs-capacityprovider.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -80,9 +80,11 @@
         },
         "Ec2InstanceProfileArn": { "type": "string" },
         "FipsEnabled": { "type": "boolean" },
+        "InstanceMetadataTagsPropagation": { "type": "boolean" },
         "InstanceRequirements": {
           "$ref": "#/definitions/InstanceRequirementsRequest"
         },
+        "LocalStorageConfiguration": {},
         "Monitoring": {
           "$ref": "#/definitions/ManagedInstancesMonitoringOptions"
         },

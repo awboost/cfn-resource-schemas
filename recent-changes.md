@@ -1,24 +1,45 @@
-- added `AWS::Glue::Catalog`
-- updated `AWS::Batch::SchedulingPolicy`
-  - added `oneOf`
-  - added definition `QuotaSharePolicy`
-  - added property `QuotaSharePolicy`
-- updated `AWS::Connect::EvaluationForm`
-  - updated `tagging`
-- updated `AWS::Deadline::Farm`
-  - added property `CostScaleFactor`
-- updated `AWS::ElastiCache::ReplicationGroup`
-  - updated definition `NodeGroupConfiguration`
+- added `AWS::EC2::IPAMPrefixListResolverTarget`
+- updated `AWS::ECS::CapacityProvider`
+  - updated definition `InstanceLaunchTemplate`
+- updated `AWS::ElasticLoadBalancing::LoadBalancer`
+  - added `conditionalCreateOnlyProperties`
+  - added `documentationUrl`
+  - added `sourceUrl`
+  - added `tagging`
+  - added definition `PolicyItem`
+  - added definition `SourceSecurityGroup`
+  - added property `SourceSecurityGroup`
+  - removed property `Id`
+  - removed property `SourceSecurityGroupGroupName`
+  - removed property `SourceSecurityGroupOwnerAlias`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `AccessLoggingPolicy`
+  - updated definition `AppCookieStickinessPolicy`
+  - updated definition `ConnectionDrainingPolicy`
+  - updated definition `ConnectionSettings`
+  - updated definition `HealthCheck`
+  - updated definition `LBCookieStickinessPolicy`
+  - updated definition `Listeners`
+  - updated definition `Policies`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::RUM::AppMonitor`
-  - updated property `DomainList`
-  - updated property `Domain`
-- updated `AWS::Redshift::Cluster`
-  - updated property `DeferMaintenanceDuration`
-- updated `AWS::WorkSpaces::WorkspacesPool`
-  - updated `tagging`
-- updated `AWS::WorkspacesInstances::WorkspaceInstance`
-  - removed definition `InstanceMarketOptionsRequest`
-  - removed definition `SpotMarketOptions`
-  - updated handler permissions
-  - updated property `ManagedInstance`
+  - updated property `AccessLoggingPolicy`
+  - updated property `AppCookieStickinessPolicy`
+  - updated property `AvailabilityZones`
+  - updated property `CanonicalHostedZoneNameID`
+  - updated property `CanonicalHostedZoneName`
+  - updated property `ConnectionDrainingPolicy`
+  - updated property `ConnectionSettings`
+  - updated property `CrossZone`
+  - updated property `DNSName`
+  - updated property `HealthCheck`
+  - updated property `Instances`
+  - updated property `LBCookieStickinessPolicy`
+  - updated property `Listeners`
+  - updated property `LoadBalancerName`
+  - updated property `Policies`
+  - updated property `Scheme`
+  - updated property `SecurityGroups`
+  - updated property `Subnets`
+  - updated property `Tags`
