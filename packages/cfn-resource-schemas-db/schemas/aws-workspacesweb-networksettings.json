@@ -1,5 +1,5 @@
 {
-  "$hash": "9086d66989473e4bc89fd0100ecd72dd592ff39d",
+  "$hash": "295abd6f5b5d7fd699c42bc739a65dd2e4d34438",
   "$id": "aws-workspacesweb-networksettings.json",
   "additionalProperties": false,
   "definitions": {
@@ -119,7 +119,7 @@
   ],
   "required": ["SecurityGroupIds", "SubnetIds", "VpcId"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:UntagResource",
       "workspaces-web:ListTagsForResource",

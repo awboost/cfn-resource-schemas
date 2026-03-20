@@ -60,7 +60,12 @@ export type LogsScheduledQueryProperties = {
  */
 export type LogsScheduledQueryAttributes = {
   CreationTime: number;
-  LastExecutionStatus: "InvalidQuery" | "Complete" | "Failed" | "Timeout";
+  LastExecutionStatus:
+    | "Pending"
+    | "InvalidQuery"
+    | "Complete"
+    | "Failed"
+    | "Timeout";
   LastTriggeredTime: number;
   LastUpdatedTime: number;
   ScheduledQueryArn: string;

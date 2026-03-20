@@ -1,17 +1,44 @@
-- added `AWS::EC2::IPAMPrefixListResolverTarget`
+- added `AWS::Batch::QuotaShare`
+- updated `AWS::BedrockAgentCore::Gateway`
+  - added definition `GatewayPolicyEngineConfiguration`
+  - added definition `GatewayPolicyEngineMode`
+  - added property `PolicyEngineConfiguration`
+- updated `AWS::CodeDeploy::DeploymentGroup`
+  - updated handler permissions
+- updated `AWS::EC2::InstanceConnectEndpoint`
+  - added definition `InstanceConnectEndpointDnsNames`
+  - added definition `InstanceConnectEndpointPublicDnsNames`
+  - added definition `NetworkInterfaceId`
+  - added property `AvailabilityZoneId`
+  - added property `AvailabilityZone`
+  - added property `CreatedAt`
+  - added property `InstanceConnectEndpointArn`
+  - added property `NetworkInterfaceIds`
+  - added property `OwnerId`
+  - added property `PublicDnsNames`
+  - added property `StateMessage`
+  - added property `State`
+  - added property `VpcId`
+  - updated `readOnlyProperties`
+  - updated definition `SecurityGroupId`
+  - updated property `Id`
+  - updated property `PreserveClientIp`
+  - updated property `SecurityGroupIds`
+  - updated property `SubnetId`
+  - updated property `Tags`
 - updated `AWS::ECS::CapacityProvider`
   - updated definition `InstanceLaunchTemplate`
 - updated `AWS::ElasticLoadBalancing::LoadBalancer`
-  - added `conditionalCreateOnlyProperties`
-  - added `documentationUrl`
-  - added `sourceUrl`
-  - added `tagging`
-  - added definition `PolicyItem`
-  - added definition `SourceSecurityGroup`
-  - added property `SourceSecurityGroup`
-  - removed property `Id`
-  - removed property `SourceSecurityGroupGroupName`
-  - removed property `SourceSecurityGroupOwnerAlias`
+  - added property `Id`
+  - added property `SourceSecurityGroupGroupName`
+  - added property `SourceSecurityGroupOwnerAlias`
+  - removed `conditionalCreateOnlyProperties`
+  - removed `documentationUrl`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - removed definition `PolicyItem`
+  - removed definition `SourceSecurityGroup`
+  - removed property `SourceSecurityGroup`
   - updated `primaryIdentifier`
   - updated `readOnlyProperties`
   - updated definition `AccessLoggingPolicy`
@@ -43,3 +70,18 @@
   - updated property `SecurityGroups`
   - updated property `Subnets`
   - updated property `Tags`
+- updated `AWS::Events::EventBusPolicy`
+  - added `propertyTransform`
+- updated `AWS::Logs::ScheduledQuery`
+  - updated property `LastExecutionStatus`
+- updated `AWS::Omics::Workflow`
+  - updated handler permissions
+- updated `AWS::Omics::WorkflowVersion`
+  - updated handler permissions
+- updated `AWS::OpenSearchServerless::Collection`
+  - added definition `ServerlessVectorAcceleration`
+  - added definition `VectorOptions`
+  - added property `VectorOptions`
+  - updated `createOnlyProperties`
+- updated `AWS::WorkSpacesWeb::NetworkSettings`
+  - updated `tagging`

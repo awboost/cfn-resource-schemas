@@ -1,5 +1,5 @@
 {
-  "$hash": "809309d4b11380fa74f1edc853d78d5c5b5766cd",
+  "$hash": "42940893e15e6f5ee587780cc7116d8d2195670f",
   "$id": "aws-omics-workflowversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -204,7 +204,8 @@
         "kms:GenerateDataKeyWithoutPlaintext",
         "codeconnections:UseConnection",
         "codeconnections:GetConnection",
-        "codeconnections:GetHost"
+        "codeconnections:GetHost",
+        "codeconnections:PassConnection"
       ]
     },
     "delete": {

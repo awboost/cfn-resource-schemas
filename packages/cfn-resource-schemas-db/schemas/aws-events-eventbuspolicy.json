@@ -1,5 +1,5 @@
 {
-  "$hash": "1291f4ff1f5ef0b187e6ce83395f263ef5db5015",
+  "$hash": "813e5b67feb321624f90906f52fade453838f219",
   "$id": "aws-events-eventbuspolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -90,6 +90,9 @@
       "pattern": "[a-zA-Z0-9-_]+",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/Statement": "$merge([{\"Sid\": StatementId}, Statement])"
   },
   "required": ["StatementId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-events-eventbuspolicy",

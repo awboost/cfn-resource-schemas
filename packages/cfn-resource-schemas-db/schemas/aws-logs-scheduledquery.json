@@ -1,5 +1,5 @@
 {
-  "$hash": "4f5c80a01463e707788decf277618226099bbf7e",
+  "$hash": "bd6adea0989273868a89d35344996448f9add26b",
   "$id": "aws-logs-scheduledquery.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -69,7 +69,7 @@
     },
     "ExecutionRoleArn": { "type": "string" },
     "LastExecutionStatus": {
-      "enum": ["InvalidQuery", "Complete", "Failed", "Timeout"],
+      "enum": ["Pending", "InvalidQuery", "Complete", "Failed", "Timeout"],
       "type": "string"
     },
     "LastTriggeredTime": { "type": "number" },

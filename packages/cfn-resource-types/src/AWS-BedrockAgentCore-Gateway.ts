@@ -28,6 +28,10 @@ export type BedrockAgentCoreGatewayProperties = {
    * @pattern `^([0-9a-zA-Z][-]?){1,100}$`
    */
   Name: string;
+  /**
+   * The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+   */
+  PolicyEngineConfiguration?: GatewayPolicyEngineConfiguration;
   ProtocolConfiguration?: GatewayProtocolConfiguration;
   ProtocolType: GatewayProtocolType;
   /**
@@ -191,6 +195,30 @@ export type GatewayInterceptorConfiguration = {
   InterceptionPoints: GatewayInterceptionPoint[];
   Interceptor: InterceptorConfiguration;
 };
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.GatewayPolicyEngineConfiguration`.
+ * The configuration for a policy engine associated with a gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewaypolicyengineconfiguration.html}
+ */
+export type GatewayPolicyEngineConfiguration = {
+  /**
+   * The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+   * @minLength `1`
+   * @maxLength `170`
+   * @pattern `^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:policy-engine/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9_]{10}$`
+   */
+  Arn: string;
+  /**
+   * The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
+   */
+  Mode: GatewayPolicyEngineMode;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.GatewayPolicyEngineMode`.
+ * The enforcement mode for the policy engine. LOG_ONLY - The policy engine evaluates each action against your policies and adds traces on whether tool calls would be allowed or denied, but does not enforce the decision. Use this mode to test and validate policies before enabling enforcement. ENFORCE - The policy engine evaluates actions against your policies and enforces decisions by allowing or denying agent operations. Test and validate policies in LOG_ONLY mode before enabling enforcement to avoid unintended denials or adversely affecting production traffic.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewaypolicyenginemode.html}
+ */
+export type GatewayPolicyEngineMode = "LOG_ONLY" | "ENFORCE";
 /**
  * Type definition for `AWS::BedrockAgentCore::Gateway.GatewayProtocolConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewayprotocolconfiguration.html}

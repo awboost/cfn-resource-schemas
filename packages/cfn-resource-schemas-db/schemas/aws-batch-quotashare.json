@@ -1,0 +1,156 @@
+{
+  "$hash": "9d944157e343152d1fe7e9ebd8c4b8088cfdb6c2",
+  "$id": "aws-batch-quotashare.json",
+  "additionalIdentifiers": [["/properties/QuotaShareName"]],
+  "additionalProperties": false,
+  "createOnlyProperties": [
+    "/properties/QuotaShareName",
+    "/properties/JobQueue"
+  ],
+  "definitions": {
+    "QuotaShareCapacityLimit": {
+      "additionalProperties": false,
+      "properties": {
+        "CapacityUnit": {
+          "description": "The unit of compute capacity for the capacityLimit.",
+          "type": "string"
+        },
+        "MaxCapacity": {
+          "description": "The maximum capacity available for the quota share. This value represents the maximum amount of resources that can be allocated to jobs in the quota share without borrowing",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": ["MaxCapacity", "CapacityUnit"],
+      "type": "object"
+    },
+    "QuotaSharePreemptionConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "InSharePreemption": {
+          "description": "Whether preemption is enabled within the quota share.",
+          "enum": ["ENABLED", "DISABLED"],
+          "type": "string"
+        }
+      },
+      "required": ["InSharePreemption"],
+      "type": "object"
+    },
+    "QuotaShareResourceSharingConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "BorrowLimit": {
+          "description": "The maximum amount of compute capacity that can be borrowed. Use -1 for unlimited borrowing.",
+          "minimum": -1,
+          "type": "integer"
+        },
+        "Strategy": {
+          "description": "The resource sharing strategy.",
+          "enum": ["RESERVE", "LEND", "LEND_AND_BORROW"],
+          "type": "string"
+        }
+      },
+      "required": ["Strategy"],
+      "type": "object"
+    },
+    "ResourceArn": {
+      "pattern": "^arn:aws[a-z\\-]*:batch:[a-z0-9\\-]+:[0-9]{12}:job-queue/[a-zA-Z0-9_\\-]{1,128}/quota-share/[a-zA-Z0-9_\\-]{1,128}$",
+      "type": "string"
+    }
+  },
+  "description": "Resource Type definition for AWS::Batch::QuotaShare",
+  "handlers": {
+    "create": {
+      "permissions": [
+        "Batch:CreateQuotaShare",
+        "Batch:TagResource",
+        "Batch:DescribeQuotaShare"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "Batch:UpdateQuotaShare",
+        "Batch:DescribeQuotaShare",
+        "Batch:DeleteQuotaShare"
+      ]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "JobQueue": { "$ref": "resource-schema.json#/properties/JobQueue" }
+        }
+      },
+      "permissions": ["Batch:ListQuotaShares"]
+    },
+    "read": { "permissions": ["Batch:DescribeQuotaShare"] },
+    "update": {
+      "permissions": [
+        "Batch:DescribeQuotaShare",
+        "Batch:UpdateQuotaShare",
+        "Batch:TagResource",
+        "Batch:UntagResource"
+      ]
+    }
+  },
+  "primaryIdentifier": ["/properties/QuotaShareArn"],
+  "properties": {
+    "CapacityLimits": {
+      "description": "The capacity limits for the quota share.",
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/QuotaShareCapacityLimit" },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "JobQueue": {
+      "description": "The Amazon Resource Name (ARN) or name of the job queue.",
+      "type": "string"
+    },
+    "PreemptionConfiguration": {
+      "$ref": "#/definitions/QuotaSharePreemptionConfiguration",
+      "description": "The preemption configuration for the quota share."
+    },
+    "QuotaShareArn": {
+      "$ref": "#/definitions/ResourceArn",
+      "description": "The Amazon Resource Name (ARN) of the quota share."
+    },
+    "QuotaShareName": {
+      "description": "The name of the quota share.",
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "ResourceSharingConfiguration": {
+      "$ref": "#/definitions/QuotaShareResourceSharingConfiguration",
+      "description": "The resource sharing configuration for the quota share."
+    },
+    "State": {
+      "description": "The state of the quota share.",
+      "enum": ["ENABLED", "DISABLED"],
+      "type": "string"
+    },
+    "Tags": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "patternProperties": { ".*": { "type": "string" } },
+      "type": "object"
+    }
+  },
+  "readOnlyProperties": ["/properties/QuotaShareArn"],
+  "required": [
+    "QuotaShareName",
+    "JobQueue",
+    "CapacityLimits",
+    "ResourceSharingConfiguration",
+    "PreemptionConfiguration"
+  ],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-batch",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": ["Batch:TagResource", "Batch:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::Batch::QuotaShare"
+}

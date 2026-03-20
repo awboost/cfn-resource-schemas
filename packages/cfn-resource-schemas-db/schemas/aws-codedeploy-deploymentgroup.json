@@ -1,5 +1,5 @@
 {
-  "$hash": "18e0f55d9a7f1e1e4890af0f115efa3a6785d39d",
+  "$hash": "02e3a683db9c577100c22ef0054535217fdca725",
   "$id": "aws-codedeploy-deploymentgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -433,7 +433,8 @@
         "codedeploy:TagResource",
         "codedeploy:UntagResource",
         "iam:PassRole"
-      ]
+      ],
+      "timeoutInMinutes": 510
     },
     "delete": {
       "permissions": [
@@ -475,7 +476,8 @@
         "codedeploy:RegisterApplicationRevision",
         "codedeploy:RegisterOnPremisesInstance",
         "iam:PassRole"
-      ]
+      ],
+      "timeoutInMinutes": 990
     }
   },
   "primaryIdentifier": [

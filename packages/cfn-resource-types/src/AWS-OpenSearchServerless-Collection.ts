@@ -47,6 +47,10 @@ export type OpenSearchServerlessCollectionProperties = {
    * The possible types for the collection
    */
   Type?: CollectionType;
+  /**
+   * Vector search configuration options for the collection
+   */
+  VectorOptions?: VectorOptions;
 };
 /**
  * Attribute type definition for `AWS::OpenSearchServerless::Collection`.
@@ -98,6 +102,12 @@ export type EncryptionConfig = {
   KmsKeyArn?: string;
 };
 /**
+ * Type definition for `AWS::OpenSearchServerless::Collection.ServerlessVectorAcceleration`.
+ * Indicates whether GPU acceleration is enabled for vector indexing
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-serverlessvectoracceleration.html}
+ */
+export type ServerlessVectorAcceleration = "ENABLED" | "DISABLED" | "ALLOWED";
+/**
  * Type definition for `AWS::OpenSearchServerless::Collection.StandbyReplicas`.
  * The possible standby replicas for the collection
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-standbyreplicas.html}
@@ -121,6 +131,17 @@ export type Tag = {
    * @maxLength `256`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchServerless::Collection.VectorOptions`.
+ * Vector search configuration options for the collection
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-vectoroptions.html}
+ */
+export type VectorOptions = {
+  /**
+   * Indicates whether GPU acceleration is enabled for vector indexing
+   */
+  ServerlessVectorAcceleration?: ServerlessVectorAcceleration;
 };
 /**
  * Resource type definition for `AWS::OpenSearchServerless::Collection`.
