@@ -1,5 +1,5 @@
 {
-  "$hash": "4fbf28e6cea9eb0b55309e27cc6702c5caf8b513",
+  "$hash": "0520c67ff689a58589b9d944146e136da303170d",
   "$id": "aws-licensemanager-grant.json",
   "additionalProperties": false,
   "definitions": {
@@ -92,7 +92,7 @@
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "license-manager:TagResource",
       "license-manager:UntagResource",

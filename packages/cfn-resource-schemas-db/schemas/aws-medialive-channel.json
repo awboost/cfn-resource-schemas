@@ -1,5 +1,5 @@
 {
-  "$hash": "9a0069f417bf3fa68615846745de5198eacacb1b",
+  "$hash": "fc30883fe6eb5e6f0c83ef0121baff021461dd04",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -1213,6 +1213,11 @@
       "additionalProperties": false,
       "type": "object"
     },
+    "InferenceSettings": {
+      "additionalProperties": false,
+      "properties": { "FeedArn": { "type": "string" } },
+      "type": "object"
+    },
     "InputAttachment": {
       "additionalProperties": false,
       "properties": {
@@ -2182,6 +2187,7 @@
     "DryRun": { "type": "boolean" },
     "EncoderSettings": { "$ref": "#/definitions/EncoderSettings" },
     "Id": { "type": "string" },
+    "InferenceSettings": { "$ref": "#/definitions/InferenceSettings" },
     "InputAttachments": {
       "items": { "$ref": "#/definitions/InputAttachment" },
       "type": "array",

@@ -1,87 +1,14 @@
-- added `AWS::Batch::QuotaShare`
-- updated `AWS::BedrockAgentCore::Gateway`
-  - added definition `GatewayPolicyEngineConfiguration`
-  - added definition `GatewayPolicyEngineMode`
-  - added property `PolicyEngineConfiguration`
-- updated `AWS::CodeDeploy::DeploymentGroup`
+- added `AWS::EC2::SqlHaStandbyDetectedInstance`
+- added `AWS::UXC::AccountCustomization`
+- updated `AWS::EC2::TransitGatewayMulticastDomainAssociation`
   - updated handler permissions
-- updated `AWS::EC2::InstanceConnectEndpoint`
-  - added definition `InstanceConnectEndpointDnsNames`
-  - added definition `InstanceConnectEndpointPublicDnsNames`
-  - added definition `NetworkInterfaceId`
-  - added property `AvailabilityZoneId`
-  - added property `AvailabilityZone`
-  - added property `CreatedAt`
-  - added property `InstanceConnectEndpointArn`
-  - added property `NetworkInterfaceIds`
-  - added property `OwnerId`
-  - added property `PublicDnsNames`
-  - added property `StateMessage`
-  - added property `State`
-  - added property `VpcId`
-  - updated `readOnlyProperties`
-  - updated definition `SecurityGroupId`
-  - updated property `Id`
-  - updated property `PreserveClientIp`
-  - updated property `SecurityGroupIds`
-  - updated property `SubnetId`
-  - updated property `Tags`
-- updated `AWS::ECS::CapacityProvider`
-  - updated definition `InstanceLaunchTemplate`
-- updated `AWS::ElasticLoadBalancing::LoadBalancer`
-  - added property `Id`
-  - added property `SourceSecurityGroupGroupName`
-  - added property `SourceSecurityGroupOwnerAlias`
-  - removed `conditionalCreateOnlyProperties`
-  - removed `documentationUrl`
-  - removed `sourceUrl`
-  - removed `tagging`
-  - removed definition `PolicyItem`
-  - removed definition `SourceSecurityGroup`
-  - removed property `SourceSecurityGroup`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `AccessLoggingPolicy`
-  - updated definition `AppCookieStickinessPolicy`
-  - updated definition `ConnectionDrainingPolicy`
-  - updated definition `ConnectionSettings`
-  - updated definition `HealthCheck`
-  - updated definition `LBCookieStickinessPolicy`
-  - updated definition `Listeners`
-  - updated definition `Policies`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `AccessLoggingPolicy`
-  - updated property `AppCookieStickinessPolicy`
-  - updated property `AvailabilityZones`
-  - updated property `CanonicalHostedZoneNameID`
-  - updated property `CanonicalHostedZoneName`
-  - updated property `ConnectionDrainingPolicy`
-  - updated property `ConnectionSettings`
-  - updated property `CrossZone`
-  - updated property `DNSName`
-  - updated property `HealthCheck`
-  - updated property `Instances`
-  - updated property `LBCookieStickinessPolicy`
-  - updated property `Listeners`
-  - updated property `LoadBalancerName`
-  - updated property `Policies`
-  - updated property `Scheme`
-  - updated property `SecurityGroups`
-  - updated property `Subnets`
-  - updated property `Tags`
-- updated `AWS::Events::EventBusPolicy`
-  - added `propertyTransform`
-- updated `AWS::Logs::ScheduledQuery`
-  - updated property `LastExecutionStatus`
-- updated `AWS::Omics::Workflow`
-  - updated handler permissions
-- updated `AWS::Omics::WorkflowVersion`
-  - updated handler permissions
-- updated `AWS::OpenSearchServerless::Collection`
-  - added definition `ServerlessVectorAcceleration`
-  - added definition `VectorOptions`
-  - added property `VectorOptions`
-  - updated `createOnlyProperties`
-- updated `AWS::WorkSpacesWeb::NetworkSettings`
+- updated `AWS::LicenseManager::Grant`
   - updated `tagging`
+- updated `AWS::LicenseManager::License`
+  - updated `tagging`
+- updated `AWS::Logs::LogGroup`
+  - added property `BearerTokenAuthenticationEnabled`
+  - updated handler permissions
+- updated `AWS::MediaLive::Channel`
+  - added definition `InferenceSettings`
+  - added property `InferenceSettings`

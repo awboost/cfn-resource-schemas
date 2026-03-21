@@ -13,6 +13,7 @@ export type MediaLiveChannelProperties = {
   Destinations?: OutputDestination[];
   DryRun?: boolean;
   EncoderSettings?: EncoderSettings;
+  InferenceSettings?: InferenceSettings;
   InputAttachments?: InputAttachment[];
   InputSpecification?: InputSpecification;
   LinkedChannelSettings?: LinkedChannelSettings;
@@ -1118,6 +1119,13 @@ export type HlsWebdavSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-htmlmotiongraphicssettings.html}
  */
 export type HtmlMotionGraphicsSettings = Record<string, any>;
+/**
+ * Type definition for `AWS::MediaLive::Channel.InferenceSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inferencesettings.html}
+ */
+export type InferenceSettings = {
+  FeedArn?: string;
+};
 /**
  * Type definition for `AWS::MediaLive::Channel.InputAttachment`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html}

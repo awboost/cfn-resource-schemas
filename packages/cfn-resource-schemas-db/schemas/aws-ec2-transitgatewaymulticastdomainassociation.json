@@ -1,5 +1,5 @@
 {
-  "$hash": "6c229979c711867e60dac63dcde02fd32169008c",
+  "$hash": "f947ddde09f697abfb59fd70dd0604018d5fc1e6",
   "$id": "aws-ec2-transitgatewaymulticastdomainassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -22,6 +22,14 @@
       ]
     },
     "list": {
+      "handlerSchema": {
+        "properties": {
+          "TransitGatewayMulticastDomainId": {
+            "$ref": "resource-schema.json#/properties/TransitGatewayMulticastDomainId"
+          }
+        },
+        "required": ["TransitGatewayMulticastDomainId"]
+      },
       "permissions": ["ec2:GetTransitGatewayMulticastDomainAssociations"]
     },
     "read": {
