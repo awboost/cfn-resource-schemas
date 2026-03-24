@@ -1,14 +1,3 @@
-- added `AWS::EC2::SqlHaStandbyDetectedInstance`
-- added `AWS::UXC::AccountCustomization`
-- updated `AWS::EC2::TransitGatewayMulticastDomainAssociation`
-  - updated handler permissions
-- updated `AWS::LicenseManager::Grant`
-  - updated `tagging`
-- updated `AWS::LicenseManager::License`
-  - updated `tagging`
-- updated `AWS::Logs::LogGroup`
-  - added property `BearerTokenAuthenticationEnabled`
-  - updated handler permissions
-- updated `AWS::MediaLive::Channel`
-  - added definition `InferenceSettings`
-  - added property `InferenceSettings`
+- added `AWS::Interconnect::Connection`
+- updated `AWS::ECS::CapacityProvider`
+  - updated definition `InstanceLaunchTemplate`
