@@ -1,5 +1,5 @@
 {
-  "$hash": "8899bdbd76ab38e0d22f0bd2f6b32d474dcd3ae1",
+  "$hash": "b8bbeb9aa8f9b400346c3637d24c3dfafade5be7",
   "$id": "aws-shield-drtaccess.json",
   "additionalProperties": false,
   "description": "Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.",
@@ -67,6 +67,11 @@
   "readOnlyProperties": ["/properties/AccountId"],
   "required": ["RoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-shield.git",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::Shield::DRTAccess"
 }

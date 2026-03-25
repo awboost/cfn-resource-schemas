@@ -6,11 +6,17 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-anycastiplist.html}
  */
 export type CloudFrontAnycastIpListProperties = {
+  /**
+   * The IP address type for the Anycast static IP list.
+   */
   IpAddressType?: IpAddressType;
   /**
    * The number of IP addresses in the Anycast static IP list.
    */
   IpCount: number;
+  /**
+   * A list of IPAM CIDR configurations that define the IP address ranges, IPAM pools, and associated Anycast IP addresses.
+   */
   IpamCidrConfigs?: IpamCidrConfig[];
   /**
    * The name of the Anycast static IP list.
@@ -45,15 +51,33 @@ export type CloudFrontAnycastIpListAttributes = {
      * The ID of the Anycast static IP list.
      */
     Id: string;
+    /**
+     * The IP address type for the Anycast static IP list.
+     */
     IpAddressType: IpAddressType;
     /**
      * The number of IP addresses in the Anycast static IP list.
      */
     IpCount: number;
+    /**
+     * The results for the IPAM CIDRs that defines a specific IP address range, IPAM pool, and associated Anycast IP address.
+     */
     IpamCidrConfigResults: {
+      /**
+       * The specified Anycast IP address allocated from the IPAM pool for this CIDR configuration.
+       */
       AnycastIp: string;
+      /**
+       * The CIDR that specifies the IP address range for this IPAM configuration.
+       */
       Cidr: string;
+      /**
+       * The Amazon Resource Name (ARN) of the IPAM pool that the CIDR block is assigned to.
+       */
       IpamPoolArn: string;
+      /**
+       * The current status of the IPAM CIDR configuration.
+       */
       Status: string;
     }[];
     /**
@@ -75,9 +99,21 @@ export type CloudFrontAnycastIpListAttributes = {
   ETag: string;
   Id: string;
   IpamCidrConfigResults: {
+    /**
+     * The specified Anycast IP address allocated from the IPAM pool for this CIDR configuration.
+     */
     AnycastIp: string;
+    /**
+     * The CIDR that specifies the IP address range for this IPAM configuration.
+     */
     Cidr: string;
+    /**
+     * The Amazon Resource Name (ARN) of the IPAM pool that the CIDR block is assigned to.
+     */
     IpamPoolArn: string;
+    /**
+     * The current status of the IPAM CIDR configuration.
+     */
     Status: string;
   }[];
 };
@@ -99,11 +135,17 @@ export type AnycastIpList = {
    * The ID of the Anycast static IP list.
    */
   Id: string;
+  /**
+   * The IP address type for the Anycast static IP list.
+   */
   IpAddressType?: IpAddressType;
   /**
    * The number of IP addresses in the Anycast static IP list.
    */
   IpCount: number;
+  /**
+   * The results for the IPAM CIDRs that defines a specific IP address range, IPAM pool, and associated Anycast IP address.
+   */
   IpamCidrConfigResults?: IpamCidrConfigResult[];
   /**
    * The last time the Anycast static IP list was modified.
@@ -128,20 +170,40 @@ export type AnycastIpList = {
 export type IpAddressType = "ipv4" | "dualstack";
 /**
  * Type definition for `AWS::CloudFront::AnycastIpList.IpamCidrConfig`.
+ * Configuration for an IPAM CIDR that defines a specific IP address range, IPAM pool, and associated Anycast IP address.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-ipamcidrconfig.html}
  */
 export type IpamCidrConfig = {
+  /**
+   * The CIDR that specifies the IP address range for this IPAM configuration.
+   */
   Cidr: string;
+  /**
+   * The Amazon Resource Name (ARN) of the IPAM pool that the CIDR block is assigned to.
+   */
   IpamPoolArn: string;
 };
 /**
  * Type definition for `AWS::CloudFront::AnycastIpList.IpamCidrConfigResult`.
+ * The result for the IPAM CIDR that defines a specific IP address range, IPAM pool, and associated Anycast IP address.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-ipamcidrconfigresult.html}
  */
 export type IpamCidrConfigResult = {
+  /**
+   * The specified Anycast IP address allocated from the IPAM pool for this CIDR configuration.
+   */
   AnycastIp?: string;
+  /**
+   * The CIDR that specifies the IP address range for this IPAM configuration.
+   */
   Cidr?: string;
+  /**
+   * The Amazon Resource Name (ARN) of the IPAM pool that the CIDR block is assigned to.
+   */
   IpamPoolArn?: string;
+  /**
+   * The current status of the IPAM CIDR configuration.
+   */
   Status?: string;
 };
 /**

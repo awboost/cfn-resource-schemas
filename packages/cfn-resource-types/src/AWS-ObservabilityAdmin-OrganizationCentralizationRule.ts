@@ -127,12 +127,17 @@ export type LogsEncryptionConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration.html}
  */
 export type SourceLogsConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `2000`
+   */
+  DataSourceSelectionCriteria?: string;
   EncryptedLogGroupStrategy: "ALLOW" | "SKIP";
   /**
    * @minLength `1`
    * @maxLength `2000`
    */
-  LogGroupSelectionCriteria: string;
+  LogGroupSelectionCriteria?: string;
 };
 /**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.Tag`.

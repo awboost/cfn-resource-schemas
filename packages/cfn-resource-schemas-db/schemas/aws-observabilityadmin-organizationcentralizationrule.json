@@ -1,5 +1,5 @@
 {
-  "$hash": "27e8d78031febda586a868decaf32eb7c3377b8d",
+  "$hash": "c680d83060fc490b23e756c68f29f5f7be26666e",
   "$id": "aws-observabilityadmin-organizationcentralizationrule.json",
   "additionalIdentifiers": [["/properties/RuleName"]],
   "additionalProperties": false,
@@ -116,6 +116,11 @@
     "SourceLogsConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "DataSourceSelectionCriteria": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        },
         "EncryptedLogGroupStrategy": {
           "enum": ["ALLOW", "SKIP"],
           "type": "string"
@@ -126,7 +131,7 @@
           "type": "string"
         }
       },
-      "required": ["LogGroupSelectionCriteria", "EncryptedLogGroupStrategy"],
+      "required": ["EncryptedLogGroupStrategy"],
       "type": "object"
     },
     "Tag": {

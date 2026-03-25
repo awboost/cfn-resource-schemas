@@ -1,5 +1,5 @@
 {
-  "$hash": "02e3a683db9c577100c22ef0054535217fdca725",
+  "$hash": "7d086ad584f3ce6071178ff06a5869ec72e82da2",
   "$id": "aws-codedeploy-deploymentgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -426,6 +426,7 @@
         "codedeploy:CreateDeployment",
         "codedeploy:GetDeployment",
         "codedeploy:GetDeploymentConfig",
+        "codedeploy:GetDeploymentGroup",
         "codedeploy:GetApplicationRevision",
         "codedeploy:ListDeployments",
         "codedeploy:RegisterApplicationRevision",

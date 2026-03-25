@@ -1,3 +1,96 @@
-- added `AWS::Interconnect::Connection`
-- updated `AWS::ECS::CapacityProvider`
-  - updated definition `InstanceLaunchTemplate`
+- updated `AWS::AppStream::ImageBuilder`
+  - added `createOnlyProperties`
+  - added `oneOf`
+  - added `writeOnlyProperties`
+  - added definition `VolumeConfig`
+  - added property `RootVolumeConfig`
+  - added property `SoftwaresToInstall`
+  - added property `SoftwaresToUninstall`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::CloudFront::AnycastIpList`
+  - updated definition `AnycastIpList`
+  - updated definition `IpamCidrConfigResult`
+  - updated definition `IpamCidrConfig`
+  - updated property `IpAddressType`
+  - updated property `IpamCidrConfigs`
+- updated `AWS::CodeDeploy::DeploymentGroup`
+  - updated handler permissions
+- updated `AWS::EMR::Cluster`
+  - added `conditionalCreateOnlyProperties`
+  - added `deprecatedProperties`
+  - added `propertyTransform`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - added definition `CloudWatchLogConfiguration`
+  - added definition `EMRConfiguration`
+  - added definition `MonitoringConfiguration`
+  - added property `MonitoringConfiguration`
+  - removed definition `Configuration`
+  - updated `createOnlyProperties`
+  - updated definition `Application`
+  - updated definition `AutoTerminationPolicy`
+  - updated definition `BootstrapActionConfig`
+  - updated definition `CloudWatchAlarmDefinition`
+  - updated definition `ComputeLimits`
+  - updated definition `EbsBlockDeviceConfig`
+  - updated definition `EbsConfiguration`
+  - updated definition `HadoopJarStepConfig`
+  - updated definition `InstanceFleetConfig`
+  - updated definition `InstanceGroupConfig`
+  - updated definition `InstanceTypeConfig`
+  - updated definition `JobFlowInstancesConfig`
+  - updated definition `KerberosAttributes`
+  - updated definition `MetricDimension`
+  - updated definition `OnDemandCapacityReservationOptions`
+  - updated definition `OnDemandProvisioningSpecification`
+  - updated definition `PlacementGroupConfig`
+  - updated definition `PlacementType`
+  - updated definition `ScalingAction`
+  - updated definition `ScalingConstraints`
+  - updated definition `ScalingRule`
+  - updated definition `ScalingTrigger`
+  - updated definition `ScriptBootstrapActionConfig`
+  - updated definition `SimpleScalingPolicyConfiguration`
+  - updated definition `SpotProvisioningSpecification`
+  - updated definition `StepConfig`
+  - updated definition `Tag`
+  - updated definition `VolumeSpecification`
+  - updated handler permissions
+  - updated property `AdditionalInfo`
+  - updated property `Applications`
+  - updated property `AutoScalingRole`
+  - updated property `AutoTerminationPolicy`
+  - updated property `BootstrapActions`
+  - updated property `Configurations`
+  - updated property `CustomAmiId`
+  - updated property `EbsRootVolumeIops`
+  - updated property `EbsRootVolumeSize`
+  - updated property `EbsRootVolumeThroughput`
+  - updated property `Id`
+  - updated property `Instances`
+  - updated property `JobFlowRole`
+  - updated property `KerberosAttributes`
+  - updated property `LogEncryptionKmsKeyId`
+  - updated property `LogUri`
+  - updated property `ManagedScalingPolicy`
+  - updated property `MasterPublicDNS`
+  - updated property `Name`
+  - updated property `OSReleaseLabel`
+  - updated property `PlacementGroupConfigs`
+  - updated property `ReleaseLabel`
+  - updated property `ScaleDownBehavior`
+  - updated property `SecurityConfiguration`
+  - updated property `ServiceRole`
+  - updated property `StepConcurrencyLevel`
+  - updated property `Steps`
+  - updated property `VisibleToAllUsers`
+- updated `AWS::ObservabilityAdmin::OrganizationCentralizationRule`
+  - updated definition `SourceLogsConfiguration`
+- updated `AWS::QuickSight::CustomPermissions`
+  - updated definition `Capabilities`
+- updated `AWS::Shield::DRTAccess`
+  - updated `tagging`
+- updated `AWS::Shield::ProactiveEngagement`
+  - updated `tagging`

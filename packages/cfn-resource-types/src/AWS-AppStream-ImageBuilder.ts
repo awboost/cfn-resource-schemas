@@ -16,6 +16,9 @@ export type AppStreamImageBuilderProperties = {
   ImageName?: string;
   InstanceType: string;
   Name: string;
+  RootVolumeConfig?: VolumeConfig;
+  SoftwaresToInstall?: string[];
+  SoftwaresToUninstall?: string[];
   Tags?: Tag[];
   VpcConfig?: VpcConfig;
 };
@@ -49,6 +52,13 @@ export type DomainJoinInfo = {
 export type Tag = {
   Key: string;
   Value: string;
+};
+/**
+ * Type definition for `AWS::AppStream::ImageBuilder.VolumeConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-volumeconfig.html}
+ */
+export type VolumeConfig = {
+  VolumeSizeInGb?: number;
 };
 /**
  * Type definition for `AWS::AppStream::ImageBuilder.VpcConfig`.
