@@ -1,10 +1,11 @@
 {
-  "$hash": "03c0d0cbb18ed8e8549b9b311d34315b72d8af18",
+  "$hash": "6551481ba3c3d9b92f17841dd97f847c2868a84b",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LaunchTemplateConfigs",
     "/properties/OnDemandOptions",
+    "/properties/ReservedCapacityOptions",
     "/properties/ReplaceUnhealthyInstances",
     "/properties/SpotOptions",
     "/properties/TagSpecifications",
@@ -567,6 +568,9 @@
     },
     "OnDemandOptions": { "$ref": "#/definitions/OnDemandOptionsRequest" },
     "ReplaceUnhealthyInstances": { "type": "boolean" },
+    "ReservedCapacityOptions": {
+      "$ref": "#/definitions/ReservedCapacityOptionsRequest"
+    },
     "SpotOptions": { "$ref": "#/definitions/SpotOptionsRequest" },
     "TagSpecifications": {
       "items": { "$ref": "#/definitions/TagSpecification" },

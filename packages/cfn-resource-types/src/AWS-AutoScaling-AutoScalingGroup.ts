@@ -18,6 +18,7 @@ export type AutoScalingAutoScalingGroupProperties = {
    * The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group.
    */
   AvailabilityZoneDistribution?: AvailabilityZoneDistribution;
+  AvailabilityZoneIds?: string[];
   /**
    * The Availability Zone impairment policy for the Auto Scaling group.
    */

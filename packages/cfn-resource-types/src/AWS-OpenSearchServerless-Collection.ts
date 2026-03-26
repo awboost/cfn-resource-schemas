@@ -69,6 +69,10 @@ export type OpenSearchServerlessCollectionAttributes = {
    * The OpenSearch Dashboards endpoint for the collection.
    */
   DashboardEndpoint: string;
+  FipsEndpoints: {
+    CollectionEndpoint: string;
+    DashboardEndpoint: string;
+  };
   /**
    * The identifier of the collection
    * @minLength `3`
@@ -100,6 +104,14 @@ export type EncryptionConfig = {
    * Key Management Service key used to encrypt the collection.
    */
   KmsKeyArn?: string;
+};
+/**
+ * Type definition for `AWS::OpenSearchServerless::Collection.FipsEndpoints`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-fipsendpoints.html}
+ */
+export type FipsEndpoints = {
+  CollectionEndpoint?: string;
+  DashboardEndpoint?: string;
 };
 /**
  * Type definition for `AWS::OpenSearchServerless::Collection.ServerlessVectorAcceleration`.

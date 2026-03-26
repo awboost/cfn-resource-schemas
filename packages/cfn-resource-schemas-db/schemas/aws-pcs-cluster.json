@@ -1,5 +1,5 @@
 {
-  "$hash": "03387d16285b06cd608a480a8056dcf036f9e450",
+  "$hash": "649f04349d46e2f1c5b99f817eb6c2a1916bb625",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -43,6 +43,22 @@
         }
       },
       "required": ["SecretArn", "SecretVersion"],
+      "type": "object"
+    },
+    "CgroupCustomSetting": {
+      "additionalProperties": false,
+      "description": "Additional cgroup configuration settings.",
+      "properties": {
+        "ParameterName": {
+          "description": "The cgroup.conf parameter name.",
+          "type": "string"
+        },
+        "ParameterValue": {
+          "description": "The value for the cgroup.conf parameter.",
+          "type": "string"
+        }
+      },
+      "required": ["ParameterName", "ParameterValue"],
       "type": "object"
     },
     "Endpoint": {
@@ -143,6 +159,22 @@
         }
       },
       "required": ["Mode"],
+      "type": "object"
+    },
+    "SlurmdbdCustomSetting": {
+      "additionalProperties": false,
+      "description": "Additional slurmdbd configuration settings.",
+      "properties": {
+        "ParameterName": {
+          "description": "The slurmdbd.conf parameter name.",
+          "type": "string"
+        },
+        "ParameterValue": {
+          "description": "The value for the slurmdbd.conf parameter.",
+          "type": "string"
+        }
+      },
+      "required": ["ParameterName", "ParameterValue"],
       "type": "object"
     },
     "SubnetId": { "description": "A VPC subnet ID.", "type": "string" },
@@ -283,6 +315,12 @@
       "properties": {
         "Accounting": { "$ref": "#/definitions/Accounting" },
         "AuthKey": { "$ref": "#/definitions/AuthKey" },
+        "CgroupCustomSettings": {
+          "description": "Additional cgroup-specific configuration that directly maps to cgroup.conf settings.",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/CgroupCustomSetting" },
+          "type": "array"
+        },
         "JwtAuth": { "$ref": "#/definitions/JwtAuth" },
         "ScaleDownIdleTimeInSeconds": {
           "description": "The time before an idle node is scaled down.",
@@ -295,7 +333,13 @@
           "items": { "$ref": "#/definitions/SlurmCustomSetting" },
           "type": "array"
         },
-        "SlurmRest": { "$ref": "#/definitions/SlurmRest" }
+        "SlurmRest": { "$ref": "#/definitions/SlurmRest" },
+        "SlurmdbdCustomSettings": {
+          "description": "Additional slurmdbd-specific configuration that directly maps to slurmdbd.conf settings.",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/SlurmdbdCustomSetting" },
+          "type": "array"
+        }
       },
       "type": "object"
     },

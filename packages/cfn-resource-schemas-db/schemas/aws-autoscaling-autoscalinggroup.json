@@ -1,5 +1,5 @@
 {
-  "$hash": "8854eaaf1fffbd5c7de0f399a138bd6bf6aecf9c",
+  "$hash": "839b035c4ea91bff685f7675f5799c769487d63f",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -731,6 +731,13 @@
     "AvailabilityZoneDistribution": {
       "$ref": "#/definitions/AvailabilityZoneDistribution",
       "description": "The EC2 instance capacity distribution across Availability Zones for the Auto Scaling group."
+    },
+    "AvailabilityZoneIds": {
+      "description": "",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": true
     },
     "AvailabilityZoneImpairmentPolicy": {
       "$ref": "#/definitions/AvailabilityZoneImpairmentPolicy",

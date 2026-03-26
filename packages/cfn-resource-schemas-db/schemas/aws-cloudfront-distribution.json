@@ -1,5 +1,5 @@
 {
-  "$hash": "029989407e36ed92ab56ec9e4e0cb0dfcc61cbc0",
+  "$hash": "3901d6a28c0f6de30bd6a95de1ab239ee277fdc4",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -117,8 +117,10 @@
     },
     "ConnectionFunctionAssociation": {
       "additionalProperties": false,
-      "description": "",
-      "properties": { "Id": { "type": "string" } },
+      "description": "A connection function association.",
+      "properties": {
+        "Id": { "description": "The association's ID.", "type": "string" }
+      },
       "required": ["Id"],
       "type": "object"
     },
@@ -192,7 +194,7 @@
         },
         "OriginMtlsConfig": {
           "$ref": "#/definitions/OriginMtlsConfig",
-          "description": ""
+          "description": "Configures mutual TLS authentication between CloudFront and your origin server."
         },
         "OriginProtocolPolicy": {
           "description": "Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:\n  +  ``http-only`` – CloudFront always uses HTTP to connect to the origin.\n  +  ``match-viewer`` – CloudFront connects to the origin using the same protocol that the viewer used to connect to CloudFront.\n  +  ``https-only`` – CloudFront always uses HTTPS to connect to the origin.",
@@ -359,7 +361,7 @@
         },
         "ConnectionFunctionAssociation": {
           "$ref": "#/definitions/ConnectionFunctionAssociation",
-          "description": ""
+          "description": "The distribution's connection function association."
         },
         "ConnectionMode": {
           "$ref": "#/definitions/ConnectionMode",
@@ -452,7 +454,7 @@
         },
         "ViewerMtlsConfig": {
           "$ref": "#/definitions/ViewerMtlsConfig",
-          "description": ""
+          "description": "The distribution's viewer mTLS configuration."
         },
         "WebACLId": {
           "default": "",
@@ -788,8 +790,13 @@
     },
     "OriginMtlsConfig": {
       "additionalProperties": false,
-      "description": "",
-      "properties": { "ClientCertificateArn": { "type": "string" } },
+      "description": "Configures mutual TLS authentication between CloudFront and your origin server.",
+      "properties": {
+        "ClientCertificateArn": {
+          "description": "The Amazon Resource Name (ARN) of the client certificate stored in AWS Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.",
+          "type": "string"
+        }
+      },
       "required": ["ClientCertificateArn"],
       "type": "object"
     },
@@ -902,11 +909,20 @@
     },
     "TrustStoreConfig": {
       "additionalProperties": false,
-      "description": "",
+      "description": "A trust store configuration.",
       "properties": {
-        "AdvertiseTrustStoreCaNames": { "type": "boolean" },
-        "IgnoreCertificateExpiry": { "type": "boolean" },
-        "TrustStoreId": { "type": "string" }
+        "AdvertiseTrustStoreCaNames": {
+          "description": "The configuration to use to advertise trust store CA names.",
+          "type": "boolean"
+        },
+        "IgnoreCertificateExpiry": {
+          "description": "The configuration to use to ignore certificate expiration.",
+          "type": "boolean"
+        },
+        "TrustStoreId": {
+          "description": "The trust store ID.",
+          "type": "string"
+        }
       },
       "required": ["TrustStoreId"],
       "type": "object"
@@ -940,13 +956,17 @@
     },
     "ViewerMtlsConfig": {
       "additionalProperties": false,
-      "description": "",
+      "description": "A viewer mTLS configuration.",
       "properties": {
         "Mode": {
           "$ref": "#/definitions/ViewerMtlsMode",
-          "default": "required"
+          "default": "required",
+          "description": "The viewer mTLS mode."
         },
-        "TrustStoreConfig": { "$ref": "#/definitions/TrustStoreConfig" }
+        "TrustStoreConfig": {
+          "$ref": "#/definitions/TrustStoreConfig",
+          "description": "The trust store configuration associated with the viewer mTLS configuration."
+        }
       },
       "type": "object"
     },
@@ -965,7 +985,10 @@
           "description": "Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 120 seconds, and the default (if you don't specify otherwise) is 30 seconds.\n For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.",
           "type": "integer"
         },
-        "OwnerAccountId": { "description": "", "type": "string" },
+        "OwnerAccountId": {
+          "description": "The account ID of the AWS-account that owns the VPC origin.",
+          "type": "string"
+        },
         "VpcOriginId": { "description": "The VPC origin ID.", "type": "string" }
       },
       "required": ["VpcOriginId"],

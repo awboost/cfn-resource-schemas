@@ -56,6 +56,10 @@ export type PCSClusterProperties = {
      */
     AuthKey?: AuthKey;
     /**
+     * Additional cgroup-specific configuration that directly maps to cgroup.conf settings.
+     */
+    CgroupCustomSettings?: CgroupCustomSetting[];
+    /**
      * JWT authentication configuration for Slurm.
      */
     JwtAuth?: JwtAuth;
@@ -72,6 +76,10 @@ export type PCSClusterProperties = {
      * The SlurmRest configuration includes configurable settings for Slurm Rest.
      */
     SlurmRest?: SlurmRest;
+    /**
+     * Additional slurmdbd-specific configuration that directly maps to slurmdbd.conf settings.
+     */
+    SlurmdbdCustomSettings?: SlurmdbdCustomSetting[];
   };
   /**
    * 1 or more tags added to the resource. Each tag consists of a tag key and tag value. The tag value is optional and can be an empty string.
@@ -175,6 +183,21 @@ export type AuthKey = {
   SecretVersion: string;
 };
 /**
+ * Type definition for `AWS::PCS::Cluster.CgroupCustomSetting`.
+ * Additional cgroup configuration settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-cgroupcustomsetting.html}
+ */
+export type CgroupCustomSetting = {
+  /**
+   * The cgroup.conf parameter name.
+   */
+  ParameterName: string;
+  /**
+   * The value for the cgroup.conf parameter.
+   */
+  ParameterValue: string;
+};
+/**
  * Type definition for `AWS::PCS::Cluster.Endpoint`.
  * An endpoint available for interaction with the scheduler.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-endpoint.html}
@@ -254,6 +277,21 @@ export type SlurmCustomSetting = {
   ParameterName: string;
   /**
    * The value for the configured Slurm setting.
+   */
+  ParameterValue: string;
+};
+/**
+ * Type definition for `AWS::PCS::Cluster.SlurmdbdCustomSetting`.
+ * Additional slurmdbd configuration settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmdbdcustomsetting.html}
+ */
+export type SlurmdbdCustomSetting = {
+  /**
+   * The slurmdbd.conf parameter name.
+   */
+  ParameterName: string;
+  /**
+   * The value for the slurmdbd.conf parameter.
    */
   ParameterValue: string;
 };

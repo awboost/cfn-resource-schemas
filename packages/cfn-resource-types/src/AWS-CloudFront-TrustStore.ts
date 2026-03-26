@@ -1,17 +1,21 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+ * Resource type definition for `AWS::CloudFront::TrustStore`.
+ * A trust store.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-truststore.html}
  */
 export type CloudFrontTrustStoreProperties = {
+  /**
+   * A CA certificates bundle source.
+   */
   CaCertificatesBundleSource?: CaCertificatesBundleSource;
   /**
-   * A unique name to identify the trust store
+   * The trust store's name.
    */
   Name: string;
   /**
-   * Key-value pairs for resource tagging
+   * A complex type that contains zero or more ``Tag`` elements.
    */
   Tags?: Tag[];
 };
@@ -21,77 +25,75 @@ export type CloudFrontTrustStoreProperties = {
  */
 export type CloudFrontTrustStoreAttributes = {
   /**
-   * The Amazon Resource Name (ARN) of the trust store
    * @pattern `^arn:aws:cloudfront::[0-9]{12}:trust-store/[A-Za-z0-9_]+$`
    */
   Arn: string;
   ETag: string;
-  /**
-   * The unique identifier for the trust store
-   */
   Id: string;
-  /**
-   * The last modification timestamp of the trust store PEM file
-   */
   LastModifiedTime: string;
-  /**
-   * The number of CA certificates in the trust store PEM file
-   */
   NumberOfCaCertificates: number;
-  /**
-   * Current status of the trust store
-   */
   Status: "PENDING" | "ACTIVE" | "FAILED";
 };
 /**
  * Type definition for `AWS::CloudFront::TrustStore.CaCertificatesBundleS3Location`.
+ * The CA certificates bundle location in Amazon S3.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-truststore-cacertificatesbundles3location.html}
  */
 export type CaCertificatesBundleS3Location = {
   /**
-   * The S3 bucket containing the CA certificates bundle PEM file
+   * The S3 bucket.
    */
   Bucket: string;
   /**
-   * The S3 object key of the CA certificates bundle PEM file
+   * The location's key.
    */
   Key: string;
   /**
-   * The S3 bucket region
+   * The location's Region.
    */
   Region: string;
   /**
-   * The S3 object version of the CA certificates bundle PEM file
+   * The location's version.
    */
   Version?: string;
 };
 /**
  * Type definition for `AWS::CloudFront::TrustStore.CaCertificatesBundleSource`.
+ * A CA certificates bundle source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-truststore-cacertificatesbundlesource.html}
  */
 export type CaCertificatesBundleSource = {
+  /**
+   * The CA certificates bundle location in Amazon S3.
+   */
   CaCertificatesBundleS3Location: CaCertificatesBundleS3Location;
 };
 /**
  * Type definition for `AWS::CloudFront::TrustStore.Tag`.
+ * A complex type that contains ``Tag`` key and ``Tag`` value.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-truststore-tag.html}
  */
 export type Tag = {
   /**
-   * @minLength `1`
-   * @maxLength `128`
-   * @pattern `^[a-zA-Z0-9 _.:/=+\-@]{1,128}\Z`
-   */
+     * A string that contains ``Tag`` key.
+     The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
+     * @minLength `1`
+     * @maxLength `128`
+     * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+     */
   Key: string;
   /**
-   * @minLength `0`
-   * @maxLength `256`
-   * @pattern `^[a-zA-Z0-9 _.:/=+\-@]{0,256}\Z`
-   */
+     * A string that contains an optional ``Tag`` value.
+     The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
+     * @minLength `0`
+     * @maxLength `256`
+     * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+     */
   Value: string;
 };
 /**
- * Resource Type definition for AWS::CloudFront::TrustStore. TrustStores contain CA certificates for mTLS authentication and can be associated with CloudFront distributions.
+ * Resource type definition for `AWS::CloudFront::TrustStore`.
+ * A trust store.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-truststore.html}
  */
 export class CloudFrontTrustStore extends $Resource<

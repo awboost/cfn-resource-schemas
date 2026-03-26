@@ -13,6 +13,7 @@ export type EC2EC2FleetProperties = {
   LaunchTemplateConfigs: FleetLaunchTemplateConfigRequest[];
   OnDemandOptions?: OnDemandOptionsRequest;
   ReplaceUnhealthyInstances?: boolean;
+  ReservedCapacityOptions?: ReservedCapacityOptionsRequest;
   SpotOptions?: SpotOptionsRequest;
   TagSpecifications?: TagSpecification[];
   TargetCapacitySpecification: TargetCapacitySpecificationRequest;
@@ -271,6 +272,13 @@ export type Placement = {
   PartitionNumber?: number;
   SpreadDomain?: string;
   Tenancy?: string;
+};
+/**
+ * Type definition for `AWS::EC2::EC2Fleet.ReservedCapacityOptionsRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-reservedcapacityoptionsrequest.html}
+ */
+export type ReservedCapacityOptionsRequest = {
+  ReservationTypes?: "interruptible-capacity-reservation"[];
 };
 /**
  * Type definition for `AWS::EC2::EC2Fleet.SpotOptionsRequest`.

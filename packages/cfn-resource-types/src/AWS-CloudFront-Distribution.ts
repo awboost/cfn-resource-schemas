@@ -158,9 +158,13 @@ export type CacheBehavior = {
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.ConnectionFunctionAssociation`.
+ * A connection function association.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-connectionfunctionassociation.html}
  */
 export type ConnectionFunctionAssociation = {
+  /**
+   * The association's ID.
+   */
   Id: string;
 };
 /**
@@ -256,6 +260,9 @@ export type CustomOriginConfig = {
      For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
      */
   OriginKeepaliveTimeout?: number;
+  /**
+   * Configures mutual TLS authentication between CloudFront and your origin server.
+   */
   OriginMtlsConfig?: OriginMtlsConfig;
   /**
      * Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin. Valid values are:
@@ -424,6 +431,9 @@ export type DistributionConfig = {
    * A comment to describe the distribution. The comment cannot be longer than 128 characters.
    */
   Comment?: string;
+  /**
+   * The distribution's connection function association.
+   */
   ConnectionFunctionAssociation?: ConnectionFunctionAssociation;
   /**
    * This field specifies whether the connection mode is through a standard distribution (direct) or a multi-tenant distribution with distribution tenants (tenant-only).
@@ -529,6 +539,9 @@ export type DistributionConfig = {
    * A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
    */
   ViewerCertificate?: ViewerCertificate;
+  /**
+   * The distribution's viewer mTLS configuration.
+   */
   ViewerMtlsConfig?: ViewerMtlsConfig;
   /**
      * Multi-tenant distributions only support WAF V2 web ACLs.
@@ -895,9 +908,13 @@ export type OriginGroups = {
 export type OriginGroupSelectionCriteria = "default" | "media-quality-based";
 /**
  * Type definition for `AWS::CloudFront::Distribution.OriginMtlsConfig`.
+ * Configures mutual TLS authentication between CloudFront and your origin server.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originmtlsconfig.html}
  */
 export type OriginMtlsConfig = {
+  /**
+   * The Amazon Resource Name (ARN) of the client certificate stored in AWS Certificate Manager (ACM) that CloudFront uses to authenticate with your origin using Mutual TLS.
+   */
   ClientCertificateArn: string;
 };
 /**
@@ -1008,11 +1025,21 @@ export type Tag = {
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.TrustStoreConfig`.
+ * A trust store configuration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-truststoreconfig.html}
  */
 export type TrustStoreConfig = {
+  /**
+   * The configuration to use to advertise trust store CA names.
+   */
   AdvertiseTrustStoreCaNames?: boolean;
+  /**
+   * The configuration to use to ignore certificate expiration.
+   */
   IgnoreCertificateExpiry?: boolean;
+  /**
+   * The trust store ID.
+   */
   TrustStoreId: string;
 };
 /**
@@ -1080,10 +1107,17 @@ export type ViewerCertificate = {
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.ViewerMtlsConfig`.
+ * A viewer mTLS configuration.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewermtlsconfig.html}
  */
 export type ViewerMtlsConfig = {
+  /**
+   * The viewer mTLS mode.
+   */
   Mode?: ViewerMtlsMode;
+  /**
+   * The trust store configuration associated with the viewer mTLS configuration.
+   */
   TrustStoreConfig?: TrustStoreConfig;
 };
 /**
@@ -1107,6 +1141,9 @@ export type VpcOriginConfig = {
      For more information, see [Response timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistValuesOrigin.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
      */
   OriginReadTimeout?: number;
+  /**
+   * The account ID of the AWS-account that owns the VPC origin.
+   */
   OwnerAccountId?: string;
   /**
    * The VPC origin ID.
