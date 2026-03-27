@@ -1,6 +1,9 @@
 {
-  "$hash": "8c844cd427104cd8f0450d31b9482e822ee2c96d",
+  "$hash": "6a3e3f861346197877a18f1c6f2148a1ddfef86a",
   "$id": "aws-bedrockagentcore-policy.json",
+  "additionalIdentifiers": [
+    ["/properties/PolicyEngineId", "/properties/PolicyId"]
+  ],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyEngineId", "/properties/Name"],
   "definitions": {

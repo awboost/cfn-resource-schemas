@@ -1,51 +1,23 @@
-- added `AWS::CustomerProfiles::Recommender`
-- updated `AWS::AutoScaling::AutoScalingGroup`
-  - added property `AvailabilityZoneIds`
-- updated `AWS::CloudFront::ConnectionFunction`
-  - updated definition `ConnectionFunctionConfig`
-  - updated definition `KeyValueStoreAssociation`
-  - updated definition `Tag`
-  - updated property `AutoPublish`
-  - updated property `ConnectionFunctionArn`
-  - updated property `ConnectionFunctionCode`
-  - updated property `ConnectionFunctionConfig`
-  - updated property `CreatedTime`
-  - updated property `ETag`
-  - updated property `Id`
-  - updated property `LastModifiedTime`
-  - updated property `Name`
-  - updated property `Stage`
-  - updated property `Status`
-  - updated property `Tags`
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `ConnectionFunctionAssociation`
-  - updated definition `CustomOriginConfig`
-  - updated definition `DistributionConfig`
-  - updated definition `OriginMtlsConfig`
-  - updated definition `TrustStoreConfig`
-  - updated definition `ViewerMtlsConfig`
-  - updated definition `VpcOriginConfig`
-- updated `AWS::CloudFront::TrustStore`
-  - updated definition `CaCertificatesBundleS3Location`
-  - updated definition `CaCertificatesBundleSource`
-  - updated definition `Tag`
-  - updated property `Arn`
-  - updated property `CaCertificatesBundleSource`
-  - updated property `ETag`
-  - updated property `Id`
-  - updated property `LastModifiedTime`
-  - updated property `Name`
-  - updated property `NumberOfCaCertificates`
-  - updated property `Status`
-  - updated property `Tags`
-- updated `AWS::EC2::EC2Fleet`
-  - added property `ReservedCapacityOptions`
-  - updated `createOnlyProperties`
-- updated `AWS::OpenSearchServerless::Collection`
-  - added definition `FipsEndpoints`
-  - added property `FipsEndpoints`
+- updated `AWS::BedrockAgentCore::OnlineEvaluationConfig`
+  - added `additionalIdentifiers`
   - updated `readOnlyProperties`
-- updated `AWS::PCS::Cluster`
-  - added definition `CgroupCustomSetting`
-  - added definition `SlurmdbdCustomSetting`
-  - updated property `SlurmConfiguration`
+- updated `AWS::BedrockAgentCore::Policy`
+  - added `additionalIdentifiers`
+- updated `AWS::DevOpsAgent::AgentSpace`
+  - added `createOnlyProperties`
+  - added definition `Tag`
+  - added property `KmsKeyArn`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::DevOpsAgent::Service`
+  - added definition `Tag`
+  - added property `Arn`
+  - added property `KmsKeyArn`
+  - added property `Tags`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Organizations::ResourcePolicy`
+  - updated `tagging`

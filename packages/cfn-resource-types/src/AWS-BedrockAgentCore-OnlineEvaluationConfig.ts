@@ -29,6 +29,10 @@ export type BedrockAgentCoreOnlineEvaluationConfigProperties = {
    */
   Evaluators: EvaluatorReference[];
   /**
+   * The execution status indicating whether the online evaluation is currently running.
+   */
+  ExecutionStatus?: ExecutionStatus;
+  /**
    * The name of the online evaluation configuration. Must be unique within your account.
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
    */
@@ -51,10 +55,6 @@ export type BedrockAgentCoreOnlineEvaluationConfigAttributes = {
    * The timestamp when the online evaluation configuration was created.
    */
   CreatedAt: string;
-  /**
-   * The execution status indicating whether the online evaluation is currently running.
-   */
-  ExecutionStatus: ExecutionStatus;
   /**
    * The Amazon Resource Name (ARN) of the online evaluation configuration.
    * @pattern `^arn:(aws|aws-cn|aws-us-gov):bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:online-evaluation-config/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$`

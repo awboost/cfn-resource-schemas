@@ -1,6 +1,7 @@
 {
-  "$hash": "da85accfebd3528ee767081968c3aa1a90ebf816",
+  "$hash": "aad688a5578b996bc9ee8ed31360f27066cc3a40",
   "$id": "aws-bedrockagentcore-onlineevaluationconfig.json",
+  "additionalIdentifiers": [["/properties/OnlineEvaluationConfigId"]],
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/OnlineEvaluationConfigName"],
   "definitions": {
@@ -322,7 +323,6 @@
     "/properties/OnlineEvaluationConfigId",
     "/properties/OnlineEvaluationConfigArn",
     "/properties/Status",
-    "/properties/ExecutionStatus",
     "/properties/OutputConfig",
     "/properties/CreatedAt",
     "/properties/UpdatedAt"

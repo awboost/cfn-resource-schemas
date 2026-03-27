@@ -12,12 +12,22 @@ export type DevOpsAgentAgentSpaceProperties = {
    */
   Description?: string;
   /**
+   * The ARN of the KMS key to use for encryption.
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  KmsKeyArn?: string;
+  /**
    * The name of the AgentSpace.
    * @minLength `1`
    * @maxLength `255`
    */
   Name: string;
   OperatorApp?: OperatorApp;
+  /**
+   * An array of key-value pairs to apply to this resource.
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::DevOpsAgent::AgentSpace`.
@@ -76,6 +86,25 @@ export type IdcAuthConfiguration = {
 export type OperatorApp = {
   Iam?: IamAuthConfiguration;
   Idc?: IdcAuthConfiguration;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::AgentSpace.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-agentspace-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::DevOpsAgent::AgentSpace

@@ -6,6 +6,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type DevOpsAgentServiceProperties = {
   /**
+   * The ARN of the KMS key to use for encryption.
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  KmsKeyArn?: string;
+  /**
    * Service-specific configuration details for create operation
    */
   ServiceDetails?: ServiceDetails;
@@ -13,6 +19,10 @@ export type DevOpsAgentServiceProperties = {
    * The type of service being registered
    */
   ServiceType: ServiceType;
+  /**
+   * An array of key-value pairs to apply to this resource.
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::DevOpsAgent::Service`.
@@ -27,6 +37,10 @@ export type DevOpsAgentServiceAttributes = {
    * Additional details specific to the service type
    */
   AdditionalServiceDetails: AdditionalServiceDetails;
+  /**
+   * The Amazon Resource Name (ARN) of the Service.
+   */
+  Arn: string;
   /**
    * The unique identifier of the service
    * @minLength `1`
@@ -526,6 +540,25 @@ export type ServiceType =
   | "mcpservernewrelic"
   | "gitlab"
   | "servicenow";
+/**
+ * Type definition for `AWS::DevOpsAgent::Service.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the tag.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
+};
 /**
  * The AWS::DevOpsAgent::Service resource registers external services (like Dynatrace, MCP servers, GitLab) for integration with DevOpsAgent.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsagent-service.html}
