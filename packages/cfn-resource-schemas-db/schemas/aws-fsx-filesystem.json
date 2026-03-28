@@ -1,5 +1,5 @@
 {
-  "$hash": "cbdb12f9b8d4a257822373ddd636f1b42b8c107d",
+  "$hash": "7627984727bfdd73d9f2e44b5c04ea43675b560e",
   "$id": "aws-fsx-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -46,6 +46,15 @@
         "Iops": { "type": "integer" },
         "Mode": { "type": "string" }
       },
+      "type": "object"
+    },
+    "FsrmConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "EventLogDestination": { "type": "string" },
+        "FsrmServiceEnabled": { "type": "boolean" }
+      },
+      "required": ["FsrmServiceEnabled"],
       "type": "object"
     },
     "LustreConfiguration": {
@@ -237,6 +246,7 @@
         "DiskIopsConfiguration": {
           "$ref": "#/definitions/DiskIopsConfiguration"
         },
+        "FsrmConfiguration": { "$ref": "#/definitions/FsrmConfiguration" },
         "PreferredSubnetId": { "type": "string" },
         "SelfManagedActiveDirectoryConfiguration": {
           "$ref": "#/definitions/SelfManagedActiveDirectoryConfiguration"

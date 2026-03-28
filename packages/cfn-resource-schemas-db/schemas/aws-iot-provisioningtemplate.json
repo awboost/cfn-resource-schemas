@@ -1,5 +1,5 @@
 {
-  "$hash": "236ab7df98b33dece8f169c8da360f029bfd7370",
+  "$hash": "6e3c28feaa67e4aacd30d51ba37d38a34c88bc5a",
   "$id": "aws-iot-provisioningtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -95,7 +95,7 @@
   "required": ["ProvisioningRoleArn", "TemplateBody"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "iot:ListTagsForResource",
       "iot:TagResource",

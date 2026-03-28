@@ -1,5 +1,5 @@
 {
-  "$hash": "11fc88ce25d304d237f8bddc64e0e34c323902cd",
+  "$hash": "f6c9c23f959385d53e8724e05c38fd755be3a73d",
   "$id": "aws-iot-rolealias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RoleAlias"],
@@ -107,7 +107,7 @@
   "required": ["RoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "iot:ListTagsForResource",
       "iot:TagResource",

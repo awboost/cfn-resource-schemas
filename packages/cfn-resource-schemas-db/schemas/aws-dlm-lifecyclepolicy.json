@@ -1,5 +1,5 @@
 {
-  "$hash": "aa0c68fe30c5fb06dc5b438647c1287c6eeff66a",
+  "$hash": "875324199118140b4472fc5d0075c5def5bd8188",
   "$id": "aws-dlm-lifecyclepolicy.json",
   "additionalProperties": false,
   "definitions": {
@@ -164,6 +164,11 @@
     "FastRestoreRule": {
       "additionalProperties": false,
       "properties": {
+        "AvailabilityZoneIds": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "AvailabilityZones": {
           "items": { "type": "string" },
           "type": "array",

@@ -1,23 +1,90 @@
-- updated `AWS::BedrockAgentCore::OnlineEvaluationConfig`
-  - added `additionalIdentifiers`
-  - updated `readOnlyProperties`
-- updated `AWS::BedrockAgentCore::Policy`
-  - added `additionalIdentifiers`
-- updated `AWS::DevOpsAgent::AgentSpace`
-  - added `createOnlyProperties`
-  - added definition `Tag`
-  - added property `KmsKeyArn`
-  - added property `Tags`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::DevOpsAgent::Service`
-  - added definition `Tag`
-  - added property `Arn`
-  - added property `KmsKeyArn`
-  - added property `Tags`
+- added `AWS::Omics::Configuration`
+- updated `AWS::DLM::LifecyclePolicy`
+  - updated definition `FastRestoreRule`
+- updated `AWS::EMR::Cluster`
+  - added definition `Configuration`
+  - removed `conditionalCreateOnlyProperties`
+  - removed `deprecatedProperties`
+  - removed `propertyTransform`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - removed `writeOnlyProperties`
+  - removed definition `CloudWatchLogConfiguration`
+  - removed definition `EMRConfiguration`
+  - removed definition `MonitoringConfiguration`
+  - removed property `MonitoringConfiguration`
   - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated `tagging`
+  - updated definition `Application`
+  - updated definition `AutoTerminationPolicy`
+  - updated definition `BootstrapActionConfig`
+  - updated definition `CloudWatchAlarmDefinition`
+  - updated definition `ComputeLimits`
+  - updated definition `EbsBlockDeviceConfig`
+  - updated definition `EbsConfiguration`
+  - updated definition `HadoopJarStepConfig`
+  - updated definition `InstanceFleetConfig`
+  - updated definition `InstanceGroupConfig`
+  - updated definition `InstanceTypeConfig`
+  - updated definition `JobFlowInstancesConfig`
+  - updated definition `KerberosAttributes`
+  - updated definition `MetricDimension`
+  - updated definition `OnDemandCapacityReservationOptions`
+  - updated definition `OnDemandProvisioningSpecification`
+  - updated definition `PlacementGroupConfig`
+  - updated definition `PlacementType`
+  - updated definition `ScalingAction`
+  - updated definition `ScalingConstraints`
+  - updated definition `ScalingRule`
+  - updated definition `ScalingTrigger`
+  - updated definition `ScriptBootstrapActionConfig`
+  - updated definition `SimpleScalingPolicyConfiguration`
+  - updated definition `SpotProvisioningSpecification`
+  - updated definition `StepConfig`
+  - updated definition `Tag`
+  - updated definition `VolumeSpecification`
   - updated handler permissions
-- updated `AWS::Organizations::ResourcePolicy`
+  - updated property `AdditionalInfo`
+  - updated property `Applications`
+  - updated property `AutoScalingRole`
+  - updated property `AutoTerminationPolicy`
+  - updated property `BootstrapActions`
+  - updated property `Configurations`
+  - updated property `CustomAmiId`
+  - updated property `EbsRootVolumeIops`
+  - updated property `EbsRootVolumeSize`
+  - updated property `EbsRootVolumeThroughput`
+  - updated property `Id`
+  - updated property `Instances`
+  - updated property `JobFlowRole`
+  - updated property `KerberosAttributes`
+  - updated property `LogEncryptionKmsKeyId`
+  - updated property `LogUri`
+  - updated property `ManagedScalingPolicy`
+  - updated property `MasterPublicDNS`
+  - updated property `Name`
+  - updated property `OSReleaseLabel`
+  - updated property `PlacementGroupConfigs`
+  - updated property `ReleaseLabel`
+  - updated property `ScaleDownBehavior`
+  - updated property `SecurityConfiguration`
+  - updated property `ServiceRole`
+  - updated property `StepConcurrencyLevel`
+  - updated property `Steps`
+  - updated property `VisibleToAllUsers`
+- updated `AWS::FSx::FileSystem`
+  - added definition `FsrmConfiguration`
+  - updated definition `WindowsConfiguration`
+- updated `AWS::IoT::Authorizer`
   - updated `tagging`
+- updated `AWS::IoT::CACertificate`
+  - updated `tagging`
+- updated `AWS::IoT::CertificateProvider`
+  - updated `tagging`
+- updated `AWS::IoT::DomainConfiguration`
+  - updated `tagging`
+- updated `AWS::IoT::ProvisioningTemplate`
+  - updated `tagging`
+- updated `AWS::IoT::RoleAlias`
+  - updated `tagging`
+- updated `AWS::SSO::Instance`
+  - updated property `InstanceArn`

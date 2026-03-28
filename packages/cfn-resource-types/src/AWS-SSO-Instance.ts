@@ -34,7 +34,7 @@ export type SSOInstanceAttributes = {
    * The SSO Instance ARN that is returned upon creation of the Identity Center (SSO) Instance
    * @minLength `10`
    * @maxLength `1224`
-   * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$`
+   * @pattern `^arn:aws(-[a-z]{1,5}){0,3}:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$`
    */
   InstanceArn: string;
   /**

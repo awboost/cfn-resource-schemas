@@ -65,6 +65,14 @@ export type DiskIopsConfiguration = {
   Mode?: string;
 };
 /**
+ * Type definition for `AWS::FSx::FileSystem.FsrmConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-fsrmconfiguration.html}
+ */
+export type FsrmConfiguration = {
+  EventLogDestination?: string;
+  FsrmServiceEnabled: boolean;
+};
+/**
  * Type definition for `AWS::FSx::FileSystem.LustreConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html}
  */
@@ -204,6 +212,7 @@ export type WindowsConfiguration = {
   DailyAutomaticBackupStartTime?: string;
   DeploymentType?: string;
   DiskIopsConfiguration?: DiskIopsConfiguration;
+  FsrmConfiguration?: FsrmConfiguration;
   PreferredSubnetId?: string;
   SelfManagedActiveDirectoryConfiguration?: SelfManagedActiveDirectoryConfiguration;
   ThroughputCapacity: number;

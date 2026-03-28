@@ -153,6 +153,7 @@ export type Exclusions = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-fastrestorerule.html}
  */
 export type FastRestoreRule = {
+  AvailabilityZoneIds?: string[];
   AvailabilityZones?: string[];
   Count?: number;
   Interval?: number;
