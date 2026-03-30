@@ -1,5 +1,5 @@
 {
-  "$hash": "721c1402b77d34f19362da5371f19311443ea5b3",
+  "$hash": "4d5d50e349c92d5a2e64c0c99e25686abd5ab0a1",
   "$id": "aws-devopsagent-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -564,6 +564,7 @@
         "aidevops:GetService",
         "aidevops:TagResource",
         "aidevops:ListTagsForResource",
+        "iam:CreateServiceLinkedRole",
         "kms:Decrypt",
         "kms:DescribeKey",
         "kms:Encrypt",

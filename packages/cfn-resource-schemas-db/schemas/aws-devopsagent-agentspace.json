@@ -1,5 +1,5 @@
 {
-  "$hash": "537681b7191362d4623b03a6caba3eaea292ffd7",
+  "$hash": "1a7327f4b58af7a43265833c4a886e931ecd1879",
   "$id": "aws-devopsagent-agentspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn"],
@@ -65,6 +65,7 @@
         "aidevops:GetOperatorAppTeams",
         "aidevops:TagResource",
         "aidevops:ListTagsForResource",
+        "iam:CreateServiceLinkedRole",
         "iam:PassRole",
         "kms:CreateGrant",
         "kms:Decrypt",

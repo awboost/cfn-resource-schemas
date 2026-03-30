@@ -1,16 +1,4 @@
-- updated `AWS::EMR::Cluster`
-  - added definition `CloudWatchLogConfiguration`
-  - added definition `EMRConfiguration`
-  - added definition `MonitoringConfiguration`
-  - added property `MonitoringConfiguration`
-  - removed definition `Configuration`
-  - removed property `VisibleToAllUsers`
-  - updated `createOnlyProperties`
-  - updated definition `Application`
-  - updated definition `HadoopJarStepConfig`
-  - updated definition `InstanceGroupConfig`
-  - updated definition `InstanceTypeConfig`
-  - updated definition `ScriptBootstrapActionConfig`
-  - updated property `BootstrapActions`
-  - updated property `Configurations`
-  - updated property `Steps`
+- updated `AWS::DevOpsAgent::AgentSpace`
+  - updated handler permissions
+- updated `AWS::DevOpsAgent::Service`
+  - updated handler permissions
