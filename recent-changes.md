@@ -1,4 +1,43 @@
-- updated `AWS::DevOpsAgent::AgentSpace`
+- updated `AWS::AppStream::Stack`
+  - added `sourceUrl`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `AccessEndpoint`
+  - updated definition `ApplicationSettings`
+  - updated definition `StorageConnector`
+  - updated definition `StreamingExperienceSettings`
+  - updated definition `Tag`
+  - updated definition `UserSetting`
   - updated handler permissions
-- updated `AWS::DevOpsAgent::Service`
-  - updated handler permissions
+  - updated property `AccessEndpoints`
+  - updated property `ApplicationSettings`
+  - updated property `AttributesToDelete`
+  - updated property `DeleteStorageConnectors`
+  - updated property `Description`
+  - updated property `DisplayName`
+  - updated property `EmbedHostDomains`
+  - updated property `FeedbackURL`
+  - updated property `Name`
+  - updated property `RedirectURL`
+  - updated property `StorageConnectors`
+  - updated property `StreamingExperienceSettings`
+  - updated property `Tags`
+  - updated property `UserSettings`
+- updated `AWS::BedrockAgentCore::Gateway`
+  - updated definition `GatewayPolicyEngineConfiguration`
+  - updated definition `LambdaInterceptorConfiguration`
+  - updated property `GatewayArn`
+  - updated property `KmsKeyArn`
+  - updated property `RoleArn`
+- updated `AWS::ECS::CapacityProvider`
+  - added definition `ManagedInstancesLocalStorageConfiguration`
+  - updated definition `InstanceLaunchTemplate`
+- updated `AWS::RDS::DBProxy`
+  - updated `tagging`
+- updated `AWS::RDS::DBProxyEndpoint`
+  - updated `tagging`
+- updated `AWS::WorkSpacesWeb::TrustStore`
+  - updated `tagging`

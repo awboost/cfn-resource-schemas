@@ -70,6 +70,7 @@ export type InstanceLaunchTemplate = {
   FipsEnabled?: boolean;
   InstanceMetadataTagsPropagation?: boolean;
   InstanceRequirements?: InstanceRequirementsRequest;
+  LocalStorageConfiguration?: ManagedInstancesLocalStorageConfiguration;
   Monitoring?: ManagedInstancesMonitoringOptions;
   NetworkConfiguration: ManagedInstancesNetworkConfiguration;
   StorageConfiguration?: ManagedInstancesStorageConfiguration;
@@ -123,6 +124,13 @@ export type InstanceRequirementsRequest = {
   SpotMaxPricePercentageOverLowestPrice?: number;
   TotalLocalStorageGB?: TotalLocalStorageGBRequest;
   VCpuCount: VCpuCountRangeRequest;
+};
+/**
+ * Type definition for `AWS::ECS::CapacityProvider.ManagedInstancesLocalStorageConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstanceslocalstorageconfiguration.html}
+ */
+export type ManagedInstancesLocalStorageConfiguration = {
+  UseLocalStorage?: boolean;
 };
 /**
  * Type definition for `AWS::ECS::CapacityProvider.ManagedInstancesMonitoringOptions`.

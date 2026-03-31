@@ -21,7 +21,7 @@ export type BedrockAgentCoreGatewayProperties = {
   /**
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
+   * @pattern `^arn:[a-z0-9-]{1,20}:kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
    */
   KmsKeyArn?: string;
   /**
@@ -37,7 +37,7 @@ export type BedrockAgentCoreGatewayProperties = {
   /**
    * @minLength `1`
    * @maxLength `2048`
-   * @pattern `^arn:aws(-[^:]+)?:iam::([0-9]{12})?:role/.+$`
+   * @pattern `^arn:[a-z0-9-]{1,20}:iam::([0-9]{12})?:role/.+$`
    */
   RoleArn: string;
   Tags?: TagsMap;
@@ -49,7 +49,7 @@ export type BedrockAgentCoreGatewayProperties = {
 export type BedrockAgentCoreGatewayAttributes = {
   CreatedAt: string;
   /**
-   * @pattern `^arn:aws(|-cn|-us-gov):bedrock-agentcore:[a-z0-9-]{1,20}:[0-9]{12}:gateway/([0-9a-z][-]?){1,100}-[a-z0-9]{10}$`
+   * @pattern `^arn:[a-z0-9-]{1,20}:bedrock-agentcore:[a-z0-9-]{1,20}:[0-9]{12}:gateway/([0-9a-z][-]?){1,100}-[a-z0-9]{10}$`
    */
   GatewayArn: string;
   /**
@@ -205,7 +205,7 @@ export type GatewayPolicyEngineConfiguration = {
    * The ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
    * @minLength `1`
    * @maxLength `170`
-   * @pattern `^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:policy-engine/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9_]{10}$`
+   * @pattern `^arn:[a-z0-9-]{1,20}:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:policy-engine/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9_]{10}$`
    */
   Arn: string;
   /**
@@ -270,7 +270,7 @@ export type LambdaInterceptorConfiguration = {
   /**
    * @minLength `1`
    * @maxLength `170`
-   * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:([a-z]{2}(-gov)?-[a-z]+-\d{1}):(\d{12}):function:([a-zA-Z0-9-_.]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+   * @pattern `^arn:[a-z0-9-]{1,20}:lambda:([a-z]{2}(-gov)?-[a-z]+-\d{1}):(\d{12}):function:([a-zA-Z0-9-_.]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
    */
   Arn: string;
 };

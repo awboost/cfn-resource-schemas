@@ -1,5 +1,5 @@
 {
-  "$hash": "af0fbb607f501955c6ac8e02e7ccffbb88e35bfc",
+  "$hash": "6eba5b18f99ce30caafdc8d6b0b48d37ed17038c",
   "$id": "aws-rds-dbproxyendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -128,7 +128,7 @@
   "required": ["DBProxyName", "DBProxyEndpointName", "VpcSubnetIds"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "rds:AddTagsToResource",
       "rds:RemoveTagsFromResource",

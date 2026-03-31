@@ -1,5 +1,5 @@
 {
-  "$hash": "0da4c5d992dc4918ed3ac8bf3fe71a93286f9288",
+  "$hash": "ee7e26846a5a9d5362b29368bb4cd117619ec0c5",
   "$id": "aws-workspacesweb-truststore.json",
   "additionalProperties": false,
   "definitions": {
@@ -105,7 +105,7 @@
   ],
   "required": ["CertificateList"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:UntagResource",
       "workspaces-web:ListTagsForResource",
