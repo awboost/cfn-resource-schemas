@@ -1,0 +1,271 @@
+{
+  "$hash": "4027319e37052a96ed495d3566e913af83f9bb0c",
+  "$id": "aws-securityagent-agentspace.json",
+  "additionalProperties": false,
+  "definitions": {
+    "AWSResources": {
+      "additionalProperties": false,
+      "description": "AWS resource configuration",
+      "properties": {
+        "IamRoles": {
+          "description": "IAM role ARNs",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "LambdaFunctionArns": {
+          "description": "Lambda function ARNs used to retrieve tester credentials for pentests",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "LogGroups": {
+          "description": "CloudWatch log group ARNs",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "S3Buckets": {
+          "description": "S3 bucket ARNs",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "SecretArns": {
+          "description": "SecretsManager secret ARNs used to store tester credentials for pentests",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "Vpcs": {
+          "description": "VPC configurations",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/VpcConfig" },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "CodeReviewSettings": {
+      "additionalProperties": false,
+      "description": "Details of code review settings",
+      "properties": {
+        "ControlsScanning": {
+          "description": "Whether Controls are utilized for code review analysis",
+          "type": "boolean"
+        },
+        "GeneralPurposeScanning": {
+          "description": "Whether general purpose analysis is performed for code review",
+          "type": "boolean"
+        }
+      },
+      "required": ["ControlsScanning", "GeneralPurposeScanning"],
+      "type": "object"
+    },
+    "GitHubCapabilitiesResource": {
+      "additionalProperties": false,
+      "description": "GitHub repository capabilities",
+      "properties": {
+        "LeaveComments": {
+          "description": "Enables Code Review in the repository",
+          "type": "boolean"
+        },
+        "RemediateCode": {
+          "description": "Enables creation of pull requests with automated fixes",
+          "type": "boolean"
+        }
+      },
+      "required": ["LeaveComments", "RemediateCode"],
+      "type": "object"
+    },
+    "GitHubRepositoryResource": {
+      "additionalProperties": false,
+      "description": "GitHub repository details",
+      "properties": {
+        "Name": { "description": "GitHub repository name", "type": "string" },
+        "Owner": {
+          "description": "GitHub repository owner (user or organization)",
+          "type": "string"
+        }
+      },
+      "required": ["Name", "Owner"],
+      "type": "object"
+    },
+    "IntegratedResource": {
+      "additionalProperties": false,
+      "description": "Integrated Resource details",
+      "properties": {
+        "Integration": {
+          "description": "Unique identifier of the Provider Integration",
+          "type": "string"
+        },
+        "ProviderResources": {
+          "description": "List of selected Resources from the Integration",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/ProviderResource" },
+          "type": "array"
+        }
+      },
+      "required": ["Integration", "ProviderResources"],
+      "type": "object"
+    },
+    "IntegratedResources": {
+      "description": "Integrated Resources configuration",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/IntegratedResource" },
+      "type": "array"
+    },
+    "ProviderResource": {
+      "additionalProperties": false,
+      "allOf": [
+        { "oneOf": [{ "required": ["GitHubRepository"] }] },
+        { "oneOf": [{ "required": ["GitHubCapabilities"] }] }
+      ],
+      "description": "Selected Resource (eg: Code Repository) from an Integration",
+      "properties": {
+        "GitHubCapabilities": {
+          "$ref": "#/definitions/GitHubCapabilitiesResource"
+        },
+        "GitHubRepository": { "$ref": "#/definitions/GitHubRepositoryResource" }
+      },
+      "type": "object"
+    },
+    "Tag": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource",
+      "properties": {
+        "Key": {
+          "description": "The key name of the tag",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
+    "VpcConfig": {
+      "additionalProperties": false,
+      "description": "Customer VPC configuration that the security testing environment accesses",
+      "properties": {
+        "SecurityGroupArns": {
+          "description": "List of security group ARNs in the customer VPC",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "SubnetArns": {
+          "description": "List of subnet ARNs in the customer VPC",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array"
+        },
+        "VpcArn": { "description": "ARN of the customer VPC", "type": "string" }
+      },
+      "type": "object"
+    }
+  },
+  "description": "Resource Type definition for AWS::SecurityAgent::AgentSpace",
+  "handlers": {
+    "create": {
+      "permissions": [
+        "securityagent:CreateAgentSpace",
+        "securityagent:BatchGetAgentSpaces",
+        "securityagent:TagResource",
+        "securityagent:ListTagsForResource",
+        "securityagent:UpdateIntegratedResources",
+        "securityagent:ListIntegratedResources",
+        "iam:PassRole"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "securityagent:DeleteAgentSpace",
+        "securityagent:BatchGetAgentSpaces"
+      ]
+    },
+    "list": { "permissions": ["securityagent:ListAgentSpaces"] },
+    "read": {
+      "permissions": [
+        "securityagent:BatchGetAgentSpaces",
+        "securityagent:ListTagsForResource",
+        "securityagent:ListIntegratedResources"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "securityagent:UpdateAgentSpace",
+        "securityagent:BatchGetAgentSpaces",
+        "securityagent:TagResource",
+        "securityagent:UntagResource",
+        "securityagent:ListTagsForResource",
+        "securityagent:UpdateIntegratedResources",
+        "securityagent:ListIntegratedResources",
+        "iam:PassRole"
+      ]
+    }
+  },
+  "primaryIdentifier": ["/properties/AgentSpaceId"],
+  "properties": {
+    "AgentSpaceId": {
+      "description": "Unique identifier of the agent space",
+      "type": "string"
+    },
+    "AwsResources": { "$ref": "#/definitions/AWSResources" },
+    "CodeReviewSettings": { "$ref": "#/definitions/CodeReviewSettings" },
+    "CreatedAt": {
+      "description": "Timestamp when the agent space was created",
+      "format": "date-time",
+      "type": "string"
+    },
+    "Description": {
+      "description": "Description of the agent space",
+      "type": "string"
+    },
+    "IntegratedResources": { "$ref": "#/definitions/IntegratedResources" },
+    "Name": { "description": "Name of the agent space", "type": "string" },
+    "Tags": {
+      "description": "Tags for the agent space",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "TargetDomainIds": {
+      "description": "List of target domain identifiers registered with the agent space",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array"
+    },
+    "UpdatedAt": {
+      "description": "Timestamp when the agent space was last updated",
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "readOnlyProperties": [
+    "/properties/AgentSpaceId",
+    "/properties/CreatedAt",
+    "/properties/UpdatedAt"
+  ],
+  "required": ["Name"],
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "securityagent:TagResource",
+      "securityagent:UntagResource",
+      "securityagent:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::SecurityAgent::AgentSpace"
+}

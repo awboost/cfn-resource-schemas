@@ -32,7 +32,7 @@ export type QuickSightDataSourceProperties = {
   Credentials?: DataSourceCredentials;
   DataSourceId?: string;
   /**
-     * <p>The parameters that Amazon Quick Suite uses to connect to your underlying data source.
+     * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
                 This is a variant type structure. For this structure to be valid, only one of the
                 attributes can be non-null.</p>
      */
@@ -57,7 +57,7 @@ export type QuickSightDataSourceProperties = {
    */
   Permissions?: ResourcePermission[];
   /**
-     * <p>Secure Socket Layer (SSL) properties that apply when Quick Suite connects to your
+     * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
                 underlying data source.</p>
      */
   SslProperties?: SslProperties;
@@ -308,7 +308,7 @@ export type DataSourceErrorInfoType =
   | "UNKNOWN";
 /**
  * Type definition for `AWS::QuickSight::DataSource.DataSourceParameters`.
- * <p>The parameters that Amazon Quick Suite uses to connect to your underlying data source.
+ * <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
             This is a variant type structure. For this structure to be valid, only one of the
             attributes can be non-null.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html}
@@ -371,6 +371,7 @@ export type DataSourceParameters = {
    * <p>The parameters for S3.</p>
    */
   S3Parameters?: S3Parameters;
+  S3TablesParameters?: S3TablesParameters;
   /**
    * <p>The parameters for Snowflake.</p>
    */
@@ -452,7 +453,8 @@ export type DataSourceType =
   | "CONFLUENCE"
   | "SHAREPOINT"
   | "ONE_DRIVE"
-  | "WEB_CRAWLER";
+  | "WEB_CRAWLER"
+  | "BOX";
 /**
  * Type definition for `AWS::QuickSight::DataSource.IdentityCenterConfiguration`.
  * <p>The parameters for an IAM Identity Center configuration.</p>
@@ -677,30 +679,30 @@ export type RdsParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.RedshiftIAMParameters`.
- * <p>A structure that grants Quick Suite access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+ * <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
                <code>GetClusterCredentials</code>
             </a>.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftiamparameters.html}
  */
 export type RedshiftIAMParameters = {
   /**
-   * <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon Quick Suite can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
+   * <p>Automatically creates a database user. If your database doesn't have a <code>DatabaseUser</code>, set this parameter to <code>True</code>. If there is no <code>DatabaseUser</code>, Amazon QuickSight can't connect to your cluster. The <code>RoleArn</code> that you use for this operation must grant access to <code>redshift:CreateClusterUser</code> to successfully create the user.</p>
    */
   AutoCreateDatabaseUser?: boolean;
   /**
-   * <p>A list of groups whose permissions will be granted to Quick Suite to access the cluster. These permissions are combined with the permissions granted to Quick Suite by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
+   * <p>A list of groups whose permissions will be granted to Amazon QuickSight to access the cluster. These permissions are combined with the permissions granted to Amazon QuickSight by the <code>DatabaseUser</code>. If you choose to include this parameter, the <code>RoleArn</code> must grant access to <code>redshift:JoinGroup</code>.</p>
    * @minLength `1`
    * @maxLength `50`
    */
   DatabaseGroups?: string[];
   /**
-   * <p>The user whose permissions and group memberships will be used by Quick Suite to access the cluster. If this user already exists in your database, Quick Suite is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
+   * <p>The user whose permissions and group memberships will be used by Amazon QuickSight to access the cluster. If this user already exists in your database, Amazon QuickSight is granted the same permissions that the user has. If the user doesn't exist, set the value of <code>AutoCreateDatabaseUser</code> to <code>True</code> to create a new user with PUBLIC permissions.</p>
    * @minLength `1`
    * @maxLength `64`
    */
   DatabaseUser?: string;
   /**
-   * <p>Use the <code>RoleArn</code> structure to allow Quick Suite to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Quick Suite. The role's trust policy must allow the Quick Suite service principal to assume the role.</p>
+   * <p>Use the <code>RoleArn</code> structure to allow Amazon QuickSight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Amazon QuickSight. The role's trust policy must allow the Amazon QuickSight service principal to assume the role.</p>
    * @minLength `20`
    * @maxLength `2048`
    */
@@ -733,7 +735,7 @@ export type RedshiftParameters = {
    */
   Host?: string;
   /**
-     * <p>A structure that grants Quick Suite access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
+     * <p>A structure that grants Amazon QuickSight access to your cluster and make a call to the <code>redshift:GetClusterCredentials</code> API. For more information on the <code>redshift:GetClusterCredentials</code> API, see <a href="https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html">
                    <code>GetClusterCredentials</code>
                 </a>.</p>
      */
@@ -766,10 +768,10 @@ export type ResourcePermission = {
                 following:</p>
              <ul>
                 <li>
-                   <p>The ARN of an Amazon Quick Suite user or group associated with a data source or dataset. (This is common.)</p>
+                   <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
                 </li>
                 <li>
-                   <p>The ARN of an Amazon Quick Suite user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                   <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
                 </li>
                 <li>
                    <p>The ARN of an Amazon Web Services account root: This is an IAM ARN rather than a QuickSight
@@ -812,6 +814,16 @@ export type S3Parameters = {
    * @maxLength `2048`
    */
   RoleArn?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSource.S3TablesParameters`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3tablesparameters.html}
+ */
+export type S3TablesParameters = {
+  /**
+   * @pattern `^(arn:aws[-a-z0-9]*:[a-z0-9]+:[-a-z0-9]*:[0-9]{12}:bucket/[a-zA-Z0-9-_]{3,63})$`
+   */
+  TableBucketArn?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.SnowflakeParameters`.
@@ -891,7 +903,7 @@ export type SqlServerParameters = {
 };
 /**
  * Type definition for `AWS::QuickSight::DataSource.SslProperties`.
- * <p>Secure Socket Layer (SSL) properties that apply when Quick Suite connects to your
+ * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your
             underlying data source.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html}
  */

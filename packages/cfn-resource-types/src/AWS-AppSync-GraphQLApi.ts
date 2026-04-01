@@ -95,6 +95,7 @@ export type AppSyncGraphQLApiAttributes = {
   ApiId: string;
   /**
    * The Amazon Resource Name (ARN) of the API key
+   * @pattern `^arn:.*`
    */
   Arn: string;
   /**
@@ -199,7 +200,7 @@ export type LogConfig = {
   /**
    * The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn: string;
   /**
    * Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
    */
@@ -207,7 +208,7 @@ export type LogConfig = {
   /**
    * The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
    */
-  FieldLogLevel?: string;
+  FieldLogLevel: string;
 };
 /**
  * Type definition for `AWS::AppSync::GraphQLApi.OpenIDConnectConfig`.

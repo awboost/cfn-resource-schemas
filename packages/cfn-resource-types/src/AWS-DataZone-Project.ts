@@ -44,6 +44,10 @@ export type DataZoneProjectProperties = {
    */
   ProjectProfileVersion?: string;
   /**
+   * The resource tags of the project.
+   */
+  ResourceTags?: ResourceTag[];
+  /**
    * The user parameters of the project.
    */
   UserParameters?: EnvironmentConfigurationUserParameter[];
@@ -116,6 +120,24 @@ export type ProjectStatus =
   | "DELETE_FAILED"
   | "UPDATING"
   | "UPDATE_FAILED";
+/**
+ * Type definition for `AWS::DataZone::Project.ResourceTag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-resourcetag.html}
+ */
+export type ResourceTag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[\w \.:/=+@-]+$`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   * @pattern `^[\w \.:/=+@-]*$`
+   */
+  Value: string;
+};
 /**
  * Resource type definition for `AWS::DataZone::Project`.
  * Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.

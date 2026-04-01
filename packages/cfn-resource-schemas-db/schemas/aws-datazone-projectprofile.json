@@ -1,5 +1,5 @@
 {
-  "$hash": "ae718d2ef7c0ee264f5eb3fef11efd652d20f7d3",
+  "$hash": "2c472c45c1013b874d0e25927b2de1cc957d0d42",
   "$id": "aws-datazone-projectprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -113,6 +113,26 @@
       "required": ["RegionName"],
       "type": "object"
     },
+    "ResourceTagParameter": {
+      "additionalProperties": false,
+      "properties": {
+        "IsValueEditable": { "type": "boolean" },
+        "Key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[\\w \\.:/=+@-]+$",
+          "type": "string"
+        },
+        "Value": {
+          "maxLength": 256,
+          "minLength": 0,
+          "pattern": "^[\\w \\.:/=+@-]*$",
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value", "IsValueEditable"],
+      "type": "object"
+    },
     "Status": { "enum": ["ENABLED", "DISABLED"], "type": "string" }
   },
   "description": "Definition of AWS::DataZone::ProjectProfile Resource Type",
@@ -148,6 +168,7 @@
     "/properties/Identifier"
   ],
   "properties": {
+    "AllowCustomProjectResourceTags": { "type": "boolean" },
     "CreatedAt": { "format": "date-time", "type": "string" },
     "CreatedBy": { "type": "string" },
     "Description": { "maxLength": 2048, "type": "string" },
@@ -181,6 +202,11 @@
       "pattern": "^[\\w -]+$",
       "type": "string"
     },
+    "ProjectResourceTags": {
+      "items": { "$ref": "#/definitions/ResourceTagParameter" },
+      "type": "array"
+    },
+    "ProjectResourceTagsDescription": { "maxLength": 2048, "type": "string" },
     "Status": { "$ref": "#/definitions/Status" },
     "UseDefaultConfigurations": { "type": "boolean" }
   },

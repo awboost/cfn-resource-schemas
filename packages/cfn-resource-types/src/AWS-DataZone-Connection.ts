@@ -287,6 +287,18 @@ export type ConnectionPropertiesInput =
        * MLflow Properties Input
        */
       MlflowProperties: MlflowPropertiesInput;
+    }
+  | {
+      /**
+       * Workflows MWAA Properties Input
+       */
+      WorkflowsMwaaProperties: WorkflowsMwaaPropertiesInput;
+    }
+  | {
+      /**
+       * Workflows Serverless Properties Input
+       */
+      WorkflowsServerlessProperties: WorkflowsServerlessPropertiesInput;
     };
 /**
  * Type definition for `AWS::DataZone::Connection.CredentialMap`.
@@ -753,6 +765,23 @@ export type UsernamePassword = {
    */
   Username: string;
 };
+/**
+ * Type definition for `AWS::DataZone::Connection.WorkflowsMwaaPropertiesInput`.
+ * Workflows MWAA Properties Input
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-workflowsmwaapropertiesinput.html}
+ */
+export type WorkflowsMwaaPropertiesInput = {
+  /**
+   * The name of the MWAA environment.
+   */
+  MwaaEnvironmentName?: string;
+};
+/**
+ * Type definition for `AWS::DataZone::Connection.WorkflowsServerlessPropertiesInput`.
+ * Workflows Serverless Properties Input
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-workflowsserverlesspropertiesinput.html}
+ */
+export type WorkflowsServerlessPropertiesInput = Record<string, any>;
 /**
  * Resource type definition for `AWS::DataZone::Connection`.
  * Connections enables users to connect their DataZone resources (domains, projects, and environments) to external resources/services (data, compute, etc)

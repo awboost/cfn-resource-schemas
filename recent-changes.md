@@ -1,43 +1,64 @@
-- updated `AWS::AppStream::Stack`
+- added `AWS::SecurityAgent::AgentSpace`
+- added `AWS::SecurityAgent::Application`
+- added `AWS::SecurityAgent::Pentest`
+- added `AWS::SecurityAgent::TargetDomain`
+- updated `AWS::AppSync::GraphQLApi`
+  - added `conditionalCreateOnlyProperties`
+  - updated `tagging`
+  - updated definition `LogConfig`
+  - updated handler permissions
+  - updated property `Arn`
+- updated `AWS::DataZone::Connection`
+  - added definition `WorkflowsMwaaPropertiesInput`
+  - added definition `WorkflowsServerlessPropertiesInput`
+  - updated definition `ConnectionPropertiesInput`
+- updated `AWS::DataZone::Project`
+  - added definition `ResourceTag`
+  - added property `ResourceTags`
+- updated `AWS::DataZone::ProjectProfile`
+  - added definition `ResourceTagParameter`
+  - added property `AllowCustomProjectResourceTags`
+  - added property `ProjectResourceTagsDescription`
+  - added property `ProjectResourceTags`
+- updated `AWS::QuickSight::DataSet`
+  - updated definition `CalculatedColumn`
+  - updated definition `CastColumnTypeOperation`
+  - updated definition `ColumnGroup`
+  - updated definition `ColumnLevelPermissionRule`
+  - updated definition `JoinKeyProperties`
+  - updated definition `LogicalTableMap`
+  - updated definition `ResourcePermission`
+  - updated definition `RowLevelPermissionDataSet`
+  - updated property `ColumnGroups`
+  - updated property `FolderArns`
+- updated `AWS::QuickSight::DataSource`
+  - added definition `S3TablesParameters`
+  - updated definition `DataSourceParameters`
+  - updated definition `DataSourceType`
+  - updated definition `RedshiftIAMParameters`
+  - updated definition `ResourcePermission`
+  - updated definition `SslProperties`
+- updated `AWS::SageMaker::Model`
   - added `sourceUrl`
   - added `tagging`
-  - added `writeOnlyProperties`
+  - added property `ModelArn`
   - removed property `Id`
   - updated `primaryIdentifier`
   - updated `readOnlyProperties`
-  - updated definition `AccessEndpoint`
-  - updated definition `ApplicationSettings`
-  - updated definition `StorageConnector`
-  - updated definition `StreamingExperienceSettings`
+  - updated definition `ContainerDefinition`
+  - updated definition `HubAccessConfig`
+  - updated definition `ImageConfig`
+  - updated definition `InferenceExecutionConfig`
+  - updated definition `ModelAccessConfig`
+  - updated definition `ModelDataSource`
+  - updated definition `MultiModelConfig`
+  - updated definition `RepositoryAuthConfig`
+  - updated definition `S3DataSource`
   - updated definition `Tag`
-  - updated definition `UserSetting`
+  - updated definition `VpcConfig`
   - updated handler permissions
-  - updated property `AccessEndpoints`
-  - updated property `ApplicationSettings`
-  - updated property `AttributesToDelete`
-  - updated property `DeleteStorageConnectors`
-  - updated property `Description`
-  - updated property `DisplayName`
-  - updated property `EmbedHostDomains`
-  - updated property `FeedbackURL`
-  - updated property `Name`
-  - updated property `RedirectURL`
-  - updated property `StorageConnectors`
-  - updated property `StreamingExperienceSettings`
+  - updated property `Containers`
+  - updated property `EnableNetworkIsolation`
+  - updated property `ExecutionRoleArn`
+  - updated property `ModelName`
   - updated property `Tags`
-  - updated property `UserSettings`
-- updated `AWS::BedrockAgentCore::Gateway`
-  - updated definition `GatewayPolicyEngineConfiguration`
-  - updated definition `LambdaInterceptorConfiguration`
-  - updated property `GatewayArn`
-  - updated property `KmsKeyArn`
-  - updated property `RoleArn`
-- updated `AWS::ECS::CapacityProvider`
-  - added definition `ManagedInstancesLocalStorageConfiguration`
-  - updated definition `InstanceLaunchTemplate`
-- updated `AWS::RDS::DBProxy`
-  - updated `tagging`
-- updated `AWS::RDS::DBProxyEndpoint`
-  - updated `tagging`
-- updated `AWS::WorkSpacesWeb::TrustStore`
-  - updated `tagging`

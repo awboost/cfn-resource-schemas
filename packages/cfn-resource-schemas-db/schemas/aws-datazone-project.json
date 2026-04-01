@@ -1,5 +1,5 @@
 {
-  "$hash": "51702be49c1979974a350cc546361995958a1d2f",
+  "$hash": "edef0f2ab2e8d0dadcd828f6599c537862a7c82b",
   "$id": "aws-datazone-project.json",
   "additionalIdentifiers": [["/properties/DomainIdentifier"]],
   "additionalProperties": false,
@@ -119,6 +119,25 @@
       ],
       "type": "string"
     },
+    "ResourceTag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[\\w \\.:/=+@-]+$",
+          "type": "string"
+        },
+        "Value": {
+          "maxLength": 256,
+          "minLength": 0,
+          "pattern": "^[\\w \\.:/=+@-]*$",
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
     "Tags": {
       "additionalProperties": false,
       "patternProperties": {
@@ -223,6 +242,11 @@
     "ProjectStatus": {
       "$ref": "#/definitions/ProjectStatus",
       "description": "The status of the project."
+    },
+    "ResourceTags": {
+      "description": "The resource tags of the project.",
+      "items": { "$ref": "#/definitions/ResourceTag" },
+      "type": "array"
     },
     "UserParameters": {
       "description": "The user parameters of the project.",

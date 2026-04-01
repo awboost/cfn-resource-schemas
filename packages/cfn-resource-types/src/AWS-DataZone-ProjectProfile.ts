@@ -5,6 +5,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectprofile.html}
  */
 export type DataZoneProjectProfileProperties = {
+  AllowCustomProjectResourceTags?: boolean;
   /**
    * @maxLength `2048`
    */
@@ -26,6 +27,11 @@ export type DataZoneProjectProfileProperties = {
    * @pattern `^[\w -]+$`
    */
   Name: string;
+  ProjectResourceTags?: ResourceTagParameter[];
+  /**
+   * @maxLength `2048`
+   */
+  ProjectResourceTagsDescription?: string;
   Status?: Status;
   UseDefaultConfigurations?: boolean;
 };
@@ -151,6 +157,25 @@ export type Region = {
    * @pattern `^[a-z]{2}-?(iso|gov)?-{1}[a-z]*-{1}[0-9]$`
    */
   RegionName: string;
+};
+/**
+ * Type definition for `AWS::DataZone::ProjectProfile.ResourceTagParameter`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectprofile-resourcetagparameter.html}
+ */
+export type ResourceTagParameter = {
+  IsValueEditable: boolean;
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[\w \.:/=+@-]+$`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   * @pattern `^[\w \.:/=+@-]*$`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::DataZone::ProjectProfile.Status`.
