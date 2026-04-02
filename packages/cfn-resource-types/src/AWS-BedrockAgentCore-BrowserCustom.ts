@@ -15,7 +15,7 @@ export type BedrockAgentCoreBrowserCustomProperties = {
   Description?: string;
   /**
    * The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
-   * @pattern `^arn:aws(-[a-z]+)*:iam::[0-9]{12}:role/.+$`
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):iam::[0-9]{12}:role/.+$`
    */
   ExecutionRoleArn?: string;
   /**
@@ -42,7 +42,7 @@ export type BedrockAgentCoreBrowserCustomProperties = {
 export type BedrockAgentCoreBrowserCustomAttributes = {
   /**
    * The ARN of a Browser resource.
-   * @pattern `^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:(aws|[0-9]{12}):browser(-custom)?\/(aws\.browser\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10})$`
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:(aws|[0-9]{12}):browser(-custom)?\/(aws\.browser\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10})$`
    */
   BrowserArn: string;
   /**

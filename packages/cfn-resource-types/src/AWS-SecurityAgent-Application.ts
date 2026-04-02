@@ -5,6 +5,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityagent-application.html}
  */
 export type SecurityAgentApplicationProperties = {
+  /**
+   * Identifier of a KMS key. Can be a key ID, key ARN, alias name, or alias ARN.
+   * @minLength `0`
+   * @maxLength `2048`
+   */
+  DefaultKmsKeyId?: string;
   IdCConfiguration?: IdCConfiguration;
   RoleArn?: string;
   /**

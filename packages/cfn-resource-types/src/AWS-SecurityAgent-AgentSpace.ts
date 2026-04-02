@@ -22,6 +22,12 @@ export type SecurityAgentAgentSpaceProperties = {
    */
   IntegratedResources?: IntegratedResource[];
   /**
+   * Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN, alias name, or alias ARN. If not specified, an AWS managed key is used.
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  KmsKeyId?: string;
+  /**
    * Name of the agent space
    */
   Name: string;

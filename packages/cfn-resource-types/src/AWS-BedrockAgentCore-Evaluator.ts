@@ -95,15 +95,30 @@ export type CategoricalScaleDefinition = {
   Label: string;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Evaluator.CodeBasedEvaluatorConfig`.
+ * The configuration for code-based evaluation using a Lambda function.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-codebasedevaluatorconfig.html}
+ */
+export type CodeBasedEvaluatorConfig = {
+  /**
+   * The Lambda function configuration for code-based evaluation.
+   */
+  LambdaConfig: LambdaEvaluatorConfig;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Evaluator.EvaluatorConfig`.
  * The configuration that defines how an evaluator assesses agent performance.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-evaluatorconfig.html}
  */
 export type EvaluatorConfig = {
   /**
+   * The configuration for code-based evaluation using a Lambda function.
+   */
+  CodeBased?: CodeBasedEvaluatorConfig;
+  /**
    * The configuration for LLM-as-a-Judge evaluation.
    */
-  LlmAsAJudge: LlmAsAJudgeEvaluatorConfig;
+  LlmAsAJudge?: LlmAsAJudgeEvaluatorConfig;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Evaluator.EvaluatorLevel`.
@@ -155,6 +170,24 @@ export type InferenceConfiguration = {
    * @max `1`
    */
   TopP?: number;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Evaluator.LambdaEvaluatorConfig`.
+ * The Lambda function configuration for code-based evaluation.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-evaluator-lambdaevaluatorconfig.html}
+ */
+export type LambdaEvaluatorConfig = {
+  /**
+   * The ARN of the Lambda function used for evaluation.
+   * @pattern `^arn:(aws[a-zA-Z-]*)?:lambda:([a-z]{2}(-gov)?-[a-z]+-\d{1}):(\d{12}):function:([a-zA-Z0-9-_.]+)(:(\$LATEST|[a-zA-Z0-9-_]+))?$`
+   */
+  LambdaArn: string;
+  /**
+   * The timeout in seconds for the Lambda function invocation.
+   * @min `1`
+   * @max `300`
+   */
+  LambdaTimeoutInSeconds?: number;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Evaluator.LlmAsAJudgeEvaluatorConfig`.

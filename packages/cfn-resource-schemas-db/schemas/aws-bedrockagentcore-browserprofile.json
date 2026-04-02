@@ -1,5 +1,5 @@
 {
-  "$hash": "8f44d9f349643b5512c0b099c85529289e6059cd",
+  "$hash": "e2c0dc5847f967f577276f5995cede99923b7b85",
   "$id": "aws-bedrockagentcore-browserprofile.json",
   "additionalIdentifiers": [["/properties/ProfileArn"]],
   "additionalProperties": false,
@@ -7,7 +7,7 @@
   "definitions": {
     "BrowserProfileArn": {
       "description": "The ARN of a BrowserProfile resource.",
-      "pattern": "^arn:(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:browser-profile/[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}$",
+      "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:browser-profile/[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}$",
       "type": "string"
     },
     "BrowserProfileDescription": {

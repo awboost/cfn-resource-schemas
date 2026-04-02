@@ -1,5 +1,5 @@
 {
-  "$hash": "5b27bac45411c7faa9455fde5a3ce1973a8f4ee7",
+  "$hash": "59dc1ee0483c8cf23a19c07ddd8e0ba99dd86a38",
   "$id": "aws-workspacesweb-ipaccesssettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -180,7 +180,7 @@
   ],
   "required": ["IpRules"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:UntagResource",
       "workspaces-web:ListTagsForResource",

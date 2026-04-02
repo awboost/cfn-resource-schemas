@@ -566,6 +566,7 @@ export type RDSDBClusterAttributes = {
      */
     Address: string;
   };
+  StorageEncryptionType: string;
   StorageThroughput: number;
 };
 /**

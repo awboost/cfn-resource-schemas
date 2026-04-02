@@ -1,64 +1,51 @@
-- added `AWS::SecurityAgent::AgentSpace`
-- added `AWS::SecurityAgent::Application`
-- added `AWS::SecurityAgent::Pentest`
-- added `AWS::SecurityAgent::TargetDomain`
-- updated `AWS::AppSync::GraphQLApi`
-  - added `conditionalCreateOnlyProperties`
-  - updated `tagging`
-  - updated definition `LogConfig`
-  - updated handler permissions
-  - updated property `Arn`
-- updated `AWS::DataZone::Connection`
-  - added definition `WorkflowsMwaaPropertiesInput`
-  - added definition `WorkflowsServerlessPropertiesInput`
-  - updated definition `ConnectionPropertiesInput`
-- updated `AWS::DataZone::Project`
-  - added definition `ResourceTag`
-  - added property `ResourceTags`
-- updated `AWS::DataZone::ProjectProfile`
-  - added definition `ResourceTagParameter`
-  - added property `AllowCustomProjectResourceTags`
-  - added property `ProjectResourceTagsDescription`
-  - added property `ProjectResourceTags`
-- updated `AWS::QuickSight::DataSet`
-  - updated definition `CalculatedColumn`
-  - updated definition `CastColumnTypeOperation`
-  - updated definition `ColumnGroup`
-  - updated definition `ColumnLevelPermissionRule`
-  - updated definition `JoinKeyProperties`
-  - updated definition `LogicalTableMap`
-  - updated definition `ResourcePermission`
-  - updated definition `RowLevelPermissionDataSet`
-  - updated property `ColumnGroups`
-  - updated property `FolderArns`
-- updated `AWS::QuickSight::DataSource`
-  - added definition `S3TablesParameters`
-  - updated definition `DataSourceParameters`
-  - updated definition `DataSourceType`
-  - updated definition `RedshiftIAMParameters`
-  - updated definition `ResourcePermission`
-  - updated definition `SslProperties`
-- updated `AWS::SageMaker::Model`
+- added `AWS::ECS::DaemonTaskDefinition`
+- updated `AWS::ApiGatewayV2::Stage`
   - added `sourceUrl`
   - added `tagging`
-  - added property `ModelArn`
+  - removed `readOnlyProperties`
+  - removed property `AccessPolicyId`
   - removed property `Id`
   - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `ContainerDefinition`
-  - updated definition `HubAccessConfig`
-  - updated definition `ImageConfig`
-  - updated definition `InferenceExecutionConfig`
-  - updated definition `ModelAccessConfig`
-  - updated definition `ModelDataSource`
-  - updated definition `MultiModelConfig`
-  - updated definition `RepositoryAuthConfig`
-  - updated definition `S3DataSource`
-  - updated definition `Tag`
-  - updated definition `VpcConfig`
   - updated handler permissions
-  - updated property `Containers`
-  - updated property `EnableNetworkIsolation`
-  - updated property `ExecutionRoleArn`
-  - updated property `ModelName`
+  - updated property `AccessLogSettings`
+  - updated property `ApiId`
+  - updated property `AutoDeploy`
+  - updated property `ClientCertificateId`
+  - updated property `DefaultRouteSettings`
+  - updated property `DeploymentId`
+  - updated property `Description`
+  - updated property `RouteSettings`
+  - updated property `StageName`
+  - updated property `StageVariables`
   - updated property `Tags`
+- updated `AWS::BedrockAgentCore::BrowserCustom`
+  - updated definition `BrowserArn`
+  - updated definition `RoleArn`
+- updated `AWS::BedrockAgentCore::BrowserProfile`
+  - updated definition `BrowserProfileArn`
+- updated `AWS::BedrockAgentCore::CodeInterpreterCustom`
+  - updated definition `CodeInterpreterArn`
+  - updated definition `RoleArn`
+- updated `AWS::BedrockAgentCore::Evaluator`
+  - added definition `CodeBasedEvaluatorConfig`
+  - added definition `LambdaEvaluatorConfig`
+  - updated definition `EvaluatorConfig`
+  - updated handler permissions
+- updated `AWS::DataZone::PolicyGrant`
+  - updated handler permissions
+- updated `AWS::RDS::DBCluster`
+  - added property `StorageEncryptionType`
+  - updated `readOnlyProperties`
+- updated `AWS::SecurityAgent::AgentSpace`
+  - added `createOnlyProperties`
+  - added property `KmsKeyId`
+  - updated handler permissions
+- updated `AWS::SecurityAgent::Application`
+  - added property `DefaultKmsKeyId`
+  - updated handler permissions
+- updated `AWS::WorkSpacesWeb::BrowserSettings`
+  - updated `tagging`
+- updated `AWS::WorkSpacesWeb::IpAccessSettings`
+  - updated `tagging`
+- updated `AWS::WorkSpacesWeb::SessionLogger`
+  - updated `tagging`

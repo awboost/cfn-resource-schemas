@@ -1,7 +1,8 @@
 {
-  "$hash": "4027319e37052a96ed495d3566e913af83f9bb0c",
+  "$hash": "42b80d2831ce155620b11e1498f53dfda397b399",
   "$id": "aws-securityagent-agentspace.json",
   "additionalProperties": false,
+  "createOnlyProperties": ["/properties/KmsKeyId"],
   "definitions": {
     "AWSResources": {
       "additionalProperties": false,
@@ -181,13 +182,19 @@
         "securityagent:ListTagsForResource",
         "securityagent:UpdateIntegratedResources",
         "securityagent:ListIntegratedResources",
-        "iam:PassRole"
+        "iam:PassRole",
+        "kms:DescribeKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:Decrypt",
+        "kms:ReEncryptFrom",
+        "kms:ReEncryptTo"
       ]
     },
     "delete": {
       "permissions": [
         "securityagent:DeleteAgentSpace",
-        "securityagent:BatchGetAgentSpaces"
+        "securityagent:BatchGetAgentSpaces",
+        "kms:Decrypt"
       ]
     },
     "list": { "permissions": ["securityagent:ListAgentSpaces"] },
@@ -195,6 +202,7 @@
       "permissions": [
         "securityagent:BatchGetAgentSpaces",
         "securityagent:ListTagsForResource",
+        "kms:Decrypt",
         "securityagent:ListIntegratedResources"
       ]
     },
@@ -207,7 +215,8 @@
         "securityagent:ListTagsForResource",
         "securityagent:UpdateIntegratedResources",
         "securityagent:ListIntegratedResources",
-        "iam:PassRole"
+        "iam:PassRole",
+        "kms:Decrypt"
       ]
     }
   },
@@ -229,6 +238,12 @@
       "type": "string"
     },
     "IntegratedResources": { "$ref": "#/definitions/IntegratedResources" },
+    "KmsKeyId": {
+      "description": "Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN, alias name, or alias ARN. If not specified, an AWS managed key is used.",
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
+    },
     "Name": { "description": "Name of the agent space", "type": "string" },
     "Tags": {
       "description": "Tags for the agent space",

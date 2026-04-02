@@ -1,5 +1,5 @@
 {
-  "$hash": "4857b6123face4c7f600d6b1f0ff057b3ca64166",
+  "$hash": "7c5af4d32d827d59f1ea4ba21eb2da3e229708ba",
   "$id": "aws-workspacesweb-sessionlogger.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -216,7 +216,7 @@
   ],
   "required": ["EventFilter", "LogConfiguration"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:ListTagsForResource",
       "workspaces-web:TagResource",

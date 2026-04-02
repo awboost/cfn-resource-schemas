@@ -1,5 +1,5 @@
 {
-  "$hash": "bdc008064418e8d41273373f16406fc03e0b6813",
+  "$hash": "6b44942739939a9842e218bdc341c2a7e68e9474",
   "$id": "aws-datazone-policygrant.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -417,7 +417,12 @@
   "description": "Policy Grant in AWS DataZone is an explicit authorization assignment that allows a specific principal (user, group, or project) to perform particular actions (such as creating glossary terms, managing projects, or accessing resources) on governed resources within a certain scope (like a Domain Unit or Project). Policy Grants are essentially the mechanism by which DataZone enforces fine-grained, role-based access control beyond what is possible through AWS IAM alone.",
   "handlers": {
     "create": {
-      "permissions": ["datazone:AddPolicyGrant", "datazone:ListPolicyGrants"]
+      "permissions": [
+        "datazone:AddPolicyGrant",
+        "datazone:GetUserProfile",
+        "datazone:ListPolicyGrants",
+        "iam:GetUser"
+      ]
     },
     "delete": {
       "permissions": ["datazone:RemovePolicyGrant", "datazone:ListPolicyGrants"]

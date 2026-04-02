@@ -1,5 +1,5 @@
 {
-  "$hash": "5122ff966de57dd96d9cbead19116548f4a491c0",
+  "$hash": "8726e0f9daef7365c70faea05c59059d2a9dacb7",
   "$id": "aws-bedrockagentcore-codeinterpretercustom.json",
   "additionalIdentifiers": [["/properties/CodeInterpreterArn"]],
   "additionalProperties": false,
@@ -12,7 +12,7 @@
   "definitions": {
     "CodeInterpreterArn": {
       "description": "The ARN of a CodeInterpreter resource.",
-      "pattern": "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:(aws|[0-9]{12}):code-interpreter(-custom)?\\/(aws\\.codeinterpreter\\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10})$",
+      "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:(aws|[0-9]{12}):code-interpreter(-custom)?\\/(aws\\.codeinterpreter\\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10})$",
       "type": "string"
     },
     "CodeInterpreterId": {
@@ -81,7 +81,7 @@
     },
     "RoleArn": {
       "description": "The ARN of the IAM role.",
-      "pattern": "^arn:aws(-[a-z]+)*:iam::[0-9]{12}:role/.+$",
+      "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):iam::[0-9]{12}:role/.+$",
       "type": "string"
     },
     "SandboxName": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "690bfd1b26bf0d666b46973d40473cfa4b058078",
+  "$hash": "e1f1bba98730ebae01c493826cbce0d0526aba9a",
   "$id": "aws-workspacesweb-browsersettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -211,7 +211,7 @@
     "/properties/BrowserSettingsArn"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:UntagResource",
       "workspaces-web:ListTagsForResource",

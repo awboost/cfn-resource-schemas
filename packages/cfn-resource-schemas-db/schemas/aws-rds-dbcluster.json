@@ -1,5 +1,5 @@
 {
-  "$hash": "f2e8fe791a00433e157764ca9712de7d4113bab3",
+  "$hash": "98ead371713f80b73a5adaf8a38e4f3a97c66656",
   "$id": "aws-rds-dbcluster.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -467,6 +467,7 @@
       "description": "Indicates whether the DB cluster is encrypted.\n If you specify the ``KmsKeyId`` property, then you must enable encryption.\n If you specify the ``SourceDBClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the specified ``KmsKeyId`` property is used.\n If you specify the ``SnapshotIdentifier`` and the specified snapshot is encrypted, don't specify this property. The value is inherited from the snapshot, and the specified ``KmsKeyId`` property is used.\n If you specify the ``SnapshotIdentifier`` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB cluster is encrypted. Specify the ``KmsKeyId`` property for the KMS key to use for encryption. If you don't want the restored DB cluster to be encrypted, then don't set this property or set it to ``false``.\n  If you specify both the ``StorageEncrypted`` and ``SnapshotIdentifier`` properties without specifying the ``KmsKeyId`` property, then the restored DB cluster inherits the encryption settings from the DB snapshot that provide.\n  Valid for: Aurora DB clusters and Multi-AZ DB clusters",
       "type": "boolean"
     },
+    "StorageEncryptionType": { "description": "", "type": "string" },
     "StorageThroughput": { "description": "", "type": "integer" },
     "StorageType": {
       "description": "The storage type to associate with the DB cluster.\n For information on storage types for Aurora DB clusters, see [Storage configurations for Amazon Aurora DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.StorageReliability.html#aurora-storage-type). For information on storage types for Multi-AZ DB clusters, see [Settings for creating Multi-AZ DB clusters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings).\n This setting is required to create a Multi-AZ DB cluster.\n When specified for a Multi-AZ DB cluster, a value for the ``Iops`` parameter is required.\n Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters\n Valid Values:\n  +  Aurora DB clusters - ``aurora | aurora-iopt1``\n  +  Multi-AZ DB clusters - ``io1 | io2 | gp3``\n  \n Default:\n  +  Aurora DB clusters - ``aurora``\n  +  Multi-AZ DB clusters - ``io1``\n  \n  When you create an Aurora DB cluster with the storage type set to ``aurora-iopt1``, the storage type is returned in the response. The storage type isn't returned when you set it to ``aurora``.",
@@ -516,6 +517,7 @@
     "/properties/ReadEndpoint",
     "/properties/ReadEndpoint/Address",
     "/properties/MasterUserSecret/SecretArn",
+    "/properties/StorageEncryptionType",
     "/properties/StorageThroughput"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-rds",
