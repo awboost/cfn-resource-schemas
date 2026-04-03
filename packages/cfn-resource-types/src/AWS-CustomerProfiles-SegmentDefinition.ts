@@ -37,6 +37,10 @@ export type CustomerProfilesSegmentDefinitionProperties = {
    */
   SegmentGroups?: SegmentGroup;
   /**
+   * The segment sort configuration for ordering segment results.
+   */
+  SegmentSort?: SegmentSort;
+  /**
    * The SQL query that defines the segment criteria.
    * @minLength `1`
    * @maxLength `50000`
@@ -440,6 +444,62 @@ export type SegmentGroup = {
    */
   Include?: IncludeOptions;
 };
+/**
+ * Type definition for `AWS::CustomerProfiles::SegmentDefinition.SegmentSort`.
+ * Defines how segments should be sorted and ordered in the results.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-segmentsort.html}
+ */
+export type SegmentSort = {
+  /**
+   * A list of attributes used to sort the segments and their ordering preferences.
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  Attributes: SortAttribute[];
+};
+/**
+ * Type definition for `AWS::CustomerProfiles::SegmentDefinition.SegmentSortDataType`.
+ * The data type of the sort attribute (e.g., string, number, date).
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-segmentsortdatatype.html}
+ */
+export type SegmentSortDataType = "STRING" | "NUMBER" | "DATE";
+/**
+ * Type definition for `AWS::CustomerProfiles::SegmentDefinition.SegmentSortOrder`.
+ * The sort order for the attribute (ascending or descending).
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-segmentsortorder.html}
+ */
+export type SegmentSortOrder = "ASC" | "DESC";
+/**
+ * Type definition for `AWS::CustomerProfiles::SegmentDefinition.SortAttribute`.
+ * Defines the characteristics and rules for sorting by a specific attribute.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-sortattribute.html}
+ */
+export type SortAttribute = {
+  /**
+   * The data type of the sort attribute (e.g., string, number, date).
+   */
+  DataType?: SegmentSortDataType;
+  /**
+   * The name of the attribute to sort by.
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  Name: string;
+  /**
+   * The sort order for the attribute (ascending or descending).
+   */
+  Order: SegmentSortOrder;
+  /**
+   * The type of attribute (e.g., profile, calculated).
+   */
+  Type?: SortAttributeType;
+};
+/**
+ * Type definition for `AWS::CustomerProfiles::SegmentDefinition.SortAttributeType`.
+ * The type of attribute (e.g., profile, calculated).
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-sortattributetype.html}
+ */
+export type SortAttributeType = "PROFILE" | "CALCULATED";
 /**
  * Type definition for `AWS::CustomerProfiles::SegmentDefinition.SourceSegment`.
  * The base segment to build the segment on.

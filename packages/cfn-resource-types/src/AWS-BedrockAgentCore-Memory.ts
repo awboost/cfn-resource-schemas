@@ -11,7 +11,7 @@ export type BedrockAgentCoreMemoryProperties = {
   Description?: string;
   /**
    * ARN format
-   * @pattern `^arn:aws:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
    */
   EncryptionKeyArn?: string;
   /**
@@ -22,7 +22,7 @@ export type BedrockAgentCoreMemoryProperties = {
   EventExpiryDuration: number;
   /**
    * ARN format
-   * @pattern `^arn:aws:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
    */
   MemoryExecutionRoleArn?: string;
   /**
@@ -49,7 +49,7 @@ export type BedrockAgentCoreMemoryAttributes = {
   FailureReason: string;
   /**
    * ARN of the Memory resource
-   * @pattern `^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$`
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$`
    */
   MemoryArn: string;
   /**
@@ -258,6 +258,11 @@ export type CustomMemoryStrategy = {
    * List of namespaces for memory strategy
    * @minLength `1`
    */
+  NamespaceTemplates?: string[];
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
   Namespaces?: string[];
 };
 /**
@@ -274,6 +279,11 @@ export type EpisodicMemoryStrategy = {
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
    */
   Name: string;
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
+  NamespaceTemplates?: string[];
   /**
    * List of namespaces for memory strategy
    * @minLength `1`
@@ -332,6 +342,11 @@ export type EpisodicOverrideReflectionConfigurationInput = {
    * List of namespaces for memory strategy
    * @minLength `1`
    */
+  NamespaceTemplates?: string[];
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
   Namespaces?: string[];
 };
 /**
@@ -343,7 +358,12 @@ export type EpisodicReflectionConfigurationInput = {
    * List of namespaces for memory strategy
    * @minLength `1`
    */
-  Namespaces: string[];
+  NamespaceTemplates?: string[];
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
+  Namespaces?: string[];
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Memory.InvocationConfigurationInput`.
@@ -356,7 +376,7 @@ export type InvocationConfigurationInput = {
   PayloadDeliveryBucketName?: string;
   /**
    * ARN format
-   * @pattern `^arn:aws:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
    */
   TopicArn?: string;
 };
@@ -372,7 +392,7 @@ export type KinesisResource = {
   ContentConfigurations: ContentConfiguration[];
   /**
    * ARN format
-   * @pattern `^arn:aws:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
    */
   DataStreamArn: string;
 };
@@ -434,6 +454,11 @@ export type SemanticMemoryStrategy = {
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
    */
   Name: string;
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
+  NamespaceTemplates?: string[];
   /**
    * List of namespaces for memory strategy
    * @minLength `1`
@@ -505,6 +530,11 @@ export type SummaryMemoryStrategy = {
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
    */
   Name: string;
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
+  NamespaceTemplates?: string[];
   /**
    * List of namespaces for memory strategy
    * @minLength `1`
@@ -582,6 +612,11 @@ export type UserPreferenceMemoryStrategy = {
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
    */
   Name: string;
+  /**
+   * List of namespaces for memory strategy
+   * @minLength `1`
+   */
+  NamespaceTemplates?: string[];
   /**
    * List of namespaces for memory strategy
    * @minLength `1`

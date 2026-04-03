@@ -1,5 +1,5 @@
 {
-  "$hash": "7f00f12b18abf14bb6fd4b1760555ec447a7c962",
+  "$hash": "670d288b1b822b06d1c3e87a9578273473838266",
   "$id": "aws-workspacesweb-useraccessloggingsettings.json",
   "additionalProperties": false,
   "definitions": {
@@ -97,7 +97,7 @@
   ],
   "required": ["KinesisStreamArn"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:UntagResource",
       "workspaces-web:ListTagsForResource",

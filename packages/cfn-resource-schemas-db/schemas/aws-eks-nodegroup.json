@@ -1,5 +1,5 @@
 {
-  "$hash": "c8ce214478450396e8e7a1c666adc9c231b174e4",
+  "$hash": "62a9579842d58faa07af87eadac8eff4364a9903",
   "$id": "aws-eks-nodegroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -141,6 +141,35 @@
         "UpdateStrategy": {
           "description": "The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.",
           "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "WarmPoolConfig": {
+      "additionalProperties": false,
+      "description": "The warm pool configuration for the node group.",
+      "properties": {
+        "Enabled": {
+          "description": "Enable or disable warm pool for the node group.",
+          "type": "boolean"
+        },
+        "MaxGroupPreparedCapacity": {
+          "description": "The maximum number of instances that are allowed to be in the warm pool.",
+          "minimum": -1,
+          "type": "integer"
+        },
+        "MinSize": {
+          "description": "The minimum number of instances to maintain in the warm pool.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "PoolState": {
+          "description": "The desired state of warm pool instances.",
+          "type": "string"
+        },
+        "ReuseOnScaleIn": {
+          "description": "Whether to return instances to the warm pool during scale-in instead of terminating them.",
+          "type": "boolean"
         }
       },
       "type": "object"
@@ -295,6 +324,10 @@
     "Version": {
       "description": "The Kubernetes version to use for your managed nodes.",
       "type": "string"
+    },
+    "WarmPoolConfig": {
+      "$ref": "#/definitions/WarmPoolConfig",
+      "description": "The warm pool configuration details for the Auto Scaling group that is created for the node group."
     }
   },
   "readOnlyProperties": ["/properties/Id", "/properties/Arn"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "ca4436a4842a0d0330cae92ab7d521c8d106ae16",
+  "$hash": "9bb47a2392caf95d2f08a3805ba3507e430c5e78",
   "$id": "aws-bedrockagentcore-runtimeendpoint.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -11,11 +11,11 @@
       "type": "string"
     },
     "AgentRuntimeArn": {
-      "pattern": "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z][a-zA-Z0-9_]{0,99}-[a-zA-Z0-9]{10}$",
+      "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z][a-zA-Z0-9_]{0,99}-[a-zA-Z0-9]{10}$",
       "type": "string"
     },
     "AgentRuntimeEndpointArn": {
-      "pattern": "^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z0-9_-]+/runtime-endpoint/[a-zA-Z0-9_-]+$",
+      "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z0-9_-]+/runtime-endpoint/[a-zA-Z0-9_-]+$",
       "type": "string"
     },
     "AgentRuntimeEndpointId": {

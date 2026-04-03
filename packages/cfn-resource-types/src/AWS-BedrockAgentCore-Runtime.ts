@@ -62,7 +62,7 @@ export type BedrockAgentCoreRuntimeAttributes = {
   /**
    * The Amazon Resource Name(ARN) that uniquely identifies the Agent
    * @maxLength `2048`
-   * @pattern `^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z][a-zA-Z0-9_]{0,99}-[a-zA-Z0-9]{10}$`
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z][a-zA-Z0-9_]{0,99}-[a-zA-Z0-9]{10}$`
    */
   AgentRuntimeArn: string;
   /**
@@ -114,7 +114,8 @@ export type AgentManagedRuntimeType =
   | "PYTHON_3_10"
   | "PYTHON_3_11"
   | "PYTHON_3_12"
-  | "PYTHON_3_13";
+  | "PYTHON_3_13"
+  | "PYTHON_3_14";
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.AgentRuntimeArtifact`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-agentruntimeartifact.html}
@@ -339,7 +340,7 @@ export type NetworkMode = "PUBLIC" | "VPC";
  * Type definition for `AWS::BedrockAgentCore::Runtime.ProtocolConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-protocolconfiguration.html}
  */
-export type ProtocolConfiguration = "MCP" | "HTTP" | "A2A";
+export type ProtocolConfiguration = "MCP" | "HTTP" | "A2A" | "AGUI";
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.RequestHeaderConfiguration`.
  * Configuration for HTTP request headers

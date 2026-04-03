@@ -1,5 +1,5 @@
 {
-  "$hash": "2c84eda10f16044c1c6c18f4b0419927618350d3",
+  "$hash": "cbc99792a3f6738918efadd7b13854f1b21dce52",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -50,9 +50,33 @@
       "type": "string"
     },
     "CpuArchitectureType": { "enum": ["x86_64", "arm64"], "type": "string" },
+    "CustomerManagedAutoScalingConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ScaleOutWorkersPerMinute": {
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "StandbyWorkerCount": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "WorkerIdleDurationSeconds": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "CustomerManagedFleetConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "AutoScalingConfiguration": {
+          "$ref": "#/definitions/CustomerManagedAutoScalingConfiguration"
+        },
         "Mode": { "$ref": "#/definitions/AutoScalingMode" },
         "StorageProfileId": {
           "pattern": "^sp-[0-9a-f]{32}$",
@@ -243,9 +267,33 @@
       "required": ["Min"],
       "type": "object"
     },
+    "ServiceManagedEc2AutoScalingConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "ScaleOutWorkersPerMinute": {
+          "maximum": 2147483647,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "StandbyWorkerCount": {
+          "maximum": 2147483647,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "WorkerIdleDurationSeconds": {
+          "maximum": 86400,
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
     "ServiceManagedEc2FleetConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "AutoScalingConfiguration": {
+          "$ref": "#/definitions/ServiceManagedEc2AutoScalingConfiguration"
+        },
         "InstanceCapabilities": {
           "$ref": "#/definitions/ServiceManagedEc2InstanceCapabilities"
         },

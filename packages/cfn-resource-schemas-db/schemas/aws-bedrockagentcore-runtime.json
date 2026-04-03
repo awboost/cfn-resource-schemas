@@ -1,17 +1,23 @@
 {
-  "$hash": "a8ef2fad4370c0f41fa204797a1ad8d8bc5fc8c3",
+  "$hash": "a4daa6f29025f5723878a8c104c138ecf0e1ed2b",
   "$id": "aws-bedrockagentcore-runtime.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentRuntimeName"],
   "definitions": {
     "AgentManagedRuntimeType": {
       "description": "Managed runtime types",
-      "enum": ["PYTHON_3_10", "PYTHON_3_11", "PYTHON_3_12", "PYTHON_3_13"],
+      "enum": [
+        "PYTHON_3_10",
+        "PYTHON_3_11",
+        "PYTHON_3_12",
+        "PYTHON_3_13",
+        "PYTHON_3_14"
+      ],
       "type": "string"
     },
     "AgentRuntimeArn": {
       "maxLength": 2048,
-      "pattern": "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z][a-zA-Z0-9_]{0,99}-[a-zA-Z0-9]{10}$",
+      "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z][a-zA-Z0-9_]{0,99}-[a-zA-Z0-9]{10}$",
       "type": "string"
     },
     "AgentRuntimeArtifact": {
@@ -294,7 +300,7 @@
       "type": "string"
     },
     "ProtocolConfiguration": {
-      "enum": ["MCP", "HTTP", "A2A"],
+      "enum": ["MCP", "HTTP", "A2A", "AGUI"],
       "type": "string"
     },
     "RequestHeaderAllowlist": {

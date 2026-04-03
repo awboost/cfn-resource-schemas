@@ -1,5 +1,5 @@
 {
-  "$hash": "4d4d05737d32c354a7077b99f39be502195bfb08",
+  "$hash": "5d6be2326b91055b34ba97934e4fc0ba7090d24d",
   "$id": "aws-bedrockagentcore-memory.json",
   "additionalIdentifiers": [["/properties/MemoryId"]],
   "additionalProperties": false,
@@ -7,7 +7,7 @@
   "definitions": {
     "Arn": {
       "description": "ARN format",
-      "pattern": "^arn:aws:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}$",
+      "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}$",
       "type": "string"
     },
     "ConsolidationConfiguration": {
@@ -74,6 +74,7 @@
         },
         "Description": { "$ref": "#/definitions/Description" },
         "Name": { "$ref": "#/definitions/Name" },
+        "NamespaceTemplates": { "$ref": "#/definitions/NamespacesList" },
         "Namespaces": { "$ref": "#/definitions/NamespacesList" },
         "Status": {
           "description": "Status of the memory strategy",
@@ -120,6 +121,7 @@
         },
         "Description": { "$ref": "#/definitions/Description" },
         "Name": { "$ref": "#/definitions/Name" },
+        "NamespaceTemplates": { "$ref": "#/definitions/NamespacesList" },
         "Namespaces": { "$ref": "#/definitions/NamespacesList" },
         "ReflectionConfiguration": {
           "$ref": "#/definitions/EpisodicReflectionConfigurationInput"
@@ -193,6 +195,7 @@
       "properties": {
         "AppendToPrompt": { "$ref": "#/definitions/Prompt" },
         "ModelId": { "type": "string" },
+        "NamespaceTemplates": { "$ref": "#/definitions/NamespacesList" },
         "Namespaces": { "$ref": "#/definitions/NamespacesList" }
       },
       "required": ["AppendToPrompt", "ModelId"],
@@ -201,9 +204,9 @@
     "EpisodicReflectionConfigurationInput": {
       "additionalProperties": false,
       "properties": {
+        "NamespaceTemplates": { "$ref": "#/definitions/NamespacesList" },
         "Namespaces": { "$ref": "#/definitions/NamespacesList" }
       },
-      "required": ["Namespaces"],
       "type": "object"
     },
     "ExtractionConfiguration": {
@@ -238,7 +241,7 @@
     },
     "MemoryArn": {
       "description": "ARN of the Memory resource",
-      "pattern": "^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$",
+      "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$",
       "type": "string"
     },
     "MemoryId": {
@@ -354,6 +357,7 @@
         },
         "Description": { "$ref": "#/definitions/Description" },
         "Name": { "$ref": "#/definitions/Name" },
+        "NamespaceTemplates": { "$ref": "#/definitions/NamespacesList" },
         "Namespaces": { "$ref": "#/definitions/NamespacesList" },
         "Status": {
           "description": "Status of the memory strategy",
@@ -473,6 +477,7 @@
         },
         "Description": { "$ref": "#/definitions/Description" },
         "Name": { "$ref": "#/definitions/Name" },
+        "NamespaceTemplates": { "$ref": "#/definitions/NamespacesList" },
         "Namespaces": { "$ref": "#/definitions/NamespacesList" },
         "Status": {
           "description": "Status of the memory strategy",
@@ -605,6 +610,7 @@
         },
         "Description": { "$ref": "#/definitions/Description" },
         "Name": { "$ref": "#/definitions/Name" },
+        "NamespaceTemplates": { "$ref": "#/definitions/NamespacesList" },
         "Namespaces": { "$ref": "#/definitions/NamespacesList" },
         "Status": {
           "description": "Status of the memory strategy",

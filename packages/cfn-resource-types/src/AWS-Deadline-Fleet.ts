@@ -162,10 +162,32 @@ export type AutoScalingMode = "NO_SCALING" | "EVENT_BASED_AUTO_SCALING";
  */
 export type CpuArchitectureType = "x86_64" | "arm64";
 /**
+ * Type definition for `AWS::Deadline::Fleet.CustomerManagedAutoScalingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedautoscalingconfiguration.html}
+ */
+export type CustomerManagedAutoScalingConfiguration = {
+  /**
+   * @min `1`
+   * @max `2147483647`
+   */
+  ScaleOutWorkersPerMinute?: number;
+  /**
+   * @min `0`
+   * @max `2147483647`
+   */
+  StandbyWorkerCount?: number;
+  /**
+   * @min `0`
+   * @max `2147483647`
+   */
+  WorkerIdleDurationSeconds?: number;
+};
+/**
  * Type definition for `AWS::Deadline::Fleet.CustomerManagedFleetConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html}
  */
 export type CustomerManagedFleetConfiguration = {
+  AutoScalingConfiguration?: CustomerManagedAutoScalingConfiguration;
   Mode: AutoScalingMode;
   /**
    * @pattern `^sp-[0-9a-f]{32}$`
@@ -329,10 +351,32 @@ export type MemoryMiBRange = {
   Min: number;
 };
 /**
+ * Type definition for `AWS::Deadline::Fleet.ServiceManagedEc2AutoScalingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2autoscalingconfiguration.html}
+ */
+export type ServiceManagedEc2AutoScalingConfiguration = {
+  /**
+   * @min `1`
+   * @max `2147483647`
+   */
+  ScaleOutWorkersPerMinute?: number;
+  /**
+   * @min `0`
+   * @max `2147483647`
+   */
+  StandbyWorkerCount?: number;
+  /**
+   * @min `0`
+   * @max `86400`
+   */
+  WorkerIdleDurationSeconds?: number;
+};
+/**
  * Type definition for `AWS::Deadline::Fleet.ServiceManagedEc2FleetConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html}
  */
 export type ServiceManagedEc2FleetConfiguration = {
+  AutoScalingConfiguration?: ServiceManagedEc2AutoScalingConfiguration;
   InstanceCapabilities: ServiceManagedEc2InstanceCapabilities;
   InstanceMarketOptions: ServiceManagedEc2InstanceMarketOptions;
   /**

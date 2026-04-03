@@ -1,51 +1,82 @@
-- added `AWS::ECS::DaemonTaskDefinition`
-- updated `AWS::ApiGatewayV2::Stage`
+- added `AWS::BedrockAgentCore::ApiKeyCredentialProvider`
+- added `AWS::ECS::Daemon`
+- added `AWS::NovaAct::WorkflowDefinition`
+- updated `AWS::BedrockAgentCore::Memory`
+  - updated definition `Arn`
+  - updated definition `CustomMemoryStrategy`
+  - updated definition `EpisodicMemoryStrategy`
+  - updated definition `EpisodicOverrideReflectionConfigurationInput`
+  - updated definition `EpisodicReflectionConfigurationInput`
+  - updated definition `MemoryArn`
+  - updated definition `SemanticMemoryStrategy`
+  - updated definition `SummaryMemoryStrategy`
+  - updated definition `UserPreferenceMemoryStrategy`
+- updated `AWS::BedrockAgentCore::Runtime`
+  - updated definition `AgentManagedRuntimeType`
+  - updated definition `AgentRuntimeArn`
+  - updated definition `ProtocolConfiguration`
+- updated `AWS::BedrockAgentCore::RuntimeEndpoint`
+  - updated definition `AgentRuntimeArn`
+  - updated definition `AgentRuntimeEndpointArn`
+- updated `AWS::CustomerProfiles::SegmentDefinition`
+  - added definition `SegmentSortDataType`
+  - added definition `SegmentSortOrder`
+  - added definition `SegmentSort`
+  - added definition `SortAttributeType`
+  - added definition `SortAttribute`
+  - added property `SegmentSort`
+  - updated handler permissions
+- updated `AWS::Deadline::Fleet`
+  - added definition `CustomerManagedAutoScalingConfiguration`
+  - added definition `ServiceManagedEc2AutoScalingConfiguration`
+  - updated definition `CustomerManagedFleetConfiguration`
+  - updated definition `ServiceManagedEc2FleetConfiguration`
+- updated `AWS::EKS::Nodegroup`
+  - added definition `WarmPoolConfig`
+  - added property `WarmPoolConfig`
+- updated `AWS::ElasticLoadBalancing::LoadBalancer`
+  - added `conditionalCreateOnlyProperties`
+  - added `documentationUrl`
   - added `sourceUrl`
   - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `AccessPolicyId`
+  - added definition `PolicyItem`
+  - added definition `SourceSecurityGroup`
+  - added property `SourceSecurityGroup`
   - removed property `Id`
+  - removed property `SourceSecurityGroupGroupName`
+  - removed property `SourceSecurityGroupOwnerAlias`
   - updated `primaryIdentifier`
-  - updated handler permissions
-  - updated property `AccessLogSettings`
-  - updated property `ApiId`
-  - updated property `AutoDeploy`
-  - updated property `ClientCertificateId`
-  - updated property `DefaultRouteSettings`
-  - updated property `DeploymentId`
-  - updated property `Description`
-  - updated property `RouteSettings`
-  - updated property `StageName`
-  - updated property `StageVariables`
-  - updated property `Tags`
-- updated `AWS::BedrockAgentCore::BrowserCustom`
-  - updated definition `BrowserArn`
-  - updated definition `RoleArn`
-- updated `AWS::BedrockAgentCore::BrowserProfile`
-  - updated definition `BrowserProfileArn`
-- updated `AWS::BedrockAgentCore::CodeInterpreterCustom`
-  - updated definition `CodeInterpreterArn`
-  - updated definition `RoleArn`
-- updated `AWS::BedrockAgentCore::Evaluator`
-  - added definition `CodeBasedEvaluatorConfig`
-  - added definition `LambdaEvaluatorConfig`
-  - updated definition `EvaluatorConfig`
-  - updated handler permissions
-- updated `AWS::DataZone::PolicyGrant`
-  - updated handler permissions
-- updated `AWS::RDS::DBCluster`
-  - added property `StorageEncryptionType`
   - updated `readOnlyProperties`
-- updated `AWS::SecurityAgent::AgentSpace`
-  - added `createOnlyProperties`
-  - added property `KmsKeyId`
+  - updated definition `AccessLoggingPolicy`
+  - updated definition `AppCookieStickinessPolicy`
+  - updated definition `ConnectionDrainingPolicy`
+  - updated definition `ConnectionSettings`
+  - updated definition `HealthCheck`
+  - updated definition `LBCookieStickinessPolicy`
+  - updated definition `Listeners`
+  - updated definition `Policies`
+  - updated definition `Tag`
   - updated handler permissions
-- updated `AWS::SecurityAgent::Application`
-  - added property `DefaultKmsKeyId`
-  - updated handler permissions
-- updated `AWS::WorkSpacesWeb::BrowserSettings`
+  - updated property `AccessLoggingPolicy`
+  - updated property `AppCookieStickinessPolicy`
+  - updated property `AvailabilityZones`
+  - updated property `CanonicalHostedZoneNameID`
+  - updated property `CanonicalHostedZoneName`
+  - updated property `ConnectionDrainingPolicy`
+  - updated property `ConnectionSettings`
+  - updated property `CrossZone`
+  - updated property `DNSName`
+  - updated property `HealthCheck`
+  - updated property `Instances`
+  - updated property `LBCookieStickinessPolicy`
+  - updated property `Listeners`
+  - updated property `LoadBalancerName`
+  - updated property `Policies`
+  - updated property `Scheme`
+  - updated property `SecurityGroups`
+  - updated property `Subnets`
+  - updated property `Tags`
+- updated `AWS::ElasticLoadBalancingV2::TrustStore`
   - updated `tagging`
-- updated `AWS::WorkSpacesWeb::IpAccessSettings`
-  - updated `tagging`
-- updated `AWS::WorkSpacesWeb::SessionLogger`
+- updated `AWS::WorkSpacesWeb::UserAccessLoggingSettings`
   - updated `tagging`

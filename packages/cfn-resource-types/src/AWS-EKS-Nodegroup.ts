@@ -83,6 +83,10 @@ export type EKSNodegroupProperties = {
    * The Kubernetes version to use for your managed nodes.
    */
   Version?: string;
+  /**
+   * The warm pool configuration details for the Auto Scaling group that is created for the node group.
+   */
+  WarmPoolConfig?: WarmPoolConfig;
 };
 /**
  * Attribute type definition for `AWS::EKS::Nodegroup`.
@@ -240,6 +244,35 @@ export type UpdateConfig = {
    * The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
    */
   UpdateStrategy?: string;
+};
+/**
+ * Type definition for `AWS::EKS::Nodegroup.WarmPoolConfig`.
+ * The warm pool configuration for the node group.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-warmpoolconfig.html}
+ */
+export type WarmPoolConfig = {
+  /**
+   * Enable or disable warm pool for the node group.
+   */
+  Enabled?: boolean;
+  /**
+   * The maximum number of instances that are allowed to be in the warm pool.
+   * @min `-1`
+   */
+  MaxGroupPreparedCapacity?: number;
+  /**
+   * The minimum number of instances to maintain in the warm pool.
+   * @min `0`
+   */
+  MinSize?: number;
+  /**
+   * The desired state of warm pool instances.
+   */
+  PoolState?: string;
+  /**
+   * Whether to return instances to the warm pool during scale-in instead of terminating them.
+   */
+  ReuseOnScaleIn?: boolean;
 };
 /**
  * Resource schema for AWS::EKS::Nodegroup
