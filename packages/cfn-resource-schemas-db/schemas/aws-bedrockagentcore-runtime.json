@@ -1,5 +1,5 @@
 {
-  "$hash": "a4daa6f29025f5723878a8c104c138ecf0e1ed2b",
+  "$hash": "26d46d3a9962c548802b417f259c0236c6c42396",
   "$id": "aws-bedrockagentcore-runtime.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentRuntimeName"],
@@ -235,6 +235,24 @@
       },
       "type": "object"
     },
+    "FilesystemConfiguration": {
+      "additionalProperties": false,
+      "description": "Filesystem configuration for the runtime",
+      "properties": {
+        "SessionStorage": {
+          "$ref": "#/definitions/SessionStorageConfiguration"
+        }
+      },
+      "type": "object"
+    },
+    "FilesystemConfigurations": {
+      "description": "List of filesystem configurations",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/FilesystemConfiguration" },
+      "maxItems": 1,
+      "minItems": 0,
+      "type": "array"
+    },
     "HeaderName": {
       "description": "HTTP header name",
       "maxLength": 256,
@@ -284,6 +302,13 @@
       "maxItems": 255,
       "minItems": 1,
       "type": "array"
+    },
+    "MountPath": {
+      "description": "Mount path for session storage",
+      "maxLength": 200,
+      "minLength": 6,
+      "pattern": "^/mnt/[a-zA-Z0-9._-]+/?$",
+      "type": "string"
     },
     "NetworkConfiguration": {
       "additionalProperties": false,
@@ -370,6 +395,13 @@
       "maxItems": 16,
       "minItems": 1,
       "type": "array"
+    },
+    "SessionStorageConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration for session storage",
+      "properties": { "MountPath": { "$ref": "#/definitions/MountPath" } },
+      "required": ["MountPath"],
+      "type": "object"
     },
     "SubnetId": {
       "description": "Subnet id",
@@ -522,6 +554,10 @@
     "FailureReason": {
       "description": "The reason for failure if the agent is in a failed state.",
       "type": "string"
+    },
+    "FilesystemConfigurations": {
+      "$ref": "#/definitions/FilesystemConfigurations",
+      "description": "Filesystem configurations for the agent runtime"
     },
     "LastUpdatedAt": {
       "$ref": "#/definitions/LastUpdatedAt",

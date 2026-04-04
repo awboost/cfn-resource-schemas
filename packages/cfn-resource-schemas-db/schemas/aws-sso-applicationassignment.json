@@ -1,5 +1,5 @@
 {
-  "$hash": "faf6ce7b6ac1aa16dc598edd7870c949173180f6",
+  "$hash": "d84040c32051123a3082ddc170c77ef2c3cc720e",
   "$id": "aws-sso-applicationassignment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -38,7 +38,7 @@
       "description": "The ARN of the application.",
       "maxLength": 1224,
       "minLength": 10,
-      "pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso::\\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}",
+      "pattern": "arn:aws(-[a-z]{1,5}){0,3}:sso::\\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}",
       "type": "string"
     },
     "PrincipalId": {

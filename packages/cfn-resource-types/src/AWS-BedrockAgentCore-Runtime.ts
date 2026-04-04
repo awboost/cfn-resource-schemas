@@ -29,6 +29,12 @@ export type BedrockAgentCoreRuntimeProperties = {
    */
   EnvironmentVariables?: EnvironmentVariablesMap;
   /**
+   * Filesystem configurations for the agent runtime
+   * @minLength `0`
+   * @maxLength `1`
+   */
+  FilesystemConfigurations?: FilesystemConfiguration[];
+  /**
    * Lifecycle configuration for managing runtime sessions
    */
   LifecycleConfiguration?: LifecycleConfiguration;
@@ -292,6 +298,17 @@ export type CustomJWTAuthorizerConfiguration = {
  */
 export type EnvironmentVariablesMap = Record<string, string>;
 /**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.FilesystemConfiguration`.
+ * Filesystem configuration for the runtime
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-filesystemconfiguration.html}
+ */
+export type FilesystemConfiguration = {
+  /**
+   * Configuration for session storage
+   */
+  SessionStorage?: SessionStorageConfiguration;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Runtime.InboundTokenClaimValueType`.
  * Token claim data type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-inboundtokenclaimvaluetype.html}
@@ -377,6 +394,20 @@ export type S3Location = {
    * @maxLength `1024`
    */
   VersionId?: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.SessionStorageConfiguration`.
+ * Configuration for session storage
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-sessionstorageconfiguration.html}
+ */
+export type SessionStorageConfiguration = {
+  /**
+   * Mount path for session storage
+   * @minLength `6`
+   * @maxLength `200`
+   * @pattern `^/mnt/[a-zA-Z0-9._-]+/?$`
+   */
+  MountPath: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.TagsMap`.

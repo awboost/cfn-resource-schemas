@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type AppStreamFleetProperties = {
   ComputeCapacity?: ComputeCapacity;
   Description?: string;
+  DisableIMDSV1?: boolean;
   DisconnectTimeoutInSeconds?: number;
   DisplayName?: string;
   DomainJoinInfo?: DomainJoinInfo;
@@ -22,6 +23,7 @@ export type AppStreamFleetProperties = {
   MaxUserDurationInSeconds?: number;
   Name: string;
   Platform?: string;
+  RootVolumeConfig?: VolumeConfig;
   SessionScriptS3Location?: S3Location;
   StreamView?: string;
   Tags?: Tag[];
@@ -66,6 +68,13 @@ export type S3Location = {
 export type Tag = {
   Key: string;
   Value: string;
+};
+/**
+ * Type definition for `AWS::AppStream::Fleet.VolumeConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-volumeconfig.html}
+ */
+export type VolumeConfig = {
+  VolumeSizeInGb?: number;
 };
 /**
  * Type definition for `AWS::AppStream::Fleet.VpcConfig`.

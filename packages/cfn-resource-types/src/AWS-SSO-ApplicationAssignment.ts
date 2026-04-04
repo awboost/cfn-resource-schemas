@@ -10,7 +10,7 @@ export type SSOApplicationAssignmentProperties = {
    * The ARN of the application.
    * @minLength `10`
    * @maxLength `1224`
-   * @pattern `arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso::\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}`
+   * @pattern `arn:aws(-[a-z]{1,5}){0,3}:sso::\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}`
    */
   ApplicationArn: string;
   /**

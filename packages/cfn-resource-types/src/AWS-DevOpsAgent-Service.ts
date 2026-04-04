@@ -108,7 +108,7 @@ export type ApiKeyDetails = {
   ApiKeyName: string;
   /**
    * API key value
-   * @pattern `^[a-zA-Z0-9+/=._-]+$`
+   * @pattern `^[!-~]([ \t]*[!-~])*$`
    */
   ApiKeyValue: string;
 };

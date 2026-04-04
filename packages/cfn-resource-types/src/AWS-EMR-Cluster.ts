@@ -10,7 +10,7 @@ export type EMRClusterProperties = {
   AutoScalingRole?: string;
   AutoTerminationPolicy?: AutoTerminationPolicy;
   BootstrapActions?: BootstrapActionConfig[];
-  Configurations?: EMRConfiguration[];
+  Configurations?: Configuration[];
   CustomAmiId?: string;
   EbsRootVolumeIops?: number;
   EbsRootVolumeSize?: number;
@@ -21,7 +21,6 @@ export type EMRClusterProperties = {
   LogEncryptionKmsKeyId?: string;
   LogUri?: string;
   ManagedScalingPolicy?: ManagedScalingPolicy;
-  MonitoringConfiguration?: MonitoringConfiguration;
   Name: string;
   OSReleaseLabel?: string;
   PlacementGroupConfigs?: PlacementGroupConfig[];
@@ -32,6 +31,7 @@ export type EMRClusterProperties = {
   StepConcurrencyLevel?: number;
   Steps?: StepConfig[];
   Tags?: Tag[];
+  VisibleToAllUsers?: boolean;
 };
 /**
  * Attribute type definition for `AWS::EMR::Cluster`.
@@ -90,17 +90,6 @@ export type CloudWatchAlarmDefinition = {
   Unit?: string;
 };
 /**
- * Type definition for `AWS::EMR::Cluster.CloudWatchLogConfiguration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-cloudwatchlogconfiguration.html}
- */
-export type CloudWatchLogConfiguration = {
-  Enabled: boolean;
-  EncryptionKeyArn?: string;
-  LogGroupName?: string;
-  LogStreamNamePrefix?: string;
-  LogTypes?: Record<string, any>;
-};
-/**
  * Type definition for `AWS::EMR::Cluster.ComputeLimits`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-computelimits.html}
  */
@@ -110,6 +99,15 @@ export type ComputeLimits = {
   MaximumOnDemandCapacityUnits?: number;
   MinimumCapacityUnits: number;
   UnitType: string;
+};
+/**
+ * Type definition for `AWS::EMR::Cluster.Configuration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html}
+ */
+export type Configuration = {
+  Classification?: string;
+  ConfigurationProperties?: Record<string, string>;
+  Configurations?: Configuration[];
 };
 /**
  * Type definition for `AWS::EMR::Cluster.EbsBlockDeviceConfig`.
@@ -126,15 +124,6 @@ export type EbsBlockDeviceConfig = {
 export type EbsConfiguration = {
   EbsBlockDeviceConfigs?: EbsBlockDeviceConfig[];
   EbsOptimized?: boolean;
-};
-/**
- * Type definition for `AWS::EMR::Cluster.EMRConfiguration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-emrconfiguration.html}
- */
-export type EMRConfiguration = {
-  Classification?: string;
-  ConfigurationProperties?: Record<string, string>;
-  Configurations?: EMRConfiguration[];
 };
 /**
  * Type definition for `AWS::EMR::Cluster.HadoopJarStepConfig`.
@@ -181,7 +170,7 @@ export type InstanceFleetResizingSpecifications = {
 export type InstanceGroupConfig = {
   AutoScalingPolicy?: AutoScalingPolicy;
   BidPrice?: string;
-  Configurations?: EMRConfiguration[];
+  Configurations?: Configuration[];
   CustomAmiId?: string;
   EbsConfiguration?: EbsConfiguration;
   InstanceCount: number;
@@ -196,7 +185,7 @@ export type InstanceGroupConfig = {
 export type InstanceTypeConfig = {
   BidPrice?: string;
   BidPriceAsPercentageOfOnDemandPrice?: number;
-  Configurations?: EMRConfiguration[];
+  Configurations?: Configuration[];
   CustomAmiId?: string;
   EbsConfiguration?: EbsConfiguration;
   InstanceType: string;
@@ -263,13 +252,6 @@ export type ManagedScalingPolicy = {
 export type MetricDimension = {
   Key: string;
   Value: string;
-};
-/**
- * Type definition for `AWS::EMR::Cluster.MonitoringConfiguration`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-monitoringconfiguration.html}
- */
-export type MonitoringConfiguration = {
-  CloudWatchLogConfiguration?: CloudWatchLogConfiguration;
 };
 /**
  * Type definition for `AWS::EMR::Cluster.OnDemandCapacityReservationOptions`.

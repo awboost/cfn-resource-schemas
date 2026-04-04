@@ -1,5 +1,5 @@
 {
-  "$hash": "f360e5f642bd1687ecde8c3615636878b3d13ac6",
+  "$hash": "f057cd99bfb04aa864908bdb1b44b2b428273fd4",
   "$id": "aws-appstream-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/FleetType"],
@@ -38,6 +38,11 @@
       "required": ["Value", "Key"],
       "type": "object"
     },
+    "VolumeConfig": {
+      "additionalProperties": false,
+      "properties": { "VolumeSizeInGb": { "type": "integer" } },
+      "type": "object"
+    },
     "VpcConfig": {
       "additionalProperties": false,
       "properties": {
@@ -60,6 +65,7 @@
   "properties": {
     "ComputeCapacity": { "$ref": "#/definitions/ComputeCapacity" },
     "Description": { "type": "string" },
+    "DisableIMDSV1": { "type": "boolean" },
     "DisconnectTimeoutInSeconds": { "type": "integer" },
     "DisplayName": { "type": "string" },
     "DomainJoinInfo": { "$ref": "#/definitions/DomainJoinInfo" },
@@ -76,6 +82,7 @@
     "MaxUserDurationInSeconds": { "type": "integer" },
     "Name": { "type": "string" },
     "Platform": { "type": "string" },
+    "RootVolumeConfig": { "$ref": "#/definitions/VolumeConfig" },
     "SessionScriptS3Location": { "$ref": "#/definitions/S3Location" },
     "StreamView": { "type": "string" },
     "Tags": {

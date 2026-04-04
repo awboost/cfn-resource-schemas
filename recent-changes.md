@@ -1,82 +1,38 @@
-- added `AWS::BedrockAgentCore::ApiKeyCredentialProvider`
-- added `AWS::ECS::Daemon`
-- added `AWS::NovaAct::WorkflowDefinition`
-- updated `AWS::BedrockAgentCore::Memory`
-  - updated definition `Arn`
-  - updated definition `CustomMemoryStrategy`
-  - updated definition `EpisodicMemoryStrategy`
-  - updated definition `EpisodicOverrideReflectionConfigurationInput`
-  - updated definition `EpisodicReflectionConfigurationInput`
-  - updated definition `MemoryArn`
-  - updated definition `SemanticMemoryStrategy`
-  - updated definition `SummaryMemoryStrategy`
-  - updated definition `UserPreferenceMemoryStrategy`
+- added `AWS::BedrockAgentCore::OAuth2CredentialProvider`
+- updated `AWS::AppStream::Fleet`
+  - added definition `VolumeConfig`
+  - added property `DisableIMDSV1`
+  - added property `RootVolumeConfig`
 - updated `AWS::BedrockAgentCore::Runtime`
-  - updated definition `AgentManagedRuntimeType`
-  - updated definition `AgentRuntimeArn`
-  - updated definition `ProtocolConfiguration`
-- updated `AWS::BedrockAgentCore::RuntimeEndpoint`
-  - updated definition `AgentRuntimeArn`
-  - updated definition `AgentRuntimeEndpointArn`
-- updated `AWS::CustomerProfiles::SegmentDefinition`
-  - added definition `SegmentSortDataType`
-  - added definition `SegmentSortOrder`
-  - added definition `SegmentSort`
-  - added definition `SortAttributeType`
-  - added definition `SortAttribute`
-  - added property `SegmentSort`
-  - updated handler permissions
-- updated `AWS::Deadline::Fleet`
-  - added definition `CustomerManagedAutoScalingConfiguration`
-  - added definition `ServiceManagedEc2AutoScalingConfiguration`
-  - updated definition `CustomerManagedFleetConfiguration`
-  - updated definition `ServiceManagedEc2FleetConfiguration`
-- updated `AWS::EKS::Nodegroup`
-  - added definition `WarmPoolConfig`
-  - added property `WarmPoolConfig`
-- updated `AWS::ElasticLoadBalancing::LoadBalancer`
-  - added `conditionalCreateOnlyProperties`
-  - added `documentationUrl`
-  - added `sourceUrl`
-  - added `tagging`
-  - added definition `PolicyItem`
-  - added definition `SourceSecurityGroup`
-  - added property `SourceSecurityGroup`
-  - removed property `Id`
-  - removed property `SourceSecurityGroupGroupName`
-  - removed property `SourceSecurityGroupOwnerAlias`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `AccessLoggingPolicy`
-  - updated definition `AppCookieStickinessPolicy`
-  - updated definition `ConnectionDrainingPolicy`
-  - updated definition `ConnectionSettings`
-  - updated definition `HealthCheck`
-  - updated definition `LBCookieStickinessPolicy`
-  - updated definition `Listeners`
-  - updated definition `Policies`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `AccessLoggingPolicy`
-  - updated property `AppCookieStickinessPolicy`
-  - updated property `AvailabilityZones`
-  - updated property `CanonicalHostedZoneNameID`
-  - updated property `CanonicalHostedZoneName`
-  - updated property `ConnectionDrainingPolicy`
-  - updated property `ConnectionSettings`
-  - updated property `CrossZone`
-  - updated property `DNSName`
-  - updated property `HealthCheck`
-  - updated property `Instances`
-  - updated property `LBCookieStickinessPolicy`
-  - updated property `Listeners`
-  - updated property `LoadBalancerName`
-  - updated property `Policies`
-  - updated property `Scheme`
-  - updated property `SecurityGroups`
-  - updated property `Subnets`
-  - updated property `Tags`
-- updated `AWS::ElasticLoadBalancingV2::TrustStore`
-  - updated `tagging`
-- updated `AWS::WorkSpacesWeb::UserAccessLoggingSettings`
-  - updated `tagging`
+  - added definition `FilesystemConfiguration`
+  - added definition `FilesystemConfigurations`
+  - added definition `MountPath`
+  - added definition `SessionStorageConfiguration`
+  - added property `FilesystemConfigurations`
+- updated `AWS::DevOpsAgent::Service`
+  - updated definition `ApiKeyDetails`
+- updated `AWS::EMR::Cluster`
+  - added definition `Configuration`
+  - added property `VisibleToAllUsers`
+  - removed definition `CloudWatchLogConfiguration`
+  - removed definition `EMRConfiguration`
+  - removed definition `MonitoringConfiguration`
+  - removed property `MonitoringConfiguration`
+  - updated `createOnlyProperties`
+  - updated definition `Application`
+  - updated definition `HadoopJarStepConfig`
+  - updated definition `InstanceGroupConfig`
+  - updated definition `InstanceTypeConfig`
+  - updated definition `ScriptBootstrapActionConfig`
+  - updated property `BootstrapActions`
+  - updated property `Configurations`
+  - updated property `Steps`
+- updated `AWS::Logs::QueryDefinition`
+  - added definition `QueryParameter`
+  - added property `Parameters`
+- updated `AWS::SSO::Application`
+  - updated property `ApplicationArn`
+  - updated property `ApplicationProviderArn`
+  - updated property `InstanceArn`
+- updated `AWS::SSO::ApplicationAssignment`
+  - updated property `ApplicationArn`

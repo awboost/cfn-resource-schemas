@@ -1,5 +1,5 @@
 {
-  "$hash": "4d5d50e349c92d5a2e64c0c99e25686abd5ab0a1",
+  "$hash": "b91454b76b01dfba6e298c51b136f9f170a6f6ee",
   "$id": "aws-devopsagent-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -78,7 +78,7 @@
         },
         "ApiKeyValue": {
           "description": "API key value",
-          "pattern": "^[a-zA-Z0-9+/=._-]+$",
+          "pattern": "^[!-~]([ \\t]*[!-~])*$",
           "type": "string"
         }
       },

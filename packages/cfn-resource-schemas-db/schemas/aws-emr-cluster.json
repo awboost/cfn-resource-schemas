@@ -1,5 +1,5 @@
 {
-  "$hash": "997d3ce823f1c1d68a9986a03cd448dbef1609d5",
+  "$hash": "f510bd602037e003784d9437a4f009583ae5e532",
   "$id": "aws-emr-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,18 +10,17 @@
     "/properties/Configurations",
     "/properties/ReleaseLabel",
     "/properties/BootstrapActions",
-    "/properties/KerberosAttributes",
     "/properties/EbsRootVolumeIops",
-    "/properties/MonitoringConfiguration",
+    "/properties/KerberosAttributes",
     "/properties/ServiceRole",
     "/properties/LogEncryptionKmsKeyId",
     "/properties/Name",
     "/properties/EbsRootVolumeThroughput",
     "/properties/JobFlowRole",
-    "/properties/LogUri",
     "/properties/AdditionalInfo",
-    "/properties/PlacementGroupConfigs",
+    "/properties/LogUri",
     "/properties/CustomAmiId",
+    "/properties/PlacementGroupConfigs",
     "/properties/OSReleaseLabel",
     "/properties/AutoScalingRole",
     "/properties/Applications"
@@ -37,7 +36,7 @@
         "Args": {
           "items": { "type": "string" },
           "type": "array",
-          "uniqueItems": false
+          "uniqueItems": true
         },
         "Name": { "type": "string" },
         "Version": { "type": "string" }
@@ -93,18 +92,6 @@
       "required": ["MetricName", "ComparisonOperator", "Period", "Threshold"],
       "type": "object"
     },
-    "CloudWatchLogConfiguration": {
-      "additionalProperties": false,
-      "properties": {
-        "Enabled": { "type": "boolean" },
-        "EncryptionKeyArn": { "type": "string" },
-        "LogGroupName": { "type": "string" },
-        "LogStreamNamePrefix": { "type": "string" },
-        "LogTypes": { "type": "object" }
-      },
-      "required": ["Enabled"],
-      "type": "object"
-    },
     "ComputeLimits": {
       "additionalProperties": false,
       "properties": {
@@ -117,7 +104,7 @@
       "required": ["UnitType", "MaximumCapacityUnits", "MinimumCapacityUnits"],
       "type": "object"
     },
-    "EMRConfiguration": {
+    "Configuration": {
       "additionalProperties": false,
       "properties": {
         "Classification": { "type": "string" },
@@ -126,7 +113,7 @@
           "type": "object"
         },
         "Configurations": {
-          "items": { "$ref": "#/definitions/EMRConfiguration" },
+          "items": { "$ref": "#/definitions/Configuration" },
           "type": "array",
           "uniqueItems": true
         }
@@ -160,7 +147,7 @@
         "Args": {
           "items": { "type": "string" },
           "type": "array",
-          "uniqueItems": false
+          "uniqueItems": true
         },
         "Jar": { "type": "string" },
         "MainClass": { "type": "string" },
@@ -223,7 +210,7 @@
         "AutoScalingPolicy": { "$ref": "#/definitions/AutoScalingPolicy" },
         "BidPrice": { "type": "string" },
         "Configurations": {
-          "items": { "$ref": "#/definitions/EMRConfiguration" },
+          "items": { "$ref": "#/definitions/Configuration" },
           "type": "array",
           "uniqueItems": true
         },
@@ -243,7 +230,7 @@
         "BidPrice": { "type": "string" },
         "BidPriceAsPercentageOfOnDemandPrice": { "type": "number" },
         "Configurations": {
-          "items": { "$ref": "#/definitions/EMRConfiguration" },
+          "items": { "$ref": "#/definitions/Configuration" },
           "type": "array",
           "uniqueItems": true
         },
@@ -339,15 +326,6 @@
       "required": ["Value", "Key"],
       "type": "object"
     },
-    "MonitoringConfiguration": {
-      "additionalProperties": false,
-      "properties": {
-        "CloudWatchLogConfiguration": {
-          "$ref": "#/definitions/CloudWatchLogConfiguration"
-        }
-      },
-      "type": "object"
-    },
     "OnDemandCapacityReservationOptions": {
       "additionalProperties": false,
       "properties": {
@@ -441,7 +419,7 @@
         "Args": {
           "items": { "type": "string" },
           "type": "array",
-          "uniqueItems": false
+          "uniqueItems": true
         },
         "Path": { "type": "string" }
       },
@@ -522,10 +500,10 @@
     "BootstrapActions": {
       "items": { "$ref": "#/definitions/BootstrapActionConfig" },
       "type": "array",
-      "uniqueItems": false
+      "uniqueItems": true
     },
     "Configurations": {
-      "items": { "$ref": "#/definitions/EMRConfiguration" },
+      "items": { "$ref": "#/definitions/Configuration" },
       "type": "array",
       "uniqueItems": true
     },
@@ -541,9 +519,6 @@
     "LogUri": { "type": "string" },
     "ManagedScalingPolicy": { "$ref": "#/definitions/ManagedScalingPolicy" },
     "MasterPublicDNS": { "type": "string" },
-    "MonitoringConfiguration": {
-      "$ref": "#/definitions/MonitoringConfiguration"
-    },
     "Name": { "type": "string" },
     "OSReleaseLabel": { "type": "string" },
     "PlacementGroupConfigs": {
@@ -559,13 +534,14 @@
     "Steps": {
       "items": { "$ref": "#/definitions/StepConfig" },
       "type": "array",
-      "uniqueItems": false
+      "uniqueItems": true
     },
     "Tags": {
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
-    }
+    },
+    "VisibleToAllUsers": { "type": "boolean" }
   },
   "readOnlyProperties": ["/properties/Id", "/properties/MasterPublicDNS"],
   "required": ["Instances", "ServiceRole", "JobFlowRole", "Name"],

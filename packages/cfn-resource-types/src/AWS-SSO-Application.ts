@@ -10,7 +10,7 @@ export type SSOApplicationProperties = {
    * The ARN of the application provider under which the operation will run
    * @minLength `10`
    * @maxLength `1224`
-   * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso::aws:applicationProvider/[a-zA-Z0-9-/]+$`
+   * @pattern `^arn:aws(-[a-z]{1,5}){0,3}:sso::aws:applicationProvider/[a-zA-Z0-9-/]+$`
    */
   ApplicationProviderArn: string;
   /**
@@ -23,7 +23,7 @@ export type SSOApplicationProperties = {
    * The ARN of the instance of IAM Identity Center under which the operation will run
    * @minLength `10`
    * @maxLength `1224`
-   * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$`
+   * @pattern `^arn:aws(-[a-z]{1,5}){0,3}:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$`
    */
   InstanceArn: string;
   /**
@@ -55,7 +55,7 @@ export type SSOApplicationAttributes = {
    * The Application ARN that is returned upon creation of the Identity Center (SSO) Application
    * @minLength `10`
    * @maxLength `1224`
-   * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso::\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}$`
+   * @pattern `^arn:aws(-[a-z]{1,5}){0,3}:sso::\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}$`
    */
   ApplicationArn: string;
 };
