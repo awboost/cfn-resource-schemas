@@ -1,5 +1,5 @@
 {
-  "$hash": "d46622b2c33c8744151baa36d5cb05d6aece5148",
+  "$hash": "dc18b18af9361ed9a91c30d32adb92dfbc02d016",
   "$id": "aws-workspacesweb-dataprotectionsettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -270,7 +270,7 @@
     "/properties/DataProtectionSettingsArn"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:UntagResource",
       "workspaces-web:ListTagsForResource",

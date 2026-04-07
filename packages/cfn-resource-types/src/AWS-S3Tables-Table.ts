@@ -10,7 +10,7 @@ export type S3TablesTableProperties = {
    */
   Compaction?: Compaction;
   /**
-   * Contains details about the metadata for an Iceberg table.
+   * Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
    */
   IcebergMetadata?: IcebergMetadata;
   /**
@@ -82,7 +82,7 @@ export type Compaction = {
 };
 /**
  * Type definition for `AWS::S3Tables::Table.IcebergMetadata`.
- * Contains details about the metadata for an Iceberg table.
+ * Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergmetadata.html}
  */
 export type IcebergMetadata = {
@@ -91,9 +91,13 @@ export type IcebergMetadata = {
    */
   IcebergPartitionSpec?: IcebergPartitionSpec;
   /**
-   * Contains details about the schema for an Iceberg table
+   * Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2.
    */
-  IcebergSchema: IcebergSchema;
+  IcebergSchema?: IcebergSchema;
+  /**
+   * Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema.
+   */
+  IcebergSchemaV2?: IcebergSchemaV2;
   /**
    * Sort order specification for an Iceberg table
    */
@@ -151,6 +155,29 @@ export type IcebergSchema = {
    * Contains details about the schema for an Iceberg table
    */
   SchemaFieldList: SchemaField[];
+};
+/**
+ * Type definition for `AWS::S3Tables::Table.IcebergSchemaV2`.
+ * Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map). Primitive types are also supported.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-icebergschemav2.html}
+ */
+export type IcebergSchemaV2 = {
+  /**
+   * A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.
+   */
+  IdentifierFieldIds?: number[];
+  /**
+   * An optional unique identifier for the schema
+   */
+  SchemaId?: number;
+  /**
+   * The schema fields for the table
+   */
+  SchemaV2FieldList: SchemaV2Field[];
+  /**
+   * The type of the top-level schema, which is always 'struct'
+   */
+  SchemaV2FieldType: "struct";
 };
 /**
  * Type definition for `AWS::S3Tables::Table.IcebergSortField`.
@@ -218,6 +245,33 @@ export type SchemaField = {
    * The field type
    */
   Type: string;
+};
+/**
+ * Type definition for `AWS::S3Tables::Table.SchemaV2Field`.
+ * Contains details about a schema field for an Iceberg table that supports nested types (struct, list, map)
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-table-schemav2field.html}
+ */
+export type SchemaV2Field = {
+  /**
+   * Optional documentation for the field
+   */
+  Doc?: string;
+  /**
+   * The unique identifier for the field
+   */
+  Id: number;
+  /**
+   * The name of the field
+   */
+  Name: string;
+  /**
+   * A Boolean value that specifies whether values are required for each row in this field
+   */
+  Required: boolean;
+  /**
+   * The field type. For primitive types, use a string (e.g., 'int', 'string', 'long'). For nested types, use an object (e.g., {'type': 'struct', 'fields': [...]} for struct, {'type': 'list', 'element-id': N, 'element': 'type'} for list, {'type': 'map', 'key-id': N, 'key': 'type', 'value-id': N, 'value': 'type'} for map).
+   */
+  Type: string | Record<string, any>;
 };
 /**
  * Type definition for `AWS::S3Tables::Table.SnapshotManagement`.

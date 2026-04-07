@@ -1,5 +1,5 @@
 {
-  "$hash": "16876597a39ff589e0ac874961c97144adee0043",
+  "$hash": "c6d704b33513caa136c3ec603defcca2ef79846d",
   "$id": "aws-s3tables-table.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -29,16 +29,22 @@
     },
     "IcebergMetadata": {
       "additionalProperties": false,
-      "description": "Contains details about the metadata for an Iceberg table.",
+      "description": "Contains details about the metadata for an Iceberg table. Specify either IcebergSchema (for simple flat schemas with primitive types only) or IcebergSchemaV2 (for schemas with nested types like struct, list, map), but not both.",
       "properties": {
         "IcebergPartitionSpec": {
           "$ref": "#/definitions/IcebergPartitionSpec"
         },
-        "IcebergSchema": { "$ref": "#/definitions/IcebergSchema" },
+        "IcebergSchema": {
+          "$ref": "#/definitions/IcebergSchema",
+          "description": "Schema definition for flat tables with primitive types only. Mutually exclusive with IcebergSchemaV2."
+        },
+        "IcebergSchemaV2": {
+          "$ref": "#/definitions/IcebergSchemaV2",
+          "description": "Schema definition that supports Apache Iceberg nested types (struct, list, map) and primitive types. Mutually exclusive with IcebergSchema."
+        },
         "IcebergSortOrder": { "$ref": "#/definitions/IcebergSortOrder" },
         "TableProperties": { "$ref": "#/definitions/TableProperties" }
       },
-      "required": ["IcebergSchema"],
       "type": "object"
     },
     "IcebergPartitionField": {
@@ -94,6 +100,33 @@
         "SchemaFieldList": { "$ref": "#/definitions/SchemaFieldList" }
       },
       "required": ["SchemaFieldList"],
+      "type": "object"
+    },
+    "IcebergSchemaV2": {
+      "additionalProperties": false,
+      "description": "Contains details about the schema version 2 (V2) for an Iceberg table that supports Apache Iceberg Nested Types (struct, list, map). Primitive types are also supported.",
+      "properties": {
+        "IdentifierFieldIds": {
+          "description": "A list of field IDs that are used as the identifier fields for the table. Identifier fields uniquely identify a row in the table.",
+          "insertionOrder": false,
+          "items": { "type": "integer" },
+          "type": "array"
+        },
+        "SchemaId": {
+          "description": "An optional unique identifier for the schema",
+          "type": "integer"
+        },
+        "SchemaV2FieldList": {
+          "$ref": "#/definitions/SchemaV2FieldList",
+          "description": "The schema fields for the table"
+        },
+        "SchemaV2FieldType": {
+          "description": "The type of the top-level schema, which is always 'struct'",
+          "enum": ["struct"],
+          "type": "string"
+        }
+      },
+      "required": ["SchemaV2FieldList", "SchemaV2FieldType"],
       "type": "object"
     },
     "IcebergSortField": {
@@ -175,6 +208,37 @@
       "description": "Contains details about the schema for an Iceberg table",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/SchemaField" },
+      "type": "array"
+    },
+    "SchemaV2Field": {
+      "additionalProperties": false,
+      "description": "Contains details about a schema field for an Iceberg table that supports nested types (struct, list, map)",
+      "properties": {
+        "Doc": {
+          "description": "Optional documentation for the field",
+          "type": "string"
+        },
+        "Id": {
+          "description": "The unique identifier for the field",
+          "type": "integer"
+        },
+        "Name": { "description": "The name of the field", "type": "string" },
+        "Required": {
+          "description": "A Boolean value that specifies whether values are required for each row in this field",
+          "type": "boolean"
+        },
+        "Type": {
+          "description": "The field type. For primitive types, use a string (e.g., 'int', 'string', 'long'). For nested types, use an object (e.g., {'type': 'struct', 'fields': [...]} for struct, {'type': 'list', 'element-id': N, 'element': 'type'} for list, {'type': 'map', 'key-id': N, 'key': 'type', 'value-id': N, 'value': 'type'} for map).",
+          "oneOf": [{ "type": "string" }, { "type": "object" }]
+        }
+      },
+      "required": ["Id", "Name", "Type", "Required"],
+      "type": "object"
+    },
+    "SchemaV2FieldList": {
+      "description": "List of schema fields that support nested types",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/SchemaV2Field" },
       "type": "array"
     },
     "SnapshotManagement": {

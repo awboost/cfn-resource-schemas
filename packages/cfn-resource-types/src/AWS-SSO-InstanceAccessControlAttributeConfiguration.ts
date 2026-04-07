@@ -23,7 +23,7 @@ export type SSOInstanceAccessControlAttributeConfigurationProperties = {
    * The ARN of the AWS SSO instance under which the operation will be executed.
    * @minLength `10`
    * @maxLength `1224`
-   * @pattern `arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}`
+   * @pattern `arn:aws(-[a-z]{1,5}){0,3}:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}`
    */
   InstanceArn: string;
 };

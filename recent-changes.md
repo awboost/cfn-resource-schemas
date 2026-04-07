@@ -1,38 +1,69 @@
-- added `AWS::BedrockAgentCore::OAuth2CredentialProvider`
-- updated `AWS::AppStream::Fleet`
-  - added definition `VolumeConfig`
-  - added property `DisableIMDSV1`
-  - added property `RootVolumeConfig`
-- updated `AWS::BedrockAgentCore::Runtime`
-  - added definition `FilesystemConfiguration`
-  - added definition `FilesystemConfigurations`
-  - added definition `MountPath`
-  - added definition `SessionStorageConfiguration`
-  - added property `FilesystemConfigurations`
-- updated `AWS::DevOpsAgent::Service`
-  - updated definition `ApiKeyDetails`
-- updated `AWS::EMR::Cluster`
-  - added definition `Configuration`
-  - added property `VisibleToAllUsers`
-  - removed definition `CloudWatchLogConfiguration`
-  - removed definition `EMRConfiguration`
-  - removed definition `MonitoringConfiguration`
-  - removed property `MonitoringConfiguration`
-  - updated `createOnlyProperties`
-  - updated definition `Application`
-  - updated definition `HadoopJarStepConfig`
-  - updated definition `InstanceGroupConfig`
-  - updated definition `InstanceTypeConfig`
-  - updated definition `ScriptBootstrapActionConfig`
-  - updated property `BootstrapActions`
-  - updated property `Configurations`
-  - updated property `Steps`
-- updated `AWS::Logs::QueryDefinition`
-  - added definition `QueryParameter`
-  - added property `Parameters`
-- updated `AWS::SSO::Application`
-  - updated property `ApplicationArn`
-  - updated property `ApplicationProviderArn`
+- updated `AWS::ElasticLoadBalancing::LoadBalancer`
+  - added property `Id`
+  - added property `SourceSecurityGroupGroupName`
+  - added property `SourceSecurityGroupOwnerAlias`
+  - removed `conditionalCreateOnlyProperties`
+  - removed `documentationUrl`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - removed definition `PolicyItem`
+  - removed definition `SourceSecurityGroup`
+  - removed property `SourceSecurityGroup`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `AccessLoggingPolicy`
+  - updated definition `AppCookieStickinessPolicy`
+  - updated definition `ConnectionDrainingPolicy`
+  - updated definition `ConnectionSettings`
+  - updated definition `HealthCheck`
+  - updated definition `LBCookieStickinessPolicy`
+  - updated definition `Listeners`
+  - updated definition `Policies`
+  - updated definition `Tag`
+  - updated handler permissions
+  - updated property `AccessLoggingPolicy`
+  - updated property `AppCookieStickinessPolicy`
+  - updated property `AvailabilityZones`
+  - updated property `CanonicalHostedZoneNameID`
+  - updated property `CanonicalHostedZoneName`
+  - updated property `ConnectionDrainingPolicy`
+  - updated property `ConnectionSettings`
+  - updated property `CrossZone`
+  - updated property `DNSName`
+  - updated property `HealthCheck`
+  - updated property `Instances`
+  - updated property `LBCookieStickinessPolicy`
+  - updated property `Listeners`
+  - updated property `LoadBalancerName`
+  - updated property `Policies`
+  - updated property `Scheme`
+  - updated property `SecurityGroups`
+  - updated property `Subnets`
+  - updated property `Tags`
+- updated `AWS::S3Express::DirectoryBucket`
+  - added definition `MetricsConfiguration`
+  - added property `MetricsConfigurations`
+- updated `AWS::S3Tables::Table`
+  - added definition `IcebergSchemaV2`
+  - added definition `SchemaV2FieldList`
+  - added definition `SchemaV2Field`
+  - updated definition `IcebergMetadata`
+- updated `AWS::S3Tables::TableBucket`
+  - added definition `ReplicationConfiguration`
+  - added definition `ReplicationDestination`
+  - added definition `ReplicationRule`
+  - added property `ReplicationConfiguration`
+  - updated handler permissions
+- updated `AWS::SSO::Assignment`
   - updated property `InstanceArn`
-- updated `AWS::SSO::ApplicationAssignment`
-  - updated property `ApplicationArn`
+  - updated property `PermissionSetArn`
+- updated `AWS::SSO::InstanceAccessControlAttributeConfiguration`
+  - updated property `InstanceArn`
+- updated `AWS::SSO::PermissionSet`
+  - updated property `InstanceArn`
+  - updated property `PermissionSetArn`
+- updated `AWS::StepFunctions::StateMachineAlias`
+  - added property `StateMachineArn`
+  - updated handler permissions
+- updated `AWS::WorkSpacesWeb::DataProtectionSettings`
+  - updated `tagging`

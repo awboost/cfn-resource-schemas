@@ -1,5 +1,5 @@
 {
-  "$hash": "11a6f3b01e94878e9cc9712f5aafb1ea0bd26341",
+  "$hash": "84e9c4512496115e890fcfdc6cf90bc94dbce1a5",
   "$id": "aws-sso-assignment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -86,14 +86,14 @@
       "description": "The sso instance that the permission set is owned.",
       "maxLength": 1224,
       "minLength": 10,
-      "pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
+      "pattern": "arn:aws(-[a-z]{1,5}){0,3}:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
       "type": "string"
     },
     "PermissionSetArn": {
       "description": "The permission set that the assignment will be assigned",
       "maxLength": 1224,
       "minLength": 10,
-      "pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
+      "pattern": "arn:aws(-[a-z]{1,5}){0,3}:sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
       "type": "string"
     },
     "PrincipalId": {

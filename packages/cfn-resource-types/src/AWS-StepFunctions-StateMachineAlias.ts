@@ -28,6 +28,11 @@ export type StepFunctionsStateMachineAliasProperties = {
    * @maxLength `2`
    */
   RoutingConfiguration?: RoutingConfigurationVersion[];
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  StateMachineArn?: string;
 };
 /**
  * Attribute type definition for `AWS::StepFunctions::StateMachineAlias`.

@@ -27,6 +27,10 @@ export type S3ExpressDirectoryBucketProperties = {
    * Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
    */
   LocationName: string;
+  /**
+   * Specifies the metrics configurations for the Amazon S3 Express bucket.
+   */
+  MetricsConfigurations?: MetricsConfiguration[];
   Tags?: Tag[];
 };
 /**
@@ -75,6 +79,25 @@ export type LifecycleConfiguration = {
    * A lifecycle rule for individual objects in an Amazon S3 Express bucket.
    */
   Rules: Rule[];
+};
+/**
+ * Type definition for `AWS::S3Express::DirectoryBucket.MetricsConfiguration`.
+ * Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 Express bucket.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-metricsconfiguration.html}
+ */
+export type MetricsConfiguration = {
+  /**
+   * The access point ARN used when evaluating a metrics filter.
+   */
+  AccessPointArn?: string;
+  /**
+   * The ID used to identify the metrics configuration.
+   */
+  Id?: string;
+  /**
+   * The prefix used when evaluating a metrics filter.
+   */
+  Prefix?: string;
 };
 /**
  * Type definition for `AWS::S3Express::DirectoryBucket.Rule`.

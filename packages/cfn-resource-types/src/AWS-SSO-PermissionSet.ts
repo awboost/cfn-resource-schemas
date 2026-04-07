@@ -25,7 +25,7 @@ export type SSOPermissionSetProperties = {
    * The sso instance arn that the permission set is owned.
    * @minLength `10`
    * @maxLength `1224`
-   * @pattern `arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}`
+   * @pattern `arn:aws(-[a-z]{1,5}){0,3}:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}`
    */
   InstanceArn: string;
   /**
@@ -68,7 +68,7 @@ export type SSOPermissionSetAttributes = {
    * The permission set that the policy will be attached to
    * @minLength `10`
    * @maxLength `1224`
-   * @pattern `arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}`
+   * @pattern `arn:aws(-[a-z]{1,5}){0,3}:sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}`
    */
   PermissionSetArn: string;
 };

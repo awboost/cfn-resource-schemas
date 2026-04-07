@@ -1,5 +1,5 @@
 {
-  "$hash": "ed41b0b5b4f6992c8a77349efdaed68930c24c57",
+  "$hash": "216792d63bfb462d04171e91e84d17e6f19b3fc9",
   "$id": "aws-stepfunctions-statemachinealias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -89,11 +89,11 @@
     "list": {
       "handlerSchema": {
         "properties": {
-          "RoutingConfiguration": {
-            "$ref": "resource-schema.json#/properties/RoutingConfiguration"
+          "StateMachineArn": {
+            "$ref": "resource-schema.json#/properties/StateMachineArn"
           }
         },
-        "required": ["RoutingConfiguration"]
+        "required": ["StateMachineArn"]
       },
       "permissions": ["states:ListStateMachineAliases"]
     },
@@ -132,7 +132,8 @@
       "minLength": 1,
       "type": "string"
     },
-    "RoutingConfiguration": { "$ref": "#/definitions/RoutingConfiguration" }
+    "RoutingConfiguration": { "$ref": "#/definitions/RoutingConfiguration" },
+    "StateMachineArn": { "maxLength": 2048, "minLength": 1, "type": "string" }
   },
   "readOnlyProperties": ["/properties/Arn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-stepfunctions.git",

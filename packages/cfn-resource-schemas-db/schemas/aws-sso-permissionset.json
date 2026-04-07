@@ -1,5 +1,5 @@
 {
-  "$hash": "7afd5264d440267066ae855ba55ce9a4824077d5",
+  "$hash": "a07287b07b6da9d2e1b425eadb7dc2ac5c9f79ad",
   "$id": "aws-sso-permissionset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceArn", "/properties/Name"],
@@ -154,7 +154,7 @@
       "description": "The sso instance arn that the permission set is owned.",
       "maxLength": 1224,
       "minLength": 10,
-      "pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
+      "pattern": "arn:aws(-[a-z]{1,5}){0,3}:sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}",
       "type": "string"
     },
     "ManagedPolicies": {
@@ -175,7 +175,7 @@
       "description": "The permission set that the policy will be attached to",
       "maxLength": 1224,
       "minLength": 10,
-      "pattern": "arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
+      "pattern": "arn:aws(-[a-z]{1,5}){0,3}:sso:::permissionSet/(sso)?ins-[a-zA-Z0-9-.]{16}/ps-[a-zA-Z0-9-./]{16}",
       "type": "string"
     },
     "PermissionsBoundary": { "$ref": "#/definitions/PermissionsBoundary" },

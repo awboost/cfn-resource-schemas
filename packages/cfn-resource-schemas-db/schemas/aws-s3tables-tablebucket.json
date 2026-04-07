@@ -1,5 +1,5 @@
 {
-  "$hash": "b62d93d8597facb656714064a1322fb8f5c70aa3",
+  "$hash": "105aa8a59031f0bc569901f21b759e2504f0f94e",
   "$id": "aws-s3tables-tablebucket.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TableBucketName"],
@@ -31,6 +31,52 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "ReplicationConfiguration": {
+      "additionalProperties": false,
+      "description": "Specifies replication configuration for the table bucket",
+      "properties": {
+        "Role": {
+          "description": "The ARN of the IAM role to use for replication",
+          "type": "string"
+        },
+        "Rules": {
+          "description": "List of replication rules",
+          "items": { "$ref": "#/definitions/ReplicationRule" },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["Role", "Rules"],
+      "type": "object"
+    },
+    "ReplicationDestination": {
+      "additionalProperties": false,
+      "description": "A replication destination",
+      "properties": {
+        "DestinationTableBucketARN": {
+          "description": "The ARN of the destination table bucket",
+          "type": "string"
+        }
+      },
+      "required": ["DestinationTableBucketARN"],
+      "type": "object"
+    },
+    "ReplicationRule": {
+      "additionalProperties": false,
+      "description": "A replication rule for the table bucket",
+      "properties": {
+        "Destinations": {
+          "description": "List of replication destinations",
+          "items": { "$ref": "#/definitions/ReplicationDestination" },
+          "maxItems": 5,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["Destinations"],
       "type": "object"
     },
     "StorageClassConfiguration": {
@@ -108,14 +154,17 @@
         "s3tables:PutTableBucketMetricsConfiguration",
         "s3tables:PutTableBucketEncryption",
         "s3tables:PutTableBucketStorageClass",
+        "s3tables:PutTableBucketReplication",
         "s3tables:GetTableBucket",
         "s3tables:GetTableBucketMaintenanceConfiguration",
         "s3tables:GetTableBucketMetricsConfiguration",
         "s3tables:GetTableBucketEncryption",
         "s3tables:GetTableBucketStorageClass",
+        "s3tables:GetTableBucketReplication",
         "kms:DescribeKey",
         "s3tables:TagResource",
-        "s3tables:ListTagsForResource"
+        "s3tables:ListTagsForResource",
+        "iam:PassRole"
       ]
     },
     "delete": { "permissions": ["s3tables:DeleteTableBucket"] },
@@ -127,6 +176,7 @@
         "s3tables:GetTableBucketMetricsConfiguration",
         "s3tables:GetTableBucketEncryption",
         "s3tables:GetTableBucketStorageClass",
+        "s3tables:GetTableBucketReplication",
         "s3tables:ListTagsForResource"
       ]
     },
@@ -137,16 +187,20 @@
         "s3tables:PutTableBucketMetricsConfiguration",
         "s3tables:PutTableBucketEncryption",
         "s3tables:PutTableBucketStorageClass",
+        "s3tables:PutTableBucketReplication",
+        "s3tables:DeleteTableBucketReplication",
         "s3tables:GetTableBucketMaintenanceConfiguration",
         "s3tables:GetTableBucketMetricsConfiguration",
         "s3tables:GetTableBucketEncryption",
         "s3tables:GetTableBucketStorageClass",
+        "s3tables:GetTableBucketReplication",
         "s3tables:DeleteTableBucketEncryption",
         "s3tables:GetTableBucket",
         "kms:DescribeKey",
         "s3tables:TagResource",
         "s3tables:UntagResource",
-        "s3tables:ListTagsForResource"
+        "s3tables:ListTagsForResource",
+        "iam:PassRole"
       ]
     }
   },
@@ -156,6 +210,9 @@
       "$ref": "#/definitions/EncryptionConfiguration"
     },
     "MetricsConfiguration": { "$ref": "#/definitions/MetricsConfiguration" },
+    "ReplicationConfiguration": {
+      "$ref": "#/definitions/ReplicationConfiguration"
+    },
     "StorageClassConfiguration": {
       "$ref": "#/definitions/StorageClassConfiguration"
     },

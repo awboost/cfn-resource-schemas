@@ -15,6 +15,10 @@ export type S3TablesTableBucketProperties = {
    */
   MetricsConfiguration?: MetricsConfiguration;
   /**
+   * Specifies replication configuration for the table bucket
+   */
+  ReplicationConfiguration?: ReplicationConfiguration;
+  /**
    * Specifies storage class settings for the table bucket
    */
   StorageClassConfiguration?: StorageClassConfiguration;
@@ -68,6 +72,47 @@ export type MetricsConfiguration = {
    * Indicates whether Metrics are enabled.
    */
   Status?: "Enabled" | "Disabled";
+};
+/**
+ * Type definition for `AWS::S3Tables::TableBucket.ReplicationConfiguration`.
+ * Specifies replication configuration for the table bucket
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-replicationconfiguration.html}
+ */
+export type ReplicationConfiguration = {
+  /**
+   * The ARN of the IAM role to use for replication
+   */
+  Role: string;
+  /**
+   * List of replication rules
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  Rules: ReplicationRule[];
+};
+/**
+ * Type definition for `AWS::S3Tables::TableBucket.ReplicationDestination`.
+ * A replication destination
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-replicationdestination.html}
+ */
+export type ReplicationDestination = {
+  /**
+   * The ARN of the destination table bucket
+   */
+  DestinationTableBucketARN: string;
+};
+/**
+ * Type definition for `AWS::S3Tables::TableBucket.ReplicationRule`.
+ * A replication rule for the table bucket
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-replicationrule.html}
+ */
+export type ReplicationRule = {
+  /**
+   * List of replication destinations
+   * @minLength `1`
+   * @maxLength `5`
+   */
+  Destinations: ReplicationDestination[];
 };
 /**
  * Type definition for `AWS::S3Tables::TableBucket.StorageClassConfiguration`.
