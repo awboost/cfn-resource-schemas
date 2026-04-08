@@ -1,5 +1,5 @@
 {
-  "$hash": "31252c257b69a094a92297e63b6b47a2318915d2",
+  "$hash": "a408697c842a17bd65d598b2d647510195c64273",
   "$id": "aws-observabilityadmin-telemetryrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
@@ -228,6 +228,7 @@
         "AWS::CloudTrail",
         "AWS::EKS::Cluster",
         "AWS::ElasticLoadBalancingV2::LoadBalancer",
+        "AWS::EC2::Instance",
         "AWS::BedrockAgentCore::Runtime",
         "AWS::BedrockAgentCore::Browser",
         "AWS::BedrockAgentCore::CodeInterpreter"
@@ -357,7 +358,7 @@
     },
     "TelemetryType": {
       "description": "Telemetry Type associated with the Telemetry Rule",
-      "enum": ["Logs", "Traces"],
+      "enum": ["Logs", "Traces", "Metrics"],
       "type": "string"
     },
     "VPCFlowLogParameters": {

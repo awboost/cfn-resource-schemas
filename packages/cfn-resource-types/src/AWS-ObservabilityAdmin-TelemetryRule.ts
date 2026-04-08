@@ -247,6 +247,7 @@ export type ResourceType =
   | "AWS::CloudTrail"
   | "AWS::EKS::Cluster"
   | "AWS::ElasticLoadBalancingV2::LoadBalancer"
+  | "AWS::EC2::Instance"
   | "AWS::BedrockAgentCore::Runtime"
   | "AWS::BedrockAgentCore::Browser"
   | "AWS::BedrockAgentCore::CodeInterpreter";
@@ -372,7 +373,7 @@ export type TelemetrySourceType =
  * Telemetry Type associated with the Telemetry Rule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-telemetryrule-telemetrytype.html}
  */
-export type TelemetryType = "Logs" | "Traces";
+export type TelemetryType = "Logs" | "Traces" | "Metrics";
 /**
  * Type definition for `AWS::ObservabilityAdmin::TelemetryRule.VPCFlowLogParameters`.
  * Telemetry parameters for VPC Flow logs

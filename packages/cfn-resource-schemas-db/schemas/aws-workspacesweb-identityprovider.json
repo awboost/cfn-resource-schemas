@@ -1,5 +1,5 @@
 {
-  "$hash": "93522eb183471d2764812c45db32a151d6187746",
+  "$hash": "72601b10ba38ee0241fac586b703e1dae945bdb2",
   "$id": "aws-workspacesweb-identityprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PortalArn"],
@@ -130,7 +130,7 @@
   ],
   "sourceUrl": "https://github.com/shivankgoel/aws-cloudformation-resource-providers-workspaces-web",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:UntagResource",
       "workspaces-web:ListTagsForResource",

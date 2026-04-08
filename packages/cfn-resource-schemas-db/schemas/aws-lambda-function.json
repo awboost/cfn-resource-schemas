@@ -1,5 +1,5 @@
 {
-  "$hash": "48752a9d5a143a429b646756830c05b6578e6f53",
+  "$hash": "cc355a60afc020ec3238b798b12129b629011da9",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/DurableConfig"],
@@ -40,6 +40,11 @@
           "description": "The Amazon S3 key of the deployment package.",
           "maxLength": 1024,
           "minLength": 1,
+          "type": "string"
+        },
+        "S3ObjectStorageMode": {
+          "description": "",
+          "enum": ["COPY", "REFERENCE"],
           "type": "string"
         },
         "S3ObjectVersion": {

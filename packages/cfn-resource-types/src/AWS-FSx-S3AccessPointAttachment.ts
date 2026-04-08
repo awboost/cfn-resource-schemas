@@ -30,6 +30,41 @@ export type FSxS3AccessPointAttachmentProperties = {
   Type: "OPENZFS" | "ONTAP";
 };
 /**
+ * Attribute type definition for `AWS::FSx::S3AccessPointAttachment`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-s3accesspointattachment.html#aws-resource-fsx-s3accesspointattachment-return-values}
+ */
+export type FSxS3AccessPointAttachmentAttributes = {
+  /**
+   * The lifecycle status of the S3 access point attachment.
+   */
+  Lifecycle:
+    | "AVAILABLE"
+    | "CREATING"
+    | "DELETING"
+    | "FAILED"
+    | "MISCONFIGURED"
+    | "UPDATING";
+  /**
+   * The S3 access point configuration of the S3 access point attachment.
+   */
+  S3AccessPoint: {
+    /**
+     * The S3 access point's alias.
+     * @minLength `1`
+     * @maxLength `63`
+     * @pattern `^[0-9a-z\\-]{1,63}`
+     */
+    Alias: string;
+    /**
+     * The S3 access point's ARN.
+     * @minLength `8`
+     * @maxLength `1024`
+     * @pattern `^arn:[^:]{1,63}:[^:]{0,63}:[^:]{0,63}:(?:|\d{12}):[^/].{0,1023}$`
+     */
+    ResourceARN: string;
+  };
+};
+/**
  * Type definition for `AWS::FSx::S3AccessPointAttachment.FileSystemGID`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-s3accesspointattachment-filesystemgid.html}
  */
@@ -189,7 +224,7 @@ export type S3AccessPointVpcConfiguration = {
 export class FSxS3AccessPointAttachment extends $Resource<
   "AWS::FSx::S3AccessPointAttachment",
   FSxS3AccessPointAttachmentProperties,
-  Record<string, never>
+  FSxS3AccessPointAttachmentAttributes
 > {
   public static readonly Type = "AWS::FSx::S3AccessPointAttachment";
   constructor(

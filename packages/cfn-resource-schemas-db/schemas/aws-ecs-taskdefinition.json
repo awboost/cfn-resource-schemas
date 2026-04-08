@@ -1,5 +1,5 @@
 {
-  "$hash": "89e7245593303a2fadcef1f9ec160fa453d483fd",
+  "$hash": "bb28f8421dd2f991748fe13df2296b085b837850",
   "$id": "aws-ecs-taskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -733,6 +733,18 @@
       },
       "type": "object"
     },
+    "S3FilesVolumeConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "AccessPointArn": { "type": "string" },
+        "FileSystemArn": { "type": "string" },
+        "RootDirectory": { "type": "string" },
+        "TransitEncryptionPort": { "type": "integer" }
+      },
+      "required": ["FileSystemArn"],
+      "type": "object"
+    },
     "Secret": {
       "additionalProperties": false,
       "description": "An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:\n  +  To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter.\n  +  To reference sensitive information in the log configuration of a container, use the ``secretOptions`` container definition parameter.\n  \n For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.",
@@ -861,6 +873,10 @@
         "Name": {
           "description": "The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.\n When using a volume configured at launch, the ``name`` is required and must also be specified as the volume name in the ``ServiceVolumeConfiguration`` or ``TaskVolumeConfiguration`` parameter when creating your service or standalone task.\n For all other types of volumes, this name is referenced in the ``sourceVolume`` parameter of the ``mountPoints`` object in the container definition.\n When a volume is using the ``efsVolumeConfiguration``, the name is required.",
           "type": "string"
+        },
+        "S3FilesVolumeConfiguration": {
+          "$ref": "#/definitions/S3FilesVolumeConfiguration",
+          "description": ""
         }
       },
       "type": "object"

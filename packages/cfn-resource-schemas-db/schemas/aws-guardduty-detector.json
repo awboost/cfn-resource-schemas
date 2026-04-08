@@ -1,5 +1,5 @@
 {
-  "$hash": "30daeec4df2ca910113b4d5d23b6b2161cd50cb5",
+  "$hash": "0e24bd0b938c73a20b3eb1f29794d883f4c5e784",
   "$id": "aws-guardduty-detector.json",
   "additionalProperties": false,
   "definitions": {
@@ -138,7 +138,7 @@
   "readOnlyProperties": ["/properties/Id"],
   "required": ["Enable"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

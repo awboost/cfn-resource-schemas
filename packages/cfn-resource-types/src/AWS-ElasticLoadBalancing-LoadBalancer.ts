@@ -33,6 +33,10 @@ export type ElasticLoadBalancingLoadBalancerAttributes = {
   CanonicalHostedZoneNameID: string;
   DNSName: string;
   Id: string;
+  SourceSecurityGroup: {
+    GroupName: string;
+    OwnerAlias: string;
+  };
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancing::LoadBalancer.AccessLoggingPolicy`.
@@ -103,11 +107,19 @@ export type Listeners = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-policies.html}
  */
 export type Policies = {
-  Attributes: Record<string, any>[];
+  Attributes: PolicyItem[];
   InstancePorts?: string[];
   LoadBalancerPorts?: string[];
   PolicyName: string;
   PolicyType: string;
+};
+/**
+ * Type definition for `AWS::ElasticLoadBalancing::LoadBalancer.PolicyItem`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancing-loadbalancer-policyitem.html}
+ */
+export type PolicyItem = {
+  Name?: string;
+  Value?: string;
 };
 /**
  * Type definition for `AWS::ElasticLoadBalancing::LoadBalancer.Tag`.

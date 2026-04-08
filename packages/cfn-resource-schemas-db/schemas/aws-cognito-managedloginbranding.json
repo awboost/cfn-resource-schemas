@@ -1,5 +1,5 @@
 {
-  "$hash": "4ebcd20afe8b40299783be95081d10b2709f5344",
+  "$hash": "bb34b130e29bef8f2717d88eb6b66681e6be5e87",
   "$id": "aws-cognito-managedloginbranding.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/UserPoolId", "/properties/ClientId"],
@@ -60,7 +60,10 @@
   "description": "Resource Type definition for AWS::Cognito::ManagedLoginBranding",
   "handlers": {
     "create": {
-      "permissions": ["cognito-idp:CreateManagedLoginBranding"],
+      "permissions": [
+        "cognito-idp:CreateManagedLoginBranding",
+        "cognito-idp:DescribeManagedLoginBrandingByClient"
+      ],
       "timeoutInMinutes": 2
     },
     "delete": {

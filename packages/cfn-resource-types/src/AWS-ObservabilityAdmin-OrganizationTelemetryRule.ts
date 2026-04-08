@@ -246,7 +246,8 @@ export type ResourceType =
   | "AWS::WAFv2::WebACL"
   | "AWS::CloudTrail"
   | "AWS::EKS::Cluster"
-  | "AWS::ElasticLoadBalancingV2::LoadBalancer";
+  | "AWS::ElasticLoadBalancingV2::LoadBalancer"
+  | "AWS::EC2::Instance";
 /**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationTelemetryRule.SingleHeader`.
  * Header for the field to match.
@@ -363,7 +364,7 @@ export type TelemetrySourceType =
  * Telemetry Type associated with the Organization Telemetry Rule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-telemetrytype.html}
  */
-export type TelemetryType = "Logs";
+export type TelemetryType = "Logs" | "Metrics";
 /**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationTelemetryRule.VPCFlowLogParameters`.
  * Telemetry parameters for VPC Flow logs

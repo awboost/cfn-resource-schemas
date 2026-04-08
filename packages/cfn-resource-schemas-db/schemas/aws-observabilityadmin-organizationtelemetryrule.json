@@ -1,5 +1,5 @@
 {
-  "$hash": "050c18958713b227a1ca0a39f75ad53d3f16fe93",
+  "$hash": "547fd1ab988254b4c5d5390be304a5a7960e3a50",
   "$id": "aws-observabilityadmin-organizationtelemetryrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
@@ -227,7 +227,8 @@
         "AWS::WAFv2::WebACL",
         "AWS::CloudTrail",
         "AWS::EKS::Cluster",
-        "AWS::ElasticLoadBalancingV2::LoadBalancer"
+        "AWS::ElasticLoadBalancingV2::LoadBalancer",
+        "AWS::EC2::Instance"
       ],
       "type": "string"
     },
@@ -338,7 +339,7 @@
     },
     "TelemetryType": {
       "description": "Telemetry Type associated with the Organization Telemetry Rule",
-      "enum": ["Logs"],
+      "enum": ["Logs", "Metrics"],
       "type": "string"
     },
     "VPCFlowLogParameters": {

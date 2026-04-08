@@ -1,69 +1,44 @@
-- updated `AWS::ElasticLoadBalancing::LoadBalancer`
-  - added property `Id`
-  - added property `SourceSecurityGroupGroupName`
-  - added property `SourceSecurityGroupOwnerAlias`
-  - removed `conditionalCreateOnlyProperties`
-  - removed `documentationUrl`
-  - removed `sourceUrl`
-  - removed `tagging`
-  - removed definition `PolicyItem`
-  - removed definition `SourceSecurityGroup`
-  - removed property `SourceSecurityGroup`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated definition `AccessLoggingPolicy`
-  - updated definition `AppCookieStickinessPolicy`
-  - updated definition `ConnectionDrainingPolicy`
-  - updated definition `ConnectionSettings`
-  - updated definition `HealthCheck`
-  - updated definition `LBCookieStickinessPolicy`
-  - updated definition `Listeners`
-  - updated definition `Policies`
-  - updated definition `Tag`
+- added `AWS::BcmPricingCalculator::BillScenario`
+- added `AWS::Bedrock::DataAutomationLibrary`
+- added `AWS::Bedrock::EnforcedGuardrailConfiguration`
+- added `AWS::Bedrock::ResourcePolicy`
+- added `AWS::Braket::SpendingLimit`
+- added `AWS::S3Files::AccessPoint`
+- added `AWS::S3Files::FileSystem`
+- added `AWS::S3Files::FileSystemPolicy`
+- added `AWS::S3Files::MountTarget`
+- updated `AWS::Cognito::ManagedLoginBranding`
   - updated handler permissions
-  - updated property `AccessLoggingPolicy`
+- updated `AWS::Cognito::UserPoolResourceServer`
+  - updated handler permissions
+- updated `AWS::ECS::TaskDefinition`
+  - added definition `S3FilesVolumeConfiguration`
+  - updated definition `Volume`
+- updated `AWS::ElasticLoadBalancing::LoadBalancer`
+  - added definition `PolicyItem`
+  - added definition `SourceSecurityGroup`
+  - added property `SourceSecurityGroup`
+  - updated `readOnlyProperties`
+  - updated definition `Policies`
   - updated property `AppCookieStickinessPolicy`
   - updated property `AvailabilityZones`
-  - updated property `CanonicalHostedZoneNameID`
-  - updated property `CanonicalHostedZoneName`
-  - updated property `ConnectionDrainingPolicy`
-  - updated property `ConnectionSettings`
-  - updated property `CrossZone`
-  - updated property `DNSName`
-  - updated property `HealthCheck`
   - updated property `Instances`
   - updated property `LBCookieStickinessPolicy`
   - updated property `Listeners`
-  - updated property `LoadBalancerName`
-  - updated property `Policies`
-  - updated property `Scheme`
-  - updated property `SecurityGroups`
-  - updated property `Subnets`
-  - updated property `Tags`
-- updated `AWS::S3Express::DirectoryBucket`
-  - added definition `MetricsConfiguration`
-  - added property `MetricsConfigurations`
-- updated `AWS::S3Tables::Table`
-  - added definition `IcebergSchemaV2`
-  - added definition `SchemaV2FieldList`
-  - added definition `SchemaV2Field`
-  - updated definition `IcebergMetadata`
-- updated `AWS::S3Tables::TableBucket`
-  - added definition `ReplicationConfiguration`
-  - added definition `ReplicationDestination`
-  - added definition `ReplicationRule`
-  - added property `ReplicationConfiguration`
-  - updated handler permissions
-- updated `AWS::SSO::Assignment`
-  - updated property `InstanceArn`
-  - updated property `PermissionSetArn`
-- updated `AWS::SSO::InstanceAccessControlAttributeConfiguration`
-  - updated property `InstanceArn`
-- updated `AWS::SSO::PermissionSet`
-  - updated property `InstanceArn`
-  - updated property `PermissionSetArn`
-- updated `AWS::StepFunctions::StateMachineAlias`
-  - added property `StateMachineArn`
-  - updated handler permissions
-- updated `AWS::WorkSpacesWeb::DataProtectionSettings`
+- updated `AWS::FSx::S3AccessPointAttachment`
+  - added property `Lifecycle`
+  - updated `readOnlyProperties`
+- updated `AWS::GuardDuty::Detector`
+  - updated `tagging`
+- updated `AWS::Lambda::Function`
+  - updated definition `Code`
+- updated `AWS::ObservabilityAdmin::OrganizationTelemetryRule`
+  - updated definition `ResourceType`
+  - updated definition `TelemetryType`
+- updated `AWS::ObservabilityAdmin::TelemetryRule`
+  - updated definition `ResourceType`
+  - updated definition `TelemetryType`
+- updated `AWS::Organizations::OrganizationalUnit`
+  - updated `tagging`
+- updated `AWS::WorkSpacesWeb::IdentityProvider`
   - updated `tagging`

@@ -968,6 +968,16 @@ export type RuntimePlatform = {
   OperatingSystemFamily?: string;
 };
 /**
+ * Type definition for `AWS::ECS::TaskDefinition.S3FilesVolumeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-s3filesvolumeconfiguration.html}
+ */
+export type S3FilesVolumeConfiguration = {
+  AccessPointArn?: string;
+  FileSystemArn: string;
+  RootDirectory?: string;
+  TransitEncryptionPort?: number;
+};
+/**
  * Type definition for `AWS::ECS::TaskDefinition.Secret`.
  * An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
   +  To inject sensitive data into your containers as environment variables, use the ``secrets`` container definition parameter.
@@ -1133,6 +1143,7 @@ export type Volume = {
      When a volume is using the ``efsVolumeConfiguration``, the name is required.
      */
   Name?: string;
+  S3FilesVolumeConfiguration?: S3FilesVolumeConfiguration;
 };
 /**
  * Type definition for `AWS::ECS::TaskDefinition.VolumeFrom`.

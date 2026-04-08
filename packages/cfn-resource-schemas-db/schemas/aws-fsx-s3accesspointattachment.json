@@ -1,5 +1,5 @@
 {
-  "$hash": "fc6b3abbca6cf1584c169b0ab9ab973a8fb7559b",
+  "$hash": "f8bcbc4a97147ce32013df57ede8e7fd4bf0b52a",
   "$id": "aws-fsx-s3accesspointattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -231,6 +231,18 @@
   ],
   "primaryIdentifier": ["/properties/Name"],
   "properties": {
+    "Lifecycle": {
+      "description": "The lifecycle status of the S3 access point attachment.",
+      "enum": [
+        "AVAILABLE",
+        "CREATING",
+        "DELETING",
+        "FAILED",
+        "MISCONFIGURED",
+        "UPDATING"
+      ],
+      "type": "string"
+    },
     "Name": {
       "description": "The name of the S3 access point attachment; also used for the name of the S3 access point.",
       "maxLength": 50,
@@ -258,7 +270,8 @@
   },
   "readOnlyProperties": [
     "/properties/S3AccessPoint/ResourceARN",
-    "/properties/S3AccessPoint/Alias"
+    "/properties/S3AccessPoint/Alias",
+    "/properties/Lifecycle"
   ],
   "replacementStrategy": "delete_then_create",
   "required": ["Name", "Type"],
