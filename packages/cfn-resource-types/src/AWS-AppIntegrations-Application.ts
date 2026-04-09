@@ -17,11 +17,15 @@ export type AppIntegrationsApplicationProperties = {
     ExternalUrlConfig: ExternalUrlConfig;
   };
   /**
+   * The type of application
+   */
+  ApplicationType?: "STANDARD" | "SERVICE" | "MCP_SERVER";
+  /**
    * The application description.
    * @minLength `1`
    * @maxLength `1000`
    */
-  Description: string;
+  Description?: string;
   /**
    * The iframe configuration
    */

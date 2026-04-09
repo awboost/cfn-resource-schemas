@@ -1,5 +1,5 @@
 {
-  "$hash": "cc355a60afc020ec3238b798b12129b629011da9",
+  "$hash": "7b866f5e78a43ca2dd4edd7043071762c75e2a38",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/DurableConfig"],
@@ -134,7 +134,7 @@
         "Arn": {
           "description": "The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.",
           "maxLength": 200,
-          "pattern": "^arn:aws[a-zA-Z-]*:elasticfilesystem:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:access-point/fsap-[a-f0-9]{17}$",
+          "pattern": "^arn:aws[a-zA-Z-]*:elasticfilesystem:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:access-point/fsap-[a-f0-9]{17}$|^arn:aws[-a-z]*:s3files:[0-9a-z-:]+:file-system/fs-[0-9a-f]{17,40}/access-point/fsap-[0-9a-f]{17,40}$",
           "type": "string"
         },
         "LocalMountPath": {
@@ -384,6 +384,7 @@
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
         "elasticfilesystem:DescribeMountTargets",
+        "s3files:ListMountTargets",
         "kms:CreateGrant",
         "kms:Decrypt",
         "kms:Encrypt",
@@ -411,6 +412,7 @@
     "read": {
       "permissions": [
         "lambda:GetFunction",
+        "kms:Decrypt",
         "lambda:GetFunctionCodeSigningConfig",
         "lambda:GetFunctionRecursionConfig",
         "lambda:GetRuntimeManagementConfig",
@@ -433,6 +435,7 @@
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
         "elasticfilesystem:DescribeMountTargets",
+        "s3files:ListMountTargets",
         "kms:CreateGrant",
         "kms:Decrypt",
         "kms:GenerateDataKey",

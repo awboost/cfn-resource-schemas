@@ -1,5 +1,5 @@
 {
-  "$hash": "758fbc10a6f0d030b5c41cbf3d585a7e51d4a55b",
+  "$hash": "b4bdb54bb64a70778e14b1deae54c38d4f39c04d",
   "$id": "aws-workspacesweb-usersettings.json",
   "additionalProperties": false,
   "definitions": {
@@ -336,7 +336,7 @@
     "UploadAllowed"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:UntagResource",
       "workspaces-web:ListTagsForResource",

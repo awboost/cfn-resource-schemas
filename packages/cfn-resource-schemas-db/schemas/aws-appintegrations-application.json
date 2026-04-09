@@ -1,5 +1,5 @@
 {
-  "$hash": "dc99126565d4cc6effe9ba00d87dff3f78bfd6ce",
+  "$hash": "15f0e8441a53fc62a8d7f8099c0c7d9700041c01",
   "$id": "aws-appintegrations-application.json",
   "additionalProperties": false,
   "definitions": {
@@ -135,6 +135,11 @@
       "required": ["ExternalUrlConfig"],
       "type": "object"
     },
+    "ApplicationType": {
+      "description": "The type of application",
+      "enum": ["STANDARD", "SERVICE", "MCP_SERVER"],
+      "type": "string"
+    },
     "Description": {
       "description": "The application description.",
       "maxLength": 1000,
@@ -192,7 +197,7 @@
     }
   },
   "readOnlyProperties": ["/properties/ApplicationArn", "/properties/Id"],
-  "required": ["Name", "Namespace", "Description", "ApplicationSourceConfig"],
+  "required": ["Name", "Namespace", "ApplicationSourceConfig"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
     "cloudFormationSystemTags": true,

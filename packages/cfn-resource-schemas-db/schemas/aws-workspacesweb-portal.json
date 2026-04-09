@@ -1,5 +1,5 @@
 {
-  "$hash": "580e001d2a3dbd357d01401af99ec31999eba61e",
+  "$hash": "e67309a353aa64b2b7bff73be7af2ce5d47a03f3",
   "$id": "aws-workspacesweb-portal.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -286,7 +286,7 @@
     "/properties/StatusReason"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "workspaces-web:UntagResource",
       "workspaces-web:List*",

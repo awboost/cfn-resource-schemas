@@ -1,44 +1,10 @@
-- added `AWS::BcmPricingCalculator::BillScenario`
-- added `AWS::Bedrock::DataAutomationLibrary`
-- added `AWS::Bedrock::EnforcedGuardrailConfiguration`
-- added `AWS::Bedrock::ResourcePolicy`
-- added `AWS::Braket::SpendingLimit`
-- added `AWS::S3Files::AccessPoint`
-- added `AWS::S3Files::FileSystem`
-- added `AWS::S3Files::FileSystemPolicy`
-- added `AWS::S3Files::MountTarget`
-- updated `AWS::Cognito::ManagedLoginBranding`
-  - updated handler permissions
-- updated `AWS::Cognito::UserPoolResourceServer`
-  - updated handler permissions
-- updated `AWS::ECS::TaskDefinition`
-  - added definition `S3FilesVolumeConfiguration`
-  - updated definition `Volume`
-- updated `AWS::ElasticLoadBalancing::LoadBalancer`
-  - added definition `PolicyItem`
-  - added definition `SourceSecurityGroup`
-  - added property `SourceSecurityGroup`
-  - updated `readOnlyProperties`
-  - updated definition `Policies`
-  - updated property `AppCookieStickinessPolicy`
-  - updated property `AvailabilityZones`
-  - updated property `Instances`
-  - updated property `LBCookieStickinessPolicy`
-  - updated property `Listeners`
-- updated `AWS::FSx::S3AccessPointAttachment`
-  - added property `Lifecycle`
-  - updated `readOnlyProperties`
-- updated `AWS::GuardDuty::Detector`
-  - updated `tagging`
+- updated `AWS::AppIntegrations::Application`
+  - added property `ApplicationType`
+  - updated `required`
 - updated `AWS::Lambda::Function`
-  - updated definition `Code`
-- updated `AWS::ObservabilityAdmin::OrganizationTelemetryRule`
-  - updated definition `ResourceType`
-  - updated definition `TelemetryType`
-- updated `AWS::ObservabilityAdmin::TelemetryRule`
-  - updated definition `ResourceType`
-  - updated definition `TelemetryType`
-- updated `AWS::Organizations::OrganizationalUnit`
+  - updated definition `FileSystemConfig`
+  - updated handler permissions
+- updated `AWS::WorkSpacesWeb::Portal`
   - updated `tagging`
-- updated `AWS::WorkSpacesWeb::IdentityProvider`
+- updated `AWS::WorkSpacesWeb::UserSettings`
   - updated `tagging`
