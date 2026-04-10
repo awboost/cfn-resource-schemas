@@ -12,7 +12,7 @@ export type SESMailManagerArchiveProperties = {
    */
   ArchiveName?: string;
   /**
-   * @pattern `^arn:aws(|-cn|-us-gov):kms:[a-z0-9-]{1,20}:[0-9]{12}:(key|alias)/.+$`
+   * @pattern `^arn:aws(|-cn|-us-gov|-eusc):kms:[a-z0-9-]{1,20}:[0-9]{12}:(key|alias)/.+$`
    */
   KmsKeyArn?: string;
   Retention?: ArchiveRetention;

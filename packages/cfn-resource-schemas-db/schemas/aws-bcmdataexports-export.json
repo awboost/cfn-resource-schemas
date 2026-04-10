@@ -1,5 +1,5 @@
 {
-  "$hash": "64b94b50fadefa866f119fd514367dc15746e1eb",
+  "$hash": "a913e264e63d832211bad7a7e86f5c63d3bd1bc6",
   "$id": "aws-bcmdataexports-export.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -96,6 +96,12 @@
           "maxLength": 1024,
           "minLength": 0,
           "pattern": "^[\\S\\s]*$",
+          "type": "string"
+        },
+        "S3BucketOwner": {
+          "maxLength": 12,
+          "minLength": 12,
+          "pattern": "^[0-9]{12}$",
           "type": "string"
         },
         "S3OutputConfigurations": {

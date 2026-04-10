@@ -1,5 +1,5 @@
 {
-  "$hash": "278078af982d744af261005a33d4de515e67b68d",
+  "$hash": "b113bb730235c182b2f91aa21ad1eacd71045614",
   "$id": "aws-resourceexplorer2-index.json",
   "additionalProperties": false,
   "definitions": {
@@ -55,7 +55,7 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/IndexState"],
   "required": ["Type"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "resource-explorer-2:ListTagsForResource",
       "resource-explorer-2:TagResource",

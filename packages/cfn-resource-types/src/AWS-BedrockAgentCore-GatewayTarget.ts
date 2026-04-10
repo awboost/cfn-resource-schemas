@@ -130,6 +130,9 @@ export type CredentialProvider =
     }
   | {
       ApiKeyCredentialProvider: ApiKeyCredentialProvider;
+    }
+  | {
+      IamCredentialProvider: IamCredentialProvider;
     };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.CredentialProviderConfiguration`.
@@ -144,6 +147,24 @@ export type CredentialProviderConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-credentialprovidertype.html}
  */
 export type CredentialProviderType = "GATEWAY_IAM_ROLE" | "OAUTH" | "API_KEY";
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.IamCredentialProvider`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-iamcredentialprovider.html}
+ */
+export type IamCredentialProvider = {
+  /**
+   * @minLength `1`
+   * @maxLength `32`
+   * @pattern `^[a-zA-Z0-9-]+$`
+   */
+  Region?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^[a-zA-Z0-9._-]+$`
+   */
+  Service: string;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpLambdaTargetConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcplambdatargetconfiguration.html}

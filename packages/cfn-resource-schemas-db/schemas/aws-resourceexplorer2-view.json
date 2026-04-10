@@ -1,5 +1,5 @@
 {
-  "$hash": "2d4f0f08d3a8aa132b1753593770bc0cd01fa0d2",
+  "$hash": "9246aade43bf401b777ee11f39aa7c484b7aa615",
   "$id": "aws-resourceexplorer2-view.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Scope", "/properties/ViewName"],
@@ -67,7 +67,7 @@
   "readOnlyProperties": ["/properties/ViewArn"],
   "required": ["ViewName"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "resource-explorer-2:ListTagsForResource",
       "resource-explorer-2:TagResource",

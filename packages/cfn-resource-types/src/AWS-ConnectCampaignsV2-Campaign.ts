@@ -32,6 +32,10 @@ export type ConnectCampaignsV2CampaignProperties = {
    */
   ConnectInstanceId: string;
   /**
+   * Entry limits config for a campaign
+   */
+  EntryLimitsConfig?: EntryLimitsConfig;
+  /**
    * Campaign name
    * @minLength `1`
    * @maxLength `127`
@@ -288,6 +292,25 @@ export type EmailOutboundMode = {
    * Agentless config
    */
   AgentlessConfig?: AgentlessConfig;
+};
+/**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.EntryLimitsConfig`.
+ * Entry limits config for a campaign
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-entrylimitsconfig.html}
+ */
+export type EntryLimitsConfig = {
+  /**
+   * Maximum number of entries per participant. 0 indicates unlimited entries.
+   * @min `0`
+   */
+  MaxEntryCount: number;
+  /**
+   * Minimum time interval between entries for the same participant in ISO 8601 duration format
+   * @minLength `0`
+   * @maxLength `50`
+   * @pattern `^[a-zA-Z0-9.]*$`
+   */
+  MinEntryInterval: string;
 };
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.EventTrigger`.

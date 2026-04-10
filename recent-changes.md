@@ -1,10 +1,24 @@
-- updated `AWS::AppIntegrations::Application`
-  - added property `ApplicationType`
-  - updated `required`
-- updated `AWS::Lambda::Function`
-  - updated definition `FileSystemConfig`
+- removed `AWS::Braket::SpendingLimit`
+- updated `AWS::BCMDataExports::Export`
+  - updated definition `S3Destination`
+- updated `AWS::BedrockAgentCore::GatewayTarget`
+  - added definition `IamCredentialProvider`
+  - updated definition `CredentialProvider`
+- updated `AWS::ConnectCampaignsV2::Campaign`
+  - added definition `EntryLimitsConfig`
+  - added property `EntryLimitsConfig`
   - updated handler permissions
-- updated `AWS::WorkSpacesWeb::Portal`
+- updated `AWS::ECS::Service`
+  - updated definition `DeploymentConfiguration`
+- updated `AWS::ResourceExplorer2::Index`
   - updated `tagging`
-- updated `AWS::WorkSpacesWeb::UserSettings`
+- updated `AWS::ResourceExplorer2::View`
   - updated `tagging`
+- updated `AWS::SES::MailManagerArchive`
+  - updated property `KmsKeyArn`
+- updated `AWS::SES::MailManagerIngressPoint`
+  - updated definition `IngressPointConfiguration`
+- updated `AWS::SES::MailManagerRelay`
+  - updated definition `RelayAuthentication`
+- updated `AWS::SES::MailManagerRuleSet`
+  - updated definition `SnsAction`

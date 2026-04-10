@@ -127,6 +127,12 @@ export type S3Destination = {
    * @pattern `^[\S\s]*$`
    */
   S3Bucket: string;
+  /**
+   * @minLength `12`
+   * @maxLength `12`
+   * @pattern `^[0-9]{12}$`
+   */
+  S3BucketOwner?: string;
   S3OutputConfigurations: S3OutputConfigurations;
   /**
    * @minLength `0`

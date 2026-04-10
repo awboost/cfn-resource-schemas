@@ -1,5 +1,5 @@
 {
-  "$hash": "ff66bf2c70d89785fcfb6969f6950cfbdfffbeb8",
+  "$hash": "19de50885fd37a0945acb800cdc21fec92e0ee68",
   "$id": "aws-ses-mailmanagerruleset.json",
   "additionalProperties": false,
   "definitions": {
@@ -638,7 +638,7 @@
         "TopicArn": {
           "maxLength": 2048,
           "minLength": 20,
-          "pattern": "^arn:(aws|aws-cn|aws-us-gov):sns:[a-z]{2}-[a-z]+-\\d{1}:\\d{12}:[\\w\\-]{1,256}$",
+          "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-eusc):sns:[a-z]{2}-[a-z]+-\\d{1}:\\d{12}:[\\w\\-]{1,256}$",
           "type": "string"
         }
       },

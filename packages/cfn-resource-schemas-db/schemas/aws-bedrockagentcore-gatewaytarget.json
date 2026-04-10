@@ -1,5 +1,5 @@
 {
-  "$hash": "8ba7173b3af77833b08edaaba9e1ef8ad7840077",
+  "$hash": "d5e4321273b1f54294ee4461d8cb6a729c7bb339",
   "$id": "aws-bedrockagentcore-gatewaytarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayIdentifier"],
@@ -123,6 +123,17 @@
           "required": ["ApiKeyCredentialProvider"],
           "title": "ApiKeyCredentialProvider",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "IamCredentialProvider": {
+              "$ref": "#/definitions/IamCredentialProvider"
+            }
+          },
+          "required": ["IamCredentialProvider"],
+          "title": "IamCredentialProvider",
+          "type": "object"
         }
       ]
     },
@@ -140,6 +151,25 @@
     "CredentialProviderType": {
       "enum": ["GATEWAY_IAM_ROLE", "OAUTH", "API_KEY"],
       "type": "string"
+    },
+    "IamCredentialProvider": {
+      "additionalProperties": false,
+      "properties": {
+        "Region": {
+          "maxLength": 32,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9-]+$",
+          "type": "string"
+        },
+        "Service": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9._-]+$",
+          "type": "string"
+        }
+      },
+      "required": ["Service"],
+      "type": "object"
     },
     "McpLambdaTargetConfiguration": {
       "additionalProperties": false,

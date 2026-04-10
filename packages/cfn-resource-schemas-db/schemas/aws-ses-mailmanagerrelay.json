@@ -1,5 +1,5 @@
 {
-  "$hash": "0002e75042480e03de5784e07f14555f093de009",
+  "$hash": "30e890c61c0abb06751fd94d928c580174bb0044",
   "$id": "aws-ses-mailmanagerrelay.json",
   "additionalProperties": false,
   "definitions": {
@@ -10,7 +10,7 @@
           "additionalProperties": false,
           "properties": {
             "SecretArn": {
-              "pattern": "^arn:(aws|aws-cn|aws-us-gov):secretsmanager:[a-z0-9-]+:\\d{12}:secret:[a-zA-Z0-9/_+=,.@-]+$",
+              "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-eusc):secretsmanager:[a-z0-9-]+:\\d{12}:secret:[a-zA-Z0-9/_+=,.@-]+$",
               "type": "string"
             }
           },

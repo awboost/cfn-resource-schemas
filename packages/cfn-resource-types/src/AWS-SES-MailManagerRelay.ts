@@ -54,7 +54,7 @@ export type NoAuthentication = Record<string, any>;
 export type RelayAuthentication =
   | {
       /**
-       * @pattern `^arn:(aws|aws-cn|aws-us-gov):secretsmanager:[a-z0-9-]+:\d{12}:secret:[a-zA-Z0-9/_+=,.@-]+$`
+       * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc):secretsmanager:[a-z0-9-]+:\d{12}:secret:[a-zA-Z0-9/_+=,.@-]+$`
        */
       SecretArn: string;
     }

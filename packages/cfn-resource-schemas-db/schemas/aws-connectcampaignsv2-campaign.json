@@ -1,5 +1,5 @@
 {
-  "$hash": "7622a1c7d38bb8fe68e565df8ed586ed48a07351",
+  "$hash": "705727bec6fd67a18b514233aa9d6d89a9bc991c",
   "$id": "aws-connectcampaignsv2-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceId"],
@@ -213,6 +213,23 @@
       "properties": {
         "AgentlessConfig": { "$ref": "#/definitions/AgentlessConfig" }
       },
+      "type": "object"
+    },
+    "EntryLimitsConfig": {
+      "additionalProperties": false,
+      "description": "Entry limits config for a campaign",
+      "properties": {
+        "MaxEntryCount": {
+          "description": "Maximum number of entries per participant. 0 indicates unlimited entries.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "MinEntryInterval": {
+          "$ref": "#/definitions/Iso8601Duration",
+          "description": "Minimum time interval between entries for the same participant in ISO 8601 duration format"
+        }
+      },
+      "required": ["MaxEntryCount", "MinEntryInterval"],
       "type": "object"
     },
     "EventTrigger": {
@@ -572,7 +589,8 @@
         "connect-campaigns:DeleteCampaign",
         "connect-campaigns:DeleteCampaignChannelSubtypeConfig",
         "connect-campaigns:DeleteCampaignCommunicationLimits",
-        "connect-campaigns:DeleteCampaignCommunicationTime"
+        "connect-campaigns:DeleteCampaignCommunicationTime",
+        "connect-campaigns:DeleteCampaignEntryLimits"
       ]
     },
     "list": {
@@ -592,9 +610,11 @@
         "connect-campaigns:DeleteCampaignChannelSubtypeConfig",
         "connect-campaigns:DeleteCampaignCommunicationLimits",
         "connect-campaigns:DeleteCampaignCommunicationTime",
+        "connect-campaigns:DeleteCampaignEntryLimits",
         "connect-campaigns:UpdateCampaignChannelSubtypeConfig",
         "connect-campaigns:UpdateCampaignCommunicationLimits",
         "connect-campaigns:UpdateCampaignCommunicationTime",
+        "connect-campaigns:UpdateCampaignEntryLimits",
         "connect-campaigns:UpdateCampaignName",
         "connect-campaigns:UpdateCampaignFlowAssociation",
         "connect-campaigns:UpdateCampaignSchedule",
@@ -629,6 +649,7 @@
     },
     "ConnectCampaignFlowArn": { "$ref": "#/definitions/Arn" },
     "ConnectInstanceId": { "$ref": "#/definitions/InstanceId" },
+    "EntryLimitsConfig": { "$ref": "#/definitions/EntryLimitsConfig" },
     "Name": { "$ref": "#/definitions/CampaignName" },
     "Schedule": { "$ref": "#/definitions/Schedule" },
     "Source": { "$ref": "#/definitions/Source" },
