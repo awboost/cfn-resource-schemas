@@ -1,5 +1,5 @@
 {
-  "$hash": "c786cbd229c6b30f25da0ef1a243c9184da4711a",
+  "$hash": "a715b172a8329637f9d00ef6bf65a4f0349297d0",
   "$id": "aws-elasticloadbalancing-loadbalancer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -89,7 +89,7 @@
       "additionalProperties": false,
       "properties": {
         "Attributes": {
-          "items": { "$ref": "#/definitions/PolicyItem" },
+          "items": { "type": "object" },
           "type": "array",
           "uniqueItems": true
         },
@@ -109,22 +109,6 @@
       "required": ["PolicyType", "PolicyName", "Attributes"],
       "type": "object"
     },
-    "PolicyItem": {
-      "additionalProperties": false,
-      "properties": {
-        "Name": { "type": "string" },
-        "Value": { "type": "string" }
-      },
-      "type": "object"
-    },
-    "SourceSecurityGroup": {
-      "additionalProperties": false,
-      "properties": {
-        "GroupName": { "type": "string" },
-        "OwnerAlias": { "type": "string" }
-      },
-      "type": "object"
-    },
     "Tag": {
       "additionalProperties": false,
       "properties": {
@@ -142,12 +126,12 @@
     "AppCookieStickinessPolicy": {
       "items": { "$ref": "#/definitions/AppCookieStickinessPolicy" },
       "type": "array",
-      "uniqueItems": false
+      "uniqueItems": true
     },
     "AvailabilityZones": {
       "items": { "type": "string" },
       "type": "array",
-      "uniqueItems": false
+      "uniqueItems": true
     },
     "CanonicalHostedZoneName": { "type": "string" },
     "CanonicalHostedZoneNameID": { "type": "string" },
@@ -162,17 +146,17 @@
     "Instances": {
       "items": { "type": "string" },
       "type": "array",
-      "uniqueItems": false
+      "uniqueItems": true
     },
     "LBCookieStickinessPolicy": {
       "items": { "$ref": "#/definitions/LBCookieStickinessPolicy" },
       "type": "array",
-      "uniqueItems": false
+      "uniqueItems": true
     },
     "Listeners": {
       "items": { "$ref": "#/definitions/Listeners" },
       "type": "array",
-      "uniqueItems": false
+      "uniqueItems": true
     },
     "LoadBalancerName": { "type": "string" },
     "Policies": {
@@ -186,7 +170,6 @@
       "type": "array",
       "uniqueItems": true
     },
-    "SourceSecurityGroup": { "$ref": "#/definitions/SourceSecurityGroup" },
     "SourceSecurityGroupGroupName": { "type": "string" },
     "SourceSecurityGroupOwnerAlias": { "type": "string" },
     "Subnets": {
@@ -201,7 +184,6 @@
     }
   },
   "readOnlyProperties": [
-    "/properties/SourceSecurityGroup",
     "/properties/Id",
     "/properties/CanonicalHostedZoneName",
     "/properties/CanonicalHostedZoneNameID",

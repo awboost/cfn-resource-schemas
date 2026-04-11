@@ -1,0 +1,54 @@
+{
+  "$hash": "c6eef38afc264a6fc7570883a28d836c68c2114d",
+  "$id": "aws-braket-spendinglimit.json",
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/DeviceArn"],
+  "definitions": {
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": { "type": "string" }
+      },
+      "required": ["Value", "Key"],
+      "type": "object"
+    },
+    "TimePeriod": {
+      "additionalProperties": false,
+      "properties": {
+        "EndAt": { "type": "string" },
+        "StartAt": { "type": "string" }
+      },
+      "required": ["EndAt", "StartAt"],
+      "type": "object"
+    }
+  },
+  "description": "Resource Type definition for AWS::Braket::SpendingLimit",
+  "primaryIdentifier": ["/properties/Id"],
+  "properties": {
+    "CreatedAt": { "type": "string" },
+    "DeviceArn": { "type": "string" },
+    "Id": { "type": "string" },
+    "QueuedSpend": { "type": "string" },
+    "SpendingLimit": { "type": "string" },
+    "SpendingLimitArn": { "type": "string" },
+    "Tags": {
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "TimePeriod": { "$ref": "#/definitions/TimePeriod" },
+    "TotalSpend": { "type": "string" },
+    "UpdatedAt": { "type": "string" }
+  },
+  "readOnlyProperties": [
+    "/properties/SpendingLimitArn",
+    "/properties/CreatedAt",
+    "/properties/Id",
+    "/properties/UpdatedAt",
+    "/properties/QueuedSpend",
+    "/properties/TotalSpend"
+  ],
+  "required": ["SpendingLimit", "DeviceArn"],
+  "typeName": "AWS::Braket::SpendingLimit"
+}

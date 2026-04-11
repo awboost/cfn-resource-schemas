@@ -1,24 +1,33 @@
-- removed `AWS::Braket::SpendingLimit`
-- updated `AWS::BCMDataExports::Export`
-  - updated definition `S3Destination`
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - added definition `IamCredentialProvider`
-  - updated definition `CredentialProvider`
-- updated `AWS::ConnectCampaignsV2::Campaign`
-  - added definition `EntryLimitsConfig`
-  - added property `EntryLimitsConfig`
+- added `AWS::Braket::SpendingLimit`
+- updated `AWS::ApiGatewayV2::Stage`
+  - added `readOnlyProperties`
+  - added property `AccessPolicyId`
+  - added property `Id`
+  - removed `sourceUrl`
+  - removed `tagging`
+  - updated `primaryIdentifier`
   - updated handler permissions
-- updated `AWS::ECS::Service`
-  - updated definition `DeploymentConfiguration`
-- updated `AWS::ResourceExplorer2::Index`
-  - updated `tagging`
-- updated `AWS::ResourceExplorer2::View`
-  - updated `tagging`
-- updated `AWS::SES::MailManagerArchive`
-  - updated property `KmsKeyArn`
-- updated `AWS::SES::MailManagerIngressPoint`
-  - updated definition `IngressPointConfiguration`
-- updated `AWS::SES::MailManagerRelay`
-  - updated definition `RelayAuthentication`
-- updated `AWS::SES::MailManagerRuleSet`
-  - updated definition `SnsAction`
+  - updated property `AccessLogSettings`
+  - updated property `ApiId`
+  - updated property `AutoDeploy`
+  - updated property `ClientCertificateId`
+  - updated property `DefaultRouteSettings`
+  - updated property `DeploymentId`
+  - updated property `Description`
+  - updated property `RouteSettings`
+  - updated property `StageName`
+  - updated property `StageVariables`
+  - updated property `Tags`
+- updated `AWS::ElasticLoadBalancing::LoadBalancer`
+  - removed definition `PolicyItem`
+  - removed definition `SourceSecurityGroup`
+  - removed property `SourceSecurityGroup`
+  - updated `readOnlyProperties`
+  - updated definition `Policies`
+  - updated property `AppCookieStickinessPolicy`
+  - updated property `AvailabilityZones`
+  - updated property `Instances`
+  - updated property `LBCookieStickinessPolicy`
+  - updated property `Listeners`
+- updated `AWS::Location::TrackerConsumer`
+  - updated handler permissions

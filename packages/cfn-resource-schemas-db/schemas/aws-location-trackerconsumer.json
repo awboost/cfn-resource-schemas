@@ -1,5 +1,5 @@
 {
-  "$hash": "7cfffeeb108e05455e4a517a3494d010cd5a7bbb",
+  "$hash": "facd6bfcf45ad7114e78a36812f5739796077b37",
   "$id": "aws-location-trackerconsumer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -20,7 +20,7 @@
         "geo:ListTrackerConsumers"
       ]
     },
-    "list": { "permissions": ["geo:ListTrackerConsumers"] },
+    "list": { "permissions": ["geo:ListTrackerConsumers", "geo:ListTrackers"] },
     "read": { "permissions": ["geo:ListTrackerConsumers"] }
   },
   "primaryIdentifier": ["/properties/TrackerName", "/properties/ConsumerArn"],
