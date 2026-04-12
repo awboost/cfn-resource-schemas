@@ -1,33 +1,21 @@
-- added `AWS::Braket::SpendingLimit`
 - updated `AWS::ApiGatewayV2::Stage`
-  - added `readOnlyProperties`
-  - added property `AccessPolicyId`
-  - added property `Id`
-  - removed `sourceUrl`
-  - removed `tagging`
+  - removed property `AccessPolicyId`
+- updated `AWS::Braket::SpendingLimit`
+  - added `tagging`
+  - removed property `Id`
   - updated `primaryIdentifier`
-  - updated handler permissions
-  - updated property `AccessLogSettings`
-  - updated property `ApiId`
-  - updated property `AutoDeploy`
-  - updated property `ClientCertificateId`
-  - updated property `DefaultRouteSettings`
-  - updated property `DeploymentId`
-  - updated property `Description`
-  - updated property `RouteSettings`
-  - updated property `StageName`
-  - updated property `StageVariables`
-  - updated property `Tags`
-- updated `AWS::ElasticLoadBalancing::LoadBalancer`
-  - removed definition `PolicyItem`
-  - removed definition `SourceSecurityGroup`
-  - removed property `SourceSecurityGroup`
   - updated `readOnlyProperties`
-  - updated definition `Policies`
-  - updated property `AppCookieStickinessPolicy`
-  - updated property `AvailabilityZones`
-  - updated property `Instances`
-  - updated property `LBCookieStickinessPolicy`
-  - updated property `Listeners`
-- updated `AWS::Location::TrackerConsumer`
+  - updated `required`
+  - updated definition `Tag`
+  - updated definition `TimePeriod`
   - updated handler permissions
+  - updated property `CreatedAt`
+  - updated property `DeviceArn`
+  - updated property `QueuedSpend`
+  - updated property `SpendingLimitArn`
+  - updated property `SpendingLimit`
+  - updated property `Tags`
+  - updated property `TotalSpend`
+  - updated property `UpdatedAt`
+- updated `AWS::FIS::ExperimentTemplate`
+  - updated `tagging`

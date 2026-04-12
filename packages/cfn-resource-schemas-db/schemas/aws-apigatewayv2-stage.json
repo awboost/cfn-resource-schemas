@@ -1,5 +1,5 @@
 {
-  "$hash": "282e003ed6d33070bd9fbf5848a2f5be07f66a15",
+  "$hash": "3f84360e76023659c23ff190dfcd28f6aac85c69",
   "$id": "aws-apigatewayv2-stage.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/StageName", "/properties/ApiId"],
@@ -28,7 +28,6 @@
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
     "AccessLogSettings": { "$ref": "#/definitions/AccessLogSettings" },
-    "AccessPolicyId": { "type": "string" },
     "ApiId": { "type": "string" },
     "AutoDeploy": { "type": "boolean" },
     "ClientCertificateId": { "type": "string" },

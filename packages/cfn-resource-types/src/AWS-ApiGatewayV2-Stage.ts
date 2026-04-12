@@ -6,7 +6,6 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ApiGatewayV2StageProperties = {
   AccessLogSettings?: AccessLogSettings;
-  AccessPolicyId?: string;
   ApiId: string;
   AutoDeploy?: boolean;
   ClientCertificateId?: string;
