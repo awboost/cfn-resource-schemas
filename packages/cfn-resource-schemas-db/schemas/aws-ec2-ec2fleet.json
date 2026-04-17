@@ -1,5 +1,5 @@
 {
-  "$hash": "6551481ba3c3d9b92f17841dd97f847c2868a84b",
+  "$hash": "2ef4b76a65324c9ff8226719def54fbdfac0afc1",
   "$id": "aws-ec2-ec2fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -488,7 +488,7 @@
       "additionalProperties": false,
       "properties": {
         "DefaultTargetCapacityType": {
-          "enum": ["on-demand", "spot", "reserved-capacity"],
+          "enum": ["on-demand", "spot", "capacity-block", "reserved-capacity"],
           "type": "string"
         },
         "OnDemandTargetCapacity": { "type": "integer" },

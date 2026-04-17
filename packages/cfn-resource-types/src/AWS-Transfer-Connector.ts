@@ -92,6 +92,10 @@ export type TransferConnectorProperties = {
    */
   EgressType?: ConnectorEgressType;
   /**
+   * IP address type for Connector
+   */
+  IpAddressType?: IpAddressType;
+  /**
    * Specifies the logging role for the connector.
    * @minLength `20`
    * @maxLength `2048`
@@ -218,6 +222,12 @@ export type ConnectorVpcLatticeEgressConfig = {
    */
   ResourceConfigurationArn: string;
 };
+/**
+ * Type definition for `AWS::Transfer::Connector.IpAddressType`.
+ * IP address type for Connector
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-ipaddresstype.html}
+ */
+export type IpAddressType = "IPV4" | "DUALSTACK";
 /**
  * Type definition for `AWS::Transfer::Connector.Tag`.
  * Creates a key-value pair for a specific resource.

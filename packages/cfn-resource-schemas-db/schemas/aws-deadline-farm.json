@@ -1,5 +1,5 @@
 {
-  "$hash": "5e815b7f012119583d0b226dec017f314940e831",
+  "$hash": "ac18aed22a57bc16f2b604cb6171ecf4bdbfb17f",
   "$id": "aws-deadline-farm.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn"],
@@ -25,7 +25,7 @@
       "type": "object"
     }
   },
-  "description": "Definition of AWS::Deadline::Farm Resource Type",
+  "description": "Resource Type definition for AWS::Deadline::Farm",
   "handlers": {
     "create": {
       "permissions": [

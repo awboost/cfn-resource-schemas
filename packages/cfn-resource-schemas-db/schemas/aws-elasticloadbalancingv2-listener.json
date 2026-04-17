@@ -1,5 +1,5 @@
 {
-  "$hash": "616c0b976215b1da3714daba2926b43f092acf2c",
+  "$hash": "8b0523ed0449197717204475e07d9f2f9545004d",
   "$id": "aws-elasticloadbalancingv2-listener.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LoadBalancerArn"],
@@ -294,7 +294,7 @@
           "type": "boolean"
         },
         "Mode": {
-          "description": "The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.",
+          "description": "The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value on initial resource creation is ``off``. After mutual authentication is turned on, you must explicitly set the ``Mode`` to ``off`` to turn it off; removing the property from your template will not turn it off.",
           "type": "string"
         },
         "TrustStoreArn": {

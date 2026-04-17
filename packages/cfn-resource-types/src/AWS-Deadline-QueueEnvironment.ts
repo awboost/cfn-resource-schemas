@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Deadline::QueueEnvironment Resource Type
+ * Resource Type definition for AWS::Deadline::QueueEnvironment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queueenvironment.html}
  */
 export type DeadlineQueueEnvironmentProperties = {
@@ -42,7 +42,7 @@ export type DeadlineQueueEnvironmentAttributes = {
  */
 export type EnvironmentTemplateType = "JSON" | "YAML";
 /**
- * Definition of AWS::Deadline::QueueEnvironment Resource Type
+ * Resource Type definition for AWS::Deadline::QueueEnvironment
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queueenvironment.html}
  */
 export class DeadlineQueueEnvironment extends $Resource<

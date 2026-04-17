@@ -1,5 +1,5 @@
 {
-  "$hash": "554040b45bdbab9bbee4822b4d3ea639f9a7cedb",
+  "$hash": "4d2072f2e77c302b2fb2adb4868987fd9f16890f",
   "$id": "aws-deadline-queuefleetassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,7 +7,7 @@
     "/properties/FleetId",
     "/properties/QueueId"
   ],
-  "description": "Definition of AWS::Deadline::QueueFleetAssociation Resource Type",
+  "description": "Resource Type definition for AWS::Deadline::QueueFleetAssociation",
   "handlers": {
     "create": {
       "permissions": [

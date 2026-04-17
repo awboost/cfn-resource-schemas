@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Deadline::Fleet Resource Type
+ * Resource Type definition for AWS::Deadline::Fleet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html}
  */
 export type DeadlineFleetProperties = {
@@ -479,7 +479,7 @@ export type VpcConfiguration = {
   ResourceConfigurationArns?: string[];
 };
 /**
- * Definition of AWS::Deadline::Fleet Resource Type
+ * Resource Type definition for AWS::Deadline::Fleet
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-fleet.html}
  */
 export class DeadlineFleet extends $Resource<

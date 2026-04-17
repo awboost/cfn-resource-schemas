@@ -1,5 +1,5 @@
 {
-  "$hash": "8caea1046cb11a4bc078fc8fb0748c1970dc1474",
+  "$hash": "cd6d17f00eb7c4b49356afdefe6fdb9975e613e7",
   "$id": "aws-deadline-licenseendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -38,7 +38,7 @@
       "type": "object"
     }
   },
-  "description": "Definition of AWS::Deadline::LicenseEndpoint Resource Type",
+  "description": "Resource Type definition for AWS::Deadline::LicenseEndpoint",
   "handlers": {
     "create": {
       "permissions": [

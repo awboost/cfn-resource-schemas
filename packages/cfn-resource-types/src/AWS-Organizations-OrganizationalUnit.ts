@@ -40,6 +40,11 @@ export type OrganizationsOrganizationalUnitAttributes = {
    * @pattern `^ou-[0-9a-z]{4,32}-[a-z0-9]{8,32}$`
    */
   Id: string;
+  /**
+   * The path in the organization where this OU exists.
+   * @pattern `^(o-[a-z0-9]{10,32}/r-[0-9a-z]{4,32}(/ou-[0-9a-z]{4,32}-[a-z0-9]{8,32})*(/\d{12})*)/`
+   */
+  Path: string;
 };
 /**
  * Type definition for `AWS::Organizations::OrganizationalUnit.Tag`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "3dde3f67ee6ddc54744ee571b1e516d22dd8fee1",
+  "$hash": "3c7e33300daf9bb88c4384e6191a56d82a113bf4",
   "$id": "aws-odb-odbnetwork.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -244,7 +244,9 @@
         "ec2:DescribeVpcEndpointAssociations",
         "ec2:CreateVpcEndpoint",
         "ec2:DescribeVpcEndpoints",
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "ec2:CreatePlacementGroup",
+        "ec2:AttachResourcesToPlacementGroup"
       ],
       "timeoutInMinutes": 2160
     },
@@ -266,7 +268,9 @@
         "ec2:ModifyOdbNetworkPeering",
         "ec2:DescribeVpcEndpointAssociations",
         "ec2:DeleteVpcEndpoints",
-        "ec2:DescribeVpcEndpoints"
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DeletePlacementGroup",
+        "ec2:DetachResourcesFromPlacementGroup"
       ],
       "timeoutInMinutes": 2160
     },
@@ -373,6 +377,13 @@
       "pattern": "^[a-zA-Z_](?!.*--)[a-zA-Z0-9_-]*$",
       "type": "string"
     },
+    "Ec2PlacementGroupIds": {
+      "description": "The list of EC2 placement group IDs associated with your ODB network.",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": false
+    },
     "KmsAccess": {
       "description": "The AWS Key Management Service (KMS) access configuration for the ODB network.",
       "enum": ["ENABLED", "DISABLED"],
@@ -442,7 +453,8 @@
     "/properties/OciResourceAnchorName",
     "/properties/OciVcnUrl",
     "/properties/OdbNetworkArn",
-    "/properties/OdbNetworkId"
+    "/properties/OdbNetworkId",
+    "/properties/Ec2PlacementGroupIds"
   ],
   "replacementStrategy": "delete_then_create",
   "tagging": {

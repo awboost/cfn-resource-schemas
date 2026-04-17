@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Deadline::MeteredProduct Resource Type
+ * Resource Type definition for AWS::Deadline::MeteredProduct
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html}
  */
 export type DeadlineMeteredProductProperties = {
@@ -40,7 +40,7 @@ export type DeadlineMeteredProductAttributes = {
   Vendor: string;
 };
 /**
- * Definition of AWS::Deadline::MeteredProduct Resource Type
+ * Resource Type definition for AWS::Deadline::MeteredProduct
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html}
  */
 export class DeadlineMeteredProduct extends $Resource<

@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Deadline::QueueFleetAssociation Resource Type
+ * Resource Type definition for AWS::Deadline::QueueFleetAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queuefleetassociation.html}
  */
 export type DeadlineQueueFleetAssociationProperties = {
@@ -19,7 +19,7 @@ export type DeadlineQueueFleetAssociationProperties = {
   QueueId: string;
 };
 /**
- * Definition of AWS::Deadline::QueueFleetAssociation Resource Type
+ * Resource Type definition for AWS::Deadline::QueueFleetAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queuefleetassociation.html}
  */
 export class DeadlineQueueFleetAssociation extends $Resource<

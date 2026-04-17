@@ -1,5 +1,5 @@
 {
-  "$hash": "687e0529aee6abb5ea0fa208a5cf3aea63cbc07c",
+  "$hash": "8e044749a1bd08b7eb336e4dd1990232ef4a7046",
   "$id": "aws-transfer-connector.json",
   "additionalProperties": false,
   "definitions": {
@@ -59,6 +59,11 @@
       },
       "required": ["ResourceConfigurationArn"],
       "type": "object"
+    },
+    "IpAddressType": {
+      "description": "IP address type for Connector",
+      "enum": ["IPV4", "DUALSTACK"],
+      "type": "string"
     },
     "ServerId": {
       "description": "A unique identifier for the server.",
@@ -233,6 +238,7 @@
       "maxLength": 2048,
       "type": "string"
     },
+    "IpAddressType": { "$ref": "#/definitions/IpAddressType" },
     "LoggingRole": {
       "description": "Specifies the logging role for the connector.",
       "maxLength": 2048,

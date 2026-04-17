@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Deadline::Monitor Resource Type
+ * Resource Type definition for AWS::Deadline::Monitor
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html}
  */
 export type DeadlineMonitorProperties = {
@@ -14,6 +14,13 @@ export type DeadlineMonitorProperties = {
    * @pattern `^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$`
    */
   IdentityCenterInstanceArn: string;
+  /**
+   * The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.
+   * @minLength `1`
+   * @maxLength `25`
+   * @pattern `^[a-z0-9-]+$`
+   */
+  IdentityCenterRegion?: string;
   /**
    * @pattern `^arn:(aws[a-zA-Z-]*):iam::\d{12}:role(/[!-.0-~]+)/‍*[\w+=,.@-]+$`
    */
@@ -64,7 +71,7 @@ export type Tag = {
   Value: string;
 };
 /**
- * Definition of AWS::Deadline::Monitor Resource Type
+ * Resource Type definition for AWS::Deadline::Monitor
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-monitor.html}
  */
 export class DeadlineMonitor extends $Resource<

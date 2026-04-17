@@ -60,6 +60,10 @@ export type OrganizationsAccountAttributes = {
    */
   JoinedTimestamp: string;
   /**
+   * The paths in the organization where the account exists.
+   */
+  Paths: string[];
+  /**
    * The state of the account in the organization.
    */
   State:

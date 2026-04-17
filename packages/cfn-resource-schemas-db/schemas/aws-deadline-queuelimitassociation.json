@@ -1,5 +1,5 @@
 {
-  "$hash": "797859a84f0d84b755ad2023205d686de8dc3d87",
+  "$hash": "fbbd4f7b5ae23db0cfaca0bbbe1a96fedf03eb72",
   "$id": "aws-deadline-queuelimitassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,7 +7,7 @@
     "/properties/LimitId",
     "/properties/QueueId"
   ],
-  "description": "Definition of AWS::Deadline::QueueLimitAssociation Resource Type",
+  "description": "Resource Type definition for AWS::Deadline::QueueLimitAssociation",
   "handlers": {
     "create": {
       "permissions": [

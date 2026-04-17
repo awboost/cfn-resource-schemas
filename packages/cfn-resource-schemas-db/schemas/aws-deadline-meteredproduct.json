@@ -1,12 +1,12 @@
 {
-  "$hash": "244c34162e2dc127b7d90219662f8e0296539404",
+  "$hash": "6cd0d1bff5bd6678b1bf02b5e0539e7f1b923ce9",
   "$id": "aws-deadline-meteredproduct.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/LicenseEndpointId",
     "/properties/ProductId"
   ],
-  "description": "Definition of AWS::Deadline::MeteredProduct Resource Type",
+  "description": "Resource Type definition for AWS::Deadline::MeteredProduct",
   "handlers": {
     "create": {
       "permissions": [

@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Deadline::Queue Resource Type
+ * Resource Type definition for AWS::Deadline::Queue
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html}
  */
 export type DeadlineQueueProperties = {
@@ -36,6 +36,7 @@ export type DeadlineQueueProperties = {
    * @pattern `^arn:(aws[a-zA-Z-]*):iam::\d{12}:role(/[!-.0-~]+)/‍*[\w+=,.@-]+$`
    */
   RoleArn?: string;
+  SchedulingConfiguration?: SchedulingConfiguration;
   /**
    * An array of key-value pairs to apply to this resource.
    * @maxLength `50`
@@ -109,10 +110,70 @@ export type PosixUser = {
   User: string;
 };
 /**
+ * Type definition for `AWS::Deadline::Queue.PriorityBalancedSchedulingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-prioritybalancedschedulingconfiguration.html}
+ */
+export type PriorityBalancedSchedulingConfiguration = {
+  /**
+   * @min `0`
+   * @max `1000`
+   */
+  RenderingTaskBuffer?: number;
+};
+/**
+ * Type definition for `AWS::Deadline::Queue.PriorityFifoSchedulingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-priorityfifoschedulingconfiguration.html}
+ */
+export type PriorityFifoSchedulingConfiguration = Record<string, any>;
+/**
  * Type definition for `AWS::Deadline::Queue.RunAs`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-runas.html}
  */
 export type RunAs = "QUEUE_CONFIGURED_USER" | "WORKER_AGENT_USER";
+/**
+ * Type definition for `AWS::Deadline::Queue.SchedulingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-schedulingconfiguration.html}
+ */
+export type SchedulingConfiguration =
+  | {
+      PriorityFifo: PriorityFifoSchedulingConfiguration;
+    }
+  | {
+      PriorityBalanced: PriorityBalancedSchedulingConfiguration;
+    }
+  | {
+      WeightedBalanced: WeightedBalancedSchedulingConfiguration;
+    };
+/**
+ * Type definition for `AWS::Deadline::Queue.SchedulingMaxPriorityOverride`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-schedulingmaxpriorityoverride.html}
+ */
+export type SchedulingMaxPriorityOverride = {
+  AlwaysScheduleFirst: SchedulingMaxPriorityOverrideAlwaysScheduleFirst;
+};
+/**
+ * Type definition for `AWS::Deadline::Queue.SchedulingMaxPriorityOverrideAlwaysScheduleFirst`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-schedulingmaxpriorityoverridealwaysschedulefirst.html}
+ */
+export type SchedulingMaxPriorityOverrideAlwaysScheduleFirst = Record<
+  string,
+  any
+>;
+/**
+ * Type definition for `AWS::Deadline::Queue.SchedulingMinPriorityOverride`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-schedulingminpriorityoverride.html}
+ */
+export type SchedulingMinPriorityOverride = {
+  AlwaysScheduleLast: SchedulingMinPriorityOverrideAlwaysScheduleLast;
+};
+/**
+ * Type definition for `AWS::Deadline::Queue.SchedulingMinPriorityOverrideAlwaysScheduleLast`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-schedulingminpriorityoverridealwaysschedulelast.html}
+ */
+export type SchedulingMinPriorityOverrideAlwaysScheduleLast = Record<
+  string,
+  any
+>;
 /**
  * Type definition for `AWS::Deadline::Queue.Tag`.
  * A key-value pair to associate with a resource.
@@ -133,6 +194,39 @@ export type Tag = {
   Value: string;
 };
 /**
+ * Type definition for `AWS::Deadline::Queue.WeightedBalancedSchedulingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-weightedbalancedschedulingconfiguration.html}
+ */
+export type WeightedBalancedSchedulingConfiguration = {
+  /**
+   * @min `-10000`
+   * @max `10000`
+   */
+  ErrorWeight?: number;
+  MaxPriorityOverride?: SchedulingMaxPriorityOverride;
+  MinPriorityOverride?: SchedulingMinPriorityOverride;
+  /**
+   * @min `0`
+   * @max `10000`
+   */
+  PriorityWeight?: number;
+  /**
+   * @min `0`
+   * @max `1000`
+   */
+  RenderingTaskBuffer?: number;
+  /**
+   * @min `-10000`
+   * @max `10000`
+   */
+  RenderingTaskWeight?: number;
+  /**
+   * @min `0`
+   * @max `10000`
+   */
+  SubmissionTimeWeight?: number;
+};
+/**
  * Type definition for `AWS::Deadline::Queue.WindowsUser`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-queue-windowsuser.html}
  */
@@ -151,7 +245,7 @@ export type WindowsUser = {
   User: string;
 };
 /**
- * Definition of AWS::Deadline::Queue Resource Type
+ * Resource Type definition for AWS::Deadline::Queue
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queue.html}
  */
 export class DeadlineQueue extends $Resource<

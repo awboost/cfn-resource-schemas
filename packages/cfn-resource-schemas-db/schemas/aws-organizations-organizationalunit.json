@@ -1,5 +1,5 @@
 {
-  "$hash": "8eae5d96e17005236f26d196a56ad72b9bed3d50",
+  "$hash": "2c1dd980a49ab533be3f160e075e5334a0f4e4ca",
   "$id": "aws-organizations-organizationalunit.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ParentId"],
@@ -91,6 +91,11 @@
       "pattern": "^(r-[0-9a-z]{4,32})|(ou-[0-9a-z]{4,32}-[a-z0-9]{8,32})$",
       "type": "string"
     },
+    "Path": {
+      "description": "The path in the organization where this OU exists.",
+      "pattern": "^(o-[a-z0-9]{10,32}/r-[0-9a-z]{4,32}(/ou-[0-9a-z]{4,32}-[a-z0-9]{8,32})*(/\\d{12})*)/",
+      "type": "string"
+    },
     "Tags": {
       "description": "A list of tags that you want to attach to the newly created OU.",
       "insertionOrder": false,
@@ -99,7 +104,11 @@
       "uniqueItems": true
     }
   },
-  "readOnlyProperties": ["/properties/Arn", "/properties/Id"],
+  "readOnlyProperties": [
+    "/properties/Arn",
+    "/properties/Id",
+    "/properties/Path"
+  ],
   "required": ["Name", "ParentId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-organizations",
   "tagging": {

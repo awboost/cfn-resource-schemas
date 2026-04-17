@@ -1,5 +1,5 @@
 {
-  "$hash": "fe0c21c20860aa02dcf6d8df8394258be55bb286",
+  "$hash": "6cde2ff7bf598f37ea41dc30928aa1ea4710b16e",
   "$id": "aws-notificationscontacts-emailcontact.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -130,6 +130,5 @@
     "tagUpdatable": false,
     "taggable": true
   },
-  "typeName": "AWS::NotificationsContacts::EmailContact",
-  "writeOnlyProperties": ["/properties/EmailAddress", "/properties/Name"]
+  "typeName": "AWS::NotificationsContacts::EmailContact"
 }

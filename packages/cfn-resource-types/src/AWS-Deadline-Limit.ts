@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::Deadline::Limit Resource Type
+ * Resource Type definition for AWS::Deadline::Limit
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-limit.html}
  */
 export type DeadlineLimitProperties = {
@@ -45,7 +45,7 @@ export type DeadlineLimitAttributes = {
   LimitId: string;
 };
 /**
- * Definition of AWS::Deadline::Limit Resource Type
+ * Resource Type definition for AWS::Deadline::Limit
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-limit.html}
  */
 export class DeadlineLimit extends $Resource<

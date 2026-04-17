@@ -1,5 +1,5 @@
 {
-  "$hash": "46cf09515064f924193ecc17a89524d41f141f1e",
+  "$hash": "bcc79b7c7086cce22c2be2910fe1359405b39551",
   "$id": "aws-organizations-account.json",
   "additionalProperties": false,
   "definitions": {
@@ -107,6 +107,14 @@
       "type": "array",
       "uniqueItems": true
     },
+    "Paths": {
+      "description": "The paths in the organization where the account exists.",
+      "items": {
+        "pattern": "^(o-[a-z0-9]{10,32}/r-[0-9a-z]{4,32}(/ou-[0-9a-z]{4,32}-[a-z0-9]{8,32})*(/\\d{12})*)/",
+        "type": "string"
+      },
+      "type": "array"
+    },
     "RoleName": {
       "default": "OrganizationAccountAccessRole",
       "description": "The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.",
@@ -145,7 +153,8 @@
     "/properties/State",
     "/properties/JoinedTimestamp",
     "/properties/JoinedMethod",
-    "/properties/Arn"
+    "/properties/Arn",
+    "/properties/Paths"
   ],
   "required": ["AccountName", "Email"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-organizations",

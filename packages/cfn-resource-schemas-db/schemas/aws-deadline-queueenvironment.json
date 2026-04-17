@@ -1,12 +1,12 @@
 {
-  "$hash": "62a790104a073b51df8295dd8ba8dc5a43ebc6b9",
+  "$hash": "e1028c21ef97af25932705e3b26b5f3b4940a4a3",
   "$id": "aws-deadline-queueenvironment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId", "/properties/QueueId"],
   "definitions": {
     "EnvironmentTemplateType": { "enum": ["JSON", "YAML"], "type": "string" }
   },
-  "description": "Definition of AWS::Deadline::QueueEnvironment Resource Type",
+  "description": "Resource Type definition for AWS::Deadline::QueueEnvironment",
   "handlers": {
     "create": {
       "permissions": [

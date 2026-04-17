@@ -1,1 +1,50 @@
-- added `AWS::NeptuneGraph::GraphSnapshot`
+- updated `AWS::CloudWatch::Alarm`
+  - added definition `AlarmPromQLCriteria`
+  - added definition `EvaluationCriteria`
+  - added property `EvaluationCriteria`
+  - added property `EvaluationInterval`
+- updated `AWS::Deadline::Farm`
+- updated `AWS::Deadline::Fleet`
+- updated `AWS::Deadline::LicenseEndpoint`
+- updated `AWS::Deadline::Limit`
+- updated `AWS::Deadline::MeteredProduct`
+- updated `AWS::Deadline::Monitor`
+  - added property `IdentityCenterRegion`
+  - updated `createOnlyProperties`
+- updated `AWS::Deadline::Queue`
+  - added definition `PriorityBalancedSchedulingConfiguration`
+  - added definition `PriorityFifoSchedulingConfiguration`
+  - added definition `SchedulingConfiguration`
+  - added definition `SchedulingMaxPriorityOverrideAlwaysScheduleFirst`
+  - added definition `SchedulingMaxPriorityOverride`
+  - added definition `SchedulingMinPriorityOverrideAlwaysScheduleLast`
+  - added definition `SchedulingMinPriorityOverride`
+  - added definition `WeightedBalancedSchedulingConfiguration`
+  - added property `SchedulingConfiguration`
+- updated `AWS::Deadline::QueueEnvironment`
+- updated `AWS::Deadline::QueueFleetAssociation`
+- updated `AWS::Deadline::QueueLimitAssociation`
+- updated `AWS::Deadline::StorageProfile`
+- updated `AWS::EC2::EC2Fleet`
+  - updated definition `TargetCapacitySpecificationRequest`
+- updated `AWS::ElasticLoadBalancingV2::Listener`
+  - updated definition `MutualAuthentication`
+- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
+  - updated handler permissions
+- updated `AWS::IoT::Policy`
+  - updated `tagging`
+- updated `AWS::NotificationsContacts::EmailContact`
+  - removed `writeOnlyProperties`
+- updated `AWS::ODB::OdbNetwork`
+  - added property `Ec2PlacementGroupIds`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Organizations::Account`
+  - added property `Paths`
+  - updated `readOnlyProperties`
+- updated `AWS::Organizations::OrganizationalUnit`
+  - added property `Path`
+  - updated `readOnlyProperties`
+- updated `AWS::Transfer::Connector`
+  - added definition `IpAddressType`
+  - added property `IpAddressType`

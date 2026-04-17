@@ -1,5 +1,5 @@
 {
-  "$hash": "596ce8d661f1dcdff5cd22767dda5b58d0754f33",
+  "$hash": "8e4c45c5a8a2f6546ce3ff311d208e18b11ef453",
   "$id": "aws-elasticloadbalancingv2-loadbalancer.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -79,6 +79,7 @@
         "elasticloadbalancing:CreateLoadBalancer",
         "elasticloadbalancing:DescribeLoadBalancers",
         "elasticloadbalancing:ModifyLoadBalancerAttributes",
+        "elasticloadbalancing:ModifyCapacityReservation",
         "elasticloadbalancing:AddTags",
         "elasticloadbalancing:SetSecurityGroups",
         "ec2:DescribeIpamPools"

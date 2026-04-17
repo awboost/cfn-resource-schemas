@@ -1,8 +1,11 @@
 {
-  "$hash": "c7fc8d9d5a8dd4d8956aecb551883e691508cbb9",
+  "$hash": "828cfbc4775c7e21a549971a05c5a47c4a922eec",
   "$id": "aws-deadline-monitor.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/IdentityCenterInstanceArn"],
+  "createOnlyProperties": [
+    "/properties/IdentityCenterInstanceArn",
+    "/properties/IdentityCenterRegion"
+  ],
   "definitions": {
     "Tag": {
       "additionalProperties": false,
@@ -25,7 +28,7 @@
       "type": "object"
     }
   },
-  "description": "Definition of AWS::Deadline::Monitor Resource Type",
+  "description": "Resource Type definition for AWS::Deadline::Monitor",
   "handlers": {
     "create": {
       "permissions": [
@@ -77,6 +80,13 @@
     "IdentityCenterApplicationArn": { "type": "string" },
     "IdentityCenterInstanceArn": {
       "pattern": "^arn:(aws|aws-us-gov|aws-cn|aws-iso|aws-iso-b):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$",
+      "type": "string"
+    },
+    "IdentityCenterRegion": {
+      "description": "The AWS region where IAM Identity Center is enabled. Required when Identity Center is in a different region than the monitor.",
+      "maxLength": 25,
+      "minLength": 1,
+      "pattern": "^[a-z0-9-]+$",
       "type": "string"
     },
     "MonitorId": { "pattern": "^monitor-[0-9a-f]{32}$", "type": "string" },

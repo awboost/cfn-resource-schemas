@@ -41,6 +41,8 @@ export type CloudWatchAlarmProperties = {
    * Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
    */
   EvaluateLowSampleCountPercentile?: string;
+  EvaluationCriteria?: EvaluationCriteria;
+  EvaluationInterval?: number;
   /**
      * The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
      For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
@@ -119,6 +121,24 @@ export type CloudWatchAlarmAttributes = {
   Arn: string;
 };
 /**
+ * Type definition for `AWS::CloudWatch::Alarm.AlarmPromQLCriteria`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-alarmpromqlcriteria.html}
+ */
+export type AlarmPromQLCriteria = {
+  /**
+   * The pending period for the alarm.
+   */
+  PendingPeriod?: number;
+  /**
+   * The PromQL query string.
+   */
+  Query?: string;
+  /**
+   * The recovery period for the alarm.
+   */
+  RecoveryPeriod?: number;
+};
+/**
  * Type definition for `AWS::CloudWatch::Alarm.Dimension`.
  * Dimension is an embedded property of the ``AWS::CloudWatch::Alarm`` type. Dimensions are name/value pairs that can be associated with a CW metric. You can specify a maximum of 30 dimensions for a given metric.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-dimension.html}
@@ -132,6 +152,13 @@ export type Dimension = {
    * The value for the dimension, from 1–255 characters in length.
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::CloudWatch::Alarm.EvaluationCriteria`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-evaluationcriteria.html}
+ */
+export type EvaluationCriteria = {
+  PromQLCriteria?: AlarmPromQLCriteria;
 };
 /**
  * Type definition for `AWS::CloudWatch::Alarm.Metric`.

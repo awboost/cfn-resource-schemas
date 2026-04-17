@@ -1,5 +1,5 @@
 {
-  "$hash": "cbc99792a3f6738918efadd7b13854f1b21dce52",
+  "$hash": "4d87ddf306a05db0936eeffe75fe5720dc170d58",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -404,7 +404,7 @@
       "type": "object"
     }
   },
-  "description": "Definition of AWS::Deadline::Fleet Resource Type",
+  "description": "Resource Type definition for AWS::Deadline::Fleet",
   "handlers": {
     "create": {
       "permissions": [
