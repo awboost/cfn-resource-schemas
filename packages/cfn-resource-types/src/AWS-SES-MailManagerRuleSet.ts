@@ -86,6 +86,49 @@ export type ArchiveAction = {
   TargetArchive: string;
 };
 /**
+ * Type definition for `AWS::SES::MailManagerRuleSet.BounceAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-bounceaction.html}
+ */
+export type BounceAction = {
+  ActionFailurePolicy?: ActionFailurePolicy;
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[\x20-\x7e]+$`
+   */
+  DiagnosticMessage: string;
+  /**
+   * @minLength `1`
+   * @maxLength `500`
+   * @pattern `^[\r\n\x20-\x7e]+$`
+   */
+  Message?: string;
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^[a-zA-Z0-9:_/+=,@.#-]+$`
+   */
+  RoleArn: string;
+  /**
+   * @minLength `0`
+   * @maxLength `254`
+   * @pattern `^[0-9A-Za-z@+.-]+$`
+   */
+  Sender: string;
+  /**
+   * @minLength `3`
+   * @maxLength `3`
+   * @pattern `^[45][0-9][0-9]$`
+   */
+  SmtpReplyCode: string;
+  /**
+   * @minLength `5`
+   * @maxLength `9`
+   * @pattern `^[45]\.[0-9]{1,3}\.[0-9]{1,3}$`
+   */
+  StatusCode: string;
+};
+/**
  * Type definition for `AWS::SES::MailManagerRuleSet.DeliverToMailboxAction`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertomailboxaction.html}
  */
@@ -134,6 +177,36 @@ export type DeliverToQBusinessAction = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-dropaction.html}
  */
 export type DropAction = Record<string, any>;
+/**
+ * Type definition for `AWS::SES::MailManagerRuleSet.InvokeLambdaAction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-invokelambdaaction.html}
+ */
+export type InvokeLambdaAction = {
+  ActionFailurePolicy?: ActionFailurePolicy;
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^[a-zA-Z0-9:_/+=,@.#-]+$`
+   */
+  FunctionArn: string;
+  InvocationType: LambdaInvocationType;
+  /**
+   * @min `0`
+   * @max `2160`
+   */
+  RetryTimeMinutes?: number;
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^[a-zA-Z0-9:_/+=,@.#-]+$`
+   */
+  RoleArn: string;
+};
+/**
+ * Type definition for `AWS::SES::MailManagerRuleSet.LambdaInvocationType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-lambdainvocationtype.html}
+ */
+export type LambdaInvocationType = "EVENT" | "REQUEST_RESPONSE";
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.MailFrom`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-mailfrom.html}
@@ -225,6 +298,12 @@ export type RuleAction =
     }
   | {
       PublishToSns: SnsAction;
+    }
+  | {
+      Bounce: BounceAction;
+    }
+  | {
+      InvokeLambda: InvokeLambdaAction;
     };
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleAddressListEmailAttribute`.
@@ -272,6 +351,19 @@ export type RuleBooleanToEvaluate =
   | {
       IsInAddressList: RuleIsInAddressList;
     };
+/**
+ * Type definition for `AWS::SES::MailManagerRuleSet.RuleClientCertificateAttribute`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleclientcertificateattribute.html}
+ */
+export type RuleClientCertificateAttribute =
+  | "CN"
+  | "SAN_RFC822_NAME"
+  | "SAN_DNS_NAME"
+  | "SAN_DIRECTORY_NAME"
+  | "SAN_UNIFORM_RESOURCE_IDENTIFIER"
+  | "SAN_IP_ADDRESS"
+  | "SAN_REGISTERED_ID"
+  | "SERIAL_NUMBER";
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleCondition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html}
@@ -443,6 +535,9 @@ export type RuleStringToEvaluate =
     }
   | {
       Analysis: Analysis;
+    }
+  | {
+      ClientCertificateAttribute: RuleClientCertificateAttribute;
     };
 /**
  * Type definition for `AWS::SES::MailManagerRuleSet.RuleVerdict`.

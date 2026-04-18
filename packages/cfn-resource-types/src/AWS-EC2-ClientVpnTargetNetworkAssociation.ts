@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type EC2ClientVpnTargetNetworkAssociationProperties = {
   ClientVpnEndpointId: string;
-  SubnetId: string;
+  SubnetId?: string;
 };
 /**
  * Attribute type definition for `AWS::EC2::ClientVpnTargetNetworkAssociation`.

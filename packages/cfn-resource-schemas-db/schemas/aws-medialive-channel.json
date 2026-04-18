@@ -1,5 +1,5 @@
 {
-  "$hash": "fc30883fe6eb5e6f0c83ef0121baff021461dd04",
+  "$hash": "d02463aed4e447f85d4172aa351a3ce347478b94",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -272,6 +272,7 @@
           "$ref": "#/definitions/ColorSpacePassthroughSettings"
         },
         "Hdr10Settings": { "$ref": "#/definitions/Hdr10Settings" },
+        "Hlg2020Settings": { "$ref": "#/definitions/Hlg2020Settings" },
         "Rec601Settings": { "$ref": "#/definitions/Rec601Settings" },
         "Rec709Settings": { "$ref": "#/definitions/Rec709Settings" }
       },

@@ -1,5 +1,5 @@
 {
-  "$hash": "c3e526d5f7377be80ea12de0136d28b014dc18cb",
+  "$hash": "87b5054073417ed563e9040401ded3a963106e6d",
   "$id": "aws-ec2-clientvpnroute.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -18,10 +18,6 @@
     "TargetVpcSubnetId": { "type": "string" }
   },
   "readOnlyProperties": ["/properties/Id"],
-  "required": [
-    "ClientVpnEndpointId",
-    "TargetVpcSubnetId",
-    "DestinationCidrBlock"
-  ],
+  "required": ["ClientVpnEndpointId", "DestinationCidrBlock"],
   "typeName": "AWS::EC2::ClientVpnRoute"
 }

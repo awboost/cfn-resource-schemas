@@ -288,6 +288,7 @@ export type AutomaticInputFailoverSettings = {
 export type Av1ColorSpaceSettings = {
   ColorSpacePassthroughSettings?: ColorSpacePassthroughSettings;
   Hdr10Settings?: Hdr10Settings;
+  Hlg2020Settings?: Hlg2020Settings;
   Rec601Settings?: Rec601Settings;
   Rec709Settings?: Rec709Settings;
 };

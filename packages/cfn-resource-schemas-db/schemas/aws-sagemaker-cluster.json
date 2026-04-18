@@ -1,5 +1,5 @@
 {
-  "$hash": "9af37a7c7b744c82a335e86a53a00d037056a169",
+  "$hash": "52c7bd8d7907268210b884b0ade537b255825a9c",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
@@ -214,8 +214,7 @@
         "ExecutionRole",
         "InstanceCount",
         "InstanceGroupName",
-        "InstanceType",
-        "LifeCycleConfig"
+        "InstanceType"
       ],
       "type": "object"
     },
@@ -305,10 +304,17 @@
     },
     "ClusterLifeCycleConfig": {
       "additionalProperties": false,
-      "description": "The lifecycle configuration for a SageMaker HyperPod cluster.",
+      "description": "The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.",
       "properties": {
         "OnCreate": {
-          "description": "The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.",
+          "description": "The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.",
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[\\S\\s]+$",
+          "type": "string"
+        },
+        "OnInitComplete": {
+          "description": "The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.",
           "maxLength": 128,
           "minLength": 1,
           "pattern": "^[\\S\\s]+$",
@@ -321,7 +327,6 @@
           "type": "string"
         }
       },
-      "required": ["OnCreate", "SourceS3Uri"],
       "type": "object"
     },
     "ClusterOnDemandOptions": {

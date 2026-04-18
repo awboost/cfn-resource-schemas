@@ -1,50 +1,62 @@
-- updated `AWS::CloudWatch::Alarm`
-  - added definition `AlarmPromQLCriteria`
-  - added definition `EvaluationCriteria`
-  - added property `EvaluationCriteria`
-  - added property `EvaluationInterval`
-- updated `AWS::Deadline::Farm`
-- updated `AWS::Deadline::Fleet`
-- updated `AWS::Deadline::LicenseEndpoint`
-- updated `AWS::Deadline::Limit`
-- updated `AWS::Deadline::MeteredProduct`
-- updated `AWS::Deadline::Monitor`
-  - added property `IdentityCenterRegion`
-  - updated `createOnlyProperties`
-- updated `AWS::Deadline::Queue`
-  - added definition `PriorityBalancedSchedulingConfiguration`
-  - added definition `PriorityFifoSchedulingConfiguration`
-  - added definition `SchedulingConfiguration`
-  - added definition `SchedulingMaxPriorityOverrideAlwaysScheduleFirst`
-  - added definition `SchedulingMaxPriorityOverride`
-  - added definition `SchedulingMinPriorityOverrideAlwaysScheduleLast`
-  - added definition `SchedulingMinPriorityOverride`
-  - added definition `WeightedBalancedSchedulingConfiguration`
-  - added property `SchedulingConfiguration`
-- updated `AWS::Deadline::QueueEnvironment`
-- updated `AWS::Deadline::QueueFleetAssociation`
-- updated `AWS::Deadline::QueueLimitAssociation`
-- updated `AWS::Deadline::StorageProfile`
-- updated `AWS::EC2::EC2Fleet`
-  - updated definition `TargetCapacitySpecificationRequest`
-- updated `AWS::ElasticLoadBalancingV2::Listener`
-  - updated definition `MutualAuthentication`
-- updated `AWS::ElasticLoadBalancingV2::LoadBalancer`
-  - updated handler permissions
-- updated `AWS::IoT::Policy`
-  - updated `tagging`
-- updated `AWS::NotificationsContacts::EmailContact`
-  - removed `writeOnlyProperties`
+- added `AWS::RoboMaker::Fleet`
+- added `AWS::RoboMaker::Robot`
+- added `AWS::RoboMaker::RobotApplication`
+- added `AWS::RoboMaker::RobotApplicationVersion`
+- added `AWS::RoboMaker::SimulationApplication`
+- added `AWS::RoboMaker::SimulationApplicationVersion`
+- updated `AWS::EC2::ClientVpnRoute`
+  - updated `required`
+- updated `AWS::EC2::ClientVpnTargetNetworkAssociation`
+  - updated `required`
+- updated `AWS::MediaLive::Channel`
+  - updated definition `Av1ColorSpaceSettings`
 - updated `AWS::ODB::OdbNetwork`
-  - added property `Ec2PlacementGroupIds`
+  - removed property `Ec2PlacementGroupIds`
   - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::Organizations::Account`
-  - added property `Paths`
-  - updated `readOnlyProperties`
-- updated `AWS::Organizations::OrganizationalUnit`
-  - added property `Path`
-  - updated `readOnlyProperties`
-- updated `AWS::Transfer::Connector`
-  - added definition `IpAddressType`
-  - added property `IpAddressType`
+- updated `AWS::SES::MailManagerIngressPoint`
+  - added definition `TlsAuthConfiguration`
+  - added definition `TlsPolicy`
+  - added definition `TrustStore`
+  - added property `TlsPolicy`
+  - updated definition `IngressPointConfiguration`
+  - updated definition `IngressPointType`
+- updated `AWS::SES::MailManagerRuleSet`
+  - added definition `BounceAction`
+  - added definition `InvokeLambdaAction`
+  - added definition `LambdaInvocationType`
+  - added definition `RuleClientCertificateAttribute`
+  - updated definition `RuleAction`
+  - updated definition `RuleStringToEvaluate`
+- updated `AWS::SageMaker::Cluster`
+  - updated definition `ClusterInstanceGroup`
+  - updated definition `ClusterLifeCycleConfig`
+- updated `AWS::SecurityAgent::Pentest`
+  - added `sourceUrl`
+  - updated definition `Actor`
+  - updated definition `Assets`
+  - updated definition `Authentication`
+  - updated definition `CloudWatchLog`
+  - updated definition `CodeRemediationStrategy`
+  - updated definition `CustomHeader`
+  - updated definition `DocumentInfo`
+  - updated definition `Endpoint`
+  - updated definition `IntegratedRepository`
+  - updated definition `NetworkTrafficConfig`
+  - updated definition `NetworkTrafficRule`
+  - updated definition `RiskType`
+  - updated definition `SourceCodeRepository`
+  - updated definition `VpcConfig`
+  - updated handler permissions
+  - updated property `AgentSpaceId`
+  - updated property `Assets`
+  - updated property `CodeRemediationStrategy`
+  - updated property `CreatedAt`
+  - updated property `ExcludeRiskTypes`
+  - updated property `LogConfig`
+  - updated property `NetworkTrafficConfig`
+  - updated property `PentestId`
+  - updated property `ServiceRole`
+  - updated property `Title`
+  - updated property `UpdatedAt`
+  - updated property `VpcConfig`

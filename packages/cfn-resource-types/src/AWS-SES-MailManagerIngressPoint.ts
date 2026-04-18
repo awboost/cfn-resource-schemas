@@ -24,6 +24,7 @@ export type SESMailManagerIngressPointProperties = {
    * @maxLength `200`
    */
   Tags?: Tag[];
+  TlsPolicy?: TlsPolicy;
   /**
    * @minLength `1`
    * @maxLength `100`
@@ -63,6 +64,9 @@ export type IngressPointConfiguration =
        * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc):secretsmanager:[a-z0-9-]+:\d{12}:secret:[a-zA-Z0-9/_+=,.@-]+$`
        */
       SecretArn: string;
+    }
+  | {
+      TlsAuthConfiguration: TlsAuthConfiguration;
     };
 /**
  * Type definition for `AWS::SES::MailManagerIngressPoint.IngressPointStatus`.
@@ -84,7 +88,7 @@ export type IngressPointStatusToUpdate = "ACTIVE" | "CLOSED";
  * Type definition for `AWS::SES::MailManagerIngressPoint.IngressPointType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointtype.html}
  */
-export type IngressPointType = "OPEN" | "AUTH";
+export type IngressPointType = "OPEN" | "AUTH" | "MTLS";
 /**
  * Type definition for `AWS::SES::MailManagerIngressPoint.NetworkConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-networkconfiguration.html}
@@ -130,6 +134,40 @@ export type Tag = {
    * @pattern `^[a-zA-Z0-9/_\+=\.:@\-]*$`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::SES::MailManagerIngressPoint.TlsAuthConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-tlsauthconfiguration.html}
+ */
+export type TlsAuthConfiguration = {
+  TrustStore: TrustStore;
+};
+/**
+ * Type definition for `AWS::SES::MailManagerIngressPoint.TlsPolicy`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-tlspolicy.html}
+ */
+export type TlsPolicy = "REQUIRED" | "OPTIONAL" | "FIPS";
+/**
+ * Type definition for `AWS::SES::MailManagerIngressPoint.TrustStore`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-truststore.html}
+ */
+export type TrustStore = {
+  /**
+   * @minLength `1`
+   * @maxLength `500000`
+   * @pattern `^[\P{C}\s]*$`
+   */
+  CAContent: string;
+  /**
+   * @minLength `1`
+   * @maxLength `500000`
+   * @pattern `^[\P{C}\s]*$`
+   */
+  CrlContent?: string;
+  /**
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov|aws-eusc):kms:[a-z0-9-]+:\d{12}:(key|alias)/[a-zA-Z0-9/_-]+$`
+   */
+  KmsKeyArn?: string;
 };
 /**
  * Definition of AWS::SES::MailManagerIngressPoint Resource Type

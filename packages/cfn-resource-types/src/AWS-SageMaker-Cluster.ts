@@ -292,9 +292,9 @@ export type ClusterInstanceGroup = {
    */
   KubernetesConfig?: ClusterKubernetesConfig;
   /**
-   * The lifecycle configuration for a SageMaker HyperPod cluster.
+   * The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.
    */
-  LifeCycleConfig: ClusterLifeCycleConfig;
+  LifeCycleConfig?: ClusterLifeCycleConfig;
   /**
    * The minimum number of instances required for the instance group to be InService. MinInstanceCount must be less than or equal to InstanceCount.
    * @min `0`
@@ -397,23 +397,30 @@ export type ClusterKubernetesTaint = {
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.ClusterLifeCycleConfig`.
- * The lifecycle configuration for a SageMaker HyperPod cluster.
+ * The lifecycle configuration for a SageMaker HyperPod cluster. When omitted, the instance group uses Bootstrap mode. When provided with SourceS3Uri and OnCreate, uses Customer Managed mode. When provided with SourceS3Uri and OnInitComplete, uses Extended mode.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterlifecycleconfig.html}
  */
 export type ClusterLifeCycleConfig = {
   /**
-   * The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation.
+   * The file name of the entrypoint script of lifecycle scripts under SourceS3Uri. This entrypoint script runs during cluster creation. Mutually exclusive with OnInitComplete.
    * @minLength `1`
    * @maxLength `128`
    * @pattern `^[\S\s]+$`
    */
-  OnCreate: string;
+  OnCreate?: string;
+  /**
+   * The file name of the extension script under SourceS3Uri. This script runs after HyperPod configures the default software on the instance. Mutually exclusive with OnCreate.
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[\S\s]+$`
+   */
+  OnInitComplete?: string;
   /**
    * An Amazon S3 bucket path where your lifecycle scripts are stored.
    * @maxLength `1024`
    * @pattern `^(https|s3)://([^/]+)/?(.*)$`
    */
-  SourceS3Uri: string;
+  SourceS3Uri?: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.ClusterOnDemandOptions`.

@@ -8,7 +8,7 @@ export type EC2ClientVpnRouteProperties = {
   ClientVpnEndpointId: string;
   Description?: string;
   DestinationCidrBlock: string;
-  TargetVpcSubnetId: string;
+  TargetVpcSubnetId?: string;
 };
 /**
  * Attribute type definition for `AWS::EC2::ClientVpnRoute`.

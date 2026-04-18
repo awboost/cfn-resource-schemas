@@ -1,5 +1,5 @@
 {
-  "$hash": "bb25c3dbcdacdf5f4880dd44ae7aff6ecf55c62c",
+  "$hash": "e70e6272eff8eaf8c1adde788ee2d5fd666e7bc3",
   "$id": "aws-ses-mailmanageringresspoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -34,6 +34,17 @@
           "required": ["SecretArn"],
           "title": "SecretArn",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "TlsAuthConfiguration": {
+              "$ref": "#/definitions/TlsAuthConfiguration"
+            }
+          },
+          "required": ["TlsAuthConfiguration"],
+          "title": "TlsAuthConfiguration",
+          "type": "object"
         }
       ]
     },
@@ -52,7 +63,7 @@
       "enum": ["ACTIVE", "CLOSED"],
       "type": "string"
     },
-    "IngressPointType": { "enum": ["OPEN", "AUTH"], "type": "string" },
+    "IngressPointType": { "enum": ["OPEN", "AUTH", "MTLS"], "type": "string" },
     "IpType": { "enum": ["IPV4", "DUAL_STACK"], "type": "string" },
     "NetworkConfiguration": {
       "oneOf": [
@@ -119,6 +130,36 @@
       },
       "required": ["Key", "Value"],
       "type": "object"
+    },
+    "TlsAuthConfiguration": {
+      "additionalProperties": false,
+      "properties": { "TrustStore": { "$ref": "#/definitions/TrustStore" } },
+      "required": ["TrustStore"],
+      "type": "object"
+    },
+    "TlsPolicy": { "enum": ["REQUIRED", "OPTIONAL", "FIPS"], "type": "string" },
+    "TrustStore": {
+      "additionalProperties": false,
+      "properties": {
+        "CAContent": {
+          "maxLength": 500000,
+          "minLength": 1,
+          "pattern": "^[\\P{C}\\s]*$",
+          "type": "string"
+        },
+        "CrlContent": {
+          "maxLength": 500000,
+          "minLength": 1,
+          "pattern": "^[\\P{C}\\s]*$",
+          "type": "string"
+        },
+        "KmsKeyArn": {
+          "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-eusc):kms:[a-z0-9-]+:\\d{12}:(key|alias)/[a-zA-Z0-9/_-]+$",
+          "type": "string"
+        }
+      },
+      "required": ["CAContent"],
+      "type": "object"
     }
   },
   "description": "Definition of AWS::SES::MailManagerIngressPoint Resource Type",
@@ -174,6 +215,7 @@
       "minItems": 0,
       "type": "array"
     },
+    "TlsPolicy": { "$ref": "#/definitions/TlsPolicy" },
     "TrafficPolicyId": { "maxLength": 100, "minLength": 1, "type": "string" },
     "Type": { "$ref": "#/definitions/IngressPointType" }
   },
