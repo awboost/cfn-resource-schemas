@@ -26,11 +26,11 @@ export type OpenSearchServerlessCollectionProperties = {
     Unique to your account and AWS Region
     Starts with a lowercase letter
     Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
-    Contains between 3 and 32 characters
+    Contains between 3 and 64 characters
     
      * @minLength `3`
-     * @maxLength `32`
-     * @pattern `^[a-z][a-z0-9-]{2,31}$`
+     * @maxLength `64`
+     * @pattern `^[a-z][a-z0-9-]{2,63}$`
      */
   Name: string;
   /**
