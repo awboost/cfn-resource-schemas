@@ -1,5 +1,5 @@
 {
-  "$hash": "2e5fb95233403f12ed7100847b225d196f5ae742",
+  "$hash": "a8473d0aefbc3d5d053356737f6c8fa93459bd4e",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/LaunchType"],
@@ -235,7 +235,7 @@
       "description": "The tag specifications of an Amazon EBS volume.",
       "properties": {
         "PropagateTags": {
-          "description": "Determines whether to propagate the tags from the task definition to  the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in  ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't  propagated.",
+          "description": "Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.",
           "enum": ["SERVICE", "TASK_DEFINITION"],
           "type": "string"
         },
@@ -571,7 +571,7 @@
           "type": "boolean"
         },
         "FilesystemType": {
-          "description": "The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the tasks will fail to start.\n The available Linux filesystem types are  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.\n The available Windows filesystem types are ``NTFS``.",
+          "description": "The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the tasks will fail to start.\n The available Linux filesystem types are ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.\n The available Windows filesystem types are ``NTFS``.",
           "type": "string"
         },
         "Iops": {
@@ -693,7 +693,7 @@
           "type": "string"
         },
         "RoleArn": {
-          "description": "The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS  infrastructure IAM role that is used to manage your VPC Lattice infrastructure.",
+          "description": "The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.",
           "type": "string"
         },
         "TargetGroupArn": {

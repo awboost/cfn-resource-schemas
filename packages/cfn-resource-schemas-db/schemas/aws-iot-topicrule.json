@@ -1,5 +1,5 @@
 {
-  "$hash": "396cfafb438f0cc461e655b419057b7f2c212d29",
+  "$hash": "2d89be09a48b81fd40cf7b314822a8bbd387c66a",
   "$id": "aws-iot-topicrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
@@ -511,6 +511,10 @@
       "type": "object"
     }
   },
+  "deprecatedProperties": [
+    "/properties/TopicRulePayload/ErrorAction/IotAnalytics",
+    "/properties/TopicRulePayload/Actions/*/IotAnalytics"
+  ],
   "description": "Resource Type definition for AWS::IoT::TopicRule",
   "handlers": {
     "create": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "e7162bacccccdd493ad62df9a9a1c5b5382ec7e4",
+  "$hash": "fd40a22e33adb836f9bbb9f39598d134910f9b47",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -168,7 +168,17 @@
       "properties": {
         "FormLanguage": {
           "description": "The language for the evaluation form.",
-          "enum": ["de-DE", "en-US", "es-ES", "fr-FR", "it-IT", "pt-BR"],
+          "enum": [
+            "de-DE",
+            "en-US",
+            "es-ES",
+            "fr-FR",
+            "it-IT",
+            "pt-BR",
+            "ja-JP",
+            "ko-KR",
+            "zh-CN"
+          ],
           "type": "string"
         }
       },
@@ -552,7 +562,7 @@
       "properties": {
         "ContactInteractionType": {
           "description": "The contact interaction type for this evaluation form.",
-          "enum": ["AGENT", "AUTOMATED"],
+          "enum": ["AGENT", "AUTOMATED", "CUSTOMER"],
           "type": "string"
         }
       },

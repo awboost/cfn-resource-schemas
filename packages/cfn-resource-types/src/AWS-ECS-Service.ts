@@ -516,11 +516,8 @@ export type DeploymentLifecycleHook = {
  */
 export type EBSTagSpecification = {
   /**
-     * Determines whether to propagate the tags from the task definition to
-    the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in
-    ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't
-    propagated.
-     */
+   * Determines whether to propagate the tags from the task definition to the Amazon EBS volume. Tags can only propagate to a ``SERVICE`` specified in ``ServiceVolumeConfiguration``. If no value is specified, the tags aren't propagated.
+   */
   PropagateTags?: "SERVICE" | "TASK_DEFINITION";
   /**
    * The type of volume resource.
@@ -904,8 +901,7 @@ export type ServiceManagedEBSVolumeConfiguration = {
   Encrypted?: boolean;
   /**
      * The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the tasks will fail to start.
-     The available Linux filesystem types are
-     ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+     The available Linux filesystem types are ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
      The available Windows filesystem types are ``NTFS``.
      */
   FilesystemType?: string;
@@ -1066,9 +1062,8 @@ export type VpcLatticeConfiguration = {
    */
   PortName: string;
   /**
-     * The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
-     infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
-     */
+   * The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+   */
   RoleArn: string;
   /**
    * The full Amazon Resource Name (ARN) of the target group or groups associated with the VPC Lattice configuration that the Amazon ECS tasks will be registered to.

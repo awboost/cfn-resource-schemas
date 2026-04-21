@@ -1,5 +1,5 @@
 {
-  "$hash": "6dba2b3e722b469b3a614e223e596ec10fbf34ed",
+  "$hash": "dbae56ee39abe9d65ec3bffe5b1d3bf1512dd3c7",
   "$id": "aws-cloudformation-guardhook.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ExecutionRole", "/properties/Alias"],
@@ -147,7 +147,19 @@
     },
     "Options": {
       "additionalProperties": false,
-      "properties": { "InputParams": { "$ref": "#/definitions/S3Location" } },
+      "properties": {
+        "InputParams": {
+          "oneOf": [
+            { "$ref": "#/definitions/S3Location" },
+            {
+              "items": { "$ref": "#/definitions/S3Location" },
+              "maxItems": 10,
+              "minItems": 1,
+              "type": "array"
+            }
+          ]
+        }
+      },
       "required": []
     },
     "RuleLocation": { "$ref": "#/definitions/S3Location" },

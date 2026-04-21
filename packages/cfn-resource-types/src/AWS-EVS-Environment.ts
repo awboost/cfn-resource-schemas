@@ -141,7 +141,7 @@ export type EVSEnvironmentAttributes = {
   /**
    * @minLength `1`
    * @maxLength `1011`
-   * @pattern `^arn:aws:evs:[a-z]{2}-[a-z]+-[0-9]:[0-9]{12}:environment/[a-zA-Z0-9_-]+$`
+   * @pattern `^arn:(aws|aws-cn|aws-us-gov):evs:[a-z]{2}-[a-z]+-[0-9]:[0-9]{12}:environment/[a-zA-Z0-9_-]+$`
    */
   EnvironmentArn: string;
   /**

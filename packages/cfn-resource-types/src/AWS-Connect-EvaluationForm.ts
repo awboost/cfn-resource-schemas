@@ -225,7 +225,16 @@ export type EvaluationFormLanguageConfiguration = {
   /**
    * The language for the evaluation form.
    */
-  FormLanguage?: "de-DE" | "en-US" | "es-ES" | "fr-FR" | "it-IT" | "pt-BR";
+  FormLanguage?:
+    | "de-DE"
+    | "en-US"
+    | "es-ES"
+    | "fr-FR"
+    | "it-IT"
+    | "pt-BR"
+    | "ja-JP"
+    | "ko-KR"
+    | "zh-CN";
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionAutomation`.
@@ -604,7 +613,7 @@ export type EvaluationFormTargetConfiguration = {
   /**
    * The contact interaction type for this evaluation form.
    */
-  ContactInteractionType: "AGENT" | "AUTOMATED";
+  ContactInteractionType: "AGENT" | "AUTOMATED" | "CUSTOMER";
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormTextQuestionAutomation`.

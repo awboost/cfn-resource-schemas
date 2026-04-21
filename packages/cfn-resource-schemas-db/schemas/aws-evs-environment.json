@@ -1,5 +1,5 @@
 {
-  "$hash": "ffd0abaf423cd227ff23a5d900efa745644aefb8",
+  "$hash": "12632afb99b0628c98a604d163eacc8739cf7207",
   "$id": "aws-evs-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -17,6 +17,7 @@
   ],
   "definitions": {
     "Check": {
+      "additionalProperties": false,
       "properties": {
         "ImpairedSince": { "type": "string" },
         "Result": { "$ref": "#/definitions/CheckResult" },
@@ -43,6 +44,7 @@
       "type": "string"
     },
     "HostInfoForCreate": {
+      "additionalProperties": false,
       "dependencies": {
         "PlacementGroupId": {
           "oneOf": [{ "required": ["DedicatedHostId"] }, {}]
@@ -75,6 +77,7 @@
     },
     "HostName": { "pattern": "^([a-zA-Z0-9\\-]*)$", "type": "string" },
     "InitialVlanInfo": {
+      "additionalProperties": false,
       "properties": {
         "Cidr": {
           "pattern": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/(3[0-2]|[1-2][0-9]|[0-9])$",
@@ -87,6 +90,7 @@
     "NetworkAclId": { "pattern": "^acl-[a-zA-Z0-9_-]+$", "type": "string" },
     "RouteServerPeering": { "maxLength": 21, "minLength": 3, "type": "string" },
     "Secret": {
+      "additionalProperties": false,
       "properties": { "SecretArn": { "type": "string" } },
       "type": "object"
     },
@@ -187,10 +191,16 @@
   },
   "primaryIdentifier": ["/properties/EnvironmentId"],
   "properties": {
-    "Checks": { "items": { "$ref": "#/definitions/Check" }, "type": "array" },
+    "Checks": {
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Check" },
+      "type": "array"
+    },
     "ConnectivityInfo": {
+      "additionalProperties": false,
       "properties": {
         "PrivateRouteServerPeerings": {
+          "insertionOrder": false,
           "items": { "$ref": "#/definitions/RouteServerPeering" },
           "maxItems": 2,
           "minItems": 2,
@@ -202,13 +212,14 @@
     },
     "CreatedAt": { "$ref": "#/definitions/Timestamp" },
     "Credentials": {
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Secret" },
       "type": "array"
     },
     "EnvironmentArn": {
       "maxLength": 1011,
       "minLength": 1,
-      "pattern": "^arn:aws:evs:[a-z]{2}-[a-z]+-[0-9]:[0-9]{12}:environment/[a-zA-Z0-9_-]+$",
+      "pattern": "^arn:(aws|aws-cn|aws-us-gov):evs:[a-z]{2}-[a-z]+-[0-9]:[0-9]{12}:environment/[a-zA-Z0-9_-]+$",
       "type": "string"
     },
     "EnvironmentId": { "pattern": "^(env-[a-zA-Z0-9]{10})$", "type": "string" },
@@ -227,6 +238,7 @@
       "type": "array"
     },
     "InitialVlans": {
+      "additionalProperties": false,
       "description": "The initial Vlan configuration only required upon creation. Modification after creation will have no effect",
       "properties": {
         "EdgeVTep": { "$ref": "#/definitions/InitialVlanInfo" },
@@ -275,8 +287,10 @@
     },
     "ModifiedAt": { "$ref": "#/definitions/Timestamp" },
     "ServiceAccessSecurityGroups": {
+      "additionalProperties": false,
       "properties": {
         "SecurityGroups": {
+          "insertionOrder": false,
           "items": { "$ref": "#/definitions/SecurityGroupId" },
           "type": "array"
         }
@@ -300,6 +314,7 @@
     },
     "TermsAccepted": { "type": "boolean" },
     "VcfHostnames": {
+      "additionalProperties": false,
       "properties": {
         "CloudBuilder": { "$ref": "#/definitions/HostName" },
         "Nsx": { "$ref": "#/definitions/HostName" },

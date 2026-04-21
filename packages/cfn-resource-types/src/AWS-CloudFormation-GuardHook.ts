@@ -30,10 +30,7 @@ export type CloudFormationGuardHookProperties = {
    */
   LogBucket?: string;
   Options?: {
-    /**
-     * S3 Source Location for the Guard files.
-     */
-    InputParams?: S3Location;
+    InputParams?: S3Location | S3Location[];
   };
   /**
    * S3 Source Location for the Guard files.
