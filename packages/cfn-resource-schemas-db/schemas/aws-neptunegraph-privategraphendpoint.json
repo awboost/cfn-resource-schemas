@@ -1,5 +1,5 @@
 {
-  "$hash": "7918af02ca480f0fbb9f5c09ff60995bfc02d691",
+  "$hash": "c8b5eae6e021296fa6e278777278f895661738c1",
   "$id": "aws-neptunegraph-privategraphendpoint.json",
   "additionalIdentifiers": [
     ["/properties/GraphIdentifier", "/properties/VpcId"]
@@ -111,8 +111,5 @@
     "taggable": false
   },
   "typeName": "AWS::NeptuneGraph::PrivateGraphEndpoint",
-  "writeOnlyProperties": [
-    "/properties/GraphIdentifier",
-    "/properties/SecurityGroupIds"
-  ]
+  "writeOnlyProperties": ["/properties/SecurityGroupIds"]
 }

@@ -1,5 +1,5 @@
 {
-  "$hash": "f4e690a1cb56a06055b40faf00ce29b5ad0e16ed",
+  "$hash": "ebbfac6eec2abac2479668dd8ff633b96d461946",
   "$id": "aws-logs-resourcepolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyName"],
@@ -26,7 +26,7 @@
       "maxLength": 5120,
       "minLength": 1,
       "pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-      "type": "string"
+      "type": ["string", "object"]
     },
     "PolicyName": {
       "description": "A name for resource policy",

@@ -23,6 +23,13 @@ export type NeptuneGraphGraphProperties = {
      */
   GraphName?: string;
   /**
+   * The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
+   * @minLength `1`
+   * @maxLength `1024`
+   * @pattern `arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}`
+   */
+  KmsKeyIdentifier?: string;
+  /**
    * Memory for the Graph.
    */
   ProvisionedMemory: number;

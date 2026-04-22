@@ -1,5 +1,5 @@
 {
-  "$hash": "118d7a419a9aa6aa61df6ccd095be8ce5f7f92a5",
+  "$hash": "f046083cf89206257f4cea9e4d286cc22e1eeb75",
   "$id": "aws-rtbfabric-link.json",
   "additionalIdentifiers": [["/properties/GatewayId", "/properties/LinkId"]],
   "additionalProperties": false,
@@ -259,6 +259,7 @@
           "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
           "maxLength": 128,
           "minLength": 1,
+          "pattern": "^(resourceArn|internalId|[a-zA-Z0-9+\\-=._:/@]+)$",
           "type": "string"
         },
         "Value": {
@@ -347,7 +348,7 @@
   ],
   "required": ["GatewayId", "PeerGatewayId", "LinkLogSettings"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "rtbfabric:TagResource",
       "rtbfabric:UntagResource",

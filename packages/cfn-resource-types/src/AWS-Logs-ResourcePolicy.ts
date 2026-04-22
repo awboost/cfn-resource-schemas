@@ -8,11 +8,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type LogsResourcePolicyProperties = {
   /**
    * The policy document
-   * @minLength `1`
-   * @maxLength `5120`
-   * @pattern `[\u0009\u000A\u000D\u0020-\u00FF]+`
    */
-  PolicyDocument: string;
+  PolicyDocument: string | Record<string, any>;
   /**
    * A name for resource policy
    * @minLength `1`

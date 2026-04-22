@@ -1,5 +1,5 @@
 {
-  "$hash": "d7a20e7175ca60d7508b1b83fe79738867679e75",
+  "$hash": "c8a5da723d2a1c4dabfd30fecefd243c2fc77aa5",
   "$id": "aws-logs-loggroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LogGroupName"],
@@ -102,7 +102,7 @@
     "Arn": { "description": "", "type": "string" },
     "BearerTokenAuthenticationEnabled": {
       "default": false,
-      "description": "",
+      "description": "Indicates whether bearer token authentication is enabled for this log group. When enabled, bearer token authentication is allowed on operations until it is explicitly disabled.",
       "type": "boolean"
     },
     "DataProtectionPolicy": {

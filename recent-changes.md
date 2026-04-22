@@ -1,104 +1,15 @@
-- updated `AWS::Batch::JobDefinition`
-  - updated `tagging`
-- updated `AWS::Batch::QuotaShare`
-  - updated definition `QuotaShareCapacityLimit`
-  - updated definition `QuotaSharePreemptionConfiguration`
-  - updated definition `QuotaShareResourceSharingConfiguration`
-  - updated property `CapacityLimits`
-  - updated property `JobQueue`
-  - updated property `PreemptionConfiguration`
-  - updated property `QuotaShareName`
-  - updated property `ResourceSharingConfiguration`
-  - updated property `State`
-  - updated property `Tags`
-- updated `AWS::CloudFormation::GuardHook`
-  - updated property `Options`
-- updated `AWS::Connect::EvaluationForm`
-  - updated definition `EvaluationFormLanguageConfiguration`
-  - updated definition `EvaluationFormTargetConfiguration`
-- updated `AWS::ECS::Daemon`
-  - updated definition `DaemonAlarmConfiguration`
-  - updated definition `DaemonDeploymentConfiguration`
-  - updated definition `Tag`
-  - updated property `CapacityProviderArns`
-  - updated property `ClusterArn`
-  - updated property `CreatedAt`
-  - updated property `DaemonArn`
-  - updated property `DaemonName`
-  - updated property `DaemonStatus`
-  - updated property `DaemonTaskDefinitionArn`
-  - updated property `DeploymentArn`
-  - updated property `DeploymentConfiguration`
-  - updated property `EnableECSManagedTags`
-  - updated property `EnableExecuteCommand`
-  - updated property `PropagateTags`
-  - updated property `Tags`
-  - updated property `UpdatedAt`
-- updated `AWS::ECS::DaemonTaskDefinition`
-  - updated definition `ContainerDependency`
-  - updated definition `DaemonContainerDefinition`
-  - updated definition `Device`
-  - updated definition `EnvironmentFile`
-  - updated definition `FirelensConfiguration`
-  - updated definition `HealthCheck`
-  - updated definition `HostVolumeProperties`
-  - updated definition `KernelCapabilities`
-  - updated definition `KeyValuePair`
-  - updated definition `LinuxParameters`
-  - updated definition `LogConfiguration`
-  - updated definition `MountPoint`
-  - updated definition `RepositoryCredentials`
-  - updated definition `RestartPolicy`
-  - updated definition `Secret`
-  - updated definition `SystemControl`
-  - updated definition `Tag`
-  - updated definition `Tmpfs`
-  - updated definition `Ulimit`
-  - updated definition `Volume`
-  - updated property `ContainerDefinitions`
-  - updated property `Cpu`
-  - updated property `DaemonTaskDefinitionArn`
-  - updated property `ExecutionRoleArn`
-  - updated property `Family`
-  - updated property `Memory`
-  - updated property `Tags`
-  - updated property `TaskRoleArn`
-  - updated property `Volumes`
-- updated `AWS::ECS::Service`
-  - updated definition `EBSTagSpecification`
-  - updated definition `ServiceManagedEBSVolumeConfiguration`
-  - updated definition `VpcLatticeConfiguration`
-- updated `AWS::EVS::Environment`
-  - updated definition `Check`
-  - updated definition `HostInfoForCreate`
-  - updated definition `InitialVlanInfo`
-  - updated definition `Secret`
-  - updated property `Checks`
-  - updated property `ConnectivityInfo`
-  - updated property `Credentials`
-  - updated property `EnvironmentArn`
-  - updated property `InitialVlans`
-  - updated property `ServiceAccessSecurityGroups`
-  - updated property `VcfHostnames`
-- updated `AWS::IoT::TopicRule`
-  - added `deprecatedProperties`
-- updated `AWS::IoT::TopicRuleDestination`
-  - updated `tagging`
-- updated `AWS::MSK::Replicator`
-  - added definition `ApacheKafkaCluster`
-  - added definition `CloudWatchLogs`
-  - added definition `ConsumerGroupOffsetSyncMode`
-  - added definition `Firehose`
-  - added definition `KafkaClusterClientAuthentication`
-  - added definition `KafkaClusterEncryptionInTransitType`
-  - added definition `KafkaClusterEncryptionInTransit`
-  - added definition `KafkaClusterSaslScramAuthentication`
-  - added definition `KafkaClusterSaslScramMechanism`
-  - added definition `LogDelivery`
-  - added definition `ReplicatorLogDelivery`
-  - added definition `S3`
-  - added property `LogDelivery`
+- updated `AWS::Logs::LogGroup`
+  - updated property `BearerTokenAuthenticationEnabled`
+- updated `AWS::Logs::ResourcePolicy`
+  - updated property `PolicyDocument`
+- updated `AWS::NeptuneGraph::Graph`
+  - added property `KmsKeyIdentifier`
   - updated `createOnlyProperties`
-  - updated definition `ConsumerGroupReplication`
-  - updated definition `KafkaCluster`
-  - updated definition `ReplicationInfo`
+- updated `AWS::NeptuneGraph::PrivateGraphEndpoint`
+  - updated `writeOnlyProperties`
+- updated `AWS::RTBFabric::InboundExternalLink`
+  - updated `tagging`
+  - updated definition `Tag`
+- updated `AWS::RTBFabric::Link`
+  - updated `tagging`
+  - updated definition `Tag`
