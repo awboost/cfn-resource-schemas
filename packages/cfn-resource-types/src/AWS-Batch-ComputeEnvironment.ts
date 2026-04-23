@@ -26,6 +26,11 @@ export type BatchComputeEnvironmentProperties = {
  */
 export type BatchComputeEnvironmentAttributes = {
   ComputeEnvironmentArn: string;
+  ComputeResources: {
+    Ec2Configuration: {
+      BatchImageStatus: string;
+    }[];
+  };
 };
 /**
  * Type definition for `AWS::Batch::ComputeEnvironment.ComputeResources`.

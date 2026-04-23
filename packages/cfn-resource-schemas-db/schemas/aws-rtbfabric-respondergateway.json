@@ -1,5 +1,5 @@
 {
-  "$hash": "e4dee49ee84cc7e6c01279ba09e32ee92098b5d8",
+  "$hash": "5853e2e6d95468bd0ba519cfc17f355d8cd97b2f",
   "$id": "aws-rtbfabric-respondergateway.json",
   "additionalIdentifiers": [["/properties/GatewayId"]],
   "additionalProperties": false,
@@ -186,6 +186,7 @@
           "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
           "maxLength": 128,
           "minLength": 1,
+          "pattern": "^(resourceArn|internalId|[a-zA-Z0-9+\\-=._:/@]+)$",
           "type": "string"
         },
         "Value": {
@@ -295,7 +296,7 @@
   ],
   "required": ["VpcId", "SubnetIds", "SecurityGroupIds", "Port", "Protocol"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "rtbfabric:TagResource",
       "rtbfabric:UntagResource",

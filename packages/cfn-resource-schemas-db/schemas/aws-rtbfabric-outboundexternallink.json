@@ -1,5 +1,5 @@
 {
-  "$hash": "56bd21d7095d5613ddabf2787bbaaf503d82ee72",
+  "$hash": "2bd2e6238b34a7baf6610afdffb467878c15d844",
   "$id": "aws-rtbfabric-outboundexternallink.json",
   "additionalIdentifiers": [["/properties/GatewayId", "/properties/LinkId"]],
   "additionalProperties": false,
@@ -121,6 +121,7 @@
           "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
           "maxLength": 128,
           "minLength": 1,
+          "pattern": "^(resourceArn|internalId|[a-zA-Z0-9+\\-=._:/@]+)$",
           "type": "string"
         },
         "Value": {
@@ -210,7 +211,7 @@
   ],
   "required": ["GatewayId", "PublicEndpoint", "LinkLogSettings"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "rtbfabric:TagResource",
       "rtbfabric:UntagResource",

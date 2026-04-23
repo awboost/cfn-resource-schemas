@@ -1,5 +1,5 @@
 {
-  "$hash": "fddf3578104595a8c830b3dac8005286a53f4f55",
+  "$hash": "ee3e56ead4bccaa9eeb6a3188136b17a3ca1ddef",
   "$id": "aws-imagebuilder-imagepipeline.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -159,6 +159,7 @@
         "imagebuilder:TagResource",
         "imagebuilder:GetImagePipeline",
         "imagebuilder:GetImageRecipe",
+        "imagebuilder:GetContainerRecipe",
         "imagebuilder:GetInfrastructureConfiguration",
         "imagebuilder:GetDistributionConfiguration",
         "imagebuilder:CreateImagePipeline",
@@ -180,6 +181,10 @@
         "iam:PassRole",
         "imagebuilder:GetImagePipeline",
         "imagebuilder:UpdateImagePipeline",
+        "imagebuilder:GetImageRecipe",
+        "imagebuilder:GetContainerRecipe",
+        "imagebuilder:GetInfrastructureConfiguration",
+        "imagebuilder:GetDistributionConfiguration",
         "imagebuilder:GetWorkflow",
         "imagebuilder:TagResource",
         "imagebuilder:UntagResource"

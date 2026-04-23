@@ -1,5 +1,5 @@
 {
-  "$hash": "8e909e18e485f805f51b8b75d3369b59ec31fbca",
+  "$hash": "b7929a0ece9734d34f602384689dc4108e6d1847",
   "$id": "aws-batch-computeenvironment.json",
   "additionalIdentifiers": [["/properties/ComputeEnvironmentName"]],
   "additionalProperties": false,
@@ -88,6 +88,7 @@
     "Ec2ConfigurationObject": {
       "additionalProperties": false,
       "properties": {
+        "BatchImageStatus": { "type": "string" },
         "ImageIdOverride": { "type": "string" },
         "ImageKubernetesVersion": { "type": "string" },
         "ImageType": { "type": "string" }
@@ -210,7 +211,10 @@
     "UnmanagedvCpus": { "type": "integer" },
     "UpdatePolicy": { "$ref": "#/definitions/UpdatePolicy" }
   },
-  "readOnlyProperties": ["/properties/ComputeEnvironmentArn"],
+  "readOnlyProperties": [
+    "/properties/ComputeEnvironmentArn",
+    "/properties/ComputeResources/Ec2Configuration/*/BatchImageStatus"
+  ],
   "required": ["Type"],
   "tagging": {
     "cloudFormationSystemTags": false,

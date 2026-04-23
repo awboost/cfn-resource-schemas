@@ -1,5 +1,5 @@
 {
-  "$hash": "fecdc5aba1ef918f00468048b4bf3c9733bab9b3",
+  "$hash": "0865f33859aeb3003ba45231675ee59a54b9088f",
   "$id": "aws-rtbfabric-requestergateway.json",
   "additionalIdentifiers": [["/properties/GatewayId"]],
   "additionalProperties": false,
@@ -87,7 +87,7 @@
           "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. ",
           "maxLength": 128,
           "minLength": 1,
-          "pattern": "^(resourceArn|internalId|(?!aws:)[a-zA-Z0-9+\\-=._:/@]+)$",
+          "pattern": "^(resourceArn|internalId|[a-zA-Z0-9+\\-=._:/@]+)$",
           "type": "string"
         },
         "Value": {
@@ -186,7 +186,7 @@
   "required": ["VpcId", "SubnetIds", "SecurityGroupIds"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "rtbfabric:TagResource",
       "rtbfabric:UntagResource",

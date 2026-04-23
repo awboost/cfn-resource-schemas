@@ -1,5 +1,5 @@
 {
-  "$hash": "d2f8e47e13a99ad1b2eaffdb0849ead8f6b55cea",
+  "$hash": "6e4d9418489dd961629056b62dacc6728c5a4512",
   "$id": "aws-imagebuilder-image.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -179,11 +179,13 @@
         "iam:PassRole",
         "iam:CreateServiceLinkedRole",
         "imagebuilder:GetImageRecipe",
+        "imagebuilder:GetContainerRecipe",
         "imagebuilder:GetInfrastructureConfiguration",
         "imagebuilder:GetDistributionConfiguration",
         "imagebuilder:GetWorkflow",
         "imagebuilder:GetImage",
         "imagebuilder:CreateImage",
+        "imagebuilder:StartImagePipelineExecution",
         "imagebuilder:TagResource",
         "inspector2:BatchGetAccountStatus"
       ],

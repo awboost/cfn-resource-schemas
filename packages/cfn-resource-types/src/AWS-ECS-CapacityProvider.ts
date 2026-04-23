@@ -28,6 +28,13 @@ export type AcceleratorTotalMemoryMiBRequest = {
   Min?: number;
 };
 /**
+ * Type definition for `AWS::ECS::CapacityProvider.AutoRepairConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autorepairconfiguration.html}
+ */
+export type AutoRepairConfiguration = {
+  ActionsStatus?: "ENABLED" | "DISABLED";
+};
+/**
  * Type definition for `AWS::ECS::CapacityProvider.AutoScalingGroupProvider`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html}
  */
@@ -150,6 +157,7 @@ export type ManagedInstancesNetworkConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedinstancesprovider.html}
  */
 export type ManagedInstancesProvider = {
+  AutoRepairConfiguration?: AutoRepairConfiguration;
   /**
    * Defines how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider. Configure it to turn on or off the infrastructure optimization in your capacity provider, and to control the idle EC2 instances optimization delay.
    */

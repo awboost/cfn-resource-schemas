@@ -1,15 +1,19 @@
-- updated `AWS::Logs::LogGroup`
-  - updated property `BearerTokenAuthenticationEnabled`
-- updated `AWS::Logs::ResourcePolicy`
-  - updated property `PolicyDocument`
-- updated `AWS::NeptuneGraph::Graph`
-  - added property `KmsKeyIdentifier`
-  - updated `createOnlyProperties`
-- updated `AWS::NeptuneGraph::PrivateGraphEndpoint`
-  - updated `writeOnlyProperties`
-- updated `AWS::RTBFabric::InboundExternalLink`
+- updated `AWS::Batch::ComputeEnvironment`
+  - updated `readOnlyProperties`
+  - updated definition `Ec2ConfigurationObject`
+- updated `AWS::ECS::CapacityProvider`
+  - added definition `AutoRepairConfiguration`
+  - updated definition `ManagedInstancesProvider`
+- updated `AWS::ImageBuilder::Image`
+  - updated handler permissions
+- updated `AWS::ImageBuilder::ImagePipeline`
+  - updated handler permissions
+- updated `AWS::RTBFabric::OutboundExternalLink`
   - updated `tagging`
   - updated definition `Tag`
-- updated `AWS::RTBFabric::Link`
+- updated `AWS::RTBFabric::RequesterGateway`
+  - updated `tagging`
+  - updated definition `Tag`
+- updated `AWS::RTBFabric::ResponderGateway`
   - updated `tagging`
   - updated definition `Tag`
