@@ -503,7 +503,7 @@ export type DomainSettings = {
   RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
   /**
    * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `3`
    */
   SecurityGroupIds?: string[];

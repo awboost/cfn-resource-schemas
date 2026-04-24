@@ -1,5 +1,5 @@
 {
-  "$hash": "fa89a6e55a85ff11d22224e4c76edbb147366345",
+  "$hash": "9c28ee7952486726daa9693d3dde6ede08fc5540",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/VpcId"],
@@ -7,8 +7,7 @@
     "/properties/AuthMode",
     "/properties/DomainName",
     "/properties/DomainSettings/RStudioServerProDomainSettings/DefaultResourceSpec",
-    "/properties/KmsKeyId",
-    "/properties/Tags"
+    "/properties/KmsKeyId"
   ],
   "definitions": {
     "AppInstanceType": {
@@ -423,7 +422,7 @@
             "type": "string"
           },
           "maxItems": 3,
-          "minItems": 1,
+          "minItems": 0,
           "type": "array",
           "uniqueItems": false
         },
@@ -980,18 +979,36 @@
         "kms:CreateGrant",
         "kms:Decrypt",
         "kms:DescribeKey",
-        "kms:GenerateDataKeyWithoutPlainText"
+        "kms:GenerateDataKeyWithoutPlainText",
+        "sagemaker:AddTags",
+        "sagemaker:DeleteTags",
+        "sagemaker:ListTags"
       ]
     },
     "delete": {
       "permissions": [
         "sagemaker:DeleteApp",
         "sagemaker:DeleteDomain",
-        "sagemaker:DescribeDomain"
+        "sagemaker:DescribeDomain",
+        "sagemaker:AddTags",
+        "sagemaker:DeleteTags",
+        "sagemaker:ListTags",
+        "efs:DescribeMountTargets",
+        "efs:DeleteMountTarget",
+        "efs:DeleteFileSystem"
       ]
     },
-    "list": { "permissions": ["sagemaker:ListDomains"] },
-    "read": { "permissions": ["sagemaker:DescribeDomain"] },
+    "list": { "permissions": ["sagemaker:ListDomains", "sagemaker:ListTags"] },
+    "read": {
+      "permissions": [
+        "sagemaker:DescribeDomain",
+        "sagemaker:DescribeApp",
+        "sagemaker:DescribeUserProfile",
+        "sagemaker:DescribeImage",
+        "sagemaker:DescribeImageVersion",
+        "sagemaker:ListTags"
+      ]
+    },
     "update": {
       "permissions": [
         "sagemaker:CreateApp",
@@ -999,7 +1016,10 @@
         "sagemaker:DescribeDomain",
         "sagemaker:DescribeImage",
         "sagemaker:DescribeImageVersion",
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags",
+        "sagemaker:DeleteTags",
+        "sagemaker:ListTags"
       ]
     }
   },
@@ -1123,6 +1143,17 @@
     "/properties/SingleSignOnApplicationArn"
   ],
   "required": ["AuthMode", "DefaultUserSettings", "DomainName"],
-  "typeName": "AWS::SageMaker::Domain",
-  "writeOnlyProperties": ["/properties/Tags"]
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "sagemaker:AddTags",
+      "sagemaker:ListTags",
+      "sagemaker:DeleteTags"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::SageMaker::Domain"
 }

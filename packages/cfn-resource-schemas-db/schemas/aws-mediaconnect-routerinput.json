@@ -1,5 +1,5 @@
 {
-  "$hash": "02f5aca703e5f534d0eb760b29ba0dc4efd022fa",
+  "$hash": "1d42e36943a8feb9b256f73b65a52f46e65dcb56",
   "$id": "aws-mediaconnect-routerinput.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -215,6 +215,78 @@
       "required": ["SourceTransitDecryption"],
       "type": "object"
     },
+    "MediaLiveChannelPipelineId": {
+      "enum": ["PIPELINE_0", "PIPELINE_1"],
+      "type": "string"
+    },
+    "MediaLiveChannelRouterInputConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration settings for connecting a router input to a MediaLive channel output.",
+      "properties": {
+        "MediaLiveChannelArn": {
+          "description": "The ARN of the MediaLive channel to connect to this router input.",
+          "pattern": "^arn:(aws[a-zA-Z-]*):medialive:[a-z0-9-]+:[0-9]{12}:channel:[a-zA-Z0-9]+$",
+          "type": "string"
+        },
+        "MediaLiveChannelOutputName": {
+          "description": "The name of the MediaLive channel output to connect to this router input.",
+          "type": "string"
+        },
+        "MediaLivePipelineId": {
+          "$ref": "#/definitions/MediaLiveChannelPipelineId"
+        },
+        "SourceTransitDecryption": {
+          "$ref": "#/definitions/MediaLiveTransitEncryption"
+        }
+      },
+      "required": ["SourceTransitDecryption"],
+      "type": "object"
+    },
+    "MediaLiveTransitEncryption": {
+      "additionalProperties": false,
+      "description": "The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.",
+      "properties": {
+        "EncryptionKeyConfiguration": {
+          "$ref": "#/definitions/MediaLiveTransitEncryptionKeyConfiguration"
+        },
+        "EncryptionKeyType": {
+          "$ref": "#/definitions/MediaLiveTransitEncryptionKeyType"
+        }
+      },
+      "required": ["EncryptionKeyConfiguration"],
+      "type": "object"
+    },
+    "MediaLiveTransitEncryptionKeyConfiguration": {
+      "description": "Configuration settings for the MediaLive transit encryption key.",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "SecretsManager": {
+              "$ref": "#/definitions/SecretsManagerEncryptionKeyConfiguration"
+            }
+          },
+          "required": ["SecretsManager"],
+          "title": "SecretsManager",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Automatic": {
+              "$ref": "#/definitions/AutomaticEncryptionKeyConfiguration"
+            }
+          },
+          "required": ["Automatic"],
+          "title": "Automatic",
+          "type": "object"
+        }
+      ]
+    },
+    "MediaLiveTransitEncryptionKeyType": {
+      "enum": ["SECRETS_MANAGER", "AUTOMATIC"],
+      "type": "string"
+    },
     "MergeRouterInputConfiguration": {
       "additionalProperties": false,
       "description": "Configuration settings for a merge router input that combines two input sources.",
@@ -343,6 +415,17 @@
           "required": ["MediaConnectFlow"],
           "title": "MediaConnectFlow",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "MediaLiveChannel": {
+              "$ref": "#/definitions/MediaLiveChannelRouterInputConfiguration"
+            }
+          },
+          "required": ["MediaLiveChannel"],
+          "title": "MediaLiveChannel",
+          "type": "object"
         }
       ]
     },
@@ -460,7 +543,13 @@
       "type": "string"
     },
     "RouterInputType": {
-      "enum": ["STANDARD", "FAILOVER", "MERGE", "MEDIACONNECT_FLOW"],
+      "enum": [
+        "STANDARD",
+        "FAILOVER",
+        "MERGE",
+        "MEDIACONNECT_FLOW",
+        "MEDIALIVE_CHANNEL"
+      ],
       "type": "string"
     },
     "RoutingScope": { "enum": ["REGIONAL", "GLOBAL"], "type": "string" },
@@ -483,15 +572,15 @@
     },
     "SecretsManagerEncryptionKeyConfiguration": {
       "additionalProperties": false,
-      "description": "The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.",
+      "description": "The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.",
       "properties": {
         "RoleArn": {
-          "description": "The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.",
+          "description": "The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.",
           "pattern": "^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$",
           "type": "string"
         },
         "SecretArn": {
-          "description": "The ARN of the AWS Secrets Manager secret used for transit encryption.",
+          "description": "The ARN of the Secrets Manager secret used for transit encryption.",
           "pattern": "^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$",
           "type": "string"
         }
@@ -519,7 +608,7 @@
         "SourcePort": {
           "description": "The source port number for the SRT protocol in caller mode.",
           "maximum": 65535,
-          "minimum": 0,
+          "minimum": 1024,
           "type": "integer"
         },
         "StreamId": {
@@ -603,7 +692,8 @@
         "mediaconnect:AssociateRouterNetworkInterface",
         "mediaconnect:CreateRouterInput",
         "mediaconnect:TagResource",
-        "mediaconnect:UpdateFlowOutput"
+        "mediaconnect:UpdateFlowOutput",
+        "medialive:UpdateChannel"
       ]
     },
     "delete": {
@@ -611,6 +701,7 @@
         "mediaconnect:GetRouterInput",
         "mediaconnect:UpdateRouterInput",
         "mediaconnect:UpdateFlowOutput",
+        "medialive:UpdateChannel",
         "mediaconnect:ListRouterInputs",
         "mediaconnect:DeleteRouterInput"
       ]
@@ -627,7 +718,8 @@
         "iam:PassRole",
         "mediaconnect:AssociateRouterNetworkInterface",
         "mediaconnect:UpdateFlowOutput",
-        "mediaconnect:UpdateRouterInput"
+        "mediaconnect:UpdateRouterInput",
+        "medialive:UpdateChannel"
       ]
     }
   },
@@ -671,7 +763,7 @@
       "type": "string"
     },
     "RegionName": {
-      "description": "The AWS Region for the router input. Defaults to the current region if not specified.",
+      "description": "The Amazon Web Services Region for the router input. Defaults to the current region if not specified.",
       "type": "string"
     },
     "RoutedOutputs": {

@@ -20,6 +20,10 @@ export type S3ExpressDirectoryBucketProperties = {
    */
   DataRedundancy: "SingleAvailabilityZone" | "SingleLocalZone";
   /**
+   * The inventory configuration for an Amazon S3 Express bucket.
+   */
+  InventoryConfigurations?: InventoryConfiguration[];
+  /**
    * Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
    */
   LifecycleConfiguration?: LifecycleConfiguration;
@@ -69,6 +73,74 @@ export type BucketEncryption = {
    * Specifies the default server-side-encryption configuration.
    */
   ServerSideEncryptionConfiguration: ServerSideEncryptionRule[];
+};
+/**
+ * Type definition for `AWS::S3Express::DirectoryBucket.Destination`.
+ * Specifies information about where to publish inventory reports for an Amazon S3 Express bucket.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-destination.html}
+ */
+export type Destination = {
+  /**
+   * The account ID that owns the destination S3 bucket.
+   */
+  BucketAccountId?: string;
+  /**
+   * The Amazon Resource Name (ARN) of the destination Amazon S3 bucket to which data is exported.
+   */
+  BucketArn: string;
+  /**
+   * Specifies the file format used when exporting data to Amazon S3.
+   */
+  Format: "CSV" | "ORC" | "Parquet";
+  /**
+   * The prefix to use when exporting data. The prefix is prepended to all results.
+   */
+  Prefix?: string;
+};
+/**
+ * Type definition for `AWS::S3Express::DirectoryBucket.InventoryConfiguration`.
+ * Specifies an inventory configuration for an Amazon S3 Express bucket
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-inventoryconfiguration.html}
+ */
+export type InventoryConfiguration = {
+  /**
+   * Specifies information about where to publish inventory reports for an Amazon S3 Express bucket.
+   */
+  Destination: Destination;
+  /**
+   * Specifies whether the inventory is enabled or disabled.
+   */
+  Enabled: boolean;
+  /**
+   * The ID used to identify the inventory configuration.
+   */
+  Id: string;
+  /**
+   * Object versions to include in the inventory list.
+   */
+  IncludedObjectVersions: "All" | "Current";
+  /**
+   * Contains the optional fields that are included in the inventory results.
+   */
+  OptionalFields?: (
+    | "Size"
+    | "LastModifiedDate"
+    | "StorageClass"
+    | "ETag"
+    | "IsMultipartUploaded"
+    | "EncryptionStatus"
+    | "BucketKeyStatus"
+    | "ChecksumAlgorithm"
+    | "LifecycleExpirationDate"
+  )[];
+  /**
+   * The prefix that is prepended to all inventory results.
+   */
+  Prefix?: string;
+  /**
+   * Specifies the schedule for generating inventory results.
+   */
+  ScheduleFrequency: "Daily" | "Weekly";
 };
 /**
  * Type definition for `AWS::S3Express::DirectoryBucket.LifecycleConfiguration`.

@@ -121,9 +121,13 @@ export type FleetLaunchTemplateOverridesRequest = {
   AvailabilityZone?: string;
   AvailabilityZoneId?: string;
   BlockDeviceMappings?: BlockDeviceMapping[];
+  IamInstanceProfile?: IamInstanceProfileSpecification;
   InstanceRequirements?: InstanceRequirementsRequest;
   InstanceType?: string;
+  KeyName?: string;
   MaxPrice?: string;
+  MetadataOptions?: InstanceMetadataOptionsRequest;
+  NetworkInterfaces?: NetworkInterfaceSpecificationRequest[];
   Placement?: Placement;
   Priority?: number;
   SubnetId?: string;
@@ -141,7 +145,25 @@ export type FleetLaunchTemplateSpecificationRequest = {
    * @pattern `[a-zA-Z0-9\(\)\.\-/_]+`
    */
   LaunchTemplateName?: string;
+  LaunchTemplateSpecificationUserData?: string;
   Version: string;
+};
+/**
+ * Type definition for `AWS::EC2::EC2Fleet.IamInstanceProfileSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-iaminstanceprofilespecification.html}
+ */
+export type IamInstanceProfileSpecification = {
+  Arn?: string;
+  Name?: string;
+};
+/**
+ * Type definition for `AWS::EC2::EC2Fleet.InstanceMetadataOptionsRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-instancemetadataoptionsrequest.html}
+ */
+export type InstanceMetadataOptionsRequest = {
+  HttpEndpoint?: "disabled" | "enabled";
+  HttpPutResponseHopLimit?: number;
+  HttpTokens?: "optional" | "required";
 };
 /**
  * Type definition for `AWS::EC2::EC2Fleet.InstanceRequirementsRequest`.
@@ -202,6 +224,13 @@ export type InstanceRequirementsRequest = {
   VCpuCount?: VCpuCountRangeRequest;
 };
 /**
+ * Type definition for `AWS::EC2::EC2Fleet.Ipv6AddressRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ipv6addressrequest.html}
+ */
+export type Ipv6AddressRequest = {
+  Ipv6Address?: string;
+};
+/**
  * Type definition for `AWS::EC2::EC2Fleet.MaintenanceStrategies`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-maintenancestrategies.html}
  */
@@ -241,6 +270,26 @@ export type NetworkInterfaceCountRequest = {
   Min?: number;
 };
 /**
+ * Type definition for `AWS::EC2::EC2Fleet.NetworkInterfaceSpecificationRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-networkinterfacespecificationrequest.html}
+ */
+export type NetworkInterfaceSpecificationRequest = {
+  AssociatePublicIpAddress?: boolean;
+  DeleteOnTermination?: boolean;
+  Description?: string;
+  DeviceIndex?: number;
+  Groups?: string[];
+  InterfaceType?: string;
+  Ipv6AddressCount?: number;
+  Ipv6Addresses?: Ipv6AddressRequest[];
+  NetworkCardIndex?: number;
+  NetworkInterfaceId?: string;
+  PrivateIpAddress?: string;
+  PrivateIpAddresses?: PrivateIpAddressSpecificationRequest[];
+  SecondaryPrivateIpAddressCount?: number;
+  SubnetId?: string;
+};
+/**
  * Type definition for `AWS::EC2::EC2Fleet.OnDemandOptionsRequest`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html}
  */
@@ -272,6 +321,14 @@ export type Placement = {
   PartitionNumber?: number;
   SpreadDomain?: string;
   Tenancy?: string;
+};
+/**
+ * Type definition for `AWS::EC2::EC2Fleet.PrivateIpAddressSpecificationRequest`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-privateipaddressspecificationrequest.html}
+ */
+export type PrivateIpAddressSpecificationRequest = {
+  Primary?: boolean;
+  PrivateIpAddress?: string;
 };
 /**
  * Type definition for `AWS::EC2::EC2Fleet.ReservedCapacityOptionsRequest`.

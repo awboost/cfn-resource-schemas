@@ -1,19 +1,40 @@
-- updated `AWS::Batch::ComputeEnvironment`
-  - updated `readOnlyProperties`
-  - updated definition `Ec2ConfigurationObject`
-- updated `AWS::ECS::CapacityProvider`
-  - added definition `AutoRepairConfiguration`
-  - updated definition `ManagedInstancesProvider`
-- updated `AWS::ImageBuilder::Image`
+- updated `AWS::EC2::EC2Fleet`
+  - added definition `IamInstanceProfileSpecification`
+  - added definition `InstanceMetadataOptionsRequest`
+  - added definition `Ipv6AddressRequest`
+  - added definition `NetworkInterfaceSpecificationRequest`
+  - added definition `PrivateIpAddressSpecificationRequest`
+  - updated definition `FleetLaunchTemplateOverridesRequest`
+  - updated definition `FleetLaunchTemplateSpecificationRequest`
+- updated `AWS::EVS::Environment`
+  - updated definition `HostInfoForCreate`
+- updated `AWS::MediaConnect::RouterInput`
+  - added definition `MediaLiveChannelPipelineId`
+  - added definition `MediaLiveChannelRouterInputConfiguration`
+  - added definition `MediaLiveTransitEncryptionKeyConfiguration`
+  - added definition `MediaLiveTransitEncryptionKeyType`
+  - added definition `MediaLiveTransitEncryption`
+  - updated definition `RouterInputConfiguration`
+  - updated definition `RouterInputType`
+  - updated definition `SecretsManagerEncryptionKeyConfiguration`
+  - updated definition `SrtCallerRouterInputConfiguration`
   - updated handler permissions
-- updated `AWS::ImageBuilder::ImagePipeline`
+  - updated property `RegionName`
+- updated `AWS::MediaConnect::RouterOutput`
+  - updated definition `MediaLiveTransitEncryption`
+  - updated definition `RistRouterOutputConfiguration`
+  - updated definition `RtpRouterOutputConfiguration`
+  - updated definition `SecretsManagerEncryptionKeyConfiguration`
+  - updated definition `SrtCallerRouterOutputConfiguration`
+  - updated property `RegionName`
+- updated `AWS::S3Express::DirectoryBucket`
+  - added definition `Destination`
+  - added definition `InventoryConfiguration`
+  - added property `InventoryConfigurations`
   - updated handler permissions
-- updated `AWS::RTBFabric::OutboundExternalLink`
-  - updated `tagging`
-  - updated definition `Tag`
-- updated `AWS::RTBFabric::RequesterGateway`
-  - updated `tagging`
-  - updated definition `Tag`
-- updated `AWS::RTBFabric::ResponderGateway`
-  - updated `tagging`
-  - updated definition `Tag`
+- updated `AWS::SageMaker::Domain`
+  - added `tagging`
+  - removed `writeOnlyProperties`
+  - updated `createOnlyProperties`
+  - updated definition `DomainSettings`
+  - updated handler permissions

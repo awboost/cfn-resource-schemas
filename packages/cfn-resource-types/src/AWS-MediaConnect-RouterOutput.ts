@@ -29,7 +29,7 @@ export type MediaConnectRouterOutputProperties = {
    */
   Name: string;
   /**
-   * The AWS Region for the router output. Defaults to the current region if not specified.
+   * The Amazon Web Services Region for the router output. Defaults to the current region if not specified.
    */
   RegionName?: string;
   RoutingScope: RoutingScope;
@@ -113,7 +113,7 @@ export type FlowTransitEncryption = {
 export type FlowTransitEncryptionKeyConfiguration =
   | {
       /**
-       * The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+       * The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
        */
       SecretsManager: SecretsManagerEncryptionKeyConfiguration;
     }
@@ -189,7 +189,7 @@ export type MediaLiveInputPipelineId = "PIPELINE_0" | "PIPELINE_1";
  */
 export type MediaLiveInputRouterOutputConfiguration = {
   /**
-   * The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+   * The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
    */
   DestinationTransitEncryption: MediaLiveTransitEncryption;
   /**
@@ -201,7 +201,7 @@ export type MediaLiveInputRouterOutputConfiguration = {
 };
 /**
  * Type definition for `AWS::MediaConnect::RouterOutput.MediaLiveTransitEncryption`.
- * The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through AWS Secrets Manager.
+ * The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-medialivetransitencryption.html}
  */
 export type MediaLiveTransitEncryption = {
@@ -219,7 +219,7 @@ export type MediaLiveTransitEncryption = {
 export type MediaLiveTransitEncryptionKeyConfiguration =
   | {
       /**
-       * The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+       * The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
        */
       SecretsManager: SecretsManagerEncryptionKeyConfiguration;
     }
@@ -258,7 +258,7 @@ export type RistRouterOutputConfiguration = {
   DestinationAddress: string;
   /**
    * The destination port number for the RIST protocol in the router output configuration.
-   * @min `0`
+   * @min `1024`
    * @max `65535`
    */
   DestinationPort: number;
@@ -376,7 +376,7 @@ export type RtpRouterOutputConfiguration = {
   DestinationAddress: string;
   /**
    * The destination port number for the RTP protocol in the router output configuration.
-   * @min `0`
+   * @min `1024`
    * @max `65531`
    */
   DestinationPort: number;
@@ -384,17 +384,17 @@ export type RtpRouterOutputConfiguration = {
 };
 /**
  * Type definition for `AWS::MediaConnect::RouterOutput.SecretsManagerEncryptionKeyConfiguration`.
- * The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+ * The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-routeroutput-secretsmanagerencryptionkeyconfiguration.html}
  */
 export type SecretsManagerEncryptionKeyConfiguration = {
   /**
-   * The ARN of the IAM role assumed by MediaConnect to access the AWS Secrets Manager secret.
+   * The ARN of the IAM role assumed by MediaConnect to access the Secrets Manager secret.
    * @pattern `^arn:(aws[a-zA-Z-]*):iam::[0-9]{12}:role/[a-zA-Z0-9_+=,.@-]+$`
    */
   RoleArn: string;
   /**
-   * The ARN of the AWS Secrets Manager secret used for transit encryption.
+   * The ARN of the Secrets Manager secret used for transit encryption.
    * @pattern `^arn:(aws[a-zA-Z-]*):secretsmanager:[a-z0-9-]+:[0-9]{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
    */
   SecretArn: string;
@@ -411,7 +411,7 @@ export type SrtCallerRouterOutputConfiguration = {
   DestinationAddress: string;
   /**
    * The destination port number for the SRT protocol in caller mode.
-   * @min `0`
+   * @min `1024`
    * @max `65535`
    */
   DestinationPort: number;
@@ -437,7 +437,7 @@ export type SrtCallerRouterOutputConfiguration = {
  */
 export type SrtEncryptionConfiguration = {
   /**
-   * The configuration settings for transit encryption using AWS Secrets Manager, including the secret ARN and role ARN.
+   * The configuration settings for transit encryption using Secrets Manager, including the secret ARN and role ARN.
    */
   EncryptionKey: SecretsManagerEncryptionKeyConfiguration;
 };

@@ -1,5 +1,5 @@
 {
-  "$hash": "12632afb99b0628c98a604d163eacc8739cf7207",
+  "$hash": "f757286a460f3a35eeb15fd4a059ebafa4d0aee4",
   "$id": "aws-evs-environment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -58,7 +58,10 @@
           "type": "string"
         },
         "HostName": { "$ref": "#/definitions/HostName" },
-        "InstanceType": { "enum": ["i4i.metal"], "type": "string" },
+        "InstanceType": {
+          "enum": ["i4i.metal", "i7i.metal-24xl"],
+          "type": "string"
+        },
         "KeyName": {
           "maxLength": 255,
           "minLength": 1,

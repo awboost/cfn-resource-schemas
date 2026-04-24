@@ -196,7 +196,7 @@ export type HostInfoForCreate = {
    * @pattern `^([a-zA-Z0-9\-]*)$`
    */
   HostName: string;
-  InstanceType: "i4i.metal";
+  InstanceType: "i4i.metal" | "i7i.metal-24xl";
   /**
    * @minLength `1`
    * @maxLength `255`

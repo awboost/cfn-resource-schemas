@@ -1,5 +1,5 @@
 {
-  "$hash": "6f2f7bb6f82070ef59b9bacc99e8ccf9f236985d",
+  "$hash": "b21385f83063ef6df9219e26262510cec7e8d293",
   "$id": "aws-s3express-directorybucket.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -38,6 +38,88 @@
         }
       },
       "required": ["ServerSideEncryptionConfiguration"],
+      "type": "object"
+    },
+    "Destination": {
+      "additionalProperties": false,
+      "description": "Specifies information about where to publish inventory reports for an Amazon S3 Express bucket.",
+      "properties": {
+        "BucketAccountId": {
+          "description": "The account ID that owns the destination S3 bucket. ",
+          "type": "string"
+        },
+        "BucketArn": {
+          "description": "The Amazon Resource Name (ARN) of the destination Amazon S3 bucket to which data is exported.",
+          "type": "string"
+        },
+        "Format": {
+          "description": "Specifies the file format used when exporting data to Amazon S3.",
+          "enum": ["CSV", "ORC", "Parquet"],
+          "type": "string"
+        },
+        "Prefix": {
+          "description": "The prefix to use when exporting data. The prefix is prepended to all results.",
+          "type": "string"
+        }
+      },
+      "required": ["BucketArn", "Format"],
+      "type": "object"
+    },
+    "InventoryConfiguration": {
+      "additionalProperties": false,
+      "description": "Specifies an inventory configuration for an Amazon S3 Express bucket",
+      "properties": {
+        "Destination": { "$ref": "#/definitions/Destination" },
+        "Enabled": {
+          "description": "Specifies whether the inventory is enabled or disabled.",
+          "type": "boolean"
+        },
+        "Id": {
+          "description": "The ID used to identify the inventory configuration.",
+          "type": "string"
+        },
+        "IncludedObjectVersions": {
+          "description": "Object versions to include in the inventory list.",
+          "enum": ["All", "Current"],
+          "type": "string"
+        },
+        "OptionalFields": {
+          "description": "Contains the optional fields that are included in the inventory results.",
+          "insertionOrder": true,
+          "items": {
+            "enum": [
+              "Size",
+              "LastModifiedDate",
+              "StorageClass",
+              "ETag",
+              "IsMultipartUploaded",
+              "EncryptionStatus",
+              "BucketKeyStatus",
+              "ChecksumAlgorithm",
+              "LifecycleExpirationDate"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "Prefix": {
+          "description": "The prefix that is prepended to all inventory results.",
+          "type": "string"
+        },
+        "ScheduleFrequency": {
+          "description": "Specifies the schedule for generating inventory results.",
+          "enum": ["Daily", "Weekly"],
+          "type": "string"
+        }
+      },
+      "required": [
+        "Destination",
+        "Enabled",
+        "Id",
+        "IncludedObjectVersions",
+        "ScheduleFrequency"
+      ],
       "type": "object"
     },
     "LifecycleConfiguration": {
@@ -170,6 +252,7 @@
         "s3express:PutEncryptionConfiguration",
         "s3express:PutLifecycleConfiguration",
         "s3express:PutMetricsConfiguration",
+        "s3express:PutInventoryConfiguration",
         "s3express:TagResource"
       ]
     },
@@ -187,6 +270,7 @@
         "s3express:GetEncryptionConfiguration",
         "s3express:GetLifecycleConfiguration",
         "s3express:GetMetricsConfiguration",
+        "s3express:GetInventoryConfiguration",
         "s3express:ListTagsForResource"
       ]
     },
@@ -197,6 +281,7 @@
         "s3express:PutEncryptionConfiguration",
         "s3express:PutLifecycleConfiguration",
         "s3express:PutMetricsConfiguration",
+        "s3express:PutInventoryConfiguration",
         "s3express:TagResource",
         "s3express:UntagResource"
       ]
@@ -227,6 +312,13 @@
       "description": "Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.",
       "enum": ["SingleAvailabilityZone", "SingleLocalZone"],
       "type": "string"
+    },
+    "InventoryConfigurations": {
+      "description": "The inventory configuration for an Amazon S3 Express bucket.",
+      "insertionOrder": true,
+      "items": { "$ref": "#/definitions/InventoryConfiguration" },
+      "type": "array",
+      "uniqueItems": true
     },
     "LifecycleConfiguration": {
       "$ref": "#/definitions/LifecycleConfiguration",
