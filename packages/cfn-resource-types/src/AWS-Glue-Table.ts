@@ -7,8 +7,9 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type GlueTableProperties = {
   CatalogId: string;
   DatabaseName: string;
+  Name?: string;
   OpenTableFormatInput?: OpenTableFormatInput;
-  TableInput: TableInput;
+  TableInput?: TableInput;
 };
 /**
  * Attribute type definition for `AWS::Glue::Table`.
@@ -31,8 +32,77 @@ export type Column = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html}
  */
 export type IcebergInput = {
+  IcebergTableInput?: IcebergTableInput;
   MetadataOperation?: MetadataOperation;
   Version?: string;
+};
+/**
+ * Type definition for `AWS::Glue::Table.IcebergPartitionField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergpartitionfield.html}
+ */
+export type IcebergPartitionField = {
+  FieldId?: number;
+  Name: string;
+  SourceId: number;
+  Transform: string;
+};
+/**
+ * Type definition for `AWS::Glue::Table.IcebergPartitionSpec`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergpartitionspec.html}
+ */
+export type IcebergPartitionSpec = {
+  Fields: IcebergPartitionField[];
+  SpecId?: number;
+};
+/**
+ * Type definition for `AWS::Glue::Table.IcebergSchema`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergschema.html}
+ */
+export type IcebergSchema = {
+  Fields: IcebergStructField[];
+  IdentifierFieldIds?: number[];
+  SchemaId?: number;
+  Type?: string;
+};
+/**
+ * Type definition for `AWS::Glue::Table.IcebergSortField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergsortfield.html}
+ */
+export type IcebergSortField = {
+  Direction: string;
+  NullOrder: string;
+  SourceId: number;
+  Transform: string;
+};
+/**
+ * Type definition for `AWS::Glue::Table.IcebergSortOrder`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergsortorder.html}
+ */
+export type IcebergSortOrder = {
+  Fields: IcebergSortField[];
+  OrderId: number;
+};
+/**
+ * Type definition for `AWS::Glue::Table.IcebergStructField`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergstructfield.html}
+ */
+export type IcebergStructField = {
+  Doc?: string;
+  Id: number;
+  Name: string;
+  Required: boolean;
+  Type: string;
+};
+/**
+ * Type definition for `AWS::Glue::Table.IcebergTableInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-icebergtableinput.html}
+ */
+export type IcebergTableInput = {
+  Location: string;
+  PartitionSpec?: IcebergPartitionSpec;
+  Properties?: Record<string, any>;
+  Schema: IcebergSchema;
+  WriteOrder?: IcebergSortOrder;
 };
 /**
  * Type definition for `AWS::Glue::Table.MetadataOperation`.
@@ -133,6 +203,28 @@ export type TableInput = {
   StorageDescriptor?: StorageDescriptor;
   TableType?: string;
   TargetTable?: TableIdentifier;
+  ViewDefinition?: ViewDefinition;
+  ViewExpandedText?: string;
+  ViewOriginalText?: string;
+};
+/**
+ * Type definition for `AWS::Glue::Table.ViewDefinition`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-viewdefinition.html}
+ */
+export type ViewDefinition = {
+  Definer?: string;
+  IsProtected?: boolean;
+  Representations?: ViewRepresentation[];
+  SubObjects?: string[];
+};
+/**
+ * Type definition for `AWS::Glue::Table.ViewRepresentation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-viewrepresentation.html}
+ */
+export type ViewRepresentation = {
+  Dialect?: string;
+  DialectVersion?: string;
+  ValidationConnection?: string;
   ViewExpandedText?: string;
   ViewOriginalText?: string;
 };

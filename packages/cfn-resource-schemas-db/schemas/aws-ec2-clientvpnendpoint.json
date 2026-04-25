@@ -1,5 +1,5 @@
 {
-  "$hash": "83e5d71069c05c44449750159531cd7c1257f90b",
+  "$hash": "cbeebdbedd073ac48f26c9fdfa26126f4bc67e76",
   "$id": "aws-ec2-clientvpnendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,6 +7,7 @@
     "/properties/ClientCidrBlock",
     "/properties/TagSpecifications",
     "/properties/AuthenticationOptions",
+    "/properties/TransitGatewayConfiguration",
     "/properties/EndpointIpAddressType",
     "/properties/TrafficIpAddressType"
   ],
@@ -103,6 +104,24 @@
       },
       "required": ["ResourceType", "Tags"],
       "type": "object"
+    },
+    "TransitGatewayConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "AvailabilityZoneIds": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "AvailabilityZones": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "TransitGatewayId": { "type": "string" }
+      },
+      "required": ["TransitGatewayId"],
+      "type": "object"
     }
   },
   "description": "Resource Type definition for AWS::EC2::ClientVpnEndpoint",
@@ -146,6 +165,9 @@
       "uniqueItems": false
     },
     "TrafficIpAddressType": { "type": "string" },
+    "TransitGatewayConfiguration": {
+      "$ref": "#/definitions/TransitGatewayConfiguration"
+    },
     "TransportProtocol": { "type": "string" },
     "VpcId": { "type": "string" },
     "VpnPort": { "type": "integer" }

@@ -98,6 +98,17 @@ export type AWSResource = {
     | "AWS::S3::Object";
 };
 /**
+ * Type definition for `AWS::DevOpsAgent::Association.AzureConfiguration`.
+ * Azure subscription integration configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-azureconfiguration.html}
+ */
+export type AzureConfiguration = {
+  /**
+   * Azure subscription ID corresponding to provided resources
+   */
+  SubscriptionId: string;
+};
+/**
  * Type definition for `AWS::DevOpsAgent::Association.DynatraceConfiguration`.
  * Dynatrace monitoring configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-dynatraceconfiguration.html}
@@ -265,6 +276,17 @@ export type MCPServerNewRelicConfiguration = {
   Endpoint: string;
 };
 /**
+ * Type definition for `AWS::DevOpsAgent::Association.MCPServerSigV4Configuration`.
+ * SigV4-authenticated MCP server configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserversigv4configuration.html}
+ */
+export type MCPServerSigV4Configuration = {
+  /**
+   * List of MCP tools available for the association
+   */
+  Tools: string[];
+};
+/**
  * Type definition for `AWS::DevOpsAgent::Association.MCPServerSplunkConfiguration`.
  * Splunk MCP server configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpserversplunkconfiguration.html}
@@ -288,6 +310,25 @@ export type MCPServerSplunkConfiguration = {
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
   Name: string;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::Association.PagerDutyConfiguration`.
+ * PagerDuty integration configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-pagerdutyconfiguration.html}
+ */
+export type PagerDutyConfiguration = {
+  /**
+   * Email to be used in PagerDuty API header
+   */
+  CustomerEmail: string;
+  /**
+   * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+   */
+  EnableWebhookUpdates?: boolean;
+  /**
+   * List of PagerDuty service IDs available for the association
+   */
+  Services: string[];
 };
 /**
  * Type definition for `AWS::DevOpsAgent::Association.ServiceConfiguration`.
@@ -363,9 +404,27 @@ export type ServiceConfiguration =
     }
   | {
       /**
+       * PagerDuty integration configuration
+       */
+      PagerDuty: PagerDutyConfiguration;
+    }
+  | {
+      /**
        * EventChannelconfiguration
        */
       EventChannel: EventChannelConfiguration;
+    }
+  | {
+      /**
+       * Azure subscription integration configuration
+       */
+      Azure: AzureConfiguration;
+    }
+  | {
+      /**
+       * SigV4-authenticated MCP server configuration
+       */
+      MCPServerSigV4: MCPServerSigV4Configuration;
     };
 /**
  * Type definition for `AWS::DevOpsAgent::Association.ServiceNowConfiguration`.

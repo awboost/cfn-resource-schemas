@@ -1,5 +1,5 @@
 {
-  "$hash": "b91454b76b01dfba6e298c51b136f9f170a6f6ee",
+  "$hash": "ba8ff6d0d9cf41f3c27e96675b19cdd2e8ba8a8c",
   "$id": "aws-devopsagent-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -58,6 +58,31 @@
             }
           },
           "required": ["ServiceNow"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "PagerDuty": { "$ref": "#/definitions/RegisteredPagerDutyDetails" }
+          },
+          "required": ["PagerDuty"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "AzureIdentity": {
+              "$ref": "#/definitions/RegisteredAzureIdentityDetails"
+            }
+          },
+          "required": ["AzureIdentity"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "MCPServerSigV4": {
+              "$ref": "#/definitions/RegisteredMCPServerSigV4Details"
+            }
+          },
+          "required": ["MCPServerSigV4"]
         }
       ],
       "type": "object"
@@ -83,6 +108,40 @@
         }
       },
       "required": ["ApiKeyName", "ApiKeyValue", "ApiKeyHeader"],
+      "type": "object"
+    },
+    "AzureIdentityServiceDetails": {
+      "additionalProperties": false,
+      "description": "Azure Identity service configuration for federated identity",
+      "properties": {
+        "ClientId": {
+          "description": "Azure AD application client ID",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+          "type": "string"
+        },
+        "TenantId": {
+          "description": "Azure AD tenant ID",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+          "type": "string"
+        },
+        "WebIdentityRoleArn": {
+          "description": "ARN of the IAM role for web identity token exchange",
+          "pattern": "^arn:aws[a-zA-Z-]*:iam::[0-9]{12}:role/.+$",
+          "type": "string"
+        },
+        "WebIdentityTokenAudiences": {
+          "description": "List of audiences for the web identity token",
+          "items": { "type": "string" },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "TenantId",
+        "ClientId",
+        "WebIdentityRoleArn",
+        "WebIdentityTokenAudiences"
+      ],
       "type": "object"
     },
     "BearerTokenDetails": {
@@ -236,6 +295,63 @@
       "required": ["ClientId", "ClientSecret", "ExchangeUrl"],
       "type": "object"
     },
+    "MCPServerSigV4AuthorizationConfig": {
+      "additionalProperties": false,
+      "description": "SigV4 authorization configuration for MCP server",
+      "properties": {
+        "CustomHeaders": {
+          "additionalProperties": false,
+          "description": "Custom headers for the SigV4 MCP server",
+          "maxProperties": 10,
+          "patternProperties": { "^[a-zA-Z0-9-_]+$": { "type": "string" } },
+          "type": "object"
+        },
+        "Region": {
+          "description": "AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.",
+          "pattern": "^(\\*|[a-z]{2,4}(-[a-z]+)+-\\d+)$",
+          "type": "string"
+        },
+        "RoleArn": {
+          "description": "IAM role ARN to assume for SigV4 signing",
+          "pattern": "^arn:aws:iam::\\d{12}:role/[a-zA-Z0-9+=,.@_/-]+$",
+          "type": "string"
+        },
+        "Service": {
+          "description": "AWS service name for SigV4 signing",
+          "maxLength": 100,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": ["Region", "Service", "RoleArn"],
+      "type": "object"
+    },
+    "MCPServerSigV4Details": {
+      "additionalProperties": false,
+      "description": "SigV4-authenticated MCP server configuration",
+      "properties": {
+        "AuthorizationConfig": {
+          "$ref": "#/definitions/MCPServerSigV4AuthorizationConfig"
+        },
+        "Description": {
+          "description": "Optional description for the MCP server",
+          "maxLength": 500,
+          "type": "string"
+        },
+        "Endpoint": {
+          "description": "MCP server endpoint URL",
+          "pattern": "^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$",
+          "type": "string"
+        },
+        "Name": {
+          "description": "MCP server name",
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "type": "string"
+        }
+      },
+      "required": ["Name", "Endpoint", "AuthorizationConfig"],
+      "type": "object"
+    },
     "MCPServerSplunkAuthorizationConfig": {
       "description": "MCP server splunk authorization configuration",
       "oneOf": [
@@ -354,6 +470,63 @@
       "required": ["ClientId", "ClientSecret"],
       "type": "object"
     },
+    "PagerDutyAuthorizationConfig": {
+      "additionalProperties": false,
+      "description": "PagerDuty OAuth authorization configuration",
+      "properties": {
+        "OAuthClientCredentials": { "$ref": "#/definitions/OAuthClientDetails" }
+      },
+      "type": "object"
+    },
+    "PagerDutyDetails": {
+      "additionalProperties": false,
+      "description": "PagerDuty service configuration",
+      "properties": {
+        "AuthorizationConfig": {
+          "$ref": "#/definitions/PagerDutyAuthorizationConfig"
+        },
+        "Scopes": {
+          "description": "PagerDuty scopes",
+          "items": { "type": "string" },
+          "type": "array"
+        }
+      },
+      "required": ["Scopes", "AuthorizationConfig"],
+      "type": "object"
+    },
+    "RegisteredAzureIdentityDetails": {
+      "additionalProperties": false,
+      "description": "Azure Identity service details returned after registration",
+      "properties": {
+        "ClientId": {
+          "description": "Azure AD application client ID",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+          "type": "string"
+        },
+        "TenantId": {
+          "description": "Azure AD tenant ID",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+          "type": "string"
+        },
+        "WebIdentityRoleArn": {
+          "description": "ARN of the IAM role for web identity token exchange",
+          "pattern": "^arn:aws[a-zA-Z-]*:iam::[0-9]{12}:role/.+$",
+          "type": "string"
+        },
+        "WebIdentityTokenAudiences": {
+          "description": "List of audiences for the web identity token",
+          "items": { "type": "string" },
+          "type": "array"
+        }
+      },
+      "required": [
+        "TenantId",
+        "ClientId",
+        "WebIdentityRoleArn",
+        "WebIdentityTokenAudiences"
+      ],
+      "type": "object"
+    },
     "RegisteredDynatraceDetails": {
       "additionalProperties": false,
       "description": "Dynatrace service details returned after registration",
@@ -410,6 +583,41 @@
       "required": ["Name", "Endpoint", "AuthorizationMethod"],
       "type": "object"
     },
+    "RegisteredMCPServerSigV4Details": {
+      "additionalProperties": false,
+      "description": "SigV4-authenticated MCP server details returned after registration",
+      "properties": {
+        "CustomHeaders": {
+          "additionalProperties": false,
+          "description": "Custom headers for the SigV4 MCP server",
+          "patternProperties": { "^[a-zA-Z0-9-_]+$": { "type": "string" } },
+          "type": "object"
+        },
+        "Description": {
+          "description": "Optional description for the MCP server",
+          "type": "string"
+        },
+        "Endpoint": {
+          "description": "The MCP server endpoint URL",
+          "type": "string"
+        },
+        "Name": { "description": "The MCP server name", "type": "string" },
+        "Region": {
+          "description": "AWS region for SigV4 signing",
+          "type": "string"
+        },
+        "RoleArn": {
+          "description": "IAM role ARN for SigV4 signing",
+          "type": "string"
+        },
+        "Service": {
+          "description": "AWS service name for SigV4 signing",
+          "type": "string"
+        }
+      },
+      "required": ["Name", "Endpoint", "Region", "Service", "RoleArn"],
+      "type": "object"
+    },
     "RegisteredNewRelicDetails": {
       "additionalProperties": false,
       "description": "New Relic service details returned after registration",
@@ -429,6 +637,19 @@
         }
       },
       "required": ["AccountId", "Region"],
+      "type": "object"
+    },
+    "RegisteredPagerDutyDetails": {
+      "additionalProperties": false,
+      "description": "PagerDuty service details returned after registration",
+      "properties": {
+        "Scopes": {
+          "description": "The scopes assigned to the service",
+          "items": { "type": "string" },
+          "type": "array"
+        }
+      },
+      "required": ["Scopes"],
       "type": "object"
     },
     "RegisteredServiceNowDetails": {
@@ -489,6 +710,29 @@
             "ServiceNow": { "$ref": "#/definitions/ServiceNowServiceDetails" }
           },
           "required": ["ServiceNow"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "PagerDuty": { "$ref": "#/definitions/PagerDutyDetails" }
+          },
+          "required": ["PagerDuty"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "AzureIdentity": {
+              "$ref": "#/definitions/AzureIdentityServiceDetails"
+            }
+          },
+          "required": ["AzureIdentity"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "MCPServerSigV4": { "$ref": "#/definitions/MCPServerSigV4Details" }
+          },
+          "required": ["MCPServerSigV4"]
         }
       ],
       "type": "object"
@@ -531,7 +775,10 @@
         "mcpserversplunk",
         "mcpservernewrelic",
         "gitlab",
-        "servicenow"
+        "servicenow",
+        "pagerduty",
+        "azureidentity",
+        "mcpserversigv4"
       ],
       "type": "string"
     },
@@ -565,6 +812,7 @@
         "aidevops:TagResource",
         "aidevops:ListTagsForResource",
         "iam:CreateServiceLinkedRole",
+        "iam:PassRole",
         "kms:Decrypt",
         "kms:DescribeKey",
         "kms:Encrypt",

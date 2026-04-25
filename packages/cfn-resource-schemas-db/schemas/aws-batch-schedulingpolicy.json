@@ -1,5 +1,5 @@
 {
-  "$hash": "a73bdfa723585cc65c9497d355dae3a4e47abda3",
+  "$hash": "30370cc27422cdf89f87e2383f88bbdded7fb3bd",
   "$id": "aws-batch-schedulingpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Tags"],
@@ -72,10 +72,6 @@
       ]
     }
   },
-  "oneOf": [
-    { "required": ["FairsharePolicy"] },
-    { "required": ["QuotaSharePolicy"] }
-  ],
   "primaryIdentifier": ["/properties/Arn"],
   "properties": {
     "Arn": { "$ref": "#/definitions/ResourceArn" },

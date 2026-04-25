@@ -27,6 +27,10 @@ export type MediaConnectFlowVpcInterfaceProperties = {
    * Subnet must be in the AZ of the Flow
    */
   SubnetId: string;
+  /**
+   * Key-value pairs that can be used to tag and organize this VPC network interface.
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::MediaConnect::FlowVpcInterface`.
@@ -37,6 +41,14 @@ export type MediaConnectFlowVpcInterfaceAttributes = {
    * IDs of the network interfaces created in customer's account by MediaConnect.
    */
   NetworkInterfaceIds: string[];
+};
+/**
+ * Type definition for `AWS::MediaConnect::FlowVpcInterface.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowvpcinterface-tag.html}
+ */
+export type Tag = {
+  Key: string;
+  Value: string;
 };
 /**
  * Resource schema for AWS::MediaConnect::FlowVpcInterface

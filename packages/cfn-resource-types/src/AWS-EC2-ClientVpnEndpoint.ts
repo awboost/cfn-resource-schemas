@@ -22,6 +22,7 @@ export type EC2ClientVpnEndpointProperties = {
   SplitTunnel?: boolean;
   TagSpecifications?: TagSpecification[];
   TrafficIpAddressType?: string;
+  TransitGatewayConfiguration?: TransitGatewayConfiguration;
   TransportProtocol?: string;
   VpcId?: string;
   VpnPort?: number;
@@ -112,6 +113,15 @@ export type Tag = {
 export type TagSpecification = {
   ResourceType: string;
   Tags: Tag[];
+};
+/**
+ * Type definition for `AWS::EC2::ClientVpnEndpoint.TransitGatewayConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-transitgatewayconfiguration.html}
+ */
+export type TransitGatewayConfiguration = {
+  AvailabilityZoneIds?: string[];
+  AvailabilityZones?: string[];
+  TransitGatewayId: string;
 };
 /**
  * Resource Type definition for AWS::EC2::ClientVpnEndpoint

@@ -1,5 +1,5 @@
 {
-  "$hash": "9d2b773361c184a85f7fc50e1af453d218f7debc",
+  "$hash": "c9532197a58cc040d7d497619d5389d4ac721501",
   "$id": "aws-batch-jobdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/JobDefinitionName"],
@@ -646,6 +646,17 @@
       },
       "type": "object"
     },
+    "S3FilesVolumeConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "AccessPointArn": { "type": "string" },
+        "FileSystemArn": { "type": "string" },
+        "RootDirectory": { "type": "string" },
+        "TransitEncryptionPort": { "type": "integer" }
+      },
+      "required": ["FileSystemArn"],
+      "type": "object"
+    },
     "Secret": {
       "additionalProperties": false,
       "properties": {
@@ -726,6 +737,8 @@
           "type": "array",
           "uniqueItems": false
         },
+        "StartTimeout": { "type": "integer" },
+        "StopTimeout": { "type": "integer" },
         "Ulimits": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/Ulimit" },
@@ -769,7 +782,10 @@
           "$ref": "#/definitions/EFSVolumeConfiguration"
         },
         "Host": { "$ref": "#/definitions/Host" },
-        "Name": { "type": "string" }
+        "Name": { "type": "string" },
+        "S3FilesVolumeConfiguration": {
+          "$ref": "#/definitions/S3FilesVolumeConfiguration"
+        }
       },
       "type": "object"
     }

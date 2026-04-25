@@ -1,14 +1,18 @@
 {
-  "$hash": "f198f6c37f53bb1d408d945f12aad5c0fb9b33f2",
+  "$hash": "fea1a8cac3daea59aa0147602a3392653fb63e48",
   "$id": "aws-ec2-clientvpntargetnetworkassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ClientVpnEndpointId",
+    "/properties/AvailabilityZoneId",
+    "/properties/AvailabilityZone",
     "/properties/SubnetId"
   ],
   "description": "Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation",
   "primaryIdentifier": ["/properties/Id"],
   "properties": {
+    "AvailabilityZone": { "type": "string" },
+    "AvailabilityZoneId": { "type": "string" },
     "ClientVpnEndpointId": { "type": "string" },
     "Id": { "type": "string" },
     "SubnetId": { "type": "string" }

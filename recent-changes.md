@@ -1,40 +1,60 @@
-- updated `AWS::EC2::EC2Fleet`
-  - added definition `IamInstanceProfileSpecification`
-  - added definition `InstanceMetadataOptionsRequest`
-  - added definition `Ipv6AddressRequest`
-  - added definition `NetworkInterfaceSpecificationRequest`
-  - added definition `PrivateIpAddressSpecificationRequest`
-  - updated definition `FleetLaunchTemplateOverridesRequest`
-  - updated definition `FleetLaunchTemplateSpecificationRequest`
-- updated `AWS::EVS::Environment`
-  - updated definition `HostInfoForCreate`
-- updated `AWS::MediaConnect::RouterInput`
-  - added definition `MediaLiveChannelPipelineId`
-  - added definition `MediaLiveChannelRouterInputConfiguration`
-  - added definition `MediaLiveTransitEncryptionKeyConfiguration`
-  - added definition `MediaLiveTransitEncryptionKeyType`
-  - added definition `MediaLiveTransitEncryption`
-  - updated definition `RouterInputConfiguration`
-  - updated definition `RouterInputType`
-  - updated definition `SecretsManagerEncryptionKeyConfiguration`
-  - updated definition `SrtCallerRouterInputConfiguration`
+- added `AWS::CloudWatch::OTelEnrichment`
+- added `AWS::DevOpsAgent::PrivateConnection`
+- updated `AWS::Batch::JobDefinition`
+  - added definition `S3FilesVolumeConfiguration`
+  - updated definition `TaskContainerProperties`
+  - updated definition `Volume`
+- updated `AWS::Batch::SchedulingPolicy`
+  - removed `oneOf`
+- updated `AWS::DevOpsAgent::Association`
+  - added definition `AzureConfiguration`
+  - added definition `MCPServerSigV4Configuration`
+  - added definition `PagerDutyConfiguration`
+  - updated `writeOnlyProperties`
+  - updated definition `ServiceConfiguration`
+- updated `AWS::DevOpsAgent::Service`
+  - added definition `AzureIdentityServiceDetails`
+  - added definition `MCPServerSigV4AuthorizationConfig`
+  - added definition `MCPServerSigV4Details`
+  - added definition `PagerDutyAuthorizationConfig`
+  - added definition `PagerDutyDetails`
+  - added definition `RegisteredAzureIdentityDetails`
+  - added definition `RegisteredMCPServerSigV4Details`
+  - added definition `RegisteredPagerDutyDetails`
+  - updated definition `AdditionalServiceDetails`
+  - updated definition `ServiceDetails`
+  - updated definition `ServiceType`
   - updated handler permissions
-  - updated property `RegionName`
-- updated `AWS::MediaConnect::RouterOutput`
-  - updated definition `MediaLiveTransitEncryption`
-  - updated definition `RistRouterOutputConfiguration`
-  - updated definition `RtpRouterOutputConfiguration`
-  - updated definition `SecretsManagerEncryptionKeyConfiguration`
-  - updated definition `SrtCallerRouterOutputConfiguration`
-  - updated property `RegionName`
-- updated `AWS::S3Express::DirectoryBucket`
-  - added definition `Destination`
-  - added definition `InventoryConfiguration`
-  - added property `InventoryConfigurations`
-  - updated handler permissions
-- updated `AWS::SageMaker::Domain`
-  - added `tagging`
-  - removed `writeOnlyProperties`
+- updated `AWS::EC2::ClientVpnEndpoint`
+  - added definition `TransitGatewayConfiguration`
+  - added property `TransitGatewayConfiguration`
   - updated `createOnlyProperties`
-  - updated definition `DomainSettings`
+- updated `AWS::EC2::ClientVpnTargetNetworkAssociation`
+  - added property `AvailabilityZoneId`
+  - added property `AvailabilityZone`
+  - updated `createOnlyProperties`
+- updated `AWS::Glue::Table`
+  - added definition `IcebergPartitionField`
+  - added definition `IcebergPartitionSpec`
+  - added definition `IcebergSchema`
+  - added definition `IcebergSortField`
+  - added definition `IcebergSortOrder`
+  - added definition `IcebergStructField`
+  - added definition `IcebergTableInput`
+  - added definition `ViewDefinition`
+  - added definition `ViewRepresentation`
+  - added property `Name`
+  - updated `createOnlyProperties`
+  - updated `required`
+  - updated definition `IcebergInput`
+  - updated definition `TableInput`
+- updated `AWS::MediaConnect::FlowVpcInterface`
+  - added `tagging`
+  - added property `Tags`
+  - updated definition `undefined`
+  - updated handler permissions
+- updated `AWS::SSO::PermissionSet`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::SageMaker::InferenceComponent`
   - updated handler permissions

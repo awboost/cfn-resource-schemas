@@ -5,6 +5,8 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpntargetnetworkassociation.html}
  */
 export type EC2ClientVpnTargetNetworkAssociationProperties = {
+  AvailabilityZone?: string;
+  AvailabilityZoneId?: string;
   ClientVpnEndpointId: string;
   SubnetId?: string;
 };

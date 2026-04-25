@@ -89,6 +89,24 @@ export type AdditionalServiceDetails =
        * ServiceNow service details returned after registration
        */
       ServiceNow: RegisteredServiceNowDetails;
+    }
+  | {
+      /**
+       * PagerDuty service details returned after registration
+       */
+      PagerDuty: RegisteredPagerDutyDetails;
+    }
+  | {
+      /**
+       * Azure Identity service details returned after registration
+       */
+      AzureIdentity: RegisteredAzureIdentityDetails;
+    }
+  | {
+      /**
+       * SigV4-authenticated MCP server details returned after registration
+       */
+      MCPServerSigV4: RegisteredMCPServerSigV4Details;
     };
 /**
  * Type definition for `AWS::DevOpsAgent::Service.ApiKeyDetails`.
@@ -111,6 +129,33 @@ export type ApiKeyDetails = {
    * @pattern `^[!-~]([ \t]*[!-~])*$`
    */
   ApiKeyValue: string;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::Service.AzureIdentityServiceDetails`.
+ * Azure Identity service configuration for federated identity
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-azureidentityservicedetails.html}
+ */
+export type AzureIdentityServiceDetails = {
+  /**
+   * Azure AD application client ID
+   * @pattern `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`
+   */
+  ClientId: string;
+  /**
+   * Azure AD tenant ID
+   * @pattern `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`
+   */
+  TenantId: string;
+  /**
+   * ARN of the IAM role for web identity token exchange
+   * @pattern `^arn:aws[a-zA-Z-]*:iam::[0-9]{12}:role/.+$`
+   */
+  WebIdentityRoleArn: string;
+  /**
+   * List of audiences for the web identity token
+   * @minLength `1`
+   */
+  WebIdentityTokenAudiences: string[];
 };
 /**
  * Type definition for `AWS::DevOpsAgent::Service.BearerTokenDetails`.
@@ -262,6 +307,59 @@ export type MCPServerOAuthClientCredentialsConfig = {
   Scopes?: string[];
 };
 /**
+ * Type definition for `AWS::DevOpsAgent::Service.MCPServerSigV4AuthorizationConfig`.
+ * SigV4 authorization configuration for MCP server
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4authorizationconfig.html}
+ */
+export type MCPServerSigV4AuthorizationConfig = {
+  /**
+   * Custom headers for the SigV4 MCP server
+   */
+  CustomHeaders?: Record<string, string>;
+  /**
+   * AWS region for SigV4 signing. Use '*' for SigV4a multi-region signing.
+   * @pattern `^(\*|[a-z]{2,4}(-[a-z]+)+-\d+)$`
+   */
+  Region: string;
+  /**
+   * IAM role ARN to assume for SigV4 signing
+   * @pattern `^arn:aws:iam::\d{12}:role/[a-zA-Z0-9+=,.@_/-]+$`
+   */
+  RoleArn: string;
+  /**
+   * AWS service name for SigV4 signing
+   * @minLength `1`
+   * @maxLength `100`
+   */
+  Service: string;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::Service.MCPServerSigV4Details`.
+ * SigV4-authenticated MCP server configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversigv4details.html}
+ */
+export type MCPServerSigV4Details = {
+  /**
+   * SigV4 authorization configuration for MCP server
+   */
+  AuthorizationConfig: MCPServerSigV4AuthorizationConfig;
+  /**
+   * Optional description for the MCP server
+   * @maxLength `500`
+   */
+  Description?: string;
+  /**
+   * MCP server endpoint URL
+   * @pattern `^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$`
+   */
+  Endpoint: string;
+  /**
+   * MCP server name
+   * @pattern `^[a-zA-Z0-9_-]+$`
+   */
+  Name: string;
+};
+/**
  * Type definition for `AWS::DevOpsAgent::Service.MCPServerSplunkAuthorizationConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpserversplunkauthorizationconfig.html}
  */
@@ -373,6 +471,58 @@ export type OAuthClientDetails = {
   ExchangeParameters?: Record<string, any>;
 };
 /**
+ * Type definition for `AWS::DevOpsAgent::Service.PagerDutyAuthorizationConfig`.
+ * PagerDuty OAuth authorization configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-pagerdutyauthorizationconfig.html}
+ */
+export type PagerDutyAuthorizationConfig = {
+  /**
+   * OAuth client credentials
+   */
+  OAuthClientCredentials?: OAuthClientDetails;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::Service.PagerDutyDetails`.
+ * PagerDuty service configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-pagerdutydetails.html}
+ */
+export type PagerDutyDetails = {
+  /**
+   * PagerDuty OAuth authorization configuration
+   */
+  AuthorizationConfig: PagerDutyAuthorizationConfig;
+  /**
+   * PagerDuty scopes
+   */
+  Scopes: string[];
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::Service.RegisteredAzureIdentityDetails`.
+ * Azure Identity service details returned after registration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredazureidentitydetails.html}
+ */
+export type RegisteredAzureIdentityDetails = {
+  /**
+   * Azure AD application client ID
+   * @pattern `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`
+   */
+  ClientId: string;
+  /**
+   * Azure AD tenant ID
+   * @pattern `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`
+   */
+  TenantId: string;
+  /**
+   * ARN of the IAM role for web identity token exchange
+   * @pattern `^arn:aws[a-zA-Z-]*:iam::[0-9]{12}:role/.+$`
+   */
+  WebIdentityRoleArn: string;
+  /**
+   * List of audiences for the web identity token
+   */
+  WebIdentityTokenAudiences: string[];
+};
+/**
  * Type definition for `AWS::DevOpsAgent::Service.RegisteredDynatraceDetails`.
  * Dynatrace service details returned after registration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registereddynatracedetails.html}
@@ -430,6 +580,41 @@ export type RegisteredMCPServerDetails = {
   Name: string;
 };
 /**
+ * Type definition for `AWS::DevOpsAgent::Service.RegisteredMCPServerSigV4Details`.
+ * SigV4-authenticated MCP server details returned after registration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html}
+ */
+export type RegisteredMCPServerSigV4Details = {
+  /**
+   * Custom headers for the SigV4 MCP server
+   */
+  CustomHeaders?: Record<string, string>;
+  /**
+   * Optional description for the MCP server
+   */
+  Description?: string;
+  /**
+   * The MCP server endpoint URL
+   */
+  Endpoint: string;
+  /**
+   * The MCP server name
+   */
+  Name: string;
+  /**
+   * AWS region for SigV4 signing
+   */
+  Region: string;
+  /**
+   * IAM role ARN for SigV4 signing
+   */
+  RoleArn: string;
+  /**
+   * AWS service name for SigV4 signing
+   */
+  Service: string;
+};
+/**
  * Type definition for `AWS::DevOpsAgent::Service.RegisteredNewRelicDetails`.
  * New Relic service details returned after registration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registerednewrelicdetails.html}
@@ -447,6 +632,17 @@ export type RegisteredNewRelicDetails = {
    * New Relic region
    */
   Region: "US" | "EU";
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::Service.RegisteredPagerDutyDetails`.
+ * PagerDuty service details returned after registration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredpagerdutydetails.html}
+ */
+export type RegisteredPagerDutyDetails = {
+  /**
+   * The scopes assigned to the service
+   */
+  Scopes: string[];
 };
 /**
  * Type definition for `AWS::DevOpsAgent::Service.RegisteredServiceNowDetails`.
@@ -500,6 +696,24 @@ export type ServiceDetails =
        * ServiceNow service configuration
        */
       ServiceNow: ServiceNowServiceDetails;
+    }
+  | {
+      /**
+       * PagerDuty service configuration
+       */
+      PagerDuty: PagerDutyDetails;
+    }
+  | {
+      /**
+       * Azure Identity service configuration for federated identity
+       */
+      AzureIdentity: AzureIdentityServiceDetails;
+    }
+  | {
+      /**
+       * SigV4-authenticated MCP server configuration
+       */
+      MCPServerSigV4: MCPServerSigV4Details;
     };
 /**
  * Type definition for `AWS::DevOpsAgent::Service.ServiceNowAuthorizationConfig`.
@@ -539,7 +753,10 @@ export type ServiceType =
   | "mcpserversplunk"
   | "mcpservernewrelic"
   | "gitlab"
-  | "servicenow";
+  | "servicenow"
+  | "pagerduty"
+  | "azureidentity"
+  | "mcpserversigv4";
 /**
  * Type definition for `AWS::DevOpsAgent::Service.Tag`.
  * A key-value pair to associate with a resource.

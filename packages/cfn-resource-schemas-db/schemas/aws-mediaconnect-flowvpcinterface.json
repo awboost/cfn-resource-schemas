@@ -1,15 +1,28 @@
 {
-  "$hash": "d5116b82020447dd4b903d9ddc8fed9005d859a2",
+  "$hash": "a8ae288f73ce61799d445ed84bd3ffac3ad4d11e",
   "$id": "aws-mediaconnect-flowvpcinterface.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FlowArn", "/properties/Name"],
+  "definitions": {
+    "Tag": {
+      "additionalProperties": false,
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": { "type": "string" }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    }
+  },
   "description": "Resource schema for AWS::MediaConnect::FlowVpcInterface",
   "handlers": {
     "create": {
       "permissions": [
         "iam:PassRole",
         "mediaconnect:DescribeFlow",
-        "mediaconnect:AddFlowVpcInterfaces"
+        "mediaconnect:AddFlowVpcInterfaces",
+        "mediaconnect:TagResource",
+        "mediaconnect:ListTagsForResource"
       ]
     },
     "delete": {
@@ -18,13 +31,30 @@
         "mediaconnect:RemoveFlowVpcInterface"
       ]
     },
-    "list": { "permissions": ["mediaconnect:DescribeFlow"] },
-    "read": { "permissions": ["mediaconnect:DescribeFlow"] },
-    "update": {
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "FlowArn": { "$ref": "resource-schema.json#/properties/FlowArn" }
+        },
+        "required": ["FlowArn"]
+      },
+      "permissions": ["mediaconnect:DescribeFlow"]
+    },
+    "read": {
       "permissions": [
         "mediaconnect:DescribeFlow",
+        "mediaconnect:ListTagsForResource"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "iam:PassRole",
+        "mediaconnect:DescribeFlow",
         "mediaconnect:AddFlowVpcInterfaces",
-        "mediaconnect:RemoveFlowVpcInterface"
+        "mediaconnect:RemoveFlowVpcInterface",
+        "mediaconnect:TagResource",
+        "mediaconnect:UntagResource",
+        "mediaconnect:ListTagsForResource"
       ]
     }
   },
@@ -57,10 +87,29 @@
     "SubnetId": {
       "description": "Subnet must be in the AZ of the Flow",
       "type": "string"
+    },
+    "Tags": {
+      "description": "Key-value pairs that can be used to tag and organize this VPC network interface.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": true
     }
   },
   "readOnlyProperties": ["/properties/NetworkInterfaceIds"],
   "required": ["FlowArn", "Name", "RoleArn", "SubnetId", "SecurityGroupIds"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediaconnect.git",
+  "tagging": {
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "mediaconnect:TagResource",
+      "mediaconnect:UntagResource",
+      "mediaconnect:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::MediaConnect::FlowVpcInterface"
 }

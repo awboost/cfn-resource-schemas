@@ -453,6 +453,16 @@ export type RuntimePlatform = {
   OperatingSystemFamily?: string;
 };
 /**
+ * Type definition for `AWS::Batch::JobDefinition.S3FilesVolumeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-s3filesvolumeconfiguration.html}
+ */
+export type S3FilesVolumeConfiguration = {
+  AccessPointArn?: string;
+  FileSystemArn: string;
+  RootDirectory?: string;
+  TransitEncryptionPort?: number;
+};
+/**
  * Type definition for `AWS::Batch::JobDefinition.Secret`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-secret.html}
  */
@@ -491,6 +501,8 @@ export type TaskContainerProperties = {
   RepositoryCredentials?: RepositoryCredentials;
   ResourceRequirements?: ResourceRequirement[];
   Secrets?: Secret[];
+  StartTimeout?: number;
+  StopTimeout?: number;
   Ulimits?: Ulimit[];
   User?: string;
 };
@@ -520,6 +532,7 @@ export type Volume = {
   EfsVolumeConfiguration?: EFSVolumeConfiguration;
   Host?: Host;
   Name?: string;
+  S3FilesVolumeConfiguration?: S3FilesVolumeConfiguration;
 };
 /**
  * Resource Type definition for AWS::Batch::JobDefinition
