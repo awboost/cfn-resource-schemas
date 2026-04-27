@@ -68,6 +68,7 @@ export type RTBFabricResponderGatewayAttributes = {
  */
 export type AutoScalingGroupsConfiguration = {
   AutoScalingGroupNameList: string[];
+  HealthCheckConfig?: HealthCheckConfig;
   RoleArn: string;
 };
 /**
@@ -99,6 +100,50 @@ export type EksEndpointsConfiguration = {
    */
   EndpointsResourceNamespace: string;
   RoleArn: string;
+};
+/**
+ * Type definition for `AWS::RTBFabric::ResponderGateway.HealthCheckConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-healthcheckconfig.html}
+ */
+export type HealthCheckConfig = {
+  /**
+   * @min `2`
+   * @max `10`
+   */
+  HealthyThresholdCount?: number;
+  /**
+   * @min `5`
+   * @max `60`
+   */
+  IntervalSeconds?: number;
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^/.*$`
+   */
+  Path: string;
+  /**
+   * @min `80`
+   * @max `65535`
+   */
+  Port: number;
+  Protocol?: Protocol;
+  /**
+   * @minLength `3`
+   * @maxLength `2000`
+   * @pattern `^[0-9,\-]+$`
+   */
+  StatusCodeMatcher?: string;
+  /**
+   * @min `100`
+   * @max `5000`
+   */
+  TimeoutMs?: number;
+  /**
+   * @min `2`
+   * @max `10`
+   */
+  UnhealthyThresholdCount?: number;
 };
 /**
  * Type definition for `AWS::RTBFabric::ResponderGateway.ManagedEndpointConfiguration`.

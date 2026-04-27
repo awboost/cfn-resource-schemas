@@ -1,5 +1,5 @@
 {
-  "$hash": "5853e2e6d95468bd0ba519cfc17f355d8cd97b2f",
+  "$hash": "d61c5e0507d29be1f6452cf3662e1206973b8a9f",
   "$id": "aws-rtbfabric-respondergateway.json",
   "additionalIdentifiers": [["/properties/GatewayId"]],
   "additionalProperties": false,
@@ -11,8 +11,7 @@
     "/properties/Port",
     "/properties/Protocol",
     "/properties/DomainName",
-    "/properties/TrustStoreConfiguration",
-    "/properties/ManagedEndpointConfiguration"
+    "/properties/TrustStoreConfiguration"
   ],
   "definitions": {
     "ActiveLinksCount": { "type": "integer" },
@@ -34,6 +33,7 @@
         "AutoScalingGroupNameList": {
           "$ref": "#/definitions/AutoScalingGroupNameList"
         },
+        "HealthCheckConfig": { "$ref": "#/definitions/HealthCheckConfig" },
         "RoleArn": { "type": "string" }
       },
       "required": ["AutoScalingGroupNameList", "RoleArn"],
@@ -99,6 +99,39 @@
     "GatewayId": {
       "pattern": "^(rtbapp-[a-z0-9-]{1,25}|rtb-gw-[a-z0-9-]{1,25})$",
       "type": "string"
+    },
+    "HealthCheckConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "HealthyThresholdCount": {
+          "maximum": 10,
+          "minimum": 2,
+          "type": "integer"
+        },
+        "IntervalSeconds": { "maximum": 60, "minimum": 5, "type": "integer" },
+        "Path": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^/.*$",
+          "type": "string"
+        },
+        "Port": { "maximum": 65535, "minimum": 80, "type": "integer" },
+        "Protocol": { "$ref": "#/definitions/Protocol" },
+        "StatusCodeMatcher": {
+          "maxLength": 2000,
+          "minLength": 3,
+          "pattern": "^[0-9,\\-]+$",
+          "type": "string"
+        },
+        "TimeoutMs": { "maximum": 5000, "minimum": 100, "type": "integer" },
+        "UnhealthyThresholdCount": {
+          "maximum": 10,
+          "minimum": 2,
+          "type": "integer"
+        }
+      },
+      "required": ["Port", "Path"],
+      "type": "object"
     },
     "InboundLinksCount": { "type": "integer" },
     "ManagedEndpointConfiguration": {
@@ -257,6 +290,7 @@
     "update": {
       "permissions": [
         "rtbfabric:GetResponderGateway",
+        "rtbfabric:UpdateResponderGateway",
         "rtbfabric:TagResource",
         "rtbfabric:UntagResource",
         "rtbfabric:ListTagsForResource"
