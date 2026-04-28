@@ -1,5 +1,5 @@
 {
-  "$hash": "97554d5d90475641286855670deb31bde8665426",
+  "$hash": "6b5812bfc60c240238c61e9f1316f226914b328d",
   "$id": "aws-oam-link.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -105,7 +105,7 @@
   "replacementStrategy": "delete_then_create",
   "required": ["ResourceTypes", "SinkIdentifier"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "oam:ListTagsForResource",
       "oam:UntagResource",

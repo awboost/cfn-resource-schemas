@@ -1,5 +1,5 @@
 {
-  "$hash": "93f1d343af3f1b572e2356e098e37b1ca6301c99",
+  "$hash": "f5165de3a3ce12aa392f7baa65f1e997ca58f11f",
   "$id": "aws-redshiftserverless-workgroup.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -365,7 +365,7 @@
   "required": ["WorkgroupName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-redshift-serverless",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "redshift-serverless:ListTagsForResource",
       "redshift-serverless:TagResource",

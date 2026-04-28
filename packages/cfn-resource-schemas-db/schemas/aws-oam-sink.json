@@ -1,5 +1,5 @@
 {
-  "$hash": "be0115057d58d4dea019ab3896b3fe3f9c50cf78",
+  "$hash": "a72f907e7bd3cbb6205f45bc33a8222beeba5f03",
   "$id": "aws-oam-sink.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -73,7 +73,7 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["Name"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "oam:ListTagsForResource",
       "oam:UntagResource",

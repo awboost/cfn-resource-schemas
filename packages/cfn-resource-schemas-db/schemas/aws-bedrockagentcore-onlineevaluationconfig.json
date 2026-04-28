@@ -1,5 +1,5 @@
 {
-  "$hash": "aad688a5578b996bc9ee8ed31360f27066cc3a40",
+  "$hash": "2b54716453c54956e35b84c4cca43198c51171f4",
   "$id": "aws-bedrockagentcore-onlineevaluationconfig.json",
   "additionalIdentifiers": [["/properties/OnlineEvaluationConfigId"]],
   "additionalProperties": false,
@@ -212,6 +212,8 @@
         "bedrock-agentcore:GetOnlineEvaluationConfig",
         "bedrock-agentcore:TagResource",
         "iam:PassRole",
+        "lambda:GetFunction",
+        "lambda:InvokeFunction",
         "logs:DescribeLogGroups",
         "logs:DescribeIndexPolicies",
         "logs:PutIndexPolicy"
@@ -239,6 +241,8 @@
         "bedrock-agentcore:TagResource",
         "bedrock-agentcore:UntagResource",
         "iam:PassRole",
+        "lambda:GetFunction",
+        "lambda:InvokeFunction",
         "logs:DescribeLogGroups",
         "logs:DescribeIndexPolicies",
         "logs:PutIndexPolicy"

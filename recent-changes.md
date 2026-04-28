@@ -1,5 +1,27 @@
-- updated `AWS::RTBFabric::ResponderGateway`
-  - added definition `HealthCheckConfig`
-  - updated `conditionalCreateOnlyProperties`
-  - updated definition `AutoScalingGroupsConfiguration`
+- added `AWS::Chime::AppInstance`
+- updated `AWS::BedrockAgentCore::OnlineEvaluationConfig`
   - updated handler permissions
+- updated `AWS::BillingConductor::BillingGroup`
+  - updated definition `ComputationPreference`
+- updated `AWS::BillingConductor::PricingPlan`
+  - updated property `Arn`
+- updated `AWS::CloudFront::AnycastIpList`
+  - updated `tagging`
+- updated `AWS::CloudFront::Distribution`
+  - added `propertyTransform`
+  - added definition `CacheTagConfig`
+  - updated definition `DistributionConfig`
+  - updated handler permissions
+- updated `AWS::CloudFront::Function`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::ElastiCache::ReplicationGroup`
+  - updated handler permissions
+- updated `AWS::Oam::Link`
+  - updated `tagging`
+- updated `AWS::Oam::Sink`
+  - updated `tagging`
+- updated `AWS::RedshiftServerless::Workgroup`
+  - updated `tagging`

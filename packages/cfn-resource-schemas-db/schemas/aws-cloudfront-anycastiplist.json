@@ -1,5 +1,5 @@
 {
-  "$hash": "64be836f51f168c62f7a399bde18f161053bd19d",
+  "$hash": "967218701ecd695105ff3c7c90893425b9d9df27",
   "$id": "aws-cloudfront-anycastiplist.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -235,7 +235,7 @@
     ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::CloudFront::AnycastIpList",

@@ -1,5 +1,5 @@
 {
-  "$hash": "3901d6a28c0f6de30bd6a95de1ab239ee277fdc4",
+  "$hash": "565826a8b06d3f2a1997af0a7173aff1f570a910",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -113,6 +113,13 @@
         }
       },
       "required": ["PathPattern", "TargetOriginId", "ViewerProtocolPolicy"],
+      "type": "object"
+    },
+    "CacheTagConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": { "HeaderName": { "type": "string" } },
+      "required": ["HeaderName"],
       "type": "object"
     },
     "ConnectionFunctionAssociation": {
@@ -353,6 +360,10 @@
           "items": { "$ref": "#/definitions/CacheBehavior" },
           "type": "array",
           "uniqueItems": false
+        },
+        "CacheTagConfig": {
+          "$ref": "#/definitions/CacheTagConfig",
+          "description": ""
         },
         "Comment": {
           "default": "",
@@ -1030,7 +1041,8 @@
     "read": {
       "permissions": [
         "cloudfront:GetDistribution",
-        "cloudfront:GetDistributionConfig"
+        "cloudfront:GetDistributionConfig",
+        "cloudfront:ListTagsForResource"
       ]
     },
     "update": {
@@ -1063,6 +1075,9 @@
       "type": "array",
       "uniqueItems": false
     }
+  },
+  "propertyTransform": {
+    "/properties/DistributionConfig/CacheTagConfig/HeaderName": "$lowercase(HeaderName)"
   },
   "readOnlyProperties": ["/properties/Id", "/properties/DomainName"],
   "required": ["DistributionConfig"],

@@ -1,5 +1,5 @@
 {
-  "$hash": "937c63d7912d0ff9cf2bf89e225afac101c94b99",
+  "$hash": "6da098cdfdd0f8b38ed2e82b3e1289df9053bea6",
   "$id": "aws-elasticache-replicationgroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -173,7 +173,8 @@
     "delete": {
       "permissions": [
         "elasticache:DeleteReplicationGroup",
-        "elasticache:DescribeReplicationGroups"
+        "elasticache:DescribeReplicationGroups",
+        "elasticache:CreateSnapshot"
       ],
       "timeoutInMinutes": 300
     },

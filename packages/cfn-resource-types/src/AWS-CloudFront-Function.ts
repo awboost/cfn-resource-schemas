@@ -25,6 +25,7 @@ export type CloudFrontFunctionProperties = {
    * A name to identify the function.
    */
   Name: string;
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::CloudFront::Function`.
@@ -72,6 +73,24 @@ export type KeyValueStoreAssociation = {
    * The Amazon Resource Name (ARN) of the key value store association.
    */
   KeyValueStoreARN: string;
+};
+/**
+ * Type definition for `AWS::CloudFront::Function.Tag`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-tag.html}
+ */
+export type Tag = {
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+   */
+  Key: string;
+  /**
+   * @minLength `0`
+   * @maxLength `256`
+   * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+   */
+  Value: string;
 };
 /**
  * Creates a CF function.

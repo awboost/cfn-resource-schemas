@@ -157,6 +157,13 @@ export type CacheBehavior = {
   ViewerProtocolPolicy: string;
 };
 /**
+ * Type definition for `AWS::CloudFront::Distribution.CacheTagConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachetagconfig.html}
+ */
+export type CacheTagConfig = {
+  HeaderName: string;
+};
+/**
  * Type definition for `AWS::CloudFront::Distribution.ConnectionFunctionAssociation`.
  * A connection function association.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-connectionfunctionassociation.html}
@@ -427,6 +434,7 @@ export type DistributionConfig = {
    * A complex type that contains zero or more ``CacheBehavior`` elements.
    */
   CacheBehaviors?: CacheBehavior[];
+  CacheTagConfig?: CacheTagConfig;
   /**
    * A comment to describe the distribution. The comment cannot be longer than 128 characters.
    */
