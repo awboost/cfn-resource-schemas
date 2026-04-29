@@ -1,5 +1,5 @@
 {
-  "$hash": "0f0dcc341ec00802b95f92f68c6e66af4e4f8f74",
+  "$hash": "022f674775f81594f9315eaab6fd37c7dbd7db2d",
   "$id": "aws-workspaces-connectionalias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectionString", "/properties/Tags"],
@@ -61,6 +61,7 @@
         "workspaces:DescribeConnectionAliases"
       ]
     },
+    "list": { "permissions": ["workspaces:DescribeConnectionAliases"] },
     "read": {
       "permissions": [
         "workspaces:DescribeConnectionAliases",

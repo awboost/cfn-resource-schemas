@@ -60,6 +60,9 @@ export type CognitoUserPoolProperties = {
   UsernameAttributes?: string[];
   UsernameConfiguration?: UsernameConfiguration;
   VerificationMessageTemplate?: VerificationMessageTemplate;
+  WebAuthnFactorConfiguration?:
+    | "SINGLE_FACTOR"
+    | "MULTI_FACTOR_WITH_USER_VERIFICATION";
   /**
    * @minLength `1`
    * @maxLength `63`

@@ -1,5 +1,5 @@
 {
-  "$hash": "d55988b70b9b91037714823afd1f8dbbe8f66d7c",
+  "$hash": "ff307f71ecd80799bc7bd44c73d844744c982929",
   "$id": "aws-cognito-userpool.json",
   "additionalProperties": false,
   "definitions": {
@@ -349,6 +349,10 @@
     "UsernameConfiguration": { "$ref": "#/definitions/UsernameConfiguration" },
     "VerificationMessageTemplate": {
       "$ref": "#/definitions/VerificationMessageTemplate"
+    },
+    "WebAuthnFactorConfiguration": {
+      "enum": ["SINGLE_FACTOR", "MULTI_FACTOR_WITH_USER_VERIFICATION"],
+      "type": "string"
     },
     "WebAuthnRelyingPartyID": {
       "maxLength": 63,

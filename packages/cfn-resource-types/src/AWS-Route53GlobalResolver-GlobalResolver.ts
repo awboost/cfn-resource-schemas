@@ -27,6 +27,9 @@ export type Route53GlobalResolverGlobalResolverProperties = {
    * @maxLength `32`
    */
   ObservabilityRegion?: string;
+  /**
+   * A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+   */
   Regions: string[];
   /**
    * @maxLength `50`

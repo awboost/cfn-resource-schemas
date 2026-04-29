@@ -1,5 +1,5 @@
 {
-  "$hash": "565826a8b06d3f2a1997af0a7173aff1f570a910",
+  "$hash": "0bf782415ca0aa17bab6aaae603df55df0228b65",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -1041,8 +1041,7 @@
     "read": {
       "permissions": [
         "cloudfront:GetDistribution",
-        "cloudfront:GetDistributionConfig",
-        "cloudfront:ListTagsForResource"
+        "cloudfront:GetDistributionConfig"
       ]
     },
     "update": {

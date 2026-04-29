@@ -1,5 +1,5 @@
 {
-  "$hash": "2e4305b1cb989f1da7ef59773b9e16e623d9fce4",
+  "$hash": "ee95faf71cdd326707c4aa36110d72b167b65879",
   "$id": "aws-bedrock-agentalias.json",
   "additionalIdentifiers": [["/properties/AgentAliasArn"]],
   "additionalProperties": false,
@@ -158,7 +158,7 @@
   "required": ["AgentAliasName", "AgentId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-bedrock-agents",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "bedrock:TagResource",
       "bedrock:UntagResource",

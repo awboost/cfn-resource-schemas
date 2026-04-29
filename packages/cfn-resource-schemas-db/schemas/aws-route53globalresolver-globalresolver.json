@@ -1,9 +1,9 @@
 {
-  "$hash": "50fb99a0530d6b12cd6d351f4a1e777c479e1999",
+  "$hash": "50b48cd10c163d1c0fd7c0c0e456b9aececa82de",
   "$id": "aws-route53globalresolver-globalresolver.json",
   "additionalIdentifiers": [["/properties/Arn"]],
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/Regions", "/properties/ClientToken"],
+  "createOnlyProperties": ["/properties/ClientToken"],
   "definitions": {
     "CRResourceStatus": {
       "enum": ["CREATING", "OPERATIONAL", "UPDATING", "DELETING"],
@@ -22,7 +22,7 @@
     "IPv6Address": {
       "maxLength": 39,
       "minLength": 1,
-      "pattern": "(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}",
+      "pattern": "(?:[A-Fa-f0-9]{1,4}:){7}[A-Fa-f0-9]{1,4}",
       "type": "string"
     },
     "Region": { "maxLength": 32, "minLength": 1, "type": "string" },
@@ -100,7 +100,11 @@
     "IpAddressType": { "$ref": "#/definitions/GlobalResolverIpAddressType" },
     "Name": { "$ref": "#/definitions/ResourceName" },
     "ObservabilityRegion": { "$ref": "#/definitions/Region" },
-    "Regions": { "items": { "$ref": "#/definitions/Region" }, "type": "array" },
+    "Regions": {
+      "description": "A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.",
+      "items": { "$ref": "#/definitions/Region" },
+      "type": "array"
+    },
     "Status": { "$ref": "#/definitions/CRResourceStatus" },
     "Tags": {
       "items": { "$ref": "#/definitions/Tag" },
