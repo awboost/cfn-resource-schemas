@@ -1,12 +1,11 @@
-- updated `AWS::Bedrock::AgentAlias`
-  - updated `tagging`
-- updated `AWS::CloudFront::Distribution`
-  - updated handler permissions
-- updated `AWS::Cognito::UserPool`
-  - added property `WebAuthnFactorConfiguration`
-- updated `AWS::Route53GlobalResolver::GlobalResolver`
-  - updated `createOnlyProperties`
-  - updated definition `IPv6Address`
-  - updated property `Regions`
-- updated `AWS::WorkSpaces::ConnectionAlias`
-  - updated handler permissions
+- updated `AWS::BedrockAgentCore::GatewayTarget`
+  - added definition `McpServerListingMode`
+  - updated definition `McpServerTargetConfiguration`
+- updated `AWS::EMRServerless::Application`
+  - updated definition `InteractiveConfiguration`
+- updated `AWS::IoTEvents::AlarmModel`
+  - updated definition `DynamoDB`
+- updated `AWS::IoTEvents::DetectorModel`
+  - updated definition `DynamoDB`
+- updated `AWS::Lex::Bot`
+  - updated definition `SpeechModelPreference`

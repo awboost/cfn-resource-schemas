@@ -179,6 +179,11 @@ export type McpLambdaTargetConfiguration = {
   ToolSchema: ToolSchema;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpServerListingMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpserverlistingmode.html}
+ */
+export type McpServerListingMode = "DEFAULT" | "DYNAMIC";
+/**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpServerTargetConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcpservertargetconfiguration.html}
  */
@@ -187,6 +192,7 @@ export type McpServerTargetConfiguration = {
    * @pattern `^https://.*`
    */
   Endpoint: string;
+  ListingMode?: McpServerListingMode;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpTargetConfiguration`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "fcb0f595f801a86ba4344d92c2ecde41189e3999",
+  "$hash": "f55adeb040b2f12d3ff1345241d85ec1d4b7770c",
   "$id": "aws-emrserverless-application.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -218,6 +218,11 @@
         "LivyEndpointEnabled": {
           "default": false,
           "description": "Enables an Apache Livy endpoint that you can connect to and run interactive jobs",
+          "type": "boolean"
+        },
+        "SessionEnabled": {
+          "default": false,
+          "description": "Enables interactive sessions on the application",
           "type": "boolean"
         },
         "StudioEnabled": {

@@ -242,6 +242,10 @@ export type InteractiveConfiguration = {
    */
   LivyEndpointEnabled?: boolean;
   /**
+   * Enables interactive sessions on the application
+   */
+  SessionEnabled?: boolean;
+  /**
    * Enabled you to connect an Application to Amazon EMR Studio to run interactive workloads in a notebook
    */
   StudioEnabled?: boolean;
