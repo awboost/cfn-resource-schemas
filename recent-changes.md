@@ -1,11 +1,13 @@
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - added definition `McpServerListingMode`
-  - updated definition `McpServerTargetConfiguration`
-- updated `AWS::EMRServerless::Application`
-  - updated definition `InteractiveConfiguration`
-- updated `AWS::IoTEvents::AlarmModel`
-  - updated definition `DynamoDB`
-- updated `AWS::IoTEvents::DetectorModel`
-  - updated definition `DynamoDB`
+- updated `AWS::EC2::NetworkInsightsAccessScope`
+  - removed `writeOnlyProperties`
+  - updated `tagging`
+- updated `AWS::EC2::NetworkInsightsAccessScopeAnalysis`
+  - updated `tagging`
+- updated `AWS::EC2::NetworkInsightsAnalysis`
+  - updated `tagging`
+- updated `AWS::EC2::NetworkInsightsPath`
+  - updated `tagging`
 - updated `AWS::Lex::Bot`
   - updated definition `SpeechModelPreference`
+- updated `AWS::StepFunctions::StateMachineVersion`
+  - removed `writeOnlyProperties`
