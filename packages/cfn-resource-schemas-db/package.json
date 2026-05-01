@@ -1,6 +1,6 @@
 {
   "name": "@awboost/cfn-resource-schemas-db",
-  "version": "0.1.595",
+  "version": "0.1.596",
   "description": "CloudFormation Resource Schemas from AWS",
   "type": "module",
   "author": {
