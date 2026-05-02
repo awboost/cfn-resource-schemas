@@ -1,13 +1,51 @@
-- updated `AWS::EC2::NetworkInsightsAccessScope`
-  - removed `writeOnlyProperties`
-  - updated `tagging`
-- updated `AWS::EC2::NetworkInsightsAccessScopeAnalysis`
-  - updated `tagging`
-- updated `AWS::EC2::NetworkInsightsAnalysis`
-  - updated `tagging`
-- updated `AWS::EC2::NetworkInsightsPath`
-  - updated `tagging`
-- updated `AWS::Lex::Bot`
-  - updated definition `SpeechModelPreference`
-- updated `AWS::StepFunctions::StateMachineVersion`
-  - removed `writeOnlyProperties`
+- updated `AWS::BedrockAgentCore::BrowserCustom`
+  - added definition `BrowserEnterprisePolicies`
+  - added definition `BrowserEnterprisePolicyType`
+  - added definition `BrowserEnterprisePolicy`
+  - added definition `CertificateList`
+  - added definition `CertificateLocation`
+  - added definition `Certificate`
+  - added property `Certificates`
+  - added property `EnterprisePolicies`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::BedrockAgentCore::BrowserProfile`
+  - updated definition `LastSavedBrowserId`
+  - updated definition `LastSavedBrowserSessionId`
+- updated `AWS::BedrockAgentCore::CodeInterpreterCustom`
+  - added definition `CertificateList`
+  - added definition `CertificateLocation`
+  - added definition `Certificate`
+  - added property `Certificates`
+  - updated `createOnlyProperties`
+  - updated handler permissions
+- updated `AWS::BedrockAgentCore::Memory`
+  - added definition `Definition`
+  - added definition `ExtractionConfig`
+  - added definition `IndexedKey`
+  - added definition `IndexedKeysList`
+  - added definition `LlmExtractionConfig`
+  - added definition `LlmExtractionInstruction`
+  - added definition `MemoryRecordSchema`
+  - added definition `MetadataKey`
+  - added definition `MetadataSchemaEntry`
+  - added definition `MetadataSchemaList`
+  - added definition `MetadataValueType`
+  - added definition `NumberValidation`
+  - added definition `StringListValidation`
+  - added definition `StringValidation`
+  - added definition `Validation`
+  - added property `IndexedKeys`
+  - updated definition `CustomMemoryStrategy`
+  - updated definition `EpisodicMemoryStrategy`
+  - updated definition `EpisodicOverrideReflectionConfigurationInput`
+  - updated definition `EpisodicReflectionConfigurationInput`
+  - updated definition `SemanticMemoryStrategy`
+  - updated definition `SummaryMemoryStrategy`
+  - updated definition `UserPreferenceMemoryStrategy`
+- updated `AWS::BedrockAgentCore::Runtime`
+  - updated definition `AgentManagedRuntimeType`
+- updated `AWS::MSK::Cluster`
+  - added `writeOnlyProperties`
+  - added definition `ZookeeperAccess`
+  - added property `ZookeeperAccess`

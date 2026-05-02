@@ -1,5 +1,5 @@
 {
-  "$hash": "26d46d3a9962c548802b417f259c0236c6c42396",
+  "$hash": "d6fdfe15c434d556349b738d4e9dfef8dd29d1b9",
   "$id": "aws-bedrockagentcore-runtime.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentRuntimeName"],
@@ -11,7 +11,8 @@
         "PYTHON_3_11",
         "PYTHON_3_12",
         "PYTHON_3_13",
-        "PYTHON_3_14"
+        "PYTHON_3_14",
+        "NODE_22"
       ],
       "type": "string"
     },

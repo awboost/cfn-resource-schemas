@@ -41,6 +41,7 @@ export type MSKClusterProperties = {
    * A key-value pair to associate with a resource.
    */
   Tags?: Record<string, string>;
+  ZookeeperAccess?: ZookeeperAccess;
 };
 /**
  * Attribute type definition for `AWS::MSK::Cluster`.
@@ -322,6 +323,13 @@ export type VpcConnectivityScram = {
  */
 export type VpcConnectivityTls = {
   Enabled: boolean;
+};
+/**
+ * Type definition for `AWS::MSK::Cluster.ZookeeperAccess`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-zookeeperaccess.html}
+ */
+export type ZookeeperAccess = {
+  Enabled?: boolean;
 };
 /**
  * Resource Type definition for AWS::MSK::Cluster

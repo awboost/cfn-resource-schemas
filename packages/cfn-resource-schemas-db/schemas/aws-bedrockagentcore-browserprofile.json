@@ -1,5 +1,5 @@
 {
-  "$hash": "e2c0dc5847f967f577276f5995cede99923b7b85",
+  "$hash": "963767f0f9bb7efaf62e5e510e22033629cf5f09",
   "$id": "aws-bedrockagentcore-browserprofile.json",
   "additionalIdentifiers": [["/properties/ProfileArn"]],
   "additionalProperties": false,
@@ -73,12 +73,12 @@
     },
     "LastSavedBrowserId": {
       "description": "ID of the last saved browser.",
-      "pattern": "^(aws\\.browser\\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10})$",
+      "pattern": "^((aws\\.browser\\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}))?$",
       "type": "string"
     },
     "LastSavedBrowserSessionId": {
       "description": "ID of the last saved browser session.",
-      "pattern": "^[0-9a-zA-Z]{1,40}$",
+      "pattern": "^([0-9a-zA-Z]{1,40})?$",
       "type": "string"
     },
     "LastUpdatedAt": {

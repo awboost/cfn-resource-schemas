@@ -6,6 +6,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type BedrockAgentCoreCodeInterpreterCustomProperties = {
   /**
+   * List of root CA certificates in PEM format.
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Certificates?: Certificate[];
+  /**
    * The description of the code interpreter.
    */
   Description?: string;
@@ -58,6 +64,29 @@ export type BedrockAgentCoreCodeInterpreterCustomAttributes = {
    * Status of code interpreter.
    */
   Status: CodeInterpreterStatus;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::CodeInterpreterCustom.Certificate`.
+ * A root CA certificate configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-codeinterpretercustom-certificate.html}
+ */
+export type Certificate = {
+  /**
+   * Certificate location in Secrets Manager.
+   */
+  CertificateLocation: CertificateLocation;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::CodeInterpreterCustom.CertificateLocation`.
+ * Certificate location in Secrets Manager.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-codeinterpretercustom-certificatelocation.html}
+ */
+export type CertificateLocation = {
+  /**
+   * Secrets Manager secret ARN.
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):secretsmanager:[a-z0-9-]+:\d{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
+   */
+  SecretArn: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::CodeInterpreterCustom.CodeInterpreterNetworkConfiguration`.

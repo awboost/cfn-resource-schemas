@@ -121,7 +121,8 @@ export type AgentManagedRuntimeType =
   | "PYTHON_3_11"
   | "PYTHON_3_12"
   | "PYTHON_3_13"
-  | "PYTHON_3_14";
+  | "PYTHON_3_14"
+  | "NODE_22";
 /**
  * Type definition for `AWS::BedrockAgentCore::Runtime.AgentRuntimeArtifact`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-agentruntimeartifact.html}

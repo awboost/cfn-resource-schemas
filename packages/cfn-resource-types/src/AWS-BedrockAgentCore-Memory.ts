@@ -21,6 +21,12 @@ export type BedrockAgentCoreMemoryProperties = {
    */
   EventExpiryDuration: number;
   /**
+   * List of indexed keys for the memory
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  IndexedKeys?: IndexedKey[];
+  /**
    * ARN format
    * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[a-z0-9-\.]{0,63}:[^/].{0,1023}$`
    */
@@ -249,6 +255,7 @@ export type CustomMemoryStrategy = {
    * Description of the Memory resource
    */
   Description?: string;
+  MemoryRecordSchema?: MemoryRecordSchema;
   /**
    * Name of the Memory resource
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
@@ -274,6 +281,7 @@ export type EpisodicMemoryStrategy = {
    * Description of the Memory resource
    */
   Description?: string;
+  MemoryRecordSchema?: MemoryRecordSchema;
   /**
    * Name of the Memory resource
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
@@ -337,6 +345,7 @@ export type EpisodicOverrideReflectionConfigurationInput = {
    * @maxLength `30000`
    */
   AppendToPrompt: string;
+  MemoryRecordSchema?: MemoryRecordSchema;
   ModelId: string;
   /**
    * List of namespaces for memory strategy
@@ -354,6 +363,7 @@ export type EpisodicOverrideReflectionConfigurationInput = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-episodicreflectionconfigurationinput.html}
  */
 export type EpisodicReflectionConfigurationInput = {
+  MemoryRecordSchema?: MemoryRecordSchema;
   /**
    * List of namespaces for memory strategy
    * @minLength `1`
@@ -364,6 +374,30 @@ export type EpisodicReflectionConfigurationInput = {
    * @minLength `1`
    */
   Namespaces?: string[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.ExtractionConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-extractionconfig.html}
+ */
+export type ExtractionConfig = {
+  LlmExtractionConfig?: LlmExtractionConfig;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.IndexedKey`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-indexedkey.html}
+ */
+export type IndexedKey = {
+  /**
+   * Key name for metadata fields
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[a-zA-Z0-9\s._:/=+@-]*$`
+   */
+  Key: string;
+  /**
+   * Supported data types for metadata values
+   */
+  Type: MetadataValueType;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Memory.InvocationConfigurationInput`.
@@ -397,6 +431,37 @@ export type KinesisResource = {
   DataStreamArn: string;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Memory.LlmExtractionConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-llmextractionconfig.html}
+ */
+export type LlmExtractionConfig = {
+  /**
+   * Definition for the metadata schema entry
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  Definition: string;
+  /**
+   * LLM extraction instruction
+   * @minLength `1`
+   * @maxLength `1000`
+   */
+  LlmExtractionInstruction?: string;
+  Validation?: Validation;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.MemoryRecordSchema`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-memoryrecordschema.html}
+ */
+export type MemoryRecordSchema = {
+  /**
+   * List of metadata schema entries
+   * @minLength `1`
+   * @maxLength `20`
+   */
+  MetadataSchema?: MetadataSchemaEntry[];
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Memory.MemoryStatus`.
  * Status of the Memory resource
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-memorystatus.html}
@@ -425,6 +490,38 @@ export type MessageBasedTriggerInput = {
   MessageCount?: number;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Memory.MetadataSchemaEntry`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-metadataschemaentry.html}
+ */
+export type MetadataSchemaEntry = {
+  ExtractionConfig?: ExtractionConfig;
+  /**
+   * Key name for metadata fields
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^[a-zA-Z0-9\s._:/=+@-]*$`
+   */
+  Key: string;
+  /**
+   * Supported data types for metadata values
+   */
+  Type?: MetadataValueType;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.MetadataValueType`.
+ * Supported data types for metadata values
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-metadatavaluetype.html}
+ */
+export type MetadataValueType = "STRING" | "STRINGLIST" | "NUMBER";
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.NumberValidation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-numbervalidation.html}
+ */
+export type NumberValidation = {
+  MaxValue?: number;
+  MinValue?: number;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Memory.SelfManagedConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-selfmanagedconfiguration.html}
  */
@@ -449,6 +546,7 @@ export type SemanticMemoryStrategy = {
    * Description of the Memory resource
    */
   Description?: string;
+  MemoryRecordSchema?: MemoryRecordSchema;
   /**
    * Name of the Memory resource
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
@@ -517,6 +615,33 @@ export type StreamDeliveryResources = {
   Resources: StreamDeliveryResource[];
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Memory.StringListValidation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-stringlistvalidation.html}
+ */
+export type StringListValidation = {
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  AllowedValues?: string[];
+  /**
+   * @min `1`
+   * @max `5`
+   */
+  MaxItems?: number;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.StringValidation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-stringvalidation.html}
+ */
+export type StringValidation = {
+  /**
+   * @minLength `1`
+   * @maxLength `10`
+   */
+  AllowedValues: string[];
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Memory.SummaryMemoryStrategy`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-summarymemorystrategy.html}
  */
@@ -525,6 +650,7 @@ export type SummaryMemoryStrategy = {
    * Description of the Memory resource
    */
   Description?: string;
+  MemoryRecordSchema?: MemoryRecordSchema;
   /**
    * Name of the Memory resource
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
@@ -607,6 +733,7 @@ export type UserPreferenceMemoryStrategy = {
    * Description of the Memory resource
    */
   Description?: string;
+  MemoryRecordSchema?: MemoryRecordSchema;
   /**
    * Name of the Memory resource
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
@@ -656,6 +783,15 @@ export type UserPreferenceOverrideExtractionConfigurationInput = {
    */
   AppendToPrompt: string;
   ModelId: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Memory.Validation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-memory-validation.html}
+ */
+export type Validation = {
+  NumberValidation?: NumberValidation;
+  StringListValidation?: StringListValidation;
+  StringValidation?: StringValidation;
 };
 /**
  * Resource Type definition for AWS::BedrockAgentCore::Memory

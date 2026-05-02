@@ -1,5 +1,5 @@
 {
-  "$hash": "8726e0f9daef7365c70faea05c59059d2a9dacb7",
+  "$hash": "fcb5e767456c2486dd57fff85e7b5707e07ff552",
   "$id": "aws-bedrockagentcore-codeinterpretercustom.json",
   "additionalIdentifiers": [["/properties/CodeInterpreterArn"]],
   "additionalProperties": false,
@@ -7,9 +7,43 @@
     "/properties/Name",
     "/properties/Description",
     "/properties/NetworkConfiguration",
+    "/properties/Certificates",
     "/properties/ExecutionRoleArn"
   ],
   "definitions": {
+    "Certificate": {
+      "additionalProperties": false,
+      "description": "A root CA certificate configuration.",
+      "properties": {
+        "CertificateLocation": {
+          "$ref": "#/definitions/CertificateLocation",
+          "description": "Certificate location in Secrets Manager."
+        }
+      },
+      "required": ["CertificateLocation"],
+      "type": "object"
+    },
+    "CertificateList": {
+      "description": "List of root CA certificates.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Certificate" },
+      "maxItems": 10,
+      "minItems": 0,
+      "type": "array"
+    },
+    "CertificateLocation": {
+      "additionalProperties": false,
+      "description": "Certificate location in Secrets Manager.",
+      "properties": {
+        "SecretArn": {
+          "description": "Secrets Manager secret ARN.",
+          "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):secretsmanager:[a-z0-9-]+:\\d{12}:secret:[a-zA-Z0-9/_+=.@-]+$",
+          "type": "string"
+        }
+      },
+      "required": ["SecretArn"],
+      "type": "object"
+    },
     "CodeInterpreterArn": {
       "description": "The ARN of a CodeInterpreter resource.",
       "pattern": "^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):bedrock-agentcore:[a-z0-9-]+:(aws|[0-9]{12}):code-interpreter(-custom)?\\/(aws\\.codeinterpreter\\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10})$",
@@ -148,7 +182,8 @@
         "bedrock-agentcore:TagResource",
         "bedrock-agentcore:ListTagsForResource",
         "iam:CreateServiceLinkedRole",
-        "iam:PassRole"
+        "iam:PassRole",
+        "secretsmanager:GetSecretValue"
       ]
     },
     "delete": {
@@ -176,6 +211,10 @@
   },
   "primaryIdentifier": ["/properties/CodeInterpreterId"],
   "properties": {
+    "Certificates": {
+      "$ref": "#/definitions/CertificateList",
+      "description": "List of root CA certificates in PEM format."
+    },
     "CodeInterpreterArn": {
       "$ref": "#/definitions/CodeInterpreterArn",
       "description": "The ARN of a CodeInterpreter resource."

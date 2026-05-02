@@ -10,9 +10,21 @@ export type BedrockAgentCoreBrowserCustomProperties = {
    */
   BrowserSigning?: BrowserSigning;
   /**
+   * List of root CA certificates in PEM format.
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Certificates?: Certificate[];
+  /**
    * The description of the browser.
    */
   Description?: string;
+  /**
+   * A list of enterprise policy files for the browser.
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  EnterprisePolicies?: BrowserEnterprisePolicy[];
   /**
    * The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
    * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):iam::[0-9]{12}:role/.+$`
@@ -68,6 +80,27 @@ export type BedrockAgentCoreBrowserCustomAttributes = {
   Status: BrowserStatus;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::BrowserCustom.BrowserEnterprisePolicy`.
+ * Browser enterprise policy configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-browserenterprisepolicy.html}
+ */
+export type BrowserEnterprisePolicy = {
+  /**
+   * The S3 location of the enterprise policy file.
+   */
+  Location: S3Location;
+  /**
+   * The type of browser enterprise policy.
+   */
+  Type: BrowserEnterprisePolicyType;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::BrowserCustom.BrowserEnterprisePolicyType`.
+ * The type of browser enterprise policy.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-browserenterprisepolicytype.html}
+ */
+export type BrowserEnterprisePolicyType = "MANAGED" | "RECOMMENDED";
+/**
  * Type definition for `AWS::BedrockAgentCore::BrowserCustom.BrowserNetworkConfiguration`.
  * Network configuration for browser
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-browsernetworkconfiguration.html}
@@ -108,6 +141,29 @@ export type BrowserStatus =
   | "DELETING"
   | "DELETE_FAILED"
   | "DELETED";
+/**
+ * Type definition for `AWS::BedrockAgentCore::BrowserCustom.Certificate`.
+ * A root CA certificate configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-certificate.html}
+ */
+export type Certificate = {
+  /**
+   * Certificate location in Secrets Manager.
+   */
+  CertificateLocation: CertificateLocation;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::BrowserCustom.CertificateLocation`.
+ * Certificate location in Secrets Manager.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-browsercustom-certificatelocation.html}
+ */
+export type CertificateLocation = {
+  /**
+   * Secrets Manager secret ARN.
+   * @pattern `^arn:(aws(?:-cn|-us-gov|-iso(?:-[bef])?)?):secretsmanager:[a-z0-9-]+:\d{12}:secret:[a-zA-Z0-9/_+=.@-]+$`
+   */
+  SecretArn: string;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::BrowserCustom.RecordingConfig`.
  * Recording configuration for browser

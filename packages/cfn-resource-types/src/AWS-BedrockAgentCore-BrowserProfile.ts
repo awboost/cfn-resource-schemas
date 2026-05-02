@@ -34,12 +34,12 @@ export type BedrockAgentCoreBrowserProfileAttributes = {
   LastSavedAt: string;
   /**
    * ID of the last saved browser.
-   * @pattern `^(aws\.browser\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10})$`
+   * @pattern `^((aws\.browser\.v1|[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}))?$`
    */
   LastSavedBrowserId: string;
   /**
    * ID of the last saved browser session.
-   * @pattern `^[0-9a-zA-Z]{1,40}$`
+   * @pattern `^([0-9a-zA-Z]{1,40})?$`
    */
   LastSavedBrowserSessionId: string;
   /**
