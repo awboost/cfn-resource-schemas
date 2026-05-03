@@ -1,5 +1,5 @@
 {
-  "$hash": "cbea7bb5f4dac0371e7d76e827bd73b55520586b",
+  "$hash": "c8522f987f5ddcfe572e40e4486511ec1f456fed",
   "$id": "aws-ec2-vpnconnection.json",
   "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/blob/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -15,8 +15,7 @@
     "/properties/StaticRoutesOnly",
     "/properties/TransportTransitGatewayAttachmentId",
     "/properties/TunnelInsideIpVersion",
-    "/properties/PreSharedKeyStorage",
-    "/properties/TunnelBandwidth"
+    "/properties/PreSharedKeyStorage"
   ],
   "definitions": {
     "CloudwatchLogOptionsSpecification": {
