@@ -123,7 +123,7 @@ export type AcceleratorCountRange = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html}
  */
 export type AcceleratorSelection = {
-  Name: "t4" | "a10g" | "l4" | "l40s";
+  Name: "t4" | "a10g" | "l4" | "l40s" | "rtx-pro-server-6000";
   /**
    * @minLength `1`
    * @maxLength `100`

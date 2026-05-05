@@ -1,2 +1,33 @@
-- updated `AWS::EC2::VPNConnection`
+- updated `AWS::Bedrock::AutomatedReasoningPolicy`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::Bedrock::AutomatedReasoningPolicyVersion`
+  - updated handler permissions
+- updated `AWS::Deadline::Fleet`
+  - updated definition `AcceleratorSelection`
+- updated `AWS::Interconnect::Connection`
+  - added property `RemoteAccount`
   - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated property `RemoteOwnerAccount`
+- updated `AWS::IoT::Logging`
+  - added `tagging`
+- updated `AWS::IoT::ResourceSpecificLogging`
+  - added `tagging`
+- updated `AWS::Organizations::Account`
+  - updated `tagging`
+- updated `AWS::Organizations::Policy`
+  - updated `tagging`
+- updated `AWS::VpcLattice::AccessLogSubscription`
+  - updated `tagging`
+- updated `AWS::VpcLattice::AuthPolicy`
+  - updated property `State`
+- updated `AWS::VpcLattice::Listener`
+  - updated `tagging`
+- updated `AWS::VpcLattice::ResourceGateway`
+  - added property `ResourceConfigDnsResolution`
+  - updated `createOnlyProperties`
+- updated `AWS::VpcLattice::Rule`
+  - updated `tagging`
+- updated `AWS::VpcLattice::ServiceNetwork`
+  - updated `tagging`

@@ -1,5 +1,5 @@
 {
-  "$hash": "5bb15b89ac9a0fab2db11af2fa5ad362cf52b0af",
+  "$hash": "647797ce5dcf0eb0d518b5af8d5aa2d56ee9ec51",
   "$id": "aws-iot-resourcespecificlogging.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TargetName", "/properties/TargetType"],
@@ -55,6 +55,6 @@
   "readOnlyProperties": ["/properties/TargetId"],
   "required": ["TargetName", "TargetType", "LogLevel"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::IoT::ResourceSpecificLogging"
 }

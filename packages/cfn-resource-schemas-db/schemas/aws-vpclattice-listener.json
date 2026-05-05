@@ -1,5 +1,5 @@
 {
-  "$hash": "12765484f55927aef6864d1e0b22c8a06ee06faa",
+  "$hash": "7daa29a03f7c52e3842dac69d6a71ba509444772",
   "$id": "aws-vpclattice-listener.json",
   "additionalIdentifiers": [
     ["/properties/ServiceIdentifier", "/properties/Name", "/properties/Port"]
@@ -172,7 +172,7 @@
   ],
   "required": ["DefaultAction", "Protocol"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "vpc-lattice:UntagResource",
       "vpc-lattice:TagResource",

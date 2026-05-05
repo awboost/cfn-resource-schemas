@@ -31,7 +31,18 @@ export type InterconnectConnectionProperties = {
    */
   EnvironmentId?: string;
   /**
-   * The account ID of the remote owner. Required when creating a connection through AWS.
+   * The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+   */
+  RemoteAccount?: {
+    /**
+     * The identifier of the remote account.
+     * @maxLength `255`
+     * @pattern `^[-a-zA-Z0-9_@\.]+$`
+     */
+    Identifier: string;
+  };
+  /**
+   * Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
    * @maxLength `255`
    * @pattern `^[-a-zA-Z0-9_@\.]+$`
    */

@@ -1,5 +1,5 @@
 {
-  "$hash": "4b9d36c058d73c35d85aecbcf0c16fc385bb1b33",
+  "$hash": "203752a9cd5f2cb0cd6d1154935c7b06c49802b0",
   "$id": "aws-iot-logging.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AccountId"],
@@ -83,6 +83,6 @@
   },
   "required": ["AccountId", "RoleArn", "DefaultLogLevel"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-iot.git",
-  "taggable": false,
+  "tagging": { "taggable": false },
   "typeName": "AWS::IoT::Logging"
 }

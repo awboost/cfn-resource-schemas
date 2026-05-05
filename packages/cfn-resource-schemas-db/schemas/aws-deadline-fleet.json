@@ -1,5 +1,5 @@
 {
-  "$hash": "4d87ddf306a05db0936eeffe75fe5720dc170d58",
+  "$hash": "f443d998c5dba807e1bd6f62b337d8bde43398df",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -29,7 +29,10 @@
     "AcceleratorSelection": {
       "additionalProperties": false,
       "properties": {
-        "Name": { "enum": ["t4", "a10g", "l4", "l40s"], "type": "string" },
+        "Name": {
+          "enum": ["t4", "a10g", "l4", "l40s", "rtx-pro-server-6000"],
+          "type": "string"
+        },
         "Runtime": { "maxLength": 100, "minLength": 1, "type": "string" }
       },
       "required": ["Name"],

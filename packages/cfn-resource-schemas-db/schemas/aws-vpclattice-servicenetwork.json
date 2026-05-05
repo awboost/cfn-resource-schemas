@@ -1,5 +1,5 @@
 {
-  "$hash": "b267e0b55b432a7d8cf9de3eaa27f940a54aa261",
+  "$hash": "205353ef3a71159cad364205765f864a4259fe28",
   "$id": "aws-vpclattice-servicenetwork.json",
   "additionalIdentifiers": [["/properties/Id"], ["/properties/Name"]],
   "additionalProperties": false,
@@ -99,7 +99,7 @@
     "/properties/LastUpdatedAt"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "vpc-lattice:UntagResource",
       "vpc-lattice:TagResource",

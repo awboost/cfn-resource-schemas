@@ -1,5 +1,5 @@
 {
-  "$hash": "79b1c5a3147c890a98f8e934a3908c6324f73f10",
+  "$hash": "bcb3afa5f15d844d1554cca789548f18d2e9f85f",
   "$id": "aws-vpclattice-rule.json",
   "additionalIdentifiers": [
     [
@@ -246,7 +246,7 @@
   "readOnlyProperties": ["/properties/Arn", "/properties/Id"],
   "required": ["Action", "Match", "Priority"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "vpc-lattice:UntagResource",
       "vpc-lattice:TagResource",

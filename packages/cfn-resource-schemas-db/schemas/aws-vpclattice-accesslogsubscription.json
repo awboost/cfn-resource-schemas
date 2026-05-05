@@ -1,5 +1,5 @@
 {
-  "$hash": "06d131832c1c392640a31ba25f2e485944c519e4",
+  "$hash": "df8c7245ffc724d2e8993afd47e1e7d92da43ddc",
   "$id": "aws-vpclattice-accesslogsubscription.json",
   "additionalIdentifiers": [
     ["/properties/Id"],
@@ -173,7 +173,7 @@
   ],
   "required": ["DestinationArn"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "vpc-lattice:UntagResource",
       "vpc-lattice:TagResource",

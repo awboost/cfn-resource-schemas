@@ -1,5 +1,5 @@
 {
-  "$hash": "0416448bfcff34b23a038d68d64cf7aa13341917",
+  "$hash": "2b30ee6b3f48e17852b3bf72b0c7e4f67f91f9ae",
   "$id": "aws-vpclattice-authpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceIdentifier"],
@@ -28,7 +28,7 @@
       "pattern": "^((((sn)|(svc))-[0-9a-z]{17})|(arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:((servicenetwork/sn)|(service/svc))-[0-9a-z]{17}))$",
       "type": "string"
     },
-    "State": { "enum": ["ACTIVE", "INACTIVE"], "type": "string" }
+    "State": { "enum": ["Active", "Inactive"], "type": "string" }
   },
   "readOnlyProperties": ["/properties/State"],
   "required": ["ResourceIdentifier", "Policy"],

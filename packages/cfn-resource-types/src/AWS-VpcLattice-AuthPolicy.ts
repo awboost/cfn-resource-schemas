@@ -19,7 +19,7 @@ export type VpcLatticeAuthPolicyProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-authpolicy.html#aws-resource-vpclattice-authpolicy-return-values}
  */
 export type VpcLatticeAuthPolicyAttributes = {
-  State: "ACTIVE" | "INACTIVE";
+  State: "Active" | "Inactive";
 };
 /**
  * Resource type definition for `AWS::VpcLattice::AuthPolicy`.

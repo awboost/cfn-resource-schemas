@@ -17,6 +17,7 @@ export type VpcLatticeResourceGatewayProperties = {
    * @pattern `^(?!rgw-)(?![-])(?!.*[-]$)(?!.*[-]{2})[a-z0-9-]+$`
    */
   Name: string;
+  ResourceConfigDnsResolution?: "IN_VPC" | "PUBLIC";
   /**
    * The ID of one or more security groups to associate with the endpoint network interface.
    */

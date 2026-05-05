@@ -1,5 +1,5 @@
 {
-  "$hash": "c847404b1b198de548dff2d0add8b2cd49bc4b82",
+  "$hash": "8a438439c0662fc88ecc2d37a995d0f6f3c23d1a",
   "$id": "aws-bedrock-automatedreasoningpolicyversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -110,11 +110,7 @@
     "read": {
       "permissions": [
         "bedrock:GetAutomatedReasoningPolicy",
-        "bedrock:ExportAutomatedReasoningPolicyVersion",
-        "bedrock:ListTagsForResource",
-        "kms:DescribeKey",
-        "kms:GenerateDataKey",
-        "kms:Decrypt"
+        "bedrock:ListTagsForResource"
       ]
     }
   },

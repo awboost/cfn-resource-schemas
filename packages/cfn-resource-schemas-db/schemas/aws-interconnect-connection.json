@@ -1,12 +1,13 @@
 {
-  "$hash": "f4f52cf0f1f8838f999343dd23c816db8121afae",
+  "$hash": "8a21f83c45fe37cbff4810d7cab6618dc2bdd52d",
   "$id": "aws-interconnect-connection.json",
   "additionalIdentifiers": [["/properties/ConnectionId"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/AttachPoint",
     "/properties/EnvironmentId",
-    "/properties/ActivationKey"
+    "/properties/ActivationKey",
+    "/properties/RemoteAccount"
   ],
   "definitions": {
     "AttachPoint": {
@@ -146,8 +147,22 @@
       "$ref": "#/definitions/Provider",
       "description": "The partner cloud service provider."
     },
+    "RemoteAccount": {
+      "additionalProperties": false,
+      "description": "The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.",
+      "properties": {
+        "Identifier": {
+          "description": "The identifier of the remote account.",
+          "maxLength": 255,
+          "pattern": "^[-a-zA-Z0-9_@\\.]+$",
+          "type": "string"
+        }
+      },
+      "required": ["Identifier"],
+      "type": "object"
+    },
     "RemoteOwnerAccount": {
-      "description": "The account ID of the remote owner. Required when creating a connection through AWS.",
+      "description": "Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.",
       "maxLength": 255,
       "pattern": "^[-a-zA-Z0-9_@\\.]+$",
       "type": "string"
@@ -205,5 +220,8 @@
     "taggable": true
   },
   "typeName": "AWS::Interconnect::Connection",
-  "writeOnlyProperties": ["/properties/RemoteOwnerAccount"]
+  "writeOnlyProperties": [
+    "/properties/RemoteOwnerAccount",
+    "/properties/RemoteAccount"
+  ]
 }

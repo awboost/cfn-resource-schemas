@@ -1,5 +1,5 @@
 {
-  "$hash": "1a93d38cf783f13b0d1e799cfc74397a21f40334",
+  "$hash": "e9909116d315c9ffa6dd52869952abf841b89979",
   "$id": "aws-bedrock-automatedreasoningpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyId", "/properties/ForceDelete"],
@@ -247,7 +247,6 @@
       "permissions": [
         "bedrock:CreateAutomatedReasoningPolicy",
         "bedrock:GetAutomatedReasoningPolicy",
-        "bedrock:ExportAutomatedReasoningPolicyVersion",
         "bedrock:TagResource",
         "bedrock:ListTagsForResource",
         "kms:DescribeKey",
@@ -265,11 +264,7 @@
     "read": {
       "permissions": [
         "bedrock:GetAutomatedReasoningPolicy",
-        "bedrock:ExportAutomatedReasoningPolicyVersion",
-        "bedrock:ListTagsForResource",
-        "kms:Decrypt",
-        "kms:DescribeKey",
-        "kms:GenerateDataKey"
+        "bedrock:ListTagsForResource"
       ]
     },
     "update": {
@@ -325,5 +320,9 @@
     "taggable": true
   },
   "typeName": "AWS::Bedrock::AutomatedReasoningPolicy",
-  "writeOnlyProperties": ["/properties/KmsKeyId", "/properties/ForceDelete"]
+  "writeOnlyProperties": [
+    "/properties/KmsKeyId",
+    "/properties/ForceDelete",
+    "/properties/PolicyDefinition"
+  ]
 }
