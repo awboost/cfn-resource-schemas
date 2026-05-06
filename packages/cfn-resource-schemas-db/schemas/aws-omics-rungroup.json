@@ -1,5 +1,5 @@
 {
-  "$hash": "3cfc65345fbf512c192b544ef0fa1bb5c25b5bff",
+  "$hash": "beb7ee9d981bc82413df35973692cdad547fefa5",
   "$id": "aws-omics-rungroup.json",
   "additionalProperties": false,
   "definitions": {
@@ -66,7 +66,7 @@
     "/properties/Id"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "omics:TagResource",
       "omics:UntagResource",

@@ -21,6 +21,13 @@ export type BedrockAgentCoreEvaluatorProperties = {
    */
   EvaluatorName: string;
   /**
+   * The ARN of the KMS key used to encrypt evaluator data.
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
+   */
+  KmsKeyArn?: string;
+  /**
    * The evaluation level that determines the scope of evaluation.
    */
   Level: EvaluatorLevel;

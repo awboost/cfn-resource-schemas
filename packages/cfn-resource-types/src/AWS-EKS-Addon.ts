@@ -75,7 +75,7 @@ export type EKSAddonAttributes = {
 export type PodIdentityAssociation = {
   /**
    * The IAM role ARN that the pod identity association is created for.
-   * @pattern `^arn:aws(-cn|-us-gov|-iso(-[a-z])?)?:iam::\d{12}:(role)\/*`
+   * @pattern `^arn:aws[a-zA-Z-]*:iam::\d{12}:(role)\/*`
    */
   RoleArn: string;
   /**

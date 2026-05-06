@@ -1,5 +1,5 @@
 {
-  "$hash": "fcf73aaea75d5f3c30fa753c2b825e43107d3115",
+  "$hash": "f48c5fbac29bbafdd0bac046b3d05f8ec8a30647",
   "$id": "aws-omics-workflow.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -306,7 +306,7 @@
     "/properties/Uuid"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "omics:TagResource",
       "omics:UntagResource",

@@ -18,6 +18,7 @@ export type CloudFrontTrustStoreProperties = {
    * A complex type that contains zero or more ``Tag`` elements.
    */
   Tags?: Tag[];
+  UseClientCertificateOCSPEndpoint?: boolean;
 };
 /**
  * Attribute type definition for `AWS::CloudFront::TrustStore`.

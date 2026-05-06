@@ -23,10 +23,14 @@ export type DataZoneProjectProperties = {
   DomainUnitId?: string;
   /**
    * The glossary terms that can be used in this Amazon DataZone project.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `20`
    */
   GlossaryTerms?: string[];
+  /**
+   * The project membership assignments.
+   */
+  MembershipAssignments?: ProjectMembershipAssignment[];
   /**
    * The name of the Amazon DataZone project.
    * @minLength `1`
@@ -34,6 +38,15 @@ export type DataZoneProjectProperties = {
    * @pattern `^[\w -]+$`
    */
   Name: string;
+  /**
+   * The project category.
+   */
+  ProjectCategory?: string;
+  /**
+   * The project execution role ARN.
+   * @pattern `^arn:aws[^:]*:iam::\d{12}:role/[\w+=,.@/-]+$`
+   */
+  ProjectExecutionRole?: string;
   /**
    * The project profile ID.
    * @pattern `^[a-zA-Z0-9_-]{1,36}$`
@@ -110,6 +123,27 @@ export type EnvironmentParameter = {
   Value?: string;
 };
 /**
+ * Type definition for `AWS::DataZone::Project.Member`.
+ * The member of the project.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-member.html}
+ */
+export type Member = {
+  GroupIdentifier?: string;
+  UserIdentifier?: string;
+};
+/**
+ * Type definition for `AWS::DataZone::Project.ProjectMembershipAssignment`.
+ * The project membership assignment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-projectmembershipassignment.html}
+ */
+export type ProjectMembershipAssignment = {
+  Designation: UserDesignation;
+  /**
+   * The member of the project.
+   */
+  Member: Member;
+};
+/**
  * Type definition for `AWS::DataZone::Project.ProjectStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-projectstatus.html}
  */
@@ -138,6 +172,11 @@ export type ResourceTag = {
    */
   Value: string;
 };
+/**
+ * Type definition for `AWS::DataZone::Project.UserDesignation`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-project-userdesignation.html}
+ */
+export type UserDesignation = "PROJECT_OWNER" | "PROJECT_CONTRIBUTOR";
 /**
  * Resource type definition for `AWS::DataZone::Project`.
  * Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.

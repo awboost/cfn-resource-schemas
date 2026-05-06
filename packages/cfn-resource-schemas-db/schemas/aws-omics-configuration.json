@@ -1,5 +1,5 @@
 {
-  "$hash": "517bf508ff4e8f1611a698b235ab1f4aa581eae5",
+  "$hash": "4a9628de8421be4aa5363857faa7edfef5ef63a5",
   "$id": "aws-omics-configuration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/RunConfigurations"],
@@ -124,7 +124,7 @@
   ],
   "required": ["Name", "RunConfigurations"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["omics:TagResource", "omics:ListTagsForResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

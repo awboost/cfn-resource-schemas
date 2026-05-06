@@ -1,5 +1,5 @@
 {
-  "$hash": "2ef3335423041711fdc08814849a9d713f65879f",
+  "$hash": "5e0b44de4786527f2cd73aad515fb05bb5657fa2",
   "$id": "aws-eks-addon.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -14,7 +14,7 @@
       "properties": {
         "RoleArn": {
           "description": "The IAM role ARN that the pod identity association is created for.",
-          "pattern": "^arn:aws(-cn|-us-gov|-iso(-[a-z])?)?:iam::\\d{12}:(role)\\/*",
+          "pattern": "^arn:aws[a-zA-Z-]*:iam::\\d{12}:(role)\\/*",
           "type": "string"
         },
         "ServiceAccount": {
@@ -159,6 +159,9 @@
       "type": "array",
       "uniqueItems": true
     }
+  },
+  "propertyTransform": {
+    "/properties/ConfigurationValues": "$replace(ConfigurationValues, /\n$/, '')"
   },
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["ClusterName", "AddonName"],

@@ -48,7 +48,7 @@ export type DataZoneEnvironmentProperties = {
   EnvironmentRoleArn?: string;
   /**
    * The glossary terms that can be used in the Amazon DataZone environment.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `20`
    */
   GlossaryTerms?: string[];

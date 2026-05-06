@@ -1,5 +1,5 @@
 {
-  "$hash": "0bf782415ca0aa17bab6aaae603df55df0228b65",
+  "$hash": "15a4d5acee9e39788d94b3ee5c0ccc2697986f0f",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -981,7 +981,10 @@
       },
       "type": "object"
     },
-    "ViewerMtlsMode": { "enum": ["required", "optional"], "type": "string" },
+    "ViewerMtlsMode": {
+      "enum": ["required", "optional", "passthrough"],
+      "type": "string"
+    },
     "VpcOriginConfig": {
       "additionalProperties": false,
       "description": "An Amazon CloudFront VPC origin configuration.",
@@ -1041,7 +1044,8 @@
     "read": {
       "permissions": [
         "cloudfront:GetDistribution",
-        "cloudfront:GetDistributionConfig"
+        "cloudfront:GetDistributionConfig",
+        "cloudfront:ListTagsForResource"
       ]
     },
     "update": {

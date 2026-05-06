@@ -1,33 +1,105 @@
-- updated `AWS::Bedrock::AutomatedReasoningPolicy`
+- added `AWS::Chime::AppInstanceBot`
+- updated `AWS::AutoScaling::AutoScalingGroup`
+  - updated property `AvailabilityZoneIds`
+- updated `AWS::BedrockAgentCore::Evaluator`
+  - added property `KmsKeyArn`
+  - updated handler permissions
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `ViewerMtlsMode`
+  - updated handler permissions
+- updated `AWS::CloudFront::TrustStore`
+  - added property `UseClientCertificateOCSPEndpoint`
+- updated `AWS::DataZone::Domain`
+  - updated `required`
+  - updated `tagging`
+- updated `AWS::DataZone::Environment`
+  - updated property `GlossaryTerms`
+- updated `AWS::DataZone::GroupProfile`
+  - added definition `GroupType`
+  - added property `GroupType`
+  - added property `RolePrincipalArn`
+  - added property `RolePrincipalId`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated `required`
   - updated `writeOnlyProperties`
   - updated handler permissions
-- updated `AWS::Bedrock::AutomatedReasoningPolicyVersion`
-  - updated handler permissions
-- updated `AWS::Deadline::Fleet`
-  - updated definition `AcceleratorSelection`
-- updated `AWS::Interconnect::Connection`
-  - added property `RemoteAccount`
+- updated `AWS::DataZone::Project`
+  - added definition `Member`
+  - added definition `ProjectMembershipAssignment`
+  - added definition `UserDesignation`
+  - added property `MembershipAssignments`
+  - added property `ProjectCategory`
+  - added property `ProjectExecutionRole`
   - updated `createOnlyProperties`
   - updated `writeOnlyProperties`
-  - updated property `RemoteOwnerAccount`
-- updated `AWS::IoT::Logging`
+  - updated handler permissions
+  - updated property `GlossaryTerms`
+- updated `AWS::DataZone::UserProfile`
+  - added property `SessionName`
+  - updated `writeOnlyProperties`
+  - updated definition `IamUserProfileDetails`
+  - updated definition `UserType`
+- updated `AWS::EKS::Addon`
+  - added `propertyTransform`
+  - updated definition `PodIdentityAssociation`
+- updated `AWS::ElastiCache::CacheCluster`
+  - added `conditionalCreateOnlyProperties`
+  - added `deprecatedProperties`
+  - added `propertyTransform`
   - added `tagging`
-- updated `AWS::IoT::ResourceSpecificLogging`
-  - added `tagging`
-- updated `AWS::Organizations::Account`
-  - updated `tagging`
-- updated `AWS::Organizations::Policy`
-  - updated `tagging`
-- updated `AWS::VpcLattice::AccessLogSubscription`
-  - updated `tagging`
-- updated `AWS::VpcLattice::AuthPolicy`
-  - updated property `State`
-- updated `AWS::VpcLattice::Listener`
-  - updated `tagging`
-- updated `AWS::VpcLattice::ResourceGateway`
-  - added property `ResourceConfigDnsResolution`
+  - added `writeOnlyProperties`
+  - added definition `Endpoint`
+  - added property `ConfigurationEndpoint`
+  - added property `RedisEndpoint`
+  - removed property `ConfigurationEndpointAddress`
+  - removed property `ConfigurationEndpointPort`
+  - removed property `Id`
+  - removed property `RedisEndpointAddress`
+  - removed property `RedisEndpointPort`
   - updated `createOnlyProperties`
-- updated `AWS::VpcLattice::Rule`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated definition `CloudWatchLogsDestinationDetails`
+  - updated definition `DestinationDetails`
+  - updated definition `KinesisFirehoseDestinationDetails`
+  - updated definition `LogDeliveryConfigurationRequest`
+  - updated handler permissions
+  - updated property `AZMode`
+  - updated property `AutoMinorVersionUpgrade`
+  - updated property `CacheNodeType`
+  - updated property `CacheParameterGroupName`
+  - updated property `CacheSecurityGroupNames`
+  - updated property `CacheSubnetGroupName`
+  - updated property `ClusterName`
+  - updated property `EngineVersion`
+  - updated property `Engine`
+  - updated property `IpDiscovery`
+  - updated property `LogDeliveryConfigurations`
+  - updated property `NetworkType`
+  - updated property `NotificationTopicArn`
+  - updated property `NumCacheNodes`
+  - updated property `Port`
+  - updated property `PreferredAvailabilityZone`
+  - updated property `PreferredAvailabilityZones`
+  - updated property `PreferredMaintenanceWindow`
+  - updated property `SnapshotArns`
+  - updated property `SnapshotName`
+  - updated property `SnapshotRetentionLimit`
+  - updated property `SnapshotWindow`
+  - updated property `Tags`
+  - updated property `TransitEncryptionEnabled`
+  - updated property `VpcSecurityGroupIds`
+- updated `AWS::Omics::Configuration`
   - updated `tagging`
-- updated `AWS::VpcLattice::ServiceNetwork`
+- updated `AWS::Omics::RunGroup`
   - updated `tagging`
+- updated `AWS::Omics::VariantStore`
+  - updated `tagging`
+- updated `AWS::Omics::Workflow`
+  - updated `tagging`
+- updated `AWS::Omics::WorkflowVersion`
+  - updated `tagging`
+- updated `AWS::RDS::CustomDBEngineVersion`
+  - added property `DatabaseInstallationFiles`
+  - updated `createOnlyProperties`

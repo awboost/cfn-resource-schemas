@@ -1,5 +1,5 @@
 {
-  "$hash": "dee31c71cc5bd0ff104315f6ffac30b3f0de658f",
+  "$hash": "6ac9e64ef501584ba8ff75544afb285932b9c726",
   "$id": "aws-datazone-environment.json",
   "additionalIdentifiers": [["/properties/DomainIdentifier"]],
   "additionalProperties": false,
@@ -172,7 +172,7 @@
       "insertionOrder": false,
       "items": { "pattern": "^[a-zA-Z0-9_-]{1,36}$", "type": "string" },
       "maxItems": 20,
-      "minItems": 1,
+      "minItems": 0,
       "type": "array"
     },
     "Id": {

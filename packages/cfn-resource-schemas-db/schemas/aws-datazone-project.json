@@ -1,11 +1,14 @@
 {
-  "$hash": "edef0f2ab2e8d0dadcd828f6599c537862a7c82b",
+  "$hash": "a1c7d5de3d55534f257c526e1b99ed0bb706f359",
   "$id": "aws-datazone-project.json",
   "additionalIdentifiers": [["/properties/DomainIdentifier"]],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ProjectProfileId",
-    "/properties/DomainIdentifier"
+    "/properties/DomainIdentifier",
+    "/properties/MembershipAssignments",
+    "/properties/ProjectCategory",
+    "/properties/ProjectExecutionRole"
   ],
   "definitions": {
     "EnvironmentConfigurationUserParameter": {
@@ -83,6 +86,15 @@
       "required": ["AwsAccountId", "RegionName", "SourceAccountPoolId"],
       "type": "object"
     },
+    "Member": {
+      "additionalProperties": false,
+      "description": "The member of the project.",
+      "properties": {
+        "GroupIdentifier": { "type": "string" },
+        "UserIdentifier": { "type": "string" }
+      },
+      "type": "object"
+    },
     "OverallDeploymentStatus": {
       "enum": [
         "PENDING_DEPLOYMENT",
@@ -106,6 +118,16 @@
           "type": "string"
         }
       },
+      "type": "object"
+    },
+    "ProjectMembershipAssignment": {
+      "additionalProperties": false,
+      "description": "The project membership assignment.",
+      "properties": {
+        "Designation": { "$ref": "#/definitions/UserDesignation" },
+        "Member": { "$ref": "#/definitions/Member" }
+      },
+      "required": ["Member", "Designation"],
       "type": "object"
     },
     "ProjectStatus": {
@@ -148,12 +170,20 @@
         }
       },
       "type": "object"
+    },
+    "UserDesignation": {
+      "enum": ["PROJECT_OWNER", "PROJECT_CONTRIBUTOR"],
+      "type": "string"
     }
   },
   "description": "Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.",
   "handlers": {
     "create": {
-      "permissions": ["datazone:CreateProject", "datazone:GetProject"]
+      "permissions": [
+        "datazone:CreateProject",
+        "datazone:GetProject",
+        "iam:PassRole"
+      ]
     },
     "delete": {
       "permissions": ["datazone:DeleteProject", "datazone:GetProject"]
@@ -210,7 +240,7 @@
       "insertionOrder": false,
       "items": { "pattern": "^[a-zA-Z0-9_-]{1,36}$", "type": "string" },
       "maxItems": 20,
-      "minItems": 1,
+      "minItems": 0,
       "type": "array"
     },
     "Id": {
@@ -223,11 +253,25 @@
       "format": "date-time",
       "type": "string"
     },
+    "MembershipAssignments": {
+      "description": "The project membership assignments.",
+      "items": { "$ref": "#/definitions/ProjectMembershipAssignment" },
+      "type": "array"
+    },
     "Name": {
       "description": "The name of the Amazon DataZone project.",
       "maxLength": 64,
       "minLength": 1,
       "pattern": "^[\\w -]+$",
+      "type": "string"
+    },
+    "ProjectCategory": {
+      "description": "The project category.",
+      "type": "string"
+    },
+    "ProjectExecutionRole": {
+      "description": "The project execution role ARN.",
+      "pattern": "^arn:aws[^:]*:iam::\\d{12}:role/[\\w+=,.@/-]+$",
       "type": "string"
     },
     "ProjectProfileId": {
@@ -277,6 +321,8 @@
     "/properties/DomainIdentifier",
     "/properties/ProjectProfileVersion",
     "/properties/ProjectProfileId",
-    "/properties/UserParameters"
+    "/properties/UserParameters",
+    "/properties/MembershipAssignments",
+    "/properties/ProjectExecutionRole"
   ]
 }

@@ -1,15 +1,21 @@
 {
-  "$hash": "1de0f171038ae48ef1036a49b9a55fde592a7cb8",
+  "$hash": "cd6c72b9ff0bd824850f43df527b84cc4c404060",
   "$id": "aws-datazone-groupprofile.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DomainIdentifier",
-    "/properties/GroupIdentifier"
+    "/properties/GroupIdentifier",
+    "/properties/RolePrincipalArn"
   ],
   "definitions": {
     "GroupProfileStatus": {
       "description": "The status of the group profile.",
       "enum": ["ASSIGNED", "NOT_ASSIGNED"],
+      "type": "string"
+    },
+    "GroupType": {
+      "description": "The type of the group.",
+      "enum": ["DATAZONE_SSO_GROUP", "IAM_ROLE_SESSION_GROUP"],
       "type": "string"
     }
   },
@@ -23,7 +29,8 @@
         "sso:ListProfiles",
         "sso:GetProfile",
         "sso:AssociateProfile",
-        "sso:DisassociateProfile"
+        "sso:DisassociateProfile",
+        "iam:GetRole"
       ]
     },
     "delete": {
@@ -42,13 +49,14 @@
         "properties": {
           "DomainIdentifier": {
             "$ref": "resource-schema.json#/properties/DomainIdentifier"
-          }
+          },
+          "GroupType": { "$ref": "resource-schema.json#/properties/GroupType" }
         },
         "required": ["DomainIdentifier"]
       },
       "permissions": ["datazone:SearchGroupProfiles"]
     },
-    "read": { "permissions": ["datazone:GetGroupProfile"] },
+    "read": { "permissions": ["datazone:GetGroupProfile", "iam:GetRole"] },
     "update": {
       "permissions": [
         "datazone:UpdateGroupProfile",
@@ -84,9 +92,18 @@
       "pattern": "^[a-zA-Z_0-9+=,.@-]+$",
       "type": "string"
     },
+    "GroupType": { "$ref": "#/definitions/GroupType" },
     "Id": {
       "description": "The ID of the Amazon DataZone group profile.",
       "pattern": "^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$",
+      "type": "string"
+    },
+    "RolePrincipalArn": {
+      "description": "The ARN of the role principal for the group profile.",
+      "type": "string"
+    },
+    "RolePrincipalId": {
+      "description": "The ID of the role principal for the group profile.",
       "type": "string"
     },
     "Status": { "$ref": "#/definitions/GroupProfileStatus" }
@@ -94,9 +111,10 @@
   "readOnlyProperties": [
     "/properties/DomainId",
     "/properties/GroupName",
-    "/properties/Id"
+    "/properties/Id",
+    "/properties/RolePrincipalId"
   ],
-  "required": ["DomainIdentifier", "GroupIdentifier"],
+  "required": ["DomainIdentifier"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datazone",
   "tagging": {
     "cloudFormationSystemTags": false,
@@ -107,6 +125,8 @@
   "typeName": "AWS::DataZone::GroupProfile",
   "writeOnlyProperties": [
     "/properties/DomainIdentifier",
-    "/properties/GroupIdentifier"
+    "/properties/GroupIdentifier",
+    "/properties/RolePrincipalArn",
+    "/properties/GroupType"
   ]
 }

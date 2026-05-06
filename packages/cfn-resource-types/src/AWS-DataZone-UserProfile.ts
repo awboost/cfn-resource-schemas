@@ -12,6 +12,12 @@ export type DataZoneUserProfileProperties = {
    */
   DomainIdentifier: string;
   /**
+   * The session name of the user profile.
+   * @minLength `2`
+   * @maxLength `64`
+   */
+  SessionName?: string;
+  /**
    * The status of the user profile.
    */
   Status?: UserProfileStatus;
@@ -55,6 +61,14 @@ export type IamUserProfileDetails = {
    * The ARN of the IAM User Profile.
    */
   Arn?: string;
+  /**
+   * The group profile ID of the IAM User Profile.
+   */
+  GroupProfileId?: string;
+  /**
+   * The session name of the IAM User Profile.
+   */
+  SessionName?: string;
 };
 /**
  * Type definition for `AWS::DataZone::UserProfile.SsoUserProfileDetails`.
@@ -116,7 +130,11 @@ export type UserProfileType = "IAM" | "SSO";
  * The type of the user.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-usertype.html}
  */
-export type UserType = "IAM_USER" | "IAM_ROLE" | "SSO_USER";
+export type UserType =
+  | "IAM_USER"
+  | "IAM_ROLE"
+  | "SSO_USER"
+  | "IAM_ROLE_SESSION";
 /**
  * Resource type definition for `AWS::DataZone::UserProfile`.
  * A user profile represents Amazon DataZone users. Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.

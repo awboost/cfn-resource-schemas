@@ -1132,7 +1132,7 @@ export type ViewerMtlsConfig = {
  * Type definition for `AWS::CloudFront::Distribution.ViewerMtlsMode`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewermtlsmode.html}
  */
-export type ViewerMtlsMode = "required" | "optional";
+export type ViewerMtlsMode = "required" | "optional" | "passthrough";
 /**
  * Type definition for `AWS::CloudFront::Distribution.VpcOriginConfig`.
  * An Amazon CloudFront VPC origin configuration.

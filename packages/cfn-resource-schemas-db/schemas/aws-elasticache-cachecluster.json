@@ -1,20 +1,30 @@
 {
-  "$hash": "feb733cecedf197775fe1a2c65d0ce1f436d33b7",
+  "$hash": "3fa679f65dd2e1e553b33967b08a367a9e48a9fd",
   "$id": "aws-elasticache-cachecluster.json",
+  "$schema": "https://raw.githubusercontent.com/aws-cloudformation/cloudformation-resource-schema/master/src/main/resources/schema/provider.definition.schema.v1.json",
   "additionalProperties": false,
+  "conditionalCreateOnlyProperties": [
+    "/properties/PreferredAvailabilityZones",
+    "/properties/IpDiscovery"
+  ],
   "createOnlyProperties": [
     "/properties/Port",
     "/properties/SnapshotArns",
     "/properties/SnapshotName",
     "/properties/CacheSubnetGroupName",
     "/properties/ClusterName",
-    "/properties/NetworkType",
-    "/properties/Engine"
+    "/properties/Engine",
+    "/properties/NetworkType"
   ],
   "definitions": {
     "CloudWatchLogsDestinationDetails": {
       "additionalProperties": false,
-      "properties": { "LogGroup": { "type": "string" } },
+      "properties": {
+        "LogGroup": {
+          "description": "The name of the CloudWatch Logs log group.",
+          "type": "string"
+        }
+      },
       "required": ["LogGroup"],
       "type": "object"
     },
@@ -22,27 +32,54 @@
       "additionalProperties": false,
       "properties": {
         "CloudWatchLogsDetails": {
-          "$ref": "#/definitions/CloudWatchLogsDestinationDetails"
+          "$ref": "#/definitions/CloudWatchLogsDestinationDetails",
+          "description": "The configuration details of the CloudWatch Logs destination"
         },
         "KinesisFirehoseDetails": {
-          "$ref": "#/definitions/KinesisFirehoseDestinationDetails"
+          "$ref": "#/definitions/KinesisFirehoseDestinationDetails",
+          "description": "The configuration details of the Kinesis Data Firehose destination."
         }
+      },
+      "type": "object"
+    },
+    "Endpoint": {
+      "additionalProperties": false,
+      "properties": {
+        "Address": { "type": "string" },
+        "Port": { "type": "string" }
       },
       "type": "object"
     },
     "KinesisFirehoseDestinationDetails": {
       "additionalProperties": false,
-      "properties": { "DeliveryStream": { "type": "string" } },
+      "properties": {
+        "DeliveryStream": {
+          "description": "The name of the Kinesis Data Firehose delivery stream",
+          "type": "string"
+        }
+      },
       "required": ["DeliveryStream"],
       "type": "object"
     },
     "LogDeliveryConfigurationRequest": {
       "additionalProperties": false,
       "properties": {
-        "DestinationDetails": { "$ref": "#/definitions/DestinationDetails" },
-        "DestinationType": { "type": "string" },
-        "LogFormat": { "type": "string" },
-        "LogType": { "type": "string" }
+        "DestinationDetails": {
+          "$ref": "#/definitions/DestinationDetails",
+          "description": "Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination."
+        },
+        "DestinationType": {
+          "description": "Specify either CloudWatch Logs or Kinesis Data Firehose as the destination type. ",
+          "type": "string"
+        },
+        "LogFormat": {
+          "description": "Valid values are either json or text",
+          "type": "string"
+        },
+        "LogType": {
+          "description": "Valid value is either slow-log, which refers to slow-log or engine-log",
+          "type": "string"
+        }
       },
       "required": [
         "LogFormat",
@@ -62,71 +99,228 @@
       "type": "object"
     }
   },
-  "description": "Resource Type definition for AWS::ElastiCache::CacheCluster",
-  "primaryIdentifier": ["/properties/Id"],
+  "deprecatedProperties": ["/properties/CacheSecurityGroupNames"],
+  "description": "Resource type definition for AWS::ElastiCache::CacheCluster",
+  "handlers": {
+    "create": {
+      "permissions": [
+        "elasticache:DescribeCacheClusters",
+        "elasticache:CreateCacheCluster",
+        "elasticache:AddTagsToResource",
+        "elasticache:DeleteCacheCluster",
+        "s3:GetObject",
+        "logs:CreateLogDelivery",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:UpdateLogDelivery",
+        "logs:DeleteLogDelivery",
+        "logs:PutResourcePolicy",
+        "logs:DescribeResourcePolicies",
+        "logs:DescribeLogGroups",
+        "logs:CreateLogStream",
+        "firehose:TagDeliveryStream",
+        "iam:CreateServiceLinkedRole"
+      ],
+      "timeoutInMinutes": 240
+    },
+    "delete": {
+      "permissions": [
+        "elasticache:DescribeCacheClusters",
+        "elasticache:DeleteCacheCluster",
+        "elasticache:CreateSnapshot"
+      ],
+      "timeoutInMinutes": 240
+    },
+    "list": { "permissions": ["elasticache:DescribeCacheClusters"] },
+    "read": {
+      "permissions": [
+        "elasticache:ListTagsForResource",
+        "elasticache:DescribeCacheClusters",
+        "logs:GetLogDelivery",
+        "logs:DescribeLogGroups"
+      ]
+    },
+    "update": {
+      "permissions": [
+        "elasticache:DescribeCacheClusters",
+        "elasticache:ModifyCacheCluster",
+        "elasticache:AddTagsToResource",
+        "elasticache:RemoveTagsFromResource",
+        "elasticache:RebootCacheCluster",
+        "logs:CreateLogDelivery",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:UpdateLogDelivery",
+        "logs:DeleteLogDelivery",
+        "logs:PutResourcePolicy",
+        "logs:DescribeResourcePolicies",
+        "logs:DescribeLogGroups",
+        "logs:CreateLogStream",
+        "s3:GetObject",
+        "firehose:TagDeliveryStream",
+        "iam:CreateServiceLinkedRole"
+      ],
+      "timeoutInMinutes": 240
+    }
+  },
+  "primaryIdentifier": ["/properties/ClusterName"],
   "properties": {
-    "AZMode": { "type": "string" },
-    "AutoMinorVersionUpgrade": { "type": "boolean" },
-    "CacheNodeType": { "type": "string" },
-    "CacheParameterGroupName": { "type": "string" },
+    "AZMode": {
+      "description": "Specifies whether the nodes in this Memcached cluster are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region.",
+      "type": "string"
+    },
+    "AutoMinorVersionUpgrade": {
+      "description": "If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next minor version upgrade campaign.",
+      "type": "boolean"
+    },
+    "CacheNodeType": {
+      "description": "The compute and memory capacity of the nodes in the node group (shard).",
+      "type": "string"
+    },
+    "CacheParameterGroupName": {
+      "description": "The name of the parameter group to associate with this cluster.",
+      "type": "string"
+    },
     "CacheSecurityGroupNames": {
+      "description": "A list of security group names to associate with this cluster.",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "CacheSubnetGroupName": {
+      "description": "The name of the subnet group to be used for the cluster.",
+      "type": "string"
+    },
+    "ClusterName": {
+      "description": "A name for the cache cluster.",
+      "type": "string"
+    },
+    "ConfigurationEndpoint": {
+      "$ref": "#/definitions/Endpoint",
+      "description": "Specifies the ConfigurationEndpoint address and port"
+    },
+    "Engine": {
+      "description": "The name of the cache engine to be used for this cluster.",
+      "type": "string"
+    },
+    "EngineVersion": {
+      "description": "The version number of the cache engine to be used for this cluster",
+      "type": "string"
+    },
+    "IpDiscovery": {
+      "description": "The Ip Discovery parameter for cachecluster.",
+      "type": "string"
+    },
+    "LogDeliveryConfigurations": {
+      "description": "Specifies the destination, format and type of the logs",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/LogDeliveryConfigurationRequest" },
+      "type": "array",
+      "uniqueItems": false
+    },
+    "NetworkType": {
+      "description": "The network type parameter for cachecluster.",
+      "type": "string"
+    },
+    "NotificationTopicArn": {
+      "description": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.",
+      "type": "string"
+    },
+    "NumCacheNodes": {
+      "description": "The number of cache nodes that the cache cluster should have.",
+      "type": "integer"
+    },
+    "Port": {
+      "description": "The port number on which each of the cache nodes accepts connections.",
+      "type": "integer"
+    },
+    "PreferredAvailabilityZone": {
+      "description": "The EC2 Availability Zone in which the cluster is created.",
+      "type": "string"
+    },
+    "PreferredAvailabilityZones": {
+      "description": "A list of the Availability Zones in which cache nodes are created. The order of the zones in the list is not important.",
+      "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false
     },
-    "CacheSubnetGroupName": { "type": "string" },
-    "ClusterName": { "type": "string" },
-    "ConfigurationEndpointAddress": { "type": "string" },
-    "ConfigurationEndpointPort": { "type": "string" },
-    "Engine": { "type": "string" },
-    "EngineVersion": { "type": "string" },
-    "Id": { "type": "string" },
-    "IpDiscovery": { "type": "string" },
-    "LogDeliveryConfigurations": {
-      "items": { "$ref": "#/definitions/LogDeliveryConfigurationRequest" },
-      "type": "array",
-      "uniqueItems": true
+    "PreferredMaintenanceWindow": {
+      "description": "Specifies the weekly time range during which maintenance on the cluster is performed.",
+      "type": "string"
     },
-    "NetworkType": { "type": "string" },
-    "NotificationTopicArn": { "type": "string" },
-    "NumCacheNodes": { "type": "integer" },
-    "Port": { "type": "integer" },
-    "PreferredAvailabilityZone": { "type": "string" },
-    "PreferredAvailabilityZones": {
-      "items": { "type": "string" },
-      "type": "array",
-      "uniqueItems": true
+    "RedisEndpoint": {
+      "$ref": "#/definitions/Endpoint",
+      "description": "Specifies the RedisEndPoint address and port"
     },
-    "PreferredMaintenanceWindow": { "type": "string" },
-    "RedisEndpointAddress": { "type": "string" },
-    "RedisEndpointPort": { "type": "string" },
     "SnapshotArns": {
+      "description": "A single-element string list containing an Amazon Resource Name (ARN) that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.",
+      "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": true
     },
-    "SnapshotName": { "type": "string" },
-    "SnapshotRetentionLimit": { "type": "integer" },
-    "SnapshotWindow": { "type": "string" },
+    "SnapshotName": {
+      "description": "The name of a Redis snapshot from which to restore data into the new node group (shard).",
+      "type": "string"
+    },
+    "SnapshotRetentionLimit": {
+      "description": "The number of days for which ElastiCache retains automatic snapshots before deleting them.",
+      "type": "integer"
+    },
+    "SnapshotWindow": {
+      "description": "The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).",
+      "type": "string"
+    },
     "Tags": {
+      "description": "A list of tags to be added to this resource.",
+      "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": false
     },
-    "TransitEncryptionEnabled": { "type": "boolean" },
+    "TransitEncryptionEnabled": {
+      "description": "A flag that enables in-transit encryption when set to true. You cannot modify the value of TransitEncryptionEnabled after the cluster is created",
+      "type": "boolean"
+    },
     "VpcSecurityGroupIds": {
+      "description": "One or more VPC security groups associated with the cluster.",
+      "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false
     }
   },
+  "propertyTransform": {
+    "/properties/EngineVersion": "$join($split(EngineVersion, \".\", 2), \".\")"
+  },
   "readOnlyProperties": [
-    "/properties/ConfigurationEndpoint.Address",
-    "/properties/Id",
-    "/properties/ConfigurationEndpoint.Port",
-    "/properties/RedisEndpoint.Port",
-    "/properties/RedisEndpoint.Address"
+    "/properties/ConfigurationEndpoint",
+    "/properties/ConfigurationEndpoint/Port",
+    "/properties/ConfigurationEndpoint/Address",
+    "/properties/RedisEndpoint",
+    "/properties/RedisEndpoint/Port",
+    "/properties/RedisEndpoint/Address"
   ],
   "required": ["CacheNodeType", "NumCacheNodes", "Engine"],
-  "typeName": "AWS::ElastiCache::CacheCluster"
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": [
+      "elasticache:AddTagsToResource",
+      "elasticache:RemoveTagsFromResource",
+      "elasticache:ListTagsForResource"
+    ],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
+  "typeName": "AWS::ElastiCache::CacheCluster",
+  "writeOnlyProperties": [
+    "/properties/SnapshotArns",
+    "/properties/SnapshotName",
+    "/properties/CacheSecurityGroupNames",
+    "/properties/PreferredAvailabilityZone"
+  ]
 }

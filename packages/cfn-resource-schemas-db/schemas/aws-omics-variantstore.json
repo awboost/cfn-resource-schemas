@@ -1,5 +1,5 @@
 {
-  "$hash": "e482e3791b7df7fe4d577ab4d24771cf46526ef4",
+  "$hash": "e6175f6a5e30255ae449deff8dd2d36893abb758",
   "$id": "aws-omics-variantstore.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -109,7 +109,7 @@
   ],
   "required": ["Name", "Reference"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "omics:TagResource",
       "omics:UntagResource",

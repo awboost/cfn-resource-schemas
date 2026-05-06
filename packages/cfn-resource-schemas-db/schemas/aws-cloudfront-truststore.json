@@ -1,5 +1,5 @@
 {
-  "$hash": "c4184d81a25a57eb12fdb532da7dfb72c858a796",
+  "$hash": "d392fa1286e866c28d5ed55c233a0917708bba29",
   "$id": "aws-cloudfront-truststore.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -122,7 +122,8 @@
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array"
-    }
+    },
+    "UseClientCertificateOCSPEndpoint": { "description": "", "type": "boolean" }
   },
   "readOnlyProperties": [
     "/properties/Id",

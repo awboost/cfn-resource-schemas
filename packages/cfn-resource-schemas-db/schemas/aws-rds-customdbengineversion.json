@@ -1,5 +1,5 @@
 {
-  "$hash": "d06a53325afbd48542eab8b3a1dfa9c4f258a881",
+  "$hash": "27c8c9355dd9024516d2d630409944bf802e5144",
   "$id": "aws-rds-customdbengineversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -7,6 +7,7 @@
     "/properties/EngineVersion",
     "/properties/DatabaseInstallationFilesS3BucketName",
     "/properties/DatabaseInstallationFilesS3Prefix",
+    "/properties/DatabaseInstallationFiles",
     "/properties/ImageId",
     "/properties/KMSKeyId",
     "/properties/Manifest",
@@ -85,6 +86,12 @@
   "primaryIdentifier": ["/properties/Engine", "/properties/EngineVersion"],
   "properties": {
     "DBEngineVersionArn": { "description": "", "type": "string" },
+    "DatabaseInstallationFiles": {
+      "description": "",
+      "insertionOrder": false,
+      "items": { "type": "string" },
+      "type": "array"
+    },
     "DatabaseInstallationFilesS3BucketName": {
       "description": "The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.",
       "maxLength": 63,

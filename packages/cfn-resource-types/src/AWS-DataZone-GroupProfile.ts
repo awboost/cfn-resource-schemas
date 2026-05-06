@@ -15,7 +15,15 @@ export type DataZoneGroupProfileProperties = {
    * The ID of the group.
    * @pattern `(^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$|[\p{L}\p{M}\p{S}\p{N}\p{P}\t\n\r  ]+)`
    */
-  GroupIdentifier: string;
+  GroupIdentifier?: string;
+  /**
+   * The type of the group.
+   */
+  GroupType?: GroupType;
+  /**
+   * The ARN of the role principal for the group profile.
+   */
+  RolePrincipalArn?: string;
   /**
    * The status of the group profile.
    */
@@ -43,6 +51,10 @@ export type DataZoneGroupProfileAttributes = {
    * @pattern `^([0-9a-f]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$`
    */
   Id: string;
+  /**
+   * The ID of the role principal for the group profile.
+   */
+  RolePrincipalId: string;
 };
 /**
  * Type definition for `AWS::DataZone::GroupProfile.GroupProfileStatus`.
@@ -50,6 +62,12 @@ export type DataZoneGroupProfileAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-groupprofile-groupprofilestatus.html}
  */
 export type GroupProfileStatus = "ASSIGNED" | "NOT_ASSIGNED";
+/**
+ * Type definition for `AWS::DataZone::GroupProfile.GroupType`.
+ * The type of the group.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-groupprofile-grouptype.html}
+ */
+export type GroupType = "DATAZONE_SSO_GROUP" | "IAM_ROLE_SESSION_GROUP";
 /**
  * Resource type definition for `AWS::DataZone::GroupProfile`.
  * Group profiles represent groups of Amazon DataZone users. Groups can be manually created, or mapped to Active Directory groups of enterprise customers. In Amazon DataZone, groups serve two purposes. First, a group can map to a team of users in the organizational chart, and thus reduce the administrative work of a Amazon DataZone project owner when there are new employees joining or leaving a team. Second, corporate administrators use Active Directory groups to manage and update user statuses and so Amazon DataZone domain administrators can use these group memberships to implement Amazon DataZone domain policies.

@@ -1,5 +1,5 @@
 {
-  "$hash": "42940893e15e6f5ee587780cc7116d8d2195670f",
+  "$hash": "b3976514bdefbcf8043550f8ff979a25f7726f0d",
   "$id": "aws-omics-workflowversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -323,7 +323,7 @@
   ],
   "required": ["WorkflowId", "VersionName"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "omics:TagResource",
       "omics:UntagResource",

@@ -1,5 +1,5 @@
 {
-  "$hash": "a32ab5b8beeac3c97f6ea8b6bc03bb658d930f96",
+  "$hash": "6754642746a67d19d8546b8fc33f2d02fea4f912",
   "$id": "aws-datazone-domain.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -212,9 +212,9 @@
     "/properties/PortalUrl",
     "/properties/Status"
   ],
-  "required": ["DomainExecutionRole", "Name"],
+  "required": ["Name"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["datazone:TagResource", "datazone:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
