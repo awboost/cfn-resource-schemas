@@ -158,9 +158,13 @@ export type CacheBehavior = {
 };
 /**
  * Type definition for `AWS::CloudFront::Distribution.CacheTagConfig`.
+ * A complex type that specifies the HTTP header name from which CloudFront extracts cache tags from origin responses. When you add ``CacheTagConfig`` to a distribution, CloudFront reads the specified header from origin responses, parses the comma-separated tag values, and stores them with the cached object. You can then invalidate cached objects by tag using the ``CreateInvalidation`` API.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachetagconfig.html}
  */
 export type CacheTagConfig = {
+  /**
+   * The name of the HTTP header that your origin includes in responses. CloudFront uses this header to extract cache tags. The header value must contain comma-separated tag values (for example, ``product:electronics, category:tv, brand:example``).
+   */
   HeaderName: string;
 };
 /**
@@ -434,6 +438,11 @@ export type DistributionConfig = {
    * A complex type that contains zero or more ``CacheBehavior`` elements.
    */
   CacheBehaviors?: CacheBehavior[];
+  /**
+     * Configuration for cache tag extraction from origin responses. When specified, CloudFront reads the header named in ``HeaderName`` from origin responses and stores the comma-separated values as cache tags on the object.
+     Distributions without ``CacheTagConfig`` do not extract tags. When ``CacheTagConfig`` is removed from a distribution via ``UpdateDistribution``, CloudFront stops extracting tags from origin responses.
+      Changing the ``HeaderName`` on an existing distribution does not retroactively affect previously cached objects. Tag-based invalidations will not apply to objects already cached using a previous header. To ensure tag invalidations function after updating the header name, use path-based invalidations to recache all objects that use cache tags.
+     */
   CacheTagConfig?: CacheTagConfig;
   /**
    * A comment to describe the distribution. The comment cannot be longer than 128 characters.

@@ -1,5 +1,5 @@
 {
-  "$hash": "2d89be09a48b81fd40cf7b314822a8bbd387c66a",
+  "$hash": "9a66182b87449a959cfdb1d07158b5e4df8a93f5",
   "$id": "aws-iot-topicrule.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RuleName"],
@@ -64,6 +64,7 @@
     "BatchConfig": {
       "additionalProperties": false,
       "properties": {
+        "BatchAcrossTopics": { "type": "boolean" },
         "MaxBatchOpenMs": { "type": "integer" },
         "MaxBatchSize": { "type": "integer" },
         "MaxBatchSizeBytes": { "type": "integer" }

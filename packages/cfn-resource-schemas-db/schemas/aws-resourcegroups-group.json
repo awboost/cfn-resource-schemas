@@ -1,5 +1,5 @@
 {
-  "$hash": "71116446d903c1d5ed5df3c59459d8e7068780c8",
+  "$hash": "573e00371b25f39d9ea2886c233ef6df9b258468",
   "$id": "aws-resourcegroups-group.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -110,7 +110,9 @@
         "resource-groups:GetGroupConfiguration",
         "resource-groups:ListGroupResources",
         "resource-groups:GroupResources",
-        "resource-groups:UnGroupResources"
+        "resource-groups:UnGroupResources",
+        "cloudformation:DescribeStacks",
+        "cloudformation:ListStackResources"
       ]
     }
   },

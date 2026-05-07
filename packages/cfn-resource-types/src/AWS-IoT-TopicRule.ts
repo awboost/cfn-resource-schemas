@@ -76,6 +76,7 @@ export type AssetPropertyVariant = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-batchconfig.html}
  */
 export type BatchConfig = {
+  BatchAcrossTopics?: boolean;
   MaxBatchOpenMs?: number;
   MaxBatchSize?: number;
   MaxBatchSizeBytes?: number;
