@@ -276,7 +276,9 @@ export type AppInstanceType =
   | "ml.r6id.12xlarge"
   | "ml.r6id.16xlarge"
   | "ml.r6id.24xlarge"
-  | "ml.r6id.32xlarge";
+  | "ml.r6id.32xlarge"
+  | "ml.p5.4xlarge"
+  | "ml.p6-b200.48xlarge";
 /**
  * Type definition for `AWS::SageMaker::Domain.AppLifecycleManagement`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-applifecyclemanagement.html}

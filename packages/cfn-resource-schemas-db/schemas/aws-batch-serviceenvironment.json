@@ -1,5 +1,5 @@
 {
-  "$hash": "94d283556570d9d3c46b06281b5eac2f718e2e76",
+  "$hash": "4597bbde88d06eeaac895e63dd38fea22ca66f86",
   "$id": "aws-batch-serviceenvironment.json",
   "additionalIdentifiers": [["/properties/ServiceEnvironmentName"]],
   "additionalProperties": false,
@@ -68,7 +68,7 @@
   "readOnlyProperties": ["/properties/ServiceEnvironmentArn"],
   "required": ["ServiceEnvironmentType", "CapacityLimits"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["Batch:TagResource", "Batch:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

@@ -95,6 +95,10 @@ export type ODBOdbNetworkProperties = {
  */
 export type ODBOdbNetworkAttributes = {
   /**
+   * The list of EC2 placement group IDs associated with your ODB network.
+   */
+  Ec2PlacementGroupIds: string[];
+  /**
    * The managed services configuration for the ODB network.
    */
   ManagedServices: {

@@ -1,5 +1,5 @@
 {
-  "$hash": "12cb2297b4a917d74aba9b5079ab1837a909b9e1",
+  "$hash": "e0eda1f355ae26ae27032c09b30cc1e899559aff",
   "$id": "aws-securitylake-datalake.json",
   "additionalProperties": false,
   "definitions": {
@@ -186,7 +186,7 @@
   "replacementStrategy": "delete_then_create",
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-securitylake.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "securitylake:TagResource",
       "securitylake:UntagResource",

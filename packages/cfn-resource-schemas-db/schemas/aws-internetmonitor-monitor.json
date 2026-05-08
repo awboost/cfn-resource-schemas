@@ -1,5 +1,5 @@
 {
-  "$hash": "83e6d65eb6916f3f3f72ad64a5f9374483368f79",
+  "$hash": "8445160afb8c861eae294b7a260ab83217f08962",
   "$id": "aws-internetmonitor-monitor.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/MonitorName"],
@@ -225,7 +225,7 @@
       "internetmonitor:UntagResource",
       "internetmonitor:ListTagsForResource"
     ],
-    "tagOnCreate": false,
+    "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,
     "taggable": true

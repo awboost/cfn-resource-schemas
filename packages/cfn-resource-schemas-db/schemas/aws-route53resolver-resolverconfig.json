@@ -1,5 +1,5 @@
 {
-  "$hash": "63338a9126d5969125b4e0892aacf196ed81b948",
+  "$hash": "10ad7decd774ce3acb74b9a9aceb2fa99bed7c38",
   "$id": "aws-route53resolver-resolverconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -59,9 +59,6 @@
       "minLength": 1,
       "type": "string"
     }
-  },
-  "propertyTransform": {
-    "/properties/AutodefinedReverseFlag": "$join([AutodefinedReverseFlag, \"D\"])"
   },
   "readOnlyProperties": [
     "/properties/OwnerId",

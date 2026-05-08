@@ -1,12 +1,26 @@
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `CacheTagConfig`
-  - updated definition `DistributionConfig`
-- updated `AWS::CloudFront::Function`
-  - updated definition `Tag`
-  - updated property `Tags`
-- updated `AWS::IoT::TopicRule`
-  - updated definition `BatchConfig`
-- updated `AWS::ResourceGroups::Group`
+- updated `AWS::Batch::ServiceEnvironment`
+  - updated `tagging`
+- updated `AWS::DataZone::Connection`
+  - added definition `ConnectionConfiguration`
+  - added definition `LakehousePropertiesInput`
+  - added property `Configurations`
+  - updated `writeOnlyProperties`
+  - updated definition `ConnectionPropertiesInput`
+  - updated definition `S3PropertiesInput`
+- updated `AWS::InternetMonitor::Monitor`
+  - updated `tagging`
+- updated `AWS::ODB::OdbNetwork`
+  - added property `Ec2PlacementGroupIds`
+  - updated `readOnlyProperties`
   - updated handler permissions
-- updated `AWS::StepFunctions::StateMachine`
-  - updated handler permissions
+- updated `AWS::Route53Resolver::ResolverConfig`
+  - removed `propertyTransform`
+- updated `AWS::Route53Resolver::ResolverEndpoint`
+  - added property `Dns64Enabled`
+  - added property `Ipv6InternetAccessEnabled`
+- updated `AWS::SageMaker::Domain`
+  - updated definition `AppInstanceType`
+- updated `AWS::SageMaker::ProcessingJob`
+  - updated definition `Environment`
+- updated `AWS::SecurityLake::DataLake`
+  - updated `tagging`

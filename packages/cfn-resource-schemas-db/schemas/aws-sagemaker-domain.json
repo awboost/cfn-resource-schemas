@@ -1,5 +1,5 @@
 {
-  "$hash": "9c28ee7952486726daa9693d3dde6ede08fc5540",
+  "$hash": "7e06b064ddb41a41a7cf1053d69fce9a585926db",
   "$id": "aws-sagemaker-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/VpcId"],
@@ -175,7 +175,9 @@
         "ml.r6id.12xlarge",
         "ml.r6id.16xlarge",
         "ml.r6id.24xlarge",
-        "ml.r6id.32xlarge"
+        "ml.r6id.32xlarge",
+        "ml.p5.4xlarge",
+        "ml.p6-b200.48xlarge"
       ],
       "type": "string"
     },

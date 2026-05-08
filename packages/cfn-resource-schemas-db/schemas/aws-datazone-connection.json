@@ -1,5 +1,5 @@
 {
-  "$hash": "fe1c1d088db90f58d310b945d279499d002d4372",
+  "$hash": "d06c7fdae7e47ab0113a3bfe84a6a1855ced0f79",
   "$id": "aws-datazone-connection.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -122,6 +122,20 @@
     "ComputeEnvironments": {
       "description": "Compute Environments",
       "type": "string"
+    },
+    "ConnectionConfiguration": {
+      "additionalProperties": false,
+      "description": "A configuration of the connection.",
+      "properties": {
+        "Classification": {
+          "description": "The classification of the connection configuration.",
+          "maxLength": 64,
+          "pattern": "^[\\w][\\w\\.\\-\\_]*$",
+          "type": "string"
+        },
+        "Properties": { "$ref": "#/definitions/PropertyMap" }
+      },
+      "type": "object"
     },
     "ConnectionProperties": {
       "additionalProperties": false,
@@ -258,6 +272,17 @@
           "required": ["WorkflowsServerlessProperties"],
           "title": "WorkflowsServerlessProperties",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "LakehouseProperties": {
+              "$ref": "#/definitions/LakehousePropertiesInput"
+            }
+          },
+          "required": ["LakehouseProperties"],
+          "title": "LakehouseProperties",
+          "type": "object"
         }
       ]
     },
@@ -381,6 +406,17 @@
       "additionalProperties": false,
       "description": "IAM Properties Input",
       "properties": { "GlueLineageSyncEnabled": { "type": "boolean" } },
+      "type": "object"
+    },
+    "LakehousePropertiesInput": {
+      "additionalProperties": false,
+      "description": "Lakehouse Properties Input",
+      "properties": {
+        "GlueLineageSyncEnabled": {
+          "description": "Specifies whether Glue lineage sync is enabled for the lakehouse connection.",
+          "type": "boolean"
+        }
+      },
       "type": "object"
     },
     "LineageSyncSchedule": {
@@ -589,6 +625,10 @@
       "additionalProperties": false,
       "description": "S3 Properties Input",
       "properties": {
+        "RegisterS3AccessGrantLocation": {
+          "description": "Specifies whether to register the S3 Access Grant location.",
+          "type": "boolean"
+        },
         "S3AccessGrantLocationId": {
           "description": "The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.",
           "maxLength": 64,
@@ -781,6 +821,12 @@
   "primaryIdentifier": ["/properties/DomainId", "/properties/ConnectionId"],
   "properties": {
     "AwsLocation": { "$ref": "#/definitions/AwsLocation" },
+    "Configurations": {
+      "description": "The configurations of the connection.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/ConnectionConfiguration" },
+      "type": "array"
+    },
     "ConnectionId": {
       "description": "The ID of the connection.",
       "maxLength": 128,
@@ -870,6 +916,7 @@
   "typeName": "AWS::DataZone::Connection",
   "writeOnlyProperties": [
     "/properties/AwsLocation",
+    "/properties/Configurations",
     "/properties/DomainIdentifier",
     "/properties/EnableTrustedIdentityPropagation",
     "/properties/EnvironmentIdentifier",

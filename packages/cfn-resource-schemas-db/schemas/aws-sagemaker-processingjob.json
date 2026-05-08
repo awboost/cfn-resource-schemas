@@ -1,5 +1,5 @@
 {
-  "$hash": "d12761138d873b9f72f9e321166cf64193510871",
+  "$hash": "47939440133fb05820248e54fd94fa78f12e9701",
   "$id": "aws-sagemaker-processingjob.json",
   "additionalIdentifiers": [["/properties/ProcessingJobName"]],
   "additionalProperties": false,
@@ -302,8 +302,11 @@
       "additionalProperties": false,
       "description": "Sets the environment variables in the Docker container",
       "patternProperties": {
-        "[\\S\\s]*": { "maxLength": 256, "type": "string" },
-        "[a-zA-Z_][a-zA-Z0-9_]*": { "maxLength": 256, "type": "string" }
+        "^[a-zA-Z_][a-zA-Z0-9_]{0,255}$": {
+          "maxLength": 256,
+          "pattern": "[\\S\\s]*",
+          "type": "string"
+        }
       },
       "type": "object"
     },

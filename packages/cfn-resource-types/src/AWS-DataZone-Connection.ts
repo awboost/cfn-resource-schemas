@@ -11,6 +11,10 @@ export type DataZoneConnectionProperties = {
    */
   AwsLocation?: AwsLocation;
   /**
+   * The configurations of the connection.
+   */
+  Configurations?: ConnectionConfiguration[];
+  /**
    * The description of the connection.
    * @maxLength `128`
    * @pattern `^[\S\s]*$`
@@ -218,6 +222,23 @@ export type BasicAuthenticationCredentials = {
   UserName?: string;
 };
 /**
+ * Type definition for `AWS::DataZone::Connection.ConnectionConfiguration`.
+ * A configuration of the connection.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionconfiguration.html}
+ */
+export type ConnectionConfiguration = {
+  /**
+   * The classification of the connection configuration.
+   * @maxLength `64`
+   * @pattern `^[\w][\w\.\-\_]*$`
+   */
+  Classification?: string;
+  /**
+   * Property Map
+   */
+  Properties?: PropertyMap;
+};
+/**
  * Type definition for `AWS::DataZone::Connection.ConnectionProperties`.
  * Connection Properties
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionproperties.html}
@@ -299,6 +320,12 @@ export type ConnectionPropertiesInput =
        * Workflows Serverless Properties Input
        */
       WorkflowsServerlessProperties: WorkflowsServerlessPropertiesInput;
+    }
+  | {
+      /**
+       * Lakehouse Properties Input
+       */
+      LakehouseProperties: LakehousePropertiesInput;
     };
 /**
  * Type definition for `AWS::DataZone::Connection.CredentialMap`.
@@ -420,6 +447,17 @@ export type HyperPodPropertiesInput = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-iampropertiesinput.html}
  */
 export type IamPropertiesInput = {
+  GlueLineageSyncEnabled?: boolean;
+};
+/**
+ * Type definition for `AWS::DataZone::Connection.LakehousePropertiesInput`.
+ * Lakehouse Properties Input
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-lakehousepropertiesinput.html}
+ */
+export type LakehousePropertiesInput = {
+  /**
+   * Specifies whether Glue lineage sync is enabled for the lakehouse connection.
+   */
   GlueLineageSyncEnabled?: boolean;
 };
 /**
@@ -621,6 +659,10 @@ export type RedshiftStorageProperties =
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-s3propertiesinput.html}
  */
 export type S3PropertiesInput = {
+  /**
+   * Specifies whether to register the S3 Access Grant location.
+   */
+  RegisterS3AccessGrantLocation?: boolean;
   /**
    * The Amazon S3 Access Grant location ID that's part of the Amazon S3 properties of a connection.
    * @minLength `0`
