@@ -18,6 +18,13 @@ export type DevOpsAgentAgentSpaceProperties = {
    */
   KmsKeyArn?: string;
   /**
+   * The locale for the AgentSpace, which determines the language used in agent responses.
+   * @minLength `2`
+   * @maxLength `35`
+   * @pattern `^[a-zA-Z]{2,3}(-[a-zA-Z0-9]{2,8})*$`
+   */
+  Locale?: string;
+  /**
    * The name of the AgentSpace.
    * @minLength `1`
    * @maxLength `255`

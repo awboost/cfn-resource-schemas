@@ -123,6 +123,28 @@ export type BedrockAgentCoreOAuth2CredentialProviderAttributes = {
        */
       DiscoveryUrl: string;
     };
+    /**
+     * Configuration for on-behalf-of token exchange
+     */
+    OnBehalfOfTokenExchangeConfig: {
+      /**
+       * The grant type for on-behalf-of token exchange
+       */
+      GrantType: "TOKEN_EXCHANGE" | "JWT_AUTHORIZATION_GRANT";
+      /**
+       * Configuration for RFC 8693 Token Exchange
+       */
+      TokenExchangeGrantTypeConfig: {
+        /**
+         * The actor token content type
+         */
+        ActorTokenContent: "NONE" | "M2M" | "AWS_IAM_ID_TOKEN_JWT";
+        /**
+         * The actor token scopes. Only valid when ActorTokenContent is M2M.
+         */
+        ActorTokenScopes: string[];
+      };
+    };
   };
 };
 /**
@@ -165,17 +187,21 @@ export type CustomOauth2ProviderConfigInput = {
    * @minLength `1`
    * @maxLength `256`
    */
-  ClientId: string;
+  ClientId?: string;
   /**
    * The client secret for the custom OAuth2 provider
    * @minLength `1`
    * @maxLength `2048`
    */
-  ClientSecret: string;
+  ClientSecret?: string;
   /**
    * Discovery information for an OAuth2 provider
    */
   OauthDiscovery: Oauth2Discovery;
+  /**
+   * Configuration for on-behalf-of token exchange
+   */
+  OnBehalfOfTokenExchangeConfig?: OnBehalfOfTokenExchangeConfig;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.GithubOauth2ProviderConfigInput`.
@@ -377,6 +403,25 @@ export type Oauth2ProviderConfigOutput = {
    * Discovery information for an OAuth2 provider
    */
   OauthDiscovery?: Oauth2Discovery;
+  /**
+   * Configuration for on-behalf-of token exchange
+   */
+  OnBehalfOfTokenExchangeConfig?: OnBehalfOfTokenExchangeConfig;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.OnBehalfOfTokenExchangeConfig`.
+ * Configuration for on-behalf-of token exchange
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-onbehalfoftokenexchangeconfig.html}
+ */
+export type OnBehalfOfTokenExchangeConfig = {
+  /**
+   * The grant type for on-behalf-of token exchange
+   */
+  GrantType: "TOKEN_EXCHANGE" | "JWT_AUTHORIZATION_GRANT";
+  /**
+   * Configuration for RFC 8693 Token Exchange
+   */
+  TokenExchangeGrantTypeConfig?: TokenExchangeGrantTypeConfig;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.SalesforceOauth2ProviderConfigInput`.
@@ -429,6 +474,21 @@ export type Tag = {
    * @pattern `^[a-zA-Z0-9\s._:/=+@-]*$`
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.TokenExchangeGrantTypeConfig`.
+ * Configuration for RFC 8693 Token Exchange
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-tokenexchangegranttypeconfig.html}
+ */
+export type TokenExchangeGrantTypeConfig = {
+  /**
+   * The actor token content type
+   */
+  ActorTokenContent: "NONE" | "M2M" | "AWS_IAM_ID_TOKEN_JWT";
+  /**
+   * The actor token scopes. Only valid when ActorTokenContent is M2M.
+   */
+  ActorTokenScopes?: string[];
 };
 /**
  * Resource Type definition for AWS::BedrockAgentCore::OAuth2CredentialProvider

@@ -1,26 +1,11 @@
-- updated `AWS::Batch::ServiceEnvironment`
+- updated `AWS::BedrockAgentCore::OAuth2CredentialProvider`
+  - added definition `OnBehalfOfTokenExchangeConfig`
+  - added definition `TokenExchangeGrantTypeConfig`
+  - updated definition `CustomOauth2ProviderConfigInput`
+  - updated definition `Oauth2ProviderConfigOutput`
+- updated `AWS::DevOpsAgent::AgentSpace`
+  - added property `Locale`
+- updated `AWS::FIS::ExperimentTemplate`
   - updated `tagging`
-- updated `AWS::DataZone::Connection`
-  - added definition `ConnectionConfiguration`
-  - added definition `LakehousePropertiesInput`
-  - added property `Configurations`
-  - updated `writeOnlyProperties`
-  - updated definition `ConnectionPropertiesInput`
-  - updated definition `S3PropertiesInput`
-- updated `AWS::InternetMonitor::Monitor`
-  - updated `tagging`
-- updated `AWS::ODB::OdbNetwork`
-  - added property `Ec2PlacementGroupIds`
-  - updated `readOnlyProperties`
+- updated `AWS::Lambda::Version`
   - updated handler permissions
-- updated `AWS::Route53Resolver::ResolverConfig`
-  - removed `propertyTransform`
-- updated `AWS::Route53Resolver::ResolverEndpoint`
-  - added property `Dns64Enabled`
-  - added property `Ipv6InternetAccessEnabled`
-- updated `AWS::SageMaker::Domain`
-  - updated definition `AppInstanceType`
-- updated `AWS::SageMaker::ProcessingJob`
-  - updated definition `Environment`
-- updated `AWS::SecurityLake::DataLake`
-  - updated `tagging`

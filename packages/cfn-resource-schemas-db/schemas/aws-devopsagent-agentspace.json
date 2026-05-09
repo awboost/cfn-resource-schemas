@@ -1,5 +1,5 @@
 {
-  "$hash": "1a7327f4b58af7a43265833c4a886e931ecd1879",
+  "$hash": "e9c7dbdd4bd701c1bb15e7a9c0d259ee88346a8b",
   "$id": "aws-devopsagent-agentspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn"],
@@ -170,6 +170,13 @@
       "description": "The ARN of the KMS key to use for encryption.",
       "maxLength": 2048,
       "minLength": 1,
+      "type": "string"
+    },
+    "Locale": {
+      "description": "The locale for the AgentSpace, which determines the language used in agent responses.",
+      "maxLength": 35,
+      "minLength": 2,
+      "pattern": "^[a-zA-Z]{2,3}(-[a-zA-Z0-9]{2,8})*$",
       "type": "string"
     },
     "Name": {

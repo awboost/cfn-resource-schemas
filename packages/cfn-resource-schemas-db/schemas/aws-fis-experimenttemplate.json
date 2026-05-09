@@ -1,5 +1,5 @@
 {
-  "$hash": "7195078eb5adeeca0bd10528f3af5cb39bccecb4",
+  "$hash": "cfd843fcb90f35ec9e9d073b5832c7bce6f84f83",
   "$id": "aws-fis-experimenttemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ExperimentOptions/AccountTargeting"],
@@ -341,7 +341,7 @@
   "required": ["Description", "StopConditions", "Targets", "RoleArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-fis.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "fis:TagResource",
       "fis:UntagResource",
