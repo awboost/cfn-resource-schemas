@@ -95,8 +95,34 @@ export type Route53ResolverFirewallRuleGroupAttributes = {
   StatusMessage: string;
 };
 /**
+ * Type definition for `AWS::Route53Resolver::FirewallRuleGroup.FirewallAdvancedContentCategoryConfig`.
+ * Configuration for an advanced content category rule type.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewalladvancedcontentcategoryconfig.html}
+ */
+export type FirewallAdvancedContentCategoryConfig = {
+  /**
+   * The content category value.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Category: string;
+};
+/**
+ * Type definition for `AWS::Route53Resolver::FirewallRuleGroup.FirewallAdvancedThreatCategoryConfig`.
+ * Configuration for an advanced threat category rule type.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewalladvancedthreatcategoryconfig.html}
+ */
+export type FirewallAdvancedThreatCategoryConfig = {
+  /**
+   * The threat category value.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Category: string;
+};
+/**
  * Type definition for `AWS::Route53Resolver::FirewallRuleGroup.FirewallRule`.
- * Firewall Rule associating the Rule Group to a Domain List
+ * Firewall Rule associating the Rule Group to a Domain List or advanced rule type
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html}
  */
 export type FirewallRule = {
@@ -125,11 +151,11 @@ export type FirewallRule = {
    */
   BlockResponse?: "NODATA" | "NXDOMAIN" | "OVERRIDE";
   /**
-   * FirewallDomainRedirectionAction
+   * ConfidenceThreshold
    */
   ConfidenceThreshold?: "LOW" | "MEDIUM" | "HIGH";
   /**
-   * FirewallDomainRedirectionAction
+   * DnsThreatProtection
    */
   DnsThreatProtection?: "DGA" | "DNS_TUNNELING" | "DICTIONARY_DGA";
   /**
@@ -145,6 +171,10 @@ export type FirewallRule = {
     | "INSPECT_REDIRECTION_DOMAIN"
     | "TRUST_REDIRECTION_DOMAIN";
   /**
+   * Advanced firewall rule type. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+   */
+  FirewallRuleType?: FirewallRuleType;
+  /**
    * Rule Priority
    */
   Priority: number;
@@ -154,6 +184,21 @@ export type FirewallRule = {
    * @maxLength `16`
    */
   Qtype?: string;
+};
+/**
+ * Type definition for `AWS::Route53Resolver::FirewallRuleGroup.FirewallRuleType`.
+ * Firewall rule type union. Exactly one member must be set. Mutually exclusive with FirewallDomainListId and DnsThreatProtection/ConfidenceThreshold.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallruletype.html}
+ */
+export type FirewallRuleType = {
+  /**
+   * Configuration for an advanced content category rule type.
+   */
+  FirewallAdvancedContentCategory?: FirewallAdvancedContentCategoryConfig;
+  /**
+   * Configuration for an advanced threat category rule type.
+   */
+  FirewallAdvancedThreatCategory?: FirewallAdvancedThreatCategoryConfig;
 };
 /**
  * Type definition for `AWS::Route53Resolver::FirewallRuleGroup.Tag`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "3ff744cae5c973cbd585be154eac10d3008c6e52",
+  "$hash": "8802b33edfda8830909105fa21babf431cbe6841",
   "$id": "aws-ec2-transitgatewayvpcattachment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -117,7 +117,7 @@
   "required": ["SubnetIds", "VpcId", "TransitGatewayId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-transitgateway",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

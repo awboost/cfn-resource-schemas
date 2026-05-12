@@ -1,5 +1,5 @@
 {
-  "$hash": "16b631cd2e6049184aedd81dfd9defe1b4825d16",
+  "$hash": "248d343ecdeaa51451d795ae41dbbb86182deb4a",
   "$id": "aws-gamelift-build.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -133,7 +133,7 @@
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "gamelift:ListTagsForResource",
       "gamelift:TagResource",

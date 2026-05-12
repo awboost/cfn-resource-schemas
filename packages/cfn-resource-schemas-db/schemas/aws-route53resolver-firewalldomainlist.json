@@ -1,5 +1,5 @@
 {
-  "$hash": "0ba1ee8bb26f15dbf2be7e535a26c35320a112a2",
+  "$hash": "a8e3ac740defe2ac21757c5413092832da08b575",
   "$id": "aws-route53resolver-firewalldomainlist.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -168,7 +168,7 @@
     "/properties/ModificationTime"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "route53resolver:TagResource",
       "route53resolver:UntagResource"

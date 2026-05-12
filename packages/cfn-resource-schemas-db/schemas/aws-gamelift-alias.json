@@ -1,5 +1,5 @@
 {
-  "$hash": "a72b33c29918e8aab6baa090380e929370392283",
+  "$hash": "0736dd72dd0a84e176f6e8479e9bd483afe451f0",
   "$id": "aws-gamelift-alias.json",
   "additionalProperties": false,
   "definitions": {
@@ -104,7 +104,7 @@
   "required": ["Name", "RoutingStrategy"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "gamelift:ListTagsForResource",
       "gamelift:TagResource",

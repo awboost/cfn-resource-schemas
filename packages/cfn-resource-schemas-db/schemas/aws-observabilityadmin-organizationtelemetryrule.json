@@ -1,8 +1,11 @@
 {
-  "$hash": "547fd1ab988254b4c5d5390be304a5a7960e3a50",
+  "$hash": "9f94e9624d030ec872723517dc7a800dadc8b2b8",
   "$id": "aws-observabilityadmin-organizationtelemetryrule.json",
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/RuleName"],
+  "createOnlyProperties": [
+    "/properties/RuleName",
+    "/properties/Rule/AllRegions"
+  ],
   "definitions": {
     "Action": {
       "description": "The enumerated action to take.",
@@ -93,6 +96,11 @@
         }
       },
       "type": "object"
+    },
+    "AllowFieldUpdates": {
+      "default": false,
+      "description": "When true, configuration drift in managed telemetry resources will be detected and remediated for resource-level fields.",
+      "type": "boolean"
     },
     "CloudtrailParameters": {
       "additionalProperties": false,
@@ -220,6 +228,22 @@
       "type": "array",
       "uniqueItems": true
     },
+    "RegionStatus": {
+      "additionalProperties": false,
+      "description": "Status of a telemetry rule in a specific region",
+      "properties": {
+        "Region": { "description": "The AWS region code", "type": "string" },
+        "RuleArn": {
+          "description": "The ARN of the rule in this region",
+          "type": "string"
+        },
+        "Status": {
+          "description": "The replication status of the rule in this region",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "ResourceType": {
       "description": "Resource Type associated with the Organization Telemetry Rule",
       "enum": [
@@ -303,8 +327,20 @@
       "additionalProperties": false,
       "description": "The telemetry rule",
       "properties": {
+        "AllRegions": {
+          "description": "When true, the rule is replicated to all supported regions",
+          "type": "boolean"
+        },
+        "AllowFieldUpdates": { "$ref": "#/definitions/AllowFieldUpdates" },
         "DestinationConfiguration": {
           "$ref": "#/definitions/TelemetryDestinationConfiguration"
+        },
+        "Regions": {
+          "description": "List of AWS region codes where the rule should be replicated",
+          "insertionOrder": false,
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": true
         },
         "ResourceType": { "$ref": "#/definitions/ResourceType" },
         "Scope": { "$ref": "#/definitions/Scope" },
@@ -429,6 +465,12 @@
   },
   "primaryIdentifier": ["/properties/RuleArn"],
   "properties": {
+    "RegionStatuses": {
+      "description": "Per-region replication status of the rule",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/RegionStatus" },
+      "type": "array"
+    },
     "Rule": { "$ref": "#/definitions/TelemetryRule" },
     "RuleArn": {
       "description": "The arn of the organization telemetry rule",
@@ -452,7 +494,7 @@
       "uniqueItems": true
     }
   },
-  "readOnlyProperties": ["/properties/RuleArn"],
+  "readOnlyProperties": ["/properties/RuleArn", "/properties/RegionStatuses"],
   "required": ["RuleName", "Rule"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {

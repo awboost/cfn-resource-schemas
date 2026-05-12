@@ -1,11 +1,35 @@
-- updated `AWS::BedrockAgentCore::OAuth2CredentialProvider`
-  - added definition `OnBehalfOfTokenExchangeConfig`
-  - added definition `TokenExchangeGrantTypeConfig`
-  - updated definition `CustomOauth2ProviderConfigInput`
-  - updated definition `Oauth2ProviderConfigOutput`
-- updated `AWS::DevOpsAgent::AgentSpace`
-  - added property `Locale`
-- updated `AWS::FIS::ExperimentTemplate`
+- added `AWS::Config::RemediationConfiguration`
+- updated `AWS::EC2::TransitGatewayAttachment`
   - updated `tagging`
-- updated `AWS::Lambda::Version`
-  - updated handler permissions
+- updated `AWS::EC2::TransitGatewayVpcAttachment`
+  - updated `tagging`
+- updated `AWS::GameLift::Alias`
+  - updated `tagging`
+- updated `AWS::GameLift::Build`
+  - updated `tagging`
+- updated `AWS::GameLift::Location`
+  - updated `tagging`
+- updated `AWS::ObservabilityAdmin::OrganizationTelemetryRule`
+  - added definition `AllowFieldUpdates`
+  - added definition `RegionStatus`
+  - added property `RegionStatuses`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated definition `TelemetryRule`
+- updated `AWS::ObservabilityAdmin::TelemetryRule`
+  - added definition `AllowFieldUpdates`
+  - added definition `RegionStatus`
+  - added property `RegionStatuses`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated definition `TelemetryRule`
+- updated `AWS::Route53Resolver::FirewallDomainList`
+  - updated `tagging`
+- updated `AWS::Route53Resolver::FirewallRuleGroup`
+  - added definition `FirewallAdvancedContentCategoryConfig`
+  - added definition `FirewallAdvancedThreatCategoryConfig`
+  - added definition `FirewallRuleType`
+  - updated `tagging`
+  - updated definition `FirewallRule`
+- updated `AWS::Route53Resolver::FirewallRuleGroupAssociation`
+  - updated `tagging`

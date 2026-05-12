@@ -1,5 +1,5 @@
 {
-  "$hash": "e35856e6da685513e2e435d857de27079c865596",
+  "$hash": "0dbc0951d29c3c02bc17c5202a0ac8dbbf27ee62",
   "$id": "aws-route53resolver-firewallrulegroupassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -166,7 +166,7 @@
   ],
   "required": ["FirewallRuleGroupId", "VpcId", "Priority"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "route53resolver:TagResource",
       "route53resolver:UntagResource"

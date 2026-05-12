@@ -27,6 +27,23 @@ export type ObservabilityAdminOrganizationTelemetryRuleProperties = {
  */
 export type ObservabilityAdminOrganizationTelemetryRuleAttributes = {
   /**
+   * Per-region replication status of the rule
+   */
+  RegionStatuses: {
+    /**
+     * The AWS region code
+     */
+    Region: string;
+    /**
+     * The ARN of the rule in this region
+     */
+    RuleArn: string;
+    /**
+     * The replication status of the rule in this region
+     */
+    Status: string;
+  }[];
+  /**
    * The arn of the organization telemetry rule
    * @minLength `1`
    * @maxLength `1011`
@@ -237,6 +254,25 @@ export type LoggingFilter = {
   Filters?: Filter[];
 };
 /**
+ * Type definition for `AWS::ObservabilityAdmin::OrganizationTelemetryRule.RegionStatus`.
+ * Status of a telemetry rule in a specific region
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-regionstatus.html}
+ */
+export type RegionStatus = {
+  /**
+   * The AWS region code
+   */
+  Region?: string;
+  /**
+   * The ARN of the rule in this region
+   */
+  RuleArn?: string;
+  /**
+   * The replication status of the rule in this region
+   */
+  Status?: string;
+};
+/**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationTelemetryRule.ResourceType`.
  * Resource Type associated with the Organization Telemetry Rule
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationtelemetryrule-resourcetype.html}
@@ -322,9 +358,21 @@ export type TelemetryDestinationConfiguration = {
  */
 export type TelemetryRule = {
   /**
+   * When true, the rule is replicated to all supported regions
+   */
+  AllRegions?: boolean;
+  /**
+   * When true, configuration drift in managed telemetry resources will be detected and remediated for resource-level fields.
+   */
+  AllowFieldUpdates?: boolean;
+  /**
    * The destination configuration for telemetry data
    */
   DestinationConfiguration?: TelemetryDestinationConfiguration;
+  /**
+   * List of AWS region codes where the rule should be replicated
+   */
+  Regions?: string[];
   /**
    * Resource Type associated with the Organization Telemetry Rule
    */
