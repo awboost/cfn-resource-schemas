@@ -1,5 +1,5 @@
 {
-  "$hash": "3048907243889e265e317fb2ba0c39ca5aae6a41",
+  "$hash": "ae36bc538ac21846e15648a6f87e03f9c05ffdcd",
   "$id": "aws-stepfunctions-statemachine.json",
   "additionalIdentifiers": [["/properties/StateMachineName"]],
   "additionalProperties": false,
@@ -131,7 +131,9 @@
         "states:ListTagsForResource",
         "iam:PassRole",
         "kms:DescribeKey",
-        "kms:GenerateDataKey"
+        "kms:GenerateDataKey",
+        "s3:GetObject",
+        "s3:GetObjectVersion"
       ]
     }
   },

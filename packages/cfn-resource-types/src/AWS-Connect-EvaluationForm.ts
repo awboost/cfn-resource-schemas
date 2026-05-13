@@ -255,7 +255,7 @@ export type EvaluationFormMultiSelectQuestionAutomation = {
    * @minLength `1`
    * @maxLength `20`
    */
-  Options: EvaluationFormMultiSelectQuestionAutomationOption[];
+  Options?: EvaluationFormMultiSelectQuestionAutomationOption[];
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormMultiSelectQuestionAutomationOption`.
@@ -531,7 +531,7 @@ export type EvaluationFormSingleSelectQuestionAutomation = {
    * @minLength `1`
    * @maxLength `20`
    */
-  Options: EvaluationFormSingleSelectQuestionAutomationOption[];
+  Options?: EvaluationFormSingleSelectQuestionAutomationOption[];
 };
 /**
  * Type definition for `AWS::Connect::EvaluationForm.EvaluationFormSingleSelectQuestionAutomationOption`.

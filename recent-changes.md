@@ -1,35 +1,31 @@
-- added `AWS::Config::RemediationConfiguration`
-- updated `AWS::EC2::TransitGatewayAttachment`
+- updated `AWS::ARCRegionSwitch::Plan`
+  - added definition `EventSourceMapping`
+  - added definition `LambdaEventSourceMappingConfiguration`
+  - added definition `LambdaEventSourceMappingUngraceful`
+  - added definition `RegionEventSourceMappingMap`
+  - updated definition `ExecutionBlockConfiguration`
+  - updated definition `ExecutionBlockType`
+- updated `AWS::AutoScaling::LaunchConfiguration`
+  - updated `writeOnlyProperties`
+- updated `AWS::Connect::EvaluationForm`
+  - updated definition `EvaluationFormMultiSelectQuestionAutomation`
+  - updated definition `EvaluationFormSingleSelectQuestionAutomation`
+- updated `AWS::EC2::TransitGatewayMeteringPolicy`
   - updated `tagging`
-- updated `AWS::EC2::TransitGatewayVpcAttachment`
+- updated `AWS::GameLift::ContainerFleet`
   - updated `tagging`
-- updated `AWS::GameLift::Alias`
+- updated `AWS::GameLift::ContainerGroupDefinition`
   - updated `tagging`
-- updated `AWS::GameLift::Build`
+- updated `AWS::GameLift::GameServerGroup`
   - updated `tagging`
-- updated `AWS::GameLift::Location`
+  - updated handler permissions
+- updated `AWS::GameLift::GameSessionQueue`
   - updated `tagging`
-- updated `AWS::ObservabilityAdmin::OrganizationTelemetryRule`
-  - added definition `AllowFieldUpdates`
-  - added definition `RegionStatus`
-  - added property `RegionStatuses`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `TelemetryRule`
-- updated `AWS::ObservabilityAdmin::TelemetryRule`
-  - added definition `AllowFieldUpdates`
-  - added definition `RegionStatus`
-  - added property `RegionStatuses`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `TelemetryRule`
-- updated `AWS::Route53Resolver::FirewallDomainList`
+- updated `AWS::GameLift::MatchmakingConfiguration`
   - updated `tagging`
-- updated `AWS::Route53Resolver::FirewallRuleGroup`
-  - added definition `FirewallAdvancedContentCategoryConfig`
-  - added definition `FirewallAdvancedThreatCategoryConfig`
-  - added definition `FirewallRuleType`
+- updated `AWS::GameLift::MatchmakingRuleSet`
   - updated `tagging`
-  - updated definition `FirewallRule`
-- updated `AWS::Route53Resolver::FirewallRuleGroupAssociation`
+- updated `AWS::GameLift::Script`
   - updated `tagging`
+- updated `AWS::StepFunctions::StateMachine`
+  - updated handler permissions

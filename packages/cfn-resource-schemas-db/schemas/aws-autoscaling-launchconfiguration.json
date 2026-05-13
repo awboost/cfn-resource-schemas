@@ -1,5 +1,5 @@
 {
-  "$hash": "400123a10a8d0aaca06d7336cc579e084bca4427",
+  "$hash": "2d5915a300152dbf1dae107e07b6001ac351aa41",
   "$id": "aws-autoscaling-launchconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -227,5 +227,9 @@
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-autoscaling.git",
   "tagging": { "taggable": false },
   "typeName": "AWS::AutoScaling::LaunchConfiguration",
-  "writeOnlyProperties": ["/properties/InstanceId"]
+  "writeOnlyProperties": [
+    "/properties/InstanceId",
+    "/properties/ClassicLinkVPCId",
+    "/properties/ClassicLinkVPCSecurityGroups"
+  ]
 }

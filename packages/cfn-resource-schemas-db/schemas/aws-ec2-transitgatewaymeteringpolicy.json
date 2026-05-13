@@ -1,5 +1,5 @@
 {
-  "$hash": "f9dffd6006cf8774c38835421b02f2c0a5bce16e",
+  "$hash": "d74e9542517d7b92303531f62ec394e79d1c41b4",
   "$id": "aws-ec2-transitgatewaymeteringpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TransitGatewayId"],
@@ -88,7 +88,7 @@
   ],
   "required": ["TransitGatewayId"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

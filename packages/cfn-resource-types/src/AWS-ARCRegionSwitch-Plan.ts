@@ -296,6 +296,21 @@ export type EksResourceScalingUngraceful = {
   MinimumSuccessPercentage: number;
 };
 /**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.EventSourceMapping`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-eventsourcemapping.html}
+ */
+export type EventSourceMapping = {
+  /**
+   * @pattern `^arn:aws[a-zA-Z-]*:lambda:[a-z0-9-]+:\d{12}:event-source-mapping:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`
+   */
+  Arn: string;
+  /**
+   * @pattern `^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$`
+   */
+  CrossAccountRole?: string;
+  ExternalId?: string;
+};
+/**
  * Type definition for `AWS::ARCRegionSwitch::Plan.ExecutionApprovalConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionapprovalconfiguration.html}
  */
@@ -349,25 +364,29 @@ export type ExecutionBlockConfiguration =
     }
   | {
       RdsCreateCrossRegionReadReplicaConfig: RdsCreateCrossRegionReplicaConfiguration;
+    }
+  | {
+      LambdaEventSourceMappingConfig: LambdaEventSourceMappingConfiguration;
     };
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.ExecutionBlockType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-executionblocktype.html}
  */
 export type ExecutionBlockType =
-  | "CustomActionLambda"
-  | "ManualApproval"
-  | "AuroraGlobalDatabase"
-  | "EC2AutoScaling"
-  | "ARCRoutingControl"
   | "ARCRegionSwitchPlan"
-  | "Parallel"
+  | "ARCRoutingControl"
+  | "AuroraGlobalDatabase"
+  | "CustomActionLambda"
+  | "DocumentDb"
+  | "EC2AutoScaling"
   | "ECSServiceScaling"
   | "EKSResourceScaling"
-  | "Route53HealthCheck"
-  | "DocumentDb"
+  | "LambdaEventSourceMapping"
+  | "ManualApproval"
+  | "Parallel"
+  | "RdsCreateCrossRegionReplica"
   | "RdsPromoteReadReplica"
-  | "RdsCreateCrossRegionReplica";
+  | "Route53HealthCheck";
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.GlobalAuroraConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-globalauroraconfiguration.html}
@@ -434,6 +453,26 @@ export type KubernetesScalingResource = {
    * @pattern `^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$`
    */
   Namespace: string;
+};
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.LambdaEventSourceMappingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-lambdaeventsourcemappingconfiguration.html}
+ */
+export type LambdaEventSourceMappingConfiguration = {
+  Action: "enable" | "disable";
+  RegionEventSourceMappings: RegionEventSourceMappingMap;
+  /**
+   * @min `1`
+   */
+  TimeoutMinutes?: number;
+  Ungraceful?: LambdaEventSourceMappingUngraceful;
+};
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.LambdaEventSourceMappingUngraceful`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-lambdaeventsourcemappingungraceful.html}
+ */
+export type LambdaEventSourceMappingUngraceful = {
+  Behavior?: "skip";
 };
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.Lambdas`.
@@ -513,6 +552,11 @@ export type RegionalScalingResource = Record<string, KubernetesScalingResource>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regionandroutingcontrols.html}
  */
 export type RegionAndRoutingControls = Record<string, ArcRoutingControlState[]>;
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.RegionEventSourceMappingMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regioneventsourcemappingmap.html}
+ */
+export type RegionEventSourceMappingMap = Record<string, EventSourceMapping>;
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.RegionSwitchPlanConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regionswitchplanconfiguration.html}

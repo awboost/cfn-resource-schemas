@@ -1,5 +1,5 @@
 {
-  "$hash": "fd40a22e33adb836f9bbb9f39598d134910f9b47",
+  "$hash": "66d239b81e854026cde007007adb52319185905e",
   "$id": "aws-connect-evaluationform.json",
   "additionalProperties": false,
   "definitions": {
@@ -207,7 +207,6 @@
           "type": "array"
         }
       },
-      "required": ["Options"],
       "type": "object"
     },
     "EvaluationFormMultiSelectQuestionAutomationOption": {
@@ -484,7 +483,6 @@
           "type": "array"
         }
       },
-      "required": ["Options"],
       "type": "object"
     },
     "EvaluationFormSingleSelectQuestionAutomationOption": {

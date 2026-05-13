@@ -1,5 +1,5 @@
 {
-  "$hash": "46bfc86c133fe978cfd76beb4e895ba4ad89e377",
+  "$hash": "5800d189e7c5c04fa36067dbc3b0a3b29ab5f283",
   "$id": "aws-gamelift-gamesessionqueue.json",
   "$schema": "https://schema.cloudformation.us-east-1.amazonaws.com/provider.definition.schema.v1.json",
   "additionalProperties": false,
@@ -211,7 +211,7 @@
   "required": ["Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-gamelift.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "gamelift:ListTagsForResource",
       "gamelift:TagResource",
