@@ -7,7 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type CloudFrontKeyValueStoreProperties = {
   /**
-   * A comment for the key value store.
+   * A comment to describe the Key Value Store. Omitting ``Comment`` from the template during updates will clear the existing comment (set to empty string). To preserve an existing comment, you must explicitly include it in the template.
    */
   Comment?: string;
   /**
@@ -18,6 +18,9 @@ export type CloudFrontKeyValueStoreProperties = {
    * The name of the key value store.
    */
   Name: string;
+  /**
+   * A complex type that contains zero or more ``Tag`` elements.
+   */
   Tags?: Tag[];
 };
 /**
@@ -46,20 +49,25 @@ export type ImportSource = {
 };
 /**
  * Type definition for `AWS::CloudFront::KeyValueStore.Tag`.
+ * A complex type that contains ``Tag`` key and ``Tag`` value.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keyvaluestore-tag.html}
  */
 export type Tag = {
   /**
-   * @minLength `1`
-   * @maxLength `128`
-   * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
-   */
+     * A string that contains ``Tag`` key.
+     The string length should be between 1 and 128 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
+     * @minLength `1`
+     * @maxLength `128`
+     * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+     */
   Key: string;
   /**
-   * @minLength `0`
-   * @maxLength `256`
-   * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
-   */
+     * A string that contains an optional ``Tag`` value.
+     The string length should be between 0 and 256 characters. Valid characters include ``a-z``, ``A-Z``, ``0-9``, space, and the special characters ``_ - . : / = + @``.
+     * @minLength `0`
+     * @maxLength `256`
+     * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+     */
   Value: string;
 };
 /**

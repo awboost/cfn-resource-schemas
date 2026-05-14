@@ -1352,7 +1352,11 @@ export type SpeechModelConfig = {
  * Type definition for `AWS::Lex::Bot.SpeechModelPreference`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-speechmodelpreference.html}
  */
-export type SpeechModelPreference = "Standard" | "Neural" | "Deepgram";
+export type SpeechModelPreference =
+  | "Standard"
+  | "Neural"
+  | "Deepgram"
+  | "Enhanced";
 /**
  * Type definition for `AWS::Lex::Bot.SpeechRecognitionSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-speechrecognitionsettings.html}

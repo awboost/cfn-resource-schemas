@@ -1,31 +1,40 @@
-- updated `AWS::ARCRegionSwitch::Plan`
-  - added definition `EventSourceMapping`
-  - added definition `LambdaEventSourceMappingConfiguration`
-  - added definition `LambdaEventSourceMappingUngraceful`
-  - added definition `RegionEventSourceMappingMap`
-  - updated definition `ExecutionBlockConfiguration`
-  - updated definition `ExecutionBlockType`
-- updated `AWS::AutoScaling::LaunchConfiguration`
+- updated `AWS::CloudFront::Distribution`
+  - updated definition `LegacyS3Origin`
+- updated `AWS::CloudFront::KeyValueStore`
+  - updated definition `Tag`
+  - updated property `Comment`
+  - updated property `Tags`
+- updated `AWS::CloudFront::TrustStore`
+  - updated property `UseClientCertificateOCSPEndpoint`
+- updated `AWS::CloudWatch::Dashboard`
+  - added property `Tags`
+  - updated `tagging`
+  - updated definition `undefined`
+  - updated handler permissions
+- updated `AWS::DevOpsAgent::Association`
+  - added definition `MCPServerGrafanaConfiguration`
   - updated `writeOnlyProperties`
-- updated `AWS::Connect::EvaluationForm`
-  - updated definition `EvaluationFormMultiSelectQuestionAutomation`
-  - updated definition `EvaluationFormSingleSelectQuestionAutomation`
-- updated `AWS::EC2::TransitGatewayMeteringPolicy`
-  - updated `tagging`
-- updated `AWS::GameLift::ContainerFleet`
-  - updated `tagging`
-- updated `AWS::GameLift::ContainerGroupDefinition`
-  - updated `tagging`
-- updated `AWS::GameLift::GameServerGroup`
-  - updated `tagging`
+  - updated definition `MCPServerConfiguration`
+  - updated definition `MCPServerDatadogConfiguration`
+  - updated definition `MCPServerSplunkConfiguration`
+  - updated definition `ServiceConfiguration`
+- updated `AWS::DevOpsAgent::Service`
+  - updated `createOnlyProperties`
+  - updated definition `ServiceDetails`
   - updated handler permissions
-- updated `AWS::GameLift::GameSessionQueue`
-  - updated `tagging`
-- updated `AWS::GameLift::MatchmakingConfiguration`
-  - updated `tagging`
-- updated `AWS::GameLift::MatchmakingRuleSet`
-  - updated `tagging`
-- updated `AWS::GameLift::Script`
-  - updated `tagging`
-- updated `AWS::StepFunctions::StateMachine`
+- updated `AWS::ECS::DaemonTaskDefinition`
+  - updated definition `LinuxParameters`
+  - updated definition `Volume`
+- updated `AWS::ECS::Service`
+  - updated definition `DeploymentLifecycleHook`
+- updated `AWS::ElastiCache::ReplicationGroup`
+  - updated `createOnlyProperties`
+  - updated `writeOnlyProperties`
   - updated handler permissions
+  - updated property `ReplicasPerNodeGroup`
+- updated `AWS::Lex::Bot`
+  - updated definition `SpeechModelPreference`
+- updated `AWS::Signer::ProfilePermission`
+- updated `AWS::WorkSpacesWeb::IpAccessSettings`
+  - added definition `Unit`
+  - updated definition `IpRule`

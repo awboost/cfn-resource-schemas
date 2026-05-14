@@ -1,10 +1,17 @@
 {
-  "$hash": "ba8ff6d0d9cf41f3c27e96675b19cdd2e8ba8a8c",
+  "$hash": "b0f7cd32cccc8028ec977f5d52db213e4ae66d33",
   "$id": "aws-devopsagent-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ServiceType",
-    "/properties/ServiceDetails",
+    "/properties/ServiceDetails/Dynatrace",
+    "/properties/ServiceDetails/MCPServer",
+    "/properties/ServiceDetails/MCPServerSplunk",
+    "/properties/ServiceDetails/MCPServerNewRelic",
+    "/properties/ServiceDetails/GitLab",
+    "/properties/ServiceDetails/ServiceNow",
+    "/properties/ServiceDetails/PagerDuty",
+    "/properties/ServiceDetails/AzureIdentity",
     "/properties/KmsKeyArn"
   ],
   "definitions": {
@@ -665,7 +672,7 @@
       "type": "object"
     },
     "ServiceDetails": {
-      "description": "Service-specific configuration details",
+      "description": "Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified",
       "oneOf": [
         {
           "additionalProperties": false,
@@ -833,6 +840,7 @@
     },
     "update": {
       "permissions": [
+        "aidevops:UpdateService",
         "aidevops:GetService",
         "aidevops:TagResource",
         "aidevops:UntagResource",

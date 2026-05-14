@@ -1,8 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Resource type definition for `AWS::Signer::ProfilePermission`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::Signer::ProfilePermission
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html}
  */
 export type SignerProfilePermissionProperties = {
@@ -19,8 +18,7 @@ export type SignerProfilePermissionProperties = {
   StatementId: string;
 };
 /**
- * Resource type definition for `AWS::Signer::ProfilePermission`.
- * An example resource schema demonstrating some basic constructs and validation rules.
+ * Resource Type definition for AWS::Signer::ProfilePermission
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html}
  */
 export class SignerProfilePermission extends $Resource<

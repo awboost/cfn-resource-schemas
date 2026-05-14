@@ -1,5 +1,5 @@
 {
-  "$hash": "e5dba1b7e2fe63d81d7eed47c284bc8b738f4279",
+  "$hash": "e711498c90be9d5bce31fb1b5259fec628766ae1",
   "$id": "aws-signer-profilepermission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,7 +9,7 @@
     "/properties/StatementId",
     "/properties/ProfileVersion"
   ],
-  "description": "An example resource schema demonstrating some basic constructs and validation rules.",
+  "description": "Resource Type definition for AWS::Signer::ProfilePermission",
   "handlers": {
     "create": {
       "permissions": [

@@ -657,7 +657,7 @@ export type RegisteredServiceNowDetails = {
 };
 /**
  * Type definition for `AWS::DevOpsAgent::Service.ServiceDetails`.
- * Service-specific configuration details
+ * Service-specific configuration details - only MCPServerSigV4 supports in-place updates, all other service types require replacement when modified
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-servicedetails.html}
  */
 export type ServiceDetails =

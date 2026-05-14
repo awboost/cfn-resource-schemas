@@ -13,6 +13,30 @@ export type CloudWatchDashboardProperties = {
    * The name of the dashboard. The name must be between 1 and 255 characters. If you do not specify a name, one will be generated automatically.
    */
   DashboardName?: string;
+  /**
+   * A list of key-value pairs to associate with the cloudwatch dashboard. You can associate up to 50 tags with a dashboard
+   * @maxLength `50`
+   */
+  Tags?: Tag[];
+};
+/**
+ * Type definition for `AWS::CloudWatch::Dashboard.Tag`.
+ * Metadata that you can assign to a cloudwatch dashboard. Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-dashboard-tag.html}
+ */
+export type Tag = {
+  /**
+   * A unique identifier for the tag. The combination of tag keys and values can help you organize and categorize your resources.
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  Key: string;
+  /**
+   * The value for the specified tag key.
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Value: string;
 };
 /**
  * Resource Type definition for AWS::CloudWatch::Dashboard

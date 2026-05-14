@@ -1,5 +1,5 @@
 {
-  "$hash": "d392fa1286e866c28d5ed55c233a0917708bba29",
+  "$hash": "bc96ab1aac43abf8f5dd2aa812e928f9c3afff28",
   "$id": "aws-cloudfront-truststore.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -123,7 +123,10 @@
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array"
     },
-    "UseClientCertificateOCSPEndpoint": { "description": "", "type": "boolean" }
+    "UseClientCertificateOCSPEndpoint": {
+      "description": "A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.",
+      "type": "boolean"
+    }
   },
   "readOnlyProperties": [
     "/properties/Id",

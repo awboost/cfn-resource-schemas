@@ -1,5 +1,5 @@
 {
-  "$hash": "c800166284e08e5b9169cdf7904c6398a4806829",
+  "$hash": "88db843bfc8c6639defc04f16d539d1c72fe8010",
   "$id": "aws-cloudfront-distribution.json",
   "additionalProperties": false,
   "definitions": {
@@ -616,7 +616,7 @@
         },
         "OriginAccessIdentity": {
           "default": "",
-          "description": "The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.\n  This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.",
+          "description": "The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.\n  This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-originaccesscontrol.html) instead.",
           "type": "string"
         }
       },

@@ -67,7 +67,6 @@ export type IpRule = {
   Description?: string;
   /**
    * A single IP address or an IP address range in CIDR notation
-   * @pattern `^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?:/([0-9]|[12][0-9]|3[0-2])|)$`
    */
   IpRange: string;
 };

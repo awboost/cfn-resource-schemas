@@ -1,5 +1,5 @@
 {
-  "$hash": "523fd42155f76c11daf51cec4b9b6b4f5c5d4339",
+  "$hash": "d7346265d3fde2466bb78c42b4f24163937090c6",
   "$id": "aws-devopsagent-association.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentSpaceId"],
@@ -214,7 +214,7 @@
           "type": "array"
         }
       },
-      "required": ["Name", "Endpoint", "Tools"],
+      "required": ["Tools"],
       "type": "object"
     },
     "MCPServerDatadogConfiguration": {
@@ -240,7 +240,51 @@
           "type": "string"
         }
       },
-      "required": ["Name", "Endpoint"],
+      "type": "object"
+    },
+    "MCPServerGrafanaConfiguration": {
+      "additionalProperties": false,
+      "description": "Grafana MCP server configuration",
+      "properties": {
+        "EnableWebhookUpdates": {
+          "description": "When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service",
+          "type": "boolean"
+        },
+        "Endpoint": {
+          "description": "MCP server endpoint URL",
+          "pattern": "^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$",
+          "type": "string"
+        },
+        "Tools": {
+          "description": "List of tool categories to enable for the Grafana MCP server",
+          "items": {
+            "enum": [
+              "alerting",
+              "annotations",
+              "asserts",
+              "cloudwatch",
+              "dashboard",
+              "datasource",
+              "elasticsearch",
+              "examples",
+              "incident",
+              "loki",
+              "navigation",
+              "oncall",
+              "prometheus",
+              "pyroscope",
+              "rendering",
+              "runpanelquery",
+              "search",
+              "searchlogs",
+              "sift"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": ["Endpoint"],
       "type": "object"
     },
     "MCPServerNewRelicConfiguration": {
@@ -298,7 +342,6 @@
           "type": "string"
         }
       },
-      "required": ["Name", "Endpoint"],
       "type": "object"
     },
     "PagerDutyConfiguration": {
@@ -405,6 +448,15 @@
             }
           },
           "required": ["MCPServerNewRelic"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "MCPServerGrafana": {
+              "$ref": "#/definitions/MCPServerGrafanaConfiguration"
+            }
+          },
+          "required": ["MCPServerGrafana"]
         },
         {
           "additionalProperties": false,
@@ -633,6 +685,7 @@
     "/properties/Configuration/MCPServer/EnableWebhookUpdates",
     "/properties/Configuration/MCPServerDatadog/EnableWebhookUpdates",
     "/properties/Configuration/MCPServerSplunk/EnableWebhookUpdates",
+    "/properties/Configuration/MCPServerGrafana/EnableWebhookUpdates",
     "/properties/Configuration/GitLab/EnableWebhookUpdates",
     "/properties/Configuration/PagerDuty/EnableWebhookUpdates",
     "/properties/Configuration/EventChannel/EnableWebhookUpdates",

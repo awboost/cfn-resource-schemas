@@ -221,12 +221,12 @@ export type MCPServerConfiguration = {
    * MCP server endpoint URL
    * @pattern `^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$`
    */
-  Endpoint: string;
+  Endpoint?: string;
   /**
    * The name of the MCP server
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
-  Name: string;
+  Name?: string;
   /**
    * List of MCP tools that can be used with the association
    */
@@ -250,12 +250,52 @@ export type MCPServerDatadogConfiguration = {
    * MCP server endpoint URL
    * @pattern `^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$`
    */
-  Endpoint: string;
+  Endpoint?: string;
   /**
    * The name of the MCP server
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
-  Name: string;
+  Name?: string;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::Association.MCPServerGrafanaConfiguration`.
+ * Grafana MCP server configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-association-mcpservergrafanaconfiguration.html}
+ */
+export type MCPServerGrafanaConfiguration = {
+  /**
+   * When set to true, enables the Agent Space to create and update webhooks for receiving notifications and events from the service
+   */
+  EnableWebhookUpdates?: boolean;
+  /**
+   * MCP server endpoint URL
+   * @pattern `^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$`
+   */
+  Endpoint: string;
+  /**
+   * List of tool categories to enable for the Grafana MCP server
+   */
+  Tools?: (
+    | "alerting"
+    | "annotations"
+    | "asserts"
+    | "cloudwatch"
+    | "dashboard"
+    | "datasource"
+    | "elasticsearch"
+    | "examples"
+    | "incident"
+    | "loki"
+    | "navigation"
+    | "oncall"
+    | "prometheus"
+    | "pyroscope"
+    | "rendering"
+    | "runpanelquery"
+    | "search"
+    | "searchlogs"
+    | "sift"
+  )[];
 };
 /**
  * Type definition for `AWS::DevOpsAgent::Association.MCPServerNewRelicConfiguration`.
@@ -304,12 +344,12 @@ export type MCPServerSplunkConfiguration = {
    * MCP server endpoint URL
    * @pattern `^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$`
    */
-  Endpoint: string;
+  Endpoint?: string;
   /**
    * The name of the MCP server
    * @pattern `^[a-zA-Z0-9_-]+$`
    */
-  Name: string;
+  Name?: string;
 };
 /**
  * Type definition for `AWS::DevOpsAgent::Association.PagerDutyConfiguration`.
@@ -401,6 +441,12 @@ export type ServiceConfiguration =
        * NewRelic MCP server configuration
        */
       MCPServerNewRelic: MCPServerNewRelicConfiguration;
+    }
+  | {
+      /**
+       * Grafana MCP server configuration
+       */
+      MCPServerGrafana: MCPServerGrafanaConfiguration;
     }
   | {
       /**

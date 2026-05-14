@@ -110,8 +110,10 @@ export type ElastiCacheReplicationGroupProperties = {
    */
   PrimaryClusterId?: string;
   /**
-   * An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
-   */
+     * An optional parameter that specifies the number of replica nodes in each node group (shard). Valid values are 0 to 5.
+    
+    **Note:** Using ReplicasPerNodeGroup with NodeGroupConfiguration results in resource replacement. For online scaling, use ReplicasPerNodeGroup alone.
+     */
   ReplicasPerNodeGroup?: number;
   /**
    * A user-created description for the replication group.

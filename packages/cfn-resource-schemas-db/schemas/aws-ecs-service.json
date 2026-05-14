@@ -1,5 +1,5 @@
 {
-  "$hash": "a8473d0aefbc3d5d053356737f6c8fa93459bd4e",
+  "$hash": "6efe848d15e739deac3226f7e3ce7fa4bf70795e",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/LaunchType"],
@@ -214,6 +214,7 @@
               "POST_SCALE_UP",
               "TEST_TRAFFIC_SHIFT",
               "POST_TEST_TRAFFIC_SHIFT",
+              "PRE_PRODUCTION_TRAFFIC_SHIFT",
               "PRODUCTION_TRAFFIC_SHIFT",
               "POST_PRODUCTION_TRAFFIC_SHIFT"
             ],
@@ -225,9 +226,10 @@
         "RoleArn": {
           "description": "The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.\n For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.",
           "type": "string"
-        }
+        },
+        "TimeoutConfiguration": { "description": "" }
       },
-      "required": ["HookTargetArn", "RoleArn", "LifecycleStages"],
+      "required": ["LifecycleStages"],
       "type": "object"
     },
     "EBSTagSpecification": {

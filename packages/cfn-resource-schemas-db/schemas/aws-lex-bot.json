@@ -1,5 +1,5 @@
 {
-  "$hash": "fd8dad7a1ec9ac1f19c40eb6d9c18e9754eaa81c",
+  "$hash": "5b8a315903d71f4fc0e78adbeabe389e1d828675",
   "$id": "aws-lex-bot.json",
   "additionalProperties": false,
   "definitions": {
@@ -1484,7 +1484,7 @@
       "type": "object"
     },
     "SpeechModelPreference": {
-      "enum": ["Standard", "Neural", "Deepgram"],
+      "enum": ["Standard", "Neural", "Deepgram", "Enhanced"],
       "type": "string"
     },
     "SpeechRecognitionSettings": {

@@ -466,7 +466,7 @@ export type DeploymentLifecycleHook = {
      * The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
      You must provide this parameter when configuring a deployment lifecycle hook.
      */
-  HookTargetArn: string;
+  HookTargetArn?: string;
   /**
      * The lifecycle stages at which to run the hook. Choose from these valid values:
       +  RECONCILE_SERVICE
@@ -500,6 +500,7 @@ export type DeploymentLifecycleHook = {
     | "POST_SCALE_UP"
     | "TEST_TRAFFIC_SHIFT"
     | "POST_TEST_TRAFFIC_SHIFT"
+    | "PRE_PRODUCTION_TRAFFIC_SHIFT"
     | "PRODUCTION_TRAFFIC_SHIFT"
     | "POST_PRODUCTION_TRAFFIC_SHIFT"
   )[];
@@ -507,7 +508,8 @@ export type DeploymentLifecycleHook = {
      * The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.
      For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
-  RoleArn: string;
+  RoleArn?: string;
+  TimeoutConfiguration?: any;
 };
 /**
  * Type definition for `AWS::ECS::Service.EBSTagSpecification`.

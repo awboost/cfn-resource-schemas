@@ -18,6 +18,9 @@ export type CloudFrontTrustStoreProperties = {
    * A complex type that contains zero or more ``Tag`` elements.
    */
   Tags?: Tag[];
+  /**
+   * A boolean. When true, performs real-time certificate revocation checks by querying the OCSP endpoint specified within the client certificate.
+   */
   UseClientCertificateOCSPEndpoint?: boolean;
 };
 /**

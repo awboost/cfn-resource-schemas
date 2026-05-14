@@ -1,5 +1,5 @@
 {
-  "$hash": "59dc1ee0483c8cf23a19c07ddd8e0ba99dd86a38",
+  "$hash": "d3cba9db0866d6fbe5158d164e44aa4fda5585db",
   "$id": "aws-workspacesweb-ipaccesssettings.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -30,7 +30,6 @@
         },
         "IpRange": {
           "description": "A single IP address or an IP address range in CIDR notation",
-          "pattern": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}(?:/([0-9]|[12][0-9]|3[0-2])|)$",
           "type": "string"
         }
       },
@@ -55,7 +54,8 @@
       },
       "required": ["Key", "Value"],
       "type": "object"
-    }
+    },
+    "Unit": { "additionalProperties": false, "type": "object" }
   },
   "description": "Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type",
   "handlers": {
