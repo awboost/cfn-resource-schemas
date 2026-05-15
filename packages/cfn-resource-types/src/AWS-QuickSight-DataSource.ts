@@ -417,6 +417,7 @@ export type DataSourceType =
   | "DB2_AS400"
   | "EXASOL"
   | "FILE"
+  | "FULLY_MANAGED_KNOWLEDGE_BASE"
   | "GITHUB"
   | "INTERNATIONAL_DATA_CORPORATION"
   | "JIRA"
@@ -454,7 +455,8 @@ export type DataSourceType =
   | "SHAREPOINT"
   | "ONE_DRIVE"
   | "WEB_CRAWLER"
-  | "BOX";
+  | "BOX"
+  | "GOOGLESHEETS";
 /**
  * Type definition for `AWS::QuickSight::DataSource.IdentityCenterConfiguration`.
  * <p>The parameters for an IAM Identity Center configuration.</p>
@@ -760,7 +762,7 @@ export type ResourcePermission = {
   /**
    * <p>The IAM action to grant or revoke permissions on.</p>
    * @minLength `1`
-   * @maxLength `20`
+   * @maxLength `30`
    */
   Actions: string[];
   /**

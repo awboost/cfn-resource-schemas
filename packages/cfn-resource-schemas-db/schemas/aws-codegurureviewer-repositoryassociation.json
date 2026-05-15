@@ -1,5 +1,5 @@
 {
-  "$hash": "13fc29b73a9b6fe041ce366fc79503899c458de5",
+  "$hash": "7a37dd427a0d938ea7acdb8dbf83015596edcdc3",
   "$id": "aws-codegurureviewer-repositoryassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -137,5 +137,6 @@
     "tagUpdatable": false,
     "taggable": true
   },
-  "typeName": "AWS::CodeGuruReviewer::RepositoryAssociation"
+  "typeName": "AWS::CodeGuruReviewer::RepositoryAssociation",
+  "writeOnlyProperties": ["/properties/Owner", "/properties/ConnectionArn"]
 }

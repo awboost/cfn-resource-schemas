@@ -1,5 +1,5 @@
 {
-  "$hash": "b21385f83063ef6df9219e26262510cec7e8d293",
+  "$hash": "fb5d58526f1defe904d632090e5f169db968cddc",
   "$id": "aws-s3express-directorybucket.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -153,6 +153,7 @@
           "type": "string"
         }
       },
+      "required": ["Id"],
       "type": "object"
     },
     "Rule": {

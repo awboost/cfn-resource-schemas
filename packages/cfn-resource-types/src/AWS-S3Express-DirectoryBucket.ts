@@ -165,7 +165,7 @@ export type MetricsConfiguration = {
   /**
    * The ID used to identify the metrics configuration.
    */
-  Id?: string;
+  Id: string;
   /**
    * The prefix used when evaluating a metrics filter.
    */

@@ -1,9 +1,16 @@
 {
-  "$hash": "2173ca753d52490b739ab462c04608c797cfb5f8",
+  "$hash": "731ef80755264481a182bc50ea1eb48ed1547073",
   "$id": "aws-quicksight-dataset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AwsAccountId", "/properties/DataSetId"],
   "definitions": {
+    "AdditionalNotes": {
+      "additionalProperties": false,
+      "properties": {
+        "Text": { "maxLength": 2000, "minLength": 0, "type": "string" }
+      },
+      "type": "object"
+    },
     "AggregateOperation": {
       "additionalProperties": false,
       "properties": {
@@ -173,6 +180,22 @@
       },
       "type": "object"
     },
+    "ColumnSemanticProperty": {
+      "additionalProperties": false,
+      "properties": {
+        "AdditionalNotes": { "$ref": "#/definitions/AdditionalNotes" },
+        "Description": { "$ref": "#/definitions/ColumnDescription" },
+        "SemanticType": { "$ref": "#/definitions/ColumnSemanticType" }
+      },
+      "type": "object"
+    },
+    "ColumnSemanticType": {
+      "additionalProperties": false,
+      "properties": {
+        "GeographicalRole": { "$ref": "#/definitions/GeoSpatialDataRole" }
+      },
+      "type": "object"
+    },
     "ColumnTag": {
       "additionalProperties": false,
       "description": "<p>A tag for a column in a\n            <code>\n               <a href=\"https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html\">TagColumnOperation</a>\n            </code>\n            structure. This is a\n            variant type structure. For this structure to be valid, only one of the attributes can\n            be non-null.</p>",
@@ -209,6 +232,15 @@
         "Source": { "$ref": "#/definitions/TransformOperationSource" }
       },
       "required": ["Columns"],
+      "type": "object"
+    },
+    "CustomInstruction": {
+      "additionalProperties": false,
+      "properties": {
+        "InlineCustomInstruction": {
+          "$ref": "#/definitions/InlineCustomInstruction"
+        }
+      },
       "type": "object"
     },
     "CustomSql": {
@@ -331,7 +363,11 @@
     "DataSetColumnIdMapping": {
       "additionalProperties": false,
       "properties": {
-        "SourceColumnId": { "maxLength": 64, "minLength": 1, "type": "string" },
+        "SourceColumnId": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
         "TargetColumnId": { "maxLength": 64, "minLength": 1, "type": "string" }
       },
       "required": ["SourceColumnId", "TargetColumnId"],
@@ -444,6 +480,27 @@
           "$ref": "#/definitions/RefreshFailureConfiguration"
         },
         "RefreshConfiguration": { "$ref": "#/definitions/RefreshConfiguration" }
+      },
+      "type": "object"
+    },
+    "DataSetSemanticDescription": {
+      "additionalProperties": false,
+      "properties": {
+        "Text": { "maxLength": 500, "minLength": 1, "type": "string" }
+      },
+      "required": ["Text"],
+      "type": "object"
+    },
+    "DataSetSemanticMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "CustomInstructions": {
+          "items": { "$ref": "#/definitions/CustomInstruction" },
+          "maxItems": 2,
+          "minItems": 1,
+          "type": "array"
+        },
+        "Description": { "$ref": "#/definitions/DataSetSemanticDescription" }
       },
       "type": "object"
     },
@@ -835,11 +892,26 @@
       },
       "type": "object"
     },
+    "InlineCustomInstruction": {
+      "additionalProperties": false,
+      "properties": {
+        "InstructionText": {
+          "maxLength": 50000,
+          "minLength": 0,
+          "type": "string"
+        },
+        "UploadedDocumentMetadata": {
+          "$ref": "#/definitions/UploadedDocumentMetadata"
+        }
+      },
+      "required": ["InstructionText"],
+      "type": "object"
+    },
     "InputColumn": {
       "additionalProperties": false,
       "description": "<p>Metadata for a column that is used as the input of a transform operation.</p>",
       "properties": {
-        "Id": { "maxLength": 64, "minLength": 1, "type": "string" },
+        "Id": { "maxLength": 256, "minLength": 1, "type": "string" },
         "Name": {
           "description": "<p>The name of this column in the underlying data source.</p>",
           "maxLength": 127,
@@ -1398,7 +1470,7 @@
         "Actions": {
           "description": "<p>The IAM action to grant or revoke permissions on.</p>",
           "items": { "type": "string" },
-          "maxItems": 20,
+          "maxItems": 30,
           "minItems": 1,
           "type": "array"
         },
@@ -1559,6 +1631,12 @@
     "SemanticModelConfiguration": {
       "additionalProperties": false,
       "properties": {
+        "SemanticMetadata": {
+          "items": { "$ref": "#/definitions/DataSetSemanticMetadata" },
+          "maxItems": 1,
+          "minItems": 1,
+          "type": "array"
+        },
         "TableMap": { "$ref": "#/definitions/SemanticTableMap" }
       },
       "type": "object"
@@ -1575,7 +1653,8 @@
         },
         "RowLevelPermissionConfiguration": {
           "$ref": "#/definitions/RowLevelPermissionConfiguration"
-        }
+        },
+        "SemanticMetadata": { "$ref": "#/definitions/TableSemanticMetadata" }
       },
       "required": ["Alias", "DestinationTableId"],
       "type": "object"
@@ -1587,6 +1666,24 @@
       "patternProperties": {
         "^[0-9a-zA-Z-]*$": { "$ref": "#/definitions/SemanticTable" }
       },
+      "type": "object"
+    },
+    "SharedColumnSemanticMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "ColumnNames": {
+          "items": { "type": "string" },
+          "minItems": 1,
+          "type": "array"
+        },
+        "ColumnProperties": {
+          "items": { "$ref": "#/definitions/ColumnSemanticProperty" },
+          "maxItems": 3,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["ColumnProperties"],
       "type": "object"
     },
     "SourceTable": {
@@ -1662,6 +1759,18 @@
       "properties": {
         "Id": { "maxLength": 256, "minLength": 1, "type": "string" },
         "Name": { "maxLength": 256, "minLength": 1, "type": "string" }
+      },
+      "type": "object"
+    },
+    "TableSemanticMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "ColumnMetadata": {
+          "items": { "$ref": "#/definitions/SharedColumnSemanticMetadata" },
+          "maxItems": 2000,
+          "minItems": 1,
+          "type": "array"
+        }
       },
       "type": "object"
     },
@@ -1890,6 +1999,13 @@
           "type": "number"
         },
         "TextQualifier": { "$ref": "#/definitions/TextQualifier" }
+      },
+      "type": "object"
+    },
+    "UploadedDocumentMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "Name": { "maxLength": 127, "minLength": 1, "type": "string" }
       },
       "type": "object"
     },

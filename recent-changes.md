@@ -1,40 +1,37 @@
-- updated `AWS::CloudFront::Distribution`
-  - updated definition `LegacyS3Origin`
-- updated `AWS::CloudFront::KeyValueStore`
-  - updated definition `Tag`
-  - updated property `Comment`
-  - updated property `Tags`
-- updated `AWS::CloudFront::TrustStore`
-  - updated property `UseClientCertificateOCSPEndpoint`
-- updated `AWS::CloudWatch::Dashboard`
-  - added property `Tags`
+- updated `AWS::Batch::ConsumableResource`
+  - updated `createOnlyProperties`
   - updated `tagging`
-  - updated definition `undefined`
   - updated handler permissions
-- updated `AWS::DevOpsAgent::Association`
-  - added definition `MCPServerGrafanaConfiguration`
-  - updated `writeOnlyProperties`
-  - updated definition `MCPServerConfiguration`
-  - updated definition `MCPServerDatadogConfiguration`
-  - updated definition `MCPServerSplunkConfiguration`
-  - updated definition `ServiceConfiguration`
-- updated `AWS::DevOpsAgent::Service`
+- updated `AWS::Batch::JobQueue`
   - updated `createOnlyProperties`
-  - updated definition `ServiceDetails`
+  - updated `tagging`
   - updated handler permissions
-- updated `AWS::ECS::DaemonTaskDefinition`
-  - updated definition `LinuxParameters`
-  - updated definition `Volume`
-- updated `AWS::ECS::Service`
-  - updated definition `DeploymentLifecycleHook`
-- updated `AWS::ElastiCache::ReplicationGroup`
+- updated `AWS::Batch::SchedulingPolicy`
   - updated `createOnlyProperties`
-  - updated `writeOnlyProperties`
+  - updated `tagging`
   - updated handler permissions
-  - updated property `ReplicasPerNodeGroup`
-- updated `AWS::Lex::Bot`
-  - updated definition `SpeechModelPreference`
-- updated `AWS::Signer::ProfilePermission`
-- updated `AWS::WorkSpacesWeb::IpAccessSettings`
-  - added definition `Unit`
-  - updated definition `IpRule`
+- updated `AWS::CodeGuruReviewer::RepositoryAssociation`
+  - added `writeOnlyProperties`
+- updated `AWS::PCS::ComputeNodeGroup`
+  - updated property `PurchaseOption`
+- updated `AWS::QuickSight::DataSet`
+  - added definition `AdditionalNotes`
+  - added definition `ColumnSemanticProperty`
+  - added definition `ColumnSemanticType`
+  - added definition `CustomInstruction`
+  - added definition `DataSetSemanticDescription`
+  - added definition `DataSetSemanticMetadata`
+  - added definition `InlineCustomInstruction`
+  - added definition `SharedColumnSemanticMetadata`
+  - added definition `TableSemanticMetadata`
+  - added definition `UploadedDocumentMetadata`
+  - updated definition `DataSetColumnIdMapping`
+  - updated definition `InputColumn`
+  - updated definition `ResourcePermission`
+  - updated definition `SemanticModelConfiguration`
+  - updated definition `SemanticTable`
+- updated `AWS::QuickSight::DataSource`
+  - updated definition `DataSourceType`
+  - updated definition `ResourcePermission`
+- updated `AWS::S3Express::DirectoryBucket`
+  - updated definition `MetricsConfiguration`

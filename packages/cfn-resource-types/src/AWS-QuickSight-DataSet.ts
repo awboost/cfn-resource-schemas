@@ -138,6 +138,17 @@ export type QuickSightDataSetAttributes = {
   }[];
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.AdditionalNotes`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-additionalnotes.html}
+ */
+export type AdditionalNotes = {
+  /**
+   * @minLength `0`
+   * @maxLength `2000`
+   */
+  Text?: string;
+};
+/**
  * Type definition for `AWS::QuickSight::DataSet.AggregateOperation`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-aggregateoperation.html}
  */
@@ -336,6 +347,25 @@ export type ColumnLevelPermissionRule = {
   Principals?: string[];
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.ColumnSemanticProperty`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnsemanticproperty.html}
+ */
+export type ColumnSemanticProperty = {
+  AdditionalNotes?: AdditionalNotes;
+  /**
+   * <p>Metadata that contains a description for a column.</p>
+   */
+  Description?: ColumnDescription;
+  SemanticType?: ColumnSemanticType;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.ColumnSemanticType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnsemantictype.html}
+ */
+export type ColumnSemanticType = {
+  GeographicalRole?: GeoSpatialDataRole;
+};
+/**
  * Type definition for `AWS::QuickSight::DataSet.ColumnTag`.
  * <p>A tag for a column in a
             <code>
@@ -393,6 +423,13 @@ export type CreateColumnsOperation = {
    */
   Columns: CalculatedColumn[];
   Source?: TransformOperationSource;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.CustomInstruction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-custominstruction.html}
+ */
+export type CustomInstruction = {
+  InlineCustomInstruction?: InlineCustomInstruction;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.CustomSql`.
@@ -503,7 +540,7 @@ export type DataPrepSimpleAggregationFunctionType =
 export type DataSetColumnIdMapping = {
   /**
    * @minLength `1`
-   * @maxLength `64`
+   * @maxLength `256`
    */
   SourceColumnId: string;
   /**
@@ -652,6 +689,29 @@ export type DataSetRefreshProperties = {
    * <p>The refresh configuration of a dataset.</p>
    */
   RefreshConfiguration?: RefreshConfiguration;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetSemanticDescription`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetsemanticdescription.html}
+ */
+export type DataSetSemanticDescription = {
+  /**
+   * @minLength `1`
+   * @maxLength `500`
+   */
+  Text: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.DataSetSemanticMetadata`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetsemanticmetadata.html}
+ */
+export type DataSetSemanticMetadata = {
+  /**
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  CustomInstructions?: CustomInstruction[];
+  Description?: DataSetSemanticDescription;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.DataSetStringComparisonFilterCondition`.
@@ -1012,6 +1072,18 @@ export type IngestionWaitPolicy = {
   WaitForSpiceIngestion?: boolean;
 };
 /**
+ * Type definition for `AWS::QuickSight::DataSet.InlineCustomInstruction`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inlinecustominstruction.html}
+ */
+export type InlineCustomInstruction = {
+  /**
+   * @minLength `0`
+   * @maxLength `50000`
+   */
+  InstructionText: string;
+  UploadedDocumentMetadata?: UploadedDocumentMetadata;
+};
+/**
  * Type definition for `AWS::QuickSight::DataSet.InputColumn`.
  * <p>Metadata for a column that is used as the input of a transform operation.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html}
@@ -1019,7 +1091,7 @@ export type IngestionWaitPolicy = {
 export type InputColumn = {
   /**
    * @minLength `1`
-   * @maxLength `64`
+   * @maxLength `256`
    */
   Id?: string;
   /**
@@ -1584,7 +1656,7 @@ export type ResourcePermission = {
   /**
    * <p>The IAM action to grant or revoke permissions on.</p>
    * @minLength `1`
-   * @maxLength `20`
+   * @maxLength `30`
    */
   Actions: string[];
   /**
@@ -1758,6 +1830,11 @@ export type SaaSTable = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semanticmodelconfiguration.html}
  */
 export type SemanticModelConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  SemanticMetadata?: DataSetSemanticMetadata[];
   TableMap?: SemanticTableMap;
 };
 /**
@@ -1777,12 +1854,28 @@ export type SemanticTable = {
    */
   DestinationTableId: string;
   RowLevelPermissionConfiguration?: RowLevelPermissionConfiguration;
+  SemanticMetadata?: TableSemanticMetadata;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.SemanticTableMap`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-semantictablemap.html}
  */
 export type SemanticTableMap = Record<string, SemanticTable>;
+/**
+ * Type definition for `AWS::QuickSight::DataSet.SharedColumnSemanticMetadata`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-sharedcolumnsemanticmetadata.html}
+ */
+export type SharedColumnSemanticMetadata = {
+  /**
+   * @minLength `1`
+   */
+  ColumnNames?: string[];
+  /**
+   * @minLength `1`
+   * @maxLength `3`
+   */
+  ColumnProperties: ColumnSemanticProperty[];
+};
 /**
  * Type definition for `AWS::QuickSight::DataSet.SourceTable`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-sourcetable.html}
@@ -1860,6 +1953,17 @@ export type TablePathElement = {
    * @maxLength `256`
    */
   Name?: string;
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.TableSemanticMetadata`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tablesemanticmetadata.html}
+ */
+export type TableSemanticMetadata = {
+  /**
+   * @minLength `1`
+   * @maxLength `2000`
+   */
+  ColumnMetadata?: SharedColumnSemanticMetadata[];
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.Tag`.
@@ -2075,6 +2179,17 @@ export type UntagColumnOperation = {
    * <p>The column tags to remove from this column.</p>
    */
   TagNames: ColumnTagName[];
+};
+/**
+ * Type definition for `AWS::QuickSight::DataSet.UploadedDocumentMetadata`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadeddocumentmetadata.html}
+ */
+export type UploadedDocumentMetadata = {
+  /**
+   * @minLength `1`
+   * @maxLength `127`
+   */
+  Name?: string;
 };
 /**
  * Type definition for `AWS::QuickSight::DataSet.UploadSettings`.

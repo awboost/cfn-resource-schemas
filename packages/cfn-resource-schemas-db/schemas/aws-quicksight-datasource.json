@@ -1,5 +1,5 @@
 {
-  "$hash": "01c89995a9d55ae6263fad1f827de5b71309ec34",
+  "$hash": "cfbb4c2236879be290d8248a7cbac8f1d0f7aca3",
   "$id": "aws-quicksight-datasource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -255,6 +255,7 @@
         "DB2_AS400",
         "EXASOL",
         "FILE",
+        "FULLY_MANAGED_KNOWLEDGE_BASE",
         "GITHUB",
         "INTERNATIONAL_DATA_CORPORATION",
         "JIRA",
@@ -292,7 +293,8 @@
         "SHAREPOINT",
         "ONE_DRIVE",
         "WEB_CRAWLER",
-        "BOX"
+        "BOX",
+        "GOOGLESHEETS"
       ],
       "type": "string"
     },
@@ -650,7 +652,7 @@
         "Actions": {
           "description": "<p>The IAM action to grant or revoke permissions on.</p>",
           "items": { "type": "string" },
-          "maxItems": 20,
+          "maxItems": 30,
           "minItems": 1,
           "type": "array"
         },
