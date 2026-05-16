@@ -1,5 +1,5 @@
 {
-  "$hash": "1448f889ac94c361a78390748f1f12389da72619",
+  "$hash": "498a6c097f409cfeffe5c64740da18b0e2b6e07f",
   "$id": "aws-entityresolution-matchingworkflow.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/WorkflowName"],
@@ -15,11 +15,13 @@
       "type": "string"
     },
     "CustomerProfilesDomainArn": {
+      "description": "The Amazon Resource Name (ARN) of the Customer Profiles domain",
       "pattern": "^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255})$",
       "type": "string"
     },
     "CustomerProfilesIntegrationConfig": {
       "additionalProperties": false,
+      "description": "The Customer Profiles integration configuration for the output source",
       "properties": {
         "DomainArn": { "$ref": "#/definitions/CustomerProfilesDomainArn" },
         "ObjectTypeArn": {
@@ -30,6 +32,7 @@
       "type": "object"
     },
     "CustomerProfilesObjectTypeArn": {
+      "description": "The Amazon Resource Name (ARN) of the Customer Profiles object type",
       "pattern": "^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255}/object-types/[a-zA-Z_0-9-]{1,255})$",
       "type": "string"
     },
@@ -79,6 +82,17 @@
     "KMSArn": {
       "pattern": "^arn:(aws|aws-us-gov|aws-cn):kms:.*:[0-9]+:.*$",
       "type": "string"
+    },
+    "MatchingConfig": {
+      "additionalProperties": false,
+      "description": "Configuration for matching behavior within rule condition properties",
+      "properties": {
+        "EnableTransitiveMatching": {
+          "description": "Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
     },
     "MatchingWorkflowArn": {
       "description": "The default MatchingWorkflow arn",
@@ -207,6 +221,7 @@
     "RuleConditionProperties": {
       "additionalProperties": false,
       "properties": {
+        "MatchingConfig": { "$ref": "#/definitions/MatchingConfig" },
         "Rules": {
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/RuleCondition" },

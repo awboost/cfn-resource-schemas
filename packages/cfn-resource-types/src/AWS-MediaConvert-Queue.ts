@@ -7,6 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type MediaConvertQueueProperties = {
   ConcurrentJobs?: number;
   Description?: string;
+  MaximumConcurrentFeeds?: number;
   Name?: string;
   PricingPlan?: string;
   Status?: string;

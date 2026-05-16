@@ -165,6 +165,15 @@ export type ExplainerConfig = {
   ClarifyExplainerConfig?: ClarifyExplainerConfig;
 };
 /**
+ * Type definition for `AWS::SageMaker::EndpointConfig.InstancePools`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-instancepools.html}
+ */
+export type InstancePools = {
+  InstanceType: string;
+  ModelNameOverride?: string;
+  Priority: number;
+};
+/**
  * Type definition for `AWS::SageMaker::EndpointConfig.ManagedInstanceScaling`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-managedinstancescaling.html}
  */
@@ -184,12 +193,14 @@ export type ProductionVariant = {
   InferenceAmiVersion?: string;
   InitialInstanceCount?: number;
   InitialVariantWeight?: number;
+  InstancePools?: InstancePools[];
   InstanceType?: string;
   ManagedInstanceScaling?: ManagedInstanceScaling;
   ModelDataDownloadTimeoutInSeconds?: number;
   ModelName?: string;
   RoutingConfig?: RoutingConfig;
   ServerlessConfig?: ServerlessConfig;
+  VariantInstanceProvisionTimeoutInSeconds?: number;
   VariantName: string;
   VolumeSizeInGB?: number;
 };

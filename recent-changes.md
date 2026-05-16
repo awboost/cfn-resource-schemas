@@ -1,37 +1,14 @@
-- updated `AWS::Batch::ConsumableResource`
-  - updated `createOnlyProperties`
+- updated `AWS::EntityResolution::MatchingWorkflow`
+  - added definition `MatchingConfig`
+  - updated definition `CustomerProfilesDomainArn`
+  - updated definition `CustomerProfilesIntegrationConfig`
+  - updated definition `CustomerProfilesObjectTypeArn`
+  - updated definition `RuleConditionProperties`
+- updated `AWS::MediaConvert::Queue`
+  - added property `MaximumConcurrentFeeds`
+- updated `AWS::SageMaker::EndpointConfig`
+  - added definition `InstancePools`
+  - updated definition `ProductionVariant`
+- updated `AWS::SecurityHub::AutomationRule`
   - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Batch::JobQueue`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Batch::SchedulingPolicy`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::CodeGuruReviewer::RepositoryAssociation`
-  - added `writeOnlyProperties`
-- updated `AWS::PCS::ComputeNodeGroup`
-  - updated property `PurchaseOption`
-- updated `AWS::QuickSight::DataSet`
-  - added definition `AdditionalNotes`
-  - added definition `ColumnSemanticProperty`
-  - added definition `ColumnSemanticType`
-  - added definition `CustomInstruction`
-  - added definition `DataSetSemanticDescription`
-  - added definition `DataSetSemanticMetadata`
-  - added definition `InlineCustomInstruction`
-  - added definition `SharedColumnSemanticMetadata`
-  - added definition `TableSemanticMetadata`
-  - added definition `UploadedDocumentMetadata`
-  - updated definition `DataSetColumnIdMapping`
-  - updated definition `InputColumn`
-  - updated definition `ResourcePermission`
-  - updated definition `SemanticModelConfiguration`
-  - updated definition `SemanticTable`
-- updated `AWS::QuickSight::DataSource`
-  - updated definition `DataSourceType`
-  - updated definition `ResourcePermission`
-- updated `AWS::S3Express::DirectoryBucket`
-  - updated definition `MetricsConfiguration`
+  - updated definition `StringFilter`

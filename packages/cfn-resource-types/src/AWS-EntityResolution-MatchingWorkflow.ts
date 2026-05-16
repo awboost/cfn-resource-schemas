@@ -62,14 +62,17 @@ export type EntityResolutionMatchingWorkflowAttributes = {
 };
 /**
  * Type definition for `AWS::EntityResolution::MatchingWorkflow.CustomerProfilesIntegrationConfig`.
+ * The Customer Profiles integration configuration for the output source
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-customerprofilesintegrationconfig.html}
  */
 export type CustomerProfilesIntegrationConfig = {
   /**
+   * The Amazon Resource Name (ARN) of the Customer Profiles domain
    * @pattern `^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255})$`
    */
   DomainArn: string;
   /**
+   * The Amazon Resource Name (ARN) of the Customer Profiles object type
    * @pattern `^arn:(aws|aws-us-gov|aws-cn):profile:[a-z]{2}-[a-z]{1,10}-[0-9]:[0-9]{12}:(domains/[a-zA-Z_0-9-]{1,255}/object-types/[a-zA-Z_0-9-]{1,255})$`
    */
   ObjectTypeArn: string;
@@ -109,6 +112,17 @@ export type IntermediateSourceConfiguration = {
   IntermediateS3Path: string;
 };
 /**
+ * Type definition for `AWS::EntityResolution::MatchingWorkflow.MatchingConfig`.
+ * Configuration for matching behavior within rule condition properties
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-matchingconfig.html}
+ */
+export type MatchingConfig = {
+  /**
+   * Enables transitive matching to process records across all rule levels and connect unmatched records to existing match groups
+   */
+  EnableTransitiveMatching?: boolean;
+};
+/**
  * Type definition for `AWS::EntityResolution::MatchingWorkflow.OutputAttribute`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputattribute.html}
  */
@@ -127,6 +141,9 @@ export type OutputAttribute = {
  */
 export type OutputSource = {
   ApplyNormalization?: boolean;
+  /**
+   * The Customer Profiles integration configuration for the output source
+   */
   CustomerProfilesIntegrationConfig?: CustomerProfilesIntegrationConfig;
   /**
    * @pattern `^arn:(aws|aws-us-gov|aws-cn):kms:.*:[0-9]+:.*$`
@@ -221,6 +238,10 @@ export type RuleCondition = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-ruleconditionproperties.html}
  */
 export type RuleConditionProperties = {
+  /**
+   * Configuration for matching behavior within rule condition properties
+   */
+  MatchingConfig?: MatchingConfig;
   /**
    * @minLength `1`
    * @maxLength `25`

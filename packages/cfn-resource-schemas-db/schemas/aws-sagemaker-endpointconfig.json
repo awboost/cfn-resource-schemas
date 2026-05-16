@@ -1,5 +1,5 @@
 {
-  "$hash": "05ac319619aa1ed4f695d7d539b03f7e50dac33f",
+  "$hash": "8e83f04d0c2d26439f9a25ea0be95391ce6c03f5",
   "$id": "aws-sagemaker-endpointconfig.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -191,6 +191,16 @@
       },
       "type": "object"
     },
+    "InstancePools": {
+      "additionalProperties": false,
+      "properties": {
+        "InstanceType": { "type": "string" },
+        "ModelNameOverride": { "type": "string" },
+        "Priority": { "type": "integer" }
+      },
+      "required": ["Priority", "InstanceType"],
+      "type": "object"
+    },
     "ManagedInstanceScaling": {
       "additionalProperties": false,
       "properties": {
@@ -211,6 +221,11 @@
         "InferenceAmiVersion": { "type": "string" },
         "InitialInstanceCount": { "type": "integer" },
         "InitialVariantWeight": { "type": "number" },
+        "InstancePools": {
+          "items": { "$ref": "#/definitions/InstancePools" },
+          "type": "array",
+          "uniqueItems": false
+        },
         "InstanceType": { "type": "string" },
         "ManagedInstanceScaling": {
           "$ref": "#/definitions/ManagedInstanceScaling"
@@ -219,6 +234,7 @@
         "ModelName": { "type": "string" },
         "RoutingConfig": { "$ref": "#/definitions/RoutingConfig" },
         "ServerlessConfig": { "$ref": "#/definitions/ServerlessConfig" },
+        "VariantInstanceProvisionTimeoutInSeconds": { "type": "integer" },
         "VariantName": { "type": "string" },
         "VolumeSizeInGB": { "type": "integer" }
       },
