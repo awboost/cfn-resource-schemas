@@ -1,8 +1,9 @@
 {
-  "$hash": "c6136e0187f1907281eb7909cf60f913a160a25f",
+  "$hash": "2d25707777d55c7de9fdb2f6056fe7cd41e8dc75",
   "$id": "aws-batch-jobqueue.json",
   "additionalProperties": false,
   "createOnlyProperties": [
+    "/properties/Tags",
     "/properties/JobQueueName",
     "/properties/JobQueueType"
   ],
@@ -68,7 +69,7 @@
         "Batch:DescribeJobQueues",
         "Batch:UpdateJobQueue",
         "Batch:TagResource",
-        "Batch:UntagResource"
+        "Batch:UnTagResource"
       ]
     }
   },
@@ -112,11 +113,11 @@
   "readOnlyProperties": ["/properties/JobQueueArn"],
   "required": ["Priority"],
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": ["Batch:TagResource", "Batch:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": true,
+    "tagUpdatable": false,
     "taggable": true
   },
   "typeName": "AWS::Batch::JobQueue"

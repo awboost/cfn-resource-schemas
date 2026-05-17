@@ -1,14 +1,13 @@
-- updated `AWS::EntityResolution::MatchingWorkflow`
-  - added definition `MatchingConfig`
-  - updated definition `CustomerProfilesDomainArn`
-  - updated definition `CustomerProfilesIntegrationConfig`
-  - updated definition `CustomerProfilesObjectTypeArn`
-  - updated definition `RuleConditionProperties`
-- updated `AWS::MediaConvert::Queue`
-  - added property `MaximumConcurrentFeeds`
-- updated `AWS::SageMaker::EndpointConfig`
-  - added definition `InstancePools`
-  - updated definition `ProductionVariant`
-- updated `AWS::SecurityHub::AutomationRule`
+- added `AWS::BedrockAgentCore::Browser`
+- updated `AWS::Batch::ConsumableResource`
+  - updated `createOnlyProperties`
   - updated `tagging`
-  - updated definition `StringFilter`
+  - updated handler permissions
+- updated `AWS::Batch::JobQueue`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Batch::SchedulingPolicy`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated handler permissions
