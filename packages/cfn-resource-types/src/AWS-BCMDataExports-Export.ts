@@ -161,7 +161,7 @@ export type S3OutputConfigurations = {
  * Type definition for `AWS::BCMDataExports::Export.S3OutputType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-s3outputtype.html}
  */
-export type S3OutputType = "CUSTOM";
+export type S3OutputType = "CUSTOM" | "ATHENA" | "REDSHIFT";
 /**
  * Type definition for `AWS::BCMDataExports::Export.TableConfigurations`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bcmdataexports-export-tableconfigurations.html}

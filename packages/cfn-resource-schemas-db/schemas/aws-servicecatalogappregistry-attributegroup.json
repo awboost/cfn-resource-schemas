@@ -1,5 +1,5 @@
 {
-  "$hash": "75721248b803e276a5e5b6b8ac4cb461d63806a2",
+  "$hash": "87b4a133a9a5a5b09899751bf8556dbee164b547",
   "$id": "aws-servicecatalogappregistry-attributegroup.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -61,7 +61,7 @@
   "required": ["Name", "Attributes"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-servicecatalog-appregistry.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "servicecatalog:TagResource",
       "servicecatalog:UntagResource",

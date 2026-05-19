@@ -1,5 +1,5 @@
 {
-  "$hash": "db66b1f8a73ef16f486c972c5ccca745e548068c",
+  "$hash": "0cf3785e6eafaae6f003fefa4412bc0772452d5b",
   "$id": "aws-servicecatalogappregistry-attributegroupassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,7 +9,12 @@
   "description": "Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.",
   "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-appregistry-attributegroupassociation.html",
   "handlers": {
-    "create": { "permissions": ["servicecatalog:AssociateAttributeGroup"] },
+    "create": {
+      "permissions": [
+        "servicecatalog:AssociateAttributeGroup",
+        "servicecatalog:ListAssociatedAttributeGroups"
+      ]
+    },
     "delete": { "permissions": ["servicecatalog:DisassociateAttributeGroup"] },
     "list": {
       "handlerSchema": {
@@ -20,11 +25,9 @@
         },
         "required": ["ApplicationArn"]
       },
-      "permissions": ["servicecatalog:ListAttributeGroupsForApplication"]
+      "permissions": ["servicecatalog:ListAssociatedAttributeGroups"]
     },
-    "read": {
-      "permissions": ["servicecatalog:ListAttributeGroupsForApplication"]
-    }
+    "read": { "permissions": ["servicecatalog:ListAssociatedAttributeGroups"] }
   },
   "primaryIdentifier": [
     "/properties/ApplicationArn",

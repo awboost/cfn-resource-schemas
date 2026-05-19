@@ -1,5 +1,5 @@
 {
-  "$hash": "d51933ba3e30906069017eab22cb3bde688c0433",
+  "$hash": "9f5409ac379407f0bcc5b8c3253871c645fbc5e9",
   "$id": "aws-neptunegraph-graphsnapshot.json",
   "additionalIdentifiers": [["/properties/Id"]],
   "additionalProperties": false,
@@ -119,7 +119,7 @@
     "/properties/Status",
     "/properties/KmsKeyIdentifier"
   ],
-  "required": ["SnapshotName"],
+  "required": ["GraphIdentifier", "SnapshotName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-neptunegraph",
   "tagging": {
     "cloudFormationSystemTags": false,

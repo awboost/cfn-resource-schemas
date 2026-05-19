@@ -1,4 +1,8 @@
-- added `AWS::BedrockAgentCore::Browser`
+- added `AWS::BedrockAgentCore::PaymentCredentialProvider`
+- updated `AWS::BCMDataExports::Export`
+  - updated `createOnlyProperties`
+  - updated `tagging`
+  - updated definition `S3OutputType`
 - updated `AWS::Batch::ConsumableResource`
   - updated `createOnlyProperties`
   - updated `tagging`
@@ -10,4 +14,17 @@
 - updated `AWS::Batch::SchedulingPolicy`
   - updated `createOnlyProperties`
   - updated `tagging`
+  - updated handler permissions
+- updated `AWS::Cognito::UserPool`
+  - updated `tagging`
+- updated `AWS::NeptuneGraph::GraphSnapshot`
+  - updated `required`
+- updated `AWS::ServiceCatalogAppRegistry::Application`
+  - updated `tagging`
+  - updated property `ApplicationTagValue`
+- updated `AWS::ServiceCatalogAppRegistry::AttributeGroup`
+  - updated `tagging`
+- updated `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`
+  - updated handler permissions
+- updated `AWS::ServiceCatalogAppRegistry::ResourceAssociation`
   - updated handler permissions

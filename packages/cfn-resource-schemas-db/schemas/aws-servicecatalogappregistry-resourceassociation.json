@@ -1,5 +1,5 @@
 {
-  "$hash": "20376d51d3855bef17119ad21ea87abc3367aaaa",
+  "$hash": "82576d6f75f28055c8e0aa209712620f938bbfb7",
   "$id": "aws-servicecatalogappregistry-resourceassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -13,6 +13,7 @@
     "create": {
       "permissions": [
         "servicecatalog:AssociateResource",
+        "servicecatalog:ListAssociatedResources",
         "cloudformation:DescribeStacks"
       ]
     },

@@ -1,11 +1,10 @@
 {
-  "$hash": "469896558c3411b71c0ef2b1e367d6f6ade9a03c",
+  "$hash": "555c18b2890d32ae8955a9d54d58c55f9a18bda7",
   "$id": "aws-batch-consumableresource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/ConsumableResourceName",
-    "/properties/ResourceType",
-    "/properties/Tags"
+    "/properties/ResourceType"
   ],
   "definitions": {
     "ResourceArn": {
@@ -35,7 +34,7 @@
       "permissions": [
         "Batch:UpdateConsumableResource",
         "Batch:TagResource",
-        "Batch:UnTagResource"
+        "Batch:UntagResource"
       ]
     }
   },
@@ -80,11 +79,11 @@
   "required": ["ResourceType", "TotalQuantity"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-batch.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["Batch:TagResource", "Batch:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
-    "tagUpdatable": false,
+    "tagUpdatable": true,
     "taggable": true
   },
   "typeName": "AWS::Batch::ConsumableResource"

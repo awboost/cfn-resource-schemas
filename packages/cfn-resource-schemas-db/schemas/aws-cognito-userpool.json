@@ -1,5 +1,5 @@
 {
-  "$hash": "ff307f71ecd80799bc7bd44c73d844744c982929",
+  "$hash": "364bcba9f8288ecc7a47cdd0d245a41e7df7f5e8",
   "$id": "aws-cognito-userpool.json",
   "additionalProperties": false,
   "definitions": {
@@ -374,7 +374,7 @@
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "cognito-idp:ListTagsForResource",
       "cognito-idp:UntagResource",

@@ -9,7 +9,7 @@ export type NeptuneGraphGraphSnapshotProperties = {
    * The unique identifier of the Neptune Analytics graph to create the snapshot from.
    * @pattern `^g-[a-z0-9]{10}$`
    */
-  GraphIdentifier?: string;
+  GraphIdentifier: string;
   /**
    * The snapshot name.
    * @minLength `1`

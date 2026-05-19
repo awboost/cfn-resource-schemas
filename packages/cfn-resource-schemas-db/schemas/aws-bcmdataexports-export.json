@@ -1,10 +1,9 @@
 {
-  "$hash": "a913e264e63d832211bad7a7e86f5c63d3bd1bc6",
+  "$hash": "c615db383d2bac98adeb65435e65d50c7305dc9c",
   "$id": "aws-bcmdataexports-export.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Export/Name",
-    "/properties/Export/DataQuery/TableConfigurations",
     "/properties/Export/RefreshCadence"
   ],
   "definitions": {
@@ -139,7 +138,10 @@
       "required": ["Compression", "Format", "OutputType", "Overwrite"],
       "type": "object"
     },
-    "S3OutputType": { "enum": ["CUSTOM"], "type": "string" },
+    "S3OutputType": {
+      "enum": ["CUSTOM", "ATHENA", "REDSHIFT"],
+      "type": "string"
+    },
     "TableConfigurations": {
       "additionalProperties": false,
       "patternProperties": {
@@ -212,7 +214,7 @@
   ],
   "required": ["Export"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "bcm-data-exports:ListTagsForResource",
       "bcm-data-exports:TagResource",
