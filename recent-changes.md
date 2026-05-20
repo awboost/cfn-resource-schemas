@@ -1,30 +1,32 @@
-- added `AWS::BedrockAgentCore::PaymentCredentialProvider`
-- updated `AWS::BCMDataExports::Export`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated definition `S3OutputType`
-- updated `AWS::Batch::ConsumableResource`
-  - updated `createOnlyProperties`
-  - updated `tagging`
+- updated `AWS::ApplicationSignals::ServiceLevelObjective`
+  - added definition `CompositeSliComponent`
+  - added definition `CompositeSliComponents`
+  - added definition `CompositeSliConfig`
+  - added definition `MetricName`
+  - added definition `MetricSourceAttributes`
+  - added definition `MetricSourceKeyAttributes`
+  - added definition `MetricSource`
+  - added definition `SelectionConfig`
+  - added definition `SelectionType`
+  - updated definition `RequestBasedSliMetric`
+  - updated definition `SliMetric`
   - updated handler permissions
-- updated `AWS::Batch::JobQueue`
-  - updated `createOnlyProperties`
+- updated `AWS::BedrockAgentCore::Runtime`
+  - added definition `EfsAccessPointArn`
+  - added definition `EfsAccessPointConfiguration`
+  - added definition `S3FilesAccessPointArn`
+  - added definition `S3FilesAccessPointConfiguration`
+  - updated definition `FilesystemConfiguration`
+  - updated definition `FilesystemConfigurations`
+  - updated definition `HeaderName`
+  - updated definition `MountPath`
+- updated `AWS::DynamoDB::GlobalTable`
+  - updated `propertyTransform`
+- updated `AWS::EC2::LaunchTemplate`
   - updated `tagging`
+  - updated definition `CpuOptions`
+  - updated definition `InstanceRequirements`
   - updated handler permissions
-- updated `AWS::Batch::SchedulingPolicy`
-  - updated `createOnlyProperties`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::Cognito::UserPool`
-  - updated `tagging`
-- updated `AWS::NeptuneGraph::GraphSnapshot`
-  - updated `required`
-- updated `AWS::ServiceCatalogAppRegistry::Application`
-  - updated `tagging`
-  - updated property `ApplicationTagValue`
-- updated `AWS::ServiceCatalogAppRegistry::AttributeGroup`
-  - updated `tagging`
-- updated `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`
-  - updated handler permissions
-- updated `AWS::ServiceCatalogAppRegistry::ResourceAssociation`
-  - updated handler permissions
+- updated `AWS::ECS::Service`
+  - added definition `HookTimeoutConfig`
+  - updated definition `DeploymentLifecycleHook`

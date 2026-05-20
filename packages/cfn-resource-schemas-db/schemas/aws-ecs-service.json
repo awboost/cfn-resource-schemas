@@ -1,5 +1,5 @@
 {
-  "$hash": "6efe848d15e739deac3226f7e3ce7fa4bf70795e",
+  "$hash": "e2b6f83b4e73df88b286eed4c1f3cc2782e8a4ea",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/LaunchType"],
@@ -227,7 +227,15 @@
           "description": "The Amazon Resource Name (ARN) of the IAM role that grants Amazon ECS permission to call Lambda functions on your behalf.\n For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.",
           "type": "string"
         },
-        "TimeoutConfiguration": { "description": "" }
+        "TargetType": {
+          "description": "",
+          "enum": ["AWS_LAMBDA", "PAUSE"],
+          "type": "string"
+        },
+        "TimeoutConfiguration": {
+          "$ref": "#/definitions/HookTimeoutConfig",
+          "description": ""
+        }
       },
       "required": ["LifecycleStages"],
       "type": "object"
@@ -271,6 +279,19 @@
         }
       },
       "required": ["EnableForceNewDeployment"],
+      "type": "object"
+    },
+    "HookTimeoutConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "Action": { "enum": ["ROLLBACK", "CONTINUE"], "type": "string" },
+        "TimeoutInMinutes": {
+          "maximum": 20160,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
       "type": "object"
     },
     "LinearConfiguration": {

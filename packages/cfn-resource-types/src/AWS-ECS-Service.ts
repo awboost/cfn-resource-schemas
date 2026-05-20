@@ -509,7 +509,8 @@ export type DeploymentLifecycleHook = {
      For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
   RoleArn?: string;
-  TimeoutConfiguration?: any;
+  TargetType?: "AWS_LAMBDA" | "PAUSE";
+  TimeoutConfiguration?: HookTimeoutConfig;
 };
 /**
  * Type definition for `AWS::ECS::Service.EBSTagSpecification`.
@@ -546,6 +547,18 @@ export type ForceNewDeployment = {
    * @maxLength `255`
    */
   ForceNewDeploymentNonce?: string;
+};
+/**
+ * Type definition for `AWS::ECS::Service.HookTimeoutConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-hooktimeoutconfig.html}
+ */
+export type HookTimeoutConfig = {
+  Action?: "ROLLBACK" | "CONTINUE";
+  /**
+   * @min `1`
+   * @max `20160`
+   */
+  TimeoutInMinutes?: number;
 };
 /**
  * Type definition for `AWS::ECS::Service.LinearConfiguration`.

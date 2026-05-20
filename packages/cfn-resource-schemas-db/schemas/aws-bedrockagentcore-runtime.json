@@ -1,5 +1,5 @@
 {
-  "$hash": "d6fdfe15c434d556349b738d4e9dfef8dd29d1b9",
+  "$hash": "8ddd430a8f9e2fe1a9eac5b475efd43b43fc4afb",
   "$id": "aws-bedrockagentcore-runtime.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AgentRuntimeName"],
@@ -203,6 +203,22 @@
       "pattern": "^.+/\\.well-known/openid-configuration$",
       "type": "string"
     },
+    "EfsAccessPointArn": {
+      "description": "ARN of the EFS access point",
+      "maxLength": 128,
+      "pattern": "^arn:aws[-a-z]*:elasticfilesystem:[0-9a-z-:]+:access-point/fsap-[0-9a-f]{8,40}$",
+      "type": "string"
+    },
+    "EfsAccessPointConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration for EFS access point filesystem",
+      "properties": {
+        "AccessPointArn": { "$ref": "#/definitions/EfsAccessPointArn" },
+        "MountPath": { "$ref": "#/definitions/MountPath" }
+      },
+      "required": ["AccessPointArn", "MountPath"],
+      "type": "object"
+    },
     "EntryPoints": {
       "description": "List of entry points",
       "insertionOrder": true,
@@ -240,6 +256,12 @@
       "additionalProperties": false,
       "description": "Filesystem configuration for the runtime",
       "properties": {
+        "EfsAccessPoint": {
+          "$ref": "#/definitions/EfsAccessPointConfiguration"
+        },
+        "S3FilesAccessPoint": {
+          "$ref": "#/definitions/S3FilesAccessPointConfiguration"
+        },
         "SessionStorage": {
           "$ref": "#/definitions/SessionStorageConfiguration"
         }
@@ -250,7 +272,7 @@
       "description": "List of filesystem configurations",
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/FilesystemConfiguration" },
-      "maxItems": 1,
+      "maxItems": 5,
       "minItems": 0,
       "type": "array"
     },
@@ -258,7 +280,7 @@
       "description": "HTTP header name",
       "maxLength": 256,
       "minLength": 1,
-      "pattern": "^(Authorization|X-Amzn-Bedrock-AgentCore-Runtime-Custom-[a-zA-Z0-9_-]+)$",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]{0,255}$",
       "type": "string"
     },
     "InboundTokenClaimName": {
@@ -305,7 +327,7 @@
       "type": "array"
     },
     "MountPath": {
-      "description": "Mount path for session storage",
+      "description": "Mount path for filesystem configuration",
       "maxLength": 200,
       "minLength": 6,
       "pattern": "^/mnt/[a-zA-Z0-9._-]+/?$",
@@ -358,6 +380,22 @@
       "minLength": 1,
       "pattern": "^\\d{12}\\.dkr\\.ecr\\.([a-z0-9-]+)\\.amazonaws\\.com/((?:[a-z0-9]+(?:[._-][a-z0-9]+)*/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)([:@]\\S+)$",
       "type": "string"
+    },
+    "S3FilesAccessPointArn": {
+      "description": "ARN of the S3 Files access point",
+      "maxLength": 256,
+      "pattern": "^arn:aws[-a-z]*:s3files:[0-9a-z-:]+:file-system/fs-[0-9a-f]{17,40}/access-point/fsap-[0-9a-f]{17,40}$",
+      "type": "string"
+    },
+    "S3FilesAccessPointConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration for S3 Files access point filesystem",
+      "properties": {
+        "AccessPointArn": { "$ref": "#/definitions/S3FilesAccessPointArn" },
+        "MountPath": { "$ref": "#/definitions/MountPath" }
+      },
+      "required": ["AccessPointArn", "MountPath"],
+      "type": "object"
     },
     "S3Location": {
       "additionalProperties": false,

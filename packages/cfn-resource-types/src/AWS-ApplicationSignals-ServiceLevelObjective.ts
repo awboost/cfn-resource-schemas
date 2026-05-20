@@ -110,6 +110,25 @@ export type CalendarInterval = {
   StartTime: number;
 };
 /**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.CompositeSliComponent`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-compositeslicomponent.html}
+ */
+export type CompositeSliComponent = {
+  OperationName: string;
+};
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.CompositeSliConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-compositesliconfig.html}
+ */
+export type CompositeSliConfig = {
+  /**
+   * @minLength `2`
+   * @maxLength `20`
+   */
+  CompositeSliComponents?: CompositeSliComponent[];
+  SelectionConfig: SelectionConfig;
+};
+/**
  * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.DependencyConfig`.
  * Configuration for identifying a dependency and its operation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-dependencyconfig.html}
@@ -269,6 +288,33 @@ export type MetricDataQuery = {
   ReturnData?: boolean;
 };
 /**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.MetricSource`.
+ * Configuration for identifying the source of metrics for non-Application Signals services
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricsource.html}
+ */
+export type MetricSource = {
+  /**
+   * Optional additional attributes for the metric source
+   */
+  MetricSourceAttributes?: MetricSourceAttributes;
+  /**
+   * Required attributes that identify the metric source
+   */
+  MetricSourceKeyAttributes: MetricSourceKeyAttributes;
+};
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.MetricSourceAttributes`.
+ * Optional additional attributes for the metric source
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricsourceattributes.html}
+ */
+export type MetricSourceAttributes = Record<string, string>;
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.MetricSourceKeyAttributes`.
+ * Required attributes that identify the metric source
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricsourcekeyattributes.html}
+ */
+export type MetricSourceKeyAttributes = Record<string, string>;
+/**
  * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.MetricStat`.
  * A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery object, you must specify either Expression or MetricStat but not both.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-metricstat.html}
@@ -348,6 +394,7 @@ export type RequestBasedSli = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-requestbasedslimetric.html}
  */
 export type RequestBasedSliMetric = {
+  CompositeSliConfig?: CompositeSliConfig;
   /**
    * Configuration for identifying a dependency and its operation
    */
@@ -356,6 +403,16 @@ export type RequestBasedSliMetric = {
    * This is a string-to-string map that contains information about the type of object that this SLO is related to.
    */
   KeyAttributes?: KeyAttributes;
+  /**
+   * The name of the metric for non-Application Signals services
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  MetricName?: string;
+  /**
+   * Configuration for identifying the source of metrics for non-Application Signals services
+   */
+  MetricSource?: MetricSource;
   /**
    * If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
    */
@@ -392,6 +449,22 @@ export type RollingInterval = {
   DurationUnit: DurationUnit;
 };
 /**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.SelectionConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-selectionconfig.html}
+ */
+export type SelectionConfig = {
+  /**
+   * @pattern `^.+$`
+   */
+  Pattern?: string;
+  Type: SelectionType;
+};
+/**
+ * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.SelectionType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-selectiontype.html}
+ */
+export type SelectionType = "EXPLICIT" | "PREFIX" | "REGEX";
+/**
  * Type definition for `AWS::ApplicationSignals::ServiceLevelObjective.Sli`.
  * This structure contains information about the performance metric that an SLO monitors.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-sli.html}
@@ -420,6 +493,7 @@ export type Sli = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html}
  */
 export type SliMetric = {
+  CompositeSliConfig?: CompositeSliConfig;
   /**
    * Configuration for identifying a dependency and its operation
    */
@@ -432,6 +506,16 @@ export type SliMetric = {
    * If this SLO monitors a CloudWatch metric or the result of a CloudWatch metric math expression, this structure includes the information about that metric or expression.
    */
   MetricDataQueries?: MetricDataQuery[];
+  /**
+   * The name of the metric for non-Application Signals services
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  MetricName?: string;
+  /**
+   * Configuration for identifying the source of metrics for non-Application Signals services
+   */
+  MetricSource?: MetricSource;
   /**
    * If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.
    */

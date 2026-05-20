@@ -1,5 +1,5 @@
 {
-  "$hash": "d438b753d22c2a72ee3740c6e66637d79fdfefa9",
+  "$hash": "36593bbd47f8af74d980d6d89b0b768b23015ad7",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -156,6 +156,11 @@
           "description": "The number of CPU cores for the instance.",
           "type": "integer"
         },
+        "NestedVirtualization": {
+          "description": "",
+          "enum": ["enabled", "disabled"],
+          "type": "string"
+        },
         "ThreadsPerCore": {
           "description": "The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.",
           "type": "integer"
@@ -308,7 +313,7 @@
           "uniqueItems": false
         },
         "AcceleratorNames": {
-          "description": "The accelerators that must be on the instance type.\n  +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.\n  +  For instance types with NVIDIA A100 GPUs, specify ``a100``.\n  +  For instance types with NVIDIA H100 GPUs, specify ``h100``.\n  +  For instance types with AWS Inferentia chips, specify ``inferentia``.\n  +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.\n  +  For instance types with NVIDIA K80 GPUs, specify ``k80``.\n  +  For instance types with NVIDIA M60 GPUs, specify ``m60``.\n  +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.\n  +  For instance types with NVIDIA T4 GPUs, specify ``t4``.\n  +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.\n  +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.\n  +  For instance types with NVIDIA V100 GPUs, specify ``v100``.\n  \n Default: Any accelerator",
+          "description": "The accelerators that must be on the instance type.\n  +  For instance types with NVIDIA A10G GPUs, specify ``a10g``.\n  +  For instance types with NVIDIA A100 GPUs, specify ``a100``.\n  +  For instance types with NVIDIA H100 GPUs, specify ``h100``.\n  +  For instance types with AWS Inferentia chips, specify ``inferentia``.\n  +  For instance types with AWS Inferentia2 chips, specify ``inferentia2``.\n  +  For instance types with Habana Gaudi HL-205 GPUs, specify ``gaudi-hl-205``.\n  +  For instance types with NVIDIA GRID K520 GPUs, specify ``k520``.\n  +  For instance types with NVIDIA K80 GPUs, specify ``k80``.\n  +  For instance types with NVIDIA L4 GPUs, specify ``l4``.\n  +  For instance types with NVIDIA L40S GPUs, specify ``l40s``.\n  +  For instance types with NVIDIA M60 GPUs, specify ``m60``.\n  +  For instance types with AMD Radeon Pro V520 GPUs, specify ``radeon-pro-v520``.\n  +  For instance types with AWS Trainium chips, specify ``trainium``.\n  +  For instance types with AWS Trainium2 chips, specify ``trainium2``.\n  +  For instance types with NVIDIA T4 GPUs, specify ``t4``.\n  +  For instance types with NVIDIA T4G GPUs, specify ``t4g``.\n  +  For instance types with Xilinx U30 cards, specify ``u30``.\n  +  For instance types with Xilinx VU9P FPGAs, specify ``vu9p``.\n  +  For instance types with NVIDIA V100 GPUs, specify ``v100``.\n  \n Default: Any accelerator",
           "items": { "type": "string" },
           "type": "array",
           "uniqueItems": false
@@ -318,7 +323,7 @@
           "description": "The minimum and maximum amount of total accelerator memory, in MiB.\n Default: No minimum or maximum limits"
         },
         "AcceleratorTypes": {
-          "description": "The accelerator types that must be on the instance type.\n  +  For instance types with FPGA accelerators, specify ``fpga``.\n  +  For instance types with GPU accelerators, specify ``gpu``.\n  +  For instance types with Inference accelerators, specify ``inference``.\n  \n Default: Any accelerator type",
+          "description": "The accelerator types that must be on the instance type.\n  +  For instance types with FPGA accelerators, specify ``fpga``.\n  +  For instance types with GPU accelerators, specify ``gpu``.\n  +  For instance types with Inference accelerators, specify ``inference``.\n  +  For instance types with Media accelerators, specify ``media``.\n  \n Default: Any accelerator type",
           "items": { "type": "string" },
           "type": "array",
           "uniqueItems": false
@@ -1037,7 +1042,13 @@
     },
     "list": { "permissions": ["ec2:DescribeLaunchTemplates"] },
     "read": { "permissions": ["ec2:DescribeLaunchTemplates"] },
-    "update": { "permissions": ["ec2:CreateLaunchTemplateVersion"] }
+    "update": {
+      "permissions": [
+        "ec2:CreateLaunchTemplateVersion",
+        "ec2:CreateTags",
+        "ec2:DeleteTags"
+      ]
+    }
   },
   "primaryIdentifier": ["/properties/LaunchTemplateId"],
   "properties": {
@@ -1070,10 +1081,12 @@
   ],
   "required": ["LaunchTemplateData"],
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "tagOnCreate": false,
-    "tagUpdatable": false,
-    "taggable": false
+    "cloudFormationSystemTags": true,
+    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/TagSpecifications/*/Tags",
+    "tagUpdatable": true,
+    "taggable": true
   },
   "typeName": "AWS::EC2::LaunchTemplate",
   "writeOnlyProperties": [

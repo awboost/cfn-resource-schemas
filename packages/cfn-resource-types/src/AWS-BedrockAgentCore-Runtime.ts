@@ -31,7 +31,7 @@ export type BedrockAgentCoreRuntimeProperties = {
   /**
    * Filesystem configurations for the agent runtime
    * @minLength `0`
-   * @maxLength `1`
+   * @maxLength `5`
    */
   FilesystemConfigurations?: FilesystemConfiguration[];
   /**
@@ -293,6 +293,26 @@ export type CustomJWTAuthorizerConfiguration = {
   DiscoveryUrl: string;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.EfsAccessPointConfiguration`.
+ * Configuration for EFS access point filesystem
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-efsaccesspointconfiguration.html}
+ */
+export type EfsAccessPointConfiguration = {
+  /**
+   * ARN of the EFS access point
+   * @maxLength `128`
+   * @pattern `^arn:aws[-a-z]*:elasticfilesystem:[0-9a-z-:]+:access-point/fsap-[0-9a-f]{8,40}$`
+   */
+  AccessPointArn: string;
+  /**
+   * Mount path for filesystem configuration
+   * @minLength `6`
+   * @maxLength `200`
+   * @pattern `^/mnt/[a-zA-Z0-9._-]+/?$`
+   */
+  MountPath: string;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Runtime.EnvironmentVariablesMap`.
  * Environment variable attributes
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-environmentvariablesmap.html}
@@ -304,6 +324,14 @@ export type EnvironmentVariablesMap = Record<string, string>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-filesystemconfiguration.html}
  */
 export type FilesystemConfiguration = {
+  /**
+   * Configuration for EFS access point filesystem
+   */
+  EfsAccessPoint?: EfsAccessPointConfiguration;
+  /**
+   * Configuration for S3 Files access point filesystem
+   */
+  S3FilesAccessPoint?: S3FilesAccessPointConfiguration;
   /**
    * Configuration for session storage
    */
@@ -373,6 +401,26 @@ export type RequestHeaderConfiguration = {
   RequestHeaderAllowlist?: string[];
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Runtime.S3FilesAccessPointConfiguration`.
+ * Configuration for S3 Files access point filesystem
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-s3filesaccesspointconfiguration.html}
+ */
+export type S3FilesAccessPointConfiguration = {
+  /**
+   * ARN of the S3 Files access point
+   * @maxLength `256`
+   * @pattern `^arn:aws[-a-z]*:s3files:[0-9a-z-:]+:file-system/fs-[0-9a-f]{17,40}/access-point/fsap-[0-9a-f]{17,40}$`
+   */
+  AccessPointArn: string;
+  /**
+   * Mount path for filesystem configuration
+   * @minLength `6`
+   * @maxLength `200`
+   * @pattern `^/mnt/[a-zA-Z0-9._-]+/?$`
+   */
+  MountPath: string;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Runtime.S3Location`.
  * S3 Location Configuration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-runtime-s3location.html}
@@ -403,7 +451,7 @@ export type S3Location = {
  */
 export type SessionStorageConfiguration = {
   /**
-   * Mount path for session storage
+   * Mount path for filesystem configuration
    * @minLength `6`
    * @maxLength `200`
    * @pattern `^/mnt/[a-zA-Z0-9._-]+/?$`

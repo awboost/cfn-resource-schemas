@@ -1,5 +1,5 @@
 {
-  "$hash": "1331b15efa0140baa92a80470e77f430d22613bb",
+  "$hash": "4452553a00f5e9d952f247543daf83a1a61ee855",
   "$id": "aws-applicationsignals-servicelevelobjective.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -40,6 +40,29 @@
         }
       },
       "required": ["StartTime", "DurationUnit", "Duration"],
+      "type": "object"
+    },
+    "CompositeSliComponent": {
+      "additionalProperties": false,
+      "properties": { "OperationName": { "type": "string" } },
+      "required": ["OperationName"],
+      "type": "object"
+    },
+    "CompositeSliComponents": {
+      "items": { "$ref": "#/definitions/CompositeSliComponent" },
+      "maxItems": 20,
+      "minItems": 2,
+      "type": "array"
+    },
+    "CompositeSliConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "CompositeSliComponents": {
+          "$ref": "#/definitions/CompositeSliComponents"
+        },
+        "SelectionConfig": { "$ref": "#/definitions/SelectionConfig" }
+      },
+      "required": ["SelectionConfig"],
       "type": "object"
     },
     "DependencyConfig": {
@@ -207,6 +230,36 @@
       "required": ["Id"],
       "type": "object"
     },
+    "MetricName": {
+      "description": "The name of the metric for non-Application Signals services",
+      "maxLength": 255,
+      "minLength": 1,
+      "type": "string"
+    },
+    "MetricSource": {
+      "additionalProperties": false,
+      "description": "Configuration for identifying the source of metrics for non-Application Signals services",
+      "properties": {
+        "MetricSourceAttributes": {
+          "$ref": "#/definitions/MetricSourceAttributes"
+        },
+        "MetricSourceKeyAttributes": {
+          "$ref": "#/definitions/MetricSourceKeyAttributes"
+        }
+      },
+      "required": ["MetricSourceKeyAttributes"],
+      "type": "object"
+    },
+    "MetricSourceAttributes": {
+      "additionalProperties": false,
+      "description": "Optional additional attributes for the metric source",
+      "patternProperties": { "^.+$": { "type": "string" } }
+    },
+    "MetricSourceKeyAttributes": {
+      "additionalProperties": false,
+      "description": "Required attributes that identify the metric source",
+      "patternProperties": { "^.+$": { "type": "string" } }
+    },
     "MetricStat": {
       "additionalProperties": false,
       "description": "A metric to be used directly for the SLO, or to be used in the math expression that will be used for the SLO. Within one MetricDataQuery object, you must specify either Expression or MetricStat but not both.",
@@ -286,8 +339,11 @@
       "additionalProperties": false,
       "description": "This structure contains the information about the metric that is used for a request-based SLO.",
       "properties": {
+        "CompositeSliConfig": { "$ref": "#/definitions/CompositeSliConfig" },
         "DependencyConfig": { "$ref": "#/definitions/DependencyConfig" },
         "KeyAttributes": { "$ref": "#/definitions/KeyAttributes" },
+        "MetricName": { "$ref": "#/definitions/MetricName" },
+        "MetricSource": { "$ref": "#/definitions/MetricSource" },
         "MetricType": {
           "description": "If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.",
           "enum": ["LATENCY", "AVAILABILITY"],
@@ -319,6 +375,19 @@
       "required": ["DurationUnit", "Duration"],
       "type": "object"
     },
+    "SelectionConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "Pattern": { "pattern": "^.+$", "type": "string" },
+        "Type": { "$ref": "#/definitions/SelectionType" }
+      },
+      "required": ["Type"],
+      "type": "object"
+    },
+    "SelectionType": {
+      "enum": ["EXPLICIT", "PREFIX", "REGEX"],
+      "type": "string"
+    },
     "Sli": {
       "additionalProperties": false,
       "description": "This structure contains information about the performance metric that an SLO monitors.",
@@ -346,9 +415,12 @@
       "additionalProperties": false,
       "description": "A structure that contains information about the metric that the SLO monitors.",
       "properties": {
+        "CompositeSliConfig": { "$ref": "#/definitions/CompositeSliConfig" },
         "DependencyConfig": { "$ref": "#/definitions/DependencyConfig" },
         "KeyAttributes": { "$ref": "#/definitions/KeyAttributes" },
         "MetricDataQueries": { "$ref": "#/definitions/MetricDataQueries" },
+        "MetricName": { "$ref": "#/definitions/MetricName" },
+        "MetricSource": { "$ref": "#/definitions/MetricSource" },
         "MetricType": {
           "description": "If the SLO monitors either the LATENCY or AVAILABILITY metric that Application Signals collects, this field displays which of those metrics is used.",
           "enum": ["LATENCY", "AVAILABILITY"],
@@ -427,7 +499,9 @@
         "iam:GetRole",
         "iam:CreateServiceLinkedRole",
         "application-signals:ListServiceLevelObjectiveExclusionWindows",
-        "application-signals:BatchUpdateExclusionWindows"
+        "application-signals:BatchUpdateExclusionWindows",
+        "rum:GetAppMonitor",
+        "rum:BatchGetRumMetricDefinitions"
       ]
     },
     "delete": {
@@ -460,7 +534,9 @@
         "application-signals:GetServiceLevelObjective",
         "application-signals:ListTagsForResource",
         "application-signals:ListServiceLevelObjectiveExclusionWindows",
-        "application-signals:BatchUpdateExclusionWindows"
+        "application-signals:BatchUpdateExclusionWindows",
+        "rum:GetAppMonitor",
+        "rum:BatchGetRumMetricDefinitions"
       ]
     }
   },

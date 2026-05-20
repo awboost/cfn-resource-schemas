@@ -1,5 +1,5 @@
 {
-  "$hash": "0677a23654a81e86a02646b6a0c85afd11916256",
+  "$hash": "2453e021c96f3537d810919b29724030408bbc0a",
   "$id": "aws-dynamodb-globaltable.json",
   "additionalIdentifiers": [["/properties/Arn"], ["/properties/StreamArn"]],
   "additionalProperties": false,
@@ -543,7 +543,8 @@
     }
   },
   "propertyTransform": {
-    "/properties/Replicas/*/GlobalTableSettingsReplicationMode": "GlobalTableSettingsReplicationMode $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"DISABLED\") $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"ENABLED_WITH_OVERRIDES\")"
+    "/properties/Replicas/*/GlobalTableSettingsReplicationMode": "GlobalTableSettingsReplicationMode $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"DISABLED\") $OR ($exists(GlobalTableSettingsReplicationMode) ? null : \"ENABLED_WITH_OVERRIDES\")",
+    "/properties/Replicas/*/SSESpecification/KMSMasterKeyId": "$split(KMSMasterKeyId, '/')[-1]"
   },
   "readOnlyProperties": [
     "/properties/Arn",
