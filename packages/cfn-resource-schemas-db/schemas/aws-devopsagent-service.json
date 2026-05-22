@@ -1,5 +1,5 @@
 {
-  "$hash": "b0f7cd32cccc8028ec977f5d52db213e4ae66d33",
+  "$hash": "9099dffc4b5038950239c691d4e7af2b95349e6e",
   "$id": "aws-devopsagent-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -12,6 +12,7 @@
     "/properties/ServiceDetails/ServiceNow",
     "/properties/ServiceDetails/PagerDuty",
     "/properties/ServiceDetails/AzureIdentity",
+    "/properties/ServiceDetails/MCPServerGrafana",
     "/properties/KmsKeyArn"
   ],
   "definitions": {
@@ -90,6 +91,15 @@
             }
           },
           "required": ["MCPServerSigV4"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "MCPServerGrafana": {
+              "$ref": "#/definitions/RegisteredMCPServerGrafanaDetails"
+            }
+          },
+          "required": ["MCPServerGrafana"]
         }
       ],
       "type": "object"
@@ -251,6 +261,45 @@
       "properties": {
         "AuthorizationConfig": {
           "$ref": "#/definitions/MCPServerAuthorizationConfig"
+        },
+        "Description": {
+          "description": "Optional description for the MCP server",
+          "maxLength": 500,
+          "type": "string"
+        },
+        "Endpoint": {
+          "description": "MCP server endpoint URL",
+          "pattern": "^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$",
+          "type": "string"
+        },
+        "Name": {
+          "description": "MCP server name",
+          "pattern": "^[a-zA-Z0-9_-]+$",
+          "type": "string"
+        }
+      },
+      "required": ["Name", "Endpoint", "AuthorizationConfig"],
+      "type": "object"
+    },
+    "MCPServerGrafanaAuthorizationConfig": {
+      "description": "Grafana MCP server authorization configuration",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "BearerToken": { "$ref": "#/definitions/BearerTokenDetails" }
+          },
+          "required": ["BearerToken"]
+        }
+      ],
+      "type": "object"
+    },
+    "MCPServerGrafanaDetails": {
+      "additionalProperties": false,
+      "description": "Grafana MCP server configuration",
+      "properties": {
+        "AuthorizationConfig": {
+          "$ref": "#/definitions/MCPServerGrafanaAuthorizationConfig"
         },
         "Description": {
           "description": "Optional description for the MCP server",
@@ -590,6 +639,28 @@
       "required": ["Name", "Endpoint", "AuthorizationMethod"],
       "type": "object"
     },
+    "RegisteredMCPServerGrafanaDetails": {
+      "additionalProperties": false,
+      "description": "Grafana MCP server details returned after registration",
+      "properties": {
+        "AuthorizationMethod": {
+          "description": "MCP server authorization method",
+          "enum": ["bearer-token"],
+          "type": "string"
+        },
+        "Description": {
+          "description": "Optional description for the MCP server",
+          "type": "string"
+        },
+        "Endpoint": {
+          "description": "MCP server endpoint URL",
+          "type": "string"
+        },
+        "Name": { "description": "MCP server name", "type": "string" }
+      },
+      "required": ["Endpoint", "AuthorizationMethod"],
+      "type": "object"
+    },
     "RegisteredMCPServerSigV4Details": {
       "additionalProperties": false,
       "description": "SigV4-authenticated MCP server details returned after registration",
@@ -740,6 +811,15 @@
             "MCPServerSigV4": { "$ref": "#/definitions/MCPServerSigV4Details" }
           },
           "required": ["MCPServerSigV4"]
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "MCPServerGrafana": {
+              "$ref": "#/definitions/MCPServerGrafanaDetails"
+            }
+          },
+          "required": ["MCPServerGrafana"]
         }
       ],
       "type": "object"
@@ -785,7 +865,8 @@
         "servicenow",
         "pagerduty",
         "azureidentity",
-        "mcpserversigv4"
+        "mcpserversigv4",
+        "mcpservergrafana"
       ],
       "type": "string"
     },

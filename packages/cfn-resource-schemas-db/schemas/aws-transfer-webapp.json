@@ -1,5 +1,5 @@
 {
-  "$hash": "982876e802ab71f30bc166b30d2958bffd5aab80",
+  "$hash": "7d34791fd8864974fbcd6105043485724ad7e913",
   "$id": "aws-transfer-webapp.json",
   "additionalIdentifiers": [["/properties/WebAppId"]],
   "additionalProperties": false,
@@ -56,6 +56,11 @@
       "additionalProperties": false,
       "description": "You can provide a structure that contains the details for the VPC endpoint to use with your web app.",
       "properties": {
+        "IpAddressType": {
+          "description": "The IP address type for the VPC endpoint used by the web app.",
+          "enum": ["IPV4", "DUALSTACK"],
+          "type": "string"
+        },
         "SecurityGroupIds": {
           "insertionOrder": false,
           "items": {
@@ -251,5 +256,8 @@
     "taggable": true
   },
   "typeName": "AWS::Transfer::WebApp",
-  "writeOnlyProperties": ["/properties/EndpointDetails/Vpc/SecurityGroupIds"]
+  "writeOnlyProperties": [
+    "/properties/EndpointDetails/Vpc/SecurityGroupIds",
+    "/properties/EndpointDetails/Vpc/IpAddressType"
+  ]
 }

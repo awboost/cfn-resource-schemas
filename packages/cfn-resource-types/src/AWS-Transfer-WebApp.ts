@@ -120,6 +120,10 @@ export type Tag = {
  */
 export type Vpc = {
   /**
+   * The IP address type for the VPC endpoint used by the web app.
+   */
+  IpAddressType?: "IPV4" | "DUALSTACK";
+  /**
    * @maxLength `10`
    */
   SecurityGroupIds?: string[];

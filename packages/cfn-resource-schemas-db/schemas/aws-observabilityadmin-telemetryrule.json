@@ -1,5 +1,5 @@
 {
-  "$hash": "42b66a1b0b1523a0f6deefbb8ad86dc44f92dc64",
+  "$hash": "1f6715f482d5adb934938c01ee797340f9906fc6",
   "$id": "aws-observabilityadmin-telemetryrule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -255,7 +255,8 @@
         "AWS::EC2::Instance",
         "AWS::BedrockAgentCore::Runtime",
         "AWS::BedrockAgentCore::Browser",
-        "AWS::BedrockAgentCore::CodeInterpreter"
+        "AWS::BedrockAgentCore::CodeInterpreter",
+        "AWS::SecurityHub::Hub"
       ],
       "type": "string"
     },
@@ -318,13 +319,18 @@
           "$ref": "#/definitions/ELBLoadBalancerLoggingParameters"
         },
         "LogDeliveryParameters": {
-          "description": "Parameters for BedrockAgentCore log delivery",
+          "additionalProperties": false,
+          "description": "Parameters for log delivery configuration",
           "properties": {
             "LogTypes": {
-              "description": "Types of logs to deliver for BedrockAgentCore resources",
+              "description": "Types of logs to deliver",
               "insertionOrder": false,
               "items": {
-                "enum": ["APPLICATION_LOGS", "USAGE_LOGS"],
+                "enum": [
+                  "APPLICATION_LOGS",
+                  "USAGE_LOGS",
+                  "SECURITY_FINDING_LOGS"
+                ],
                 "type": "string"
               },
               "minItems": 1,

@@ -1,5 +1,5 @@
 {
-  "$hash": "36593bbd47f8af74d980d6d89b0b768b23015ad7",
+  "$hash": "fa7936e0a36791cfac41dca30bc2b6cb97671d13",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -1085,7 +1085,7 @@
     "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
     "tagOnCreate": true,
     "tagProperty": "/properties/TagSpecifications/*/Tags",
-    "tagUpdatable": true,
+    "tagUpdatable": false,
     "taggable": true
   },
   "typeName": "AWS::EC2::LaunchTemplate",

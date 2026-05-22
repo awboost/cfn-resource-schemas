@@ -286,7 +286,8 @@ export type ResourceType =
   | "AWS::EC2::Instance"
   | "AWS::BedrockAgentCore::Runtime"
   | "AWS::BedrockAgentCore::Browser"
-  | "AWS::BedrockAgentCore::CodeInterpreter";
+  | "AWS::BedrockAgentCore::CodeInterpreter"
+  | "AWS::SecurityHub::Hub";
 /**
  * Type definition for `AWS::ObservabilityAdmin::TelemetryRule.SingleHeader`.
  * Header for the field to match.
@@ -342,14 +343,14 @@ export type TelemetryDestinationConfiguration = {
    */
   ELBLoadBalancerLoggingParameters?: ELBLoadBalancerLoggingParameters;
   /**
-   * Parameters for BedrockAgentCore log delivery
+   * Parameters for log delivery configuration
    */
   LogDeliveryParameters?: {
     /**
-     * Types of logs to deliver for BedrockAgentCore resources
+     * Types of logs to deliver
      * @minLength `1`
      */
-    LogTypes?: ("APPLICATION_LOGS" | "USAGE_LOGS")[];
+    LogTypes?: ("APPLICATION_LOGS" | "USAGE_LOGS" | "SECURITY_FINDING_LOGS")[];
   };
   /**
    * Number of days to retain the telemetry data in the specified destination

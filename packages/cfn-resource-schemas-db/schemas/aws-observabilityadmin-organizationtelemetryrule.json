@@ -1,5 +1,5 @@
 {
-  "$hash": "9f94e9624d030ec872723517dc7a800dadc8b2b8",
+  "$hash": "9e45b6d27d9e7aa519f111e5d04e71024748445d",
   "$id": "aws-observabilityadmin-organizationtelemetryrule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -252,7 +252,8 @@
         "AWS::CloudTrail",
         "AWS::EKS::Cluster",
         "AWS::ElasticLoadBalancingV2::LoadBalancer",
-        "AWS::EC2::Instance"
+        "AWS::EC2::Instance",
+        "AWS::SecurityHub::Hub"
       ],
       "type": "string"
     },
@@ -313,6 +314,21 @@
         "DestinationType": { "$ref": "#/definitions/DestinationType" },
         "ELBLoadBalancerLoggingParameters": {
           "$ref": "#/definitions/ELBLoadBalancerLoggingParameters"
+        },
+        "LogDeliveryParameters": {
+          "additionalProperties": false,
+          "description": "Parameters for log delivery configuration",
+          "properties": {
+            "LogTypes": {
+              "description": "Types of logs to deliver",
+              "insertionOrder": false,
+              "items": { "enum": ["SECURITY_FINDING_LOGS"], "type": "string" },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "type": "object"
         },
         "RetentionInDays": { "$ref": "#/definitions/RetentionInDays" },
         "VPCFlowLogParameters": {

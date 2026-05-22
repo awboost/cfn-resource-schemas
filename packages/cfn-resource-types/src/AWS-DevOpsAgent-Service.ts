@@ -107,6 +107,12 @@ export type AdditionalServiceDetails =
        * SigV4-authenticated MCP server details returned after registration
        */
       MCPServerSigV4: RegisteredMCPServerSigV4Details;
+    }
+  | {
+      /**
+       * Grafana MCP server details returned after registration
+       */
+      MCPServerGrafana: RegisteredMCPServerGrafanaDetails;
     };
 /**
  * Type definition for `AWS::DevOpsAgent::Service.ApiKeyDetails`.
@@ -258,6 +264,39 @@ export type MCPServerDetails = {
    * MCP server authorization configuration
    */
   AuthorizationConfig: MCPServerAuthorizationConfig;
+  /**
+   * Optional description for the MCP server
+   * @maxLength `500`
+   */
+  Description?: string;
+  /**
+   * MCP server endpoint URL
+   * @pattern `^https://[a-zA-Z0-9.-]+(?::[0-9]+)?(?:/.*)?$`
+   */
+  Endpoint: string;
+  /**
+   * MCP server name
+   * @pattern `^[a-zA-Z0-9_-]+$`
+   */
+  Name: string;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::Service.MCPServerGrafanaAuthorizationConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpservergrafanaauthorizationconfig.html}
+ */
+export type MCPServerGrafanaAuthorizationConfig = {
+  /**
+   * Bearer token authentication details
+   */
+  BearerToken: BearerTokenDetails;
+};
+/**
+ * Type definition for `AWS::DevOpsAgent::Service.MCPServerGrafanaDetails`.
+ * Grafana MCP server configuration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-mcpservergrafanadetails.html}
+ */
+export type MCPServerGrafanaDetails = {
+  AuthorizationConfig: MCPServerGrafanaAuthorizationConfig;
   /**
    * Optional description for the MCP server
    * @maxLength `500`
@@ -580,6 +619,29 @@ export type RegisteredMCPServerDetails = {
   Name: string;
 };
 /**
+ * Type definition for `AWS::DevOpsAgent::Service.RegisteredMCPServerGrafanaDetails`.
+ * Grafana MCP server details returned after registration
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpservergrafanadetails.html}
+ */
+export type RegisteredMCPServerGrafanaDetails = {
+  /**
+   * MCP server authorization method
+   */
+  AuthorizationMethod: "bearer-token";
+  /**
+   * Optional description for the MCP server
+   */
+  Description?: string;
+  /**
+   * MCP server endpoint URL
+   */
+  Endpoint: string;
+  /**
+   * MCP server name
+   */
+  Name?: string;
+};
+/**
  * Type definition for `AWS::DevOpsAgent::Service.RegisteredMCPServerSigV4Details`.
  * SigV4-authenticated MCP server details returned after registration
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsagent-service-registeredmcpserversigv4details.html}
@@ -714,6 +776,12 @@ export type ServiceDetails =
        * SigV4-authenticated MCP server configuration
        */
       MCPServerSigV4: MCPServerSigV4Details;
+    }
+  | {
+      /**
+       * Grafana MCP server configuration
+       */
+      MCPServerGrafana: MCPServerGrafanaDetails;
     };
 /**
  * Type definition for `AWS::DevOpsAgent::Service.ServiceNowAuthorizationConfig`.
@@ -756,7 +824,8 @@ export type ServiceType =
   | "servicenow"
   | "pagerduty"
   | "azureidentity"
-  | "mcpserversigv4";
+  | "mcpserversigv4"
+  | "mcpservergrafana";
 /**
  * Type definition for `AWS::DevOpsAgent::Service.Tag`.
  * A key-value pair to associate with a resource.

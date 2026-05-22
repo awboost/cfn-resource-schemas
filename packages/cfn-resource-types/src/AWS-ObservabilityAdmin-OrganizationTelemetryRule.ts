@@ -283,7 +283,8 @@ export type ResourceType =
   | "AWS::CloudTrail"
   | "AWS::EKS::Cluster"
   | "AWS::ElasticLoadBalancingV2::LoadBalancer"
-  | "AWS::EC2::Instance";
+  | "AWS::EC2::Instance"
+  | "AWS::SecurityHub::Hub";
 /**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationTelemetryRule.SingleHeader`.
  * Header for the field to match.
@@ -338,6 +339,16 @@ export type TelemetryDestinationConfiguration = {
    * Telemetry parameters for ELB/NLB Load Balancer Logs
    */
   ELBLoadBalancerLoggingParameters?: ELBLoadBalancerLoggingParameters;
+  /**
+   * Parameters for log delivery configuration
+   */
+  LogDeliveryParameters?: {
+    /**
+     * Types of logs to deliver
+     * @minLength `1`
+     */
+    LogTypes?: "SECURITY_FINDING_LOGS"[];
+  };
   /**
    * Number of days to retain the telemetry data in the specified destination
    */

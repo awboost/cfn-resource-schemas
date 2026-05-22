@@ -363,7 +363,7 @@ export type DeploymentConfiguration = {
      */
   DeploymentCircuitBreaker?: DeploymentCircuitBreaker;
   /**
-   * An array of deployment lifecycle hook objects to run custom logic at specific stages of the deployment lifecycle.
+   * An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
    */
   LifecycleHooks?: DeploymentLifecycleHook[];
   /**
@@ -452,7 +452,7 @@ export type DeploymentController = {
 };
 /**
  * Type definition for `AWS::ECS::Service.DeploymentLifecycleHook`.
- * A deployment lifecycle hook runs custom logic at specific stages of the deployment process. Currently, you can use Lambda functions as hook targets.
+ * A deployment lifecycle hook runs custom logic or pauses the deployment at specific stages of the deployment process. You can use Lambda functions or pause hooks as hook targets.
  For more information, see [Lifecycle hooks for Amazon ECS service deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-lifecycle-hooks.html) in the *Amazon Elastic Container Service Developer Guide*.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentlifecyclehook.html}
  */
@@ -463,8 +463,8 @@ export type DeploymentLifecycleHook = {
      */
   HookDetails?: string | Record<string, any>;
   /**
-     * The Amazon Resource Name (ARN) of the hook target. Currently, only Lambda function ARNs are supported.
-     You must provide this parameter when configuring a deployment lifecycle hook.
+     * The Amazon Resource Name (ARN) of the hook target. For ``AWS_LAMBDA`` hooks, this is the Lambda function ARN. This field is not applicable for ``PAUSE`` hooks.
+     You must provide this parameter when configuring an ``AWS_LAMBDA`` lifecycle hook.
      */
   HookTargetArn?: string;
   /**
@@ -484,14 +484,18 @@ export type DeploymentLifecycleHook = {
       +  POST_TEST_TRAFFIC_SHIFT
      The test traffic shift is complete. The green service revision handles 100% of the test traffic.
      You can use a lifecycle hook for this stage.
+      +  PRE_PRODUCTION_TRAFFIC_SHIFT
+     Occurs before production traffic shift. For linear and canary deployments, this stage is invoked before every traffic shift step.
+     You can use a lifecycle hook for this stage.
       +  PRODUCTION_TRAFFIC_SHIFT
-     Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic.
+     Production traffic is shifting to the green service revision. The green service revision is migrating from 0% to 100% of production traffic. For linear and canary deployments, this stage is invoked at every traffic shift step.
      You can use a lifecycle hook for this stage.
       +  POST_PRODUCTION_TRAFFIC_SHIFT
      The production traffic shift is complete.
      You can use a lifecycle hook for this stage.
       
-     You must provide this parameter when configuring a deployment lifecycle hook.
+      ``PAUSE`` hooks cannot be configured at ``TEST_TRAFFIC_SHIFT`` or ``PRODUCTION_TRAFFIC_SHIFT`` stages. These stages are only valid for ``AWS_LAMBDA`` hooks.
+      You must provide this parameter when configuring a deployment lifecycle hook.
      * @minLength `1`
      */
   LifecycleStages: (
@@ -509,7 +513,17 @@ export type DeploymentLifecycleHook = {
      For more information, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/blue-green-permissions.html) in the *Amazon Elastic Container Service Developer Guide*.
      */
   RoleArn?: string;
+  /**
+     * The type of action the lifecycle hook performs. Valid values are:
+      +  ``AWS_LAMBDA`` - Invokes a Lambda function at the specified lifecycle stage. This is the default value.
+      +  ``PAUSE`` - Pauses the deployment at the specified lifecycle stage until you call ``ContinueServiceDeployment`` to continue or roll back.
+      
+     This field is optional. If not specified, the default value is ``AWS_LAMBDA``.
+     */
   TargetType?: "AWS_LAMBDA" | "PAUSE";
+  /**
+   * The timeout configuration for the lifecycle hook. This specifies how long Amazon ECS waits before taking the timeout action if the hook is not resolved.
+   */
   TimeoutConfiguration?: HookTimeoutConfig;
 };
 /**
