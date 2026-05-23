@@ -1,5 +1,5 @@
 {
-  "$hash": "5e6cf02fa947044149d587729a2ac952ecea9852",
+  "$hash": "b9a6f867bae6568805ac6e5c32519abb92582ad0",
   "$id": "aws-opensearchserverless-collection.json",
   "additionalIdentifiers": [["/properties/Name"], ["/properties/Arn"]],
   "additionalProperties": false,
@@ -9,9 +9,7 @@
     "/properties/Type",
     "/properties/StandbyReplicas",
     "/properties/CollectionGroupName",
-    "/properties/EncryptionConfig",
-    "/properties/VectorOptions",
-    "/properties/VectorOptions/ServerlessVectorAcceleration"
+    "/properties/EncryptionConfig"
   ],
   "definitions": {
     "CollectionType": {

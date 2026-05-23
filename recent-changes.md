@@ -1,23 +1,8 @@
-- updated `AWS::DevOpsAgent::Service`
-  - added definition `MCPServerGrafanaAuthorizationConfig`
-  - added definition `MCPServerGrafanaDetails`
-  - added definition `RegisteredMCPServerGrafanaDetails`
-  - updated `createOnlyProperties`
-  - updated definition `AdditionalServiceDetails`
-  - updated definition `ServiceDetails`
-  - updated definition `ServiceType`
+- added `AWS::BedrockAgentCore::Dataset`
 - updated `AWS::EC2::LaunchTemplate`
   - updated `tagging`
-- updated `AWS::ECS::Service`
-  - updated definition `DeploymentConfiguration`
-  - updated definition `DeploymentLifecycleHook`
-  - updated definition `HookTimeoutConfig`
-- updated `AWS::ObservabilityAdmin::OrganizationTelemetryRule`
-  - updated definition `ResourceType`
-  - updated definition `TelemetryDestinationConfiguration`
-- updated `AWS::ObservabilityAdmin::TelemetryRule`
-  - updated definition `ResourceType`
-  - updated definition `TelemetryDestinationConfiguration`
-- updated `AWS::Transfer::WebApp`
-  - updated `writeOnlyProperties`
-  - updated definition `Vpc`
+  - updated definition `CpuOptions`
+- updated `AWS::OpenSearchServerless::Collection`
+  - updated `createOnlyProperties`
+- updated `AWS::SSO::Assignment`
+  - updated handler permissions

@@ -1,5 +1,5 @@
 {
-  "$hash": "fa7936e0a36791cfac41dca30bc2b6cb97671d13",
+  "$hash": "af5ab361c3db0a8bca0757a1b0c44527230b5bd7",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -157,7 +157,7 @@
           "type": "integer"
         },
         "NestedVirtualization": {
-          "description": "",
+          "description": "Indicates whether the instance is enabled for nested virtualization.",
           "enum": ["enabled", "disabled"],
           "type": "string"
         },
@@ -1081,12 +1081,10 @@
   ],
   "required": ["LaunchTemplateData"],
   "tagging": {
-    "cloudFormationSystemTags": true,
-    "permissions": ["ec2:CreateTags", "ec2:DeleteTags"],
-    "tagOnCreate": true,
-    "tagProperty": "/properties/TagSpecifications/*/Tags",
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
     "tagUpdatable": false,
-    "taggable": true
+    "taggable": false
   },
   "typeName": "AWS::EC2::LaunchTemplate",
   "writeOnlyProperties": [

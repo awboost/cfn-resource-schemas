@@ -1,5 +1,5 @@
 {
-  "$hash": "84e9c4512496115e890fcfdc6cf90bc94dbce1a5",
+  "$hash": "01ff85238cf421727a901d9d97bb7b1cc2715f42",
   "$id": "aws-sso-assignment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -19,6 +19,7 @@
         "sso:ListAccountAssignments",
         "iam:GetSAMLProvider",
         "iam:CreateSAMLProvider",
+        "iam:UpdateSAMLProvider",
         "iam:AttachRolePolicy",
         "iam:PutRolePolicy",
         "iam:CreateRole",

@@ -200,6 +200,9 @@ export type CpuOptions = {
    * The number of CPU cores for the instance.
    */
   CoreCount?: number;
+  /**
+   * Indicates whether the instance is enabled for nested virtualization.
+   */
   NestedVirtualization?: "enabled" | "disabled";
   /**
    * The number of threads per CPU core. To disable multithreading for the instance, specify a value of ``1``. Otherwise, specify the default value of ``2``.
