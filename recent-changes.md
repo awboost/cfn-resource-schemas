@@ -1,8 +1,1 @@
-- added `AWS::BedrockAgentCore::Dataset`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated `tagging`
-  - updated definition `CpuOptions`
-- updated `AWS::OpenSearchServerless::Collection`
-  - updated `createOnlyProperties`
-- updated `AWS::SSO::Assignment`
-  - updated handler permissions
+- added `AWS::BedrockAgentCore::Harness`
