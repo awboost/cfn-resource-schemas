@@ -1,1 +1,2 @@
-- added `AWS::BedrockAgentCore::Harness`
+- updated `AWS::Location::APIKey`
+  - removed definition `Unit`

@@ -1,5 +1,5 @@
 {
-  "$hash": "d431c67a33176e26b6672dc1a441c4d4728a959a",
+  "$hash": "7ae3fa26a750fbb35aa49ec7eae9cb3656d959db",
   "$id": "aws-location-apikey.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KeyName"],
@@ -126,7 +126,6 @@
       },
       "type": "object"
     },
-    "Unit": { "additionalProperties": false, "type": "object" },
     "iso8601UTC": {
       "description": "The datetime value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ss.sssZ)",
       "pattern": "^([0-2]\\d{3})-(0[0-9]|1[0-2])-([0-2]\\d|3[01])T([01]\\d|2[0-4]):([0-5]\\d):([0-6]\\d)((\\.\\d{3})?)Z$",
