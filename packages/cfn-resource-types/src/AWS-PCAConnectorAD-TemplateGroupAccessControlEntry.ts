@@ -17,13 +17,13 @@ export type PCAConnectorADTemplateGroupAccessControlEntryProperties = {
    * @maxLength `256`
    * @pattern `^S-[0-9]-([0-9]+-){1,14}[0-9]+$`
    */
-  GroupSecurityIdentifier?: string;
+  GroupSecurityIdentifier: string;
   /**
    * @minLength `5`
    * @maxLength `200`
    * @pattern `^arn:[\w-]+:pca-connector-ad:[\w-]+:[0-9]+:connector(\/[\w-]+)\/template(\/[\w-]+)$`
    */
-  TemplateArn?: string;
+  TemplateArn: string;
 };
 /**
  * Type definition for `AWS::PCAConnectorAD::TemplateGroupAccessControlEntry.AccessRight`.

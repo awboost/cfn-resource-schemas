@@ -1,5 +1,5 @@
 {
-  "$hash": "7c50f8e9bb4190f2820b32fbfbb215c2b7a9d212",
+  "$hash": "8db5ec2a6bba68c4ba668421fc60be622596b73a",
   "$id": "aws-connectcampaigns-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceArn"],
@@ -212,7 +212,7 @@
     "OutboundCallConfig"
   ],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "connect-campaigns:UntagResource",
       "connect-campaigns:TagResource"

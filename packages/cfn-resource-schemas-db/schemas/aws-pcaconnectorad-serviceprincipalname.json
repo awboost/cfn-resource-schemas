@@ -1,5 +1,5 @@
 {
-  "$hash": "3b10b6f247abe681a787fe924633a81af064c777",
+  "$hash": "33c3566d8a2bebe16f93f51badad88fad9d65672",
   "$id": "aws-pcaconnectorad-serviceprincipalname.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -53,6 +53,7 @@
       "type": "string"
     }
   },
+  "required": ["ConnectorArn", "DirectoryRegistrationArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-pcaconnectorad",
   "tagging": {
     "cloudFormationSystemTags": false,

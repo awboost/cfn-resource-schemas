@@ -1,5 +1,5 @@
 {
-  "$hash": "97d8c562376f3aaee2387e8dccef1fedc2fe2bf1",
+  "$hash": "0258c91958a1423b024398bd1330d9942a9e571e",
   "$id": "aws-pcaconnectorad-templategroupaccesscontrolentry.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -71,7 +71,12 @@
       "type": "string"
     }
   },
-  "required": ["AccessRights", "GroupDisplayName"],
+  "required": [
+    "AccessRights",
+    "GroupDisplayName",
+    "GroupSecurityIdentifier",
+    "TemplateArn"
+  ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-pcaconnectorad",
   "tagging": {
     "cloudFormationSystemTags": false,

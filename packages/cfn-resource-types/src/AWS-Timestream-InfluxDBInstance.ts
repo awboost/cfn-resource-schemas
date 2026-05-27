@@ -71,6 +71,10 @@ export type TimestreamInfluxDBInstanceProperties = {
     };
   };
   /**
+   * The maintenance schedule for the InfluxDB instance.
+   */
+  MaintenanceSchedule?: MaintenanceSchedule;
+  /**
    * The unique name that is associated with the InfluxDB instance.
    * @minLength `3`
    * @maxLength `40`
@@ -162,6 +166,10 @@ export type TimestreamInfluxDBInstanceAttributes = {
    */
   InfluxAuthParametersSecretArn: string;
   /**
+   * The timestamp of the next scheduled maintenance event.
+   */
+  NextMaintenanceTime: string;
+  /**
    * The Secondary Availability Zone (AZ) where the InfluxDB instance is created, if DeploymentType is set as WITH_MULTIAZ_STANDBY.
    */
   SecondaryAvailabilityZone: string;
@@ -181,6 +189,27 @@ export type TimestreamInfluxDBInstanceAttributes = {
     | "REBOOT_FAILED"
     | "DELETED"
     | "FAILED";
+};
+/**
+ * Type definition for `AWS::Timestream::InfluxDBInstance.MaintenanceSchedule`.
+ * The maintenance schedule for the InfluxDB instance.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-maintenanceschedule.html}
+ */
+export type MaintenanceSchedule = {
+  /**
+   * The preferred maintenance window in format ddd:HH:MM-ddd:HH:MM.
+   * @minLength `0`
+   * @maxLength `19`
+   * @pattern `^$|^(Mon|Tue|Wed|Thu|Fri|Sat|Sun):([01]\d|2[0-3]):[0-5]\d-(Mon|Tue|Wed|Thu|Fri|Sat|Sun):([01]\d|2[0-3]):[0-5]\d$`
+   */
+  PreferredMaintenanceWindow: string;
+  /**
+   * The IANA timezone identifier for the maintenance schedule.
+   * @minLength `1`
+   * @maxLength `64`
+   * @pattern `^(UTC|[A-Za-z_]+/[A-Za-z0-9_]+(/[A-Za-z0-9_]+)?)$`
+   */
+  Timezone: string;
 };
 /**
  * Type definition for `AWS::Timestream::InfluxDBInstance.Tag`.

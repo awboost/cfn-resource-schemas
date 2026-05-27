@@ -1,5 +1,5 @@
 {
-  "$hash": "705727bec6fd67a18b514233aa9d6d89a9bc991c",
+  "$hash": "1b42e63b75c5e04edd74f4d96d324cf15e62a062",
   "$id": "aws-connectcampaignsv2-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceId"],
@@ -667,7 +667,7 @@
   "required": ["Name", "ConnectInstanceId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-connect-campaigns",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "connect-campaigns:UntagResource",
       "connect-campaigns:TagResource"

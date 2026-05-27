@@ -1,2 +1,13 @@
-- updated `AWS::Location::APIKey`
-  - removed definition `Unit`
+- updated `AWS::ConnectCampaigns::Campaign`
+  - updated `tagging`
+- updated `AWS::ConnectCampaignsV2::Campaign`
+  - updated `tagging`
+- updated `AWS::PCAConnectorAD::ServicePrincipalName`
+  - added `required`
+- updated `AWS::PCAConnectorAD::TemplateGroupAccessControlEntry`
+  - updated `required`
+- updated `AWS::Timestream::InfluxDBInstance`
+  - added definition `MaintenanceSchedule`
+  - added property `MaintenanceSchedule`
+  - added property `NextMaintenanceTime`
+  - updated `readOnlyProperties`

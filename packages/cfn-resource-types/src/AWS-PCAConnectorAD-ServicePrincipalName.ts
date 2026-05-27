@@ -10,13 +10,13 @@ export type PCAConnectorADServicePrincipalNameProperties = {
    * @maxLength `200`
    * @pattern `^arn:[\w-]+:pca-connector-ad:[\w-]+:[0-9]+:connector(\/[\w-]+)$`
    */
-  ConnectorArn?: string;
+  ConnectorArn: string;
   /**
    * @minLength `5`
    * @maxLength `200`
    * @pattern `^arn:[\w-]+:pca-connector-ad:[\w-]+:[0-9]+:directory-registration(\/[\w-]+)$`
    */
-  DirectoryRegistrationArn?: string;
+  DirectoryRegistrationArn: string;
 };
 /**
  * Definition of AWS::PCAConnectorAD::ServicePrincipalName Resource Type
