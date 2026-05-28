@@ -1,5 +1,5 @@
 {
-  "$hash": "7c5fa47608e5ae07e66736e11f3a9608269da868",
+  "$hash": "c5bf85030345c2385f2f326d955665f9ff1a9234",
   "$id": "aws-opensearchservice-domain.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -32,6 +32,16 @@
         "MasterUserOptions": { "$ref": "#/definitions/MasterUserOptions" },
         "SAMLOptions": { "$ref": "#/definitions/SAMLOptions" }
       },
+      "type": "object"
+    },
+    "AutomatedSnapshotPauseOptions": {
+      "additionalProperties": false,
+      "properties": {
+        "Enabled": { "type": "boolean" },
+        "EndTime": { "type": "string" },
+        "StartTime": { "type": "string" }
+      },
+      "required": ["Enabled"],
       "type": "object"
     },
     "ClusterConfig": {
@@ -318,6 +328,10 @@
     "VPCOptions": {
       "additionalProperties": false,
       "properties": {
+        "EgressEnabled": {
+          "description": "Controls whether egress traffic from the domain is routed through the customer VPC.",
+          "type": "boolean"
+        },
         "SecurityGroupIds": {
           "items": { "type": "string" },
           "type": "array",
@@ -385,6 +399,9 @@
       "$ref": "#/definitions/AdvancedSecurityOptionsInput"
     },
     "Arn": { "type": "string" },
+    "AutomatedSnapshotPauseOptions": {
+      "$ref": "#/definitions/AutomatedSnapshotPauseOptions"
+    },
     "ClusterConfig": { "$ref": "#/definitions/ClusterConfig" },
     "CognitoOptions": { "$ref": "#/definitions/CognitoOptions" },
     "DeploymentStrategyOptions": {

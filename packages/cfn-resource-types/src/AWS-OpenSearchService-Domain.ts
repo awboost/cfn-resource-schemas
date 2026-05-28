@@ -10,6 +10,7 @@ export type OpenSearchServiceDomainProperties = {
   AccessPolicies?: Record<string, any>;
   AdvancedOptions?: Record<string, string>;
   AdvancedSecurityOptions?: AdvancedSecurityOptionsInput;
+  AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseOptions;
   ClusterConfig?: ClusterConfig;
   CognitoOptions?: CognitoOptions;
   DeploymentStrategyOptions?: DeploymentStrategyOptions;
@@ -93,6 +94,15 @@ export type AdvancedSecurityOptionsInput = {
 export type AIMLOptions = {
   S3VectorsEngine?: S3VectorsEngine;
   ServerlessVectorAcceleration?: ServerlessVectorAcceleration;
+};
+/**
+ * Type definition for `AWS::OpenSearchService::Domain.AutomatedSnapshotPauseOptions`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-automatedsnapshotpauseoptions.html}
+ */
+export type AutomatedSnapshotPauseOptions = {
+  Enabled: boolean;
+  EndTime?: string;
+  StartTime?: string;
 };
 /**
  * Type definition for `AWS::OpenSearchService::Domain.ClusterConfig`.
@@ -373,6 +383,10 @@ export type Tag = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-vpcoptions.html}
  */
 export type VPCOptions = {
+  /**
+   * Controls whether egress traffic from the domain is routed through the customer VPC.
+   */
+  EgressEnabled?: boolean;
   SecurityGroupIds?: string[];
   SubnetIds?: string[];
 };

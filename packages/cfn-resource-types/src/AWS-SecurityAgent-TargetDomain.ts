@@ -16,7 +16,7 @@ export type SecurityAgentTargetDomainProperties = {
   /**
    * Verification method for the target domain
    */
-  VerificationMethod: "DNS_TXT" | "HTTP_ROUTE";
+  VerificationMethod: "DNS_TXT" | "HTTP_ROUTE" | "PRIVATE_VPC";
 };
 /**
  * Attribute type definition for `AWS::SecurityAgent::TargetDomain`.
@@ -68,12 +68,16 @@ export type SecurityAgentTargetDomainAttributes = {
     /**
      * Type of domain ownership verification method
      */
-    Method: "DNS_TXT" | "HTTP_ROUTE";
+    Method: "DNS_TXT" | "HTTP_ROUTE" | "PRIVATE_VPC";
   };
   /**
    * Current verification status of the registered target domain
    */
   VerificationStatus: "PENDING" | "VERIFIED" | "FAILED" | "UNREACHABLE";
+  /**
+   * Reason for the current target domain verification status
+   */
+  VerificationStatusReason: string;
   /**
    * Timestamp when the target domain was last successfully verified
    */
@@ -149,7 +153,7 @@ export type VerificationDetails = {
   /**
    * Type of domain ownership verification method
    */
-  Method?: "DNS_TXT" | "HTTP_ROUTE";
+  Method?: "DNS_TXT" | "HTTP_ROUTE" | "PRIVATE_VPC";
 };
 /**
  * Resource Type definition for AWS::SecurityAgent::TargetDomain

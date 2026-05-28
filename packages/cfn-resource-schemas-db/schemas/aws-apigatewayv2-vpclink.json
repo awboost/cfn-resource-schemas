@@ -1,5 +1,5 @@
 {
-  "$hash": "6a3229f1808acf9af8a6fcc84058a6797bc2dade",
+  "$hash": "69e422bdad20006193222e8efedfded001fc0f9d",
   "$id": "aws-apigatewayv2-vpclink.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -46,7 +46,9 @@
     "update": {
       "permissions": [
         "apigateway:PATCH",
+        "apigateway:POST",
         "apigateway:GET",
+        "apigateway:DELETE",
         "apigateway:TagResource",
         "apigateway:unTagResource",
         "iam:CreateServiceLinkedRole",
@@ -60,12 +62,14 @@
     "Name": { "description": "The name of the VPC link.", "type": "string" },
     "SecurityGroupIds": {
       "description": "A list of security group IDs for the VPC link.",
+      "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false
     },
     "SubnetIds": {
       "description": "A list of subnet IDs to include in the VPC link.",
+      "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false
@@ -82,6 +86,12 @@
   "required": ["SubnetIds", "Name"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "apigateway:GET",
+      "apigateway:PUT",
+      "apigateway:PATCH",
+      "apigateway:DELETE"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

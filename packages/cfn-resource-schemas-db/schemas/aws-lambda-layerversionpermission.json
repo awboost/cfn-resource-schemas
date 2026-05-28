@@ -1,5 +1,5 @@
 {
-  "$hash": "502327664f0dabaaa3918a594ed70730c363491d",
+  "$hash": "f4d0bf1510ae08b43a697eefd6745090bab554f0",
   "$id": "aws-lambda-layerversionpermission.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -17,7 +17,17 @@
         "lambda:RemoveLayerVersionPermission"
       ]
     },
-    "list": { "permissions": ["lambda:GetLayerVersionPolicy"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "LayerVersionArn": {
+            "$ref": "resource-schema.json#/properties/LayerVersionArn"
+          }
+        },
+        "required": ["LayerVersionArn"]
+      },
+      "permissions": ["lambda:GetLayerVersionPolicy"]
+    },
     "read": { "permissions": ["lambda:GetLayerVersionPolicy"] }
   },
   "primaryIdentifier": ["/properties/Id"],

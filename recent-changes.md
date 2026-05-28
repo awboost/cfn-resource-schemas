@@ -1,13 +1,64 @@
-- updated `AWS::ConnectCampaigns::Campaign`
+- updated `AWS::ApiGatewayV2::Api`
   - updated `tagging`
-- updated `AWS::ConnectCampaignsV2::Campaign`
+  - updated handler permissions
+- updated `AWS::ApiGatewayV2::DomainName`
   - updated `tagging`
-- updated `AWS::PCAConnectorAD::ServicePrincipalName`
-  - added `required`
-- updated `AWS::PCAConnectorAD::TemplateGroupAccessControlEntry`
+  - updated handler permissions
+- updated `AWS::ApiGatewayV2::VpcLink`
+  - updated `tagging`
+  - updated handler permissions
+  - updated property `SecurityGroupIds`
+  - updated property `SubnetIds`
+- updated `AWS::AppStream::StackUserAssociation`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
   - updated `required`
-- updated `AWS::Timestream::InfluxDBInstance`
-  - added definition `MaintenanceSchedule`
-  - added property `MaintenanceSchedule`
-  - added property `NextMaintenanceTime`
+  - updated handler permissions
+  - updated property `AuthenticationType`
+  - updated property `SendEmailNotification`
+  - updated property `StackName`
+  - updated property `UserName`
+- updated `AWS::DataSync::Agent`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationAzureBlob`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationEFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationFSxLustre`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationFSxONTAP`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationFSxOpenZFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationFSxWindows`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationHDFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationNFS`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationObjectStorage`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationS3`
+  - updated `tagging`
+- updated `AWS::DataSync::LocationSMB`
+  - updated `tagging`
+- updated `AWS::DataSync::Task`
+  - updated `tagging`
+- updated `AWS::Lambda::LayerVersion`
+  - updated handler permissions
+- updated `AWS::Lambda::LayerVersionPermission`
+  - updated handler permissions
+- updated `AWS::OpenSearchService::Domain`
+  - added definition `AutomatedSnapshotPauseOptions`
+  - added property `AutomatedSnapshotPauseOptions`
+  - updated definition `VPCOptions`
+- updated `AWS::PCS::ComputeNodeGroup`
+  - updated property `SlurmConfiguration`
+- updated `AWS::SecurityAgent::TargetDomain`
+  - added property `VerificationStatusReason`
   - updated `readOnlyProperties`
+  - updated definition `VerificationDetails`
+  - updated property `VerificationMethod`

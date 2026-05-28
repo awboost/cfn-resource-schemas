@@ -1,5 +1,5 @@
 {
-  "$hash": "c202ae715be2428989e6f8455d29b28f79ff1a68",
+  "$hash": "6a8adaa9bf2c0c594aef29624f51528f28753129",
   "$id": "aws-appstream-stackuserassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -9,15 +9,62 @@
     "/properties/UserName"
   ],
   "description": "Resource Type definition for AWS::AppStream::StackUserAssociation",
-  "primaryIdentifier": ["/properties/Id"],
-  "properties": {
-    "AuthenticationType": { "type": "string" },
-    "Id": { "type": "string" },
-    "SendEmailNotification": { "type": "boolean" },
-    "StackName": { "type": "string" },
-    "UserName": { "type": "string" }
+  "handlers": {
+    "create": {
+      "permissions": [
+        "appstream:DescribeUserStackAssociations",
+        "appstream:BatchAssociateUserStack"
+      ]
+    },
+    "delete": {
+      "permissions": [
+        "appstream:DescribeUserStackAssociations",
+        "appstream:BatchDisassociateUserStack"
+      ]
+    },
+    "list": {
+      "handlerSchema": {
+        "anyOf": [
+          { "required": ["StackName"] },
+          { "required": ["UserName", "AuthenticationType"] }
+        ],
+        "properties": {
+          "AuthenticationType": {
+            "$ref": "resource-schema.json#/properties/AuthenticationType"
+          },
+          "StackName": { "$ref": "resource-schema.json#/properties/StackName" },
+          "UserName": { "$ref": "resource-schema.json#/properties/UserName" }
+        }
+      },
+      "permissions": ["appstream:DescribeUserStackAssociations"]
+    },
+    "read": { "permissions": ["appstream:DescribeUserStackAssociations"] }
   },
-  "readOnlyProperties": ["/properties/Id"],
-  "required": ["StackName", "UserName", "AuthenticationType"],
+  "primaryIdentifier": [
+    "/properties/StackName",
+    "/properties/UserName",
+    "/properties/AuthenticationType"
+  ],
+  "properties": {
+    "AuthenticationType": {
+      "description": "The authentication type for the user who is associated with the stack. You must specify USERPOOL.",
+      "type": "string"
+    },
+    "SendEmailNotification": {
+      "description": "Specifies whether a welcome email is sent to a user after the user is created in the user pool.",
+      "type": "boolean"
+    },
+    "StackName": {
+      "description": "The name of the stack that is associated with the user.",
+      "type": "string"
+    },
+    "UserName": {
+      "description": "The name of the user who is associated with the stack.",
+      "type": "string"
+    }
+  },
+  "required": ["AuthenticationType", "StackName", "UserName"],
+  "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-appstream/tree/master/aws-appstream-stackuserassociation.git",
+  "tagging": { "taggable": false },
   "typeName": "AWS::AppStream::StackUserAssociation"
 }

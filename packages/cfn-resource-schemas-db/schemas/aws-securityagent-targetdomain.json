@@ -1,5 +1,5 @@
 {
-  "$hash": "0939f587130aa56f8e3773cd6b25e99320ee636d",
+  "$hash": "37e6b1b527ca9f46c98e5d41a5ebd5cb0882c42c",
   "$id": "aws-securityagent-targetdomain.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TargetDomainName"],
@@ -67,7 +67,7 @@
         "HttpRoute": { "$ref": "#/definitions/HttpVerification" },
         "Method": {
           "description": "Type of domain ownership verification method",
-          "enum": ["DNS_TXT", "HTTP_ROUTE"],
+          "enum": ["DNS_TXT", "HTTP_ROUTE", "PRIVATE_VPC"],
           "type": "string"
         }
       },
@@ -132,12 +132,16 @@
     "VerificationDetails": { "$ref": "#/definitions/VerificationDetails" },
     "VerificationMethod": {
       "description": "Verification method for the target domain",
-      "enum": ["DNS_TXT", "HTTP_ROUTE"],
+      "enum": ["DNS_TXT", "HTTP_ROUTE", "PRIVATE_VPC"],
       "type": "string"
     },
     "VerificationStatus": {
       "description": "Current verification status of the registered target domain",
       "enum": ["PENDING", "VERIFIED", "FAILED", "UNREACHABLE"],
+      "type": "string"
+    },
+    "VerificationStatusReason": {
+      "description": "Reason for the current target domain verification status",
       "type": "string"
     },
     "VerifiedAt": {
@@ -149,6 +153,7 @@
   "readOnlyProperties": [
     "/properties/TargetDomainId",
     "/properties/VerificationStatus",
+    "/properties/VerificationStatusReason",
     "/properties/VerificationDetails",
     "/properties/CreatedAt",
     "/properties/VerifiedAt"

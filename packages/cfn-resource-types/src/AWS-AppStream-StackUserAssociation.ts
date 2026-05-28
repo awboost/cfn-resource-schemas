@@ -5,17 +5,22 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html}
  */
 export type AppStreamStackUserAssociationProperties = {
+  /**
+   * The authentication type for the user who is associated with the stack. You must specify USERPOOL.
+   */
   AuthenticationType: string;
+  /**
+   * Specifies whether a welcome email is sent to a user after the user is created in the user pool.
+   */
   SendEmailNotification?: boolean;
+  /**
+   * The name of the stack that is associated with the user.
+   */
   StackName: string;
+  /**
+   * The name of the user who is associated with the stack.
+   */
   UserName: string;
-};
-/**
- * Attribute type definition for `AWS::AppStream::StackUserAssociation`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#aws-resource-appstream-stackuserassociation-return-values}
- */
-export type AppStreamStackUserAssociationAttributes = {
-  Id: string;
 };
 /**
  * Resource Type definition for AWS::AppStream::StackUserAssociation
@@ -24,7 +29,7 @@ export type AppStreamStackUserAssociationAttributes = {
 export class AppStreamStackUserAssociation extends $Resource<
   "AWS::AppStream::StackUserAssociation",
   AppStreamStackUserAssociationProperties,
-  AppStreamStackUserAssociationAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::AppStream::StackUserAssociation";
   constructor(

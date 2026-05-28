@@ -68,6 +68,12 @@ export type PCSComputeNodeGroupProperties = {
    */
   SlurmConfiguration?: {
     /**
+     * The time before an idle node is scaled down.
+     * @min `1`
+     * @max `10000000`
+     */
+    ScaleDownIdleTimeInSeconds?: number;
+    /**
      * Additional Slurm-specific configuration that directly maps to Slurm settings.
      */
     SlurmCustomSettings?: SlurmCustomSetting[];

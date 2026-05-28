@@ -1,5 +1,5 @@
 {
-  "$hash": "302d36b74bd3dbcbd631cc61e0a60af1d0970478",
+  "$hash": "52457fee22e55e79c15e223a7fcbc06f4f8255f8",
   "$id": "aws-apigatewayv2-api.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProtocolType"],
@@ -83,6 +83,7 @@
         "apigateway:GET",
         "apigateway:PUT",
         "apigateway:POST",
+        "apigateway:DELETE",
         "s3:getObject"
       ]
     }
@@ -166,6 +167,12 @@
   "readOnlyProperties": ["/properties/ApiId", "/properties/ApiEndpoint"],
   "tagging": {
     "cloudFormationSystemTags": true,
+    "permissions": [
+      "apigateway:GET",
+      "apigateway:PUT",
+      "apigateway:PATCH",
+      "apigateway:DELETE"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

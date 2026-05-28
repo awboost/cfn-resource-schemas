@@ -1,5 +1,5 @@
 {
-  "$hash": "2967db3578ac5561cfc10de4f266259544d001dc",
+  "$hash": "90158e615b08dbf9d586d483f15f002e8a546ae5",
   "$id": "aws-datasync-locationfsxontap.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -275,7 +275,7 @@
   "required": ["SecurityGroupArns", "StorageVirtualMachineArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-datasync.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "datasync:TagResource",
       "datasync:UntagResource",
