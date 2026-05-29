@@ -36,6 +36,10 @@ export type SageMakerDomainProperties = {
    */
   DomainSettings?: DomainSettings;
   /**
+   * Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
+   */
+  HomeEfsFileSystemCreation?: "Enabled" | "Disabled";
+  /**
    * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
    * @maxLength `2048`
    * @pattern `.*`
@@ -729,6 +733,13 @@ export type ResourceSpec = {
    * @pattern `^arn:aws(-[\w]+)*:sagemaker:.+:[0-9]{12}:image-version/[a-z0-9]([-.]?[a-z0-9])/‍*[0-9]+$`
    */
   SageMakerImageVersionArn?: string;
+  /**
+   * The Amazon Resource Name (ARN) of the training plan to use for the ResourceSpec.
+   * @minLength `0`
+   * @maxLength `2048`
+   * @pattern `^(arn:aws[a-z\-]*:sagemaker:[a-z0-9\-]*:[0-9]{12}:training-plan/.*|None)$`
+   */
+  TrainingPlanArn?: string;
 };
 /**
  * Type definition for `AWS::SageMaker::Domain.RSessionAppSettings`.

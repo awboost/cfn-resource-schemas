@@ -1,5 +1,5 @@
 {
-  "$hash": "2d5915a300152dbf1dae107e07b6001ac351aa41",
+  "$hash": "d9428463e41ed3da8ccff026f282cc3f4314a2c8",
   "$id": "aws-autoscaling-launchconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -230,6 +230,8 @@
   "writeOnlyProperties": [
     "/properties/InstanceId",
     "/properties/ClassicLinkVPCId",
-    "/properties/ClassicLinkVPCSecurityGroups"
+    "/properties/ClassicLinkVPCSecurityGroups",
+    "/properties/KernelId",
+    "/properties/RamDiskId"
   ]
 }

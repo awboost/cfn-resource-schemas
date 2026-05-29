@@ -1,5 +1,5 @@
 {
-  "$hash": "d6c16662e98e150b1a624361ceb84de6d39b69f7",
+  "$hash": "404bd81a962f608794685869f6fb1986e7770cd4",
   "$id": "aws-mediapackagev2-channel.json",
   "additionalIdentifiers": [
     ["/properties/ChannelGroupName", "/properties/ChannelName"]
@@ -31,10 +31,15 @@
       "description": "<p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>",
       "properties": {
         "MQCSInputSwitching": {
-          "description": "<p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>",
+          "description": "<p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>",
           "type": "boolean"
         },
-        "PreferredInput": { "maximum": 2, "minimum": 1, "type": "integer" }
+        "PreferredInput": {
+          "description": "<p>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select <code>1</code> to prefer the first ingest endpoint, or <code>2</code> to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.</p>",
+          "maximum": 2,
+          "minimum": 1,
+          "type": "integer"
+        }
       },
       "type": "object"
     },
@@ -157,7 +162,7 @@
   "required": ["ChannelGroupName", "ChannelName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediapackagev2",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "mediapackagev2:TagResource",
       "mediapackagev2:UntagResource",

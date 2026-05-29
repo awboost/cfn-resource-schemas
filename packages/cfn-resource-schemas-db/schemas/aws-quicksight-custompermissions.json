@@ -1,5 +1,5 @@
 {
-  "$hash": "be95798a980b59e39c0e9deca6b0862f0928b4ec",
+  "$hash": "6f2076fc2c2db7bad029f22bb8912106121a444a",
   "$id": "aws-quicksight-custompermissions.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,6 +10,9 @@
     "Capabilities": {
       "additionalProperties": false,
       "properties": {
+        "AccessAppsNativeDataStore": {
+          "$ref": "#/definitions/CapabilityState"
+        },
         "Action": { "$ref": "#/definitions/CapabilityState" },
         "AddOrRunAnomalyDetectionForAnalyses": {
           "$ref": "#/definitions/CapabilityState"
@@ -20,6 +23,7 @@
         "AmazonSThreeAction": { "$ref": "#/definitions/CapabilityState" },
         "Analysis": { "$ref": "#/definitions/CapabilityState" },
         "ApproveFlowShareRequests": { "$ref": "#/definitions/CapabilityState" },
+        "Apps": { "$ref": "#/definitions/CapabilityState" },
         "AsanaAction": { "$ref": "#/definitions/CapabilityState" },
         "Automate": { "$ref": "#/definitions/CapabilityState" },
         "BambooHRAction": { "$ref": "#/definitions/CapabilityState" },
@@ -44,6 +48,7 @@
         "CreateAndUpdateAmazonSThreeAction": {
           "$ref": "#/definitions/CapabilityState"
         },
+        "CreateAndUpdateApps": { "$ref": "#/definitions/CapabilityState" },
         "CreateAndUpdateAsanaAction": {
           "$ref": "#/definitions/CapabilityState"
         },
@@ -179,6 +184,7 @@
         },
         "CreateSPICEDataset": { "$ref": "#/definitions/CapabilityState" },
         "CreateSharedFolders": { "$ref": "#/definitions/CapabilityState" },
+        "CreateSpaces": { "$ref": "#/definitions/CapabilityState" },
         "Dashboard": { "$ref": "#/definitions/CapabilityState" },
         "EditVisualWithQ": { "$ref": "#/definitions/CapabilityState" },
         "ExportToCsv": { "$ref": "#/definitions/CapabilityState" },
@@ -205,6 +211,7 @@
           "$ref": "#/definitions/CapabilityState"
         },
         "IntercomAction": { "$ref": "#/definitions/CapabilityState" },
+        "InvokeAppsAIInference": { "$ref": "#/definitions/CapabilityState" },
         "JiraAction": { "$ref": "#/definitions/CapabilityState" },
         "KnowledgeBase": { "$ref": "#/definitions/CapabilityState" },
         "LinearAction": { "$ref": "#/definitions/CapabilityState" },
@@ -247,10 +254,12 @@
         },
         "ShareAmazonSThreeAction": { "$ref": "#/definitions/CapabilityState" },
         "ShareAnalyses": { "$ref": "#/definitions/CapabilityState" },
+        "ShareApps": { "$ref": "#/definitions/CapabilityState" },
         "ShareAsanaAction": { "$ref": "#/definitions/CapabilityState" },
         "ShareBambooHRAction": { "$ref": "#/definitions/CapabilityState" },
         "ShareBoxAgentAction": { "$ref": "#/definitions/CapabilityState" },
         "ShareCanvaAgentAction": { "$ref": "#/definitions/CapabilityState" },
+        "ShareChatAgents": { "$ref": "#/definitions/CapabilityState" },
         "ShareComprehendAction": { "$ref": "#/definitions/CapabilityState" },
         "ShareComprehendMedicalAction": {
           "$ref": "#/definitions/CapabilityState"
@@ -305,6 +314,7 @@
         "ShareSharePointAction": { "$ref": "#/definitions/CapabilityState" },
         "ShareSlackAction": { "$ref": "#/definitions/CapabilityState" },
         "ShareSmartsheetAction": { "$ref": "#/definitions/CapabilityState" },
+        "ShareSpaces": { "$ref": "#/definitions/CapabilityState" },
         "ShareTextractAction": { "$ref": "#/definitions/CapabilityState" },
         "ShareZendeskAction": { "$ref": "#/definitions/CapabilityState" },
         "SlackAction": { "$ref": "#/definitions/CapabilityState" },

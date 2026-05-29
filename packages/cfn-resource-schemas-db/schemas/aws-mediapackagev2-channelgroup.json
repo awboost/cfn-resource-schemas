@@ -1,5 +1,5 @@
 {
-  "$hash": "61659a77e2e9f00d9b71b3eba439ab92eece5529",
+  "$hash": "19e9a13c7bae1b0412554d8b9136b6dc080eeee1",
   "$id": "aws-mediapackagev2-channelgroup.json",
   "additionalIdentifiers": [["/properties/ChannelGroupName"]],
   "additionalProperties": false,
@@ -86,7 +86,7 @@
   "required": ["ChannelGroupName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediapackagev2",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "mediapackagev2:TagResource",
       "mediapackagev2:UntagResource",

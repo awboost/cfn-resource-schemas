@@ -36,6 +36,7 @@ export type QuickSightCustomPermissionsAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html}
  */
 export type Capabilities = {
+  AccessAppsNativeDataStore?: CapabilityState;
   Action?: CapabilityState;
   AddOrRunAnomalyDetectionForAnalyses?: CapabilityState;
   AmazonBedrockARSAction?: CapabilityState;
@@ -44,6 +45,7 @@ export type Capabilities = {
   AmazonSThreeAction?: CapabilityState;
   Analysis?: CapabilityState;
   ApproveFlowShareRequests?: CapabilityState;
+  Apps?: CapabilityState;
   AsanaAction?: CapabilityState;
   Automate?: CapabilityState;
   BambooHRAction?: CapabilityState;
@@ -58,6 +60,7 @@ export type Capabilities = {
   CreateAndUpdateAmazonBedrockFSAction?: CapabilityState;
   CreateAndUpdateAmazonBedrockKRSAction?: CapabilityState;
   CreateAndUpdateAmazonSThreeAction?: CapabilityState;
+  CreateAndUpdateApps?: CapabilityState;
   CreateAndUpdateAsanaAction?: CapabilityState;
   CreateAndUpdateBambooHRAction?: CapabilityState;
   CreateAndUpdateBoxAgentAction?: CapabilityState;
@@ -107,6 +110,7 @@ export type Capabilities = {
   CreateDashboardExecutiveSummaryWithQ?: CapabilityState;
   CreateSPICEDataset?: CapabilityState;
   CreateSharedFolders?: CapabilityState;
+  CreateSpaces?: CapabilityState;
   Dashboard?: CapabilityState;
   EditVisualWithQ?: CapabilityState;
   ExportToCsv?: CapabilityState;
@@ -125,6 +129,7 @@ export type Capabilities = {
   HuggingFaceAction?: CapabilityState;
   IncludeContentInScheduledReportsEmail?: CapabilityState;
   IntercomAction?: CapabilityState;
+  InvokeAppsAIInference?: CapabilityState;
   JiraAction?: CapabilityState;
   KnowledgeBase?: CapabilityState;
   LinearAction?: CapabilityState;
@@ -157,10 +162,12 @@ export type Capabilities = {
   ShareAmazonBedrockKRSAction?: CapabilityState;
   ShareAmazonSThreeAction?: CapabilityState;
   ShareAnalyses?: CapabilityState;
+  ShareApps?: CapabilityState;
   ShareAsanaAction?: CapabilityState;
   ShareBambooHRAction?: CapabilityState;
   ShareBoxAgentAction?: CapabilityState;
   ShareCanvaAgentAction?: CapabilityState;
+  ShareChatAgents?: CapabilityState;
   ShareComprehendAction?: CapabilityState;
   ShareComprehendMedicalAction?: CapabilityState;
   ShareConfluenceAction?: CapabilityState;
@@ -199,6 +206,7 @@ export type Capabilities = {
   ShareSharePointAction?: CapabilityState;
   ShareSlackAction?: CapabilityState;
   ShareSmartsheetAction?: CapabilityState;
+  ShareSpaces?: CapabilityState;
   ShareTextractAction?: CapabilityState;
   ShareZendeskAction?: CapabilityState;
   SlackAction?: CapabilityState;

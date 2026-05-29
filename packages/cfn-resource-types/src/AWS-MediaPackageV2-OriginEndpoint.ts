@@ -57,11 +57,12 @@ export type MediaPackageV2OriginEndpointProperties = {
   Segment?: Segment;
   /**
    * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
-   * @min `60`
+   * @min `0`
    * @max `1209600`
    */
   StartoverWindowSeconds?: number;
   Tags?: Tag[];
+  UriSeparator?: UriSeparator;
 };
 /**
  * Attribute type definition for `AWS::MediaPackageV2::OriginEndpoint`.
@@ -123,6 +124,23 @@ export type CmafEncryptionMethod = "CENC" | "CBCS";
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-containertype.html}
  */
 export type ContainerType = "TS" | "CMAF" | "ISM";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.CustomAdType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-customadtype.html}
+ */
+export type CustomAdType =
+  | "PROGRAM"
+  | "CHAPTER"
+  | "UNSCHEDULED_EVENT"
+  | "ALTERNATE_CONTENT_OPPORTUNITY"
+  | "NETWORK";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashAvailabilityStartTimeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashavailabilitystarttimeconfiguration.html}
+ */
+export type DashAvailabilityStartTimeConfiguration = {
+  FixedAvailabilityStartTime: string;
+};
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashBaseUrl`.
  * <p>The base URLs to use for retrieving segments. You can specify multiple locations and indicate the priority and weight for when each should be used, for use in mutli-CDN workflows.</p>
@@ -232,6 +250,7 @@ export type DashDvbSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html}
  */
 export type DashManifestConfiguration = {
+  AvailabilityStartTimeConfiguration?: DashAvailabilityStartTimeConfiguration;
   /**
    * <p>The base URL to use for retrieving segments.</p>
    * @minLength `0`
@@ -296,6 +315,7 @@ export type DashManifestConfiguration = {
    * <p>The amount of time (in seconds) that the player should be from the end of the manifest.</p>
    */
   SuggestedPresentationDelaySeconds?: number;
+  UriPathType?: UriPathType;
   /**
    * <p>Determines the type of UTC timing included in the DASH Media Presentation Description (MPD).</p>
    */
@@ -564,6 +584,7 @@ export type HlsManifestConfiguration = {
    * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
    */
   StartTag?: StartTag;
+  UriPathType?: UriPathType;
   /**
    * <p>When enabled, MediaPackage URL-encodes the query string for API requests for HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
    */
@@ -614,6 +635,7 @@ export type LowLatencyHlsManifestConfiguration = {
    * <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
    */
   StartTag?: StartTag;
+  UriPathType?: UriPathType;
   /**
    * <p>When enabled, MediaPackage URL-encodes the query string for API requests for LL-HLS child manifests to comply with Amazon Web Services Signature Version 4 (SigV4) signature signing protocol. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in <i>Identity and Access Management User Guide</i>.</p>
    */
@@ -679,6 +701,12 @@ export type PresetSpeke20Video =
  */
 export type Scte = {
   /**
+   * <p>A list of additional non-Ad SCTE-35 event types to treat as advertisements. When configured, events matching these types produce ad markers (such as <code>SCTE35-OUT</code> and <code>SCTE35-IN</code> in HLS DATERANGE tags) in manifests.</p> <p>Valid values: <code>PROGRAM</code> | <code>CHAPTER</code> | <code>UNSCHEDULED_EVENT</code> | <code>ALTERNATE_CONTENT_OPPORTUNITY</code> | <code>NETWORK</code> </p> <p>If you don't specify any values, the default is empty (only default ad types are used).</p>
+   * @minLength `0`
+   * @maxLength `25`
+   */
+  CustomAdTypes?: CustomAdType[];
+  /**
    * <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
    * @minLength `0`
    * @maxLength `100`
@@ -693,6 +721,7 @@ export type Scte = {
  */
 export type ScteDash = {
   AdMarkerDash?: AdMarkerDash;
+  ScteInManifests?: ScteInManifests;
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ScteFilter`.
@@ -707,7 +736,15 @@ export type ScteFilter =
   | "DISTRIBUTOR_PLACEMENT_OPPORTUNITY"
   | "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
   | "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
-  | "PROGRAM";
+  | "PROGRAM"
+  | "CHAPTER"
+  | "UNSCHEDULED_EVENT"
+  | "ALTERNATE_CONTENT_OPPORTUNITY"
+  | "NETWORK"
+  | "PROVIDER_PROMO"
+  | "DISTRIBUTOR_PROMO"
+  | "PROVIDER_AD_BLOCK"
+  | "DISTRIBUTOR_AD_BLOCK";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ScteHls`.
  * <p>The SCTE configuration.</p>
@@ -715,12 +752,18 @@ export type ScteFilter =
  */
 export type ScteHls = {
   AdMarkerHls?: AdMarkerHls;
+  ScteInManifests?: ScteInManifests;
 };
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ScteInManifests`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scteinmanifests.html}
+ */
+export type ScteInManifests = "ALL" | "MATCHES_FILTER";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ScteInSegments`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-scteinsegments.html}
  */
-export type ScteInSegments = "NONE" | "ALL";
+export type ScteInSegments = "NONE" | "ALL" | "MATCHES_FILTER";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.Segment`.
  * <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
@@ -768,7 +811,7 @@ export type Segment = {
  */
 export type SpekeKeyProvider = {
   /**
-   * <p>The ARN for the certificate that you imported to AWS Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
+   * <p>The ARN for the certificate that you imported to Amazon Web Services Certificate Manager to add content key encryption to this endpoint. For this feature to work, your DRM key provider must support content key encryption.</p>
    * @minLength `20`
    * @maxLength `2048`
    * @pattern `^arn:([^:\n]+):acm:([^:\n]+):([0-9]+):certificate/[a-zA-Z0-9-_]+$`
@@ -832,6 +875,16 @@ export type Tag = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-tsencryptionmethod.html}
  */
 export type TsEncryptionMethod = "AES_128" | "SAMPLE_AES";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.UriPathType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-uripathtype.html}
+ */
+export type UriPathType = "LEAF" | "ROOT";
+/**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.UriSeparator`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-uriseparator.html}
+ */
+export type UriSeparator = "UNDERSCORE" | "HYPHEN";
 /**
  * Resource type definition for `AWS::MediaPackageV2::OriginEndpoint`.
  * <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>

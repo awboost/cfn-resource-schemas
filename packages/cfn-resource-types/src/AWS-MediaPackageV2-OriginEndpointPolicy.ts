@@ -6,6 +6,9 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpointpolicy.html}
  */
 export type MediaPackageV2OriginEndpointPolicyProperties = {
+  /**
+   * <p>The settings to enable CDN authorization headers in MediaPackage.</p>
+   */
   CdnAuthConfiguration?: CdnAuthConfiguration;
   /**
    * @minLength `1`
@@ -29,15 +32,18 @@ export type MediaPackageV2OriginEndpointPolicyProperties = {
 };
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpointPolicy.CdnAuthConfiguration`.
+ * <p>The settings to enable CDN authorization headers in MediaPackage.</p>
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpointpolicy-cdnauthconfiguration.html}
  */
 export type CdnAuthConfiguration = {
   /**
+   * <p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>
    * @minLength `1`
    * @maxLength `100`
    */
   CdnIdentifierSecretArns: string[];
   /**
+   * <p>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.</p>
    * @minLength `20`
    * @maxLength `2048`
    */

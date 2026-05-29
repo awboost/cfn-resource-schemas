@@ -1,5 +1,5 @@
 {
-  "$hash": "dbae56ee39abe9d65ec3bffe5b1d3bf1512dd3c7",
+  "$hash": "7e04a3e6ab661a7c6c1a35edd307165cdb264ba9",
   "$id": "aws-cloudformation-guardhook.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ExecutionRole", "/properties/Alias"],
@@ -149,6 +149,7 @@
       "additionalProperties": false,
       "properties": {
         "InputParams": {
+          "description": "Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.",
           "oneOf": [
             { "$ref": "#/definitions/S3Location" },
             {

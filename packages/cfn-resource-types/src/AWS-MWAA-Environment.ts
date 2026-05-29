@@ -323,7 +323,10 @@ export type NetworkConfiguration = {
  * Choice for mode of webserver access including over public internet or via private VPC endpoint.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-webserveraccessmode.html}
  */
-export type WebserverAccessMode = "PRIVATE_ONLY" | "PUBLIC_ONLY";
+export type WebserverAccessMode =
+  | "PRIVATE_ONLY"
+  | "PUBLIC_ONLY"
+  | "PUBLIC_AND_PRIVATE";
 /**
  * Type definition for `AWS::MWAA::Environment.WorkerReplacementStrategy`.
  * The worker replacement strategy to use when updating the environment. Valid values: `FORCED`, `GRACEFUL`. FORCED means Apache Airflow workers will be stopped and replaced without waiting for tasks to complete before an update. GRACEFUL means Apache Airflow workers will be able to complete running tasks for up to 12 hours during an update before being stopped and replaced.

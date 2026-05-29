@@ -1,5 +1,5 @@
 {
-  "$hash": "7d5f02af3cfd29c6f145c41230ec04ca96770f2f",
+  "$hash": "d12f8cd5e6b7d20f809367fc2b6576c59e5777ca",
   "$id": "aws-mediapackagev2-originendpointpolicy.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -10,14 +10,17 @@
   "definitions": {
     "CdnAuthConfiguration": {
       "additionalProperties": false,
+      "description": "<p>The settings to enable CDN authorization headers in MediaPackage.</p>",
       "properties": {
         "CdnIdentifierSecretArns": {
+          "description": "<p>The ARN for the secret in Secrets Manager that your CDN uses for authorization to access the endpoint.</p>",
           "items": { "maxLength": 2048, "minLength": 20, "type": "string" },
           "maxItems": 100,
           "minItems": 1,
           "type": "array"
         },
         "SecretsRoleArn": {
+          "description": "<p>The ARN for the IAM role that gives MediaPackage read access to Secrets Manager and KMS for CDN authorization.</p>",
           "maxLength": 2048,
           "minLength": 20,
           "type": "string"

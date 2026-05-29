@@ -30,6 +30,9 @@ export type CloudFormationGuardHookProperties = {
    */
   LogBucket?: string;
   Options?: {
+    /**
+     * Specifies the S3 location of input parameter files for your Guard rules. You can specify either a single S3 location or an array of up to 10 S3 locations.
+     */
     InputParams?: S3Location | S3Location[];
   };
   /**

@@ -1,64 +1,41 @@
-- updated `AWS::ApiGatewayV2::Api`
+- added `AWS::VerifiedPermissions::PolicyStoreAlias`
+- updated `AWS::AutoScaling::LaunchConfiguration`
+  - updated `writeOnlyProperties`
+- updated `AWS::CloudFormation::GuardHook`
+  - updated property `Options`
+- updated `AWS::Config::ConfigRule`
+  - updated `propertyTransform`
+- updated `AWS::MWAA::Environment`
+  - updated definition `WebserverAccessMode`
+- updated `AWS::MediaPackageV2::Channel`
   - updated `tagging`
+  - updated definition `InputSwitchConfiguration`
+- updated `AWS::MediaPackageV2::ChannelGroup`
+  - updated `tagging`
+- updated `AWS::MediaPackageV2::OriginEndpoint`
+  - added definition `CustomAdType`
+  - added definition `DashAvailabilityStartTimeConfiguration`
+  - added definition `ScteInManifests`
+  - added definition `UriPathType`
+  - added definition `UriSeparator`
+  - added property `UriSeparator`
+  - updated `tagging`
+  - updated definition `DashManifestConfiguration`
+  - updated definition `HlsManifestConfiguration`
+  - updated definition `LowLatencyHlsManifestConfiguration`
+  - updated definition `ScteDash`
+  - updated definition `ScteFilter`
+  - updated definition `ScteHls`
+  - updated definition `ScteInSegments`
+  - updated definition `Scte`
+  - updated definition `SpekeKeyProvider`
+  - updated property `StartoverWindowSeconds`
+- updated `AWS::MediaPackageV2::OriginEndpointPolicy`
+  - updated definition `CdnAuthConfiguration`
+- updated `AWS::QuickSight::CustomPermissions`
+  - updated definition `Capabilities`
+- updated `AWS::SageMaker::Domain`
+  - added property `HomeEfsFileSystemCreation`
+  - updated definition `ResourceSpec`
+- updated `AWS::SageMaker::ImageVersion`
   - updated handler permissions
-- updated `AWS::ApiGatewayV2::DomainName`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::ApiGatewayV2::VpcLink`
-  - updated `tagging`
-  - updated handler permissions
-  - updated property `SecurityGroupIds`
-  - updated property `SubnetIds`
-- updated `AWS::AppStream::StackUserAssociation`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated `required`
-  - updated handler permissions
-  - updated property `AuthenticationType`
-  - updated property `SendEmailNotification`
-  - updated property `StackName`
-  - updated property `UserName`
-- updated `AWS::DataSync::Agent`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationAzureBlob`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationEFS`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationFSxLustre`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationFSxONTAP`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationFSxOpenZFS`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationFSxWindows`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationHDFS`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationNFS`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationObjectStorage`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationS3`
-  - updated `tagging`
-- updated `AWS::DataSync::LocationSMB`
-  - updated `tagging`
-- updated `AWS::DataSync::Task`
-  - updated `tagging`
-- updated `AWS::Lambda::LayerVersion`
-  - updated handler permissions
-- updated `AWS::Lambda::LayerVersionPermission`
-  - updated handler permissions
-- updated `AWS::OpenSearchService::Domain`
-  - added definition `AutomatedSnapshotPauseOptions`
-  - added property `AutomatedSnapshotPauseOptions`
-  - updated definition `VPCOptions`
-- updated `AWS::PCS::ComputeNodeGroup`
-  - updated property `SlurmConfiguration`
-- updated `AWS::SecurityAgent::TargetDomain`
-  - added property `VerificationStatusReason`
-  - updated `readOnlyProperties`
-  - updated definition `VerificationDetails`
-  - updated property `VerificationMethod`
