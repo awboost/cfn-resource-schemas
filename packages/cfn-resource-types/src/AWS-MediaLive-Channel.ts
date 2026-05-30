@@ -1302,6 +1302,45 @@ export type MaintenanceCreateSettings = {
   MaintenanceStartTime?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.MediaConnectRouterContainerSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectroutercontainersettings.html}
+ */
+export type MediaConnectRouterContainerSettings = {
+  M2tsSettings?: M2tsSettings;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.MediaConnectRouterGroupSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectroutergroupsettings.html}
+ */
+export type MediaConnectRouterGroupSettings = {
+  AvailabilityZones?: string[];
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.MediaConnectRouterOutputConnectionMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectrouteroutputconnectionmap.html}
+ */
+export type MediaConnectRouterOutputConnectionMap = {
+  Pipeline0?: string;
+  Pipeline1?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.MediaConnectRouterOutputDestinationSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectrouteroutputdestinationsettings.html}
+ */
+export type MediaConnectRouterOutputDestinationSettings = {
+  EncryptionType?: string;
+  SecretArn?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.MediaConnectRouterOutputSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediaconnectrouteroutputsettings.html}
+ */
+export type MediaConnectRouterOutputSettings = {
+  ConnectedRouterInputs?: MediaConnectRouterOutputConnectionMap;
+  ContainerSettings?: MediaConnectRouterContainerSettings;
+  Destination?: OutputLocationRef;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.MediaPackageAdditionalDestinations`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageadditionaldestinations.html}
  */
@@ -1565,6 +1604,7 @@ export type Output = {
 export type OutputDestination = {
   Id?: string;
   LogicalInterfaceNames?: string[];
+  MediaConnectRouterSettings?: MediaConnectRouterOutputDestinationSettings[];
   MediaPackageSettings?: MediaPackageOutputDestinationSettings[];
   MultiplexSettings?: MultiplexProgramChannelDestinationSettings;
   Settings?: OutputDestinationSettings[];
@@ -1598,6 +1638,7 @@ export type OutputGroupSettings = {
   CmafIngestGroupSettings?: CmafIngestGroupSettings;
   FrameCaptureGroupSettings?: FrameCaptureGroupSettings;
   HlsGroupSettings?: HlsGroupSettings;
+  MediaConnectRouterGroupSettings?: MediaConnectRouterGroupSettings;
   MediaPackageGroupSettings?: MediaPackageGroupSettings;
   MsSmoothGroupSettings?: MsSmoothGroupSettings;
   MultiplexGroupSettings?: MultiplexGroupSettings;
@@ -1630,6 +1671,7 @@ export type OutputSettings = {
   CmafIngestOutputSettings?: CmafIngestOutputSettings;
   FrameCaptureOutputSettings?: FrameCaptureOutputSettings;
   HlsOutputSettings?: HlsOutputSettings;
+  MediaConnectRouterOutputSettings?: MediaConnectRouterOutputSettings;
   MediaPackageOutputSettings?: MediaPackageOutputSettings;
   MsSmoothOutputSettings?: MsSmoothOutputSettings;
   MultiplexOutputSettings?: MultiplexOutputSettings;

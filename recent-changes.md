@@ -1,41 +1,34 @@
-- added `AWS::VerifiedPermissions::PolicyStoreAlias`
-- updated `AWS::AutoScaling::LaunchConfiguration`
-  - updated `writeOnlyProperties`
-- updated `AWS::CloudFormation::GuardHook`
-  - updated property `Options`
-- updated `AWS::Config::ConfigRule`
-  - updated `propertyTransform`
-- updated `AWS::MWAA::Environment`
-  - updated definition `WebserverAccessMode`
-- updated `AWS::MediaPackageV2::Channel`
-  - updated `tagging`
-  - updated definition `InputSwitchConfiguration`
-- updated `AWS::MediaPackageV2::ChannelGroup`
-  - updated `tagging`
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - added definition `CustomAdType`
-  - added definition `DashAvailabilityStartTimeConfiguration`
-  - added definition `ScteInManifests`
-  - added definition `UriPathType`
-  - added definition `UriSeparator`
-  - added property `UriSeparator`
-  - updated `tagging`
-  - updated definition `DashManifestConfiguration`
-  - updated definition `HlsManifestConfiguration`
-  - updated definition `LowLatencyHlsManifestConfiguration`
-  - updated definition `ScteDash`
-  - updated definition `ScteFilter`
-  - updated definition `ScteHls`
-  - updated definition `ScteInSegments`
-  - updated definition `Scte`
-  - updated definition `SpekeKeyProvider`
-  - updated property `StartoverWindowSeconds`
-- updated `AWS::MediaPackageV2::OriginEndpointPolicy`
-  - updated definition `CdnAuthConfiguration`
-- updated `AWS::QuickSight::CustomPermissions`
-  - updated definition `Capabilities`
-- updated `AWS::SageMaker::Domain`
-  - added property `HomeEfsFileSystemCreation`
-  - updated definition `ResourceSpec`
+- added `AWS::OpenSearchServerless::CollectionIndex`
+- updated `AWS::Connect::Rule`
+  - updated definition `NotificationRecipientType`
+  - updated definition `Tag`
+  - updated definition `TaskAction`
+  - updated handler permissions
+- updated `AWS::Lambda::Function`
+  - updated definition `Code`
+  - updated definition `FileSystemConfig`
+  - updated property `FileSystemConfigs`
+- updated `AWS::Lex::Bot`
+  - added definition `AudioFillerSettings`
+  - updated definition `BotLocale`
+  - updated definition `SpeechModelPreference`
+- updated `AWS::Lex::BotAlias`
+  - updated handler permissions
+- updated `AWS::Lex::BotVersion`
+  - updated handler permissions
+- updated `AWS::Lex::ResourcePolicy`
+  - updated handler permissions
+- updated `AWS::MediaLive::Channel`
+  - added definition `MediaConnectRouterContainerSettings`
+  - added definition `MediaConnectRouterGroupSettings`
+  - added definition `MediaConnectRouterOutputConnectionMap`
+  - added definition `MediaConnectRouterOutputDestinationSettings`
+  - added definition `MediaConnectRouterOutputSettings`
+  - updated definition `OutputDestination`
+  - updated definition `OutputGroupSettings`
+  - updated definition `OutputSettings`
+- updated `AWS::SSO::Application`
+  - added property `IdentityStoreArn`
+  - updated `readOnlyProperties`
 - updated `AWS::SageMaker::ImageVersion`
   - updated handler permissions

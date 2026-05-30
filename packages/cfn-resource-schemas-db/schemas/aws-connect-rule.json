@@ -1,5 +1,5 @@
 {
-  "$hash": "63474f1408c6816068c65688131ed45b03b0ead0",
+  "$hash": "3c293c7fcc884d59def0a292e393fae4b88f7082",
   "$id": "aws-connect-rule.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -169,7 +169,7 @@
         "UserTags": {
           "additionalProperties": false,
           "description": "The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }. CON users with the specified tags will be notified.",
-          "patternProperties": { "^(?=.{1,128}$).+$": { "type": "string" } }
+          "patternProperties": { "^.{1,128}$": { "type": "string" } }
         }
       },
       "type": "object"
@@ -295,7 +295,7 @@
           "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -",
           "maxLength": 128,
           "minLength": 1,
-          "pattern": "^(?!aws:)[a-zA-Z+-=._:/]+$",
+          "pattern": "^[a-zA-Z+-=._:/]+$",
           "type": "string"
         },
         "Value": {
@@ -331,9 +331,7 @@
         "References": {
           "additionalProperties": false,
           "description": "Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. ``URL`` is the only accepted type. (Supports variable injection in the ``Value`` field.)",
-          "patternProperties": {
-            "^(?=.{1,4096}$).+$": { "$ref": "#/definitions/Reference" }
-          }
+          "patternProperties": { "^.+$": { "$ref": "#/definitions/Reference" } }
         }
       },
       "required": ["Name", "ContactFlowArn"],
@@ -379,11 +377,24 @@
         "connect:CreateRule",
         "cases:GetTemplate",
         "cases:ListFields",
-        "cases:ListFieldOptions"
+        "cases:ListFieldOptions",
+        "connect:TagResource",
+        "connect:DeleteRule"
       ]
     },
     "delete": {
       "permissions": ["connect:DeleteRule", "connect:UntagResource"]
+    },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "InstanceArn": {
+            "$ref": "resource-schema.json#/properties/InstanceArn"
+          }
+        },
+        "required": ["InstanceArn"]
+      },
+      "permissions": ["connect:ListRules"]
     },
     "read": { "permissions": ["connect:DescribeRule"] },
     "update": {

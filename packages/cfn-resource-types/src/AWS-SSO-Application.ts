@@ -58,6 +58,13 @@ export type SSOApplicationAttributes = {
    * @pattern `^arn:aws(-[a-z]{1,5}){0,3}:sso::\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}$`
    */
   ApplicationArn: string;
+  /**
+   * The ARN of the identity store associated with the Identity Center instance
+   * @minLength `10`
+   * @maxLength `1224`
+   * @pattern `^arn:aws(-[a-z]{1,5}){0,3}:identitystore::\d{12}:identitystore/d-[0-9a-f]{10}$`
+   */
+  IdentityStoreArn: string;
 };
 /**
  * Type definition for `AWS::SSO::Application.PortalOptionsConfiguration`.

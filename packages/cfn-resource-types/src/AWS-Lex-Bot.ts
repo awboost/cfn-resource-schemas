@@ -94,6 +94,36 @@ export type AudioAndDTMFInputSpecification = {
   StartTimeoutMs: number;
 };
 /**
+ * Type definition for `AWS::Lex::Bot.AudioFillerSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audiofillersettings.html}
+ */
+export type AudioFillerSettings = {
+  AudioType?:
+    | "MELODY_CHIPPER_CHIME"
+    | "MELODY_CURIOUS_CRAWL"
+    | "MELODY_RISING_RIPPLE"
+    | "MELODY_PATIENT_PING"
+    | "MELODY_PONDERING_PONG"
+    | "TYPING_KINETIC_KEYS"
+    | "TYPING_QUIET_QWERTY";
+  Enabled: boolean;
+  /**
+   * @min `1000`
+   * @max `5000`
+   */
+  MinimumPlayDurationInMilliseconds?: number;
+  /**
+   * @min `200`
+   * @max `1000`
+   */
+  ResponseDeliveryDelayInMilliseconds?: number;
+  /**
+   * @min `500`
+   * @max `5000`
+   */
+  StartDelayInMilliseconds?: number;
+};
+/**
  * Type definition for `AWS::Lex::Bot.AudioLogDestination`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audiologdestination.html}
  */
@@ -207,6 +237,7 @@ export type BotAliasLocaleSettingsItem = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html}
  */
 export type BotLocale = {
+  AudioFillerSettings?: AudioFillerSettings;
   CustomVocabulary?: CustomVocabulary;
   /**
    * A description of the resource
@@ -1356,7 +1387,7 @@ export type SpeechModelPreference =
   | "Standard"
   | "Neural"
   | "Deepgram"
-  | "Enhanced";
+  | "Advanced";
 /**
  * Type definition for `AWS::Lex::Bot.SpeechRecognitionSettings`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-speechrecognitionsettings.html}

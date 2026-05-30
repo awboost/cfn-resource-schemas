@@ -1,5 +1,5 @@
 {
-  "$hash": "e2c55a242c250fce4908baa765d45f261d477cbe",
+  "$hash": "87521c5788c54d47ea0a1142df18f1f208e2eb03",
   "$id": "aws-lex-resourcepolicy.json",
   "additionalIdentifiers": [["/properties/ResourceArn"]],
   "additionalProperties": false,
@@ -43,7 +43,17 @@
         "lex:DeleteResourcePolicyStatement"
       ]
     },
-    "list": { "permissions": ["lex:DescribeResourcePolicy"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "ResourceArn": {
+            "$ref": "resource-schema.json#/properties/ResourceArn"
+          }
+        },
+        "required": ["ResourceArn"]
+      },
+      "permissions": ["lex:DescribeResourcePolicy"]
+    },
     "read": { "permissions": ["lex:DescribeResourcePolicy"] },
     "update": {
       "permissions": [
@@ -65,7 +75,7 @@
   },
   "readOnlyProperties": ["/properties/Id", "/properties/RevisionId"],
   "required": ["Policy", "ResourceArn"],
-  "sourceUrl": "https://docs.aws.amazon.com/lexv2/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-resource-based-policies",
+  "sourceUrl": "https://docs.aws.amazon.com/lexv2/latest/dg/security_iam_service-with-iam.html",
   "tagging": { "taggable": false },
   "typeName": "AWS::Lex::ResourcePolicy"
 }

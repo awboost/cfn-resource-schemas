@@ -1,5 +1,5 @@
 {
-  "$hash": "7b866f5e78a43ca2dd4edd7043071762c75e2a38",
+  "$hash": "2073cf797e11f32886f4b814425e9b32aea3b1c1",
   "$id": "aws-lambda-function.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/DurableConfig"],
@@ -40,11 +40,6 @@
           "description": "The Amazon S3 key of the deployment package.",
           "maxLength": 1024,
           "minLength": 1,
-          "type": "string"
-        },
-        "S3ObjectStorageMode": {
-          "description": "",
-          "enum": ["COPY", "REFERENCE"],
           "type": "string"
         },
         "S3ObjectVersion": {
@@ -129,10 +124,10 @@
     },
     "FileSystemConfig": {
       "additionalProperties": false,
-      "description": "Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).",
+      "description": "Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).",
       "properties": {
         "Arn": {
-          "description": "The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.",
+          "description": "The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.",
           "maxLength": 200,
           "pattern": "^arn:aws[a-zA-Z-]*:elasticfilesystem:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:access-point/fsap-[a-f0-9]{17}$|^arn:aws[-a-z]*:s3files:[0-9a-z-:]+:file-system/fs-[0-9a-f]{17,40}/access-point/fsap-[0-9a-f]{17,40}$",
           "type": "string"
@@ -499,7 +494,7 @@
       "description": "The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB."
     },
     "FileSystemConfigs": {
-      "description": "Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.\n For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).",
+      "description": "Connection settings for an Amazon EFS or Amazon S3 Files file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) or [AWS::S3Files::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3files-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.\n For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).",
       "items": { "$ref": "#/definitions/FileSystemConfig" },
       "maxItems": 1,
       "type": "array"

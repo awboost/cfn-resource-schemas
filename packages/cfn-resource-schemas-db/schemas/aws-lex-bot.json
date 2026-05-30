@@ -1,5 +1,5 @@
 {
-  "$hash": "5b8a315903d71f4fc0e78adbeabe389e1d828675",
+  "$hash": "f7a1662d9329cf43661100d1f2e47f5afac851ba",
   "$id": "aws-lex-bot.json",
   "additionalProperties": false,
   "definitions": {
@@ -31,6 +31,41 @@
         "StartTimeoutMs": { "minimum": 1, "type": "integer" }
       },
       "required": ["StartTimeoutMs"],
+      "type": "object"
+    },
+    "AudioFillerSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "AudioType": {
+          "enum": [
+            "MELODY_CHIPPER_CHIME",
+            "MELODY_CURIOUS_CRAWL",
+            "MELODY_RISING_RIPPLE",
+            "MELODY_PATIENT_PING",
+            "MELODY_PONDERING_PONG",
+            "TYPING_KINETIC_KEYS",
+            "TYPING_QUIET_QWERTY"
+          ],
+          "type": "string"
+        },
+        "Enabled": { "type": "boolean" },
+        "MinimumPlayDurationInMilliseconds": {
+          "maximum": 5000,
+          "minimum": 1000,
+          "type": "integer"
+        },
+        "ResponseDeliveryDelayInMilliseconds": {
+          "maximum": 1000,
+          "minimum": 200,
+          "type": "integer"
+        },
+        "StartDelayInMilliseconds": {
+          "maximum": 5000,
+          "minimum": 500,
+          "type": "integer"
+        }
+      },
+      "required": ["Enabled"],
       "type": "object"
     },
     "AudioLogDestination": {
@@ -178,6 +213,7 @@
     "BotLocale": {
       "additionalProperties": false,
       "properties": {
+        "AudioFillerSettings": { "$ref": "#/definitions/AudioFillerSettings" },
         "CustomVocabulary": { "$ref": "#/definitions/CustomVocabulary" },
         "Description": { "$ref": "#/definitions/Description" },
         "GenerativeAISettings": {
@@ -1484,7 +1520,7 @@
       "type": "object"
     },
     "SpeechModelPreference": {
-      "enum": ["Standard", "Neural", "Deepgram", "Enhanced"],
+      "enum": ["Standard", "Neural", "Deepgram", "Advanced"],
       "type": "string"
     },
     "SpeechRecognitionSettings": {

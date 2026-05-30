@@ -1,5 +1,5 @@
 {
-  "$hash": "c93ea36cab22bdeff5caaaa002173c8b6ebfd544",
+  "$hash": "0e3ad0dc0280f6b27d440700bcd14080c385fce5",
   "$id": "aws-lex-botalias.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BotId"],
@@ -258,6 +258,12 @@
     },
     "delete": { "permissions": ["lex:DeleteBotAlias"] },
     "list": {
+      "handlerSchema": {
+        "properties": {
+          "BotId": { "$ref": "resource-schema.json#/properties/BotId" }
+        },
+        "required": ["BotId"]
+      },
       "permissions": ["lex:ListBotAliases", "lex:ListTagsForResource"]
     },
     "read": {

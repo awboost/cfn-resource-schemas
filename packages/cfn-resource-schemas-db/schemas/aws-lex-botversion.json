@@ -1,5 +1,5 @@
 {
-  "$hash": "b3ec1368bddb260225eadc6ee26d96b314f2d510",
+  "$hash": "c6901622d795e1d420512d719fa23c0fe5797ae9",
   "$id": "aws-lex-botversion.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BotId"],
@@ -69,7 +69,15 @@
     "delete": {
       "permissions": ["lex:DeleteBotVersion", "lex:DescribeBotVersion"]
     },
-    "list": { "permissions": ["lex:ListBotVersions"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "BotId": { "$ref": "resource-schema.json#/properties/BotId" }
+        },
+        "required": ["BotId"]
+      },
+      "permissions": ["lex:ListBotVersions"]
+    },
     "read": { "permissions": ["lex:DescribeBotVersion"] }
   },
   "primaryIdentifier": ["/properties/BotId", "/properties/BotVersion"],

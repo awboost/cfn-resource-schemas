@@ -1,5 +1,5 @@
 {
-  "$hash": "d02463aed4e447f85d4172aa351a3ce347478b94",
+  "$hash": "43f7d820d122464c7454cf54d20bc0537de607aa",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -1411,6 +1411,53 @@
       },
       "type": "object"
     },
+    "MediaConnectRouterContainerSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "M2tsSettings": { "$ref": "#/definitions/M2tsSettings" }
+      },
+      "type": "object"
+    },
+    "MediaConnectRouterGroupSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "AvailabilityZones": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
+      "type": "object"
+    },
+    "MediaConnectRouterOutputConnectionMap": {
+      "additionalProperties": false,
+      "properties": {
+        "Pipeline0": { "type": "string" },
+        "Pipeline1": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "MediaConnectRouterOutputDestinationSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "EncryptionType": { "type": "string" },
+        "SecretArn": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "MediaConnectRouterOutputSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "ConnectedRouterInputs": {
+          "$ref": "#/definitions/MediaConnectRouterOutputConnectionMap"
+        },
+        "ContainerSettings": {
+          "$ref": "#/definitions/MediaConnectRouterContainerSettings"
+        },
+        "Destination": { "$ref": "#/definitions/OutputLocationRef" }
+      },
+      "type": "object"
+    },
     "MediaPackageAdditionalDestinations": {
       "additionalProperties": false,
       "properties": {
@@ -1710,6 +1757,13 @@
           "type": "array",
           "uniqueItems": false
         },
+        "MediaConnectRouterSettings": {
+          "items": {
+            "$ref": "#/definitions/MediaConnectRouterOutputDestinationSettings"
+          },
+          "type": "array",
+          "uniqueItems": false
+        },
         "MediaPackageSettings": {
           "items": {
             "$ref": "#/definitions/MediaPackageOutputDestinationSettings"
@@ -1769,6 +1823,9 @@
           "$ref": "#/definitions/FrameCaptureGroupSettings"
         },
         "HlsGroupSettings": { "$ref": "#/definitions/HlsGroupSettings" },
+        "MediaConnectRouterGroupSettings": {
+          "$ref": "#/definitions/MediaConnectRouterGroupSettings"
+        },
         "MediaPackageGroupSettings": {
           "$ref": "#/definitions/MediaPackageGroupSettings"
         },
@@ -1817,6 +1874,9 @@
           "$ref": "#/definitions/FrameCaptureOutputSettings"
         },
         "HlsOutputSettings": { "$ref": "#/definitions/HlsOutputSettings" },
+        "MediaConnectRouterOutputSettings": {
+          "$ref": "#/definitions/MediaConnectRouterOutputSettings"
+        },
         "MediaPackageOutputSettings": {
           "$ref": "#/definitions/MediaPackageOutputSettings"
         },

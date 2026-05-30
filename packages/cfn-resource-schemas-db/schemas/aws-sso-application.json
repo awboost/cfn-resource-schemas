@@ -1,5 +1,5 @@
 {
-  "$hash": "b9e254f93d3a291a2881aa19b790b910fa5cc2e2",
+  "$hash": "06b85c7333781de73788d2eada4c8f857c98d4df",
   "$id": "aws-sso-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -122,6 +122,13 @@
       "minLength": 1,
       "type": "string"
     },
+    "IdentityStoreArn": {
+      "description": "The ARN of the identity store associated with the Identity Center instance",
+      "maxLength": 1224,
+      "minLength": 10,
+      "pattern": "^arn:aws(-[a-z]{1,5}){0,3}:identitystore::\\d{12}:identitystore/d-[0-9a-f]{10}$",
+      "type": "string"
+    },
     "InstanceArn": {
       "description": "The ARN of the instance of IAM Identity Center under which the operation will run",
       "maxLength": 1224,
@@ -156,7 +163,10 @@
       "uniqueItems": false
     }
   },
-  "readOnlyProperties": ["/properties/ApplicationArn"],
+  "readOnlyProperties": [
+    "/properties/ApplicationArn",
+    "/properties/IdentityStoreArn"
+  ],
   "required": ["Name", "InstanceArn", "ApplicationProviderArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-sso/aws-sso-application",
   "tagging": {
