@@ -1,5 +1,5 @@
 {
-  "$hash": "96a4c2d3c80fe38156bd841373e8b1488a8d8fb2",
+  "$hash": "519ded7e76c2111629b93dbbdec3c05b2ac7f9ee",
   "$id": "aws-ses-multiregionendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/EndpointName", "/properties/Details"],
@@ -106,7 +106,7 @@
   "required": ["EndpointName", "Details"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ses.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ses:TagResource",
       "ses:UntagResource",

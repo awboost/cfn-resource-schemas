@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type RTBFabricResponderGatewayProperties = {
   /**
+   * @pattern `arn:(aws|aws-cn|aws-us-gov):acm:([a-z0-9-]+):[0-9]{12}:certificate/.{1,2048}`
+   */
+  AcmCertificateArn?: string;
+  /**
    * @pattern `^[A-Za-z0-9 ]+$`
    */
   Description?: string;
@@ -13,6 +17,8 @@ export type RTBFabricResponderGatewayProperties = {
    * @pattern `^(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)(?:\.(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?))+$`
    */
   DomainName?: string;
+  GatewayType?: GatewayType;
+  ListenerConfig?: ListenerConfig;
   ManagedEndpointConfiguration?: ManagedEndpointConfiguration;
   /**
    * @min `1`
@@ -54,7 +60,9 @@ export type RTBFabricResponderGatewayAttributes = {
    * @pattern `^arn:aws:rtbfabric:[a-zA-Z0-9_-]+:[0-9]{12}:gateway/[a-zA-Z0-9-]+$`
    */
   Arn: string;
+  CertificateAssociationStatus: CertificateAssociationStatus;
   CreatedTimestamp: string;
+  ExternalInboundEndpoint: string;
   /**
    * @pattern `^(rtbapp-[a-z0-9-]{1,25}|rtb-gw-[a-z0-9-]{1,25})$`
    */
@@ -71,6 +79,17 @@ export type AutoScalingGroupsConfiguration = {
   HealthCheckConfig?: HealthCheckConfig;
   RoleArn: string;
 };
+/**
+ * Type definition for `AWS::RTBFabric::ResponderGateway.CertificateAssociationStatus`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-certificateassociationstatus.html}
+ */
+export type CertificateAssociationStatus =
+  | "PENDING_ASSOCIATION"
+  | "ASSOCIATED"
+  | "PENDING_DISASSOCIATION"
+  | "DISASSOCIATED"
+  | "EXPIRED"
+  | "FAILED";
 /**
  * Type definition for `AWS::RTBFabric::ResponderGateway.EksEndpointsConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-eksendpointsconfiguration.html}
@@ -101,6 +120,11 @@ export type EksEndpointsConfiguration = {
   EndpointsResourceNamespace: string;
   RoleArn: string;
 };
+/**
+ * Type definition for `AWS::RTBFabric::ResponderGateway.GatewayType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-gatewaytype.html}
+ */
+export type GatewayType = "EXTERNAL" | "INTERNAL";
 /**
  * Type definition for `AWS::RTBFabric::ResponderGateway.HealthCheckConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-healthcheckconfig.html}
@@ -144,6 +168,17 @@ export type HealthCheckConfig = {
    * @max `10`
    */
   UnhealthyThresholdCount?: number;
+};
+/**
+ * Type definition for `AWS::RTBFabric::ResponderGateway.ListenerConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rtbfabric-respondergateway-listenerconfig.html}
+ */
+export type ListenerConfig = {
+  /**
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  Protocols: Protocol[];
 };
 /**
  * Type definition for `AWS::RTBFabric::ResponderGateway.ManagedEndpointConfiguration`.

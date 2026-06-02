@@ -1,5 +1,5 @@
 {
-  "$hash": "d096c3e6e728fa62ca338f9852f28f3992de35a0",
+  "$hash": "b63d74b8124fca9be92217f28d47023da7c846c2",
   "$id": "aws-ses-emailidentity.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/EmailIdentity"],
@@ -92,13 +92,16 @@
         "ses:PutEmailIdentityFeedbackAttributes",
         "ses:PutEmailIdentityDkimAttributes",
         "ses:GetEmailIdentity",
+        "ses:ListTagsForResource",
         "ses:TagResource",
         "ses:UntagResource"
       ]
     },
     "delete": { "permissions": ["ses:DeleteEmailIdentity"] },
     "list": { "permissions": ["ses:ListEmailIdentities"] },
-    "read": { "permissions": ["ses:GetEmailIdentity"] },
+    "read": {
+      "permissions": ["ses:GetEmailIdentity", "ses:ListTagsForResource"]
+    },
     "update": {
       "permissions": [
         "ses:PutEmailIdentityMailFromAttributes",
@@ -107,6 +110,7 @@
         "ses:PutEmailIdentityDkimSigningAttributes",
         "ses:PutEmailIdentityDkimAttributes",
         "ses:GetEmailIdentity",
+        "ses:ListTagsForResource",
         "ses:TagResource",
         "ses:UntagResource"
       ]
@@ -151,8 +155,12 @@
   "required": ["EmailIdentity"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ses.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
-    "permissions": ["ses:TagResource", "ses:UntagResource"],
+    "cloudFormationSystemTags": true,
+    "permissions": [
+      "ses:TagResource",
+      "ses:UntagResource",
+      "ses:ListTagsForResource"
+    ],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",
     "tagUpdatable": true,

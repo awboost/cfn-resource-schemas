@@ -1,5 +1,5 @@
 {
-  "$hash": "a3919f55d1ae43b947f226b213589ea3cb3444d4",
+  "$hash": "fc5e024ccb13cbc45624a3c7a78659c46f77cca6",
   "$id": "aws-ses-dedicatedippool.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/ScalingMode"],
@@ -68,7 +68,7 @@
   },
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ses.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ses:TagResource",
       "ses:UntagResource",

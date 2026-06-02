@@ -1,5 +1,5 @@
 {
-  "$hash": "e21cac1012f2694b1dbd69dbae9c95356984d77a",
+  "$hash": "26a94d4a24a5db279fa8f3cb2c3244a2243ea3d7",
   "$id": "aws-supportapp-accountalias.json",
   "additionalProperties": false,
   "description": "An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.",
@@ -45,5 +45,11 @@
   "readOnlyProperties": ["/properties/AccountAliasResourceId"],
   "required": ["AccountAlias"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-supportapp.git",
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::SupportApp::AccountAlias"
 }

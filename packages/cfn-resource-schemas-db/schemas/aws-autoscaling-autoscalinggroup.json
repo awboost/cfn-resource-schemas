@@ -1,5 +1,5 @@
 {
-  "$hash": "f65a800be956360b664f28681013383c77aedbd8",
+  "$hash": "24bc45596e0ebdd10931e62bde3542cd41fb13ac",
   "$id": "aws-autoscaling-autoscalinggroup.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -699,7 +699,6 @@
         "autoscaling:DeleteLifecycleHook",
         "autoscaling:PutLifecycleHook",
         "autoscaling:StartInstanceRefresh",
-        "autoscaling:DescribeInstanceRefreshes",
         "autoscaling:CancelInstanceRefresh",
         "cloudwatch:PutMetricAlarm",
         "ec2:Describe*",
@@ -718,7 +717,7 @@
         "vpc-lattice:ListTargets",
         "vpc-lattice:RegisterTargets"
       ],
-      "timeoutInMinutes": 660
+      "timeoutInMinutes": 2160
     }
   },
   "primaryIdentifier": ["/properties/AutoScalingGroupName"],

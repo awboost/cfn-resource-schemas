@@ -1,5 +1,5 @@
 {
-  "$hash": "cdfda51e1868719630f1e9856141a3b820c49995",
+  "$hash": "ed843bb2597e84b08c1e8f4762fed861353e7605",
   "$id": "aws-ses-contactlist.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ContactListName"],
@@ -96,7 +96,7 @@
   },
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ses.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ses:TagResource",
       "ses:UntagResource",

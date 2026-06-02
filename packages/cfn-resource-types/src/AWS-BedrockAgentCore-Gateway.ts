@@ -33,7 +33,7 @@ export type BedrockAgentCoreGatewayProperties = {
    */
   PolicyEngineConfiguration?: GatewayPolicyEngineConfiguration;
   ProtocolConfiguration?: GatewayProtocolConfiguration;
-  ProtocolType: GatewayProtocolType;
+  ProtocolType?: any;
   /**
    * @minLength `1`
    * @maxLength `2048`
@@ -86,7 +86,11 @@ export type AuthorizerConfiguration = {
  * Type definition for `AWS::BedrockAgentCore::Gateway.AuthorizerType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-authorizertype.html}
  */
-export type AuthorizerType = "CUSTOM_JWT" | "AWS_IAM" | "NONE";
+export type AuthorizerType =
+  | "CUSTOM_JWT"
+  | "AWS_IAM"
+  | "NONE"
+  | "AUTHENTICATE_ONLY";
 /**
  * Type definition for `AWS::BedrockAgentCore::Gateway.AuthorizingClaimMatchValueType`.
  * The value or values in the custom claim to match and relationship of match
@@ -226,11 +230,6 @@ export type GatewayPolicyEngineMode = "LOG_ONLY" | "ENFORCE";
 export type GatewayProtocolConfiguration = {
   Mcp: MCPGatewayConfiguration;
 };
-/**
- * Type definition for `AWS::BedrockAgentCore::Gateway.GatewayProtocolType`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewayprotocoltype.html}
- */
-export type GatewayProtocolType = "MCP";
 /**
  * Type definition for `AWS::BedrockAgentCore::Gateway.GatewayStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-gatewaystatus.html}

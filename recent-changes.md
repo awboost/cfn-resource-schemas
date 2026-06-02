@@ -1,2 +1,55 @@
-- updated `AWS::SageMaker::ImageVersion`
+- updated `AWS::AutoScaling::AutoScalingGroup`
   - updated handler permissions
+- updated `AWS::BedrockAgentCore::Gateway`
+  - updated `required`
+  - updated `tagging`
+  - updated definition `AuthorizerType`
+  - updated property `ProtocolType`
+- updated `AWS::BedrockAgentCore::GatewayTarget`
+  - added definition `AuthorizationData`
+  - added definition `HttpTargetConfiguration`
+  - added definition `McpToolSchemaConfiguration`
+  - added definition `OAuth2AuthorizationData`
+  - added definition `RuntimeTargetConfiguration`
+  - added definition `TargetProtocolType`
+  - added property `AuthorizationData`
+  - added property `ProtocolType`
+  - updated `readOnlyProperties`
+  - updated definition `CredentialProviderType`
+  - updated definition `McpServerTargetConfiguration`
+  - updated definition `OAuthCredentialProvider`
+  - updated definition `OAuthGrantType`
+  - updated definition `TargetConfiguration`
+  - updated definition `TargetStatus`
+  - updated handler permissions
+- updated `AWS::ECS::Cluster`
+  - updated `propertyTransform`
+- updated `AWS::RTBFabric::ResponderGateway`
+  - added definition `AcmCertificateArn`
+  - added definition `CertificateAssociationStatus`
+  - added definition `ExternalInboundEndpoint`
+  - added definition `GatewayType`
+  - added definition `ListenerConfig`
+  - added property `AcmCertificateArn`
+  - added property `CertificateAssociationStatus`
+  - added property `ExternalInboundEndpoint`
+  - added property `GatewayType`
+  - added property `ListenerConfig`
+  - updated `conditionalCreateOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::SES::ContactList`
+  - updated `tagging`
+- updated `AWS::SES::DedicatedIpPool`
+  - updated `tagging`
+- updated `AWS::SES::EmailIdentity`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::SES::MultiRegionEndpoint`
+  - updated `tagging`
+- updated `AWS::SupportApp::AccountAlias`
+  - added `tagging`
+- updated `AWS::SupportApp::SlackChannelConfiguration`
+  - added `tagging`
+- updated `AWS::SupportApp::SlackWorkspaceConfiguration`
+  - updated `tagging`

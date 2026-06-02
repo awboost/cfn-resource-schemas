@@ -1,5 +1,5 @@
 {
-  "$hash": "c513fd137d7a94bcf5df0421b3d39e6b3db8a01a",
+  "$hash": "2a122a09d591abccb5669be77f95f129ca04da9d",
   "$id": "aws-ecs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ClusterName"],
@@ -213,7 +213,7 @@
     }
   },
   "propertyTransform": {
-    "/properties/Configuration/ManagedStorageConfiguration/FargateEphemeralStorageKmsKeyId": "$join([\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/\", FargateEphemeralStorageKmsKeyId])"
+    "/properties/Configuration/ManagedStorageConfiguration/FargateEphemeralStorageKmsKeyId": "FargateEphemeralStorageKmsKeyId $OR $join([\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/\", FargateEphemeralStorageKmsKeyId])"
   },
   "readOnlyProperties": ["/properties/Arn"],
   "tagging": {

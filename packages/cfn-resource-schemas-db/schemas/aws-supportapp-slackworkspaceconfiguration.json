@@ -1,5 +1,5 @@
 {
-  "$hash": "12044b517376cf71b6a7029ebd03cbea03240320",
+  "$hash": "2fead0955d60f84ddf9b3e52e86ce7be67df7232",
   "$id": "aws-supportapp-slackworkspaceconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TeamId"],
@@ -45,7 +45,12 @@
   },
   "required": ["TeamId"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-supportapp.git",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "tagOnCreate": false,
+    "tagUpdatable": false,
+    "taggable": false
+  },
   "typeName": "AWS::SupportApp::SlackWorkspaceConfiguration",
   "writeOnlyProperties": ["/properties/VersionId"]
 }

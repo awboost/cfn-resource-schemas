@@ -31,12 +31,26 @@ export type BedrockAgentCoreGatewayTargetProperties = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-gatewaytarget.html#aws-resource-bedrockagentcore-gatewaytarget-return-values}
  */
 export type BedrockAgentCoreGatewayTargetAttributes = {
+  AuthorizationData: {
+    Oauth2: {
+      /**
+       * @minLength `1`
+       */
+      AuthorizationUrl: string;
+      /**
+       * @minLength `1`
+       * @maxLength `128`
+       */
+      UserId: string;
+    };
+  };
   CreatedAt: string;
   /**
    * @pattern `^arn:aws(|-cn|-us-gov):bedrock-agentcore:[a-z0-9-]{1,20}:[0-9]{12}:gateway/([0-9a-z][-]?){1,100}-[a-z0-9]{10}$`
    */
   GatewayArn: string;
   LastSynchronizedAt: string;
+  ProtocolType: TargetProtocolType;
   Status: TargetStatus;
   /**
    * @maxLength `100`
@@ -121,6 +135,13 @@ export type ApiSchemaConfiguration =
       InlinePayload: string;
     };
 /**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.AuthorizationData`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-authorizationdata.html}
+ */
+export type AuthorizationData = {
+  Oauth2: OAuth2AuthorizationData;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.CredentialProvider`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-credentialprovider.html}
  */
@@ -146,7 +167,19 @@ export type CredentialProviderConfiguration = {
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.CredentialProviderType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-credentialprovidertype.html}
  */
-export type CredentialProviderType = "GATEWAY_IAM_ROLE" | "OAUTH" | "API_KEY";
+export type CredentialProviderType =
+  | "GATEWAY_IAM_ROLE"
+  | "OAUTH"
+  | "API_KEY"
+  | "CALLER_IAM_CREDENTIALS"
+  | "JWT_PASSTHROUGH";
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.HttpTargetConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-httptargetconfiguration.html}
+ */
+export type HttpTargetConfiguration = {
+  AgentcoreRuntime: RuntimeTargetConfiguration;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.IamCredentialProvider`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-iamcredentialprovider.html}
@@ -193,6 +226,7 @@ export type McpServerTargetConfiguration = {
    */
   Endpoint: string;
   ListingMode?: McpServerListingMode;
+  McpToolSchema?: McpToolSchemaConfiguration;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpTargetConfiguration`.
@@ -215,6 +249,17 @@ export type McpTargetConfiguration =
       ApiGateway: ApiGatewayTargetConfiguration;
     };
 /**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpToolSchemaConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-mcptoolschemaconfiguration.html}
+ */
+export type McpToolSchemaConfiguration =
+  | {
+      S3: S3Configuration;
+    }
+  | {
+      InlinePayload: string;
+    };
+/**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.MetadataConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-metadataconfiguration.html}
  */
@@ -222,6 +267,21 @@ export type MetadataConfiguration = {
   AllowedQueryParameters?: string[];
   AllowedRequestHeaders?: string[];
   AllowedResponseHeaders?: string[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.OAuth2AuthorizationData`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauth2authorizationdata.html}
+ */
+export type OAuth2AuthorizationData = {
+  /**
+   * @minLength `1`
+   */
+  AuthorizationUrl: string;
+  /**
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  UserId?: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.OAuthCredentialProvider`.
@@ -255,7 +315,10 @@ export type OAuthCustomParameters = Record<string, string>;
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.OAuthGrantType`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-oauthgranttype.html}
  */
-export type OAuthGrantType = "AUTHORIZATION_CODE" | "CLIENT_CREDENTIALS";
+export type OAuthGrantType =
+  | "AUTHORIZATION_CODE"
+  | "CLIENT_CREDENTIALS"
+  | "TOKEN_EXCHANGE";
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.RestApiMethod`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-restapimethod.html}
@@ -268,6 +331,20 @@ export type RestApiMethod =
   | "PATCH"
   | "PUT"
   | "POST";
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.RuntimeTargetConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-runtimetargetconfiguration.html}
+ */
+export type RuntimeTargetConfiguration = {
+  /**
+   * @pattern `^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}$`
+   */
+  Arn: string;
+  /**
+   * @pattern `^(([1-9][0-9]{0,4})|([a-zA-Z][a-zA-Z0-9_]{0,47}))$`
+   */
+  Qualifier?: string;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.S3Configuration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-s3configuration.html}
@@ -313,9 +390,18 @@ export type SchemaType =
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.TargetConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html}
  */
-export type TargetConfiguration = {
-  Mcp: McpTargetConfiguration;
-};
+export type TargetConfiguration =
+  | {
+      Mcp: McpTargetConfiguration;
+    }
+  | {
+      Http: HttpTargetConfiguration;
+    };
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.TargetProtocolType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetprotocoltype.html}
+ */
+export type TargetProtocolType = "MCP" | "HTTP";
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.TargetStatus`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetstatus.html}
@@ -328,7 +414,10 @@ export type TargetStatus =
   | "READY"
   | "FAILED"
   | "SYNCHRONIZING"
-  | "SYNCHRONIZE_UNSUCCESSFUL";
+  | "SYNCHRONIZE_UNSUCCESSFUL"
+  | "CREATE_PENDING_AUTH"
+  | "UPDATE_PENDING_AUTH"
+  | "SYNCHRONIZE_PENDING_AUTH";
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ToolDefinition`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-tooldefinition.html}
