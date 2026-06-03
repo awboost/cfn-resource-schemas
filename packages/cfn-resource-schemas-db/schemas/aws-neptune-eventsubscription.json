@@ -1,5 +1,5 @@
 {
-  "$hash": "1656064eb9a20726f1650e221e898bde6e967f9a",
+  "$hash": "31d3ec3311450e5f7694e8ce118ba23dc10b9737",
   "$id": "aws-neptune-eventsubscription.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -32,6 +32,7 @@
     "delete": {
       "permissions": [
         "rds:DeleteEventSubscription",
+        "rds:DescribeEventSubscriptions",
         "rds:RemoveTagsFromResource"
       ]
     },

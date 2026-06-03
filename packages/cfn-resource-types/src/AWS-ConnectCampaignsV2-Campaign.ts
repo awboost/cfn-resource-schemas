@@ -346,7 +346,17 @@ export type LocalTimeZoneConfig = {
    * Local TimeZone Detection method list
    */
   LocalTimeZoneDetection?: LocalTimeZoneDetectionType[];
+  /**
+   * Local TimeZone Detection scope
+   */
+  LocalTimeZoneDetectionScope?: LocalTimeZoneDetectionScope;
 };
+/**
+ * Type definition for `AWS::ConnectCampaignsV2::Campaign.LocalTimeZoneDetectionScope`.
+ * Local TimeZone Detection scope
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-localtimezonedetectionscope.html}
+ */
+export type LocalTimeZoneDetectionScope = "PRIMARY_ONLY" | "ALL_AVAILABLE";
 /**
  * Type definition for `AWS::ConnectCampaignsV2::Campaign.LocalTimeZoneDetectionType`.
  * Local TimeZone Detection method

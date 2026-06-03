@@ -69,6 +69,16 @@ export type BedrockAgentCorePaymentCredentialProviderAttributes = {
         SecretArn: string;
       };
       /**
+       * The JSON key within the secret that contains the API key secret value
+       * @minLength `1`
+       * @maxLength `128`
+       */
+      ApiKeySecretJsonKey: string;
+      /**
+       * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+       */
+      ApiKeySecretSource: SecretSourceType;
+      /**
        * Contains information about a secret in AWS Secrets Manager
        */
       WalletSecretArn: {
@@ -78,6 +88,16 @@ export type BedrockAgentCorePaymentCredentialProviderAttributes = {
          */
         SecretArn: string;
       };
+      /**
+       * The JSON key within the secret that contains the wallet secret value
+       * @minLength `1`
+       * @maxLength `128`
+       */
+      WalletSecretJsonKey: string;
+      /**
+       * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+       */
+      WalletSecretSource: SecretSourceType;
     };
     /**
      * Stripe Privy configuration output with secret ARNs
@@ -100,6 +120,16 @@ export type BedrockAgentCorePaymentCredentialProviderAttributes = {
         SecretArn: string;
       };
       /**
+       * The JSON key within the secret that contains the app secret value
+       * @minLength `1`
+       * @maxLength `128`
+       */
+      AppSecretJsonKey: string;
+      /**
+       * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+       */
+      AppSecretSource: SecretSourceType;
+      /**
        * The authorization ID for the Stripe Privy integration
        * @minLength `1`
        * @maxLength `512`
@@ -115,6 +145,16 @@ export type BedrockAgentCorePaymentCredentialProviderAttributes = {
          */
         SecretArn: string;
       };
+      /**
+       * The JSON key within the secret that contains the authorization private key value
+       * @minLength `1`
+       * @maxLength `128`
+       */
+      AuthorizationPrivateKeyJsonKey: string;
+      /**
+       * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+       */
+      AuthorizationPrivateKeySource: SecretSourceType;
     };
   };
 };
@@ -135,13 +175,29 @@ export type CoinbaseCdpConfigurationInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  ApiKeySecret: string;
+  ApiKeySecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ApiKeySecretConfig?: SecretReference;
+  /**
+   * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+   */
+  ApiKeySecretSource?: SecretSourceType;
   /**
    * The Coinbase CDP wallet secret
    * @minLength `1`
    * @maxLength `2048`
    */
   WalletSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  WalletSecretConfig?: SecretReference;
+  /**
+   * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+   */
+  WalletSecretSource?: SecretSourceType;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::PaymentCredentialProvider.CoinbaseCdpConfigurationOutput`.
@@ -160,9 +216,29 @@ export type CoinbaseCdpConfigurationOutput = {
    */
   ApiKeySecretArn: SecretInfo;
   /**
+   * The JSON key within the secret that contains the API key secret value
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  ApiKeySecretJsonKey?: string;
+  /**
+   * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+   */
+  ApiKeySecretSource?: SecretSourceType;
+  /**
    * Contains information about a secret in AWS Secrets Manager
    */
   WalletSecretArn?: SecretInfo;
+  /**
+   * The JSON key within the secret that contains the wallet secret value
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  WalletSecretJsonKey?: string;
+  /**
+   * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+   */
+  WalletSecretSource?: SecretSourceType;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::PaymentCredentialProvider.PaymentCredentialProviderVendorType`.
@@ -213,6 +289,31 @@ export type SecretInfo = {
   SecretArn: string;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::PaymentCredentialProvider.SecretReference`.
+ * A reference to a customer-provided secret stored in AWS Secrets Manager
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-secretreference.html}
+ */
+export type SecretReference = {
+  /**
+   * The JSON key within the secret that contains the credential value
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  JsonKey: string;
+  /**
+   * The ID or ARN of the secret in AWS Secrets Manager
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  SecretId: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::PaymentCredentialProvider.SecretSourceType`.
+ * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-secretsourcetype.html}
+ */
+export type SecretSourceType = "MANAGED" | "EXTERNAL";
+/**
  * Type definition for `AWS::BedrockAgentCore::PaymentCredentialProvider.StripePrivyConfigurationInput`.
  * Stripe Privy configuration with credentials
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-paymentcredentialprovider-stripeprivyconfigurationinput.html}
@@ -229,7 +330,15 @@ export type StripePrivyConfigurationInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  AppSecret: string;
+  AppSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  AppSecretConfig?: SecretReference;
+  /**
+   * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+   */
+  AppSecretSource?: SecretSourceType;
   /**
    * The authorization ID for the Stripe Privy integration
    * @minLength `1`
@@ -241,7 +350,15 @@ export type StripePrivyConfigurationInput = {
    * @minLength `1`
    * @maxLength `4096`
    */
-  AuthorizationPrivateKey: string;
+  AuthorizationPrivateKey?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  AuthorizationPrivateKeyConfig?: SecretReference;
+  /**
+   * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+   */
+  AuthorizationPrivateKeySource?: SecretSourceType;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::PaymentCredentialProvider.StripePrivyConfigurationOutput`.
@@ -260,6 +377,16 @@ export type StripePrivyConfigurationOutput = {
    */
   AppSecretArn: SecretInfo;
   /**
+   * The JSON key within the secret that contains the app secret value
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  AppSecretJsonKey?: string;
+  /**
+   * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+   */
+  AppSecretSource?: SecretSourceType;
+  /**
    * The authorization ID for the Stripe Privy integration
    * @minLength `1`
    * @maxLength `512`
@@ -269,6 +396,16 @@ export type StripePrivyConfigurationOutput = {
    * Contains information about a secret in AWS Secrets Manager
    */
   AuthorizationPrivateKeyArn: SecretInfo;
+  /**
+   * The JSON key within the secret that contains the authorization private key value
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  AuthorizationPrivateKeyJsonKey?: string;
+  /**
+   * The source of the secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+   */
+  AuthorizationPrivateKeySource?: SecretSourceType;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::PaymentCredentialProvider.Tag`.

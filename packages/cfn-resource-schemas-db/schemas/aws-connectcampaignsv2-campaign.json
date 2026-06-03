@@ -1,5 +1,5 @@
 {
-  "$hash": "1b42e63b75c5e04edd74f4d96d324cf15e62a062",
+  "$hash": "71cff93dea1924b4a3777cc1940ea98364ede3b4",
   "$id": "aws-connectcampaignsv2-campaign.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ConnectInstanceId"],
@@ -276,6 +276,9 @@
         "DefaultTimeZone": { "$ref": "#/definitions/TimeZone" },
         "LocalTimeZoneDetection": {
           "$ref": "#/definitions/LocalTimeZoneDetection"
+        },
+        "LocalTimeZoneDetectionScope": {
+          "$ref": "#/definitions/LocalTimeZoneDetectionScope"
         }
       },
       "type": "object"
@@ -285,6 +288,11 @@
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/LocalTimeZoneDetectionType" },
       "type": "array"
+    },
+    "LocalTimeZoneDetectionScope": {
+      "description": "Local TimeZone Detection scope",
+      "enum": ["PRIMARY_ONLY", "ALL_AVAILABLE"],
+      "type": "string"
     },
     "LocalTimeZoneDetectionType": {
       "description": "Local TimeZone Detection method",

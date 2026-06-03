@@ -46,6 +46,10 @@ export type ElastiCacheReplicationGroupProperties = {
    */
   DataTieringEnabled?: boolean;
   /**
+   * The durability setting for the replication group. Valid values: default, async, sync, disabled. Enabling durability on an existing non-durable cluster or disabling durability on an existing durable cluster is not currently supported and will result in an error; specify the desired durability at create time. The resolved state is returned in EffectiveDurability.
+   */
+  Durability?: "default" | "async" | "sync" | "disabled";
+  /**
    * The name of the cache engine to be used for the clusters in this replication group.
    */
   Engine?: string;
@@ -182,6 +186,10 @@ export type ElastiCacheReplicationGroupAttributes = {
      */
     Port: string;
   };
+  /**
+   * The resolved durability state of the replication group after resolving the default value. This is a read-only property.
+   */
+  EffectiveDurability: "async" | "sync" | "disabled";
   /**
    * The primary endpoint configuration
    */
