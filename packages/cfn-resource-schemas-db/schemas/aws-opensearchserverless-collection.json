@@ -1,5 +1,5 @@
 {
-  "$hash": "b9a6f867bae6568805ac6e5c32519abb92582ad0",
+  "$hash": "5e4ea2394693ed9bfaae9f07127f4be4d67fbdbb",
   "$id": "aws-opensearchserverless-collection.json",
   "additionalIdentifiers": [["/properties/Name"], ["/properties/Arn"]],
   "additionalProperties": false,
@@ -15,6 +15,11 @@
     "CollectionType": {
       "description": "The possible types for the collection",
       "enum": ["SEARCH", "TIMESERIES", "VECTORSEARCH"],
+      "type": "string"
+    },
+    "DeletionProtection": {
+      "description": "The deletion protection state of the collection",
+      "enum": ["ENABLED", "DISABLED"],
       "type": "string"
     },
     "EncryptionConfig": {
@@ -120,6 +125,7 @@
       "description": "The OpenSearch Dashboards endpoint for the collection.",
       "type": "string"
     },
+    "DeletionProtection": { "$ref": "#/definitions/DeletionProtection" },
     "Description": {
       "description": "The description of the collection",
       "maxLength": 1000,

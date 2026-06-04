@@ -1,5 +1,5 @@
 {
-  "$hash": "6b218b69c40be683fe1b58708c4cd3c47edce230",
+  "$hash": "efe4abaa2a81645846ff21e99471afa415a8e5a6",
   "$id": "aws-bedrockagentcore-gatewaytarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayIdentifier"],
@@ -171,6 +171,7 @@
       ],
       "type": "string"
     },
+    "EndpointIpAddressType": { "enum": ["IPV4", "IPV6"], "type": "string" },
     "HttpTargetConfiguration": {
       "oneOf": [
         {
@@ -203,6 +204,53 @@
         }
       },
       "required": ["Service"],
+      "type": "object"
+    },
+    "ManagedResourceDetails": {
+      "additionalProperties": false,
+      "properties": {
+        "Domain": { "type": "string" },
+        "ResourceAssociationArn": {
+          "pattern": "^(arn:[a-z0-9\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:servicenetworkresourceassociation/)?snra-[0-9a-f]{17}$",
+          "type": "string"
+        },
+        "ResourceGatewayArn": {
+          "pattern": "^arn:[a-z0-9\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:resourcegateway/rgw-[0-9a-z]{17}$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ManagedVpcResource": {
+      "additionalProperties": false,
+      "properties": {
+        "EndpointIpAddressType": {
+          "$ref": "#/definitions/EndpointIpAddressType"
+        },
+        "RoutingDomain": { "maxLength": 255, "minLength": 3, "type": "string" },
+        "SecurityGroupIds": {
+          "items": {
+            "pattern": "^sg-(([0-9a-z]{8})|([0-9a-z]{17}))$",
+            "type": "string"
+          },
+          "maxItems": 5,
+          "minItems": 0,
+          "type": "array"
+        },
+        "SubnetIds": {
+          "items": {
+            "pattern": "^subnet-[0-9a-zA-Z]{8,17}$",
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "VpcIdentifier": {
+          "pattern": "^vpc-(([0-9a-z]{8})|([0-9a-z]{17}))$",
+          "type": "string"
+        }
+      },
+      "required": ["EndpointIpAddressType", "SubnetIds", "VpcIdentifier"],
       "type": "object"
     },
     "McpLambdaTargetConfiguration": {
@@ -369,6 +417,30 @@
       "enum": ["AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "TOKEN_EXCHANGE"],
       "type": "string"
     },
+    "PrivateEndpoint": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "SelfManagedLatticeResource": {
+              "$ref": "#/definitions/SelfManagedLatticeResource"
+            }
+          },
+          "required": ["SelfManagedLatticeResource"],
+          "title": "SelfManagedLatticeResource",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "ManagedVpcResource": { "$ref": "#/definitions/ManagedVpcResource" }
+          },
+          "required": ["ManagedVpcResource"],
+          "title": "ManagedVpcResource",
+          "type": "object"
+        }
+      ]
+    },
     "RestApiMethod": {
       "enum": ["GET", "DELETE", "HEAD", "OPTIONS", "PATCH", "PUT", "POST"],
       "type": "string"
@@ -418,6 +490,24 @@
     "SchemaType": {
       "enum": ["string", "number", "object", "array", "boolean", "integer"],
       "type": "string"
+    },
+    "SelfManagedLatticeResource": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "ResourceConfigurationIdentifier": {
+              "maxLength": 2048,
+              "minLength": 20,
+              "pattern": "^((rcfg-[0-9a-z]{17})|(arn:[a-z0-9\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}))$",
+              "type": "string"
+            }
+          },
+          "required": ["ResourceConfigurationIdentifier"],
+          "title": "ResourceConfigurationIdentifier",
+          "type": "object"
+        }
+      ]
     },
     "TargetConfiguration": {
       "oneOf": [
@@ -508,7 +598,22 @@
         "kms:GenerateDataKey",
         "kms:ListGrants",
         "s3:GetObject",
-        "secretsmanager:GetSecretValue"
+        "secretsmanager:GetSecretValue",
+        "iam:CreateServiceLinkedRole",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:CreateNetworkInterface",
+        "vpc-lattice:AssociateViaAWSService",
+        "vpc-lattice:GetResourceConfiguration",
+        "vpc-lattice:CreateResourceConfiguration",
+        "vpc-lattice:CreateResourceGateway",
+        "vpc-lattice:DeleteResourceConfiguration",
+        "vpc-lattice:DeleteResourceGateway",
+        "vpc-lattice:GetServiceNetworkResourceAssociation",
+        "vpc-lattice:CreateServiceNetworkResourceAssociation",
+        "vpc-lattice:DeleteServiceNetworkResourceAssociation",
+        "vpc-lattice:ListServiceNetworkResourceAssociations"
       ]
     },
     "delete": {
@@ -517,7 +622,10 @@
         "bedrock-agentcore:GetGatewayTarget",
         "kms:Decrypt",
         "kms:GenerateDataKey",
-        "kms:ListGrants"
+        "kms:ListGrants",
+        "vpc-lattice:DeleteResourceConfiguration",
+        "vpc-lattice:DeleteResourceGateway",
+        "vpc-lattice:DeleteServiceNetworkResourceAssociation"
       ]
     },
     "list": { "permissions": ["bedrock-agentcore:ListGatewayTargets"] },
@@ -535,7 +643,22 @@
         "kms:GenerateDataKey",
         "kms:ListGrants",
         "s3:GetObject",
-        "secretsmanager:GetSecretValue"
+        "secretsmanager:GetSecretValue",
+        "iam:CreateServiceLinkedRole",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeSecurityGroups",
+        "ec2:CreateNetworkInterface",
+        "vpc-lattice:AssociateViaAWSService",
+        "vpc-lattice:GetResourceConfiguration",
+        "vpc-lattice:CreateResourceConfiguration",
+        "vpc-lattice:CreateResourceGateway",
+        "vpc-lattice:DeleteResourceConfiguration",
+        "vpc-lattice:DeleteResourceGateway",
+        "vpc-lattice:GetServiceNetworkResourceAssociation",
+        "vpc-lattice:CreateServiceNetworkResourceAssociation",
+        "vpc-lattice:DeleteServiceNetworkResourceAssociation",
+        "vpc-lattice:ListServiceNetworkResourceAssociations"
       ]
     }
   },
@@ -564,6 +687,11 @@
     "LastSynchronizedAt": { "format": "date-time", "type": "string" },
     "MetadataConfiguration": { "$ref": "#/definitions/MetadataConfiguration" },
     "Name": { "pattern": "^([0-9a-zA-Z][-]?){1,100}$", "type": "string" },
+    "PrivateEndpoint": { "$ref": "#/definitions/PrivateEndpoint" },
+    "PrivateEndpointManagedResources": {
+      "items": { "$ref": "#/definitions/ManagedResourceDetails" },
+      "type": "array"
+    },
     "ProtocolType": { "$ref": "#/definitions/TargetProtocolType" },
     "Status": { "$ref": "#/definitions/TargetStatus" },
     "StatusReasons": {
@@ -582,6 +710,7 @@
     "/properties/Status",
     "/properties/StatusReasons",
     "/properties/TargetId",
+    "/properties/PrivateEndpointManagedResources",
     "/properties/UpdatedAt",
     "/properties/AuthorizationData",
     "/properties/ProtocolType"

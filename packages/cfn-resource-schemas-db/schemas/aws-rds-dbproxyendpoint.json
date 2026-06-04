@@ -1,5 +1,5 @@
 {
-  "$hash": "6eba5b18f99ce30caafdc8d6b0b48d37ed17038c",
+  "$hash": "d80344c531ae8541e9ecb88d2a461c5852a8e5d9",
   "$id": "aws-rds-dbproxyendpoint.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -31,7 +31,8 @@
     "create": {
       "permissions": [
         "rds:CreateDBProxyEndpoint",
-        "rds:DescribeDBProxyEndpoints"
+        "rds:DescribeDBProxyEndpoints",
+        "rds:AddTagsToResource"
       ]
     },
     "delete": {
@@ -47,6 +48,7 @@
     "update": {
       "permissions": [
         "rds:ModifyDBProxyEndpoint",
+        "rds:DescribeDBProxyEndpoints",
         "rds:AddTagsToResource",
         "rds:RemoveTagsFromResource"
       ]

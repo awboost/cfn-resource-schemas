@@ -1,5 +1,5 @@
 {
-  "$hash": "7e4a513fa45932cebefcd54fbd1a664c8df7a346",
+  "$hash": "0ae9b967c9e703eb2b54ef479ad67d219966bd7c",
   "$id": "aws-ec2-route.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -85,6 +85,7 @@
       "description": "The ID of a network interface.",
       "type": "string"
     },
+    "OdbNetworkArn": { "description": "", "type": "string" },
     "RouteTableId": {
       "description": "The ID of the route table for the route.",
       "type": "string"

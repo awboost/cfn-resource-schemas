@@ -10,6 +10,12 @@ export type PaymentCryptographyKeyProperties = {
   Exportable: boolean;
   KeyAttributes: KeyAttributes;
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
+  /**
+   * @minLength `1`
+   * @maxLength `20480`
+   * @pattern `^[\u0009\u000A\u000D\u0020-\u00FF]+$`
+   */
+  Policy?: string;
   ReplicationRegions?: string[];
   /**
    * @minLength `0`

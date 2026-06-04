@@ -1,5 +1,5 @@
 {
-  "$hash": "5cbce06e604e4bf4c67a3152e9dc754e1482f4d1",
+  "$hash": "9a39548d7cd17a60445a80917fd568e8afb59458",
   "$id": "aws-paymentcryptography-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -169,7 +169,8 @@
       "permissions": [
         "payment-cryptography:GetKey",
         "payment-cryptography:CreateKey",
-        "payment-cryptography:TagResource"
+        "payment-cryptography:TagResource",
+        "payment-cryptography:PutResourcePolicy"
       ]
     },
     "delete": {
@@ -182,7 +183,8 @@
     "read": {
       "permissions": [
         "payment-cryptography:GetKey",
-        "payment-cryptography:ListTagsForResource"
+        "payment-cryptography:ListTagsForResource",
+        "payment-cryptography:GetResourcePolicy"
       ]
     },
     "update": {
@@ -194,7 +196,9 @@
         "payment-cryptography:StartKeyUsage",
         "payment-cryptography:StopKeyUsage",
         "payment-cryptography:AddKeyReplicationRegions",
-        "payment-cryptography:RemoveKeyReplicationRegions"
+        "payment-cryptography:RemoveKeyReplicationRegions",
+        "payment-cryptography:PutResourcePolicy",
+        "payment-cryptography:DeleteResourcePolicy"
       ]
     }
   },
@@ -215,6 +219,12 @@
     },
     "KeyOrigin": { "$ref": "#/definitions/KeyOrigin" },
     "KeyState": { "$ref": "#/definitions/KeyState" },
+    "Policy": {
+      "maxLength": 20480,
+      "minLength": 1,
+      "pattern": "^[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+$",
+      "type": "string"
+    },
     "ReplicationRegions": {
       "items": { "pattern": "^[a-z]{2}-[a-z]{1,16}-[0-9]+$", "type": "string" },
       "type": "array"

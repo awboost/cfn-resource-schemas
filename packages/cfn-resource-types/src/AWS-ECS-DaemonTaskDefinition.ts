@@ -22,10 +22,12 @@ export type ECSDaemonTaskDefinitionProperties = {
    * The name of a family that this daemon task definition is registered to.
    */
   Family?: string;
+  IpcMode?: string;
   /**
    * The amount of memory (in MiB) used by the daemon task.
    */
   Memory?: string;
+  PidMode?: string;
   Tags?: Tag[];
   /**
    * The short name or full Amazon Resource Name (ARN) of the IAM role that grants containers in the daemon task permission to call Amazon Web Services APIs on your behalf.

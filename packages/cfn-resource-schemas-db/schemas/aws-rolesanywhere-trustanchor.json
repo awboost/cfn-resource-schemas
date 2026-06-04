@@ -1,5 +1,5 @@
 {
-  "$hash": "56edcb4bfe445586513009d5a6747e057b8004ec",
+  "$hash": "31bd7ce04e0d6c315ccf43364dcd20ab88a15053",
   "$id": "aws-rolesanywhere-trustanchor.json",
   "additionalProperties": false,
   "definitions": {
@@ -122,6 +122,9 @@
       "pattern": "[a-f0-9]{8}-([a-z0-9]{4}-){3}[a-z0-9]{12}",
       "type": "string"
     }
+  },
+  "propertyTransform": {
+    "/properties/Source/SourceData/X509CertificateData": "$replace(X509CertificateData, /\\s+$/, '')"
   },
   "readOnlyProperties": [
     "/properties/TrustAnchorId",

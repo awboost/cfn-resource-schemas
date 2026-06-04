@@ -12,6 +12,14 @@ export type BedrockAgentCoreApiKeyCredentialProviderProperties = {
    */
   ApiKey?: string;
   /**
+   * Configuration for a customer-provided secret containing the API key
+   */
+  ApiKeySecretConfig?: SecretReference;
+  /**
+   * The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
+   */
+  ApiKeySecretSource?: "MANAGED" | "EXTERNAL";
+  /**
    * The name of the API key credential provider
    * @minLength `1`
    * @maxLength `128`
@@ -40,6 +48,12 @@ export type BedrockAgentCoreApiKeyCredentialProviderAttributes = {
     SecretArn: string;
   };
   /**
+   * The JSON key within the secret that contains the API key value
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  ApiKeySecretJsonKey: string;
+  /**
    * The timestamp when the credential provider was created
    */
   CreatedTime: string;
@@ -64,6 +78,25 @@ export type ApiKeySecretArn = {
    * @pattern `^arn:(aws|aws-us-gov):secretsmanager:[A-Za-z0-9-]{1,64}:[0-9]{12}:secret:[a-zA-Z0-9-_/+=.@!]+$`
    */
   SecretArn: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::ApiKeyCredentialProvider.SecretReference`.
+ * A reference to a customer-provided secret stored in AWS Secrets Manager
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-apikeycredentialprovider-secretreference.html}
+ */
+export type SecretReference = {
+  /**
+   * The JSON key within the secret that contains the credential value
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  JsonKey: string;
+  /**
+   * The ID or ARN of the secret in AWS Secrets Manager
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  SecretId: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::ApiKeyCredentialProvider.Tag`.

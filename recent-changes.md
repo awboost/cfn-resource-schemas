@@ -1,23 +1,83 @@
-- added `AWS::BedrockAgentCore::PaymentConnector`
-- added `AWS::ResilienceHubV2::Policy`
-- added `AWS::ResilienceHubV2::Service`
-- added `AWS::ResilienceHubV2::System`
-- updated `AWS::BedrockAgentCore::PaymentCredentialProvider`
+- added `AWS::RTBFabric::LinkRoutingRule`
+- updated `AWS::AppStream::User`
+  - added `tagging`
+  - added `writeOnlyProperties`
+  - added property `Arn`
+  - removed property `Id`
+  - updated `createOnlyProperties`
+  - updated `primaryIdentifier`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+  - updated property `AuthenticationType`
+  - updated property `FirstName`
+  - updated property `LastName`
+  - updated property `MessageAction`
+  - updated property `UserName`
+- updated `AWS::BedrockAgentCore::ApiKeyCredentialProvider`
   - added definition `SecretReference`
-  - added definition `SecretSourceType`
-  - updated definition `CoinbaseCdpConfigurationInput`
-  - updated definition `CoinbaseCdpConfigurationOutput`
-  - updated definition `StripePrivyConfigurationInput`
-  - updated definition `StripePrivyConfigurationOutput`
+  - added property `ApiKeySecretConfig`
+  - added property `ApiKeySecretJsonKey`
+  - added property `ApiKeySecretSource`
+  - updated `readOnlyProperties`
+  - updated `writeOnlyProperties`
+  - updated handler permissions
+- updated `AWS::BedrockAgentCore::GatewayTarget`
+  - added definition `EndpointIpAddressType`
+  - added definition `ManagedResourceDetails`
+  - added definition `ManagedVpcResource`
+  - added definition `PrivateEndpoint`
+  - added definition `SelfManagedLatticeResource`
+  - added property `PrivateEndpointManagedResources`
+  - added property `PrivateEndpoint`
+  - updated `readOnlyProperties`
+  - updated handler permissions
+- updated `AWS::BedrockAgentCore::OAuth2CredentialProvider`
+  - added definition `SecretReference`
+  - added property `ClientSecretJsonKey`
+  - added property `ClientSecretSource`
+  - updated `readOnlyProperties`
+  - updated definition `AtlassianOauth2ProviderConfigInput`
+  - updated definition `CustomOauth2ProviderConfigInput`
+  - updated definition `GithubOauth2ProviderConfigInput`
+  - updated definition `GoogleOauth2ProviderConfigInput`
+  - updated definition `IncludedOauth2ProviderConfigInput`
+  - updated definition `LinkedinOauth2ProviderConfigInput`
+  - updated definition `MicrosoftOauth2ProviderConfigInput`
+  - updated definition `SalesforceOauth2ProviderConfigInput`
+  - updated definition `SlackOauth2ProviderConfigInput`
   - updated handler permissions
 - updated `AWS::ConnectCampaignsV2::Campaign`
-  - added definition `LocalTimeZoneDetectionScope`
-  - updated definition `LocalTimeZoneConfig`
-- updated `AWS::ElastiCache::ReplicationGroup`
-  - added property `Durability`
-  - added property `EffectiveDurability`
-  - updated `readOnlyProperties`
-- updated `AWS::Neptune::EventSubscription`
+  - updated definition `Iso8601Duration`
+  - updated definition `SourceEmailAddressDisplayName`
+  - updated definition `TimeoutDuration`
+- updated `AWS::EC2::Route`
+  - added property `OdbNetworkArn`
+- updated `AWS::ECS::DaemonTaskDefinition`
+  - added property `IpcMode`
+  - added property `PidMode`
+  - updated `createOnlyProperties`
+- updated `AWS::Glue::Catalog`
   - updated handler permissions
-- updated `AWS::SES::ConfigurationSet`
-  - updated `tagging`
+- updated `AWS::ObservabilityAdmin::TelemetryPipelines`
+  - updated handler permissions
+- updated `AWS::OpenSearchServerless::Collection`
+  - added definition `DeletionProtection`
+  - added property `DeletionProtection`
+- updated `AWS::PaymentCryptography::Key`
+  - added property `Policy`
+  - updated handler permissions
+- updated `AWS::RDS::DBProxy`
+  - updated handler permissions
+- updated `AWS::RDS::DBProxyEndpoint`
+  - updated handler permissions
+- updated `AWS::RDS::DBProxyTargetGroup`
+  - added `additionalIdentifiers`
+  - updated handler permissions
+- updated `AWS::RolesAnywhere::TrustAnchor`
+  - added `propertyTransform`
+- updated `AWS::SageMaker::Cluster`
+  - added `conditionalCreateOnlyProperties`
+  - added definition `ClusterNetworkInterface`
+  - added definition `InstanceRequirements`
+  - updated `createOnlyProperties`
+  - updated definition `ClusterInstanceGroup`

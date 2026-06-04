@@ -1,5 +1,5 @@
 {
-  "$hash": "78483ca074aca492ea3b09595176599bbebb1c99",
+  "$hash": "ea139ae14b9d4e02f9f23cb127d197b5bf216db4",
   "$id": "aws-rds-dbproxy.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -68,15 +68,19 @@
       "permissions": [
         "rds:CreateDBProxy",
         "rds:DescribeDBProxies",
+        "rds:AddTagsToResource",
         "iam:PassRole"
       ]
     },
     "delete": { "permissions": ["rds:DescribeDBProxies", "rds:DeleteDBProxy"] },
     "list": { "permissions": ["rds:DescribeDBProxies"] },
-    "read": { "permissions": ["rds:DescribeDBProxies"] },
+    "read": {
+      "permissions": ["rds:DescribeDBProxies", "rds:ListTagsForResource"]
+    },
     "update": {
       "permissions": [
         "rds:ModifyDBProxy",
+        "rds:DescribeDBProxies",
         "rds:AddTagsToResource",
         "rds:RemoveTagsFromResource",
         "iam:PassRole"

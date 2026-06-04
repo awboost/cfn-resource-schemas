@@ -24,6 +24,7 @@ export type BedrockAgentCoreGatewayTargetProperties = {
    * @pattern `^([0-9a-zA-Z][-]?){1,100}$`
    */
   Name: string;
+  PrivateEndpoint?: PrivateEndpoint;
   TargetConfiguration: TargetConfiguration;
 };
 /**
@@ -50,6 +51,17 @@ export type BedrockAgentCoreGatewayTargetAttributes = {
    */
   GatewayArn: string;
   LastSynchronizedAt: string;
+  PrivateEndpointManagedResources: {
+    Domain: string;
+    /**
+     * @pattern `^(arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:servicenetworkresourceassociation/)?snra-[0-9a-f]{17}$`
+     */
+    ResourceAssociationArn: string;
+    /**
+     * @pattern `^arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourcegateway/rgw-[0-9a-z]{17}$`
+     */
+    ResourceGatewayArn: string;
+  }[];
   ProtocolType: TargetProtocolType;
   Status: TargetStatus;
   /**
@@ -174,6 +186,11 @@ export type CredentialProviderType =
   | "CALLER_IAM_CREDENTIALS"
   | "JWT_PASSTHROUGH";
 /**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.EndpointIpAddressType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-endpointipaddresstype.html}
+ */
+export type EndpointIpAddressType = "IPV4" | "IPV6";
+/**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.HttpTargetConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-httptargetconfiguration.html}
  */
@@ -197,6 +214,46 @@ export type IamCredentialProvider = {
    * @pattern `^[a-zA-Z0-9._-]+$`
    */
   Service: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ManagedResourceDetails`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-managedresourcedetails.html}
+ */
+export type ManagedResourceDetails = {
+  Domain?: string;
+  /**
+   * @pattern `^(arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:servicenetworkresourceassociation/)?snra-[0-9a-f]{17}$`
+   */
+  ResourceAssociationArn?: string;
+  /**
+   * @pattern `^arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourcegateway/rgw-[0-9a-z]{17}$`
+   */
+  ResourceGatewayArn?: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ManagedVpcResource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-managedvpcresource.html}
+ */
+export type ManagedVpcResource = {
+  EndpointIpAddressType: EndpointIpAddressType;
+  /**
+   * @minLength `3`
+   * @maxLength `255`
+   */
+  RoutingDomain?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `5`
+   */
+  SecurityGroupIds?: string[];
+  /**
+   * @minLength `1`
+   */
+  SubnetIds: string[];
+  /**
+   * @pattern `^vpc-(([0-9a-z]{8})|([0-9a-z]{17}))$`
+   */
+  VpcIdentifier: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpLambdaTargetConfiguration`.
@@ -320,6 +377,17 @@ export type OAuthGrantType =
   | "CLIENT_CREDENTIALS"
   | "TOKEN_EXCHANGE";
 /**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.PrivateEndpoint`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-privateendpoint.html}
+ */
+export type PrivateEndpoint =
+  | {
+      SelfManagedLatticeResource: SelfManagedLatticeResource;
+    }
+  | {
+      ManagedVpcResource: ManagedVpcResource;
+    };
+/**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.RestApiMethod`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-restapimethod.html}
  */
@@ -386,6 +454,18 @@ export type SchemaType =
   | "array"
   | "boolean"
   | "integer";
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.SelfManagedLatticeResource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-selfmanagedlatticeresource.html}
+ */
+export type SelfManagedLatticeResource = {
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^((rcfg-[0-9a-z]{17})|(arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}))$`
+   */
+  ResourceConfigurationIdentifier: string;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.TargetConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-targetconfiguration.html}

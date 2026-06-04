@@ -11,6 +11,10 @@ export type OpenSearchServerlessCollectionProperties = {
    */
   CollectionGroupName?: string;
   /**
+   * The deletion protection state of the collection
+   */
+  DeletionProtection?: DeletionProtection;
+  /**
    * The description of the collection
    * @maxLength `1000`
    */
@@ -90,6 +94,12 @@ export type OpenSearchServerlessCollectionAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-collectiontype.html}
  */
 export type CollectionType = "SEARCH" | "TIMESERIES" | "VECTORSEARCH";
+/**
+ * Type definition for `AWS::OpenSearchServerless::Collection.DeletionProtection`.
+ * The deletion protection state of the collection
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-collection-deletionprotection.html}
+ */
+export type DeletionProtection = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::OpenSearchServerless::Collection.EncryptionConfig`.
  * Encryption settings for the collection

@@ -270,8 +270,8 @@ export type EmailOutboundConfig = {
   ConnectSourceEmailAddress: string;
   /**
    * The name of the source email address display name
-   * @minLength `1`
-   * @maxLength `127`
+   * @minLength `0`
+   * @maxLength `256`
    */
   SourceEmailAddressDisplayName?: string;
   /**
@@ -308,7 +308,7 @@ export type EntryLimitsConfig = {
    * Minimum time interval between entries for the same participant in ISO 8601 duration format
    * @minLength `0`
    * @maxLength `50`
-   * @pattern `^[a-zA-Z0-9.]*$`
+   * @pattern `^P(?:([-+]?[0-9]+)D)?(T(?:([-+]?[0-9]+)H)?(?:([-+]?[0-9]+)M)?(?:([-+]?[0-9]+)(?:[.,]([0-9]{0,9}))?S)?)?$`
    */
   MinEntryInterval: string;
 };
@@ -469,7 +469,7 @@ export type Schedule = {
    * Time duration in ISO 8601 format
    * @minLength `0`
    * @maxLength `50`
-   * @pattern `^[a-zA-Z0-9.]*$`
+   * @pattern `^P(?:([-+]?[0-9]+)D)?(T(?:([-+]?[0-9]+)H)?(?:([-+]?[0-9]+)M)?(?:([-+]?[0-9]+)(?:[.,]([0-9]{0,9}))?S)?)?$`
    */
   RefreshFrequency?: string;
   /**
@@ -647,7 +647,7 @@ export type TelephonyOutboundMode = {
 export type TimeoutConfig = {
   /**
    * Timeout duration for a preview contact in seconds
-   * @min `10`
+   * @min `1`
    * @max `300`
    */
   DurationInSeconds?: number;

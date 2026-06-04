@@ -1,6 +1,9 @@
 {
-  "$hash": "6d55315d01b058c1797adb912e125aecb877a5ca",
+  "$hash": "5fe84afaae33f71a11f09183134c62c19eda8fc1",
   "$id": "aws-rds-dbproxytargetgroup.json",
+  "additionalIdentifiers": [
+    ["/properties/DBProxyName", "/properties/TargetGroupName"]
+  ],
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/DBProxyName",
@@ -46,6 +49,7 @@
       "permissions": [
         "rds:DescribeDBProxies",
         "rds:DescribeDBProxyTargetGroups",
+        "rds:DescribeDBProxyTargets",
         "rds:ModifyDBProxyTargetGroup",
         "rds:RegisterDBProxyTargets"
       ]
@@ -61,6 +65,7 @@
     "update": {
       "permissions": [
         "rds:DescribeDBProxyTargetGroups",
+        "rds:DescribeDBProxyTargets",
         "rds:ModifyDBProxyTargetGroup",
         "rds:RegisterDBProxyTargets",
         "rds:DeregisterDBProxyTargets"

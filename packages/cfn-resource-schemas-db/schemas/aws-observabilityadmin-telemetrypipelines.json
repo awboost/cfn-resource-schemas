@@ -1,5 +1,5 @@
 {
-  "$hash": "d002df3c25811064c925da06da710c29c600310b",
+  "$hash": "72e82c7e39119088d2db74524af2d45dd78d347f",
   "$id": "aws-observabilityadmin-telemetrypipelines.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -88,6 +88,7 @@
   "handlers": {
     "create": {
       "permissions": [
+        "cloudwatch:PutPipelineRule",
         "iam:PassRole",
         "logs:PutPipelineRule",
         "observabilityadmin:CreateTelemetryPipeline",
@@ -98,6 +99,7 @@
     },
     "delete": {
       "permissions": [
+        "cloudwatch:DeletePipelineRule",
         "logs:DeletePipelineRule",
         "observabilityadmin:DeleteTelemetryPipeline",
         "observabilityadmin:GetTelemetryPipeline"
@@ -117,6 +119,7 @@
     },
     "update": {
       "permissions": [
+        "cloudwatch:PutPipelineRule",
         "iam:PassRole",
         "logs:DeletePipelineRule",
         "logs:PutPipelineRule",

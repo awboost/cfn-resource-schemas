@@ -1,5 +1,5 @@
 {
-  "$hash": "5163587feaf65df2817e23e72f4ae190ecb5afb7",
+  "$hash": "270a5d4ffd46878df715973a565c6d9a853a151a",
   "$id": "aws-glue-catalog.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -156,6 +156,9 @@
         "glue:TagResource",
         "glue:GetTags",
         "iam:PassRole",
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey",
         "redshift-serverless:CreateNamespace",
         "redshift-serverless:GetNamespace",
         "redshift-serverless:CreateWorkgroup",
@@ -179,6 +182,7 @@
       "permissions": [
         "glue:DeleteCatalog",
         "glue:GetCatalog",
+        "kms:Decrypt",
         "redshift-serverless:DeleteNamespace",
         "redshift-serverless:GetNamespace",
         "redshift-serverless:DeleteWorkgroup",
@@ -188,8 +192,10 @@
         "s3:DeleteBucket"
       ]
     },
-    "list": { "permissions": ["glue:GetCatalogs"] },
-    "read": { "permissions": ["glue:GetCatalog", "glue:GetTags"] },
+    "list": { "permissions": ["glue:GetCatalogs", "kms:Decrypt"] },
+    "read": {
+      "permissions": ["glue:GetCatalog", "glue:GetTags", "kms:Decrypt"]
+    },
     "update": {
       "permissions": [
         "glue:UpdateCatalog",
@@ -198,6 +204,9 @@
         "glue:UntagResource",
         "glue:GetTags",
         "iam:PassRole",
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey",
         "redshift-serverless:UpdateNamespace",
         "redshift-serverless:GetNamespace",
         "redshift-serverless:UpdateWorkgroup",

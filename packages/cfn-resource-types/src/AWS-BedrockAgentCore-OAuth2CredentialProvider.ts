@@ -71,6 +71,16 @@ export type BedrockAgentCoreOAuth2CredentialProviderAttributes = {
     SecretArn: string;
   };
   /**
+   * The JSON key within the secret that contains the client secret value
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  ClientSecretJsonKey: string;
+  /**
+   * The source of the client secret
+   */
+  ClientSecretSource: "MANAGED" | "EXTERNAL";
+  /**
    * The timestamp when the credential provider was created
    */
   CreatedTime: string;
@@ -162,7 +172,12 @@ export type AtlassianOauth2ProviderConfigInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  ClientSecret: string;
+  ClientSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ClientSecretConfig?: SecretReference;
+  ClientSecretSource?: "MANAGED" | "EXTERNAL";
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.ClientSecretArn`.
@@ -195,6 +210,14 @@ export type CustomOauth2ProviderConfigInput = {
    */
   ClientSecret?: string;
   /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ClientSecretConfig?: SecretReference;
+  /**
+   * The source of the client secret
+   */
+  ClientSecretSource?: "MANAGED" | "EXTERNAL";
+  /**
    * Discovery information for an OAuth2 provider
    */
   OauthDiscovery: Oauth2Discovery;
@@ -218,7 +241,12 @@ export type GithubOauth2ProviderConfigInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  ClientSecret: string;
+  ClientSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ClientSecretConfig?: SecretReference;
+  ClientSecretSource?: "MANAGED" | "EXTERNAL";
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.GoogleOauth2ProviderConfigInput`.
@@ -235,7 +263,12 @@ export type GoogleOauth2ProviderConfigInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  ClientSecret: string;
+  ClientSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ClientSecretConfig?: SecretReference;
+  ClientSecretSource?: "MANAGED" | "EXTERNAL";
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.IncludedOauth2ProviderConfigInput`.
@@ -256,7 +289,12 @@ export type IncludedOauth2ProviderConfigInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  ClientSecret: string;
+  ClientSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ClientSecretConfig?: SecretReference;
+  ClientSecretSource?: "MANAGED" | "EXTERNAL";
   /**
    * Token issuer of your isolated OAuth2 application tenant
    */
@@ -281,7 +319,12 @@ export type LinkedinOauth2ProviderConfigInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  ClientSecret: string;
+  ClientSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ClientSecretConfig?: SecretReference;
+  ClientSecretSource?: "MANAGED" | "EXTERNAL";
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.MicrosoftOauth2ProviderConfigInput`.
@@ -298,7 +341,12 @@ export type MicrosoftOauth2ProviderConfigInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  ClientSecret: string;
+  ClientSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ClientSecretConfig?: SecretReference;
+  ClientSecretSource?: "MANAGED" | "EXTERNAL";
   /**
    * The Microsoft Entra ID tenant ID
    * @minLength `1`
@@ -438,7 +486,31 @@ export type SalesforceOauth2ProviderConfigInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  ClientSecret: string;
+  ClientSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ClientSecretConfig?: SecretReference;
+  ClientSecretSource?: "MANAGED" | "EXTERNAL";
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.SecretReference`.
+ * A reference to a customer-provided secret stored in AWS Secrets Manager
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-secretreference.html}
+ */
+export type SecretReference = {
+  /**
+   * The JSON key within the secret that contains the credential value
+   * @minLength `1`
+   * @maxLength `128`
+   */
+  JsonKey: string;
+  /**
+   * The ID or ARN of the secret in AWS Secrets Manager
+   * @minLength `1`
+   * @maxLength `2048`
+   */
+  SecretId: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.SlackOauth2ProviderConfigInput`.
@@ -455,7 +527,12 @@ export type SlackOauth2ProviderConfigInput = {
    * @minLength `1`
    * @maxLength `2048`
    */
-  ClientSecret: string;
+  ClientSecret?: string;
+  /**
+   * A reference to a customer-provided secret stored in AWS Secrets Manager
+   */
+  ClientSecretConfig?: SecretReference;
+  ClientSecretSource?: "MANAGED" | "EXTERNAL";
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::OAuth2CredentialProvider.Tag`.

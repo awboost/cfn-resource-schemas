@@ -279,6 +279,10 @@ export type ClusterInstanceGroup = {
    */
   InstanceGroupName: string;
   /**
+   * The instance requirements for the instance group. Specifies a list of instance types that can be used.
+   */
+  InstanceRequirements?: InstanceRequirements;
+  /**
    * The instance storage configuration for the instance group.
    * @maxLength `4`
    */
@@ -286,7 +290,7 @@ export type ClusterInstanceGroup = {
   /**
    * The instance type of the instance group of a SageMaker HyperPod cluster.
    */
-  InstanceType: string;
+  InstanceType?: string;
   /**
    * Kubernetes configuration for cluster nodes including labels and taints.
    */
@@ -300,6 +304,10 @@ export type ClusterInstanceGroup = {
    * @min `0`
    */
   MinInstanceCount?: number;
+  /**
+   * Specifies the network interface configuration for the instance group.
+   */
+  NetworkInterface?: ClusterNetworkInterface;
   /**
    * Nodes will undergo advanced stress test to detect and replace faulty instances, based on the type of deep health check(s) passed in.
    */
@@ -421,6 +429,17 @@ export type ClusterLifeCycleConfig = {
    * @pattern `^(https|s3)://([^/]+)/?(.*)$`
    */
   SourceS3Uri?: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.ClusterNetworkInterface`.
+ * Specifies the network interface configuration for the instance group.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusternetworkinterface.html}
+ */
+export type ClusterNetworkInterface = {
+  /**
+   * The type of network interface.
+   */
+  InterfaceType: "efa" | "efa-only";
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.ClusterOnDemandOptions`.
@@ -589,6 +608,19 @@ export type FSxLustreConfig = {
    * @max `100800`
    */
   SizeInGiB: number;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.InstanceRequirements`.
+ * The instance requirements for the instance group. Specifies a list of instance types that can be used.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-instancerequirements.html}
+ */
+export type InstanceRequirements = {
+  /**
+   * A list of instance types that can be used for this instance group.
+   * @minLength `1`
+   * @maxLength `20`
+   */
+  InstanceTypes: string[];
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.Orchestrator`.
