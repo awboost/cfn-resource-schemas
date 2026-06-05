@@ -11,6 +11,7 @@ export type PaymentCryptographyKeyProperties = {
   KeyAttributes: KeyAttributes;
   KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
   /**
+   * The resource-based policy attached to the key, in JSON format.
    * @minLength `1`
    * @maxLength `20480`
    * @pattern `^[\u0009\u000A\u000D\u0020-\u00FF]+$`

@@ -41,7 +41,13 @@ export type CloudWatchAlarmProperties = {
    * Used only for alarms based on percentiles. If ``ignore``, the alarm state does not change during periods with too few data points to be statistically significant. If ``evaluate`` or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.
    */
   EvaluateLowSampleCountPercentile?: string;
+  /**
+   * The evaluation criteria for the alarm.
+   */
   EvaluationCriteria?: EvaluationCriteria;
+  /**
+   * The frequency, in seconds, at which the alarm is evaluated.
+   */
   EvaluationInterval?: number;
   /**
      * The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
@@ -122,19 +128,20 @@ export type CloudWatchAlarmAttributes = {
 };
 /**
  * Type definition for `AWS::CloudWatch::Alarm.AlarmPromQLCriteria`.
+ * Contains the configuration that determines how a PromQL alarm evaluates its contributors, including the query to run and the durations that define when contributors transition between states.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-alarmpromqlcriteria.html}
  */
 export type AlarmPromQLCriteria = {
   /**
-   * The pending period for the alarm.
+   * The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ``ALARM`` state.
    */
   PendingPeriod?: number;
   /**
-   * The PromQL query string.
+   * The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.
    */
   Query?: string;
   /**
-   * The recovery period for the alarm.
+   * The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the ``OK`` state.
    */
   RecoveryPeriod?: number;
 };
@@ -155,9 +162,13 @@ export type Dimension = {
 };
 /**
  * Type definition for `AWS::CloudWatch::Alarm.EvaluationCriteria`.
+ * The evaluation criteria for an alarm. This is a union type that currently supports ``PromQLCriteria``.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-evaluationcriteria.html}
  */
 export type EvaluationCriteria = {
+  /**
+   * The PromQL criteria for the alarm evaluation.
+   */
   PromQLCriteria?: AlarmPromQLCriteria;
 };
 /**

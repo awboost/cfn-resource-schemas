@@ -1,5 +1,5 @@
 {
-  "$hash": "353a0a803dfbfa4e729bfaf3950f50c1e9d9662f",
+  "$hash": "b84b5858b618066c67fcac6dec5e0cf021e77874",
   "$id": "aws-route53recoverycontrol-safetyrule.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": [
@@ -168,7 +168,7 @@
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53-recovery-control.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "route53-recovery-control-config:TagResource",
       "route53-recovery-control-config:UntagResource",

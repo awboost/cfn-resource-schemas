@@ -31,6 +31,7 @@ export type LambdaCapacityProviderProperties = {
    * The permissions configuration for the capacity provider.
    */
   PermissionsConfig: CapacityProviderPermissionsConfig;
+  PropagateTags?: PropagateTagsConfig;
   /**
    * A key-value pair that provides metadata for the capacity provider.
    */
@@ -166,6 +167,28 @@ export type InstanceRequirements = {
    */
   ExcludedInstanceTypes?: string[];
 };
+/**
+ * Type definition for `AWS::Lambda::CapacityProvider.PropagateTagsConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-propagatetagsconfig.html}
+ */
+export type PropagateTagsConfig = {
+  /**
+   * A list of tags to explicitly propagate to managed resources.
+   * @minLength `0`
+   * @maxLength `40`
+   */
+  ExplicitTags?: Tag[];
+  /**
+   * The mode for tag propagation.
+   */
+  Mode?: PropagateTagsMode;
+};
+/**
+ * Type definition for `AWS::Lambda::CapacityProvider.PropagateTagsMode`.
+ * The mode for tag propagation.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-propagatetagsmode.html}
+ */
+export type PropagateTagsMode = "None" | "Explicit";
 /**
  * Type definition for `AWS::Lambda::CapacityProvider.Tag`.
  * A key-value pair that provides metadata for the capacity provider.

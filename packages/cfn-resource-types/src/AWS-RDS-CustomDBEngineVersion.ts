@@ -70,7 +70,11 @@ export type RDSCustomDBEngineVersionProperties = {
   /**
    * A value that indicates the status of a custom engine version (CEV).
    */
-  Status?: "available" | "inactive" | "inactive-except-restore";
+  Status?:
+    | "available"
+    | "inactive"
+    | "inactive-except-restore"
+    | "pending-validation";
   /**
    * A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
    */

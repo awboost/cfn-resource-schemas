@@ -32,7 +32,7 @@ export type DevOpsAgentServiceAttributes = {
   /**
    * List of accessible resources for this service
    */
-  AccessibleResources: Record<string, any>[];
+  AccessibleResources: Record<string, string>[];
   /**
    * Additional details specific to the service type
    */

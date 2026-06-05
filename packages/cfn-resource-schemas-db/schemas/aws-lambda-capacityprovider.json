@@ -1,5 +1,5 @@
 {
-  "$hash": "27fe3e10e633272b6e0a31ec1bd649882fc64042",
+  "$hash": "40eec2f85a55f9718da34894ef0341eac7545e9b",
   "$id": "aws-lambda-capacityprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -145,6 +145,28 @@
       },
       "type": "object"
     },
+    "PropagateTagsConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "ExplicitTags": {
+          "description": "A list of tags to explicitly propagate to managed resources.",
+          "insertionOrder": false,
+          "items": { "$ref": "#/definitions/Tag" },
+          "maxItems": 40,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "Mode": { "$ref": "#/definitions/PropagateTagsMode" }
+      },
+      "type": "object"
+    },
+    "PropagateTagsMode": {
+      "description": "The mode for tag propagation.",
+      "enum": ["None", "Explicit"],
+      "type": "string"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair that provides metadata for the capacity provider.",
@@ -258,6 +280,10 @@
     "PermissionsConfig": {
       "$ref": "#/definitions/CapacityProviderPermissionsConfig",
       "description": "The permissions configuration for the capacity provider."
+    },
+    "PropagateTags": {
+      "$ref": "#/definitions/PropagateTagsConfig",
+      "description": ""
     },
     "State": {
       "$ref": "#/definitions/CapacityProviderState",

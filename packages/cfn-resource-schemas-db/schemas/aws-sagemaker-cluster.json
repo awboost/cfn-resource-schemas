@@ -1,16 +1,22 @@
 {
-  "$hash": "4b33b579c6e84a29360b74ec078aef44cfb8ed27",
+  "$hash": "52c7bd8d7907268210b884b0ade537b255825a9c",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
-  "conditionalCreateOnlyProperties": [
-    "/properties/InstanceGroups/*/CustomMetadata",
-    "/properties/RestrictedInstanceGroups/*/CustomMetadata"
-  ],
   "createOnlyProperties": [
     "/properties/ClusterName",
     "/properties/VpcConfig",
-    "/properties/Orchestrator/Eks"
+    "/properties/Orchestrator/Eks",
+    "/properties/InstanceGroups/*/OverrideVpcConfig",
+    "/properties/InstanceGroups/*/ExecutionRole",
+    "/properties/InstanceGroups/*/InstanceGroupName",
+    "/properties/InstanceGroups/*/InstanceType",
+    "/properties/InstanceGroups/*/ThreadsPerCore",
+    "/properties/RestrictedInstanceGroups/*/OverrideVpcConfig",
+    "/properties/RestrictedInstanceGroups/*/ExecutionRole",
+    "/properties/RestrictedInstanceGroups/*/InstanceGroupName",
+    "/properties/RestrictedInstanceGroups/*/InstanceType",
+    "/properties/RestrictedInstanceGroups/*/ThreadsPerCore"
   ],
   "definitions": {
     "AlarmDetails": {
@@ -171,9 +177,6 @@
           "type": "integer"
         },
         "InstanceGroupName": { "$ref": "#/definitions/InstanceGroupName" },
-        "InstanceRequirements": {
-          "$ref": "#/definitions/InstanceRequirements"
-        },
         "InstanceStorageConfigs": {
           "$ref": "#/definitions/ClusterInstanceStorageConfigs"
         },
@@ -185,7 +188,6 @@
           "minimum": 0,
           "type": "integer"
         },
-        "NetworkInterface": { "$ref": "#/definitions/ClusterNetworkInterface" },
         "OnStartDeepHealthChecks": {
           "$ref": "#/definitions/OnStartDeepHealthChecks"
         },
@@ -208,7 +210,12 @@
           "type": "string"
         }
       },
-      "required": ["ExecutionRole", "InstanceCount", "InstanceGroupName"],
+      "required": [
+        "ExecutionRole",
+        "InstanceCount",
+        "InstanceGroupName",
+        "InstanceType"
+      ],
       "type": "object"
     },
     "ClusterInstanceGroupsList": {
@@ -320,19 +327,6 @@
           "type": "string"
         }
       },
-      "type": "object"
-    },
-    "ClusterNetworkInterface": {
-      "additionalProperties": false,
-      "description": "Specifies the network interface configuration for the instance group.",
-      "properties": {
-        "InterfaceType": {
-          "description": "The type of network interface.",
-          "enum": ["efa", "efa-only"],
-          "type": "string"
-        }
-      },
-      "required": ["InterfaceType"],
       "type": "object"
     },
     "ClusterOnDemandOptions": {
@@ -521,22 +515,6 @@
       "minLength": 1,
       "pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9])*$",
       "type": "string"
-    },
-    "InstanceRequirements": {
-      "additionalProperties": false,
-      "description": "The instance requirements for the instance group. Specifies a list of instance types that can be used.",
-      "properties": {
-        "InstanceTypes": {
-          "description": "A list of instance types that can be used for this instance group.",
-          "insertionOrder": true,
-          "items": { "$ref": "#/definitions/InstanceType" },
-          "maxItems": 20,
-          "minItems": 1,
-          "type": "array"
-        }
-      },
-      "required": ["InstanceTypes"],
-      "type": "object"
     },
     "InstanceType": {
       "description": "The instance type of the instance group of a SageMaker HyperPod cluster.",

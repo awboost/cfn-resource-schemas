@@ -1,5 +1,5 @@
 {
-  "$hash": "d86b73d2078d6a471b78b8210d8c228d1f98c634",
+  "$hash": "4e368e6ba185e75aaa6814c2cafd4bbc5d4b5c9a",
   "$id": "aws-quicksight-topic.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -641,6 +641,8 @@
         "quicksight:CreateTopic",
         "quicksight:PassDataSet",
         "quicksight:DescribeTopicRefresh",
+        "quicksight:CreateFolderMembership",
+        "quicksight:ListFoldersForResource",
         "quicksight:TagResource"
       ]
     },
@@ -656,7 +658,10 @@
       "permissions": [
         "quicksight:UpdateTopic",
         "quicksight:PassDataSet",
-        "quicksight:DescribeTopicRefresh"
+        "quicksight:DescribeTopicRefresh",
+        "quicksight:CreateFolderMembership",
+        "quicksight:DeleteFolderMembership",
+        "quicksight:ListFoldersForResource"
       ]
     }
   },

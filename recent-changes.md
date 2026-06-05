@@ -1,83 +1,43 @@
-- added `AWS::RTBFabric::LinkRoutingRule`
-- updated `AWS::AppStream::User`
-  - added `tagging`
-  - added `writeOnlyProperties`
-  - added property `Arn`
-  - removed property `Id`
-  - updated `createOnlyProperties`
-  - updated `primaryIdentifier`
-  - updated `readOnlyProperties`
-  - updated handler permissions
-  - updated property `AuthenticationType`
-  - updated property `FirstName`
-  - updated property `LastName`
-  - updated property `MessageAction`
-  - updated property `UserName`
-- updated `AWS::BedrockAgentCore::ApiKeyCredentialProvider`
-  - added definition `SecretReference`
-  - added property `ApiKeySecretConfig`
-  - added property `ApiKeySecretJsonKey`
-  - added property `ApiKeySecretSource`
-  - updated `readOnlyProperties`
-  - updated `writeOnlyProperties`
-  - updated handler permissions
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - added definition `EndpointIpAddressType`
-  - added definition `ManagedResourceDetails`
-  - added definition `ManagedVpcResource`
-  - added definition `PrivateEndpoint`
-  - added definition `SelfManagedLatticeResource`
-  - added property `PrivateEndpointManagedResources`
-  - added property `PrivateEndpoint`
-  - updated `readOnlyProperties`
-  - updated handler permissions
+- added `AWS::BedrockAgentCore::ResourcePolicy`
+- updated `AWS::Backup::Framework`
+  - updated `tagging`
+- updated `AWS::Backup::ReportPlan`
+  - updated `tagging`
 - updated `AWS::BedrockAgentCore::OAuth2CredentialProvider`
-  - added definition `SecretReference`
-  - added property `ClientSecretJsonKey`
-  - added property `ClientSecretSource`
-  - updated `readOnlyProperties`
-  - updated definition `AtlassianOauth2ProviderConfigInput`
   - updated definition `CustomOauth2ProviderConfigInput`
-  - updated definition `GithubOauth2ProviderConfigInput`
-  - updated definition `GoogleOauth2ProviderConfigInput`
-  - updated definition `IncludedOauth2ProviderConfigInput`
-  - updated definition `LinkedinOauth2ProviderConfigInput`
-  - updated definition `MicrosoftOauth2ProviderConfigInput`
-  - updated definition `SalesforceOauth2ProviderConfigInput`
-  - updated definition `SlackOauth2ProviderConfigInput`
+  - updated definition `Oauth2ProviderConfigOutput`
+- updated `AWS::CloudWatch::Alarm`
+  - updated definition `AlarmPromQLCriteria`
+  - updated definition `EvaluationCriteria`
+  - updated property `EvaluationCriteria`
+  - updated property `EvaluationInterval`
+- updated `AWS::Connect::InstanceStorageConfig`
+  - updated definition `InstanceStorageResourceType`
+- updated `AWS::Connect::IntegrationAssociation`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated definition `IntegrationType`
   - updated handler permissions
-- updated `AWS::ConnectCampaignsV2::Campaign`
-  - updated definition `Iso8601Duration`
-  - updated definition `SourceEmailAddressDisplayName`
-  - updated definition `TimeoutDuration`
-- updated `AWS::EC2::Route`
-  - added property `OdbNetworkArn`
-- updated `AWS::ECS::DaemonTaskDefinition`
-  - added property `IpcMode`
-  - added property `PidMode`
-  - updated `createOnlyProperties`
-- updated `AWS::Glue::Catalog`
-  - updated handler permissions
-- updated `AWS::ObservabilityAdmin::TelemetryPipelines`
-  - updated handler permissions
-- updated `AWS::OpenSearchServerless::Collection`
-  - added definition `DeletionProtection`
-  - added property `DeletionProtection`
+- updated `AWS::DevOpsAgent::Service`
+  - updated property `AccessibleResources`
+- updated `AWS::EC2::VPC`
+- updated `AWS::Lambda::CapacityProvider`
+  - added definition `PropagateTagsConfig`
+  - added definition `PropagateTagsMode`
+  - added property `PropagateTags`
 - updated `AWS::PaymentCryptography::Key`
-  - added property `Policy`
+  - updated property `Policy`
+- updated `AWS::QuickSight::Topic`
   - updated handler permissions
-- updated `AWS::RDS::DBProxy`
+- updated `AWS::RDS::CustomDBEngineVersion`
   - updated handler permissions
-- updated `AWS::RDS::DBProxyEndpoint`
-  - updated handler permissions
-- updated `AWS::RDS::DBProxyTargetGroup`
-  - added `additionalIdentifiers`
-  - updated handler permissions
-- updated `AWS::RolesAnywhere::TrustAnchor`
-  - added `propertyTransform`
+  - updated property `Status`
+- updated `AWS::Route53RecoveryControl::SafetyRule`
+  - updated `tagging`
 - updated `AWS::SageMaker::Cluster`
-  - added `conditionalCreateOnlyProperties`
-  - added definition `ClusterNetworkInterface`
-  - added definition `InstanceRequirements`
+  - removed `conditionalCreateOnlyProperties`
+  - removed definition `ClusterNetworkInterface`
+  - removed definition `InstanceRequirements`
   - updated `createOnlyProperties`
   - updated definition `ClusterInstanceGroup`

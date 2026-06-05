@@ -1,5 +1,5 @@
 {
-  "$hash": "db70a48bfbfacbbcb846412e301b5b09ab594bf1",
+  "$hash": "8334dd4012b2613ad50685ae3d55fb90a4a52465",
   "$id": "aws-backup-reportplan.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ReportPlanName"],
@@ -144,7 +144,7 @@
   "required": ["ReportDeliveryChannel", "ReportSetting"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "backup:TagResource",
       "backup:UntagResource",

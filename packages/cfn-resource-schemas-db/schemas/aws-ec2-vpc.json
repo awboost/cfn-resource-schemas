@@ -1,5 +1,5 @@
 {
-  "$hash": "8fb4d7ebe07e0ddf6ec419fd1195fc7b5f851724",
+  "$hash": "76e2060cc4053f1285d6044491e83831f9fafa01",
   "$id": "aws-ec2-vpc.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/InstanceTenancy"],
@@ -20,7 +20,7 @@
       "type": "object"
     }
   },
-  "description": "Specifies a virtual private cloud (VPC).\n To add an IPv6 CIDR block to the VPC, see [AWS::EC2::VPCCidrBlock](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html).\n For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.",
+  "description": "Specifies a virtual private cloud (VPC).\n A VPC must have an associated IPv4 CIDR block. You can specify an IPv4 CIDR block or an IPAM-allocated IPv4 CIDR block. To associate an IPv6 CIDR block with the VPC, see [AWS::EC2::VPCCidrBlock](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html).\n For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.",
   "handlers": {
     "create": {
       "permissions": [

@@ -1,23 +1,23 @@
 {
-  "$hash": "aa9efd91fff538a43d0002c12c293f44c3efd45a",
+  "$hash": "26b76dbf939503356aee881d0962a4ec053f54d8",
   "$id": "aws-cloudwatch-alarm.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AlarmName"],
   "definitions": {
     "AlarmPromQLCriteria": {
       "additionalProperties": false,
-      "description": "",
+      "description": "Contains the configuration that determines how a PromQL alarm evaluates its contributors, including the query to run and the durations that define when contributors transition between states.",
       "properties": {
         "PendingPeriod": {
-          "description": "The pending period for the alarm.",
+          "description": "The duration, in seconds, that a contributor must be continuously breaching before it transitions to the ``ALARM`` state.",
           "type": "integer"
         },
         "Query": {
-          "description": "The PromQL query string.",
+          "description": "The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.",
           "type": "string"
         },
         "RecoveryPeriod": {
-          "description": "The recovery period for the alarm.",
+          "description": "The duration, in seconds, that a contributor must continuously not be breaching before it transitions back to the ``OK`` state.",
           "type": "integer"
         }
       },
@@ -41,9 +41,12 @@
     },
     "EvaluationCriteria": {
       "additionalProperties": false,
-      "description": "",
+      "description": "The evaluation criteria for an alarm. This is a union type that currently supports ``PromQLCriteria``.",
       "properties": {
-        "PromQLCriteria": { "$ref": "#/definitions/AlarmPromQLCriteria" }
+        "PromQLCriteria": {
+          "$ref": "#/definitions/AlarmPromQLCriteria",
+          "description": "The PromQL criteria for the alarm evaluation."
+        }
       },
       "type": "object"
     },
@@ -221,9 +224,12 @@
     },
     "EvaluationCriteria": {
       "$ref": "#/definitions/EvaluationCriteria",
-      "description": ""
+      "description": "The evaluation criteria for the alarm."
     },
-    "EvaluationInterval": { "description": "", "type": "integer" },
+    "EvaluationInterval": {
+      "description": "The frequency, in seconds, at which the alarm is evaluated.",
+      "type": "integer"
+    },
     "EvaluationPeriods": {
       "description": "The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an \"M out of N\" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.\n For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.",
       "type": "integer"

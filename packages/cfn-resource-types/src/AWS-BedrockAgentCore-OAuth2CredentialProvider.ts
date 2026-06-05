@@ -98,6 +98,13 @@ export type BedrockAgentCoreOAuth2CredentialProviderAttributes = {
    */
   Oauth2ProviderConfigOutput: {
     /**
+     * The client authentication method used when authenticating with the token endpoint
+     */
+    ClientAuthenticationMethod:
+      | "CLIENT_SECRET_BASIC"
+      | "CLIENT_SECRET_POST"
+      | "AWS_IAM_ID_TOKEN_JWT";
+    /**
      * @minLength `1`
      * @maxLength `256`
      */
@@ -197,6 +204,13 @@ export type ClientSecretArn = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-customoauth2providerconfiginput.html}
  */
 export type CustomOauth2ProviderConfigInput = {
+  /**
+   * The client authentication method to use when authenticating with the token endpoint
+   */
+  ClientAuthenticationMethod?:
+    | "CLIENT_SECRET_BASIC"
+    | "CLIENT_SECRET_POST"
+    | "AWS_IAM_ID_TOKEN_JWT";
   /**
    * The client ID for the custom OAuth2 provider
    * @minLength `1`
@@ -442,6 +456,13 @@ export type Oauth2ProviderConfigInput = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-oauth2credentialprovider-oauth2providerconfigoutput.html}
  */
 export type Oauth2ProviderConfigOutput = {
+  /**
+   * The client authentication method used when authenticating with the token endpoint
+   */
+  ClientAuthenticationMethod?:
+    | "CLIENT_SECRET_BASIC"
+    | "CLIENT_SECRET_POST"
+    | "AWS_IAM_ID_TOKEN_JWT";
   /**
    * @minLength `1`
    * @maxLength `256`

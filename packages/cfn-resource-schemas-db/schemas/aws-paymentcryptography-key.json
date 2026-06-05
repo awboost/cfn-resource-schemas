@@ -1,5 +1,5 @@
 {
-  "$hash": "9a39548d7cd17a60445a80917fd568e8afb59458",
+  "$hash": "e5042423831bce310aa67890b1b06ccacde459da",
   "$id": "aws-paymentcryptography-key.json",
   "additionalProperties": false,
   "definitions": {
@@ -220,6 +220,7 @@
     "KeyOrigin": { "$ref": "#/definitions/KeyOrigin" },
     "KeyState": { "$ref": "#/definitions/KeyState" },
     "Policy": {
+      "description": "The resource-based policy attached to the key, in JSON format.",
       "maxLength": 20480,
       "minLength": 1,
       "pattern": "^[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+$",

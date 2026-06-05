@@ -1,5 +1,5 @@
 {
-  "$hash": "9099dffc4b5038950239c691d4e7af2b95349e6e",
+  "$hash": "3c231fc16f729657cc6f23b6df983224dff0d1dd",
   "$id": "aws-devopsagent-service.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -933,7 +933,10 @@
   "properties": {
     "AccessibleResources": {
       "description": "List of accessible resources for this service",
-      "items": { "type": "object" },
+      "items": {
+        "patternProperties": { ".*": { "type": "string" } },
+        "type": "object"
+      },
       "type": "array"
     },
     "AdditionalServiceDetails": {

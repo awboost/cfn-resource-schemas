@@ -1,5 +1,5 @@
 {
-  "$hash": "27c8c9355dd9024516d2d630409944bf802e5144",
+  "$hash": "58296120ed4a8368235f929e260ff2d3660d11c5",
   "$id": "aws-rds-customdbengineversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -42,6 +42,7 @@
       "permissions": [
         "ec2:CopySnapshot",
         "ec2:DeleteSnapshot",
+        "ec2:DescribeImages",
         "ec2:DescribeSnapshots",
         "kms:CreateGrant",
         "kms:Decrypt",
@@ -145,7 +146,12 @@
     "Status": {
       "default": "available",
       "description": "A value that indicates the status of a custom engine version (CEV).",
-      "enum": ["available", "inactive", "inactive-except-restore"],
+      "enum": [
+        "available",
+        "inactive",
+        "inactive-except-restore",
+        "pending-validation"
+      ],
       "type": "string"
     },
     "Tags": {

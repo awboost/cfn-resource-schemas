@@ -22,6 +22,12 @@ export type ConnectIntegrationAssociationProperties = {
    * Specifies the integration type to be associated with the instance
    */
   IntegrationType: IntegrationType;
+  /**
+   * The tags used to organize, track, or control access for this resource.
+   * @minLength `0`
+   * @maxLength `200`
+   */
+  Tags?: Tag[];
 };
 /**
  * Attribute type definition for `AWS::Connect::IntegrationAssociation`.
@@ -42,7 +48,34 @@ export type IntegrationType =
   | "LEX_BOT"
   | "LAMBDA_FUNCTION"
   | "APPLICATION"
-  | "CASES_DOMAIN";
+  | "CASES_DOMAIN"
+  | "WISDOM_ASSISTANT"
+  | "WISDOM_KNOWLEDGE_BASE"
+  | "WISDOM_QUICK_RESPONSES"
+  | "FILE_SCANNER"
+  | "MESSAGE_PROCESSOR"
+  | "Q_MESSAGE_TEMPLATES"
+  | "SES_IDENTITY";
+/**
+ * Type definition for `AWS::Connect::IntegrationAssociation.Tag`.
+ * A key-value pair to associate with a resource.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-integrationassociation-tag.html}
+ */
+export type Tag = {
+  /**
+   * The key name of the tag.
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^(?!aws:)[a-zA-Z+-=._:/]+$`
+   */
+  Key: string;
+  /**
+   * The value for the tag.
+   * @minLength `0`
+   * @maxLength `256`
+   */
+  Value: string;
+};
 /**
  * Resource Type definition for AWS::Connect::IntegrationAssociation
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html}
