@@ -1,5 +1,5 @@
 {
-  "$hash": "8351bf2fae70ee62715b5b159c344e1d87f2ba04",
+  "$hash": "a7bbed004dbc5c4003afbf6365fcddf840de489d",
   "$id": "aws-novaact-workflowdefinition.json",
   "additionalIdentifiers": [["/properties/Name"]],
   "additionalProperties": false,
@@ -39,7 +39,10 @@
         "nova-act:CreateWorkflowDefinition",
         "nova-act:GetWorkflowDefinition",
         "iam:CreateServiceLinkedRole",
-        "s3:ListBucket"
+        "s3:ListBucket",
+        "s3:GetBucketLocation",
+        "s3:GetBucketAcl",
+        "s3:PutObject"
       ]
     },
     "delete": {

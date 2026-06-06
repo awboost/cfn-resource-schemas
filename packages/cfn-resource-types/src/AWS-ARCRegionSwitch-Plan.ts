@@ -135,6 +135,52 @@ export type AssociatedAlarm = {
  */
 export type AssociatedAlarmMap = Record<string, AssociatedAlarm>;
 /**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.AuroraProvisionedScalingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-auroraprovisionedscalingconfiguration.html}
+ */
+export type AuroraProvisionedScalingConfiguration = {
+  /**
+   * @pattern `^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$`
+   */
+  CrossAccountRole?: string;
+  ExternalId?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   * @pattern `^[A-Za-z][0-9A-Za-z-:._]*$`
+   */
+  GlobalClusterIdentifier: string;
+  InstanceArns: RegionAuroraInstanceArnMap;
+  RegionDatabaseClusterArns: RegionAuroraClusterMap;
+  /**
+   * @min `1`
+   */
+  TimeoutMinutes?: number;
+};
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.AuroraServerlessScalingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-auroraserverlessscalingconfiguration.html}
+ */
+export type AuroraServerlessScalingConfiguration = {
+  /**
+   * @pattern `^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$`
+   */
+  CrossAccountRole?: string;
+  ExternalId?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   * @pattern `^[A-Za-z][0-9A-Za-z-:._]*$`
+   */
+  GlobalClusterIdentifier: string;
+  RegionDatabaseClusterArns: RegionAuroraClusterMap;
+  TargetPercent?: number;
+  /**
+   * @min `1`
+   */
+  TimeoutMinutes?: number;
+};
+/**
  * Type definition for `AWS::ARCRegionSwitch::Plan.CustomActionLambdaConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-customactionlambdaconfiguration.html}
  */
@@ -339,6 +385,12 @@ export type ExecutionBlockConfiguration =
       ArcRoutingControlConfig: ArcRoutingControlConfiguration;
     }
   | {
+      AuroraProvisionedScalingConfig: AuroraProvisionedScalingConfiguration;
+    }
+  | {
+      AuroraServerlessScalingConfig: AuroraServerlessScalingConfiguration;
+    }
+  | {
       GlobalAuroraConfig: GlobalAuroraConfiguration;
     }
   | {
@@ -367,6 +419,9 @@ export type ExecutionBlockConfiguration =
     }
   | {
       LambdaEventSourceMappingConfig: LambdaEventSourceMappingConfiguration;
+    }
+  | {
+      NeptuneGlobalDatabaseConfig: NeptuneGlobalDatabaseConfiguration;
     };
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.ExecutionBlockType`.
@@ -376,6 +431,8 @@ export type ExecutionBlockType =
   | "ARCRegionSwitchPlan"
   | "ARCRoutingControl"
   | "AuroraGlobalDatabase"
+  | "AuroraProvisionedScaling"
+  | "AuroraServerlessScaling"
   | "CustomActionLambda"
   | "DocumentDb"
   | "EC2AutoScaling"
@@ -383,6 +440,7 @@ export type ExecutionBlockType =
   | "EKSResourceScaling"
   | "LambdaEventSourceMapping"
   | "ManualApproval"
+  | "NeptuneGlobalDatabase"
   | "Parallel"
   | "RdsCreateCrossRegionReplica"
   | "RdsPromoteReadReplica"
@@ -494,6 +552,42 @@ export type LambdaUngraceful = {
   Behavior?: any;
 };
 /**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.NeptuneGlobalDatabaseConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-neptuneglobaldatabaseconfiguration.html}
+ */
+export type NeptuneGlobalDatabaseConfiguration = {
+  Behavior: any;
+  /**
+   * @pattern `^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$`
+   */
+  CrossAccountRole?: string;
+  ExternalId?: string;
+  /**
+   * @minLength `1`
+   * @maxLength `63`
+   * @pattern `^[A-Za-z][0-9A-Za-z-]*$`
+   */
+  GlobalClusterIdentifier: string;
+  RegionDatabaseClusterArns: RegionNeptuneClusterArnMap;
+  /**
+   * @min `1`
+   */
+  TimeoutMinutes?: number;
+  Ungraceful?: NeptuneUngraceful;
+};
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.NeptuneUngraceful`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-neptuneungraceful.html}
+ */
+export type NeptuneUngraceful = {
+  Ungraceful?: NeptuneUngracefulBehavior;
+};
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.NeptuneUngracefulBehavior`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-neptuneungracefulbehavior.html}
+ */
+export type NeptuneUngracefulBehavior = "failover";
+/**
  * Type definition for `AWS::ARCRegionSwitch::Plan.ParallelExecutionBlockConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-parallelexecutionblockconfiguration.html}
  */
@@ -553,10 +647,25 @@ export type RegionalScalingResource = Record<string, KubernetesScalingResource>;
  */
 export type RegionAndRoutingControls = Record<string, ArcRoutingControlState[]>;
 /**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.RegionAuroraClusterMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regionauroraclustermap.html}
+ */
+export type RegionAuroraClusterMap = Record<string, string>;
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.RegionAuroraInstanceArnMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regionaurorainstancearnmap.html}
+ */
+export type RegionAuroraInstanceArnMap = Record<string, string>;
+/**
  * Type definition for `AWS::ARCRegionSwitch::Plan.RegionEventSourceMappingMap`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regioneventsourcemappingmap.html}
  */
 export type RegionEventSourceMappingMap = Record<string, EventSourceMapping>;
+/**
+ * Type definition for `AWS::ARCRegionSwitch::Plan.RegionNeptuneClusterArnMap`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regionneptuneclusterarnmap.html}
+ */
+export type RegionNeptuneClusterArnMap = Record<string, string>;
 /**
  * Type definition for `AWS::ARCRegionSwitch::Plan.RegionSwitchPlanConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arcregionswitch-plan-regionswitchplanconfiguration.html}

@@ -1,43 +1,28 @@
-- added `AWS::BedrockAgentCore::ResourcePolicy`
-- updated `AWS::Backup::Framework`
-  - updated `tagging`
-- updated `AWS::Backup::ReportPlan`
-  - updated `tagging`
-- updated `AWS::BedrockAgentCore::OAuth2CredentialProvider`
-  - updated definition `CustomOauth2ProviderConfigInput`
-  - updated definition `Oauth2ProviderConfigOutput`
-- updated `AWS::CloudWatch::Alarm`
-  - updated definition `AlarmPromQLCriteria`
-  - updated definition `EvaluationCriteria`
-  - updated property `EvaluationCriteria`
-  - updated property `EvaluationInterval`
-- updated `AWS::Connect::InstanceStorageConfig`
-  - updated definition `InstanceStorageResourceType`
-- updated `AWS::Connect::IntegrationAssociation`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated `tagging`
-  - updated definition `IntegrationType`
+- added `AWS::BedrockAgentCore::PaymentManager`
+- added `AWS::ResilienceHubV2::ServiceFunction`
+- added `AWS::ResilienceHubV2::UserJourney`
+- updated `AWS::ARCRegionSwitch::Plan`
+  - added definition `AuroraProvisionedScalingConfiguration`
+  - added definition `AuroraServerlessScalingConfiguration`
+  - added definition `NeptuneDefaultBehavior`
+  - added definition `NeptuneGlobalDatabaseConfiguration`
+  - added definition `NeptuneUngracefulBehavior`
+  - added definition `NeptuneUngraceful`
+  - added definition `RegionAuroraClusterMap`
+  - added definition `RegionAuroraInstanceArnMap`
+  - added definition `RegionNeptuneClusterArnMap`
+  - updated definition `ExecutionBlockConfiguration`
+  - updated definition `ExecutionBlockType`
+- updated `AWS::Chime::AppInstanceBot`
   - updated handler permissions
-- updated `AWS::DevOpsAgent::Service`
-  - updated property `AccessibleResources`
-- updated `AWS::EC2::VPC`
-- updated `AWS::Lambda::CapacityProvider`
-  - added definition `PropagateTagsConfig`
-  - added definition `PropagateTagsMode`
-  - added property `PropagateTags`
-- updated `AWS::PaymentCryptography::Key`
-  - updated property `Policy`
-- updated `AWS::QuickSight::Topic`
+- updated `AWS::NovaAct::WorkflowDefinition`
   - updated handler permissions
-- updated `AWS::RDS::CustomDBEngineVersion`
-  - updated handler permissions
-  - updated property `Status`
-- updated `AWS::Route53RecoveryControl::SafetyRule`
-  - updated `tagging`
+- updated `AWS::SSO::PermissionSet`
+  - updated property `CustomerManagedPolicyReferences`
+  - updated property `ManagedPolicies`
 - updated `AWS::SageMaker::Cluster`
-  - removed `conditionalCreateOnlyProperties`
-  - removed definition `ClusterNetworkInterface`
-  - removed definition `InstanceRequirements`
+  - added `conditionalCreateOnlyProperties`
+  - added definition `ClusterNetworkInterface`
+  - added definition `InstanceRequirements`
   - updated `createOnlyProperties`
   - updated definition `ClusterInstanceGroup`

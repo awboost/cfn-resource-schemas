@@ -7,7 +7,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type SSOPermissionSetProperties = {
   /**
-   * @maxLength `20`
+   * @maxLength `25`
    */
   CustomerManagedPolicyReferences?: CustomerManagedPolicyReference[];
   /**
@@ -29,7 +29,7 @@ export type SSOPermissionSetProperties = {
    */
   InstanceArn: string;
   /**
-   * @maxLength `20`
+   * @maxLength `25`
    */
   ManagedPolicies?: string[];
   /**

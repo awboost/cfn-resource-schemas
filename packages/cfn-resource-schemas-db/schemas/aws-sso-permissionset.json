@@ -1,5 +1,5 @@
 {
-  "$hash": "fe9b1bbf29b33f0a6baf114e87f0585e202ac7f4",
+  "$hash": "cd647f8215246dab9ca0c698db3aa8daf0e4d146",
   "$id": "aws-sso-permissionset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/InstanceArn", "/properties/Name"],
@@ -133,7 +133,7 @@
       "default": [],
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/CustomerManagedPolicyReference" },
-      "maxItems": 20,
+      "maxItems": 25,
       "type": "array"
     },
     "Description": {
@@ -158,7 +158,7 @@
       "default": [],
       "insertionOrder": false,
       "items": { "$ref": "#/definitions/ManagedPolicyArn" },
-      "maxItems": 20,
+      "maxItems": 25,
       "type": "array"
     },
     "Name": {

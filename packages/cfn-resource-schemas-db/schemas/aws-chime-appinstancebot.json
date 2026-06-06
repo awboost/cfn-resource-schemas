@@ -1,5 +1,5 @@
 {
-  "$hash": "b6beea325372ebdee1e334869e8fca7a934b8f07",
+  "$hash": "e89e151c6f43bcb44dce895155cd7f4d0d8b179c",
   "$id": "aws-chime-appinstancebot.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AppInstanceArn"],
@@ -98,7 +98,20 @@
         "chime:DescribeAppInstanceBot"
       ]
     },
-    "list": { "permissions": ["chime:ListAppInstanceBots"] },
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "AppInstanceArn": {
+            "maxLength": 1600,
+            "minLength": 5,
+            "pattern": "^arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}$",
+            "type": "string"
+          }
+        },
+        "required": ["AppInstanceArn"]
+      },
+      "permissions": ["chime:ListAppInstanceBots"]
+    },
     "read": {
       "permissions": [
         "chime:DescribeAppInstanceBot",

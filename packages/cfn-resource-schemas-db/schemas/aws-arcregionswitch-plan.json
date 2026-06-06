@@ -1,5 +1,5 @@
 {
-  "$hash": "f351cdc8f0e1289de63183cf28a0511143cdbee3",
+  "$hash": "953a7d2e764bce474c6c1499eb53b2adb5070ddb",
   "$id": "aws-arcregionswitch-plan.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -70,6 +70,56 @@
       "patternProperties": {
         ".+": { "$ref": "#/definitions/AssociatedAlarm" }
       },
+      "type": "object"
+    },
+    "AuroraProvisionedScalingConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "CrossAccountRole": {
+          "pattern": "^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$",
+          "type": "string"
+        },
+        "ExternalId": { "type": "string" },
+        "GlobalClusterIdentifier": {
+          "maxLength": 255,
+          "minLength": 1,
+          "pattern": "^[A-Za-z][0-9A-Za-z-:._]*$",
+          "type": "string"
+        },
+        "InstanceArns": { "$ref": "#/definitions/RegionAuroraInstanceArnMap" },
+        "RegionDatabaseClusterArns": {
+          "$ref": "#/definitions/RegionAuroraClusterMap"
+        },
+        "TimeoutMinutes": { "default": 60, "minimum": 1, "type": "number" }
+      },
+      "required": [
+        "GlobalClusterIdentifier",
+        "InstanceArns",
+        "RegionDatabaseClusterArns"
+      ],
+      "type": "object"
+    },
+    "AuroraServerlessScalingConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "CrossAccountRole": {
+          "pattern": "^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$",
+          "type": "string"
+        },
+        "ExternalId": { "type": "string" },
+        "GlobalClusterIdentifier": {
+          "maxLength": 255,
+          "minLength": 1,
+          "pattern": "^[A-Za-z][0-9A-Za-z-:._]*$",
+          "type": "string"
+        },
+        "RegionDatabaseClusterArns": {
+          "$ref": "#/definitions/RegionAuroraClusterMap"
+        },
+        "TargetPercent": { "default": 100, "type": "number" },
+        "TimeoutMinutes": { "default": 60, "minimum": 1, "type": "number" }
+      },
+      "required": ["GlobalClusterIdentifier", "RegionDatabaseClusterArns"],
       "type": "object"
     },
     "CustomActionLambdaConfiguration": {
@@ -347,6 +397,28 @@
         {
           "additionalProperties": false,
           "properties": {
+            "AuroraProvisionedScalingConfig": {
+              "$ref": "#/definitions/AuroraProvisionedScalingConfiguration"
+            }
+          },
+          "required": ["AuroraProvisionedScalingConfig"],
+          "title": "AuroraProvisionedScalingConfig",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "AuroraServerlessScalingConfig": {
+              "$ref": "#/definitions/AuroraServerlessScalingConfiguration"
+            }
+          },
+          "required": ["AuroraServerlessScalingConfig"],
+          "title": "AuroraServerlessScalingConfig",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
             "GlobalAuroraConfig": {
               "$ref": "#/definitions/GlobalAuroraConfiguration"
             }
@@ -453,6 +525,17 @@
           "required": ["LambdaEventSourceMappingConfig"],
           "title": "LambdaEventSourceMappingConfig",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "NeptuneGlobalDatabaseConfig": {
+              "$ref": "#/definitions/NeptuneGlobalDatabaseConfiguration"
+            }
+          },
+          "required": ["NeptuneGlobalDatabaseConfig"],
+          "title": "NeptuneGlobalDatabaseConfig",
+          "type": "object"
         }
       ]
     },
@@ -461,6 +544,8 @@
         "ARCRegionSwitchPlan",
         "ARCRoutingControl",
         "AuroraGlobalDatabase",
+        "AuroraProvisionedScaling",
+        "AuroraServerlessScaling",
         "CustomActionLambda",
         "DocumentDb",
         "EC2AutoScaling",
@@ -468,6 +553,7 @@
         "EKSResourceScaling",
         "LambdaEventSourceMapping",
         "ManualApproval",
+        "NeptuneGlobalDatabase",
         "Parallel",
         "RdsCreateCrossRegionReplica",
         "RdsPromoteReadReplica",
@@ -616,6 +702,51 @@
       },
       "type": "object"
     },
+    "NeptuneDefaultBehavior": {
+      "enum": ["failover", "switchoverOnly"],
+      "type": "string"
+    },
+    "NeptuneGlobalDatabaseConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Behavior": {
+          "allOf": [
+            { "$ref": "#/definitions/NeptuneDefaultBehavior" },
+            { "default": "switchoverOnly" }
+          ]
+        },
+        "CrossAccountRole": {
+          "pattern": "^arn:aws[a-zA-Z0-9-]*:iam::[0-9]{12}:role/.+$",
+          "type": "string"
+        },
+        "ExternalId": { "type": "string" },
+        "GlobalClusterIdentifier": {
+          "maxLength": 63,
+          "minLength": 1,
+          "pattern": "^[A-Za-z][0-9A-Za-z-]*$",
+          "type": "string"
+        },
+        "RegionDatabaseClusterArns": {
+          "$ref": "#/definitions/RegionNeptuneClusterArnMap"
+        },
+        "TimeoutMinutes": { "default": 60, "minimum": 1, "type": "number" },
+        "Ungraceful": { "$ref": "#/definitions/NeptuneUngraceful" }
+      },
+      "required": [
+        "Behavior",
+        "GlobalClusterIdentifier",
+        "RegionDatabaseClusterArns"
+      ],
+      "type": "object"
+    },
+    "NeptuneUngraceful": {
+      "additionalProperties": false,
+      "properties": {
+        "Ungraceful": { "$ref": "#/definitions/NeptuneUngracefulBehavior" }
+      },
+      "type": "object"
+    },
+    "NeptuneUngracefulBehavior": { "enum": ["failover"], "type": "string" },
     "ParallelExecutionBlockConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -676,10 +807,46 @@
       },
       "type": "object"
     },
+    "RegionAuroraClusterMap": {
+      "additionalProperties": false,
+      "maxProperties": 2,
+      "minProperties": 2,
+      "patternProperties": {
+        "^[a-z]{2}-[a-z-]+-\\d+$": {
+          "pattern": "^arn:aws[a-zA-Z-]*:rds:[a-z0-9-]+:\\d{12}:cluster:[A-Za-z][0-9A-Za-z-:._]*$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RegionAuroraInstanceArnMap": {
+      "additionalProperties": false,
+      "maxProperties": 2,
+      "minProperties": 1,
+      "patternProperties": {
+        "^[a-z]{2}-[a-z-]+-\\d+$": {
+          "pattern": "^arn:aws[a-zA-Z-]*:rds:[a-z0-9-]+:\\d{12}:db:[A-Za-z][0-9A-Za-z-]*$",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "RegionEventSourceMappingMap": {
       "additionalProperties": false,
       "patternProperties": {
         ".+": { "$ref": "#/definitions/EventSourceMapping" }
+      },
+      "type": "object"
+    },
+    "RegionNeptuneClusterArnMap": {
+      "additionalProperties": false,
+      "maxProperties": 2,
+      "minProperties": 2,
+      "patternProperties": {
+        "^[a-z]{2}-[a-z-]+-\\d+$": {
+          "pattern": "^arn:aws[a-zA-Z-]*:rds:[a-z0-9-]+:\\d{12}:cluster:[A-Za-z][0-9A-Za-z-]*$",
+          "type": "string"
+        }
       },
       "type": "object"
     },
