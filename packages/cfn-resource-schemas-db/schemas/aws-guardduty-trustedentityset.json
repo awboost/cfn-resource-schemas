@@ -1,5 +1,5 @@
 {
-  "$hash": "11c0ebcbd744da5a2ecd310a3203e0bec7991e5d",
+  "$hash": "940058baab2aaaa39c8dba6e895d7b7b60dfc705",
   "$id": "aws-guardduty-trustedentityset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Format", "/properties/DetectorId"],
@@ -83,7 +83,7 @@
   ],
   "required": ["Format", "Location"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "guardduty:TagResource",
       "guardduty:UntagResource",

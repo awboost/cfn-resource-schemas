@@ -1,28 +1,4 @@
-- added `AWS::BedrockAgentCore::PaymentManager`
-- added `AWS::ResilienceHubV2::ServiceFunction`
-- added `AWS::ResilienceHubV2::UserJourney`
-- updated `AWS::ARCRegionSwitch::Plan`
-  - added definition `AuroraProvisionedScalingConfiguration`
-  - added definition `AuroraServerlessScalingConfiguration`
-  - added definition `NeptuneDefaultBehavior`
-  - added definition `NeptuneGlobalDatabaseConfiguration`
-  - added definition `NeptuneUngracefulBehavior`
-  - added definition `NeptuneUngraceful`
-  - added definition `RegionAuroraClusterMap`
-  - added definition `RegionAuroraInstanceArnMap`
-  - added definition `RegionNeptuneClusterArnMap`
-  - updated definition `ExecutionBlockConfiguration`
-  - updated definition `ExecutionBlockType`
-- updated `AWS::Chime::AppInstanceBot`
-  - updated handler permissions
-- updated `AWS::NovaAct::WorkflowDefinition`
-  - updated handler permissions
-- updated `AWS::SSO::PermissionSet`
-  - updated property `CustomerManagedPolicyReferences`
-  - updated property `ManagedPolicies`
-- updated `AWS::SageMaker::Cluster`
-  - added `conditionalCreateOnlyProperties`
-  - added definition `ClusterNetworkInterface`
-  - added definition `InstanceRequirements`
-  - updated `createOnlyProperties`
-  - updated definition `ClusterInstanceGroup`
+- updated `AWS::GuardDuty::ThreatEntitySet`
+  - updated `tagging`
+- updated `AWS::GuardDuty::TrustedEntitySet`
+  - updated `tagging`

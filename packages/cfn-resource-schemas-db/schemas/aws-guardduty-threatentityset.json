@@ -1,5 +1,5 @@
 {
-  "$hash": "3ee7c2ff32ed7ebc108de3538e88ed1a4b764d97",
+  "$hash": "c5b6f70fa71f738a5cb74de4a909664bc0691fda",
   "$id": "aws-guardduty-threatentityset.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Format", "/properties/DetectorId"],
@@ -83,7 +83,7 @@
   ],
   "required": ["Format", "Location"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "guardduty:TagResource",
       "guardduty:UntagResource",
