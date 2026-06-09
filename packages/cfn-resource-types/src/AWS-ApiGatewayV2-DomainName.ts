@@ -18,6 +18,9 @@ export type ApiGatewayV2DomainNameProperties = {
    * The mutual TLS authentication configuration for a custom domain name.
    */
   MutualTlsAuthentication?: MutualTlsAuthentication;
+  /**
+   * The routing mode API Gateway uses to route traffic to your APIs.
+   */
   RoutingMode?:
     | "API_MAPPING_ONLY"
     | "ROUTING_RULE_THEN_API_MAPPING"
@@ -39,7 +42,7 @@ export type ApiGatewayV2DomainNameAttributes = {
 /**
  * Type definition for `AWS::ApiGatewayV2::DomainName.DomainNameConfiguration`.
  * The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
-  ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+ ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html}
  */
 export type DomainNameConfiguration = {
@@ -55,6 +58,9 @@ export type DomainNameConfiguration = {
    * The endpoint type.
    */
   EndpointType?: string;
+  /**
+   * The IP address types that can invoke the domain name. Use ``ipv4`` to allow only IPv4 addresses to invoke your domain name, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your domain name.
+   */
   IpAddressType?: string;
   /**
    * The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.

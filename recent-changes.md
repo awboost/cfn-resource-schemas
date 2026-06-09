@@ -1,4 +1,33 @@
-- updated `AWS::GuardDuty::ThreatEntitySet`
+- updated `AWS::ApiGatewayV2::Api`
+  - updated property `IpAddressType`
+- updated `AWS::ApiGatewayV2::ApiMapping`
+  - updated property `ApiId`
+- updated `AWS::ApiGatewayV2::DomainName`
+  - updated definition `DomainNameConfiguration`
+  - updated property `RoutingMode`
+- updated `AWS::ApiGatewayV2::IntegrationResponse`
+  - updated property `ContentHandlingStrategy`
+- updated `AWS::ApiGatewayV2::RoutingRule`
+  - updated definition `ActionInvokeApi`
+  - updated definition `Action`
+  - updated definition `Condition`
+  - updated definition `MatchBasePaths`
+  - updated definition `MatchHeaderValue`
+  - updated definition `MatchHeaders`
+  - updated property `Actions`
+  - updated property `Conditions`
+  - updated property `DomainNameArn`
+  - updated property `Priority`
+  - updated property `RoutingRuleArn`
+  - updated property `RoutingRuleId`
+- updated `AWS::ApiGatewayV2::VpcLink`
+- updated `AWS::BedrockAgentCore::Gateway`
+  - added definition `SessionConfiguration`
+  - added definition `StreamingConfiguration`
+  - updated definition `MCPGatewayConfiguration`
+- updated `AWS::Route53Profiles::Profile`
   - updated `tagging`
-- updated `AWS::GuardDuty::TrustedEntitySet`
+- updated `AWS::Route53Profiles::ProfileAssociation`
   - updated `tagging`
+- updated `AWS::Route53Profiles::ProfileResourceAssociation`
+  - updated handler permissions

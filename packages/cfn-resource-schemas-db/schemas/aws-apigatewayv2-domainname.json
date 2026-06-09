@@ -1,12 +1,12 @@
 {
-  "$hash": "27fd9e74509f90a31c22475078eca91cada22e06",
+  "$hash": "439b77b4130ad77b0c1c8ed2bd88122cf5f91e55",
   "$id": "aws-apigatewayv2-domainname.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
   "definitions": {
     "DomainNameConfiguration": {
       "additionalProperties": false,
-      "description": "The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.\n  ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.",
+      "description": "The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.\n ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.",
       "properties": {
         "CertificateArn": {
           "description": "An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.",
@@ -20,7 +20,10 @@
           "description": "The endpoint type.",
           "type": "string"
         },
-        "IpAddressType": { "description": "", "type": "string" },
+        "IpAddressType": {
+          "description": "The IP address types that can invoke the domain name. Use ``ipv4`` to allow only IPv4 addresses to invoke your domain name, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your domain name.",
+          "type": "string"
+        },
         "OwnershipVerificationCertificateArn": {
           "description": "The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.",
           "type": "string"
@@ -87,7 +90,7 @@
     "RegionalHostedZoneId": { "description": "", "type": "string" },
     "RoutingMode": {
       "default": "API_MAPPING_ONLY",
-      "description": "",
+      "description": "The routing mode API Gateway uses to route traffic to your APIs.",
       "enum": [
         "API_MAPPING_ONLY",
         "ROUTING_RULE_THEN_API_MAPPING",

@@ -1,5 +1,5 @@
 {
-  "$hash": "52457fee22e55e79c15e223a7fcbc06f4f8255f8",
+  "$hash": "07e03a1bea49b303c7adbbcf6a222805cdaa3856",
   "$id": "aws-apigatewayv2-api.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ProtocolType"],
@@ -132,7 +132,10 @@
       "description": "Specifies whether to rollback the API creation when a warning is encountered. By default, API creation continues if a warning is encountered.",
       "type": "boolean"
     },
-    "IpAddressType": { "description": "", "type": "string" },
+    "IpAddressType": {
+      "description": "The IP address types that can invoke the API. Use ``ipv4`` to allow only IPv4 addresses to invoke your API, or use ``dualstack`` to allow both IPv4 and IPv6 addresses to invoke your API.\n Don’t use IP address type for an HTTP API based on an OpenAPI specification. Instead, specify the IP address type in the OpenAPI specification.",
+      "type": "string"
+    },
     "Name": {
       "description": "The name of the API. Required unless you specify an OpenAPI definition for ``Body`` or ``S3BodyLocation``.",
       "type": "string"

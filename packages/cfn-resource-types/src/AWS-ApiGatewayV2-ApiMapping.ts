@@ -6,7 +6,7 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type ApiGatewayV2ApiMappingProperties = {
   /**
-   * The identifier of the API.
+   * The API identifier.
    */
   ApiId: string;
   /**

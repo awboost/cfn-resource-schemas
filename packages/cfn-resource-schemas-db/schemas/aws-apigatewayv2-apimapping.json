@@ -1,5 +1,5 @@
 {
-  "$hash": "7e45bed517164cc1108d3b45153e162a3a0fc0a7",
+  "$hash": "7ff7c976408fad0f7a0f69db972b42ba70de81bd",
   "$id": "aws-apigatewayv2-apimapping.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/DomainName"],
@@ -15,7 +15,7 @@
   },
   "primaryIdentifier": ["/properties/ApiMappingId", "/properties/DomainName"],
   "properties": {
-    "ApiId": { "description": "The identifier of the API.", "type": "string" },
+    "ApiId": { "description": "The API identifier.", "type": "string" },
     "ApiMappingId": { "description": "", "type": "string" },
     "ApiMappingKey": {
       "description": "The API mapping key.",

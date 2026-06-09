@@ -1,5 +1,5 @@
 {
-  "$hash": "859921a27fca3e455fe5efd7741ef17d01c3d3f2",
+  "$hash": "9d02789b7f0a43c617fee63d598172832b457bb4",
   "$id": "aws-route53profiles-profile.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -103,7 +103,7 @@
   ],
   "required": ["Name"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "route53profiles:TagResource",
       "route53profiles:UntagResource"

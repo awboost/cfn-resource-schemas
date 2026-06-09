@@ -284,6 +284,8 @@ export type MCPGatewayConfiguration = {
    */
   Instructions?: string;
   SearchType?: SearchType;
+  SessionConfiguration?: SessionConfiguration;
+  StreamingConfiguration?: StreamingConfiguration;
   SupportedVersions?: string[];
 };
 /**
@@ -291,6 +293,24 @@ export type MCPGatewayConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-searchtype.html}
  */
 export type SearchType = "SEMANTIC";
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.SessionConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-sessionconfiguration.html}
+ */
+export type SessionConfiguration = {
+  /**
+   * @min `900`
+   * @max `28800`
+   */
+  SessionTimeoutInSeconds?: number;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Gateway.StreamingConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-streamingconfiguration.html}
+ */
+export type StreamingConfiguration = {
+  EnableResponseStreaming?: boolean;
+};
 /**
  * Type definition for `AWS::BedrockAgentCore::Gateway.TagsMap`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gateway-tagsmap.html}

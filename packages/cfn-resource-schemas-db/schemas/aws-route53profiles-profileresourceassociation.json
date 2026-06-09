@@ -1,5 +1,5 @@
 {
-  "$hash": "a6352d0afc9b7e9ca83521c3d0d3135147991596",
+  "$hash": "3cbad1fc6fe311ddce2539dca94f372fd183b454",
   "$id": "aws-route53profiles-profileresourceassociation.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -45,7 +45,10 @@
       "permissions": ["route53profiles:GetProfileResourceAssociation"]
     },
     "update": {
-      "permissions": ["route53profiles:UpdateProfileResourceAssociation"]
+      "permissions": [
+        "route53profiles:UpdateProfileResourceAssociation",
+        "route53profiles:GetProfileResourceAssociation"
+      ]
     }
   },
   "primaryIdentifier": ["/properties/Id"],
