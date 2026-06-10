@@ -1,5 +1,5 @@
 {
-  "$hash": "91ea69dae351dbf2ce8c033e468ec578c55163c6",
+  "$hash": "930c03b2616acfdfca48e64571be6bcac7a66499",
   "$id": "aws-ivschat-room.json",
   "additionalProperties": false,
   "definitions": {
@@ -130,7 +130,7 @@
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ivschat.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ivschat:TagResource",
       "ivschat:ListTagsForResource",

@@ -284,6 +284,11 @@ export type McpServerTargetConfiguration = {
   Endpoint: string;
   ListingMode?: McpServerListingMode;
   McpToolSchema?: McpToolSchemaConfiguration;
+  /**
+   * @min `0`
+   * @max `1000`
+   */
+  ResourcePriority?: number;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpTargetConfiguration`.

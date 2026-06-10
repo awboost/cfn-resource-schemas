@@ -1,5 +1,5 @@
 {
-  "$hash": "f443d998c5dba807e1bd6f62b337d8bde43398df",
+  "$hash": "7baf6480416d17b65b9f412bb60ca0039c846554",
   "$id": "aws-deadline-fleet.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/FarmId"],
@@ -270,6 +270,38 @@
       "required": ["Min"],
       "type": "object"
     },
+    "PersistentVolumeConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Iops": {
+          "default": 3000,
+          "maximum": 80000,
+          "minimum": 100,
+          "type": "integer"
+        },
+        "LastUsedTtlHours": {
+          "default": 168,
+          "maximum": 8760,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "MountPath": { "maxLength": 255, "minLength": 1, "type": "string" },
+        "SizeGiB": {
+          "default": 250,
+          "maximum": 65536,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "ThroughputMiB": {
+          "default": 125,
+          "maximum": 2000,
+          "minimum": 125,
+          "type": "integer"
+        }
+      },
+      "required": ["MountPath"],
+      "type": "object"
+    },
     "ServiceManagedEc2AutoScalingConfiguration": {
       "additionalProperties": false,
       "properties": {
@@ -302,6 +334,9 @@
         },
         "InstanceMarketOptions": {
           "$ref": "#/definitions/ServiceManagedEc2InstanceMarketOptions"
+        },
+        "PersistentVolumeConfiguration": {
+          "$ref": "#/definitions/PersistentVolumeConfiguration"
         },
         "StorageProfileId": {
           "pattern": "^sp-[0-9a-f]{32}$",

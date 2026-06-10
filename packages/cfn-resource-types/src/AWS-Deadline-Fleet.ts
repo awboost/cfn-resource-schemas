@@ -351,6 +351,37 @@ export type MemoryMiBRange = {
   Min: number;
 };
 /**
+ * Type definition for `AWS::Deadline::Fleet.PersistentVolumeConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-persistentvolumeconfiguration.html}
+ */
+export type PersistentVolumeConfiguration = {
+  /**
+   * @min `100`
+   * @max `80000`
+   */
+  Iops?: number;
+  /**
+   * @min `1`
+   * @max `8760`
+   */
+  LastUsedTtlHours?: number;
+  /**
+   * @minLength `1`
+   * @maxLength `255`
+   */
+  MountPath: string;
+  /**
+   * @min `1`
+   * @max `65536`
+   */
+  SizeGiB?: number;
+  /**
+   * @min `125`
+   * @max `2000`
+   */
+  ThroughputMiB?: number;
+};
+/**
  * Type definition for `AWS::Deadline::Fleet.ServiceManagedEc2AutoScalingConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2autoscalingconfiguration.html}
  */
@@ -379,6 +410,7 @@ export type ServiceManagedEc2FleetConfiguration = {
   AutoScalingConfiguration?: ServiceManagedEc2AutoScalingConfiguration;
   InstanceCapabilities: ServiceManagedEc2InstanceCapabilities;
   InstanceMarketOptions: ServiceManagedEc2InstanceMarketOptions;
+  PersistentVolumeConfiguration?: PersistentVolumeConfiguration;
   /**
    * @pattern `^sp-[0-9a-f]{32}$`
    */

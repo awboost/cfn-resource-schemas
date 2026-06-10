@@ -1,5 +1,5 @@
 {
-  "$hash": "7215df4edf9be4bb92003002c7b5b5df2f52aba3",
+  "$hash": "4b6bf61ed67d4642ed43e0572a94b4d7a4401992",
   "$id": "aws-cloudtrail-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Source"],
@@ -120,7 +120,7 @@
   "required": [],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudtrail.git",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": [
       "CloudTrail:AddTags",
       "CloudTrail:RemoveTags",

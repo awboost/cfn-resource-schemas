@@ -1,5 +1,5 @@
 {
-  "$hash": "ea72fe5f4c4f8452307863e4c4a6deffbe4549bb",
+  "$hash": "2c9e3b39457e52e4904fc73652c89c7c20c5147c",
   "$id": "aws-verifiedpermissions-policytemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/PolicyStoreId"],
@@ -45,6 +45,12 @@
   ],
   "properties": {
     "Description": { "maxLength": 150, "minLength": 0, "type": "string" },
+    "Name": {
+      "maxLength": 150,
+      "minLength": 0,
+      "pattern": "^[a-zA-Z0-9-/_]*$",
+      "type": "string"
+    },
     "PolicyStoreId": {
       "maxLength": 200,
       "minLength": 1,

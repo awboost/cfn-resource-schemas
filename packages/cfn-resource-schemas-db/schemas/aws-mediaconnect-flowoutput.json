@@ -1,5 +1,5 @@
 {
-  "$hash": "f4457e7d1fef3043c498081c56e801951c5de537",
+  "$hash": "43faf39c12d1b20ed2a172b2f3bdf31e49b778c1",
   "$id": "aws-mediaconnect-flowoutput.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/FlowArn"],
@@ -281,6 +281,11 @@
     },
     "Name": {
       "description": "The name of the output. This value must be unique within the current flow.",
+      "type": "string"
+    },
+    "NdiOutputTimecodeSource": {
+      "description": "The timecode source for the NDI output.",
+      "enum": ["EMBEDDED_TIMECODE", "UTC_SYSTEM_TIME"],
       "type": "string"
     },
     "NdiProgramName": {

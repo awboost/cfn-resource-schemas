@@ -1,5 +1,5 @@
 {
-  "$hash": "dfa1dd4da231c5514cbf086009fee21c9d5c86bb",
+  "$hash": "2345c84936cf23adecc09d0eb9a01a74e9dec2e0",
   "$id": "aws-connect-contactflowmodule.json",
   "additionalProperties": false,
   "definitions": {
@@ -85,7 +85,6 @@
       "additionalProperties": false,
       "description": "Defines the external invocation configuration of the flow module resource",
       "properties": { "Enabled": { "$ref": "#/definitions/Enabled" } },
-      "required": ["Enabled"],
       "type": "object"
     },
     "InstanceArn": {

@@ -1,5 +1,5 @@
 {
-  "$hash": "efe4abaa2a81645846ff21e99471afa415a8e5a6",
+  "$hash": "aa709f228c366907ca64eb8ec3757aa454771f74",
   "$id": "aws-bedrockagentcore-gatewaytarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayIdentifier"],
@@ -276,7 +276,8 @@
       "properties": {
         "Endpoint": { "pattern": "^https://.*", "type": "string" },
         "ListingMode": { "$ref": "#/definitions/McpServerListingMode" },
-        "McpToolSchema": { "$ref": "#/definitions/McpToolSchemaConfiguration" }
+        "McpToolSchema": { "$ref": "#/definitions/McpToolSchemaConfiguration" },
+        "ResourcePriority": { "maximum": 1000, "minimum": 0, "type": "integer" }
       },
       "required": ["Endpoint"],
       "type": "object"

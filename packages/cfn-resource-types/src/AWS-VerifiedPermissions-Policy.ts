@@ -7,6 +7,12 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type VerifiedPermissionsPolicyProperties = {
   Definition: PolicyDefinition;
   /**
+   * @minLength `0`
+   * @maxLength `150`
+   * @pattern `^[a-zA-Z0-9-/_]*$`
+   */
+  Name?: string;
+  /**
    * @minLength `1`
    * @maxLength `200`
    * @pattern `^[a-zA-Z0-9-]*$`

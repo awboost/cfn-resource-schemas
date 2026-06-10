@@ -1,5 +1,5 @@
 {
-  "$hash": "e16a4010cfcbd141e029cf37d10ab94d7b0832ba",
+  "$hash": "56c3640a241ede7ace37581817a166d56f386152",
   "$id": "aws-ivschat-loggingconfiguration.json",
   "additionalProperties": false,
   "definitions": {
@@ -200,7 +200,7 @@
   "required": ["DestinationConfiguration"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ivschat.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ivschat:TagResource",
       "ivschat:UntagResource",

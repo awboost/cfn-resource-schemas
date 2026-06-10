@@ -43,6 +43,10 @@ export type MediaConnectFlowOutputProperties = {
    */
   Name?: string;
   /**
+   * The timecode source for the NDI output.
+   */
+  NdiOutputTimecodeSource?: "EMBEDDED_TIMECODE" | "UTC_SYSTEM_TIME";
+  /**
    * A suffix for the names of the NDI sources that the flow creates. If a custom name isn't specified, MediaConnect uses the output name.
    */
   NdiProgramName?: string;

@@ -11,6 +11,12 @@ export type VerifiedPermissionsPolicyTemplateProperties = {
    */
   Description?: string;
   /**
+   * @minLength `0`
+   * @maxLength `150`
+   * @pattern `^[a-zA-Z0-9-/_]*$`
+   */
+  Name?: string;
+  /**
    * @minLength `1`
    * @maxLength `200`
    * @pattern `^[a-zA-Z0-9-]*$`

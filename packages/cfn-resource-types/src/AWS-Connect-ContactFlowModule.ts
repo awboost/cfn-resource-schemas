@@ -24,7 +24,7 @@ export type ConnectContactFlowModuleProperties = {
     /**
      * Specifies whether the flow module resource is enabled for external invocation
      */
-    Enabled: boolean;
+    Enabled?: boolean;
   };
   /**
    * The identifier of the Amazon Connect instance (ARN).

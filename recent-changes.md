@@ -1,33 +1,24 @@
-- updated `AWS::ApiGatewayV2::Api`
-  - updated property `IpAddressType`
-- updated `AWS::ApiGatewayV2::ApiMapping`
-  - updated property `ApiId`
-- updated `AWS::ApiGatewayV2::DomainName`
-  - updated definition `DomainNameConfiguration`
-  - updated property `RoutingMode`
-- updated `AWS::ApiGatewayV2::IntegrationResponse`
-  - updated property `ContentHandlingStrategy`
-- updated `AWS::ApiGatewayV2::RoutingRule`
-  - updated definition `ActionInvokeApi`
-  - updated definition `Action`
-  - updated definition `Condition`
-  - updated definition `MatchBasePaths`
-  - updated definition `MatchHeaderValue`
-  - updated definition `MatchHeaders`
-  - updated property `Actions`
-  - updated property `Conditions`
-  - updated property `DomainNameArn`
-  - updated property `Priority`
-  - updated property `RoutingRuleArn`
-  - updated property `RoutingRuleId`
-- updated `AWS::ApiGatewayV2::VpcLink`
-- updated `AWS::BedrockAgentCore::Gateway`
-  - added definition `SessionConfiguration`
-  - added definition `StreamingConfiguration`
-  - updated definition `MCPGatewayConfiguration`
-- updated `AWS::Route53Profiles::Profile`
+- updated `AWS::BedrockAgentCore::GatewayTarget`
+  - updated definition `McpServerTargetConfiguration`
+- updated `AWS::CUR::ReportDefinition`
   - updated `tagging`
-- updated `AWS::Route53Profiles::ProfileAssociation`
-  - updated `tagging`
-- updated `AWS::Route53Profiles::ProfileResourceAssociation`
   - updated handler permissions
+- updated `AWS::CloudTrail::Channel`
+  - updated `tagging`
+- updated `AWS::CloudTrail::Trail`
+  - updated `propertyTransform`
+- updated `AWS::Connect::ContactFlowModule`
+  - updated property `ExternalInvocationConfiguration`
+- updated `AWS::Deadline::Fleet`
+  - added definition `PersistentVolumeConfiguration`
+  - updated definition `ServiceManagedEc2FleetConfiguration`
+- updated `AWS::IVSChat::LoggingConfiguration`
+  - updated `tagging`
+- updated `AWS::IVSChat::Room`
+  - updated `tagging`
+- updated `AWS::MediaConnect::FlowOutput`
+  - added property `NdiOutputTimecodeSource`
+- updated `AWS::VerifiedPermissions::Policy`
+  - added property `Name`
+- updated `AWS::VerifiedPermissions::PolicyTemplate`
+  - added property `Name`
