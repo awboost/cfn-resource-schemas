@@ -1,5 +1,5 @@
 {
-  "$hash": "df79625b005ab0c06e13cd8af26715746614003d",
+  "$hash": "51c809fdcf20a0291d595adcab97d8466488674a",
   "$id": "aws-msk-replicator.json",
   "additionalIdentifiers": [["/properties/ReplicatorName"]],
   "additionalProperties": false,
@@ -426,7 +426,15 @@
         "kafka:DescribeReplicator",
         "kafka:GetBootstrapBrokers",
         "kafka:ListTagsForResource",
-        "kafka:TagResource"
+        "kafka:TagResource",
+        "logs:CreateLogDelivery",
+        "logs:DescribeLogGroups",
+        "logs:DescribeResourcePolicies",
+        "logs:ListLogDeliveries",
+        "logs:PutResourcePolicy",
+        "s3:GetBucketPolicy",
+        "s3:PutBucketPolicy",
+        "firehose:TagDeliveryStream"
       ]
     },
     "delete": {
@@ -434,7 +442,9 @@
         "kafka:DeleteReplicator",
         "kafka:DescribeReplicator",
         "kafka:ListTagsForResource",
-        "kafka:UntagResource"
+        "kafka:UntagResource",
+        "logs:DeleteLogDelivery",
+        "logs:ListLogDeliveries"
       ]
     },
     "list": { "permissions": ["kafka:ListReplicators"] },
@@ -447,7 +457,16 @@
         "kafka:ListTagsForResource",
         "kafka:TagResource",
         "kafka:UntagResource",
-        "kafka:UpdateReplicationInfo"
+        "kafka:UpdateReplicationInfo",
+        "logs:CreateLogDelivery",
+        "logs:DeleteLogDelivery",
+        "logs:DescribeLogGroups",
+        "logs:DescribeResourcePolicies",
+        "logs:ListLogDeliveries",
+        "logs:PutResourcePolicy",
+        "s3:GetBucketPolicy",
+        "s3:PutBucketPolicy",
+        "firehose:TagDeliveryStream"
       ]
     }
   },

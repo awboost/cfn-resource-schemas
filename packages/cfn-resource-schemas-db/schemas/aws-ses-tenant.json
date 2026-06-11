@@ -1,5 +1,5 @@
 {
-  "$hash": "8c265b914d5f27208dd50e3cb8de768c9020c5f6",
+  "$hash": "7712b0fc38a741e95c0f8160845ea698a784ab2e",
   "$id": "aws-ses-tenant.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/TenantName"],
@@ -98,7 +98,7 @@
   "required": ["TenantName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-ses.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "ses:TagResource",
       "ses:UntagResource",

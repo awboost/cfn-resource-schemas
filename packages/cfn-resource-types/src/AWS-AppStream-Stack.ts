@@ -18,6 +18,10 @@ export type AppStreamStackProperties = {
    */
   AttributesToDelete?: string[];
   /**
+   * The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device.
+   */
+  ContentRedirection?: ContentRedirection;
+  /**
    * This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.
    */
   DeleteStorageConnectors?: boolean;
@@ -93,6 +97,17 @@ export type ApplicationSettings = {
   SettingsGroup?: string;
 };
 /**
+ * Type definition for `AWS::AppStream::Stack.ContentRedirection`.
+ * The content redirection settings for the stack.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-contentredirection.html}
+ */
+export type ContentRedirection = {
+  /**
+   * The URL redirection configuration from the streaming session host to the client.
+   */
+  HostToClient?: UrlRedirectionConfig;
+};
+/**
  * Type definition for `AWS::AppStream::Stack.StorageConnector`.
  * A connector that enables persistent storage for users.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html}
@@ -132,6 +147,25 @@ export type Tag = {
    * The value of the tag.
    */
   Value: string;
+};
+/**
+ * Type definition for `AWS::AppStream::Stack.UrlRedirectionConfig`.
+ * The configuration for URL redirection.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-urlredirectionconfig.html}
+ */
+export type UrlRedirectionConfig = {
+  /**
+   * The URLs that are allowed for redirection.
+   */
+  AllowedUrls?: string[];
+  /**
+   * The URLs that are denied for redirection.
+   */
+  DeniedUrls?: string[];
+  /**
+   * Specifies whether URL redirection is enabled or disabled.
+   */
+  Enabled: boolean;
 };
 /**
  * Type definition for `AWS::AppStream::Stack.UserSetting`.

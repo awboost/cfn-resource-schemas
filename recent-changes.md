@@ -1,24 +1,54 @@
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - updated definition `McpServerTargetConfiguration`
-- updated `AWS::CUR::ReportDefinition`
-  - updated `tagging`
+- updated `AWS::ApiGatewayV2::Stage`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
   - updated handler permissions
-- updated `AWS::CloudTrail::Channel`
+  - updated property `AccessLogSettings`
+  - updated property `ApiId`
+  - updated property `AutoDeploy`
+  - updated property `ClientCertificateId`
+  - updated property `DefaultRouteSettings`
+  - updated property `DeploymentId`
+  - updated property `Description`
+  - updated property `RouteSettings`
+  - updated property `StageName`
+  - updated property `StageVariables`
+  - updated property `Tags`
+- updated `AWS::AppStream::Stack`
+  - added definition `ContentRedirection`
+  - added definition `UrlRedirectionConfig`
+  - added property `ContentRedirection`
+- updated `AWS::AppStream::StackFleetAssociation`
+  - added `createOnlyProperties`
+  - added `sourceUrl`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated handler permissions
+  - updated property `FleetName`
+  - updated property `StackName`
+- updated `AWS::EKS::Cluster`
+  - added definition `EtcdPlacement`
+  - updated definition `ControlPlanePlacement`
+  - updated definition `OutpostConfig`
+  - updated handler permissions
+- updated `AWS::GreengrassV2::ComponentVersion`
   - updated `tagging`
-- updated `AWS::CloudTrail::Trail`
-  - updated `propertyTransform`
-- updated `AWS::Connect::ContactFlowModule`
-  - updated property `ExternalInvocationConfiguration`
-- updated `AWS::Deadline::Fleet`
-  - added definition `PersistentVolumeConfiguration`
-  - updated definition `ServiceManagedEc2FleetConfiguration`
-- updated `AWS::IVSChat::LoggingConfiguration`
+- updated `AWS::GreengrassV2::Deployment`
   - updated `tagging`
-- updated `AWS::IVSChat::Room`
+- updated `AWS::Logs::DeliverySource`
+  - added property `DeliverySourceConfiguration`
+  - added property `StatusReason`
+  - added property `Status`
+  - updated `readOnlyProperties`
+- updated `AWS::MSK::Replicator`
+  - updated handler permissions
+- updated `AWS::ObservabilityAdmin::TelemetryEnrichment`
+  - updated `required`
+- updated `AWS::RDS::CustomDBEngineVersion`
+  - updated handler permissions
+- updated `AWS::SES::Tenant`
   - updated `tagging`
-- updated `AWS::MediaConnect::FlowOutput`
-  - added property `NdiOutputTimecodeSource`
-- updated `AWS::VerifiedPermissions::Policy`
-  - added property `Name`
-- updated `AWS::VerifiedPermissions::PolicyTemplate`
-  - added property `Name`

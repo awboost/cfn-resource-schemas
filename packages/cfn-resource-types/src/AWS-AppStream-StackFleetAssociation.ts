@@ -5,15 +5,14 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html}
  */
 export type AppStreamStackFleetAssociationProperties = {
+  /**
+   * The name of the fleet. To associate a fleet with a stack, you must specify a dependency on the fleet resource.
+   */
   FleetName: string;
+  /**
+   * The name of the stack. To associate a fleet with a stack, you must specify a dependency on the stack resource.
+   */
   StackName: string;
-};
-/**
- * Attribute type definition for `AWS::AppStream::StackFleetAssociation`.
- * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html#aws-resource-appstream-stackfleetassociation-return-values}
- */
-export type AppStreamStackFleetAssociationAttributes = {
-  Id: string;
 };
 /**
  * Resource Type definition for AWS::AppStream::StackFleetAssociation
@@ -22,7 +21,7 @@ export type AppStreamStackFleetAssociationAttributes = {
 export class AppStreamStackFleetAssociation extends $Resource<
   "AWS::AppStream::StackFleetAssociation",
   AppStreamStackFleetAssociationProperties,
-  AppStreamStackFleetAssociationAttributes
+  Record<string, never>
 > {
   public static readonly Type = "AWS::AppStream::StackFleetAssociation";
   constructor(

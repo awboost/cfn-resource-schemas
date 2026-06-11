@@ -1,5 +1,5 @@
 {
-  "$hash": "f51cd7ee78aea4b804f13481373665eabee2dc9b",
+  "$hash": "7fc5408eec27e2aa51837600faa712497d056e35",
   "$id": "aws-appstream-stack.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -34,6 +34,17 @@
         }
       },
       "required": ["Enabled"],
+      "type": "object"
+    },
+    "ContentRedirection": {
+      "additionalProperties": false,
+      "description": "The content redirection settings for the stack.",
+      "properties": {
+        "HostToClient": {
+          "$ref": "#/definitions/UrlRedirectionConfig",
+          "description": "The URL redirection configuration from the streaming session host to the client."
+        }
+      },
       "type": "object"
     },
     "StorageConnector": {
@@ -77,6 +88,30 @@
         "Value": { "description": "The value of the tag.", "type": "string" }
       },
       "required": ["Value", "Key"],
+      "type": "object"
+    },
+    "UrlRedirectionConfig": {
+      "additionalProperties": false,
+      "description": "The configuration for URL redirection.",
+      "properties": {
+        "AllowedUrls": {
+          "description": "The URLs that are allowed for redirection.",
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "DeniedUrls": {
+          "description": "The URLs that are denied for redirection.",
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "Enabled": {
+          "description": "Specifies whether URL redirection is enabled or disabled.",
+          "type": "boolean"
+        }
+      },
+      "required": ["Enabled"],
       "type": "object"
     },
     "UserSetting": {
@@ -145,6 +180,10 @@
       "items": { "type": "string" },
       "type": "array",
       "uniqueItems": false
+    },
+    "ContentRedirection": {
+      "$ref": "#/definitions/ContentRedirection",
+      "description": "The content redirection settings for the stack. These settings control URL redirection between the streaming session and the local device."
     },
     "DeleteStorageConnectors": {
       "description": "This parameter has been deprecated. Deletes the storage connectors currently enabled for the stack.",

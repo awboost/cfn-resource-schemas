@@ -185,14 +185,18 @@ export type ComputeConfig = {
 };
 /**
  * Type definition for `AWS::EKS::Cluster.ControlPlanePlacement`.
- * Specify the placement group of the control plane machines for your cluster.
+ * The placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html}
  */
 export type ControlPlanePlacement = {
   /**
-   * Specify the placement group name of the control place machines for your cluster.
+   * The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
    */
   GroupName?: string;
+  /**
+   * Optional parameter to specify the placement group spread level for control plane instances. If not provided, EKS will deploy control plane instances without a placement group.
+   */
+  SpreadLevel?: string;
 };
 /**
  * Type definition for `AWS::EKS::Cluster.ControlPlaneScalingConfig`.
@@ -236,6 +240,17 @@ export type EncryptionConfig = {
    * Specifies the resources to be encrypted. The only supported value is "secrets".
    */
   Resources?: string[];
+};
+/**
+ * Type definition for `AWS::EKS::Cluster.EtcdPlacement`.
+ * The placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-etcdplacement.html}
+ */
+export type EtcdPlacement = {
+  /**
+   * Optional parameter to specify the placement group spread level for etcd instances. If not provided, EKS will deploy etcd instances without a placement group.
+   */
+  SpreadLevel?: string;
 };
 /**
  * Type definition for `AWS::EKS::Cluster.KubernetesNetworkConfig`.
@@ -285,15 +300,23 @@ export type LoggingTypeConfig = {
  */
 export type OutpostConfig = {
   /**
-   * Specify the Instance type of the machines that should be used to create your cluster.
+   * The EC2 instance type for the Kubernetes control plane instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all control plane instances and cannot be changed after cluster creation.
    */
   ControlPlaneInstanceType: string;
   /**
-   * Specify the placement group of the control plane machines for your cluster.
+   * An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on an AWS Outpost.
    */
   ControlPlanePlacement?: ControlPlanePlacement;
   /**
-   * Specify one or more Arn(s) of Outpost(s) on which you would like to create your cluster.
+   * The EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts. This instance type applies to all etcd instances and cannot be changed after cluster creation.
+   */
+  EtcdInstanceType?: string;
+  /**
+   * An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+   */
+  EtcdPlacement?: EtcdPlacement;
+  /**
+   * The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
    */
   OutpostArns: string[];
 };

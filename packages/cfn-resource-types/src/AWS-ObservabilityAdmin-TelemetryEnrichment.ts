@@ -8,7 +8,7 @@ export type ObservabilityAdminTelemetryEnrichmentProperties = {
   /**
    * Scope of the Telemetry Enrichment
    */
-  Scope?: Scope;
+  Scope: Scope;
 };
 /**
  * Attribute type definition for `AWS::ObservabilityAdmin::TelemetryEnrichment`.

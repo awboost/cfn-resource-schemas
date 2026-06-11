@@ -9,6 +9,10 @@ Only some AWS services support being configured as a delivery source. These serv
  */
 export type LogsDeliverySourceProperties = {
   /**
+   * A map of key-value pairs to configure the delivery source. Both keys and values must be between 1 and 255 characters in length.
+   */
+  DeliverySourceConfiguration?: Record<string, string>;
+  /**
    * The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
    * @minLength `1`
    * @maxLength `255`
@@ -57,6 +61,14 @@ export type LogsDeliverySourceAttributes = {
    * @pattern `[\w-]*$`
    */
   Service: string;
+  /**
+   * The status of this delivery source. The value can be ACTIVE or INACTIVE.
+   */
+  Status: "ACTIVE" | "INACTIVE";
+  /**
+   * The reason for the status of this delivery source, such as RESOURCE_DELETED.
+   */
+  StatusReason: "RESOURCE_DELETED";
 };
 /**
  * Type definition for `AWS::Logs::DeliverySource.Tag`.

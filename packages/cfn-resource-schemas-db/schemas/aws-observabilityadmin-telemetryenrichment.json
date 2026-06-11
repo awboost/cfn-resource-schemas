@@ -1,5 +1,5 @@
 {
-  "$hash": "4e4277812a5d41d8d19ceccf367ff90111cbd51c",
+  "$hash": "9897576c1b7e397af5857e5c5757c46a45689046",
   "$id": "aws-observabilityadmin-telemetryenrichment.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Scope"],
@@ -62,7 +62,7 @@
     "Status": { "$ref": "#/definitions/Status" }
   },
   "readOnlyProperties": ["/properties/Status"],
-  "required": [],
+  "required": ["Scope"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "tagging": { "taggable": false },
   "typeName": "AWS::ObservabilityAdmin::TelemetryEnrichment"

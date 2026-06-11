@@ -1,5 +1,5 @@
 {
-  "$hash": "6d278bfc8a7a18287a280d0c563e128b678d8e0e",
+  "$hash": "2372939472fc14413d2fc00fb674efee09728cdf",
   "$id": "aws-greengrassv2-deployment.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -310,7 +310,7 @@
   "readOnlyProperties": ["/properties/DeploymentId"],
   "required": ["TargetArn"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "greengrass:TagResource",
       "greengrass:UntagResource",

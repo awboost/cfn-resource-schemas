@@ -1,5 +1,5 @@
 {
-  "$hash": "58296120ed4a8368235f929e260ff2d3660d11c5",
+  "$hash": "30382739b9190b0e289ebf4e810118e6fc46d25e",
   "$id": "aws-rds-customdbengineversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -44,6 +44,7 @@
         "ec2:DeleteSnapshot",
         "ec2:DescribeImages",
         "ec2:DescribeSnapshots",
+        "iam:CreateServiceLinkedRole",
         "kms:CreateGrant",
         "kms:Decrypt",
         "kms:DescribeKey",
