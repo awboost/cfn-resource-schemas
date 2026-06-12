@@ -62,6 +62,13 @@ export type NeptuneDBClusterProperties = {
    */
   EngineVersion?: string;
   /**
+   * The ID of the Neptune global database to which this new DB cluster should be added.
+   * @minLength `1`
+   * @maxLength `255`
+   * @pattern `^[A-Za-z][0-9A-Za-z-:._]*$`
+   */
+  GlobalClusterIdentifier?: string;
+  /**
    * True if mapping of Amazon Identity and Access Management (IAM) accounts to database accounts is enabled, and otherwise false.
    */
   IamAuthEnabled?: boolean;
@@ -69,6 +76,10 @@ export type NeptuneDBClusterProperties = {
    * The Amazon Resource Name (ARN) of the AWS KMS key that is used to encrypt the database instances in the DB cluster, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default KMS key is used. If you specify this property, you must set the StorageEncrypted property to true.
    */
   KmsKeyId?: string;
+  /**
+   * The network type of the DB cluster.
+   */
+  NetworkType?: "IPV4" | "DUAL";
   /**
    * Specifies the daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.
    */

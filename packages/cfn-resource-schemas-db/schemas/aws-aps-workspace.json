@@ -1,5 +1,5 @@
 {
-  "$hash": "2ce53729602e430a01e2e7687d90841095211a28",
+  "$hash": "250da7f5291b94f600a47a9d664de5649175da4c",
   "$id": "aws-aps-workspace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KmsKeyArn"],
@@ -149,9 +149,19 @@
           "type": "array",
           "uniqueItems": true
         },
+        "OutOfOrderTimeWindowInSeconds": {
+          "description": "The time window in seconds for accepting out-of-order samples",
+          "minimum": 0,
+          "type": "integer"
+        },
         "RetentionPeriodInDays": {
           "description": "How many days that metrics are retained in the workspace",
           "minimum": 1,
+          "type": "integer"
+        },
+        "RuleQueryOffsetInSeconds": {
+          "description": "Duration in seconds to offset rule evaluation queries into the past",
+          "minimum": 0,
           "type": "integer"
         }
       },

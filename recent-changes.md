@@ -1,54 +1,12 @@
-- updated `AWS::ApiGatewayV2::Stage`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated handler permissions
-  - updated property `AccessLogSettings`
-  - updated property `ApiId`
-  - updated property `AutoDeploy`
-  - updated property `ClientCertificateId`
-  - updated property `DefaultRouteSettings`
-  - updated property `DeploymentId`
-  - updated property `Description`
-  - updated property `RouteSettings`
-  - updated property `StageName`
-  - updated property `StageVariables`
-  - updated property `Tags`
-- updated `AWS::AppStream::Stack`
-  - added definition `ContentRedirection`
-  - added definition `UrlRedirectionConfig`
-  - added property `ContentRedirection`
-- updated `AWS::AppStream::StackFleetAssociation`
-  - added `createOnlyProperties`
-  - added `sourceUrl`
-  - added `tagging`
-  - removed `readOnlyProperties`
-  - removed property `Id`
-  - updated `primaryIdentifier`
-  - updated handler permissions
-  - updated property `FleetName`
-  - updated property `StackName`
-- updated `AWS::EKS::Cluster`
-  - added definition `EtcdPlacement`
-  - updated definition `ControlPlanePlacement`
-  - updated definition `OutpostConfig`
-  - updated handler permissions
-- updated `AWS::GreengrassV2::ComponentVersion`
-  - updated `tagging`
-- updated `AWS::GreengrassV2::Deployment`
-  - updated `tagging`
-- updated `AWS::Logs::DeliverySource`
-  - added property `DeliverySourceConfiguration`
-  - added property `StatusReason`
-  - added property `Status`
-  - updated `readOnlyProperties`
-- updated `AWS::MSK::Replicator`
-  - updated handler permissions
-- updated `AWS::ObservabilityAdmin::TelemetryEnrichment`
-  - updated `required`
-- updated `AWS::RDS::CustomDBEngineVersion`
-  - updated handler permissions
-- updated `AWS::SES::Tenant`
-  - updated `tagging`
+- added `AWS::AWSExternalAnthropic::Workspace`
+- added `AWS::BCM::Dashboard`
+- added `AWS::SageMaker::MlflowApp`
+- updated `AWS::APS::Workspace`
+  - updated definition `WorkspaceConfiguration`
+- updated `AWS::Neptune::DBCluster`
+  - added property `GlobalClusterIdentifier`
+  - added property `NetworkType`
+  - updated `createOnlyProperties`
+- updated `AWS::OpenSearchServerless::CollectionGroup`
+  - added property `Generation`
+  - updated `createOnlyProperties`

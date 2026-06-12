@@ -206,10 +206,20 @@ export type WorkspaceConfiguration = {
    */
   LimitsPerLabelSets?: LimitsPerLabelSet[];
   /**
+   * The time window in seconds for accepting out-of-order samples
+   * @min `0`
+   */
+  OutOfOrderTimeWindowInSeconds?: number;
+  /**
    * How many days that metrics are retained in the workspace
    * @min `1`
    */
   RetentionPeriodInDays?: number;
+  /**
+   * Duration in seconds to offset rule evaluation queries into the past
+   * @min `0`
+   */
+  RuleQueryOffsetInSeconds?: number;
 };
 /**
  * Resource Type definition for AWS::APS::Workspace

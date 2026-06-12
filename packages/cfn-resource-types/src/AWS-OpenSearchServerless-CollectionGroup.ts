@@ -12,6 +12,10 @@ export type OpenSearchServerlessCollectionGroupProperties = {
    */
   Description?: string;
   /**
+   * The generation of Amazon OpenSearch Serverless for the collection group. Valid values are CLASSIC and NEXTGEN.
+   */
+  Generation?: "CLASSIC" | "NEXTGEN";
+  /**
    * The name of the collection group.
    * @minLength `3`
    * @maxLength `32`
