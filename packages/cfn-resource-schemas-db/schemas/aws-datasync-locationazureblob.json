@@ -1,5 +1,5 @@
 {
-  "$hash": "41b483b04147a915f0198ab94ed6effa94a9649f",
+  "$hash": "35d919c9ff985d9df4c85af1e749744fddff75e7",
   "$id": "aws-datasync-locationazureblob.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AzureBlobContainerUrl"],
@@ -152,7 +152,7 @@
         "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$",
         "type": "string"
       },
-      "maxItems": 4,
+      "maxItems": 8,
       "minItems": 1,
       "type": "array"
     },

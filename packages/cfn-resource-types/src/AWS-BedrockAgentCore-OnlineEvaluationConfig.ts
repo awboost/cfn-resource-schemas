@@ -6,6 +6,10 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
  */
 export type BedrockAgentCoreOnlineEvaluationConfigProperties = {
   /**
+   * The configuration for clustering analysis of evaluation results.
+   */
+  ClusteringConfig?: ClusteringConfig;
+  /**
    * The data source configuration that specifies CloudWatch log groups and service names to monitor.
    */
   DataSourceConfig: DataSourceConfig;
@@ -24,14 +28,20 @@ export type BedrockAgentCoreOnlineEvaluationConfigProperties = {
   EvaluationExecutionRoleArn: string;
   /**
    * The list of evaluators to apply during online evaluation.
-   * @minLength `1`
+   * @minLength `0`
    * @maxLength `10`
    */
-  Evaluators: EvaluatorReference[];
+  Evaluators?: EvaluatorReference[];
   /**
    * The execution status indicating whether the online evaluation is currently running.
    */
   ExecutionStatus?: ExecutionStatus;
+  /**
+   * The list of insights to enable for failure analysis.
+   * @minLength `0`
+   * @maxLength `10`
+   */
+  Insights?: Insight[];
   /**
    * The name of the online evaluation configuration. Must be unique within your account.
    * @pattern `^[a-zA-Z][a-zA-Z0-9_]{0,47}$`
@@ -119,6 +129,25 @@ export type CloudWatchOutputConfig = {
   LogGroupName?: string;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::OnlineEvaluationConfig.ClusteringConfig`.
+ * The configuration for clustering analysis of evaluation results.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-clusteringconfig.html}
+ */
+export type ClusteringConfig = {
+  /**
+   * The list of frequencies at which clustering reports are generated.
+   * @minLength `0`
+   * @maxLength `3`
+   */
+  Frequencies: ClusteringFrequency[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::OnlineEvaluationConfig.ClusteringFrequency`.
+ * The frequency at which clustering reports are generated.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-clusteringfrequency.html}
+ */
+export type ClusteringFrequency = "DAILY" | "WEEKLY" | "MONTHLY";
+/**
  * Type definition for `AWS::BedrockAgentCore::OnlineEvaluationConfig.DataSourceConfig`.
  * The configuration that specifies where to read agent traces for online evaluation.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-datasourceconfig.html}
@@ -196,6 +225,20 @@ export type FilterValue = {
    * @maxLength `1024`
    */
   StringValue?: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::OnlineEvaluationConfig.Insight`.
+ * An insight configuration for failure analysis.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-onlineevaluationconfig-insight.html}
+ */
+export type Insight = {
+  /**
+   * The unique identifier of the insight.
+   * @minLength `1`
+   * @maxLength `256`
+   * @pattern `^[a-zA-Z][a-zA-Z0-9._]+$`
+   */
+  InsightId: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::OnlineEvaluationConfig.OnlineEvaluationConfigStatus`.

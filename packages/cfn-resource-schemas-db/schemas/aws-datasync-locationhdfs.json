@@ -1,5 +1,5 @@
 {
-  "$hash": "4db2c623999a4b9904d243e3564edbc0dd40a330",
+  "$hash": "2c0ac001d4c490117786beb21763d4b913de8394",
   "$id": "aws-datasync-locationhdfs.json",
   "additionalProperties": false,
   "definitions": {
@@ -173,7 +173,7 @@
         "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$",
         "type": "string"
       },
-      "maxItems": 4,
+      "maxItems": 8,
       "minItems": 1,
       "type": "array"
     },

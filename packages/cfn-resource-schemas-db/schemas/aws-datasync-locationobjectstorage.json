@@ -1,5 +1,5 @@
 {
-  "$hash": "c7525f3fe0dfb9dc02e70b398207df05e5deeccb",
+  "$hash": "c559d3d61f867eb3a30a7e51070378d32756f9f8",
   "$id": "aws-datasync-locationobjectstorage.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/BucketName"],
@@ -144,7 +144,7 @@
         "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-eusc|aws-iso|aws-iso-b):datasync:[a-z\\-0-9]+:[0-9]{12}:agent/agent-[0-9a-z]{17}$",
         "type": "string"
       },
-      "maxItems": 4,
+      "maxItems": 8,
       "minItems": 1,
       "type": "array"
     },

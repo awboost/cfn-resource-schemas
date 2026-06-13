@@ -1,12 +1,17 @@
-- added `AWS::AWSExternalAnthropic::Workspace`
-- added `AWS::BCM::Dashboard`
-- added `AWS::SageMaker::MlflowApp`
-- updated `AWS::APS::Workspace`
-  - updated definition `WorkspaceConfiguration`
-- updated `AWS::Neptune::DBCluster`
-  - added property `GlobalClusterIdentifier`
-  - added property `NetworkType`
-  - updated `createOnlyProperties`
-- updated `AWS::OpenSearchServerless::CollectionGroup`
-  - added property `Generation`
-  - updated `createOnlyProperties`
+- added `AWS::BedrockAgentCore::ConfigurationBundle`
+- updated `AWS::BedrockAgentCore::OnlineEvaluationConfig`
+  - added definition `ClusteringConfig`
+  - added definition `ClusteringFrequency`
+  - added definition `Insight`
+  - added property `ClusteringConfig`
+  - added property `Insights`
+  - updated `required`
+  - updated property `Evaluators`
+- updated `AWS::DataSync::LocationAzureBlob`
+  - updated property `AgentArns`
+- updated `AWS::DataSync::LocationHDFS`
+  - updated property `AgentArns`
+- updated `AWS::DataSync::LocationObjectStorage`
+  - updated property `AgentArns`
+- updated `AWS::Interconnect::Connection`
+  - added `deprecatedProperties`

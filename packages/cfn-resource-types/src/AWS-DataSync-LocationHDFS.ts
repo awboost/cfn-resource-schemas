@@ -8,7 +8,7 @@ export type DataSyncLocationHDFSProperties = {
   /**
    * ARN(s) of the agent(s) to use for an HDFS location.
    * @minLength `1`
-   * @maxLength `4`
+   * @maxLength `8`
    */
   AgentArns: string[];
   /**

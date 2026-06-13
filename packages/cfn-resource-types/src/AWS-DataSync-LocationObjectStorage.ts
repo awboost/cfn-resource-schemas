@@ -15,7 +15,7 @@ export type DataSyncLocationObjectStorageProperties = {
   /**
    * Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
    * @minLength `1`
-   * @maxLength `4`
+   * @maxLength `8`
    */
   AgentArns?: string[];
   /**
