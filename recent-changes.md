@@ -1,17 +1,18 @@
-- added `AWS::BedrockAgentCore::ConfigurationBundle`
-- updated `AWS::BedrockAgentCore::OnlineEvaluationConfig`
-  - added definition `ClusteringConfig`
-  - added definition `ClusteringFrequency`
-  - added definition `Insight`
-  - added property `ClusteringConfig`
-  - added property `Insights`
-  - updated `required`
-  - updated property `Evaluators`
-- updated `AWS::DataSync::LocationAzureBlob`
-  - updated property `AgentArns`
-- updated `AWS::DataSync::LocationHDFS`
-  - updated property `AgentArns`
-- updated `AWS::DataSync::LocationObjectStorage`
-  - updated property `AgentArns`
-- updated `AWS::Interconnect::Connection`
-  - added `deprecatedProperties`
+- updated `AWS::Wisdom::AIAgent`
+  - updated property `AIAgentArn`
+- updated `AWS::Wisdom::AIAgentVersion`
+  - updated property `AIAgentArn`
+- updated `AWS::Wisdom::AIGuardrail`
+  - added property `ModifiedTimeSeconds`
+  - updated `readOnlyProperties`
+  - updated property `AIGuardrailArn`
+- updated `AWS::Wisdom::AIGuardrailVersion`
+  - updated property `AIGuardrailArn`
+- updated `AWS::Wisdom::AIPrompt`
+  - updated property `AIPromptArn`
+- updated `AWS::Wisdom::AIPromptVersion`
+  - updated property `AIPromptArn`
+- updated `AWS::Wisdom::MessageTemplate`
+  - updated `tagging`
+- updated `AWS::Wisdom::QuickResponse`
+  - updated `tagging`

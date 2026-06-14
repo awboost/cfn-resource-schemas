@@ -1,5 +1,5 @@
 {
-  "$hash": "21d8bf383921b0e70c1e65f274bc14c109a5aa42",
+  "$hash": "89d7cd56c31429f4ae8cf4b28bc207302f5687e1",
   "$id": "aws-wisdom-aiagent.json",
   "additionalIdentifiers": [
     ["/properties/AIAgentArn", "/properties/AssistantArn"]
@@ -574,7 +574,7 @@
   "primaryIdentifier": ["/properties/AIAgentId", "/properties/AssistantId"],
   "properties": {
     "AIAgentArn": {
-      "pattern": "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}$",
+      "pattern": "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}(:[A-Z0-9_$]+){0,1}$",
       "type": "string"
     },
     "AIAgentId": {

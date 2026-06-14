@@ -1,5 +1,5 @@
 {
-  "$hash": "3c770f6162403d0e42936bb855bf53e8de6438ad",
+  "$hash": "9eb2e45d3ccb0e9a07000d371a53430fdc4d508c",
   "$id": "aws-wisdom-quickresponse.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/KnowledgeBaseArn"],
@@ -204,7 +204,7 @@
   "required": ["KnowledgeBaseArn", "Content", "Name"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-wisdom",
   "tagging": {
-    "cloudFormationSystemTags": true,
+    "cloudFormationSystemTags": false,
     "permissions": ["wisdom:TagResource", "wisdom:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

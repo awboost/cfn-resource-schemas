@@ -1,5 +1,5 @@
 {
-  "$hash": "0aa7a844fcda07b2af51995a1379f6e8db9928dd",
+  "$hash": "ea86164feadffeb27250d8815b6fc1d91817ee31",
   "$id": "aws-wisdom-aiguardrailversion.json",
   "additionalIdentifiers": [
     ["/properties/AIGuardrailArn", "/properties/AssistantArn"]
@@ -43,7 +43,7 @@
   ],
   "properties": {
     "AIGuardrailArn": {
-      "pattern": "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})?$",
+      "pattern": "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}(:[A-Z0-9_$]+){0,1}$",
       "type": "string"
     },
     "AIGuardrailId": {

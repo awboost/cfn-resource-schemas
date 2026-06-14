@@ -1,5 +1,5 @@
 {
-  "$hash": "01909e9d855ed30e6f66ad32cc3df24cece5c749",
+  "$hash": "52f687e3e261ec2dec7d43f12dfa75231cbba5a6",
   "$id": "aws-wisdom-aiguardrail.json",
   "additionalIdentifiers": [
     ["/properties/AIGuardrailArn", "/properties/AssistantArn"]
@@ -326,7 +326,7 @@
   "primaryIdentifier": ["/properties/AIGuardrailId", "/properties/AssistantId"],
   "properties": {
     "AIGuardrailArn": {
-      "pattern": "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}$",
+      "pattern": "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}(:[A-Z0-9_$]+){0,1}$",
       "type": "string"
     },
     "AIGuardrailId": {
@@ -365,6 +365,7 @@
       "minLength": 1,
       "type": "string"
     },
+    "ModifiedTimeSeconds": { "type": "number" },
     "Name": {
       "maxLength": 255,
       "minLength": 1,
@@ -383,7 +384,8 @@
   "readOnlyProperties": [
     "/properties/AIGuardrailArn",
     "/properties/AIGuardrailId",
-    "/properties/AssistantArn"
+    "/properties/AssistantArn",
+    "/properties/ModifiedTimeSeconds"
   ],
   "required": [
     "AssistantId",

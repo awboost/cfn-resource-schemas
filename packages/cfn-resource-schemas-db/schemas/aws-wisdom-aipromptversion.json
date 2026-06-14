@@ -1,5 +1,5 @@
 {
-  "$hash": "cd9beb6d3f910ce7940f1c8ab9c257d15575828a",
+  "$hash": "0482a043abbef6f4654deac6a94a82653a2b010b",
   "$id": "aws-wisdom-aipromptversion.json",
   "additionalIdentifiers": [
     ["/properties/AIPromptArn", "/properties/AssistantArn"]
@@ -43,7 +43,7 @@
   ],
   "properties": {
     "AIPromptArn": {
-      "pattern": "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})?$",
+      "pattern": "^arn:[a-z-]*?:wisdom:[a-z0-9-]*?:[0-9]{12}:[a-z-]*?/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(?:/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}){0,2}(:[A-Z0-9_$]+){0,1}$",
       "type": "string"
     },
     "AIPromptId": {
