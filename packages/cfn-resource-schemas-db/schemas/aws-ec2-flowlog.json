@@ -1,5 +1,5 @@
 {
-  "$hash": "45dbbace47a337b511faafa4d7cc1c1918cfeaa7",
+  "$hash": "e8ca72b0c2233eab09c2c61a406408831d6db054",
   "$id": "aws-ec2-flowlog.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -13,7 +13,8 @@
     "/properties/ResourceType",
     "/properties/LogFormat",
     "/properties/MaxAggregationInterval",
-    "/properties/DestinationOptions"
+    "/properties/DestinationOptions",
+    "/properties/TagFieldSpecifications"
   ],
   "definitions": {
     "Tag": {
@@ -24,15 +25,31 @@
       },
       "required": ["Value", "Key"],
       "type": "object"
+    },
+    "TagFieldSpecification": {
+      "additionalProperties": false,
+      "properties": {
+        "ResourceType": { "type": "string" },
+        "TagKeys": {
+          "items": { "type": "string" },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
+      "required": ["ResourceType", "TagKeys"],
+      "type": "object"
     }
   },
   "description": "Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.",
   "handlers": {
     "create": {
       "permissions": [
+        "autoscaling:DescribeTags",
         "ec2:CreateFlowLogs",
         "ec2:DescribeFlowLogs",
+        "ec2:DescribeTags",
         "ec2:CreateTags",
+        "iam:CreateServiceLinkedRole",
         "iam:PassRole",
         "logs:CreateLogDelivery",
         "s3:GetBucketPolicy",
@@ -117,6 +134,12 @@
         "RegionalNatGateway"
       ],
       "type": "string"
+    },
+    "TagFieldSpecifications": {
+      "description": "The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.",
+      "items": { "$ref": "#/definitions/TagFieldSpecification" },
+      "type": "array",
+      "uniqueItems": true
     },
     "Tags": {
       "description": "The tags to apply to the flow logs.",

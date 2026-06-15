@@ -54,6 +54,10 @@ export type EC2FlowLogProperties = {
     | "TransitGatewayAttachment"
     | "RegionalNatGateway";
   /**
+   * The resource types and associated tags for EC2 resources associated with the EC2 Tags feature for log enrichment.
+   */
+  TagFieldSpecifications?: TagFieldSpecification[];
+  /**
    * The tags to apply to the flow logs.
    */
   Tags?: Tag[];
@@ -79,6 +83,14 @@ export type EC2FlowLogAttributes = {
 export type Tag = {
   Key: string;
   Value: string;
+};
+/**
+ * Type definition for `AWS::EC2::FlowLog.TagFieldSpecification`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-flowlog-tagfieldspecification.html}
+ */
+export type TagFieldSpecification = {
+  ResourceType: string;
+  TagKeys: string[];
 };
 /**
  * Resource type definition for `AWS::EC2::FlowLog`.

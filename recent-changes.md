@@ -1,18 +1,5 @@
-- updated `AWS::Wisdom::AIAgent`
-  - updated property `AIAgentArn`
-- updated `AWS::Wisdom::AIAgentVersion`
-  - updated property `AIAgentArn`
-- updated `AWS::Wisdom::AIGuardrail`
-  - added property `ModifiedTimeSeconds`
-  - updated `readOnlyProperties`
-  - updated property `AIGuardrailArn`
-- updated `AWS::Wisdom::AIGuardrailVersion`
-  - updated property `AIGuardrailArn`
-- updated `AWS::Wisdom::AIPrompt`
-  - updated property `AIPromptArn`
-- updated `AWS::Wisdom::AIPromptVersion`
-  - updated property `AIPromptArn`
-- updated `AWS::Wisdom::MessageTemplate`
-  - updated `tagging`
-- updated `AWS::Wisdom::QuickResponse`
-  - updated `tagging`
+- updated `AWS::EC2::FlowLog`
+  - added definition `TagFieldSpecification`
+  - added property `TagFieldSpecifications`
+  - updated `createOnlyProperties`
+  - updated handler permissions
