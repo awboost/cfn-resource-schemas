@@ -173,7 +173,6 @@ export type InstanceRequirements = {
  */
 export type PropagateTagsConfig = {
   /**
-   * A list of tags to explicitly propagate to managed resources.
    * @minLength `0`
    * @maxLength `40`
    */

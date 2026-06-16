@@ -11,7 +11,7 @@ export type QuickSightActionConnectorProperties = {
    * @pattern `^[\w\-]+$`
    */
   ActionConnectorId: string;
-  AuthenticationConfig?: AuthConfig;
+  AuthenticationConfig: AuthConfig;
   /**
    * @minLength `12`
    * @maxLength `12`
@@ -298,7 +298,7 @@ export type ResourcePermission = {
   /**
    * <p>The IAM action to grant or revoke permissions on.</p>
    * @minLength `1`
-   * @maxLength `20`
+   * @maxLength `30`
    */
   Actions: string[];
   /**

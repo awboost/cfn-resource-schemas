@@ -26,6 +26,14 @@ export type ElementalInferenceFeedAttributes = {
   Id: string;
 };
 /**
+ * Type definition for `AWS::ElementalInference::Feed.AspectRatio`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-aspectratio.html}
+ */
+export type AspectRatio = {
+  Height: number;
+  Width: number;
+};
+/**
  * Type definition for `AWS::ElementalInference::Feed.ClippingConfig`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-clippingconfig.html}
  */
@@ -68,6 +76,9 @@ export type OutputConfig =
     }
   | {
       Clipping: ClippingConfig;
+    }
+  | {
+      Subtitling: SubtitlingConfig;
     };
 /**
  * Type definition for `AWS::ElementalInference::Feed.OutputStatus`.
@@ -75,10 +86,44 @@ export type OutputConfig =
  */
 export type OutputStatus = "ENABLED" | "DISABLED";
 /**
+ * Type definition for `AWS::ElementalInference::Feed.ProfanityFilterMode`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-profanityfiltermode.html}
+ */
+export type ProfanityFilterMode = "DISABLED" | "CENSOR" | "DROP";
+/**
+ * Type definition for `AWS::ElementalInference::Feed.SubtitlingConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-subtitlingconfig.html}
+ */
+export type SubtitlingConfig = {
+  AspectRatio?: AspectRatio;
+  /**
+   * @minLength `1`
+   * @maxLength `19`
+   * @pattern `^[a-zA-Z0-9]+$`
+   */
+  Dictionary?: string;
+  Language: TranscriptionLanguage;
+  ProfanityFilter?: ProfanityFilterMode;
+};
+/**
  * Type definition for `AWS::ElementalInference::Feed.TagMap`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-tagmap.html}
  */
 export type TagMap = Record<string, string>;
+/**
+ * Type definition for `AWS::ElementalInference::Feed.TranscriptionLanguage`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elementalinference-feed-transcriptionlanguage.html}
+ */
+export type TranscriptionLanguage =
+  | "eng"
+  | "eng-au"
+  | "eng-gb"
+  | "eng-us"
+  | "fra"
+  | "ita"
+  | "deu"
+  | "spa"
+  | "por";
 /**
  * Resource type definition for `AWS::ElementalInference::Feed`.
  * Represents a feed that receives media for inference processing

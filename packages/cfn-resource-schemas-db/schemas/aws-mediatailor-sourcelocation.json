@@ -1,5 +1,5 @@
 {
-  "$hash": "0606ed20a051105a3709c1945d38b23c5107a864",
+  "$hash": "1173eeea240d700f3523e1bc7402d8fa559d2701",
   "$id": "aws-mediatailor-sourcelocation.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/SourceLocationName"],
@@ -147,7 +147,7 @@
   "readOnlyProperties": ["/properties/Arn"],
   "required": ["HttpConfiguration", "SourceLocationName"],
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["mediatailor:TagResource", "mediatailor:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

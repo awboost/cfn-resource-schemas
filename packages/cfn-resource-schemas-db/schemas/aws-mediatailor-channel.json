@@ -1,5 +1,5 @@
 {
-  "$hash": "1a3bb6b5527f3252d136e092f42382114119658b",
+  "$hash": "00cf51c29fa5c48c766a2b788426c5b3f5d7f258",
   "$id": "aws-mediatailor-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ChannelName", "/properties/Tier"],
@@ -185,7 +185,7 @@
   "required": ["ChannelName", "Outputs", "PlaybackMode"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediatailor.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["mediatailor:TagResource", "mediatailor:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

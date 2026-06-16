@@ -1,5 +1,5 @@
 {
-  "$hash": "89299a92fd276e42b2b3bfe9bf13b72420f02a06",
+  "$hash": "5d9a496a3e0bf1a0d2ac2544e4c32e8a0f9899ca",
   "$id": "aws-redshiftserverless-namespace.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/NamespaceName"],
@@ -278,7 +278,7 @@
   "required": ["NamespaceName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-redshift-serverless",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "redshift-serverless:ListTagsForResource",
       "redshift-serverless:TagResource",

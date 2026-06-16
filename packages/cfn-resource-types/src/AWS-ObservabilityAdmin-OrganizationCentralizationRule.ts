@@ -50,6 +50,7 @@ export type CentralizationRuleDestination = {
    */
   Account?: string;
   DestinationLogsConfiguration?: DestinationLogsConfiguration;
+  DestinationMetricsConfiguration?: DestinationMetricsConfiguration;
   /**
    * @minLength `1`
    */
@@ -70,6 +71,7 @@ export type CentralizationRuleSource = {
    */
   Scope?: string;
   SourceLogsConfiguration?: SourceLogsConfiguration;
+  SourceMetricsConfiguration?: SourceMetricsConfiguration;
 };
 /**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.DestinationLogsConfiguration`.
@@ -79,6 +81,13 @@ export type DestinationLogsConfiguration = {
   BackupConfiguration?: LogsBackupConfiguration;
   LogGroupNameConfiguration?: LogGroupNameConfiguration;
   LogsEncryptionConfiguration?: LogsEncryptionConfiguration;
+};
+/**
+ * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.DestinationMetricsConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-destinationmetricsconfiguration.html}
+ */
+export type DestinationMetricsConfiguration = {
+  BackupConfiguration?: MetricsBackupConfiguration;
 };
 /**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.LogGroupNameConfiguration`.
@@ -123,6 +132,16 @@ export type LogsEncryptionConfiguration = {
   KmsKeyArn?: string;
 };
 /**
+ * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.MetricsBackupConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-metricsbackupconfiguration.html}
+ */
+export type MetricsBackupConfiguration = {
+  /**
+   * @minLength `1`
+   */
+  Region: string;
+};
+/**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.SourceLogsConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-sourcelogsconfiguration.html}
  */
@@ -138,6 +157,17 @@ export type SourceLogsConfiguration = {
    * @maxLength `2000`
    */
   LogGroupSelectionCriteria?: string;
+};
+/**
+ * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.SourceMetricsConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-observabilityadmin-organizationcentralizationrule-sourcemetricsconfiguration.html}
+ */
+export type SourceMetricsConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `2000`
+   */
+  MetricsSelectionCriteria?: string;
 };
 /**
  * Type definition for `AWS::ObservabilityAdmin::OrganizationCentralizationRule.Tag`.

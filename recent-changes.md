@@ -1,5 +1,45 @@
-- updated `AWS::EC2::FlowLog`
-  - added definition `TagFieldSpecification`
-  - added property `TagFieldSpecifications`
-  - updated `createOnlyProperties`
+- added `AWS::CloudWatch::LogAlarm`
+- added `AWS::ElementalInference::Dictionary`
+- updated `AWS::BedrockAgentCore::PaymentCredentialProvider`
+  - added `resourceLink`
+- updated `AWS::ElementalInference::Feed`
+  - added definition `AspectRatio`
+  - added definition `ProfanityFilterMode`
+  - added definition `SubtitlingConfig`
+  - added definition `TranscriptionLanguage`
+  - removed definition `Unit`
+  - updated definition `OutputConfig`
+- updated `AWS::Lambda::CapacityProvider`
+  - updated definition `PropagateTagsConfig`
+- updated `AWS::MediaTailor::Channel`
+  - updated `tagging`
+- updated `AWS::MediaTailor::LiveSource`
+  - updated `tagging`
+- updated `AWS::MediaTailor::PlaybackConfiguration`
+  - added property `FunctionMapping`
+  - updated `tagging`
+- updated `AWS::MediaTailor::SourceLocation`
+  - updated `tagging`
+- updated `AWS::MediaTailor::VodSource`
+  - updated `tagging`
+- updated `AWS::ObservabilityAdmin::OrganizationCentralizationRule`
+  - added definition `DestinationMetricsConfiguration`
+  - added definition `MetricsBackupConfiguration`
+  - added definition `SourceMetricsConfiguration`
+  - updated definition `CentralizationRuleDestination`
+  - updated definition `CentralizationRuleSource`
+- updated `AWS::QuickSight::ActionConnector`
+  - updated `required`
+  - updated definition `ResourcePermission`
+- updated `AWS::RedshiftServerless::Namespace`
+  - updated `tagging`
+- updated `AWS::ResilienceHubV2::UserJourney`
+  - updated property `Name`
+- updated `AWS::SSM::Association`
+  - added definition `Tag`
+  - added property `AssociationDispatchAssumeRole`
+  - added property `Tags`
+  - updated `tagging`
   - updated handler permissions
+- updated `AWS::SageMaker::Domain`
+  - updated definition `AppInstanceType`

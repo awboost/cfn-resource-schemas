@@ -1,5 +1,5 @@
 {
-  "$hash": "c680d83060fc490b23e756c68f29f5f7be26666e",
+  "$hash": "badd75f2a79bb588c1af1fefd0e02edf8dbdc151",
   "$id": "aws-observabilityadmin-organizationcentralizationrule.json",
   "additionalIdentifiers": [["/properties/RuleName"]],
   "additionalProperties": false,
@@ -29,6 +29,9 @@
         "DestinationLogsConfiguration": {
           "$ref": "#/definitions/DestinationLogsConfiguration"
         },
+        "DestinationMetricsConfiguration": {
+          "$ref": "#/definitions/DestinationMetricsConfiguration"
+        },
         "Region": { "$ref": "#/definitions/Region" }
       },
       "required": ["Region"],
@@ -41,6 +44,9 @@
         "Scope": { "maxLength": 2000, "minLength": 1, "type": "string" },
         "SourceLogsConfiguration": {
           "$ref": "#/definitions/SourceLogsConfiguration"
+        },
+        "SourceMetricsConfiguration": {
+          "$ref": "#/definitions/SourceMetricsConfiguration"
         }
       },
       "required": ["Regions"],
@@ -57,6 +63,15 @@
         },
         "LogsEncryptionConfiguration": {
           "$ref": "#/definitions/LogsEncryptionConfiguration"
+        }
+      },
+      "type": "object"
+    },
+    "DestinationMetricsConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "BackupConfiguration": {
+          "$ref": "#/definitions/MetricsBackupConfiguration"
         }
       },
       "type": "object"
@@ -99,6 +114,12 @@
       "required": ["EncryptionStrategy"],
       "type": "object"
     },
+    "MetricsBackupConfiguration": {
+      "additionalProperties": false,
+      "properties": { "Region": { "$ref": "#/definitions/Region" } },
+      "required": ["Region"],
+      "type": "object"
+    },
     "Region": { "minLength": 1, "type": "string" },
     "Regions": {
       "insertionOrder": false,
@@ -132,6 +153,17 @@
         }
       },
       "required": ["EncryptedLogGroupStrategy"],
+      "type": "object"
+    },
+    "SourceMetricsConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "MetricsSelectionCriteria": {
+          "maxLength": 2000,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "Tag": {

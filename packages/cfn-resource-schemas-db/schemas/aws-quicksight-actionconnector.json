@@ -1,5 +1,5 @@
 {
-  "$hash": "4f1d9c60a0dba9bb72a46fcbeee9704cb8da82fc",
+  "$hash": "32af7dbd5f8f958e1092fa43e94f4d842e61f0e7",
   "$id": "aws-quicksight-actionconnector.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -316,7 +316,7 @@
         "Actions": {
           "description": "<p>The IAM action to grant or revoke permissions on.</p>",
           "items": { "type": "string" },
-          "maxItems": 20,
+          "maxItems": 30,
           "minItems": 1,
           "type": "array"
         },
@@ -464,7 +464,13 @@
     "/properties/LastUpdatedTime",
     "/properties/Status"
   ],
-  "required": ["ActionConnectorId", "AwsAccountId", "Name", "Type"],
+  "required": [
+    "ActionConnectorId",
+    "AuthenticationConfig",
+    "AwsAccountId",
+    "Name",
+    "Type"
+  ],
   "tagging": {
     "cloudFormationSystemTags": false,
     "permissions": [

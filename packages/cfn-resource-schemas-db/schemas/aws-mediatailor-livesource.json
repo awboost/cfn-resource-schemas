@@ -1,5 +1,5 @@
 {
-  "$hash": "50f315c63d9298a7fb7d5e32cbf3cb5e74fdc9b6",
+  "$hash": "959ca8e75a591efd4be7cc57322d7ca60f526762",
   "$id": "aws-mediatailor-livesource.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -103,7 +103,7 @@
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-mediatailor",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": ["mediatailor:TagResource", "mediatailor:UntagResource"],
     "tagOnCreate": true,
     "tagProperty": "/properties/Tags",

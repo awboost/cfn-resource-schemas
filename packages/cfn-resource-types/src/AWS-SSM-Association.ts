@@ -7,6 +7,13 @@ import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-
 export type SSMAssociationProperties = {
   ApplyOnlyAtCronInterval?: boolean;
   /**
+   * A role used by association to take actions on your behalf.
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `arn:aws(-[^:]+)?:iam::[0-9]{12}:role/.+`
+   */
+  AssociationDispatchAssumeRole?: string;
+  /**
    * The name of the association.
    * @pattern `^[a-zA-Z0-9_\-.]{3,128}$`
    */
@@ -59,6 +66,12 @@ export type SSMAssociationProperties = {
   ScheduleOffset?: number;
   SyncCompliance?: "AUTO" | "MANUAL";
   /**
+   * A key-value pair to associate with a resource.
+   * @minLength `0`
+   * @maxLength `1000`
+   */
+  Tags?: Tag[];
+  /**
    * The targets that the SSM document sends commands to.
    * @minLength `0`
    * @maxLength `5`
@@ -107,6 +120,27 @@ export type S3OutputLocation = {
    * @maxLength `20`
    */
   OutputS3Region?: string;
+};
+/**
+ * Type definition for `AWS::SSM::Association.Tag`.
+ * Metadata that you assign to your AWS resources.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-tag.html}
+ */
+export type Tag = {
+  /**
+   * The name of the tag.
+   * @minLength `1`
+   * @maxLength `128`
+   * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+   */
+  Key: string;
+  /**
+   * The value of the tag.
+   * @minLength `0`
+   * @maxLength `256`
+   * @pattern `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+   */
+  Value: string;
 };
 /**
  * Type definition for `AWS::SSM::Association.Target`.

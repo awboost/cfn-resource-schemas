@@ -13,7 +13,7 @@ export type ResilienceHubV2UserJourneyProperties = {
   Description?: string;
   /**
    * The name of the user journey.
-   * @pattern `^[A-Za-z0-9][A-Za-z0-9_\-]{1,59}$`
+   * @pattern `^[A-Za-z0-9][A-Za-z0-9 _\-]{1,59}$`
    */
   Name: string;
   /**

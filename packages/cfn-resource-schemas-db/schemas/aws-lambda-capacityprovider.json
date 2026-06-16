@@ -1,5 +1,5 @@
 {
-  "$hash": "40eec2f85a55f9718da34894ef0341eac7545e9b",
+  "$hash": "1ef54599bdadedaf3604e53bef48df4b19554d25",
   "$id": "aws-lambda-capacityprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -150,7 +150,7 @@
       "description": "",
       "properties": {
         "ExplicitTags": {
-          "description": "A list of tags to explicitly propagate to managed resources.",
+          "description": "",
           "insertionOrder": false,
           "items": { "$ref": "#/definitions/Tag" },
           "maxItems": 40,
@@ -158,7 +158,7 @@
           "type": "array",
           "uniqueItems": true
         },
-        "Mode": { "$ref": "#/definitions/PropagateTagsMode" }
+        "Mode": { "$ref": "#/definitions/PropagateTagsMode", "description": "" }
       },
       "type": "object"
     },
