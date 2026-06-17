@@ -1,5 +1,5 @@
 {
-  "$hash": "6b3888c694f0284d476a463f0038a2c1360fd6e0",
+  "$hash": "7fb81821e4fa256c9f6baf25174bfc8acec9b014",
   "$id": "aws-cloudwatch-logalarm.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/AlarmName"],
@@ -38,10 +38,6 @@
           "items": { "type": "string" },
           "type": "array"
         },
-        "QueryLanguage": {
-          "description": "The query language to use for the scheduled query (CWLI or SQL).",
-          "type": "string"
-        },
         "QueryString": {
           "description": "The query string to execute against the specified log groups.",
           "type": "string"
@@ -57,7 +53,6 @@
       },
       "required": [
         "QueryString",
-        "QueryLanguage",
         "AggregationExpression",
         "LogGroupIdentifiers",
         "ScheduledQueryRoleARN",

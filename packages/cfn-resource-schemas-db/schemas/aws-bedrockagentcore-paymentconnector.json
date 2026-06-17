@@ -1,5 +1,5 @@
 {
-  "$hash": "8ecd9a980bd05ff9a21ccff74cec0ad7b00389ba",
+  "$hash": "eb3c6423feb06d9e0711aa6367fe58edf8027f4e",
   "$id": "aws-bedrockagentcore-paymentconnector.json",
   "additionalIdentifiers": [
     ["/properties/PaymentManagerId", "/properties/PaymentConnectorId"]
@@ -147,6 +147,13 @@
     "ConnectorType",
     "CredentialProviderConfigurations"
   ],
+  "resourceLink": {
+    "mappings": {
+      "PaymentConnectorId": "/PaymentConnectorId",
+      "PaymentManagerId": "/PaymentManagerId"
+    },
+    "templateUri": "/bedrock-agentcore/payments/managers/${PaymentManagerId}/connectors/${PaymentConnectorId}?region=${awsRegion}"
+  },
   "tagging": { "taggable": false },
   "typeName": "AWS::BedrockAgentCore::PaymentConnector"
 }

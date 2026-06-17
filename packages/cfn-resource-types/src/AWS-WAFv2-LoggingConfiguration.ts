@@ -61,6 +61,7 @@ export type Condition = {
       | "COUNT"
       | "CAPTCHA"
       | "CHALLENGE"
+      | "MONETIZE"
       | "EXCLUDED_AS_COUNT";
   };
   /**

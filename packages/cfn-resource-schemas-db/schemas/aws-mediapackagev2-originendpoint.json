@@ -1,5 +1,5 @@
 {
-  "$hash": "797280f3a11807d68d1016d6a4dbfef819b5ce74",
+  "$hash": "00f9a134d5693843dcbc82d9354cba223a651140",
   "$id": "aws-mediapackagev2-originendpoint.json",
   "additionalIdentifiers": [
     [
@@ -30,6 +30,10 @@
         "ALTERNATE_CONTENT_OPPORTUNITY",
         "NETWORK"
       ],
+      "type": "string"
+    },
+    "DashAudioTimelinePattern": {
+      "enum": ["NONE", "PATTERNED"],
       "type": "string"
     },
     "DashAvailabilityStartTimeConfiguration": {
@@ -150,6 +154,9 @@
       "additionalProperties": false,
       "description": "<p>Retrieve the DASH manifest configuration.</p>",
       "properties": {
+        "AudioTimelinePattern": {
+          "$ref": "#/definitions/DashAudioTimelinePattern"
+        },
         "AvailabilityStartTimeConfiguration": {
           "$ref": "#/definitions/DashAvailabilityStartTimeConfiguration"
         },
@@ -607,7 +614,9 @@
         "PROVIDER_PROMO",
         "DISTRIBUTOR_PROMO",
         "PROVIDER_AD_BLOCK",
-        "DISTRIBUTOR_AD_BLOCK"
+        "DISTRIBUTOR_AD_BLOCK",
+        "CONTENT_IDENTIFICATION",
+        "CALL_AD_SERVER"
       ],
       "type": "string"
     },

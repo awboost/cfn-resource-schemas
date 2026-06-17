@@ -52,6 +52,9 @@ export type EC2RouteProperties = {
    * The ID of a network interface.
    */
   NetworkInterfaceId?: string;
+  /**
+   * The Amazon Resource Name (ARN) of the ODB network.
+   */
   OdbNetworkArn?: string;
   /**
    * The ID of the route table for the route.

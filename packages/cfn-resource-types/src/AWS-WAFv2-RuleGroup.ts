@@ -20,6 +20,10 @@ export type WAFv2RuleGroupProperties = {
    */
   Description?: string;
   /**
+   * Configures monetization for the web ACL or rule group.
+   */
+  MonetizationConfig?: MonetizationConfig;
+  /**
    * Name of the RuleGroup.
    * @pattern `^[0-9A-Za-z_-]{1,128}$`
    */
@@ -120,6 +124,16 @@ export type BlockAction = {
    */
   CustomResponse?: CustomResponse;
 };
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.BlockchainChain`.
+ * The blockchain chain to use.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-blockchainchain.html}
+ */
+export type BlockchainChain =
+  | "BASE"
+  | "SOLANA"
+  | "BASE_SEPOLIA"
+  | "SOLANA_DEVNET";
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.Body`.
  * The body of a web request. This immediately follows the request headers.
@@ -251,6 +265,31 @@ export type CountAction = {
    */
   CustomRequestHandling?: CustomRequestHandling;
 };
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.CryptoConfig`.
+ * Configures cryptocurrency payment settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cryptoconfig.html}
+ */
+export type CryptoConfig = {
+  /**
+   * List of payment network configurations.
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  PaymentNetworks: PaymentNetwork[];
+};
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.CryptoCurrency`.
+ * The cryptocurrency to use for payment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-cryptocurrency.html}
+ */
+export type CryptoCurrency = "USDC";
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.CurrencyMode`.
+ * The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-currencymode.html}
+ */
+export type CurrencyMode = "REAL" | "TEST";
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.CustomHTTPHeader`.
  * HTTP header.
@@ -594,6 +633,35 @@ export type LabelMatchStatement = {
  */
 export type MapMatchScope = "ALL" | "KEY" | "VALUE";
 /**
+ * Type definition for `AWS::WAFv2::RuleGroup.MonetizationConfig`.
+ * Configures monetization for the web ACL or rule group.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-monetizationconfig.html}
+ */
+export type MonetizationConfig = {
+  /**
+   * Configures cryptocurrency payment settings.
+   */
+  CryptoConfig?: CryptoConfig;
+  /**
+   * The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+   */
+  CurrencyMode?: CurrencyMode;
+};
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.MonetizeAction`.
+ * Monetize action for rules.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-monetizeaction.html}
+ */
+export type MonetizeAction = {
+  /**
+   * The price multiplier for the monetize action.
+   * @minLength `1`
+   * @maxLength `3`
+   * @pattern `^([1-9][0-9]?|100)$`
+   */
+  PriceMultiplier?: string;
+};
+/**
  * Type definition for `AWS::WAFv2::RuleGroup.NotStatement`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html}
  */
@@ -617,6 +685,30 @@ export type OrStatement = {
  */
 export type OversizeHandling = "CONTINUE" | "MATCH" | "NO_MATCH";
 /**
+ * Type definition for `AWS::WAFv2::RuleGroup.PaymentNetwork`.
+ * Configuration for a single payment network.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-paymentnetwork.html}
+ */
+export type PaymentNetwork = {
+  /**
+   * The blockchain chain to use.
+   */
+  Chain: BlockchainChain;
+  /**
+   * List of price configurations.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  Prices: Price[];
+  /**
+   * The wallet address for receiving payments.
+   * @minLength `26`
+   * @maxLength `44`
+   * @pattern `.*\S.*`
+   */
+  WalletAddress: string;
+};
+/**
  * Type definition for `AWS::WAFv2::RuleGroup.PositionalConstraint`.
  * Position of the evaluation in the FieldToMatch of request.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-positionalconstraint.html}
@@ -627,6 +719,24 @@ export type PositionalConstraint =
   | "ENDS_WITH"
   | "CONTAINS"
   | "CONTAINS_WORD";
+/**
+ * Type definition for `AWS::WAFv2::RuleGroup.Price`.
+ * A price configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-price.html}
+ */
+export type Price = {
+  /**
+   * The price amount.
+   * @minLength `1`
+   * @maxLength `13`
+   * @pattern `^([1-9][0-9]*(\.[0-9]{1,3})?|0\.([1-9][0-9]{0,2}|0[1-9][0-9]?|00[1-9]))$`
+   */
+  Amount: string;
+  /**
+   * The cryptocurrency to use for payment.
+   */
+  Currency: CryptoCurrency;
+};
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.RateBasedStatement`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html}
@@ -921,6 +1031,10 @@ export type RuleAction = {
    * Count traffic towards application.
    */
   Count?: CountAction;
+  /**
+   * Monetize action for rules.
+   */
+  Monetize?: MonetizeAction;
 };
 /**
  * Type definition for `AWS::WAFv2::RuleGroup.Scope`.

@@ -1,5 +1,5 @@
 {
-  "$hash": "88357e1ccd099c37ce860dfdb62b33e7220d8fbf",
+  "$hash": "e99041ebce84b28df43f3d41975f34fd59f13f82",
   "$id": "aws-applicationinsights-application.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -664,7 +664,7 @@
   "required": ["ResourceGroupName"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-applicationinsights.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "applicationinsights:ListTagsForResource",
       "applicationinsights:TagResource",

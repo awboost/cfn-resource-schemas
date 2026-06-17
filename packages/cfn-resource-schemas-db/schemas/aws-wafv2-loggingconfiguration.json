@@ -1,5 +1,5 @@
 {
-  "$hash": "e5ff9b5369f2c37d6af87ed1b9fd109a6762a17f",
+  "$hash": "f414946097be27a31af1246cc365f11985565c8f",
   "$id": "aws-wafv2-loggingconfiguration.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/ResourceArn"],
@@ -19,6 +19,7 @@
                 "COUNT",
                 "CAPTCHA",
                 "CHALLENGE",
+                "MONETIZE",
                 "EXCLUDED_AS_COUNT"
               ],
               "type": "string"

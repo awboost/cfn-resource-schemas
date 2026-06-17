@@ -115,10 +115,6 @@ export type ScheduledQueryConfiguration = {
    */
   LogGroupIdentifiers: string[];
   /**
-   * The query language to use for the scheduled query (CWLI or SQL).
-   */
-  QueryLanguage: string;
-  /**
    * The query string to execute against the specified log groups.
    */
   QueryString: string;

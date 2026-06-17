@@ -1,7 +1,7 @@
 import { Resource as $Resource } from "@awboost/cfn-template-builder/template/resource";
 import type { ResourceOptions as $ResourceOptions } from "@awboost/cfn-template-builder/template";
 /**
- * Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+ * Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-harness.html}
  */
 export type BedrockAgentCoreHarnessProperties = {
@@ -211,13 +211,47 @@ export type CustomJWTAuthorizerConfiguration = {
    * @pattern `^.+/\.well-known/openid-configuration$`
    */
   DiscoveryUrl: string;
+  /**
+   * Private endpoint configuration for connecting to the OpenID Connect discovery endpoint over a private network.
+   */
+  PrivateEndpoint?: PrivateEndpoint;
+  /**
+   * @maxLength `5`
+   */
+  PrivateEndpointOverrides?: PrivateEndpointOverride[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Harness.EfsAccessPointConfiguration`.
+ * Configuration for an Amazon EFS access point to mount into the AgentCore Runtime.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-efsaccesspointconfiguration.html}
+ */
+export type EfsAccessPointConfiguration = {
+  /**
+   * @maxLength `128`
+   * @pattern `^arn:aws[-a-z]*:elasticfilesystem:[0-9a-z-:]+:access-point/fsap-[0-9a-f]{8,40}$`
+   */
+  AccessPointArn: string;
+  /**
+   * @minLength `6`
+   * @maxLength `200`
+   * @pattern `^/mnt/[a-zA-Z0-9._-]+/?$`
+   */
+  MountPath: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Harness.FilesystemConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-filesystemconfiguration.html}
  */
 export type FilesystemConfiguration = {
-  SessionStorage: SessionStorageConfiguration;
+  /**
+   * Configuration for an Amazon EFS access point to mount into the AgentCore Runtime.
+   */
+  EfsAccessPoint?: EfsAccessPointConfiguration;
+  /**
+   * Configuration for an Amazon S3 Files access point to mount into the AgentCore Runtime.
+   */
+  S3FilesAccessPoint?: S3FilesAccessPointConfiguration;
+  SessionStorage?: SessionStorageConfiguration;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Harness.HarnessAgentCoreBrowserConfig`.
@@ -268,9 +302,15 @@ export type HarnessAgentCoreMemoryConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessagentcorememoryretrievalconfig.html}
  */
 export type HarnessAgentCoreMemoryRetrievalConfig = {
-  RelevanceScore?: number;
+  /**
+   * Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
+   */
+  RelevanceScore?: number | string;
   StrategyId?: string;
-  TopK?: number;
+  /**
+   * Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
+   */
+  TopK?: number | string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Harness.HarnessAgentCoreRuntimeEnvironment`.
@@ -279,7 +319,7 @@ export type HarnessAgentCoreMemoryRetrievalConfig = {
 export type HarnessAgentCoreRuntimeEnvironment = {
   /**
    * @minLength `0`
-   * @maxLength `1`
+   * @maxLength `5`
    */
   FilesystemConfigurations?: FilesystemConfiguration[];
   LifecycleConfiguration?: LifecycleConfiguration;
@@ -290,6 +330,11 @@ export type HarnessAgentCoreRuntimeEnvironment = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessbedrockmodelconfig.html}
  */
 export type HarnessBedrockModelConfig = {
+  /**
+   * Provider-specific parameters passed through to the model provider unchanged.
+   */
+  AdditionalParams?: Record<string, any>;
+  ApiFormat?: "converse_stream" | "responses" | "chat_completions";
   /**
    * @min `1`
    */
@@ -375,6 +420,40 @@ export type HarnessInlineFunctionConfig = {
   InputSchema: Record<string, any>;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Harness.HarnessLiteLlmModelConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnesslitellmmodelconfig.html}
+ */
+export type HarnessLiteLlmModelConfig = {
+  /**
+   * Provider-specific parameters passed through to LiteLLM unchanged.
+   */
+  AdditionalParams?: Record<string, any>;
+  /**
+   * @minLength `1`
+   * @maxLength `16383`
+   */
+  ApiBase?: string;
+  /**
+   * @pattern `^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$`
+   */
+  ApiKeyArn?: string;
+  /**
+   * @min `1`
+   */
+  MaxTokens?: number;
+  ModelId: string;
+  /**
+   * @min `0`
+   * @max `2`
+   */
+  Temperature?: number;
+  /**
+   * @min `0`
+   * @max `1`
+   */
+  TopP?: number;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Harness.HarnessMemoryConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmemoryconfiguration.html}
  */
@@ -388,6 +467,7 @@ export type HarnessMemoryConfiguration = {
 export type HarnessModelConfiguration = {
   BedrockModelConfig?: HarnessBedrockModelConfig;
   GeminiModelConfig?: HarnessGeminiModelConfig;
+  LiteLlmModelConfig?: HarnessLiteLlmModelConfig;
   OpenAiModelConfig?: HarnessOpenAiModelConfig;
 };
 /**
@@ -395,6 +475,11 @@ export type HarnessModelConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessopenaimodelconfig.html}
  */
 export type HarnessOpenAiModelConfig = {
+  /**
+   * Provider-specific parameters passed through to the model provider unchanged.
+   */
+  AdditionalParams?: Record<string, any>;
+  ApiFormat?: "chat_completions" | "responses";
   /**
    * @pattern `^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$`
    */
@@ -433,10 +518,68 @@ export type HarnessRemoteMcpConfig = {
  */
 export type HarnessSkill = {
   /**
+   * A git repository containing the skill, cloned over HTTPS.
+   */
+  Git?: HarnessSkillGitSource;
+  /**
    * The filesystem path to the skill definition.
    * @minLength `1`
    */
-  Path: string;
+  Path?: string;
+  /**
+   * An S3 source containing the skill.
+   */
+  S3?: HarnessSkillS3Source;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Harness.HarnessSkillGitAuth`.
+ * Authentication configuration for accessing a private git repository.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessskillgitauth.html}
+ */
+export type HarnessSkillGitAuth = {
+  /**
+   * The ARN of the credential in AgentCore Identity containing the password or personal access token.
+   * @pattern `^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:token-vault/[a-zA-Z0-9-.]+/apikeycredentialprovider/[a-zA-Z0-9-.]+$`
+   */
+  CredentialArn: string;
+  /**
+   * Username for authentication. Defaults to 'oauth2' if not specified.
+   */
+  Username?: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Harness.HarnessSkillGitSource`.
+ * A git repository containing the skill, cloned over HTTPS.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessskillgitsource.html}
+ */
+export type HarnessSkillGitSource = {
+  /**
+   * Authentication configuration for accessing a private git repository.
+   */
+  Auth?: HarnessSkillGitAuth;
+  /**
+   * Subdirectory within the repository containing the skill.
+   */
+  Path?: string;
+  /**
+   * The HTTPS URL of the git repository.
+   * @minLength `8`
+   * @pattern `^https://`
+   */
+  Url: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Harness.HarnessSkillS3Source`.
+ * An S3 source containing the skill.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessskills3source.html}
+ */
+export type HarnessSkillS3Source = {
+  /**
+   * The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).
+   * @minLength `5`
+   * @pattern `^s3://`
+   */
+  Uri: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Harness.HarnessSlidingWindowConfiguration`.
@@ -540,6 +683,30 @@ export type LifecycleConfiguration = {
   MaxLifetime?: number;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Harness.ManagedVpcResource`.
+ * Configuration for a service-managed VPC endpoint.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-managedvpcresource.html}
+ */
+export type ManagedVpcResource = {
+  EndpointIpAddressType: "IPV4" | "IPV6";
+  /**
+   * @minLength `3`
+   * @maxLength `255`
+   */
+  RoutingDomain?: string;
+  /**
+   * @minLength `0`
+   * @maxLength `5`
+   */
+  SecurityGroupIds?: string[];
+  SubnetIds: string[];
+  Tags?: Record<string, string>;
+  /**
+   * @pattern `^vpc-(([0-9a-z]{8})|([0-9a-z]{17}))$`
+   */
+  VpcIdentifier: string;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Harness.NetworkConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-networkconfiguration.html}
  */
@@ -568,6 +735,68 @@ export type OAuthCredentialProvider = {
    * @maxLength `100`
    */
   Scopes: string[];
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Harness.PrivateEndpoint`.
+ * Private endpoint configuration for connecting to the OpenID Connect discovery endpoint over a private network.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-privateendpoint.html}
+ */
+export type PrivateEndpoint = {
+  /**
+   * Configuration for a service-managed VPC endpoint.
+   */
+  ManagedVpcResource?: ManagedVpcResource;
+  /**
+   * Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.
+   */
+  SelfManagedLatticeResource?: SelfManagedLatticeResource;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Harness.PrivateEndpointOverride`.
+ * Maps a domain to a private endpoint for resolving that domain over a private network.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-privateendpointoverride.html}
+ */
+export type PrivateEndpointOverride = {
+  /**
+   * @minLength `1`
+   * @maxLength `253`
+   */
+  Domain: string;
+  /**
+   * Private endpoint configuration for connecting to the OpenID Connect discovery endpoint over a private network.
+   */
+  PrivateEndpoint: PrivateEndpoint;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Harness.S3FilesAccessPointConfiguration`.
+ * Configuration for an Amazon S3 Files access point to mount into the AgentCore Runtime.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-s3filesaccesspointconfiguration.html}
+ */
+export type S3FilesAccessPointConfiguration = {
+  /**
+   * @maxLength `256`
+   * @pattern `^arn:aws[-a-z]*:s3files:[0-9a-z-:]+:file-system/fs-[0-9a-f]{17,40}/access-point/fsap-[0-9a-f]{17,40}$`
+   */
+  AccessPointArn: string;
+  /**
+   * @minLength `6`
+   * @maxLength `200`
+   * @pattern `^/mnt/[a-zA-Z0-9._-]+/?$`
+   */
+  MountPath: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Harness.SelfManagedLatticeResource`.
+ * Configuration for connecting to a private resource using a self-managed VPC Lattice resource configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-selfmanagedlatticeresource.html}
+ */
+export type SelfManagedLatticeResource = {
+  /**
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^((rcfg-[0-9a-z]{17})|(arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}))$`
+   */
+  ResourceConfigurationIdentifier: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Harness.SessionStorageConfiguration`.
@@ -616,7 +845,7 @@ export type VpcConfig = {
   Subnets: string[];
 };
 /**
- * Definition of AWS::BedrockAgentCore::Harness resource type - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
+ * Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrockagentcore-harness.html}
  */
 export class BedrockAgentCoreHarness extends $Resource<

@@ -1,5 +1,5 @@
 {
-  "$hash": "4b33b579c6e84a29360b74ec078aef44cfb8ed27",
+  "$hash": "2dd8a1cf02da27bfa7f01b10717783e19ea446d4",
   "$id": "aws-sagemaker-cluster.json",
   "additionalIdentifiers": [["/properties/ClusterName"]],
   "additionalProperties": false,
@@ -407,8 +407,7 @@
         "ExecutionRole",
         "InstanceCount",
         "InstanceGroupName",
-        "InstanceType",
-        "EnvironmentConfig"
+        "InstanceType"
       ],
       "type": "object"
     },
@@ -568,6 +567,17 @@
       ],
       "type": "object"
     },
+    "RestrictedInstanceGroupsConfig": {
+      "additionalProperties": false,
+      "description": "The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.",
+      "properties": {
+        "SharedEnvironmentConfig": {
+          "$ref": "#/definitions/SharedEnvironmentConfig"
+        }
+      },
+      "required": ["SharedEnvironmentConfig"],
+      "type": "object"
+    },
     "RollingUpdatePolicy": {
       "additionalProperties": false,
       "description": "The policy that SageMaker uses when updating the AMI versions of the cluster.",
@@ -594,6 +604,20 @@
         }
       },
       "required": ["ScheduleExpression"],
+      "type": "object"
+    },
+    "SharedEnvironmentConfig": {
+      "additionalProperties": false,
+      "description": "The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.",
+      "properties": {
+        "FSxLustreConfig": { "$ref": "#/definitions/FSxLustreConfig" },
+        "FSxLustreDeletionPolicy": {
+          "description": "The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.",
+          "enum": ["Keep", "DeleteIfNotUsed"],
+          "type": "string"
+        }
+      },
+      "required": ["FSxLustreDeletionPolicy"],
       "type": "object"
     },
     "Tag": {
@@ -794,6 +818,9 @@
     "Orchestrator": { "$ref": "#/definitions/Orchestrator" },
     "RestrictedInstanceGroups": {
       "$ref": "#/definitions/ClusterRestrictedInstanceGroupsList"
+    },
+    "RestrictedInstanceGroupsConfig": {
+      "$ref": "#/definitions/RestrictedInstanceGroupsConfig"
     },
     "Tags": {
       "description": "Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.",

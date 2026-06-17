@@ -1,5 +1,5 @@
 {
-  "$hash": "af5ab361c3db0a8bca0757a1b0c44527230b5bd7",
+  "$hash": "8d2615e9ac9de012775d7d3b55da1614ec45414d",
   "$id": "aws-ec2-launchtemplate.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/LaunchTemplateName"],
@@ -118,7 +118,7 @@
       "description": "A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon EC2 User Guide*.",
       "properties": {
         "TcpEstablishedTimeout": {
-          "description": "Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.",
+          "description": "Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 350 seconds for Nitro v6 instance types (excluding P6e-GB200); 432000 seconds for all other instance types (including P6e-GB200). Recommended: Less than 432000 seconds.",
           "type": "integer"
         },
         "UdpStreamTimeout": {

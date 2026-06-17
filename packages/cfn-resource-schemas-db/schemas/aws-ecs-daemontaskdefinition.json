@@ -1,5 +1,5 @@
 {
-  "$hash": "09e3e3e5ff07095bd906f38d35e3f155fe011cc5",
+  "$hash": "1bf8659c47be3deeb40bcc42101a182ab4333b54",
   "$id": "aws-ecs-daemontaskdefinition.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -556,12 +556,18 @@
       "description": "The name of a family that this daemon task definition is registered to.",
       "type": "string"
     },
-    "IpcMode": { "description": "", "type": "string" },
+    "IpcMode": {
+      "description": "The IPC namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.\n If ``none`` is specified or no value is provided, the daemon runs with its own IPC namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host IPC namespace, making it accessible to non-daemon tasks that use ``ipcMode: \"host\"`` or other daemons that use ``ipcMode: \"shared\"``.",
+      "type": "string"
+    },
     "Memory": {
       "description": "The amount of memory (in MiB) used by the daemon task.",
       "type": "string"
     },
-    "PidMode": { "description": "", "type": "string" },
+    "PidMode": {
+      "description": "The PID namespace mode for the daemon. The valid values are ``none`` and ``shared``. The default is ``none``.\n If ``none`` is specified or no value is provided, the daemon runs with its own PID namespace, isolated from other tasks. If ``shared`` is specified, the daemon joins the host PID namespace, making it accessible to non-daemon tasks that use ``pidMode: \"host\"`` or other daemons that use ``pidMode: \"shared\"``.",
+      "type": "string"
+    },
     "Tags": {
       "description": "",
       "insertionOrder": false,

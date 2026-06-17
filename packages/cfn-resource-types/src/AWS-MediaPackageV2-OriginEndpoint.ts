@@ -135,6 +135,11 @@ export type CustomAdType =
   | "ALTERNATE_CONTENT_OPPORTUNITY"
   | "NETWORK";
 /**
+ * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashAudioTimelinePattern`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashaudiotimelinepattern.html}
+ */
+export type DashAudioTimelinePattern = "NONE" | "PATTERNED";
+/**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.DashAvailabilityStartTimeConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashavailabilitystarttimeconfiguration.html}
  */
@@ -250,6 +255,7 @@ export type DashDvbSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html}
  */
 export type DashManifestConfiguration = {
+  AudioTimelinePattern?: DashAudioTimelinePattern;
   AvailabilityStartTimeConfiguration?: DashAvailabilityStartTimeConfiguration;
   /**
    * <p>The base URL to use for retrieving segments.</p>
@@ -744,7 +750,9 @@ export type ScteFilter =
   | "PROVIDER_PROMO"
   | "DISTRIBUTOR_PROMO"
   | "PROVIDER_AD_BLOCK"
-  | "DISTRIBUTOR_AD_BLOCK";
+  | "DISTRIBUTOR_AD_BLOCK"
+  | "CONTENT_IDENTIFICATION"
+  | "CALL_AD_SERVER";
 /**
  * Type definition for `AWS::MediaPackageV2::OriginEndpoint.ScteHls`.
  * <p>The SCTE configuration.</p>

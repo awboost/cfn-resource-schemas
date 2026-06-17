@@ -46,6 +46,10 @@ export type SageMakerClusterProperties = {
    */
   RestrictedInstanceGroups?: ClusterRestrictedInstanceGroup[];
   /**
+   * The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+   */
+  RestrictedInstanceGroupsConfig?: RestrictedInstanceGroupsConfig;
+  /**
    * Custom tags for managing the SageMaker HyperPod cluster as an AWS resource. You can add tags to your cluster in the same way you add them in other AWS services that support tagging.
    * @maxLength `50`
    */
@@ -478,7 +482,7 @@ export type ClusterRestrictedInstanceGroup = {
   /**
    * The configuration for the restricted instance groups (RIG) environment.
    */
-  EnvironmentConfig: EnvironmentConfig;
+  EnvironmentConfig?: EnvironmentConfig;
   /**
    * The execution role for the instance group to assume.
    * @minLength `20`
@@ -641,6 +645,17 @@ export type Orchestrator =
       Slurm?: ClusterOrchestratorSlurmConfig;
     };
 /**
+ * Type definition for `AWS::SageMaker::Cluster.RestrictedInstanceGroupsConfig`.
+ * The cluster-level configuration for restricted instance groups, including shared environment settings for inter-RIG communication and FSx Lustre sharing.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-restrictedinstancegroupsconfig.html}
+ */
+export type RestrictedInstanceGroupsConfig = {
+  /**
+   * The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
+   */
+  SharedEnvironmentConfig: SharedEnvironmentConfig;
+};
+/**
  * Type definition for `AWS::SageMaker::Cluster.RollingUpdatePolicy`.
  * The policy that SageMaker uses when updating the AMI versions of the cluster.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-rollingupdatepolicy.html}
@@ -672,6 +687,21 @@ export type ScheduledUpdateConfig = {
    * @pattern `cron\((?:[0-5][0-9]|[0-9]|) (?:[01][0-9]|2[0-3]|[0-9]) (?:[1-9]|0[1-9]|[12][0-9]|3[01]|\?) (?:[1-9]|0[1-9]|1[0-2]|\*|\/‍*(?:[1-9]|1[0-2])|) (?:MON|TUE|WED|THU|FRI|SAT|SUN|[1-7]|\?|L|(?:[1-7]#[1-5])|(?:[1-7]L)) (?:20[2-9][0-9]|\*|)\)`
    */
   ScheduleExpression: string;
+};
+/**
+ * Type definition for `AWS::SageMaker::Cluster.SharedEnvironmentConfig`.
+ * The shared environment configuration for restricted instance groups that use cluster-level shared FSx Lustre storage.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-sharedenvironmentconfig.html}
+ */
+export type SharedEnvironmentConfig = {
+  /**
+   * Configuration settings for an Amazon FSx for Lustre file system to be used with the cluster.
+   */
+  FSxLustreConfig?: FSxLustreConfig;
+  /**
+   * The deletion policy for the shared FSx Lustre file system. Keep retains the FSx when RIGs are deleted. DeleteIfNotUsed deletes the FSx when no RIGs reference it.
+   */
+  FSxLustreDeletionPolicy: "Keep" | "DeleteIfNotUsed";
 };
 /**
  * Type definition for `AWS::SageMaker::Cluster.Tag`.

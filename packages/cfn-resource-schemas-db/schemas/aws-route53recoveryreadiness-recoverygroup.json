@@ -1,5 +1,5 @@
 {
-  "$hash": "a6b8538e5c5e31ddd0bdc0ef6fe5a05cd4b87aa5",
+  "$hash": "c1d7635385afefa22cad93f12872e15655963a59",
   "$id": "aws-route53recoveryreadiness-recoverygroup.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/RecoveryGroupName"],
@@ -82,7 +82,7 @@
   "readOnlyProperties": ["/properties/RecoveryGroupArn"],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-route53-recovery-readiness-readiness.git",
   "tagging": {
-    "cloudFormationSystemTags": false,
+    "cloudFormationSystemTags": true,
     "permissions": [
       "route53-recovery-readiness:TagResource",
       "route53-recovery-readiness:UntagResource",

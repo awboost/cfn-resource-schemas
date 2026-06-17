@@ -1,5 +1,5 @@
 {
-  "$hash": "10ee5ead117c618da1b191949333f8e8d8531fe9",
+  "$hash": "46eb8bcadccd9db12bc6282459d03c1728226791",
   "$id": "aws-wafv2-webacl.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name", "/properties/Scope"],
@@ -147,6 +147,11 @@
       },
       "type": "object"
     },
+    "BlockchainChain": {
+      "description": "The blockchain chain to use.",
+      "enum": ["BASE", "SOLANA", "BASE_SEPOLIA", "SOLANA_DEVNET"],
+      "type": "string"
+    },
     "Body": {
       "additionalProperties": false,
       "description": "The body of a web request. This immediately follows the request headers.",
@@ -291,6 +296,25 @@
         }
       },
       "type": "object"
+    },
+    "CryptoConfig": {
+      "additionalProperties": false,
+      "description": "Configures cryptocurrency payment settings.",
+      "properties": {
+        "PaymentNetworks": { "$ref": "#/definitions/PaymentNetworks" }
+      },
+      "required": ["PaymentNetworks"],
+      "type": "object"
+    },
+    "CryptoCurrency": {
+      "description": "The cryptocurrency to use for payment.",
+      "enum": ["USDC"],
+      "type": "string"
+    },
+    "CurrencyMode": {
+      "description": "The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.",
+      "enum": ["REAL", "TEST"],
+      "type": "string"
     },
     "CustomHTTPHeader": {
       "additionalProperties": false,
@@ -768,6 +792,23 @@
       "enum": ["ALL", "KEY", "VALUE"],
       "type": "string"
     },
+    "MonetizationConfig": {
+      "additionalProperties": false,
+      "description": "Configures monetization for the web ACL or rule group.",
+      "properties": {
+        "CryptoConfig": { "$ref": "#/definitions/CryptoConfig" },
+        "CurrencyMode": { "$ref": "#/definitions/CurrencyMode" }
+      },
+      "type": "object"
+    },
+    "MonetizeAction": {
+      "additionalProperties": false,
+      "description": "Monetize action for rules.",
+      "properties": {
+        "PriceMultiplier": { "$ref": "#/definitions/PriceMultiplier" }
+      },
+      "type": "object"
+    },
     "NotStatement": {
       "additionalProperties": false,
       "properties": { "Statement": { "$ref": "#/definitions/Statement" } },
@@ -817,6 +858,24 @@
       "enum": ["CONTINUE", "MATCH", "NO_MATCH"],
       "type": "string"
     },
+    "PaymentNetwork": {
+      "additionalProperties": false,
+      "description": "Configuration for a single payment network.",
+      "properties": {
+        "Chain": { "$ref": "#/definitions/BlockchainChain" },
+        "Prices": { "$ref": "#/definitions/Prices" },
+        "WalletAddress": { "$ref": "#/definitions/WalletAddress" }
+      },
+      "required": ["Chain", "WalletAddress", "Prices"],
+      "type": "object"
+    },
+    "PaymentNetworks": {
+      "description": "List of payment network configurations.",
+      "items": { "$ref": "#/definitions/PaymentNetwork" },
+      "maxItems": 2,
+      "minItems": 1,
+      "type": "array"
+    },
     "PhoneNumberField": { "$ref": "#/definitions/FieldIdentifier" },
     "PositionalConstraint": {
       "description": "Position of the evaluation in the FieldToMatch of request.",
@@ -828,6 +887,37 @@
         "CONTAINS_WORD"
       ],
       "type": "string"
+    },
+    "Price": {
+      "additionalProperties": false,
+      "description": "A price configuration.",
+      "properties": {
+        "Amount": { "$ref": "#/definitions/PriceAmount" },
+        "Currency": { "$ref": "#/definitions/CryptoCurrency" }
+      },
+      "required": ["Amount", "Currency"],
+      "type": "object"
+    },
+    "PriceAmount": {
+      "description": "The price amount.",
+      "maxLength": 13,
+      "minLength": 1,
+      "pattern": "^([1-9][0-9]*(\\.[0-9]{1,3})?|0\\.([1-9][0-9]{0,2}|0[1-9][0-9]?|00[1-9]))$",
+      "type": "string"
+    },
+    "PriceMultiplier": {
+      "description": "The price multiplier for the monetize action.",
+      "maxLength": 3,
+      "minLength": 1,
+      "pattern": "^([1-9][0-9]?|100)$",
+      "type": "string"
+    },
+    "Prices": {
+      "description": "List of price configurations.",
+      "items": { "$ref": "#/definitions/Price" },
+      "maxItems": 1,
+      "minItems": 1,
+      "type": "array"
     },
     "QueryString": { "type": "object" },
     "RateBasedStatement": {
@@ -1282,7 +1372,8 @@
         "Block": { "$ref": "#/definitions/BlockAction" },
         "Captcha": { "$ref": "#/definitions/CaptchaAction" },
         "Challenge": { "$ref": "#/definitions/ChallengeAction" },
-        "Count": { "$ref": "#/definitions/CountAction" }
+        "Count": { "$ref": "#/definitions/CountAction" },
+        "Monetize": { "$ref": "#/definitions/MonetizeAction" }
       },
       "type": "object"
     },
@@ -1512,6 +1603,13 @@
       ],
       "type": "object"
     },
+    "WalletAddress": {
+      "description": "The wallet address for receiving payments.",
+      "maxLength": 44,
+      "minLength": 26,
+      "pattern": ".*\\S.*",
+      "type": "string"
+    },
     "XssMatchStatement": {
       "additionalProperties": false,
       "description": "Xss Match Statement.",
@@ -1582,6 +1680,7 @@
     "Description": { "$ref": "#/definitions/EntityDescription" },
     "Id": { "$ref": "#/definitions/EntityId" },
     "LabelNamespace": { "$ref": "#/definitions/LabelName" },
+    "MonetizationConfig": { "$ref": "#/definitions/MonetizationConfig" },
     "Name": { "$ref": "#/definitions/EntityName" },
     "OnSourceDDoSProtectionConfig": {
       "$ref": "#/definitions/OnSourceDDoSProtectionConfig"

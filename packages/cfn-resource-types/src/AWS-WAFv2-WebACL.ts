@@ -34,6 +34,10 @@ export type WAFv2WebACLProperties = {
    */
   Description?: string;
   /**
+   * Configures monetization for the web ACL or rule group.
+   */
+  MonetizationConfig?: MonetizationConfig;
+  /**
    * Name of the WebACL.
    * @pattern `^[0-9A-Za-z_-]{1,128}$`
    */
@@ -232,6 +236,16 @@ export type BlockAction = {
   CustomResponse?: CustomResponse;
 };
 /**
+ * Type definition for `AWS::WAFv2::WebACL.BlockchainChain`.
+ * The blockchain chain to use.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockchainchain.html}
+ */
+export type BlockchainChain =
+  | "BASE"
+  | "SOLANA"
+  | "BASE_SEPOLIA"
+  | "SOLANA_DEVNET";
+/**
  * Type definition for `AWS::WAFv2::WebACL.Body`.
  * The body of a web request. This immediately follows the request headers.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-body.html}
@@ -383,6 +397,31 @@ export type CountAction = {
    */
   CustomRequestHandling?: CustomRequestHandling;
 };
+/**
+ * Type definition for `AWS::WAFv2::WebACL.CryptoConfig`.
+ * Configures cryptocurrency payment settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cryptoconfig.html}
+ */
+export type CryptoConfig = {
+  /**
+   * List of payment network configurations.
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  PaymentNetworks: PaymentNetwork[];
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.CryptoCurrency`.
+ * The cryptocurrency to use for payment.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cryptocurrency.html}
+ */
+export type CryptoCurrency = "USDC";
+/**
+ * Type definition for `AWS::WAFv2::WebACL.CurrencyMode`.
+ * The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-currencymode.html}
+ */
+export type CurrencyMode = "REAL" | "TEST";
 /**
  * Type definition for `AWS::WAFv2::WebACL.CustomHTTPHeader`.
  * HTTP header.
@@ -877,6 +916,35 @@ export type ManagedRuleGroupStatement = {
  */
 export type MapMatchScope = "ALL" | "KEY" | "VALUE";
 /**
+ * Type definition for `AWS::WAFv2::WebACL.MonetizationConfig`.
+ * Configures monetization for the web ACL or rule group.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-monetizationconfig.html}
+ */
+export type MonetizationConfig = {
+  /**
+   * Configures cryptocurrency payment settings.
+   */
+  CryptoConfig?: CryptoConfig;
+  /**
+   * The currency mode for monetization. Use REAL for production payments and TEST for testing with testnet currencies.
+   */
+  CurrencyMode?: CurrencyMode;
+};
+/**
+ * Type definition for `AWS::WAFv2::WebACL.MonetizeAction`.
+ * Monetize action for rules.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-monetizeaction.html}
+ */
+export type MonetizeAction = {
+  /**
+   * The price multiplier for the monetize action.
+   * @minLength `1`
+   * @maxLength `3`
+   * @pattern `^([1-9][0-9]?|100)$`
+   */
+  PriceMultiplier?: string;
+};
+/**
  * Type definition for `AWS::WAFv2::WebACL.NotStatement`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html}
  */
@@ -923,6 +991,30 @@ export type OverrideAction = {
  */
 export type OversizeHandling = "CONTINUE" | "MATCH" | "NO_MATCH";
 /**
+ * Type definition for `AWS::WAFv2::WebACL.PaymentNetwork`.
+ * Configuration for a single payment network.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-paymentnetwork.html}
+ */
+export type PaymentNetwork = {
+  /**
+   * The blockchain chain to use.
+   */
+  Chain: BlockchainChain;
+  /**
+   * List of price configurations.
+   * @minLength `1`
+   * @maxLength `1`
+   */
+  Prices: Price[];
+  /**
+   * The wallet address for receiving payments.
+   * @minLength `26`
+   * @maxLength `44`
+   * @pattern `.*\S.*`
+   */
+  WalletAddress: string;
+};
+/**
  * Type definition for `AWS::WAFv2::WebACL.PhoneNumberField`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-phonenumberfield.html}
  */
@@ -938,6 +1030,24 @@ export type PositionalConstraint =
   | "ENDS_WITH"
   | "CONTAINS"
   | "CONTAINS_WORD";
+/**
+ * Type definition for `AWS::WAFv2::WebACL.Price`.
+ * A price configuration.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-price.html}
+ */
+export type Price = {
+  /**
+   * The price amount.
+   * @minLength `1`
+   * @maxLength `13`
+   * @pattern `^([1-9][0-9]*(\.[0-9]{1,3})?|0\.([1-9][0-9]{0,2}|0[1-9][0-9]?|00[1-9]))$`
+   */
+  Amount: string;
+  /**
+   * The cryptocurrency to use for payment.
+   */
+  Currency: CryptoCurrency;
+};
 /**
  * Type definition for `AWS::WAFv2::WebACL.RateBasedStatement`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html}
@@ -1391,6 +1501,10 @@ export type RuleAction = {
    * Allow traffic towards application.
    */
   Count?: CountAction;
+  /**
+   * Monetize action for rules.
+   */
+  Monetize?: MonetizeAction;
 };
 /**
  * Type definition for `AWS::WAFv2::WebACL.RuleActionOverride`.
