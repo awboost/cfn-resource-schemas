@@ -23,7 +23,7 @@ export type BedrockAgentCoreGatewayTargetProperties = {
   /**
    * @pattern `^([0-9a-zA-Z][-]?){1,100}$`
    */
-  Name: string;
+  Name?: string;
   PrivateEndpoint?: PrivateEndpoint;
   TargetConfiguration: TargetConfiguration;
 };
@@ -154,6 +154,56 @@ export type AuthorizationData = {
   Oauth2: OAuth2AuthorizationData;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ConnectorConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-connectorconfiguration.html}
+ */
+export type ConnectorConfiguration = {
+  /**
+   * @maxLength `2000`
+   */
+  Description?: string;
+  /**
+   * @maxLength `64`
+   * @pattern `^[a-zA-Z][a-zA-Z0-9_-]*$`
+   */
+  Name: string;
+  ParameterOverrides?: ConnectorParameterOverride[];
+  ParameterValues?: Record<string, any>;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ConnectorParameterOverride`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-connectorparameteroverride.html}
+ */
+export type ConnectorParameterOverride = {
+  Description?: string;
+  Path: string;
+  Visible?: boolean;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ConnectorSource`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-connectorsource.html}
+ */
+export type ConnectorSource = {
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  ConnectorId: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.ConnectorTargetConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-connectortargetconfiguration.html}
+ */
+export type ConnectorTargetConfiguration = {
+  Configurations?: ConnectorConfiguration[];
+  /**
+   * @minLength `1`
+   * @maxLength `50`
+   */
+  Enabled?: string[];
+  Source: ConnectorSource;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.CredentialProvider`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-credentialprovider.html}
  */
@@ -191,12 +241,23 @@ export type CredentialProviderType =
  */
 export type EndpointIpAddressType = "IPV4" | "IPV6";
 /**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.HttpApiSchemaConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-httpapischemaconfiguration.html}
+ */
+export type HttpApiSchemaConfiguration = {
+  Source: ApiSchemaConfiguration;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.HttpTargetConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-httptargetconfiguration.html}
  */
-export type HttpTargetConfiguration = {
-  AgentcoreRuntime: RuntimeTargetConfiguration;
-};
+export type HttpTargetConfiguration =
+  | {
+      AgentcoreRuntime: RuntimeTargetConfiguration;
+    }
+  | {
+      Passthrough: PassthroughTargetConfiguration;
+    };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.IamCredentialProvider`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-iamcredentialprovider.html}
@@ -309,6 +370,9 @@ export type McpTargetConfiguration =
     }
   | {
       ApiGateway: ApiGatewayTargetConfiguration;
+    }
+  | {
+      Connector: ConnectorTargetConfiguration;
     };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.McpToolSchemaConfiguration`.
@@ -382,6 +446,26 @@ export type OAuthGrantType =
   | "CLIENT_CREDENTIALS"
   | "TOKEN_EXCHANGE";
 /**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.PassthroughProtocolType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-passthroughprotocoltype.html}
+ */
+export type PassthroughProtocolType = "MCP" | "A2A" | "INFERENCE" | "CUSTOM";
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.PassthroughTargetConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-passthroughtargetconfiguration.html}
+ */
+export type PassthroughTargetConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^https://[a-zA-Z0-9\-\.]+(:[0-9]{1,5})?(/.*)?$`
+   */
+  Endpoint: string;
+  ProtocolType: PassthroughProtocolType;
+  Schema?: HttpApiSchemaConfiguration;
+  StickinessConfiguration?: StickinessConfiguration;
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.PrivateEndpoint`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-privateendpoint.html}
  */
@@ -417,6 +501,7 @@ export type RuntimeTargetConfiguration = {
    * @pattern `^(([1-9][0-9]{0,4})|([a-zA-Z][a-zA-Z0-9_]{0,47}))$`
    */
   Qualifier?: string;
+  Schema?: HttpApiSchemaConfiguration;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.S3Configuration`.
@@ -470,6 +555,22 @@ export type SelfManagedLatticeResource = {
    * @pattern `^((rcfg-[0-9a-z]{17})|(arn:[a-z0-9\-]+:vpc-lattice:[a-zA-Z0-9\-]+:\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}))$`
    */
   ResourceConfigurationIdentifier: string;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::GatewayTarget.StickinessConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-gatewaytarget-stickinessconfiguration.html}
+ */
+export type StickinessConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `256`
+   */
+  Identifier: string;
+  /**
+   * @min `1`
+   * @max `86400`
+   */
+  Timeout?: number;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::GatewayTarget.TargetConfiguration`.

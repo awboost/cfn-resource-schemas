@@ -247,6 +247,10 @@ export type GameServerContainerDefinition = {
    */
   ImageUri: string;
   /**
+   * Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+   */
+  LinuxCapabilities?: LinuxCapabilities;
+  /**
    * A list of mount point configurations to be used in a container.
    * @minLength `1`
    * @maxLength `10`
@@ -267,6 +271,57 @@ export type GameServerContainerDefinition = {
    * @pattern `^\d+\.\d+\.\d+$`
    */
   ServerSdkVersion: string;
+};
+/**
+ * Type definition for `AWS::GameLift::ContainerGroupDefinition.LinuxCapabilities`.
+ * A set of Linux capabilities that are added to a container's default Docker configuration. For more detailed information, see the capabilities(7) Linux manual page.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-linuxcapabilities.html}
+ */
+export type LinuxCapabilities = {
+  /**
+   * The list of Linux capabilities to add to the container's default configuration.
+   * @minLength `0`
+   * @maxLength `37`
+   */
+  Include?: (
+    | "AUDIT_CONTROL"
+    | "AUDIT_WRITE"
+    | "BLOCK_SUSPEND"
+    | "CHOWN"
+    | "DAC_OVERRIDE"
+    | "DAC_READ_SEARCH"
+    | "FOWNER"
+    | "FSETID"
+    | "IPC_LOCK"
+    | "IPC_OWNER"
+    | "KILL"
+    | "LEASE"
+    | "LINUX_IMMUTABLE"
+    | "MAC_ADMIN"
+    | "MAC_OVERRIDE"
+    | "MKNOD"
+    | "NET_ADMIN"
+    | "NET_BIND_SERVICE"
+    | "NET_BROADCAST"
+    | "NET_RAW"
+    | "SETFCAP"
+    | "SETGID"
+    | "SETPCAP"
+    | "SETUID"
+    | "SYS_ADMIN"
+    | "SYS_BOOT"
+    | "SYS_CHROOT"
+    | "SYS_MODULE"
+    | "SYS_NICE"
+    | "SYS_PACCT"
+    | "SYS_PTRACE"
+    | "SYS_RAWIO"
+    | "SYS_RESOURCE"
+    | "SYS_TIME"
+    | "SYS_TTY_CONFIG"
+    | "SYSLOG"
+    | "WAKE_ALARM"
+  )[];
 };
 /**
  * Type definition for `AWS::GameLift::ContainerGroupDefinition.PortConfiguration`.
@@ -321,6 +376,10 @@ export type SupportContainerDefinition = {
    * @pattern `^[a-zA-Z0-9-_\.@\/:]+$`
    */
   ImageUri: string;
+  /**
+   * Linux-specific modifications applied to the default Docker container configuration, such as Linux capabilities.
+   */
+  LinuxCapabilities?: LinuxCapabilities;
   /**
    * The total memory limit of container groups following this definition in MiB
    * @min `4`

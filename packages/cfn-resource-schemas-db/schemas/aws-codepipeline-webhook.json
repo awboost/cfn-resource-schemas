@@ -1,9 +1,29 @@
 {
-  "$hash": "91fe22bc24fc9a25a81acd142f3ee2ca5151a994",
+  "$hash": "faaad811b15c33d8458da698f2ca4f47286f91d6",
   "$id": "aws-codepipeline-webhook.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
   "definitions": {
+    "Tag": {
+      "additionalProperties": false,
+      "description": "A key-value pair to associate with a resource.",
+      "properties": {
+        "Key": {
+          "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        "Value": {
+          "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "maxLength": 256,
+          "minLength": 0,
+          "type": "string"
+        }
+      },
+      "required": ["Key", "Value"],
+      "type": "object"
+    },
     "WebhookAuthConfiguration": {
       "additionalProperties": false,
       "description": "Properties that configure the authentication applied to incoming webhook trigger requests",
@@ -50,14 +70,16 @@
       "permissions": [
         "codepipeline:ListWebhooks",
         "codepipeline:RegisterWebhookWithThirdParty",
-        "codepipeline:PutWebhook"
+        "codepipeline:PutWebhook",
+        "codepipeline:TagResource"
       ]
     },
     "delete": {
       "permissions": [
         "codepipeline:ListWebhooks",
         "codepipeline:DeleteWebhook",
-        "codepipeline:DeregisterWebhookWithThirdParty"
+        "codepipeline:DeregisterWebhookWithThirdParty",
+        "codepipeline:UntagResource"
       ]
     },
     "list": { "permissions": ["codepipeline:ListWebhooks"] },
@@ -67,7 +89,9 @@
         "codepipeline:ListWebhooks",
         "codepipeline:RegisterWebhookWithThirdParty",
         "codepipeline:PutWebhook",
-        "codepipeline:DeregisterWebhookWithThirdParty"
+        "codepipeline:DeregisterWebhookWithThirdParty",
+        "codepipeline:TagResource",
+        "codepipeline:UntagResource"
       ]
     }
   },
@@ -101,6 +125,13 @@
       "description": "Configures a connection between the webhook that was created and the external tool with events to be detected.",
       "type": "boolean"
     },
+    "Tags": {
+      "description": "An array of key-value pairs to apply to this resource.",
+      "insertionOrder": false,
+      "items": { "$ref": "#/definitions/Tag" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "TargetAction": {
       "description": "The name of the action in a pipeline you want to connect to the webhook.",
       "maxLength": 100,
@@ -133,7 +164,14 @@
     "TargetAction"
   ],
   "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-codepipeline-webhook",
-  "tagging": { "taggable": false },
+  "tagging": {
+    "cloudFormationSystemTags": false,
+    "permissions": ["codepipeline:TagResource", "codepipeline:UntagResource"],
+    "tagOnCreate": true,
+    "tagProperty": "/properties/Tags",
+    "tagUpdatable": true,
+    "taggable": true
+  },
   "typeName": "AWS::CodePipeline::Webhook",
   "writeOnlyProperties": [
     "/properties/TargetPipelineVersion",

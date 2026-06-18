@@ -1,5 +1,5 @@
 {
-  "$hash": "4a904ac7622262861494c86169285c43b16ad592",
+  "$hash": "6748d8a9154795636a2939cef08042ed30d64936",
   "$id": "aws-bedrockagentcore-configurationbundle.json",
   "additionalIdentifiers": [["/properties/BundleId"]],
   "additionalProperties": false,
@@ -90,20 +90,34 @@
         "bedrock-agentcore:CreateConfigurationBundle",
         "bedrock-agentcore:GetConfigurationBundle",
         "bedrock-agentcore:TagResource",
-        "bedrock-agentcore:ListTagsForResource"
+        "bedrock-agentcore:ListTagsForResource",
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:ReEncryptFrom",
+        "kms:ReEncryptTo",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:DescribeKey",
+        "kms:CreateGrant",
+        "kms:RetireGrant"
       ]
     },
     "delete": {
       "permissions": [
         "bedrock-agentcore:DeleteConfigurationBundle",
-        "bedrock-agentcore:GetConfigurationBundle"
+        "bedrock-agentcore:GetConfigurationBundle",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:RetireGrant"
       ]
     },
     "list": { "permissions": ["bedrock-agentcore:ListConfigurationBundles"] },
     "read": {
       "permissions": [
         "bedrock-agentcore:GetConfigurationBundle",
-        "bedrock-agentcore:ListTagsForResource"
+        "bedrock-agentcore:ListTagsForResource",
+        "kms:Decrypt",
+        "kms:DescribeKey"
       ]
     },
     "update": {
@@ -112,7 +126,16 @@
         "bedrock-agentcore:GetConfigurationBundle",
         "bedrock-agentcore:TagResource",
         "bedrock-agentcore:UntagResource",
-        "bedrock-agentcore:ListTagsForResource"
+        "bedrock-agentcore:ListTagsForResource",
+        "kms:Encrypt",
+        "kms:Decrypt",
+        "kms:ReEncryptFrom",
+        "kms:ReEncryptTo",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "kms:DescribeKey",
+        "kms:CreateGrant",
+        "kms:RetireGrant"
       ]
     }
   },
@@ -167,6 +190,13 @@
       "maxLength": 500,
       "minLength": 1,
       "pattern": "^.+$",
+      "type": "string"
+    },
+    "KmsKeyArn": {
+      "description": "The ARN of the KMS key used to encrypt component configurations.",
+      "maxLength": 2048,
+      "minLength": 1,
+      "pattern": "^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$",
       "type": "string"
     },
     "LineageMetadata": { "$ref": "#/definitions/VersionLineageMetadata" },

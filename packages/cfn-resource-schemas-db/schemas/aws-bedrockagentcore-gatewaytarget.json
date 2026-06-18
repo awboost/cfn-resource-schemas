@@ -1,5 +1,5 @@
 {
-  "$hash": "aa709f228c366907ca64eb8ec3757aa454771f74",
+  "$hash": "0fc626b42e53d14852b4622fff31d6fe0a13181a",
   "$id": "aws-bedrockagentcore-gatewaytarget.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/GatewayIdentifier"],
@@ -113,6 +113,60 @@
         }
       ]
     },
+    "ConnectorConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Description": { "maxLength": 2000, "type": "string" },
+        "Name": {
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_-]*$",
+          "type": "string"
+        },
+        "ParameterOverrides": {
+          "items": { "$ref": "#/definitions/ConnectorParameterOverride" },
+          "type": "array"
+        },
+        "ParameterValues": { "type": "object" }
+      },
+      "required": ["Name"],
+      "type": "object"
+    },
+    "ConnectorParameterOverride": {
+      "additionalProperties": false,
+      "properties": {
+        "Description": { "type": "string" },
+        "Path": { "type": "string" },
+        "Visible": { "type": "boolean" }
+      },
+      "required": ["Path"],
+      "type": "object"
+    },
+    "ConnectorSource": {
+      "additionalProperties": false,
+      "properties": {
+        "ConnectorId": { "maxLength": 256, "minLength": 1, "type": "string" }
+      },
+      "required": ["ConnectorId"],
+      "type": "object"
+    },
+    "ConnectorTargetConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Configurations": {
+          "items": { "$ref": "#/definitions/ConnectorConfiguration" },
+          "type": "array"
+        },
+        "Enabled": {
+          "items": { "type": "string" },
+          "maxItems": 50,
+          "minItems": 1,
+          "type": "array"
+        },
+        "Source": { "$ref": "#/definitions/ConnectorSource" }
+      },
+      "required": ["Source"],
+      "type": "object"
+    },
     "CredentialProvider": {
       "oneOf": [
         {
@@ -172,6 +226,14 @@
       "type": "string"
     },
     "EndpointIpAddressType": { "enum": ["IPV4", "IPV6"], "type": "string" },
+    "HttpApiSchemaConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Source": { "$ref": "#/definitions/ApiSchemaConfiguration" }
+      },
+      "required": ["Source"],
+      "type": "object"
+    },
     "HttpTargetConfiguration": {
       "oneOf": [
         {
@@ -183,6 +245,17 @@
           },
           "required": ["AgentcoreRuntime"],
           "title": "AgentcoreRuntime",
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Passthrough": {
+              "$ref": "#/definitions/PassthroughTargetConfiguration"
+            }
+          },
+          "required": ["Passthrough"],
+          "title": "Passthrough",
           "type": "object"
         }
       ]
@@ -332,6 +405,17 @@
           "required": ["ApiGateway"],
           "title": "ApiGateway",
           "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "Connector": {
+              "$ref": "#/definitions/ConnectorTargetConfiguration"
+            }
+          },
+          "required": ["Connector"],
+          "title": "Connector",
+          "type": "object"
         }
       ]
     },
@@ -418,6 +502,28 @@
       "enum": ["AUTHORIZATION_CODE", "CLIENT_CREDENTIALS", "TOKEN_EXCHANGE"],
       "type": "string"
     },
+    "PassthroughProtocolType": {
+      "enum": ["MCP", "A2A", "INFERENCE", "CUSTOM"],
+      "type": "string"
+    },
+    "PassthroughTargetConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Endpoint": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "pattern": "^https://[a-zA-Z0-9\\-\\.]+(:[0-9]{1,5})?(/.*)?$",
+          "type": "string"
+        },
+        "ProtocolType": { "$ref": "#/definitions/PassthroughProtocolType" },
+        "Schema": { "$ref": "#/definitions/HttpApiSchemaConfiguration" },
+        "StickinessConfiguration": {
+          "$ref": "#/definitions/StickinessConfiguration"
+        }
+      },
+      "required": ["Endpoint", "ProtocolType"],
+      "type": "object"
+    },
     "PrivateEndpoint": {
       "oneOf": [
         {
@@ -456,7 +562,8 @@
         "Qualifier": {
           "pattern": "^(([1-9][0-9]{0,4})|([a-zA-Z][a-zA-Z0-9_]{0,47}))$",
           "type": "string"
-        }
+        },
+        "Schema": { "$ref": "#/definitions/HttpApiSchemaConfiguration" }
       },
       "required": ["Arn"],
       "type": "object"
@@ -509,6 +616,15 @@
           "type": "object"
         }
       ]
+    },
+    "StickinessConfiguration": {
+      "additionalProperties": false,
+      "properties": {
+        "Identifier": { "maxLength": 256, "minLength": 1, "type": "string" },
+        "Timeout": { "maximum": 86400, "minimum": 1, "type": "integer" }
+      },
+      "required": ["Identifier"],
+      "type": "object"
     },
     "TargetConfiguration": {
       "oneOf": [
@@ -590,6 +706,7 @@
       "permissions": [
         "apigateway:GET",
         "bedrock-agentcore:CreateGatewayTarget",
+        "bedrock-agentcore:GetAgentRuntime",
         "bedrock-agentcore:GetGatewayTarget",
         "bedrock-agentcore:GetResourceOauth2Token",
         "bedrock-agentcore:GetWorkloadAccessToken",
@@ -634,6 +751,7 @@
     "update": {
       "permissions": [
         "apigateway:GET",
+        "bedrock-agentcore:GetAgentRuntime",
         "bedrock-agentcore:GetGatewayTarget",
         "bedrock-agentcore:GetResourceOauth2Token",
         "bedrock-agentcore:GetWorkloadAccessToken",
@@ -716,7 +834,7 @@
     "/properties/AuthorizationData",
     "/properties/ProtocolType"
   ],
-  "required": ["Name", "TargetConfiguration"],
+  "required": ["TargetConfiguration"],
   "tagging": { "cloudFormationSystemTags": false, "taggable": false },
   "typeName": "AWS::BedrockAgentCore::GatewayTarget"
 }

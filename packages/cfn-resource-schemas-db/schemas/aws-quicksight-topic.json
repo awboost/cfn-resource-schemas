@@ -1,5 +1,5 @@
 {
-  "$hash": "4e368e6ba185e75aaa6814c2cafd4bbc5d4b5c9a",
+  "$hash": "a15ecf22fd51c227d24ef5e48744441cf0154ebb",
   "$id": "aws-quicksight-topic.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -80,7 +80,7 @@
       "additionalProperties": false,
       "properties": {
         "CustomInstructionsString": {
-          "maxLength": 5000,
+          "maxLength": 10000,
           "minLength": 0,
           "type": "string"
         }

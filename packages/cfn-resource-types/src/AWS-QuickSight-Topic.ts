@@ -140,7 +140,7 @@ export type ConstantType = "SINGULAR" | "RANGE" | "COLLECTIVE";
 export type CustomInstructions = {
   /**
    * @minLength `0`
-   * @maxLength `5000`
+   * @maxLength `10000`
    */
   CustomInstructionsString: string;
 };

@@ -1,5 +1,5 @@
 {
-  "$hash": "6a3e3f861346197877a18f1c6f2148a1ddfef86a",
+  "$hash": "96307f1abb7ec386fd0af3e449550b317072263b",
   "$id": "aws-bedrockagentcore-policy.json",
   "additionalIdentifiers": [
     ["/properties/PolicyEngineId", "/properties/PolicyId"]
@@ -13,7 +13,7 @@
       "properties": {
         "Statement": {
           "description": "The Cedar policy statement that defines the authorization logic.",
-          "maxLength": 153600,
+          "maxLength": 10000,
           "minLength": 35,
           "type": "string"
         }
@@ -21,11 +21,34 @@
       "required": ["Statement"],
       "type": "object"
     },
+    "EnforcementMode": {
+      "default": "ACTIVE",
+      "description": "Whether the policy contributes to the enforce decision returned to Gateway. LOG_ONLY policies are still evaluated but their decisions are observed only, allowing customers to validate a policy against real traffic before promoting it.",
+      "enum": ["ACTIVE", "LOG_ONLY"],
+      "type": "string"
+    },
     "PolicyDefinition": {
       "additionalProperties": false,
       "description": "The definition structure for policies. Encapsulates different policy formats.",
-      "properties": { "Cedar": { "$ref": "#/definitions/CedarPolicy" } },
-      "required": ["Cedar"],
+      "oneOf": [{ "required": ["Cedar"] }, { "required": ["Policy"] }],
+      "properties": {
+        "Cedar": { "$ref": "#/definitions/CedarPolicy" },
+        "Policy": { "$ref": "#/definitions/PolicyStatement" }
+      },
+      "type": "object"
+    },
+    "PolicyStatement": {
+      "additionalProperties": false,
+      "description": "A policy statement within the AgentCore Policy system.",
+      "properties": {
+        "Statement": {
+          "description": "The policy statement.",
+          "maxLength": 10000,
+          "minLength": 35,
+          "type": "string"
+        }
+      },
+      "required": ["Statement"],
       "type": "object"
     },
     "PolicyStatus": {
@@ -102,6 +125,7 @@
       "minLength": 1,
       "type": "string"
     },
+    "EnforcementMode": { "$ref": "#/definitions/EnforcementMode" },
     "Name": {
       "description": "The customer-assigned immutable name for the policy. Must be unique within the policy engine.",
       "maxLength": 48,

@@ -39,6 +39,13 @@ export type BedrockAgentCoreConfigurationBundleProperties = {
    */
   Description?: string;
   /**
+   * The ARN of the KMS key used to encrypt component configurations.
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(|-cn|-us-gov):kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
+   */
+  KmsKeyArn?: string;
+  /**
    * Tags to assign to the configuration bundle.
    * @maxLength `50`
    */

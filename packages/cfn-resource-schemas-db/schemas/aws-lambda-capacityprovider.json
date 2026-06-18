@@ -1,5 +1,5 @@
 {
-  "$hash": "1ef54599bdadedaf3604e53bef48df4b19554d25",
+  "$hash": "92e6dd7c8df179fa8ea496cd3cfe5db1258db1db",
   "$id": "aws-lambda-capacityprovider.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -14,6 +14,25 @@
       "description": "Specifications for the types of EC2 instances that the capacity provider can use.",
       "enum": ["x86_64", "arm64"],
       "type": "string"
+    },
+    "CapacityProviderLoggingConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "LogGroup": {
+          "description": "The log group name.",
+          "maxLength": 512,
+          "minLength": 1,
+          "pattern": "[\\.\\-_/#A-Za-z0-9]+",
+          "type": "string"
+        },
+        "SystemLogLevel": {
+          "description": "System log granularity level",
+          "enum": ["DEBUG", "INFO", "WARN"],
+          "type": "string"
+        }
+      },
+      "type": "object"
     },
     "CapacityProviderPermissionsConfig": {
       "additionalProperties": false,
@@ -69,6 +88,17 @@
       "description": "The current state of the capacity provider. Indicates whether the provider is being created, is active and ready for use, has failed, or is being deleted.",
       "enum": ["Pending", "Active", "Failed", "Deleting"],
       "type": "string"
+    },
+    "CapacityProviderTelemetryConfig": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "LoggingConfig": {
+          "$ref": "#/definitions/CapacityProviderLoggingConfig",
+          "description": "The logging configuration for the capacity provider."
+        }
+      },
+      "type": "object"
     },
     "CapacityProviderVpcConfig": {
       "additionalProperties": false,
@@ -295,6 +325,10 @@
       "items": { "$ref": "#/definitions/Tag" },
       "type": "array",
       "uniqueItems": true
+    },
+    "TelemetryConfig": {
+      "$ref": "#/definitions/CapacityProviderTelemetryConfig",
+      "description": ""
     },
     "VpcConfig": {
       "$ref": "#/definitions/CapacityProviderVpcConfig",

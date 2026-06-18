@@ -36,6 +36,7 @@ export type LambdaCapacityProviderProperties = {
    * A key-value pair that provides metadata for the capacity provider.
    */
   Tags?: Tag[];
+  TelemetryConfig?: CapacityProviderTelemetryConfig;
   /**
    * The VPC configuration for the capacity provider.
    */
@@ -63,6 +64,23 @@ export type LambdaCapacityProviderAttributes = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-architecture.html}
  */
 export type Architecture = "x86_64" | "arm64";
+/**
+ * Type definition for `AWS::Lambda::CapacityProvider.CapacityProviderLoggingConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityproviderloggingconfig.html}
+ */
+export type CapacityProviderLoggingConfig = {
+  /**
+   * The log group name.
+   * @minLength `1`
+   * @maxLength `512`
+   * @pattern `[\.\-_/#A-Za-z0-9]+`
+   */
+  LogGroup?: string;
+  /**
+   * System log granularity level
+   */
+  SystemLogLevel?: "DEBUG" | "INFO" | "WARN";
+};
 /**
  * Type definition for `AWS::Lambda::CapacityProvider.CapacityProviderPermissionsConfig`.
  * Configuration that specifies the permissions required for the capacity provider to manage compute resources.
@@ -123,6 +141,16 @@ export type CapacityProviderState =
   | "Active"
   | "Failed"
   | "Deleting";
+/**
+ * Type definition for `AWS::Lambda::CapacityProvider.CapacityProviderTelemetryConfig`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-capacityprovider-capacityprovidertelemetryconfig.html}
+ */
+export type CapacityProviderTelemetryConfig = {
+  /**
+   * The logging configuration for the capacity provider.
+   */
+  LoggingConfig?: CapacityProviderLoggingConfig;
+};
 /**
  * Type definition for `AWS::Lambda::CapacityProvider.CapacityProviderVpcConfig`.
  * VPC configuration that specifies the network settings for compute instances managed by the capacity provider.

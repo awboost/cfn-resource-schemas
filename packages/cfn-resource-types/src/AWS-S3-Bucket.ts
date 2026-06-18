@@ -137,6 +137,16 @@ export type S3BucketAttributes = {
    * The S3 Metadata configuration for a general purpose bucket.
    */
   MetadataConfiguration: {
+    AnnotationTableConfiguration: {
+      /**
+       * The ARN of the annotation table.
+       */
+      TableArn: string;
+      /**
+       * The name of the annotation table.
+       */
+      TableName: string;
+    };
     /**
      * The destination information for the S3 Metadata configuration.
      */
@@ -259,6 +269,24 @@ export type AnalyticsConfiguration = {
      The analytics only includes objects that meet the filter's criteria. If no filter is specified, all of the contents of the bucket are included in the analysis.
      */
   TagFilters?: TagFilter[];
+};
+/**
+ * Type definition for `AWS::S3::Bucket.AnnotationTableConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-annotationtableconfiguration.html}
+ */
+export type AnnotationTableConfiguration = {
+  /**
+   * Specifies whether annotation table configuration is enabled or disabled.
+   */
+  ConfigurationState: "ENABLED" | "DISABLED";
+  /**
+   * The encryption configuration for the annotation table.
+   */
+  EncryptionConfiguration?: MetadataTableEncryptionConfiguration;
+  /**
+   * The ARN of the IAM role that grants Amazon S3 Metadata permission to read annotations from your bucket.
+   */
+  Role?: string;
 };
 /**
  * Type definition for `AWS::S3::Bucket.BlockedEncryptionTypes`.
@@ -626,6 +654,7 @@ export type LoggingConfiguration = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadataconfiguration.html}
  */
 export type MetadataConfiguration = {
+  AnnotationTableConfiguration?: AnnotationTableConfiguration;
   /**
    * The inventory table configuration for a metadata configuration.
    */

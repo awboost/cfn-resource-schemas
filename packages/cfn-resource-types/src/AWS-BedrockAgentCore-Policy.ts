@@ -16,6 +16,10 @@ export type BedrockAgentCorePolicyProperties = {
    */
   Description?: string;
   /**
+   * Whether the policy contributes to the enforce decision returned to Gateway. LOG_ONLY policies are still evaluated but their decisions are observed only, allowing customers to validate a policy against real traffic before promoting it.
+   */
+  EnforcementMode?: EnforcementMode;
+  /**
    * The customer-assigned immutable name for the policy. Must be unique within the policy engine.
    * @minLength `1`
    * @maxLength `48`
@@ -79,10 +83,16 @@ export type CedarPolicy = {
   /**
    * The Cedar policy statement that defines the authorization logic.
    * @minLength `35`
-   * @maxLength `153600`
+   * @maxLength `10000`
    */
   Statement: string;
 };
+/**
+ * Type definition for `AWS::BedrockAgentCore::Policy.EnforcementMode`.
+ * Whether the policy contributes to the enforce decision returned to Gateway. LOG_ONLY policies are still evaluated but their decisions are observed only, allowing customers to validate a policy against real traffic before promoting it.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-policy-enforcementmode.html}
+ */
+export type EnforcementMode = "ACTIVE" | "LOG_ONLY";
 /**
  * Type definition for `AWS::BedrockAgentCore::Policy.PolicyDefinition`.
  * The definition structure for policies. Encapsulates different policy formats.
@@ -92,7 +102,24 @@ export type PolicyDefinition = {
   /**
    * A Cedar policy statement within the AgentCore Policy system.
    */
-  Cedar: CedarPolicy;
+  Cedar?: CedarPolicy;
+  /**
+   * A policy statement within the AgentCore Policy system.
+   */
+  Policy?: PolicyStatement;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Policy.PolicyStatement`.
+ * A policy statement within the AgentCore Policy system.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-policy-policystatement.html}
+ */
+export type PolicyStatement = {
+  /**
+   * The policy statement.
+   * @minLength `35`
+   * @maxLength `10000`
+   */
+  Statement: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Policy.PolicyStatus`.

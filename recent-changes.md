@@ -1,138 +1,46 @@
-- added `AWS::Neptune::GlobalCluster`
-- updated `AWS::ApplicationInsights::Application`
+- updated `AWS::AmazonMQ::Configuration`
   - updated `tagging`
-- updated `AWS::BedrockAgentCore::Harness`
-  - added definition `EfsAccessPointConfiguration`
-  - added definition `HarnessLiteLlmModelConfig`
-  - added definition `HarnessSkillGitAuth`
-  - added definition `HarnessSkillGitSource`
-  - added definition `HarnessSkillS3Source`
-  - added definition `ManagedVpcResource`
-  - added definition `PrivateEndpointOverride`
-  - added definition `PrivateEndpoint`
-  - added definition `S3FilesAccessPointConfiguration`
-  - added definition `SelfManagedLatticeResource`
-  - updated `createOnlyProperties`
-  - updated definition `CustomJWTAuthorizerConfiguration`
-  - updated definition `FilesystemConfiguration`
-  - updated definition `HarnessAgentCoreMemoryRetrievalConfig`
-  - updated definition `HarnessAgentCoreRuntimeEnvironment`
-  - updated definition `HarnessBedrockModelConfig`
-  - updated definition `HarnessModelConfiguration`
-  - updated definition `HarnessOpenAiModelConfig`
-  - updated definition `HarnessSkill`
+- updated `AWS::BedrockAgentCore::ConfigurationBundle`
+  - added property `KmsKeyArn`
   - updated handler permissions
-- updated `AWS::BedrockAgentCore::PaymentConnector`
-  - added `resourceLink`
-- updated `AWS::CloudWatch::LogAlarm`
-  - updated definition `ScheduledQueryConfiguration`
-- updated `AWS::EC2::LaunchTemplate`
-  - updated definition `ConnectionTrackingSpecification`
-- updated `AWS::EC2::Route`
-  - updated property `OdbNetworkArn`
-- updated `AWS::ECS::DaemonTaskDefinition`
-  - updated property `IpcMode`
-  - updated property `PidMode`
-- updated `AWS::ECS::TaskDefinition`
-  - updated definition `ContainerDefinition`
-  - updated definition `LinuxParameters`
-  - updated definition `ResourceRequirement`
-  - updated definition `S3FilesVolumeConfiguration`
-  - updated definition `Volume`
-- updated `AWS::ElasticLoadBalancing::LoadBalancer`
-  - added `conditionalCreateOnlyProperties`
-  - added `documentationUrl`
-  - added `sourceUrl`
-  - added `tagging`
-  - added definition `PolicyItem`
-  - added definition `SourceSecurityGroup`
-  - added property `SourceSecurityGroup`
-  - removed property `Id`
-  - removed property `SourceSecurityGroupGroupName`
-  - removed property `SourceSecurityGroupOwnerAlias`
-  - updated `primaryIdentifier`
+- updated `AWS::BedrockAgentCore::GatewayTarget`
+  - added definition `ConnectorConfiguration`
+  - added definition `ConnectorParameterOverride`
+  - added definition `ConnectorSource`
+  - added definition `ConnectorTargetConfiguration`
+  - added definition `HttpApiSchemaConfiguration`
+  - added definition `PassthroughProtocolType`
+  - added definition `PassthroughTargetConfiguration`
+  - added definition `StickinessConfiguration`
+  - updated `required`
+  - updated definition `HttpTargetConfiguration`
+  - updated definition `McpTargetConfiguration`
+  - updated definition `RuntimeTargetConfiguration`
+  - updated handler permissions
+- updated `AWS::BedrockAgentCore::Policy`
+  - added definition `EnforcementMode`
+  - added definition `PolicyStatement`
+  - added property `EnforcementMode`
+  - updated definition `CedarPolicy`
+  - updated definition `PolicyDefinition`
+- updated `AWS::CodePipeline::Webhook`
+  - added definition `Tag`
+  - added property `Tags`
+  - updated `tagging`
+  - updated handler permissions
+- updated `AWS::GameLift::ContainerGroupDefinition`
+  - added definition `LinuxCapabilities`
+  - updated definition `GameServerContainerDefinition`
+  - updated definition `SupportContainerDefinition`
+- updated `AWS::Lambda::CapacityProvider`
+  - added definition `CapacityProviderLoggingConfig`
+  - added definition `CapacityProviderTelemetryConfig`
+  - added property `TelemetryConfig`
+- updated `AWS::QuickSight::Topic`
+  - updated definition `CustomInstructions`
+- updated `AWS::S3::Bucket`
+  - added definition `AnnotationTableConfiguration`
   - updated `readOnlyProperties`
-  - updated definition `AccessLoggingPolicy`
-  - updated definition `AppCookieStickinessPolicy`
-  - updated definition `ConnectionDrainingPolicy`
-  - updated definition `ConnectionSettings`
-  - updated definition `HealthCheck`
-  - updated definition `LBCookieStickinessPolicy`
-  - updated definition `Listeners`
-  - updated definition `Policies`
-  - updated definition `Tag`
-  - updated handler permissions
-  - updated property `AccessLoggingPolicy`
-  - updated property `AppCookieStickinessPolicy`
-  - updated property `AvailabilityZones`
-  - updated property `CanonicalHostedZoneNameID`
-  - updated property `CanonicalHostedZoneName`
-  - updated property `ConnectionDrainingPolicy`
-  - updated property `ConnectionSettings`
-  - updated property `CrossZone`
-  - updated property `DNSName`
-  - updated property `HealthCheck`
-  - updated property `Instances`
-  - updated property `LBCookieStickinessPolicy`
-  - updated property `Listeners`
-  - updated property `LoadBalancerName`
-  - updated property `Policies`
-  - updated property `Scheme`
-  - updated property `SecurityGroups`
-  - updated property `Subnets`
-  - updated property `Tags`
-- updated `AWS::Lambda::Function`
-  - updated handler permissions
-- updated `AWS::MediaPackageV2::OriginEndpoint`
-  - added definition `DashAudioTimelinePattern`
-  - updated definition `DashManifestConfiguration`
-  - updated definition `ScteFilter`
-- updated `AWS::Route53RecoveryReadiness::Cell`
-  - updated `tagging`
-- updated `AWS::Route53RecoveryReadiness::ReadinessCheck`
-  - updated `tagging`
-- updated `AWS::Route53RecoveryReadiness::RecoveryGroup`
-  - updated `tagging`
-- updated `AWS::Route53RecoveryReadiness::ResourceSet`
-  - updated `tagging`
-- updated `AWS::SageMaker::Cluster`
-  - added definition `RestrictedInstanceGroupsConfig`
-  - added definition `SharedEnvironmentConfig`
-  - added property `RestrictedInstanceGroupsConfig`
-  - updated definition `ClusterRestrictedInstanceGroup`
-- updated `AWS::WAFv2::LoggingConfiguration`
-  - updated definition `Condition`
-- updated `AWS::WAFv2::RuleGroup`
-  - added definition `BlockchainChain`
-  - added definition `CryptoConfig`
-  - added definition `CryptoCurrency`
-  - added definition `CurrencyMode`
-  - added definition `MonetizationConfig`
-  - added definition `MonetizeAction`
-  - added definition `PaymentNetwork`
-  - added definition `PaymentNetworks`
-  - added definition `PriceAmount`
-  - added definition `PriceMultiplier`
-  - added definition `Price`
-  - added definition `Prices`
-  - added definition `WalletAddress`
-  - added property `MonetizationConfig`
-  - updated definition `RuleAction`
-- updated `AWS::WAFv2::WebACL`
-  - added definition `BlockchainChain`
-  - added definition `CryptoConfig`
-  - added definition `CryptoCurrency`
-  - added definition `CurrencyMode`
-  - added definition `MonetizationConfig`
-  - added definition `MonetizeAction`
-  - added definition `PaymentNetwork`
-  - added definition `PaymentNetworks`
-  - added definition `PriceAmount`
-  - added definition `PriceMultiplier`
-  - added definition `Price`
-  - added definition `Prices`
-  - added definition `WalletAddress`
-  - added property `MonetizationConfig`
-  - updated definition `RuleAction`
-- updated `AWS::WAFv2::WebACLAssociation`
+  - updated `writeOnlyProperties`
+  - updated definition `MetadataConfiguration`
   - updated handler permissions
