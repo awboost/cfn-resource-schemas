@@ -1,5 +1,5 @@
 {
-  "$hash": "453d865a7dd152f22f414b09333b7ebb114c2f77",
+  "$hash": "32b65d0fff7cb4cf14c229dbe26e443445f07316",
   "$id": "aws-lambda-layerversion.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -20,6 +20,11 @@
         },
         "S3Key": {
           "description": "The Amazon S3 key of the layer archive.",
+          "type": "string"
+        },
+        "S3ObjectStorageMode": {
+          "description": "Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).",
+          "enum": ["COPY", "REFERENCE"],
           "type": "string"
         },
         "S3ObjectVersion": {

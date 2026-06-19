@@ -36,6 +36,10 @@ export type RAMResourceShareProperties = {
    */
   ResourceArns?: string[];
   /**
+   * Specifies the configuration for the resource share
+   */
+  ResourceShareConfiguration?: ResourceShareConfiguration;
+  /**
    * Specifies from which source accounts the service principal has access to the resources in this resource share.
    */
   Sources?: string[];
@@ -70,6 +74,21 @@ export type RAMResourceShareAttributes = {
    * The current status of the resource share.
    */
   Status: "PENDING" | "ACTIVE" | "FAILED" | "DELETING" | "DELETED";
+};
+/**
+ * Type definition for `AWS::RAM::ResourceShare.ResourceShareConfiguration`.
+ * The configuration for a resource share.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ram-resourceshare-resourceshareconfiguration.html}
+ */
+export type ResourceShareConfiguration = {
+  /**
+   * The resource share restricts access to an account
+   */
+  ExclusiveAccountAccess?: boolean;
+  /**
+   * Specifies whether the consumer account retains access to the resource share after leaving the organization.
+   */
+  RetainSharingOnAccountLeaveOrganization?: boolean;
 };
 /**
  * Type definition for `AWS::RAM::ResourceShare.Tag`.

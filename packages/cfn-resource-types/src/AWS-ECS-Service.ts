@@ -91,6 +91,7 @@ export type ECSServiceProperties = {
       To remove this property from your service resource, specify an empty ``LoadBalancer`` array.
      */
   LoadBalancers?: LoadBalancer[];
+  Monitoring?: MonitoringConfiguration;
   /**
    * The network configuration for the service. This parameter is required for task definitions that use the ``awsvpc`` network mode to receive their own elastic network interface, and it is not supported for other network modes. For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html) in the *Amazon Elastic Container Service Developer Guide*.
    */
@@ -678,6 +679,29 @@ export type LogConfiguration = {
    * The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the *Amazon Elastic Container Service Developer Guide*.
    */
   SecretOptions?: Secret[];
+};
+/**
+ * Type definition for `AWS::ECS::Service.MetricConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-metricconfiguration.html}
+ */
+export type MetricConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  MetricNames: ("CPUUtilization" | "MemoryUtilization")[];
+  ResolutionSeconds: 20 | 60;
+};
+/**
+ * Type definition for `AWS::ECS::Service.MonitoringConfiguration`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-monitoringconfiguration.html}
+ */
+export type MonitoringConfiguration = {
+  /**
+   * @minLength `1`
+   * @maxLength `2`
+   */
+  MetricConfigurations: MetricConfiguration[];
 };
 /**
  * Type definition for `AWS::ECS::Service.NetworkConfiguration`.

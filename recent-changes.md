@@ -1,46 +1,22 @@
-- updated `AWS::AmazonMQ::Configuration`
+- updated `AWS::Connect::TaskTemplate`
+  - updated definition `FieldOption`
+  - updated handler permissions
+  - updated property `ContactFlowArn`
+  - updated property `SelfAssignContactFlowArn`
+- updated `AWS::Connect::TrafficDistributionGroup`
   - updated `tagging`
-- updated `AWS::BedrockAgentCore::ConfigurationBundle`
-  - added property `KmsKeyArn`
-  - updated handler permissions
-- updated `AWS::BedrockAgentCore::GatewayTarget`
-  - added definition `ConnectorConfiguration`
-  - added definition `ConnectorParameterOverride`
-  - added definition `ConnectorSource`
-  - added definition `ConnectorTargetConfiguration`
-  - added definition `HttpApiSchemaConfiguration`
-  - added definition `PassthroughProtocolType`
-  - added definition `PassthroughTargetConfiguration`
-  - added definition `StickinessConfiguration`
-  - updated `required`
-  - updated definition `HttpTargetConfiguration`
-  - updated definition `McpTargetConfiguration`
-  - updated definition `RuntimeTargetConfiguration`
-  - updated handler permissions
-- updated `AWS::BedrockAgentCore::Policy`
-  - added definition `EnforcementMode`
-  - added definition `PolicyStatement`
-  - added property `EnforcementMode`
-  - updated definition `CedarPolicy`
-  - updated definition `PolicyDefinition`
-- updated `AWS::CodePipeline::Webhook`
-  - added definition `Tag`
-  - added property `Tags`
-  - updated `tagging`
-  - updated handler permissions
-- updated `AWS::GameLift::ContainerGroupDefinition`
-  - added definition `LinuxCapabilities`
-  - updated definition `GameServerContainerDefinition`
-  - updated definition `SupportContainerDefinition`
-- updated `AWS::Lambda::CapacityProvider`
-  - added definition `CapacityProviderLoggingConfig`
-  - added definition `CapacityProviderTelemetryConfig`
-  - added property `TelemetryConfig`
-- updated `AWS::QuickSight::Topic`
-  - updated definition `CustomInstructions`
-- updated `AWS::S3::Bucket`
-  - added definition `AnnotationTableConfiguration`
-  - updated `readOnlyProperties`
+- updated `AWS::ECS::Service`
+  - added definition `MetricConfiguration`
+  - added definition `MonitoringConfiguration`
+  - added property `Monitoring`
   - updated `writeOnlyProperties`
-  - updated definition `MetadataConfiguration`
-  - updated handler permissions
+- updated `AWS::EKS::Cluster`
+  - updated definition `ResourcesVpcConfig`
+- updated `AWS::Lambda::LayerVersion`
+  - updated definition `Content`
+- updated `AWS::RAM::Permission`
+  - updated `tagging`
+- updated `AWS::RAM::ResourceShare`
+  - added `createOnlyProperties`
+  - added definition `ResourceShareConfiguration`
+  - added property `ResourceShareConfiguration`

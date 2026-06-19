@@ -51,6 +51,10 @@ export type Content = {
    */
   S3Key: string;
   /**
+   * Specifies whether Lambda should copy the deployment package to its internal storage (COPY) or reference it directly from your S3 bucket (REFERENCE).
+   */
+  S3ObjectStorageMode?: "COPY" | "REFERENCE";
+  /**
    * For versioned objects, the version of the layer archive object to use.
    */
   S3ObjectVersion?: string;

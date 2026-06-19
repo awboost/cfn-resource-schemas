@@ -1,8 +1,26 @@
 {
-  "$hash": "5fbc24924388b7e9bae2e4f02e43821e2d2d59e6",
+  "$hash": "49c7d8e6b0629c4bcbc65b427f33c38c97e81ce0",
   "$id": "aws-ram-resourceshare.json",
   "additionalProperties": false,
+  "createOnlyProperties": [
+    "/properties/ResourceShareConfiguration/RetainSharingOnAccountLeaveOrganization"
+  ],
   "definitions": {
+    "ResourceShareConfiguration": {
+      "additionalProperties": false,
+      "description": "The configuration for a resource share.",
+      "properties": {
+        "ExclusiveAccountAccess": {
+          "description": "The resource share restricts access to an account",
+          "type": "boolean"
+        },
+        "RetainSharingOnAccountLeaveOrganization": {
+          "description": "Specifies whether the consumer account retains access to the resource share after leaving the organization.",
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "Tag": {
       "additionalProperties": false,
       "description": "A key-value pair to associate with a resource.",
@@ -90,6 +108,10 @@
       "insertionOrder": false,
       "items": { "type": "string" },
       "type": "array"
+    },
+    "ResourceShareConfiguration": {
+      "$ref": "#/definitions/ResourceShareConfiguration",
+      "description": "Specifies the configuration for the resource share"
     },
     "Sources": {
       "description": "Specifies from which source accounts the service principal has access to the resources in this resource share.",

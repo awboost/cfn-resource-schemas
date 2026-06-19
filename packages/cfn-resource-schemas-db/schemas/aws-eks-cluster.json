@@ -1,5 +1,5 @@
 {
-  "$hash": "0f2c21cba6031882bb10537fcefae07c00581875",
+  "$hash": "28ca48b1a919f951d6644e76dd14a66364f5675d",
   "$id": "aws-eks-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -298,6 +298,10 @@
       "additionalProperties": false,
       "description": "An object representing the VPC configuration to use for an Amazon EKS cluster.",
       "properties": {
+        "ControlPlaneEgressMode": {
+          "description": "Specify the egress mode for the cluster control plane. If you set this to CUSTOMER_ROUTED, the control plane routes traffic through your VPC subnets instead of using AWS managed networking.",
+          "type": "string"
+        },
         "EndpointPrivateAccess": {
           "description": "Set this value to true to enable private access for your cluster's Kubernetes API server endpoint. If you enable private access, Kubernetes API requests from within your cluster's VPC use the private VPC endpoint. The default value for this parameter is false, which disables private access for your Kubernetes API server. If you disable private access and you have nodes or AWS Fargate pods in the cluster, then ensure that publicAccessCidrs includes the necessary CIDR blocks for communication with the nodes or Fargate pods.",
           "type": "boolean"

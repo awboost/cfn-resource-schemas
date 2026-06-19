@@ -1,5 +1,5 @@
 {
-  "$hash": "3f10eae63ee61ad101508e9f0423b88f7a939834",
+  "$hash": "b1d16ef99e8f314682ffdde4c30b4a92384faac0",
   "$id": "aws-ecs-service.json",
   "additionalProperties": false,
   "conditionalCreateOnlyProperties": ["/properties/LaunchType"],
@@ -367,6 +367,39 @@
           "type": "array"
         }
       },
+      "type": "object"
+    },
+    "MetricConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "MetricNames": {
+          "items": {
+            "enum": ["CPUUtilization", "MemoryUtilization"],
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "ResolutionSeconds": { "enum": [20, 60], "type": "integer" }
+      },
+      "required": ["MetricNames", "ResolutionSeconds"],
+      "type": "object"
+    },
+    "MonitoringConfiguration": {
+      "additionalProperties": false,
+      "description": "",
+      "properties": {
+        "MetricConfigurations": {
+          "items": { "$ref": "#/definitions/MetricConfiguration" },
+          "maxItems": 2,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": ["MetricConfigurations"],
       "type": "object"
     },
     "NetworkConfiguration": {
@@ -827,6 +860,10 @@
       "items": { "$ref": "#/definitions/LoadBalancer" },
       "type": "array"
     },
+    "Monitoring": {
+      "$ref": "#/definitions/MonitoringConfiguration",
+      "description": ""
+    },
     "Name": { "description": "", "type": "string" },
     "NetworkConfiguration": {
       "$ref": "#/definitions/NetworkConfiguration",
@@ -916,6 +953,7 @@
   "writeOnlyProperties": [
     "/properties/ServiceConnectConfiguration",
     "/properties/VolumeConfigurations",
-    "/properties/ForceNewDeployment"
+    "/properties/ForceNewDeployment",
+    "/properties/Monitoring"
   ]
 }
