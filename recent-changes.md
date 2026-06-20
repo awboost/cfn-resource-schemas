@@ -1,22 +1,17 @@
-- updated `AWS::Connect::TaskTemplate`
-  - updated definition `FieldOption`
-  - updated handler permissions
-  - updated property `ContactFlowArn`
-  - updated property `SelfAssignContactFlowArn`
-- updated `AWS::Connect::TrafficDistributionGroup`
-  - updated `tagging`
-- updated `AWS::ECS::Service`
-  - added definition `MetricConfiguration`
-  - added definition `MonitoringConfiguration`
-  - added property `Monitoring`
+- updated `AWS::CodePipeline::Webhook`
   - updated `writeOnlyProperties`
-- updated `AWS::EKS::Cluster`
-  - updated definition `ResourcesVpcConfig`
-- updated `AWS::Lambda::LayerVersion`
-  - updated definition `Content`
-- updated `AWS::RAM::Permission`
-  - updated `tagging`
-- updated `AWS::RAM::ResourceShare`
-  - added `createOnlyProperties`
-  - added definition `ResourceShareConfiguration`
-  - added property `ResourceShareConfiguration`
+- updated `AWS::Cognito::UserPoolDomain`
+  - added definition `FailoverType`
+  - added definition `RoutingType`
+  - added property `Routing`
+  - updated handler permissions
+- updated `AWS::MediaLive::Channel`
+  - added definition `AudioFeedInput`
+  - added definition `AudioPid`
+  - added definition `AudioPreMixerSettings`
+  - added definition `SmartSubtitleSourceSettings`
+  - updated definition `AudioNormalizationSettings`
+  - updated definition `AudioPidSelection`
+  - updated definition `AudioTrack`
+  - updated definition `CaptionSelectorSettings`
+  - updated definition `InferenceSettings`

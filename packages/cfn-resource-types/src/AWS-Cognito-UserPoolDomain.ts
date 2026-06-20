@@ -8,6 +8,7 @@ export type CognitoUserPoolDomainProperties = {
   CustomDomainConfig?: CustomDomainConfigType;
   Domain: string;
   ManagedLoginVersion?: number;
+  Routing?: RoutingType;
   UserPoolId: string;
 };
 /**
@@ -23,6 +24,21 @@ export type CognitoUserPoolDomainAttributes = {
  */
 export type CustomDomainConfigType = {
   CertificateArn?: string;
+};
+/**
+ * Type definition for `AWS::Cognito::UserPoolDomain.FailoverType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-failovertype.html}
+ */
+export type FailoverType = {
+  PrimaryRoute53HealthCheckId: string;
+  SecondaryRegion: string;
+};
+/**
+ * Type definition for `AWS::Cognito::UserPoolDomain.RoutingType`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-routingtype.html}
+ */
+export type RoutingType = {
+  Failover?: FailoverType;
 };
 /**
  * Resource Type definition for AWS::Cognito::UserPoolDomain

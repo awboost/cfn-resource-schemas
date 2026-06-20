@@ -1,5 +1,5 @@
 {
-  "$hash": "43f7d820d122464c7454cf54d20bc0537de607aa",
+  "$hash": "43f262005c53ce4208fa62b10eb6fcd4937202a6",
   "$id": "aws-medialive-channel.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Vpc"],
@@ -155,6 +155,14 @@
       "properties": { "ProgramSelection": { "type": "string" } },
       "type": "object"
     },
+    "AudioFeedInput": {
+      "additionalProperties": false,
+      "properties": {
+        "AudioSelectorName": { "type": "string" },
+        "FeedInput": { "type": "string" }
+      },
+      "type": "object"
+    },
     "AudioHlsRenditionSelection": {
       "additionalProperties": false,
       "properties": {
@@ -176,6 +184,8 @@
       "properties": {
         "Algorithm": { "type": "string" },
         "AlgorithmControl": { "type": "string" },
+        "PeakCalculation": { "type": "string" },
+        "PeakLimiterThreshold": { "type": "number" },
         "TargetLkfs": { "type": "number" }
       },
       "type": "object"
@@ -190,9 +200,37 @@
       },
       "type": "object"
     },
+    "AudioPid": {
+      "additionalProperties": false,
+      "properties": {
+        "DolbyEDecode": { "$ref": "#/definitions/AudioDolbyEDecode" },
+        "Pid": { "type": "integer" },
+        "PremixSettings": { "$ref": "#/definitions/AudioPreMixerSettings" }
+      },
+      "type": "object"
+    },
     "AudioPidSelection": {
       "additionalProperties": false,
-      "properties": { "Pid": { "type": "integer" } },
+      "properties": {
+        "Pid": { "type": "integer" },
+        "Pids": {
+          "items": { "$ref": "#/definitions/AudioPid" },
+          "type": "array",
+          "uniqueItems": false
+        }
+      },
+      "type": "object"
+    },
+    "AudioPreMixerSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "AudioNormalizationSettings": {
+          "$ref": "#/definitions/AudioNormalizationSettings"
+        },
+        "Channels": { "type": "integer" },
+        "GainDb": { "type": "number" },
+        "RemixSettings": { "$ref": "#/definitions/RemixSettings" }
+      },
       "type": "object"
     },
     "AudioSelector": {
@@ -227,7 +265,10 @@
     },
     "AudioTrack": {
       "additionalProperties": false,
-      "properties": { "Track": { "type": "integer" } },
+      "properties": {
+        "PremixSettings": { "$ref": "#/definitions/AudioPreMixerSettings" },
+        "Track": { "type": "integer" }
+      },
       "type": "object"
     },
     "AudioTrackSelection": {
@@ -489,6 +530,9 @@
         },
         "Scte27SourceSettings": {
           "$ref": "#/definitions/Scte27SourceSettings"
+        },
+        "SmartSubtitleSourceSettings": {
+          "$ref": "#/definitions/SmartSubtitleSourceSettings"
         },
         "TeletextSourceSettings": {
           "$ref": "#/definitions/TeletextSourceSettings"
@@ -1216,7 +1260,14 @@
     },
     "InferenceSettings": {
       "additionalProperties": false,
-      "properties": { "FeedArn": { "type": "string" } },
+      "properties": {
+        "AudioFeedInputs": {
+          "items": { "$ref": "#/definitions/AudioFeedInput" },
+          "type": "array",
+          "uniqueItems": false
+        },
+        "FeedArn": { "type": "string" }
+      },
       "type": "object"
     },
     "InputAttachment": {
@@ -1993,6 +2044,14 @@
         "AdAvailOffset": { "type": "integer" },
         "NoRegionalBlackoutFlag": { "type": "string" },
         "WebDeliveryAllowedFlag": { "type": "string" }
+      },
+      "type": "object"
+    },
+    "SmartSubtitleSourceSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "CaptionSynchronizationMode": { "type": "string" },
+        "InferenceFeedOutput": { "type": "string" }
       },
       "type": "object"
     },

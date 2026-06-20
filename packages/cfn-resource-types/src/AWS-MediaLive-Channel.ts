@@ -182,6 +182,14 @@ export type AudioDolbyEDecode = {
   ProgramSelection?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.AudioFeedInput`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiofeedinput.html}
+ */
+export type AudioFeedInput = {
+  AudioSelectorName?: string;
+  FeedInput?: string;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.AudioHlsRenditionSelection`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiohlsrenditionselection.html}
  */
@@ -204,6 +212,8 @@ export type AudioLanguageSelection = {
 export type AudioNormalizationSettings = {
   Algorithm?: string;
   AlgorithmControl?: string;
+  PeakCalculation?: string;
+  PeakLimiterThreshold?: number;
   TargetLkfs?: number;
 };
 /**
@@ -217,11 +227,31 @@ export type AudioOnlyHlsSettings = {
   SegmentType?: string;
 };
 /**
+ * Type definition for `AWS::MediaLive::Channel.AudioPid`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopid.html}
+ */
+export type AudioPid = {
+  DolbyEDecode?: AudioDolbyEDecode;
+  Pid?: number;
+  PremixSettings?: AudioPreMixerSettings;
+};
+/**
  * Type definition for `AWS::MediaLive::Channel.AudioPidSelection`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopidselection.html}
  */
 export type AudioPidSelection = {
   Pid?: number;
+  Pids?: AudioPid[];
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.AudioPreMixerSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiopremixersettings.html}
+ */
+export type AudioPreMixerSettings = {
+  AudioNormalizationSettings?: AudioNormalizationSettings;
+  Channels?: number;
+  GainDb?: number;
+  RemixSettings?: RemixSettings;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.AudioSelector`.
@@ -254,6 +284,7 @@ export type AudioSilenceFailoverSettings = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html}
  */
 export type AudioTrack = {
+  PremixSettings?: AudioPreMixerSettings;
   Track?: number;
 };
 /**
@@ -462,6 +493,7 @@ export type CaptionSelectorSettings = {
   EmbeddedSourceSettings?: EmbeddedSourceSettings;
   Scte20SourceSettings?: Scte20SourceSettings;
   Scte27SourceSettings?: Scte27SourceSettings;
+  SmartSubtitleSourceSettings?: SmartSubtitleSourceSettings;
   TeletextSourceSettings?: TeletextSourceSettings;
 };
 /**
@@ -1125,6 +1157,7 @@ export type HtmlMotionGraphicsSettings = Record<string, any>;
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inferencesettings.html}
  */
 export type InferenceSettings = {
+  AudioFeedInputs?: AudioFeedInput[];
   FeedArn?: string;
 };
 /**
@@ -1795,6 +1828,14 @@ export type Scte35TimeSignalApos = {
   AdAvailOffset?: number;
   NoRegionalBlackoutFlag?: string;
   WebDeliveryAllowedFlag?: string;
+};
+/**
+ * Type definition for `AWS::MediaLive::Channel.SmartSubtitleSourceSettings`.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-smartsubtitlesourcesettings.html}
+ */
+export type SmartSubtitleSourceSettings = {
+  CaptionSynchronizationMode?: string;
+  InferenceFeedOutput?: string;
 };
 /**
  * Type definition for `AWS::MediaLive::Channel.SmpteTtDestinationSettings`.

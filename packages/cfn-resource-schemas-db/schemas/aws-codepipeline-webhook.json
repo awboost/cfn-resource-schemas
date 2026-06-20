@@ -1,5 +1,5 @@
 {
-  "$hash": "faaad811b15c33d8458da698f2ca4f47286f91d6",
+  "$hash": "a2598e001d22675428cbba9f8b0bff7cecead36b",
   "$id": "aws-codepipeline-webhook.json",
   "additionalProperties": false,
   "createOnlyProperties": ["/properties/Name"],
@@ -175,6 +175,7 @@
   "typeName": "AWS::CodePipeline::Webhook",
   "writeOnlyProperties": [
     "/properties/TargetPipelineVersion",
-    "/properties/RegisterWithThirdParty"
+    "/properties/RegisterWithThirdParty",
+    "/properties/AuthenticationConfiguration/SecretToken"
   ]
 }
