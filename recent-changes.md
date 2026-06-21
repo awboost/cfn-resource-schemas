@@ -1,17 +1,4 @@
-- updated `AWS::CodePipeline::Webhook`
+- updated `AWS::EFS::FileSystem`
   - updated `writeOnlyProperties`
-- updated `AWS::Cognito::UserPoolDomain`
-  - added definition `FailoverType`
-  - added definition `RoutingType`
-  - added property `Routing`
-  - updated handler permissions
-- updated `AWS::MediaLive::Channel`
-  - added definition `AudioFeedInput`
-  - added definition `AudioPid`
-  - added definition `AudioPreMixerSettings`
-  - added definition `SmartSubtitleSourceSettings`
-  - updated definition `AudioNormalizationSettings`
-  - updated definition `AudioPidSelection`
-  - updated definition `AudioTrack`
-  - updated definition `CaptionSelectorSettings`
-  - updated definition `InferenceSettings`
+- updated `AWS::PCS::Cluster`
+  - updated `createOnlyProperties`

@@ -1,5 +1,5 @@
 {
-  "$hash": "c114da68bb27fae7d20f076fe6e91d767e05a4c5",
+  "$hash": "8d9ffe8261205c8c605dd27527d0d399ecdcd6bf",
   "$id": "aws-efs-filesystem.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -284,7 +284,7 @@
   "typeName": "AWS::EFS::FileSystem",
   "writeOnlyProperties": [
     "/properties/BypassPolicyLockoutSafetyCheck",
-    "/properties/ReplicationConfiguration/Destinations/0/AvailabilityZoneName",
-    "/properties/ReplicationConfiguration/Destinations/0/KmsKeyId"
+    "/properties/ReplicationConfiguration/Destinations/*/AvailabilityZoneName",
+    "/properties/ReplicationConfiguration/Destinations/*/KmsKeyId"
   ]
 }

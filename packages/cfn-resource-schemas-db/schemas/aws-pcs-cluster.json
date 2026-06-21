@@ -1,11 +1,10 @@
 {
-  "$hash": "649f04349d46e2f1c5b99f817eb6c2a1916bb625",
+  "$hash": "049405580ce306856ec53615c815d0c41083d5ca",
   "$id": "aws-pcs-cluster.json",
   "additionalProperties": false,
   "createOnlyProperties": [
     "/properties/Name",
     "/properties/Networking",
-    "/properties/Scheduler",
     "/properties/Size"
   ],
   "definitions": {
