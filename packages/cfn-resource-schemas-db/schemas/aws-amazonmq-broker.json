@@ -1,5 +1,5 @@
 {
-  "$hash": "56b6d09519075689aa0f90b8c6f4693ce60d5d27",
+  "$hash": "bff5859cf29791079bfd0b9ff674c9be82f3b0e3",
   "$id": "aws-amazonmq-broker.json",
   "additionalProperties": false,
   "createOnlyProperties": [
@@ -152,6 +152,9 @@
         "mq:CreateBroker",
         "mq:CreateReplicaBroker",
         "mq:DescribeBroker",
+        "mq:DescribeSharedResources",
+        "mq:UpdateBroker",
+        "mq:RebootBroker",
         "mq:CreateTags",
         "kms:CreateGrant",
         "kms:DescribeKey",
@@ -169,6 +172,8 @@
         "ec2:DescribeVpcEndpoints",
         "ec2:ModifyNetworkInterfaceAttribute",
         "iam:CreateServiceLinkedRole",
+        "ram:AssociateResourceShare",
+        "vpc-lattice:PutResourcePolicy",
         "route53:AssociateVPCWithHostedZone",
         "ec2:DeleteNetworkInterface",
         "ec2:DeleteNetworkInterfacePermission",
@@ -187,10 +192,13 @@
       ]
     },
     "list": { "permissions": ["mq:ListBrokers"] },
-    "read": { "permissions": ["mq:DescribeBroker"] },
+    "read": {
+      "permissions": ["mq:DescribeBroker", "mq:DescribeSharedResources"]
+    },
     "update": {
       "permissions": [
         "mq:DescribeBroker",
+        "mq:DescribeSharedResources",
         "mq:UpdateBroker",
         "mq:RebootBroker",
         "mq:DescribeUser",
@@ -217,6 +225,8 @@
         "ec2:DescribeVpcEndpoints",
         "ec2:ModifyNetworkInterfaceAttribute",
         "iam:CreateServiceLinkedRole",
+        "ram:AssociateResourceShare",
+        "vpc-lattice:PutResourcePolicy",
         "route53:AssociateVPCWithHostedZone"
       ]
     }
@@ -327,6 +337,13 @@
       "uniqueItems": false
     },
     "PubliclyAccessible": { "type": "boolean" },
+    "ResourceShareArns": {
+      "description": "The ARNs of the resource shares to be associated with the broker.\n",
+      "insertionOrder": false,
+      "items": { "pattern": "^arn:.*", "type": "string" },
+      "type": "array",
+      "uniqueItems": true
+    },
     "SecurityGroups": {
       "insertionOrder": false,
       "items": { "type": "string" },

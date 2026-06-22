@@ -1,4 +1,3 @@
-- updated `AWS::EFS::FileSystem`
-  - updated `writeOnlyProperties`
-- updated `AWS::PCS::Cluster`
-  - updated `createOnlyProperties`
+- updated `AWS::AmazonMQ::Broker`
+  - added property `ResourceShareArns`
+  - updated handler permissions

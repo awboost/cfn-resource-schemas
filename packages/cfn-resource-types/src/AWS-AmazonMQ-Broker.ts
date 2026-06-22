@@ -39,6 +39,11 @@ export type AmazonMQBrokerProperties = {
   MaintenanceWindowStartTime?: MaintenanceWindow;
   PubliclyAccessible: boolean;
   /**
+     * The ARNs of the resource shares to be associated with the broker.
+    
+     */
+  ResourceShareArns?: string[];
+  /**
    * @minLength `1`
    * @maxLength `5`
    */
