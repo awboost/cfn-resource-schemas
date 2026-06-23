@@ -186,9 +186,13 @@ export type KafkaCluster = {
  */
 export type KafkaClusterClientAuthentication = {
   /**
+   * Details for mTLS client authentication.
+   */
+  MTLS?: KafkaClusterMtlsAuthentication;
+  /**
    * Details for SASL/SCRAM client authentication.
    */
-  SaslScram: KafkaClusterSaslScramAuthentication;
+  SaslScram?: KafkaClusterSaslScramAuthentication;
 };
 /**
  * Type definition for `AWS::MSK::Replicator.KafkaClusterClientVpcConfig`.
@@ -230,6 +234,17 @@ export type KafkaClusterEncryptionInTransit = {
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclusterencryptionintransittype.html}
  */
 export type KafkaClusterEncryptionInTransitType = "TLS";
+/**
+ * Type definition for `AWS::MSK::Replicator.KafkaClusterMtlsAuthentication`.
+ * Details for mTLS client authentication.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-kafkaclustermtlsauthentication.html}
+ */
+export type KafkaClusterMtlsAuthentication = {
+  /**
+   * The Amazon Resource Name (ARN) of the Secrets Manager secret.
+   */
+  SecretArn: string;
+};
 /**
  * Type definition for `AWS::MSK::Replicator.KafkaClusterSaslScramAuthentication`.
  * Details for SASL/SCRAM client authentication.

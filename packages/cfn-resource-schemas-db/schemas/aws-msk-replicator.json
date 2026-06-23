@@ -1,5 +1,5 @@
 {
-  "$hash": "51c809fdcf20a0291d595adcab97d8466488674a",
+  "$hash": "1da0316c6f5df4bfcc0740349ff3a9b36057fa5c",
   "$id": "aws-msk-replicator.json",
   "additionalIdentifiers": [["/properties/ReplicatorName"]],
   "additionalProperties": false,
@@ -154,12 +154,15 @@
       "additionalProperties": false,
       "description": "Details of the client authentication used by the Apache Kafka cluster.",
       "properties": {
+        "MTLS": {
+          "$ref": "#/definitions/KafkaClusterMtlsAuthentication",
+          "description": "Details for mTLS client authentication."
+        },
         "SaslScram": {
           "$ref": "#/definitions/KafkaClusterSaslScramAuthentication",
           "description": "Details for SASL/SCRAM client authentication."
         }
       },
-      "required": ["SaslScram"],
       "type": "object"
     },
     "KafkaClusterClientVpcConfig": {
@@ -208,6 +211,18 @@
       "description": "The type of encryption in transit to the Apache Kafka cluster.",
       "enum": ["TLS"],
       "type": "string"
+    },
+    "KafkaClusterMtlsAuthentication": {
+      "additionalProperties": false,
+      "description": "Details for mTLS client authentication.",
+      "properties": {
+        "SecretArn": {
+          "description": "The Amazon Resource Name (ARN) of the Secrets Manager secret.",
+          "type": "string"
+        }
+      },
+      "required": ["SecretArn"],
+      "type": "object"
     },
     "KafkaClusterSaslScramAuthentication": {
       "additionalProperties": false,

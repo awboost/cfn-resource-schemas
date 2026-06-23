@@ -120,6 +120,21 @@ export type BedrockAgentCoreHarnessAttributes = {
    */
   HarnessId: string;
   /**
+   * The AgentCore Memory configuration for persisting conversation context.
+   */
+  Memory: {
+    /**
+     * Configuration for managed memory. The harness creates and manages a memory resource in the customer's account.
+     */
+    ManagedMemoryConfiguration: {
+      /**
+       * The ARN of the managed memory resource. Read-only, populated by the service.
+       * @pattern `^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$`
+       */
+      Arn: string;
+    };
+  };
+  /**
    * The current status of the harness.
    */
   Status: HarnessStatus;
@@ -127,6 +142,13 @@ export type BedrockAgentCoreHarnessAttributes = {
    * The timestamp when the harness was last updated.
    */
   UpdatedAt: string;
+  /**
+   * The version of the harness. Incremented on every successful update.
+   * @minLength `1`
+   * @maxLength `5`
+   * @pattern `^([1-9][0-9]{0,4})$`
+   */
+  Version: string;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Harness.AuthorizerConfiguration`.
@@ -352,6 +374,12 @@ export type HarnessBedrockModelConfig = {
   TopP?: number;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Harness.HarnessDisabledMemoryConfiguration`.
+ * Explicitly opt out of memory.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessdisabledmemoryconfiguration.html}
+ */
+export type HarnessDisabledMemoryConfiguration = Record<string, any>;
+/**
  * Type definition for `AWS::BedrockAgentCore::Harness.HarnessEnvironmentArtifact`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessenvironmentartifact.html}
  */
@@ -454,11 +482,47 @@ export type HarnessLiteLlmModelConfig = {
   TopP?: number;
 };
 /**
+ * Type definition for `AWS::BedrockAgentCore::Harness.HarnessManagedMemoryConfiguration`.
+ * Configuration for managed memory. The harness creates and manages a memory resource in the customer's account.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmanagedmemoryconfiguration.html}
+ */
+export type HarnessManagedMemoryConfiguration = {
+  /**
+   * Customer-managed KMS key ARN. Defaults to AWS-owned key. Not updatable after creation.
+   */
+  EncryptionKeyArn?: string;
+  /**
+   * Event retention in days. Defaults to 30.
+   * @min `3`
+   * @max `365`
+   */
+  EventExpiryDuration?: number;
+  /**
+   * Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].
+   * @minLength `1`
+   * @maxLength `4`
+   */
+  Strategies?: (
+    | "SEMANTIC"
+    | "SUMMARIZATION"
+    | "USER_PREFERENCE"
+    | "EPISODIC"
+  )[];
+};
+/**
  * Type definition for `AWS::BedrockAgentCore::Harness.HarnessMemoryConfiguration`.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessmemoryconfiguration.html}
  */
 export type HarnessMemoryConfiguration = {
   AgentCoreMemoryConfiguration?: HarnessAgentCoreMemoryConfiguration;
+  /**
+   * Explicitly opt out of memory.
+   */
+  Disabled?: HarnessDisabledMemoryConfiguration;
+  /**
+   * Configuration for managed memory. The harness creates and manages a memory resource in the customer's account.
+   */
+  ManagedMemoryConfiguration?: HarnessManagedMemoryConfiguration;
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Harness.HarnessModelConfiguration`.
@@ -518,6 +582,10 @@ export type HarnessRemoteMcpConfig = {
  */
 export type HarnessSkill = {
   /**
+   * AWS Skills baked into the Harness's underlying Runtime.
+   */
+  AwsSkills?: HarnessSkillAwsSkillsSource;
+  /**
    * A git repository containing the skill, cloned over HTTPS.
    */
   Git?: HarnessSkillGitSource;
@@ -530,6 +598,17 @@ export type HarnessSkill = {
    * An S3 source containing the skill.
    */
   S3?: HarnessSkillS3Source;
+};
+/**
+ * Type definition for `AWS::BedrockAgentCore::Harness.HarnessSkillAwsSkillsSource`.
+ * AWS Skills baked into the Harness's underlying Runtime.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrockagentcore-harness-harnessskillawsskillssource.html}
+ */
+export type HarnessSkillAwsSkillsSource = {
+  /**
+   * Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].
+   */
+  Paths?: string[];
 };
 /**
  * Type definition for `AWS::BedrockAgentCore::Harness.HarnessSkillGitAuth`.

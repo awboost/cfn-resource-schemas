@@ -1,3 +1,15 @@
-- updated `AWS::AmazonMQ::Broker`
-  - added property `ResourceShareArns`
+- added `AWS::Lambda::MicrovmImage`
+- added `AWS::Lambda::NetworkConnector`
+- updated `AWS::BedrockAgentCore::Harness`
+  - added definition `HarnessDisabledMemoryConfiguration`
+  - added definition `HarnessManagedMemoryConfiguration`
+  - added definition `HarnessSkillAwsSkillsSource`
+  - added property `Version`
+  - updated `createOnlyProperties`
+  - updated `readOnlyProperties`
+  - updated definition `HarnessMemoryConfiguration`
+  - updated definition `HarnessSkill`
   - updated handler permissions
+- updated `AWS::MSK::Replicator`
+  - added definition `KafkaClusterMtlsAuthentication`
+  - updated definition `KafkaClusterClientAuthentication`

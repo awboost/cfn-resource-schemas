@@ -1,9 +1,12 @@
 {
-  "$hash": "24adc2bab731c0af1cc876deed9562acca67d7e8",
+  "$hash": "105469d3590daf24015b25731409ab65504c446d",
   "$id": "aws-bedrockagentcore-harness.json",
   "additionalIdentifiers": [["/properties/HarnessId"]],
   "additionalProperties": false,
-  "createOnlyProperties": ["/properties/HarnessName"],
+  "createOnlyProperties": [
+    "/properties/HarnessName",
+    "/properties/Memory/ManagedMemoryConfiguration/EncryptionKeyArn"
+  ],
   "definitions": {
     "AuthorizerConfiguration": {
       "additionalProperties": false,
@@ -286,6 +289,11 @@
       "required": ["ModelId"],
       "type": "object"
     },
+    "HarnessDisabledMemoryConfiguration": {
+      "additionalProperties": false,
+      "description": "Explicitly opt out of memory.",
+      "type": "object"
+    },
     "HarnessEnvironmentArtifact": {
       "additionalProperties": false,
       "properties": {
@@ -368,11 +376,55 @@
       "required": ["ModelId"],
       "type": "object"
     },
+    "HarnessManagedMemoryConfiguration": {
+      "additionalProperties": false,
+      "description": "Configuration for managed memory. The harness creates and manages a memory resource in the customer's account.",
+      "properties": {
+        "Arn": {
+          "description": "The ARN of the managed memory resource. Read-only, populated by the service.",
+          "pattern": "^arn:aws:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:memory/[a-zA-Z][a-zA-Z0-9-_]{0,99}-[a-zA-Z0-9]{10}$",
+          "type": "string"
+        },
+        "EncryptionKeyArn": {
+          "description": "Customer-managed KMS key ARN. Defaults to AWS-owned key. Not updatable after creation.",
+          "type": "string"
+        },
+        "EventExpiryDuration": {
+          "description": "Event retention in days. Defaults to 30.",
+          "maximum": 365,
+          "minimum": 3,
+          "type": "integer"
+        },
+        "Strategies": {
+          "description": "Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].",
+          "items": {
+            "enum": [
+              "SEMANTIC",
+              "SUMMARIZATION",
+              "USER_PREFERENCE",
+              "EPISODIC"
+            ],
+            "type": "string"
+          },
+          "maxItems": 4,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "type": "object"
+    },
     "HarnessMemoryConfiguration": {
       "additionalProperties": false,
       "properties": {
         "AgentCoreMemoryConfiguration": {
           "$ref": "#/definitions/HarnessAgentCoreMemoryConfiguration"
+        },
+        "Disabled": {
+          "$ref": "#/definitions/HarnessDisabledMemoryConfiguration"
+        },
+        "ManagedMemoryConfiguration": {
+          "$ref": "#/definitions/HarnessManagedMemoryConfiguration"
         }
       },
       "type": "object"
@@ -448,6 +500,7 @@
     "HarnessSkill": {
       "additionalProperties": false,
       "properties": {
+        "AwsSkills": { "$ref": "#/definitions/HarnessSkillAwsSkillsSource" },
         "Git": { "$ref": "#/definitions/HarnessSkillGitSource" },
         "Path": {
           "description": "The filesystem path to the skill definition.",
@@ -455,6 +508,23 @@
           "type": "string"
         },
         "S3": { "$ref": "#/definitions/HarnessSkillS3Source" }
+      },
+      "type": "object"
+    },
+    "HarnessSkillAwsSkillsSource": {
+      "additionalProperties": false,
+      "description": "AWS Skills baked into the Harness's underlying Runtime.",
+      "properties": {
+        "Paths": {
+          "description": "Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].",
+          "items": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "pattern": "^([^*?\\[\\]]|\\*)+$",
+            "type": "string"
+          },
+          "type": "array"
+        }
       },
       "type": "object"
     },
@@ -840,6 +910,9 @@
         "bedrock-agentcore:CreateAgentRuntime",
         "bedrock-agentcore:CreateAgentRuntimeEndpoint",
         "bedrock-agentcore:CreateHarness",
+        "bedrock-agentcore:CreateMemory",
+        "bedrock-agentcore:GetMemory",
+        "bedrock-agentcore:DeleteMemory",
         "bedrock-agentcore:CreateWorkloadIdentity",
         "bedrock-agentcore:DeleteAgentRuntime",
         "bedrock-agentcore:DeleteAgentRuntimeEndpoint",
@@ -862,6 +935,8 @@
         "bedrock-agentcore:DeleteAgentRuntime",
         "bedrock-agentcore:DeleteAgentRuntimeEndpoint",
         "bedrock-agentcore:DeleteHarness",
+        "bedrock-agentcore:DeleteMemory",
+        "bedrock-agentcore:GetMemory",
         "bedrock-agentcore:DeleteWorkloadIdentity",
         "bedrock-agentcore:GetAgentRuntime",
         "bedrock-agentcore:GetAgentRuntimeEndpoint",
@@ -881,6 +956,10 @@
       "permissions": [
         "bedrock-agentcore:CreateAgentRuntime",
         "bedrock-agentcore:CreateAgentRuntimeEndpoint",
+        "bedrock-agentcore:CreateMemory",
+        "bedrock-agentcore:GetMemory",
+        "bedrock-agentcore:UpdateMemory",
+        "bedrock-agentcore:DeleteMemory",
         "bedrock-agentcore:CreateWorkloadIdentity",
         "bedrock-agentcore:DeleteAgentRuntime",
         "bedrock-agentcore:DeleteAgentRuntimeEndpoint",
@@ -1013,14 +1092,23 @@
       "description": "The timestamp when the harness was last updated.",
       "format": "date-time",
       "type": "string"
+    },
+    "Version": {
+      "description": "The version of the harness. Incremented on every successful update.",
+      "maxLength": 5,
+      "minLength": 1,
+      "pattern": "^([1-9][0-9]{0,4})$",
+      "type": "string"
     }
   },
   "readOnlyProperties": [
     "/properties/Arn",
     "/properties/HarnessId",
     "/properties/Status",
+    "/properties/Version",
     "/properties/CreatedAt",
     "/properties/UpdatedAt",
+    "/properties/Memory/ManagedMemoryConfiguration/Arn",
     "/properties/Environment/AgentCoreRuntimeEnvironment/AgentRuntimeArn",
     "/properties/Environment/AgentCoreRuntimeEnvironment/AgentRuntimeName",
     "/properties/Environment/AgentCoreRuntimeEnvironment/AgentRuntimeId"
