@@ -1,15 +1,29 @@
-- added `AWS::Lambda::MicrovmImage`
-- added `AWS::Lambda::NetworkConnector`
-- updated `AWS::BedrockAgentCore::Harness`
-  - added definition `HarnessDisabledMemoryConfiguration`
-  - added definition `HarnessManagedMemoryConfiguration`
-  - added definition `HarnessSkillAwsSkillsSource`
-  - added property `Version`
-  - updated `createOnlyProperties`
-  - updated `readOnlyProperties`
-  - updated definition `HarnessMemoryConfiguration`
-  - updated definition `HarnessSkill`
+- added `AWS::CodeBuild::Build`
+- added `AWS::ControlCatalog::CommonControl`
+- added `AWS::DynamoDB::Stream`
+- added `AWS::IoT::Index`
+- added `AWS::Outposts::Site`
+- added `AWS::RDS::ReservedDBInstance`
+- added `AWS::SageMaker::ModelCardExportJob`
+- updated `AWS::Bedrock::DataSource`
+  - added definition `AudioExtractionConfiguration`
+  - added definition `DeletionProtectionConfiguration`
+  - added definition `EnabledOrDisabledState`
+  - added definition `ImageExtractionConfiguration`
+  - added definition `ManagedKnowledgeBaseConnectorConfiguration`
+  - added definition `MediaExtractionConfiguration`
+  - added definition `VideoExtractionConfiguration`
+  - updated definition `DataSourceConfiguration`
+  - updated definition `DataSourceStatus`
+  - updated definition `DataSourceType`
+  - updated definition `ParsingStrategy`
   - updated handler permissions
-- updated `AWS::MSK::Replicator`
-  - added definition `KafkaClusterMtlsAuthentication`
-  - updated definition `KafkaClusterClientAuthentication`
+- updated `AWS::Bedrock::KnowledgeBase`
+  - added definition `EmbeddingModelType`
+  - added definition `ManagedKnowledgeBaseConfiguration`
+  - added definition `ManagedKnowledgeBaseServerSideEncryptionConfiguration`
+  - updated `createOnlyProperties`
+  - updated definition `KnowledgeBaseConfiguration`
+  - updated definition `KnowledgeBaseStatus`
+  - updated definition `KnowledgeBaseType`
+  - updated handler permissions

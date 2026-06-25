@@ -154,6 +154,12 @@ export type EmbeddingModelConfiguration = {
   BedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration;
 };
 /**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.EmbeddingModelType`.
+ * The type of embedding model to use for the managed knowledge base.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-embeddingmodeltype.html}
+ */
+export type EmbeddingModelType = "CUSTOM" | "MANAGED";
+/**
  * Type definition for `AWS::Bedrock::KnowledgeBase.InclusionType`.
  * Include or Exclude status for an entity
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-inclusiontype.html}
@@ -182,6 +188,10 @@ export type KnowledgeBaseConfiguration = {
    */
   KendraKnowledgeBaseConfiguration?: KendraKnowledgeBaseConfiguration;
   /**
+   * Contains details about the model used to create vector embeddings for a managed knowledge base.
+   */
+  ManagedKnowledgeBaseConfiguration?: ManagedKnowledgeBaseConfiguration;
+  /**
    * Configurations for a SQL knowledge base
    */
   SqlKnowledgeBaseConfiguration?: SqlKnowledgeBaseConfiguration;
@@ -205,7 +215,8 @@ export type KnowledgeBaseStatus =
   | "DELETING"
   | "UPDATING"
   | "FAILED"
-  | "DELETE_UNSUCCESSFUL";
+  | "DELETE_UNSUCCESSFUL"
+  | "UPDATE_UNSUCCESSFUL";
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.KnowledgeBaseStorageType`.
  * The storage type of a knowledge base.
@@ -224,7 +235,47 @@ export type KnowledgeBaseStorageType =
  * The type of a knowledge base.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebasetype.html}
  */
-export type KnowledgeBaseType = "VECTOR" | "KENDRA" | "SQL";
+export type KnowledgeBaseType = "VECTOR" | "KENDRA" | "SQL" | "MANAGED";
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.ManagedKnowledgeBaseConfiguration`.
+ * Contains details about the model used to create vector embeddings for a managed knowledge base.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-managedknowledgebaseconfiguration.html}
+ */
+export type ManagedKnowledgeBaseConfiguration = {
+  /**
+   * The ARN of the model used to create vector embeddings for the knowledge base.
+   * @minLength `20`
+   * @maxLength `2048`
+   * @pattern `^(arn:aws(-[^:]+)?:[a-z0-9-]+:[a-z0-9-]{1,20}:[0-9]{0,12}:[a-zA-Z0-9-:/._+]+)$`
+   */
+  EmbeddingModelArn: string;
+  /**
+   * The embeddings model configuration details for the vector model used in Knowledge Base.
+   */
+  EmbeddingModelConfiguration?: EmbeddingModelConfiguration;
+  /**
+   * The type of embedding model to use for the managed knowledge base.
+   */
+  EmbeddingModelType?: EmbeddingModelType;
+  /**
+   * Contains details about the server-side encryption for the managed knowledge base.
+   */
+  ServerSideEncryptionConfiguration?: ManagedKnowledgeBaseServerSideEncryptionConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::KnowledgeBase.ManagedKnowledgeBaseServerSideEncryptionConfiguration`.
+ * Contains details about the server-side encryption for the managed knowledge base.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-managedknowledgebaseserversideencryptionconfiguration.html}
+ */
+export type ManagedKnowledgeBaseServerSideEncryptionConfiguration = {
+  /**
+   * The ARN of the AWS KMS key used to encrypt the managed knowledge base.
+   * @minLength `1`
+   * @maxLength `2048`
+   * @pattern `^arn:aws(-cn|-us-gov|-eusc|-iso(-[b-f])?)?:kms:[a-zA-Z0-9-]*:[0-9]{12}:key/[a-zA-Z0-9-]{36}$`
+   */
+  KmsKeyArn?: string;
+};
 /**
  * Type definition for `AWS::Bedrock::KnowledgeBase.MongoDbAtlasConfiguration`.
  * Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.

@@ -88,6 +88,17 @@ export type BedrockDataSourceAttributes = {
   UpdatedAt: string;
 };
 /**
+ * Type definition for `AWS::Bedrock::DataSource.AudioExtractionConfiguration`.
+ * Configuration for audio extraction.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-audioextractionconfiguration.html}
+ */
+export type AudioExtractionConfiguration = {
+  /**
+   * Indicates whether a feature is enabled or disabled.
+   */
+  AudioExtractionStatus: EnabledOrDisabledState;
+};
+/**
  * Type definition for `AWS::Bedrock::DataSource.BedrockDataAutomationConfiguration`.
  * Settings for a Bedrock Data Automation used to parse documents for a data source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockdataautomationconfiguration.html}
@@ -294,6 +305,10 @@ export type DataSourceConfiguration = {
    */
   ConfluenceConfiguration?: ConfluenceDataSourceConfiguration;
   /**
+   * Configuration for managed knowledge base connector data sources.
+   */
+  ManagedKnowledgeBaseConnectorConfiguration?: ManagedKnowledgeBaseConnectorConfiguration;
+  /**
    * The configuration information to connect to Amazon S3 as your data source.
    */
   S3Configuration?: S3DataSourceConfiguration;
@@ -319,7 +334,13 @@ export type DataSourceConfiguration = {
  * The status of a data source.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourcestatus.html}
  */
-export type DataSourceStatus = "AVAILABLE" | "DELETING" | "DELETE_UNSUCCESSFUL";
+export type DataSourceStatus =
+  | "AVAILABLE"
+  | "DELETING"
+  | "DELETE_UNSUCCESSFUL"
+  | "CREATING"
+  | "UPDATING"
+  | "FAILED";
 /**
  * Type definition for `AWS::Bedrock::DataSource.DataSourceType`.
  * The type of the data source location.
@@ -332,7 +353,31 @@ export type DataSourceType =
   | "SHAREPOINT"
   | "WEB"
   | "CUSTOM"
-  | "REDSHIFT_METADATA";
+  | "REDSHIFT_METADATA"
+  | "MANAGED_KNOWLEDGE_BASE_CONNECTOR";
+/**
+ * Type definition for `AWS::Bedrock::DataSource.DeletionProtectionConfiguration`.
+ * Configuration for deletion protection.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-deletionprotectionconfiguration.html}
+ */
+export type DeletionProtectionConfiguration = {
+  /**
+   * Indicates whether a feature is enabled or disabled.
+   */
+  DeletionProtectionStatus: EnabledOrDisabledState;
+  /**
+   * Threshold for deletion protection.
+   * @min `0`
+   * @max `100`
+   */
+  DeletionProtectionThreshold?: number;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataSource.EnabledOrDisabledState`.
+ * Indicates whether a feature is enabled or disabled.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-enabledordisabledstate.html}
+ */
+export type EnabledOrDisabledState = "ENABLED" | "DISABLED";
 /**
  * Type definition for `AWS::Bedrock::DataSource.EnrichmentStrategyConfiguration`.
  * Strategy to be used when using Bedrock Foundation Model for Context Enrichment.
@@ -400,6 +445,17 @@ export type HierarchicalChunkingLevelConfiguration = {
   MaxTokens: number;
 };
 /**
+ * Type definition for `AWS::Bedrock::DataSource.ImageExtractionConfiguration`.
+ * Configuration for image extraction.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-imageextractionconfiguration.html}
+ */
+export type ImageExtractionConfiguration = {
+  /**
+   * Indicates whether a feature is enabled or disabled.
+   */
+  ImageExtractionStatus: EnabledOrDisabledState;
+};
+/**
  * Type definition for `AWS::Bedrock::DataSource.IntermediateStorage`.
  * A location for storing content from data sources temporarily as it is processed by custom components in the ingestion pipeline.
  * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-intermediatestorage.html}
@@ -409,6 +465,44 @@ export type IntermediateStorage = {
    * An Amazon S3 location.
    */
   S3Location: S3Location;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataSource.ManagedKnowledgeBaseConnectorConfiguration`.
+ * Configuration for managed knowledge base connector data sources.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-managedknowledgebaseconnectorconfiguration.html}
+ */
+export type ManagedKnowledgeBaseConnectorConfiguration = {
+  /**
+   * Connector-specific parameters.
+   */
+  ConnectorParameters?: Record<string, any>;
+  /**
+   * Configuration for deletion protection.
+   */
+  DeletionProtectionConfiguration?: DeletionProtectionConfiguration;
+  /**
+   * Configuration for media extraction settings.
+   */
+  MediaExtractionConfiguration?: MediaExtractionConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataSource.MediaExtractionConfiguration`.
+ * Configuration for media extraction settings.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-mediaextractionconfiguration.html}
+ */
+export type MediaExtractionConfiguration = {
+  /**
+   * Configuration for audio extraction.
+   */
+  AudioExtractionConfiguration?: AudioExtractionConfiguration;
+  /**
+   * Configuration for image extraction.
+   */
+  ImageExtractionConfiguration?: ImageExtractionConfiguration;
+  /**
+   * Configuration for video extraction.
+   */
+  VideoExtractionConfiguration?: VideoExtractionConfiguration;
 };
 /**
  * Type definition for `AWS::Bedrock::DataSource.ParsingConfiguration`.
@@ -455,7 +549,8 @@ export type ParsingPrompt = {
  */
 export type ParsingStrategy =
   | "BEDROCK_FOUNDATION_MODEL"
-  | "BEDROCK_DATA_AUTOMATION";
+  | "BEDROCK_DATA_AUTOMATION"
+  | "SMART_PARSING";
 /**
  * Type definition for `AWS::Bedrock::DataSource.PatternObjectFilter`.
  * The specific filters applied to your data source content. You can filter out or include certain content.
@@ -774,6 +869,17 @@ export type VectorIngestionConfiguration = {
    * Settings for parsing document contents
    */
   ParsingConfiguration?: ParsingConfiguration;
+};
+/**
+ * Type definition for `AWS::Bedrock::DataSource.VideoExtractionConfiguration`.
+ * Configuration for video extraction.
+ * @see {@link https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-videoextractionconfiguration.html}
+ */
+export type VideoExtractionConfiguration = {
+  /**
+   * Indicates whether a feature is enabled or disabled.
+   */
+  VideoExtractionStatus: EnabledOrDisabledState;
 };
 /**
  * Type definition for `AWS::Bedrock::DataSource.WebCrawlerConfiguration`.
