@@ -1,0 +1,75 @@
+{
+  "$hash": "a2cadca6172339622a8de53b420a98484c6dd7f7",
+  "$id": "aws-partnercentral-connectionpreferences.json",
+  "additionalIdentifiers": [["/properties/Catalog"]],
+  "additionalProperties": false,
+  "createOnlyProperties": ["/properties/Catalog"],
+  "description": "Represents the connection preferences for a partner account in AWS Partner Central, including access settings and exclusions.",
+  "handlers": {
+    "list": {
+      "handlerSchema": {
+        "properties": {
+          "Catalog": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9-]+$",
+            "type": "string"
+          }
+        },
+        "required": ["Catalog"]
+      },
+      "permissions": ["partnercentral:GetConnectionPreferences"]
+    },
+    "read": { "permissions": ["partnercentral:GetConnectionPreferences"] }
+  },
+  "primaryIdentifier": ["/properties/Arn"],
+  "properties": {
+    "AccessType": {
+      "description": "The access type setting for connections.",
+      "enum": ["ALLOW_ALL", "DENY_ALL", "ALLOW_BY_DEFAULT_DENY_SOME"],
+      "type": "string"
+    },
+    "Arn": {
+      "description": "The Amazon Resource Name (ARN) of the connection preferences.",
+      "maxLength": 200,
+      "minLength": 1,
+      "pattern": "^arn:[a-zA-Z0-9-]+:partnercentral:[a-z0-9\\-]*::catalog/[a-zA-Z]+/connection-preferences$",
+      "type": "string"
+    },
+    "Catalog": {
+      "description": "The catalog identifier for the partner account.",
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9-]+$",
+      "type": "string"
+    },
+    "ExcludedParticipantIds": {
+      "description": "A list of participant IDs that are excluded from connection requests or interactions.",
+      "items": {
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[a-zA-Z0-9-]+$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "Revision": {
+      "description": "The revision number of the connection preferences for optimistic locking.",
+      "type": "integer"
+    },
+    "UpdatedAt": {
+      "description": "The timestamp when the connection preferences were last updated.",
+      "type": "string"
+    }
+  },
+  "readOnlyProperties": [
+    "/properties/Arn",
+    "/properties/Revision",
+    "/properties/UpdatedAt",
+    "/properties/AccessType",
+    "/properties/ExcludedParticipantIds"
+  ],
+  "tagging": { "taggable": false },
+  "typeName": "AWS::PartnerCentral::ConnectionPreferences"
+}

@@ -1,29 +1,15 @@
-- added `AWS::CodeBuild::Build`
-- added `AWS::ControlCatalog::CommonControl`
-- added `AWS::DynamoDB::Stream`
-- added `AWS::IoT::Index`
-- added `AWS::Outposts::Site`
-- added `AWS::RDS::ReservedDBInstance`
-- added `AWS::SageMaker::ModelCardExportJob`
-- updated `AWS::Bedrock::DataSource`
-  - added definition `AudioExtractionConfiguration`
-  - added definition `DeletionProtectionConfiguration`
-  - added definition `EnabledOrDisabledState`
-  - added definition `ImageExtractionConfiguration`
-  - added definition `ManagedKnowledgeBaseConnectorConfiguration`
-  - added definition `MediaExtractionConfiguration`
-  - added definition `VideoExtractionConfiguration`
-  - updated definition `DataSourceConfiguration`
-  - updated definition `DataSourceStatus`
-  - updated definition `DataSourceType`
-  - updated definition `ParsingStrategy`
-  - updated handler permissions
-- updated `AWS::Bedrock::KnowledgeBase`
-  - added definition `EmbeddingModelType`
-  - added definition `ManagedKnowledgeBaseConfiguration`
-  - added definition `ManagedKnowledgeBaseServerSideEncryptionConfiguration`
-  - updated `createOnlyProperties`
-  - updated definition `KnowledgeBaseConfiguration`
-  - updated definition `KnowledgeBaseStatus`
-  - updated definition `KnowledgeBaseType`
-  - updated handler permissions
+- added `AWS::BedrockAgentCore::TokenVault`
+- added `AWS::Chime::AppInstanceUser`
+- added `AWS::CodeBuild::BuildBatch`
+- added `AWS::ControlCatalog::Control`
+- added `AWS::DataExchange::EntitledDataSets`
+- added `AWS::Glue::Session`
+- added `AWS::MediaLive::Node`
+- added `AWS::PartnerCentral::ConnectionPreferences`
+- added `AWS::Personalize::DataDeletionJob`
+- added `AWS::QuickSight::AssetBundleExportJob`
+- added `AWS::QuickSight::AssetBundleImportJob`
+- added `AWS::Route53Resolver::FirewallConfig`
+- added `AWS::SageMaker::Algorithm`
+- added `AWS::SageMaker::Hub`
+- added `AWS::SavingsPlans::SavingsPlan`
