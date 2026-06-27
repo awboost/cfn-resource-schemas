@@ -1,15 +1,27 @@
-- added `AWS::BedrockAgentCore::TokenVault`
-- added `AWS::Chime::AppInstanceUser`
-- added `AWS::CodeBuild::BuildBatch`
-- added `AWS::ControlCatalog::Control`
-- added `AWS::DataExchange::EntitledDataSets`
-- added `AWS::Glue::Session`
-- added `AWS::MediaLive::Node`
-- added `AWS::PartnerCentral::ConnectionPreferences`
-- added `AWS::Personalize::DataDeletionJob`
-- added `AWS::QuickSight::AssetBundleExportJob`
-- added `AWS::QuickSight::AssetBundleImportJob`
-- added `AWS::Route53Resolver::FirewallConfig`
-- added `AWS::SageMaker::Algorithm`
-- added `AWS::SageMaker::Hub`
-- added `AWS::SavingsPlans::SavingsPlan`
+- added `AWS::QuickSight::Flow`
+- removed `AWS::BedrockAgentCore::TokenVault`
+- removed `AWS::CodeBuild::Build`
+- removed `AWS::CodeBuild::BuildBatch`
+- removed `AWS::ControlCatalog::CommonControl`
+- removed `AWS::ControlCatalog::Control`
+- removed `AWS::DataExchange::EntitledDataSets`
+- removed `AWS::DynamoDB::Stream`
+- removed `AWS::Glue::Session`
+- removed `AWS::IoT::Index`
+- removed `AWS::PartnerCentral::ConnectionPreferences`
+- removed `AWS::Personalize::DataDeletionJob`
+- removed `AWS::QuickSight::AssetBundleExportJob`
+- removed `AWS::QuickSight::AssetBundleImportJob`
+- removed `AWS::RDS::ReservedDBInstance`
+- removed `AWS::Route53Resolver::FirewallConfig`
+- removed `AWS::SavingsPlans::SavingsPlan`
+- updated `AWS::Glue::DataCatalogEncryptionSettings`
+  - added `tagging`
+  - removed `readOnlyProperties`
+  - removed property `Id`
+  - updated `primaryIdentifier`
+  - updated definition `ConnectionPasswordEncryption`
+  - updated definition `DataCatalogEncryptionSettings`
+  - updated definition `EncryptionAtRest`
+  - updated handler permissions
+  - updated property `CatalogId`
